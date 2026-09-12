@@ -1,5 +1,7 @@
 # Logs
 .tools/
+__pycache__/
+*.pyc
 test-results/
 playwright-report/
 artifacts/

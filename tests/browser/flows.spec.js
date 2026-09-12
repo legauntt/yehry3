@@ -37,7 +37,9 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
   page,
 }) => {
   await page.goto("/distonyc/");
-  await expect(page.getByText("Never share your password with anyone")).toBeVisible();
+  await expect(
+    page.getByText("Never share your password with anyone"),
+  ).toBeVisible();
   await page.getByLabel("Password", { exact: true }).fill("wrong");
   await page.getByRole("button", { name: "Let’s make something" }).click();
   await expect(page.locator("#form-error")).toContainText("did not work");
@@ -48,20 +50,22 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
     .fill("Rendition of Medusa as a barbershop quartet");
   await page.getByRole("button", { name: "Find the direction" }).click();
   await expect(page.getByText("Here’s what I’m hearing.")).toBeVisible();
-  await page.getByLabel("Which song are we starting with?").fill("Medusa");
+  await page.locator(".basis-picker summary").click();
+  await page.getByRole("checkbox", { name: /^Medusa \(/ }).check();
   await page
-    .getByLabel("What should the new version sound like?")
+    .getByLabel("What should it sound like?")
     .fill("A playful four-part barbershop quartet with no instruments.");
   await page
-    .getByLabel("What should we keep?")
+    .getByLabel("What matters most?")
     .fill("Preserve the original melody, lyrics and slurred main hook.");
   await page.getByRole("button", { name: "Review the request" }).click();
   await expect(page.getByText("Does this sound right?")).toBeVisible();
   await page.screenshot({ path: "artifacts/request-review-desktop.png" });
   await page.getByRole("button", { name: "Fine-tune it" }).click();
-  await expect(page.getByLabel("Which song are we starting with?")).toHaveValue(
-    "Medusa",
-  );
+  await page.locator(".basis-picker summary").click();
+  await expect(
+    page.getByRole("checkbox", { name: /^Medusa \(/ }),
+  ).toBeChecked();
   await page.getByRole("button", { name: "Review the request" }).click();
   await page.getByLabel("Yes, this is the song I want to request.").check();
   await page.getByRole("button", { name: "Send to the queue" }).click();
@@ -151,6 +155,58 @@ test("mobile layout, API outage, and escaped prompt content", async ({
   ).toBe(true);
   await page.screenshot({
     path: "artifacts/request-mobile.png",
+    fullPage: true,
+  });
+});
+
+test("optional basis songs, A-Z list, five-song cap, and saved review", async ({
+  page,
+}) => {
+  await page.goto("/distonyc/");
+  await page.getByLabel("Password", { exact: true }).fill("wishbone");
+  await page.getByRole("button", { name: "Let’s make something" }).click();
+  await page
+    .getByLabel("Your prompt")
+    .fill("An original Tony song about a late train home.");
+  await page.getByRole("button", { name: "Find the direction" }).click();
+  await page
+    .getByLabel("What should it sound like?")
+    .fill("Intimate acoustic verses and a big joyful chorus.");
+  await page
+    .getByLabel("What matters most?")
+    .fill("Tony vocals and a memorable hook");
+  await page.getByRole("button", { name: "Review the request" }).click();
+  await expect(page.locator(".brief")).toContainText("No basis song");
+  await page.getByRole("button", { name: "Fine-tune it" }).click();
+  await page.locator(".basis-picker summary").click();
+  const boxes = page.locator(".basis-option input");
+  const titles = await page.locator(".basis-option span").allTextContents();
+  expect(titles.length).toBeGreaterThanOrEqual(61);
+  expect(titles).toEqual(
+    [...titles].sort((a, b) =>
+      a.localeCompare(b, undefined, { sensitivity: "base" }),
+    ),
+  );
+  for (let i = 0; i < 5; i++) await boxes.nth(i).check();
+  await expect(boxes.nth(5)).toBeDisabled();
+  await boxes.nth(0).uncheck();
+  await expect(boxes.nth(5)).toBeEnabled();
+  await boxes.nth(5).check();
+  await page.getByRole("button", { name: "Review the request" }).click();
+  await page.reload();
+  await expect(page.getByText("Does this sound right?")).toBeVisible();
+  await page.getByRole("button", { name: "Fine-tune it" }).click();
+  await page.locator(".basis-picker summary").click();
+  await expect(page.locator(".basis-option input:checked")).toHaveCount(5);
+  await expect(page.locator("#basis-count")).toHaveText("5 of 5 selected");
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "artifacts/basis-picker-mobile.png",
     fullPage: true,
   });
 });

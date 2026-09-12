@@ -1,4 +1,5 @@
 import { api, login, logout, signedIn, storage } from "./api.js";
+import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const main = $("#main");
@@ -17,6 +18,7 @@ const labels = {
   queued: "In the queue",
   processing: "In the studio",
   completed: "Ready to publish",
+  publishing: "Publishing",
   published: "Published",
   failed: "Needs attention",
   canceled: "Canceled",
@@ -72,7 +74,7 @@ async function library() {
     </section>
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><p class="eyebrow">The catalog</p><h2 id="collection-title">Pick your next obsession.</h2></div><p class="small" id="track-count">Loading songs…</p></div>
-      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button></div>
+      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button></div>
       <p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p>Medusa as a barbershop quartet? An old favorite in a new universe? Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
@@ -106,7 +108,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track ${current?.id === song.id ? "playing" : ""}" data-id="${escape(song.id)}">
-      <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3><p>${song.collection === "fearhunger" ? "Fear & Hunger" : "Tony AI"} <span>·</span> ${duration(song.duration)}</p></div><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button></article>`,
+      <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3><p>${escape({ fearhunger: "Fear & Hunger", tonyai: "Tony AI", distonyc: "Distonyc requests" }[song.collection] || song.collection)} <span>·</span> ${duration(song.duration)}</p></div><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button></article>`,
           )
           .join("")
       : '<p class="empty">No songs match. Try another title or style.</p>';
@@ -246,6 +248,16 @@ function loginView(role, onSuccess) {
 
 async function requests() {
   let draft = null;
+  let basisSongs;
+  try {
+    basisSongs = await loadBasisSongs();
+  } catch (error) {
+    message(error.message, true);
+    main.innerHTML =
+      '<section class="empty"><h1>The song list could not load.</h1><button class="primary" id="reload-basis">Try again</button></section>';
+    $("#reload-basis").onclick = () => requests();
+    return;
+  }
   async function load() {
     const id = storage.get("draft");
     if (id) {
@@ -308,8 +320,13 @@ async function requests() {
           render();
         });
     } else if (stage === "details") {
-      form.innerHTML = `<p class="eyebrow">Turn 02 · Let’s get specific</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Before this goes to the studio, tell us what should change and what should stay.</p><form id="details-form"><label for="source">Which song are we starting with?</label><input id="source" maxlength="200" required placeholder="Medusa — or “original song”"><label for="direction">What should the new version sound like?</label><textarea id="direction" rows="3" minlength="10" maxlength="2000" required placeholder="Four close vocal harmonies, playful barbershop, no instruments…"></textarea><label for="keep">What should we keep?</label><textarea id="keep" rows="2" maxlength="1000" required placeholder="The melody and lyrics, especially the main hook. Or: surprise me."></textarea><div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p></form>`;
-      for (const key of ["source", "direction", "keep"])
+      form.innerHTML = `<p class="eyebrow">Turn 02 · Let’s get specific</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Before this goes to the studio, tell us the direction. Tony’s vocals are the starting point.</p><form id="details-form"><div id="basis-root"></div><label for="direction">What should it sound like?</label><textarea id="direction" rows="3" minlength="10" maxlength="2000" required placeholder="Four close vocal harmonies, playful barbershop, no instruments…"></textarea><label for="keep">What matters most?</label><textarea id="keep" rows="2" maxlength="1000" required placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p></form>`;
+      const selectedBasis = mountBasisPicker(
+        $("#basis-root"),
+        basisSongs,
+        draft.details?.basisSongIds || [],
+      );
+      for (const key of ["direction", "keep"])
         $(`#${key}`).value = draft.details?.[key] || "";
       $("#start-over").onclick = () => {
         storage.set("idea-text", draft.prompt);
@@ -320,11 +337,9 @@ async function requests() {
       $("#details-form").onsubmit = (event) =>
         run(event, async () => {
           const details = Object.fromEntries(
-            ["source", "direction", "keep"].map((key) => [
-              key,
-              $(`#${key}`).value,
-            ]),
+            ["direction", "keep"].map((key) => [key, $(`#${key}`).value]),
           );
+          details.basisSongIds = selectedBasis();
           draft = (
             await api(`/prompts/${encodeURIComponent(draft.id)}`, {
               method: "PATCH",
@@ -393,7 +408,11 @@ async function requests() {
   else await load();
 }
 function brief(doc) {
-  return `<dl class="brief"><dt>The idea</dt><dd>${escape(doc.prompt)}</dd><dt>Starting point</dt><dd>${escape(doc.details?.source)}</dd><dt>The direction</dt><dd>${escape(doc.details?.direction)}</dd><dt>Keep the good stuff</dt><dd>${escape(doc.details?.keep)}</dd></dl>`;
+  const basis =
+    doc.details?.basisSongTitles?.join(", ") ||
+    doc.details?.source ||
+    "No basis song — Tony’s V6 voice";
+  return `<dl class="brief"><dt>The idea</dt><dd>${escape(doc.prompt)}</dd><dt>Basis songs</dt><dd>${escape(basis)}</dd><dt>The direction</dt><dd>${escape(doc.details?.direction)}</dd><dt>What matters most</dt><dd>${escape(doc.details?.keep)}</dd></dl>${doc.workerProgress ? `<p class="small">${escape(doc.workerProgress.stage)}${doc.workerProgress.percent ? ` · ${Math.round(doc.workerProgress.percent)}%` : ""}</p>` : ""}${doc.workerError ? `<p class="field-error">${escape(doc.workerError)}</p>` : ""}`;
 }
 
 async function admin() {
@@ -434,7 +453,7 @@ async function admin() {
       )
       .join(
         "",
-      )}</div><section class="admin-queue"><div class="toolbar"><label for="status-filter">Show</label><select id="status-filter"><option value="all">All requests</option>${Object.entries(
+      )}</div><p class="small worker-health">${data.workers?.length ? data.workers.map((worker) => `PC worker: ${escape(worker.stage)} · Last seen ${date(worker.lastSeenAt)}${Date.now() - new Date(worker.lastSeenAt) > 5 * 60000 ? " · Offline or paused" : ""}`).join("<br>") : "PC worker: waiting for its first connection."}</p><section class="admin-queue"><div class="toolbar"><label for="status-filter">Show</label><select id="status-filter"><option value="all">All requests</option>${Object.entries(
       labels,
     )
       .filter(([key]) => !["draft", "review"].includes(key))
@@ -518,7 +537,13 @@ async function admin() {
   }
   function row(doc) {
     const id = escape(doc.id);
-    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(doc.status)}<h2>${escape(doc.prompt)}</h2><p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div><details><summary>Open brief & controls <span aria-hidden="true">＋</span></summary>${brief(doc)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${data.transitions[doc.status]?.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${data.transitions[doc.status].map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
+    const allowed = (data.transitions[doc.status] || []).filter(
+      (status) =>
+        !doc.workerActive ||
+        (doc.status !== "cancel_requested" &&
+          ["cancel_requested", "canceled"].includes(status)),
+    );
+    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(doc.status)}<h2>${escape(doc.prompt)}</h2><p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div><details><summary>Open brief & controls <span aria-hidden="true">＋</span></summary>${brief(doc)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
       ...(doc.history || []),
     ]
       .reverse()

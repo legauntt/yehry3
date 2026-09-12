@@ -39,7 +39,7 @@ for (const route of [
   );
 }
 console.log("Distonyc route and legacy aliases verified.");
-for (const name of ["app.js", "api.js", "config.js", "site.css"]) {
+for (const name of ["app.js", "api.js", "config.js", "basis.js", "site.css"]) {
   const expected = createHash("sha256")
     .update(await readFile(new URL(`../assets/${name}`, import.meta.url)))
     .digest("hex");
@@ -52,6 +52,12 @@ for (const name of ["app.js", "api.js", "config.js", "site.css"]) {
 }
 const catalog = await (await get(`${site}/catalog.json`)).json();
 assert.deepEqual(catalog, local);
+assert.deepEqual(
+  await (await get(`${site}/basis-songs.json`)).json(),
+  JSON.parse(
+    await readFile(new URL("../basis-songs.json", import.meta.url), "utf8"),
+  ),
+);
 const sample = local.songs.find((song) => song.collection === "fearhunger");
 const range = await get(new URL(sample.url, site), {
   headers: { Range: "bytes=0-1023" },

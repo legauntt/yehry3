@@ -5,7 +5,7 @@ A static Tony C music site with a MongoDB voting and request API in the sibling 
 | Route          | Behavior                                                                                                                            |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `/`            | Both the Tony AI and Fear & Hunger catalogs; search, filters, vote sorting, Play all, Shuffle, seeking, previous/next and MP3 links |
-| `/distonyc/`   | Password gate, initial idea, source/direction/preservation follow-up, final confirmation, and request status                        |
+| `/distonyc/`   | Password gate, initial idea, optional basis songs/direction follow-up, final confirmation, and request status                        |
 | `/admin/`      | Separate admin login; paginated requests, filters/counts, priority, private notes, cancel/retry, production status, and history     |
 | `/fearhunger/` | Preserved original three-track page, MP3s and lyrics                                                                                |
 
@@ -34,11 +34,11 @@ For the real API, follow [chairlift's setup and queue contract](../chairlift/yeh
 ## Behavior
 
 - One anonymous vote per rolling hour across the collection, enforced by both browser and hashed network IP. Shared networks share the allowance. This is a practical anonymous limit, not an account-based identity guarantee.
-- The gate hints **“Never share your password with anyone”**. Users complete two conversation turns (idea and direction), then explicitly confirm the full brief. No LLM service is needed for these structured turns.
+- The gate hints **“Never share your password with anyone”**. Basis songs are optional: select zero to five titles from every audio recording in `gatsby-opus/static`, sorted A–Z. Tony V6 vocals are always included. Users complete two conversation turns (idea and direction), then explicitly confirm the full brief. No LLM service is needed for these structured turns.
 - Three confirmed requests per hour per browser/network. Drafts expire after 24 hours; confirmed requests persist. Stable request IDs prevent duplicate jobs from retries.
 - Sessions and the current request reference use session storage for the browser tab; passwords are never retained. Closing the tab/clearing storage removes its shortcut. Admins can still see every submitted request.
 - Higher priority goes first, then oldest submission. Queued priorities can be changed. Stale edits are rejected. Publishing requires a public HTTPS URL.
-- Running jobs use “Cancellation requested” until acknowledged. The PC consumer and automatic upload loop are the **next phase**, not active features in this release.
+- Running jobs use “Cancellation requested” until the PC acknowledges it. The native Windows worker plans once, resumes the existing Troofs renderer, verifies the mix, and publishes to this site. See [Windows worker operations](pc-worker/README.md).
 
 ## Validate
 
@@ -62,4 +62,4 @@ The checks workflow builds/tests the standalone site and produces a `yehry3-site
 
 The existing Azure Static Web App is `red-cliff-02dfcb210.6.azurestaticapps.net`, serving `yehry3.app` and `www.yehry3.app`. Connect its deployment configuration to `legauntt/yehry3`, branch `talandar`, and store its deployment token as the repository secret `AZURE_STATIC_WEB_APPS_API_TOKEN`. The workflow uses this site’s existing `DeploymentToken` authorization policy. Keep the resource-specific workflow filename so the Azure site remains identifiable. Production API secrets remain outside the static site. Run `npm run verify:live` after deployment to compare public assets and verify headers, MP3 seeking, catalog completeness, and API CORS.
 
-Future PC work starts from chairlift's documented `yehry3_prompts` contract. Mongo holds jobs and metadata; release hosting serves audio. The consumer must safely claim work, resume Troofs recipes, validate the mix, upload the MP3, add it to the catalog, and only then mark the request published.
+The Windows scheduled task and publication loop are documented in [pc-worker/README.md](pc-worker/README.md). Mongo holds leased jobs and metadata; GitHub releases serve MP3s. New published songs appear in the Distonyc requests collection. Installed worker files and credentials never enter the static build.

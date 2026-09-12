@@ -18,3 +18,12 @@ jobs:
         with:
           name: yehry3-site
           path: dist
+  windows-worker:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m unittest -v test_worker.py
+        working-directory: pc-worker

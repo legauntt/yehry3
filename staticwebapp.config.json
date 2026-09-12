@@ -14,6 +14,10 @@
     },
     { "route": "/admin", "redirect": "/admin/", "statusCode": 301 },
     { "route": "/catalog.json", "headers": { "Cache-Control": "no-cache" } },
+    {
+      "route": "/basis-songs.json",
+      "headers": { "Cache-Control": "no-cache" }
+    },
     { "route": "/assets/*", "headers": { "Cache-Control": "no-cache" } }
   ],
   "mimeTypes": { ".mp3": "audio/mpeg" }

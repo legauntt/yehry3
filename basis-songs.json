@@ -1,0 +1,432 @@
+{
+  "version": 1,
+  "songs": [
+    {
+      "id": "basis-8a3fe426a54c6ab766f8",
+      "title": "2bad2die",
+      "collection": "other catalog",
+      "duration": 266.864036,
+      "relativePath": "bonus/2bad2die.m4a"
+    },
+    {
+      "id": "basis-9bebb60cf1a46e39813b",
+      "title": "7",
+      "collection": "other catalog",
+      "duration": 191.84325,
+      "relativePath": "heh/7.mp3"
+    },
+    {
+      "id": "basis-b4095741cce0f196a2f8",
+      "title": "aint",
+      "collection": "other catalog",
+      "duration": 151.19675,
+      "relativePath": "heh/aint.mp3"
+    },
+    {
+      "id": "basis-f1414b0dd21fcaf896e7",
+      "title": "all twd",
+      "collection": "heh",
+      "duration": 217.31265,
+      "relativePath": "heh/all_twd.mp3"
+    },
+    {
+      "id": "basis-fddc2f8050ad2c95fdcb",
+      "title": "all-down",
+      "collection": "other catalog",
+      "duration": 217.335873,
+      "relativePath": "bonus/all-down.m4a"
+    },
+    {
+      "id": "basis-0fa4b87d31b6dd35b184",
+      "title": "Ball and Chain",
+      "collection": "Demonophonic Blues",
+      "duration": 225.93458,
+      "relativePath": "dvdp/05_nchain.m4a"
+    },
+    {
+      "id": "basis-2e71bb6676a630885319",
+      "title": "camaro",
+      "collection": "other catalog",
+      "duration": 117.156281,
+      "relativePath": "bonus/camaro.m4a"
+    },
+    {
+      "id": "basis-2a476904c3e02435fbf9",
+      "title": "camaro",
+      "collection": "heh",
+      "duration": 117.13305,
+      "relativePath": "heh/camaro.mp3"
+    },
+    {
+      "id": "basis-f60523189944aeefc46c",
+      "title": "comin",
+      "collection": "heh",
+      "duration": 252.8653,
+      "relativePath": "heh/comin.mp3"
+    },
+    {
+      "id": "basis-839ec66eeca5d5430147",
+      "title": "dreams",
+      "collection": "butts",
+      "duration": 19.690522,
+      "relativePath": "butts/dreams.mp3"
+    },
+    {
+      "id": "basis-9ee0c08e0e6da50d9a48",
+      "title": "everything",
+      "collection": "other catalog",
+      "duration": 346.1747,
+      "relativePath": "heh/everything.mp3"
+    },
+    {
+      "id": "basis-e126404d55fd11f42dd7",
+      "title": "Fight for Your Right",
+      "collection": "Demonophonic Blues",
+      "duration": 174.567937,
+      "relativePath": "dvdp/13_party.m4a"
+    },
+    {
+      "id": "basis-8a63ff9fdd43d06640d7",
+      "title": "Gas Station Crown",
+      "collection": "tonify",
+      "duration": 252.8,
+      "relativePath": "tonify/mp3s/gas-station-crown.mp3"
+    },
+    {
+      "id": "basis-3599b995bf1213ca37bd",
+      "title": "Good Lookin' Out",
+      "collection": "Demonophonic Blues",
+      "duration": 229.389932,
+      "relativePath": "dvdp/02_glosky.m4a"
+    },
+    {
+      "id": "basis-aff3daa88dbdbf5c3f5c",
+      "title": "Got It Made",
+      "collection": "Demonophonic Blues",
+      "duration": 244.2322,
+      "relativePath": "dvdp/07_made.m4a"
+    },
+    {
+      "id": "basis-a4b760ef007823050293",
+      "title": "Gravity",
+      "collection": "butts",
+      "duration": 215.29542,
+      "relativePath": "butts/ambience.mp3"
+    },
+    {
+      "id": "basis-d2ee7d3dfa169d061659",
+      "title": "Gravity",
+      "collection": "Demonophonic Blues",
+      "duration": 300.572313,
+      "relativePath": "dvdp/10_gravity.m4a"
+    },
+    {
+      "id": "basis-34fcc4e3381bc1163ad0",
+      "title": "Gravity a cappella",
+      "collection": "other catalog",
+      "duration": 233.611429,
+      "relativePath": "bonus/grabbapella.mp3"
+    },
+    {
+      "id": "basis-a12d0cb479bf7b096772",
+      "title": "grrrl",
+      "collection": "other catalog",
+      "duration": 160.31345,
+      "relativePath": "heh/grrrl.mp3"
+    },
+    {
+      "id": "basis-f932975f7ef6bbbbd94d",
+      "title": "hodin it down",
+      "collection": "heh",
+      "duration": 295.28815,
+      "relativePath": "heh/hodin_it_down.mp3"
+    },
+    {
+      "id": "basis-cf2d056916be95da3145",
+      "title": "hooodin",
+      "collection": "other catalog",
+      "duration": 295.311383,
+      "relativePath": "bonus/hooodin.m4a"
+    },
+    {
+      "id": "basis-fd02b2dfb62fecc5dba2",
+      "title": "lawn-time",
+      "collection": "other catalog",
+      "duration": 252.888526,
+      "relativePath": "bonus/lawn-time.m4a"
+    },
+    {
+      "id": "basis-8b65b9c95df85559c2b3",
+      "title": "Little Bit More",
+      "collection": "Demonophonic Blues",
+      "duration": 203.292313,
+      "relativePath": "dvdp/03_dabez.m4a"
+    },
+    {
+      "id": "basis-0bc866c4b8ddf8d34cbb",
+      "title": "Little Bit More acoustic",
+      "collection": "other catalog",
+      "duration": 203.23265,
+      "relativePath": "heh/lil_acoustic.mp3"
+    },
+    {
+      "id": "basis-19836d017d0c5c77fc23",
+      "title": "manilow",
+      "collection": "other catalog",
+      "duration": 119.8237,
+      "relativePath": "heh/manilow.mp3"
+    },
+    {
+      "id": "basis-7495956f046a9874e11c",
+      "title": "Medusa",
+      "collection": "Demonophonic Blues",
+      "duration": 257.650408,
+      "relativePath": "dvdp/11_medusa.m4a"
+    },
+    {
+      "id": "basis-cad036718e64a0a472b5",
+      "title": "moody",
+      "collection": "butts",
+      "duration": 80.137914,
+      "relativePath": "butts/moody.mp3"
+    },
+    {
+      "id": "basis-d34be98332b67a8925c0",
+      "title": "No Pain",
+      "collection": "Demonophonic Blues",
+      "duration": 284.162676,
+      "relativePath": "dvdp/09_novipain.m4a"
+    },
+    {
+      "id": "basis-f91f721a775900c2cbcc",
+      "title": "One 4 the Road",
+      "collection": "Demonophonic Blues",
+      "duration": 151.024104,
+      "relativePath": "dvdp/08_road.m4a"
+    },
+    {
+      "id": "basis-b479458ef56839633403",
+      "title": "poncho",
+      "collection": "other catalog",
+      "duration": 219.400884,
+      "relativePath": "bonus/poncho.m4a"
+    },
+    {
+      "id": "basis-c5cd756e011f610d04d9",
+      "title": "Porchlight Static",
+      "collection": "tonify",
+      "duration": 246.34,
+      "relativePath": "tonify/mp3s/porchlight-static.mp3"
+    },
+    {
+      "id": "basis-2901091cbae3f108b732",
+      "title": "pullin doublexl",
+      "collection": "butts",
+      "duration": 29.721542,
+      "relativePath": "butts/pullin_doublexl.mp3"
+    },
+    {
+      "id": "basis-5bcdeb04498504947dfd",
+      "title": "pullin large",
+      "collection": "butts",
+      "duration": 11.795737,
+      "relativePath": "butts/pullin_large.mp3"
+    },
+    {
+      "id": "basis-2c8685a59a32e4ddd738",
+      "title": "Round and Round",
+      "collection": "Demonophonic Blues",
+      "duration": 237.680522,
+      "relativePath": "dvdp/12_rounds.m4a"
+    },
+    {
+      "id": "basis-90b54340781f5d0805b0",
+      "title": "Saint of the Wrong Side",
+      "collection": "tonify",
+      "duration": 244.64,
+      "relativePath": "tonify/mp3s/saint-of-the-wrong-side.mp3"
+    },
+    {
+      "id": "basis-59f1a642698dc31a0a43",
+      "title": "Someday",
+      "collection": "Demonophonic Blues",
+      "duration": 203.864422,
+      "relativePath": "dvdp/06_someday.m4a"
+    },
+    {
+      "id": "basis-00a53a77455f7bb3a699",
+      "title": "strawng",
+      "collection": "butts",
+      "duration": 10.21678,
+      "relativePath": "butts/strawng.mp3"
+    },
+    {
+      "id": "basis-c5f9328881a0c794c01f",
+      "title": "V6 01A - Voice - Gas Station Crown",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-01a-voice-gas-station-crown.mp3"
+    },
+    {
+      "id": "basis-68158fefa41500261106",
+      "title": "V6 01B - Voice - Gas Station Crown",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-01b-voice-gas-station-crown.mp3"
+    },
+    {
+      "id": "basis-cdfb893f06cd787b9ded",
+      "title": "V6 02A - Backing - Gas Station Crown",
+      "collection": "tonify",
+      "duration": 20.6,
+      "relativePath": "tonify/mp3s/v6-02a-backing-gas-station-crown.mp3"
+    },
+    {
+      "id": "basis-749b77c7255f8df8413d",
+      "title": "V6 02B - Backing - Gas Station Crown",
+      "collection": "tonify",
+      "duration": 20.6,
+      "relativePath": "tonify/mp3s/v6-02b-backing-gas-station-crown.mp3"
+    },
+    {
+      "id": "basis-47aa0051f1ca6ed30893",
+      "title": "V6 03A - Combined - Gas Station Crown",
+      "collection": "tonify",
+      "duration": 20.6,
+      "relativePath": "tonify/mp3s/v6-03a-combined-gas-station-crown.mp3"
+    },
+    {
+      "id": "basis-7f6ece05ad45b9d296dc",
+      "title": "V6 03B - Combined - Gas Station Crown",
+      "collection": "tonify",
+      "duration": 20.6,
+      "relativePath": "tonify/mp3s/v6-03b-combined-gas-station-crown.mp3"
+    },
+    {
+      "id": "basis-8a7fc8e3dbe02efe597e",
+      "title": "V6 04A - Voice - Saint of the Wrong Side",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-04a-voice-saint-of-the-wrong-side.mp3"
+    },
+    {
+      "id": "basis-0e8d3e00775bae76853b",
+      "title": "V6 04B - Voice - Saint of the Wrong Side",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-04b-voice-saint-of-the-wrong-side.mp3"
+    },
+    {
+      "id": "basis-868b8696283513abf538",
+      "title": "V6 05A - Backing - Saint of the Wrong Side",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-05a-backing-saint-of-the-wrong-side.mp3"
+    },
+    {
+      "id": "basis-6fc351cbe29a0c1ca9c4",
+      "title": "V6 05B - Backing - Saint of the Wrong Side",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-05b-backing-saint-of-the-wrong-side.mp3"
+    },
+    {
+      "id": "basis-45d9ccacd6c3407d4a40",
+      "title": "V6 06A - Combined - Saint of the Wrong Side",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-06a-combined-saint-of-the-wrong-side.mp3"
+    },
+    {
+      "id": "basis-23b6f11528c51a927f72",
+      "title": "V6 06B - Combined - Saint of the Wrong Side",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-06b-combined-saint-of-the-wrong-side.mp3"
+    },
+    {
+      "id": "basis-addb698acc580c4a9200",
+      "title": "V6 07A - Voice - Porchlight Static",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-07a-voice-porchlight-static.mp3"
+    },
+    {
+      "id": "basis-c3cfb9984de510ef5666",
+      "title": "V6 07B - Voice - Porchlight Static",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-07b-voice-porchlight-static.mp3"
+    },
+    {
+      "id": "basis-33200e20fc2c8280d443",
+      "title": "V6 08A - Backing - Porchlight Static",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-08a-backing-porchlight-static.mp3"
+    },
+    {
+      "id": "basis-b61a40bb807f0b426632",
+      "title": "V6 08B - Backing - Porchlight Static",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-08b-backing-porchlight-static.mp3"
+    },
+    {
+      "id": "basis-e3ac24e8c36248c20548",
+      "title": "V6 09A - Combined - Porchlight Static",
+      "collection": "tonify",
+      "duration": 20.6,
+      "relativePath": "tonify/mp3s/v6-09a-combined-porchlight-static.mp3"
+    },
+    {
+      "id": "basis-c3414374069c8dad7809",
+      "title": "V6 09B - Combined - Porchlight Static",
+      "collection": "tonify",
+      "duration": 20.6,
+      "relativePath": "tonify/mp3s/v6-09b-combined-porchlight-static.mp3"
+    },
+    {
+      "id": "basis-7a922e6b436a20daeb7f",
+      "title": "V6 19 - Showcase - Gas Station Crown",
+      "collection": "tonify",
+      "duration": 20.0,
+      "relativePath": "tonify/mp3s/v6-19-showcase-gas-station-crown.mp3"
+    },
+    {
+      "id": "basis-e41c8114002e9649ee1b",
+      "title": "Weight of the World",
+      "collection": "Demonophonic Blues",
+      "duration": 257.609433,
+      "relativePath": "dvdp/04_balls.m4a"
+    },
+    {
+      "id": "basis-40d0fe5f3c108171550b",
+      "title": "whale",
+      "collection": "other catalog",
+      "duration": 192.670227,
+      "relativePath": "bonus/whale.m4a"
+    },
+    {
+      "id": "basis-b4b274ae5c2af051e41f",
+      "title": "Who I Are",
+      "collection": "Demonophonic Blues",
+      "duration": 257.180333,
+      "relativePath": "dvdp/01_whoir.m4a"
+    },
+    {
+      "id": "basis-aa5f83719630589ab616",
+      "title": "woah",
+      "collection": "butts",
+      "duration": 39.568095,
+      "relativePath": "butts/woah.mp3"
+    },
+    {
+      "id": "basis-6c470a19460ddda795a7",
+      "title": "yehyehyehyow",
+      "collection": "butts",
+      "duration": 47.368707,
+      "relativePath": "butts/yehyehyehyow.mp3"
+    }
+  ]
+}

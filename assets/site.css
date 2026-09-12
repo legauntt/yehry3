@@ -1399,3 +1399,33 @@ main {
     transition: none !important;
   }
 }
+/* Native disclosure and checkboxes keep the optional multi-select usable on phones. */
+.field-label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  font-weight: 600;
+}
+.basis-picker {
+  border: 1px solid var(--line, #cbd0c1);
+  padding: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+.basis-picker summary {
+  cursor: pointer;
+}
+.basis-options {
+  max-height: 17rem;
+  overflow-y: auto;
+  margin-top: 0.75rem;
+}
+.basis-option {
+  margin: 0;
+  padding: 0.55rem 0.2rem;
+  font-size: 0.9rem;
+}
+.basis-option[hidden] {
+  display: none;
+}
+.basis-option input {
+  flex-shrink: 0;
+}

@@ -13,6 +13,7 @@ for (const file of [
   "admin",
   "assets",
   "catalog.json",
+  "basis-songs.json",
   "fearhunger",
   "robots.txt",
   "staticwebapp.config.json",
