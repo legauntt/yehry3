@@ -5,7 +5,7 @@ A static Tony C music site with a MongoDB voting and request API in the sibling 
 | Route          | Behavior                                                                                                                            |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `/`            | Both the Tony AI and Fear & Hunger catalogs; search, filters, vote sorting, Play all, Shuffle, seeking, previous/next and MP3 links |
-| `/distonyc/`   | Password gate, initial idea, optional basis songs/direction follow-up, final confirmation, and request status                        |
+| `/distonyc/`   | Password gate, initial idea, optional basis songs/direction follow-up, final confirmation, and request status                       |
 | `/admin/`      | Separate admin login; paginated requests, filters/counts, priority, private notes, cancel/retry, production status, and history     |
 | `/fearhunger/` | Preserved original three-track page, MP3s and lyrics                                                                                |
 
@@ -38,6 +38,12 @@ For the real API, follow [chairlift's setup and queue contract](../chairlift/yeh
 - Three confirmed requests per hour per browser/network. Drafts expire after 24 hours; confirmed requests persist. Stable request IDs prevent duplicate jobs from retries.
 - Sessions and the current request reference use session storage for the browser tab; passwords are never retained. Closing the tab/clearing storage removes its shortcut. Admins can still see every submitted request.
 - Higher priority goes first, then oldest submission. Queued priorities can be changed. Stale edits are rejected. Publishing requires a public HTTPS URL.
+- [The public queue](https://yehry3.app/queue/) shows active production, waiting requests in priority order (50 per page), and the ten latest completed songs. It refreshes every 30 seconds and on returning to the tab. Drafts, admin notes, worker errors, credentials, and local paths remain private. The request form explains that confirmed ideas and progress are public.
+- Browser completion alerts are opt-in on the queue page. Keep that tab open; suspended tabs can delay alerts. Existing releases do not produce a burst of old notifications, and refreshes do not repeat the same alert. No account or email address is needed. See [notification options](NOTIFICATIONS.md) for closed-tab push, Discord, and email.
+- An empty admin filter falls back to **In the studio** when a request is processing, otherwise **All requests**. Empty pages first return to the beginning of their current nonempty set.
+- Fifty curated prompt suggestions are shuffled locally on page load; five cycle every 12 seconds on the collection banner and empty, unfocused request field. Typed prompts are never changed. Reduced-motion preferences disable cycling.
+- Newly generated songs include a **Lyrics** link in the main list, opening a shareable sheet with download and print controls. Saved lyrics travel with the song metadata in Mongo and the fallback catalog. “Blood on My Shoes at Daybreak” has been backfilled from its original saved lyrics.
+- Generated songs remain in **Distonyc requests** and also appear in **Fear & Hunger** when that is clearly their subject. The existing planning call makes this classification; it does not infer the collection merely from a dark style. `/?collection=fearhunger` links directly to that collection.
 - Running jobs use “Cancellation requested” until the PC acknowledges it. The native Windows worker plans once, resumes the existing Troofs renderer, verifies the mix, and publishes to this site. See [Windows worker operations](pc-worker/README.md).
 
 ## Validate
@@ -49,7 +55,7 @@ npx playwright install chromium
 npm run test:browser
 ```
 
-Browser tests start sibling chairlift's API with disposable Mongo and the static site. Install chairlift dependencies first. They cover passwords, prompt turns/review/edit/submission, admin priority/notes/cancel/retry, voting cooldown after reload, MP3 playback, escaped input, API outages and mobile overflow. Screenshots go to ignored `artifacts/`. Chairlift's own `npm test` covers concurrency and authorization.
+Browser tests start sibling chairlift's API with disposable Mongo and the static site. Install chairlift dependencies first. They cover passwords, prompt turns/review/edit/submission, admin priority/notes/cancel/retry and empty-filter fallback, voting cooldown after reload, MP3 playback, public queue/alert opt-in and deduplication, escaped input, API outages and mobile overflow. The notification test uses a real service worker but simulates OS permission/display, which headless Chromium does not reliably support. Screenshots go to ignored `artifacts/`. Chairlift's own `npm test` covers concurrency and authorization.
 
 The checks workflow builds/tests the standalone site and produces a `yehry3-site` artifact. The separate Azure workflow deploys `talandar` pushes and manual runs after a successful build and checks, following gatsby-opus’s Azure build/deploy pattern and this site’s existing deployment-token authentication. It uploads only `dist/`. `staticwebapp.config.json` supplies Azure Static Web Apps routes and headers. On other hosts mirror those headers and serve directory `index.html` files. Use `Cache-Control: no-cache` for the catalog and unversioned application assets.
 

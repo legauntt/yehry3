@@ -60,13 +60,17 @@ def upload(config, prompt, mp3, directory, stop=None):
 def song_record(prompt):
     result = prompt['result']
     return {'id': prompt['songId'], 'title': result['title'], 'url': prompt['releaseUrl'],
-            'duration': result['duration'], 'collection': 'distonyc'}
+            'duration': result['duration'], 'collection': 'distonyc',
+            **{key: result[key] for key in ['lyrics', 'collections'] if key in result}}
 
 def merge_catalog(catalog, record):
     existing = next((song for song in catalog['songs'] if song['id'] == record['id']), None)
     if existing:
-        if existing != record: raise ValueError('The catalog already contains a different recording with this ID')
-        return False
+        for key, value in record.items():
+            if key in existing and existing[key] != value: raise ValueError('The catalog already contains different metadata with this ID')
+        changed = any(key not in existing for key in record)
+        existing.update(record)
+        return changed
     catalog['songs'].insert(0, record)
     return True
 

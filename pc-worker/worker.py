@@ -5,6 +5,7 @@ from common import API, APIError, inside, load, save, sha, singleton, utc
 from winprocess import Stopped, run_owned
 from planner import make_plan
 from publish import upload, update_catalog
+from lyrics import make_sheet, export_sheet
 
 TERMINAL = {'published', 'failed', 'canceled'}
 
@@ -62,7 +63,10 @@ def metadata(config, plan, result):
         path = inside(item['path'], Path(config['settings']['output_dir']) / (Path(item['path']).suffix[1:] + 's'))
         if path.stat().st_size != item['bytes'] or sha(path) != item['sha256']: raise ValueError('A rendered file changed')
     mp3 = next(item for item in files if Path(item['path']).suffix.lower() == '.mp3')
-    return mp3['path'], {'title': plan['title'], 'duration': result['duration'], 'bytes': mp3['bytes'], 'sha256': mp3['sha256']}
+    sheet = make_sheet(config, plan, result)
+    export_sheet(config, mp3['path'], plan['title'], sheet)
+    return mp3['path'], {'title': plan['title'], 'duration': result['duration'], 'bytes': mp3['bytes'], 'sha256': mp3['sha256'],
+                         'lyrics': sheet, 'collections': ['distonyc', 'fearhunger'] if plan.get('fear_hunger') else ['distonyc']}
 
 def new_claim(path):
     claim = {'claimId': str(uuid.uuid4()), 'leaseToken': secrets.token_urlsafe(40)}
@@ -114,7 +118,8 @@ def run_once(config, api, verify_existing=None):
             if not result_file.exists(): raise ValueError('This PC is missing the completed mix. Restore its saved job folder before publishing.')
             plan = load(directory / 'plan.json')['plan']
             mp3, completed = metadata(config, plan, load(result_file))
-            if completed != prompt['result']: raise ValueError('The saved mix differs from the server result')
+            # Finish pre-upgrade publications with their original immutable metadata.
+            if any(completed.get(key) != value for key, value in prompt['result'].items()): raise ValueError('The saved mix differs from the server result')
         if heartbeat.stopped(): raise Stopped('Cancellation or lease loss')
         if prompt['status'] == 'completed': prompt = action('publishing')
         heartbeat.stage = 'Publishing the verified MP3'

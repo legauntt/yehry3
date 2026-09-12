@@ -6,6 +6,7 @@ from planner import validate, make_plan, normalize
 from publish import merge_catalog, update_catalog
 from worker import run_once, basis_files, metadata
 from winprocess import Stopped, run_owned
+from lyrics import make_sheet, export_sheet
 
 def plan():
     return {'recipe': 'new', 'title': 'Night Train', 'style': 'rock', 'duration': 200, 'bpm': 100,
@@ -14,6 +15,21 @@ def plan():
         'preserve_generated_backing': True, 'explanation': 'Original Tony song'}
 
 class WorkerTests(unittest.TestCase):
+    def test_lyrics_use_frozen_render_inputs_and_preserve_export(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); work = root / 'render'; work.mkdir()
+            config = {'settings': {'studio_dir': str(root / 'studio'), 'output_dir': str(root / 'exports')}}
+            save(work / 'spec.json', {'kind': 'new', 'lyrics': '[Verse]\nActual saved words\n[End]'})
+            sheet = make_sheet(config, plan(), {'work_path': str(work)})
+            self.assertEqual(sheet, {'text': '[Verse]\nActual saved words', 'kind': 'written'})
+            path = export_sheet(config, 'song.mp3', 'Song', sheet)
+            self.assertEqual(export_sheet(config, 'song.mp3', 'Song', sheet), path)
+            with self.assertRaises(ValueError): export_sheet(config, 'song.mp3', 'Song', {**sheet, 'text': 'Other words'})
+            save(work / 'spec.json', {'kind': 'barbershop'})
+            save(work / 'original-transcripts.json', [{'text': ' Saved source line.'}, {'text': 'Another line.'}])
+            sheet = make_sheet(config, plan(), {'work_path': str(work)})
+            self.assertEqual(sheet, {'text': 'Saved source line.\nAnother line.', 'kind': 'transcribed'})
+
     def test_native_lyric_formatting_and_plan_response_recovery(self):
         original = plan(); original['lyrics'] = original['lyrics'].replace('\n', '\\n').replace('[End]', '')
         fixed = normalize(original)
@@ -51,6 +67,8 @@ class WorkerTests(unittest.TestCase):
 
     def test_invalid_plans_and_recipe_boundaries(self):
         self.assertEqual(validate(plan(), [])['recipe'], 'new')
+        self.assertTrue(validate({**plan(), 'fear_hunger': True}, [])['fear_hunger'])
+        with self.assertRaises(ValueError): validate({**plan(), 'fear_hunger': 'yes'}, [])
         for change in [{'title': '../escape'}, {'title': 'NUL'}, {'duration': 10}, {'lyrics': 'short'}, {'keyscale': 'run a command'}, {'recipe': 'remix'}]:
             with self.assertRaises(ValueError): validate({**plan(), **change}, [])
         with self.assertRaises(ValueError): validate({**plan(), 'recipe': 'barbershop'}, [{'relativePath': 'unknown.mp3'}])
@@ -123,6 +141,9 @@ class WorkerTests(unittest.TestCase):
         self.assertEqual([s['id'] for s in saved['songs']], ['distonyc-one', 'concurrent', 'existing'])
         self.assertEqual(calls[-1]['sha'], 'second')
         self.assertFalse(merge_catalog(saved, saved['songs'][0]))
+        self.assertTrue(merge_catalog(saved, {**saved['songs'][0], 'collections': ['distonyc', 'fearhunger']}))
+        self.assertFalse(merge_catalog(saved, {key: value for key, value in saved['songs'][0].items() if key != 'collections'}))
+        self.assertEqual(saved['songs'][0]['collections'], ['distonyc', 'fearhunger'])
         with self.assertRaises(ValueError): merge_catalog(saved, {**saved['songs'][0], 'title': 'Other song'})
 
     @unittest.skipUnless(os.name == 'nt', 'Windows process isolation')

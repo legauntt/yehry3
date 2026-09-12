@@ -1,3 +1,6 @@
+import { publicQueue } from "./queue.js";
+import { lyricsPage } from "./lyrics.js";
+import { rotateSuggestions } from "./suggestions.js";
 import { api, login, logout, signedIn, storage } from "./api.js";
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 
@@ -35,6 +38,14 @@ const badge = (status) =>
   `<span class="badge ${escape(status)}">${escape(labels[status] || status)}</span>`;
 const duration = (seconds) =>
   `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
+const collections = (song) => [
+  ...new Set([song.collection, ...(song.collections || [])]),
+];
+const collectionNames = {
+  fearhunger: "Fear & Hunger",
+  tonyai: "Tony AI",
+  distonyc: "Distonyc requests",
+};
 const message = (text, error = false) => {
   const region = $("#message");
   region.textContent = text;
@@ -77,8 +88,14 @@ async function library() {
       <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button></div>
       <p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div>
     </section>
-    <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p>Medusa as a barbershop quartet? An old favorite in a new universe? Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
+    <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
     <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
+  rotateSuggestions(main);
+  const initialCollection = new URLSearchParams(location.search).get(
+    "collection",
+  );
+  if (Object.hasOwn(collectionNames, initialCollection))
+    $("#collection-filter").value = initialCollection;
   let songs = [],
     visible = [],
     queue = [],
@@ -93,7 +110,7 @@ async function library() {
     visible = songs.filter(
       (song) =>
         song.title.toLowerCase().includes(query) &&
-        (collection === "all" || song.collection === collection),
+        (collection === "all" || collections(song).includes(collection)),
     );
     if ($("#sort").value === "votes")
       visible.sort((a, b) => (b.votes || 0) - (a.votes || 0));
@@ -108,7 +125,11 @@ async function library() {
               song,
               index,
             ) => `<article class="track ${current?.id === song.id ? "playing" : ""}" data-id="${escape(song.id)}">
-      <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3><p>${escape({ fearhunger: "Fear & Hunger", tonyai: "Tony AI", distonyc: "Distonyc requests" }[song.collection] || song.collection)} <span>·</span> ${duration(song.duration)}</p></div><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button></article>`,
+      <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3><p>${escape(
+        collections(song)
+          .map((name) => collectionNames[name] || name)
+          .join(" / "),
+      )} <span>·</span> ${duration(song.duration)}${song.lyrics?.text ? ` <span>·</span> <a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}</p></div><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button></article>`,
           )
           .join("")
       : '<p class="empty">No songs match. Try another title or style.</p>';
@@ -297,7 +318,7 @@ async function requests() {
     main.innerHTML = `<section class="request-intro"><p class="eyebrow">Distonyc</p><h1>Let’s hear<br><em>your wild idea.</em></h1><p class="lede">A familiar song in unfamiliar territory. Or something nobody’s heard before.</p></section><section class="workbench"><ol class="steps" aria-label="Request progress">${["The idea", "The direction", "The final say"].map((name, i) => `<li ${i + 1 === number ? 'aria-current="step"' : ""}><span>0${i + 1}</span>${name}</li>`).join("")}</ol><div class="request-form" id="request-form"></div></section>`;
     const form = $("#request-form");
     if (stage === "idea") {
-      form.innerHTML = `<p class="eyebrow">Turn 01 · What if…</p><h2>What should we make?</h2><p>Pick a song and take it somewhere unexpected, or pitch an original.</p><form id="idea-form"><label for="idea">Your prompt</label><textarea id="idea" rows="5" minlength="10" maxlength="2000" required placeholder="Rendition of Medusa as a barbershop quartet"></textarea><p class="small">A sentence or two is plenty to get started.</p><button class="primary">Find the direction <span aria-hidden="true">→</span></button><p class="field-error" role="alert"></p></form>`;
+      form.innerHTML = `<p class="eyebrow">Turn 01 · What if…</p><h2>What should we make?</h2><p>Pick a song and take it somewhere unexpected, or pitch an original.</p><form id="idea-form"><label for="idea">Your prompt</label><textarea id="idea" rows="5" minlength="10" maxlength="2000" required data-suggestion placeholder="Rendition of Medusa as a barbershop quartet"></textarea><p class="small">A sentence or two is plenty to get started. Your idea and progress will appear in the public queue.</p><button class="primary">Find the direction <span aria-hidden="true">→</span></button><p class="field-error" role="alert"></p></form>`;
       $("#idea").value = storage.get("idea-text") || "";
       $("#idea").oninput = (event) => {
         storage.set("idea-text", event.target.value);
@@ -368,7 +389,7 @@ async function requests() {
           render();
         });
     } else {
-      form.innerHTML = `<span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Request received</p><h2>Your idea is on the list.</h2><p>Your idea has a place in the studio queue. Check back here for its progress.</p>${badge(draft.status)}${brief(draft)}${draft.publishedUrl ? `<a class="primary" href="${escape(safeUrl(draft.publishedUrl))}" target="_blank" rel="noopener">Hear your song ↗</a>` : ""}<div class="actions"><button class="quiet" id="refresh-status">Refresh status</button><button class="primary" id="another">Another idea ↗</button></div><p class="small">This browser tab remembers your request. Keep it open to check back.</p>`;
+      form.innerHTML = `<span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Request received</p><h2>Your idea is on the list.</h2><p>Your idea has a place in the studio queue. Check back here for its progress.</p>${badge(draft.status)}${brief(draft)}${draft.publishedUrl ? `<a class="primary" href="${escape(safeUrl(draft.publishedUrl))}" target="_blank" rel="noopener">Hear your song ↗</a>` : ""}<div class="actions"><button class="quiet" id="refresh-status">Refresh status</button><button class="primary" id="another">Another idea ↗</button></div><p class="small">This browser tab remembers your request. <a href="/queue/">Watch the public queue and enable completion alerts →</a></p>`;
       $("#another").onclick = () => {
         draft = null;
         storage.remove("draft");
@@ -379,6 +400,7 @@ async function requests() {
         await load();
       };
     }
+    rotateSuggestions(main);
     focusHeading();
   }
   async function run(event, action) {
@@ -423,13 +445,32 @@ async function admin() {
   async function load() {
     const sequence = ++loadSequence;
     try {
-      const response = await api(
-        `/admin/prompts?status=${filter}&page=${pageNumber}`,
-        { role: "admin" },
-      );
-      if (sequence !== loadSequence) return;
-      data = response;
-      render();
+      let nextFilter = filter,
+        nextPage = pageNumber;
+      while (true) {
+        const response = await api(
+          `/admin/prompts?status=${nextFilter}&page=${nextPage}`,
+          { role: "admin" },
+        );
+        if (sequence !== loadSequence) return;
+        if (!response.prompts.length && nextPage > 0 && response.total > 0) {
+          nextPage = 0;
+          continue;
+        }
+        if (!response.prompts.length && nextFilter !== "all") {
+          nextFilter =
+            nextFilter !== "processing" && response.counts.processing > 0
+              ? "processing"
+              : "all";
+          nextPage = 0;
+          continue;
+        }
+        filter = nextFilter;
+        pageNumber = nextPage;
+        data = response;
+        render();
+        break;
+      }
     } catch (error) {
       if (sequence !== loadSequence) return;
       if (error.status === 401) return loginView("admin", load);
@@ -560,6 +601,9 @@ async function admin() {
 try {
   if (page === "requests") await requests();
   else if (page === "admin") await admin();
+  else if (page === "queue")
+    await publicQueue(main, { escape, date, badge, safeUrl });
+  else if (page === "lyrics") await lyricsPage(main, { escape, safeUrl });
   else await library();
 } catch (error) {
   message(error.message, true);

@@ -1429,3 +1429,110 @@ main {
 .basis-option input {
   flex-shrink: 0;
 }
+.queue-intro {
+  padding: 65px 0 38px;
+  max-width: 740px;
+}
+.lyrics-sheet {
+  max-width: 850px;
+  margin: 55px auto 80px;
+}
+.lyrics-sheet h1 {
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  overflow-wrap: anywhere;
+}
+.lyrics-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font: inherit;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin-top: 40px;
+}
+@media print {
+  body[data-page="lyrics"] .site-header,
+  body[data-page="lyrics"] .site-footer,
+  .lyrics-actions {
+    display: none;
+  }
+  .lyrics-sheet {
+    margin: 0;
+    color: #000;
+  }
+}
+.queue-intro h1 {
+  font-size: clamp(3.3rem, 7vw, 5.6rem);
+}
+.queue-alerts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border: 1px solid #cfd4c3;
+  background: #eef0e5;
+  padding: 22px 28px;
+  margin-bottom: 24px;
+}
+.queue-alerts h2 {
+  font-size: 1.6rem;
+  margin: 0 0 8px;
+}
+.queue-alerts p {
+  margin: 0;
+  max-width: 640px;
+}
+.queue-alerts button {
+  flex-shrink: 0;
+}
+.public-queue-toolbar {
+  justify-content: space-between;
+}
+.public-queue-card h3 {
+  font-family: inherit;
+  font-size: 1.15rem;
+  margin: 14px 0 8px;
+  overflow-wrap: anywhere;
+}
+.public-queue-card progress {
+  accent-color: #52684c;
+  width: 100%;
+  height: 9px;
+}
+.queue-position {
+  margin-left: 12px;
+  color: #6a705e;
+  font-size: 0.75rem;
+}
+.public-waiting,
+.public-releases {
+  margin: 45px 0;
+}
+#release-announcement:not(:empty) {
+  background: #e5edd7;
+  padding: 16px;
+  border-left: 3px solid #52684c;
+}
+@media (max-width: 600px) {
+  .site-header {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .site-header nav {
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .queue-intro {
+    padding-top: 40px;
+  }
+  .queue-alerts {
+    align-items: start;
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+  }
+  .public-releases .section-heading {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}

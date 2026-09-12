@@ -103,7 +103,8 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
   await page.getByLabel("Move request to").selectOption("canceled");
   page.once("dialog", (dialog) => dialog.accept());
   await page.getByRole("button", { name: "Update status" }).click();
-  await expect(page.locator(".queue-card")).toHaveCount(0);
+  await expect(page.getByLabel("Show", { exact: true })).toHaveValue("all");
+  await expect(page.locator(".queue-card")).toHaveCount(1);
   await page.getByLabel("Show", { exact: true }).selectOption("canceled");
   await expect(page.locator(".queue-card")).toHaveCount(1);
   await page.getByText("Open brief & controls").click();
@@ -115,8 +116,122 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
   await page.getByLabel("Show", { exact: true }).selectOption("queued");
   await expect(page.locator(".queue-card")).toHaveCount(1);
   await expect(page.locator(".queue-card .badge")).toHaveText("In the queue");
+  await page.getByText("Open brief & controls").click();
+  await page.getByLabel("Move request to").selectOption("processing");
+  await page.getByRole("button", { name: "Update status" }).click();
+  await expect(page.getByLabel("Show", { exact: true })).toHaveValue(
+    "processing",
+  );
+  await expect(page.locator(".queue-card .badge")).toHaveText("In the studio");
   await page.evaluate(() => scrollTo(0, 0));
   await page.screenshot({ path: "artifacts/admin-desktop.png" });
+});
+
+test("public queue, browser alert opt-in, completion deduplication and mobile layout", async ({
+  page,
+  context,
+}) => {
+  await context.grantPermissions(["notifications"], {
+    origin: "http://127.0.0.1:8080",
+  });
+  await page.addInitScript(() => {
+    window.testNotifications = [];
+    // Chromium's headless shell reports permission=denied even after a grant.
+    // Stub only the OS permission/display boundary; use a real service worker.
+    // https://github.com/microsoft/playwright/issues/23954
+    Object.defineProperty(Notification, "permission", {
+      configurable: true,
+      get: () => "granted",
+    });
+    ServiceWorkerRegistration.prototype.showNotification = async function (
+      title,
+      options,
+    ) {
+      window.testNotifications.push({ title, options });
+    };
+  });
+  const active = {
+    id: "distonyc-" + "a".repeat(24),
+    idea: "<img src=x onerror=alert(1)> as a new Tony song",
+    title: null,
+    status: "processing",
+    updatedAt: new Date().toISOString(),
+    progress: { stage: "Generating Tony vocals", percent: 55 },
+  };
+  const past = {
+    ...active,
+    id: "distonyc-" + "b".repeat(24),
+    idea: "Earlier original",
+    title: "Earlier song",
+    status: "published",
+    progress: null,
+    publishedAt: new Date().toISOString(),
+    url: "https://example.com/earlier.mp3",
+  };
+  let data = {
+    inStudio: [active],
+    queued: [],
+    recent: [past],
+    queuedTotal: 0,
+    inStudioTotal: 1,
+    page: 0,
+    pageSize: 50,
+  };
+  await page.route("**/yehry3/queue?*", (route) =>
+    route.fulfill({ json: data }),
+  );
+  await page.goto("/queue/");
+  await expect(page.locator("#in-studio")).toContainText(active.idea);
+  await expect(page.locator("#in-studio img")).toHaveCount(0);
+  await expect(page.locator("#in-studio progress")).toHaveAttribute(
+    "value",
+    "55",
+  );
+  await expect(page.getByLabel("Password", { exact: true })).toHaveCount(0);
+  await expect
+    .poll(() => page.evaluate(() => window.testNotifications.length))
+    .toBe(0);
+  await page.getByRole("button", { name: "Enable browser alerts" }).click();
+  await expect(page.locator("#alert-status")).toContainText("Alerts are on");
+  expect(await page.evaluate(() => Notification.permission)).toBe("granted");
+  expect(await page.evaluate(() => window.testNotifications.length)).toBe(0);
+  data = {
+    ...data,
+    inStudio: [],
+    inStudioTotal: 0,
+    recent: [
+      {
+        ...active,
+        title: "Brand new song",
+        status: "published",
+        publishedAt: new Date().toISOString(),
+        url: "https://example.com/new.mp3",
+      },
+      past,
+    ],
+  };
+  await page.getByRole("button", { name: "Refresh" }).click();
+  await expect(page.locator("#release-announcement")).toContainText(
+    "Brand new song",
+  );
+  await expect
+    .poll(() => page.evaluate(() => window.testNotifications.length))
+    .toBe(1);
+  await page.getByRole("button", { name: "Refresh" }).click();
+  await expect(page.locator("#refresh-queue")).toBeEnabled();
+  expect(await page.evaluate(() => window.testNotifications.length)).toBe(1);
+  await page.getByRole("button", { name: "Turn off browser alerts" }).click();
+  await expect(page.locator("#alert-status")).toContainText("Alerts are off");
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "artifacts/public-queue-mobile.png",
+    fullPage: true,
+  });
 });
 test("mobile layout, API outage, and escaped prompt content", async ({
   page,
@@ -207,6 +322,42 @@ test("optional basis songs, A-Z list, five-song cap, and saved review", async ({
   ).toBe(true);
   await page.screenshot({
     path: "artifacts/basis-picker-mobile.png",
+    fullPage: true,
+  });
+});
+
+test("generated song lyrics, dual collection filtering, and API outage fallback", async ({
+  page,
+}) => {
+  await page.route("**/yehry3/songs", (route) => route.abort());
+  await page.goto("/?collection=fearhunger");
+  const song = page.locator(
+    '.track[data-id="distonyc-1d7840d9c9addba07ccabdb2"]',
+  );
+  await expect(song).toContainText("Blood on My Shoes at Daybreak");
+  await expect(song).toContainText("Fear & Hunger");
+  await page.getByLabel("Collection", { exact: true }).selectOption("distonyc");
+  await expect(song).toBeVisible();
+  await song
+    .getByRole("link", { name: "Lyrics for Blood on My Shoes at Daybreak" })
+    .click();
+  await expect(page.locator("h1")).toHaveText("Blood on My Shoes at Daybreak");
+  await expect(page.locator(".lyrics-text")).toContainText(
+    "Blood on my shoes, dawn in my eyes",
+  );
+  const downloadPromise = page.waitForEvent("download");
+  await page.getByRole("link", { name: "Download lyrics" }).click();
+  expect((await downloadPromise).suggestedFilename()).toBe(
+    "Blood on My Shoes at Daybreak-lyrics.txt",
+  );
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "artifacts/lyrics-mobile.png",
     fullPage: true,
   });
 });

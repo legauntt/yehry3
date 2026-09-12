@@ -8,6 +8,8 @@ An empty queue makes one API request and exits. A new confirmed brief makes **on
 
 Local audio models still perform composition, separation, Tony V6 voice conversion, and the relevant arrangement stages. Those are fixed Python recipes, not a coding agent making decisions at every step. Polling, priority, locking, stage execution, retries, cancellation, technical checks, MP3 uploads, catalog updates, and Azure deployment run as code. There is no model call per poll or upload. An interrupted planning call can be retried if it never produced a saved plan.
 
+The same planning call marks a song for the Fear & Hunger collection only when the games, characters, or story are clearly its subject. New plans include this boolean; older saved plans remain valid without rewriting their frozen inputs. All generated songs also remain in Distonyc requests.
+
 ## Requests and limits
 
 - The saved full-catalog **Tony V6 voice is mandatory**. No new voice training occurs.
@@ -29,6 +31,8 @@ The state sequence is `queued → processing → completed → publishing → pu
 
 MP3s are uploaded to `legauntt/yehry3`, release `distonyc-v1`, with request- and hash-derived filenames. Existing assets are verified, never overwritten. The PC and API both verify the public bytes. Mongo publishes the song atomically, making it playable/votable immediately. The worker then merges the song into `catalog.json` on `talandar` with a SHA precondition, preserving concurrent changes. That commit triggers Azure and updates the fallback catalog. If this final merge fails, the next scheduled run retries it without rendering again. WAVs, stems, logs, and model files remain on the PC.
 
+New publications also include a lyrics sheet and collection tags in the same result metadata. Original lyrics come from the frozen render specification; source-guided renditions reuse the saved source transcription, labeled as potentially imperfect. Formatting and export need no additional model or transcription call. The worker saves a convenient text copy under `Music\troofs\lyrics`, refuses to overwrite a different existing sheet, and sends only the lyric text/source label to Mongo and the static catalog. The website links `/lyrics/?song=<song-id>` from the main list. Pre-upgrade publications can finish with their original metadata; backfill their sheet separately rather than changing a completed artifact mid-retry.
+
 ## Installed files and controls
 
 Installation: `%LOCALAPPDATA%\Distonyc`. `config.json` contains paths and the worker ID. `worker-credential.xml` is DPAPI protected. `state\health.json` reports the last run; `state\worker.log` and `state\jobs\<request-id>\` contain private logs and journals. Full audio exports remain in `Music\troofs\mp3s` and `Music\troofs\wavs`.
@@ -43,6 +47,14 @@ Start-ScheduledTask -TaskName 'Distonyc Worker'
 ```
 
 Use the admin page to cancel the current song. Do not delete its work folder. Task Scheduler and the singleton lock prevent overlapping runs; the worker's own process-tree isolation handles unexpected termination. The admin page shows the worker's last heartbeat and each request's current stage.
+
+To follow the current song's generation log in PowerShell:
+
+```powershell
+& "$env:LOCALAPPDATA\Distonyc\logs.ps1" -Follow
+```
+
+The helper chooses the active job, or the most recent saved job when idle. **Ctrl+C only stops watching; generation continues.** Use `-Kind planner` for the saved creative planning log, `-Kind progress -Follow` for a compact stage/percentage view, or `-List` to find older jobs. Add `-JobId '<request-id>'` to inspect one specific song. Raw files are `state\jobs\<request-id>\renderer.log`, `planner.log`, and `progress.json`; `state\worker.log` records the task wrapper's output and may be empty during normal generation. These logs stay on this PC.
 
 To update installed code, wait for the task to be idle, then run `pc-worker\install.ps1 -Start`. Installation preserves config, credentials, and state. `run.ps1` loads the DPAPI credential, starts Python, and removes the environment value afterward. Updating the source checkout alone does not change the installed worker. CLI/model/recipe path changes require an explicit local config update.
 

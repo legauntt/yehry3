@@ -1,0 +1,20 @@
+# Song completion alerts
+
+Browser alerts are available on [the public queue](https://yehry3.app/queue/). Click **Enable browser alerts** and allow the browser's permission prompt. Anyone can watch production and waiting requests without a password. An open queue tab checks every 30 seconds and announces newly published songs; its first load establishes a baseline, so older songs do not trigger alerts. Notification clicks open the queue at the released song. An unsupported browser still shows the queue and an in-page release announcement.
+
+This first version needs the queue tab to remain open. Background suspension, browser policy, or the OS notification settings can delay or hide an alert. Opt-in lasts for this queue visit. It uses HTTPS and a service worker's `showNotification`, with permission requested only after a click, following the [Notifications API guidance](https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API). It does not run a model or collect contact information.
+
+| Option                       | What it adds                                                          | Next work                                                                                             |
+| ---------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Browser alerts (implemented) | In-page updates and opt-in system alerts while the queue stays open   | No extra service or credential                                                                        |
+| Browser push                 | Delivery when the page is closed, subject to browser/platform support | Opt-in push subscriptions, protected VAPID key, server delivery/retries, expired-subscription cleanup |
+| Discord                      | One shared channel for completed songs                                | An approved channel webhook stored on Chairlift, with delivery retries and mentions disabled          |
+| Email                        | Individual request-completion messages                                | Mail service, verified sender/domain, address opt-in, unsubscribe and bounce handling                 |
+
+Closed-page browser delivery requires server-initiated [Push API messages](https://developer.mozilla.org/en-US/docs/Web/API/Push_API); a polling tab or a service worker alone does not provide that. Push subscriptions contain delivery endpoints and keys and should be stored privately in Mongo.
+
+Discord's [incoming webhooks](https://docs.discord.com/developers/resources/webhook) can post into a channel without a full bot. Keep the webhook URL server-side, send with `wait=true` for acknowledgement, disable `allowed_mentions` for user-submitted text, and respect retry/rate-limit responses. A shared channel would be the smallest additional delivery integration.
+
+Azure Communication Services is compatible with the existing Azure setup. It provides a managed email domain or a custom domain with [sender/domain authentication](https://learn.microsoft.com/en-us/azure/communication-services/concepts/email/email-domain-and-sender-authentication), including SPF/DKIM. It needs an email resource and sender configuration before delivery can be implemented.
+
+For future push/Discord/email delivery, record a notification event in Mongo in the same transaction that publishes the song. A small scheduled sender can retry independently without rerendering music or blocking publication. Give each event a stable key to prevent duplicate sends. No Discord webhook, email address collection, new mail resource, or external message delivery has been configured in this phase.

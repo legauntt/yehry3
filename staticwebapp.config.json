@@ -6,19 +6,57 @@
     "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' https:; connect-src 'self' https://chairlift.fly.dev; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
   },
   "routes": [
-    { "route": "/distonyc", "redirect": "/distonyc/", "statusCode": 301 },
+    {
+      "route": "/lyrics",
+      "redirect": "/lyrics/",
+      "statusCode": 301
+    },
+    {
+      "route": "/distonyc",
+      "redirect": "/distonyc/",
+      "statusCode": 301
+    },
     {
       "route": "/longtimecomin*",
       "redirect": "/distonyc/",
       "statusCode": 301
     },
-    { "route": "/admin", "redirect": "/admin/", "statusCode": 301 },
-    { "route": "/catalog.json", "headers": { "Cache-Control": "no-cache" } },
+    {
+      "route": "/admin",
+      "redirect": "/admin/",
+      "statusCode": 301
+    },
+    {
+      "route": "/catalog.json",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    },
     {
       "route": "/basis-songs.json",
-      "headers": { "Cache-Control": "no-cache" }
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
     },
-    { "route": "/assets/*", "headers": { "Cache-Control": "no-cache" } }
+    {
+      "route": "/assets/*",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "route": "/queue",
+      "redirect": "/queue/",
+      "statusCode": 301
+    },
+    {
+      "route": "/notifications-sw.js",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    }
   ],
-  "mimeTypes": { ".mp3": "audio/mpeg" }
+  "mimeTypes": {
+    ".mp3": "audio/mpeg"
+  }
 }

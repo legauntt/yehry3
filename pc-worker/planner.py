@@ -10,6 +10,7 @@ FIELDS = {
     'duration': {'type': 'integer'}, 'bpm': {'type': 'integer'}, 'keyscale': {'type': 'string'},
     'lyrics': {'type': 'string'}, 'arrangement': {'type': 'string'},
     'preserve_generated_backing': {'type': 'boolean'}, 'explanation': {'type': 'string'},
+    'fear_hunger': {'type': 'boolean'},
 }
 SCHEMA = {'type': 'object', 'properties': FIELDS, 'required': list(FIELDS), 'additionalProperties': False}
 
@@ -22,7 +23,9 @@ def normalize(plan):
     return plan
 
 def validate(plan, basis):
-    if set(plan) != set(FIELDS) or plan['recipe'] not in FIELDS['recipe']['enum']: raise ValueError('Invalid planning result')
+    # Older cached plans predate collection tagging; never rewrite frozen production inputs.
+    if set(plan) - {'fear_hunger'} != set(FIELDS) - {'fear_hunger'} or plan['recipe'] not in FIELDS['recipe']['enum']: raise ValueError('Invalid planning result')
+    if 'fear_hunger' in plan and type(plan['fear_hunger']) is not bool: raise ValueError('Invalid collection tag')
     if plan['recipe'] == 'needs_attention': return plan
     if not isinstance(plan['title'], str) or not 1 <= len(plan['title']) <= 80 or re.search(r'[<>:"/\\|?*\x00-\x1f]', plan['title']) or plan['title'][-1] in '. ': raise ValueError('Invalid song title')
     if plan['title'].split('.')[0].upper() in {'CON','PRN','AUX','NUL', *[f'{p}{i}' for p in ['COM','LPT'] for i in range(1,10)]}: raise ValueError('Invalid song title')
@@ -64,6 +67,7 @@ Styles choose vocal references: rock uses broad Tony references; acoustic intima
 Title: original, safe Windows filename, at most 80 characters. Duration 180–300 seconds; BPM 45–220; keyscale like D minor.
 Do not use stock chants from the preferences. Always fill every JSON field; lyrics may be empty for a source-guided recipe or needs_attention.
 For new songs, end the complete lyric sheet with [End] on its own line. Use actual line breaks between lyric lines.
+Set fear_hunger=true only when the song is clearly about the Fear & Hunger games, their characters, or their story. Generic horror, fear, hunger, darkness, and incidental references do not qualify. Otherwise use false.
 Keep explanation concise and describe the musical plan or a concrete blocker. No claims about listening to audio.
 '''
     instruction += '\nSaved creative preferences:\n' + preferences + '\nSelected basis recordings:\n' + json.dumps(basis, ensure_ascii=False)

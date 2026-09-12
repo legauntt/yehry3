@@ -15,7 +15,14 @@ async function get(url, options = {}) {
   assert.ok(response.ok, `${url} returned ${response.status}`);
   return response;
 }
-for (const route of ["/", "/distonyc", "/distonyc/", "/admin/"]) {
+for (const route of [
+  "/",
+  "/distonyc",
+  "/distonyc/",
+  "/admin/",
+  "/queue/",
+  "/lyrics/",
+]) {
   const response = await get(`${site}${route}`);
   assert.match(response.headers.get("x-robots-tag") || "", /noindex/);
   const html = await response.text();
@@ -39,7 +46,17 @@ for (const route of [
   );
 }
 console.log("Distonyc route and legacy aliases verified.");
-for (const name of ["app.js", "api.js", "config.js", "basis.js", "site.css"]) {
+for (const name of [
+  "app.js",
+  "api.js",
+  "config.js",
+  "basis.js",
+  "queue.js",
+  "notifications.js",
+  "suggestions.js",
+  "lyrics.js",
+  "site.css",
+]) {
   const expected = createHash("sha256")
     .update(await readFile(new URL(`../assets/${name}`, import.meta.url)))
     .digest("hex");
@@ -50,6 +67,49 @@ for (const name of ["app.js", "api.js", "config.js", "basis.js", "site.css"]) {
     .digest("hex");
   assert.equal(actual, expected, `${name} differs from the local release`);
 }
+const notificationWorker = await get(`${site}/notifications-sw.js`);
+assert.match(
+  notificationWorker.headers.get("content-type") || "",
+  /javascript/,
+);
+assert.match(notificationWorker.headers.get("cache-control") || "", /no-cache/);
+assert.equal(
+  await notificationWorker.text(),
+  await readFile(new URL("../notifications-sw.js", import.meta.url), "utf8"),
+  "Notification service worker differs from the local release",
+);
+const queueResponse = await get(`${api}/queue?page=0`, {
+  headers: { Origin: site },
+});
+assert.equal(queueResponse.headers.get("access-control-allow-origin"), site);
+const queue = await queueResponse.json();
+assert.equal(queue.pageSize, 50);
+assert.ok(
+  Array.isArray(queue.inStudio) &&
+    Array.isArray(queue.queued) &&
+    Array.isArray(queue.recent),
+);
+for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
+  assert.match(request.id, /^distonyc-[a-f0-9]{24}$/);
+  for (const field of Object.keys(request))
+    assert.ok(
+      [
+        "id",
+        "idea",
+        "status",
+        "title",
+        "submittedAt",
+        "updatedAt",
+        "progress",
+        "publishedAt",
+        "url",
+      ].includes(field),
+      `Unexpected public field: ${field}`,
+    );
+}
+console.log(
+  `Anonymous public queue verified: ${queue.inStudioTotal} in studio, ${queue.queuedTotal} waiting, ${queue.recent.length} recent releases.`,
+);
 const catalog = await (await get(`${site}/catalog.json`)).json();
 assert.deepEqual(catalog, local);
 assert.deepEqual(

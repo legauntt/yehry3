@@ -32,6 +32,8 @@ test("all routes are built, unlisted, and contain no submission password or back
     "index.html",
     "distonyc/index.html",
     "admin/index.html",
+    "queue/index.html",
+    "lyrics/index.html",
   ]) {
     const html = await readFile(
       new URL(`../dist/${page}`, import.meta.url),
