@@ -1,0 +1,37 @@
+{
+  "title": "Fear & Hunger \u2014 Tony C",
+  "track_count": 3,
+  "total_bytes": 32448864,
+  "tracks": [
+    {
+      "id": "dungeon-rock",
+      "title": "Fear and Hunger (Dungeon Rock)",
+      "version": "Dungeon Rock",
+      "duration_seconds": 270.0,
+      "duration": "4:30",
+      "file": "audio/fear-and-hunger-dungeon-rock.mp3",
+      "bytes": 10802357,
+      "sha256": "3875d2e65a635cfd9c723449f9ab6c5a6a40f115ccc059ccb5992f0c49bebde6"
+    },
+    {
+      "id": "doom-blues",
+      "title": "Fear and Hunger (Doom Blues)",
+      "version": "Doom Blues",
+      "duration_seconds": 274.8,
+      "duration": "4:35",
+      "file": "audio/fear-and-hunger-doom-blues.mp3",
+      "bytes": 10994616,
+      "sha256": "b7ce887e6bc52d76a143e3d62ee09ae88c1dda22c57db27f10e0f1b81ab39095"
+    },
+    {
+      "id": "occult-swing",
+      "title": "Fear and Hunger (Occult Swing)",
+      "version": "Occult Swing",
+      "duration_seconds": 266.23863945578233,
+      "duration": "4:26",
+      "file": "audio/fear-and-hunger-occult-swing.mp3",
+      "bytes": 10651891,
+      "sha256": "6234c5ec47d71e26c6b15fe0d6ab748f84ddea142a145bb86dfa4561b589932e"
+    }
+  ]
+}
