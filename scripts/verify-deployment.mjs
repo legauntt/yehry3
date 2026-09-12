@@ -15,7 +15,7 @@ async function get(url, options = {}) {
   assert.ok(response.ok, `${url} returned ${response.status}`);
   return response;
 }
-for (const route of ["/", "/distonyc/", "/admin/"]) {
+for (const route of ["/", "/distonyc", "/distonyc/", "/admin/"]) {
   const response = await get(`${site}${route}`);
   assert.match(response.headers.get("x-robots-tag") || "", /noindex/);
   const html = await response.text();
@@ -24,7 +24,6 @@ for (const route of ["/", "/distonyc/", "/admin/"]) {
   console.log(`Page and headers verified: ${route}`);
 }
 for (const route of [
-  "/distonyc",
   "/longtimecomin",
   "/longtimecomin/",
   "/longtimecomin/index.html",
