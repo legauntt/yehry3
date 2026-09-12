@@ -99,9 +99,11 @@ class WorkerTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); (root / 'safe.mp3').write_bytes(b'audio')
             catalog = root / 'basis.json'; config = {'basis_root': str(root), 'basis_catalog': str(catalog)}
-            save(catalog, {'songs': [{'id': 'one', 'relativePath': 'safe.mp3'}]})
+            save(catalog, {'songs': [{'id': 'one', 'title': 'Little Bit More', 'relativePath': 'safe.mp3'}]})
             result = basis_files(config, {'details': {'basisSongIds': ['one']}})
             self.assertEqual(result[0]['sha256'], sha(root / 'safe.mp3'))
+            self.assertEqual(basis_files(config, {'details': {'source': 'Little Bit More'}}), result)
+            self.assertEqual(basis_files(config, {'details': {'source': 'Little Bit More', 'basisSongIds': []}}), [])
             save(catalog, {'songs': [{'id': 'one', 'relativePath': '../outside.mp3'}]})
             with self.assertRaises(ValueError): basis_files(config, {'details': {'basisSongIds': ['one']}})
 

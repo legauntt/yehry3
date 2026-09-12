@@ -11,6 +11,11 @@ TERMINAL = {'published', 'failed', 'canceled'}
 def basis_files(config, prompt):
     songs = {item['id']: item for item in load(config['basis_catalog'])['songs']}
     identifiers = prompt['details'].get('basisSongIds', [])
+    # Preserve requests submitted before the dropdown existed. Resolve only one exact catalog title.
+    if 'basisSongIds' not in prompt['details'] and prompt['details'].get('source'):
+        source = prompt['details']['source'].strip().strip('\"\'').casefold()
+        matches = [song['id'] for song in songs.values() if song.get('title', '').casefold() == source]
+        if len(matches) == 1: identifiers = matches
     if len(identifiers) > 5 or len(set(identifiers)) != len(identifiers): raise ValueError('Invalid basis selection')
     result = []
     for identifier in identifiers:
