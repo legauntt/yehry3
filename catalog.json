@@ -2,13 +2,6 @@
   "version": 1,
   "songs": [
     {
-      "id": "distonyc-2296679076749a21f7b219d1",
-      "title": "Pipeline check - existing Medusa export",
-      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2296679076749a21f7b219d1-ff82855b15b3.mp3",
-      "duration": 281.07861678004537,
-      "collection": "distonyc"
-    },
-    {
       "id": "medusa-barbershop-midnight-marble",
       "title": "Medusa (Barbershop - Midnight Marble)",
       "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/medusa-barbershop-midnight-marble.mp3",
