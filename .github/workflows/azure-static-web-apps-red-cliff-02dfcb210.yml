@@ -1,3 +1,4 @@
+# Azure identifies this site from the resource name in this workflow filename.
 name: Deploy yehry3 to Azure
 
 on:
@@ -11,7 +12,6 @@ concurrency:
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
   deploy:
@@ -30,18 +30,11 @@ jobs:
         run: |
           npm run build
           npm test
-      # Same GitHub identity flow as gatsby-opus. core is supplied by github-script.
-      - name: Get GitHub deployment identity
-        uses: actions/github-script@v7
-        id: identity
-        with:
-          script: return await core.getIDToken()
-          result-encoding: string
+      # This existing Azure site uses its DeploymentToken authorization policy.
       - name: Deploy the built static site
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          github_id_token: ${{ steps.identity.outputs.result }}
           action: upload
           app_location: dist
           api_location: ""
