@@ -37,7 +37,7 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
   page,
 }) => {
   await page.goto("/distonyc/");
-  await expect(page.getByText("Never tell anyone your password")).toBeVisible();
+  await expect(page.getByText("Never share your password with anyone")).toBeVisible();
   await page.getByLabel("Password", { exact: true }).fill("wrong");
   await page.getByRole("button", { name: "Let’s make something" }).click();
   await expect(page.locator("#form-error")).toContainText("did not work");
