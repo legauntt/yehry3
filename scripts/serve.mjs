@@ -1,0 +1,70 @@
+import http from "node:http";
+import { createReadStream } from "node:fs";
+import { stat } from "node:fs/promises";
+import path from "node:path";
+const root = path.resolve(import.meta.dirname, "../dist");
+const port = Number(process.env.PORT || 8080);
+const types = {
+  ".html": "text/html; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
+  ".css": "text/css; charset=utf-8",
+  ".json": "application/json",
+  ".txt": "text/plain",
+  ".mp3": "audio/mpeg",
+  ".webp": "image/webp",
+};
+const server = http.createServer(async (req, res) => {
+  try {
+    const pathname = decodeURIComponent(
+      new URL(req.url, "http://localhost").pathname,
+    );
+    let file = path.resolve(root, `.${pathname}`);
+    if (!file.startsWith(root + path.sep) && file !== root)
+      throw new Error("Invalid path");
+    if ((await stat(file)).isDirectory()) {
+      if (!pathname.endsWith("/")) {
+        res.writeHead(302, { Location: `${pathname}/` });
+        return res.end();
+      }
+      file = path.join(file, "index.html");
+    }
+    const { size } = await stat(file);
+    let start = 0,
+      end = size - 1,
+      partial = false;
+    if (req.headers.range && file.endsWith(".mp3")) {
+      const match = /^bytes=(\d+)-(\d*)$/.exec(req.headers.range);
+      if (!match) {
+        res.writeHead(416, { "Content-Range": `bytes */${size}` });
+        return res.end();
+      }
+      start = Number(match[1]);
+      end = match[2] ? Math.min(Number(match[2]), size - 1) : size - 1;
+      if (start > end || start >= size) {
+        res.writeHead(416, { "Content-Range": `bytes */${size}` });
+        return res.end();
+      }
+      partial = true;
+    }
+    const headers = {
+      "Content-Type": types[path.extname(file)] || "application/octet-stream",
+      "Content-Length": end - start + 1,
+      "Accept-Ranges": "bytes",
+      "X-Content-Type-Options": "nosniff",
+      "X-Robots-Tag": "noindex, nofollow, noarchive",
+    };
+    if (partial) headers["Content-Range"] = `bytes ${start}-${end}/${size}`;
+    res.writeHead(partial ? 206 : 200, headers);
+    if (req.method === "HEAD") return res.end();
+    const stream = createReadStream(file, { start, end });
+    stream.on("error", () => res.destroy());
+    res.on("close", () => stream.destroy());
+    stream.pipe(res);
+  } catch {
+    res.writeHead(404);
+    res.end("Not found");
+  }
+});
+server.listen(port, "127.0.0.1", () =>
+  console.log(`Listening at http://127.0.0.1:${port}`),
+);

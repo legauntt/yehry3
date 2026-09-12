@@ -1,0 +1,17 @@
+{
+  "name": "yehry3",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "playwright test",
+    "verify:live": "node scripts/verify-deployment.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "mongodb-memory-server": "^10.2.0"
+  }
+}

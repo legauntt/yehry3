@@ -1,0 +1,376 @@
+{
+  "version": 1,
+  "songs": [
+    {
+      "id": "medusa-barbershop-midnight-marble",
+      "title": "Medusa (Barbershop - Midnight Marble)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/medusa-barbershop-midnight-marble.mp3",
+      "duration": 281.078617,
+      "collection": "tonyai"
+    },
+    {
+      "id": "one-4-the-road-barbershop-last-call",
+      "title": "One 4 the Road (Barbershop - Last Call)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/one-4-the-road-barbershop-last-call.mp3",
+      "duration": 172.806916,
+      "collection": "tonyai"
+    },
+    {
+      "id": "ball-and-chain-barbershop-four-tonys",
+      "title": "Ball and Chain (Barbershop - Four Tonys)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/ball-and-chain-barbershop-four-tonys.mp3",
+      "duration": 226.953379,
+      "collection": "tonyai"
+    },
+    {
+      "id": "no-pain-celtic-storm",
+      "title": "No Pain (Celtic Storm)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/no-pain-celtic-storm.mp3",
+      "duration": 259.2,
+      "collection": "tonyai"
+    },
+    {
+      "id": "no-pain-bossa-afterhours",
+      "title": "No Pain (Bossa Afterhours)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/no-pain-bossa-afterhours.mp3",
+      "duration": 240.96,
+      "collection": "tonyai"
+    },
+    {
+      "id": "no-pain-ai-remix",
+      "title": "No Pain (AI REMIX)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/no-pain-ai-remix.mp3",
+      "duration": 284.165805,
+      "collection": "tonyai"
+    },
+    {
+      "id": "gravity-neon-synthwave",
+      "title": "Gravity (Neon Synthwave)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/gravity-neon-synthwave.mp3",
+      "duration": 249.140023,
+      "collection": "tonyai"
+    },
+    {
+      "id": "gravity-afrobeat-orbit",
+      "title": "Gravity (Afrobeat Orbit)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/gravity-afrobeat-orbit.mp3",
+      "duration": 260.0,
+      "collection": "tonyai"
+    },
+    {
+      "id": "gravity-ai-remix",
+      "title": "Gravity (AI REMIX)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/gravity-ai-remix.mp3",
+      "duration": 300.582313,
+      "collection": "tonyai"
+    },
+    {
+      "id": "fight-for-your-right-bluegrass-barnstorm",
+      "title": "Fight for Your Right (Bluegrass Barnstorm)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/fight-for-your-right-bluegrass-barnstorm.mp3",
+      "duration": 254.8,
+      "collection": "tonyai"
+    },
+    {
+      "id": "fight-for-your-right-disco-boogie",
+      "title": "Fight for Your Right (Disco Boogie)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/fight-for-your-right-disco-boogie.mp3",
+      "duration": 255.04,
+      "collection": "tonyai"
+    },
+    {
+      "id": "fight-for-your-right-ai-remix",
+      "title": "Fight for Your Right (AI REMIX)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/fight-for-your-right-ai-remix.mp3",
+      "duration": 174.590839,
+      "collection": "tonyai"
+    },
+    {
+      "id": "got-it-made-liquid-drum-and-bass",
+      "title": "Got It Made (Liquid Drum and Bass)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/got-it-made-liquid-drum-and-bass.mp3",
+      "duration": 255.04,
+      "collection": "tonyai"
+    },
+    {
+      "id": "got-it-made-tango-noir",
+      "title": "Got It Made (Tango Noir)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/got-it-made-tango-noir.mp3",
+      "duration": 259.6,
+      "collection": "tonyai"
+    },
+    {
+      "id": "got-it-made-ai-remix",
+      "title": "Got It Made (AI REMIX)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/got-it-made-ai-remix.mp3",
+      "duration": 244.250703,
+      "collection": "tonyai"
+    },
+    {
+      "id": "little-bit-more-midnight-dub",
+      "title": "Little Bit More (Midnight Dub)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/little-bit-more-midnight-dub.mp3",
+      "duration": 274.4,
+      "collection": "tonyai"
+    },
+    {
+      "id": "little-bit-more-bayou-brass",
+      "title": "Little Bit More (Bayou Brass)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/little-bit-more-bayou-brass.mp3",
+      "duration": 255.325488,
+      "collection": "tonyai"
+    },
+    {
+      "id": "little-bit-more-ai-remix",
+      "title": "Little Bit More (AI REMIX)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/little-bit-more-ai-remix.mp3",
+      "duration": 203.306667,
+      "collection": "tonyai"
+    },
+    {
+      "id": "round-and-round-brass-and-groove",
+      "title": "Round and Round (Brass and Groove)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/round-and-round-brass-and-groove.mp3",
+      "duration": 260.955828,
+      "collection": "tonyai"
+    },
+    {
+      "id": "round-and-round-after-hours-acoustic",
+      "title": "Round and Round (After Hours Acoustic)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/round-and-round-after-hours-acoustic.mp3",
+      "duration": 237.702676,
+      "collection": "tonyai"
+    },
+    {
+      "id": "round-and-round-ai-remix",
+      "title": "Round and Round (AI REMIX)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/round-and-round-ai-remix.mp3",
+      "duration": 237.702676,
+      "collection": "tonyai"
+    },
+    {
+      "id": "medusa-industrial-rendition",
+      "title": "Medusa (Industrial Rendition)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/medusa-industrial-rendition.mp3",
+      "duration": 251.66,
+      "collection": "tonyai"
+    },
+    {
+      "id": "medusa-church-choir",
+      "title": "Medusa (Church Choir)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/medusa-church-choir.mp3",
+      "duration": 257.68,
+      "collection": "tonyai"
+    },
+    {
+      "id": "medusa-ai-remix",
+      "title": "Medusa (AI REMIX)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/medusa-ai-remix.mp3",
+      "duration": 257.671837,
+      "collection": "tonyai"
+    },
+    {
+      "id": "movin-on-v6-extended",
+      "title": "Movin On (V6 Extended)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/movin-on-v6-extended.mp3",
+      "duration": 265.48,
+      "collection": "tonyai"
+    },
+    {
+      "id": "glosky-acoustic",
+      "title": "GLOSKY (Acoustic)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/glosky-acoustic.mp3",
+      "duration": 229.389932,
+      "collection": "tonyai"
+    },
+    {
+      "id": "someday-magic-vaccine-opera",
+      "title": "Someday (Magic Vaccine Opera)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/someday-magic-vaccine-opera.mp3",
+      "duration": 267.3,
+      "collection": "tonyai"
+    },
+    {
+      "id": "too-fast-for-sunday-plus-99-percent-bpm",
+      "title": "Too Fast for Sunday (+99% BPM)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/too-fast-for-sunday-plus-99-percent-bpm.mp3",
+      "duration": 211.404603,
+      "collection": "tonyai"
+    },
+    {
+      "id": "bad-news-in-good-shoes-plus-66-percent-bpm",
+      "title": "Bad News in Good Shoes (+66% BPM)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/bad-news-in-good-shoes-plus-66-percent-bpm.mp3",
+      "duration": 228.664263,
+      "collection": "tonyai"
+    },
+    {
+      "id": "pocket-full-of-trouble-plus-33-percent-bpm",
+      "title": "Pocket Full of Trouble (+33% BPM)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/pocket-full-of-trouble-plus-33-percent-bpm.mp3",
+      "duration": 245.04,
+      "collection": "tonyai"
+    },
+    {
+      "id": "ball-and-chain-ai-remake",
+      "title": "Ball and Chain (AI Remake)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/ball-and-chain-ai-remake.mp3",
+      "duration": 225.953379,
+      "collection": "tonyai"
+    },
+    {
+      "id": "porchlight-static",
+      "title": "Porchlight Static",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/porchlight-static.mp3",
+      "duration": 246.34,
+      "collection": "tonyai"
+    },
+    {
+      "id": "saint-of-the-wrong-side",
+      "title": "Saint of the Wrong Side",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/saint-of-the-wrong-side.mp3",
+      "duration": 244.64,
+      "collection": "tonyai"
+    },
+    {
+      "id": "gas-station-crown",
+      "title": "Gas Station Crown",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/gas-station-crown.mp3",
+      "duration": 252.8,
+      "collection": "tonyai"
+    },
+    {
+      "id": "holding-it-down",
+      "title": "Holding it Down",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/holding-it-down.mp3",
+      "duration": 247.6,
+      "collection": "tonyai"
+    },
+    {
+      "id": "wishing-well",
+      "title": "Wishing Well",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/wishing-well.mp3",
+      "duration": 225.204467,
+      "collection": "tonyai"
+    },
+    {
+      "id": "round-and-round-acoustic",
+      "title": "Round and Round (Acoustic)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/round-and-round-acoustic.mp3",
+      "duration": 228.14,
+      "collection": "tonyai"
+    },
+    {
+      "id": "round-and-round",
+      "title": "Round and Round",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/round-and-round.mp3",
+      "duration": 235.826077,
+      "collection": "tonyai"
+    },
+    {
+      "id": "last-call-can-wait",
+      "title": "Last Call Can Wait",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/last-call-can-wait.mp3",
+      "duration": 229.9,
+      "collection": "tonyai"
+    },
+    {
+      "id": "who-keeps-score",
+      "title": "Who Keeps Score",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/who-keeps-score.mp3",
+      "duration": 240.0,
+      "collection": "tonyai"
+    },
+    {
+      "id": "no-receipt-for-this",
+      "title": "No Receipt for This",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/no-receipt-for-this.mp3",
+      "duration": 220.642857,
+      "collection": "tonyai"
+    },
+    {
+      "id": "wrong-side-of-whoa",
+      "title": "Wrong Side of Whoa",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/wrong-side-of-whoa.mp3",
+      "duration": 263.2,
+      "collection": "tonyai"
+    },
+    {
+      "id": "maw-maw-mayhem",
+      "title": "Maw Maw Mayhem",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/maw-maw-mayhem.mp3",
+      "duration": 240.0,
+      "collection": "tonyai"
+    },
+    {
+      "id": "heh-says-who",
+      "title": "Heh, Says Who",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/heh-says-who.mp3",
+      "duration": 184.736916,
+      "collection": "tonyai"
+    },
+    {
+      "id": "the-dial-has-gone-wild",
+      "title": "The Dial Has Gone Wild",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/the-dial-has-gone-wild.mp3",
+      "duration": 263.9,
+      "collection": "tonyai"
+    },
+    {
+      "id": "mouth-full-of-lightning",
+      "title": "Mouth Full of Lightning",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/mouth-full-of-lightning.mp3",
+      "duration": 227.84,
+      "collection": "tonyai"
+    },
+    {
+      "id": "shake-the-walls-awake",
+      "title": "Shake the Walls Awake",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/shake-the-walls-awake.mp3",
+      "duration": 215.44,
+      "collection": "tonyai"
+    },
+    {
+      "id": "keep-the-meter-running",
+      "title": "Keep the Meter Running",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/keep-the-meter-running.mp3",
+      "duration": 135.44,
+      "collection": "tonyai"
+    },
+    {
+      "id": "spin-cycle-sunday",
+      "title": "Spin Cycle Sunday",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/spin-cycle-sunday.mp3",
+      "duration": 120.869796,
+      "collection": "tonyai"
+    },
+    {
+      "id": "saints-of-the-parking-lot",
+      "title": "Saints of the Parking Lot",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/saints-of-the-parking-lot.mp3",
+      "duration": 143.44,
+      "collection": "tonyai"
+    },
+    {
+      "id": "fear-and-hunger-dungeon-rock",
+      "title": "Fear and Hunger (Dungeon Rock)",
+      "url": "/fearhunger/audio/fear-and-hunger-dungeon-rock.mp3",
+      "duration": 270.0,
+      "collection": "fearhunger"
+    },
+    {
+      "id": "fear-and-hunger-doom-blues",
+      "title": "Fear and Hunger (Doom Blues)",
+      "url": "/fearhunger/audio/fear-and-hunger-doom-blues.mp3",
+      "duration": 274.8,
+      "collection": "fearhunger"
+    },
+    {
+      "id": "fear-and-hunger-occult-swing",
+      "title": "Fear and Hunger (Occult Swing)",
+      "url": "/fearhunger/audio/fear-and-hunger-occult-swing.mp3",
+      "duration": 266.23863945578233,
+      "collection": "fearhunger"
+    }
+  ]
+}

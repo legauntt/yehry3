@@ -1,0 +1,19 @@
+{
+  "globalHeaders": {
+    "X-Robots-Tag": "noindex, nofollow, noarchive",
+    "X-Content-Type-Options": "nosniff",
+    "Referrer-Policy": "strict-origin-when-cross-origin",
+    "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' https:; connect-src 'self' https://chairlift.fly.dev; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+  },
+  "routes": [
+    {
+      "route": "/longtimecomin",
+      "redirect": "/longtimecomin/",
+      "statusCode": 301
+    },
+    { "route": "/admin", "redirect": "/admin/", "statusCode": 301 },
+    { "route": "/catalog.json", "headers": { "Cache-Control": "no-cache" } },
+    { "route": "/assets/*", "headers": { "Cache-Control": "no-cache" } }
+  ],
+  "mimeTypes": { ".mp3": "audio/mpeg" }
+}

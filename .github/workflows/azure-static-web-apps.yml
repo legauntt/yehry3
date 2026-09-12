@@ -1,0 +1,51 @@
+name: Deploy yehry3 to Azure
+
+on:
+  push:
+    branches: [talandar]
+  workflow_dispatch:
+
+concurrency:
+  group: yehry3-production
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Install test dependencies without downloading MongoDB
+        run: npm ci
+        env:
+          MONGOMS_DISABLE_POSTINSTALL: "1"
+      - name: Build and check the public site
+        run: |
+          npm run build
+          npm test
+      # Same GitHub identity flow as gatsby-opus. core is supplied by github-script.
+      - name: Get GitHub deployment identity
+        uses: actions/github-script@v7
+        id: identity
+        with:
+          script: return await core.getIDToken()
+          result-encoding: string
+      - name: Deploy the built static site
+        uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          github_id_token: ${{ steps.identity.outputs.result }}
+          action: upload
+          app_location: dist
+          api_location: ""
+          output_location: ""
+          skip_app_build: true
+          skip_api_build: true
+          production_branch: talandar
