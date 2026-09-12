@@ -2,6 +2,13 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-1d7840d9c9addba07ccabdb2",
+      "title": "Blood on My Shoes at Daybreak",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1d7840d9c9addba07ccabdb2-043701a808ad.mp3",
+      "duration": 241.74,
+      "collection": "distonyc"
+    },
+    {
       "id": "medusa-barbershop-midnight-marble",
       "title": "Medusa (Barbershop - Midnight Marble)",
       "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/medusa-barbershop-midnight-marble.mp3",
