@@ -22,7 +22,11 @@ const server = http.createServer(async (req, res) => {
       new URL(req.url, "http://localhost").pathname,
     );
     const redirect = routes.find(
-      (route) => route.route === pathname && route.redirect,
+      (route) =>
+        route.redirect &&
+        (route.route.endsWith("*")
+          ? pathname.startsWith(route.route.slice(0, -1))
+          : route.route === pathname),
     );
     if (redirect) {
       res.writeHead(redirect.statusCode || 302, {

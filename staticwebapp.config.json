@@ -8,13 +8,7 @@
   "routes": [
     { "route": "/distonyc", "redirect": "/distonyc/", "statusCode": 301 },
     {
-      "route": "/longtimecomin",
-      "redirect": "/distonyc/",
-      "statusCode": 301
-    },
-    { "route": "/longtimecomin/", "redirect": "/distonyc/", "statusCode": 301 },
-    {
-      "route": "/longtimecomin/index.html",
+      "route": "/longtimecomin*",
       "redirect": "/distonyc/",
       "statusCode": 301
     },
