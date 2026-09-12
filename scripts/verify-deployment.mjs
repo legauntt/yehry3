@@ -15,7 +15,7 @@ async function get(url, options = {}) {
   assert.ok(response.ok, `${url} returned ${response.status}`);
   return response;
 }
-for (const route of ["/", "/longtimecomin/", "/admin/"]) {
+for (const route of ["/", "/distonyc/", "/admin/"]) {
   const response = await get(`${site}${route}`);
   assert.match(response.headers.get("x-robots-tag") || "", /noindex/);
   const html = await response.text();
@@ -23,6 +23,23 @@ for (const route of ["/", "/longtimecomin/", "/admin/"]) {
   assert.match(html, /noindex,nofollow,noarchive/);
   console.log(`Page and headers verified: ${route}`);
 }
+for (const route of [
+  "/distonyc",
+  "/longtimecomin",
+  "/longtimecomin/",
+  "/longtimecomin/index.html",
+]) {
+  const response = await fetch(`${site}${route}`, {
+    redirect: "manual",
+    signal: AbortSignal.timeout(20000),
+  });
+  assert.equal(response.status, 301, `Missing permanent redirect: ${route}`);
+  assert.equal(
+    new URL(response.headers.get("location"), site).pathname,
+    "/distonyc/",
+  );
+}
+console.log("Distonyc route and legacy aliases verified.");
 for (const name of ["app.js", "api.js", "config.js", "site.css"]) {
   const expected = createHash("sha256")
     .update(await readFile(new URL(`../assets/${name}`, import.meta.url)))

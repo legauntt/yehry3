@@ -9,7 +9,7 @@ await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 for (const file of [
   "index.html",
-  "longtimecomin",
+  "distonyc",
   "admin",
   "assets",
   "catalog.json",

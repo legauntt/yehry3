@@ -30,7 +30,7 @@ test("both catalogs use unique stable IDs and valid playable URLs", async () => 
 test("all routes are built, unlisted, and contain no submission password or backend source", async () => {
   for (const page of [
     "index.html",
-    "longtimecomin/index.html",
+    "distonyc/index.html",
     "admin/index.html",
   ]) {
     const html = await readFile(

@@ -6,9 +6,16 @@
     "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' https:; connect-src 'self' https://chairlift.fly.dev; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
   },
   "routes": [
+    { "route": "/distonyc", "redirect": "/distonyc/", "statusCode": 301 },
     {
       "route": "/longtimecomin",
-      "redirect": "/longtimecomin/",
+      "redirect": "/distonyc/",
+      "statusCode": 301
+    },
+    { "route": "/longtimecomin/", "redirect": "/distonyc/", "statusCode": 301 },
+    {
+      "route": "/longtimecomin/index.html",
+      "redirect": "/distonyc/",
       "statusCode": 301
     },
     { "route": "/admin", "redirect": "/admin/", "statusCode": 301 },

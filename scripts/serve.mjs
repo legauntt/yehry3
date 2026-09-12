@@ -1,9 +1,12 @@
 import http from "node:http";
 import { createReadStream } from "node:fs";
-import { stat } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 const root = path.resolve(import.meta.dirname, "../dist");
 const port = Number(process.env.PORT || 8080);
+const { routes = [] } = JSON.parse(
+  await readFile(path.join(root, "staticwebapp.config.json"), "utf8"),
+);
 const types = {
   ".html": "text/html; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
@@ -18,6 +21,15 @@ const server = http.createServer(async (req, res) => {
     const pathname = decodeURIComponent(
       new URL(req.url, "http://localhost").pathname,
     );
+    const redirect = routes.find(
+      (route) => route.route === pathname && route.redirect,
+    );
+    if (redirect) {
+      res.writeHead(redirect.statusCode || 302, {
+        Location: redirect.redirect,
+      });
+      return res.end();
+    }
     let file = path.resolve(root, `.${pathname}`);
     if (!file.startsWith(root + path.sep) && file !== root)
       throw new Error("Invalid path");

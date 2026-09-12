@@ -2,12 +2,14 @@
 
 A static Tony C music site with a MongoDB voting and request API in the sibling **chairlift** repository.
 
-| Route             | Behavior                                                                                                                            |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `/`               | Both the Tony AI and Fear & Hunger catalogs; search, filters, vote sorting, Play all, Shuffle, seeking, previous/next and MP3 links |
-| `/longtimecomin/` | Password gate, initial idea, source/direction/preservation follow-up, final confirmation, and request status                        |
-| `/admin/`         | Separate admin login; paginated requests, filters/counts, priority, private notes, cancel/retry, production status, and history     |
-| `/fearhunger/`    | Preserved original three-track page, MP3s and lyrics                                                                                |
+| Route          | Behavior                                                                                                                            |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `/`            | Both the Tony AI and Fear & Hunger catalogs; search, filters, vote sorting, Play all, Shuffle, seeking, previous/next and MP3 links |
+| `/distonyc/`   | Password gate, initial idea, source/direction/preservation follow-up, final confirmation, and request status                        |
+| `/admin/`      | Separate admin login; paginated requests, filters/counts, priority, private notes, cancel/retry, production status, and history     |
+| `/fearhunger/` | Preserved original three-track page, MP3s and lyrics                                                                                |
+
+`/distonyc/` is the request page; `/longtimecomin` and `/longtimecomin/` permanently redirect there. The local preview mirrors these redirects.
 
 The site remains noindex. Existing audio files and URLs are preserved. The Tony AI tracks stream from their existing release URLs. Static `catalog.json` keeps listening available during API outages; voting is clearly disabled while offline.
 

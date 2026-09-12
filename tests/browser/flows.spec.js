@@ -36,7 +36,7 @@ test("catalog, search, player, and anonymous vote cooldown", async ({
 test("password, two turns, queue submission, admin priority, cancel and retry", async ({
   page,
 }) => {
-  await page.goto("/longtimecomin/");
+  await page.goto("/distonyc/");
   await expect(page.getByText("Never tell anyone your password")).toBeVisible();
   await page.getByLabel("Password", { exact: true }).fill("wrong");
   await page.getByRole("button", { name: "Let’s make something" }).click();
@@ -133,6 +133,7 @@ test("mobile layout, API outage, and escaped prompt content", async ({
     fullPage: false,
   });
   await page.goto("/longtimecomin");
+  await expect(page).toHaveURL(/\/distonyc\/$/);
   await page.getByLabel("Password", { exact: true }).fill("wishbone");
   await page.getByRole("button", { name: "Let’s make something" }).click();
   await page
