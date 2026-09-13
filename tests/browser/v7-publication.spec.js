@@ -5,10 +5,13 @@ test("V7 studies retain creation times, lyrics, and measured issue notices", asy
   await page.route("**/yehry3/songs", (route) => route.abort());
   await page.goto("/");
 
-  const titles = page.locator(".track h3");
-  await expect(titles.nth(0)).toHaveText("The Last Light in the Station (Tony V7 Study)");
-  await expect(titles.nth(1)).toHaveText("Spare Key Weather (Tony V7 Study)");
-  await expect(titles.nth(2)).toHaveText("Telephone Wire (Tony V7 Study)");
+  const visibleTitles = await page.locator(".track h3").allTextContents();
+  const v7Titles = visibleTitles.filter((title) => title.endsWith("(Tony V7 Study)"));
+  expect(v7Titles).toEqual([
+    "The Last Light in the Station (Tony V7 Study)",
+    "Spare Key Weather (Tony V7 Study)",
+    "Telephone Wire (Tony V7 Study)",
+  ]);
   const lastLight = page.locator('[data-id="the-last-light-in-the-station-tony-v7-study"]');
   const telephone = page.locator('[data-id="telephone-wire-tony-v7-study"]');
   await expect(lastLight.locator(".track-age")).toHaveAttribute(

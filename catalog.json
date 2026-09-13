@@ -10,7 +10,7 @@
       "collections": [
         "tonyai"
       ],
-      "publishedAt": "2026-09-13T08:19:58.588Z",
+      "publishedAt": "2026-09-13T07:33:08.013Z",
       "lyrics": {
         "text": "[Verse 1]\nThe telephone company sent me a bill\nFor a conversation I never could finish\nI held that receiver against the windowsill\nAnd watched the last light quietly diminish\nA woman said sir we can trace every call\nI said can you trace where the good ones go\nShe put me on hold with a hole in the wall\nAnd a little brass tune from a lifetime ago\n\n[Chorus]\nThere's a bird on the telephone wire\nAnd he's got nothing left to explain\nHe can sing over everyone's business\nHe can shake himself dry in the rain\nI've been paying to talk to the silence\nI've been waiting for somebody's sign\nThere's a bird on the telephone wire\nAnd tonight I'm taking back my line\n\n[Verse 2]\nMy neighbor came over with half of a peach\nAnd a story that wandered all over the county\nHe said what you want is a little more reach\nI said what I want is somebody around me\nWe sat on the steps as the buses went by\nAnd the peach got divided into smaller pieces\nHe told me a joke and forgot all the why\nBut we laughed till the trouble began to release us\n\n[Chorus]\nThere's a bird on the telephone wire\nAnd he's got nothing left to explain\nHe can sing over everyone's business\nHe can shake himself dry in the rain\nI've been paying to talk to the silence\nI've been waiting for somebody's sign\nThere's a bird on the telephone wire\nAnd tonight I'm taking back my line\n\n[Bridge]\nHello to the woman who answered\nHello to the room down the hall\nTell the machine I've gone outside\nI don't need it to carry this call\nThere is a porch and a person beside me\nThere is a laugh I can hear without trying\n\n[Final Chorus]\nThere's a bird on the telephone wire\nAnd he's got nothing left to explain\nHe can sing over everyone's business\nHe can shake himself dry in the rain\nI'm done sending my voice into nowhere\nThere is someone who knows it is mine\nThere's a bird on the telephone wire\nAnd tonight I'm taking back my line",
         "kind": "written",
@@ -263,7 +263,7 @@
       "collections": [
         "tonyai"
       ],
-      "publishedAt": "2026-09-13T08:19:58.588Z",
+      "publishedAt": "2026-09-13T07:42:30.218Z",
       "lyrics": {
         "text": "[Verse 1]\nYou left a key inside a coffee tin\nUnderneath the pot where nothing grows\nYou said the lock gets stubborn when the rain comes in\nLift the handle gently when it goes\nI kept your note behind a grocery list\nBread and apples written over June\nThere were other little things I must have missed\nA chair pulled out and waiting in the room\n\n[Chorus]\nIt's spare key weather\nThe sky is coming down\nWe don't have to put ourselves together\nBefore we come around\nLeave your coat beside the heater\nLet the water mark the floor\nIt's spare key weather\nYou don't have to knock on this door\n\n[Verse 2]\nI used to think a visit needed reasons\nA birthday or a ladder I could lend\nI let a hundred ordinary evenings\nDisappear before I called a friend\nTonight the road is shining like a river\nI carry nothing useful in my hands\nThe little key is cold against my fingers\nThe handle lifts exactly like you planned\n\n[Chorus]\nIt's spare key weather\nThe sky is coming down\nWe don't have to put ourselves together\nBefore we come around\nLeave your coat beside the heater\nLet the water mark the floor\nIt's spare key weather\nYou don't have to knock on this door\n\n[Bridge]\nYou look up from the kitchen\nLike I've only been a minute\nThere is tea enough for another cup\nAnd a little room left in it\nI start to say I'm sorry\nYou ask me how I've been\nThe rain can keep the whole wide world\nTonight you let me in\n\n[Final Chorus]\nIt's spare key weather\nThe sky is coming down\nWe can sit here coming back together\nWith the whole storm all around\nLeave the light beside the window\nLeave the boots across the floor\nIt's spare key weather\nI remembered what the key was for",
         "kind": "written",
@@ -520,7 +520,7 @@
       "collections": [
         "tonyai"
       ],
-      "publishedAt": "2026-09-13T08:19:58.588Z",
+      "publishedAt": "2026-09-13T07:56:33.561Z",
       "lyrics": {
         "text": "[Verse 1]\nThey took the numbers off the platform wall\nThey rolled the timetable into a tube\nThe station clock still heard the morning call\nAnd moved its hands although the trains were through\nI had a ring of keys and thirty years\nA broom that knew the corners of the place\nI swept the tickets out from underneath the chairs\nAnd found a child's drawing of my face\n\n[Chorus]\nI'll leave the last light in the station\nTill the morning finds its way\nFor the ones who missed their destination\nFor the ones who couldn't stay\nIf you see it through the weather\nIf you're coming down the line\nThere's a little room to wait together\nAnd the last light will be mine\n\n[Verse 2]\nA man arrived with flowers in his coat\nHe hadn't heard the service had been ended\nHe showed me where his daughter's hand had wrote\nThe time and place their distance could be mended\nI brought him to the office telephone\nHe stood so straight and struggled with her number\nI stepped outside and left him there alone\nAnd heard his voice grow younger through the timber\n\n[Chorus]\nI'll leave the last light in the station\nTill the morning finds its way\nFor the ones who missed their destination\nFor the ones who couldn't stay\nIf you see it through the weather\nIf you're coming down the line\nThere's a little room to wait together\nAnd the last light will be mine\n\n[Bridge]\nA car pulled up at half past seven\nShe ran across the empty square\nI never saw a train arrive\nThat brought so much as seeing her there\nThey asked if I was heading home\nI turned the key and joined them in the air\n\n[Final Chorus]\nThere's a last light in the station\nAnd the morning found its way\nFor the ones who changed their destination\nFor the ones who chose to stay\nYou can see it through the weather\nLike a star above the line\nThere was room enough to wait together\nNow the road ahead is mine",
         "kind": "written",
@@ -1051,7 +1051,8 @@
         "direction": "Circus polka",
         "keep": "Chorus should contain a battle cry",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T08:24:25.484Z"
     },
     {
       "id": "distonyc-c3eb65ce405cdf80548dbb9b",
@@ -1244,7 +1245,8 @@
         "direction": "Horrorcore",
         "keep": "Khoisan",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T06:48:17.734Z"
     },
     {
       "id": "distonyc-4c65e7a9ef69da33a2c99197",
@@ -1477,7 +1479,8 @@
         "direction": "Arabic throat singing, rainy rap song, top 40",
         "keep": "Tony's slurred delivery",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T06:26:46.034Z"
     },
     {
       "id": "distonyc-2b632b6e36f68c60423536b5",
@@ -1931,7 +1934,8 @@
         "direction": "Country twang, Brad Paisley",
         "keep": "The puns.",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T06:13:26.270Z"
     },
     {
       "id": "distonyc-cde0ad6343e70356fe5b56e1",
@@ -2314,7 +2318,8 @@
         "direction": "Clown dubstep",
         "keep": "Explicit lyrics",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T05:57:34.859Z"
     },
     {
       "id": "distonyc-6de1a50ad6f84fe463d243b2",
@@ -2676,7 +2681,8 @@
         "direction": "Arab throat singing",
         "keep": "Too many changes in the music industry",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T05:37:45.654Z"
     },
     {
       "id": "distonyc-e9255c87b777e990eb5bddc3",
@@ -2999,7 +3005,8 @@
         "direction": "R&B, like R Kelley's \"Trapped in the Closet\"",
         "keep": "Capture as much as you can from The Room - e.g. dialogue, script, etc. Do your best.",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T05:28:48.782Z"
     },
     {
       "id": "distonyc-cc22e422494bc3ff4c41144e",
@@ -3387,7 +3394,8 @@
         "direction": "Neosynth, Starcraft melodies if possible",
         "keep": "Surprise me",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T05:21:13.125Z"
     },
     {
       "id": "distonyc-e43ffa90011dfcc2e6231361",
@@ -3709,7 +3717,8 @@
         "direction": "Horror polka",
         "keep": "Creative romantic and explicit lyrics",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T05:08:18.837Z"
     },
     {
       "id": "distonyc-2fa58c544bb2ea097683cd8e",
@@ -3971,7 +3980,8 @@
         "direction": "Medieval fantasy, riddles, dragons, tricks",
         "keep": "Must include a riddle and some scraped dialogue from the YouTube videos (use whisper to get that). You may also sample audio",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T04:56:21.902Z"
     },
     {
       "id": "distonyc-29c9f7c1321d4395579ab62f",
@@ -4259,7 +4269,8 @@
         "direction": "Frustration, industrial, jazz, synth",
         "keep": "Mention the recipe for Enigma, capture the pain of farming Lower Kurast for 10 hours straight",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T04:31:06.742Z"
     },
     {
       "id": "distonyc-1890743a4fe0a0b8b8e4486c",
@@ -4534,7 +4545,8 @@
         "basisSongs": [
           "Medusa"
         ]
-      }
+      },
+      "publishedAt": "2026-09-13T04:18:19.892Z"
     },
     {
       "id": "distonyc-5dcc03f7a816c3e812f62173",
@@ -4818,7 +4830,8 @@
         "basisSongs": [
           "Gravity"
         ]
-      }
+      },
+      "publishedAt": "2026-09-13T04:11:31.196Z"
     },
     {
       "id": "distonyc-268867386d96f37bbadc6d45",
@@ -5070,7 +5083,8 @@
         "direction": "Alien, mysterious, gradually two friends reuniting but under dark circumstances",
         "keep": "Must include \"James Raynor I bring tidings of doom\" in an ominous voice",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T04:02:11.089Z"
     },
     {
       "id": "distonyc-1bedc02aaedbb1663d5fdcd9",
@@ -5423,7 +5437,8 @@
         "direction": "Darkwave horror circus power pop",
         "keep": "Explicit lyrics",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T03:29:32.987Z"
     },
     {
       "id": "distonyc-f2934cba2d2636b3a71d19a3",
@@ -5691,7 +5706,8 @@
         "direction": "Probably some whistling, choo choo, train conductor stuff",
         "keep": "Surprise me",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T03:03:14.991Z"
     },
     {
       "id": "distonyc-bb1f8f4a13e2bb624b3a22b8",
@@ -6155,7 +6171,8 @@
         "direction": "Powerful circus rhythms",
         "keep": "Inclusion of the line \"men be hung; horses go.\"",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T02:28:21.126Z"
     },
     {
       "id": "distonyc-ec1e60f540ac1cdfd2c7a081",
@@ -6532,7 +6549,8 @@
         "direction": "Two drunkards talking about the old times",
         "keep": "Include D2 Lore; Include Tony C mannerisms",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T02:25:53.748Z"
     },
     {
       "id": "distonyc-ade0b730b6386af1bb6bca31",
@@ -6920,7 +6938,8 @@
         "direction": "Electronic circus dance",
         "keep": "Edgy and jarring lyrics",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T02:18:04.787Z"
     },
     {
       "id": "distonyc-a734d712272790dbf9ce12bf",
@@ -7364,7 +7383,8 @@
         "basisSongs": [
           "Little Bit More"
         ]
-      }
+      },
+      "publishedAt": "2026-09-13T01:59:28.671Z"
     },
     {
       "id": "distonyc-245e1b240319256167d21431",
@@ -7758,7 +7778,8 @@
         "direction": "Circus music EBM",
         "keep": "Tony's slurred delivery and lore accurate lyrics",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T00:30:30.775Z"
     },
     {
       "id": "distonyc-609553f2a923b2c357f98efd",
@@ -8105,7 +8126,8 @@
         "direction": "Sea shanty, v6 tonyc voice",
         "keep": "Repeating \"One more round\" with growing enthusiasm",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-13T00:22:16.429Z"
     },
     {
       "id": "the-stone-i-carried-desert-psychedelia",
@@ -8402,7 +8424,8 @@
             "end": 261.53
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T22:02:53.131Z"
     },
     {
       "id": "khalim-still-has-a-heart-dark-ska-soul",
@@ -8699,7 +8722,8 @@
             "end": 253.04
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T22:13:07.524Z"
     },
     {
       "id": "when-arreat-fell-symphonic-power-metal",
@@ -8996,7 +9020,8 @@
             "end": 237.78
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T22:23:36.861Z"
     },
     {
       "id": "distonyc-cef35c70fb5cdf1ec2c48d0d",
@@ -9349,7 +9374,8 @@
         "direction": "Power circus EDM",
         "keep": "Shoes",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-12T23:54:09.786Z"
     },
     {
       "id": "distonyc-1d7840d9c9addba07ccabdb2",
@@ -9697,7 +9723,8 @@
         "direction": "Electronic",
         "keep": "surprise me",
         "basisSongs": []
-      }
+      },
+      "publishedAt": "2026-09-12T23:33:58.552Z"
     },
     {
       "id": "medusa-barbershop-midnight-marble",
@@ -9825,7 +9852,8 @@
             "end": 257.64
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T21:10:49.461Z"
     },
     {
       "id": "one-4-the-road-barbershop-last-call",
@@ -9998,7 +10026,8 @@
             "end": 147.1
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T20:52:59.521Z"
     },
     {
       "id": "ball-and-chain-barbershop-four-tonys",
@@ -10176,7 +10205,8 @@
             "end": 219.88
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T20:42:18.898Z"
     },
     {
       "id": "no-pain-celtic-storm",
@@ -10454,7 +10484,8 @@
             "end": 211.2
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T12:00:13.379Z"
     },
     {
       "id": "no-pain-bossa-afterhours",
@@ -10732,7 +10763,8 @@
             "end": 227.73
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T11:58:48.686Z"
     },
     {
       "id": "no-pain-ai-remix",
@@ -10940,7 +10972,8 @@
             "end": 284.14
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T11:39:38.972Z"
     },
     {
       "id": "gravity-neon-synthwave",
@@ -11303,7 +11336,8 @@
             "end": 246.54
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T09:45:02.509Z"
     },
     {
       "id": "gravity-afrobeat-orbit",
@@ -11656,7 +11690,8 @@
             "end": 236.1
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T08:47:02.062Z"
     },
     {
       "id": "gravity-ai-remix",
@@ -11774,7 +11809,8 @@
             "end": 300.56
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T08:21:23.460Z"
     },
     {
       "id": "fight-for-your-right-bluegrass-barnstorm",
@@ -12077,7 +12113,8 @@
             "end": 252.08
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T07:03:01.114Z"
     },
     {
       "id": "fight-for-your-right-disco-boogie",
@@ -12380,7 +12417,8 @@
             "end": 246.08
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T06:30:14.486Z"
     },
     {
       "id": "fight-for-your-right-ai-remix",
@@ -12513,7 +12551,8 @@
             "end": 174.59
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T06:19:05.835Z"
     },
     {
       "id": "got-it-made-liquid-drum-and-bass",
@@ -12886,7 +12925,8 @@
             "end": 219.1
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T05:54:21.181Z"
     },
     {
       "id": "got-it-made-tango-noir",
@@ -13179,7 +13219,8 @@
             "end": 244.52
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T05:41:27.525Z"
     },
     {
       "id": "got-it-made-ai-remix",
@@ -13412,7 +13453,8 @@
             "end": 239.98
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T05:32:04.136Z"
     },
     {
       "id": "little-bit-more-midnight-dub",
@@ -13730,7 +13772,8 @@
             "end": 215.16
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T04:38:45.000Z"
     },
     {
       "id": "little-bit-more-bayou-brass",
@@ -14088,7 +14131,8 @@
             "end": 242.13
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T04:32:41.682Z"
     },
     {
       "id": "little-bit-more-ai-remix",
@@ -14321,7 +14365,8 @@
             "end": 199.46
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T04:25:20.023Z"
     },
     {
       "id": "round-and-round-brass-and-groove",
@@ -14644,7 +14689,8 @@
             "end": 249.7
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-11T16:57:44.098Z"
     },
     {
       "id": "round-and-round-after-hours-acoustic",
@@ -14822,7 +14868,8 @@
             "end": 221.26
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-11T16:47:52.833Z"
     },
     {
       "id": "round-and-round-ai-remix",
@@ -15000,7 +15047,8 @@
             "end": 221.26
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-11T16:46:29.954Z"
     },
     {
       "id": "medusa-industrial-rendition",
@@ -15403,7 +15451,8 @@
             "end": 244.4
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-11T06:52:56.272Z"
     },
     {
       "id": "medusa-church-choir",
@@ -15571,7 +15620,8 @@
             "end": 257.64
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-11T06:52:54.946Z"
     },
     {
       "id": "medusa-ai-remix",
@@ -15699,7 +15749,8 @@
             "end": 257.64
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-11T06:41:41.684Z"
     },
     {
       "id": "movin-on-v6-extended",
@@ -16212,7 +16263,8 @@
             "end": 263.4
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-11T05:55:46.983Z"
     },
     {
       "id": "glosky-acoustic",
@@ -16520,7 +16572,8 @@
             "end": 228.22
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-11T01:52:33.865Z"
     },
     {
       "id": "someday-magic-vaccine-opera",
@@ -16853,7 +16906,8 @@
             "end": 255.52
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-11T00:29:01.069Z"
     },
     {
       "id": "too-fast-for-sunday-plus-99-percent-bpm",
@@ -17231,7 +17285,8 @@
             "end": 211.4
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-11T00:13:26.902Z"
     },
     {
       "id": "bad-news-in-good-shoes-plus-66-percent-bpm",
@@ -17559,7 +17614,8 @@
             "end": 228.32
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-11T00:00:06.375Z"
     },
     {
       "id": "pocket-full-of-trouble-plus-33-percent-bpm",
@@ -17887,7 +17943,8 @@
             "end": 242.14
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T23:51:55.724Z"
     },
     {
       "id": "ball-and-chain-ai-remake",
@@ -18065,7 +18122,8 @@
             "end": 219.88
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T22:49:53.184Z"
     },
     {
       "id": "porchlight-static",
@@ -18323,7 +18381,8 @@
             "end": 228.04
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T22:09:17.221Z"
     },
     {
       "id": "saint-of-the-wrong-side",
@@ -18621,7 +18680,8 @@
             "end": 231.74
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T22:02:16.986Z"
     },
     {
       "id": "gas-station-crown",
@@ -18909,7 +18969,8 @@
             "end": 243.22
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T21:53:18.741Z"
     },
     {
       "id": "holding-it-down",
@@ -19212,7 +19273,8 @@
             "end": 239.5
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T10:05:25.609Z"
     },
     {
       "id": "wishing-well",
@@ -19510,7 +19572,8 @@
             "end": 214.65
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T08:31:52.798Z"
     },
     {
       "id": "round-and-round-acoustic",
@@ -19758,7 +19821,8 @@
             "end": 209.38
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T08:22:37.120Z"
     },
     {
       "id": "round-and-round",
@@ -20006,7 +20070,8 @@
             "end": 209.46
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T07:33:24.138Z"
     },
     {
       "id": "last-call-can-wait",
@@ -20309,7 +20374,8 @@
             "end": 228.8
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T06:04:47.438Z"
     },
     {
       "id": "who-keeps-score",
@@ -20612,7 +20678,8 @@
             "end": 239.53
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T05:39:24.472Z"
     },
     {
       "id": "no-receipt-for-this",
@@ -20915,7 +20982,8 @@
             "end": 195.76
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-10T05:09:46.262Z"
     },
     {
       "id": "wrong-side-of-whoa",
@@ -21243,7 +21311,8 @@
             "end": 260.56
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-09T09:51:48.028Z"
     },
     {
       "id": "maw-maw-mayhem",
@@ -21526,7 +21595,8 @@
             "end": 216.78
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-09T09:03:30.303Z"
     },
     {
       "id": "heh-says-who",
@@ -21809,7 +21879,8 @@
             "end": 184.38
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-09T08:43:49.510Z"
     },
     {
       "id": "the-dial-has-gone-wild",
@@ -22152,7 +22223,8 @@
             "end": 256.16
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-08T23:56:49.243Z"
     },
     {
       "id": "mouth-full-of-lightning",
@@ -22425,7 +22497,8 @@
             "end": 224.72
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-08T23:41:28.235Z"
     },
     {
       "id": "shake-the-walls-awake",
@@ -22703,7 +22776,8 @@
             "end": 212.0
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-08T22:57:36.074Z"
     },
     {
       "id": "keep-the-meter-running",
@@ -22866,7 +22940,8 @@
             "end": 113.24
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-08T20:21:43.537Z"
     },
     {
       "id": "spin-cycle-sunday",
@@ -23029,7 +23104,8 @@
             "end": 109.12
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-08T20:01:07.463Z"
     },
     {
       "id": "saints-of-the-parking-lot",
@@ -23192,7 +23268,8 @@
             "end": 139.1
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-08T19:59:47.009Z"
     },
     {
       "id": "fear-and-hunger-dungeon-rock",
@@ -23545,7 +23622,8 @@
             "end": 241.5
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T10:54:28.018Z"
     },
     {
       "id": "fear-and-hunger-doom-blues",
@@ -23898,7 +23976,8 @@
             "end": 239.36
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T11:10:18.835Z"
     },
     {
       "id": "fear-and-hunger-occult-swing",
@@ -24251,7 +24330,8 @@
             "end": 253.67
           }
         ]
-      }
+      },
+      "publishedAt": "2026-09-12T11:23:39.451Z"
     }
   ]
 }
