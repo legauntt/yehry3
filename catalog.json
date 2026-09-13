@@ -2,6 +2,406 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-41122cfa1d30d985e40d357b",
+      "title": "Nine-Eleven'd Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-41122cfa1d30d985e40d357b-b6742677aca4.mp3",
+      "duration": 220,
+      "collection": "distonyc",
+      "authoredBy": "Scythe",
+      "lyrics": {
+        "text": "[Intro]\nLoad the dungeon, strike a match\nTony's got a rusty latch\nSays, “This time I know the route”\nFirst dark hallway—lights go out\n\n[Verse 1]\nFound a bonesaw, lost a shoe\nSomething hungry chewed straight through\nMissed the coin flip, broke his arm\nStepped on every fucking harm\nGuard came dragging down the hall\nTony ducked behind the wall\nFloor gave way beneath him then\nGoddamn—nine-eleven'd again\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony growls, “Aw, son of a bitch”\nLoads that miserable save from six\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Verse 2]\nBack downstairs with half a map\nDodged the dogs and found a trap\nFed the girl and saved his meat\nCrow Mauler dropped him through the street\nTony leaned into the screen\n“That's the cheapest shit I've seen”\nLit a smoke and counted ten\nGot up—nine-eleven'd again\n\n[Pre-Chorus]\nNow his grin is getting crooked\nEvery guide says he mistook it\nEvery doorway smells like doom\nStill he kicks into the room\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony snarls, “You rigged this shit”\nThrows the mouse but will not quit\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Bridge]\nCoin in the air—call it clean\nHeads means mercy, tails gets mean\nIt hits the stone, it rolls from sight\nDungeon laughs and kills the light\nTony mutters, low and slow\n“You ain't tellin' me to go”\nBlood at one and mind at ten\nHe crawls toward the throne again\n\n[Breakdown]\nNo food left\nNo good limb\nNo clean save\nStill goes in\nBell starts shaking\nCeiling bends\nTony sees it—“Not this again!”\n\n[Final Verse]\nPast the prison, past the mines\nPast the rotten gods and signs\nEvery loss has taught his hands\nWhere the blade falls, where it lands\nLast door opens, pale and wide\nAll that spite walks in beside him\nDungeon offers one last spin\nTony laughs, “Then let me win.”\n\n[Final Chorus]\nNine-eleven'd again—\nBut he rises through the din\nLet it crash, he'll crawl back in\nNo more begging at the end\nTony roars, “You hungry pit,\nI can die all night, you prick!”\nFear in the dark, but fire within\nYou can nine-eleven him again—\nHe'll load that bastard save and win\n\n[Outro]\nScreen goes black, the final chord bends\nTony grins: “Now who's annoyed, my friend?”",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.78,
+            "end": 7
+          },
+          {
+            "line": 2,
+            "start": 7.48,
+            "end": 10.86
+          },
+          {
+            "line": 3,
+            "start": 11.56,
+            "end": 14.68
+          },
+          {
+            "line": 4,
+            "start": 15.74,
+            "end": 18.68
+          },
+          {
+            "line": 7,
+            "start": 20.86,
+            "end": 23.06
+          },
+          {
+            "line": 8,
+            "start": 23.52,
+            "end": 25.06
+          },
+          {
+            "line": 9,
+            "start": 25.44,
+            "end": 26.94
+          },
+          {
+            "line": 10,
+            "start": 27.3,
+            "end": 29.36
+          },
+          {
+            "line": 11,
+            "start": 29.36,
+            "end": 31.24
+          },
+          {
+            "line": 12,
+            "start": 31.24,
+            "end": 33.24
+          },
+          {
+            "line": 13,
+            "start": 33.24,
+            "end": 34.74
+          },
+          {
+            "line": 14,
+            "start": 34.74,
+            "end": 36.6
+          },
+          {
+            "line": 17,
+            "start": 36.6,
+            "end": 38.6
+          },
+          {
+            "line": 18,
+            "start": 39.84,
+            "end": 42.92
+          },
+          {
+            "line": 19,
+            "start": 42.92,
+            "end": 45.66
+          },
+          {
+            "line": 20,
+            "start": 45.66,
+            "end": 52.98
+          },
+          {
+            "line": 21,
+            "start": 52.98,
+            "end": 54.76
+          },
+          {
+            "line": 22,
+            "start": 54.76,
+            "end": 56
+          },
+          {
+            "line": 23,
+            "start": 56,
+            "end": 57.78
+          },
+          {
+            "line": 24,
+            "start": 57.78,
+            "end": 60.14
+          },
+          {
+            "line": 27,
+            "start": 63.7,
+            "end": 65.56
+          },
+          {
+            "line": 28,
+            "start": 65.98,
+            "end": 68.14
+          },
+          {
+            "line": 29,
+            "start": 68.14,
+            "end": 69.8
+          },
+          {
+            "line": 30,
+            "start": 69.8,
+            "end": 71.4
+          },
+          {
+            "line": 31,
+            "start": 72.06,
+            "end": 73.34
+          },
+          {
+            "line": 32,
+            "start": 73.86,
+            "end": 75.34
+          },
+          {
+            "line": 33,
+            "start": 75.84,
+            "end": 77.32
+          },
+          {
+            "line": 34,
+            "start": 77.72,
+            "end": 79.1
+          },
+          {
+            "line": 37,
+            "start": 79.7,
+            "end": 81.14
+          },
+          {
+            "line": 38,
+            "start": 81.7,
+            "end": 83.36
+          },
+          {
+            "line": 39,
+            "start": 83.36,
+            "end": 85.12
+          },
+          {
+            "line": 40,
+            "start": 85.12,
+            "end": 87.06
+          },
+          {
+            "line": 43,
+            "start": 87.32,
+            "end": 88.92
+          },
+          {
+            "line": 44,
+            "start": 90.32,
+            "end": 93.18
+          },
+          {
+            "line": 45,
+            "start": 94.22,
+            "end": 97.38
+          },
+          {
+            "line": 46,
+            "start": 99.24,
+            "end": 102.22
+          },
+          {
+            "line": 47,
+            "start": 102.22,
+            "end": 104.58
+          },
+          {
+            "line": 48,
+            "start": 104.58,
+            "end": 105.6
+          },
+          {
+            "line": 49,
+            "start": 105.6,
+            "end": 108.04
+          },
+          {
+            "line": 50,
+            "start": 108.04,
+            "end": 110.36
+          },
+          {
+            "line": 53,
+            "start": 114.62,
+            "end": 115.88
+          },
+          {
+            "line": 54,
+            "start": 116.26,
+            "end": 117.96
+          },
+          {
+            "line": 55,
+            "start": 118.1,
+            "end": 119.88
+          },
+          {
+            "line": 56,
+            "start": 120.54,
+            "end": 121.74
+          },
+          {
+            "line": 57,
+            "start": 122.32,
+            "end": 123.6
+          },
+          {
+            "line": 58,
+            "start": 124.14,
+            "end": 125.62
+          },
+          {
+            "line": 59,
+            "start": 126.02,
+            "end": 127.36
+          },
+          {
+            "line": 60,
+            "start": 127.36,
+            "end": 129.54
+          },
+          {
+            "line": 63,
+            "start": 130.26,
+            "end": 131.48
+          },
+          {
+            "line": 64,
+            "start": 132.3,
+            "end": 133.42
+          },
+          {
+            "line": 65,
+            "start": 134.16,
+            "end": 135.44
+          },
+          {
+            "line": 66,
+            "start": 135.96,
+            "end": 137.38
+          },
+          {
+            "line": 67,
+            "start": 137.72,
+            "end": 138.96
+          },
+          {
+            "line": 68,
+            "start": 139.58,
+            "end": 140.46
+          },
+          {
+            "line": 69,
+            "start": 141.16,
+            "end": 143.46
+          },
+          {
+            "line": 72,
+            "start": 145.22,
+            "end": 146.96
+          },
+          {
+            "line": 73,
+            "start": 147.36,
+            "end": 148.88
+          },
+          {
+            "line": 74,
+            "start": 149.34,
+            "end": 150.8
+          },
+          {
+            "line": 75,
+            "start": 150.8,
+            "end": 152.66
+          },
+          {
+            "line": 76,
+            "start": 153.3,
+            "end": 154.64
+          },
+          {
+            "line": 77,
+            "start": 155.18,
+            "end": 156.82
+          },
+          {
+            "line": 78,
+            "start": 157.06,
+            "end": 158.62
+          },
+          {
+            "line": 79,
+            "start": 158.98,
+            "end": 160.56
+          },
+          {
+            "line": 82,
+            "start": 160.56,
+            "end": 162.46
+          },
+          {
+            "line": 83,
+            "start": 163.5,
+            "end": 166.64
+          },
+          {
+            "line": 84,
+            "start": 167.32,
+            "end": 170.56
+          },
+          {
+            "line": 85,
+            "start": 171.34,
+            "end": 175.62
+          },
+          {
+            "line": 86,
+            "start": 175.62,
+            "end": 177.48
+          },
+          {
+            "line": 87,
+            "start": 177.8,
+            "end": 179.44
+          },
+          {
+            "line": 88,
+            "start": 180.38,
+            "end": 181.7
+          },
+          {
+            "line": 89,
+            "start": 182.2,
+            "end": 184.22
+          },
+          {
+            "line": 90,
+            "start": 185.1,
+            "end": 187.92
+          },
+          {
+            "line": 93,
+            "start": 189.32,
+            "end": 192.1
+          },
+          {
+            "line": 94,
+            "start": 192.84,
+            "end": 195.92
+          }
+        ]
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 23.86
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony C tries to beat Fear & Hunger, but he keeps getting 9/11'd, annoying him more and more",
+        "direction": "Use the prompt as written.",
+        "keep": "Explicit content",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-841de4ec654a405e36f42a40",
       "title": "Ghost Wings Over Deadmans Port",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-841de4ec654a405e36f42a40-897a5205d362.mp3",
