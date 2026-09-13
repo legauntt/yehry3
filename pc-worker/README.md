@@ -10,6 +10,8 @@ Local audio models still perform composition, separation, Tony V6 voice conversi
 
 The same planning call marks a song for the Fear & Hunger collection only when the games, characters, or story are clearly its subject. New plans include this boolean; older saved plans remain valid without rewriting their frozen inputs. All generated songs also remain in Distonyc requests.
 
+Publication includes the original confirmed idea, direction, preferences, and basis-song titles for the public “Original prompt” sheet. The worker copies these allowed fields from the saved request; Chairlift derives the same snapshot from Mongo. Private notes, identities, leases, and local file paths are excluded. This adds no model call and does not modify the cached creative plan or recording.
+
 ## Requests and limits
 
 - The saved full-catalog **Tony V6 voice is mandatory**. No new voice training occurs.

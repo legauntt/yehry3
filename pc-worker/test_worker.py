@@ -3,7 +3,7 @@ from pathlib import Path
 from unittest.mock import patch
 from common import APIError, fingerprint, load, save, sha
 from planner import validate, make_plan, normalize
-from publish import merge_catalog, update_catalog
+from publish import merge_catalog, update_catalog, song_record, original_prompt
 from worker import run_once, basis_files, metadata
 from winprocess import Stopped, run_owned
 from lyrics import make_sheet, export_sheet
@@ -15,6 +15,16 @@ def plan():
         'preserve_generated_backing': True, 'explanation': 'Original Tony song'}
 
 class WorkerTests(unittest.TestCase):
+    def test_original_prompt_uses_confirmed_brief_without_private_fields(self):
+        prompt = {'prompt': 'Medusa as a quartet', 'details': {'direction': 'Four voices', 'keep': 'Tony vocals', 'basisSongTitles': ['Medusa'], 'privatePath': 'C:\\private'},
+                  'adminNote': 'private', 'lease': {'secret': 'private'}, 'songId': 'distonyc-one', 'releaseUrl': 'https://example.com/song.mp3',
+                  'result': {'title': 'Song', 'duration': 200, 'originalPrompt': {'idea': 'Spoofed'}}}
+        brief = {'idea': 'Medusa as a quartet', 'direction': 'Four voices', 'keep': 'Tony vocals', 'basisSongs': ['Medusa']}
+        self.assertEqual(song_record(prompt)['originalPrompt'], brief)
+        self.assertNotIn('adminNote', song_record(prompt))
+        self.assertEqual(original_prompt({**prompt, 'details': {}})['basisSongs'], [])
+        self.assertEqual(original_prompt({**prompt, 'details': {'basisSongTitles': ['A', 'B', 'C', 'D', 'E']}})['basisSongs'], ['A', 'B', 'C', 'D', 'E'])
+
     def test_lyrics_use_frozen_render_inputs_and_preserve_export(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); work = root / 'render'; work.mkdir()

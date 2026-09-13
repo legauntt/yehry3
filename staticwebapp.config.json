@@ -7,6 +7,11 @@
   },
   "routes": [
     {
+      "route": "/original-prompt",
+      "redirect": "/original-prompt/",
+      "statusCode": 301
+    },
+    {
       "route": "/fearhunger",
       "redirect": "/fearhunger/",
       "statusCode": 301
@@ -51,11 +56,15 @@
     },
     {
       "route": "/fearhunger/fearhunger.js",
-      "headers": { "Cache-Control": "no-cache" }
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
     },
     {
       "route": "/fearhunger/fearhunger.css",
-      "headers": { "Cache-Control": "no-cache" }
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
     },
     {
       "route": "/queue",

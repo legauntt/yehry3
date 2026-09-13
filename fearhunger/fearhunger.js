@@ -113,7 +113,7 @@ function update(songs) {
       card.dataset.songId = song.id;
       card.dataset.generated = "true";
       card.innerHTML =
-        '<span class="track-number" aria-hidden="true"></span><div class="track-body"><div class="track-heading"><h3></h3><span class="duration"></span></div><p class="track-description">A Tony C song from the studio request queue.</p><audio controls preload="none"></audio><a class="download" target="_blank" rel="noopener">Open MP3 ↗</a><a class="lyrics-link" hidden>Lyrics ↗</a></div>';
+        '<span class="track-number" aria-hidden="true"></span><div class="track-body"><div class="track-heading"><h3></h3><span class="duration"></span></div><p class="track-description">A Tony C song from the studio request queue.</p><audio controls preload="none"></audio><a class="download" target="_blank" rel="noopener">Open MP3 ↗</a><a class="lyrics-link" hidden>Lyrics ↗</a><a class="original-prompt-link" hidden>Original prompt ↗</a></div>';
       card.querySelector("h3").id = "title-" + song.id;
       card.querySelector("h3").textContent = song.title;
       card.querySelector(".duration").textContent = duration(song.duration);
@@ -140,6 +140,11 @@ function update(songs) {
     if (song.lyrics?.text) {
       lyrics.href = "/lyrics/?song=" + encodeURIComponent(song.id);
       lyrics.hidden = false;
+    }
+    const original = card.querySelector(".original-prompt-link");
+    if (original && song.originalPrompt) {
+      original.href = "/original-prompt/?song=" + encodeURIComponent(song.id);
+      original.hidden = false;
     }
   }
   // Keep a currently playing track alive if its tags change during a refresh.

@@ -438,6 +438,17 @@ main {
   filter: drop-shadow(3px 7px 0 #192b2433);
   pointer-events: none;
 }
+.sleeve-shoes {
+  position: absolute;
+  z-index: 3;
+  width: 42%;
+  height: auto;
+  left: -5%;
+  bottom: 13%;
+  transform: rotate(-12deg);
+  filter: drop-shadow(3px 5px 0 #192b2433);
+  pointer-events: none;
+}
 .stamp {
   background: #f7efcb;
   border-radius: 50%;

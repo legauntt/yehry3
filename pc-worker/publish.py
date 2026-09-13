@@ -57,11 +57,19 @@ def upload(config, prompt, mp3, directory, stop=None):
     # No --clobber: a lost response is recovered by verifying the existing asset.
     verify_download(expected, metadata, stop)
 
+def original_prompt(prompt):
+    details = prompt.get('details') or {}
+    return {'idea': prompt['prompt'], 'direction': details.get('direction', ''),
+            'keep': details.get('keep', ''),
+            'basisSongs': details.get('basisSongTitles', [details['source']] if details.get('source') else [])}
+
+
 def song_record(prompt):
     result = prompt['result']
     return {'id': prompt['songId'], 'title': result['title'], 'url': prompt['releaseUrl'],
             'duration': result['duration'], 'collection': 'distonyc',
-            **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues'] if key in result}}
+            **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues'] if key in result},
+            **({'originalPrompt': original_prompt(prompt)} if prompt.get('prompt') else {})}
 
 def merge_catalog(catalog, record):
     existing = next((song for song in catalog['songs'] if song['id'] == record['id']), None)

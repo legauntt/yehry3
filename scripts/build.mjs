@@ -13,6 +13,7 @@ for (const file of [
   "admin",
   "queue",
   "lyrics",
+  "original-prompt",
   "notifications-sw.js",
   "assets",
   "catalog.json",

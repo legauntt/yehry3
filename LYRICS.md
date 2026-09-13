@@ -12,4 +12,6 @@ The MP3 folder audit also added **The Stone I Carried**, **Khalim Still Has a He
 
 The library stores collection, sort order, and search text in the URL (`collection`, `sort`, and `q`). Shared links and browser history restore these controls; default values are omitted from new URLs.
 
+Published Distonyc entries also link to `/original-prompt/?song=<id>`. This sheet shows the confirmed idea, direction, preferences, and up to five basis-song titles. The API derives it from the saved request when publishing; the native worker copies the same allowed fields into the fallback catalog. Existing releases were backfilled from their frozen local request snapshots. Admin notes, credentials, ownership, and local production paths are excluded. This requires no additional model call.
+
 Lyrics are stored with public song metadata in Mongo and the static fallback catalog. Private file paths, production configuration, and credentials are excluded from the sheets. Editing a sheet changes its public metadata; it does not alter or rerender the audio.

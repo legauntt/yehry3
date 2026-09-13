@@ -15,6 +15,7 @@ const types = {
   ".txt": "text/plain",
   ".mp3": "audio/mpeg",
   ".webp": "image/webp",
+  ".svg": "image/svg+xml",
 };
 const server = http.createServer(async (req, res) => {
   try {

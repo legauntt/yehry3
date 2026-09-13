@@ -90,9 +90,9 @@ test("shareable collection, search and sort survive reload and browser history",
   await expect(recipient.getByLabel("Sort songs")).toHaveValue("title");
   await recipient.close();
   await page.getByLabel("Search songs").fill("Fear & Hunger / Tony's + hook");
-  expect(new URL(page.url()).searchParams.get("q")).toBe(
-    "Fear & Hunger / Tony's + hook",
-  );
+  await expect
+    .poll(() => new URL(page.url()).searchParams.get("q"))
+    .toBe("Fear & Hunger / Tony's + hook");
   await page.reload();
   await expect(page.getByLabel("Search songs")).toHaveValue(
     "Fear & Hunger / Tony's + hook",
@@ -192,6 +192,7 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
     .getByLabel("Private admin note")
     .fill("Start with the Medusa source recording.");
   await page.getByRole("button", { name: "Save note" }).click();
+  await expect(page.getByLabel("Private admin note")).toBeHidden();
   await page.getByText("Open brief & controls").click();
   await page.getByLabel("Move request to").selectOption("canceled");
   page.once("dialog", (dialog) => dialog.accept());
@@ -463,6 +464,74 @@ test("generated song lyrics, dual collection filtering, and API outage fallback"
   });
 });
 
+test("published original prompts show confirmed settings, work offline, and escape user text", async ({
+  page,
+}) => {
+  const catalog = JSON.parse(
+    await readFile(new URL("../../catalog.json", import.meta.url), "utf8"),
+  );
+  const song = catalog.songs.find(
+    (song) => song.id === "distonyc-1d7840d9c9addba07ccabdb2",
+  );
+  await page.route("**/yehry3/songs", (route) => route.abort());
+  await page.goto("/?collection=distonyc");
+  await page
+    .getByRole("link", {
+      name: "Original prompt for Blood on My Shoes at Daybreak",
+    })
+    .click();
+  await expect(page).toHaveURL(/\/original-prompt\/\?song=distonyc-/);
+  await expect(page.locator(".original-prompt h1")).toHaveText(song.title);
+  await expect(page.locator(".brief dd").nth(0)).toHaveText(
+    song.originalPrompt.idea,
+  );
+  await expect(page.locator(".brief dd").nth(1)).toHaveText(
+    song.originalPrompt.direction,
+  );
+  await expect(page.locator(".brief dd").nth(2)).toHaveText(
+    song.originalPrompt.keep,
+  );
+  await expect(page.locator(".brief dd").nth(3)).toHaveText(
+    "No basis songs selected.",
+  );
+  await page.reload();
+  await expect(page.locator(".original-prompt h1")).toHaveText(song.title);
+  await page.unroute("**/yehry3/songs");
+  const fixture = {
+    ...song,
+    originalPrompt: {
+      ...song.originalPrompt,
+      idea: '<img src=x onerror="alert(1)"> as a duet',
+      basisSongs: ["A & B", "Two", "Three", "Four", "Five"],
+    },
+  };
+  await page.route("**/yehry3/songs", (route) =>
+    route.fulfill({ json: { songs: [fixture] } }),
+  );
+  await page.reload();
+  await expect(page.locator(".brief dd").nth(0)).toHaveText(
+    fixture.originalPrompt.idea,
+  );
+  await expect(page.locator(".brief img")).toHaveCount(0);
+  await expect(page.locator(".brief dd").nth(3)).toHaveText(
+    fixture.originalPrompt.basisSongs.join("\n"),
+  );
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "artifacts/original-prompt-mobile.png",
+    fullPage: true,
+  });
+  await page.goto("/original-prompt/?song=missing-song");
+  await expect(page.locator("h1")).toHaveText(
+    "This brief is not available yet.",
+  );
+});
+
 test("Fear and Hunger includes tagged requests, refreshes without duplicates, and keeps playback working", async ({
   page,
 }) => {
@@ -506,6 +575,10 @@ test("Fear and Hunger includes tagged requests, refreshes without duplicates, an
   await expect(current.locator(".lyrics-link")).toHaveAttribute(
     "href",
     `/lyrics/?song=${blood.id}`,
+  );
+  await expect(current.locator(".original-prompt-link")).toHaveAttribute(
+    "href",
+    `/original-prompt/?song=${blood.id}`,
   );
   // Exercise the player's events with a local real MP3, avoiding a large remote download.
   await current.locator("audio").evaluate((audio, src) => {

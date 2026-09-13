@@ -34,7 +34,13 @@
       },
       "collections": [
         "distonyc"
-      ]
+      ],
+      "originalPrompt": {
+        "idea": "Tony C singing a sea shanty about quitting drinking, but he can't stop having \"one more round\". Must include the phrase \"the men be hung, horses go\" with real inflection",
+        "direction": "Sea shanty, v6 tonyc voice",
+        "keep": "Repeating \"One more round\" with growing enthusiasm",
+        "basisSongs": []
+      }
     },
     {
       "id": "the-stone-i-carried-desert-psychedelia",
@@ -94,7 +100,13 @@
       "collections": [
         "distonyc",
         "fearhunger"
-      ]
+      ],
+      "originalPrompt": {
+        "idea": "Original song exploring marriage mechanic from the game Fear & Hunger. Explicit lyrics.",
+        "direction": "Power circus EDM",
+        "keep": "Shoes",
+        "basisSongs": []
+      }
     },
     {
       "id": "distonyc-1d7840d9c9addba07ccabdb2",
@@ -109,7 +121,13 @@
       "collections": [
         "distonyc",
         "fearhunger"
-      ]
+      ],
+      "originalPrompt": {
+        "idea": "Original song based on Ragnvaldr's The God of Ultra Violence ending from the game Fear & Hunger. Tony C is drunk and keeps mentioning shoes in the lyrics.",
+        "direction": "Electronic",
+        "keep": "surprise me",
+        "basisSongs": []
+      }
     },
     {
       "id": "medusa-barbershop-midnight-marble",

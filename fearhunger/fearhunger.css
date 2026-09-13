@@ -212,7 +212,8 @@ audio {
   color: var(--muted);
   letter-spacing: 0.1em;
 }
-.lyrics-link {
+.lyrics-link,
+.original-prompt-link {
   display: inline-block;
   margin-left: 22px;
   font:

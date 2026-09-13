@@ -22,6 +22,7 @@ for (const route of [
   "/admin/",
   "/queue/",
   "/lyrics/",
+  "/original-prompt/",
 ]) {
   const response = await get(`${site}${route}`);
   assert.match(response.headers.get("x-robots-tag") || "", /noindex/);
@@ -70,9 +71,11 @@ for (const name of [
   "notifications.js",
   "suggestions.js",
   "lyrics.js",
+  "original-prompt.js",
   "quality.js",
   "site.css",
   "band-vinyl-v1.webp",
+  "record-shoes.svg",
 ]) {
   const expected = createHash("sha256")
     .update(await readFile(new URL(`../assets/${name}`, import.meta.url)))
@@ -169,6 +172,12 @@ for (const song of local.songs) {
       published?.collections,
       song.collections,
       `Collections differ for ${song.title}`,
+    );
+  if (song.originalPrompt)
+    assert.deepEqual(
+      published?.originalPrompt,
+      song.originalPrompt,
+      `Original prompt differs for ${song.title}`,
     );
 }
 assert.ok(

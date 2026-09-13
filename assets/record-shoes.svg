@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 270" fill="none">
+  <title>A pair of worn lace-up shoes</title>
+  <defs>
+    <g id="shoe" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M29 141C43 123 79 121 114 117L178 86C197 76 214 61 231 49L263 29C274 22 291 29 296 44L317 112C326 130 318 148 299 153L123 186C91 192 46 188 25 174C13 165 17 151 29 141Z" fill="#26392f" stroke="#f5f2e8" stroke-width="15"/>
+      <path d="M20 156C31 173 76 181 116 175L302 139L319 127L318 140C315 152 306 157 290 161L121 194C81 200 35 190 21 177C17 172 16 165 20 156Z" fill="#a5714e" stroke="#182b22" stroke-width="3"/>
+      <path d="M24 151C42 169 79 174 119 168L299 134C312 131 320 122 318 116" stroke="#ddc8a0" stroke-width="3"/>
+      <path d="M29 141C52 129 84 130 108 130C139 130 148 144 148 161" stroke="#738174" stroke-width="3"/>
+      <path d="M107 123C131 125 148 136 156 157M115 119C139 120 156 132 164 155" stroke="#bcc1a7" stroke-width="1.7" stroke-dasharray="3 5"/>
+      <path d="M236 52C246 66 271 66 285 48L292 46C287 30 275 28 263 34Z" fill="#101f19" stroke="#b5bba1" stroke-width="3"/>
+      <path d="M233 57L209 112L172 127L158 104L196 78Z" fill="#415246" stroke="#83907c" stroke-width="2"/>
+      <path d="M229 62L212 109M242 68L226 121C247 127 263 126 282 118L293 113" stroke="#b5bba1" stroke-width="2" stroke-dasharray="3 5"/>
+      <path d="M183 98L216 102M190 89L220 93M199 80L225 84M208 71L229 76" stroke="#182b22" stroke-width="8"/>
+      <path d="M183 98L216 102M190 89L220 93M199 80L225 84M208 71L229 76" stroke="#d9c9a6" stroke-width="3"/>
+      <path d="M189 93C171 80 163 76 162 86C161 96 174 99 189 93C185 76 188 67 196 72C204 79 201 88 189 93L176 110M189 93L210 117" stroke="#ddcda7" stroke-width="3"/>
+      <path d="M48 146L69 141M62 152L93 144M261 105L276 101M272 111L284 106" stroke="#9caa91" stroke-width="2" opacity=".7"/>
+      <path d="M282 150L285 165L305 160L307 144" fill="#172a20"/>
+    </g>
+  </defs>
+  <use href="#shoe" transform="translate(54 -6) rotate(-14 170 110) scale(.94)"/>
+  <use href="#shoe" transform="translate(2 66) rotate(9 170 110)"/>
+</svg>

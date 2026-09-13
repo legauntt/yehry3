@@ -1,6 +1,7 @@
 import { publicQueue } from "./queue.js";
 import { qualityNotice } from "./quality.js";
 import { lyricsPage } from "./lyrics.js";
+import { originalPromptPage } from "./original-prompt.js";
 import { rotateSuggestions } from "./suggestions.js";
 import { api, login, logout, signedIn, storage } from "./api.js";
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
@@ -83,7 +84,7 @@ async function library() {
         <p class="lede">A growing collection of originals, remixes, and beautiful wrong turns. Find your favorite. Give it a vote. Dream up the next one.</p>
         <div class="actions"><button class="primary" id="play-all">Play the collection <span aria-hidden="true">↗</span></button><a class="text-link" href="/distonyc/">Make a request <span aria-hidden="true">→</span></a></div>
       </div>
-      <div class="sleeve" aria-label="Tony C record sleeve"><div class="sleeve-top"><span>YEHRY3 RECORDS</span><span>VOL. 01</span></div><div class="record"><div class="record-label"><span>TONY C</span><small>& THE POSSIBILITIES</small><i></i><span class="label-bottom">PLAY IT LOUD</span></div></div><img class="band-cutout" src="/assets/band-vinyl-v1.webp" width="1000" height="493" alt="Six band members emerge from the vinyl in a cut-paper photo collage." fetchpriority="high"><div class="sleeve-bottom"><span>FAMILIAR VOICE.<br>UNFAMILIAR TERRITORY.</span><span class="stamp">Give it<br>a spin.</span></div></div>
+      <div class="sleeve" aria-label="Tony C record sleeve"><div class="sleeve-top"><span>YEHRY3 RECORDS</span><span>VOL. 01</span></div><div class="record"><div class="record-label"><span>TONY C</span><small>& THE POSSIBILITIES</small><i></i><span class="label-bottom">PLAY IT LOUD</span></div></div><img class="band-cutout" src="/assets/band-vinyl-v1.webp" width="1000" height="493" alt="Six band members emerge from the vinyl in a cut-paper photo collage." fetchpriority="high"><img class="sleeve-shoes" src="/assets/record-shoes.svg" width="420" height="270" alt="A pair of worn lace-up shoes on the record cover."><div class="sleeve-bottom"><span>FAMILIAR VOICE.<br>UNFAMILIAR TERRITORY.</span><span class="stamp">Give it<br>a spin.</span></div></div>
     </section>
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><p class="eyebrow">The catalog</p><h2 id="collection-title">Pick your next obsession.</h2></div><p class="small" id="track-count">Loading songs…</p></div>
@@ -157,7 +158,7 @@ async function library() {
         collections(song)
           .map((name) => collectionNames[name] || name)
           .join(" / "),
-      )} <span>·</span> ${duration(song.duration)}${song.lyrics?.text ? ` <span>·</span> <a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+      )} <span>·</span> ${duration(song.duration)}${song.lyrics?.text ? ` <span>·</span> <a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${song.originalPrompt ? ` <span>·</span> <a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : '<p class="empty">No songs match. Try another title or style.</p>';
@@ -383,7 +384,7 @@ async function requests() {
     main.innerHTML = `<section class="request-intro"><p class="eyebrow">Distonyc</p><h1>Let’s hear<br><em>your wild idea.</em></h1><p class="lede">A familiar song in unfamiliar territory. Or something nobody’s heard before.</p></section><section class="workbench"><ol class="steps" aria-label="Request progress">${["The idea", "The direction", "The final say"].map((name, i) => `<li ${i + 1 === number ? 'aria-current="step"' : ""}><span>0${i + 1}</span>${name}</li>`).join("")}</ol><div class="request-form" id="request-form"></div></section>`;
     const form = $("#request-form");
     if (stage === "idea") {
-      form.innerHTML = `<p class="eyebrow">Turn 01 · What if…</p><h2>What should we make?</h2><p>Pick a song and take it somewhere unexpected, or pitch an original.</p><form id="idea-form"><label for="idea">Your prompt</label><textarea id="idea" rows="5" minlength="10" maxlength="2000" required data-suggestion placeholder="Rendition of Medusa as a barbershop quartet"></textarea><p class="small">A sentence or two is plenty to get started. Your idea and progress will appear in the public queue.</p><button class="primary">Find the direction <span aria-hidden="true">→</span></button><p class="field-error" role="alert"></p></form>`;
+      form.innerHTML = `<p class="eyebrow">Turn 01 · What if…</p><h2>What should we make?</h2><p>Pick a song and take it somewhere unexpected, or pitch an original.</p><form id="idea-form"><label for="idea">Your prompt</label><textarea id="idea" rows="5" minlength="10" maxlength="2000" required data-suggestion placeholder="Rendition of Medusa as a barbershop quartet"></textarea><p class="small">A sentence or two is plenty to get started. Your idea and progress appear in the public queue. Your confirmed prompt and settings will be shown with the finished song.</p><button class="primary">Find the direction <span aria-hidden="true">→</span></button><p class="field-error" role="alert"></p></form>`;
       $("#idea").value = storage.get("idea-text") || "";
       $("#idea").oninput = (event) => {
         storage.set("idea-text", event.target.value);
@@ -669,6 +670,8 @@ try {
   else if (page === "queue")
     await publicQueue(main, { escape, date, badge, safeUrl });
   else if (page === "lyrics") await lyricsPage(main, { escape, safeUrl });
+  else if (page === "original-prompt")
+    await originalPromptPage(main, { escape, safeUrl });
   else await library();
 } catch (error) {
   message(error.message, true);
