@@ -1941,6 +1941,42 @@ button.lyric-line:hover {
   margin: 14px 0 8px;
   overflow-wrap: anywhere;
 }
+.public-queue-card h3 a {
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+  text-underline-offset: 0.18em;
+}
+.queue-details-link {
+  display: inline-block;
+  margin-top: 16px;
+}
+.public-attention {
+  margin-top: 58px;
+}
+.attention-note {
+  border-left: 3px solid #9a533e;
+  background: #f8eee8;
+  padding: 12px 16px;
+}
+.queue-detail {
+  width: min(900px, calc(100% - 40px));
+  margin: 70px auto 110px;
+}
+.queue-detail h1 {
+  font-size: clamp(2.2rem, 6vw, 5rem);
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+}
+.queue-detail h2 {
+  margin-top: 34px;
+}
+.queue-detail progress {
+  width: 100%;
+  accent-color: #52684c;
+}
+.queue-detail-status {
+  margin-top: 18px;
+}
 .public-queue-card progress {
   accent-color: #52684c;
   width: 100%;

@@ -1,5 +1,5 @@
 import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./authored-by.js";
-import { publicQueue } from "./queue.js";
+import { publicQueue, queueDetailsPage, queueItemHref } from "./queue.js";
 import { mountQualitySettings, qualityNotice } from "./quality.js";
 import { modelInfoButton, mountModelInfo } from "./model-info.js";
 import { lyricsPage } from "./lyrics.js";
@@ -238,16 +238,21 @@ async function library() {
   function renderPending() {
     const published = new Set(songs.map((song) => song.id));
     const seen = new Set();
-    const rows = pending.filter((song) => {
+    const eligible = pending.filter((song) => {
       if (published.has(song.id) || seen.has(song.id)) return false;
       seen.add(song.id);
-      return ["queued", "processing", "completed", "publishing", "cancel_requested"].includes(song.status);
-    }).slice(0, 3);
+      return ["queued", "processing", "completed", "publishing", "cancel_requested", "failed"].includes(song.status);
+    });
+    const failures = eligible.filter((song) => song.status === "failed");
+    const rows = [
+      ...failures,
+      ...eligible.filter((song) => song.status !== "failed").slice(0, Math.max(0, 3 - failures.length)),
+    ];
     const container = $("#pending-tracks");
     container.hidden = !rows.length;
     syncRows(container, rows.map((song) => {
       const percent = Math.max(0, Math.min(100, Number(song.progress?.percent) || 0));
-  return `<details class="pending-track" data-id="${escape(song.id)}"><summary><span class="pending-mark" aria-hidden="true">↗</span><span class="pending-title"><span class="tiny-label">On the way · ${voiceModelBadge(song.voiceModel)}</span><strong>${escape(song.title || song.idea)}</strong>${authoredByLine(song.authoredBy, escape)}</span><span class="pending-state">${badge(song.status)}${song.progress ? `<span class="small">${Math.round(percent)}%</span>` : ""}</span></summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}<a class="text-link" href="/queue/#${encodeURIComponent(song.id)}">Follow in the queue ↗</a></div></details>`;
+  return `<details class="pending-track" data-id="${escape(song.id)}"><summary><span class="pending-mark" aria-hidden="true">↗</span><span class="pending-title"><span class="tiny-label">${song.status === "failed" ? "Needs attention" : "On the way"} · ${voiceModelBadge(song.voiceModel)}</span><strong>${escape(song.title || song.idea)}</strong>${authoredByLine(song.authoredBy, escape)}</span><span class="pending-state">${badge(song.status)}${song.progress && song.status !== "failed" ? `<span class="small">${Math.round(percent)}%</span>` : ""}</span></summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.status === "failed" ? '<p class="attention-note">Completed work is saved; retry resumes completed stages.</p>' : song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}<a class="text-link" href="${queueItemHref(song)}">View request details ↗</a></div></details>`;
     }).join(""));
   }
   function render({ preserveViewport = false } = {}) {
@@ -400,7 +405,7 @@ async function library() {
         online = true;
       } else online = false;
       if (upcoming.status === "fulfilled" && Array.isArray(upcoming.value.inStudio) && Array.isArray(upcoming.value.queued)) {
-        pending = [...upcoming.value.inStudio, ...upcoming.value.queued];
+        pending = [...upcoming.value.inStudio, ...(upcoming.value.needsAttention || []), ...upcoming.value.queued];
         recentReleases.clear();
         for (const song of upcoming.value.recent || [])
           if (song.id && song.publishedAt) recentReleases.set(song.id, song.publishedAt);
@@ -894,6 +899,8 @@ try {
   else if (page === "admin") await admin();
   else if (page === "queue")
     await publicQueue(main, { escape, date, badge, safeUrl });
+  else if (page === "queue-details")
+    await queueDetailsPage(main, { escape, date, badge, safeUrl });
   else if (page === "lyrics") await lyricsPage(main, { escape, safeUrl });
   else if (page === "original-prompt")
     await originalPromptPage(main, { escape, safeUrl });

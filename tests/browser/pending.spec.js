@@ -27,6 +27,11 @@ async function fixture(page) {
   await page.route("**/pending-fixture.wav", route => route.fulfill({ body: wav, contentType: "audio/wav" }));
   await page.route("**/yehry3/songs", route => route.fulfill({ json: { songs: state.songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => state.queueOffline ? route.abort() : route.fulfill({ json: state.queue }));
+  await page.route("**/yehry3/queue/distonyc-*", route => {
+    const id = new URL(route.request().url()).pathname.split("/").pop();
+    const item = [...state.queue.inStudio, ...(state.queue.needsAttention || []), ...state.queue.queued, ...state.queue.recent].find(song => song.id === id);
+    return item ? route.fulfill({ json: item }) : route.fulfill({ status: 404, json: { error: "Not found" } });
+  });
   await page.goto("/");
   await expect(page.locator(".pending-track")).toHaveCount(3);
   await expect(page.locator(".track")).toHaveCount(20);
@@ -62,7 +67,7 @@ test("three collapsed upcoming rows refresh and publish without losing disclosur
   await expect(song.locator(".quality-notice")).toHaveAttribute("open", "");
   expect(await page.evaluate(() => window.savedPending.isConnected && window.savedSong.isConnected && window.savedAudio === document.querySelector("#audio") && !window.savedAudio.paused)).toBe(true);
   expect(Math.abs(await page.locator('.track[data-id="catalog-8"]').evaluate(row => row.getBoundingClientRect().top) - anchorTop)).toBeLessThan(2);
-  state.songs = [{ ...state.songs[0], id: publicId(1), title: "Newly published song" }, ...state.songs];
+  state.songs = [{ ...state.songs[0], id: publicId(1), title: "Newly published song", publishedAt: new Date().toISOString() }, ...state.songs];
   state.queueOffline = true;
   await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
   await expect(page.locator(".track")).toHaveCount(21);
@@ -76,7 +81,7 @@ test("three collapsed upcoming rows refresh and publish without losing disclosur
   await expect(page.locator(".track").first()).toContainText("Catalog song 00");
 });
 
-test("pending rows remain compact on mobile and their full-queue links open the matching request", async ({ page }) => {
+test("pending rows remain compact on mobile and link to the matching request details", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await fixture(page);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
@@ -84,9 +89,8 @@ test("pending rows remain compact on mobile and their full-queue links open the 
   await page.locator("#pending-tracks").screenshot({ path: "artifacts/pending-mobile.png" });
   const pending = page.locator(`.pending-track[data-id="${publicId(1)}"]`);
   await pending.locator("summary").click();
-  await pending.getByRole("link", { name: "Follow in the queue" }).click();
-  await expect(page).toHaveURL(new RegExp(`/queue/#${publicId(1)}$`));
-  const target = page.locator(`[id="${publicId(1)}"]`);
-  await expect(target).toBeVisible();
-  await expect.poll(() => target.evaluate(row => row.getBoundingClientRect().top)).toBeLessThan(100);
+  await pending.getByRole("link", { name: "View request details" }).click();
+  await expect(page).toHaveURL(new RegExp(`/queue/details/\\?request=${publicId(1)}$`));
+  await expect(page.locator(".queue-detail")).toContainText("Next from the studio");
+  await expect(page.locator(".queue-detail")).toContainText("Generating Tony vocals · 55%");
 });

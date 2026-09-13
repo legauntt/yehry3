@@ -4,7 +4,7 @@ import { qualityNotice } from "./quality.js";
 import { completionAlerts } from "./notifications.js";
 
 export async function publicQueue(main, { escape, date, badge, safeUrl }) {
-  main.innerHTML = `<section class="queue-intro"><p class="eyebrow">The open studio</p><h1>Hear what’s<br><em>coming next.</em></h1><p class="lede">Everyone can follow the queue. Tony’s next song starts with someone’s wild idea.</p><a class="text-link" href="/distonyc/">Add your idea →</a></section><section class="queue-alerts"><div><h2>A little heads-up.</h2><p id="alert-status" class="small">Get an alert when anyone’s song is published. Keep any yehry3 tab open.</p></div><button class="quiet" id="enable-alerts">Enable browser alerts</button></section><p id="release-announcement" role="status" aria-live="polite"></p><div class="toolbar public-queue-toolbar"><p class="small" id="queue-updated">Opening the studio…</p><button class="quiet" id="refresh-queue">Refresh ↻</button></div><p class="field-error" id="queue-error" role="status"></p><section aria-labelledby="studio-title"><div class="section-heading"><h2 id="studio-title">In the studio</h2><span class="small" id="studio-count"></span></div><div id="in-studio"><p class="empty">Checking the studio…</p></div></section><section class="public-waiting" aria-labelledby="waiting-title"><div class="section-heading"><h2 id="waiting-title">Waiting for a turn</h2><span class="small" id="waiting-count"></span></div><p class="small">Shown in production order. Priorities can change before a song starts.</p><div id="waiting-queue"></div><div class="pagination"><button class="quiet" id="queue-prev">← Previous</button><span id="queue-page"></span><button class="quiet" id="queue-next">Next →</button></div></section><section class="public-releases" aria-labelledby="releases-title"><div class="section-heading"><h2 id="releases-title">Fresh from the studio</h2><a class="text-link" href="/">The whole collection →</a></div><div id="recent-releases"></div></section>`;
+  main.innerHTML = `<section class="queue-intro"><p class="eyebrow">The open studio</p><h1>Hear what’s<br><em>coming next.</em></h1><p class="lede">Everyone can follow the queue. Tony’s next song starts with someone’s wild idea.</p><a class="text-link" href="/distonyc/">Add your idea →</a></section><section class="queue-alerts"><div><h2>A little heads-up.</h2><p id="alert-status" class="small">Get an alert when anyone’s song is published. Keep any yehry3 tab open.</p></div><button class="quiet" id="enable-alerts">Enable browser alerts</button></section><p id="release-announcement" role="status" aria-live="polite"></p><div class="toolbar public-queue-toolbar"><p class="small" id="queue-updated">Opening the studio…</p><button class="quiet" id="refresh-queue">Refresh ↻</button></div><p class="field-error" id="queue-error" role="status"></p><section aria-labelledby="studio-title"><div class="section-heading"><h2 id="studio-title">In the studio</h2><span class="small" id="studio-count"></span></div><div id="in-studio"><p class="empty">Checking the studio…</p></div></section><section id="attention-section" class="public-attention" aria-labelledby="attention-title" hidden><div class="section-heading"><h2 id="attention-title">Needs attention</h2><span class="small" id="attention-count"></span></div><p class="small">Completed work stays saved while these requests wait for a retry.</p><div id="needs-attention"></div></section><section class="public-waiting" aria-labelledby="waiting-title"><div class="section-heading"><h2 id="waiting-title">Waiting for a turn</h2><span class="small" id="waiting-count"></span></div><p class="small">Shown in production order. Priorities can change before a song starts.</p><div id="waiting-queue"></div><div class="pagination"><button class="quiet" id="queue-prev">← Previous</button><span id="queue-page"></span><button class="quiet" id="queue-next">Next →</button></div></section><section class="public-releases" aria-labelledby="releases-title"><div class="section-heading"><h2 id="releases-title">Fresh from the studio</h2><a class="text-link" href="/">The whole collection →</a></div><div id="recent-releases"></div></section>`;
   const $ = (selector) => main.querySelector(selector);
   const observe = completionAlerts(
     $("#enable-alerts"),
@@ -27,7 +27,7 @@ export async function publicQueue(main, { escape, date, badge, safeUrl }) {
       0,
       Math.min(100, Number(song.progress?.percent) || 0),
     );
-    return `<article class="queue-card public-queue-card" id="${escape(song.id)}"><div class="queue-heading"><div>${badge(song.status)} <span class="voice-model-badge${model === "V7" ? " v7" : ""}">${model}</span>${position ? `<span class="queue-position">No. ${position}</span>` : ""}<h3>${escape(song.title || song.idea)}</h3>${authoredByLine(song.authoredBy, escape)}</div></div>${qualityNotice(song.qualityIssues)}${song.title ? `<p class="small">The idea: ${escape(song.idea)}</p>` : ""}${song.progress && song.status !== "published" ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(progress)}%</p><progress max="100" value="${progress}" aria-label="Song production progress"></progress><p class="small">Last update ${date(song.updatedAt)}</p>` : ""}${song.status === "published" ? `<p class="small">Released ${date(song.publishedAt)}</p><a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a>` : ""}</article>`;
+    return `<article class="queue-card public-queue-card" id="${escape(song.id)}"><div class="queue-heading"><div>${badge(song.status)} <span class="voice-model-badge${model === "V7" ? " v7" : ""}">${model}</span>${position ? `<span class="queue-position">No. ${position}</span>` : ""}<h3><a href="${queueItemHref(song)}">${escape(song.title || song.idea)}</a></h3>${authoredByLine(song.authoredBy, escape)}</div></div>${qualityNotice(song.qualityIssues)}${song.title ? `<p class="small">The idea: ${escape(song.idea)}</p>` : ""}${song.status === "failed" ? `<p class="attention-note">Production needs attention. Completed work is saved; retry resumes completed stages.</p>` : ""}${song.progress && song.status !== "published" ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(progress)}%</p>${song.status !== "failed" ? `<progress max="100" value="${progress}" aria-label="Song production progress"></progress>` : ""}<p class="small">Last update ${date(song.updatedAt)}</p>` : ""}${song.status === "published" ? `<p class="small">Released ${date(song.publishedAt)}</p><a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a>` : ""}<a class="text-link queue-details-link" href="${queueItemHref(song)}">View details →</a></article>`;
   }
   async function refresh() {
     if (busy) return;
@@ -42,6 +42,10 @@ export async function publicQueue(main, { escape, date, badge, safeUrl }) {
       $("#in-studio").innerHTML = data.inStudio.length
         ? data.inStudio.map((song) => card(song)).join("")
         : '<p class="empty">The studio is between songs. The next idea could be yours.</p>';
+      const needsAttention = data.needsAttention || [];
+      $("#attention-section").hidden = !needsAttention.length;
+      $("#needs-attention").innerHTML = needsAttention.map((song) => card(song)).join("");
+      $("#attention-count").textContent = `${data.needsAttentionTotal ?? needsAttention.length} ${needsAttention.length === 1 ? "request" : "requests"}`;
       $("#waiting-queue").innerHTML = data.queued.length
         ? data.queued
             .map((song, index) => card(song, page * data.pageSize + index + 1))
@@ -100,4 +104,34 @@ export async function publicQueue(main, { escape, date, badge, safeUrl }) {
       refresh();
     }
   });
+}
+
+export function queueItemHref(song) {
+  return /^distonyc-[a-f0-9]{24}$/.test(song?.id || "")
+    ? `/queue/details/?request=${encodeURIComponent(song.id)}`
+    : "/queue/";
+}
+
+export async function queueDetailsPage(main, { escape, date, badge, safeUrl }) {
+  const id = new URLSearchParams(location.search).get("request");
+  if (!/^distonyc-[a-f0-9]{24}$/.test(id || "")) {
+    main.innerHTML = '<section class="queue-detail"><p class="eyebrow">The open studio</p><h1>This queue item is not available.</h1><a class="text-link" href="/queue/">The full queue →</a></section>';
+    return;
+  }
+  let timer;
+  async function refresh() {
+    try {
+      const song = await api(`/queue/${encodeURIComponent(id)}`);
+      document.title = `${song.title || song.idea} · Queue details — yehry3`;
+      const progress = Math.max(0, Math.min(100, Number(song.progress?.percent) || 0));
+      const model = (/^v\d+$/i.test(song.voiceModel || "") ? song.voiceModel : "v6").toUpperCase();
+      main.innerHTML = `<article class="queue-detail"><p class="eyebrow">The open studio · Request details</p><div class="queue-detail-status">${badge(song.status)} <span class="voice-model-badge${model === "V7" ? " v7" : ""}">${model}</span></div><h1>${escape(song.title || song.idea)}</h1>${authoredByLine(song.authoredBy, escape)}<p class="small">Received ${date(song.submittedAt)}</p>${song.title ? `<section><h2>The idea</h2><p>${escape(song.idea)}</p></section>` : ""}${song.status === "failed" ? `<p class="attention-note">${song.progress?.stage ? `Production stopped during ${escape(song.progress.stage)}. ` : ""}Completed work is saved; retry resumes completed stages.</p>` : ""}${song.progress && !["failed", "published"].includes(song.status) ? `<section><h2>Current progress</h2><p>${escape(song.progress.stage)} · ${Math.round(progress)}%</p><progress max="100" value="${progress}" aria-label="Song production progress"></progress><p class="small">Last update ${date(song.updatedAt)}</p></section>` : ""}${song.status === "published" ? `<p class="small">Released ${date(song.publishedAt)}</p><a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a>` : ""}<div class="actions"><a class="text-link" href="/queue/#${encodeURIComponent(song.id)}">Back to the full queue →</a><a class="text-link" href="/distonyc/">Make a request →</a></div></article>`;
+    } catch (error) {
+      main.innerHTML = `<section class="queue-detail"><p class="eyebrow">The open studio</p><h1>This queue item is not available.</h1><p>${escape(error.message)}</p><a class="text-link" href="/queue/">The full queue →</a></section>`;
+      clearInterval(timer);
+    }
+  }
+  await refresh();
+  timer = setInterval(refresh, 30000);
+  addEventListener("pagehide", () => clearInterval(timer));
 }
