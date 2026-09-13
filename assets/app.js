@@ -99,7 +99,7 @@ async function library() {
     </section>
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><p class="eyebrow">The catalog</p><h2 id="collection-title">Pick your next obsession.</h2></div><div class="catalog-status"><p class="small" id="track-count">Loading songs…</p><p class="small auto-refresh-note"><span aria-hidden="true">↻</span> Auto-refreshes every 30 seconds</p></div></div>
-      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button><div class="display-settings" data-quality-settings></div></div>
+      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="hybrid">Fresh, then most loved</option><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button><div class="display-settings" data-quality-settings></div></div>
       <p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
@@ -109,7 +109,7 @@ async function library() {
   rotateSuggestions(main);
   const filters = [
     { id: "collection-filter", param: "collection", defaultValue: "all" },
-    { id: "sort", param: "sort", defaultValue: "catalog" },
+    { id: "sort", param: "sort", defaultValue: "hybrid" },
     { id: "search", param: "q", defaultValue: "" },
   ];
   let editingSearch = false;
@@ -147,6 +147,8 @@ async function library() {
     online = false,
     voting = false,
     refreshing = null;
+  const recentReleases = new Map();
+  const freshWindow = 24 * 60 * 60 * 1000;
   const audio = $("#audio");
   const rowMarkup = new WeakMap();
   function syncRows(container, markup) {
@@ -208,6 +210,22 @@ async function library() {
         song.title.toLowerCase().includes(query) &&
         (collection === "all" || collections(song).includes(collection)),
     );
+    if ($("#sort").value === "hybrid") {
+      const releasedAt = (song) => {
+        const explicit = new Date(song.publishedAt || recentReleases.get(song.id) || 0).getTime();
+        if (Number.isFinite(explicit) && explicit > 0) return explicit;
+        const order = Number(song.order);
+        return Number.isFinite(order) && order < 0 ? -order : 0;
+      };
+      const cutoff = Date.now() - freshWindow;
+      visible.sort((a, b) => {
+        const aReleased = releasedAt(a), bReleased = releasedAt(b);
+        const aFresh = aReleased >= cutoff, bFresh = bReleased >= cutoff;
+        if (aFresh !== bFresh) return bFresh - aFresh;
+        if (aFresh && aReleased !== bReleased) return bReleased - aReleased;
+        return (b.votes || 0) - (a.votes || 0);
+      });
+    }
     if ($("#sort").value === "votes")
       visible.sort((a, b) => (b.votes || 0) - (a.votes || 0));
     if ($("#sort").value === "title")
@@ -323,8 +341,12 @@ async function library() {
         nextVoteAt = catalog.value.nextVoteAt;
         online = true;
       } else online = false;
-      if (upcoming.status === "fulfilled" && Array.isArray(upcoming.value.inStudio) && Array.isArray(upcoming.value.queued))
+      if (upcoming.status === "fulfilled" && Array.isArray(upcoming.value.inStudio) && Array.isArray(upcoming.value.queued)) {
         pending = [...upcoming.value.inStudio, ...upcoming.value.queued];
+        recentReleases.clear();
+        for (const song of upcoming.value.recent || [])
+          if (song.id && song.publishedAt) recentReleases.set(song.id, song.publishedAt);
+      }
       render({ preserveViewport: true });
     })().finally(() => { refreshing = null; });
     return refreshing;

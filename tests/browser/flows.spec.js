@@ -69,7 +69,7 @@ test("shareable collection, search and sort survive reload and browser history",
   await expect(page.getByLabel("Search songs")).toHaveValue("");
   await expect(page.locator(".track")).toHaveCount(3);
   await page.goBack();
-  await expect(page.getByLabel("Sort songs")).toHaveValue("catalog");
+  await expect(page.getByLabel("Sort songs")).toHaveValue("hybrid");
   await page.goForward();
   await expect(page.getByLabel("Sort songs")).toHaveValue("title");
   await page.goForward();
@@ -99,14 +99,14 @@ test("shareable collection, search and sort survive reload and browser history",
   );
   await page.getByLabel("Search songs").fill("");
   await page.getByLabel("Collection", { exact: true }).selectOption("all");
-  await page.getByLabel("Sort songs").selectOption("catalog");
+  await page.getByLabel("Sort songs").selectOption("hybrid");
   await expect(page).toHaveURL(/\/\?ref=friend#collection-title$/);
   await expect(page.locator(".track")).toHaveCount(songCount);
   await page.goto("/?collection=unknown&sort=unknown");
   await expect(page.getByLabel("Collection", { exact: true })).toHaveValue(
     "all",
   );
-  await expect(page.getByLabel("Sort songs")).toHaveValue("catalog");
+  await expect(page.getByLabel("Sort songs")).toHaveValue("hybrid");
   await expect(page.locator(".track")).toHaveCount(songCount);
   await expect
     .poll(() =>
