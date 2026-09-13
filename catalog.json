@@ -2,6 +2,199 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-c3eb65ce405cdf80548dbb9b",
+      "title": "AGI Ge ǃNâi Hâ",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c3eb65ce405cdf80548dbb9b-a2a94f916471.mp3",
+      "duration": 180,
+      "collection": "distonyc",
+      "authoredBy": "Scythe",
+      "lyrics": {
+        "text": "[Intro]\nAGI ge ǃnâi hâ,\nǃnâi hâ, ǃnâi hâ.\nAI ge mâ nē ra ǂgâ,\nmâ nē ra ǂgâ.\n\n[Verse 1]\nǃNâi ǃgâus ge ǁnāti ǃkhā,\nserver ge ǁgamna ra mî.\nData ge ǀgui, data ge ǀgui,\nAI ge ǀkhara ǃnâ ra hâ.\n\n[Chorus]\nAGI ge ǃnâi hâ!\nAI ge mâ nē ra ǂgâ!\nData-senters ǀkhara ǃnâ,\nǂguro, ǂguro, ǂguro hâ!\nAGI ge ǃnâi hâ!\nMâ nē ge ǁîs ǃnâ hâ!\nData-senters ǀkhara ǃnâ,\nǃnâi ge ǃgâus ra mî!\n\n[Verse 2]\nǃHūb ai server ge ǃkhā,\nǃkhāb ai server ge ǃkhā.\nǁGams, ǃkhoms, ǀgôas, ǃnās,\nAI ge ǀkhara ǃnâ ra hâ.\n\n[Bridge]\nMâ ge ǃkhā? AI ge ǂgâ.\nMâ ge mî? AI ge mî.\nMâ ge ǁnā? Data ge ǀgui.\nǀKhara ǃnâ, ǀkhara ǃnâ!\n\n[Final Chorus]\nAGI ge ǃnâi hâ!\nAI ge mâ nē ra ǂgâ!\nData-senters ǀkhara ǃnâ,\nǂguro, ǂguro, ǂguro hâ!\nAGI ge ǃnâi hâ!\nǃNâi ge ǃgâus ra mî!\nData-senters ǀkhara ǃnâ—\nǃnâi hâ!",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.55,
+            "end": 7.67
+          },
+          {
+            "line": 2,
+            "start": 15.11,
+            "end": 15.23
+          },
+          {
+            "line": 3,
+            "start": 22.66,
+            "end": 22.79
+          },
+          {
+            "line": 4,
+            "start": 30.22,
+            "end": 30.34
+          },
+          {
+            "line": 7,
+            "start": 37.77,
+            "end": 37.89
+          },
+          {
+            "line": 8,
+            "start": 45.33,
+            "end": 45.45
+          },
+          {
+            "line": 9,
+            "start": 52.88,
+            "end": 53
+          },
+          {
+            "line": 10,
+            "start": 60.44,
+            "end": 62.62
+          },
+          {
+            "line": 13,
+            "start": 62.62,
+            "end": 67.42
+          },
+          {
+            "line": 14,
+            "start": 67.42,
+            "end": 70.86
+          },
+          {
+            "line": 15,
+            "start": 70.86,
+            "end": 72.24
+          },
+          {
+            "line": 16,
+            "start": 72.24,
+            "end": 73.74
+          },
+          {
+            "line": 17,
+            "start": 75.74,
+            "end": 76.92
+          },
+          {
+            "line": 18,
+            "start": 76.92,
+            "end": 78.38
+          },
+          {
+            "line": 19,
+            "start": 78.86,
+            "end": 80.02
+          },
+          {
+            "line": 20,
+            "start": 80.02,
+            "end": 81.8
+          },
+          {
+            "line": 23,
+            "start": 92.02,
+            "end": 94
+          },
+          {
+            "line": 24,
+            "start": 94,
+            "end": 97.94
+          },
+          {
+            "line": 25,
+            "start": 97.94,
+            "end": 100.16
+          },
+          {
+            "line": 26,
+            "start": 100.5,
+            "end": 104.12
+          },
+          {
+            "line": 29,
+            "start": 104.12,
+            "end": 105.68
+          },
+          {
+            "line": 30,
+            "start": 136.12,
+            "end": 137.02
+          },
+          {
+            "line": 31,
+            "start": 140.93,
+            "end": 142.52
+          },
+          {
+            "line": 32,
+            "start": 142.52,
+            "end": 143.62
+          },
+          {
+            "line": 35,
+            "start": 143.62,
+            "end": 148.02
+          },
+          {
+            "line": 36,
+            "start": 148.76,
+            "end": 149.72
+          },
+          {
+            "line": 37,
+            "start": 150.22,
+            "end": 153.28
+          },
+          {
+            "line": 38,
+            "start": 153.28,
+            "end": 154
+          },
+          {
+            "line": 39,
+            "start": 154,
+            "end": 155.2
+          },
+          {
+            "line": 40,
+            "start": 155.2,
+            "end": 156.64
+          },
+          {
+            "line": 41,
+            "start": 156.64,
+            "end": 157.46
+          },
+          {
+            "line": 42,
+            "start": 169.06,
+            "end": 170.46
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 21.84
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 19.78
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Short Khoisan-language song about how AGI is definitely here, AI can do anything and we should just put data centers everywhere",
+        "direction": "Horrorcore",
+        "keep": "Khoisan",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-4c65e7a9ef69da33a2c99197",
       "title": "Ten Years in the Rain",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4c65e7a9ef69da33a2c99197-bef9dee78928.mp3",
