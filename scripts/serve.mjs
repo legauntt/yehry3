@@ -4,7 +4,7 @@ import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 const root = path.resolve(import.meta.dirname, "../dist");
 const port = Number(process.env.PORT || 8080);
-const { routes = [] } = JSON.parse(
+const { routes = [], responseOverrides = {} } = JSON.parse(
   await readFile(path.join(root, "staticwebapp.config.json"), "utf8"),
 );
 const types = {
@@ -78,7 +78,27 @@ const server = http.createServer(async (req, res) => {
     res.on("close", () => stream.destroy());
     stream.pipe(res);
   } catch {
-    res.writeHead(404);
+    const notFoundPath = responseOverrides["404"]?.rewrite;
+    if (notFoundPath) {
+      try {
+        const notFoundFile = path.resolve(root, `.${notFoundPath}`);
+        if (!notFoundFile.startsWith(root + path.sep))
+          throw new Error("Invalid 404 rewrite");
+        const { size } = await stat(notFoundFile);
+        res.writeHead(404, {
+          "Content-Type":
+            types[path.extname(notFoundFile)] || "application/octet-stream",
+          "Content-Length": size,
+          "X-Content-Type-Options": "nosniff",
+          "X-Robots-Tag": "noindex, nofollow, noarchive",
+        });
+        if (req.method === "HEAD") return res.end();
+        return createReadStream(notFoundFile).pipe(res);
+      } catch {
+        /* Fall through to the plain response if the configured page is missing. */
+      }
+    }
+    res.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
     res.end("Not found");
   }
 });

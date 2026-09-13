@@ -43,6 +43,7 @@ test("all routes are built, unlisted, and contain no submission password or back
   let updatedAt;
   for (const page of [
     "index.html",
+    "404.html",
     "distonyc/index.html",
     "deetz/index.html",
     "admin/index.html",
@@ -63,6 +64,18 @@ test("all routes are built, unlisted, and contain no submission password or back
     assert.equal(stamp[1], updatedAt, "All pages must identify the same build");
     assert.match(html, /href="\/assets\/deployment.css"/);
   }
+  const notFound = await readFile(
+    new URL("../dist/404.html", import.meta.url),
+    "utf8",
+  );
+  assert.match(notFound, /<h1>Lost between tracks\.<\/h1>/);
+  const hosting = JSON.parse(
+    await readFile(
+      new URL("../dist/staticwebapp.config.json", import.meta.url),
+      "utf8",
+    ),
+  );
+  assert.equal(hosting.responseOverrides?.["404"]?.rewrite, "/404.html");
   const files = await readdir(new URL("../dist/", import.meta.url), {
     recursive: true,
   });
