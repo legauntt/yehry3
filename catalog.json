@@ -2,6 +2,34 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-1890743a4fe0a0b8b8e4486c",
+      "title": "Medusa - From Da Shoes",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1890743a4fe0a0b8b8e4486c-5562e238e709.mp3",
+      "duration": 235.7,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Spoken Intro]\nDis is Tony C? From da shoes?\n\n[Verse 1]\nYou were building casseroles in the sand\nI brought a fork, you brought a marching band\nYou buttered me up just to toast me brown\nThen crossed my name off the lost and found\nYou drew me out of your coloring book\nI lost my place when the radiator shook\nThere was something important I meant to accuse\nBut the words fell out through a hole in my shoes\n\n[Chorus]\nYou turned me to scones\nAnd the scones don't need you\nMy beautiful reducer\nMy beautiful Medusa\nI'm losing the remote, don't even care\nSomebody left all the snakes downstairs\nYou turned me to scones\nNow the kettle's coming home\n\n[Verse 2]\nWhen first I met you, you were wearing a raincoat\nI called it a halo; that's what my brain wrote\nNow I realize, underneath that sleeve\nYou had seventeen receipts and a wheel of cheese\nYou said forever, I heard four leather chairs\nI carried them up seventeen flights of stairs\nYou gave me a look that could petrify bread\nI thanked the conductor and climbed into bed\n\n[Chorus]\nYou turned me to scones\nAnd the scones don't need you\nMy beautiful reducer\nMy beautiful Medusa\nI'm losing the remote, don't even care\nSomebody left all the snakes downstairs\nYou turned me to scones\nNow the kettle's coming home\n\n[Bridge]\nSurprised every morning my socks aren't dead\nGot a mouth full of coupons, a cabbage for a head\nChecked the mirror, both eyes were plaid\nThat's the finest reflection I've almost had\nThe bottle said shampoo, the sandwich said leave\nI wiped all my prophecies off on my sleeve\nThere's a proper last verse somewhere under this chair\nBut a pigeon has eaten it, fair is fair\n\n[Final Chorus]\nYou turned me to scones\nBut I finally forgive you\nMy beautiful umbrella\nNo, my beautiful Medusa\nLost every word, found you sitting there\nWith a little crooked smile and a snake in your hair\nI'll put down the page, let the kitchen light glow\nMy beautiful Medusa, that's the one I know",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 11.16
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony C trying to perform Medusa, but he gets all of the lyrics wrong",
+        "direction": "Acoustic Medusa",
+        "keep": "Incorrect lyrics. Pre-intro begins with Tony C asking, confused, \"Dis is Tony C? From da shoes?\"",
+        "basisSongs": [
+          "Medusa"
+        ]
+      }
+    },
+    {
       "id": "distonyc-5dcc03f7a816c3e812f62173",
       "title": "The One I Cannot Kill",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5dcc03f7a816c3e812f62173-55e576226de6.mp3",
