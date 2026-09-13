@@ -95,8 +95,17 @@ test("the hero record starts moving and honors reduced motion", async ({ page })
   await expect(record).toHaveAttribute("data-spin-speed", "5");
   expect(await record.evaluate((element) => {
     const animation = element.getAnimations()[0];
-    return { iterations: animation.effect.getTiming().iterations, playbackRate: animation.playbackRate };
-  })).toEqual({ iterations: Infinity, playbackRate: 5 });
+    const frames = animation.effect.getKeyframes();
+    return {
+      iterations: animation.effect.getTiming().iterations,
+      playbackRate: animation.playbackRate,
+      transforms: frames.map((frame) => frame.transform),
+    };
+  })).toEqual({
+    iterations: Infinity,
+    playbackRate: 5,
+    transforms: ["rotate(0turn)", "rotate(1turn)"],
+  });
   await page.waitForTimeout(650);
   await record.evaluate((element) => {
     const animation = element.getAnimations()[0];
@@ -113,4 +122,11 @@ test("the hero record starts moving and honors reduced motion", async ({ page })
   await expect(record).not.toHaveAttribute("data-spin-rate");
   await expect(record).not.toHaveClass(/record-spin/);
   await expect.poll(() => record.evaluate((element) => element.getAnimations().length)).toBe(0);
+  await page.reload();
+  await expect(record).toHaveAttribute("data-motion", "reduced");
+  await expect(record).not.toHaveClass(/record-spin/);
+  await record.click({ force: true });
+  await expect(record).toHaveAttribute("data-spin-speed", "1");
+  expect(await record.evaluate((element) => element.getAnimations()[0].effect.getKeyframes()
+    .map((frame) => frame.transform))).toEqual(["rotate(0turn)", "rotate(1turn)"]);
 });

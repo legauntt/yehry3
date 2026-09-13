@@ -5,12 +5,7 @@ export function startRecordMotion(record) {
   record.setAttribute("role", "button");
   record.setAttribute("aria-label", "Spin the record");
   record.setAttribute("title", "Click again to spin faster");
-  if (motion.matches) {
-    record.dataset.motion = "reduced";
-    return;
-  }
-
-  record.dataset.motion = "active";
+  record.dataset.motion = motion.matches ? "reduced" : "active";
   let timer;
   let clickAnimation;
   let coastFrame;
@@ -26,6 +21,7 @@ export function startRecordMotion(record) {
   const randomDelay = () => 18000 + Math.random() * 37000;
   const schedule = (delay = randomDelay()) => {
     clearTimeout(timer);
+    if (motion.matches) return;
     timer = setTimeout(() => {
       if (document.hidden) return schedule();
       const remainingIdle = idleFor - (performance.now() - lastActivity);
@@ -35,7 +31,7 @@ export function startRecordMotion(record) {
   };
   const activity = () => {
     lastActivity = performance.now();
-    if (!record.classList.contains("record-spin-intro") &&
+    if (!motion.matches && !record.classList.contains("record-spin-intro") &&
         !record.classList.contains("record-spin-idle") && !clickAnimation) schedule();
   };
   const stopClickSpin = () => {
@@ -74,7 +70,7 @@ export function startRecordMotion(record) {
     const speedIndex = fasterIndex < 0 ? spinRates.length - 1 : fasterIndex;
     if (!clickAnimation) {
       clickAnimation = record.animate(
-        [{ rotate: "0turn" }, { rotate: "1turn" }],
+        [{ transform: "rotate(0turn)" }, { transform: "rotate(1turn)" }],
         { duration: spinDuration, iterations: Infinity, easing: "linear" },
       );
     }
@@ -105,16 +101,19 @@ export function startRecordMotion(record) {
     if (!document.hidden && !record.classList.contains("record-spin-idle") && !clickAnimation) schedule();
   });
   motion.addEventListener("change", (event) => {
-    if (!event.matches) return;
-    clearTimeout(timer);
-    cancelAnimationFrame(coastFrame);
-    coastFrame = undefined;
-    stopClickSpin();
-    record.classList.remove("record-spin-intro", "record-spin-idle");
-    delete record.dataset.spinSpeed;
-    delete record.dataset.spinRate;
-    record.dataset.motion = "reduced";
+    record.dataset.motion = event.matches ? "reduced" : "active";
+    if (event.matches) {
+      clearTimeout(timer);
+      cancelAnimationFrame(coastFrame);
+      coastFrame = undefined;
+      stopClickSpin();
+      record.classList.remove("record-spin-intro", "record-spin-idle");
+      delete record.dataset.spinSpeed;
+      delete record.dataset.spinRate;
+      return;
+    }
+    requestAnimationFrame(() => record.classList.add("record-spin-intro"));
   });
 
-  requestAnimationFrame(() => record.classList.add("record-spin-intro"));
+  if (!motion.matches) requestAnimationFrame(() => record.classList.add("record-spin-intro"));
 }
