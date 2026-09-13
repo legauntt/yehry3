@@ -369,6 +369,7 @@
       "title": "Telephone Wire (Tony V7 Study)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/telephone-wire-tony-v7-study-901080cda379.mp3",
       "duration": 215.1,
+      "voiceModel": "v7",
       "collection": "tonyai",
       "collections": [
         "tonyai"
@@ -622,6 +623,7 @@
       "title": "Spare Key Weather (Tony V7 Study)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/spare-key-weather-tony-v7-study-24f6e861cfad.mp3",
       "duration": 204.3,
+      "voiceModel": "v7",
       "collection": "tonyai",
       "collections": [
         "tonyai"
@@ -879,6 +881,7 @@
       "title": "The Last Light in the Station (Tony V7 Study)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/the-last-light-in-the-station-tony-v7-study-945ebf5f7759.mp3",
       "duration": 225.04,
+      "voiceModel": "v7",
       "collection": "tonyai",
       "collections": [
         "tonyai"

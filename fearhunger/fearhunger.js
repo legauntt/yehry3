@@ -135,7 +135,9 @@ function update(songs) {
       model.className = "voice-model-badge";
       card.querySelector(".duration").before(model);
     }
-    model.textContent = (/^v\d+$/i.test(song.voiceModel || "") ? song.voiceModel : "v6").toUpperCase();
+    const modelId = (/^v\d+$/i.test(song.voiceModel || "") ? song.voiceModel : "v6").toUpperCase();
+    model.className = `voice-model-badge${modelId === "V7" ? " v7" : ""}`;
+    model.textContent = modelId;
     let author = card.querySelector(".authored-by");
     if (!author) {
       author = document.createElement("p");

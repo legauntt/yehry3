@@ -16,7 +16,7 @@ export async function loadBasisSongs() {
 
 export function mountBasisPicker(root, songs, initial = []) {
   const selected = new Set(initial);
-  root.innerHTML = `<span class="field-label">Basis songs <span class="small">(optional, up to 5)</span></span><details class="basis-picker"><summary>Choose basis songs</summary><label for="basis-search">Find a song</label><input id="basis-search" type="search" placeholder="Search A–Z…"><div class="basis-options" role="group" aria-label="Basis songs"></div></details><p class="small" id="basis-count" aria-live="polite"></p><p class="small">Tony’s V6 voice is always included. Leave this empty for an original, or choose songs to inspire the result.</p>`;
+  root.innerHTML = `<span class="field-label">Basis songs <span class="small">(optional, up to 5)</span></span><details class="basis-picker"><summary>Choose basis songs</summary><label for="basis-search">Find a song</label><input id="basis-search" type="search" placeholder="Search A–Z…"><div class="basis-options" role="group" aria-label="Basis songs"></div></details><p class="small" id="basis-count" aria-live="polite"></p><p class="small">Your chosen Tony voice is always included. Leave this empty for an original, or choose songs to inspire the result.</p>`;
   const options = root.querySelector(".basis-options");
   const checkboxes = [];
   for (const song of songs) {

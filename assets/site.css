@@ -703,6 +703,12 @@ main {
   letter-spacing: 0.06em;
   line-height: 1.5;
 }
+.voice-model-badge.v7 {
+  border-color: #c15f25;
+  background: #fff0df;
+  color: #8a3407;
+  box-shadow: 0 0 0 1px rgb(193 95 37 / 12%);
+}
 .track-collections {
   overflow-wrap: anywhere;
 }

@@ -395,16 +395,15 @@ test("optional basis songs, A-Z list, five-song cap, and saved review", async ({
     .getByLabel("Your prompt")
     .fill("An original Tony song about a late train home.");
   await page.getByRole("button", { name: "Find the direction" }).click();
-  await page
-    .getByLabel("What should it sound like?")
-    .fill("Intimate acoustic verses and a big joyful chorus.");
-  await page
-    .getByLabel("What matters most?")
-    .fill("Tony vocals and a memorable hook");
+  expect(await page.locator("#direction").getAttribute("required")).toBeNull();
+  expect(await page.locator("#keep").getAttribute("required")).toBeNull();
+  await expect(page.getByText("Your chosen Tony voice is always included.")).toBeVisible();
   await page.getByLabel("Tony voice model").selectOption("v7");
   await page.getByRole("button", { name: "Review the request" }).click();
   await expect(page.locator(".brief")).toContainText("Tony V7 · experimental");
   await expect(page.locator(".brief")).toContainText("No basis song");
+  await expect(page.locator(".brief")).toContainText("Use the prompt as written.");
+  await expect(page.locator(".brief")).toContainText("Surprise me.");
   await page.getByRole("button", { name: "Fine-tune it" }).click();
   await page.locator(".basis-picker summary").click();
   const boxes = page.locator(".basis-option input");

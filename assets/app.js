@@ -52,6 +52,7 @@ const voiceModel = (id) =>
     ? { id, label: `Tony ${id.toUpperCase()}`, note: "Versioned Tony voice profile", experimental: id !== "v6" }
     : voiceModels[0]);
 const voiceModelBadge = (id) => escape((/^v\d+$/i.test(id || "") ? id : "v6").toUpperCase());
+const voiceModelBadgeClass = (id) => /^v7$/i.test(id || "") ? " v7" : "";
 const voiceModelLabel = (id) => {
   const model = voiceModel(id);
   return `${model.label}${model.experimental ? " · experimental" : " · established"}`;
@@ -133,7 +134,7 @@ function songMeta(song, recentPublishedAt, unknownAgeHours) {
     collections(song)
       .map((name) => collectionNames[name] || name)
       .join(" / "),
-  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge">${voiceModelBadge(song.voiceModel)}</span><span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${song.lyrics?.text ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${song.originalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge${voiceModelBadgeClass(song.voiceModel)}">${voiceModelBadge(song.voiceModel)}</span><span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${song.lyrics?.text ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${song.originalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
 }
 
 async function library() {
@@ -297,7 +298,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track ${current?.id === song.id ? "playing" : ""}" data-id="${escape(song.id)}">
-      <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id), unknownAges.get(song))}${modelInfoButton(song)}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+        <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id), unknownAges.get(song))}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : '<p class="empty">No songs match. Try another title or style.</p>');
@@ -490,7 +491,7 @@ function showLoginStatus(role, target, onSuccess) {
 
 function loginView(role, onSuccess) {
   const admin = role === "admin";
-  main.innerHTML = `<section class="form-layout"><div><p class="eyebrow">${admin ? "Backstage" : "Distonyc"}</p><h1>${admin ? "Run the<br><em>request line.</em>" : "A little idea.<br><em>A whole new song.</em>"}</h1><p class="lede">${admin ? "Review the requests, shape the queue, and keep the music moving." : "Tell us what you’re hearing. We’ll fine-tune the idea together before it joins the queue."}</p><p class="margin-note">${admin ? "Admin access" : "01 / The idea<br>02 / The direction<br>03 / The final say"}</p></div><div class="form-card"><span class="tiny-label">${admin ? "AUTHORIZED PERSONNEL" : "IF YOU KNOW, YOU KNOW"}</span><h2>${admin ? "Welcome backstage." : "Come on in."}</h2><p>${admin ? "Use your separate admin password." : "Never share your password with anyone"}</p><p class="small">This browser remembers your password until you sign out.</p><form id="login-form"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required maxlength="200"><button class="primary" type="submit">${admin ? "Open the queue" : "Let’s make something"} <span aria-hidden="true">→</span></button><p id="form-error" class="field-error" role="alert"></p></form></div></section>`;
+  main.innerHTML = `<section class="form-layout"><div><p class="eyebrow">${admin ? "Backstage" : "Distonyc"}</p><h1>${admin ? "Run the<br><em>request line.</em>" : "A little idea.<br><em>A whole new song.</em>"}</h1><p class="lede">${admin ? "Review the requests, shape the queue, and keep the music moving." : "Tell us what you’re hearing. We’ll fine-tune the idea together before it joins the queue."}</p><p class="margin-note">${admin ? "Admin access" : "01 / The idea<br>02 / Refinements<br>03 / The final say"}</p></div><div class="form-card"><span class="tiny-label">${admin ? "AUTHORIZED PERSONNEL" : "IF YOU KNOW, YOU KNOW"}</span><h2>${admin ? "Welcome backstage." : "Come on in."}</h2><p>${admin ? "Use your separate admin password." : "Never share your password with anyone"}</p><p class="small">This browser remembers your password until you sign out.</p><form id="login-form"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required maxlength="200"><button class="primary" type="submit">${admin ? "Open the queue" : "Let’s make something"} <span aria-hidden="true">→</span></button><p id="form-error" class="field-error" role="alert"></p></form></div></section>`;
   $("#login-form").onsubmit = async (event) => {
     event.preventDefault();
     const button = $("button", event.target);
@@ -561,7 +562,7 @@ async function requests() {
             ? "details"
             : "idea");
     const number = { idea: 1, details: 2, review: 3, submitted: 3 }[stage];
-    main.innerHTML = `<section class="request-intro"><p class="eyebrow">Distonyc</p><h1>Let’s hear<br><em>your wild idea.</em></h1><p class="lede">A familiar song in unfamiliar territory. Or something nobody’s heard before.</p><button class="quiet" id="request-signout">Sign out ↗</button></section><section class="workbench"><ol class="steps" aria-label="Request progress">${["The idea", "The direction", "The final say"].map((name, i) => `<li ${i + 1 === number ? 'aria-current="step"' : ""}><span>0${i + 1}</span>${name}</li>`).join("")}</ol><div class="request-form" id="request-form"></div></section>`;
+    main.innerHTML = `<section class="request-intro"><p class="eyebrow">Distonyc</p><h1>Let’s hear<br><em>your wild idea.</em></h1><p class="lede">A familiar song in unfamiliar territory. Or something nobody’s heard before.</p><button class="quiet" id="request-signout">Sign out ↗</button></section><section class="workbench"><ol class="steps" aria-label="Request progress">${["The idea", "Refinements", "The final say"].map((name, i) => `<li ${i + 1 === number ? 'aria-current="step"' : ""}><span>0${i + 1}</span>${name}</li>`).join("")}</ol><div class="request-form" id="request-form"></div></section>`;
     showLoginStatus("submitter", $(".request-intro"), load);
     $("#request-signout").onclick = () => {
       logout("submitter");
@@ -598,7 +599,7 @@ async function requests() {
           render();
         });
     } else if (stage === "details") {
-      form.innerHTML = `<p class="eyebrow">Turn 02 · Let’s get specific</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Before this goes to the studio, tell us the direction and choose the Tony voice.</p><form id="details-form">${authorField}<div id="basis-root"></div><label for="voice-model">Tony voice model</label><select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p><label for="direction">What should it sound like?</label><textarea id="direction" rows="3" minlength="10" maxlength="2000" required placeholder="Four close vocal harmonies, playful barbershop, no instruments…"></textarea><label for="keep">What matters most?</label><textarea id="keep" rows="2" maxlength="1000" required placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p></form>`;
+      form.innerHTML = `<p class="eyebrow">Turn 02 · Optional refinements</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Choose the Tony voice, then add as much—or as little—direction as you like.</p><form id="details-form">${authorField}<div id="basis-root"></div><div class="voice-model-label"><label for="voice-model">Tony voice model</label>${modelInfoButton()}</div><select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p><label for="direction">What should it sound like? <span class="small">(optional)</span></label><textarea id="direction" rows="3" maxlength="2000" placeholder="Refine the prompt with a style, arrangement, mood, or other direction…"></textarea><p class="small field-hint">Leave this empty to use your prompt as written.</p><label for="keep">What matters most? <span class="small">(optional)</span></label><textarea id="keep" rows="2" maxlength="1000" placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><p class="small field-hint">Leave this empty for “Surprise me.”</p><div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p></form>`;
       $("#authored-by").value = draft.authoredBy || "";
       $("#authored-by").oninput = (event) => rememberAuthor(event.target.value);
       const selectedBasis = mountBasisPicker(
@@ -606,8 +607,10 @@ async function requests() {
         basisSongs,
         draft.details?.basisSongIds || [],
       );
-      for (const key of ["direction", "keep"])
-        $(`#${key}`).value = draft.details?.[key] || "";
+      const savedDirection = draft.details?.direction || "";
+      const savedKeep = draft.details?.keep || "";
+      $("#direction").value = savedDirection === "Use the prompt as written." ? "" : savedDirection;
+      $("#keep").value = savedKeep === "Surprise me." ? "" : savedKeep;
       $("#voice-model").value = draft.details?.voiceModel || "v6";
       const describeVoice = () => {
         const model = voiceModel($("#voice-model").value);
@@ -623,9 +626,10 @@ async function requests() {
       };
       $("#details-form").onsubmit = (event) =>
         run(event, async () => {
-          const details = Object.fromEntries(
-            ["direction", "keep"].map((key) => [key, $(`#${key}`).value]),
-          );
+          const details = {
+            direction: $("#direction").value.trim() || "Use the prompt as written.",
+            keep: $("#keep").value.trim() || "Surprise me.",
+          };
           details.basisSongIds = selectedBasis();
           details.voiceModel = $("#voice-model").value;
           details.authoredBy = $("#authored-by").value.trim();

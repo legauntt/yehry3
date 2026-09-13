@@ -189,6 +189,22 @@ h3 {
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
+.voice-model-badge {
+  display: inline-flex;
+  width: fit-content;
+  padding: 2px 7px;
+  border: 1px solid #777;
+  border-radius: 999px;
+  color: var(--muted);
+  font: 600 10px/1.4 Arial, Helvetica, sans-serif;
+  letter-spacing: 0.08em;
+}
+.voice-model-badge.v7 {
+  border-color: #d49a42;
+  background: #3c2912;
+  color: #ffd68c;
+  box-shadow: 0 0 10px rgb(212 154 66 / 20%);
+}
 .track-description {
   color: var(--muted);
   font-size: 15px;
