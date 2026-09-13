@@ -1,6 +1,7 @@
 import { api } from "../assets/api.js";
 import { qualityNotice } from "../assets/quality.js";
 import { watchCompletions } from "../assets/notifications.js";
+import { lyricsHref } from "../assets/song-links.js";
 
 watchCompletions();
 
@@ -149,7 +150,7 @@ function update(songs) {
     }
     const lyrics = card.querySelector(".lyrics-link");
     if (song.lyrics?.text) {
-      lyrics.href = "/lyrics/?song=" + encodeURIComponent(song.id);
+      lyrics.href = lyricsHref(song);
       lyrics.hidden = false;
     }
     const original = card.querySelector(".original-prompt-link");

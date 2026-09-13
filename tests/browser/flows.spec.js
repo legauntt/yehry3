@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { mkdir, readFile } from "node:fs/promises";
+import { lyricsHref } from "../../assets/song-links.js";
 const songCount = JSON.parse(
   await readFile(new URL("../../catalog.json", import.meta.url), "utf8"),
 ).songs.length;
@@ -451,7 +452,16 @@ test("generated song lyrics, dual collection filtering, and API outage fallback"
   await song
     .getByRole("link", { name: "Lyrics for Blood on My Shoes at Daybreak" })
     .click();
+  await expect(page).toHaveURL(/\/lyrics\/blood-on-my-shoes-at-daybreak-[0-9a-f]{6}\/$/);
   await expect(page.locator("h1")).toHaveText("Blood on My Shoes at Daybreak");
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+    "content",
+    "Blood on My Shoes at Daybreak · Lyrics · yehry3",
+  );
+  await expect(page.locator('meta[property="og:description"]')).toHaveAttribute(
+    "content",
+    /Which shoe's mine\? Both\? That's unfortunate\./,
+  );
   await expect(page.locator(".lyrics-text")).toContainText(
     "Blood on my shoes, dawn in my eyes",
   );
@@ -587,7 +597,7 @@ test("Fear and Hunger includes tagged requests, refreshes without duplicates, an
   ).toBeVisible();
   await expect(current.locator(".lyrics-link")).toHaveAttribute(
     "href",
-    `/lyrics/?song=${blood.id}`,
+    lyricsHref(blood),
   );
   await expect(current.locator(".original-prompt-link")).toHaveAttribute(
     "href",

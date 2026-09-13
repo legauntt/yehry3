@@ -103,7 +103,9 @@ function mountKaraoke(main) {
 }
 
 export async function lyricsPage(main, { escape, safeUrl }) {
-  const id = new URLSearchParams(location.search).get("song");
+  const id =
+    new URLSearchParams(location.search).get("song") ||
+    document.body.dataset.songId;
   let song;
   if (/^[a-z0-9-]{1,120}$/.test(id || "")) {
     try {
