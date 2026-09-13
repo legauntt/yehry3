@@ -2,6 +2,32 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-cde0ad6343e70356fe5b56e1",
+      "title": "Sol for Sale",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cde0ad6343e70356fe5b56e1-351533aac811.mp3",
+      "duration": 271.6,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Spoken Intro]\nLaces tight, dignity loose.\nI got one more rune to chase.\n\n[Verse 1]\nWoke up creased beneath the bed\nRubber tongue and leather head\nTony in the mirror, nowhere to be found\nJust one crooked loafer crawling downtown\nMy eyelets blinked, my heel felt mean\nI smelled like smoke and kerosene\nHad an empty stash and a fevered goal\nDiablo on the screen saying, Bring me Sol\n\n[Pre-Chorus]\nI sold the jacket, pawned the chair\nTraded every decent thing I had to spare\nNow the stash tab glows, and the craving calls\nSo I click-clack out through the motel halls\n\n[Chorus]\nI’m selling my sole for a pocketful of Sol\nWorking this curb with a hole in my soul\nRed nose moon and the streetlights strobe\nI’m a size-ten sinner in a secondhand robe\nPay what you want, but the rune comes first\nEvery little trade only sharpens the thirst\nI’m selling my sole, and I know what it costs\nOne more night in Sanctuary, completely lost\n\n[Drop]\nSqueak—step, lace snap, bass goes crooked\nBig red grin, but the eyes look cooked\nSol in the socket, gold in the slot\nI said, “That all ya got?” then I took the lot\n\n[Verse 2]\nA limousine hissed by the liquor-store sign\nSome bastard whispered, “Hey, that shoe looks fine”\nI tipped my tongue with a dismissive laugh\n“Cash up front, pal—don’t do halves”\nThe circus synths began to squeal\nWhile dirty sub-bass shook my heel\nEvery deal bought another run\nCountess at midnight, still no fun\n\n[Pre-Chorus]\nMy laces frayed, my polish cracked\nBut the glowing little letters kept pulling me back\nNo sacred armor, no grand control\nJust a cheap-room altar to another Sol\n\n[Chorus]\nI’m selling my sole for a pocketful of Sol\nWorking this curb with a hole in my soul\nRed nose moon and the streetlights strobe\nI’m a size-ten sinner in a secondhand robe\nPay what you want, but the rune comes first\nEvery little trade only sharpens the thirst\nI’m selling my sole, and I know what it costs\nOne more night in Sanctuary, completely lost\n\n[Bridge]\nThen the server went black at a quarter to four\nNo loot, no light, no knock at the door\nI saw my bent shape in a rainwater stain\nA clown-painted shoe going numb in the rain\n“Heh… Tony, ya beautiful fool,” I slurred\n“You traded your name for a three-letter word”\nI loosened one lace, let the cold air in\nAnd kicked that glowing habit into the bin\n\n[Final Drop]\nHorn blast, heel crack, carousel bends\nThe bass falls down, then it rises again\nNo more curb and no bargain-bin throne\nIf I’m walking through Hell, I’m walking it alone\n\n[Final Chorus]\nI nearly sold my sole for a pocketful of Sol\nLet the game bite deep, let it swallow me whole\nRed dawn burning while the streetlights close\nI’m a worn-out wonder with a battered toe\nKeep your damn rune, keep your glittering curse\nI crawled through the gutter, but I’m coming out first\nI’m taking back Tony, every scar, every flaw\nWith a long crooked grin and a heel full of awe\n\n[Outro Tag]\nOne last step from the carnival glow\nNo chains on my laces, no master below\nI plant my heel where the new sun falls\nTony stands tall—shoe, sinner, and all\nHome… at la-a-ast.",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 13.86
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony C morphs into a shoe and turns to prostitution to fund his addiction to Diablo 2 Sol runes.",
+        "direction": "Clown dubstep",
+        "keep": "Explicit lyrics",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-6de1a50ad6f84fe463d243b2",
       "title": "Rollback Prophet of Fairbanks",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6de1a50ad6f84fe463d243b2-b4ee0bbae12d.mp3",
