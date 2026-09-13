@@ -713,6 +713,13 @@ main {
   font-size: 1.25rem;
   line-height: 1;
 }
+.vote.has-votes {
+  background: #fbe6ee;
+  border-color: #e7a3bd;
+}
+.vote.has-votes span:first-child {
+  color: #c82f6b;
+}
 .vote:not(:disabled):hover {
   background: #edc3a7;
   border-color: var(--accent);

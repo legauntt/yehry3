@@ -21,6 +21,8 @@ test("catalog, search, player, and anonymous vote cooldown", async ({
     .toBeGreaterThan(0);
   await page.locator("[data-vote]").first().click();
   await expect(page.locator("#message")).toContainText("Vote counted");
+  await expect(page.locator("[data-vote]").first()).toHaveClass(/has-votes/);
+  await expect(page.locator("[data-vote] span").first()).toHaveText("♥");
   await expect(page.locator("[data-vote]").first()).toBeDisabled();
   await page.reload();
   await expect(page.locator("[data-vote]").first()).toBeDisabled();
