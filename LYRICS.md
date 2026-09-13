@@ -2,7 +2,7 @@
 
 Every song in the catalog has a shareable lyric sheet at `/lyrics/?song=<id>`, linked from the main list. The Fear & Hunger page also links each song's lyrics. Sheets can be printed or downloaded as text.
 
-Every current sheet also has line-level timing derived from the retained vocal word timestamps for its exact production. While audio plays, the current line is highlighted and kept in view; selecting a timed line seeks the player to its start. Section labels remain visual headings. The timing is monotonic and bounded to the published recording, but stylized singing and source transcription errors can make individual transitions approximate.
+Every current sheet also has line-level timing derived from the retained vocal word timestamps for its exact production. The backfill matches the saved production to the SHA-256 prefix in the published MP3 filename before deriving cues, so an abandoned render with the same lyrics cannot supply another recording's timeline. While audio plays, the current line is highlighted and kept in view; selecting a timed line seeks the player to its start. Section labels remain visual headings. The timing is monotonic and bounded to the published recording, but stylized singing and source transcription errors can make individual transitions approximate.
 
 The 53 older entries were backfilled from saved local Troofs production files: 39 from the lyric text supplied to the renderer, and 14 from saved source transcriptions. The production manifests were matched to the published MP3 SHA-256 hashes, so alternate versions use their corresponding production text. No new lyrics or transcriptions were generated for the backfill. These copies are also saved under `Music\troofs\lyrics` on Jesse's PC.
 

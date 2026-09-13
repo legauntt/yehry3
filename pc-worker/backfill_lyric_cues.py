@@ -26,6 +26,24 @@ def transcript(path):
     return clean('\n'.join(row.get('text', '').strip() for row in rows if isinstance(row, dict))) if isinstance(rows, list) else ''
 
 
+def published_hash(song):
+    match = re.search(r'-([0-9a-f]{12,64})\.mp3(?:[?#].*)?$', str(song.get('url', '')), re.IGNORECASE)
+    return match.group(1).lower() if match else ''
+
+
+def delivery_hashes(directory):
+    hashes = set()
+    for name in ('delivery-manifest.json', 'desktop-delivery.json'):
+        path = directory / name
+        if not path.exists(): continue
+        data = load(path)
+        rows = data.get('files', []) if isinstance(data, dict) else data
+        for row in rows if isinstance(rows, list) else []:
+            value = str(row.get('sha256', '')).lower() if isinstance(row, dict) else ''
+            if re.fullmatch(r'[0-9a-f]{64}', value): hashes.add(value)
+    return hashes
+
+
 def candidate(directory):
     if not any((directory / name).exists() for name in WORD_FILES): return None
     title, texts = directory.name, []
@@ -39,7 +57,13 @@ def candidate(directory):
         path = directory / name
         if path.exists(): texts.append(transcript(path))
     texts = [text for text in texts if text]
-    return {'directory': directory, 'title': title, 'texts': texts, 'keys': [key(text) for text in texts]} if texts else None
+    return {
+        'directory': directory,
+        'title': title,
+        'texts': texts,
+        'keys': [key(text) for text in texts],
+        'hashes': delivery_hashes(directory),
+    } if texts else None
 
 
 def choose(song, candidates):
@@ -47,10 +71,22 @@ def choose(song, candidates):
         item = next((item for item in candidates if item['directory'].name == OVERRIDES[song['id']]), None)
         return (item, 'verified production override') if item else (None, 'verified production override is missing')
     wanted_text, wanted_title = key(song['lyrics']['text']), key(song['title'])
+    audio_hash = published_hash(song)
+    hash_candidates = [item for item in candidates if audio_hash and any(value.startswith(audio_hash) for value in item.get('hashes', set()))]
+    if len(hash_candidates) == 1:
+        item = hash_candidates[0]
+        text_score = max(difflib.SequenceMatcher(None, wanted_text, item_key, autojunk=False).ratio() for item_key in item['keys'])
+        if text_score < .58:
+            return None, f'published audio hash matched {item["directory"].name}, but lyric text score is only {text_score:.2f}'
+        return item, f'published audio sha256={audio_hash}'
+    if len(hash_candidates) > 1:
+        return None, f'published audio hash is ambiguous across {len(hash_candidates)} saved productions'
     exact_candidates = [item for item in candidates if wanted_text in item['keys']]
     pool = exact_candidates
     if not pool:
         pool = sorted(candidates, key=lambda item: difflib.SequenceMatcher(None, wanted_title, key(item['title']), autojunk=False).ratio(), reverse=True)[:10]
+    delivered = [item for item in pool if item.get('hashes')]
+    if delivered: pool = delivered
     ranked = []
     for item in pool:
         title_score = difflib.SequenceMatcher(None, wanted_title, key(item['title']), autojunk=False).ratio()
@@ -65,7 +101,8 @@ def choose(song, candidates):
         return None, f'best match too weak: {item["directory"].name} text={text_score:.2f} title={title_score:.2f}'
     if len(ranked) > 1 and score < 2 and score - ranked[1][0] < .035:
         return None, f'ambiguous: {item["directory"].name} / {ranked[1][3]["directory"].name}'
-    return item, f'text={text_score:.2f} title={title_score:.2f}'
+    delivery = ' delivered' if item.get('hashes') else ''
+    return item, f'text={text_score:.2f} title={title_score:.2f}{delivery}'
 
 
 def main():
