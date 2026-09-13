@@ -1,0 +1,45 @@
+import { test, expect } from "@playwright/test";
+import { mkdir } from "node:fs/promises";
+
+test("admin sort defaults newest, resets pagination and persists across filters and reloads", async ({ page }) => {
+  const base = { status: "queued", priority: 0, version: 1, details: {}, history: [], confirmedAt: "2026-01-01T00:00:00Z" };
+  const older = { ...base, id: "older", prompt: "Older request" };
+  const newer = { ...base, id: "newer", prompt: "Newer request", confirmedAt: "2026-01-02T00:00:00Z" };
+  const priority = { ...base, id: "priority", prompt: "Highest priority request", priority: 100 };
+  const calls = [];
+  await page.route("**/yehry3/admin/prompts?**", async route => {
+    const params = new URL(route.request().url()).searchParams;
+    calls.push(Object.fromEntries(params));
+    const sort = params.get("sort"), pageNumber = Number(params.get("page"));
+    const prompts = pageNumber ? [older] : sort === "oldest" ? [older, newer] : sort === "priority" ? [priority, newer] : [newer, older];
+    await route.fulfill({ json: { prompts, total: 51, page: pageNumber, sort, counts: { queued: 51 }, transitions: {}, workers: [] } });
+  });
+  await page.goto("/admin/?status=all&ref=friend");
+  await page.getByLabel("Password", { exact: true }).fill("browser-test-admin");
+  await page.getByRole("button", { name: "Open the queue" }).click();
+  await expect(page.getByLabel("Sort", { exact: true })).toHaveValue("newest");
+  await expect(page.locator(".queue-card h2").first()).toHaveText("Newer request");
+  expect(calls.at(-1)).toMatchObject({ status: "all", sort: "newest", page: "0" });
+  await page.getByRole("button", { name: "Next" }).click();
+  await expect(page.locator(".pagination")).toContainText("Page 2");
+  await page.getByLabel("Sort", { exact: true }).selectOption("oldest");
+  await expect(page.locator(".pagination")).toContainText("Page 1");
+  await expect(page.locator(".queue-card h2").first()).toHaveText("Older request");
+  expect(calls.at(-1)).toMatchObject({ sort: "oldest", page: "0" });
+  expect(new URL(page.url()).searchParams.get("sort")).toBe("oldest");
+  expect(new URL(page.url()).searchParams.get("ref")).toBe("friend");
+  await page.getByLabel("Show", { exact: true }).selectOption("queued");
+  await expect.poll(() => calls.at(-1)).toMatchObject({ status: "queued", sort: "oldest", page: "0" });
+  await page.reload();
+  await expect(page.getByLabel("Sort", { exact: true })).toHaveValue("oldest");
+  await page.getByLabel("Show", { exact: true }).selectOption("all");
+  await page.getByLabel("Sort", { exact: true }).selectOption("priority");
+  await expect(page.locator(".queue-card h2").first()).toHaveText("Highest priority request");
+  await page.getByLabel("Sort", { exact: true }).selectOption("newest");
+  await expect(page.locator(".queue-card h2").first()).toHaveText("Newer request");
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.getByLabel("Sort", { exact: true })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await mkdir("artifacts", { recursive: true });
+  await page.screenshot({ path: "artifacts/admin-sort-mobile.png", fullPage: true });
+});

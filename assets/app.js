@@ -612,20 +612,24 @@ function brief(doc) {
 }
 
 async function admin() {
-  const requestedFilter = new URLSearchParams(location.search).get("status");
+  const adminParams = new URLSearchParams(location.search);
+  const requestedFilter = adminParams.get("status");
+  const sortOptions = { newest: "Newest first", oldest: "Oldest first", priority: "Queue priority" };
   const validFilters = ["all", ...Object.keys(labels).filter((key) => !["draft", "review"].includes(key))];
   let data = null,
     filter = validFilters.includes(requestedFilter) ? requestedFilter : "queued",
+    sortOrder = Object.hasOwn(sortOptions, adminParams.get("sort")) ? adminParams.get("sort") : "newest",
     pageNumber = 0,
     loadSequence = 0;
   async function load() {
     const sequence = ++loadSequence;
     try {
       const nextFilter = filter;
+      const nextSort = sortOrder;
       let nextPage = pageNumber;
       while (true) {
         const response = await api(
-          `/admin/prompts?status=${nextFilter}&page=${nextPage}`,
+          `/admin/prompts?status=${nextFilter}&sort=${nextSort}&page=${nextPage}`,
           { role: "admin" },
         );
         if (sequence !== loadSequence) return;
@@ -671,17 +675,27 @@ async function admin() {
       .map(([key, label]) => `<option value="${key}">${label}</option>`)
       .join(
         "",
-      )}</select><button class="quiet" id="refresh">Refresh ↻</button><span class="small">${data.total} requests · Higher priority goes first; oldest wins ties.</span></div><div id="queue">${data.prompts.length ? data.prompts.map(row).join("") : `<div class="empty"><span class="empty-symbol">◎</span><h2>A little room for possibility.</h2><p>No requests in this view yet.</p>${filter === "all" ? '<a class="text-link" href="/distonyc/">Make the first request →</a>' : '<a class="text-link" href="/admin/?status=all">All requests →</a>'}</div>`}</div><div class="pagination"><button class="quiet" id="prev-page" ${pageNumber === 0 ? "disabled" : ""}>← Previous</button><span>Page ${pageNumber + 1}</span><button class="quiet" id="next-page" ${(pageNumber + 1) * 50 >= data.total ? "disabled" : ""}>Next →</button></div></section>`;
+      )}</select><label for="admin-sort">Sort</label><select id="admin-sort">${Object.entries(sortOptions).map(([value, label]) => `<option value="${value}">${label}</option>`).join("")}</select><button class="quiet" id="refresh">Refresh ↻</button><span class="small">${data.total} requests · ${sortOrder === "priority" ? "Higher priority first; oldest wins ties." : sortOrder === "oldest" ? "Earliest submissions first." : "Latest submissions first."}</span></div><div id="queue">${data.prompts.length ? data.prompts.map(row).join("") : `<div class="empty"><span class="empty-symbol">◎</span><h2>A little room for possibility.</h2><p>No requests in this view yet.</p>${filter === "all" ? '<a class="text-link" href="/distonyc/">Make the first request →</a>' : '<a class="text-link" href="/admin/?status=all">All requests →</a>'}</div>`}</div><div class="pagination"><button class="quiet" id="prev-page" ${pageNumber === 0 ? "disabled" : ""}>← Previous</button><span>Page ${pageNumber + 1}</span><button class="quiet" id="next-page" ${(pageNumber + 1) * 50 >= data.total ? "disabled" : ""}>Next →</button></div></section>`;
     showLoginStatus("admin", $(".admin-intro > div"), load);
-    $("#status-filter").value = filter;
-    $("#status-filter").onchange = (event) => {
-      filter = event.target.value;
+    function changeView() {
       pageNumber = 0;
       const url = new URL(location.href);
       if (filter === "queued") url.searchParams.delete("status");
       else url.searchParams.set("status", filter);
+      if (sortOrder === "newest") url.searchParams.delete("sort");
+      else url.searchParams.set("sort", sortOrder);
       history.replaceState(null, "", url);
       load();
+    }
+    $("#status-filter").value = filter;
+    $("#status-filter").onchange = (event) => {
+      filter = event.target.value;
+      changeView();
+    };
+    $("#admin-sort").value = sortOrder;
+    $("#admin-sort").onchange = (event) => {
+      sortOrder = event.target.value;
+      changeView();
     };
     $("#refresh").onclick = load;
     $("#signout").onclick = () => {
