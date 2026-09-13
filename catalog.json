@@ -2,6 +2,28 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5dcc03f7a816c3e812f62173",
+      "title": "The One I Cannot Kill",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5dcc03f7a816c3e812f62173-55e576226de6.mp3",
+      "duration": 196.5,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Verse 1]\nDropped on the map with a beautiful plan\nEnough ammunition to bury a sun\nFirst little bastard comes over the sand\nMy whole army fires and nothing gets done\nThere's a mark on his head like a practical joke\nHe's picking his teeth in my artillery smoke\nYour boys could erase him by turning around\nBut you're chasing a bonus halfway across town\n\n[Pre-Chorus]\nI put one ping where the trouble begins\nThen three where the trouble walks in\nYou say you're coming, I swallow my pride\nThere's something enormous approaching the side\n\n[Chorus]\nThat's the one I cannot kill\nWalking through the fire, standing still\nI've got thunder in my hands\nBut the answer's in your hands\nGet here before the walls give way\nI'll take the beast that shrugs your shots away\nTwo commanders, one terrible hill\nAnd the one I cannot kill\n\n[Verse 2]\nSiege tanks barking till the barrels glow red\nMarines disappear where the ramp used to be\nThat hybrid keeps stepping across all my dead\nLike Amon arranged this especially for me\nYou've got your own monster chewing your gate\nI can hurt yours, but I'm arriving late\nWe pass in the middle with opposite debts\nAnd a list of apologies neither forgets\n\n[Pre-Chorus]\nMy finest upgrade is begging for aid\nYour finest defense is the promise I made\nThe clock keeps its teeth in the neck of the run\nWe don't get to win this by being just one\n\n[Chorus]\nThat's the one I cannot kill\nWalking through the fire, standing still\nI've got thunder in my hands\nBut the answer's in your hands\nGet here before the walls give way\nI'll take the beast that shrugs your shots away\nTwo commanders, one terrible hill\nAnd the one I cannot kill\n\n[Bridge]\nWait—there you are through the burning machinery\nOne crooked volley and down goes my misery\nI laugh like a fool with a mouth full of dust\nThen turn toward yours because somebody must\n\n[Final Chorus]\nThat's the one I couldn't kill\nNow it's broken underneath the hill\nKeep your shoulder next to mine\nLet the wreckage mark the line\nLast wave falling, both of us stay\nEach takes the nightmare the other can't slay\nTwo commanders breathing until\nThere isn't one we cannot kill",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Similar to Gravity, but about the horrors of Polarity in SC2 co op",
+        "direction": "Capture the pain of needing your ally's help to kill a unit that you cannot",
+        "keep": "Surprise me",
+        "basisSongs": [
+          "Gravity"
+        ]
+      }
+    },
+    {
       "id": "distonyc-268867386d96f37bbadc6d45",
       "title": "An Old Friend in the Emergency Light",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-268867386d96f37bbadc6d45-cb75ca295734.mp3",
