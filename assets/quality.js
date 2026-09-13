@@ -1,3 +1,5 @@
+import "./quality-preference.js";
+
 export function qualityNotice(issues) {
   const known = (Array.isArray(issues) ? issues : []).filter(
     (issue) => Number.isFinite(issue?.seconds) && issue.seconds <= 600 &&

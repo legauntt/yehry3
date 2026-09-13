@@ -1,0 +1,72 @@
+import { test, expect } from "@playwright/test";
+
+const key = "yehry3:show-quality-issues";
+const song = {
+  id: "preference-song", title: "A song with an issue", duration: 240,
+  url: "/test.mp3", collection: "distonyc", collections: ["distonyc", "fearhunger"],
+  qualityIssues: [{ code: "long_instrumental_break", seconds: 35.04 }],
+  lyrics: { text: "The saved lyric sheet.", kind: "written" },
+};
+
+test.beforeEach(async ({ context }) => {
+  await context.route("**/yehry3/songs", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
+  await context.route("**/yehry3/queue?*", route => route.fulfill({ json: {
+    inStudio: [], queued: [], recent: [{ ...song, status: "published", idea: song.title, publishedAt: new Date().toISOString() }],
+    queuedTotal: 0, inStudioTotal: 0, page: 0, pageSize: 50,
+  } }));
+});
+
+test("issues default on and the preference persists across reloads and listening pages", async ({ page }) => {
+  await page.goto("/");
+  const toggle = page.getByRole("checkbox", { name: 'Show “Has issues”' });
+  await expect(toggle).toBeChecked();
+  await expect(page.locator(".quality-notice")).toBeVisible();
+  await toggle.uncheck();
+  await expect(page.locator(".quality-notice")).toBeHidden();
+  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe("false");
+  await page.reload();
+  for (const path of ["/", "/lyrics/?song=preference-song", "/queue/", "/fearhunger/"]) {
+    await page.goto(path);
+    await expect(toggle).not.toBeChecked();
+    await expect(page.locator(".quality-notice").filter({ hasText: "35 seconds" })).toHaveCount(1);
+    await expect(page.locator(".quality-notice:visible")).toHaveCount(0);
+  }
+  await toggle.check();
+  await expect(page.locator(".quality-notice").filter({ hasText: "35 seconds" })).toBeVisible();
+  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe("true");
+  await page.goto("/");
+  await expect(toggle).toBeChecked();
+  await expect(page.locator(".quality-notice")).toBeVisible();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await toggle.scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.locator("footer").screenshot({ path: "artifacts/quality-preference-mobile.png" });
+});
+
+test("open tabs follow changes and clearing the preference restores the default", async ({ page, context }) => {
+  await page.goto("/");
+  const second = await context.newPage();
+  await second.goto("/lyrics/?song=preference-song");
+  await expect(second.locator(".quality-notice")).toBeVisible();
+  await page.getByRole("checkbox", { name: 'Show “Has issues”' }).uncheck();
+  await expect(second.locator(".quality-notice")).toBeHidden();
+  await expect(second.getByRole("checkbox", { name: 'Show “Has issues”' })).not.toBeChecked();
+  await page.evaluate(key => localStorage.removeItem(key), key);
+  await expect(second.locator(".quality-notice")).toBeVisible();
+  await expect(second.getByRole("checkbox", { name: 'Show “Has issues”' })).toBeChecked();
+});
+
+test("blocked localStorage still allows the current page to toggle notices", async ({ page }) => {
+  await page.addInitScript(() => {
+    Storage.prototype.getItem = () => { throw new DOMException("Blocked", "SecurityError"); };
+    Storage.prototype.setItem = () => { throw new DOMException("Blocked", "SecurityError"); };
+  });
+  await page.goto("/");
+  const toggle = page.getByRole("checkbox", { name: 'Show “Has issues”' });
+  await expect(toggle).toBeChecked();
+  await expect(page.locator(".quality-notice")).toBeVisible();
+  await toggle.uncheck();
+  await expect(page.locator(".quality-notice")).toBeHidden();
+  await toggle.check();
+  await expect(page.locator(".quality-notice")).toBeVisible();
+});
