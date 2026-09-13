@@ -1,4 +1,5 @@
 import { api } from "./api.js";
+import { qualityNotice } from "./quality.js";
 
 export async function lyricsPage(main, { escape, safeUrl }) {
   const id = new URLSearchParams(location.search).get("song");
@@ -29,7 +30,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     song.lyrics.kind === "transcribed"
       ? "Source transcription; some words may be inaccurate."
       : "Lyrics supplied for this recording. The performance may vary.";
-  main.innerHTML = `<article class="lyrics-sheet"><p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1><p class="small">${note}</p><div class="actions lyrics-actions"><a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a><a class="quiet" id="download-lyrics">Download lyrics</a><button class="quiet" id="print-lyrics">Print</button><a class="text-link" href="/">The collection →</a></div><pre class="lyrics-text">${escape(song.lyrics.text)}</pre></article>`;
+  main.innerHTML = `<article class="lyrics-sheet"><p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>${qualityNotice(song.qualityIssues)}<p class="small">${note}</p><div class="actions lyrics-actions"><a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a><a class="quiet" id="download-lyrics">Download lyrics</a><button class="quiet" id="print-lyrics">Print</button><a class="text-link" href="/">The collection →</a></div><pre class="lyrics-text">${escape(song.lyrics.text)}</pre></article>`;
   const blob = new Blob([`${song.title}\n${note}\n\n${song.lyrics.text}\n`], {
     type: "text/plain;charset=utf-8",
   });

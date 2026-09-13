@@ -1,4 +1,5 @@
 import { api } from "../assets/api.js";
+import { qualityNotice } from "../assets/quality.js";
 
 const cards = [],
   players = [],
@@ -123,6 +124,17 @@ function update(songs) {
       card.querySelector(".download").href = url.href;
       document.querySelector(".recordings").append(card);
       register(card);
+    }
+    let warning = card.querySelector(".quality-container");
+    if (!warning) {
+      warning = document.createElement("div");
+      warning.className = "quality-container";
+      card.querySelector("audio").before(warning);
+    }
+    const notice = qualityNotice(song.qualityIssues);
+    if (warning.dataset.notice !== notice) {
+      warning.innerHTML = notice;
+      warning.dataset.notice = notice;
     }
     const lyrics = card.querySelector(".lyrics-link");
     if (song.lyrics?.text) {

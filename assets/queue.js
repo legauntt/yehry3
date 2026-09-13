@@ -1,4 +1,5 @@
 import { api } from "./api.js";
+import { qualityNotice } from "./quality.js";
 import { completionAlerts } from "./notifications.js";
 
 export async function publicQueue(main, { escape, date, badge, safeUrl }) {
@@ -24,7 +25,7 @@ export async function publicQueue(main, { escape, date, badge, safeUrl }) {
       0,
       Math.min(100, Number(song.progress?.percent) || 0),
     );
-    return `<article class="queue-card public-queue-card" id="${escape(song.id)}"><div class="queue-heading"><div>${badge(song.status)}${position ? `<span class="queue-position">No. ${position}</span>` : ""}<h3>${escape(song.title || song.idea)}</h3></div></div>${song.title ? `<p class="small">The idea: ${escape(song.idea)}</p>` : ""}${song.progress && song.status !== "published" ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(progress)}%</p><progress max="100" value="${progress}" aria-label="Song production progress"></progress><p class="small">Last update ${date(song.updatedAt)}</p>` : ""}${song.status === "published" ? `<p class="small">Released ${date(song.publishedAt)}</p><a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a>` : ""}</article>`;
+    return `<article class="queue-card public-queue-card" id="${escape(song.id)}"><div class="queue-heading"><div>${badge(song.status)}${position ? `<span class="queue-position">No. ${position}</span>` : ""}<h3>${escape(song.title || song.idea)}</h3></div></div>${qualityNotice(song.qualityIssues)}${song.title ? `<p class="small">The idea: ${escape(song.idea)}</p>` : ""}${song.progress && song.status !== "published" ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(progress)}%</p><progress max="100" value="${progress}" aria-label="Song production progress"></progress><p class="small">Last update ${date(song.updatedAt)}</p>` : ""}${song.status === "published" ? `<p class="small">Released ${date(song.publishedAt)}</p><a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a>` : ""}</article>`;
   }
   async function refresh() {
     if (busy) return;

@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap");
 
+.quality-notice { margin: .55rem 0; color: #795016; font-size: .875rem; }
+.quality-notice > summary { display: list-item; width: fit-content; padding: .2rem .6rem; border: 1px solid currentColor; border-radius: 1rem; cursor: pointer; font-weight: 700; }
+.quality-notice > p { max-width: 60ch; margin: .5rem 0; }
+.retry-form { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; margin: .75rem 0 1rem; }
+
 :root {
   --paper: #f5f2e8;
   --ink: #283b30;

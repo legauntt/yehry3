@@ -61,7 +61,7 @@ def song_record(prompt):
     result = prompt['result']
     return {'id': prompt['songId'], 'title': result['title'], 'url': prompt['releaseUrl'],
             'duration': result['duration'], 'collection': 'distonyc',
-            **{key: result[key] for key in ['lyrics', 'collections'] if key in result}}
+            **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues'] if key in result}}
 
 def merge_catalog(catalog, record):
     existing = next((song for song in catalog['songs'] if song['id'] == record['id']), None)

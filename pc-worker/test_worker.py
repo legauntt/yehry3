@@ -49,7 +49,8 @@ class WorkerTests(unittest.TestCase):
             for ext in ['mp3', 'wav']:
                 file = root / (ext + 's') / ('test.' + ext); file.parent.mkdir(); file.write_bytes(b'fixture')
                 files.append({'path': str(file), 'bytes': file.stat().st_size, 'sha256': sha(file)})
-            save(job / 'render-result.json', {'status': 'verified', 'new_training': False, 'duration': 200, 'files': files})
+            issues = [{'code': 'long_instrumental_outro', 'seconds': 22.86}]
+            save(job / 'render-result.json', {'status': 'verified', 'new_training': False, 'duration': 200, 'files': files, 'qualityIssues': issues})
             save(job / 'plan.json', {'briefHash': fingerprint({'prompt': prompt['prompt'], 'details': prompt['details']}), 'plan': plan()})
             class API:
                 def call(self, path, body=None, timeout=25):
@@ -62,6 +63,7 @@ class WorkerTests(unittest.TestCase):
             with patch('worker.basis_files', return_value=[]), patch('worker.run_owned') as render, patch('worker.upload') as upload, patch('worker.update_catalog') as catalog:
                 with self.assertRaises(OSError): run_once(config, API())
                 self.assertTrue((root / 'claim.json').exists())
+                self.assertEqual(prompt['result']['qualityIssues'], issues)
                 run_once(config, API()); render.assert_not_called(); upload.assert_called_once(); catalog.assert_called_once()
                 self.assertFalse((root / 'claim.json').exists())
 

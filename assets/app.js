@@ -1,4 +1,5 @@
 import { publicQueue } from "./queue.js";
+import { qualityNotice } from "./quality.js";
 import { lyricsPage } from "./lyrics.js";
 import { rotateSuggestions } from "./suggestions.js";
 import { api, login, logout, signedIn, storage } from "./api.js";
@@ -156,7 +157,7 @@ async function library() {
         collections(song)
           .map((name) => collectionNames[name] || name)
           .join(" / "),
-      )} <span>·</span> ${duration(song.duration)}${song.lyrics?.text ? ` <span>·</span> <a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}</p></div><span class="vote-hint" role="group"><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+      )} <span>·</span> ${duration(song.duration)}${song.lyrics?.text ? ` <span>·</span> <a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : '<p class="empty">No songs match. Try another title or style.</p>';
@@ -498,7 +499,7 @@ function brief(doc) {
     doc.details?.basisSongTitles?.join(", ") ||
     doc.details?.source ||
     "No basis song — Tony’s V6 voice";
-  return `<dl class="brief"><dt>The idea</dt><dd>${escape(doc.prompt)}</dd><dt>Basis songs</dt><dd>${escape(basis)}</dd><dt>The direction</dt><dd>${escape(doc.details?.direction)}</dd><dt>What matters most</dt><dd>${escape(doc.details?.keep)}</dd></dl>${doc.workerProgress ? `<p class="small">${escape(doc.workerProgress.stage)}${doc.workerProgress.percent ? ` · ${Math.round(doc.workerProgress.percent)}%` : ""}</p>` : ""}${doc.workerError ? `<p class="field-error">${escape(doc.workerError)}</p>` : ""}`;
+  return `<dl class="brief"><dt>The idea</dt><dd>${escape(doc.prompt)}</dd><dt>Basis songs</dt><dd>${escape(basis)}</dd><dt>The direction</dt><dd>${escape(doc.details?.direction)}</dd><dt>What matters most</dt><dd>${escape(doc.details?.keep)}</dd></dl>${qualityNotice(doc.result?.qualityIssues || doc.qualityIssues)}${doc.workerProgress ? `<p class="small">${escape(doc.workerProgress.stage)}${doc.status !== "failed" && doc.workerProgress.percent ? ` · ${Math.round(doc.workerProgress.percent)}%` : ""}</p>` : ""}${doc.workerError ? `<p class="field-error">${escape(doc.workerError)}</p>` : ""}`;
 }
 
 async function admin() {
@@ -631,7 +632,7 @@ async function admin() {
         busy(button, false);
       }
     });
-    document.querySelectorAll('[name="status"]').forEach(
+    document.querySelectorAll('select[name="status"]').forEach(
       (select) =>
         (select.onchange = () => {
           const field = $(".publish-field", select.closest("form"));
@@ -648,7 +649,7 @@ async function admin() {
         (doc.status !== "cancel_requested" &&
           ["cancel_requested", "canceled"].includes(status)),
     );
-    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(doc.status)}<h2>${escape(doc.prompt)}</h2><p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div><details><summary>Open brief & controls <span aria-hidden="true">＋</span></summary>${brief(doc)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
+    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(doc.status)}<h2>${escape(doc.prompt)}</h2><p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${qualityNotice(doc.result?.qualityIssues)}${doc.status === "failed" ? `<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p>${allowed.includes("queued") ? `<form data-action="status" class="retry-form"><input type="hidden" name="status" value="queued"><button class="primary">Retry saved work</button><span class="small">Completed stages will be reused.</span></form>` : ""}` : ""}<details><summary>Open brief & controls <span aria-hidden="true">＋</span></summary>${brief({ ...doc, result: null, qualityIssues: null, workerError: doc.status === "failed" ? null : doc.workerError })}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
       ...(doc.history || []),
     ]
       .reverse()

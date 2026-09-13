@@ -17,7 +17,7 @@ The same planning call marks a song for the Fear & Hunger collection only when t
 - Original songs support 3–5 minutes and genre instructions, with complete lyrics and a resolved ending. Selected references influence arrangement/timbre; they do not guarantee preserved melodies.
 - A faithful or acoustic rendition uses exactly one selected source, currently 5–300 seconds. Acoustic reconstruction is experimental and must pass the existing strict checks.
 - The existing source-specific quartet recipes support Ball and Chain, One 4 the Road, and Medusa. Their established arrangements are preserved. An unsupported faithful rendition, new quartet arrangement, or incompatible multi-source reconstruction becomes **Needs attention** with an explanation. It is never silently replaced with unrelated music. Add/review a trusted recipe to expand that boundary.
-- Existing Troofs checks cover hashes, voice continuity, peaks, tails, and both complete MP3/WAV outputs. They do not constitute a human listening review. The worker does not lower checks to force publication.
+- Existing Troofs checks cover hashes, voice continuity, peaks, tails, and both complete MP3/WAV outputs. They do not constitute a human listening review. A long instrumental outro is advisory: the complete, otherwise valid song is published with a **Has issues** notice showing its measured length. Missing vocals, incomplete endings, invalid audio, peak limits and changed inputs still stop publication.
 
 ## Durable production and publication
 
@@ -65,3 +65,7 @@ Refresh the basis inventory with `scripts/sync-basis-catalog.py` (see `--help`) 
 `python -m unittest -v test_worker.py` checks idle behavior, lost responses, expired claims, plan reuse, safe paths, conflict-aware catalog merges, and Windows process-tree cancellation. Chairlift's Mongo integration tests cover leasing/fencing, cancellation, publication, permissions, password rotation, and optional basis validation. Browser tests cover zero/five selections, the limit, sorting, review persistence, and mobile layout.
 
 `worker.py --verify-existing <completed-work-folder>` is an **operator-only delivery test** that exercises the queue and upload path using an existing technically verified export. It is not accepted from website input and is never in the scheduled task arguments. It does not prove a fresh creative render or human listening quality.
+
+## Musical warnings and real failures
+
+The versioned `quality_finish.py` adapter changes only the known 13-second instrumental-outro assertion while executing the original hash-checked finisher. It retains the positive/finite ending check and every other assertion. Original frozen scripts and manifests remain unchanged; `quality-policy.json` records the policy and any warnings. Warnings travel through the verified result, Mongo, public queue, lyric sheet and fallback catalog. Real renderer failures save `renderer-error.json`; the admin card displays the actual cause with **Retry saved work**, and flushes the latest progress stage before marking failure. Publication outages already retry automatically; deterministic audio failures wait for an explicit retry to avoid repeatedly generating the same result.

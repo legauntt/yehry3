@@ -4,6 +4,38 @@ from pathlib import Path
 from common import load, save, sha, fingerprint, inside
 from planner import validate
 
+
+def with_quality(result):
+    path = Path(result['work_path']) / 'mix-results.json'
+    if not path.exists(): return result
+    report = load(path)
+    if report.get('qualityIssues'): result['qualityIssues'] = report['qualityIssues']
+    return result
+
+
+def execution_manifest(manifest):
+    if manifest['kind'] != 'new': return manifest
+    # Adapt the command in memory. Frozen scripts, inputs, hashes and the saved
+    # stage journal remain authoritative and are never rewritten by this policy.
+    tasks = []
+    for task in manifest['tasks']:
+        if task['name'] == 'finish':
+            command = task['command']
+            task = {**task, 'command': [command[0], str(Path(__file__).with_name('quality_finish.py')),
+                    '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers']['finish_song.py']]}
+        tasks.append(task)
+    return {**manifest, 'tasks': tasks}
+
+
+def failure_detail(request, error):
+    stage = 'Rendering'
+    progress = Path(request['directory']) / 'progress.json'
+    if progress.exists(): stage = load(progress).get('stage', stage)
+    lines = [line.strip() for line in str(error).splitlines() if line.strip()]
+    detail = next((line for line in reversed(lines) if line.startswith(('AssertionError:', 'ValueError:', 'RuntimeError:'))), None)
+    if not detail: detail = lines[0] if lines else type(error).__name__
+    return {'stage': stage, 'message': f'{stage} failed: {detail[:700]} Saved work is retained; Retry resumes completed stages.'}
+
 def module_at(name, path):
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module); return module
@@ -23,7 +55,7 @@ def render(request):
     if request.get('verify_existing'):
         # This option is set only by the local operator CLI, never by a submitted prompt.
         work = inside(request['verify_existing'], Path(settings['studio_dir']).parent)
-        return engine.verify_work(work, settings['output_dir'])
+        return with_quality(engine.verify_work(work, settings['output_dir']))
     if plan['recipe'] == 'barbershop': return render_quartet(request, engine)
     if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
     identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id']))
@@ -59,8 +91,8 @@ def render(request):
             configured = load(work / 'distonyc-configured.json')
             if configured['plan_hash'] != fingerprint(plan) or configured['basis'] != basis: raise ValueError('Saved production inputs changed')
         engine.validate_saved(work, manifest)
-        if load(work / 'desktop-status.json')['status'] == 'completed': return engine.verify_work(work, settings['output_dir'])
-        return engine.execute_stages(work, manifest)
+        if load(work / 'desktop-status.json')['status'] == 'completed': return with_quality(engine.verify_work(work, settings['output_dir']))
+        return with_quality(engine.execute_stages(work, execution_manifest(manifest)))
 
 def render_quartet(request, engine):
     settings, basis, plan = request['config']['settings'], request['basis'], request['plan']
@@ -105,7 +137,13 @@ def main():
     while not args.gate.exists():
         if time.monotonic() > deadline: raise TimeoutError('Worker process-tree isolation was not established')
         time.sleep(.05)
-    request = load(args.request); result = render(request)
+    request = load(args.request)
+    error_file = Path(request['directory']) / 'renderer-error.json'
+    error_file.unlink(missing_ok=True)
+    try: result = render(request)
+    except Exception as error:
+        save(error_file, failure_detail(request, error))
+        raise
     save(Path(request['directory']) / 'render-result.json', result)
 
 if __name__ == '__main__': main()

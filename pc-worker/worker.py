@@ -66,7 +66,8 @@ def metadata(config, plan, result):
     sheet = make_sheet(config, plan, result)
     export_sheet(config, mp3['path'], plan['title'], sheet)
     return mp3['path'], {'title': plan['title'], 'duration': result['duration'], 'bytes': mp3['bytes'], 'sha256': mp3['sha256'],
-                         'lyrics': sheet, 'collections': ['distonyc', 'fearhunger'] if plan.get('fear_hunger') else ['distonyc']}
+                         'lyrics': sheet, 'collections': ['distonyc', 'fearhunger'] if plan.get('fear_hunger') else ['distonyc'],
+                         **({'qualityIssues': result['qualityIssues']} if result.get('qualityIssues') else {})}
 
 def new_claim(path):
     claim = {'claimId': str(uuid.uuid4()), 'leaseToken': secrets.token_urlsafe(40)}
@@ -110,8 +111,13 @@ def run_once(config, api, verify_existing=None):
                 if verify_existing: request['verify_existing'] = str(Path(verify_existing).resolve())
                 save(directory / 'render-request.json', request)
                 heartbeat.stage = 'Rendering'
-                run_owned([config['settings']['python'], str(Path(__file__).with_name('renderer.py')), '--request', str(directory / 'render-request.json'), '--gate', str(directory / 'start.gate')],
-                    directory, directory / 'renderer.log', heartbeat.stopped, gate=directory / 'start.gate')
+                error_file = directory / 'renderer-error.json'; error_file.unlink(missing_ok=True)
+                try:
+                    run_owned([config['settings']['python'], str(Path(__file__).with_name('renderer.py')), '--request', str(directory / 'render-request.json'), '--gate', str(directory / 'start.gate')],
+                        directory, directory / 'renderer.log', heartbeat.stopped, gate=directory / 'start.gate')
+                except RuntimeError:
+                    if error_file.exists(): raise RuntimeError(load(error_file)['message']) from None
+                    raise
             mp3, completed = metadata(config, plan, load(result_file))
             prompt = action('complete', result=completed)
         else:
@@ -136,6 +142,10 @@ def run_once(config, api, verify_existing=None):
             action('cancel'); journal.unlink(); save(health, {'at': utc(), 'status': 'canceled', 'promptId': prompt['id']})
         else: raise
     except (ValueError, RuntimeError) as error:
+        # Flush the latest stage instead of leaving a previous heartbeat's label.
+        if not heartbeat.stopped():
+            try: heartbeat.beat()
+            except (APIError, OSError, ValueError): pass
         heartbeat.close()
         # Publication is a durable finalization step: never rerender a completed mix after an upload outage.
         if prompt['status'] in ['processing', 'completed'] and not heartbeat.stopped():

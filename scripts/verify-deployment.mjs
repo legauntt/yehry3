@@ -70,6 +70,7 @@ for (const name of [
   "notifications.js",
   "suggestions.js",
   "lyrics.js",
+  "quality.js",
   "site.css",
   "band-vinyl-v1.webp",
 ]) {
