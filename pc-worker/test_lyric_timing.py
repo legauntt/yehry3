@@ -1,8 +1,9 @@
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import Mock, patch
 
-from backfill_lyric_cues import candidate, choose, published_hash
+from backfill_lyric_cues import candidate, choose, published_hash, sync_cues
 from common import save
 
 
@@ -45,6 +46,16 @@ class LyricTimingTests(unittest.TestCase):
         selected, reason = choose(song, candidates)
         self.assertEqual(selected['directory'].name, 'delivered')
         self.assertIn('delivered', reason)
+
+    def test_sync_cues_uses_worker_api_without_changing_the_catalog(self):
+        song = {'id': 'distonyc-test', 'title': 'Test', 'lyrics': {'text': 'Words', 'kind': 'written', 'cues': [{'line': 0, 'start': 1, 'end': 2}]}}
+        with tempfile.TemporaryDirectory() as root:
+            config = Path(root) / 'config.json'
+            save(config, {'api': 'https://example.com/yehry3', 'worker_id': 'worker-identifier-1'})
+            client = Mock()
+            with patch.dict('os.environ', {'DISTONYC_WORKER_TOKEN': 'x' * 32}), patch('backfill_lyric_cues.API', return_value=client):
+                self.assertEqual(sync_cues(config, [song]), 1)
+            client.call.assert_called_once_with('/songs/distonyc-test/lyrics/cues', {'lyrics': song['lyrics']})
 
 
 if __name__ == '__main__':

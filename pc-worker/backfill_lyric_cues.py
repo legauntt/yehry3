@@ -1,7 +1,7 @@
 """Backfill public line cues from saved local Troofs word timestamps."""
-import argparse, difflib, json, re
+import argparse, difflib, json, os, re
 from pathlib import Path
-from common import load, save
+from common import API, load, save
 from lyric_timing import WORD_FILES, make_cues
 
 OVERRIDES = {
@@ -105,6 +105,17 @@ def choose(song, candidates):
     return item, f'text={text_score:.2f} title={title_score:.2f}{delivery}'
 
 
+def sync_cues(config_path, songs):
+    config = load(config_path)
+    token = os.environ.get('DISTONYC_WORKER_TOKEN', '')
+    if len(token) < 32: raise ValueError('The DPAPI-protected worker credential was not loaded')
+    api = API(config['api'], config['worker_id'], token)
+    for song in songs:
+        api.call(f'/songs/{song["id"]}/lyrics/cues', {'lyrics': song['lyrics']})
+        print(f'SYNC  {song["id"]}: {song["title"]} ({len(song["lyrics"]["cues"])} lines)')
+    return len(songs)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--catalog', type=Path, required=True)
@@ -112,12 +123,19 @@ def main():
     parser.add_argument('--write', action='store_true')
     parser.add_argument('--replace', action='store_true')
     parser.add_argument('--require-all', action='store_true')
+    parser.add_argument('--sync-config', type=Path, help='Immediately sync selected cues to Chairlift using the loaded worker credential')
+    parser.add_argument('--song', action='append', help='Limit generation/sync to one song ID; repeat for additional songs')
     args = parser.parse_args()
     catalog = load(args.catalog)
     candidates = [item for item in (candidate(path) for path in args.studio_root.glob('troofs-*') if path.is_dir()) if item]
-    matched, unmatched = 0, []
+    selected = set(args.song or [])
+    matched, unmatched, sync_rows = 0, [], []
     for song in catalog['songs']:
-        if not song.get('lyrics') or (song['lyrics'].get('cues') and not args.replace): continue
+        if selected and song['id'] not in selected: continue
+        if not song.get('lyrics'): continue
+        if song['lyrics'].get('cues') and not args.replace:
+            if args.sync_config: sync_rows.append(song)
+            continue
         item, reason = choose(song, candidates)
         if not item:
             unmatched.append((song['id'], song['title'], reason)); continue
@@ -125,11 +143,15 @@ def main():
         if not cues:
             unmatched.append((song['id'], song['title'], 'matched source produced no cues')); continue
         song['lyrics']['cues'] = cues; matched += 1
+        if args.sync_config: sync_rows.append(song)
         print(f'MATCH {song["id"]}: {song["title"]} <- {item["directory"].name} ({reason}, {len(cues)} lines)')
     for identifier, title, reason in unmatched: print(f'MISS  {identifier}: {title} ({reason})')
-    print(json.dumps({'matched': matched, 'unmatched': len(unmatched), 'candidates': len(candidates)}))
+    missing_ids = selected - {song['id'] for song in catalog['songs']}
+    if missing_ids: raise ValueError('Unknown song ID: ' + ', '.join(sorted(missing_ids)))
     if args.require_all and unmatched: raise SystemExit(1)
     if args.write: save(args.catalog, catalog)
+    synced = sync_cues(args.sync_config, sync_rows) if args.sync_config else 0
+    print(json.dumps({'matched': matched, 'synced': synced, 'unmatched': len(unmatched), 'candidates': len(candidates)}))
 
 
 if __name__ == '__main__': main()
