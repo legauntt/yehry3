@@ -17,6 +17,48 @@ def plan():
         'preserve_generated_backing': True, 'explanation': 'Original Tony song'}
 
 class WorkerTests(unittest.TestCase):
+    def test_v7_is_visible_to_planner_and_frozen_into_render_and_completion(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); studio = root / 'studio'; studio.mkdir()
+            (studio / 'PREFERENCES.md').write_text('Keep the performance expressive.')
+            prompt = {'id': 'v7-contract', 'status': 'processing', 'prompt': 'A new railway song',
+                      'details': {'voiceModel': 'v7', 'basisSongIds': []}}
+            config = {'state_dir': str(root / 'state'), 'planner_model': 'test', 'codex': 'test',
+                      'settings': {'studio_dir': str(studio), 'python': sys.executable}}
+
+            def planner_call(*args, **kwargs):
+                self.assertIn('"voiceModel": "v7"', kwargs['input_text'])
+                save(root / 'plan-job' / 'planner-result.json', plan())
+            plan_job = root / 'plan-job'; plan_job.mkdir()
+            with patch('planner.run_owned', side_effect=planner_call):
+                self.assertEqual(make_plan(config, prompt, plan_job, [])['recipe'], 'new')
+
+            completed = []
+            class API:
+                def call(self, path, body=None, timeout=25):
+                    if path == '/claim': return {'prompt': dict(prompt)}
+                    if path.endswith('/heartbeat'): return {'prompt': dict(prompt)}
+                    if path.endswith('/complete'):
+                        completed.append(body['result']); prompt.update(status='completed', result=body['result'])
+                    elif path.endswith('/publishing'): prompt['status'] = 'publishing'
+                    return {'prompt': dict(prompt)}
+
+            def render(*args, **kwargs):
+                request = load(root / 'state/jobs/v7-contract/render-request.json')
+                self.assertEqual(request['voice_model'], 'v7')
+                save(root / 'state/jobs/v7-contract/render-result.json', {'voice_model': 'v7'})
+
+            def frozen_metadata(config, planned, result, voice_model):
+                self.assertEqual(result['voice_model'], voice_model)
+                return 'mix.mp3', {'title': planned['title'], 'duration': planned['duration'], 'voiceModel': voice_model}
+
+            with patch('worker.basis_files', return_value=[]), patch('worker.make_plan', return_value=plan()), \
+                    patch('worker.run_owned', side_effect=render), patch('worker.metadata', side_effect=frozen_metadata), \
+                    patch('worker.upload', side_effect=OSError('stop after contract')):
+                with self.assertRaisesRegex(OSError, 'stop after contract'):
+                    run_once(config, API())
+            self.assertEqual(completed[0]['voiceModel'], 'v7')
+
     def test_original_prompt_uses_confirmed_brief_without_private_fields(self):
         prompt = {'prompt': 'Medusa as a quartet', 'details': {'direction': 'Four voices', 'keep': 'Tony vocals', 'basisSongTitles': ['Medusa'], 'privatePath': 'C:\\private'},
                   'adminNote': 'private', 'lease': {'secret': 'private'}, 'songId': 'distonyc-one', 'releaseUrl': 'https://example.com/song.mp3',
