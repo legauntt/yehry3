@@ -27,7 +27,7 @@ The monitor uses a separate current-user DPAPI credential in `monitor-credential
 
 ## What uses a model
 
-An empty queue makes one API request and exits. A new confirmed brief makes **one schema-constrained Codex planning call**, using the saved CLI login and `gpt-6-astra`. The model chooses a supported recipe and writes the title, complete lyrics when needed, tempo, key, and arrangement. Shell, web, apps, and multi-agent tools are disabled for that call. Submitted text stays in JSON; it never becomes executable code. The validated plan is saved and reused after restarts.
+An empty queue makes one API request and exits. A new confirmed brief makes **one schema-constrained Codex planning call**, using the saved CLI login and `gpt-5.6-sol` with medium reasoning. The installed `config.json` sets `planner_model`; `planner.py` explicitly passes `model_reasoning_effort="medium"` and ignores the CLI's user config so a global Astra/xhigh preference cannot override the queue launcher. The model chooses a supported recipe and writes the title, complete lyrics when needed, tempo, key, and arrangement. Shell, web, apps, and multi-agent tools are disabled for that call. Submitted text stays in JSON; it never becomes executable code. The validated plan is saved and reused after restarts.
 
 Local audio models still perform composition, separation, Tony V6 voice conversion, and the relevant arrangement stages. Those are fixed Python recipes, not a coding agent making decisions at every step. Polling, priority, locking, stage execution, retries, cancellation, technical checks, MP3 uploads, catalog updates, and Azure deployment run as code. There is no model call per poll or upload. An interrupted planning call can be retried if it never produced a saved plan.
 
