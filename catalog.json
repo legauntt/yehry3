@@ -2,6 +2,33 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-bb1f8f4a13e2bb624b3a22b8",
+      "title": "Olivia and the Crooked Carnival",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-bb1f8f4a13e2bb624b3a22b8-6a9295d96a44.mp3",
+      "duration": 283.2,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Intro]\nThree days printed on a ticket,\nOne moon grinning through the roof.\nReila, I came here to find you.\nLet the bastards learn the truth.\n\n[Verse 1]\nMy chair hits a crack in the pavement,\nThe station disappears in steam.\nPrehevil smells of wet old bandages\nAnd something flowering underneath.\nI know what grows beside a graveyard,\nWhat closes lungs, what settles pain.\nSomebody strung these streets with bunting\nAnd left the bodies in the rain.\n\nA painted fool bows low before me,\nHis paper crown begins to slip.\nI ask him where they took my sister.\nHe puts a finger to his lips.\n\n[Chorus]\nStrike up the fucking circus!\nLet the cracked brass split the square!\nI'm Olivia, I'm still breathing,\nAnd I know you're somewhere here.\nTurn the wheel and shake the rafters,\nThrow your spotlight on the stain.\nYou can sell this town to heaven—\nYou don't get to sell my name.\n\n[Verse 2]\nThere's a placard on a shutter:\nmen be hung; horses go.\nUnderneath, a child's drawn flowers\nIn the space that blood won't show.\nI take a leaf between my fingers,\nRub its bitter veins apart.\nYou can dress a knife in velvet;\nIt will never grow a heart.\n\nRher hangs above the broken rooftops,\nPale spectator, rotten host.\nEvery window holds a witness.\nEvery witness looks half ghost.\nI keep my hands upon the push rims,\nPick my passage through the glass.\nA thousand teeth behind the curtain—\nI have questions. Let me pass.\n\n[Chorus]\nStrike up the fucking circus!\nLet the cracked brass split the square!\nI'm Olivia, I'm still breathing,\nAnd I know you're somewhere here.\nTurn the wheel and shake the rafters,\nThrow your spotlight on the stain.\nYou can sell this town to heaven—\nYou don't get to sell my name.\n\n[Bridge]\nWe used to press the summer flat\nBetween the pages of a book.\nYou wrote the date beneath each stem;\nI knew the places we should look.\nNow cables knot beneath the earth,\nAnd Logic hums behind a door.\nReila, does it hurt to hear me?\nAre you listening anymore?\n\n[Breakdown]\nFuck your tickets.\nFuck your throne.\nI didn't cross this hell for gold.\nGive me one unbroken second\nWith the sister I still know.\n\n[Final Verse]\nThe current trembles through the chamber.\nMy little lamp becomes a spark.\nI say the names of all our flowers\nInto that enormous dark.\nNo answer comes the way I wanted.\nNo familiar hand takes mine.\nBut something pauses in the humming\nWhen I reach the columbine.\n\n[Final Chorus]\nStrike up the fucking circus!\nLet its last brass breath run wild!\nI'm Olivia, I remember\nWho you were when we were children.\nTurn the wheel; the tent is falling.\nI can choose the path I take.\nLet the moon keep its admission.\nThere is daylight past the gate.\n\n[Outro]\nReila, here's the leaf I carried.\nHere's the summer, folded small.\nI lay it gently by the threshold.\nThen I leave that humming hall.\nOutside, I turn toward the station.\nMorning settles on my sleeve.\nWith both hands I cross the courtyard.\nI came for you.\nI grieve.\nI leave.",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 10.34
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Dramatic circus song about Olivia from Fear & Hunger Termina. Explicit lyrics. Intense, loud, fast.",
+        "direction": "Powerful circus rhythms",
+        "keep": "Inclusion of the line \"men be hung; horses go.\"",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-ec1e60f540ac1cdfd2c7a081",
       "title": "Two Stools in Lut Gholein",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ec1e60f540ac1cdfd2c7a081-47c156e7e9d8.mp3",
