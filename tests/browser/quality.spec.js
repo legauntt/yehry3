@@ -74,6 +74,11 @@ test("a song with issues remains playable and exposes its warning on every liste
         .poll(() => page.getByLabel("Play Samarie test recording").evaluate((audio) => audio.currentTime))
         .toBeCloseTo(2.5, 1);
       const laterLyric = page.getByRole("button", { name: "Sing this last line." });
+      await player.evaluate((audio) => {
+        audio.currentTime = 5.5;
+      });
+      await expect(linkedLyric).toHaveClass(/is-active/);
+      await expect(laterLyric).not.toHaveClass(/is-active/);
       await page.evaluate(() => scrollTo(0, 0));
       await player.evaluate(async (audio) => {
         audio.currentTime = 8.5;

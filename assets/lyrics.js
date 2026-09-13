@@ -54,7 +54,6 @@ function mountKaraoke(main) {
       if (Number(line.dataset.start) > time) break;
       current = line;
     }
-    if (current && time > Number(current.dataset.end)) current = undefined;
     if (current === active) return;
     active?.classList.remove("is-active");
     active?.removeAttribute("aria-current");
