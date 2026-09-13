@@ -2,6 +2,32 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-f2934cba2d2636b3a71d19a3",
+      "title": "The Midnight Chrome Express",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f2934cba2d2636b3a71d19a3-3f9dcb246f13.mp3",
+      "duration": 232.3,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Intro — whistled pickup, then spoken]\nTickets out, beautiful trouble.\nThat's my train.\n\n[Verse 1]\nGot a midnight blue jacket and a pocket full of steam,\nBrass buttons shining like a pinball dream.\nMy engine's got shoulders, my carriage got class,\nYou can watch your bad luck disappearing through the glass.\nThere's a chandelier swinging in the dining car,\nAnd a lady selling peaches from a silver guitar.\nI punch one moon in your little paper square:\nTake whichever seat you like, we're going somewhere.\n\n[Pre-Chorus]\nHear those big wheels picking up the slack,\nLeave your busted little clock beside the track.\nOne sharp whistle, then the whole world leans—\nI'm the conductor of this beautiful machine.\n\n[Chorus]\nRide my midnight chrome express,\nBring your Sunday shoes and your Saturday mess.\nChoo choo, honey, hear that low-down brass,\nEven old tomorrow lets the big train pass.\nI call the stops, you catch your breath,\nNobody's late on the chrome express.\n\n[Verse 2]\nThere's a heavyweight boxer teaching kittens to dance,\nAn undertaker wearing very optimistic pants.\nThe mayor bought a ticket just to loosen his tie,\nNow he's washing all the windows as the towns go by.\nI tip my hat when the mountain bows,\nGot a snow-white whistle waking up the cows.\nThe engineer grins, says, \"Boss, looking fine.\"\nI say, \"Keep your eyes ahead; the hat is mine.\"\n\n[Chorus]\nRide my midnight chrome express,\nBring your Sunday shoes and your Saturday mess.\nChoo choo, honey, hear that low-down brass,\nEven old tomorrow lets the big train pass.\nI call the stops, you catch your breath,\nNobody's late on the chrome express.\n\n[Bridge — half-time, warmly sung]\nBack in the last car, somebody cries,\nWatching their old street shrink to a light.\nI sit beside them, let the wheels explain:\nYou can carry a sorrow on a beautiful train.\nThen dawn puts gold on the window frame.\nThey straighten my collar and ask my name.\n\n[Final Chorus]\nTony runs the midnight chrome express,\nWith a crooked little smile and a velvet vest.\nChoo choo, honey, hear that low-down brass,\nSee the morning open as the big train passes.\nI call the stop, you catch your breath—\nWelcome home from the chrome express.\n\n[Coda — slowing into the station]\nStep down easy. Mind that seam.\nMy, what a beautiful machine.",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 11.92
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony C as the conductor of a big cool train",
+        "direction": "Probably some whistling, choo choo, train conductor stuff",
+        "keep": "Surprise me",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-bb1f8f4a13e2bb624b3a22b8",
       "title": "Olivia and the Crooked Carnival",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-bb1f8f4a13e2bb624b3a22b8-6a9295d96a44.mp3",
