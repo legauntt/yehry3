@@ -2,6 +2,32 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-cc22e422494bc3ff4c41144e",
+      "title": "You Left Me to the Swarm",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cc22e422494bc3ff4c41144e-df416088297c.mp3",
+      "duration": 245.44,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Intro]\nRed stars burn through the tactical glass\nNew Gettysburg flickers below\nOne last order in a dead man's voice:\n“Hold the line. Do not let go.”\n\n[Verse 1]\nWe planted ghosts where the towers could see\nPsi fire calling the teeth from the dark\nMengsk watched Tarsonis choke on its knees\nThen handed me the final spark\nI knew his mercy was circuitry\nA switch he could kill from afar\nStill I walked into the hive-lit streets\nWith my rifle against my heart\n\n[Pre-Chorus]\nDropship gone, signal thin\nRaynor shouting, “Bring her in!”\nStatic answered, cold and calm\nThen the sky unfolded its arms\n\n[Chorus]\nYou left me to the swarm\nUnder a blood-red storm\nYou sealed the doors and burned the map\nWhile every warning cracked\nYou left me there alive\nWhere only monsters thrive\nRemember my name when your empire learns\nWhat comes back from the swarm\n\n[Verse 2]\nHydralisk shadows crossed through the smoke\nZerglings rang on the barricade\nI called command till the channel broke\nAnd heard the choice that you had made\n“Nothing personal”—that polished lie\nFrom a throne not built quite yet\nBut betrayal has a longer life\nThan the man who thinks it forgets\n\n[Pre-Chorus]\nMagazine low, visor split\nNo extraction, that was it\nOne green beacon faded black\nRaynor swore he would come back\n\n[Chorus]\nYou left me to the swarm\nUnder a blood-red storm\nYou sealed the doors and burned the map\nWhile every warning cracked\nYou left me there alive\nWhere only monsters thrive\nRemember my name when your empire learns\nWhat comes back from the swarm\n\n[Bridge]\nInside the noise, a deeper voice\nNo rank, no flag, no human choice\nA thousand minds beneath my skin\nNot an ending—a way in\n\nI saw your fleet become a thread\nI saw the crown above your head\nArcturus, sleep while engines hum\nYou made the blade that is to come\n\n[Instrumental Break]\n\n[Final Verse]\nThe platform vanished under claws\nThe woman fell, the signal died\nBut somewhere past the human laws\nA darker heart opened its eyes\nJim, keep flying, keep your flame\nThere are debts the stars record\nWhen I return, I won't be prey\nAnd he won't be my lord\n\n[Final Chorus]\nYou left me to the swarm\nI rose inside the storm\nYou sealed the doors and burned the map\nNow hear the darkness answer back\nYou left me there to die\nI learned another kind of life\nRemember my name when your empire burns—\nI came back with the swarm\n\n[Outro]\nNew Gettysburg fades beneath me\nNo rescue light, no morning star\nThe channel closes on Sarah Kerrigan\nThe blade awakens in the dark",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 35.9
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Neosynth rendition of Kerrigan's betrayal at the end of the Terran Starcraft Campaign",
+        "direction": "Neosynth, Starcraft melodies if possible",
+        "keep": "Surprise me",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-e43ffa90011dfcc2e6231361",
       "title": "Oh Hi My Dark Beloved",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e43ffa90011dfcc2e6231361-5284556b823c.mp3",
