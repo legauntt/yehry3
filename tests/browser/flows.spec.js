@@ -453,6 +453,11 @@ test("generated song lyrics, dual collection filtering, and API outage fallback"
   await expect(page.locator(".lyrics-text")).toContainText(
     "Blood on my shoes, dawn in my eyes",
   );
+  await expect(page.locator("button.lyric-line")).toHaveCount(65);
+  await expect(page.locator("button.lyric-line").first()).toHaveAttribute(
+    "data-start",
+    /^\d/,
+  );
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("link", { name: "Download lyrics" }).click();
   expect((await downloadPromise).suggestedFilename()).toBe(

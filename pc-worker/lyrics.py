@@ -1,6 +1,7 @@
 """Publish saved lyric text without another model call or audio render."""
 from pathlib import Path
 from common import inside, load
+from lyric_timing import make_cues
 
 
 def make_sheet(config, plan, result):
@@ -24,7 +25,11 @@ def make_sheet(config, plan, result):
         text = plan['lyrics']
     text = '\n'.join(line.rstrip() for line in text.replace('\r\n', '\n').split('\n') if line.strip() != '[End]').strip()
     if not 1 <= len(text) <= 16000: raise ValueError('A saved lyrics sheet is required before publication; inspect the completed job.')
-    return {'text': text, 'kind': kind}
+    sheet = {'text': text, 'kind': kind}
+    if result.get('work_path'):
+        cues = make_cues(work, text, result.get('duration'))
+        if cues: sheet['cues'] = cues
+    return sheet
 
 
 def export_sheet(config, mp3, title, sheet):

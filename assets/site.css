@@ -1672,6 +1672,9 @@ main {
   overflow-wrap: anywhere;
 }
 .shared-song-player {
+  position: sticky;
+  top: 12px;
+  z-index: 3;
   margin-top: 30px;
   padding: 20px 22px;
   border: 1px solid var(--line);
@@ -1686,12 +1689,58 @@ main {
   width: 100%;
 }
 .lyrics-text {
-  white-space: pre-wrap;
   overflow-wrap: anywhere;
   font: inherit;
   font-size: 1.05rem;
   line-height: 1.9;
   margin-top: 40px;
+}
+.karaoke-note {
+  margin: 12px 0 -12px;
+}
+.karaoke-lyrics {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+.lyric-line,
+.lyric-heading,
+.lyric-break {
+  display: block;
+}
+.lyric-line {
+  width: 100%;
+  min-height: 1.9em;
+  margin: 0;
+  padding: 1px 10px;
+  border-left: 3px solid transparent;
+  border-radius: 2px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  text-align: left;
+  scroll-margin-block: 35vh;
+}
+button.lyric-line:hover {
+  background: #e9ecdf;
+}
+.lyric-line.is-active {
+  border-left-color: var(--accent);
+  background: #edc3a7;
+  color: #1f3026;
+  font-weight: 600;
+}
+.lyric-heading {
+  margin: 26px 10px 7px;
+  color: var(--muted);
+  font-family: "DM Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.lyric-break {
+  height: 8px;
 }
 @media print {
   body[data-page="lyrics"] .site-header,
@@ -1702,6 +1751,12 @@ main {
   }
   .lyrics-sheet {
     margin: 0;
+    color: #000;
+  }
+  .lyric-line {
+    padding-left: 0;
+    border: 0;
+    background: transparent !important;
     color: #000;
   }
 }

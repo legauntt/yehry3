@@ -2,6 +2,80 @@ import { authoredByLine } from "./authored-by.js";
 import { api } from "./api.js";
 import { qualityNotice } from "./quality.js";
 
+function cueMap(lyrics) {
+  const lines = lyrics.text.split("\n");
+  return new Map(
+    (lyrics.cues || [])
+      .filter(
+        (cue) =>
+          Number.isInteger(cue.line) &&
+          cue.line >= 0 &&
+          cue.line < lines.length &&
+          Number.isFinite(cue.start) &&
+          Number.isFinite(cue.end) &&
+          cue.start >= 0 &&
+          cue.end > cue.start,
+      )
+      .map((cue) => [cue.line, cue]),
+  );
+}
+
+function lyricLines(lyrics, escape) {
+  const cues = cueMap(lyrics);
+  return lyrics.text
+    .split("\n")
+    .map((line, index) => {
+      if (!line.trim()) return '<span class="lyric-break" aria-hidden="true"></span>';
+      if (/^\s*\[[^\]]+]\s*$/.test(line))
+        return `<span class="lyric-heading">${escape(line)}</span>`;
+      const cue = cues.get(index);
+      return cue
+        ? `<button type="button" class="lyric-line" data-start="${cue.start}" data-end="${cue.end}" title="Jump to this line">${escape(line)}</button>`
+        : `<span class="lyric-line">${escape(line)}</span>`;
+    })
+    .join("");
+}
+
+function mountKaraoke(main) {
+  const audio = main.querySelector(".shared-song-player audio");
+  const lines = [...main.querySelectorAll("button.lyric-line")];
+  if (!audio || !lines.length) return;
+  let active;
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  function sync(follow = !audio.paused) {
+    const time = audio.currentTime;
+    let current;
+    for (const line of lines) {
+      if (Number(line.dataset.start) > time) break;
+      current = line;
+    }
+    if (current && time > Number(current.dataset.end)) current = undefined;
+    if (current === active) return;
+    active?.classList.remove("is-active");
+    active?.removeAttribute("aria-current");
+    active = current;
+    active?.classList.add("is-active");
+    active?.setAttribute("aria-current", "true");
+    if (active && follow) {
+      const box = active.getBoundingClientRect();
+      if (box.top < innerHeight * 0.3 || box.bottom > innerHeight * 0.72)
+        active.scrollIntoView({ block: "center", behavior: reducedMotion.matches ? "auto" : "smooth" });
+    }
+  }
+  for (const line of lines)
+    line.addEventListener("click", () => {
+      const seek = () => {
+        audio.currentTime = Number(line.dataset.start);
+        sync(false);
+      };
+      if (audio.readyState) seek();
+      else audio.addEventListener("loadedmetadata", seek, { once: true });
+    });
+  audio.addEventListener("timeupdate", () => sync());
+  audio.addEventListener("seeking", () => sync());
+  audio.addEventListener("play", () => sync(true));
+}
+
 export async function lyricsPage(main, { escape, safeUrl }) {
   const id = new URLSearchParams(location.search).get("song");
   let song;
@@ -11,11 +85,24 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     } catch {
       /* The static catalog includes the saved lyrics for offline API use. */
     }
-    if (!song?.lyrics) {
+    if (!song?.lyrics?.text || !song.lyrics.cues?.length) {
       try {
-        song = (await (await fetch("/catalog.json")).json()).songs.find(
+        const saved = (await (await fetch("/catalog.json")).json()).songs.find(
           (item) => item.id === id,
         );
+        song = song
+          ? {
+              ...saved,
+              ...song,
+              lyrics: {
+                ...saved?.lyrics,
+                ...song.lyrics,
+                cues: song.lyrics?.cues?.length
+                  ? song.lyrics.cues
+                  : saved?.lyrics?.cues,
+              },
+            }
+          : saved;
       } catch {
         /* Show the unavailable state below. */
       }
@@ -32,7 +119,9 @@ export async function lyricsPage(main, { escape, safeUrl }) {
       ? "Source transcription; some words may be inaccurate."
       : "Lyrics supplied for this recording. The performance may vary.";
   const audioUrl = escape(safeUrl(song.url));
-  main.innerHTML = `<article class="lyrics-sheet"><p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>${authoredByLine(song.authoredBy, escape)}${qualityNotice(song.qualityIssues)}<p class="small">${note}</p><section class="shared-song-player" aria-label="Listen to ${escape(song.title)}"><p class="tiny-label">Listen here</p><audio controls preload="metadata" src="${audioUrl}" aria-label="Play ${escape(song.title)}">Your browser cannot play this recording. <a href="${audioUrl}">Open the audio file</a>.</audio></section><div class="actions lyrics-actions"><a class="primary" href="${audioUrl}" target="_blank" rel="noopener">Open audio ↗</a><a class="quiet" id="download-lyrics">Download lyrics</a><button class="quiet" id="print-lyrics">Print</button><a class="text-link" href="/">The collection →</a></div><pre class="lyrics-text">${escape(song.lyrics.text)}</pre></article>`;
+  const hasCues = cueMap(song.lyrics).size > 0;
+  main.innerHTML = `<article class="lyrics-sheet"><p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>${authoredByLine(song.authoredBy, escape)}${qualityNotice(song.qualityIssues)}<p class="small">${note}</p><section class="shared-song-player" aria-label="Listen to ${escape(song.title)}"><p class="tiny-label">Listen here</p><audio controls preload="metadata" src="${audioUrl}" aria-label="Play ${escape(song.title)}">Your browser cannot play this recording. <a href="${audioUrl}">Open the audio file</a>.</audio></section>${hasCues ? '<p class="small karaoke-note">The current line follows the recording. Select any lyric to jump there.</p>' : ""}<div class="actions lyrics-actions"><a class="primary" href="${audioUrl}" target="_blank" rel="noopener">Open audio ↗</a><a class="quiet" id="download-lyrics">Download lyrics</a><button class="quiet" id="print-lyrics">Print</button><a class="text-link" href="/">The collection →</a></div><div class="lyrics-text karaoke-lyrics">${lyricLines(song.lyrics, escape)}</div></article>`;
+  mountKaraoke(main);
   const blob = new Blob([`${song.title}\n${song.authoredBy ? `Authored by ${song.authoredBy}\n` : ""}${note}\n\n${song.lyrics.text}\n`], {
     type: "text/plain;charset=utf-8",
   });
