@@ -2,6 +2,26 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-268867386d96f37bbadc6d45",
+      "title": "An Old Friend in the Emergency Light",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-268867386d96f37bbadc6d45-cb75ca295734.mp3",
+      "duration": 240,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Verse 1]\nThird watch, coffee cold beside the navigation screen\nHyperion shakes like something waking from a dream\nI take the narrow passage where the coolant pipes complain\nOne hand finds the railing, one remembers how to aim\nThen every little warning lamp goes swimming out of sight\nAnd something taller than a man unfolds inside the night\nI draw before I breathe; the barrel trembles in the gloom\nA voice comes through the darkness like a seal upon a tomb\n\n[Ominous, low and deliberate]\nJames Raynor I bring tidings of doom\n\n[Verse 2]\nZeratul, you bastard, there's a doorway down the hall\nCould've used the intercom, could've given me a call\nA broken little chuckle gets no answer from his eyes\nThere's dust upon his armor from beneath forgotten skies\nI lower down the pistol; he inclines his weary head\nTwo soldiers stand together with an army of their dead\n\n[Chorus]\nCome into the emergency light\nLet me see the friend inside the fright\nYou crossed the stars to find me here\nPull up the truth; I'll pull up a chair\nIf dawn's gone missing, we'll search all night\nOld friend, come into the light\n\n[Verse 3]\nHe speaks of doors beneath the worlds, of futures burning black\nOf something waiting past the point where prayers can bring us back\nI want a name, a target, something engines can outrun\nHe watches my reflection on the cold steel of my gun\nSays the road ahead will ask what hatred cannot give\nAnd the woman in my nightmares may be why the living live\nI taste an old betrayal; I hear an older plea\nThe ship keeps breathing softly while he leaves that thought with me\n\n[Bridge]\nFor once I have no wisecrack\nFor once he looks his age\nHis hand extends a crystal\nMine opens like a cage\nNo promises of victory\nNo clean and easy end\nJust something worth protecting\nAnd the warning of a friend\n\n[Final Chorus]\nStay beneath the emergency light\nWe've both been ghosts enough tonight\nI'll carry what you came to share\nEven when your shadow isn't there\nWhatever waits beyond our sight\nYou found a friend aboard this flight\n\n[Closing, quietly sung]\nHis footsteps vanish; mine resume\nI turn toward the bridge with room for doom\nAnd room for hope beside it",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Tony C as Jim Raynor encountering Zeratul by surprise in a dark hallway of the Hyperion",
+        "direction": "Alien, mysterious, gradually two friends reuniting but under dark circumstances",
+        "keep": "Must include \"James Raynor I bring tidings of doom\" in an ominous voice",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-1bedc02aaedbb1663d5fdcd9",
       "title": "Geglash and the Missing Save",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1bedc02aaedbb1663d5fdcd9-cf309effed3a.mp3",
