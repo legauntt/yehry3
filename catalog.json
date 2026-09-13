@@ -2,6 +2,362 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ac8ef4a16cc6990cf350d859",
+      "title": "Every Porch Light On",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ac8ef4a16cc6990cf350d859-f2381444efcc.mp3",
+      "duration": 236.9,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Csaw",
+      "lyrics": {
+        "text": "[Spoken Intro]\nDis is Tony C, from da troof? And yaw washin sessunz, ahhh Ay-oh-el, thank you very mush\n\n[Verse 1]\nMiss June keeps coffee by the screen door\nEddie knows which engine needs a hand\nKids leave their bicycles by the corner\nLike trust is something everybody understands\nWhen thunder knocks the county power sideways\nFlashlights bloom from every kitchen drawer\nNobody waits to hear a stranger calling\nWe're already walking out the door\n\n[Pre-Chorus]\nOne porch wakes another\nOne name travels down the line\nYou don't face the dark alone here\nNot tonight, not any time\n\n[Chorus]\nEvery porch light on, every curtain drawn\nOpen eyes from dusk until the dawn\nIf trouble comes around pushing folks apart\nIt meets a row of neighbors and a stubborn town heart\nNo fists, no fear, just a thousand little ties\nMeals on the table and the truth against the lies\nEvery porch light on, shining strong\nAround here, looking out is how we all belong\n\n[Verse 2]\nOld Ray brings a toolbox to the widow\nNina drives the night-shift workers home\nSam knows every dog and every grandchild\nAnd who has been too proud to ask for help alone\nWhen a slick voice starts a crooked bargain\nPassing poison underneath a smile\nWe bring it into daylight at the courthouse\nAnd stand beside each other all the while\n\n[Pre-Chorus]\nOne hand finds another\nOne truth travels down the line\nYou don't face the wolves alone here\nNot tonight, not any time\n\n[Chorus]\nEvery porch light on, every curtain drawn\nOpen eyes from dusk until the dawn\nIf trouble comes around pushing folks apart\nIt meets a row of neighbors and a stubborn town heart\nNo fists, no fear, just a thousand little ties\nMeals on the table and the truth against the lies\nEvery porch light on, shining strong\nAround here, looking out is how we all belong\n\n[Industrial Break]\nHammer on the rail, sparks against the rain\nBoots across the gravel, calling every name\nLock the shop together, walk the long way home\nTrouble loses power when nobody stands alone\n\n[Bridge]\nWe don't need a hero on a billboard\nWe need soup when someone's paycheck's gone\nA spare-room bed, a ride, a witness\nSomeone staying when the sirens move along\nAnd if hate comes selling easy answers\nWe'll answer with the lives we've woven tight\nYou can rattle every gate along the main road\nBut you cannot turn our mercy off tonight\n\n[Final Chorus]\nEvery porch light on, let the whole street glow\nEvery lonely soul has somewhere safe to go\nIf trouble comes around pushing folks apart\nIt meets a living wall made of an open heart\nNo fists, no fear, we remember every name\nDrive the trouble out by starving out its game\nEvery porch light on, and the morning coming strong\nAround here, looking out is how we all belong\n\n[Outro]\nThe mill bell rings, the shadows withdraw\nJune pours coffee as the sunrise warms the wall\nDoor by door, we kept the promise through the night\nTown waking whole beneath the fading porch light",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 5.42
+          },
+          {
+            "line": 4,
+            "start": 5.42,
+            "end": 5.82
+          },
+          {
+            "line": 5,
+            "start": 14.56,
+            "end": 15.12
+          },
+          {
+            "line": 6,
+            "start": 15.12,
+            "end": 15.28
+          },
+          {
+            "line": 7,
+            "start": 23.3,
+            "end": 23.86
+          },
+          {
+            "line": 8,
+            "start": 23.86,
+            "end": 25.74
+          },
+          {
+            "line": 9,
+            "start": 26.3,
+            "end": 27.84
+          },
+          {
+            "line": 10,
+            "start": 27.84,
+            "end": 28.08
+          },
+          {
+            "line": 11,
+            "start": 32.1,
+            "end": 33.22
+          },
+          {
+            "line": 14,
+            "start": 33.22,
+            "end": 35.2
+          },
+          {
+            "line": 15,
+            "start": 35.9,
+            "end": 39.78
+          },
+          {
+            "line": 16,
+            "start": 40.86,
+            "end": 45.58
+          },
+          {
+            "line": 17,
+            "start": 46.06,
+            "end": 47.64
+          },
+          {
+            "line": 20,
+            "start": 49.28,
+            "end": 52.94
+          },
+          {
+            "line": 21,
+            "start": 53.56,
+            "end": 58.28
+          },
+          {
+            "line": 22,
+            "start": 58.28,
+            "end": 62.2
+          },
+          {
+            "line": 23,
+            "start": 62.2,
+            "end": 67.32
+          },
+          {
+            "line": 24,
+            "start": 67.32,
+            "end": 69.2
+          },
+          {
+            "line": 25,
+            "start": 69.2,
+            "end": 71.44
+          },
+          {
+            "line": 26,
+            "start": 71.44,
+            "end": 75.18
+          },
+          {
+            "line": 27,
+            "start": 76.24,
+            "end": 80.62
+          },
+          {
+            "line": 30,
+            "start": 81.42,
+            "end": 83.66
+          },
+          {
+            "line": 31,
+            "start": 83.66,
+            "end": 85.48
+          },
+          {
+            "line": 32,
+            "start": 85.48,
+            "end": 87.98
+          },
+          {
+            "line": 33,
+            "start": 87.98,
+            "end": 90.14
+          },
+          {
+            "line": 34,
+            "start": 90.14,
+            "end": 92.52
+          },
+          {
+            "line": 35,
+            "start": 92.92,
+            "end": 94.78
+          },
+          {
+            "line": 36,
+            "start": 94.78,
+            "end": 96.94
+          },
+          {
+            "line": 37,
+            "start": 96.94,
+            "end": 98.98
+          },
+          {
+            "line": 40,
+            "start": 98.98,
+            "end": 101.72
+          },
+          {
+            "line": 41,
+            "start": 103.62,
+            "end": 106.36
+          },
+          {
+            "line": 42,
+            "start": 108.18,
+            "end": 112.26
+          },
+          {
+            "line": 43,
+            "start": 112.26,
+            "end": 114.56
+          },
+          {
+            "line": 46,
+            "start": 115.42,
+            "end": 119.5
+          },
+          {
+            "line": 47,
+            "start": 120.04,
+            "end": 124.06
+          },
+          {
+            "line": 48,
+            "start": 124.92,
+            "end": 129.16
+          },
+          {
+            "line": 49,
+            "start": 129.16,
+            "end": 132.74
+          },
+          {
+            "line": 50,
+            "start": 133.8,
+            "end": 135.86
+          },
+          {
+            "line": 51,
+            "start": 136.24,
+            "end": 138.12
+          },
+          {
+            "line": 52,
+            "start": 138.12,
+            "end": 141.82
+          },
+          {
+            "line": 53,
+            "start": 141.82,
+            "end": 147.34
+          },
+          {
+            "line": 56,
+            "start": 147.98,
+            "end": 150.34
+          },
+          {
+            "line": 57,
+            "start": 150.78,
+            "end": 153
+          },
+          {
+            "line": 58,
+            "start": 153,
+            "end": 154.72
+          },
+          {
+            "line": 59,
+            "start": 155.1,
+            "end": 156.94
+          },
+          {
+            "line": 62,
+            "start": 156.94,
+            "end": 158.58
+          },
+          {
+            "line": 63,
+            "start": 159.16,
+            "end": 161.2
+          },
+          {
+            "line": 64,
+            "start": 161.2,
+            "end": 163.4
+          },
+          {
+            "line": 65,
+            "start": 163.74,
+            "end": 165.58
+          },
+          {
+            "line": 66,
+            "start": 165.58,
+            "end": 167.92
+          },
+          {
+            "line": 67,
+            "start": 167.96,
+            "end": 170.12
+          },
+          {
+            "line": 68,
+            "start": 170.44,
+            "end": 172.5
+          },
+          {
+            "line": 69,
+            "start": 172.66,
+            "end": 174.42
+          },
+          {
+            "line": 72,
+            "start": 175.6,
+            "end": 179.72
+          },
+          {
+            "line": 73,
+            "start": 180.24,
+            "end": 183.94
+          },
+          {
+            "line": 74,
+            "start": 184.9,
+            "end": 189.16
+          },
+          {
+            "line": 75,
+            "start": 189.16,
+            "end": 192.82
+          },
+          {
+            "line": 76,
+            "start": 193.34,
+            "end": 195.96
+          },
+          {
+            "line": 77,
+            "start": 196.34,
+            "end": 198.06
+          },
+          {
+            "line": 78,
+            "start": 198.38,
+            "end": 203.26
+          },
+          {
+            "line": 79,
+            "start": 203.26,
+            "end": 207.54
+          },
+          {
+            "line": 82,
+            "start": 207.54,
+            "end": 210.26
+          },
+          {
+            "line": 83,
+            "start": 210.74,
+            "end": 212.98
+          },
+          {
+            "line": 84,
+            "start": 214.42,
+            "end": 215.72
+          },
+          {
+            "line": 85,
+            "start": 215.72,
+            "end": 217.26
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 19.5
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Theme: Try that in a small town.  A heartwarming tune about how neighbors look out for one another and drive trouble out of town",
+        "direction": "Industrial",
+        "keep": "Must start with this monologue:\nDis is Tony C, from da troof? And yaw washin sessunz, ahhh Ay-oh-el, thank you very mush (make this awkwardly delivered)",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-dded4a36b254402ccfaa50c7",
       "title": "Two Lanes One Town",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-dded4a36b254402ccfaa50c7-c1939bcee8ad.mp3",
