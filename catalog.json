@@ -2,6 +2,27 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ade0b730b6386af1bb6bca31",
+      "title": "Alll-mer Under the Big Top",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ade0b730b6386af1bb6bca31-fcfecd4ea437.mp3",
+      "duration": 283.2,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Intro]\nStep through the canvas, leave daylight outside.\nSomebody sold us a ticket to paradise.\nLook at the nail holes. Look at the price.\nThe man on the poster has already died.\n\n[Verse 1]\nAlll-mer hangs where the spotlight burns,\nOver a floor full of desperate turns.\nSawdust sticks to the blood on my shoes;\nThe barker says salvation has excellent reviews.\nI brought one prayer and a counterfeit crown,\nA pocket full of reasons to burn this down.\nYour painted disciples sell seats by the cross.\nFunny how the faithful never tally the loss.\n\n[Pre-Chorus]\nPull that curtain, show that hand.\nWho gets holy? Who gets damned?\nMy knees are shot, but the kick comes through;\nI get back up and I dance at you.\n\n[Chorus]\nAlll-mer, turn the fucking wheel!\nTell me what a risen man can feel.\nWe go round with our teeth clenched tight,\nBegging for a doorway in the meat of night.\nAlll-mer, underneath this grin,\nThere's a frightened little bastard trying to get in.\nIf your blood can open somewhere new,\nLeave that door wide—I am coming through.\n\n[Verse 2]\nThe organ coughs and the acrobats swing,\nA priest counts coins in the mouth of a king.\nSomebody screams that the old gods left;\nThe drummer puts a snare on every breath.\nI cut my palm by the dressing-room glass,\nDraw a red way out where the shadows pass.\nNo velvet rope and no blessed elite;\nJust a hole in the dark and my two bad feet.\n\n[Pre-Chorus]\nLet the tent poles crack and lean.\nI've seen enough behind the scene.\nYour name comes loose from my ruined throat;\nI sing it longer than the last clean note.\n\n[Chorus]\nAlll-mer, turn the fucking wheel!\nTell me what a risen man can feel.\nWe go round with our teeth clenched tight,\nBegging for a doorway in the meat of night.\nAlll-mer, underneath this grin,\nThere's a frightened little bastard trying to get in.\nIf your blood can open somewhere new,\nLeave that door wide—I am coming through.\n\n[Guest Stanza — Geglash character]\nGeglash here, from Lut Gholein!\nAtma, pour the bastard full again.\nI've got heroic plans for half past ten;\nBy eleven I'll forget the fucking things again.\nThat desert can wait till the room stands still.\nI tried to fight my shadow—it dodged on skill.\nI'll drink to your god if he's buying a round;\nKeep that spinning bloody tent on the ground!\n\n[Bridge]\nUnder the laughter, I hear somebody cry.\nA girl by the exit won't look me in the eye.\nI give her my coat; she takes hold of my sleeve.\nFor once in my life, I know when to leave.\nAlll-mer, whatever you became,\nI'm done making a ticket of your name.\nLet the empty carousel finish its spin.\nThere's room through the doorway. I'm taking her in.\n\n[Final Chorus]\nAlll-mer, stop the fucking wheel!\nI've got another person's hand to feel.\nWe step out with our teeth clenched tight,\nThrough the open wound in the wall of night.\nAlll-mer, underneath this grin,\nThere's a frightened little bastard with a life to begin.\nYour blood made a doorway; we both came through.\nI close the curtain. The night is blue.\n\n[Outro]\nNo ticket in my pocket.\nNo crown upon my head.\nShe asks me if we're living.\nI hold her hand.\nNot dead.",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "originalPrompt": {
+        "idea": "Circus dance song about Alll-mer from Fear & Hunger, explicit lyrics. Include guest stanza sung by Geglash from Diablo 2 about getting drunk.",
+        "direction": "Electronic circus dance",
+        "keep": "Edgy and jarring lyrics",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-a734d712272790dbf9ce12bf",
       "title": "Little Bit More - Pocket Full of Trouble",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a734d712272790dbf9ce12bf-a9bbd4705c3e.mp3",
