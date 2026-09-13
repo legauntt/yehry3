@@ -31,7 +31,8 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     song.lyrics.kind === "transcribed"
       ? "Source transcription; some words may be inaccurate."
       : "Lyrics supplied for this recording. The performance may vary.";
-  main.innerHTML = `<article class="lyrics-sheet"><p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>${authoredByLine(song.authoredBy, escape)}${qualityNotice(song.qualityIssues)}<p class="small">${note}</p><div class="actions lyrics-actions"><a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a><a class="quiet" id="download-lyrics">Download lyrics</a><button class="quiet" id="print-lyrics">Print</button><a class="text-link" href="/">The collection →</a></div><pre class="lyrics-text">${escape(song.lyrics.text)}</pre></article>`;
+  const audioUrl = escape(safeUrl(song.url));
+  main.innerHTML = `<article class="lyrics-sheet"><p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>${authoredByLine(song.authoredBy, escape)}${qualityNotice(song.qualityIssues)}<p class="small">${note}</p><section class="shared-song-player" aria-label="Listen to ${escape(song.title)}"><p class="tiny-label">Listen here</p><audio controls preload="metadata" src="${audioUrl}" aria-label="Play ${escape(song.title)}">Your browser cannot play this recording. <a href="${audioUrl}">Open the audio file</a>.</audio></section><div class="actions lyrics-actions"><a class="primary" href="${audioUrl}" target="_blank" rel="noopener">Open audio ↗</a><a class="quiet" id="download-lyrics">Download lyrics</a><button class="quiet" id="print-lyrics">Print</button><a class="text-link" href="/">The collection →</a></div><pre class="lyrics-text">${escape(song.lyrics.text)}</pre></article>`;
   const blob = new Blob([`${song.title}\n${song.authoredBy ? `Authored by ${song.authoredBy}\n` : ""}${note}\n\n${song.lyrics.text}\n`], {
     type: "text/plain;charset=utf-8",
   });

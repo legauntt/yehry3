@@ -1647,6 +1647,20 @@ main {
   font-size: clamp(2.4rem, 6vw, 4.5rem);
   overflow-wrap: anywhere;
 }
+.shared-song-player {
+  margin-top: 30px;
+  padding: 20px 22px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--light);
+}
+.shared-song-player .tiny-label {
+  margin: 0 0 12px;
+}
+.shared-song-player audio {
+  display: block;
+  width: 100%;
+}
 .lyrics-text {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
@@ -1658,6 +1672,7 @@ main {
 @media print {
   body[data-page="lyrics"] .site-header,
   body[data-page="lyrics"] .site-footer,
+  .shared-song-player,
   .lyrics-actions {
     display: none;
   }

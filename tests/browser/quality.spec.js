@@ -67,6 +67,20 @@ test("a song with issues remains playable and exposes its warning on every liste
     "/fearhunger/",
   ]) {
     await page.goto(path);
+    if (path.startsWith("/lyrics/")) {
+      const player = page.getByLabel("Play Samarie test recording");
+      await expect(player).toHaveAttribute("src", /\/quality-fixture\.wav$/);
+      await expect
+        .poll(() => player.evaluate((audio) => audio.readyState))
+        .toBeGreaterThan(0);
+      await player.evaluate(async (audio) => {
+        audio.currentTime = 0.2;
+        await audio.play();
+      });
+      await expect
+        .poll(() => player.evaluate((audio) => audio.currentTime))
+        .toBeGreaterThan(0.2);
+    }
     const notice = page.locator(".quality-notice:visible");
     await expect(notice).toHaveCount(1);
     await notice.locator("summary").click();
