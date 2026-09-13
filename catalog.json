@@ -2,6 +2,326 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-0fcd80ceea308bd60ee475f5",
+      "title": "Men Be Hung Horses Go",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0fcd80ceea308bd60ee475f5-6f026ffe7126.mp3",
+      "duration": 240,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Scythe",
+      "lyrics": {
+        "text": "[Verse 1]\nMorning broke on a colorless plain\nThree riders waited in cold silver rain\nThe judge read names from a weathered page\nWhile the town leaned close to the splintered stage\nNo saint came down, no pardon arrived\nOnly the wind and the ones left alive\nA black mare trembled, then pulled away\nLike she knew what the people were frightened to say\n\n[Pre-Chorus]\nThe law makes a circle, the blood makes a line\nOne takes your freedom, one takes your time\n\n[Chorus]\nMen be hung, horses go\nOver the ridge where the wild winds blow\nMen be hung, horses go\nNo fence can hold what the free ones know\nLet the bells fall dumb, let the bitter river flow\nMen be hung, horses go\n\n[Verse 2]\nElias laughed with a split-lipped grin\nSaid, “You call this justice? Then count me in”\nCaleb stared at the far red hill\nAnd whispered a name that the night keeps still\nJonah sang low through a throat gone dry\nA wandering tune with no goodbye\nThen six loose reins slapped dust in the street\nAnd thunder ran out beneath pounding feet\n\n[Pre-Chorus]\nThe crowd saw a warning, the sky saw a crime\nThe animals answered by leaving on time\n\n[Chorus]\nMen be hung, horses go\nOver the ridge where the wild winds blow\nMen be hung, horses go\nNo fence can hold what the free ones know\nLet the bells fall dumb, let the bitter river flow\nMen be hung, horses go\n\n[Bridge]\nBeyond the last field, beyond human claim\nThe riderless herd bore nobody’s name\nThey crossed through the sage as the daylight burned\nNo hand on the reins and no head ever turned\nOne gave a cry like a cracked old hymn\nOne kicked high at the gallows wind\nAnd somewhere behind them the ropes went tight\nBut the herd kept running into the light\n\n[Breakdown]\nWho owns the valley?\nWho orders the sun?\nWho tells a heart\nWhen its running is done?\nThe judge had an answer\nThe earth answered slow:\nYou may capture men\nBut the horses will go\n\n[Final Chorus]\nMen be hung, horses go\nOver the ridge where the wild winds blow\nMen be hung, horses go\nPast every boundary carved below\nLet the bells fall dumb, let the bitter river flow\nMen be hung, horses go\n\n[Outro]\nBy dusk there were tracks where the tall weeds grow\nThree names in the silence, six shadows below\nThe town shut its windows; the western sky glowed\nMen had been hung\nAnd the horses still rode",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.56,
+            "end": 6.86
+          },
+          {
+            "line": 2,
+            "start": 6.86,
+            "end": 9
+          },
+          {
+            "line": 3,
+            "start": 9,
+            "end": 11.16
+          },
+          {
+            "line": 4,
+            "start": 11.16,
+            "end": 13.56
+          },
+          {
+            "line": 5,
+            "start": 13.56,
+            "end": 15.7
+          },
+          {
+            "line": 6,
+            "start": 15.7,
+            "end": 18.18
+          },
+          {
+            "line": 7,
+            "start": 18.18,
+            "end": 20.68
+          },
+          {
+            "line": 8,
+            "start": 20.68,
+            "end": 22.82
+          },
+          {
+            "line": 11,
+            "start": 22.82,
+            "end": 27.62
+          },
+          {
+            "line": 12,
+            "start": 27.62,
+            "end": 31.56
+          },
+          {
+            "line": 15,
+            "start": 31.68,
+            "end": 36.62
+          },
+          {
+            "line": 16,
+            "start": 37.54,
+            "end": 40.88
+          },
+          {
+            "line": 17,
+            "start": 40.88,
+            "end": 47.68
+          },
+          {
+            "line": 18,
+            "start": 47.68,
+            "end": 50.84
+          },
+          {
+            "line": 19,
+            "start": 51.64,
+            "end": 55.4
+          },
+          {
+            "line": 20,
+            "start": 57.04,
+            "end": 60.12
+          },
+          {
+            "line": 23,
+            "start": 64.76,
+            "end": 66.62
+          },
+          {
+            "line": 24,
+            "start": 66.76,
+            "end": 69.04
+          },
+          {
+            "line": 25,
+            "start": 69.44,
+            "end": 71.34
+          },
+          {
+            "line": 26,
+            "start": 71.62,
+            "end": 73.68
+          },
+          {
+            "line": 27,
+            "start": 74.14,
+            "end": 76
+          },
+          {
+            "line": 28,
+            "start": 76.42,
+            "end": 78.68
+          },
+          {
+            "line": 29,
+            "start": 78.68,
+            "end": 80.78
+          },
+          {
+            "line": 30,
+            "start": 80.78,
+            "end": 83.14
+          },
+          {
+            "line": 33,
+            "start": 85.12,
+            "end": 87.58
+          },
+          {
+            "line": 34,
+            "start": 87.58,
+            "end": 91.06
+          },
+          {
+            "line": 37,
+            "start": 93.32,
+            "end": 96.64
+          },
+          {
+            "line": 38,
+            "start": 96.64,
+            "end": 100.88
+          },
+          {
+            "line": 39,
+            "start": 100.88,
+            "end": 108.12
+          },
+          {
+            "line": 40,
+            "start": 108.12,
+            "end": 110.84
+          },
+          {
+            "line": 41,
+            "start": 111.74,
+            "end": 115.36
+          },
+          {
+            "line": 42,
+            "start": 116.88,
+            "end": 120.1
+          },
+          {
+            "line": 45,
+            "start": 121.84,
+            "end": 124.32
+          },
+          {
+            "line": 46,
+            "start": 124.66,
+            "end": 126.6
+          },
+          {
+            "line": 47,
+            "start": 126.94,
+            "end": 128.9
+          },
+          {
+            "line": 48,
+            "start": 128.9,
+            "end": 131.32
+          },
+          {
+            "line": 49,
+            "start": 131.78,
+            "end": 133.46
+          },
+          {
+            "line": 50,
+            "start": 133.46,
+            "end": 135.92
+          },
+          {
+            "line": 51,
+            "start": 136.3,
+            "end": 138.4
+          },
+          {
+            "line": 52,
+            "start": 138.56,
+            "end": 140.38
+          },
+          {
+            "line": 55,
+            "start": 140.38,
+            "end": 143.72
+          },
+          {
+            "line": 56,
+            "start": 144.86,
+            "end": 146.02
+          },
+          {
+            "line": 57,
+            "start": 147.28,
+            "end": 148.32
+          },
+          {
+            "line": 58,
+            "start": 149.48,
+            "end": 150.78
+          },
+          {
+            "line": 59,
+            "start": 151.98,
+            "end": 153.16
+          },
+          {
+            "line": 60,
+            "start": 154.2,
+            "end": 155.38
+          },
+          {
+            "line": 61,
+            "start": 156.32,
+            "end": 157.72
+          },
+          {
+            "line": 62,
+            "start": 157.72,
+            "end": 160.3
+          },
+          {
+            "line": 65,
+            "start": 161.22,
+            "end": 164.9
+          },
+          {
+            "line": 66,
+            "start": 165.66,
+            "end": 169.54
+          },
+          {
+            "line": 67,
+            "start": 170.54,
+            "end": 174.28
+          },
+          {
+            "line": 68,
+            "start": 175.04,
+            "end": 178.92
+          },
+          {
+            "line": 69,
+            "start": 180.1,
+            "end": 183.52
+          },
+          {
+            "line": 70,
+            "start": 184.58,
+            "end": 190.78
+          },
+          {
+            "line": 73,
+            "start": 190.78,
+            "end": 192.78
+          },
+          {
+            "line": 74,
+            "start": 192.78,
+            "end": 194.74
+          },
+          {
+            "line": 75,
+            "start": 194.74,
+            "end": 196.98
+          },
+          {
+            "line": 76,
+            "start": 196.98,
+            "end": 198.5
+          },
+          {
+            "line": 77,
+            "start": 198.5,
+            "end": 202.88
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "men be hung, horses go",
+        "direction": "Use the prompt as written.",
+        "keep": "While the words \"shoe,\" \"boot,\" \"brass,\" and \"crooked\" are permissible, any time you use one of those four words, you must spank yourself for being a bad little boy.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-f47a3eb436748f0b2e3d6ccf",
       "title": "9-11'd Again",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f47a3eb436748f0b2e3d6ccf-d79074cbfb3e.mp3",
