@@ -2,6 +2,28 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a734d712272790dbf9ce12bf",
+      "title": "Little Bit More - Pocket Full of Trouble",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a734d712272790dbf9ce12bf-a9bbd4705c3e.mp3",
+      "duration": 234.1,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Intro — 4 bars]\nCherry stem twisted, a grin by the door.\nShe said, \"You always this certain?\" I wasn't anymore.\nKeys on the counter, my cool on the floor.\nSomebody count me in—little bit more.\n\n[Verse 1 — 16 bars]\nThought she was trouble; the trouble looked back.\nRed little ribbon on a midnight Cadillac.\nTongue tied cherries while my tongue tripped sentences.\nShe laughed through the gaps in my excellent defenses.\nWish I may, wish I might stay slick;\nWatch me lose my place when the bass drum kicks.\nMotel neon with a half-lit sign,\nEven that vacancy blink had crooked timing.\nWhole bag of tricks and a look like thunder,\nI brought big talk; she pulled it under.\nCuff on my wrist, but she kept the key;\n\"You can ask,\" she laughed. \"Don't make speeches at me.\"\nFair enough, fair enough, there goes the swagger.\nMy silver-tongued pitch took a turn and staggered.\nShe showed me the step; I abandoned the pose.\nHeel hit twice, then away we go.\n\n[Hook — 8 bars]\nOne time and I liked it—caught that spark.\nTwo times, got addicted—lit that dark.\nThree times, couldn't help it—lost my cool.\nNumber four was the best—who made that rule?\nShe showed me how it was supposed to go.\nGive me a little bit more, down low.\nLittle bit more, let the kick drum speak.\nThat crooked little rhythm put a bend in my knees.\n\n[Verse 2 — 16 bars]\nLeft side lean, then a right-side slide,\nGot a supernatural shuffle in a mortal disguise.\nPocket full of trouble, no room for change;\nEvery little ordinary thing turned strange.\nClock on the wall couldn't keep us straight,\nHands went round but the beat ran late.\nI tried talking trash; she graded my delivery:\n\"Half of that confidence sounds like a mystery.\"\nOuch—well deserved. I adjusted my collar.\nSpent my last boast like a counterfeit dollar.\nShe didn't need a king with a borrowed crown,\nJust somebody loose enough to get on down.\nSo I quit keeping score, quit selling the story,\nLet the bass take credit, let the snare take glory.\nOne raised eyebrow, my whole act cracked.\nShe said, \"That's better.\" Then she counted me back.\n\n[Hook — 8 bars]\nOne time and I liked it—caught that spark.\nTwo times, got addicted—lit that dark.\nThree times, couldn't help it—lost my cool.\nNumber four was the best—who made that rule?\nShe showed me how it was supposed to go.\nGive me a little bit more, down low.\nLittle bit more, let the kick drum speak.\nThat crooked little rhythm put a bend in my knees.\n\n[Bridge — 8 bars]\nHold up—keys still shining on the table.\nBig bad wolf, suddenly polite and able.\n\"You good?\" \"I'm good.\" Then the laughter doubles.\nTwo grown fools with a pocket full of trouble.\nNo crown, no contest, no victory speech.\nJust a stubborn little backbeat out of reach.\nI catch it, she flips it, we land off-center.\nKnock twice, bass comes back—enter.\n\n[Verse 3 — 16 bars]\nMorning put a pale gold stripe on the curtain.\nWas I quite that smooth? Couldn't say for certain.\nOne shoe missing, one grand revelation:\nSwagger ain't a substitute for conversation.\nShe found my shoe underneath the chair.\nI found three better jokes and left them there.\nCoffee went bitter; we split the last sweet.\nSun came nosing down our side of the street.\nNot every good night needs a lifetime attached,\nNot every loose thread needs dragging back.\nShe wrote her number on the motel stationery,\nSaid, \"Call after lunch. Keep the speeches very spare.\"\nI said, \"I can do that.\" She said, \"We'll see.\"\nSlid that little silver key across to me.\nPaid at the desk, put the past in its place.\nWalked out laughing with the sun on my face.\n\n[Final hook — 8 bars]\nOne time and I liked it—there's that grin.\nTwo times, got addicted—count me in.\nThree times, couldn't help it—lost that pose.\nNumber four was the best—and that's how it goes.\nShe showed me how it was supposed to go.\nGive me a little bit more, down low.\nLittle bit more—then I settled the score.\nKept her number, turned the key, closed the door.",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "\"Little Bit More\" as a rap song",
+        "direction": "Your call on this",
+        "keep": "Surprise me",
+        "basisSongs": [
+          "Little Bit More"
+        ]
+      }
+    },
+    {
       "id": "distonyc-245e1b240319256167d21431",
       "title": "The Wrong Kind of Miracle",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-245e1b240319256167d21431-21bb3cf07f69.mp3",
