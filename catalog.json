@@ -2,6 +2,302 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-f47a3eb436748f0b2e3d6ccf",
+      "title": "9-11'd Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f47a3eb436748f0b2e3d6ccf-d79074cbfb3e.mp3",
+      "duration": 233.14,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Scythe",
+      "lyrics": {
+        "text": "[Intro]\nSirens in the cereal, smoke inside the rain\nTony strikes a crooked match—it fizzles in the drain\nHe points at the calendar, the calendar points back\nBefore he starts his trouble, trouble jumps the track\n\n[Verse 1]\nTony wore a necktie made of caution tape and spite\nHad a foolish little scheme for an unforgiving night\nBut the elevator buckled, and the ceiling lost its grin\nEvery door flew outward when he tried to swagger in\nHe shook his fist at gravity, demanded it explain\nThe answer hit him sideways like a runaway freight train\n\n[Chorus]\n9/11'd again, 9/11'd again\nBefore he can 9/11, he gets 9/11'd again\nHis wicked clock is stuttering, his master plan is rain\n9/11'd again—9/11'd again\n\n[Verse 2]\nHe ordered up a thundercloud and signed it Tony C\nIt landed on his own head with a note marked “delivery”\nHe built a grand disaster from a shopping cart and string\nThe cart escaped downhill and crowned him accidental king\nHe cursed the bent horizon, said the universe had cheated\nThe universe said nothing, but the whole first verse repeated\n\n[Chorus]\n9/11'd again, 9/11'd again\nBefore he can 9/11, he gets 9/11'd again\nThe fuse runs to his shoelace, every loss becomes a chain\n9/11'd again—9/11'd again\n\n[Post-Chorus]\nAgain—before the beginning\nAgain—while the room keeps spinning\nAgain—his bad idea comes home\nAnd parks itself upon his throne\n\n[Verse 3]\nTony drew a battle map in mustard on the wall\nBut pigeons ate the borders, so he couldn't start at all\nHe shouted, “This is sabotage!” and stumbled through the band\nThe drummer dropped a cymbal; fate applauded where he'd land\nHis laugh became a cough, his cough became a plea\n“How come the whole catastrophe keeps happening to me?”\n\n[Bridge]\nMaybe every cruel intention is a boomerang in black\nMaybe what you send into the world comes screaming back\nThe bass walks up, the lights cut out, the room begins to sway\nTony sees the easy answer—and looks the other way\n\n[Breakdown]\n9/11'd again\nBy the plot inside his brain\n9/11'd again\nBy the engine of his pain\nHe mutters at the wreckage, “I was almost there, my friend”\nThen the wreckage mutters louder:\n“You were never gonna win.”\n\n[Final Chorus]\n9/11'd again, 9/11'd again\nBefore he can 9/11, he gets 9/11'd again\nNo glory in the ruin, only echoes down the drain\n9/11'd again—9/11'd again\n\n[Outro]\nSo Tony folds the blueprint and lets the sirens fade\nThe night rejects his violence and repossesses the parade\nHe walks home empty-handed through the cold September rain\nDone trying to 9/11—never 9/11'd again",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.06
+          },
+          {
+            "line": 2,
+            "start": 3.66,
+            "end": 6.56
+          },
+          {
+            "line": 3,
+            "start": 6.94,
+            "end": 10.22
+          },
+          {
+            "line": 4,
+            "start": 10.22,
+            "end": 13.48
+          },
+          {
+            "line": 7,
+            "start": 20.48,
+            "end": 23.7
+          },
+          {
+            "line": 8,
+            "start": 23.7,
+            "end": 27.54
+          },
+          {
+            "line": 9,
+            "start": 27.78,
+            "end": 31.02
+          },
+          {
+            "line": 10,
+            "start": 31.02,
+            "end": 34.5
+          },
+          {
+            "line": 11,
+            "start": 34.96,
+            "end": 37.94
+          },
+          {
+            "line": 12,
+            "start": 37.94,
+            "end": 42.04
+          },
+          {
+            "line": 15,
+            "start": 42.04,
+            "end": 45.76
+          },
+          {
+            "line": 16,
+            "start": 46.2,
+            "end": 50.76
+          },
+          {
+            "line": 17,
+            "start": 51.94,
+            "end": 53.92
+          },
+          {
+            "line": 18,
+            "start": 62.6,
+            "end": 63.1
+          },
+          {
+            "line": 21,
+            "start": 63.1,
+            "end": 65.74
+          },
+          {
+            "line": 22,
+            "start": 65.9,
+            "end": 69.5
+          },
+          {
+            "line": 23,
+            "start": 70.1,
+            "end": 72.96
+          },
+          {
+            "line": 24,
+            "start": 72.96,
+            "end": 76.3
+          },
+          {
+            "line": 25,
+            "start": 77.1,
+            "end": 79.96
+          },
+          {
+            "line": 26,
+            "start": 79.96,
+            "end": 83.54
+          },
+          {
+            "line": 29,
+            "start": 84.42,
+            "end": 88.78
+          },
+          {
+            "line": 30,
+            "start": 88.78,
+            "end": 93.06
+          },
+          {
+            "line": 31,
+            "start": 93.98,
+            "end": 97.58
+          },
+          {
+            "line": 32,
+            "start": 98.2,
+            "end": 101.74
+          },
+          {
+            "line": 35,
+            "start": 101.74,
+            "end": 104.72
+          },
+          {
+            "line": 36,
+            "start": 104.72,
+            "end": 108.22
+          },
+          {
+            "line": 37,
+            "start": 109.18,
+            "end": 112.32
+          },
+          {
+            "line": 38,
+            "start": 112.32,
+            "end": 115.08
+          },
+          {
+            "line": 41,
+            "start": 119.48,
+            "end": 122.22
+          },
+          {
+            "line": 42,
+            "start": 122.62,
+            "end": 125.36
+          },
+          {
+            "line": 43,
+            "start": 125.52,
+            "end": 128.8
+          },
+          {
+            "line": 44,
+            "start": 128.8,
+            "end": 132.32
+          },
+          {
+            "line": 45,
+            "start": 132.32,
+            "end": 135.82
+          },
+          {
+            "line": 46,
+            "start": 135.82,
+            "end": 139.62
+          },
+          {
+            "line": 49,
+            "start": 143.04,
+            "end": 146.58
+          },
+          {
+            "line": 50,
+            "start": 147.16,
+            "end": 150.12
+          },
+          {
+            "line": 51,
+            "start": 150.64,
+            "end": 153.6
+          },
+          {
+            "line": 52,
+            "start": 154.16,
+            "end": 157.18
+          },
+          {
+            "line": 55,
+            "start": 157.18,
+            "end": 159.58
+          },
+          {
+            "line": 56,
+            "start": 160.14,
+            "end": 163.12
+          },
+          {
+            "line": 57,
+            "start": 163.12,
+            "end": 166.6
+          },
+          {
+            "line": 58,
+            "start": 167.18,
+            "end": 170.1
+          },
+          {
+            "line": 59,
+            "start": 171.42,
+            "end": 174.78
+          },
+          {
+            "line": 60,
+            "start": 174.78,
+            "end": 178.56
+          },
+          {
+            "line": 61,
+            "start": 178.56,
+            "end": 184.38
+          },
+          {
+            "line": 64,
+            "start": 184.38,
+            "end": 187.52
+          },
+          {
+            "line": 65,
+            "start": 187.52,
+            "end": 192.84
+          },
+          {
+            "line": 66,
+            "start": 193.58,
+            "end": 197.16
+          },
+          {
+            "line": 67,
+            "start": 197.16,
+            "end": 201.5
+          },
+          {
+            "line": 70,
+            "start": 203.9,
+            "end": 207.92
+          },
+          {
+            "line": 71,
+            "start": 207.92,
+            "end": 211.52
+          },
+          {
+            "line": 72,
+            "start": 211.96,
+            "end": 214.28
+          },
+          {
+            "line": 73,
+            "start": 214.28,
+            "end": 219.02
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 13.66
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony C keeps getting 9/11'd while he's trying to 9/11, frustrating him.",
+        "direction": "Use the prompt as written.",
+        "keep": "Lyrics don't have to make logical sense. \"9/11'd again\" as a phrase must frequently be in the lyrics.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-1950af500a097159fe82830a",
       "title": "Cold Leaves at the Window",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1950af500a097159fe82830a-9a3a2b90e1b9.mp3",
