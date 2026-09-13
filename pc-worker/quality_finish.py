@@ -49,7 +49,8 @@ def finish(work, expected_sha):
     if sha(source) != expected_sha:
         raise ValueError("The saved finisher changed; refusing to render changed inputs.")
     code = compile_policy(source.read_text("utf-8-sig"), str(source))
-    issues = []
+    arrangement = work / 'arrangement-quality-policy.json'
+    issues = load(arrangement).get('qualityIssues', []) if arrangement.exists() else []
     previous = sys.argv
     try:
         sys.argv = [str(source), "--work", str(work)]
@@ -63,7 +64,7 @@ def finish(work, expected_sha):
     if issues:
         report["qualityIssues"] = issues
         save(work / "mix-results.json", report)
-    save(work / "quality-policy.json", {"version": 1, "source_sha256": expected_sha,
+    save(work / "quality-policy.json", {"version": 2, "source_sha256": expected_sha,
          "advisory_rule": "long_instrumental_outro", "qualityIssues": issues,
          "integrity_checks_retained": True, "original_finisher_unchanged": True})
 

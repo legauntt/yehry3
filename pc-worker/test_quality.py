@@ -6,9 +6,33 @@ from quality_finish import compile_policy, review_outro, RULE
 from renderer import execution_manifest, failure_detail, with_quality
 from common import save
 from publish import song_record
+from quality_configure import compile_policy as compile_arrangement, review_breaks
 
 
 class QualityTests(unittest.TestCase):
+    def test_instrumental_break_warns_but_cutoff_and_vocal_coverage_still_fail(self):
+        source = """assert voice_ok, 'Missing vocals'
+assert last-first>duration*.6 and max([g['seconds'] for g in gaps],default=0)<9.5,('Too much instrumental space',evidence)
+assert remaining>1.2 or evidence['last_second_mix_dbfs']<-43,('Ending needs completion before fade',evidence)
+passed=True
+"""
+        code = compile_arrangement(source, 'configure.py')
+        def run(**changes):
+            issues = []
+            values = {'voice_ok': True, 'first': 9.96, 'last': 239.54, 'duration': 269.2,
+                      'gaps': [{'seconds': 6.68}, {'seconds': 12.32}], 'remaining': 29.66,
+                      'evidence': {'last_second_mix_dbfs': -59.64},
+                      '_distonyc_review_breaks': lambda gaps: review_breaks(gaps, issues), **changes}
+            exec(code, values)
+            self.assertTrue(values['passed'])
+            return issues
+        self.assertEqual(run(), [{'code': 'long_instrumental_break', 'seconds': 12.32}])
+        self.assertEqual(run(gaps=[]), [])
+        with self.assertRaisesRegex(AssertionError, 'Missing vocals'): run(voice_ok=False)
+        with self.assertRaisesRegex(AssertionError, 'Too much instrumental'): run(last=100)
+        with self.assertRaisesRegex(AssertionError, 'Ending needs'): run(remaining=.34, evidence={'last_second_mix_dbfs': -29.33})
+        with self.assertRaises(ValueError): compile_arrangement(source.replace('<9.5', '<20'), 'changed.py')
+
     def test_long_outro_warns_but_integrity_assertions_still_stop_export(self):
         source = f"""assert voice_ok, 'Missing vocal phrase'
 assert 0<post_vocal_seconds<=13,({RULE!r},post_vocal_seconds)

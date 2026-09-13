@@ -1,14 +1,35 @@
 """Local durable state and narrow HTTPS API client; no Mongo credentials on the PC."""
-import contextlib, hashlib, json, os, time, urllib.error, urllib.request
+import contextlib, hashlib, json, os, tempfile, time, urllib.error, urllib.request
 from pathlib import Path
 
 def load(path): return json.loads(Path(path).read_text('utf-8-sig'))
 def save(path, data):
     path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + '.tmp')
-    with temporary.open('w', encoding='utf-8') as handle:
-        json.dump(data, handle, ensure_ascii=False, indent=2); handle.flush(); os.fsync(handle.fileno())
-    temporary.replace(path)
+    # A heartbeat/log viewer can briefly hold the destination without delete
+    # sharing on Windows. Unique files also prevent concurrent writers from
+    # truncating or renaming each other's pending JSON.
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=path.parent,
+                prefix=path.name + '.', suffix='.tmp', delete=False) as handle:
+            temporary = Path(handle.name)
+            json.dump(data, handle, ensure_ascii=False, indent=2)
+            handle.flush(); os.fsync(handle.fileno())
+        deadline = time.monotonic() + 3
+        delay = .02
+        while True:
+            try:
+                temporary.replace(path)
+                return
+            except OSError as error:
+                if getattr(error, 'winerror', None) not in (5, 32, 33) or time.monotonic() >= deadline:
+                    raise
+                time.sleep(delay)
+                delay = min(delay * 2, .2)
+    finally:
+        if temporary is not None:
+            try: temporary.unlink(missing_ok=True)
+            except OSError: pass
 def sha(path):
     with Path(path).open('rb') as handle: return hashlib.file_digest(handle, 'sha256').hexdigest()
 def fingerprint(data): return hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest()

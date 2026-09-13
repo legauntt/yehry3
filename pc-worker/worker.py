@@ -104,7 +104,7 @@ def run_once(config, api, verify_existing=None):
         if prompt['status'] == 'processing':
             basis = basis_files(config, prompt)
             # The model receives creative metadata; local paths remain in the trusted renderer input.
-            plan = make_plan(config, prompt, directory, [{k: v for k, v in song.items() if k not in ['path', 'sha256']} for song in basis], heartbeat.stopped)
+            plan = make_plan(config, prompt, directory, basis, heartbeat.stopped)
             if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
             if not result_file.exists():
                 request = {'config': config, 'prompt_id': prompt['id'], 'plan': plan, 'basis': basis, 'directory': str(directory)}

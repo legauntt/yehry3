@@ -3,6 +3,7 @@ import argparse, importlib.util, json, os, shutil, subprocess, sys, time, uuid
 from pathlib import Path
 from common import load, save, sha, fingerprint, inside
 from planner import validate
+from source_material import source_material
 
 
 def with_quality(result):
@@ -19,6 +20,10 @@ def execution_manifest(manifest):
     # stage journal remain authoritative and are never rewritten by this policy.
     tasks = []
     for task in manifest['tasks']:
+        if task['name'] == 'configure' and manifest.get('style') != 'opera':
+            command = task['command']
+            task = {**task, 'command': [command[0], str(Path(__file__).with_name('quality_configure.py')),
+                    '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers']['configure_song.py']]}
         if task['name'] == 'finish':
             command = task['command']
             task = {**task, 'command': [command[0], str(Path(__file__).with_name('quality_finish.py')),
@@ -30,7 +35,9 @@ def execution_manifest(manifest):
 def failure_detail(request, error):
     stage = 'Rendering'
     progress = Path(request['directory']) / 'progress.json'
-    if progress.exists(): stage = load(progress).get('stage', stage)
+    try:
+        if progress.exists(): stage = load(progress).get('stage', stage)
+    except (OSError, ValueError): pass
     lines = [line.strip() for line in str(error).splitlines() if line.strip()]
     detail = next((line for line in reversed(lines) if line.startswith(('AssertionError:', 'ValueError:', 'RuntimeError:'))), None)
     if not detail: detail = lines[0] if lines else type(error).__name__
@@ -40,16 +47,66 @@ def module_at(name, path):
     spec = importlib.util.spec_from_file_location(name, path)
     module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module); return module
 
+
+def write_progress(path, values):
+    try:
+        save(path, {'stage': values.get('stage', 'Rendering'), 'percent': round(100 * values.get('progress', 0), 1)})
+    except OSError:
+        # Telemetry must never kill the owned audio process. The durable engine
+        # stage journal records success/failure separately.
+        pass
+
+def ending_repair(request, work):
+    """Permit one new composition attempt after a measured cutoff, never a fade over it."""
+    plan = request['plan']
+    if plan['recipe'] not in ['new', 'reinterpretation'] or plan['duration'] > 268: return None
+    state_file, evidence_file = work / 'desktop-status.json', work / 'arrangement-checks.json'
+    if not state_file.exists() or not evidence_file.exists(): return None
+    state, evidence = load(state_file), load(evidence_file)
+    if state.get('status') != 'failed' or state.get('stage') != 'configure': return None
+    if 'Ending needs completion before fade' not in str(state.get('error', '')): return None
+    if evidence['duration'] - evidence['last_detected_voice'] > 1.2 or evidence['last_second_mix_dbfs'] < -43: return None
+    return {'version': 1, 'reason': 'Generated performance reaches the end before its final phrase and chord can finish',
+            'inputs_hash': fingerprint({'plan': plan, 'basis': request['basis']}),
+            'original_work': str(work), 'original_manifest_sha256': sha(work / 'desktop-job.json'),
+            'duration': plan['duration'] + 32, 'extra_seconds': 32,
+            'original_evidence': evidence, 'attempt_limit': 1, 'original_audio_retained': True}
+
+
 def render(request):
+    repair_file = Path(request['directory']) / 'ending-repair.json'
+    repair = load(repair_file) if repair_file.exists() else None
+    if repair:
+        expected = fingerprint({'plan': request['plan'], 'basis': request['basis']})
+        if repair.get('version') != 1 or repair.get('inputs_hash') != expected or repair.get('duration') != request['plan']['duration'] + 32:
+            raise ValueError('Saved ending-repair inputs changed')
+        original = inside(repair['original_work'], Path(request['config']['settings']['studio_dir']).parent)
+        if sha(original / 'desktop-job.json') != repair['original_manifest_sha256']:
+            raise ValueError('The original render manifest changed after ending repair was planned')
+    try:
+        return render_attempt(request, repair)
+    except RuntimeError:
+        if repair or request.get('verify_existing'): raise
+        identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id']))
+        work = Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier)
+        repair = ending_repair(request, work)
+        if not repair: raise
+        save(repair_file, repair)
+        return render_attempt(request, repair)
+
+
+def render_attempt(request, repair=None):
     config, plan, basis = request['config'], request['plan'], request['basis']
     validate(plan, basis)
     settings = config['settings']; engine_root = Path(config['engine_resources'])
     os.environ['TROOFS_WORKER_RESOURCES'] = str(engine_root)
     engine = module_at('distonyc_engine', engine_root / 'engine_tasks.py')
+    engine.save = save
     progress_file = Path(request['directory']) / 'progress.json'
     original_emit = engine.emit
     def emit(kind, **values):
-        if kind == 'progress': save(progress_file, {'stage': values.get('stage', 'Rendering'), 'percent': round(100 * values.get('progress', 0), 1)})
+        if kind == 'progress':
+            write_progress(progress_file, values)
         original_emit(kind, **values)
     engine.emit = emit
     if request.get('verify_existing'):
@@ -58,13 +115,27 @@ def render(request):
         return with_quality(engine.verify_work(work, settings['output_dir']))
     if plan['recipe'] == 'barbershop': return render_quartet(request, engine)
     if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
-    identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id']))
+    identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id'] + (':ending-v1' if repair else '')))
     title = plan['title'] + ' - D' + identifier[:8]
-    spec = {'kind': plan['recipe'], 'title': title, 'style': plan['style'], 'duration': plan['duration'],
+    material = None
+    if plan['recipe'] == 'reinterpretation':
+        material = source_material(config, basis)
+        saved_material = Path(request['directory']) / 'source-material.json'
+        if not material or not saved_material.exists() or load(saved_material) != material:
+            raise ValueError('Saved source lyrics or vocal references changed; refusing changed production inputs')
+    spec = {'kind': 'new' if material else plan['recipe'], 'title': title, 'style': plan['style'], 'duration': plan['duration'],
             'bpm': plan['bpm'], 'keyscale': plan['keyscale'], 'seed': int(identifier.replace('-', '')[:7], 16),
             'lyrics': plan['lyrics'], 'arrangement': plan['arrangement'], 'basis': basis,
             'preserve_generated_backing': plan['preserve_generated_backing']}
-    if plan['recipe'] != 'new': spec['source_path'] = basis[0]['path']
+    if material: spec['source_material'] = material
+    if repair:
+        spec['duration'] = repair['duration']
+        spec['arrangement'] += (f" Ending repair: allow {repair['duration']} seconds for this complete performance. "
+            'Any earlier timestamps describe section order only. Finish every supplied lyric, including the whole final verse, '
+            'at least twelve seconds before the end. Resolve the final tonic chord, let it decay completely, and stop. '
+            'Do not add a new verse, restart the song, or sing over the final instrumental decay.')
+        spec['ending_repair'] = repair
+    if spec['kind'] != 'new': spec['source_path'] = basis[0]['path']
     desktop_request = {'version': 1, 'job_id': identifier, 'settings': settings, 'spec': spec}
     with engine.gpu_lock(settings['studio_dir']):
         engine.doctor(settings)
@@ -78,6 +149,12 @@ def render(request):
                     shutil.copy2(Path(__file__).with_name('basis_references.py'), work / 'basis_references.py')
                     (work / 'generate_song.py').write_text('import generate_base as base\nfrom basis_references import build_references\nbase.references=lambda:build_references(base)\nbase.main()\n', encoding='utf-8')
                     track['basis_sources'] = basis
+                    if material:
+                        track['basis_sources'] = [{**basis[0], 'reference_path': material['vocal_reference_path'],
+                            'reference_sha256': material['vocal_reference_sha256'],
+                            'reference_intervals': material['reference_intervals']}]
+                        track['lyric_provenance'] = 'Adapted source hooks and motifs with new genre-specific lyrics and phrasing; source transcript is an unverified draft.'
+                        save(work / 'source-material.json', material)
                 if plan['preserve_generated_backing']:
                     manifest['tasks'] = [task for task in manifest['tasks'] if task['name'] != 'backing']
                     track['backing_adapter'] = None

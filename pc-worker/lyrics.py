@@ -20,7 +20,7 @@ def make_sheet(config, plan, result):
                 text = '\n'.join(row.get('text', '').strip() for row in segments)
                 if text.strip():
                     kind = 'transcribed'; break
-    elif plan['recipe'] == 'new':
+    elif plan['recipe'] in ['new', 'reinterpretation']:
         text = plan['lyrics']
     text = '\n'.join(line.rstrip() for line in text.replace('\r\n', '\n').split('\n') if line.strip() != '[End]').strip()
     if not 1 <= len(text) <= 16000: raise ValueError('A saved lyrics sheet is required before publication; inspect the completed job.')
