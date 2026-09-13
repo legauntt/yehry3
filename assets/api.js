@@ -56,6 +56,25 @@ const generations = { submitter: 0, admin: 0 };
 const renewals = {};
 export const signedIn = (role) =>
   Boolean(credentials[role]?.token || credentials[role]?.password);
+export function loginPersistence(role) {
+  if (!credentials[role]?.password) return "session";
+  try {
+    const saved = JSON.parse(localStorage.getItem(authKey(role)));
+    if (saved?.password === credentials[role].password) return "saved";
+  } catch {
+    /* The browser may prevent persistent storage. */
+  }
+  return "temporary";
+}
+function remember(role, value) {
+  credentials[role] = value;
+  storage.remove(role);
+  try {
+    localStorage.setItem(authKey(role), JSON.stringify(value));
+  } catch {
+    /* Sign-in still works in this page when storage is blocked. */
+  }
+}
 export function logout(role) {
   generations[role]++;
   delete renewals[role];
@@ -73,7 +92,10 @@ window.addEventListener("storage", (event) => {
     if (event.key !== null && event.key !== authKey(role)) continue;
     storage.remove(role);
     credentials[role] = readCredentials(role);
-    if (!event.newValue) generations[role]++;
+    if (!signedIn(role)) {
+      generations[role]++;
+      delete renewals[role];
+    }
   }
 });
 function signedOutError() {
@@ -107,12 +129,23 @@ async function request(path, { method = "GET", body } = {}, token) {
 }
 async function renew(role) {
   if (renewals[role]) return renewals[role];
-  const password = credentials[role]?.password;
+  const previous = credentials[role];
+  const password = previous?.password;
   if (!password) throw signedOutError();
   const generation = generations[role];
-  const pending = login(role, password)
+  const pending = request("/session", {
+    method: "POST",
+    body: { role, password },
+  })
+    .then(({ token }) => {
+      if (generation !== generations[role]) throw signedOutError();
+      // A newer login in this page or another tab takes precedence.
+      if (credentials[role] === previous) remember(role, { token, password });
+    })
     .catch((error) => {
-      if (generation === generations[role] && [401, 403].includes(error.status)) {
+      if (generation !== generations[role]) throw signedOutError();
+      if (credentials[role] !== previous) return;
+      if ([401, 403].includes(error.status)) {
         logout(role);
         error.status = 401;
       }
@@ -149,6 +182,14 @@ export async function api(path, options = {}) {
         renewed = true;
         continue;
       }
+      if (credentials[role]?.password) {
+        // The password exchange succeeded. A rejected session is not evidence
+        // that the saved password is wrong; retain it for the next attempt.
+        throw Object.assign(
+          new Error("The studio could not restore your session. Your password is still remembered; please try again."),
+          { status: 503 },
+        );
+      }
       logout(role);
       throw error;
     }
@@ -161,11 +202,5 @@ export async function login(role, password) {
     body: { role, password },
   });
   if (generation !== generations[role]) throw signedOutError();
-  credentials[role] = { token, password };
-  storage.remove(role);
-  try {
-    localStorage.setItem(authKey(role), JSON.stringify(credentials[role]));
-  } catch {
-    /* Sign-in and renewal still work in this page when storage is blocked. */
-  }
+  remember(role, { token, password });
 }

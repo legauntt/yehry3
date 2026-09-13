@@ -5,10 +5,12 @@ test("Backstage and Make a request remember separate logins after reopening the 
   await page.getByLabel("Password", { exact: true }).fill("wishbone");
   await page.getByRole("button", { name: "Let’s make something" }).click();
   await expect(page.getByLabel("Your prompt")).toBeVisible();
+  await expect(page.locator("#login-status")).toHaveText("Password saved in this browser.");
   await page.goto("/admin/");
   await page.getByLabel("Password", { exact: true }).fill("browser-test-admin");
   await page.getByRole("button", { name: "Open the queue" }).click();
   await expect(page.locator("#signout")).toBeVisible();
+  await expect(page.locator("#login-status")).toHaveText("Password saved in this browser.");
 
   // A fresh context keeps local storage, with none of the old tab's session storage.
   const reopened = await browser.newContext({ baseURL, storageState: await context.storageState() });
@@ -47,6 +49,78 @@ test("Backstage and Make a request remember separate logins after reopening the 
   } finally {
     await reopened.close();
   }
+});
+
+test("a session failure after renewal keeps the password through reload and offers retry", async ({ page, baseURL }) => {
+  let sessions = 0;
+  let failing = false;
+  const headers = { "access-control-allow-origin": baseURL };
+  await page.route("**/yehry3/session", route => {
+    if (route.request().method() === "OPTIONS") return route.continue();
+    return route.fulfill({ headers, json: { token: `accepted-${++sessions}` } });
+  });
+  await page.route("**/yehry3/admin/prompts?**", route => {
+    if (route.request().method() === "OPTIONS") return route.continue();
+    return route.fulfill(failing
+      ? { status: 401, headers, json: { error: "Please sign in again." } }
+      : { headers, json: { prompts: [], counts: {}, total: 0 } });
+  });
+  await page.goto("/admin/");
+  await page.getByLabel("Password", { exact: true }).fill("remembered-test-password");
+  await page.getByRole("button", { name: "Open the queue" }).click();
+  await expect(page.locator("#signout")).toBeVisible();
+  failing = true;
+  await page.reload();
+  await expect(page.locator("#retry-admin")).toBeVisible();
+  await expect(page.locator("#login-form")).toHaveCount(0);
+  expect(sessions).toBe(2);
+  expect(await page.evaluate(() => Boolean(JSON.parse(localStorage.getItem("yehry3:auth:admin"))?.password))).toBe(true);
+  failing = false;
+  await page.locator("#retry-admin").click();
+  await expect(page.locator("#signout")).toBeVisible();
+  await expect(page.locator("#login-status")).toHaveText("Password saved in this browser.");
+  expect(sessions).toBe(2);
+});
+
+test("a browser that blocks saved passwords reports a temporary login", async ({ page, baseURL }) => {
+  await page.addInitScript(() => {
+    const setItem = Storage.prototype.setItem;
+    Storage.prototype.setItem = function (key, value) {
+      if (key.startsWith("yehry3:auth:")) throw new DOMException("Storage blocked", "QuotaExceededError");
+      return setItem.call(this, key, value);
+    };
+  });
+  const headers = { "access-control-allow-origin": baseURL };
+  await page.route("**/yehry3/session", route => route.request().method() === "OPTIONS"
+    ? route.continue() : route.fulfill({ headers, json: { token: "temporary-test-token" } }));
+  await page.route("**/yehry3/admin/prompts?**", route => route.request().method() === "OPTIONS"
+    ? route.continue() : route.fulfill({ headers, json: { prompts: [], counts: {}, total: 0 } }));
+  await page.goto("/admin/");
+  await page.getByLabel("Password", { exact: true }).fill("temporary-test-password");
+  await page.getByRole("button", { name: "Open the queue" }).click();
+  await expect(page.locator("#login-status")).toContainText("Your browser could not save this password");
+  expect(await page.evaluate(() => localStorage.getItem("yehry3:auth:admin"))).toBeNull();
+  await page.reload();
+  await expect(page.locator("#login-form")).toBeVisible();
+});
+
+test("an older session can save its password for future visits", async ({ page, baseURL }) => {
+  const headers = { "access-control-allow-origin": baseURL };
+  await page.route("**/yehry3/admin/prompts?**", route => route.request().method() === "OPTIONS"
+    ? route.continue() : route.fulfill({ headers, json: { prompts: [], counts: {}, total: 0 } }));
+  await page.route("**/yehry3/session", route => route.request().method() === "OPTIONS"
+    ? route.continue() : route.fulfill({ headers, json: { token: "remembered-test-token" } }));
+  await page.goto("/admin/");
+  await page.evaluate(() => sessionStorage.setItem("yehry3:admin", "legacy-test-token"));
+  await page.reload();
+  await expect(page.locator("#login-status")).toContainText("This older login has no saved password");
+  await page.getByRole("button", { name: "Remember login" }).click();
+  await page.getByLabel("Password", { exact: true }).fill("remembered-test-password");
+  await page.getByRole("button", { name: "Open the queue" }).click();
+  await expect(page.locator("#login-status")).toHaveText("Password saved in this browser.");
+  expect(await page.evaluate(() => sessionStorage.getItem("yehry3:admin"))).toBeNull();
+  await page.reload();
+  await expect(page.locator("#signout")).toBeVisible();
 });
 
 test("a changed saved Backstage password returns to login without repeated challenges", async ({ page }) => {

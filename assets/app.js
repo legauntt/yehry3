@@ -4,7 +4,7 @@ import { qualityNotice } from "./quality.js";
 import { lyricsPage } from "./lyrics.js";
 import { originalPromptPage } from "./original-prompt.js";
 import { rotateSuggestions } from "./suggestions.js";
-import { api, login, logout, signedIn, storage } from "./api.js";
+import { api, login, logout, signedIn, loginPersistence, storage } from "./api.js";
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
@@ -385,6 +385,26 @@ async function library() {
   });
 }
 
+function showLoginStatus(role, target, onSuccess) {
+  const persistence = loginPersistence(role);
+  const status = document.createElement("p");
+  status.className = "small";
+  status.id = "login-status";
+  status.textContent = {
+    saved: "Password saved in this browser.",
+    temporary: "Your browser could not save this password. It is remembered only on this page.",
+    session: "This older login has no saved password.",
+  }[persistence];
+  if (persistence === "session") {
+    const remember = document.createElement("button");
+    remember.className = "quiet";
+    remember.textContent = "Remember login";
+    remember.onclick = () => loginView(role, onSuccess);
+    status.append(" ", remember);
+  }
+  target.append(status);
+}
+
 function loginView(role, onSuccess) {
   const admin = role === "admin";
   main.innerHTML = `<section class="form-layout"><div><p class="eyebrow">${admin ? "Backstage" : "Distonyc"}</p><h1>${admin ? "Run the<br><em>request line.</em>" : "A little idea.<br><em>A whole new song.</em>"}</h1><p class="lede">${admin ? "Review the requests, shape the queue, and keep the music moving." : "Tell us what you’re hearing. We’ll fine-tune the idea together before it joins the queue."}</p><p class="margin-note">${admin ? "Admin access" : "01 / The idea<br>02 / The direction<br>03 / The final say"}</p></div><div class="form-card"><span class="tiny-label">${admin ? "AUTHORIZED PERSONNEL" : "IF YOU KNOW, YOU KNOW"}</span><h2>${admin ? "Welcome backstage." : "Come on in."}</h2><p>${admin ? "Use your separate admin password." : "Never share your password with anyone"}</p><p class="small">This browser remembers your password until you sign out.</p><form id="login-form"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" required maxlength="200"><button class="primary" type="submit">${admin ? "Open the queue" : "Let’s make something"} <span aria-hidden="true">→</span></button><p id="form-error" class="field-error" role="alert"></p></form></div></section>`;
@@ -454,6 +474,7 @@ async function requests() {
             : "idea");
     const number = { idea: 1, details: 2, review: 3, submitted: 3 }[stage];
     main.innerHTML = `<section class="request-intro"><p class="eyebrow">Distonyc</p><h1>Let’s hear<br><em>your wild idea.</em></h1><p class="lede">A familiar song in unfamiliar territory. Or something nobody’s heard before.</p><button class="quiet" id="request-signout">Sign out ↗</button></section><section class="workbench"><ol class="steps" aria-label="Request progress">${["The idea", "The direction", "The final say"].map((name, i) => `<li ${i + 1 === number ? 'aria-current="step"' : ""}><span>0${i + 1}</span>${name}</li>`).join("")}</ol><div class="request-form" id="request-form"></div></section>`;
+    showLoginStatus("submitter", $(".request-intro"), load);
     $("#request-signout").onclick = () => {
       logout("submitter");
       loginView("submitter", load);
@@ -650,6 +671,7 @@ async function admin() {
       .join(
         "",
       )}</select><button class="quiet" id="refresh">Refresh ↻</button><span class="small">${data.total} requests · Higher priority goes first; oldest wins ties.</span></div><div id="queue">${data.prompts.length ? data.prompts.map(row).join("") : `<div class="empty"><span class="empty-symbol">◎</span><h2>A little room for possibility.</h2><p>No requests in this view yet.</p>${filter === "all" ? '<a class="text-link" href="/distonyc/">Make the first request →</a>' : '<a class="text-link" href="/admin/?status=all">All requests →</a>'}</div>`}</div><div class="pagination"><button class="quiet" id="prev-page" ${pageNumber === 0 ? "disabled" : ""}>← Previous</button><span>Page ${pageNumber + 1}</span><button class="quiet" id="next-page" ${(pageNumber + 1) * 50 >= data.total ? "disabled" : ""}>Next →</button></div></section>`;
+    showLoginStatus("admin", $(".admin-intro > div"), load);
     $("#status-filter").value = filter;
     $("#status-filter").onchange = (event) => {
       filter = event.target.value;

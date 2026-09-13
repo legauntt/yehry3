@@ -47,7 +47,7 @@ async function loadGuide() {
     const content = await api('/deetz', { role:'submitter' });
     if (current !== generation) return;
     if (!Number.isFinite(content.sessionExpiresAt) || content.sessionExpiresAt <= Date.now()) {
-      return lock('Your session expired. Please sign in again.');
+      throw new Error('The guide session could not be restored. Please try loading it again.');
     }
     cleanup?.();
     cleanup = mountGuide(root, content);
@@ -61,7 +61,6 @@ async function loadGuide() {
     anchor?.scrollIntoView();
   } catch (error) {
     if (current !== generation) return;
-    if (error.status === 401) return lock(error.message);
     clearGuide();
     status.textContent = '';
     errorMessage.textContent = error.message;

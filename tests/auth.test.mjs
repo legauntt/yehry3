@@ -50,6 +50,7 @@ test("only successful passwords are saved, independently for each role", async (
   await assert.rejects(auth.login("admin", "wrong"), { status: 403 });
   assert.equal(auth.local.getItem(savedKey("admin")), null);
   await auth.login("admin", "admin-password");
+  assert.equal(auth.loginPersistence("admin"), "saved");
   await auth.login("submitter", "request-password");
   await assert.rejects(auth.login("admin", "wrong"), { status: 403 });
   assert.deepEqual(JSON.parse(auth.local.getItem(savedKey("admin"))), { token: "admin-token", password: "admin-password" });
@@ -114,19 +115,24 @@ test("a rejected remembered password is forgotten without a retry loop", async (
   assert.equal(local.getItem(savedKey("admin")), null);
 });
 
-test("a rejected renewed token stops after one renewal", async (t) => {
+test("a rejected renewed token retains the accepted password and recovers without another login", async (t) => {
   let logins = 0;
   let requests = 0;
+  let available = false;
   const auth = await client(t, async (url) => {
     if (url.endsWith("/session")) return json({ token: `token-${++logins}` });
     requests++;
-    return json({}, 401);
+    return available ? json({ prompts: [] }) : json({}, 401);
   });
   await auth.login("admin", "password");
-  await assert.rejects(auth.api("/admin/prompts", { role: "admin" }), { status: 401 });
+  await assert.rejects(auth.api("/admin/prompts", { role: "admin" }), { status: 503 });
   assert.equal(logins, 2);
   assert.equal(requests, 2);
-  assert.equal(auth.signedIn("admin"), false);
+  assert.equal(auth.signedIn("admin"), true);
+  assert.equal(JSON.parse(auth.local.getItem(savedKey("admin"))).password, "password");
+  available = true;
+  assert.deepEqual(await auth.api("/admin/prompts", { role: "admin" }), { prompts: [] });
+  assert.equal(logins, 2);
 });
 
 for (const failure of [503, 429, "offline"]) {
@@ -181,6 +187,7 @@ test("sign-in still works for the current page when browser storage is blocked",
   }, unavailable, unavailable);
   await auth.login("admin", "password");
   assert.equal(auth.signedIn("admin"), true);
+  assert.equal(auth.loginPersistence("admin"), "temporary");
   await auth.api("/admin/prompts", { role: "admin" });
   auth.logout("admin");
   assert.equal(auth.signedIn("admin"), false);
@@ -195,7 +202,34 @@ test("legacy sessions work and signing out in another tab clears them", async (t
     return json({ prompts: [] });
   }, local, session);
   await auth.api("/admin/prompts", { role: "admin" });
+  assert.equal(auth.loginPersistence("admin"), "session");
   auth.events.storage({ key: savedKey("admin"), newValue: null, storageArea: local });
   assert.equal(auth.signedIn("admin"), false);
   assert.equal(session.getItem("yehry3:admin"), null);
 });
+
+for (const response of [200, 403]) {
+  test(`a stale renewal response (${response}) cannot replace or erase a newer login from another tab`, async (t) => {
+    const started = deferred();
+    const finish = deferred();
+    const local = store();
+    local.setItem(savedKey("admin"), JSON.stringify({ token: "expired", password: "old-password" }));
+    const auth = await client(t, async (url, options) => {
+      if (url.endsWith("/session")) {
+        started.resolve();
+        await finish.promise;
+        return json({ token: "stale-renewal" }, response);
+      }
+      return options.headers.Authorization === "Bearer newer-login" ? json({ prompts: [] }) : json({}, 401);
+    }, local);
+    const pending = auth.api("/admin/prompts", { role: "admin" });
+    await started.promise;
+    const newer = JSON.stringify({ token: "newer-login", password: "new-password" });
+    local.setItem(savedKey("admin"), newer);
+    auth.events.storage({ key: savedKey("admin"), newValue: newer, storageArea: local });
+    finish.resolve();
+    assert.deepEqual(await pending, { prompts: [] });
+    assert.equal(local.getItem(savedKey("admin")), newer);
+    assert.equal(auth.loginPersistence("admin"), "saved");
+  });
+}
