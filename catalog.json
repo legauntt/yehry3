@@ -2,6 +2,32 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-e9255c87b777e990eb5bddc3",
+      "title": "Room for Chris-R",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e9255c87b777e990eb5bddc3-b816bc5b7433.mp3",
+      "duration": 263.3,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Spoken Cold Open]\nSan Francisco, midnight.\nTony got the roses.\nDenny got a secret.\nChris-R got the stairs.\nThis is gonna hurt somebody.\n\n[Verse 1]\nTony wore his smoky smile into the room,\nTommy stood there glowing in the candle gloom.\nFootball in a tuxedo, pictures on the wall,\nLove was like a rooftop with no rail at all.\nLisa crossed the kitchen with a story in her eyes,\nMark kept every answer underneath a bad disguise.\nTony pulled Tommy closer, said, “Forget that crowd,”\nBut a knock came from the hallway—sharp and loud.\n\n[Pre-Chorus]\nDenny said, “It’s nothing,” but his hands said more,\nThen a velvet kind of danger stepped across the floor.\n\n[Chorus]\nChris-R, Chris-R, trouble dressed in black,\nTony saw him coming and he couldn’t look back.\nTommy said, “My darling, why you drifting so far?”\nThere was room for a secret, room for a scar,\nBut was there room in The Room for Chris-R?\n\n[Verse 2]\nDenny owed him money, Denny missed the day,\nChris-R spoke in thunder, blocking every way.\nTony should have helped him, should have made it right,\nStill he caught that crooked grin beneath the hallway light.\nTommy brought the flowers, Tommy brought the wine,\nTony muttered, “Honey, this is terrible timing.”\nThen the shouting hit the stairwell, everybody ran,\nTony grabbed the railing—and Chris-R grabbed his hand.\n\n[Pre-Chorus]\nOne touch, one debt, one dangerous spark,\nTommy in the doorway saying, “Oh, hi Mark.”\n\n[Chorus]\nChris-R, Chris-R, trouble dressed in black,\nTony felt the rhythm and he couldn’t step back.\nTommy cried, “You’re tearing me apart” beneath the stars,\nThere was room for betrayal, room for bizarre,\nBut was there room in Tony’s heart for Chris-R?\n\n[Verse 3]\nDown at the coffee shop, the stories multiplied,\nLisa blamed the universe, Claudette nearly cried.\nMark said, “I know nothing,” Denny faced the truth,\nTony watched his fantasy collapse around the youth.\nChris-R wasn’t charming when the debt came due,\nA handsome face meant nothing when the fear broke through.\nTony stood between them, smoky voice gone clear:\n“You don’t buy affection, and you don’t deal fear.”\n\n[Bridge]\nNo more roses covering a lie,\nNo more rooftop questions for the empty sky.\nTommy, I loved the legend, but I need what’s real;\nChris-R, keep your danger—I know how danger feels.\nDenny, call for help now, let the daylight in;\nTonight this twisted story gets a different end.\n\n[Final Chorus]\nChris-R, Chris-R, take your shadow back,\nTony found his heartbeat on a straighter track.\nTommy heard the answer underneath the stars:\nThere was room for forgiveness, not another scar.\nTony chose the living over playing a part,\nPut Denny on the safe side, put truth in his heart.\nThe door closed softly; dawn replaced the dark—\nNo debt, no triangle, no dangerous spark.\n\n[Outro]\nTony left one rose where the old dream had been,\nLaughed low, kissed Tommy, let the morning begin.",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 35.04
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony's love for Tommy Wiseau from The Room is challenged when Denny's drug dealing puts him in touch with the dashing Chris R",
+        "direction": "R&B, like R Kelley's \"Trapped in the Closet\"",
+        "keep": "Capture as much as you can from The Room - e.g. dialogue, script, etc. Do your best.",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-cc22e422494bc3ff4c41144e",
       "title": "You Left Me to the Swarm",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cc22e422494bc3ff4c41144e-df416088297c.mp3",
