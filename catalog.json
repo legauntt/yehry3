@@ -2,6 +2,347 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-1950af500a097159fe82830a",
+      "title": "Cold Leaves at the Window",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1950af500a097159fe82830a-9a3a2b90e1b9.mp3",
+      "duration": 245.44,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Pancakeo",
+      "lyrics": {
+        "text": "[Intro]\nBa-da, mm-ba-dah, window hummin’ low\nAutumn got its cold hands everywhere I go\n\n[Verse 1]\nMorning on the radiator, barely any heat\nBrown leaves scratch a crooked rhythm down the empty street\nCoffee tastes like yesterday, daylight’s wearing thin\nOld coat on the chair asks where the hell I’ve been\nMy knees predict the weather, my mirror tells the years\nI laugh and call it wisdom, then swallow down the fear\nCats are in the kitchen, plants lean toward the gray\nBoth of them keep watching like they know I’ll go away\n\n[Pre-Chorus]\nDo-ba, dee-ba, time moves slow\nEvery room gets bigger when there’s nowhere else to go\n\n[Chorus]\nWho’s gonna care for my cats and plants\nIf I lose this tired old dance?\nWho’ll turn the pots toward the afternoon\nAnd feed those little fools beneath the moon?\nCold Autumn days, don’t close on me\nI still got sparks where no one sees\nSheeeet, ya feel me? I ain’t through\nThere’s a little green left pushing through\n\n[Verse 2]\nHospital on Monday, plastic bracelet tight\nFluorescent constellations buzzing through the night\nDoctor said the word cancer, soft and practiced-clean\nOne cold syllable cutting through the humming machine\nI stared out at the parking lot, rain across the glass\nCounted every red tail light and watched the hours pass\nNurse brought me a blanket, said, “Let tomorrow come”\nI scatted at the ceiling—bap-ba-daa—and tapped my thumb\n\n[Pre-Chorus]\nMm-da, broken tune, don’t quit\nIf the heart can miss a doorway, it can find another bit\n\n[Chorus]\nWho’s gonna care for my cats and plants\nIf I lose this tired old dance?\nWho’ll know the tabby hates closed doors\nOr catch the ivy crawling on the floors?\nCold Autumn days, don’t close on me\nI still got sparks where no one sees\nSheeeet, ya feel me? I ain’t through\nThere’s a little green left pushing through\n\n[Bridge]\nThen I dreamed a magic vaccine\nGold as October, bright and strange\nIt didn’t promise forever\nJust one good season’s change\nOne more supper by the window\nOne more paw against my hand\nOne more chance to water roots\nAnd tell somebody where I stand\n\n[Breakdown]\nBa-rum, ba-ray, hear that old heart knock\nCrooked little drummer with a busted pocket watch\nI called my neighbor Rosie, gave her keys and wrote things down\nNot a will of surrender—just some love passed around\n\n[Final Chorus]\nWe’re gonna care for these cats and plants\nWe’ll keep alive this stubborn dance\nShe’ll turn the pots toward afternoon\nI’ll feed those little fools beneath the moon\nCold Autumn days can call my name\nI’ll answer rough, but I’ll answer just the same\nSheeeet, ya feel me? Here’s what I know\nLove is who you teach to help things grow\n\n[Outro]\nThe first frost shines, the room turns gold\nI’m lonely, yes—but not alone\nBa-da, mm-ba-dah, soft and low\nI close the window, keep the warm light on",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 5.64
+          },
+          {
+            "line": 2,
+            "start": 6.3,
+            "end": 10.74
+          },
+          {
+            "line": 5,
+            "start": 14,
+            "end": 16.22
+          },
+          {
+            "line": 6,
+            "start": 16.22,
+            "end": 19.14
+          },
+          {
+            "line": 7,
+            "start": 19.66,
+            "end": 22.02
+          },
+          {
+            "line": 8,
+            "start": 22.66,
+            "end": 25.16
+          },
+          {
+            "line": 9,
+            "start": 25.16,
+            "end": 28.52
+          },
+          {
+            "line": 10,
+            "start": 28.52,
+            "end": 30.86
+          },
+          {
+            "line": 11,
+            "start": 30.86,
+            "end": 33.8
+          },
+          {
+            "line": 12,
+            "start": 33.8,
+            "end": 36.28
+          },
+          {
+            "line": 15,
+            "start": 36.28,
+            "end": 40.74
+          },
+          {
+            "line": 16,
+            "start": 42.62,
+            "end": 47.82
+          },
+          {
+            "line": 19,
+            "start": 49.26,
+            "end": 51.9
+          },
+          {
+            "line": 20,
+            "start": 51.9,
+            "end": 55.02
+          },
+          {
+            "line": 21,
+            "start": 55.42,
+            "end": 57.5
+          },
+          {
+            "line": 22,
+            "start": 57.5,
+            "end": 61.18
+          },
+          {
+            "line": 23,
+            "start": 61.18,
+            "end": 63.64
+          },
+          {
+            "line": 24,
+            "start": 63.64,
+            "end": 66.28
+          },
+          {
+            "line": 25,
+            "start": 66.28,
+            "end": 70.62
+          },
+          {
+            "line": 26,
+            "start": 70.62,
+            "end": 72.96
+          },
+          {
+            "line": 29,
+            "start": 76.16,
+            "end": 78.9
+          },
+          {
+            "line": 30,
+            "start": 78.9,
+            "end": 81.84
+          },
+          {
+            "line": 31,
+            "start": 81.86,
+            "end": 84.76
+          },
+          {
+            "line": 32,
+            "start": 84.76,
+            "end": 87.82
+          },
+          {
+            "line": 33,
+            "start": 87.82,
+            "end": 90.92
+          },
+          {
+            "line": 34,
+            "start": 90.92,
+            "end": 93.48
+          },
+          {
+            "line": 35,
+            "start": 93.48,
+            "end": 96.38
+          },
+          {
+            "line": 36,
+            "start": 96.38,
+            "end": 99.28
+          },
+          {
+            "line": 39,
+            "start": 100.24,
+            "end": 103.34
+          },
+          {
+            "line": 40,
+            "start": 104.74,
+            "end": 109.34
+          },
+          {
+            "line": 43,
+            "start": 109.34,
+            "end": 114.12
+          },
+          {
+            "line": 44,
+            "start": 114.12,
+            "end": 117.58
+          },
+          {
+            "line": 45,
+            "start": 118.12,
+            "end": 120.32
+          },
+          {
+            "line": 46,
+            "start": 120.32,
+            "end": 123.18
+          },
+          {
+            "line": 47,
+            "start": 123.18,
+            "end": 126.18
+          },
+          {
+            "line": 48,
+            "start": 126.6,
+            "end": 128.88
+          },
+          {
+            "line": 49,
+            "start": 128.88,
+            "end": 133.16
+          },
+          {
+            "line": 50,
+            "start": 133.16,
+            "end": 135.5
+          },
+          {
+            "line": 53,
+            "start": 135.5,
+            "end": 139.16
+          },
+          {
+            "line": 54,
+            "start": 139.16,
+            "end": 142.1
+          },
+          {
+            "line": 55,
+            "start": 142.1,
+            "end": 144.28
+          },
+          {
+            "line": 56,
+            "start": 144.28,
+            "end": 147.8
+          },
+          {
+            "line": 57,
+            "start": 147.8,
+            "end": 150.94
+          },
+          {
+            "line": 58,
+            "start": 151.24,
+            "end": 153.78
+          },
+          {
+            "line": 59,
+            "start": 153.78,
+            "end": 156.72
+          },
+          {
+            "line": 60,
+            "start": 156.72,
+            "end": 159.32
+          },
+          {
+            "line": 63,
+            "start": 164.84,
+            "end": 166.86
+          },
+          {
+            "line": 64,
+            "start": 166.86,
+            "end": 169.16
+          },
+          {
+            "line": 65,
+            "start": 169.16,
+            "end": 172.24
+          },
+          {
+            "line": 66,
+            "start": 172.24,
+            "end": 175.22
+          },
+          {
+            "line": 69,
+            "start": 178.72,
+            "end": 181.54
+          },
+          {
+            "line": 70,
+            "start": 181.54,
+            "end": 184.28
+          },
+          {
+            "line": 71,
+            "start": 184.28,
+            "end": 187.84
+          },
+          {
+            "line": 72,
+            "start": 187.84,
+            "end": 190.12
+          },
+          {
+            "line": 73,
+            "start": 190.12,
+            "end": 193.74
+          },
+          {
+            "line": 74,
+            "start": 193.74,
+            "end": 196.34
+          },
+          {
+            "line": 75,
+            "start": 196.72,
+            "end": 199.66
+          },
+          {
+            "line": 76,
+            "start": 199.66,
+            "end": 202.4
+          },
+          {
+            "line": 79,
+            "start": 203.8,
+            "end": 206.94
+          },
+          {
+            "line": 80,
+            "start": 207.22,
+            "end": 213.16
+          },
+          {
+            "line": 81,
+            "start": 213.16,
+            "end": 216.24
+          },
+          {
+            "line": 82,
+            "start": 217.26,
+            "end": 220.58
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 24.48
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony C scats about the loneliness of old age and the cold Autumn days",
+        "direction": "Use the prompt as written.",
+        "keep": "Must include a hospital visit, cancer, and a magic vaccine. Who's gonna care for my cats and plants? Sheeeet, ya feel me?",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-20f7c4ece1056eb41c15600f",
       "title": "Room at Every Table",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20f7c4ece1056eb41c15600f-6b747e5dfca2.mp3",
