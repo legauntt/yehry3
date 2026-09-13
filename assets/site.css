@@ -396,6 +396,8 @@ main {
   place-items: center;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
 }
 .record:focus-visible {
   outline: 3px solid var(--accent);
