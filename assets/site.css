@@ -545,6 +545,37 @@ main {
 .vote-note {
   margin: 0 0 15px;
 }
+.pending-track {
+  border-top: 1px solid var(--line);
+  background: #eef0e5;
+}
+.pending-track > summary {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 13px 12px;
+  cursor: pointer;
+  list-style: none;
+}
+.pending-track > summary::-webkit-details-marker { display: none; }
+.pending-track > summary::after { content: "+"; color: var(--muted); }
+.pending-track[open] > summary::after { content: "−"; }
+.pending-mark { width: 26px; flex-shrink: 0; color: var(--muted); text-align: center; }
+.pending-title { min-width: 0; flex: 1; }
+.pending-title .tiny-label { display: block; font-size: .55rem; margin-bottom: 2px; }
+.pending-title strong { display: block; font-size: .85rem; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pending-state { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.pending-body { padding: 0 24px 16px 58px; }
+.pending-body p { margin: 0 0 10px; font-size: .8rem; overflow-wrap: anywhere; }
+.pending-body progress { display: block; width: min(100%, 360px); height: 6px; margin: 0 0 14px; }
+@media (max-width: 650px) {
+  .pending-track > summary { gap: 9px; padding: 11px 6px; }
+  .pending-mark { display: none; }
+  .pending-state { flex-direction: column; align-items: flex-end; gap: 3px; }
+  .pending-state .badge { font-size: .57rem; padding: 4px 6px; }
+  .pending-title strong { font-size: .77rem; }
+  .pending-body { padding: 0 14px 14px; }
+}
 .track {
   display: flex;
   align-items: flex-start;

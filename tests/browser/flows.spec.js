@@ -291,7 +291,7 @@ test("public queue, browser alert opt-in, completion deduplication and mobile la
   await expect
     .poll(() => page.evaluate(() => window.testNotifications.length))
     .toBe(0);
-  await page.getByRole("button", { name: "Enable browser alerts" }).click();
+  await expect(page.getByRole("button", { name: "Turn off browser alerts" })).toBeEnabled();
   await expect(page.locator("#alert-status")).toContainText("Alerts are on");
   expect(await page.evaluate(() => Notification.permission)).toBe("granted");
   expect(await page.evaluate(() => window.testNotifications.length)).toBe(0);

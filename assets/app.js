@@ -97,7 +97,7 @@ async function library() {
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><p class="eyebrow">The catalog</p><h2 id="collection-title">Pick your next obsession.</h2></div><p class="small" id="track-count">Loading songs…</p></div>
       <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button></div>
-      <p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div>
+      <p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
     <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
@@ -134,14 +134,68 @@ async function library() {
   }
   restoreFilters();
   let songs = [],
+    pending = [],
     visible = [],
     queue = [],
     current = null,
     nextVoteAt = null,
     online = false,
-    voting = false;
+    voting = false,
+    refreshing = null;
   const audio = $("#audio");
-  function render() {
+  const rowMarkup = new WeakMap();
+  function syncRows(container, markup) {
+    const template = document.createElement("template");
+    template.innerHTML = markup;
+    const previous = new Map(Array.from(container.children, (row) => [row.dataset.id || "empty", row]));
+    const keep = new Set();
+    Array.from(template.content.children).forEach((next, index) => {
+      const row = previous.get(next.dataset.id || "empty") || next;
+      keep.add(row);
+      const content = next.innerHTML;
+      if (rowMarkup.get(row) !== content) {
+        const opened = Array.from(row.querySelectorAll("details"), (detail) => detail.open);
+        row.innerHTML = content;
+        row.querySelectorAll("details").forEach((detail, i) => { detail.open = opened[i] || false; });
+        rowMarkup.set(row, content);
+      }
+      row.className = next.className;
+      if (container.children[index] !== row) container.insertBefore(row, container.children[index] || null);
+    });
+    Array.from(container.children).forEach((row) => { if (!keep.has(row)) row.remove(); });
+  }
+  function viewportAnchor() {
+    const visibleRows = Array.from(document.querySelectorAll("#pending-tracks > [data-id], #tracks > [data-id]"))
+      .map((row) => ({ id: row.dataset.id, top: row.getBoundingClientRect().top, bottom: row.getBoundingClientRect().bottom }))
+      .filter((row) => row.bottom > 0 && row.top < innerHeight);
+    return () => {
+      for (const before of visibleRows) {
+        const row = document.querySelector(`#pending-tracks > [data-id="${CSS.escape(before.id)}"], #tracks > [data-id="${CSS.escape(before.id)}"]`);
+        if (row) {
+          const change = row.getBoundingClientRect().top - before.top;
+          if (Math.abs(change) > 1) window.scrollBy(0, change);
+          break;
+        }
+      }
+    };
+  }
+  function renderPending() {
+    const published = new Set(songs.map((song) => song.id));
+    const seen = new Set();
+    const rows = pending.filter((song) => {
+      if (published.has(song.id) || seen.has(song.id)) return false;
+      seen.add(song.id);
+      return ["queued", "processing", "completed", "publishing", "cancel_requested"].includes(song.status);
+    }).slice(0, 3);
+    const container = $("#pending-tracks");
+    container.hidden = !rows.length;
+    syncRows(container, rows.map((song) => {
+      const percent = Math.max(0, Math.min(100, Number(song.progress?.percent) || 0));
+      return `<details class="pending-track" data-id="${escape(song.id)}"><summary><span class="pending-mark" aria-hidden="true">↗</span><span class="pending-title"><span class="tiny-label">On the way</span><strong>${escape(song.title || song.idea)}</strong></span><span class="pending-state">${badge(song.status)}${song.progress ? `<span class="small">${Math.round(percent)}%</span>` : ""}</span></summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}<a class="text-link" href="/queue/#${encodeURIComponent(song.id)}">Follow in the queue ↗</a></div></details>`;
+    }).join(""));
+  }
+  function render({ preserveViewport = false } = {}) {
+    const restoreViewport = preserveViewport ? viewportAnchor() : () => {};
     const query = $("#search").value.toLowerCase();
     const collection = $("#collection-filter").value;
     visible = songs.filter(
@@ -155,7 +209,8 @@ async function library() {
       visible.sort((a, b) => a.title.localeCompare(b.title));
     $("#track-count").textContent =
       `${visible.length} ${visible.length === 1 ? "song" : "songs"} · Many possible directions`;
-    $("#tracks").innerHTML = visible.length
+    renderPending();
+    syncRows($("#tracks"), visible.length
       ? visible
           .map(
             (
@@ -165,8 +220,9 @@ async function library() {
       <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song)}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
-      : '<p class="empty">No songs match. Try another title or style.</p>';
+      : '<p class="empty">No songs match. Try another title or style.</p>');
     cooldown();
+    restoreViewport();
   }
   function cooldown() {
     const left = Math.max(0, new Date(nextVoteAt || 0) - Date.now());
@@ -254,17 +310,19 @@ async function library() {
     }
   });
   async function refresh() {
-    try {
-      const data = await api("/songs");
-      if (!data.songs?.length)
-        throw new Error("The catalog is being connected.");
-      songs = data.songs;
-      nextVoteAt = data.nextVoteAt;
-      online = true;
-    } catch {
-      online = false;
-    }
-    render();
+    if (refreshing) return refreshing;
+    refreshing = (async () => {
+      const [catalog, upcoming] = await Promise.allSettled([api("/songs"), api("/queue?page=0")]);
+      if (catalog.status === "fulfilled" && catalog.value.songs?.length) {
+        songs = catalog.value.songs;
+        nextVoteAt = catalog.value.nextVoteAt;
+        online = true;
+      } else online = false;
+      if (upcoming.status === "fulfilled" && Array.isArray(upcoming.value.inStudio) && Array.isArray(upcoming.value.queued))
+        pending = [...upcoming.value.inStudio, ...upcoming.value.queued];
+      render({ preserveViewport: true });
+    })().finally(() => { refreshing = null; });
+    return refreshing;
   }
   for (const id of ["collection-filter", "sort"])
     $(`#${id}`).addEventListener("change", () => {
@@ -314,7 +372,16 @@ async function library() {
   render();
   await refresh();
   setInterval(cooldown, 15000);
-  setInterval(refresh, 60000);
+  let refreshTimer = setInterval(refresh, 30000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) refresh(); });
+  window.addEventListener("pagehide", () => clearInterval(refreshTimer));
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      clearInterval(refreshTimer);
+      refreshTimer = setInterval(refresh, 30000);
+      refresh();
+    }
+  });
 }
 
 function loginView(role, onSuccess) {
