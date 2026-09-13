@@ -1,9 +1,10 @@
 import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./authored-by.js";
 import { publicQueue } from "./queue.js";
-import { qualityNotice } from "./quality.js";
+import { mountQualitySettings, qualityNotice } from "./quality.js";
 import { lyricsPage } from "./lyrics.js";
 import { originalPromptPage } from "./original-prompt.js";
 import { rotateSuggestions } from "./suggestions.js";
+import { startRecordMotion } from "./record-motion.js";
 import { api, login, logout, signedIn, loginPersistence, storage } from "./api.js";
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 import { watchCompletions } from "./notifications.js";
@@ -98,11 +99,13 @@ async function library() {
     </section>
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><p class="eyebrow">The catalog</p><h2 id="collection-title">Pick your next obsession.</h2></div><div class="catalog-status"><p class="small" id="track-count">Loading songs…</p><p class="small auto-refresh-note"><span aria-hidden="true">↻</span> Auto-refreshes every 30 seconds</p></div></div>
-      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button></div>
+      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button><div class="display-settings" data-quality-settings></div></div>
       <p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
     <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
+  mountQualitySettings(main);
+  startRecordMotion($(".record", main));
   rotateSuggestions(main);
   const filters = [
     { id: "collection-filter", param: "collection", defaultValue: "all" },
@@ -545,7 +548,7 @@ async function requests() {
           render();
         });
     } else if (stage === "review") {
-      form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form"><label class="checkbox"><input type="checkbox" id="confirm" required><span>Yes, this is the song I want to request.</span></label><div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">The queue holds up to 10 unfinished requests, including songs in production. If it is full, your review stays saved so you can try again when a slot opens.</p><p class="field-error" role="alert"></p></form>`;
+      form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form"><div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">The queue holds up to 10 unfinished requests, including songs in production. If it is full, your review stays saved so you can try again when a slot opens.</p><p class="field-error" role="alert"></p></form>`;
       $("#edit").onclick = () => render("details");
       $("#confirm-form").onsubmit = (event) =>
         run(event, async () => {
@@ -555,7 +558,7 @@ async function requests() {
               role: "submitter",
               body: {
                 version: draft.version,
-                confirmed: $("#confirm").checked,
+                confirmed: true,
               },
             })
           ).prompt;

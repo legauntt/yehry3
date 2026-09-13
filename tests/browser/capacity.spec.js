@@ -33,16 +33,15 @@ test("a full request queue preserves the review and accepts the same request whe
       },
     });
   });
-  await page.getByLabel("Yes, this is the song I want to request.").check();
   await page.getByRole("button", { name: "Send to the queue" }).click();
   await expect(page.locator("#confirm-form .field-error")).toContainText("Your request is saved; try again");
   await expect(page.getByRole("button", { name: "Send to the queue" })).toBeEnabled();
   await page.reload();
   await expect(page.getByText("Does this sound right?")).toBeVisible();
   await expect(page.locator(".brief")).toContainText("last train");
-  await page.getByLabel("Yes, this is the song I want to request.").check();
   await page.getByRole("button", { name: "Send to the queue" }).click();
   await expect(page.getByText("Request received", { exact: true })).toBeVisible();
   expect(attempts).toHaveLength(2);
+  expect(attempts[0].body.confirmed).toBe(true);
   expect(attempts[1]).toEqual(attempts[0]);
 });

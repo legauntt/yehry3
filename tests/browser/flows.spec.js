@@ -160,7 +160,7 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
     page.getByRole("checkbox", { name: /^Medusa \(/ }),
   ).toBeChecked();
   await page.getByRole("button", { name: "Review the request" }).click();
-  await page.getByLabel("Yes, this is the song I want to request.").check();
+  await expect(page.getByLabel("Yes, this is the song I want to request.")).toHaveCount(0);
   await page.getByRole("button", { name: "Send to the queue" }).click();
   await expect(
     page.getByText("Request received", { exact: true }),

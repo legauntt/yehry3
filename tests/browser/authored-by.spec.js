@@ -55,7 +55,6 @@ test("author persists across browser sessions, edits, and submission into both q
   await page.route("**/yehry3/prompts/*/confirm", route => route.request().method() === "OPTIONS"
     ? route.continue()
     : route.fulfill({ headers: { "access-control-allow-origin": baseURL }, json: { prompt: doc } }));
-  await page.getByLabel("Yes, this is the song I want to request.").check();
   await page.getByRole("button", { name: "Send to the queue" }).click();
   expect(doc.authoredBy).toBe(author);
   await expect(page.getByText("Request received", { exact: true })).toBeVisible();

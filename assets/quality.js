@@ -1,4 +1,5 @@
 import "./quality-preference.js";
+export { mountQualitySettings } from "./quality-preference.js";
 
 export function qualityNotice(issues) {
   const known = (Array.isArray(issues) ? issues : []).filter(
