@@ -161,6 +161,17 @@ test("a failed admin request shows the cause and can retry without opening contr
   await page.goto("/admin/");
   await page.getByLabel("Password", { exact: true }).fill("test-admin");
   await page.getByRole("button", { name: "Open the queue" }).click();
+  const attention = page.locator('.stats a[href="/admin/?status=failed"]');
+  await expect(attention.locator("strong")).toHaveText("1");
+  await expect(attention).toContainText("Needs Attention");
+  await attention.click();
+  await expect(page).toHaveURL(/\/admin\/\?status=failed$/);
+  await expect(page.getByLabel("Show", { exact: true })).toHaveValue("failed");
+  await expect(page.locator(".stats > *")).toHaveCount(5);
+  await page.locator(".stats").screenshot({ path: "artifacts/admin-attention-desktop.png" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.locator(".stats").screenshot({ path: "artifacts/admin-attention-mobile.png" });
   await expect(
     page.getByText(/Mastering failed: Missing vocal phrase/),
   ).toBeVisible();
@@ -170,4 +181,5 @@ test("a failed admin request shows the cause and can retry without opening contr
   );
   await page.getByRole("button", { name: "Retry saved work" }).click();
   await expect(page.locator(".queue-card .badge")).toHaveText("In the queue");
+  await expect(attention.locator("strong")).toHaveText("0");
 });

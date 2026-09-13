@@ -445,7 +445,7 @@ async function requests() {
           render();
         });
     } else if (stage === "review") {
-      form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form"><label class="checkbox"><input type="checkbox" id="confirm" required><span>Yes, this is the song I want to request.</span></label><div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">Up to three confirmed requests per hour. Timing depends on the studio queue.</p><p class="field-error" role="alert"></p></form>`;
+      form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form"><label class="checkbox"><input type="checkbox" id="confirm" required><span>Yes, this is the song I want to request.</span></label><div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">The queue holds up to 10 unfinished requests, including songs in production. If it is full, your review stays saved so you can try again when a slot opens.</p><p class="field-error" role="alert"></p></form>`;
       $("#edit").onclick = () => render("details");
       $("#confirm-form").onsubmit = (event) =>
         run(event, async () => {
@@ -552,12 +552,15 @@ async function admin() {
     main.innerHTML = `<section class="admin-intro"><div><p class="eyebrow">Backstage · Studio queue</p><h1>Make room for<br><em>the next one.</em></h1></div><button class="quiet" id="signout">Sign out ↗</button></section><div class="stats">${[
       ["queued", "Waiting in line"],
       ["processing", "In the studio"],
+      ["failed", "Needs Attention"],
       ["completed", "Ready to publish"],
       ["published", "Out in the world"],
     ]
       .map(
         ([status, label]) =>
-          `<div><strong>${data.counts[status] || 0}</strong><span>${label}</span></div>`,
+          status === "failed"
+            ? `<a href="/admin/?status=failed"><strong>${data.counts[status] || 0}</strong><span>${label}</span></a>`
+            : `<div><strong>${data.counts[status] || 0}</strong><span>${label}</span></div>`,
       )
       .join(
         "",

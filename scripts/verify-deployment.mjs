@@ -145,14 +145,16 @@ for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
     );
   if (request.qualityIssues) {
     assert.ok(
-      Array.isArray(request.qualityIssues) && request.qualityIssues.length <= 1,
+      Array.isArray(request.qualityIssues) && request.qualityIssues.length <= 2,
     );
+    assert.equal(new Set(request.qualityIssues.map((issue) => issue.code)).size, request.qualityIssues.length);
     for (const issue of request.qualityIssues) {
       assert.deepEqual(Object.keys(issue).sort(), ["code", "seconds"]);
-      assert.equal(issue.code, "long_instrumental_outro");
+      assert.ok(["long_instrumental_outro", "long_instrumental_break"].includes(issue.code));
       assert.ok(
         Number.isFinite(issue.seconds) &&
-          issue.seconds > 13 &&
+          ((issue.code === "long_instrumental_outro" && issue.seconds > 13) ||
+            (issue.code === "long_instrumental_break" && issue.seconds >= 9.5)) &&
           issue.seconds <= 600,
       );
     }
@@ -161,6 +163,16 @@ for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
 console.log(
   `Anonymous public queue verified: ${queue.inStudioTotal} in studio, ${queue.queuedTotal} waiting, ${queue.recent.length} recent releases.`,
 );
+const capacityResponse = await get(`${api}/capacity`, { headers: { Origin: site } });
+assert.equal(capacityResponse.headers.get("access-control-allow-origin"), site);
+assert.equal(capacityResponse.headers.get("cache-control"), "no-store");
+const capacity = await capacityResponse.json();
+assert.deepEqual(Object.keys(capacity).sort(), ["active", "available", "full", "limit"]);
+assert.equal(capacity.limit, 10);
+assert.ok(Number.isSafeInteger(capacity.active) && capacity.active >= 0);
+assert.equal(capacity.available, Math.max(0, 10 - capacity.active));
+assert.equal(capacity.full, capacity.active >= 10);
+console.log(`Request capacity verified: ${capacity.active} unfinished, ${capacity.available} available.`);
 const catalog = await (await get(`${site}/catalog.json`)).json();
 assert.deepEqual(catalog, local);
 assert.deepEqual(
