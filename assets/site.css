@@ -677,7 +677,8 @@ main {
   line-height: 1.6;
 }
 .track-meta .text-link,
-.track-duration {
+.track-duration,
+.track-age {
   white-space: nowrap;
 }
 .track-collections {
