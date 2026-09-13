@@ -2,6 +2,229 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-58f7ff15f4e6350c0bc94136",
+      "title": "Two Towers Too Wide",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-58f7ff15f4e6350c0bc94136-8fbf16b38401.mp3",
+      "duration": 140,
+      "collection": "distonyc",
+      "authoredBy": "Scythe",
+      "lyrics": {
+        "text": "[Intro]\nHalloween moon, cardboard skyline,\nTony hit the porch at half past nine.\nTwo silver towers strapped side by side—\nHe took one step and got stuck outside.\n\n[Verse 1]\nHe turned to the left, knocked over a witch,\nTurned to the right, caught a cape on a hitch.\nThe screen door snapped with a terrible clang,\nTony just grinned while the doorbell rang.\n\nThe neighbors yelled, “Tony, you’re much too wide!”\nHe muttered, “That’s architecture,” and shuffled inside.\nA plastic bat landed high on his crown;\nHe wore it like a gargoyle all over town.\n\n[Chorus]\nTwo towers too wide for the Halloween street,\nBumping every pumpkin with his cardboard feet.\nCandy in the lobby, cobwebs in the sky,\nEvery narrow doorway made the whole thing fly.\nTwo towers too wide—clear a little room!\nTony brought a skyline to the costume gloom.\n\n[Verse 2]\nAt the haunted garage, the bass kicked hard;\nHe clipped both towers on the skeleton yard.\nOne leaned west and the other leaned east,\nThen both popped back to the beat of the beast.\n\nA kid dressed as traffic waved him around,\nBut Tony spun once and the signs fell down.\nHe laughed through the smoke, “That’s city design,”\nThen traded the gargoyle for a licorice vine.\n\n[Bridge]\nWhen the rain made the cardboard buckle and sway,\nHe folded both towers and danced them away.\nNo grand disaster, no reason to pout—\nJust two soggy boxes with Tony sticking out.\n\n[Final Chorus]\nTwo towers too wide for the Halloween street,\nNow flat as a map underneath his feet.\nCandy in his pockets, moon riding high,\nHe bowed to the doorway and finally slipped by.\nTwo towers too wide, but the joke landed right—\nTony wore the whole town home that night.\n\n[Tag]\nHe rang his own bell with a crooked little grin:\n“Next year, one tower—and I’m getting in.”",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0.52,
+            "end": 2.5
+          },
+          {
+            "line": 2,
+            "start": 2.82,
+            "end": 4.56
+          },
+          {
+            "line": 3,
+            "start": 4.96,
+            "end": 6.78
+          },
+          {
+            "line": 4,
+            "start": 6.78,
+            "end": 8.62
+          },
+          {
+            "line": 7,
+            "start": 13.56,
+            "end": 15.36
+          },
+          {
+            "line": 8,
+            "start": 15.82,
+            "end": 17.58
+          },
+          {
+            "line": 9,
+            "start": 17.88,
+            "end": 19.4
+          },
+          {
+            "line": 10,
+            "start": 19.4,
+            "end": 22.04
+          },
+          {
+            "line": 12,
+            "start": 24.12,
+            "end": 26.92
+          },
+          {
+            "line": 13,
+            "start": 26.92,
+            "end": 28.68
+          },
+          {
+            "line": 14,
+            "start": 28.68,
+            "end": 30.74
+          },
+          {
+            "line": 15,
+            "start": 31.04,
+            "end": 33.04
+          },
+          {
+            "line": 18,
+            "start": 34.34,
+            "end": 37.26
+          },
+          {
+            "line": 19,
+            "start": 37.64,
+            "end": 39.5
+          },
+          {
+            "line": 20,
+            "start": 39.78,
+            "end": 41.66
+          },
+          {
+            "line": 21,
+            "start": 42.24,
+            "end": 43.86
+          },
+          {
+            "line": 22,
+            "start": 43.86,
+            "end": 46.06
+          },
+          {
+            "line": 23,
+            "start": 46.62,
+            "end": 48.28
+          },
+          {
+            "line": 26,
+            "start": 52.38,
+            "end": 55.02
+          },
+          {
+            "line": 27,
+            "start": 55.02,
+            "end": 57.12
+          },
+          {
+            "line": 28,
+            "start": 57.34,
+            "end": 59.16
+          },
+          {
+            "line": 29,
+            "start": 59.3,
+            "end": 61.1
+          },
+          {
+            "line": 31,
+            "start": 61.1,
+            "end": 65.92
+          },
+          {
+            "line": 32,
+            "start": 65.92,
+            "end": 67.8
+          },
+          {
+            "line": 33,
+            "start": 68.16,
+            "end": 69.82
+          },
+          {
+            "line": 34,
+            "start": 70.04,
+            "end": 72.22
+          },
+          {
+            "line": 37,
+            "start": 74.16,
+            "end": 76.24
+          },
+          {
+            "line": 38,
+            "start": 76.24,
+            "end": 78.52
+          },
+          {
+            "line": 39,
+            "start": 78.98,
+            "end": 80.88
+          },
+          {
+            "line": 40,
+            "start": 81.16,
+            "end": 83.3
+          },
+          {
+            "line": 43,
+            "start": 84.52,
+            "end": 87.42
+          },
+          {
+            "line": 44,
+            "start": 87.42,
+            "end": 89.66
+          },
+          {
+            "line": 45,
+            "start": 89.66,
+            "end": 91.9
+          },
+          {
+            "line": 46,
+            "start": 91.9,
+            "end": 94.26
+          },
+          {
+            "line": 47,
+            "start": 94.26,
+            "end": 96.68
+          },
+          {
+            "line": 48,
+            "start": 96.68,
+            "end": 100.76
+          },
+          {
+            "line": 51,
+            "start": 100.76,
+            "end": 102.78
+          },
+          {
+            "line": 52,
+            "start": 102.78,
+            "end": 105.52
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 12.38
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 17.1
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony C dresses up as the twin towers for Halloween and hijinks ensue",
+        "direction": "Spooky halloween",
+        "keep": "Hilarity",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-690c7eb2e5376ce0d7506511",
       "title": "Wrong Side of the Charge",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-690c7eb2e5376ce0d7506511-b99bdc0a1237.mp3",
