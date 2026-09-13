@@ -14,4 +14,11 @@ test('quality notice is useful and cannot inject untrusted markup', () => {
   assert.match(both,/30 seconds after/);
   assert.match(both,/12 seconds between/);
   assert.equal(qualityNotice([{code:'long_instrumental_break',seconds:9}]), '');
+  const dropout=qualityNotice([{code:'vocal_dropout',seconds:1.2,error:'<script>private repair error</script>'}]);
+  assert.match(dropout,/A vocal passage could not be fully restored \(1.2 seconds\)/);
+  assert.match(dropout,/available to play/);
+  assert.doesNotMatch(dropout,/<script>|private repair error/);
+  for (const seconds of [0.4, 0, -1, 600.1, Infinity, NaN, '1.2']) {
+    assert.equal(qualityNotice([{code:'vocal_dropout',seconds}]), '');
+  }
 });

@@ -8,7 +8,7 @@ const song = {
   url: "/quality-fixture.wav",
   collection: "distonyc",
   collections: ["distonyc", "fearhunger"],
-  qualityIssues: [issue, { code: "long_instrumental_break", seconds: 12.32 }],
+  qualityIssues: [issue, { code: "long_instrumental_break", seconds: 12.32 }, { code: "vocal_dropout", seconds: 1.2 }],
   lyrics: { text: "The final words.", kind: "written" },
   originalPrompt: {
     idea: "An angry song about Samarie",
@@ -72,6 +72,7 @@ test("a song with issues remains playable and exposes its warning on every liste
     await notice.locator("summary").click();
     await expect(notice).toContainText("23 seconds");
     await expect(notice).toContainText("12 seconds between detected vocals");
+    await expect(notice).toContainText("A vocal passage could not be fully restored (1.2 seconds).");
     await expect(notice).toContainText("available to play");
     if (path === "/") {
       await page

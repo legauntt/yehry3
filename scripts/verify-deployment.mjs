@@ -145,16 +145,17 @@ for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
     );
   if (request.qualityIssues) {
     assert.ok(
-      Array.isArray(request.qualityIssues) && request.qualityIssues.length <= 2,
+      Array.isArray(request.qualityIssues) && request.qualityIssues.length <= 3,
     );
     assert.equal(new Set(request.qualityIssues.map((issue) => issue.code)).size, request.qualityIssues.length);
     for (const issue of request.qualityIssues) {
       assert.deepEqual(Object.keys(issue).sort(), ["code", "seconds"]);
-      assert.ok(["long_instrumental_outro", "long_instrumental_break"].includes(issue.code));
+      assert.ok(["long_instrumental_outro", "long_instrumental_break", "vocal_dropout"].includes(issue.code));
       assert.ok(
         Number.isFinite(issue.seconds) &&
           ((issue.code === "long_instrumental_outro" && issue.seconds > 13) ||
-            (issue.code === "long_instrumental_break" && issue.seconds >= 9.5)) &&
+            (issue.code === "long_instrumental_break" && issue.seconds >= 9.5) ||
+            (issue.code === "vocal_dropout" && issue.seconds > 0.4)) &&
           issue.seconds <= 600,
       );
     }
