@@ -1,6 +1,7 @@
 import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./authored-by.js";
 import { publicQueue } from "./queue.js";
 import { mountQualitySettings, qualityNotice } from "./quality.js";
+import { modelInfoButton, mountModelInfo } from "./model-info.js";
 import { lyricsPage } from "./lyrics.js";
 import { originalPromptPage } from "./original-prompt.js";
 import { rotateSuggestions } from "./suggestions.js";
@@ -12,6 +13,7 @@ import { watchCompletions } from "./notifications.js";
 const $ = (selector, root = document) => root.querySelector(selector);
 const main = $("#main");
 const page = document.body.dataset.page;
+mountModelInfo();
 const escape = (value) =>
   String(value ?? "").replace(
     /[&<>"']/g,
@@ -282,7 +284,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track ${current?.id === song.id ? "playing" : ""}" data-id="${escape(song.id)}">
-      <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id), unknownAges.get(song))}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+      <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id), unknownAges.get(song))}${modelInfoButton(song)}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : '<p class="empty">No songs match. Try another title or style.</p>');

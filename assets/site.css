@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap");
 
+@import url("./model-info.css");
+
 .quality-notice {
   display: flow-root;
   margin: 0.6rem 0 0;

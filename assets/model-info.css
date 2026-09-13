@@ -1,0 +1,32 @@
+.model-info-button {
+  display: inline-block;
+  margin-top: 0.45rem;
+  padding: 0.2rem 0;
+  border: 0;
+  border-bottom: 1px dotted currentColor;
+  background: transparent;
+  color: var(--accent, #425e4b);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.model-info-button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+}
+.model-comparison {
+  box-sizing: border-box;
+  width: min(38rem, calc(100vw - 2rem));
+  max-height: calc(100dvh - 2rem);
+  overflow-y: auto;
+  padding: clamp(1.2rem, 4vw, 2rem);
+  border: 1px solid #6c7868;
+  border-radius: 0.6rem;
+  background: #f5f2e8;
+  color: #18352a;
+}
+.model-comparison::backdrop { background: rgb(10 25 18 / 55%); }
+.model-comparison h2 { margin: 0 0 1.2rem; font-size: 1.6rem; }
+.model-comparison h3 { margin: 1rem 0 0.35rem; font-size: 1rem; }
+.model-comparison p { margin: 0; font-size: 0.875rem; line-height: 1.6; }
+.model-comparison form { margin-top: 1.4rem; }

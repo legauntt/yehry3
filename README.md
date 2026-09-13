@@ -18,6 +18,8 @@ yehry3.app is the default destination for new finished Tony/Troofs MP3s, includi
 
 The three **Tony V7 Study** songs are experimental listening material, not a production model upgrade. V6 remains the default voice. Telephone Wire retains two brief vocal gaps around 2:16 and 2:18 (1.6 seconds total); The Last Light in the Station retains its complete 26.54-second instrumental outro. Their catalog issue notices remain visible. Technical verification is not a human listening judgment.
 
+The V7 study rows and lyric sheets include a **V6 vs V7** comparison modal: fresh preference-neutral selection, larger separately trained voice adapter, and the limited meaning of its roughly 0.6% reconstruction-loss improvement. The shared copy lives in `assets/model-info.js` for reuse by future model-selection controls. There is no V7 request selector or production promotion. The dialog supports keyboard dismissal, focus return and mobile scrolling; it does not pause playback or depend on the issue-visibility preference.
+
 ## Run
 
 Node 22 or later:
