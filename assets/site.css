@@ -520,6 +520,30 @@ main {
 .section-heading .eyebrow {
   margin-bottom: 15px;
 }
+.catalog-status {
+  text-align: right;
+}
+.catalog-status #track-count {
+  margin: 0;
+  max-width: none;
+}
+.catalog-status .auto-refresh-note {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.4rem;
+  margin: 6px 0 0;
+  max-width: none;
+}
+@media (max-width: 600px) {
+  .catalog-status {
+    text-align: left;
+    margin-top: 15px;
+  }
+  .catalog-status .auto-refresh-note {
+    justify-content: flex-start;
+  }
+}
 .toolbar {
   display: flex;
   align-items: center;
