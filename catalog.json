@@ -10,7 +10,299 @@
       "authoredBy": "Pancakeo",
       "lyrics": {
         "text": "[Intro]\nRed light, blue light, split down the lane\nTwo fools enlisted in a mathematical pain\n\n[Verse 1]\nI brought the army, you brought the nerve\nThen the field put a sign on who we're allowed to serve\nYour guns hit hard, mine bounce off clean\nThe cruelest little rule that the sector's ever seen\nShoes on the floor and my hands on the wheel\nWatching your base take damage I can see but cannot heal\nI cross the map with a desperate plan\nBut the target flashes wrong—I'm an unauthorized man\n\n[Pre-Chorus]\nShoes full of gravel, teeth full of sparks\nWe're paired together but assigned to different marks\n\n[Chorus]\nShoes, get moving, but the lock says no\nShoes, keep kicking while the red lights glow\nShoes at the doorway, rage in the hall\nI'm strong enough to save you, not permitted to at all\nPolarity! What a beautiful scam\nYou carry half the battle while I carry who I am\n\n[Verse 2]\nYour side gets flooded, my side takes a nap\nI'm drawing angry circles on the tactical map\nShoes hit the metal as the hybrid comes through\nEvery useful shot I've got is the wrong color for you\nShoes in the fire, and the timer runs thin\nI could clear the whole disaster if the game would let me in\nYou ping like thunder, I answer like rain\nThen I fire one round and hear that useless clank again\n\n[Pre-Chorus]\nShoes on a wire, balance and swear\nTwo allied armies, neither welcome everywhere\n\n[Chorus]\nShoes, get moving, but the lock says no\nShoes, keep kicking while the red lights glow\nShoes at the doorway, rage in the hall\nI'm strong enough to save you, not permitted to at all\nPolarity! Divide and command\nYou hold the wrong objective while I wave from promised land\n\n[Bridge]\nShoes to the north where your enemies breed\nShoes to the south where I've got what you need\nShoes through the smoke, but the rules disagree\nShoes do the marching while the lock laughs at me\nNo cowardice, no shortage, no tactical doubt\nJust a plus and a minus keeping both of us out\nSo trade me your targets, I'll trade you my blame\nWe'll beat this crooked circuit at its own divided game\n\n[Verse 3]\nShoes nearly broken, but we're reading the signs\nYou take the left mutation, I erase the right-hand lines\nShoes find the rhythm: swap, cover, attack\nWhen your color meets the target, I keep death off your back\nNo hero can carry what no hero can touch\nSo we carry one another, and we curse twice as much\nThe final wave rises, every warning turns red\nWe split it down the middle and we leave the hybrids dead\n\n[Final Chorus]\nShoes, keep moving—now we both know how\nWrong side a minute, right side now\nShoes at the doorway, kick through the wall\nThey said I couldn't carry you—we carried us all\nPolarity! Your circuit is blown\nTwo mismatched allies made the battlefield our own\n\n[Finale]\nThe lock goes dark, the last sparks fall\nYou carried me—I didn't carry you at all",
-        "kind": "written"
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 2.38,
+            "end": 5.04
+          },
+          {
+            "line": 2,
+            "start": 5.3,
+            "end": 9.46
+          },
+          {
+            "line": 5,
+            "start": 9.46,
+            "end": 16.1
+          },
+          {
+            "line": 6,
+            "start": 16.2,
+            "end": 20.06
+          },
+          {
+            "line": 7,
+            "start": 21.84,
+            "end": 24.14
+          },
+          {
+            "line": 8,
+            "start": 24.54,
+            "end": 27.26
+          },
+          {
+            "line": 9,
+            "start": 27.26,
+            "end": 32.38
+          },
+          {
+            "line": 10,
+            "start": 32.38,
+            "end": 35.66
+          },
+          {
+            "line": 11,
+            "start": 35.66,
+            "end": 37.74
+          },
+          {
+            "line": 12,
+            "start": 38.1,
+            "end": 40.64
+          },
+          {
+            "line": 15,
+            "start": 41.12,
+            "end": 43.42
+          },
+          {
+            "line": 16,
+            "start": 44.1,
+            "end": 46.72
+          },
+          {
+            "line": 19,
+            "start": 47.5,
+            "end": 50.24
+          },
+          {
+            "line": 20,
+            "start": 51.68,
+            "end": 55.42
+          },
+          {
+            "line": 21,
+            "start": 55.42,
+            "end": 59.68
+          },
+          {
+            "line": 22,
+            "start": 60.1,
+            "end": 62.66
+          },
+          {
+            "line": 23,
+            "start": 62.92,
+            "end": 65.98
+          },
+          {
+            "line": 24,
+            "start": 67.5,
+            "end": 71.74
+          },
+          {
+            "line": 27,
+            "start": 73.5,
+            "end": 76.28
+          },
+          {
+            "line": 28,
+            "start": 76.66,
+            "end": 79.74
+          },
+          {
+            "line": 29,
+            "start": 79.74,
+            "end": 81.74
+          },
+          {
+            "line": 30,
+            "start": 81.74,
+            "end": 84.52
+          },
+          {
+            "line": 31,
+            "start": 84.52,
+            "end": 87.22
+          },
+          {
+            "line": 32,
+            "start": 87.22,
+            "end": 91.0
+          },
+          {
+            "line": 33,
+            "start": 92.44,
+            "end": 95.78
+          },
+          {
+            "line": 34,
+            "start": 95.78,
+            "end": 98.7
+          },
+          {
+            "line": 37,
+            "start": 98.7,
+            "end": 101.58
+          },
+          {
+            "line": 38,
+            "start": 101.58,
+            "end": 104.02
+          },
+          {
+            "line": 41,
+            "start": 104.02,
+            "end": 107.84
+          },
+          {
+            "line": 42,
+            "start": 108.54,
+            "end": 113.3
+          },
+          {
+            "line": 43,
+            "start": 114.48,
+            "end": 117.52
+          },
+          {
+            "line": 44,
+            "start": 117.72,
+            "end": 120.34
+          },
+          {
+            "line": 45,
+            "start": 120.34,
+            "end": 123.46
+          },
+          {
+            "line": 46,
+            "start": 124.12,
+            "end": 128.6
+          },
+          {
+            "line": 49,
+            "start": 128.6,
+            "end": 134.48
+          },
+          {
+            "line": 50,
+            "start": 134.48,
+            "end": 136.64
+          },
+          {
+            "line": 51,
+            "start": 137.04,
+            "end": 139.96
+          },
+          {
+            "line": 52,
+            "start": 139.96,
+            "end": 142.06
+          },
+          {
+            "line": 53,
+            "start": 142.56,
+            "end": 144.66
+          },
+          {
+            "line": 54,
+            "start": 145.12,
+            "end": 147.44
+          },
+          {
+            "line": 55,
+            "start": 147.86,
+            "end": 150.26
+          },
+          {
+            "line": 56,
+            "start": 150.78,
+            "end": 153.14
+          },
+          {
+            "line": 59,
+            "start": 153.14,
+            "end": 158.5
+          },
+          {
+            "line": 60,
+            "start": 158.54,
+            "end": 161.34
+          },
+          {
+            "line": 61,
+            "start": 161.6,
+            "end": 164.16
+          },
+          {
+            "line": 62,
+            "start": 164.16,
+            "end": 166.78
+          },
+          {
+            "line": 63,
+            "start": 167.02,
+            "end": 169.38
+          },
+          {
+            "line": 64,
+            "start": 169.72,
+            "end": 172.24
+          },
+          {
+            "line": 65,
+            "start": 172.56,
+            "end": 174.96
+          },
+          {
+            "line": 66,
+            "start": 175.32,
+            "end": 178.46
+          },
+          {
+            "line": 69,
+            "start": 178.98,
+            "end": 181.98
+          },
+          {
+            "line": 70,
+            "start": 183.34,
+            "end": 189.32
+          },
+          {
+            "line": 71,
+            "start": 189.32,
+            "end": 191.6
+          },
+          {
+            "line": 72,
+            "start": 191.84,
+            "end": 194.22
+          },
+          {
+            "line": 73,
+            "start": 194.74,
+            "end": 201.22
+          },
+          {
+            "line": 74,
+            "start": 201.22,
+            "end": 203.24
+          },
+          {
+            "line": 77,
+            "start": 205.02,
+            "end": 207.96
+          },
+          {
+            "line": 78,
+            "start": 208.24,
+            "end": 211.38
+          }
+        ]
       },
       "collections": [
         "distonyc"
