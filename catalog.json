@@ -2,6 +2,32 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-29c9f7c1321d4395579ab62f",
+      "title": "Ten Hours for an Ith",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-29c9f7c1321d4395579ab62f-dec7a100c708.mp3",
+      "duration": 240,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Verse 1]\nCoffee leaves a circle where the daylight used to be\nLower Kurast loads another little piece of me\nRun between the torches, kick the basket by the door\nThree expensive dreams and yellow garbage on the floor\nI've memorized the crooked boards, the corners of each hut\nMy wrist has filed a grievance and my eyes are welded shut\nSomething orange flashes, I'm halfway out my chair\nIt's another lousy potion; leave my dignity right there\n\n[Pre-Chorus]\nEverybody's teleporting\nI'm commuting through the mud\nGot a kingdom full of monsters\nAnd a pocket full of crud\n\n[Chorus]\nJah, Ith, Ber, in that order\nThree-socket body armor, that's the spell\nIth is sitting pretty in the corner\nJah and Ber can send a postcard back from hell\nTen hours straight in Lower Kurast\nSame two huts, same desperate little prayer\nI could cross the world inside a heartbeat\nIf the means to cross it ever would appear\n\n[Verse 2]\nSomebody says, \"Found mine while I was looking for a key\"\nSomebody posts a double drop; how nice for somebody\nI congratulate the lucky guy with murder in my grin\nThen click another hollow chest and crawl back in again\nGot flawless gems for flooring, got enough gold for a throne\nGot a stash of almost something and an Ith that lives alone\nSuperchests, you wooden liars, cough your little treasures out\nI'm bargaining with furniture; that's what tonight's about\n\n[Chorus]\nJah, Ith, Ber, in that order\nThree-socket body armor, that's the spell\nIth is sitting pretty in the corner\nJah and Ber can send a postcard back from hell\nTen hours straight in Lower Kurast\nSame two huts, same desperate little prayer\nI could cross the world inside a heartbeat\nIf the means to cross it ever would appear\n\n[Bridge]\nThe sun comes up without permission\nMy mercenary watches me\nI've made a second occupation\nOut of wanting to be free\nOne last run becomes another\nThen I let the silence stay\nShut the chest and stretch my fingers\nLet the jungle keep today\n\n[Final Chorus]\nJah, Ith, Ber, I still remember\nThree sockets waiting patiently at home\nBut I won't feed the morning to the timber\nThose empty little boxes don't get everything I own\nTen hours gone in Lower Kurast\nI stand up with nothing new to wear\nEnigma, you can wait until tomorrow\nTonight I'm walking out for air",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 20.9
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Song about the frustrations of trying to farm high runes to get an Enigma in Diablo 2",
+        "direction": "Frustration, industrial, jazz, synth",
+        "keep": "Mention the recipe for Enigma, capture the pain of farming Lower Kurast for 10 hours straight",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-1890743a4fe0a0b8b8e4486c",
       "title": "Medusa - From Da Shoes",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1890743a4fe0a0b8b8e4486c-5562e238e709.mp3",
