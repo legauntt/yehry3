@@ -2,6 +2,33 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-2b632b6e36f68c60423536b5",
+      "title": "When the Ja Dropped",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2b632b6e36f68c60423536b5-0a59c48b96a3.mp3",
+      "duration": 322.9,
+      "collection": "distonyc",
+      "authoredBy": "Pancakeo",
+      "lyrics": {
+        "text": "[Intro]\nThree years dry on a barroom stool\nDrinking ginger ale and keeping cool\nGeglash came in from the pouring rain\nJust to hear the old jukebox complain\n\n[Verse 1]\nHe'd been stout-hearted, standing tall\nNever missed the morning after at all\nKnew every bottle by its old first name\nBut quit returning when temptation came\nThen the barman raised a midnight brew\nBlack as a boot with a collar of dew\nSaid, “This one's roasted, rich and slow”\nGeglash whispered, “Ja... I gotta know”\n\n[Pre-Chorus]\nHis eyes went wide at that coffee crown\nThree sober years couldn't stare it down\nThe room held still, then his grin turned loud\nThat little word fell right through the crowd\n\n[Chorus]\nThat was the night when the Ja dropped\nHit the floor and the whole room stopped\nHe found his stout, but his footing thinned\nA dark little door let the old light in\nHe said, “Ja, that's smooth,” with a crooked laugh\nThen read his whole past in the empty half\nThree years built, one swallow shocked\nThat was the night when the Ja dropped\n\n[Verse 2]\nHe called it research, called it grain review\nSaid, “I'm only checking what the barley knew”\nBut the head had vanished, the truth stayed plain\nYou can't pour sunshine through an old storm drain\nHe made some porter jokes, growing bold\nSaid the ale had body but his alibi was cold\nAsked for one more round to settle the score\nThe barman said, “Your tab weighs more than before”\n\n[Pre-Chorus]\nHis twang got thick and his timing slid\nHe found the man that sobriety hid\nThe joke wore out when the glass rang bare\nAnd three hard years stood watching from the chair\n\n[Chorus]\nThat was the night when the Ja dropped\nHit the floor and the whole room stopped\nHe found his stout, but his footing thinned\nA dark little door let the old light in\nHe said, “Ja, that's smooth,” with a crooked laugh\nThen read his whole past in the empty half\nThree years built, one swallow shocked\nThat was the night when the Ja dropped\n\n[Instrumental Turn]\n\n[Verse 3]\nAt closing time beneath the buzzing sign\nHe couldn't walk a straight punch line\nSaid, “I went against the grain, that's true\nNow every road is brewing into two”\nHis sponsor came in an old Ford truck\nSaid, “A slip ain't fate, and shame ain't luck\nYou lost one night, not the miles you crossed\nStand up now before the rest gets lost”\n\n[Bridge]\nGeglash stared at the dawn coming pale\nSaid, “I chased a stout and found myself frail\nI thought one pint was a harmless guest\nBut it moved old furniture back in my chest”\nThen softer, smoky, almost under breath:\n“Ja... that foam wrote a heavy check”\nHe poured the last dark inch away\nAnd let the gutter drink his yesterday\n\n[Breakdown]\nNo grand oath and no courthouse scene\nJust coffee black and a conscience clean\nA battered joke and a lesson learned:\nEven roasted bridges still get burned\nHe laughed once low, though his eyes stayed wet\n“I'm not starting over—I'm starting from regret”\nThen marked the date where the old one stopped\nThe morning after the Ja had dropped\n\n[Final Chorus]\nThat was the night when the Ja dropped\nHit the floor and the whole room stopped\nHe found his stout, then he found his feet\nWith a bitter truth where the malt tasted sweet\nHe said, “Ja, I slipped,” no alibi\nNo frothy story and no reason why\nThree years still count though the bottle talked\nHe carried every mile when he sober-walked\n\n[Final Tag]\nNow when somebody raises that coffee crown\nHe lets the word rise but the glass stay down\n“Ja, I know stout—and I know my cost”\nA night went missing, but the man stayed lost\nOnly till sunrise, when the old spell broke\nHe chose his road through the barley smoke\nHis jaw came back, and the barroom clock\nKept moving on from the night Ja dropped\nKept moving on... from the night Ja dropped",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 24.2
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Geglash has his \"Ja\" drop when he discovers stouts, after 3 years of sobriety",
+        "direction": "Country twang, Brad Paisley",
+        "keep": "The puns.",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-cde0ad6343e70356fe5b56e1",
       "title": "Sol for Sale",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cde0ad6343e70356fe5b56e1-351533aac811.mp3",
