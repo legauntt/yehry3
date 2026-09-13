@@ -2,6 +2,27 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-4c65e7a9ef69da33a2c99197",
+      "title": "Ten Years in the Rain",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4c65e7a9ef69da33a2c99197-bef9dee78928.mp3",
+      "duration": 129.44,
+      "collection": "distonyc",
+      "authoredBy": "Pancakeo",
+      "lyrics": {
+        "text": "[Intro]\nRain on the fire escape, ten past two\nYour name in the glow, and the whole night knew\n\n[Verse 1]\nYou wrote, “I’m sorry,” like a door left wide\nTen winters late, with the truth tucked inside\nBack then I waited by the corner-store light\nEvery cab made me think you might arrive\nI learned how silence gets heavy with age\nHow a clean white screen can feel like a cage\nNow your little blue bubble wants mercy from me\nBut the kid you abandoned ain’t the man that you see\nI wore out the question, I buried the blame\nBuilt a roof from the ruins, quit saying your name\nAnd tonight every gutter keeps counting the cost\nOf a message that found me when needing you stopped\n\n[Chorus]\nTen years in the rain, now you’re calling my name\nYour apology lands, but it don’t land the same\nI can read every word, I can hear what you mean\nBut you can’t dry a decade with a sorry on a screen\nTen years in the rain, I survived every stain\nI forgive what I can—I won’t live there again\n\n[Verse 2]\nYou say you were scared; well, I was scared too\nDifference is, I stayed with what you put me through\nHad birthdays go quiet, had good news turn gray\nHad whole conversations with what you wouldn’t say\nMaybe you changed, maybe guilt found a voice\nMaybe losing my number was never your choice\nI ain’t here for revenge, I got no knife to twist\nJust a life that grew around the shape that you missed\nSo keep this reply when the thunder gets loud:\nI was worth showing up for—I know that now\n\n[Bridge – Arabic/throat accent]\nTen years beneath this rain\nTen years beneath this rain\n\n[Final Chorus]\nTen years in the rain, now you’re calling my name\nYour apology lands, but it don’t land the same\nI believe you regret every mile in between\nBut you can’t dry a decade with a sorry on a screen\nTen years in the rain, let it wash through the pain\nI forgive you tonight—I won’t wait here again\n\n[Outro]\nYour words came too late, but my answer came clear:\nI release what you broke; I am leaving it here\nNo hate in my hands, no old chain on my name\nI walk into morning through the last of the rain",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "A rainy hip-hop song about an apology that arrives 10 years too late",
+        "direction": "Arabic throat singing, rainy rap song, top 40",
+        "keep": "Tony's slurred delivery",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-2b632b6e36f68c60423536b5",
       "title": "When the Ja Dropped",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2b632b6e36f68c60423536b5-0a59c48b96a3.mp3",
