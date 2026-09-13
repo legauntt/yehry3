@@ -197,6 +197,9 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
   await page.getByLabel("Move request to").selectOption("canceled");
   page.once("dialog", (dialog) => dialog.accept());
   await page.getByRole("button", { name: "Update status" }).click();
+  await expect(page.getByLabel("Show", { exact: true })).toHaveValue("queued");
+  await expect(page.locator(".queue-card")).toHaveCount(0);
+  await page.getByRole("link", { name: "All requests" }).click();
   await expect(page.getByLabel("Show", { exact: true })).toHaveValue("all");
   await expect(page.locator(".queue-card")).toHaveCount(1);
   await page.getByLabel("Show", { exact: true }).selectOption("canceled");
@@ -213,6 +216,9 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
   await page.getByText("Open brief & controls").click();
   await page.getByLabel("Move request to").selectOption("processing");
   await page.getByRole("button", { name: "Update status" }).click();
+  await expect(page.getByLabel("Show", { exact: true })).toHaveValue("queued");
+  await expect(page.locator(".queue-card")).toHaveCount(0);
+  await page.getByLabel("Show", { exact: true }).selectOption("processing");
   await expect(page.getByLabel("Show", { exact: true })).toHaveValue(
     "processing",
   );

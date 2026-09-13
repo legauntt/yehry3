@@ -508,34 +508,27 @@ function brief(doc) {
 }
 
 async function admin() {
+  const requestedFilter = new URLSearchParams(location.search).get("status");
+  const validFilters = ["all", ...Object.keys(labels).filter((key) => !["draft", "review"].includes(key))];
   let data = null,
-    filter = "queued",
+    filter = validFilters.includes(requestedFilter) ? requestedFilter : "queued",
     pageNumber = 0,
     loadSequence = 0;
   async function load() {
     const sequence = ++loadSequence;
     try {
-      let nextFilter = filter,
-        nextPage = pageNumber;
+      const nextFilter = filter;
+      let nextPage = pageNumber;
       while (true) {
         const response = await api(
           `/admin/prompts?status=${nextFilter}&page=${nextPage}`,
           { role: "admin" },
         );
         if (sequence !== loadSequence) return;
-        if (!response.prompts.length && nextPage > 0 && response.total > 0) {
+        if (!response.prompts.length && nextPage > 0) {
           nextPage = 0;
           continue;
         }
-        if (!response.prompts.length && nextFilter !== "all") {
-          nextFilter =
-            nextFilter !== "processing" && response.counts.processing > 0
-              ? "processing"
-              : "all";
-          nextPage = 0;
-          continue;
-        }
-        filter = nextFilter;
         pageNumber = nextPage;
         data = response;
         render();
@@ -571,11 +564,15 @@ async function admin() {
       .map(([key, label]) => `<option value="${key}">${label}</option>`)
       .join(
         "",
-      )}</select><button class="quiet" id="refresh">Refresh ↻</button><span class="small">${data.total} requests · Higher priority goes first; oldest wins ties.</span></div><div id="queue">${data.prompts.length ? data.prompts.map(row).join("") : '<div class="empty"><span class="empty-symbol">◎</span><h2>A little room for possibility.</h2><p>No requests in this view yet.</p><a class="text-link" href="/distonyc/">Make the first request →</a></div>'}</div><div class="pagination"><button class="quiet" id="prev-page" ${pageNumber === 0 ? "disabled" : ""}>← Previous</button><span>Page ${pageNumber + 1}</span><button class="quiet" id="next-page" ${(pageNumber + 1) * 50 >= data.total ? "disabled" : ""}>Next →</button></div></section>`;
+      )}</select><button class="quiet" id="refresh">Refresh ↻</button><span class="small">${data.total} requests · Higher priority goes first; oldest wins ties.</span></div><div id="queue">${data.prompts.length ? data.prompts.map(row).join("") : `<div class="empty"><span class="empty-symbol">◎</span><h2>A little room for possibility.</h2><p>No requests in this view yet.</p>${filter === "all" ? '<a class="text-link" href="/distonyc/">Make the first request →</a>' : '<a class="text-link" href="/admin/?status=all">All requests →</a>'}</div>`}</div><div class="pagination"><button class="quiet" id="prev-page" ${pageNumber === 0 ? "disabled" : ""}>← Previous</button><span>Page ${pageNumber + 1}</span><button class="quiet" id="next-page" ${(pageNumber + 1) * 50 >= data.total ? "disabled" : ""}>Next →</button></div></section>`;
     $("#status-filter").value = filter;
     $("#status-filter").onchange = (event) => {
       filter = event.target.value;
       pageNumber = 0;
+      const url = new URL(location.href);
+      if (filter === "queued") url.searchParams.delete("status");
+      else url.searchParams.set("status", filter);
+      history.replaceState(null, "", url);
       load();
     };
     $("#refresh").onclick = load;
