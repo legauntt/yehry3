@@ -30,7 +30,7 @@ function lyricLines(lyrics, escape) {
         return `<span class="lyric-heading">${escape(line)}</span>`;
       const cue = cues.get(index);
       return cue
-        ? `<button type="button" class="lyric-line" id="lyric-line-${index + 1}" data-start="${cue.start}" data-end="${cue.end}" title="Jump to this line">${escape(line)}</button>`
+        ? `<button type="button" class="lyric-line" id="lyric-line-${index + 1}" data-start="${cue.start}" data-end="${cue.end}" title="Jump to this line"><span>${escape(line)}</span><span class="lyric-link-marker">Shared line</span></button>`
         : `<span class="lyric-line">${escape(line)}</span>`;
     })
     .join("");
@@ -41,6 +41,7 @@ function mountKaraoke(main) {
   const lines = [...main.querySelectorAll("button.lyric-line")];
   if (!audio || !lines.length) return;
   let active;
+  let linked;
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
   function lineFromHash() {
     const match = /^#lyric-line-(\d+)$/.exec(location.hash);
@@ -66,9 +67,16 @@ function mountKaraoke(main) {
         active.scrollIntoView({ block: "center", behavior: reducedMotion.matches ? "auto" : "smooth" });
     }
   }
+  function markLinked(line) {
+    if (line === linked) return;
+    linked?.classList.remove("is-linked");
+    linked = line;
+    linked?.classList.add("is-linked");
+  }
   function selectLine(line, updateUrl = false) {
     if (!line) return;
     if (updateUrl) history.replaceState(history.state, "", `#${line.id}`);
+    markLinked(line);
     const seek = () => {
       audio.currentTime = Number(line.dataset.start);
       sync(false);
@@ -84,6 +92,7 @@ function mountKaraoke(main) {
   }
   addEventListener("hashchange", () => {
     const line = lineFromHash();
+    markLinked(line);
     if (!line) return;
     line.scrollIntoView({ block: "center" });
     selectLine(line);

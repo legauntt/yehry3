@@ -62,9 +62,14 @@ test("a song with issues remains playable and exposes its warning on every liste
       await expect(lyric).toBeVisible();
       await lyric.click();
       await expect(page).toHaveURL(/\/lyrics\/\?song=quality-song#lyric-line-2$/);
+      await expect(lyric).toHaveClass(/is-linked/);
+      await expect(lyric.getByText("Shared line")).toBeVisible();
       await expect.poll(() => player.evaluate((audio) => audio.currentTime)).toBeCloseTo(2.5, 1);
       await page.reload();
-      await expect(page.getByRole("button", { name: "The final words." })).toBeInViewport();
+      const linkedLyric = page.getByRole("button", { name: /The final words/ });
+      await expect(linkedLyric).toBeInViewport();
+      await expect(linkedLyric).toHaveClass(/is-linked/);
+      await expect(linkedLyric.getByText("Shared line")).toBeVisible();
       await expect
         .poll(() => page.getByLabel("Play Samarie test recording").evaluate((audio) => audio.currentTime))
         .toBeCloseTo(2.5, 1);
@@ -75,6 +80,8 @@ test("a song with issues remains playable and exposes its warning on every liste
         await audio.play();
       });
       await expect(laterLyric).toHaveClass(/is-active/);
+      await expect(laterLyric).not.toHaveClass(/is-linked/);
+      await expect(linkedLyric).toHaveClass(/is-linked/);
       await expect.poll(() => laterLyric.evaluate((line) => {
         const box = line.getBoundingClientRect();
         return box.top > innerHeight * 0.2 && box.bottom < innerHeight * 0.8;
@@ -82,6 +89,15 @@ test("a song with issues remains playable and exposes its warning on every liste
       await expect
         .poll(() => player.evaluate((audio) => audio.currentTime))
         .toBeGreaterThan(8.5);
+      await page.setViewportSize({ width: 390, height: 844 });
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+      await linkedLyric.scrollIntoViewIfNeeded();
+      await page.screenshot({ path: "artifacts/lyrics-shared-line-mobile.png" });
+      await page.setViewportSize({ width: 1440, height: 1000 });
     }
     const notice = page.locator(".quality-notice:visible");
     await expect(notice).toHaveCount(1);
