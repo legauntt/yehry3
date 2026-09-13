@@ -77,6 +77,14 @@ document
   .querySelector(`[data-nav="${page}"]`)
   ?.setAttribute("aria-current", "page");
 
+function songMeta(song) {
+  return `<div class="track-meta"><span class="track-collections">${escape(
+    collections(song)
+      .map((name) => collectionNames[name] || name)
+      .join(" / "),
+  )}</span><span class="track-duration">${duration(song.duration)}</span>${song.lyrics?.text ? `<a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${song.originalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+}
+
 async function library() {
   main.innerHTML = `
     <section class="hero">
@@ -146,7 +154,7 @@ async function library() {
     if ($("#sort").value === "title")
       visible.sort((a, b) => a.title.localeCompare(b.title));
     $("#track-count").textContent =
-      `${visible.length} songs · Many possible directions`;
+      `${visible.length} ${visible.length === 1 ? "song" : "songs"} · Many possible directions`;
     $("#tracks").innerHTML = visible.length
       ? visible
           .map(
@@ -154,11 +162,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track ${current?.id === song.id ? "playing" : ""}" data-id="${escape(song.id)}">
-      <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3><p>${escape(
-        collections(song)
-          .map((name) => collectionNames[name] || name)
-          .join(" / "),
-      )} <span>·</span> ${duration(song.duration)}${song.lyrics?.text ? ` <span>·</span> <a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${song.originalPrompt ? ` <span>·</span> <a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+      <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song)}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : '<p class="empty">No songs match. Try another title or style.</p>';

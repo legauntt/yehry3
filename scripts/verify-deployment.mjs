@@ -4,6 +4,10 @@ import { createHash, randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
 const site = process.env.YEHRY3_SITE_URL || "https://yehry3.app";
 const api = process.env.YEHRY3_API_URL || "https://chairlift.fly.dev/yehry3";
+// Windows checkouts may use CRLF; compare the same source text deployed on Linux.
+const sourceText = (value) => String(value).replace(/\r\n/g, "\n");
+const assetContent = (bytes, name) =>
+  /\.(js|css|svg)$/.test(name) ? sourceText(bytes) : bytes;
 const local = JSON.parse(
   await readFile(new URL("../catalog.json", import.meta.url), "utf8"),
 );
@@ -58,8 +62,10 @@ for (const name of ["fearhunger.js", "fearhunger.css"]) {
   const response = await get(`${site}/fearhunger/${name}`);
   assert.match(response.headers.get("cache-control") || "", /no-cache/);
   assert.equal(
-    await response.text(),
-    await readFile(new URL(`../fearhunger/${name}`, import.meta.url), "utf8"),
+    sourceText(await response.text()),
+    sourceText(
+      await readFile(new URL(`../fearhunger/${name}`, import.meta.url), "utf8"),
+    ),
   );
 }
 for (const name of [
@@ -78,11 +84,19 @@ for (const name of [
   "record-shoes.svg",
 ]) {
   const expected = createHash("sha256")
-    .update(await readFile(new URL(`../assets/${name}`, import.meta.url)))
+    .update(
+      assetContent(
+        await readFile(new URL(`../assets/${name}`, import.meta.url)),
+        name,
+      ),
+    )
     .digest("hex");
   const actual = createHash("sha256")
     .update(
-      Buffer.from(await (await get(`${site}/assets/${name}`)).arrayBuffer()),
+      assetContent(
+        Buffer.from(await (await get(`${site}/assets/${name}`)).arrayBuffer()),
+        name,
+      ),
     )
     .digest("hex");
   assert.equal(actual, expected, `${name} differs from the local release`);
@@ -94,8 +108,10 @@ assert.match(
 );
 assert.match(notificationWorker.headers.get("cache-control") || "", /no-cache/);
 assert.equal(
-  await notificationWorker.text(),
-  await readFile(new URL("../notifications-sw.js", import.meta.url), "utf8"),
+  sourceText(await notificationWorker.text()),
+  sourceText(
+    await readFile(new URL("../notifications-sw.js", import.meta.url), "utf8"),
+  ),
   "Notification service worker differs from the local release",
 );
 const queueResponse = await get(`${api}/queue?page=0`, {
@@ -128,11 +144,17 @@ for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
       `Unexpected public field: ${field}`,
     );
   if (request.qualityIssues) {
-    assert.ok(Array.isArray(request.qualityIssues) && request.qualityIssues.length <= 1);
+    assert.ok(
+      Array.isArray(request.qualityIssues) && request.qualityIssues.length <= 1,
+    );
     for (const issue of request.qualityIssues) {
       assert.deepEqual(Object.keys(issue).sort(), ["code", "seconds"]);
       assert.equal(issue.code, "long_instrumental_outro");
-      assert.ok(Number.isFinite(issue.seconds) && issue.seconds > 13 && issue.seconds <= 600);
+      assert.ok(
+        Number.isFinite(issue.seconds) &&
+          issue.seconds > 13 &&
+          issue.seconds <= 600,
+      );
     }
   }
 }
@@ -160,7 +182,12 @@ assert.equal(response.headers.get("access-control-allow-origin"), site);
 const live = await response.json();
 for (const song of local.songs) {
   const published = live.songs.find((item) => item.id === song.id);
-  if (song.qualityIssues) assert.deepEqual(published?.qualityIssues, song.qualityIssues, `Quality issues differ for ${song.title}`);
+  if (song.qualityIssues)
+    assert.deepEqual(
+      published?.qualityIssues,
+      song.qualityIssues,
+      `Quality issues differ for ${song.title}`,
+    );
   if (song.lyrics)
     assert.deepEqual(
       published?.lyrics,

@@ -20,7 +20,13 @@
           "code": "long_instrumental_outro",
           "seconds": 22.86
         }
-      ]
+      ],
+      "originalPrompt": {
+        "idea": "Original song about Samarie from the game Fear & Hunger. Explicit lyrics, angry tone.",
+        "direction": "Circus music EBM",
+        "keep": "Tony's slurred delivery and lore accurate lyrics",
+        "basisSongs": []
+      }
     },
     {
       "id": "distonyc-609553f2a923b2c357f98efd",

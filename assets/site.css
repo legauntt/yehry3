@@ -1,9 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap");
 
-.quality-notice { margin: .55rem 0; color: #795016; font-size: .875rem; }
-.quality-notice > summary { display: list-item; width: fit-content; padding: .2rem .6rem; border: 1px solid currentColor; border-radius: 1rem; cursor: pointer; font-weight: 700; }
-.quality-notice > p { max-width: 60ch; margin: .5rem 0; }
-.retry-form { display: flex; align-items: center; flex-wrap: wrap; gap: .75rem; margin: .75rem 0 1rem; }
+.quality-notice {
+  display: flow-root;
+  margin: 0.6rem 0 0;
+  color: #795016;
+  font-size: 0.75rem;
+}
+.quality-notice > summary {
+  display: list-item;
+  float: left;
+  width: fit-content;
+  margin-right: 12px;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  list-style-position: inside;
+}
+.quality-notice > p {
+  max-width: none;
+  margin: 0;
+  padding-top: 4px;
+  overflow: hidden;
+  line-height: 1.6;
+}
+@media (max-width: 700px) {
+  .quality-notice > summary {
+    float: none;
+    margin-right: 0;
+  }
+  .quality-notice > p {
+    padding-top: 7px;
+  }
+}
+.retry-form {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0.75rem 0 1rem;
+}
 
 :root {
   --paper: #f5f2e8;
@@ -510,7 +547,7 @@ main {
 }
 .track {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 20px;
   border-top: 1px solid var(--line);
   padding: 20px 12px;
@@ -544,6 +581,29 @@ main {
 .track-info {
   flex: 1;
   min-width: 0;
+}
+.track > .track-number {
+  padding-top: 10px;
+}
+.track > .play-song,
+.track > .vote-hint {
+  margin-top: 2px;
+}
+.track-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 12px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.6;
+}
+.track-meta .text-link,
+.track-duration {
+  white-space: nowrap;
+}
+.track-collections {
+  overflow-wrap: anywhere;
 }
 .track-info h3 {
   margin: 0 0 3px;
@@ -1267,7 +1327,8 @@ main {
   .track-info h3 {
     font-size: 0.85rem;
   }
-  .track-info p {
+  .track-info p,
+  .track-meta {
     font-size: 0.66rem;
   }
   .play-song {
