@@ -2,14 +2,54 @@ import math
 import tempfile
 import unittest
 from pathlib import Path
-from quality_finish import compile_policy, review_outro, RULE
+from quality_finish import compile_policy, review_outro, warn_vocals, RULE
 from renderer import execution_manifest, failure_detail, with_quality
-from common import save
+from common import save, sha
 from publish import song_record
 from quality_configure import compile_policy as compile_arrangement, review_breaks
 
 
 class QualityTests(unittest.TestCase):
+    def test_vocal_review_preserves_original_assertion_and_other_audio_guards(self):
+        source = f"""weak=[1.,1.2,1.4]
+longest=.6
+assert longest<=.4,('Missing vocal phrase',weak)
+assert 0<post_vocal_seconds<=13,({RULE!r},post_vocal_seconds)
+assert peak_ok, 'Encoded peak too loud'
+exported=True
+"""
+        code = compile_policy(source, 'finisher.py')
+        values = {'post_vocal_seconds': 3, 'peak_ok': True,
+                  '_distonyc_review_outro': lambda value: None,
+                  '_distonyc_warn_vocals': lambda weak, longest: False,
+                  '_distonyc_review_vocals': lambda weak, longest: (weak, longest)}
+        with self.assertRaisesRegex(AssertionError, 'Missing vocal phrase'): exec(code, dict(values))
+        reviewed = {**values, '_distonyc_review_vocals': lambda weak, longest: ([1., 1.4], .2)}
+        exec(code, reviewed)
+        self.assertTrue(reviewed['exported'])
+        with self.assertRaisesRegex(AssertionError, 'Encoded peak'): exec(code, {**reviewed, 'peak_ok': False})
+
+    def test_unresolved_vocals_warn_only_after_repair_with_current_input_hashes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            work = Path(directory)
+            files = ('selected-vocals.wav', 'selected-backing.wav', 'matched-vocals.wav')
+            for name in files: (work / name).write_bytes(name.encode())
+            issues = []
+            self.assertFalse(warn_vocals(work, [1, 1.2, 1.4], .6, issues, True))
+            save(work / 'vocal-quality-policy.json', {'version': 1, 'after_bounded_repair': True,
+                'inputs_sha256': {name: sha(work / name) for name in files}})
+            self.assertFalse(warn_vocals(work, [1, 1.2, 1.4], .6, issues, False))
+            self.assertTrue(warn_vocals(work, [1, 1.2, 1.4], .6, issues, True))
+            self.assertEqual(issues, [{'code': 'vocal_dropout', 'seconds': .6}])
+            (work / 'matched-vocals.wav').write_bytes(b'changed')
+            with self.assertRaisesRegex(ValueError, 'inputs changed'): warn_vocals(work, [1, 1.2, 1.4], .6, [], True)
+
+    def test_vocal_warning_requires_api_rollout_flag(self):
+        manifest = {'kind': 'new', 'workers': {'finish_song.py': 'hash'}, 'tasks': [
+            {'name': 'finish', 'command': ['python', 'saved/finish_song.py', '--work', 'saved']} ]}
+        self.assertNotIn('--allow-vocal-dropout-warning', execution_manifest(manifest)['tasks'][0]['command'])
+        self.assertIn('--allow-vocal-dropout-warning', execution_manifest(manifest, vocal_dropout_warnings=True)['tasks'][0]['command'])
+
     def test_break_warning_requires_matching_api_rollout(self):
         manifest = {'kind': 'new', 'style': 'rock', 'workers': {'configure_song.py': 'abc'},
                     'tasks': [{'name': 'configure', 'command': ['python', 'saved/configure_song.py', '--work', 'saved']}]}

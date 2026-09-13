@@ -7,6 +7,7 @@ from publish import merge_catalog, update_catalog, song_record, original_prompt
 from worker import run_once, basis_files, metadata
 from winprocess import Stopped, run_owned
 from lyrics import make_sheet, export_sheet
+from source_material import source_material
 
 def plan():
     return {'recipe': 'new', 'title': 'Night Train', 'style': 'rock', 'duration': 200, 'bpm': 100,
@@ -94,6 +95,82 @@ class WorkerTests(unittest.TestCase):
             self.assertEqual(api.path, '/claim'); self.assertEqual(load(Path(directory) / 'health.json')['status'], 'idle')
             model.assert_not_called(); render.assert_not_called(); upload.assert_not_called()
             self.assertFalse((Path(directory) / 'claim.json').exists())
+
+    def test_null_cached_stems_allow_an_inspired_original_to_reach_planning(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); studio = root / 'studio'; studio.mkdir()
+            (studio / 'PREFERENCES.md').write_text('Use the saved Tony V6 voice.')
+            catalog = root / 'catalog-expansion-v6'
+            save(catalog / 'sources.json', [{'recording': 'gravity', 'source_sha256': 'a' * 64, 'cached_stems': None}])
+            save(catalog / 'transcripts/gravity.json', [{'text': 'Saved reference lyrics.'}])
+            config = {'settings': {'studio_dir': str(studio)}, 'planner_model': 'test', 'codex': 'test'}
+            basis = [{'id': 'gravity', 'title': 'Gravity', 'sha256': 'a' * 64}]
+            brief = {'prompt': 'Similar to Gravity, but about Polarity', 'details': {'basisSongIds': ['gravity']}}
+            self.assertIsNone(source_material(config, basis))
+            def model(*args, **kwargs):
+                self.assertIn('Gravity', kwargs['input_text'])
+                self.assertNotIn('Saved source material (lyric data', kwargs['input_text'])
+                save(root / 'planner-result.json', plan())
+            with patch('planner.run_owned', side_effect=model) as called:
+                result = make_plan(config, brief, root, basis)
+            self.assertEqual(result['recipe'], 'new'); called.assert_called_once()
+            self.assertTrue((root / 'plan.json').exists())
+
+    def test_unexpected_local_failure_releases_claim_and_retains_diagnostics(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); calls = []
+            prompt = {'id': 'test-prompt', 'status': 'processing', 'prompt': 'An original', 'details': {}}
+            job = root / 'jobs/test-prompt'; save(job / 'saved-work.json', {'retained': True})
+            class API:
+                def call(self, path, body=None, timeout=25):
+                    calls.append((path, body))
+                    if path.endswith('/fail'): prompt['status'] = 'failed'
+                    return {'prompt': dict(prompt)}
+            with patch('worker.basis_files', return_value=[]), patch('worker.make_plan', side_effect=AttributeError('missing optional metadata')), patch('worker.run_owned') as render:
+                with self.assertRaisesRegex(AttributeError, 'missing optional metadata'):
+                    run_once({'state_dir': directory}, API())
+            failures = [body for path, body in calls if path.endswith('/fail')]
+            self.assertEqual(len(failures), 1)
+            self.assertIn('Planning the song failed: AttributeError', failures[0]['error'])
+            self.assertFalse((root / 'claim.json').exists())
+            self.assertEqual(load(job / 'saved-work.json'), {'retained': True})
+            diagnostic = load(job / 'worker-error.json')
+            self.assertEqual(diagnostic['stage'], 'Planning the song')
+            self.assertIn('AttributeError: missing optional metadata', diagnostic['traceback'])
+            render.assert_not_called()
+
+    def test_failure_settlement_respects_fresh_lease_cancel_and_publication_status(self):
+        for refresh in ('cancel_requested', 'publishing', 'published', APIError(409, 'lease lost'), OSError('offline')):
+            with self.subTest(refresh=refresh), tempfile.TemporaryDirectory() as directory:
+                calls = []; beats = []
+                prompt = {'id': 'test-prompt', 'status': 'processing', 'prompt': 'An original', 'details': {}}
+                class API:
+                    def call(self, path, body=None, timeout=25):
+                        calls.append(path)
+                        if path.endswith('/heartbeat'):
+                            beats.append(path)
+                            if len(beats) > 1:
+                                if isinstance(refresh, Exception): raise refresh
+                                return {'prompt': {**prompt, 'status': refresh}}
+                        return {'prompt': dict(prompt)}
+                with patch('worker.basis_files', return_value=[]), patch('worker.make_plan', side_effect=TypeError('bad local metadata')):
+                    with self.assertRaisesRegex(TypeError, 'bad local metadata'):
+                        run_once({'state_dir': directory}, API())
+                self.assertFalse(any(path.endswith('/fail') for path in calls))
+                self.assertTrue((Path(directory) / 'claim.json').exists())
+
+    def test_transport_failure_retains_claim_for_saved_work_reconciliation(self):
+        for error in (APIError(503, 'temporarily unavailable'), OSError('response lost')):
+            with self.subTest(error=error), tempfile.TemporaryDirectory() as directory:
+                calls = []
+                prompt = {'id': 'test-prompt', 'status': 'processing', 'prompt': 'An original', 'details': {}}
+                class API:
+                    def call(self, path, body=None, timeout=25):
+                        calls.append(path); return {'prompt': dict(prompt)}
+                with patch('worker.basis_files', return_value=[]), patch('worker.make_plan', side_effect=error):
+                    with self.assertRaises(type(error)): run_once({'state_dir': directory}, API())
+                self.assertFalse(any(path.endswith('/fail') for path in calls))
+                self.assertTrue((Path(directory) / 'claim.json').exists())
 
     def test_claim_is_saved_before_a_lost_response_and_replayed(self):
         class API:

@@ -2,6 +2,29 @@
 
 The **Distonyc Worker** scheduled task polls Chairlift every two minutes and at sign-in. Windows starts it without a visible window, ignores overlapping triggers, and retries failures three times at five-minute intervals. It runs with Jesse's ordinary interactive Windows account; the PC must be awake and signed in. It does not wake the PC or require a stored Windows password.
 
+## Queue monitor and automatic recovery
+
+The separate **Distonyc Queue Monitor** task checks all submitted requests every five minutes and at sign-in. Jesse authorized automatic healing on September 12. Failed requests (the website's Needs Attention state) are grouped by cause, requeued when a supported recovery is available, and tracked through publication. Monitoring itself makes no model calls.
+
+| Cause | Automatic action |
+| --- | --- |
+| Verified local export / publication failure | Resume publication of the same files. |
+| Short vocal dropout | First distinguish conservatively verified stereo backing bleed from source voice. For genuine loss, render up to three short passages, totaling at most four seconds, with context and saved V6. Preserve every sample outside the repair. If the bounded repair cannot resolve it, publish the best retained performance with a visible vocal issue notice after the remaining integrity checks pass. |
+| Unfinished ending | Use the existing one-time longer composition recovery. Retain the original attempt. |
+| Long instrumental gap or outro | Use the existing advisory policies and publish the musical notice with the song when the remaining checks pass. |
+| GPU memory, timeout, connection or sharing error | Resume saved stages after cooldowns of 15 and 60 minutes. |
+| Changed inputs, unsupported plan or unknown cause | Keep diagnostics in the review report; do not repeat the same failed action. |
+
+Each request gets at most three monitor retries per policy version, and each deterministic musical recovery gets one attempt. A scan requeues at most two requests. Active leases, cancellations and changed server versions are respected. Interrupted vocal repairs resume from cached stages and retained original stems. `automatic_vocal_repair: true` in the installed config enables the renderer hook; setting it false disables new automatic voice repairs.
+
+Jesse's default is to publish a playable song with a visible issue notice when a musical repair cannot succeed. `vocal_dropout_warnings: true` enables that fallback after the API/site warning contract is deployed. The fallback pins the retained source, backing and converted vocal hashes, leaves the audio intact, and retains the measured dropout duration in the report. Invalid/changed files and export integrity failures still require a usable file before publication.
+
+`vocal-evidence.json` records raw missing-window measurements and any conservatively identified separator bleed. Exclusion requires no source pitch in fresh left/right/mid contours, at least 98% low-frequency energy, very quiet upper-band energy, diffuse stereo, and a matching backing tone with at least 0.95 correlation in both channels. F0=0 alone never exempts a vocal. The original dropout thresholds remain; genuine consonants, quiet center vocals and unresolved windows continue through repair or the visible-warning fallback.
+
+Private reports live in `%LOCALAPPDATA%\Distonyc\state\monitor\`: `report.md` is readable, `report.json` contains current category counts, `ledger.json` retains causes/attempts/resolutions and seven days of snapshots, and `health.json` plus `monitor.log` show the monitor's own status. A successful retry is counted as resolved only when the request is published. Bump `POLICY_VERSION` after changing a recovery approach to allow a new bounded retry budget while retaining the old evidence.
+
+The monitor uses a separate current-user DPAPI credential in `monitor-credential.xml`; it authenticates through the normal admin API and never bypasses queue version or ownership checks. Prepare that credential locally, copy the worker code while the worker is idle, then run `install-monitor.ps1 -Start`. Existing `install.ps1` updates monitor files along with the worker without deleting its credential or ledger. Use `Disable-ScheduledTask -TaskName 'Distonyc Queue Monitor'` to pause automatic requeueing, or `Start-ScheduledTask -TaskName 'Distonyc Queue Monitor'` for an immediate check. Both tasks run hidden while this PC is awake and Jesse is signed in.
+
 ## What uses a model
 
 An empty queue makes one API request and exits. A new confirmed brief makes **one schema-constrained Codex planning call**, using the saved CLI login and `gpt-6-astra`. The model chooses a supported recipe and writes the title, complete lyrics when needed, tempo, key, and arrangement. Shell, web, apps, and multi-agent tools are disabled for that call. Submitted text stays in JSON; it never becomes executable code. The validated plan is saved and reused after restarts.
@@ -16,6 +39,7 @@ Publication includes the original confirmed idea, direction, preferences, and ba
 
 - The saved full-catalog **Tony V6 voice is mandatory**. No new voice training occurs.
 - Zero basis songs produces an original. Up to five files from `gatsby-opus/static` can condition the composition locally. The dropdown inventories every supported audio file and sorts by title; IDs derive from relative paths, not positions. Audio is never uploaded to the planning model.
+- A single basis song can also inspire a new original with a new subject and lyrics. It does not force a faithful remake. Altered/wrong lyrics and spoken introductions can use the existing single-source reinterpretation recipe; an acoustic rewrite retains newly generated acoustic instrumentation. Missing optional cached-stem fields fall back to provenance-checked completed separation journals when available. Known unstarted capability rejections get one retained, journaled planning upgrade; started recordings are preserved.
 - Original songs support 3–5 minutes and genre instructions, with complete lyrics and a resolved ending. Selected references influence arrangement/timbre; they do not guarantee preserved melodies.
 - A single-source genre reinterpretation, including rap, uses the saved catalog transcription and isolated vocal references. It preserves recognizable hooks and motifs while composing new lyrics, timing and accompaniment for the requested genre, then applies Tony V6. It requires cached source material; it does not promise unchanged melody. The old, unstarted missing-rap-recipe rejection is upgraded once a supported plan is available, retaining the original rejection in `plan-before-rap-support.json`.
 - A faithful or acoustic rendition uses exactly one selected source, currently 5–300 seconds. Acoustic reconstruction is experimental and must pass the existing strict checks.
@@ -69,7 +93,7 @@ Refresh the basis inventory with `scripts/sync-basis-catalog.py` (see `--help`) 
 
 ## Validation
 
-`python -m unittest -v test_worker.py test_quality.py test_recovery.py` checks idle behavior, lost responses, expired claims, plan reuse, safe paths, conflict-aware catalog merges, Windows process-tree cancellation, concurrent state writes, transient sharing failures, rap-plan migration and bounded ending recovery. Chairlift's Mongo integration tests cover leasing/fencing, cancellation, publication, permissions, password rotation, and optional basis validation. Browser tests cover zero/five selections, the limit, sorting, review persistence, and mobile layout.
+`python -m unittest -v test_worker.py test_quality.py test_recovery.py test_queue_monitor.py` checks idle behavior, lost responses, expired claims, plan reuse and capability upgrades, safe paths, conflict-aware catalog merges, Windows process-tree cancellation, concurrent state writes, transient sharing failures, source discovery, bounded recovery and warning rollout. Run `test_vocal_evidence.py` with the saved voice Python for its NumPy/SciPy signal tests. Chairlift's Mongo integration tests cover leasing/fencing, cancellation, publication, permissions, password rotation, and optional basis validation. Browser tests cover zero/five selections, the limit, sorting, review persistence, and mobile layout.
 
 `worker.py --verify-existing <completed-work-folder>` is an **operator-only delivery test** that exercises the queue and upload path using an existing technically verified export. It is not accepted from website input and is never in the scheduled task arguments. It does not prove a fresh creative render or human listening quality.
 

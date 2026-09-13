@@ -14,7 +14,7 @@ def with_quality(result):
     return result
 
 
-def execution_manifest(manifest, instrumental_break_warnings=False):
+def execution_manifest(manifest, instrumental_break_warnings=False, vocal_dropout_warnings=False):
     if manifest['kind'] != 'new': return manifest
     # Adapt the command in memory. Frozen scripts, inputs, hashes and the saved
     # stage journal remain authoritative and are never rewritten by this policy.
@@ -28,6 +28,7 @@ def execution_manifest(manifest, instrumental_break_warnings=False):
             command = task['command']
             task = {**task, 'command': [command[0], str(Path(__file__).with_name('quality_finish.py')),
                     '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers']['finish_song.py']]}
+            if vocal_dropout_warnings: task['command'].append('--allow-vocal-dropout-warning')
         tasks.append(task)
     return {**manifest, 'tasks': tasks}
 
@@ -73,6 +74,47 @@ def ending_repair(request, work):
             'original_evidence': evidence, 'attempt_limit': 1, 'original_audio_retained': True}
 
 
+def vocal_recovery(request, repair=None, pending_only=False):
+    if not request['config'].get('automatic_vocal_repair', False) or request.get('verify_existing'): return False
+    identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id'] + (':ending-v1' if repair else '')))
+    work = Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier)
+    marker = work / 'vocal-repair/status.json'
+    recovery = load(marker) if marker.exists() else None
+    if recovery and recovery['status'] in ('failed', 'applied'): return False
+    if pending_only and not recovery: return False
+    state_file = work / 'desktop-status.json'
+    if not state_file.exists(): return False
+    state = load(state_file)
+    if not recovery and (state.get('status') != 'failed' or state.get('stage') != 'finish' or 'Missing vocal phrase' not in state.get('error', '')): return False
+    write_progress(Path(request['directory']) / 'progress.json', {'stage':'Repairing a short vocal dropout', 'progress':.84})
+    try:
+        with (Path(request['directory']) / 'vocal-recovery.log').open('a', encoding='utf-8') as log:
+            subprocess.run([request['config']['settings']['voice_python'], str(Path(__file__).with_name('vocal_repair.py')),
+                '--work', str(work), '--engine-resources', request['config']['engine_resources']],
+                cwd=work, stdout=log, stderr=subprocess.STDOUT, check=True, creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+    except subprocess.CalledProcessError:
+        detail = load(marker).get('error', 'See the saved vocal recovery log') if marker.exists() else 'See the saved vocal recovery log'
+        raise RuntimeError('Missing vocal phrase: automatic repair could not validate the passage. ' + detail[:500]) from None
+    return True
+
+
+def allow_vocal_warning(request, repair=None):
+    if not request['config'].get('vocal_dropout_warnings', False) or request.get('verify_existing'): return False
+    identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id'] + (':ending-v1' if repair else '')))
+    work = Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier)
+    state_file = work / 'desktop-status.json'
+    if not state_file.exists(): return False
+    state = load(state_file)
+    if state.get('status') != 'failed' or state.get('stage') != 'finish' or 'Missing vocal phrase' not in state.get('error', ''): return False
+    policy = work / 'vocal-quality-policy.json'
+    if policy.exists(): return False
+    save(policy, {'version': 1, 'after_bounded_repair': True,
+        'reason': 'Publish the best retained performance with a visible vocal issue after recovery cannot resolve it.',
+        'inputs_sha256': {name: sha(work / name) for name in ('selected-vocals.wav', 'selected-backing.wav', 'matched-vocals.wav')},
+        'audio_changed': False, 'other_integrity_checks_retained': True})
+    return True
+
+
 def render(request):
     repair_file = Path(request['directory']) / 'ending-repair.json'
     repair = load(repair_file) if repair_file.exists() else None
@@ -83,16 +125,27 @@ def render(request):
         original = inside(repair['original_work'], Path(request['config']['settings']['studio_dir']).parent)
         if sha(original / 'desktop-job.json') != repair['original_manifest_sha256']:
             raise ValueError('The original render manifest changed after ending repair was planned')
-    try:
-        return render_attempt(request, repair)
+    try: vocal_recovery(request, repair, pending_only=True)
     except RuntimeError:
-        if repair or request.get('verify_existing'): raise
-        identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id']))
-        work = Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier)
-        repair = ending_repair(request, work)
-        if not repair: raise
-        save(repair_file, repair)
-        return render_attempt(request, repair)
+        if not allow_vocal_warning(request, repair): raise
+    for attempt in range(3):
+        try:
+            return render_attempt(request, repair)
+        except RuntimeError:
+            if request.get('verify_existing'): raise
+            try:
+                if vocal_recovery(request, repair): continue
+            except RuntimeError:
+                if allow_vocal_warning(request, repair): continue
+                raise
+            if allow_vocal_warning(request, repair): continue
+            if repair: raise
+            identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id']))
+            work = Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier)
+            repair = ending_repair(request, work)
+            if not repair: raise
+            save(repair_file, repair)
+    raise RuntimeError('The bounded recovery attempts are exhausted; saved work is retained.')
 
 
 def render_attempt(request, repair=None):
@@ -169,7 +222,7 @@ def render_attempt(request, repair=None):
             if configured['plan_hash'] != fingerprint(plan) or configured['basis'] != basis: raise ValueError('Saved production inputs changed')
         engine.validate_saved(work, manifest)
         if load(work / 'desktop-status.json')['status'] == 'completed': return with_quality(engine.verify_work(work, settings['output_dir']))
-        return with_quality(engine.execute_stages(work, execution_manifest(manifest, config.get('instrumental_break_warnings', False))))
+        return with_quality(engine.execute_stages(work, execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False))))
 
 def render_quartet(request, engine):
     settings, basis, plan = request['config']['settings'], request['basis'], request['plan']

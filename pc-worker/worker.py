@@ -141,17 +141,34 @@ def run_once(config, api, verify_existing=None):
         if heartbeat.reason == 'cancel':
             action('cancel'); journal.unlink(); save(health, {'at': utc(), 'status': 'canceled', 'promptId': prompt['id']})
         else: raise
-    except (ValueError, RuntimeError) as error:
+    except (APIError, OSError):
+        # A transport response may be lost after the server commits a transition.
+        # Retain the claim so the next run reconciles instead of failing that work.
+        raise
+    except Exception as error:
+        stage = heartbeat.stage
+        if stage == 'Rendering':
+            try: stage = load(directory / 'progress.json').get('stage', stage)
+            except (OSError, ValueError, AttributeError): pass
+        message = str(error) if isinstance(error, (ValueError, RuntimeError)) else (
+            f'{stage} failed: {type(error).__name__}: {error}. Saved work is retained; Retry resumes completed stages.')
+        try:
+            save(directory / 'worker-error.json', {'at': utc(), 'stage': stage,
+                'type': type(error).__name__, 'message': message, 'traceback': traceback.format_exc()[-16000:]})
+        except (OSError, ValueError): pass
         # Flush the latest stage instead of leaving a previous heartbeat's label.
+        confirmed = False
         if not heartbeat.stopped():
-            try: heartbeat.beat()
-            except (APIError, OSError, ValueError): pass
+            try: heartbeat.beat(); confirmed = True
+            except APIError as refresh_error:
+                if refresh_error.status in (401, 403, 404, 409): heartbeat.reason = 'lease'
+            except (OSError, ValueError): pass
         heartbeat.close()
         # Publication is a durable finalization step: never rerender a completed mix after an upload outage.
-        if prompt['status'] in ['processing', 'completed'] and not heartbeat.stopped():
+        if confirmed and heartbeat.prompt['status'] in ['processing', 'completed'] and not heartbeat.stopped():
             try:
-                action('fail', error=str(error)[:1000]); journal.unlink()
-            except APIError: pass
+                action('fail', error=message[:1000]); journal.unlink()
+            except (APIError, OSError): pass
         raise
     finally: heartbeat.close()
 

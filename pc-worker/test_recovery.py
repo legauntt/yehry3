@@ -7,12 +7,68 @@ from pathlib import Path
 from unittest.mock import patch
 from common import fingerprint, load, save, sha
 from planner import make_plan, validate
-from renderer import ending_repair, render, write_progress
+from renderer import allow_vocal_warning, ending_repair, render, write_progress
 from source_material import source_material
 from test_worker import plan
 
 
+def gravity_inspiration_rejection():
+    brief = {'prompt': 'Similar to Gravity, but about the horrors of Polarity in SC2 co op',
+             'details': {'source': '', 'basisSongIds': ['basis-d2ee7d3dfa169d061659'], 'basisSongTitles': ['Gravity'],
+                         'direction': "Capture the pain of needing your ally's help to kill a unit that you cannot", 'keep': 'Surprise me'}}
+    rejected = {**plan(), 'recipe': 'needs_attention', 'title': 'My Target Your Problem', 'duration': 240,
+                'bpm': 112, 'lyrics': '', 'preserve_generated_backing': False, 'fear_hunger': False,
+                'explanation': 'A Gravity-based thematic rewrite needs a recipe that supports new lyrics from one basis song. Existing faithful recipes retain the source lyrics; the supplied material does not support reinterpretation.'}
+    basis = [{'id': 'basis-d2ee7d3dfa169d061659', 'title': 'Gravity', 'sha256': 'a' * 64}]
+    return brief, {'briefHash': fingerprint(brief), 'plan': rejected, 'model': 'test'}, basis
+
+
+def medusa_lyrics_rejection():
+    brief = {'prompt': 'Tony C trying to perform Medusa, but he gets all of the lyrics wrong',
+             'details': {'basisSongIds': ['basis-7495956f046a9874e11c'], 'basisSongTitles': ['Medusa'],
+                         'direction': 'Acoustic Medusa', 'keep': 'Incorrect lyrics. Pre-intro begins with Tony C asking, confused, "Dis is Tony C? From da shoes?"'}}
+    rejected = {**plan(), 'recipe': 'needs_attention', 'title': 'Medusa Misremembered', 'style': 'acoustic',
+                'duration': 258, 'bpm': 80, 'lyrics': '', 'fear_hunger': False,
+                'explanation': "The existing acoustic recipe preserves Medusa's original lyrics and phrasing. Deliberately wrong lyrics and the added spoken introduction require an altered-lyrics rendition recipe that is not available."}
+    basis = [{'id': 'basis-7495956f046a9874e11c', 'title': 'Medusa', 'sha256': 'a' * 64}]
+    return brief, {'briefHash': fingerprint(brief), 'plan': rejected, 'model': 'test'}, basis
+
+
 class RecoveryTests(unittest.TestCase):
+    def test_failed_vocal_repair_falls_back_to_retained_audio_once_when_enabled(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            work = root / ('troofs-desktop-' + str(uuid.uuid5(uuid.NAMESPACE_URL, 'prompt')))
+            work.mkdir()
+            files = ('selected-vocals.wav', 'selected-backing.wav', 'matched-vocals.wav')
+            for name in files: (work / name).write_bytes(name.encode())
+            save(work / 'desktop-status.json', {'status': 'failed', 'stage': 'finish', 'error': "('Missing vocal phrase', [1, 1.2, 1.4])"})
+            request = {'directory': str(root), 'prompt_id': 'prompt', 'plan': plan(), 'basis': [],
+                       'config': {'vocal_dropout_warnings': True, 'settings': {'studio_dir': str(root / 'studio')}}}
+            with patch('renderer.render_attempt', side_effect=[RuntimeError('dropout'), {'status': 'verified'}]) as attempt, \
+                    patch('renderer.vocal_recovery', side_effect=[False, RuntimeError('repair failed')]):
+                self.assertEqual(render(request), {'status': 'verified'})
+                self.assertEqual(attempt.call_count, 2)
+            policy = load(work / 'vocal-quality-policy.json')
+            self.assertTrue(policy['after_bounded_repair'])
+            self.assertEqual(policy['inputs_sha256'], {name: sha(work / name) for name in files})
+            self.assertFalse(allow_vocal_warning(request))
+            for name in files: self.assertEqual((work / name).read_bytes(), name.encode())
+
+    def test_nonvocal_failure_or_disabled_rollout_cannot_enable_vocal_warning(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            work = root / ('troofs-desktop-' + str(uuid.uuid5(uuid.NAMESPACE_URL, 'prompt')))
+            work.mkdir()
+            request = {'directory': str(root), 'prompt_id': 'prompt',
+                       'config': {'settings': {'studio_dir': str(root / 'studio')}}}
+            save(work / 'desktop-status.json', {'status': 'failed', 'stage': 'finish', 'error': 'Missing vocal phrase'})
+            self.assertFalse(allow_vocal_warning(request))
+            request['config']['vocal_dropout_warnings'] = True
+            for stage, error in [('finish', 'Encoded peak too loud'), ('validate', 'Pitch error')]:
+                save(work / 'desktop-status.json', {'status': 'failed', 'stage': stage, 'error': error})
+                self.assertFalse(allow_vocal_warning(request))
+
     def test_atomic_save_retries_windows_sharing_violation_and_preserves_old_json(self):
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'progress.json'; save(path, {'old': True})
@@ -90,6 +146,153 @@ class RecoveryTests(unittest.TestCase):
             self.assertEqual(result['vocal_reference_sha256'], sha(vocals))
             self.assertFalse(result['lyrics_verified'])
             self.assertIsNone(source_material(config, [{**basis[0], 'sha256': 'b' * 64}]))
+
+    def test_source_material_recovers_completed_separation_with_matching_source_provenance(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); catalog = root / 'catalog-expansion-v6'
+            vocals = catalog / 'source-stems/medusa-vocals.wav'; vocals.parent.mkdir(parents=True); vocals.write_bytes(b'saved voice')
+            save(catalog / 'sources.json', [{'recording': 'medusa', 'source_sha256': 'a' * 64, 'cached_stems': None}])
+            save(catalog / 'transcripts/medusa.json', {'segments': [{'text': 'Saved original reference words.'}]})
+            journal = catalog / 'separation-status/medusa.json'
+            saved = {'status': 'completed', 'recording': 'medusa', 'source_sha256': 'a' * 64, 'paths': {'vocals': str(vocals)}}
+            save(journal, saved)
+            config = {'settings': {'studio_dir': str(root / 'studio')}}
+            basis = [{'id': 'one', 'title': 'Medusa', 'sha256': 'a' * 64}]
+            result = source_material(config, basis)
+            self.assertEqual(result['vocal_reference_sha256'], sha(vocals))
+            self.assertEqual(result['lyrics_draft'], 'Saved original reference words.')
+            for invalid in ({'status': 'processing'}, {'source_sha256': 'b' * 64}, {'recording': 'other'}):
+                save(journal, {**saved, **invalid})
+                self.assertIsNone(source_material(config, basis))
+            save(journal, {**saved, 'paths': {'vocals': str(root / 'unrelated.wav')}})
+            with self.assertRaisesRegex(ValueError, 'outside the configured directory'): source_material(config, basis)
+
+    def test_medusa_altered_lyrics_and_spoken_intro_migrate_to_acoustic_reinterpretation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); (root / 'PREFERENCES.md').write_text('Use Tony V6.')
+            brief, old, basis = medusa_lyrics_rejection(); save(root / 'plan.json', old)
+            material = {'title': 'Medusa', 'recording': 'medusa', 'lyrics_draft': 'Source motifs and original words.', 'lyrics_verified': False}
+            config = {'planner_model': 'test', 'codex': 'test', 'settings': {'studio_dir': str(root)}}
+            adapted = {**plan(), 'recipe': 'reinterpretation', 'style': 'acoustic',
+                       'lyrics': '[Spoken Intro]\nDis is Tony C? From da shoes?\n' + plan()['lyrics']}
+            def model(command, *args, **kwargs):
+                self.assertIn('recipe=reinterpretation, style=acoustic and preserve_generated_backing=true', kwargs['input_text'])
+                self.assertIn('preserving any quoted requested line verbatim', kwargs['input_text'])
+                self.assertIn('Source motifs and original words.', kwargs['input_text'])
+                save(Path(command[command.index('--output-last-message') + 1]), adapted)
+            with patch('planner.source_material', return_value=material), patch('planner.run_owned', side_effect=model) as called:
+                self.assertEqual(make_plan(config, brief, root, basis), adapted)
+                self.assertEqual(make_plan(config, brief, root, basis), adapted)
+                called.assert_called_once()
+            self.assertEqual(load(root / 'plan-before-altered-lyrics-support.json'), old)
+            self.assertEqual(load(root / 'altered-lyrics-upgrade.json')['attempts'], 1)
+
+    def test_altered_lyrics_upgrade_requires_source_and_preserves_started_or_exact_melody_requests(self):
+        for boundary in ('missing_source', 'render-request.json', 'render-result.json', 'exact_melody'):
+            with self.subTest(boundary=boundary), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory); brief, old, basis = medusa_lyrics_rejection()
+                if boundary.endswith('.json'): save(root / boundary, {'started': True})
+                elif boundary == 'exact_melody':
+                    brief['details']['keep'] += '; preserve exact original melody'
+                    old['briefHash'] = fingerprint(brief)
+                save(root / 'plan.json', old)
+                with patch('planner.source_material', return_value=None), patch('planner.run_owned') as model:
+                    self.assertEqual(make_plan({}, brief, root, basis), old['plan'])
+                    model.assert_not_called()
+                self.assertFalse((root / 'altered-lyrics-upgrade.json').exists())
+
+    def test_altered_lyrics_upgrade_does_not_repeat_rejection_or_accept_wrong_backing_style(self):
+        for output in ('rejected', 'wrong_style'):
+            with self.subTest(output=output), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory); (root / 'PREFERENCES.md').write_text('Use Tony V6.')
+                brief, old, basis = medusa_lyrics_rejection(); save(root / 'plan.json', old)
+                material = {'title': 'Medusa', 'recording': 'medusa', 'lyrics_draft': 'Saved source words.', 'lyrics_verified': False}
+                config = {'planner_model': 'test', 'codex': 'test', 'settings': {'studio_dir': str(root)}}
+                def model(command, *args, **kwargs):
+                    save(Path(command[command.index('--output-last-message') + 1]), old['plan'] if output == 'rejected' else {**plan(), 'recipe': 'reinterpretation'})
+                with patch('planner.source_material', return_value=material), patch('planner.run_owned', side_effect=model) as called:
+                    for attempt in range(2):
+                        if output == 'rejected': self.assertEqual(make_plan(config, brief, root, basis), old['plan'])
+                        else:
+                            with self.assertRaisesRegex(ValueError, 'needs acoustic style'): make_plan(config, brief, root, basis)
+                    called.assert_called_once()
+
+    def test_gravity_inspired_original_migrates_the_rejected_plan_once(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); (root / 'PREFERENCES.md').write_text('Use Tony V6.')
+            brief, old, basis = gravity_inspiration_rejection()
+            save(root / 'plan.json', old)
+            save(root / 'planner-result.json', old['plan'])
+            save(root / 'planning-input.json', {'briefHash': old['briefHash']})
+            config = {'planner_model': 'test', 'codex': 'test', 'settings': {'studio_dir': str(root)}}
+            def model(command, *args, **kwargs):
+                instruction = kwargs['input_text']
+                self.assertIn('Use new for an original with 0–5 basis songs, including exactly one reference.', instruction)
+                self.assertIn('The faithful remix, acoustic and barbershop recipes retain the original lyrics', instruction)
+                self.assertIn(brief['prompt'], instruction)
+                output = Path(command[command.index('--output-last-message') + 1])
+                self.assertNotEqual(output, root / 'planner-result.json')
+                save(output, plan())
+            with patch('planner.source_material', return_value=None), patch('planner.run_owned', side_effect=model) as called:
+                self.assertEqual(make_plan(config, brief, root, basis)['recipe'], 'new')
+                self.assertEqual(make_plan(config, brief, root, basis)['recipe'], 'new')
+                called.assert_called_once()
+            self.assertEqual(load(root / 'plan-before-single-basis-inspiration.json'), old)
+            self.assertEqual(load(root / 'planner-result.json'), old['plan'])
+            self.assertEqual(load(root / 'single-basis-inspiration-upgrade.json')['attempts'], 1)
+
+    def test_single_basis_upgrade_does_not_repeat_a_rejected_or_interrupted_model_call(self):
+        for outcome in ('rejected', 'interrupted', 'output_saved_before_interruption'):
+            with self.subTest(outcome=outcome), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory); (root / 'PREFERENCES.md').write_text('Use Tony V6.')
+                brief, old, basis = gravity_inspiration_rejection(); save(root / 'plan.json', old)
+                config = {'planner_model': 'test', 'codex': 'test', 'settings': {'studio_dir': str(root)}}
+                def model(command, *args, **kwargs):
+                    output = Path(command[command.index('--output-last-message') + 1])
+                    if outcome != 'interrupted': save(output, old['plan'] if outcome == 'rejected' else plan())
+                    if outcome != 'rejected': raise RuntimeError('Planner response interrupted')
+                with patch('planner.source_material', return_value=None), patch('planner.run_owned', side_effect=model) as called:
+                    if outcome == 'rejected':
+                        self.assertEqual(make_plan(config, brief, root, basis)['recipe'], 'needs_attention')
+                    else:
+                        with self.assertRaisesRegex(RuntimeError, 'Planner response interrupted'):
+                            make_plan(config, brief, root, basis)
+                    expected = 'new' if outcome == 'output_saved_before_interruption' else 'needs_attention'
+                    self.assertEqual(make_plan(config, brief, root, basis)['recipe'], expected)
+                    self.assertEqual(make_plan(config, brief, root, basis)['recipe'], expected)
+                    called.assert_called_once()
+                self.assertEqual(load(root / 'plan-before-single-basis-inspiration.json'), old)
+
+    def test_inspiration_upgrade_preserves_started_work_and_faithful_requests(self):
+        for boundary in ('render-request.json', 'render-result.json', 'faithful', 'unrelated_rejection', 'multiple_basis'):
+            with self.subTest(boundary=boundary), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory); brief, old, basis = gravity_inspiration_rejection()
+                if boundary.endswith('.json'): save(root / boundary, {'production_started': True})
+                elif boundary == 'faithful':
+                    brief['details']['keep'] = 'Preserve the melody and source lyrics'
+                    old['briefHash'] = fingerprint(brief)
+                elif boundary == 'unrelated_rejection': old['plan']['explanation'] = 'A new faithful quartet recipe is missing.'
+                else: basis += [{**basis[0], 'id': 'other'}]
+                save(root / 'plan.json', old)
+                with patch('planner.run_owned') as model, patch('planner.source_material') as material:
+                    self.assertEqual(make_plan({}, brief, root, basis), old['plan'])
+                    model.assert_not_called(); material.assert_not_called()
+                self.assertEqual(load(root / 'plan.json'), old)
+                self.assertFalse((root / 'single-basis-inspiration-upgrade.json').exists())
+
+    def test_inspiration_upgrade_rejects_a_faithful_recipe_as_replacement(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); (root / 'PREFERENCES.md').write_text('Use Tony V6.')
+            brief, old, basis = gravity_inspiration_rejection(); save(root / 'plan.json', old)
+            config = {'planner_model': 'test', 'codex': 'test', 'settings': {'studio_dir': str(root)}}
+            def model(command, *args, **kwargs):
+                save(Path(command[command.index('--output-last-message') + 1]), {**plan(), 'recipe': 'remix'})
+            with patch('planner.source_material', return_value=None), patch('planner.run_owned', side_effect=model) as called:
+                for attempt in range(2):
+                    with self.assertRaisesRegex(ValueError, 'faithful rendition cannot replace'):
+                        make_plan(config, brief, root, basis)
+                called.assert_called_once()
+            self.assertEqual(load(root / 'plan.json'), old)
 
     def test_cutoff_repair_is_one_separate_attempt_and_resume_reuses_it(self):
         with tempfile.TemporaryDirectory() as directory:

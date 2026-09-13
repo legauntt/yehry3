@@ -17,7 +17,21 @@ def source_material(config, basis):
     segments = data.get('segments', []) if isinstance(data, dict) else data
     text = '\n'.join(segment.get('text', '').strip() for segment in segments).strip()
     if not text: return None
-    vocals = row.get('cached_stems', {}).get('vocals')
+    # Catalog recordings without a cached separation legitimately store null.
+    # They can still condition an inspired original from the public recording.
+    cached_stems = row.get('cached_stems') or {}
+    vocals = cached_stems.get('vocals') if isinstance(cached_stems, dict) else None
+    if not vocals or not Path(vocals).is_file():
+        # New catalog separations are journaled separately; cached_stems only
+        # describes stems reused from earlier catalog generations.
+        separation = inside(catalog / 'separation-status' / (recording + '.json'), catalog)
+        if separation.is_file():
+            saved = load(separation)
+            if (saved.get('status') == 'completed' and saved.get('recording') == recording
+                    and saved.get('source_sha256') == selected['sha256']):
+                paths = saved.get('paths') or {}
+                candidate = paths.get('vocals') if isinstance(paths, dict) else None
+                if candidate: vocals = str(inside(candidate, catalog / 'source-stems'))
     if not vocals or not Path(vocals).is_file(): return None
     vocals = inside(vocals, catalog.parent)
     phonetics = catalog / 'phonetics' / (recording + '.json')
