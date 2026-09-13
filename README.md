@@ -26,6 +26,8 @@ npm run dev
 
 Open `http://127.0.0.1:8080`. The server serves **only `dist/`**, supports MP3 seeking, and redirects directory routes. The build copies only public pages/assets; environment files, tools, tests, and backend source cannot enter the deployment.
 
+Every build adds a small **Updated at** timestamp to each page's footer, using Pacific time with the correct PST/PDT abbreviation. It records the build time, so it changes on every deployment, including catalog publications and deployment reruns, and stays fixed when a visitor reloads the page.
+
 The browser uses `http://127.0.0.1:3000/yehry3` locally and `https://chairlift.fly.dev/yehry3` in production. Change `assets/config.js` and the CSP together if the API host changes.
 
 For a disposable end-to-end preview, install dependencies in sibling `../chairlift`, set `YEHRY3_ADMIN_PASSWORD` to a local test password, and run `node scripts/dev-api.mjs` in a second terminal. It seeds a temporary Mongo replica set and never connects to the existing database. Its first run downloads MongoDB. The request password is `wishbone`; choose a different admin password. Preview data disappears when it stops. `CHAIRLIFT_PATH` overrides the sibling location.

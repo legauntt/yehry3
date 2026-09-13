@@ -28,6 +28,7 @@ test("both catalogs use unique stable IDs and valid playable URLs", async () => 
   }
 });
 test("all routes are built, unlisted, and contain no submission password or backend source", async () => {
+  let updatedAt;
   for (const page of [
     "index.html",
     "distonyc/index.html",
@@ -36,12 +37,18 @@ test("all routes are built, unlisted, and contain no submission password or back
     "queue/index.html",
     "lyrics/index.html",
     "original-prompt/index.html",
+    "fearhunger/index.html",
   ]) {
     const html = await readFile(
       new URL(`../dist/${page}`, import.meta.url),
       "utf8",
     );
-    assert.match(html, /noindex,nofollow,noarchive/);
+    assert.match(html, /noindex,\s*nofollow,\s*noarchive/);
+    const stamp = html.match(/class="deployment-stamp">Updated at <time datetime="([^"]+)">/);
+    assert.ok(stamp && Number.isFinite(Date.parse(stamp[1])), `Missing build timestamp on ${page}`);
+    updatedAt ??= stamp[1];
+    assert.equal(stamp[1], updatedAt, "All pages must identify the same build");
+    assert.match(html, /href="\/assets\/deployment.css"/);
   }
   const files = await readdir(new URL("../dist/", import.meta.url), {
     recursive: true,

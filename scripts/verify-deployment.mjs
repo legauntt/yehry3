@@ -19,6 +19,14 @@ async function get(url, options = {}) {
   assert.ok(response.ok, `${url} returned ${response.status}`);
   return response;
 }
+let updatedAt;
+function verifyTimestamp(html, route) {
+  const stamp = html.match(/class="deployment-stamp">Updated at <time datetime="([^"]+)">([^<]+)<\/time>/);
+  assert.ok(stamp && Number.isFinite(Date.parse(stamp[1])), `Missing deployment timestamp: ${route}`);
+  updatedAt ??= stamp[1];
+  assert.equal(stamp[1], updatedAt, `Deployment timestamp differs: ${route}`);
+  assert.match(stamp[2], /\d{2}:\d{2} P[DS]T$/);
+}
 for (const route of [
   "/",
   "/distonyc",
@@ -31,6 +39,7 @@ for (const route of [
   const response = await get(`${site}${route}`);
   assert.match(response.headers.get("x-robots-tag") || "", /noindex/);
   const html = await response.text();
+  verifyTimestamp(html, route);
   assert.match(html, /\/assets\/app.js/);
   assert.match(html, /noindex,nofollow,noarchive/);
   console.log(`Page and headers verified: ${route}`);
@@ -51,10 +60,13 @@ for (const route of [
   );
 }
 console.log("Distonyc route and legacy aliases verified.");
+verifyTimestamp(await (await get(`${site}/deetz/`)).text(), "/deetz/");
 for (const path of ["/fearhunger", "/fearhunger/"]) {
   const fearPage = await get(`${site}${path}`);
+  const html = await fearPage.text();
+  verifyTimestamp(html, path);
   assert.match(
-    await fearPage.text(),
+    html,
     /type="module" src="\/fearhunger\/fearhunger.js"/,
   );
 }
@@ -81,6 +93,7 @@ for (const name of [
   "original-prompt.js",
   "quality.js",
   "site.css",
+  "deployment.css",
   "band-vinyl-v1.webp",
   "record-shoes.svg",
 ]) {
@@ -102,6 +115,7 @@ for (const name of [
     .digest("hex");
   assert.equal(actual, expected, `${name} differs from the local release`);
 }
+console.log(`Deployment timestamp verified across all pages: ${updatedAt}`);
 const notificationWorker = await get(`${site}/notifications-sw.js`);
 assert.match(
   notificationWorker.headers.get("content-type") || "",

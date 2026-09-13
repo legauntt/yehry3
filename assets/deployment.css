@@ -1,0 +1,19 @@
+.deployment-stamp {
+  display: block;
+  color: var(--muted, inherit);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.site-footer {
+  flex-wrap: wrap;
+}
+
+.deployment-footer {
+  max-width: 1212px;
+  margin: 24px auto;
+  padding: 0 22px 24px;
+}
