@@ -8,7 +8,7 @@ Written sheets describe the lyrics supplied for the recording; the generated per
 
 The two initial Distonyc songs, **Blood on My Shoes at Daybreak** and **Two Names in One Pair of Shoes**, use their saved original lyrics. Future jobs export sheets as part of native publication. The existing planning call also classifies clear Fear & Hunger songs; lyrics export, collection updates, and uploading require no additional model call.
 
-The MP3 folder audit also added **The Stone I Carried**, **Khalim Still Has a Heart**, and **When Arreat Fell**, bringing the catalog to 58 songs at import. Their saved written lyrics and existing public MP3s were matched by SHA-256 to the local delivery manifests. All three appear in both Tony AI and **Shiablo: The Lord of Prisoner** (`/?collection=shiablo`).
+The MP3 folder audit also added **The Stone I Carried**, **Khalim Still Has a Heart**, and **When Arreat Fell**, bringing the catalog to 58 songs at import. Their saved written lyrics and existing public MP3s were matched by SHA-256 to the local delivery manifests. All three appear in both Tony AI and **Shiablo: The Lord of Prisoners** (`/?collection=shiablo`).
 
 The library stores collection, sort order, and search text in the URL (`collection`, `sort`, and `q`). Shared links and browser history restore these controls; default values are omitted from new URLs.
 
