@@ -81,8 +81,29 @@ test("the hero record starts moving and honors reduced motion", async ({ page })
   await page.goto("/");
   const record = page.locator(".record");
   await expect(record).toHaveAttribute("data-motion", "active");
+  await expect(record).toHaveAttribute("role", "button");
+  await expect(record).toHaveAttribute("aria-label", "Spin the record");
   await expect(record).toHaveClass(/record-spin-intro/);
+  await record.click({ force: true });
+  await expect(record).toHaveAttribute("data-spin-speed", "1");
+  await record.click({ force: true });
+  await expect(record).toHaveAttribute("data-spin-speed", "2");
+  await record.press("Enter");
+  await record.press(" ");
+  await record.click({ force: true });
+  await record.click({ force: true });
+  await expect(record).toHaveAttribute("data-spin-speed", "5");
+  expect(await record.evaluate((element) => {
+    const animation = element.getAnimations()[0];
+    return { iterations: animation.effect.getTiming().iterations, playbackRate: animation.playbackRate };
+  })).toEqual({ iterations: Infinity, playbackRate: 5 });
+  await expect.poll(() => record.evaluate((element) => element.getAnimations()[0].playbackRate), {
+    timeout: 2500,
+  }).toBeLessThan(5);
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(record).toHaveAttribute("data-motion", "reduced");
+  await expect(record).not.toHaveAttribute("data-spin-speed");
+  await expect(record).not.toHaveAttribute("data-spin-rate");
   await expect(record).not.toHaveClass(/record-spin/);
+  await expect.poll(() => record.evaluate((element) => element.getAnimations().length)).toBe(0);
 });

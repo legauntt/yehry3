@@ -394,6 +394,12 @@ main {
   box-shadow: 5px 9px 12px #24342b33;
   display: grid;
   place-items: center;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.record:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 5px;
 }
 @keyframes record-spin {
   to { transform: rotate(1turn); }
@@ -1612,6 +1618,9 @@ main {
   .record.record-spin-intro,
   .record.record-spin-idle {
     animation: none;
+  }
+  .record {
+    cursor: default;
   }
   * {
     scroll-behavior: auto !important;
