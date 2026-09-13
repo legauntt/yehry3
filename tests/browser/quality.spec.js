@@ -61,7 +61,13 @@ test("a song with issues remains playable and exposes its warning on every liste
       const lyric = page.getByRole("button", { name: "The final words." });
       await expect(lyric).toBeVisible();
       await lyric.click();
+      await expect(page).toHaveURL(/\/lyrics\/\?song=quality-song#lyric-line-2$/);
       await expect.poll(() => player.evaluate((audio) => audio.currentTime)).toBeCloseTo(2.5, 1);
+      await page.reload();
+      await expect(page.getByRole("button", { name: "The final words." })).toBeInViewport();
+      await expect
+        .poll(() => page.getByLabel("Play Samarie test recording").evaluate((audio) => audio.currentTime))
+        .toBeCloseTo(2.5, 1);
       const laterLyric = page.getByRole("button", { name: "Sing this last line." });
       await page.evaluate(() => scrollTo(0, 0));
       await player.evaluate(async (audio) => {

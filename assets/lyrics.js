@@ -30,7 +30,7 @@ function lyricLines(lyrics, escape) {
         return `<span class="lyric-heading">${escape(line)}</span>`;
       const cue = cues.get(index);
       return cue
-        ? `<button type="button" class="lyric-line" data-start="${cue.start}" data-end="${cue.end}" title="Jump to this line">${escape(line)}</button>`
+        ? `<button type="button" class="lyric-line" id="lyric-line-${index + 1}" data-start="${cue.start}" data-end="${cue.end}" title="Jump to this line">${escape(line)}</button>`
         : `<span class="lyric-line">${escape(line)}</span>`;
     })
     .join("");
@@ -42,6 +42,10 @@ function mountKaraoke(main) {
   if (!audio || !lines.length) return;
   let active;
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  function lineFromHash() {
+    const match = /^#lyric-line-(\d+)$/.exec(location.hash);
+    return match ? lines.find((line) => line.id === `lyric-line-${match[1]}`) : undefined;
+  }
   function sync(follow = !audio.paused) {
     const time = audio.currentTime;
     let current;
@@ -62,15 +66,28 @@ function mountKaraoke(main) {
         active.scrollIntoView({ block: "center", behavior: reducedMotion.matches ? "auto" : "smooth" });
     }
   }
-  for (const line of lines)
-    line.addEventListener("click", () => {
-      const seek = () => {
-        audio.currentTime = Number(line.dataset.start);
-        sync(false);
-      };
-      if (audio.readyState) seek();
-      else audio.addEventListener("loadedmetadata", seek, { once: true });
-    });
+  function selectLine(line, updateUrl = false) {
+    if (!line) return;
+    if (updateUrl) history.replaceState(history.state, "", `#${line.id}`);
+    const seek = () => {
+      audio.currentTime = Number(line.dataset.start);
+      sync(false);
+    };
+    if (audio.readyState) seek();
+    else audio.addEventListener("loadedmetadata", seek, { once: true });
+  }
+  for (const line of lines) line.addEventListener("click", () => selectLine(line, true));
+  const linkedLine = lineFromHash();
+  if (linkedLine) {
+    linkedLine.scrollIntoView({ block: "center" });
+    selectLine(linkedLine);
+  }
+  addEventListener("hashchange", () => {
+    const line = lineFromHash();
+    if (!line) return;
+    line.scrollIntoView({ block: "center" });
+    selectLine(line);
+  });
   audio.addEventListener("timeupdate", () => sync());
   audio.addEventListener("seeking", () => sync());
   audio.addEventListener("play", () => sync(true));
