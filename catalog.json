@@ -2,6 +2,397 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-6ab32e7baf5095f21eec06ca",
+      "title": "The Rooms We Never Named",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6ab32e7baf5095f21eec06ca-d43bf96b8ec4.mp3",
+      "duration": 230.98,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Pancakeo",
+      "lyrics": {
+        "text": "[Verse 1]\nHe learned to keep the weather locked behind his teeth\nCarry every failure where nobody could see\nNo hand on his shoulder, no language for the ache\nJust a glowing little kingdom saying, Brother, stay awake\nThey sold him iron answers in a midnight feed\nA villain for his loneliness, a throne for every need\nSaid love was just a market and mercy made you weak\nBut anger sounds like purpose when you haven't been heard in weeks\n\n[Pre-Chorus]\nHe wasn't born a weapon\nHe was looking for a name\nFor the hollow in the hallway\nFor the rules without a game\n\n[Chorus]\nThey say, try that in a small town\nStand tall, never back down\nWe'll give you back the crown they stole\nA code, a cause, a role\nBut every promise gets smaller\nWhen every wall gets taller\nYou can't build a life by shutting the whole world out\nTry that in a small town\n\n[Verse 2]\nHe wanted work that mattered, friends who'd call him first\nA father who could tell him what to do with all the hurt\nA chance to be desired without performing like a king\nSome proof that being useful wasn't worth more than being seen\nThe screen supplied a brotherhood with targets painted red\nEasy little certainties to tuck him into bed\nSaid tenderness was surrender, and doubt was a disease\nThen charged another payment for the secret to be free\n\n[Pre-Chorus]\nThere was truth beneath the sales pitch\nMen are starving to belong\nBut a wound becomes a business\nWhen the cure keeps it raw\n\n[Chorus]\nThey say, try that in a small town\nStand tall, never back down\nWe'll give you back the crown they stole\nA code, a cause, a role\nBut every promise gets smaller\nWhen every wall gets taller\nYou can't build a life by shutting the whole world out\nTry that in a small town\n\n[Bridge]\nYou can lift the weight, learn the trade\nKeep your word and still be afraid\nYou can want respect without demanding control\nYou can lose, you can grieve, you can ask what you need\nWithout making an enemy feed your soul\nNo guru owns the doorway\nNo stranger holds the key\nBrotherhood ain't worship\nAnd strength ain't cruelty\n\n[Breakdown]\nTell me what was missing\nA table, a teacher, a place in the crowd?\nTell me what they promised\nA kingdom where pain could never speak aloud?\nI won't laugh at the hunger\nI won't kneel to the lie\nA man can need another man\nAnd look him in the eye\n\n[Final Chorus]\nThey said, try that in a small town\nStand tall, never back down\nBut nobody needs a stolen crown\nTo turn his whole life around\nLet every promise grow larger\nLet every open door start here\nBuild a life with people, not a bunker made of fear\nIf the town is worth defending\nLet compassion make it strong\nThere is room beside the fire\nYou were needed all along\n\n[Outro]\nNo throne, no target, no final score\nJust hands rebuilding what the hurt tore\nSay what you need, let the old walls fall\nA stronger man can answer when his brothers call",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 2.1
+          },
+          {
+            "line": 2,
+            "start": 2.54,
+            "end": 5.34
+          },
+          {
+            "line": 3,
+            "start": 5.34,
+            "end": 7.22
+          },
+          {
+            "line": 4,
+            "start": 7.46,
+            "end": 9.72
+          },
+          {
+            "line": 5,
+            "start": 10.16,
+            "end": 11.86
+          },
+          {
+            "line": 6,
+            "start": 11.86,
+            "end": 14.84
+          },
+          {
+            "line": 7,
+            "start": 15.2,
+            "end": 17.44
+          },
+          {
+            "line": 8,
+            "start": 17.82,
+            "end": 20.46
+          },
+          {
+            "line": 11,
+            "start": 24.12,
+            "end": 25.58
+          },
+          {
+            "line": 12,
+            "start": 26.82,
+            "end": 28.42
+          },
+          {
+            "line": 13,
+            "start": 29.26,
+            "end": 30.92
+          },
+          {
+            "line": 14,
+            "start": 30.92,
+            "end": 33.42
+          },
+          {
+            "line": 17,
+            "start": 34.98,
+            "end": 37.8
+          },
+          {
+            "line": 18,
+            "start": 38.46,
+            "end": 40.32
+          },
+          {
+            "line": 19,
+            "start": 40.76,
+            "end": 42.8
+          },
+          {
+            "line": 20,
+            "start": 43.34,
+            "end": 44.54
+          },
+          {
+            "line": 21,
+            "start": 45.46,
+            "end": 47.26
+          },
+          {
+            "line": 22,
+            "start": 48.1,
+            "end": 49.8
+          },
+          {
+            "line": 23,
+            "start": 50.7,
+            "end": 53.78
+          },
+          {
+            "line": 24,
+            "start": 54.12,
+            "end": 56.14
+          },
+          {
+            "line": 27,
+            "start": 61.24,
+            "end": 63.38
+          },
+          {
+            "line": 28,
+            "start": 63.76,
+            "end": 65.96
+          },
+          {
+            "line": 29,
+            "start": 66.26,
+            "end": 68.66
+          },
+          {
+            "line": 30,
+            "start": 68.66,
+            "end": 71.26
+          },
+          {
+            "line": 31,
+            "start": 71.46,
+            "end": 73.58
+          },
+          {
+            "line": 32,
+            "start": 74.26,
+            "end": 76.12
+          },
+          {
+            "line": 33,
+            "start": 76.4,
+            "end": 78.64
+          },
+          {
+            "line": 34,
+            "start": 78.64,
+            "end": 81.68
+          },
+          {
+            "line": 37,
+            "start": 84.66,
+            "end": 87.34
+          },
+          {
+            "line": 38,
+            "start": 87.34,
+            "end": 89.28
+          },
+          {
+            "line": 39,
+            "start": 90,
+            "end": 92
+          },
+          {
+            "line": 40,
+            "start": 92,
+            "end": 94.5
+          },
+          {
+            "line": 43,
+            "start": 95.88,
+            "end": 99.42
+          },
+          {
+            "line": 44,
+            "start": 99.42,
+            "end": 101.62
+          },
+          {
+            "line": 45,
+            "start": 102.06,
+            "end": 104.04
+          },
+          {
+            "line": 46,
+            "start": 104.04,
+            "end": 105.9
+          },
+          {
+            "line": 47,
+            "start": 105.9,
+            "end": 108.46
+          },
+          {
+            "line": 48,
+            "start": 109,
+            "end": 111.08
+          },
+          {
+            "line": 49,
+            "start": 111.94,
+            "end": 115
+          },
+          {
+            "line": 50,
+            "start": 115.36,
+            "end": 117.42
+          },
+          {
+            "line": 53,
+            "start": 118.9,
+            "end": 121.34
+          },
+          {
+            "line": 54,
+            "start": 122.28,
+            "end": 123.84
+          },
+          {
+            "line": 55,
+            "start": 124.24,
+            "end": 126.3
+          },
+          {
+            "line": 56,
+            "start": 127.32,
+            "end": 129.74
+          },
+          {
+            "line": 57,
+            "start": 129.74,
+            "end": 131.98
+          },
+          {
+            "line": 58,
+            "start": 131.98,
+            "end": 133.94
+          },
+          {
+            "line": 59,
+            "start": 133.94,
+            "end": 137.98
+          },
+          {
+            "line": 60,
+            "start": 137.98,
+            "end": 139.18
+          },
+          {
+            "line": 61,
+            "start": 139.18,
+            "end": 141.3
+          },
+          {
+            "line": 64,
+            "start": 142.56,
+            "end": 144.28
+          },
+          {
+            "line": 65,
+            "start": 145.36,
+            "end": 147.66
+          },
+          {
+            "line": 66,
+            "start": 148.18,
+            "end": 149.42
+          },
+          {
+            "line": 67,
+            "start": 150.5,
+            "end": 152.68
+          },
+          {
+            "line": 68,
+            "start": 153.02,
+            "end": 154.32
+          },
+          {
+            "line": 69,
+            "start": 155.3,
+            "end": 156.9
+          },
+          {
+            "line": 70,
+            "start": 157.6,
+            "end": 160.18
+          },
+          {
+            "line": 71,
+            "start": 160.18,
+            "end": 162.2
+          },
+          {
+            "line": 74,
+            "start": 162.68,
+            "end": 165.46
+          },
+          {
+            "line": 75,
+            "start": 166.04,
+            "end": 168
+          },
+          {
+            "line": 76,
+            "start": 168.4,
+            "end": 170.5
+          },
+          {
+            "line": 77,
+            "start": 170.5,
+            "end": 172.42
+          },
+          {
+            "line": 78,
+            "start": 173.02,
+            "end": 174.84
+          },
+          {
+            "line": 79,
+            "start": 175.76,
+            "end": 179.02
+          },
+          {
+            "line": 80,
+            "start": 179.02,
+            "end": 182.48
+          },
+          {
+            "line": 81,
+            "start": 183.08,
+            "end": 185.04
+          },
+          {
+            "line": 82,
+            "start": 185.84,
+            "end": 187.64
+          },
+          {
+            "line": 83,
+            "start": 187.64,
+            "end": 190.32
+          },
+          {
+            "line": 84,
+            "start": 190.68,
+            "end": 192.8
+          },
+          {
+            "line": 87,
+            "start": 193.52,
+            "end": 195.98
+          },
+          {
+            "line": 88,
+            "start": 196.36,
+            "end": 198.04
+          },
+          {
+            "line": 89,
+            "start": 198.04,
+            "end": 201.66
+          },
+          {
+            "line": 90,
+            "start": 201.66,
+            "end": 203.66
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 13.24
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony takes on the manosphere, highlighting just what it is men feel is lacking and the promises therein",
+        "direction": "Meaningful",
+        "keep": "Must include the phrase \"try that in a small town\" in the chorus",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-ac8ef4a16cc6990cf350d859",
       "title": "Every Porch Light On",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ac8ef4a16cc6990cf350d859-f2381444efcc.mp3",
