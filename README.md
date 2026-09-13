@@ -44,6 +44,8 @@ For the real API, follow [chairlift's setup and queue contract](../chairlift/yeh
 - Fifty curated prompt suggestions are shuffled locally on page load; five cycle every 12 seconds on the collection banner and empty, unfocused request field. Typed prompts are never changed. Reduced-motion preferences disable cycling.
 - Newly generated songs include a **Lyrics** link in the main list, opening a shareable sheet with download and print controls. Saved lyrics travel with the song metadata in Mongo and the fallback catalog. “Blood on My Shoes at Daybreak” has been backfilled from its original saved lyrics.
 - Generated songs remain in **Distonyc requests** and also appear in **Fear & Hunger** when that is clearly their subject. The existing planning call makes this classification; it does not infer the collection merely from a dark style. `/?collection=fearhunger` links directly to that collection.
+- The dedicated `/fearhunger/` page also reads these collection tags, keeping the original three recordings and adding matching requests automatically. It refreshes every minute and when returning to the tab, preserves current playback, and uses the static catalog during API outages.
+- All 53 older entries have been backfilled from saved render lyrics or source transcriptions, matched against the published MP3 hashes. Every current song now has a lyrics link. See [lyrics provenance](LYRICS.md).
 - Running jobs use “Cancellation requested” until the PC acknowledges it. The native Windows worker plans once, resumes the existing Troofs renderer, verifies the mix, and publishes to this site. See [Windows worker operations](pc-worker/README.md).
 
 ## Validate

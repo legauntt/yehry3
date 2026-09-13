@@ -7,6 +7,11 @@
   },
   "routes": [
     {
+      "route": "/fearhunger",
+      "redirect": "/fearhunger/",
+      "statusCode": 301
+    },
+    {
       "route": "/lyrics",
       "redirect": "/lyrics/",
       "statusCode": 301
@@ -43,6 +48,14 @@
       "headers": {
         "Cache-Control": "no-cache"
       }
+    },
+    {
+      "route": "/fearhunger/fearhunger.js",
+      "headers": { "Cache-Control": "no-cache" }
+    },
+    {
+      "route": "/fearhunger/fearhunger.css",
+      "headers": { "Cache-Control": "no-cache" }
     },
     {
       "route": "/queue",

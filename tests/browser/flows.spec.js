@@ -361,3 +361,104 @@ test("generated song lyrics, dual collection filtering, and API outage fallback"
     fullPage: true,
   });
 });
+
+test("Fear and Hunger includes tagged requests, refreshes without duplicates, and keeps playback working", async ({
+  page,
+}) => {
+  const catalog = JSON.parse(
+    await readFile(new URL("../../catalog.json", import.meta.url), "utf8"),
+  );
+  const blood = catalog.songs.find(
+    (song) => song.id === "distonyc-1d7840d9c9addba07ccabdb2",
+  );
+  const matching = catalog.songs.filter(
+    (song) =>
+      song.collection === "fearhunger" ||
+      song.collections?.includes("fearhunger"),
+  );
+  let data = { songs: catalog.songs };
+  await page.route("**/yehry3/songs", (route) => route.fulfill({ json: data }));
+  const audioFixture = new URL(
+    catalog.songs.find((song) => song.collection === "fearhunger").url,
+    "http://127.0.0.1:8080",
+  ).href;
+  await page.goto("/fearhunger/");
+  await expect(page.locator("#collection-note")).toContainText(
+    `${matching.length} songs`,
+  );
+  const current = page.locator(`[data-song-id="${blood.id}"]`);
+  await expect(current).toContainText(blood.title);
+  await expect(
+    page.getByText("Two Names in One Pair of Shoes", { exact: true }),
+  ).toBeVisible();
+  await expect(current.locator(".lyrics-link")).toHaveAttribute(
+    "href",
+    `/lyrics/?song=${blood.id}`,
+  );
+  // Exercise the player's events with a local real MP3, avoiding a large remote download.
+  await current.locator("audio").evaluate((audio, src) => {
+    audio.src = src;
+  }, audioFixture);
+  await page.getByRole("button", { name: "Play all", exact: true }).click();
+  await expect
+    .poll(() =>
+      page
+        .locator("audio")
+        .first()
+        .evaluate((audio) => audio.paused),
+    )
+    .toBe(false);
+  await current.locator("audio").evaluate((audio) => audio.play());
+  await expect
+    .poll(() =>
+      page
+        .locator("audio")
+        .first()
+        .evaluate((audio) => audio.paused),
+    )
+    .toBe(true);
+  await expect(current).toHaveClass(/is-playing/);
+  await expect(page.locator("#status")).toHaveText(`Playing ${blood.title}.`);
+  const future = {
+    ...blood,
+    id: "future-funger-song",
+    title: "A future dungeon song",
+    url: audioFixture,
+  };
+  const unrelated = {
+    ...blood,
+    id: "unrelated-song",
+    title: "An unrelated song",
+    collections: ["distonyc"],
+  };
+  data = { songs: [...catalog.songs, future, unrelated] };
+  await page.evaluate(() =>
+    document.dispatchEvent(new Event("visibilitychange")),
+  );
+  await expect(page.locator(".track:visible")).toHaveCount(matching.length + 1);
+  await expect(page.getByText(unrelated.title, { exact: true })).toHaveCount(0);
+  await expect
+    .poll(() => current.locator("audio").evaluate((audio) => audio.paused))
+    .toBe(false);
+  await page.evaluate(() =>
+    document.dispatchEvent(new Event("visibilitychange")),
+  );
+  await expect(page.locator(".track:visible")).toHaveCount(matching.length + 1);
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "artifacts/fearhunger-mobile.png",
+    fullPage: true,
+  });
+  await page.unroute("**/yehry3/songs");
+  await page.route("**/yehry3/songs", (route) => route.abort());
+  await page.reload();
+  await expect(page.locator("#collection-note")).toContainText(
+    "temporarily offline",
+  );
+  await expect(page.locator(".track:visible")).toHaveCount(matching.length);
+});

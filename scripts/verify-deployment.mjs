@@ -46,6 +46,16 @@ for (const route of [
   );
 }
 console.log("Distonyc route and legacy aliases verified.");
+const fearPage = await get(`${site}/fearhunger/`);
+assert.match(await fearPage.text(), /type="module" src="\.\/fearhunger.js"/);
+for (const name of ["fearhunger.js", "fearhunger.css"]) {
+  const response = await get(`${site}/fearhunger/${name}`);
+  assert.match(response.headers.get("cache-control") || "", /no-cache/);
+  assert.equal(
+    await response.text(),
+    await readFile(new URL(`../fearhunger/${name}`, import.meta.url), "utf8"),
+  );
+}
 for (const name of [
   "app.js",
   "api.js",
@@ -129,6 +139,21 @@ const response = await get(`${api}/songs`, {
 });
 assert.equal(response.headers.get("access-control-allow-origin"), site);
 const live = await response.json();
+for (const song of local.songs) {
+  const published = live.songs.find((item) => item.id === song.id);
+  if (song.lyrics)
+    assert.deepEqual(
+      published?.lyrics,
+      song.lyrics,
+      `Lyrics differ for ${song.title}`,
+    );
+  if (song.collections)
+    assert.deepEqual(
+      published?.collections,
+      song.collections,
+      `Collections differ for ${song.title}`,
+    );
+}
 assert.ok(
   local.songs.every((song) => live.songs.some((item) => item.id === song.id)),
   "API is missing catalog songs",
