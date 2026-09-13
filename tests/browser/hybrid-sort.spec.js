@@ -1,11 +1,12 @@
 import { test, expect } from "@playwright/test";
 
+const song = (id, title, votes, order = 0) => ({
+  id, title, votes, order, duration: 60, url: "/fixture.mp3", collection: "distonyc",
+});
+
 test("fresh releases lead the default sort before older songs ranked by votes", async ({ page }) => {
   const now = Date.parse("2026-09-12T19:00:00Z");
   await page.clock.install({ time: new Date(now) });
-  const song = (id, title, votes, order = 0) => ({
-    id, title, votes, order, duration: 60, url: "/fixture.mp3", collection: "distonyc",
-  });
   const songs = [
     song("old-low", "Old low", 2, 1),
     song("fresh-order", "Fresh from song order", 0, -(now - 2 * 60 * 60 * 1000)),
@@ -50,4 +51,30 @@ test("fresh releases lead the default sort before older songs ranked by votes", 
   ]);
   await expect(unknownAge).toHaveText(unknownAgeText);
   expect(new URL(page.url()).searchParams.get("sort")).toBe("catalog");
+});
+
+test("unknown ages increase with catalog order and stay attached after sorting", async ({ page }) => {
+  const songs = [
+    song("first", "Echo", 1, 1),
+    song("second", "Delta", 1, 2),
+    song("third", "Charlie", 1, 3),
+    song("fourth", "Bravo", 1, 4),
+    song("fifth", "Alpha", 1, 5),
+  ];
+  await page.route("**/yehry3/songs", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: {
+    inStudio: [], queued: [], recent: [], queuedTotal: 0, inStudioTotal: 0, page: 0, pageSize: 50,
+  } }));
+
+  await page.goto("/?sort=catalog");
+  await expect(page.locator(".track h3")).toHaveText(["Echo", "Delta", "Charlie", "Bravo", "Alpha"]);
+  await expect(page.locator(".track-age")).toHaveText([
+    "24 hours old", "36 hours old", "48 hours old", "60 hours old", "72 hours old",
+  ]);
+
+  await page.getByLabel("Sort songs").selectOption("title");
+  await expect(page.locator(".track h3")).toHaveText(["Alpha", "Bravo", "Charlie", "Delta", "Echo"]);
+  await expect(page.locator(".track-age")).toHaveText([
+    "72 hours old", "60 hours old", "48 hours old", "36 hours old", "24 hours old",
+  ]);
 });

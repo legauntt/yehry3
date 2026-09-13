@@ -54,14 +54,8 @@ const age = (value) => {
   const days = Math.floor(hours / 24);
   return `${days} ${days === 1 ? "day" : "days"} old`;
 };
-const unknownAge = (song) => {
-  let hash = 2166136261;
-  for (const character of String(song.id || song.title || "")) {
-    hash ^= character.codePointAt(0);
-    hash = Math.imul(hash, 16777619);
-  }
-  return `${24 + ((hash >>> 0) % 49)} hours old`;
-};
+const orderedUnknownAge = (index, total) =>
+  24 + Math.round((index * 48) / Math.max(1, total - 1));
 const collections = (song) => [
   ...new Set([song.collection, ...(song.collections || [])]),
 ];
@@ -99,13 +93,18 @@ document
   .querySelector(`[data-nav="${page}"]`)
   ?.setAttribute("aria-current", "page");
 
-function songMeta(song, recentPublishedAt) {
+function songPublishedAt(song, recentPublishedAt) {
   const order = Number(song.order);
-  const publishedAt =
+  return (
     song.publishedAt ||
     recentPublishedAt ||
-    (Number.isFinite(order) && order < 0 ? new Date(-order).toISOString() : "");
-  const releaseAge = publishedAt ? age(publishedAt) : unknownAge(song);
+    (Number.isFinite(order) && order < 0 ? new Date(-order).toISOString() : "")
+  );
+}
+
+function songMeta(song, recentPublishedAt, unknownAgeHours) {
+  const publishedAt = songPublishedAt(song, recentPublishedAt);
+  const releaseAge = publishedAt ? age(publishedAt) : `${unknownAgeHours} hours old`;
   return `<div class="track-meta"><span class="track-collections">${escape(
     collections(song)
       .map((name) => collectionNames[name] || name)
@@ -235,6 +234,15 @@ async function library() {
         song.title.toLowerCase().includes(query) &&
         (collection === "all" || collections(song).includes(collection)),
     );
+    const unknownSongs = songs.filter(
+      (song) => !songPublishedAt(song, recentReleases.get(song.id)),
+    );
+    const unknownAges = new Map(
+      unknownSongs.map((song, index) => [
+        song,
+        orderedUnknownAge(index, unknownSongs.length),
+      ]),
+    );
     if ($("#sort").value === "hybrid") {
       const releasedAt = (song) => {
         const explicit = new Date(song.publishedAt || recentReleases.get(song.id) || 0).getTime();
@@ -265,7 +273,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track ${current?.id === song.id ? "playing" : ""}" data-id="${escape(song.id)}">
-      <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id))}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+      <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id), unknownAges.get(song))}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : '<p class="empty">No songs match. Try another title or style.</p>');
