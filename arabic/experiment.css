@@ -1,0 +1,18 @@
+.experiment { width: min(100% - 40px, 760px); margin: 0 auto; padding: 54px 0 24px; }
+.experiment-heading { position: relative; padding: 0 0 40px; border-bottom: 1px solid var(--line); }
+.experiment-label { margin: 0 0 28px; color: var(--muted); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+.experiment-badge { display: inline-block; padding: 5px 11px; border: 1px solid #c98054; border-radius: 20px; color: #7f4829; font-size: 12px; }
+.experiment h1 { margin: 18px 0; font: 600 clamp(36px, 7.5vw, 66px)/1.08 "Playfair Display", Georgia, serif; letter-spacing: -.035em; }
+.experiment-intro { max-width: 540px; margin: 0; color: var(--muted); font-size: 17px; line-height: 1.65; }
+.experiment h2 { margin: 30px 0 16px; font-size: 16px; font-weight: 600; }
+.sample-list { display: grid; gap: 18px; }
+.sample { padding: 24px; background: var(--white); border: 1px solid var(--line); border-radius: 16px; min-width: 0; }
+.sample-number { margin: 0 0 8px; color: var(--muted); font: 12px "DM Mono", monospace; }
+.sample h3 { margin: 0; font: 600 27px/1.25 "Playfair Display", Georgia, serif; }
+.sample-description { margin: 12px 0 18px; color: var(--muted); }
+.sample audio { display: block; width: 100%; height: 54px; margin: 0 0 14px; }
+.sample-download { display: inline-block; padding: 7px 0; color: var(--ink); font-size: 13px; text-underline-offset: 4px; }
+.sample-note, .sample-error { margin: 12px 0 0; font-size: 13px; color: #7f4829; }
+.experiment-footer { margin-top: 40px; border-top: 1px solid var(--line); padding: 20px 0 0; color: var(--muted); font-size: 12px; }
+.experiment-footer p { margin: 0 0 10px; }
+@media (max-width: 480px) { .experiment { width: calc(100% - 32px); padding-top: 30px; } .sample { padding: 18px; } .experiment-heading { padding-bottom: 28px; } }

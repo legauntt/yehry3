@@ -7,6 +7,17 @@
   },
   "routes": [
     {
+      "route": "/arabic",
+      "redirect": "/arabic/",
+      "statusCode": 302
+    },
+    {
+      "route": "/arabic/*",
+      "headers": {
+        "Cache-Control": "no-store"
+      }
+    },
+    {
       "route": "/deetz",
       "redirect": "/deetz/",
       "statusCode": 301

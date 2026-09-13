@@ -28,6 +28,7 @@ for (const file of [
   "catalog.json",
   "basis-songs.json",
   "fearhunger",
+  "arabic",
   "robots.txt",
   "staticwebapp.config.json",
 ]) {
