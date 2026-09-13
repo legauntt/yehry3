@@ -14,6 +14,10 @@ A static Tony C music site with a MongoDB voting and request API in the sibling 
 
 The site remains noindex. Existing audio files and URLs are preserved. The Tony AI tracks stream from their existing release URLs. Static `catalog.json` keeps listening available during API outages; voting is clearly disabled while offline.
 
+yehry3.app is the default destination for new finished Tony/Troofs MP3s, including standalone songs. The old gatsby-opus `/tonyai` page is deprecated for new publications; keep its existing tracks and URLs working. `tonyai` remains the collection ID here, not a publication destination. Standalone additions use the existing GitHub release and Chairlift's safe catalog seed, with matching fallback metadata and lyrics; do not create artificial queue requests. Keep WAVs, A/B clips, stems and model assets local unless separately requested.
+
+The three **Tony V7 Study** songs are experimental listening material, not a production model upgrade. V6 remains the default voice. Telephone Wire retains two brief vocal gaps around 2:16 and 2:18 (1.6 seconds total); The Last Light in the Station retains its complete 26.54-second instrumental outro. Their catalog issue notices remain visible. Technical verification is not a human listening judgment.
+
 ## Run
 
 Node 22 or later:

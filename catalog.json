@@ -2,6 +2,769 @@
   "version": 1,
   "songs": [
     {
+      "id": "telephone-wire-tony-v7-study",
+      "title": "Telephone Wire (Tony V7 Study)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/telephone-wire-tony-v7-study-901080cda379.mp3",
+      "duration": 215.1,
+      "collection": "tonyai",
+      "collections": [
+        "tonyai"
+      ],
+      "publishedAt": "2026-09-13T08:19:58.588Z",
+      "lyrics": {
+        "text": "[Verse 1]\nThe telephone company sent me a bill\nFor a conversation I never could finish\nI held that receiver against the windowsill\nAnd watched the last light quietly diminish\nA woman said sir we can trace every call\nI said can you trace where the good ones go\nShe put me on hold with a hole in the wall\nAnd a little brass tune from a lifetime ago\n\n[Chorus]\nThere's a bird on the telephone wire\nAnd he's got nothing left to explain\nHe can sing over everyone's business\nHe can shake himself dry in the rain\nI've been paying to talk to the silence\nI've been waiting for somebody's sign\nThere's a bird on the telephone wire\nAnd tonight I'm taking back my line\n\n[Verse 2]\nMy neighbor came over with half of a peach\nAnd a story that wandered all over the county\nHe said what you want is a little more reach\nI said what I want is somebody around me\nWe sat on the steps as the buses went by\nAnd the peach got divided into smaller pieces\nHe told me a joke and forgot all the why\nBut we laughed till the trouble began to release us\n\n[Chorus]\nThere's a bird on the telephone wire\nAnd he's got nothing left to explain\nHe can sing over everyone's business\nHe can shake himself dry in the rain\nI've been paying to talk to the silence\nI've been waiting for somebody's sign\nThere's a bird on the telephone wire\nAnd tonight I'm taking back my line\n\n[Bridge]\nHello to the woman who answered\nHello to the room down the hall\nTell the machine I've gone outside\nI don't need it to carry this call\nThere is a porch and a person beside me\nThere is a laugh I can hear without trying\n\n[Final Chorus]\nThere's a bird on the telephone wire\nAnd he's got nothing left to explain\nHe can sing over everyone's business\nHe can shake himself dry in the rain\nI'm done sending my voice into nowhere\nThere is someone who knows it is mine\nThere's a bird on the telephone wire\nAnd tonight I'm taking back my line",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.22,
+            "end": 11.32
+          },
+          {
+            "line": 2,
+            "start": 11.32,
+            "end": 15.54
+          },
+          {
+            "line": 3,
+            "start": 15.54,
+            "end": 19.02
+          },
+          {
+            "line": 4,
+            "start": 19.02,
+            "end": 23.06
+          },
+          {
+            "line": 5,
+            "start": 23.3,
+            "end": 26.68
+          },
+          {
+            "line": 6,
+            "start": 26.68,
+            "end": 29.94
+          },
+          {
+            "line": 7,
+            "start": 29.94,
+            "end": 34.38
+          },
+          {
+            "line": 8,
+            "start": 34.76,
+            "end": 38.38
+          },
+          {
+            "line": 11,
+            "start": 40.16,
+            "end": 43.08
+          },
+          {
+            "line": 12,
+            "start": 44.1,
+            "end": 46.92
+          },
+          {
+            "line": 13,
+            "start": 47.82,
+            "end": 51
+          },
+          {
+            "line": 14,
+            "start": 51.78,
+            "end": 54.56
+          },
+          {
+            "line": 15,
+            "start": 55.62,
+            "end": 58.44
+          },
+          {
+            "line": 16,
+            "start": 58.44,
+            "end": 62.36
+          },
+          {
+            "line": 17,
+            "start": 62.88,
+            "end": 66.16
+          },
+          {
+            "line": 18,
+            "start": 66.72,
+            "end": 70.18
+          },
+          {
+            "line": 21,
+            "start": 72.94,
+            "end": 76.66
+          },
+          {
+            "line": 22,
+            "start": 76.92,
+            "end": 80.66
+          },
+          {
+            "line": 23,
+            "start": 81.04,
+            "end": 84.26
+          },
+          {
+            "line": 24,
+            "start": 84.26,
+            "end": 88.56
+          },
+          {
+            "line": 25,
+            "start": 88.56,
+            "end": 91.96
+          },
+          {
+            "line": 26,
+            "start": 91.96,
+            "end": 95.98
+          },
+          {
+            "line": 27,
+            "start": 95.98,
+            "end": 99.72
+          },
+          {
+            "line": 28,
+            "start": 99.72,
+            "end": 103.98
+          },
+          {
+            "line": 31,
+            "start": 105,
+            "end": 108.48
+          },
+          {
+            "line": 32,
+            "start": 108.48,
+            "end": 112.02
+          },
+          {
+            "line": 33,
+            "start": 112.02,
+            "end": 116.26
+          },
+          {
+            "line": 34,
+            "start": 116.26,
+            "end": 119.9
+          },
+          {
+            "line": 35,
+            "start": 119.9,
+            "end": 123.78
+          },
+          {
+            "line": 36,
+            "start": 123.78,
+            "end": 127.6
+          },
+          {
+            "line": 37,
+            "start": 127.6,
+            "end": 131.58
+          },
+          {
+            "line": 38,
+            "start": 131.58,
+            "end": 135.62
+          },
+          {
+            "line": 41,
+            "start": 138.24,
+            "end": 141.2
+          },
+          {
+            "line": 42,
+            "start": 142.12,
+            "end": 144.8
+          },
+          {
+            "line": 43,
+            "start": 145.94,
+            "end": 149.24
+          },
+          {
+            "line": 44,
+            "start": 150,
+            "end": 152.4
+          },
+          {
+            "line": 45,
+            "start": 153.32,
+            "end": 156.7
+          },
+          {
+            "line": 46,
+            "start": 157.2,
+            "end": 160.6
+          },
+          {
+            "line": 49,
+            "start": 164.9,
+            "end": 167.92
+          },
+          {
+            "line": 50,
+            "start": 168.46,
+            "end": 171.76
+          },
+          {
+            "line": 51,
+            "start": 172.56,
+            "end": 175.8
+          },
+          {
+            "line": 52,
+            "start": 176.48,
+            "end": 179.38
+          },
+          {
+            "line": 53,
+            "start": 180.42,
+            "end": 183.26
+          },
+          {
+            "line": 54,
+            "start": 184.24,
+            "end": 187.06
+          },
+          {
+            "line": 55,
+            "start": 187.06,
+            "end": 192.64
+          },
+          {
+            "line": 56,
+            "start": 192.64,
+            "end": 194.98
+          }
+        ]
+      },
+      "qualityIssues": [
+        {
+          "code": "vocal_dropout",
+          "seconds": 1.6
+        }
+      ]
+    },
+    {
+      "id": "spare-key-weather-tony-v7-study",
+      "title": "Spare Key Weather (Tony V7 Study)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/spare-key-weather-tony-v7-study-24f6e861cfad.mp3",
+      "duration": 204.3,
+      "collection": "tonyai",
+      "collections": [
+        "tonyai"
+      ],
+      "publishedAt": "2026-09-13T08:19:58.588Z",
+      "lyrics": {
+        "text": "[Verse 1]\nYou left a key inside a coffee tin\nUnderneath the pot where nothing grows\nYou said the lock gets stubborn when the rain comes in\nLift the handle gently when it goes\nI kept your note behind a grocery list\nBread and apples written over June\nThere were other little things I must have missed\nA chair pulled out and waiting in the room\n\n[Chorus]\nIt's spare key weather\nThe sky is coming down\nWe don't have to put ourselves together\nBefore we come around\nLeave your coat beside the heater\nLet the water mark the floor\nIt's spare key weather\nYou don't have to knock on this door\n\n[Verse 2]\nI used to think a visit needed reasons\nA birthday or a ladder I could lend\nI let a hundred ordinary evenings\nDisappear before I called a friend\nTonight the road is shining like a river\nI carry nothing useful in my hands\nThe little key is cold against my fingers\nThe handle lifts exactly like you planned\n\n[Chorus]\nIt's spare key weather\nThe sky is coming down\nWe don't have to put ourselves together\nBefore we come around\nLeave your coat beside the heater\nLet the water mark the floor\nIt's spare key weather\nYou don't have to knock on this door\n\n[Bridge]\nYou look up from the kitchen\nLike I've only been a minute\nThere is tea enough for another cup\nAnd a little room left in it\nI start to say I'm sorry\nYou ask me how I've been\nThe rain can keep the whole wide world\nTonight you let me in\n\n[Final Chorus]\nIt's spare key weather\nThe sky is coming down\nWe can sit here coming back together\nWith the whole storm all around\nLeave the light beside the window\nLeave the boots across the floor\nIt's spare key weather\nI remembered what the key was for",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.42
+          },
+          {
+            "line": 2,
+            "start": 3.42,
+            "end": 8.78
+          },
+          {
+            "line": 3,
+            "start": 8.78,
+            "end": 12.46
+          },
+          {
+            "line": 4,
+            "start": 14.78,
+            "end": 17.54
+          },
+          {
+            "line": 5,
+            "start": 17.54,
+            "end": 24.56
+          },
+          {
+            "line": 6,
+            "start": 24.56,
+            "end": 27.64
+          },
+          {
+            "line": 7,
+            "start": 29.31,
+            "end": 33.02
+          },
+          {
+            "line": 8,
+            "start": 33.02,
+            "end": 38.38
+          },
+          {
+            "line": 11,
+            "start": 38.75,
+            "end": 40.78
+          },
+          {
+            "line": 12,
+            "start": 43.73,
+            "end": 45.76
+          },
+          {
+            "line": 13,
+            "start": 47.85,
+            "end": 50.88
+          },
+          {
+            "line": 14,
+            "start": 53.64,
+            "end": 55.92
+          },
+          {
+            "line": 15,
+            "start": 56.42,
+            "end": 58.62
+          },
+          {
+            "line": 16,
+            "start": 59.12,
+            "end": 61.02
+          },
+          {
+            "line": 17,
+            "start": 61.68,
+            "end": 63.9
+          },
+          {
+            "line": 18,
+            "start": 65.78,
+            "end": 68.5
+          },
+          {
+            "line": 21,
+            "start": 72.59,
+            "end": 76.64
+          },
+          {
+            "line": 22,
+            "start": 77.66,
+            "end": 81.42
+          },
+          {
+            "line": 23,
+            "start": 81.42,
+            "end": 86.92
+          },
+          {
+            "line": 24,
+            "start": 86.92,
+            "end": 91.82
+          },
+          {
+            "line": 25,
+            "start": 91.82,
+            "end": 97.1
+          },
+          {
+            "line": 26,
+            "start": 97.1,
+            "end": 102.24
+          },
+          {
+            "line": 27,
+            "start": 102.24,
+            "end": 107.32
+          },
+          {
+            "line": 28,
+            "start": 108.1,
+            "end": 111.74
+          },
+          {
+            "line": 31,
+            "start": 111.74,
+            "end": 114.82
+          },
+          {
+            "line": 32,
+            "start": 117.22,
+            "end": 122.4
+          },
+          {
+            "line": 33,
+            "start": 122.4,
+            "end": 124.96
+          },
+          {
+            "line": 34,
+            "start": 127.46,
+            "end": 130.04
+          },
+          {
+            "line": 35,
+            "start": 130.04,
+            "end": 132.8
+          },
+          {
+            "line": 36,
+            "start": 132.8,
+            "end": 135.08
+          },
+          {
+            "line": 37,
+            "start": 135.08,
+            "end": 137.8
+          },
+          {
+            "line": 38,
+            "start": 139.42,
+            "end": 142.62
+          },
+          {
+            "line": 41,
+            "start": 146.78,
+            "end": 149.24
+          },
+          {
+            "line": 42,
+            "start": 149.24,
+            "end": 151.74
+          },
+          {
+            "line": 43,
+            "start": 152.24,
+            "end": 154.84
+          },
+          {
+            "line": 44,
+            "start": 154.84,
+            "end": 157.1
+          },
+          {
+            "line": 45,
+            "start": 157.74,
+            "end": 159.52
+          },
+          {
+            "line": 46,
+            "start": 159.52,
+            "end": 161.92
+          },
+          {
+            "line": 47,
+            "start": 162.84,
+            "end": 165.38
+          },
+          {
+            "line": 48,
+            "start": 165.58,
+            "end": 167.22
+          },
+          {
+            "line": 51,
+            "start": 168.6,
+            "end": 170.94
+          },
+          {
+            "line": 52,
+            "start": 173.94,
+            "end": 176.02
+          },
+          {
+            "line": 53,
+            "start": 177.76,
+            "end": 180.98
+          },
+          {
+            "line": 54,
+            "start": 180.98,
+            "end": 186.16
+          },
+          {
+            "line": 55,
+            "start": 186.88,
+            "end": 188.78
+          },
+          {
+            "line": 56,
+            "start": 189.32,
+            "end": 191.3
+          },
+          {
+            "line": 57,
+            "start": 192.22,
+            "end": 194.12
+          },
+          {
+            "line": 58,
+            "start": 195.14,
+            "end": 198.8
+          }
+        ]
+      }
+    },
+    {
+      "id": "the-last-light-in-the-station-tony-v7-study",
+      "title": "The Last Light in the Station (Tony V7 Study)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/the-last-light-in-the-station-tony-v7-study-945ebf5f7759.mp3",
+      "duration": 225.04,
+      "collection": "tonyai",
+      "collections": [
+        "tonyai"
+      ],
+      "publishedAt": "2026-09-13T08:19:58.588Z",
+      "lyrics": {
+        "text": "[Verse 1]\nThey took the numbers off the platform wall\nThey rolled the timetable into a tube\nThe station clock still heard the morning call\nAnd moved its hands although the trains were through\nI had a ring of keys and thirty years\nA broom that knew the corners of the place\nI swept the tickets out from underneath the chairs\nAnd found a child's drawing of my face\n\n[Chorus]\nI'll leave the last light in the station\nTill the morning finds its way\nFor the ones who missed their destination\nFor the ones who couldn't stay\nIf you see it through the weather\nIf you're coming down the line\nThere's a little room to wait together\nAnd the last light will be mine\n\n[Verse 2]\nA man arrived with flowers in his coat\nHe hadn't heard the service had been ended\nHe showed me where his daughter's hand had wrote\nThe time and place their distance could be mended\nI brought him to the office telephone\nHe stood so straight and struggled with her number\nI stepped outside and left him there alone\nAnd heard his voice grow younger through the timber\n\n[Chorus]\nI'll leave the last light in the station\nTill the morning finds its way\nFor the ones who missed their destination\nFor the ones who couldn't stay\nIf you see it through the weather\nIf you're coming down the line\nThere's a little room to wait together\nAnd the last light will be mine\n\n[Bridge]\nA car pulled up at half past seven\nShe ran across the empty square\nI never saw a train arrive\nThat brought so much as seeing her there\nThey asked if I was heading home\nI turned the key and joined them in the air\n\n[Final Chorus]\nThere's a last light in the station\nAnd the morning found its way\nFor the ones who changed their destination\nFor the ones who chose to stay\nYou can see it through the weather\nLike a star above the line\nThere was room enough to wait together\nNow the road ahead is mine",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.86,
+            "end": 8.42
+          },
+          {
+            "line": 2,
+            "start": 8.42,
+            "end": 14.66
+          },
+          {
+            "line": 3,
+            "start": 14.66,
+            "end": 19.8
+          },
+          {
+            "line": 4,
+            "start": 19.8,
+            "end": 25.38
+          },
+          {
+            "line": 5,
+            "start": 26.82,
+            "end": 31.36
+          },
+          {
+            "line": 6,
+            "start": 32.94,
+            "end": 36.74
+          },
+          {
+            "line": 7,
+            "start": 38.48,
+            "end": 42.68
+          },
+          {
+            "line": 8,
+            "start": 42.68,
+            "end": 47.28
+          },
+          {
+            "line": 11,
+            "start": 49.42,
+            "end": 52.58
+          },
+          {
+            "line": 12,
+            "start": 53.06,
+            "end": 55.32
+          },
+          {
+            "line": 13,
+            "start": 55.7,
+            "end": 58.48
+          },
+          {
+            "line": 14,
+            "start": 59.28,
+            "end": 61.5
+          },
+          {
+            "line": 15,
+            "start": 61.78,
+            "end": 63.68
+          },
+          {
+            "line": 16,
+            "start": 64.42,
+            "end": 66.6
+          },
+          {
+            "line": 17,
+            "start": 67.14,
+            "end": 69.98
+          },
+          {
+            "line": 18,
+            "start": 70.44,
+            "end": 73.58
+          },
+          {
+            "line": 21,
+            "start": 77.26,
+            "end": 81.78
+          },
+          {
+            "line": 22,
+            "start": 83.56,
+            "end": 87.62
+          },
+          {
+            "line": 23,
+            "start": 88.98,
+            "end": 93.16
+          },
+          {
+            "line": 24,
+            "start": 94.88,
+            "end": 99.38
+          },
+          {
+            "line": 25,
+            "start": 100.56,
+            "end": 103.64
+          },
+          {
+            "line": 26,
+            "start": 105.98,
+            "end": 110.62
+          },
+          {
+            "line": 27,
+            "start": 111.86,
+            "end": 115.54
+          },
+          {
+            "line": 28,
+            "start": 117.62,
+            "end": 121.52
+          },
+          {
+            "line": 31,
+            "start": 122.9,
+            "end": 125.98
+          },
+          {
+            "line": 32,
+            "start": 126.32,
+            "end": 128.74
+          },
+          {
+            "line": 33,
+            "start": 129.08,
+            "end": 131.98
+          },
+          {
+            "line": 34,
+            "start": 132.68,
+            "end": 134.92
+          },
+          {
+            "line": 35,
+            "start": 135.2,
+            "end": 137.1
+          },
+          {
+            "line": 36,
+            "start": 137.76,
+            "end": 140.04
+          },
+          {
+            "line": 37,
+            "start": 140.52,
+            "end": 143.34
+          },
+          {
+            "line": 38,
+            "start": 143.34,
+            "end": 146.94
+          },
+          {
+            "line": 41,
+            "start": 152.04,
+            "end": 154.86
+          },
+          {
+            "line": 42,
+            "start": 155.26,
+            "end": 157.46
+          },
+          {
+            "line": 43,
+            "start": 158.14,
+            "end": 160.26
+          },
+          {
+            "line": 44,
+            "start": 160.26,
+            "end": 163.46
+          },
+          {
+            "line": 45,
+            "start": 163.76,
+            "end": 165.98
+          },
+          {
+            "line": 46,
+            "start": 166.48,
+            "end": 170.28
+          },
+          {
+            "line": 49,
+            "start": 174.32,
+            "end": 176.82
+          },
+          {
+            "line": 50,
+            "start": 176.82,
+            "end": 179.56
+          },
+          {
+            "line": 51,
+            "start": 179.56,
+            "end": 182.8
+          },
+          {
+            "line": 52,
+            "start": 182.8,
+            "end": 185.78
+          },
+          {
+            "line": 53,
+            "start": 185.78,
+            "end": 188
+          },
+          {
+            "line": 54,
+            "start": 188,
+            "end": 190.84
+          },
+          {
+            "line": 55,
+            "start": 190.84,
+            "end": 194.06
+          },
+          {
+            "line": 56,
+            "start": 194.06,
+            "end": 198.14
+          }
+        ]
+      },
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 26.54
+        }
+      ]
+    },
+    {
       "id": "distonyc-cb0b9499cf826af6721055d8",
       "title": "Jihad at the Holy Big Top",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cb0b9499cf826af6721055d8-66f19fd42d93.mp3",
