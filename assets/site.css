@@ -404,7 +404,7 @@ main {
   outline-offset: 5px;
 }
 @keyframes record-spin {
-  to { transform: rotate(1turn); }
+  to { rotate: 1turn; }
 }
 .record.record-spin-intro {
   animation: record-spin 1.35s cubic-bezier(0.35, 0, 0.2, 1) 3;

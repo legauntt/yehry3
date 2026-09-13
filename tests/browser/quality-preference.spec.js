@@ -97,9 +97,16 @@ test("the hero record starts moving and honors reduced motion", async ({ page })
     const animation = element.getAnimations()[0];
     return { iterations: animation.effect.getTiming().iterations, playbackRate: animation.playbackRate };
   })).toEqual({ iterations: Infinity, playbackRate: 5 });
-  await expect.poll(() => record.evaluate((element) => element.getAnimations()[0].playbackRate), {
-    timeout: 2500,
-  }).toBeLessThan(5);
+  await page.waitForTimeout(650);
+  await record.evaluate((element) => {
+    const animation = element.getAnimations()[0];
+    animation.currentTime = 400;
+    animation.playbackRate = 0.121;
+  });
+  await expect.poll(() => record.evaluate((element) => element.getAnimations().length)).toBe(0);
+  const restingAngle = await record.evaluate((element) => Number.parseFloat(element.style.transform.match(/-?[\d.]+/)?.[0]));
+  expect(restingAngle).toBeGreaterThan(80);
+  expect(restingAngle).toBeLessThan(100);
   await page.emulateMedia({ reducedMotion: "reduce" });
   await expect(record).toHaveAttribute("data-motion", "reduced");
   await expect(record).not.toHaveAttribute("data-spin-speed");

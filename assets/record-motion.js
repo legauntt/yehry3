@@ -17,9 +17,11 @@ export function startRecordMotion(record) {
   let lastClickAt = 0;
   let lastCoastAt = 0;
   let lastActivity = performance.now();
+  let restingAngle = 0;
   const idleFor = 8000;
   const slowAfter = 600;
   const frictionPerMs = 0.00035;
+  const spinDuration = 1600;
   const spinRates = [1.25, 1.75, 2.5, 3.5, 5];
   const randomDelay = () => 18000 + Math.random() * 37000;
   const schedule = (delay = randomDelay()) => {
@@ -36,6 +38,17 @@ export function startRecordMotion(record) {
     if (!record.classList.contains("record-spin-intro") &&
         !record.classList.contains("record-spin-idle") && !clickAnimation) schedule();
   };
+  const stopClickSpin = () => {
+    if (!clickAnimation) return;
+    const elapsed = Number(clickAnimation.currentTime) || 0;
+    restingAngle = (restingAngle + elapsed / spinDuration * 360) % 360;
+    record.style.transform = `rotate(${restingAngle}deg)`;
+    clickAnimation.cancel();
+    clickAnimation = undefined;
+    lastCoastAt = 0;
+    delete record.dataset.spinSpeed;
+    delete record.dataset.spinRate;
+  };
   const coast = (now) => {
     if (!clickAnimation) return;
     const elapsed = lastCoastAt ? now - lastCoastAt : 0;
@@ -43,12 +56,8 @@ export function startRecordMotion(record) {
     if (now - lastClickAt > slowAfter) {
       const nextRate = clickAnimation.playbackRate - elapsed * frictionPerMs;
       if (nextRate <= 0.12) {
-        clickAnimation.cancel();
-        clickAnimation = undefined;
+        stopClickSpin();
         coastFrame = undefined;
-        lastCoastAt = 0;
-        delete record.dataset.spinSpeed;
-        delete record.dataset.spinRate;
         schedule();
         return;
       }
@@ -65,8 +74,8 @@ export function startRecordMotion(record) {
     const speedIndex = fasterIndex < 0 ? spinRates.length - 1 : fasterIndex;
     if (!clickAnimation) {
       clickAnimation = record.animate(
-        [{ transform: "rotate(0turn)" }, { transform: "rotate(1turn)" }],
-        { duration: 1600, iterations: Infinity, easing: "linear" },
+        [{ rotate: "0turn" }, { rotate: "1turn" }],
+        { duration: spinDuration, iterations: Infinity, easing: "linear" },
       );
     }
     const rate = spinRates[speedIndex];
@@ -100,8 +109,7 @@ export function startRecordMotion(record) {
     clearTimeout(timer);
     cancelAnimationFrame(coastFrame);
     coastFrame = undefined;
-    clickAnimation?.cancel();
-    clickAnimation = undefined;
+    stopClickSpin();
     record.classList.remove("record-spin-intro", "record-spin-idle");
     delete record.dataset.spinSpeed;
     delete record.dataset.spinRate;
