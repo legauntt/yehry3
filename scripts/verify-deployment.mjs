@@ -156,9 +156,11 @@ for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
         "publishedAt",
         "url",
         "qualityIssues",
+        "voiceModel",
       ].includes(field),
       `Unexpected public field: ${field}`,
     );
+  assert.match(request.voiceModel, /^v[1-9][0-9]*$/);
   if (request.authoredBy !== undefined) {
     assert.equal(typeof request.authoredBy, "string");
     assert.ok(request.authoredBy.length <= 100);
@@ -181,6 +183,11 @@ for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
     }
   }
 }
+const modelsResponse = await get(`${api}/voice-models`, {
+  headers: { Origin: site },
+});
+const models = (await modelsResponse.json()).models;
+assert.deepEqual(models.slice(0, 2).map(({ id }) => id), ["v6", "v7"]);
 console.log(
   `Anonymous public queue verified: ${queue.inStudioTotal} in studio, ${queue.queuedTotal} waiting, ${queue.recent.length} recent releases.`,
 );
@@ -215,6 +222,11 @@ assert.equal(response.headers.get("access-control-allow-origin"), site);
 const live = await response.json();
 for (const song of local.songs) {
   const published = live.songs.find((item) => item.id === song.id);
+  assert.equal(
+    published?.voiceModel,
+    song.voiceModel || "v6",
+    `Voice model differs for ${song.title}`,
+  );
   if (song.qualityIssues)
     assert.deepEqual(
       published?.qualityIssues,
@@ -236,7 +248,11 @@ for (const song of local.songs) {
   if (song.originalPrompt)
     assert.deepEqual(
       published?.originalPrompt,
-      song.originalPrompt,
+      {
+        ...song.originalPrompt,
+        voiceModel:
+          song.originalPrompt.voiceModel || song.voiceModel || "v6",
+      },
       `Original prompt differs for ${song.title}`,
     );
 }
