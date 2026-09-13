@@ -2,6 +2,295 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-cb0b9499cf826af6721055d8",
+      "title": "Jihad at the Holy Big Top",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cb0b9499cf826af6721055d8-66f19fd42d93.mp3",
+      "duration": 211.9,
+      "collection": "distonyc",
+      "authoredBy": "Scythe",
+      "lyrics": {
+        "text": "[Intro]\nRoll up the canvas, tighten the wire\nTony's in the ring with a mouthful of fire\nBrass in the alley, drum at the gate\nThe fat-cat parade has arrived too late\n\n[Verse 1]\nThey came in silk with a contract grin\nSelling us the locks, then charging to get in\nThey weighed every laugh, put a tax on the rain\nStamped their little logo on the side of my brain\nBut this crooked nation has a pulse below\nWhere the battered horns and the wild hearts go\nI kissed the dust, heard the kettledrum call\nTonight we raise the tent or we bury it all\n\n[Pre-Chorus]\nRound goes the wheel, but the axle is ours\nLight every lantern on the carnival towers\n\n[Chorus]\nJihad! Jihad! Hear the battle cry:\n“Break the golden cages—send the pigdogs flying high!”\nFor the holy nation of the hungry and ignored\nWe march with a bass drum, a bell, and a sword\nJihad! Jihad! Let the crooked brass roar\nNo king owns the midway, no banker owns the door\n\n[Verse 2]\nThe minister juggles three counterfeit laws\nWhile the chairman applauds with mechanical claws\nThey auction the moon by the sliver and slice\nThen sell back the darkness at a holiday price\nTony laughs low, wipes the smoke from his chin\nSays, “You bought the whole game, but you still cannot win”\nThe acrobats tumble, the painted carts sway\nAnd the workers turn the spotlights the opposite way\n\n[Pre-Chorus]\nRound goes the wheel, hear the old engine cough\nWhen the smallest hand pulls, the whole crown falls off\n\n[Chorus]\nJihad! Jihad! Hear the battle cry:\n“Break the golden cages—send the pigdogs flying high!”\nFor the holy nation of the hungry and ignored\nWe march with a bass drum, a bell, and a sword\nJihad! Jihad! Let the crooked brass roar\nNo king owns the midway, no banker owns the door\n\n[Bridge]\nHalf-time now—the calliope wheezes\nTony bends the notes till the brass section sneezes\nNo blood for the ledger, no graves for the throne\nWe conquer their circus by making it our own\nRip up the price tags, unlock every stall\nBread on the tables and music for all\n\n[Instrumental Break]\n\n[Final Chorus]\nJihad! Jihad! Hear the battle cry:\n“Break the golden cages—send the pigdogs flying high!”\nFor the holy nation with its boots in the mud\nOur weapon is the rhythm, our banner is blood-red\nJihad! Jihad! Now the crooked crown is gone\nThe midway belongs to everyone at dawn\n\n[Outro]\nThe sword was tin, the tyrants fled the floor\nTony locked the ledger and opened every door\nOne last bent chord as the new flags climb\nThe holy big top keeps its own damn time",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 2.82,
+            "end": 5.96
+          },
+          {
+            "line": 2,
+            "start": 6.38,
+            "end": 9.28
+          },
+          {
+            "line": 3,
+            "start": 9.78,
+            "end": 12.4
+          },
+          {
+            "line": 4,
+            "start": 12.9,
+            "end": 15.62
+          },
+          {
+            "line": 7,
+            "start": 17.6,
+            "end": 20.58
+          },
+          {
+            "line": 8,
+            "start": 21.22,
+            "end": 23.86
+          },
+          {
+            "line": 9,
+            "start": 24.26,
+            "end": 27.8
+          },
+          {
+            "line": 10,
+            "start": 27.8,
+            "end": 30.42
+          },
+          {
+            "line": 11,
+            "start": 30.78,
+            "end": 33.38
+          },
+          {
+            "line": 12,
+            "start": 33.38,
+            "end": 36.5
+          },
+          {
+            "line": 13,
+            "start": 36.5,
+            "end": 40.18
+          },
+          {
+            "line": 14,
+            "start": 40.5,
+            "end": 43.32
+          },
+          {
+            "line": 17,
+            "start": 43.88,
+            "end": 46.8
+          },
+          {
+            "line": 18,
+            "start": 47.3,
+            "end": 52.38
+          },
+          {
+            "line": 21,
+            "start": 52.38,
+            "end": 54.86
+          },
+          {
+            "line": 22,
+            "start": 55.4,
+            "end": 58.18
+          },
+          {
+            "line": 23,
+            "start": 58.18,
+            "end": 61.46
+          },
+          {
+            "line": 24,
+            "start": 61.46,
+            "end": 65.42
+          },
+          {
+            "line": 25,
+            "start": 65.42,
+            "end": 67.9
+          },
+          {
+            "line": 26,
+            "start": 67.9,
+            "end": 71.26
+          },
+          {
+            "line": 29,
+            "start": 75.96,
+            "end": 79.3
+          },
+          {
+            "line": 30,
+            "start": 79.3,
+            "end": 82.5
+          },
+          {
+            "line": 31,
+            "start": 82.5,
+            "end": 85.78
+          },
+          {
+            "line": 32,
+            "start": 85.78,
+            "end": 89.1
+          },
+          {
+            "line": 33,
+            "start": 89.1,
+            "end": 92.34
+          },
+          {
+            "line": 34,
+            "start": 92.34,
+            "end": 95.7
+          },
+          {
+            "line": 35,
+            "start": 95.7,
+            "end": 98.86
+          },
+          {
+            "line": 36,
+            "start": 98.86,
+            "end": 102.2
+          },
+          {
+            "line": 39,
+            "start": 102.2,
+            "end": 105.44
+          },
+          {
+            "line": 40,
+            "start": 105.44,
+            "end": 111.46
+          },
+          {
+            "line": 43,
+            "start": 111.46,
+            "end": 113.7
+          },
+          {
+            "line": 44,
+            "start": 113.7,
+            "end": 116.88
+          },
+          {
+            "line": 45,
+            "start": 116.88,
+            "end": 120.18
+          },
+          {
+            "line": 46,
+            "start": 120.18,
+            "end": 124.14
+          },
+          {
+            "line": 47,
+            "start": 124.14,
+            "end": 127.76
+          },
+          {
+            "line": 48,
+            "start": 127.76,
+            "end": 130.14
+          },
+          {
+            "line": 51,
+            "start": 135.32,
+            "end": 138.4
+          },
+          {
+            "line": 52,
+            "start": 138.4,
+            "end": 141.54
+          },
+          {
+            "line": 53,
+            "start": 141.54,
+            "end": 144.64
+          },
+          {
+            "line": 54,
+            "start": 144.64,
+            "end": 148.06
+          },
+          {
+            "line": 55,
+            "start": 148.06,
+            "end": 151.22
+          },
+          {
+            "line": 56,
+            "start": 151.22,
+            "end": 154.62
+          },
+          {
+            "line": 61,
+            "start": 171.58,
+            "end": 174
+          },
+          {
+            "line": 62,
+            "start": 174,
+            "end": 177.34
+          },
+          {
+            "line": 63,
+            "start": 177.34,
+            "end": 180.68
+          },
+          {
+            "line": 64,
+            "start": 180.68,
+            "end": 184.54
+          },
+          {
+            "line": 65,
+            "start": 184.54,
+            "end": 187.1
+          },
+          {
+            "line": 66,
+            "start": 187.1,
+            "end": 190.1
+          },
+          {
+            "line": 69,
+            "start": 195.06,
+            "end": 198.62
+          },
+          {
+            "line": 70,
+            "start": 199.18,
+            "end": 201.84
+          },
+          {
+            "line": 71,
+            "start": 202.22,
+            "end": 204.96
+          },
+          {
+            "line": 72,
+            "start": 205.52,
+            "end": 208.4
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 12.32
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony declares jihad on the capitalist pigdogs that threaten his holy nation.",
+        "direction": "Circus polka",
+        "keep": "Chorus should contain a battle cry",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-c3eb65ce405cdf80548dbb9b",
       "title": "AGI Ge ǃNâi Hâ",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c3eb65ce405cdf80548dbb9b-a2a94f916471.mp3",
