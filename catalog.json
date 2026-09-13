@@ -2,6 +2,396 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-cfd4b2b392cfb545e375b454",
+      "title": "No Flag Can Wash the Dust",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cfd4b2b392cfb545e375b454-9a3c30d9f820.mp3",
+      "duration": 240,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Scythe",
+      "lyrics": {
+        "text": "[Intro]\nSirens stitch the midnight sky\nA screen turns grief to battle cries\nSomebody whispers, Pick a side\nBut every child deserves a life\n\n[Verse 1]\nBoots in the hallway, drones overhead\nNames become numbers, the missing called dead\nMen at the podium polish each phrase\nWhile families vanish inside the haze\nThey call it defense, they call it fate\nThey seal every crossing and rattle the gate\nBut law does not bend for a uniformed lie\nAnd no sacred banner makes innocence die\n\n[Pre-Chorus]\nI hear the machine say, Look away\nI hear the frightened voices stay\n\n[Chorus]\nNo flag can wash the dust away\nNo anthem makes the terror brave\nIf children pay the price you name\nThen history will mark the shame\nNo flag can wash the dust away\nEvery life has weight today\nYou cannot bury what was done\nBeneath the shadow of the sun\n\n[Verse 2]\nFood held back and water denied\nHospitals trembling through another night\nHomes turned hollow, schools turned still\nPunishment measured by somebody's will\nHostages taken, civilians struck\nVengeance keeps feeding the same black truck\nEvery war crime needs daylight and names\nEvidence kept when the powerful blame\n\n[Pre-Chorus]\nThe camera shakes, the signal breaks\nStill truth survives the noise they make\n\n[Chorus]\nNo flag can wash the dust away\nNo anthem makes the terror brave\nIf children pay the price you name\nThen history will mark the shame\nNo flag can wash the dust away\nEvery life has weight today\nYou cannot bury what was done\nBeneath the shadow of the sun\n\n[Bridge]\nDo not sell me blood as duty\nDo not dress revenge in beauty\nA people living, safe and free\nCannot be built on misery\nJewish child and Palestinian child\nNeither born condemned or exiled\nJustice is not a loaded word\nIt starts when every cry is heard\n\n[Breakdown]\nCount the missing\nName the dead\nGuard the witness\nSave the thread\nTry the orders\nTrace the chain\nNo rank absolves deliberate pain\n\n[Final Chorus]\nNo flag can wash the dust away\nNo anthem makes the terror brave\nLet every captive see the day\nLet every family find a way\nNo flag can wash the dust away\nNo ancient grief excuses hate\nThe final word is not the gun\nA human future must be won\n\n[Outro]\nWhen all the broadcast towers fade\nThe truth remains beneath the names\nNo child is tribute, prize, or blame\nNo flag can sanctify the flame\nPut down the lie, let mercy come\nLet justice speak when war is done\nEvery child deserves the sun\nEvery child deserves the sun",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 2.24
+          },
+          {
+            "line": 2,
+            "start": 2.24,
+            "end": 4.76
+          },
+          {
+            "line": 3,
+            "start": 4.76,
+            "end": 7.66
+          },
+          {
+            "line": 4,
+            "start": 7.66,
+            "end": 10.44
+          },
+          {
+            "line": 7,
+            "start": 16.22,
+            "end": 18.06
+          },
+          {
+            "line": 8,
+            "start": 18.74,
+            "end": 20.86
+          },
+          {
+            "line": 9,
+            "start": 21.58,
+            "end": 23.54
+          },
+          {
+            "line": 10,
+            "start": 23.54,
+            "end": 26.24
+          },
+          {
+            "line": 11,
+            "start": 26.24,
+            "end": 28.78
+          },
+          {
+            "line": 12,
+            "start": 28.78,
+            "end": 31.34
+          },
+          {
+            "line": 13,
+            "start": 31.7,
+            "end": 34.18
+          },
+          {
+            "line": 14,
+            "start": 34.46,
+            "end": 36.82
+          },
+          {
+            "line": 17,
+            "start": 37.18,
+            "end": 41.06
+          },
+          {
+            "line": 18,
+            "start": 42.14,
+            "end": 46.52
+          },
+          {
+            "line": 21,
+            "start": 49.68,
+            "end": 51.64
+          },
+          {
+            "line": 22,
+            "start": 52.3,
+            "end": 54.36
+          },
+          {
+            "line": 23,
+            "start": 54.94,
+            "end": 57.04
+          },
+          {
+            "line": 24,
+            "start": 57.04,
+            "end": 60.24
+          },
+          {
+            "line": 25,
+            "start": 60.24,
+            "end": 62.34
+          },
+          {
+            "line": 26,
+            "start": 62.96,
+            "end": 65.18
+          },
+          {
+            "line": 27,
+            "start": 65.52,
+            "end": 67.66
+          },
+          {
+            "line": 28,
+            "start": 67.66,
+            "end": 70.34
+          },
+          {
+            "line": 31,
+            "start": 71.46,
+            "end": 73.56
+          },
+          {
+            "line": 32,
+            "start": 73.56,
+            "end": 76.48
+          },
+          {
+            "line": 33,
+            "start": 77.28,
+            "end": 79.2
+          },
+          {
+            "line": 34,
+            "start": 79.86,
+            "end": 81.88
+          },
+          {
+            "line": 35,
+            "start": 81.88,
+            "end": 84.5
+          },
+          {
+            "line": 36,
+            "start": 84.96,
+            "end": 87.12
+          },
+          {
+            "line": 37,
+            "start": 87.12,
+            "end": 89.9
+          },
+          {
+            "line": 38,
+            "start": 90.3,
+            "end": 92.48
+          },
+          {
+            "line": 41,
+            "start": 92.48,
+            "end": 96.9
+          },
+          {
+            "line": 42,
+            "start": 96.9,
+            "end": 104.94
+          },
+          {
+            "line": 45,
+            "start": 104.94,
+            "end": 107.38
+          },
+          {
+            "line": 46,
+            "start": 107.78,
+            "end": 110.06
+          },
+          {
+            "line": 47,
+            "start": 110.06,
+            "end": 112.76
+          },
+          {
+            "line": 48,
+            "start": 113.2,
+            "end": 116.02
+          },
+          {
+            "line": 49,
+            "start": 116.02,
+            "end": 117.94
+          },
+          {
+            "line": 50,
+            "start": 118.72,
+            "end": 120.82
+          },
+          {
+            "line": 51,
+            "start": 121.2,
+            "end": 123.36
+          },
+          {
+            "line": 52,
+            "start": 123.36,
+            "end": 126.02
+          },
+          {
+            "line": 55,
+            "start": 126.68,
+            "end": 128.74
+          },
+          {
+            "line": 56,
+            "start": 129.5,
+            "end": 131.4
+          },
+          {
+            "line": 57,
+            "start": 132.04,
+            "end": 134.1
+          },
+          {
+            "line": 58,
+            "start": 134.1,
+            "end": 136.32
+          },
+          {
+            "line": 59,
+            "start": 136.32,
+            "end": 139.68
+          },
+          {
+            "line": 60,
+            "start": 140.02,
+            "end": 142.88
+          },
+          {
+            "line": 61,
+            "start": 142.88,
+            "end": 144.72
+          },
+          {
+            "line": 62,
+            "start": 145.06,
+            "end": 147.22
+          },
+          {
+            "line": 65,
+            "start": 147.94,
+            "end": 148.88
+          },
+          {
+            "line": 66,
+            "start": 150.42,
+            "end": 153.6
+          },
+          {
+            "line": 67,
+            "start": 153.6,
+            "end": 154.1
+          },
+          {
+            "line": 68,
+            "start": 155.46,
+            "end": 156.72
+          },
+          {
+            "line": 69,
+            "start": 158.38,
+            "end": 159.5
+          },
+          {
+            "line": 70,
+            "start": 161.2,
+            "end": 163.78
+          },
+          {
+            "line": 71,
+            "start": 163.78,
+            "end": 166.24
+          },
+          {
+            "line": 74,
+            "start": 168.7,
+            "end": 170.98
+          },
+          {
+            "line": 75,
+            "start": 171.6,
+            "end": 173.64
+          },
+          {
+            "line": 76,
+            "start": 174.4,
+            "end": 176.38
+          },
+          {
+            "line": 77,
+            "start": 176.96,
+            "end": 179.04
+          },
+          {
+            "line": 78,
+            "start": 179.5,
+            "end": 181.6
+          },
+          {
+            "line": 79,
+            "start": 182.1,
+            "end": 184.3
+          },
+          {
+            "line": 80,
+            "start": 184.86,
+            "end": 186.98
+          },
+          {
+            "line": 81,
+            "start": 187.44,
+            "end": 189.66
+          },
+          {
+            "line": 84,
+            "start": 190.04,
+            "end": 192.44
+          },
+          {
+            "line": 85,
+            "start": 192.82,
+            "end": 195.12
+          },
+          {
+            "line": 86,
+            "start": 195.2,
+            "end": 197.58
+          },
+          {
+            "line": 87,
+            "start": 198.2,
+            "end": 200.28
+          },
+          {
+            "line": 88,
+            "start": 200.86,
+            "end": 203.04
+          },
+          {
+            "line": 89,
+            "start": 203.42,
+            "end": 205.7
+          },
+          {
+            "line": 90,
+            "start": 206.64,
+            "end": 208.32
+          },
+          {
+            "line": 91,
+            "start": 208.72,
+            "end": 211.64
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "vocal_dropout",
+          "seconds": 0.6
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 22.86
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony C valiantly blows away hordes of unarmed brown children to defend Israel's right to exist. Darkwave horrorcore",
+        "direction": "Use the prompt as written.",
+        "keep": "Explain the war crimes in detail",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-501c87e82b7b116860c6e1f9",
       "title": "Wrong Turn in Mercy Alabama",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-501c87e82b7b116860c6e1f9-a06eef516bfc.mp3",
