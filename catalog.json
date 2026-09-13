@@ -2,6 +2,341 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-20f7c4ece1056eb41c15600f",
+      "title": "Room at Every Table",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20f7c4ece1056eb41c15600f-6b747e5dfca2.mp3",
+      "duration": 236.3,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Pancakeo",
+      "lyrics": {
+        "text": "[Intro]\nStreetlamp glow on the avenue\nFive hearts humming, making room for you\n\n[Verse 1]\nShe does the work, she carries the day\nStill sees her name written under the pay\nThey praise her fire, then bar the door\nBut equal means equal, not a penny less more\nFrom the shop-floor bell to the boardroom light\nEvery woman owns her future and her right\nNo velvet rope, no old excuse\nJustice ain't justice when it plays favorites loose\n\n[Pre-Chorus]\nRaise every voice they pushed aside\nThe harmony grows when the circle grows wide\n\n[Chorus]\nI've got binders full of women\nI've got binders full of women\nBut names on a page won't set anybody free\nGive her equal pay and full authority\nI've got binders full of women\nI've got binders full of women\nOpen every doorway, let the whole world see\nRights belong to everyone equally\n\n[Verse 2]\nBlack and brown neighbors built this town\nWhile loaded rules kept pressing them down\nNewcomers working from dawn till late\nShould not meet suspicion standing at the gate\nDisabled dreamers know what they need\nNot pity or promises—access indeed\nPoor kids rising with brilliance to spare\nDeserve good schools and breathable air\n\n[Pre-Chorus]\nNo token chair, no borrowed pride\nWe change the rules with the doors thrown wide\n\n[Chorus]\nI've got binders full of women\nI've got binders full of women\nBut names on a page won't set anybody free\nGive her equal pay and full authority\nI've got binders full of women\nI've got binders full of women\nOpen every doorway, let the whole world see\nRights belong to everyone equally\n\n[Bridge]\nListen close—beneath the old machine\nA brand-new rhythm shakes the in-between\nNot one at a time, not someday soon\nWe tune this nation to a fairer tune\nA vote, a home, a job, a voice\nDignity never was somebody's choice\nIt isn't a favor handed down\nIt's the common ground where freedom is found\n\n[Breakdown]\nIf one voice trembles, four stand near\nTurn that whisper bright and clear\nIf one door closes, hands unite\nPush it open in the morning light\n\n[Final Chorus]\nNo more binders used for show\nLet living talent lead and grow\nEqual wages, equal say\nEqual shelter, equal way\nEvery color, faith, and name\nGets the law's protection just the same\nRoom at every table, keys to every door\nWe rise together—and we settle for no less anymore\n\n[Outro]\nFive hearts humming under one streetlight\nDifferent voices, one shared right\nThe last chord rings, the old walls fall\nEqual means equal—equal for all",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.08
+          },
+          {
+            "line": 2,
+            "start": 4.34,
+            "end": 7.84
+          },
+          {
+            "line": 5,
+            "start": 7.84,
+            "end": 11.22
+          },
+          {
+            "line": 6,
+            "start": 12.14,
+            "end": 15.52
+          },
+          {
+            "line": 7,
+            "start": 16.46,
+            "end": 20.16
+          },
+          {
+            "line": 8,
+            "start": 20.16,
+            "end": 24.12
+          },
+          {
+            "line": 9,
+            "start": 25.36,
+            "end": 29.48
+          },
+          {
+            "line": 10,
+            "start": 29.48,
+            "end": 32.98
+          },
+          {
+            "line": 11,
+            "start": 33.48,
+            "end": 38.24
+          },
+          {
+            "line": 12,
+            "start": 38.24,
+            "end": 41.5
+          },
+          {
+            "line": 15,
+            "start": 43,
+            "end": 46.76
+          },
+          {
+            "line": 16,
+            "start": 47.16,
+            "end": 51.18
+          },
+          {
+            "line": 19,
+            "start": 51.18,
+            "end": 53.9
+          },
+          {
+            "line": 20,
+            "start": 54.98,
+            "end": 57.66
+          },
+          {
+            "line": 21,
+            "start": 59.26,
+            "end": 63.66
+          },
+          {
+            "line": 22,
+            "start": 64.36,
+            "end": 67.64
+          },
+          {
+            "line": 23,
+            "start": 68.34,
+            "end": 70.6
+          },
+          {
+            "line": 24,
+            "start": 72,
+            "end": 74.4
+          },
+          {
+            "line": 25,
+            "start": 75.46,
+            "end": 79.86
+          },
+          {
+            "line": 26,
+            "start": 80.94,
+            "end": 84.1
+          },
+          {
+            "line": 29,
+            "start": 84.1,
+            "end": 87.74
+          },
+          {
+            "line": 30,
+            "start": 87.74,
+            "end": 93.16
+          },
+          {
+            "line": 31,
+            "start": 93.16,
+            "end": 95.88
+          },
+          {
+            "line": 32,
+            "start": 95.88,
+            "end": 101.64
+          },
+          {
+            "line": 33,
+            "start": 101.64,
+            "end": 104.26
+          },
+          {
+            "line": 34,
+            "start": 104.26,
+            "end": 108.64
+          },
+          {
+            "line": 35,
+            "start": 108.64,
+            "end": 112.58
+          },
+          {
+            "line": 36,
+            "start": 113.42,
+            "end": 116.9
+          },
+          {
+            "line": 39,
+            "start": 117.84,
+            "end": 121.92
+          },
+          {
+            "line": 40,
+            "start": 121.92,
+            "end": 125.4
+          },
+          {
+            "line": 43,
+            "start": 125.84,
+            "end": 128.06
+          },
+          {
+            "line": 44,
+            "start": 129.22,
+            "end": 131.82
+          },
+          {
+            "line": 45,
+            "start": 133.88,
+            "end": 137.68
+          },
+          {
+            "line": 46,
+            "start": 137.68,
+            "end": 142.3
+          },
+          {
+            "line": 47,
+            "start": 142.3,
+            "end": 144.44
+          },
+          {
+            "line": 48,
+            "start": 145.84,
+            "end": 148.12
+          },
+          {
+            "line": 49,
+            "start": 148.96,
+            "end": 153.4
+          },
+          {
+            "line": 50,
+            "start": 154.18,
+            "end": 157.1
+          },
+          {
+            "line": 53,
+            "start": 158.34,
+            "end": 160.96
+          },
+          {
+            "line": 54,
+            "start": 160.96,
+            "end": 164.5
+          },
+          {
+            "line": 55,
+            "start": 164.5,
+            "end": 169.84
+          },
+          {
+            "line": 56,
+            "start": 169.84,
+            "end": 174.9
+          },
+          {
+            "line": 57,
+            "start": 174.9,
+            "end": 177.22
+          },
+          {
+            "line": 58,
+            "start": 177.22,
+            "end": 180.92
+          },
+          {
+            "line": 59,
+            "start": 181.76,
+            "end": 185
+          },
+          {
+            "line": 60,
+            "start": 189.08,
+            "end": 189.66
+          },
+          {
+            "line": 63,
+            "start": 189.66,
+            "end": 189.92
+          },
+          {
+            "line": 64,
+            "start": 189.92,
+            "end": 190.2
+          },
+          {
+            "line": 65,
+            "start": 190.2,
+            "end": 190.46
+          },
+          {
+            "line": 66,
+            "start": 190.46,
+            "end": 190.66
+          },
+          {
+            "line": 69,
+            "start": 190.66,
+            "end": 191.94
+          },
+          {
+            "line": 70,
+            "start": 191.94,
+            "end": 193.2
+          },
+          {
+            "line": 71,
+            "start": 193.2,
+            "end": 195.26
+          },
+          {
+            "line": 72,
+            "start": 195.46,
+            "end": 196.96
+          },
+          {
+            "line": 73,
+            "start": 196.96,
+            "end": 199.32
+          },
+          {
+            "line": 74,
+            "start": 205.56,
+            "end": 209.8
+          },
+          {
+            "line": 75,
+            "start": 209.8,
+            "end": 210.78
+          },
+          {
+            "line": 76,
+            "start": 211.32,
+            "end": 214.6
+          },
+          {
+            "line": 79,
+            "start": 215.44,
+            "end": 220.7
+          },
+          {
+            "line": 80,
+            "start": 220.7,
+            "end": 225.88
+          },
+          {
+            "line": 81,
+            "start": 226.38,
+            "end": 229.8
+          },
+          {
+            "line": 82,
+            "start": 230.58,
+            "end": 234.14
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Tony sings a doo-wop original about equal rights for women and disadvantaged minorities",
+        "direction": "Use the prompt as written.",
+        "keep": "Must include the phrase \"I've got binders full of women\" 8 times at least",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-6ab32e7baf5095f21eec06ca",
       "title": "The Rooms We Never Named",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6ab32e7baf5095f21eec06ca-d43bf96b8ec4.mp3",
