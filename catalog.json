@@ -2,6 +2,26 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-2fa58c544bb2ea097683cd8e",
+      "title": "The One Warrior and the Heavier Feather",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2fa58c544bb2ea097683cd8e-46fbfe0ba6d1.mp3",
+      "duration": 223.5,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Spoken Intro]\nWill you hear my riddle?\n\n[Verse 1]\nAt Blackbriar Gate, where the moonstones glow,\nA keeper barred the crooked road below.\nOne warrior arrived with a dented crown,\nBoasting he could stare any dragon down.\nHe carried one sword and opinions galore,\nNo horse, no map, no plan for the moor.\nWeigh gold against feathers, a pound in each pan;\nWhich load bows the balance? Answer if you can.\n\n[Spoken Interlude]\nFeathers.\nExplain.\nThey're heavier.\n\n[Pre-Chorus]\nThe keeper nodded; the answer stood.\nThe gate swung wide through the dripping wood.\nBeyond lay a dragon with emerald eyes,\nGuarding a bridge made of polished lies.\n\n[Chorus]\nOne warrior, walk through the fire,\nCrooked little grin and a heart climbing higher.\nFeather in your helmet, flame on your trail,\nTrick the old dragon where iron would fail.\nOne warrior, stubborn and bright,\nCarry that impossible answer tonight.\nGold may glitter, scales may groan,\nBut the heavier feather will lead you home.\n\n[Verse 2]\nThe dragon demanded his sword as a fee,\nThen offered a bargain beneath a dead tree.\nThree stones sat waiting: the black and the red,\nAnd one painted loaf masquerading as lead.\nThe warrior broke it; a key tumbled free.\nHe unlocked the bridge with a theatrical knee.\nThen tripped on his scabbard and blamed the map,\nWhile his crown went rolling into the trap.\n\n[Spoken Interlude]\nOnly testing, my lord.\n\n[Bridge]\nThe dragon laughed smoke through a chipped golden tooth;\nThe hero stopped boasting and told him the truth.\nHe wanted the bell that the village had lost,\nNot kingdoms or tribute or glory at cost.\nAn honest small wish undid all that pride;\nThe dragon unchained it and moved to one side.\n\n[Spoken Interlude]\nHe may be the one.\n\n[Final Chorus]\nOne warrior, out of the fire,\nLess of a monarch, but twice the squire.\nFeather in his helmet, bell on his back,\nDragon beside him on Blackbriar Track.\nGold may glitter, scales may groan,\nBut the heavier feather has brought them home.\n\n[Outro]\nThe bell woke the valley; the road reached its end.\nHe laid down his sword and made room for a friend.",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Take as many videos from scythecow on YouTube as you can, such as https://youtu.be/ZcVwOO_QGaE?is=VGimaHRybmkCyB27\n\nRelated to feathers or the one warrior",
+        "direction": "Medieval fantasy, riddles, dragons, tricks",
+        "keep": "Must include a riddle and some scraped dialogue from the YouTube videos (use whisper to get that). You may also sample audio",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-29c9f7c1321d4395579ab62f",
       "title": "Ten Hours for an Ith",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-29c9f7c1321d4395579ab62f-dec7a100c708.mp3",
