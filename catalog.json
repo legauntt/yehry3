@@ -2,6 +2,474 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-841de4ec654a405e36f42a40",
+      "title": "Ghost Wings Over Deadmans Port",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-841de4ec654a405e36f42a40-897a5205d362.mp3",
+      "duration": 355.04,
+      "collection": "distonyc",
+      "authoredBy": "Pancakeo",
+      "lyrics": {
+        "text": "[Intro]\nNeon on the flight deck, midnight engine glow\nSwann wiped his hands where the red alarms would show\nRaynor crossed the gantry with a storm behind his eyes\nWhile a row of black-winged Banshees waited silent as the skies\n\n[Verse 1]\nSwann said, “Pull that panel, Jimmy, look beneath the skin\nHeat sinks humming cold enough to hide the fire within\nSpectral coils are steady, phase grid’s running clean\nThey’ll never see our pilots till they’re tearing through the screen”\n\nRaynor watched the readouts paint a ghost across the glass\n“They disappear from sensors, but how long can that trick last?”\nSwann laughed through the static, struck the console with his hand\n“Long enough to cross their guns and leave ’em where they stand”\n\n[Pre-Chorus]\nBlue current in the cables\nBlack wings against the stars\nNo shadow on the radar\nJust thunder wearing scars\n\n[Chorus]\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGhost wings ready to deploy\nKill the lights and cut the noise\nLet the Dominion chase decoys\nGot somethin for ya Cowboy\nA Banshee they cannot destroy\n\n[Verse 2]\nRaynor leaned in closer as the cloak began to bend\nEvery edge went liquid, every shape refused to end\nThen the ship was absent, though its turbines shook the floor\nLike a loaded question breathing just behind the hangar door\n\n“I’m not sure this is the best time to be experimentin’”\nSwann sparked up a welder, never pausing to explain\n“Hell Cowboy, best time there is”\nThen he kicked the housing shut and grinned into the rain\n\n[Pre-Chorus]\nNo beacon for the towers\nNo heat trail for the guns\nJust pilots counting heartbeats\nBefore the firing run\n\n[Chorus]\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGhost wings ready to deploy\nSlip unseen through burning lanes\nStrike the locks and break the chains\nGot somethin for ya Cowboy\nThen vanish in the reactor haze\n\n[Verse 3]\nThe tactical display lit up with cruisers wall to wall\nSwann traced out a crooked route that threaded through them all\n“Cloak draws hard on power, so don’t waste a single breath\nDrop it when you’ve crossed the line, then give their engines death”\n\nRaynor keyed the squadron, “Keep it low and keep it tight\nSwann has built a doorway through the teeth of hell tonight”\nOne by one the Banshees faded underneath the warning red\nLeaving only engine whispers circling overhead\n\n[Instrumental Break]\n[Driving bass sequence, gated drums, distorted guitar harmonics]\n\n[Bridge]\nSwann said, “Every ghost needs copper\nEvery miracle needs grease\nEvery clean escape begins\nWith bolts that won’t release”\n\nRaynor said, “If this goes sideways—”\nSwann said, “Then turn the whole thing straight\nYou bring the revolution\nI’ll bring something they can’t trace”\n\n[Breakdown]\nCloak on—the stars go blind\nCloak off—the rockets shine\nOne breath—the targeting slips\nTwo hands—the whole sky rips\nNo flag, no flare, no warning cry\nJust Banshee wings in an empty sky\n\n[Final Chorus]\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nHear that hidden engine roar\nThrough the grid and past the guns\nTill the raid and night are one\nGot somethin for ya Cowboy\nGhost wings settling the score\n\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nBring every lost pilot home\nLet the tyrants scan the night\nAll they’ll find is fractured light\nGot somethin for ya Cowboy\nAnd a clear road back to home\n\n[Outro]\nThe squadron crossed the gantry as the cloak released its hold\nBlack wings rising into view beneath the morning gold\nRaynor tipped his hat and said, “She flies exactly right”\nSwann laughed, “Told ya, Cowboy”—and shut down the neon night\n\nGhost wings home…\nEngines low…\nCowboy, now you know",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.14,
+            "end": 7.66
+          },
+          {
+            "line": 2,
+            "start": 8.32,
+            "end": 12.9
+          },
+          {
+            "line": 3,
+            "start": 12.9,
+            "end": 16.3
+          },
+          {
+            "line": 4,
+            "start": 16.3,
+            "end": 19.98
+          },
+          {
+            "line": 7,
+            "start": 19.98,
+            "end": 24.58
+          },
+          {
+            "line": 8,
+            "start": 25.3,
+            "end": 28.84
+          },
+          {
+            "line": 9,
+            "start": 30,
+            "end": 34.14
+          },
+          {
+            "line": 10,
+            "start": 34.14,
+            "end": 38.66
+          },
+          {
+            "line": 12,
+            "start": 38.66,
+            "end": 42.42
+          },
+          {
+            "line": 13,
+            "start": 42.42,
+            "end": 46.04
+          },
+          {
+            "line": 14,
+            "start": 46.86,
+            "end": 50.44
+          },
+          {
+            "line": 15,
+            "start": 50.84,
+            "end": 54.62
+          },
+          {
+            "line": 18,
+            "start": 55.24,
+            "end": 56.88
+          },
+          {
+            "line": 19,
+            "start": 59.22,
+            "end": 61.36
+          },
+          {
+            "line": 20,
+            "start": 63.42,
+            "end": 65.48
+          },
+          {
+            "line": 21,
+            "start": 67.78,
+            "end": 71.06
+          },
+          {
+            "line": 24,
+            "start": 71.06,
+            "end": 75.3
+          },
+          {
+            "line": 25,
+            "start": 75.3,
+            "end": 79.58
+          },
+          {
+            "line": 26,
+            "start": 79.58,
+            "end": 81.82
+          },
+          {
+            "line": 27,
+            "start": 81.82,
+            "end": 83.62
+          },
+          {
+            "line": 28,
+            "start": 83.92,
+            "end": 85.76
+          },
+          {
+            "line": 29,
+            "start": 85.84,
+            "end": 87.54
+          },
+          {
+            "line": 30,
+            "start": 87.54,
+            "end": 89.84
+          },
+          {
+            "line": 31,
+            "start": 91.4,
+            "end": 98.6
+          },
+          {
+            "line": 34,
+            "start": 98.6,
+            "end": 101.8
+          },
+          {
+            "line": 35,
+            "start": 102.88,
+            "end": 105.94
+          },
+          {
+            "line": 36,
+            "start": 106.66,
+            "end": 110.4
+          },
+          {
+            "line": 37,
+            "start": 110.4,
+            "end": 115.74
+          },
+          {
+            "line": 39,
+            "start": 115.74,
+            "end": 120.08
+          },
+          {
+            "line": 40,
+            "start": 120.08,
+            "end": 123.2
+          },
+          {
+            "line": 41,
+            "start": 123.2,
+            "end": 126.1
+          },
+          {
+            "line": 42,
+            "start": 126.1,
+            "end": 131.88
+          },
+          {
+            "line": 45,
+            "start": 132.36,
+            "end": 134.28
+          },
+          {
+            "line": 46,
+            "start": 136.52,
+            "end": 138.3
+          },
+          {
+            "line": 47,
+            "start": 140.62,
+            "end": 142.52
+          },
+          {
+            "line": 48,
+            "start": 142.52,
+            "end": 147
+          },
+          {
+            "line": 51,
+            "start": 147.96,
+            "end": 150.02
+          },
+          {
+            "line": 52,
+            "start": 150.34,
+            "end": 154.78
+          },
+          {
+            "line": 53,
+            "start": 154.78,
+            "end": 158.94
+          },
+          {
+            "line": 54,
+            "start": 158.94,
+            "end": 161.52
+          },
+          {
+            "line": 55,
+            "start": 161.66,
+            "end": 163.08
+          },
+          {
+            "line": 56,
+            "start": 163.08,
+            "end": 164.98
+          },
+          {
+            "line": 57,
+            "start": 164.98,
+            "end": 167.46
+          },
+          {
+            "line": 58,
+            "start": 168.72,
+            "end": 171.8
+          },
+          {
+            "line": 61,
+            "start": 175.18,
+            "end": 179.08
+          },
+          {
+            "line": 62,
+            "start": 179.08,
+            "end": 183.28
+          },
+          {
+            "line": 63,
+            "start": 183.28,
+            "end": 188.66
+          },
+          {
+            "line": 64,
+            "start": 188.66,
+            "end": 192.94
+          },
+          {
+            "line": 66,
+            "start": 192.94,
+            "end": 196.96
+          },
+          {
+            "line": 67,
+            "start": 196.96,
+            "end": 199.64
+          },
+          {
+            "line": 68,
+            "start": 201,
+            "end": 204.62
+          },
+          {
+            "line": 69,
+            "start": 205.4,
+            "end": 208.26
+          },
+          {
+            "line": 75,
+            "start": 217.24,
+            "end": 219.62
+          },
+          {
+            "line": 76,
+            "start": 220.24,
+            "end": 221.7
+          },
+          {
+            "line": 77,
+            "start": 222.3,
+            "end": 223.78
+          },
+          {
+            "line": 78,
+            "start": 224.46,
+            "end": 226.66
+          },
+          {
+            "line": 80,
+            "start": 226.66,
+            "end": 228.56
+          },
+          {
+            "line": 81,
+            "start": 228.56,
+            "end": 230.4
+          },
+          {
+            "line": 82,
+            "start": 231.2,
+            "end": 233.1
+          },
+          {
+            "line": 83,
+            "start": 233.1,
+            "end": 235.28
+          },
+          {
+            "line": 86,
+            "start": 235.46,
+            "end": 238.28
+          },
+          {
+            "line": 87,
+            "start": 238.28,
+            "end": 239.4
+          },
+          {
+            "line": 88,
+            "start": 239.4,
+            "end": 241.64
+          },
+          {
+            "line": 89,
+            "start": 242.06,
+            "end": 243.88
+          },
+          {
+            "line": 90,
+            "start": 244,
+            "end": 245.86
+          },
+          {
+            "line": 91,
+            "start": 245.86,
+            "end": 248.18
+          },
+          {
+            "line": 94,
+            "start": 249.64,
+            "end": 252.42
+          },
+          {
+            "line": 95,
+            "start": 254.16,
+            "end": 256.94
+          },
+          {
+            "line": 96,
+            "start": 256.94,
+            "end": 309.66
+          },
+          {
+            "line": 97,
+            "start": 328.26,
+            "end": 334.26
+          },
+          {
+            "line": 98,
+            "start": 334.84,
+            "end": 336.14
+          },
+          {
+            "line": 99,
+            "start": 336.14,
+            "end": 336.46
+          },
+          {
+            "line": 100,
+            "start": 337.04,
+            "end": 337.06
+          },
+          {
+            "line": 101,
+            "start": 337.06,
+            "end": 337.26
+          },
+          {
+            "line": 103,
+            "start": 337.26,
+            "end": 337.48
+          },
+          {
+            "line": 104,
+            "start": 337.48,
+            "end": 338.42
+          },
+          {
+            "line": 105,
+            "start": 338.42,
+            "end": 338.56
+          },
+          {
+            "line": 106,
+            "start": 338.8,
+            "end": 338.9
+          },
+          {
+            "line": 107,
+            "start": 338.9,
+            "end": 339.16
+          },
+          {
+            "line": 108,
+            "start": 339.16,
+            "end": 339.56
+          },
+          {
+            "line": 109,
+            "start": 339.56,
+            "end": 344.02
+          },
+          {
+            "line": 110,
+            "start": 344.02,
+            "end": 349.48
+          },
+          {
+            "line": 113,
+            "start": 350.44,
+            "end": 351.74
+          },
+          {
+            "line": 114,
+            "start": 351.74,
+            "end": 352.04
+          },
+          {
+            "line": 115,
+            "start": 352.04,
+            "end": 352.4
+          },
+          {
+            "line": 116,
+            "start": 352.4,
+            "end": 352.82
+          },
+          {
+            "line": 118,
+            "start": 353.06,
+            "end": 353.2
+          },
+          {
+            "line": 119,
+            "start": 353.72,
+            "end": 353.84
+          },
+          {
+            "line": 120,
+            "start": 354.38,
+            "end": 354.5
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Make a song about Swann, from Starcraft 2, conversing with Raynor about Banshees and their cloaking technology",
+        "direction": "Neo synthwave cyberpunk",
+        "keep": "Must include Raynor saying, \"I'm not sure this is the best time to be experimentin'\" to which Swann replies \"Hell Cowboy, best time there is\"\n\nAlso include \"Got somethin for ya Cowboy\" at least 9 times",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-58f7ff15f4e6350c0bc94136",
       "title": "Two Towers Too Wide",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-58f7ff15f4e6350c0bc94136-8fbf16b38401.mp3",
