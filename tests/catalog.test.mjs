@@ -31,6 +31,7 @@ test("all routes are built, unlisted, and contain no submission password or back
   for (const page of [
     "index.html",
     "distonyc/index.html",
+    "deetz/index.html",
     "admin/index.html",
     "queue/index.html",
     "lyrics/index.html",
@@ -45,6 +46,10 @@ test("all routes are built, unlisted, and contain no submission password or back
   const files = await readdir(new URL("../dist/", import.meta.url), {
     recursive: true,
   });
+  assert.ok(!files.some((file) => /(?:deetz-content|example-plan)\.json$/.test(file)), "Protected guide data entered the public build");
+  const gate = await readFile(new URL("../dist/deetz/index.html", import.meta.url), "utf8");
+  assert.match(gate, /id="login-form"/);
+  assert.doesNotMatch(gate, /id="example"|id="stage-detail"/, "The public gate contains the protected guide");
   assert.ok(
     !files.some((file) =>
       /(^|[\\/])(node_modules|\.env|tests|scripts|\.git|yehry3\.js)/.test(file),

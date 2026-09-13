@@ -7,6 +7,17 @@
   },
   "routes": [
     {
+      "route": "/deetz",
+      "redirect": "/deetz/",
+      "statusCode": 301
+    },
+    {
+      "route": "/deetz/*",
+      "headers": {
+        "Cache-Control": "no-store"
+      }
+    },
+    {
       "route": "/original-prompt",
       "redirect": "/original-prompt/",
       "statusCode": 301

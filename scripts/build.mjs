@@ -10,6 +10,7 @@ await mkdir(output, { recursive: true });
 for (const file of [
   "index.html",
   "distonyc",
+  "deetz",
   "admin",
   "queue",
   "lyrics",

@@ -7,6 +7,7 @@ A static Tony C music site with a MongoDB voting and request API in the sibling 
 | `/`            | Both the Tony AI and Fear & Hunger catalogs; search, filters, vote sorting, Play all, Shuffle, seeking, previous/next and MP3 links |
 | `/distonyc/`   | Password gate, initial idea, optional basis songs/direction follow-up, final confirmation, and request status                       |
 | `/admin/`      | Separate admin login; paginated requests, filters/counts, priority, private notes, cancel/retry, production status, and history     |
+| `/deetz/`      | Studio process guide and saved planning example, loaded from the authenticated API after the Distonyc login                        |
 | `/fearhunger/` | Preserved original three-track page, MP3s and lyrics                                                                                |
 
 `/distonyc/` is the request page; `/longtimecomin` and `/longtimecomin/` permanently redirect there. The local preview mirrors these redirects.
@@ -72,3 +73,5 @@ The checks workflow builds/tests the standalone site and produces a `yehry3-site
 The existing Azure Static Web App is `red-cliff-02dfcb210.6.azurestaticapps.net`, serving `yehry3.app` and `www.yehry3.app`. Connect its deployment configuration to `legauntt/yehry3`, branch `talandar`, and store its deployment token as the repository secret `AZURE_STATIC_WEB_APPS_API_TOKEN`. The workflow uses this site’s existing `DeploymentToken` authorization policy. Keep the resource-specific workflow filename so the Azure site remains identifiable. Production API secrets remain outside the static site. Run `npm run verify:live` after deployment to compare public assets and verify headers, MP3 seeking, catalog completeness, and API CORS.
 
 The Windows scheduled task and publication loop are documented in [pc-worker/README.md](pc-worker/README.md). Mongo holds leased jobs and metadata; GitHub releases serve MP3s. New published songs appear in the Distonyc requests collection. Installed worker files and credentials never enter the static build.
+
+The `/deetz` route redirects to `/deetz/`. Its public HTML contains only the login screen. Guide text, stage details, and the complete example plan are maintained in the private Chairlift repository and returned by `GET /yehry3/deetz` only with a valid submitter session bound to the browser. The response is not cached. The frontend clears content on lock or session expiry; its JSON download is created in memory after login. No guide content or standalone example JSON belongs in this public repository or `dist/`. The shared login retains the existing password and throttling policy. Guide scripts and styles comply with the existing CSP.
