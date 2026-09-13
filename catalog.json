@@ -2,6 +2,27 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-245e1b240319256167d21431",
+      "title": "The Wrong Kind of Miracle",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-245e1b240319256167d21431-21bb3cf07f69.mp3",
+      "duration": 263.44,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Intro]\nRound goes the painted horse,\nTeeth in a permanent grin.\nMarina, I heard your thoughts—\nNever heard you ask me in.\n\n[Verse 1]\nI followed you into Prehevil,\nKept my footsteps underneath the rain.\nHad whole conversations with your silence,\nYou never even learned my name.\nOther people's thoughts come bleeding\nThrough a door I cannot close.\nI mistook a glimpse inside you\nFor a place where I belonged.\n\n[Pre-Chorus]\nDown beneath the church, your father—\nDomek, with his holy right.\nI decided I could save you.\nI decided with a knife.\n\n[Chorus]\nWhat a fucked-up little miracle,\nBlood where the blessing should be.\nI tore your nightmare open,\nThought you'd turn and look at me.\nMarina, you owe me nothing—\nGod, that makes me want to scream.\nI can hear behind the curtain;\nThere's no place reserved for me.\n\n[Verse 2]\nYou found him where I left him.\nThere was no deliverance there.\nAll the tenderness I'd practiced\nCame out crooked in the air.\nI had made myself your answer\nTo a question never asked.\nNow the church smells like my madness,\nAnd the truth won't wear its mask.\n\n[Pre-Chorus]\nFuck the mercy I imagined.\nFuck the thanks I thought I'd earned.\nYou were standing in the wreckage;\nI was waiting for my turn.\n\n[Chorus]\nWhat a fucked-up little miracle,\nBlood where the blessing should be.\nI tore your nightmare open,\nThought you'd turn and look at me.\nMarina, you owe me nothing—\nGod, that makes me want to scream.\nI can hear behind the curtain;\nThere's no place reserved for me.\n\n[Bridge]\nRher hangs over this damned town.\nSomething underneath me wakes.\nIn the ritual circle,\nEvery edge of Samarie breaks.\nDysmorphia—\nStretch the name across my teeth.\nAll this flesh demanding witness,\nAll this terror underneath.\n\n[Verse 3]\nSee me now, you painted heavens.\nSee the shape the moon can make.\nI wanted someone else's heartbeat\nTo excuse my own mistake.\nBut her mind was never shelter,\nAnd her grief was never mine.\nNo amount of skin unfolding\nTurns possession into light.\n\n[Final Chorus]\nWhat a fucked-up little miracle,\nNo blessing underneath.\nI called a killing kindness;\nNow the word sticks in my teeth.\nMarina, you owe me nothing.\nLet that sentence finish clean.\nI could hear behind the curtain—\nThat was never love for me.\n\n[Outro]\nThe painted horse stops turning.\nThe grin stays where it dried.\nYour silence wasn't permission.\nThe blood is mine.\nMine.",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 22.86
+        }
+      ]
+    },
+    {
       "id": "distonyc-609553f2a923b2c357f98efd",
       "title": "The Last Round Keeps Moving",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-609553f2a923b2c357f98efd-c066d6f64f27.mp3",
