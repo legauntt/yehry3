@@ -2,6 +2,369 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-0236d395f02a16d53bd911d3",
+      "title": "No Saints in the Bomb Crater",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0236d395f02a16d53bd911d3-58f65acbb2a7.mp3",
+      "duration": 245.44,
+      "collection": "distonyc",
+      "authoredBy": "Scythe",
+      "lyrics": {
+        "text": "[Spoken Intro]\nBring out the black flags.\nThe minister has found another war.\n\n[Verse 1]\nTony climbed the marble stair\nWith medals borrowed, teeth laid bare\n“Triple the guns, triple the pay\nWe’ll flatten every doubt away”\nThe brass band coughed, the widows stared\nAt maps that rich old cowards shared\nHe called them infidels abroad\nThen billed the bloodshed straight to God\n\n[Pre-Chorus]\nBut every border drawn in smoke\nLeaves someone’s child beneath the oak\n\n[Chorus]\nNo saints in the bomb crater\nNo truth in the targeting light\nYou can dress that hatred in a uniform\nIt’s still fucking murder at night\nRing the bell for the dealmaker\nCount every name that he forgot\nNo saints in the bomb crater\nJust the living—and the ones who are not\n\n[Verse 2]\nHe promised glory, clean and fast\nA holy future, armored glass\nThe cameras loved his crooked grin\nWhile folded flags came rolling in\nA mother spat upon his shoe\nSaid, “My dead boy believed in you”\nThe choir bent beneath the sound\nOf empty chairs and lowered ground\n\n[Pre-Chorus]\nThe ledger swelled, the table shone\nThe ones who voted stayed at home\n\n[Chorus]\nNo saints in the bomb crater\nNo truth in the targeting light\nYou can dress that hatred in a uniform\nIt’s still fucking murder at night\nRing the bell for the dealmaker\nCount every name that he forgot\nNo saints in the bomb crater\nJust the living—and the ones who are not\n\n[Funeral Procession]\nSlow boots through the rain now\nBlack mud on the wheel\nTell me what your heaven costs\nTell me who pays the bill\nNot the bastard at the podium\nNot the hands behind the screen\nIt’s the stranger under rubble\nIt’s the kid who turned nineteen\n\n[Bridge]\nLay down the flag for a minute\nLet the silence testify\nFaith is not a firing order\nAnd no anthem makes that lie\nIf your god demands a graveyard\nMaybe hell is where you stand\nWith a pen above the budget\nAnd no blood upon your hands\n\n[Final Chorus]\nNo saints in the bomb crater\nNo crown for the loudest lie\nWe won’t turn our grief to ammunition\nWe won’t bless another strike\nRing the bell for the warmaker\nTill the marble halls all shake\nNo saints in the bomb crater\nOnly choices human beings make\n\n[Outro]\nTony faced the final headstone\nAll his thunder drained away\nNo crowd left to salute him\nNo frightened god left to obey\nThe last bell broke the morning\nAnd the living walked away",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 1.74,
+            "end": 3.48
+          },
+          {
+            "line": 2,
+            "start": 4.6,
+            "end": 6.7
+          },
+          {
+            "line": 5,
+            "start": 12.72,
+            "end": 15.22
+          },
+          {
+            "line": 6,
+            "start": 15.22,
+            "end": 17.68
+          },
+          {
+            "line": 7,
+            "start": 18.16,
+            "end": 20.02
+          },
+          {
+            "line": 8,
+            "start": 20.02,
+            "end": 22.64
+          },
+          {
+            "line": 9,
+            "start": 22.64,
+            "end": 25.12
+          },
+          {
+            "line": 10,
+            "start": 25.12,
+            "end": 27.6
+          },
+          {
+            "line": 11,
+            "start": 28,
+            "end": 30.54
+          },
+          {
+            "line": 12,
+            "start": 30.54,
+            "end": 32.7
+          },
+          {
+            "line": 15,
+            "start": 33.7,
+            "end": 35.8
+          },
+          {
+            "line": 16,
+            "start": 36.72,
+            "end": 41
+          },
+          {
+            "line": 19,
+            "start": 42.74,
+            "end": 44.46
+          },
+          {
+            "line": 20,
+            "start": 45.38,
+            "end": 47.06
+          },
+          {
+            "line": 21,
+            "start": 47.36,
+            "end": 49.52
+          },
+          {
+            "line": 22,
+            "start": 50.14,
+            "end": 52.16
+          },
+          {
+            "line": 23,
+            "start": 52.16,
+            "end": 54.64
+          },
+          {
+            "line": 24,
+            "start": 54.98,
+            "end": 56.82
+          },
+          {
+            "line": 25,
+            "start": 57.62,
+            "end": 59.66
+          },
+          {
+            "line": 26,
+            "start": 60.24,
+            "end": 63.36
+          },
+          {
+            "line": 29,
+            "start": 67.26,
+            "end": 70.1
+          },
+          {
+            "line": 30,
+            "start": 70.3,
+            "end": 72.5
+          },
+          {
+            "line": 31,
+            "start": 73.12,
+            "end": 75.02
+          },
+          {
+            "line": 32,
+            "start": 75.38,
+            "end": 77.58
+          },
+          {
+            "line": 33,
+            "start": 77.58,
+            "end": 80.08
+          },
+          {
+            "line": 34,
+            "start": 80.5,
+            "end": 82.58
+          },
+          {
+            "line": 35,
+            "start": 83.04,
+            "end": 85.18
+          },
+          {
+            "line": 36,
+            "start": 85.18,
+            "end": 87.6
+          },
+          {
+            "line": 39,
+            "start": 88.72,
+            "end": 90.64
+          },
+          {
+            "line": 40,
+            "start": 92.06,
+            "end": 95.78
+          },
+          {
+            "line": 43,
+            "start": 97.74,
+            "end": 99.48
+          },
+          {
+            "line": 44,
+            "start": 99.56,
+            "end": 102.08
+          },
+          {
+            "line": 45,
+            "start": 102.36,
+            "end": 104.52
+          },
+          {
+            "line": 46,
+            "start": 104.52,
+            "end": 107.14
+          },
+          {
+            "line": 47,
+            "start": 107.52,
+            "end": 109.22
+          },
+          {
+            "line": 48,
+            "start": 109.22,
+            "end": 111.9
+          },
+          {
+            "line": 49,
+            "start": 112.52,
+            "end": 114.46
+          },
+          {
+            "line": 50,
+            "start": 114.96,
+            "end": 118.36
+          },
+          {
+            "line": 53,
+            "start": 122.68,
+            "end": 124.58
+          },
+          {
+            "line": 54,
+            "start": 125.38,
+            "end": 126.98
+          },
+          {
+            "line": 55,
+            "start": 128,
+            "end": 129.96
+          },
+          {
+            "line": 56,
+            "start": 130.38,
+            "end": 132.16
+          },
+          {
+            "line": 57,
+            "start": 132.16,
+            "end": 134.62
+          },
+          {
+            "line": 58,
+            "start": 134.62,
+            "end": 137.06
+          },
+          {
+            "line": 59,
+            "start": 137.5,
+            "end": 140.3
+          },
+          {
+            "line": 60,
+            "start": 140.3,
+            "end": 142.06
+          },
+          {
+            "line": 63,
+            "start": 145.78,
+            "end": 147.86
+          },
+          {
+            "line": 64,
+            "start": 148.72,
+            "end": 150.48
+          },
+          {
+            "line": 65,
+            "start": 151.2,
+            "end": 153.38
+          },
+          {
+            "line": 66,
+            "start": 153.86,
+            "end": 155.72
+          },
+          {
+            "line": 67,
+            "start": 155.72,
+            "end": 158.36
+          },
+          {
+            "line": 68,
+            "start": 158.98,
+            "end": 160.7
+          },
+          {
+            "line": 69,
+            "start": 160.7,
+            "end": 163.36
+          },
+          {
+            "line": 70,
+            "start": 163.36,
+            "end": 165.96
+          },
+          {
+            "line": 73,
+            "start": 169.76,
+            "end": 171.98
+          },
+          {
+            "line": 74,
+            "start": 172.84,
+            "end": 174.56
+          },
+          {
+            "line": 75,
+            "start": 174.56,
+            "end": 176.5
+          },
+          {
+            "line": 76,
+            "start": 177.62,
+            "end": 179.38
+          },
+          {
+            "line": 77,
+            "start": 180.24,
+            "end": 181.98
+          },
+          {
+            "line": 78,
+            "start": 182.66,
+            "end": 184.5
+          },
+          {
+            "line": 79,
+            "start": 184.5,
+            "end": 187.14
+          },
+          {
+            "line": 80,
+            "start": 187.66,
+            "end": 190.58
+          },
+          {
+            "line": 83,
+            "start": 195.22,
+            "end": 197.86
+          },
+          {
+            "line": 84,
+            "start": 198.38,
+            "end": 200.02
+          },
+          {
+            "line": 85,
+            "start": 200.52,
+            "end": 202.2
+          },
+          {
+            "line": 86,
+            "start": 202.92,
+            "end": 204.94
+          },
+          {
+            "line": 87,
+            "start": 205.48,
+            "end": 207.12
+          },
+          {
+            "line": 88,
+            "start": 207.78,
+            "end": 209.48
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Tony proposes tripling the military budget and laying infidels low around the world.",
+        "direction": "Funeral dirge",
+        "keep": "Explicit lyrics",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "telephone-wire-tony-v7-study",
       "title": "Telephone Wire (Tony V7 Study)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/telephone-wire-tony-v7-study-901080cda379.mp3",
