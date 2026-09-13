@@ -2,6 +2,357 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-dded4a36b254402ccfaa50c7",
+      "title": "Two Lanes One Town",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-dded4a36b254402ccfaa50c7-c1939bcee8ad.mp3",
+      "duration": 240,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Csaw",
+      "lyrics": {
+        "text": "[Intro - Low Tony, spoken]\nFunny how a fence looks tall\nTill both sides have to mend it.\n\n[Verse 1 - Country Tony]\nI wake up with the grain trucks rolling\nCoffee black and the radio low\nBoots by the door, screen needs fixing\nSame old road everywhere I go\nYou pulled in with the bass line shaking\nCity plates and a midnight coat\nI made up a story before you spoke one\nYou read my silence like a warning note\n\n[Pre-Chorus - Country Tony]\nWe were drawing hard lines in borrowed dust\nCalling it truth before earning trust\n\n[Chorus - Both]\nTwo lanes, one town, one bridge between us\nDifferent kind of thunder, same rain above\nYou bring the rhythm, I bring the rust\nNeither one means much without a little trust\nLay the old assumptions down\nTwo lanes, one road through the same small town\n\n[Verse 2 - Deep Tony, rap]\nHold up—came for a job, not a judgment at the pump\nYou saw chrome in the dark, heard the kick and the thump\nI saw hands in your pockets, thought the welcome was thin\nTwo strangers keeping score before the talk could begin\nMy uncle drove a rig, wore the soles off his shoes\nYour daughter loops beats with the porch-light blues\nWhole map full of labels, every label too small\nA name ain't a window, and a wall ain't all\nI talk quick, you draw slow, still the point comes around\nEvery life got a basement and a bright upstairs sound\nSo I lowered that bass, you unfolded that chair\nNow the night ain't as heavy when the truth gets some air\n\n[Chorus - Both]\nTwo lanes, one town, one bridge between us\nDifferent kind of thunder, same rain above\nYou bring the rhythm, I bring the rust\nNeither one means much without a little trust\nLay the old assumptions down\nTwo lanes, one road through the same small town\n\n[Verse 3 - Country Tony]\nYou showed me how the backbeat leans in\nI showed you where the river bends\nYour deeper voice shook dust from the rafters\nMine found a high note at the end\nWe never traded names for costumes\nNever claimed the past was gone\nWe just quit making each other carry\nEvery wrong somebody else had done\n\n[Bridge - Call and Response]\n[Country Tony]\nI don't know every road you've taken\n\n[Deep Tony]\nI don't need you to pretend you do\n\n[Country Tony]\nBut I can ask before deciding\n\n[Deep Tony]\nAnd I can leave some room for you\n\n[Both]\nNo grand speech, no easy answer\nJust a door that opens wide\nA beat beneath an old guitar\nAnd two stubborn men inside\n\n[Final Chorus - Both]\nTwo lanes, one town, that bridge can hold us\nDifferent kind of stories, one sky above\nYou bring the rhythm, I bring the rust\nTurn it into something louder than distrust\nLay the old assumptions down\nTwo lanes, one road through the same small town\n\n[Outro - Both, sung]\nWhen morning paints the county line\nYour road and mine run side by side\nNo borrowed verdict, no backing down\nWe meet as ourselves in this two-lane town\n\n[Deep Tony, spoken]\nLeave the chair out.\n\n[Country Tony, softly]\nI'll leave the light on.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.3,
+            "end": 5.14
+          },
+          {
+            "line": 2,
+            "start": 5.16,
+            "end": 8.34
+          },
+          {
+            "line": 5,
+            "start": 9.36,
+            "end": 11.84
+          },
+          {
+            "line": 6,
+            "start": 12.42,
+            "end": 14.22
+          },
+          {
+            "line": 7,
+            "start": 15.02,
+            "end": 17.3
+          },
+          {
+            "line": 8,
+            "start": 17.3,
+            "end": 19.68
+          },
+          {
+            "line": 9,
+            "start": 20.08,
+            "end": 22.1
+          },
+          {
+            "line": 10,
+            "start": 22.76,
+            "end": 24.44
+          },
+          {
+            "line": 11,
+            "start": 24.86,
+            "end": 27.26
+          },
+          {
+            "line": 12,
+            "start": 27.44,
+            "end": 29.46
+          },
+          {
+            "line": 15,
+            "start": 30.06,
+            "end": 34.58
+          },
+          {
+            "line": 16,
+            "start": 35.56,
+            "end": 42.28
+          },
+          {
+            "line": 19,
+            "start": 42.68,
+            "end": 45.5
+          },
+          {
+            "line": 20,
+            "start": 45.5,
+            "end": 47.24
+          },
+          {
+            "line": 21,
+            "start": 47.86,
+            "end": 49.92
+          },
+          {
+            "line": 22,
+            "start": 50.28,
+            "end": 52.4
+          },
+          {
+            "line": 23,
+            "start": 53.16,
+            "end": 56.04
+          },
+          {
+            "line": 24,
+            "start": 57.52,
+            "end": 61.68
+          },
+          {
+            "line": 27,
+            "start": 65.86,
+            "end": 68.3
+          },
+          {
+            "line": 28,
+            "start": 68.3,
+            "end": 70.68
+          },
+          {
+            "line": 29,
+            "start": 70.68,
+            "end": 73.48
+          },
+          {
+            "line": 30,
+            "start": 73.8,
+            "end": 75.98
+          },
+          {
+            "line": 31,
+            "start": 76.52,
+            "end": 79.16
+          },
+          {
+            "line": 32,
+            "start": 79.16,
+            "end": 81.58
+          },
+          {
+            "line": 33,
+            "start": 81.58,
+            "end": 83.86
+          },
+          {
+            "line": 34,
+            "start": 83.86,
+            "end": 86.22
+          },
+          {
+            "line": 35,
+            "start": 86.22,
+            "end": 88.9
+          },
+          {
+            "line": 36,
+            "start": 89.2,
+            "end": 91.54
+          },
+          {
+            "line": 37,
+            "start": 91.76,
+            "end": 94.04
+          },
+          {
+            "line": 38,
+            "start": 94.32,
+            "end": 96.62
+          },
+          {
+            "line": 41,
+            "start": 97.24,
+            "end": 100.04
+          },
+          {
+            "line": 42,
+            "start": 100.28,
+            "end": 102.1
+          },
+          {
+            "line": 43,
+            "start": 102.7,
+            "end": 104.86
+          },
+          {
+            "line": 44,
+            "start": 105.2,
+            "end": 107.34
+          },
+          {
+            "line": 45,
+            "start": 108.04,
+            "end": 113.16
+          },
+          {
+            "line": 46,
+            "start": 113.16,
+            "end": 116.92
+          },
+          {
+            "line": 49,
+            "start": 120.42,
+            "end": 122.96
+          },
+          {
+            "line": 50,
+            "start": 123.46,
+            "end": 125.32
+          },
+          {
+            "line": 51,
+            "start": 125.32,
+            "end": 127.98
+          },
+          {
+            "line": 52,
+            "start": 127.98,
+            "end": 130.36
+          },
+          {
+            "line": 53,
+            "start": 130.36,
+            "end": 133
+          },
+          {
+            "line": 54,
+            "start": 133.54,
+            "end": 135.46
+          },
+          {
+            "line": 55,
+            "start": 135.46,
+            "end": 137.9
+          },
+          {
+            "line": 56,
+            "start": 141.16,
+            "end": 142
+          },
+          {
+            "line": 60,
+            "start": 142,
+            "end": 145.72
+          },
+          {
+            "line": 63,
+            "start": 147.36,
+            "end": 150.62
+          },
+          {
+            "line": 66,
+            "start": 151.96,
+            "end": 155.94
+          },
+          {
+            "line": 69,
+            "start": 157.24,
+            "end": 160.88
+          },
+          {
+            "line": 72,
+            "start": 161.76,
+            "end": 163.8
+          },
+          {
+            "line": 73,
+            "start": 163.8,
+            "end": 166.2
+          },
+          {
+            "line": 74,
+            "start": 166.7,
+            "end": 168.9
+          },
+          {
+            "line": 75,
+            "start": 169.46,
+            "end": 171.12
+          },
+          {
+            "line": 78,
+            "start": 171.44,
+            "end": 174.02
+          },
+          {
+            "line": 79,
+            "start": 174.28,
+            "end": 176.24
+          },
+          {
+            "line": 80,
+            "start": 176.76,
+            "end": 178.92
+          },
+          {
+            "line": 81,
+            "start": 179.18,
+            "end": 181.14
+          },
+          {
+            "line": 82,
+            "start": 182.16,
+            "end": 185.12
+          },
+          {
+            "line": 83,
+            "start": 186.2,
+            "end": 190.52
+          },
+          {
+            "line": 86,
+            "start": 190.52,
+            "end": 197.96
+          },
+          {
+            "line": 87,
+            "start": 197.96,
+            "end": 201.9
+          },
+          {
+            "line": 88,
+            "start": 202.14,
+            "end": 206.84
+          },
+          {
+            "line": 89,
+            "start": 207.88,
+            "end": 213.16
+          },
+          {
+            "line": 92,
+            "start": 214.44,
+            "end": 216.3
+          },
+          {
+            "line": 95,
+            "start": 238.58,
+            "end": 239.98
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 13.4
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Look up lyrics to Accidental Racist (LL Cool J, Brad Paisley)\n\nHave Tony sing the duet. Make it an original song",
+        "direction": "Country meets rap",
+        "keep": "Different voices for each actor, have one be deeper",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-cfd4b2b392cfb545e375b454",
       "title": "No Flag Can Wash the Dust",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cfd4b2b392cfb545e375b454-9a3c30d9f820.mp3",
