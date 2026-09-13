@@ -120,9 +120,18 @@ for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
         "progress",
         "publishedAt",
         "url",
+        "qualityIssues",
       ].includes(field),
       `Unexpected public field: ${field}`,
     );
+  if (request.qualityIssues) {
+    assert.ok(Array.isArray(request.qualityIssues) && request.qualityIssues.length <= 1);
+    for (const issue of request.qualityIssues) {
+      assert.deepEqual(Object.keys(issue).sort(), ["code", "seconds"]);
+      assert.equal(issue.code, "long_instrumental_outro");
+      assert.ok(Number.isFinite(issue.seconds) && issue.seconds > 13 && issue.seconds <= 600);
+    }
+  }
 }
 console.log(
   `Anonymous public queue verified: ${queue.inStudioTotal} in studio, ${queue.queuedTotal} waiting, ${queue.recent.length} recent releases.`,
@@ -148,6 +157,7 @@ assert.equal(response.headers.get("access-control-allow-origin"), site);
 const live = await response.json();
 for (const song of local.songs) {
   const published = live.songs.find((item) => item.id === song.id);
+  if (song.qualityIssues) assert.deepEqual(published?.qualityIssues, song.qualityIssues, `Quality issues differ for ${song.title}`);
   if (song.lyrics)
     assert.deepEqual(
       published?.lyrics,
