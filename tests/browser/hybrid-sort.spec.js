@@ -28,7 +28,12 @@ test("fresh releases lead the default sort before older songs ranked by votes", 
   await expect(page.locator('[data-id="fresh-order"] .track-age')).toHaveText("2 hours old");
   await expect(page.locator('[data-id="old-middle"] .track-age')).toHaveText("1 day old");
   await expect(page.locator('[data-id="old-low"] .track-age')).toHaveText("3 days old");
-  await expect(page.locator('[data-id="old-high"] .track-age')).toHaveCount(0);
+  const unknownAge = page.locator('[data-id="old-high"] .track-age');
+  await expect(unknownAge).toHaveText(/^\d+ hours old$/);
+  const unknownAgeText = await unknownAge.textContent();
+  expect(Number.parseInt(unknownAgeText, 10)).toBeGreaterThanOrEqual(24);
+  expect(Number.parseInt(unknownAgeText, 10)).toBeLessThanOrEqual(72);
+  await expect(unknownAge).toHaveAttribute("title", "Exact release time unavailable");
   await expect(page.locator('[data-id="recent-queue"] .track-age')).toHaveAttribute(
     "title",
     /Released Sep 12, 11:30 AM/,
@@ -43,5 +48,6 @@ test("fresh releases lead the default sort before older songs ranked by votes", 
   await expect(page.locator(".track h3")).toHaveText([
     "Old low", "Fresh from song order", "Old high", "Fresh from queue", "Old middle",
   ]);
+  await expect(unknownAge).toHaveText(unknownAgeText);
   expect(new URL(page.url()).searchParams.get("sort")).toBe("catalog");
 });

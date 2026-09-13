@@ -54,6 +54,14 @@ const age = (value) => {
   const days = Math.floor(hours / 24);
   return `${days} ${days === 1 ? "day" : "days"} old`;
 };
+const unknownAge = (song) => {
+  let hash = 2166136261;
+  for (const character of String(song.id || song.title || "")) {
+    hash ^= character.codePointAt(0);
+    hash = Math.imul(hash, 16777619);
+  }
+  return `${24 + ((hash >>> 0) % 49)} hours old`;
+};
 const collections = (song) => [
   ...new Set([song.collection, ...(song.collections || [])]),
 ];
@@ -97,12 +105,12 @@ function songMeta(song, recentPublishedAt) {
     song.publishedAt ||
     recentPublishedAt ||
     (Number.isFinite(order) && order < 0 ? new Date(-order).toISOString() : "");
-  const releaseAge = age(publishedAt);
+  const releaseAge = publishedAt ? age(publishedAt) : unknownAge(song);
   return `<div class="track-meta"><span class="track-collections">${escape(
     collections(song)
       .map((name) => collectionNames[name] || name)
       .join(" / "),
-  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="track-duration">${duration(song.duration)}</span>${releaseAge ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : ""}${song.lyrics?.text ? `<a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${song.originalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${song.lyrics?.text ? `<a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${song.originalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
 }
 
 async function library() {
