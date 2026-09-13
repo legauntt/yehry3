@@ -2,7 +2,7 @@ import "./quality-preference.js";
 
 export function qualityNotice(issues) {
   const known = (Array.isArray(issues) ? issues : []).filter(
-    (issue) => Number.isFinite(issue?.seconds) && issue.seconds <= 600 &&
+    (issue) => Number.isFinite(issue?.seconds) && issue.seconds <= 1440 &&
       ((issue.code === "long_instrumental_outro" && issue.seconds > 13) || (issue.code === "long_instrumental_break" && issue.seconds >= 9.5) || (issue.code === "vocal_dropout" && issue.seconds > 0.4)),
   );
   if (!known.length) return "";
