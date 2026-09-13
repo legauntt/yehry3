@@ -2,6 +2,26 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-6de1a50ad6f84fe463d243b2",
+      "title": "Rollback Prophet of Fairbanks",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6de1a50ad6f84fe463d243b2-b4ee0bbae12d.mp3",
+      "duration": 234.1,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Intro]\nHrrrmmm—cold moon, blue sign\nName tag crooked, but the boots still mine\n\n[Verse 1]\nI had a six-string kingdom and a gasoline van\nSmoke in the speakers, cheap gold in my hand\nThen the labels learned numbers, the clubs changed names\nEvery little screen wanted cleaner flames\nToo many changes in the music industry\nThey shaved off the danger, sold the mystery\nI missed one turn where the new road curled\nWoke up washed out at the end of the world\n\n[Pre-Chorus]\nFairbanks, Alaska, forty below\nBreath like a ghost in the parking-lot glow\nI laughed through my teeth—heh, look at me\nStill got a pulse, still badly free\n\n[Chorus]\nNow I work at Wal-Mart under northern lights\nStacking little kingdoms on the graveyard nights\nBlue vest swinging while the floor wheels squeal\nI lost the old business, not the way I feel\nFrom a backstage roar to aisle twenty-three\nThe whole cold town gets a concert from me\nHrrrmmm—hear that freezer drone\nI can make a broken place my own\n\n[Verse 2]\nHad a room by the highway, one chair, one key\nLandlord said, “Tomorrow, Tony—settle with me”\nTomorrow came sharp with a boot and a sheet\nThen I was kicked out onto the street\nMy case held socks and a rusted slide\nNo record deal, no warm place inside\nA cart boy nodded by the loading bay\nSaid, “Night shift needs somebody right away”\n\n[Pre-Chorus]\nSo I washed in the sink, tied my hair back low\nWalked through the doors with the sideways snow\nManager squinted, said, “Can you start at three?”\nI said, “Buddy, the dark starts early with me”\n\n[Chorus]\nNow I work at Wal-Mart under northern lights\nStacking little kingdoms on the graveyard nights\nBlue vest swinging while the floor wheels squeal\nI lost the old business, not the way I feel\nFrom a backstage roar to aisle twenty-three\nThe whole cold town gets a concert from me\nHrrrmmm—hear that freezer drone\nI can make a broken place my own\n\n[Bridge]\nLow note rolling in my chest like stone\nOvertone rising where the wild winds moan\nOud-string shimmer through the intercom buzz\nNobody remembers who I nearly was\nBut the baker keeps time and the forklift turns\nCoffee goes black while the horizon burns\nI sing one bent note till the rafters shake\nAnd the tired night crew finally wakes\n\n[Breakdown]\nPrice check—no, check my name\nWashed out never meant washed away\nCold street—cold feet—still stood tall\nNow my shadow dances ten feet on the wall\n\n[Final Chorus]\nI work at Wal-Mart under northern lights\nBuilding new thunder on the graveyard nights\nBlue vest open and my chin held high\nAurora twisting like a chorus in the sky\nFairbanks, Alaska, you made room for me\nNot the crown I wanted, but a place to breathe\nHrrrmmm—let that deep note climb\nI quit chasing yesterday’s time\n\n[Outro]\nWhen the doors slide wide at the end of my run\nI step through the snow toward the pale morning sun\nNo street owns Tony, no failure gets the last word\nI found my stage where the freezer motors stirred\nClocked out, paid up, little room, new key\nThe world kept changing—and so did me",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Tony C describes working at Wal-Mart after he washed out due to many changes in the music industry. Must include Fairbanks, Alaska and being kicked out onto the street.",
+        "direction": "Arab throat singing",
+        "keep": "Too many changes in the music industry",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-e9255c87b777e990eb5bddc3",
       "title": "Room for Chris-R",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e9255c87b777e990eb5bddc3-b816bc5b7433.mp3",
