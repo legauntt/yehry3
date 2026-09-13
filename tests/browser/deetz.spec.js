@@ -59,16 +59,27 @@ test('deetz is protected by the server and opens the complete guide after login'
   await page.reload();
   await expect(page.locator('#login-form')).toBeVisible();
   expect(await page.evaluate(() => sessionStorage.getItem('yehry3:submitter'))).toBeNull();
+  expect(await page.evaluate(() => localStorage.getItem('yehry3:auth:submitter'))).toBeNull();
   expect(errors).toEqual([]);
 });
 
-test('deetz clears an expired session and offers retry during API outages', async ({ page, baseURL }) => {
+test('deetz renews an expired session and offers retry during API outages', async ({ page, baseURL }) => {
   let mode = 'outage';
+  let renewed = false;
   await page.route('**/yehry3/deetz', async route => {
     if (route.request().method() === 'OPTIONS') return route.continue();
     if (mode === 'outage') return route.fulfill({status:503,headers:{'access-control-allow-origin':new URL(baseURL).origin},json:{error:'The guide is temporarily unavailable.'}});
+    if (mode === 'expired') {
+      mode = 'renewed';
+      return route.fulfill({status:401,headers:{'access-control-allow-origin':new URL(baseURL).origin},json:{error:'Please sign in again.'}});
+    }
     const response = await route.fetch();
     const content = await response.json();
+    if (mode === 'renewed') {
+      renewed = true;
+      return route.fulfill({response});
+    }
+    mode = 'expired';
     await route.fulfill({response,json:{...content,sessionExpiresAt:Date.now()+1800}});
   });
   await page.goto('/deetz/');
@@ -79,7 +90,8 @@ test('deetz clears an expired session and offers retry during API outages', asyn
   mode = 'expiring';
   await page.locator('#retry-guide').click();
   await expect(page.locator('#guide-root')).toBeVisible();
-  await expect(page.locator('#access-error')).toContainText('session expired');
-  await expect(page.locator('#guide-root')).toBeEmpty();
-  expect(await page.evaluate(() => sessionStorage.getItem('yehry3:submitter'))).toBeNull();
+  await expect.poll(() => renewed).toBe(true);
+  await expect(page.locator('#guide-root')).toBeVisible();
+  await expect(page.locator('#access')).toBeHidden();
+  expect(await page.evaluate(() => Boolean(localStorage.getItem('yehry3:auth:submitter')))).toBe(true);
 });

@@ -33,19 +33,56 @@ try {
 } catch {
   visitor = crypto.randomUUID();
 }
-const tokens = {
-  submitter: storage.get("submitter"),
-  admin: storage.get("admin"),
-};
-export const signedIn = (role) => Boolean(tokens[role]);
-export function logout(role) {
-  tokens[role] = null;
-  storage.remove(role);
+const roles = ["submitter", "admin"];
+const authKey = (role) => `yehry3:auth:${role}`;
+function readCredentials(role) {
+  try {
+    const saved = JSON.parse(localStorage.getItem(authKey(role)));
+    if (saved && typeof saved === "object") {
+      return {
+        token: typeof saved.token === "string" ? saved.token : null,
+        password: typeof saved.password === "string" ? saved.password : null,
+      };
+    }
+  } catch {
+    /* Storage may be unavailable or contain an older value. */
+  }
+  return { token: storage.get(role), password: null };
 }
-export async function api(path, { method = "GET", body, role } = {}) {
+const credentials = Object.fromEntries(
+  roles.map((role) => [role, readCredentials(role)]),
+);
+const generations = { submitter: 0, admin: 0 };
+const renewals = {};
+export const signedIn = (role) =>
+  Boolean(credentials[role]?.token || credentials[role]?.password);
+export function logout(role) {
+  generations[role]++;
+  delete renewals[role];
+  credentials[role] = {};
+  storage.remove(role);
+  try {
+    localStorage.removeItem(authKey(role));
+  } catch {
+    /* The in-memory login is still cleared. */
+  }
+}
+window.addEventListener("storage", (event) => {
+  if (event.storageArea !== localStorage) return;
+  for (const role of roles) {
+    if (event.key !== null && event.key !== authKey(role)) continue;
+    storage.remove(role);
+    credentials[role] = readCredentials(role);
+    if (!event.newValue) generations[role]++;
+  }
+});
+function signedOutError() {
+  return Object.assign(new Error("Please sign in again."), { status: 401 });
+}
+async function request(path, { method = "GET", body } = {}, token) {
   const headers = { "X-Visitor-ID": visitor };
   if (body) headers["Content-Type"] = "application/json";
-  if (role && tokens[role]) headers.Authorization = `Bearer ${tokens[role]}`;
+  if (token) headers.Authorization = `Bearer ${token}`;
   let response;
   try {
     response = await fetch(`${API_BASE}${path}`, {
@@ -59,7 +96,6 @@ export async function api(path, { method = "GET", body, role } = {}) {
   }
   const data = await response.json().catch(() => ({}));
   if (!response.ok) {
-    if (response.status === 401 && role) logout(role);
     const error = new Error(
       data.error || "That did not go through. Please try again.",
     );
@@ -69,11 +105,67 @@ export async function api(path, { method = "GET", body, role } = {}) {
   }
   return data;
 }
+async function renew(role) {
+  if (renewals[role]) return renewals[role];
+  const password = credentials[role]?.password;
+  if (!password) throw signedOutError();
+  const generation = generations[role];
+  const pending = login(role, password)
+    .catch((error) => {
+      if (generation === generations[role] && [401, 403].includes(error.status)) {
+        logout(role);
+        error.status = 401;
+      }
+      throw error;
+    })
+    .finally(() => {
+      if (renewals[role] === pending) delete renewals[role];
+    });
+  renewals[role] = pending;
+  return pending;
+}
+export async function api(path, options = {}) {
+  const { role } = options;
+  if (!role) return request(path, options);
+  const generation = generations[role];
+  let renewed = false;
+  if (!credentials[role]?.token && credentials[role]?.password) {
+    await renew(role);
+    renewed = true;
+  }
+  while (true) {
+    if (generation !== generations[role]) throw signedOutError();
+    const token = credentials[role]?.token;
+    try {
+      const data = await request(path, options, token);
+      if (generation !== generations[role]) throw signedOutError();
+      return data;
+    } catch (error) {
+      if (generation !== generations[role]) throw signedOutError();
+      if (error.status !== 401) throw error;
+      if (!renewed && credentials[role]?.password) {
+        // Another request may already have renewed this token.
+        if (credentials[role].token === token) await renew(role);
+        renewed = true;
+        continue;
+      }
+      logout(role);
+      throw error;
+    }
+  }
+}
 export async function login(role, password) {
-  const { token } = await api("/session", {
+  const generation = generations[role];
+  const { token } = await request("/session", {
     method: "POST",
     body: { role, password },
   });
-  tokens[role] = token;
-  storage.set(role, token);
+  if (generation !== generations[role]) throw signedOutError();
+  credentials[role] = { token, password };
+  storage.remove(role);
+  try {
+    localStorage.setItem(authKey(role), JSON.stringify(credentials[role]));
+  } catch {
+    /* Sign-in and renewal still work in this page when storage is blocked. */
+  }
 }

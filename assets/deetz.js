@@ -33,6 +33,11 @@ function lock(message = '') {
   retry.hidden = true;
 }
 
+function refreshExpiredGuide() {
+  clearGuide();
+  loadGuide();
+}
+
 async function loadGuide() {
   const current = ++generation;
   status.textContent = 'Opening the guide…';
@@ -51,7 +56,7 @@ async function loadGuide() {
     access.hidden = true;
     status.textContent = '';
     clearTimeout(expiration);
-    expiration = setTimeout(() => lock('Your session expired. Please sign in again.'), content.sessionExpiresAt-Date.now());
+    expiration = setTimeout(refreshExpiredGuide, content.sessionExpiresAt-Date.now());
     const anchor = location.hash ? root.querySelector(`[id="${CSS.escape(location.hash.slice(1))}"]`) : null;
     anchor?.scrollIntoView();
   } catch (error) {
