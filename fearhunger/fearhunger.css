@@ -308,6 +308,7 @@ footer {
   }
 }
 
+.authored-by { overflow-wrap: anywhere; }
 .quality-notice { margin: .75rem 0; color: #edc47a; font-size: .875rem; }
 .quality-notice > summary { cursor: pointer; font-weight: 700; width: fit-content; }
 .quality-notice > p { max-width: 60ch; margin: .5rem 0; }

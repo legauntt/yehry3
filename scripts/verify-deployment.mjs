@@ -70,6 +70,7 @@ for (const name of ["fearhunger.js", "fearhunger.css"]) {
 }
 for (const name of [
   "app.js",
+  "authored-by.js",
   "api.js",
   "config.js",
   "basis.js",
@@ -132,6 +133,7 @@ for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
       [
         "id",
         "idea",
+        "authoredBy",
         "status",
         "title",
         "submittedAt",
@@ -143,6 +145,10 @@ for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
       ].includes(field),
       `Unexpected public field: ${field}`,
     );
+  if (request.authoredBy !== undefined) {
+    assert.equal(typeof request.authoredBy, "string");
+    assert.ok(request.authoredBy.length <= 100);
+  }
   if (request.qualityIssues) {
     assert.ok(
       Array.isArray(request.qualityIssues) && request.qualityIssues.length <= 3,

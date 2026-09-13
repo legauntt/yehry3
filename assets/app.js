@@ -1,3 +1,4 @@
+import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./authored-by.js";
 import { publicQueue } from "./queue.js";
 import { qualityNotice } from "./quality.js";
 import { lyricsPage } from "./lyrics.js";
@@ -82,7 +83,7 @@ function songMeta(song) {
     collections(song)
       .map((name) => collectionNames[name] || name)
       .join(" / "),
-  )}</span><span class="track-duration">${duration(song.duration)}</span>${song.lyrics?.text ? `<a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${song.originalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="track-duration">${duration(song.duration)}</span>${song.lyrics?.text ? `<a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${song.originalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
 }
 
 async function library() {
@@ -191,7 +192,7 @@ async function library() {
     container.hidden = !rows.length;
     syncRows(container, rows.map((song) => {
       const percent = Math.max(0, Math.min(100, Number(song.progress?.percent) || 0));
-      return `<details class="pending-track" data-id="${escape(song.id)}"><summary><span class="pending-mark" aria-hidden="true">↗</span><span class="pending-title"><span class="tiny-label">On the way</span><strong>${escape(song.title || song.idea)}</strong></span><span class="pending-state">${badge(song.status)}${song.progress ? `<span class="small">${Math.round(percent)}%</span>` : ""}</span></summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}<a class="text-link" href="/queue/#${encodeURIComponent(song.id)}">Follow in the queue ↗</a></div></details>`;
+      return `<details class="pending-track" data-id="${escape(song.id)}"><summary><span class="pending-mark" aria-hidden="true">↗</span><span class="pending-title"><span class="tiny-label">On the way</span><strong>${escape(song.title || song.idea)}</strong>${authoredByLine(song.authoredBy, escape)}</span><span class="pending-state">${badge(song.status)}${song.progress ? `<span class="small">${Math.round(percent)}%</span>` : ""}</span></summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}<a class="text-link" href="/queue/#${encodeURIComponent(song.id)}">Follow in the queue ↗</a></div></details>`;
     }).join(""));
   }
   function render({ preserveViewport = false } = {}) {
@@ -459,7 +460,12 @@ async function requests() {
     };
     const form = $("#request-form");
     if (stage === "idea") {
-      form.innerHTML = `<p class="eyebrow">Turn 01 · What if…</p><h2>What should we make?</h2><p>Pick a song and take it somewhere unexpected, or pitch an original.</p><form id="idea-form"><label for="idea">Your prompt</label><textarea id="idea" rows="5" minlength="10" maxlength="2000" required data-suggestion placeholder="Rendition of Medusa as a barbershop quartet"></textarea><p class="small">A sentence or two is plenty to get started. Your idea and progress appear in the public queue. Your confirmed prompt and settings will be shown with the finished song.</p><button class="primary">Find the direction <span aria-hidden="true">→</span></button><p class="field-error" role="alert"></p></form>`;
+      form.innerHTML = `<p class="eyebrow">Turn 01 · What if…</p><h2>What should we make?</h2><p>Pick a song and take it somewhere unexpected, or pitch an original.</p><form id="idea-form">${authorField}<label for="idea">Your prompt</label><textarea id="idea" rows="5" minlength="10" maxlength="2000" required data-suggestion placeholder="Rendition of Medusa as a barbershop quartet"></textarea><p class="small">A sentence or two is plenty to get started. Your idea and progress appear in the public queue. Your confirmed prompt and settings will be shown with the finished song.</p><button class="primary">Find the direction <span aria-hidden="true">→</span></button><p class="field-error" role="alert"></p></form>`;
+      $("#authored-by").value = savedAuthor();
+      $("#authored-by").oninput = (event) => {
+        rememberAuthor(event.target.value);
+        storage.remove("prompt-request");
+      };
       $("#idea").value = storage.get("idea-text") || "";
       $("#idea").oninput = (event) => {
         storage.set("idea-text", event.target.value);
@@ -474,15 +480,18 @@ async function requests() {
             await api("/prompts", {
               method: "POST",
               role: "submitter",
-              body: { prompt: $("#idea").value, requestId },
+              body: { prompt: $("#idea").value, authoredBy: $("#authored-by").value.trim(), requestId },
             })
           ).prompt;
+          rememberAuthor(draft.authoredBy || "");
           storage.set("draft", draft.id);
           storage.remove("prompt-request");
           render();
         });
     } else if (stage === "details") {
-      form.innerHTML = `<p class="eyebrow">Turn 02 · Let’s get specific</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Before this goes to the studio, tell us the direction. Tony’s vocals are the starting point.</p><form id="details-form"><div id="basis-root"></div><label for="direction">What should it sound like?</label><textarea id="direction" rows="3" minlength="10" maxlength="2000" required placeholder="Four close vocal harmonies, playful barbershop, no instruments…"></textarea><label for="keep">What matters most?</label><textarea id="keep" rows="2" maxlength="1000" required placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p></form>`;
+      form.innerHTML = `<p class="eyebrow">Turn 02 · Let’s get specific</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Before this goes to the studio, tell us the direction. Tony’s vocals are the starting point.</p><form id="details-form">${authorField}<div id="basis-root"></div><label for="direction">What should it sound like?</label><textarea id="direction" rows="3" minlength="10" maxlength="2000" required placeholder="Four close vocal harmonies, playful barbershop, no instruments…"></textarea><label for="keep">What matters most?</label><textarea id="keep" rows="2" maxlength="1000" required placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p></form>`;
+      $("#authored-by").value = draft.authoredBy || "";
+      $("#authored-by").oninput = (event) => rememberAuthor(event.target.value);
       const selectedBasis = mountBasisPicker(
         $("#basis-root"),
         basisSongs,
@@ -502,6 +511,7 @@ async function requests() {
             ["direction", "keep"].map((key) => [key, $(`#${key}`).value]),
           );
           details.basisSongIds = selectedBasis();
+          details.authoredBy = $("#authored-by").value.trim();
           draft = (
             await api(`/prompts/${encodeURIComponent(draft.id)}`, {
               method: "PATCH",
@@ -509,6 +519,7 @@ async function requests() {
               body: { version: draft.version, ...details },
             })
           ).prompt;
+          rememberAuthor(draft.authoredBy || "");
           render();
         });
     } else if (stage === "review") {
@@ -575,7 +586,7 @@ function brief(doc) {
     doc.details?.basisSongTitles?.join(", ") ||
     doc.details?.source ||
     "No basis song — Tony’s V6 voice";
-  return `<dl class="brief"><dt>The idea</dt><dd>${escape(doc.prompt)}</dd><dt>Basis songs</dt><dd>${escape(basis)}</dd><dt>The direction</dt><dd>${escape(doc.details?.direction)}</dd><dt>What matters most</dt><dd>${escape(doc.details?.keep)}</dd></dl>${qualityNotice(doc.result?.qualityIssues || doc.qualityIssues)}${doc.workerProgress ? `<p class="small">${escape(doc.workerProgress.stage)}${doc.status !== "failed" && doc.workerProgress.percent ? ` · ${Math.round(doc.workerProgress.percent)}%` : ""}</p>` : ""}${doc.workerError ? `<p class="field-error">${escape(doc.workerError)}</p>` : ""}`;
+  return `<dl class="brief">${doc.authoredBy ? `<dt>Authored by</dt><dd>${escape(doc.authoredBy)}</dd>` : ""}<dt>The idea</dt><dd>${escape(doc.prompt)}</dd><dt>Basis songs</dt><dd>${escape(basis)}</dd><dt>The direction</dt><dd>${escape(doc.details?.direction)}</dd><dt>What matters most</dt><dd>${escape(doc.details?.keep)}</dd></dl>${qualityNotice(doc.result?.qualityIssues || doc.qualityIssues)}${doc.workerProgress ? `<p class="small">${escape(doc.workerProgress.stage)}${doc.status !== "failed" && doc.workerProgress.percent ? ` · ${Math.round(doc.workerProgress.percent)}%` : ""}</p>` : ""}${doc.workerError ? `<p class="field-error">${escape(doc.workerError)}</p>` : ""}`;
 }
 
 async function admin() {
@@ -726,7 +737,7 @@ async function admin() {
         (doc.status !== "cancel_requested" &&
           ["cancel_requested", "canceled"].includes(status)),
     );
-    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(doc.status)}<h2>${escape(doc.prompt)}</h2><p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${qualityNotice(doc.result?.qualityIssues)}${doc.status === "failed" ? `<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p>${allowed.includes("queued") ? `<form data-action="status" class="retry-form"><input type="hidden" name="status" value="queued"><button class="primary">Retry saved work</button><span class="small">Completed stages will be reused.</span></form>` : ""}` : ""}<details><summary>Open brief & controls <span aria-hidden="true">＋</span></summary>${brief({ ...doc, result: null, qualityIssues: null, workerError: doc.status === "failed" ? null : doc.workerError })}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
+    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(doc.status)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${qualityNotice(doc.result?.qualityIssues)}${doc.status === "failed" ? `<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p>${allowed.includes("queued") ? `<form data-action="status" class="retry-form"><input type="hidden" name="status" value="queued"><button class="primary">Retry saved work</button><span class="small">Completed stages will be reused.</span></form>` : ""}` : ""}<details><summary>Open brief & controls <span aria-hidden="true">＋</span></summary>${brief({ ...doc, result: null, qualityIssues: null, workerError: doc.status === "failed" ? null : doc.workerError })}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
       ...(doc.history || []),
     ]
       .reverse()

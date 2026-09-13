@@ -620,6 +620,12 @@ main {
 .track > .vote-hint {
   margin-top: 2px;
 }
+.authored-by {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
 .track-meta {
   display: flex;
   flex-wrap: wrap;

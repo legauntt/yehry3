@@ -23,6 +23,10 @@ class WorkerTests(unittest.TestCase):
         brief = {'idea': 'Medusa as a quartet', 'direction': 'Four voices', 'keep': 'Tony vocals', 'basisSongs': ['Medusa']}
         self.assertEqual(song_record(prompt)['originalPrompt'], brief)
         self.assertNotIn('adminNote', song_record(prompt))
+        prompt['result']['authoredBy'] = 'Worker-supplied name'
+        self.assertNotIn('authoredBy', song_record(prompt))
+        prompt['authoredBy'] = 'Jesse & friends'
+        self.assertEqual(song_record(prompt)['authoredBy'], 'Jesse & friends')
         self.assertEqual(original_prompt({**prompt, 'details': {}})['basisSongs'], [])
         self.assertEqual(original_prompt({**prompt, 'details': {'basisSongTitles': ['A', 'B', 'C', 'D', 'E']}})['basisSongs'], ['A', 'B', 'C', 'D', 'E'])
 

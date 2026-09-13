@@ -125,6 +125,14 @@ function update(songs) {
       document.querySelector(".recordings").append(card);
       register(card);
     }
+    let author = card.querySelector(".authored-by");
+    if (!author) {
+      author = document.createElement("p");
+      author.className = "authored-by track-description";
+      card.querySelector("audio").before(author);
+    }
+    author.hidden = !song.authoredBy;
+    author.textContent = song.authoredBy ? `Authored by ${song.authoredBy}` : "";
     let warning = card.querySelector(".quality-container");
     if (!warning) {
       warning = document.createElement("div");
