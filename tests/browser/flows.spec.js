@@ -398,7 +398,9 @@ test("optional basis songs, A-Z list, five-song cap, and saved review", async ({
   await page
     .getByLabel("What matters most?")
     .fill("Tony vocals and a memorable hook");
+  await page.getByLabel("Tony voice model").selectOption("v7");
   await page.getByRole("button", { name: "Review the request" }).click();
+  await expect(page.locator(".brief")).toContainText("Tony V7 · experimental");
   await expect(page.locator(".brief")).toContainText("No basis song");
   await page.getByRole("button", { name: "Fine-tune it" }).click();
   await page.locator(".basis-picker summary").click();
@@ -497,12 +499,15 @@ test("published original prompts show confirmed settings, work offline, and esca
     song.originalPrompt.idea,
   );
   await expect(page.locator(".brief dd").nth(1)).toHaveText(
-    song.originalPrompt.direction,
+    "Tony V6 · established",
   );
   await expect(page.locator(".brief dd").nth(2)).toHaveText(
-    song.originalPrompt.keep,
+    song.originalPrompt.direction,
   );
   await expect(page.locator(".brief dd").nth(3)).toHaveText(
+    song.originalPrompt.keep,
+  );
+  await expect(page.locator(".brief dd").nth(4)).toHaveText(
     "No basis songs selected.",
   );
   await page.reload();
@@ -524,7 +529,7 @@ test("published original prompts show confirmed settings, work offline, and esca
     fixture.originalPrompt.idea,
   );
   await expect(page.locator(".brief img")).toHaveCount(0);
-  await expect(page.locator(".brief dd").nth(3)).toHaveText(
+  await expect(page.locator(".brief dd").nth(4)).toHaveText(
     fixture.originalPrompt.basisSongs.join("\n"),
   );
   await page.setViewportSize({ width: 390, height: 844 });

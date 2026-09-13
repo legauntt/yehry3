@@ -61,13 +61,15 @@ def original_prompt(prompt):
     details = prompt.get('details') or {}
     return {'idea': prompt['prompt'], 'direction': details.get('direction', ''),
             'keep': details.get('keep', ''),
-            'basisSongs': details.get('basisSongTitles', [details['source']] if details.get('source') else [])}
+            'basisSongs': details.get('basisSongTitles', [details['source']] if details.get('source') else []),
+            'voiceModel': details.get('voiceModel', 'v6')}
 
 
 def song_record(prompt):
     result = prompt['result']
     return {'id': prompt['songId'], 'title': result['title'], 'url': prompt['releaseUrl'],
             'duration': result['duration'], 'collection': 'distonyc',
+            'voiceModel': (prompt.get('details') or {}).get('voiceModel', 'v6'),
             **({'authoredBy': prompt['authoredBy']} if prompt.get('authoredBy') else {}),
             **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues'] if key in result},
             **({'originalPrompt': original_prompt(prompt)} if prompt.get('prompt') else {})}

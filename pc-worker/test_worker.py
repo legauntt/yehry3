@@ -21,15 +21,29 @@ class WorkerTests(unittest.TestCase):
         prompt = {'prompt': 'Medusa as a quartet', 'details': {'direction': 'Four voices', 'keep': 'Tony vocals', 'basisSongTitles': ['Medusa'], 'privatePath': 'C:\\private'},
                   'adminNote': 'private', 'lease': {'secret': 'private'}, 'songId': 'distonyc-one', 'releaseUrl': 'https://example.com/song.mp3',
                   'result': {'title': 'Song', 'duration': 200, 'originalPrompt': {'idea': 'Spoofed'}}}
-        brief = {'idea': 'Medusa as a quartet', 'direction': 'Four voices', 'keep': 'Tony vocals', 'basisSongs': ['Medusa']}
+        brief = {'idea': 'Medusa as a quartet', 'direction': 'Four voices', 'keep': 'Tony vocals', 'basisSongs': ['Medusa'], 'voiceModel': 'v6'}
         self.assertEqual(song_record(prompt)['originalPrompt'], brief)
         self.assertNotIn('adminNote', song_record(prompt))
         prompt['result']['authoredBy'] = 'Worker-supplied name'
         self.assertNotIn('authoredBy', song_record(prompt))
         prompt['authoredBy'] = 'Jesse & friends'
         self.assertEqual(song_record(prompt)['authoredBy'], 'Jesse & friends')
+        self.assertEqual(song_record(prompt)['voiceModel'], 'v6')
         self.assertEqual(original_prompt({**prompt, 'details': {}})['basisSongs'], [])
         self.assertEqual(original_prompt({**prompt, 'details': {'basisSongTitles': ['A', 'B', 'C', 'D', 'E']}})['basisSongs'], ['A', 'B', 'C', 'D', 'E'])
+        self.assertEqual(original_prompt({**prompt, 'details': {'voiceModel': 'v8'}})['voiceModel'], 'v8')
+
+    def test_metadata_rejects_a_voice_model_mismatch(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); files = []
+            for ext in ('mp3', 'wav'):
+                path = root / (ext + 's') / ('song.' + ext); path.parent.mkdir(); path.write_bytes(b'audio')
+                files.append({'path': str(path), 'bytes': path.stat().st_size, 'sha256': sha(path)})
+            config = {'settings': {'output_dir': str(root)}}
+            result = {'status': 'verified', 'new_training': False, 'voice_model': 'v7', 'duration': 10, 'files': files,
+                      'work_path': str(root)}
+            with self.assertRaisesRegex(ValueError, 'differs'):
+                metadata(config, plan(), result, 'v8')
 
     def test_lyrics_use_frozen_render_inputs_and_preserve_export(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -26,9 +26,11 @@ export async function originalPromptPage(main, { escape, safeUrl }) {
   }
   document.title = `${song.title} · Original prompt · yehry3`;
   const brief = song.originalPrompt;
+  const modelId = /^v\d+$/i.test(brief.voiceModel || "") ? brief.voiceModel.toUpperCase() : "V6";
   const fields = [
     ...(song.authoredBy ? [["Authored by", song.authoredBy]] : []),
     ["The idea", brief.idea],
+    ["Voice model", `Tony ${modelId}${modelId === "V6" ? " · established" : " · experimental"}`],
     ["Musical direction", brief.direction || "No extra direction supplied."],
     ["What mattered most", brief.keep || "No extra preferences supplied."],
     [

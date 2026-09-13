@@ -115,7 +115,7 @@ test("authorship appears in published lists, every public queue section, and son
     ["/", '#tracks [data-id="authored-song"] .authored-by', 1],
     ["/queue/", ".public-queue-card .authored-by", 3],
     ["/lyrics/?song=authored-song", ".lyrics-sheet .authored-by", 1],
-    ["/original-prompt/?song=authored-song", ".brief dd", 5],
+    ["/original-prompt/?song=authored-song", ".brief dd", 6],
     ["/fearhunger/", '[data-song-id="authored-song"] .authored-by', 1],
   ]) {
     await page.goto(url);
