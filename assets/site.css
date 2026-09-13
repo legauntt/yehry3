@@ -327,16 +327,21 @@ main {
   border: 1px solid #c7cbb6;
 }
 .sleeve-top {
+  position: absolute;
+  top: 69%;
+  right: -10%;
+  width: 40%;
+  transform: rotate(90deg);
   display: flex;
   justify-content: space-between;
   font-size: 0.62rem;
 }
 .record {
-  width: 83%;
+  width: 77%;
   aspect-ratio: 1;
   position: absolute;
-  top: 12%;
-  left: 8.5%;
+  top: 21%;
+  left: 11.5%;
   background: repeating-radial-gradient(
     circle,
     #24342b 0 2px,
@@ -364,6 +369,8 @@ main {
   pointer-events: none;
 }
 .record-label {
+  position: relative;
+  z-index: 3;
   width: 42%;
   aspect-ratio: 1;
   background: var(--accent);
@@ -397,6 +404,7 @@ main {
   letter-spacing: 0.1em;
 }
 .sleeve-bottom {
+  z-index: 4;
   position: absolute;
   bottom: 25px;
   left: 26px;
@@ -406,6 +414,24 @@ main {
   align-items: end;
   font-size: 0.6rem;
   line-height: 1.7;
+}
+.sleeve-bottom > span:first-child {
+  background: #f5f2e8;
+  padding: 5px 8px;
+  transform: rotate(-3deg);
+  box-shadow: 2px 2px 0 #192b2422;
+}
+.band-cutout {
+  position: absolute;
+  z-index: 2;
+  width: 108%;
+  height: auto;
+  max-width: none;
+  top: -5%;
+  left: -4%;
+  transform: rotate(-3deg);
+  filter: drop-shadow(3px 7px 0 #192b2433);
+  pointer-events: none;
 }
 .stamp {
   background: #f7efcb;

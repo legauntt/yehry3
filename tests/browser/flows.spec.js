@@ -42,6 +42,90 @@ test("catalog, search, player, and anonymous vote cooldown", async ({
   });
   expect(errors).toEqual([]);
 });
+test("shareable collection, search and sort survive reload and browser history", async ({
+  page,
+  context,
+}) => {
+  await page.route("**/yehry3/songs", (route) => route.abort());
+  await page.goto("/?ref=friend#collection-title");
+  await expect(page.locator(".track")).toHaveCount(songCount);
+  await page.getByLabel("Collection", { exact: true }).selectOption("shiablo");
+  await expect(page.locator(".track")).toHaveCount(3);
+  await expect(page.locator(".track a[href^='/lyrics/']")).toHaveCount(3);
+  expect(new URL(page.url()).searchParams.get("collection")).toBe("shiablo");
+  await page.getByLabel("Sort songs").selectOption("title");
+  await expect(page.locator(".track h3").first()).toContainText("Khalim");
+  const sortedUrl = page.url();
+  await page.getByLabel("Search songs").pressSequentially("Khalim");
+  await expect(page.locator(".track")).toHaveCount(1);
+  const sharedUrl = page.url();
+  const params = new URL(sharedUrl).searchParams;
+  expect(params.get("q")).toBe("Khalim");
+  expect(params.get("sort")).toBe("title");
+  expect(params.get("ref")).toBe("friend");
+  expect(new URL(sharedUrl).hash).toBe("#collection-title");
+  await page.goBack();
+  await expect(page).toHaveURL(sortedUrl);
+  await expect(page.getByLabel("Search songs")).toHaveValue("");
+  await expect(page.locator(".track")).toHaveCount(3);
+  await page.goBack();
+  await expect(page.getByLabel("Sort songs")).toHaveValue("catalog");
+  await page.goForward();
+  await expect(page.getByLabel("Sort songs")).toHaveValue("title");
+  await page.goForward();
+  await expect(page.getByLabel("Search songs")).toHaveValue("Khalim");
+  await page.reload();
+  await expect(page.getByLabel("Collection", { exact: true })).toHaveValue(
+    "shiablo",
+  );
+  await expect(page.getByLabel("Sort songs")).toHaveValue("title");
+  await expect(page.getByLabel("Search songs")).toHaveValue("Khalim");
+  await expect(page.locator(".track")).toHaveCount(1);
+  const recipient = await context.newPage();
+  await recipient.route("**/yehry3/songs", (route) => route.abort());
+  await recipient.goto(sharedUrl);
+  await expect(recipient.locator(".track h3")).toContainText(
+    "Khalim Still Has a Heart",
+  );
+  await expect(recipient.getByLabel("Sort songs")).toHaveValue("title");
+  await recipient.close();
+  await page.getByLabel("Search songs").fill("Fear & Hunger / Tony's + hook");
+  expect(new URL(page.url()).searchParams.get("q")).toBe(
+    "Fear & Hunger / Tony's + hook",
+  );
+  await page.reload();
+  await expect(page.getByLabel("Search songs")).toHaveValue(
+    "Fear & Hunger / Tony's + hook",
+  );
+  await page.getByLabel("Search songs").fill("");
+  await page.getByLabel("Collection", { exact: true }).selectOption("all");
+  await page.getByLabel("Sort songs").selectOption("catalog");
+  await expect(page).toHaveURL(/\/\?ref=friend#collection-title$/);
+  await expect(page.locator(".track")).toHaveCount(songCount);
+  await page.goto("/?collection=unknown&sort=unknown");
+  await expect(page.getByLabel("Collection", { exact: true })).toHaveValue(
+    "all",
+  );
+  await expect(page.getByLabel("Sort songs")).toHaveValue("catalog");
+  await expect(page.locator(".track")).toHaveCount(songCount);
+  await expect
+    .poll(() =>
+      page.locator(".band-cutout").evaluate((img) => img.naturalWidth),
+    )
+    .toBe(1000);
+  await page.screenshot({ path: "artifacts/band-hero-desktop.png" });
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth <= innerWidth,
+    ),
+  ).toBe(true);
+  await page.screenshot({
+    path: "artifacts/band-hero-mobile.png",
+    fullPage: false,
+  });
+});
+
 test("password, two turns, queue submission, admin priority, cancel and retry", async ({
   page,
 }) => {
@@ -399,7 +483,18 @@ test("Fear and Hunger includes tagged requests, refreshes without duplicates, an
     catalog.songs.find((song) => song.collection === "fearhunger").url,
     "http://127.0.0.1:8080",
   ).href;
-  await page.goto("/fearhunger/");
+  // Azure can serve this directory without a redirect or trailing slash.
+  await page.route("**/fearhunger", async (route) =>
+    route.fulfill({
+      contentType: "text/html",
+      body: await readFile(
+        new URL("../../fearhunger/index.html", import.meta.url),
+        "utf8",
+      ),
+    }),
+  );
+  await page.goto("/fearhunger");
+  await expect(page).toHaveURL(/\/fearhunger$/);
   await expect(page.locator("#collection-note")).toContainText(
     `${matching.length} songs`,
   );
@@ -425,6 +520,8 @@ test("Fear and Hunger includes tagged requests, refreshes without duplicates, an
         .evaluate((audio) => audio.paused),
     )
     .toBe(false);
+  // Wait for the first native play event to reach the UI before switching tracks.
+  await expect(page.locator(".track").first()).toHaveClass(/is-playing/);
   await current.locator("audio").evaluate((audio) => audio.play());
   await expect
     .poll(() =>

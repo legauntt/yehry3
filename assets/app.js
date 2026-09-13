@@ -45,6 +45,7 @@ const collectionNames = {
   fearhunger: "Fear & Hunger",
   tonyai: "Tony AI",
   distonyc: "Distonyc requests",
+  shiablo: "Shiablo: The Lord of Prisoner",
 };
 const message = (text, error = false) => {
   const region = $("#message");
@@ -81,21 +82,47 @@ async function library() {
         <p class="lede">A growing collection of originals, remixes, and beautiful wrong turns. Find your favorite. Give it a vote. Dream up the next one.</p>
         <div class="actions"><button class="primary" id="play-all">Play the collection <span aria-hidden="true">↗</span></button><a class="text-link" href="/distonyc/">Make a request <span aria-hidden="true">→</span></a></div>
       </div>
-      <div class="sleeve" aria-label="Tony C record sleeve"><div class="sleeve-top"><span>YEHRY3 RECORDS</span><span>VOL. 01</span></div><div class="record"><div class="record-label"><span>TONY C</span><small>& THE POSSIBILITIES</small><i></i><span class="label-bottom">PLAY IT LOUD</span></div></div><div class="sleeve-bottom"><span>FAMILIAR VOICE.<br>UNFAMILIAR TERRITORY.</span><span class="stamp">Give it<br>a spin.</span></div></div>
+      <div class="sleeve" aria-label="Tony C record sleeve"><div class="sleeve-top"><span>YEHRY3 RECORDS</span><span>VOL. 01</span></div><div class="record"><div class="record-label"><span>TONY C</span><small>& THE POSSIBILITIES</small><i></i><span class="label-bottom">PLAY IT LOUD</span></div></div><img class="band-cutout" src="/assets/band-vinyl-v1.webp" width="1000" height="493" alt="Six band members emerge from the vinyl in a cut-paper photo collage." fetchpriority="high"><div class="sleeve-bottom"><span>FAMILIAR VOICE.<br>UNFAMILIAR TERRITORY.</span><span class="stamp">Give it<br>a spin.</span></div></div>
     </section>
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><p class="eyebrow">The catalog</p><h2 id="collection-title">Pick your next obsession.</h2></div><p class="small" id="track-count">Loading songs…</p></div>
-      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button></div>
+      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoner</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button></div>
       <p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
     <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
   rotateSuggestions(main);
-  const initialCollection = new URLSearchParams(location.search).get(
-    "collection",
-  );
-  if (Object.hasOwn(collectionNames, initialCollection))
-    $("#collection-filter").value = initialCollection;
+  const filters = [
+    { id: "collection-filter", param: "collection", defaultValue: "all" },
+    { id: "sort", param: "sort", defaultValue: "catalog" },
+    { id: "search", param: "q", defaultValue: "" },
+  ];
+  let editingSearch = false;
+  function restoreFilters() {
+    const params = new URLSearchParams(location.search);
+    for (const { id, param, defaultValue } of filters) {
+      const control = $(`#${id}`);
+      const value = params.get(param) ?? defaultValue;
+      control.value =
+        control.options &&
+        !Array.from(control.options).some((option) => option.value === value)
+          ? defaultValue
+          : value;
+    }
+    editingSearch = false;
+  }
+  function shareFilters(replace = false) {
+    const url = new URL(location.href);
+    for (const { id, param, defaultValue } of filters) {
+      const value = $(`#${id}`).value;
+      if (value === defaultValue) url.searchParams.delete(param);
+      else url.searchParams.set(param, value);
+    }
+    if (url.href !== location.href)
+      history[replace ? "replaceState" : "pushState"](null, "", url);
+    render();
+  }
+  restoreFilters();
   let songs = [],
     visible = [],
     queue = [],
@@ -233,8 +260,29 @@ async function library() {
     }
     render();
   }
-  for (const id of ["search", "collection-filter", "sort"])
-    $(`#${id}`).addEventListener("input", render);
+  for (const id of ["collection-filter", "sort"])
+    $(`#${id}`).addEventListener("change", () => {
+      editingSearch = false;
+      shareFilters();
+    });
+  $("#search").addEventListener("input", () => {
+    // One history entry per search edit, rather than one per keystroke.
+    shareFilters(editingSearch);
+    editingSearch = true;
+  });
+  $("#search").addEventListener("blur", () => {
+    editingSearch = false;
+  });
+  window.addEventListener("popstate", () => {
+    restoreFilters();
+    render();
+  });
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) {
+      restoreFilters();
+      render();
+    }
+  });
   $("#play-all").onclick = () => play(visible[0], visible);
   $("#shuffle").onclick = () => {
     const shuffled = [...visible];

@@ -2,6 +2,51 @@
   "version": 1,
   "songs": [
     {
+      "id": "the-stone-i-carried-desert-psychedelia",
+      "title": "The Stone I Carried (Desert Psychedelia)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/the-stone-i-carried-desert-psychedelia.mp3",
+      "duration": 265.04,
+      "collection": "tonyai",
+      "collections": [
+        "tonyai",
+        "shiablo"
+      ],
+      "lyrics": {
+        "text": "[Intro]\nI carried a stone through the burning sand\nAnd called it mercy in my hand\n\n[Verse 1]\nThe stranger came where the candles bent\nWith a ruined face and a traveler's rent\nHe shook like a man in a winter room\nBut the hearth spat teeth and the rafters bloomed\nI crawled from the smoke when the others died\nHe walked to the east and I stayed by his side\nTristram's hero in a borrowed skin\nKeeping the door for the thing within\n\n[Pre-Chorus]\nOne foot forward, one prayer behind\nI let his shadow make up my mind\n\n[Chorus]\nThe stone I carried carried me\nDown every road I thought was free\nI heard a man beneath the flame\nAnd mercy answered to a demon's name\nThe stone I carried, burning gold\nI couldn't save him, couldn't let go\n\n[Verse 2]\nBeyond Lut Gholein, under seven tombs\nThe air lay still as a shuttered room\nTal Rasha hung where the old chains crossed\nA living lock for a kingdom lost\nAn angel struggled with the friend I knew\nThe prisoner begged and I reached right through\nOne broken jewel from a wounded chest\nI freed the hunger and damned the rest\n\n[Pre-Chorus]\nTyrael sent me through terror and heat\nTo break that stone where the hellfires meet\n\n[Chorus]\nThe stone I carried carried me\nDown every road I thought was free\nI heard a man beneath the flame\nAnd mercy answered to a demon's name\nThe stone I carried, burning gold\nI couldn't save him, couldn't let go\n\n[Verse 3]\nUnder Kurast I watched three stand\nHatred welcomed his brothers' hands\nThe Wanderer split like a rotten seam\nAnd Terror stepped out of a human dream\nThe gate stood open, the furnace wide\nMy knees went empty; I stayed this side\nI kept the shard and I fled the light\nTo a locked little room that could never hold night\n\n[Bridge]\nNow you sit so still while I tell you why\nWith an angel's name and a stranger's eyes\nTake it, take it, I failed the fire\nYour fingers close and your voice climbs higher\nThat isn't heaven behind your smile\nBaal has been listening all this while\n\n[Final Chorus]\nThe stone I carried carried me\nTo the last locked door I would ever see\nI heard a man beneath the flame\nAnd mercy answered to a demon's name\nThe stone I carried, burning gold\nThe hand is empty, the room is cold\n\n[Outro]\nI called it mercy in my hand\nNow fire remembers who I am",
+        "kind": "written"
+      }
+    },
+    {
+      "id": "khalim-still-has-a-heart-dark-ska-soul",
+      "title": "Khalim Still Has a Heart (Dark Ska Soul)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/khalim-still-has-a-heart-dark-ska-soul.mp3",
+      "duration": 266.3086394557823,
+      "collection": "tonyai",
+      "collections": [
+        "tonyai",
+        "shiablo"
+      ],
+      "lyrics": {
+        "text": "[Intro]\nRing that bell in the sinking square\nSomebody's heart is still beating there\n\n[Verse 1]\nThe river brought us a fevered dawn\nWith the temple roofs and the daylight gone\nThe jungle climbed every merchant's stair\nAnd a priest sold hatred as an answered prayer\nWe huddled on planks at the edge of town\nWhile the roots pulled another fine house down\nGold on the altar, rot in the grain\nThe choir kept time with the prisoners' chains\n\n[Pre-Chorus]\nMephisto whispers, the council agrees\nBut one dead man won't bend his knees\n\n[Chorus]\nKhalim still has a heart\nThey couldn't tear that part apart\nAn eye for the truth, a mind of his own\nA will that won't kneel to a glittering stone\nSwing that flail till the false light breaks\nWake up, Kurast, for the living's sake\n\n[Verse 2]\nOne good priest wouldn't sing their lie\nSo they scattered the man who could still ask why\nHis eye lay deep where the spiders fed\nHis brain where the flayers sheltered their dead\nHis heart in the sewers beneath our feet\nStill worth more than the gold in the street\nWe gathered the pieces they couldn't command\nAnd carried his answer in a stranger's hand\n\n[Pre-Chorus]\nThe cube makes whole what the knives divide\nThere's a harder law than the council's pride\n\n[Chorus]\nKhalim still has a heart\nThey couldn't tear that part apart\nAn eye for the truth, a mind of his own\nA will that won't kneel to a glittering stone\nSwing that flail till the false light breaks\nWake up, Kurast, for the living's sake\n\n[Verse 3]\nAt Travincal they came robed in fire\nWith a holy seal on a devil's desire\nTheir Compelling Orb had a lovely shine\nAnd a thousand mouths saying none are mine\nThe flail hit once and the spell came loose\nLike a blade dragged clean through a velvet noose\nDown in the Durance, the river ran red\nWe followed the hate to the hate that fed\n\n[Bridge]\nNo shining sermon can wash that floor\nNo lord below gets to own us anymore\nFor every small voice they tried to drown\nFor the folk still breathing outside this town\nKeep the eye open, keep the mind clear\nKeep that stubborn little heartbeat here\n\n[Final Chorus]\nKhalim still has a heart\nThey couldn't tear that part apart\nAn eye for the truth, a mind of his own\nA will that won't kneel to a glittering stone\nSwing that flail till the false light breaks\nWake up, Kurast, for the living's sake\n\n[Outro]\nThe bell is cracked but it rings through the rain\nKhalim's heart beats again",
+        "kind": "written"
+      }
+    },
+    {
+      "id": "when-arreat-fell-symphonic-power-metal",
+      "title": "When Arreat Fell (Symphonic Power Metal)",
+      "url": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/when-arreat-fell-symphonic-power-metal.mp3",
+      "duration": 246.74002267573695,
+      "collection": "tonyai",
+      "collections": [
+        "tonyai",
+        "shiablo"
+      ],
+      "lyrics": {
+        "text": "[Intro]\nCarry the names down the mountainside\nSomebody has to remember the height\n\n[Verse 1]\nHarrogath hammered its gates through the snow\nWhile the catapults taught us the language below\nOur brothers in cages could hear us draw near\nWe broke every lock we could reach through the fear\nAnya lay frozen where dark waters ran\nWith a truth in her throat that could shatter a clan\nOne elder had bargained our birthright away\nFor the shape of a town he could keep for a day\n\n[Pre-Chorus]\nThe relic was gone and the oath was sold\nDestruction went in from the cold\n\n[Chorus]\nWhen Arreat fell, we were still standing\nAsh on our tongues and the dawn in our hands\nWe saved a world we could not shelter\nAnd lost the mountain that taught us to stand\nCarry the names, carry the names\nStone turns to dust but the oath remains\n\n[Verse 2]\nThree Ancients woke on the wind-bitten crown\nTo weigh every foot that would dare travel down\nWe stood through their trial with our blood on the snow\nThen passed where the bearer of relics could go\nThen deep in the keep came that terrible laugh\nAnd wave after wave tried to cut us in half\nBaal waited smiling beside the red glow\nWith the heart of the world turning sick down below\n\n[Pre-Chorus]\nWe brought him to earth but the poison stayed\nVictory came with a debt unpaid\n\n[Chorus]\nWhen Arreat fell, we were still standing\nAsh on our tongues and the dawn in our hands\nWe saved a world we could not shelter\nAnd lost the mountain that taught us to stand\nCarry the names, carry the names\nStone turns to dust but the oath remains\n\n[Verse 3]\nTyrael stood where the red crystal bled\nWith the ruin of ages alive overhead\nThe Worldstone was taken far past our repair\nAnd the weight of tomorrow hung thick in the air\nHis sword left his hand like a terrible star\nAnd the heart of the mountain came falling apart\nThrough the last portal we stumbled alive\nWith a whole empty sky where our fathers stood high\n\n[Bridge]\nWhere do the guardians go without a gate?\nWhat do we guard when the rescue comes late?\nThe child on the road and the bread we can share\nThe names of the missing we speak to the air\nLet Heaven remember the price of that flame\nWe will keep watch all the same\n\n[Final Chorus]\nWhen Arreat fell, we were still standing\nAsh on our tongues and the dawn in our hands\nWe saved a world we could not shelter\nAnd lost the mountain that taught us to stand\nCarry the names, carry the names\nStone turns to dust but the oath remains\n\n[Outro]\nCarry the names through the cold and the rain\nWe will keep watch all the same",
+        "kind": "written"
+      }
+    },
+    {
       "id": "distonyc-cef35c70fb5cdf1ec2c48d0d",
       "title": "Two Names in One Pair of Shoes",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cef35c70fb5cdf1ec2c48d0d-fbd8d6fa4115.mp3",

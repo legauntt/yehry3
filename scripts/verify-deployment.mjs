@@ -46,8 +46,13 @@ for (const route of [
   );
 }
 console.log("Distonyc route and legacy aliases verified.");
-const fearPage = await get(`${site}/fearhunger/`);
-assert.match(await fearPage.text(), /type="module" src="\.\/fearhunger.js"/);
+for (const path of ["/fearhunger", "/fearhunger/"]) {
+  const fearPage = await get(`${site}${path}`);
+  assert.match(
+    await fearPage.text(),
+    /type="module" src="\/fearhunger\/fearhunger.js"/,
+  );
+}
 for (const name of ["fearhunger.js", "fearhunger.css"]) {
   const response = await get(`${site}/fearhunger/${name}`);
   assert.match(response.headers.get("cache-control") || "", /no-cache/);
@@ -66,6 +71,7 @@ for (const name of [
   "suggestions.js",
   "lyrics.js",
   "site.css",
+  "band-vinyl-v1.webp",
 ]) {
   const expected = createHash("sha256")
     .update(await readFile(new URL(`../assets/${name}`, import.meta.url)))
