@@ -30,10 +30,8 @@ test("fresh releases lead the default sort before older songs ranked by votes", 
   await expect(page.locator('[data-id="old-middle"] .track-age')).toHaveText("1 day old");
   await expect(page.locator('[data-id="old-low"] .track-age')).toHaveText("3 days old");
   const unknownAge = page.locator('[data-id="old-high"] .track-age');
-  await expect(unknownAge).toHaveText(/^\d+ hours old$/);
+  await expect(unknownAge).toHaveText(/^(24 hours|1 day|[2-3] days) old$/);
   const unknownAgeText = await unknownAge.textContent();
-  expect(Number.parseInt(unknownAgeText, 10)).toBeGreaterThanOrEqual(24);
-  expect(Number.parseInt(unknownAgeText, 10)).toBeLessThanOrEqual(72);
   await expect(unknownAge).toHaveAttribute("title", "Exact release time unavailable");
   await expect(page.locator('[data-id="recent-queue"] .track-age')).toHaveAttribute(
     "title",
@@ -69,12 +67,36 @@ test("unknown ages increase with catalog order and stay attached after sorting",
   await page.goto("/?sort=catalog");
   await expect(page.locator(".track h3")).toHaveText(["Echo", "Delta", "Charlie", "Bravo", "Alpha"]);
   await expect(page.locator(".track-age")).toHaveText([
-    "24 hours old", "36 hours old", "48 hours old", "60 hours old", "72 hours old",
+    "24 hours old", "1 day old", "2 days old", "2 days old", "3 days old",
   ]);
 
   await page.getByLabel("Sort songs").selectOption("title");
   await expect(page.locator(".track h3")).toHaveText(["Alpha", "Bravo", "Charlie", "Delta", "Echo"]);
   await expect(page.locator(".track-age")).toHaveText([
-    "72 hours old", "60 hours old", "48 hours old", "36 hours old", "24 hours old",
+    "3 days old", "2 days old", "2 days old", "1 day old", "24 hours old",
+  ]);
+});
+
+test("older release ages use progressively larger calendar units", async ({ page }) => {
+  const now = Date.parse("2026-09-12T19:00:00Z");
+  await page.clock.install({ time: new Date(now) });
+  const ages = [
+    ["days", "Days", 3 * 24 * 60 * 60 * 1000],
+    ["weeks", "Weeks", 14 * 24 * 60 * 60 * 1000],
+    ["months", "Months", 90 * 24 * 60 * 60 * 1000],
+    ["years", "Years", 2 * 365 * 24 * 60 * 60 * 1000],
+  ];
+  const songs = ages.map(([id, title, elapsed], index) => ({
+    ...song(id, title, 0, index + 1),
+    publishedAt: new Date(now - elapsed).toISOString(),
+  }));
+  await page.route("**/yehry3/songs", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: {
+    inStudio: [], queued: [], recent: [], queuedTotal: 0, inStudioTotal: 0, page: 0, pageSize: 50,
+  } }));
+
+  await page.goto("/?sort=catalog");
+  await expect(page.locator(".track-age")).toHaveText([
+    "3 days old", "2 weeks old", "3 months old", "2 years old",
   ]);
 });

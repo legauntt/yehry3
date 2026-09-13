@@ -43,17 +43,24 @@ const badge = (status) =>
   `<span class="badge ${escape(status)}">${escape(labels[status] || status)}</span>`;
 const duration = (seconds) =>
   `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
-const age = (value) => {
-  const elapsed = Math.max(0, Date.now() - new Date(value).getTime());
+const ageFromElapsed = (elapsed) => {
+  elapsed = Math.max(0, elapsed);
   if (!Number.isFinite(elapsed)) return "";
   const minutes = Math.floor(elapsed / 60000);
   if (minutes < 1) return "Less than a minute old";
   if (minutes < 60) return `${minutes} ${minutes === 1 ? "minute" : "minutes"} old`;
   const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `${hours} ${hours === 1 ? "hour" : "hours"} old`;
+  if (hours <= 24) return `${hours} ${hours === 1 ? "hour" : "hours"} old`;
   const days = Math.floor(hours / 24);
-  return `${days} ${days === 1 ? "day" : "days"} old`;
+  if (days < 7) return `${days} ${days === 1 ? "day" : "days"} old`;
+  const weeks = Math.floor(days / 7);
+  if (days < 30) return `${weeks} ${weeks === 1 ? "week" : "weeks"} old`;
+  const months = Math.floor(days / 30);
+  if (days < 365) return `${months} ${months === 1 ? "month" : "months"} old`;
+  const years = Math.floor(days / 365);
+  return `${years} ${years === 1 ? "year" : "years"} old`;
 };
+const age = (value) => ageFromElapsed(Date.now() - new Date(value).getTime());
 const orderedUnknownAge = (index, total) =>
   24 + Math.round((index * 48) / Math.max(1, total - 1));
 const collections = (song) => [
@@ -104,7 +111,9 @@ function songPublishedAt(song, recentPublishedAt) {
 
 function songMeta(song, recentPublishedAt, unknownAgeHours) {
   const publishedAt = songPublishedAt(song, recentPublishedAt);
-  const releaseAge = publishedAt ? age(publishedAt) : `${unknownAgeHours} hours old`;
+  const releaseAge = publishedAt
+    ? age(publishedAt)
+    : ageFromElapsed(unknownAgeHours * 60 * 60 * 1000);
   return `<div class="track-meta"><span class="track-collections">${escape(
     collections(song)
       .map((name) => collectionNames[name] || name)
