@@ -2,6 +2,33 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-690c7eb2e5376ce0d7506511",
+      "title": "Wrong Side of the Charge",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-690c7eb2e5376ce0d7506511-b99bdc0a1237.mp3",
+      "duration": 240,
+      "collection": "distonyc",
+      "authoredBy": "Pancakeo",
+      "lyrics": {
+        "text": "[Intro]\nRed light, blue light, split down the lane\nTwo fools enlisted in a mathematical pain\n\n[Verse 1]\nI brought the army, you brought the nerve\nThen the field put a sign on who we're allowed to serve\nYour guns hit hard, mine bounce off clean\nThe cruelest little rule that the sector's ever seen\nShoes on the floor and my hands on the wheel\nWatching your base take damage I can see but cannot heal\nI cross the map with a desperate plan\nBut the target flashes wrong—I'm an unauthorized man\n\n[Pre-Chorus]\nShoes full of gravel, teeth full of sparks\nWe're paired together but assigned to different marks\n\n[Chorus]\nShoes, get moving, but the lock says no\nShoes, keep kicking while the red lights glow\nShoes at the doorway, rage in the hall\nI'm strong enough to save you, not permitted to at all\nPolarity! What a beautiful scam\nYou carry half the battle while I carry who I am\n\n[Verse 2]\nYour side gets flooded, my side takes a nap\nI'm drawing angry circles on the tactical map\nShoes hit the metal as the hybrid comes through\nEvery useful shot I've got is the wrong color for you\nShoes in the fire, and the timer runs thin\nI could clear the whole disaster if the game would let me in\nYou ping like thunder, I answer like rain\nThen I fire one round and hear that useless clank again\n\n[Pre-Chorus]\nShoes on a wire, balance and swear\nTwo allied armies, neither welcome everywhere\n\n[Chorus]\nShoes, get moving, but the lock says no\nShoes, keep kicking while the red lights glow\nShoes at the doorway, rage in the hall\nI'm strong enough to save you, not permitted to at all\nPolarity! Divide and command\nYou hold the wrong objective while I wave from promised land\n\n[Bridge]\nShoes to the north where your enemies breed\nShoes to the south where I've got what you need\nShoes through the smoke, but the rules disagree\nShoes do the marching while the lock laughs at me\nNo cowardice, no shortage, no tactical doubt\nJust a plus and a minus keeping both of us out\nSo trade me your targets, I'll trade you my blame\nWe'll beat this crooked circuit at its own divided game\n\n[Verse 3]\nShoes nearly broken, but we're reading the signs\nYou take the left mutation, I erase the right-hand lines\nShoes find the rhythm: swap, cover, attack\nWhen your color meets the target, I keep death off your back\nNo hero can carry what no hero can touch\nSo we carry one another, and we curse twice as much\nThe final wave rises, every warning turns red\nWe split it down the middle and we leave the hybrids dead\n\n[Final Chorus]\nShoes, keep moving—now we both know how\nWrong side a minute, right side now\nShoes at the doorway, kick through the wall\nThey said I couldn't carry you—we carried us all\nPolarity! Your circuit is blown\nTwo mismatched allies made the battlefield our own\n\n[Finale]\nThe lock goes dark, the last sparks fall\nYou carried me—I didn't carry you at all",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 17.74
+        }
+      ],
+      "originalPrompt": {
+        "idea": "The pain and frustration of carrying an ally in SC2 co-op where you can't - because of polarity",
+        "direction": "Punk rock, sex pistols",
+        "keep": "\"Shoes\" must be mentioned 19 times.",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-0236d395f02a16d53bd911d3",
       "title": "No Saints in the Bomb Crater",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0236d395f02a16d53bd911d3-58f65acbb2a7.mp3",
