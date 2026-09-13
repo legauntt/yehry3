@@ -37,7 +37,8 @@ Publication includes the original confirmed idea, direction, preferences, and ba
 
 ## Requests and limits
 
-- The saved full-catalog **Tony V6 voice is mandatory**. No new voice training occurs.
+- Every request freezes a `details.voiceModel` version. Missing legacy values mean `v6`. V6 remains the established default; later versions resolve through isolated, hash-pinned profiles in installed `config.json` and may not borrow V6 conversion or repair stages. Adding V8 or later requires one Chairlift registry entry plus one installed profile, not a request-schema change. No new voice training occurs during routine generation.
+- Installed later-version profiles use `voice_models.<id>` with `label`, `runtime_kind: "fresh-catalog-v1"`, `root`, and SHA-256 pins named `adapter`, `runtime`, `common`, `bank`, and `style`. The same schema applies to V7, V8, and beyond.
 - Zero basis songs produces an original. Up to five files from `gatsby-opus/static` can condition the composition locally. The dropdown inventories every supported audio file and sorts by title; IDs derive from relative paths, not positions. Audio is never uploaded to the planning model.
 - A single basis song can also inspire a new original with a new subject and lyrics. It does not force a faithful remake. Altered/wrong lyrics and spoken introductions can use the existing single-source reinterpretation recipe; an acoustic rewrite retains newly generated acoustic instrumentation. Missing optional cached-stem fields fall back to provenance-checked completed separation journals when available. Known unstarted capability rejections get one retained, journaled planning upgrade; started recordings are preserved.
 - Original songs support 3–5 minutes and genre instructions, with complete lyrics and a resolved ending. Selected references influence arrangement/timbre; they do not guarantee preserved melodies.

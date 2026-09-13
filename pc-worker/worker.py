@@ -6,6 +6,7 @@ from winprocess import Stopped, run_owned
 from planner import make_plan
 from publish import upload, update_catalog
 from lyrics import make_sheet, export_sheet
+from voice_models import selected
 
 TERMINAL = {'published', 'failed', 'canceled'}
 
@@ -55,8 +56,9 @@ class Heartbeat:
         self.done.set()
         if self.thread.is_alive(): self.thread.join(timeout=30)
 
-def metadata(config, plan, result):
-    if result.get('status') != 'verified' or result.get('new_training') is not False: raise ValueError('The renderer did not verify the saved Tony V6 mix')
+def metadata(config, plan, result, voice_model='v6'):
+    if result.get('status') != 'verified' or result.get('new_training') is not False: raise ValueError('The renderer did not verify the saved Tony voice mix')
+    if result.get('voice_model', 'v6') != voice_model: raise ValueError('The rendered voice model differs from the confirmed request')
     files = result.get('files', [])
     if {Path(item['path']).suffix.lower() for item in files} != {'.mp3', '.wav'}: raise ValueError('Both verified MP3 and WAV are required')
     for item in files:
@@ -66,6 +68,7 @@ def metadata(config, plan, result):
     sheet = make_sheet(config, plan, result)
     export_sheet(config, mp3['path'], plan['title'], sheet)
     return mp3['path'], {'title': plan['title'], 'duration': result['duration'], 'bytes': mp3['bytes'], 'sha256': mp3['sha256'],
+                         'voiceModel': voice_model,
                          'lyrics': sheet, 'collections': ['distonyc', 'fearhunger'] if plan.get('fear_hunger') else ['distonyc'],
                          **({'qualityIssues': result['qualityIssues']} if result.get('qualityIssues') else {})}
 
@@ -102,12 +105,14 @@ def run_once(config, api, verify_existing=None):
         if heartbeat.stopped(): raise Stopped('Cancellation requested')
         result_file = directory / 'render-result.json'
         if prompt['status'] == 'processing':
+            voice_model = selected(prompt)
             basis = basis_files(config, prompt)
             # The model receives creative metadata; local paths remain in the trusted renderer input.
             plan = make_plan(config, prompt, directory, basis, heartbeat.stopped)
             if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
             if not result_file.exists():
-                request = {'config': config, 'prompt_id': prompt['id'], 'plan': plan, 'basis': basis, 'directory': str(directory)}
+                request = {'config': config, 'prompt_id': prompt['id'], 'plan': plan, 'basis': basis, 'directory': str(directory),
+                    'voice_model': voice_model}
                 if verify_existing: request['verify_existing'] = str(Path(verify_existing).resolve())
                 save(directory / 'render-request.json', request)
                 heartbeat.stage = 'Rendering'
@@ -118,12 +123,13 @@ def run_once(config, api, verify_existing=None):
                 except RuntimeError:
                     if error_file.exists(): raise RuntimeError(load(error_file)['message']) from None
                     raise
-            mp3, completed = metadata(config, plan, load(result_file))
+            mp3, completed = metadata(config, plan, load(result_file), voice_model)
             prompt = action('complete', result=completed)
         else:
             if not result_file.exists(): raise ValueError('This PC is missing the completed mix. Restore its saved job folder before publishing.')
             plan = load(directory / 'plan.json')['plan']
-            mp3, completed = metadata(config, plan, load(result_file))
+            voice_model = selected(prompt)
+            mp3, completed = metadata(config, plan, load(result_file), voice_model)
             # Finish pre-upgrade publications with their original immutable metadata.
             if any(completed.get(key) != value for key, value in prompt['result'].items()): raise ValueError('The saved mix differs from the server result')
         if heartbeat.stopped(): raise Stopped('Cancellation or lease loss')

@@ -44,6 +44,18 @@ const date = (value) =>
   });
 const badge = (status) =>
   `<span class="badge ${escape(status)}">${escape(labels[status] || status)}</span>`;
+let voiceModels = [
+  { id: "v6", label: "Tony V6", note: "Established expressive catalog profile", experimental: false },
+];
+const voiceModel = (id) =>
+  voiceModels.find((model) => model.id === id) || (/^v\d+$/i.test(id || "")
+    ? { id, label: `Tony ${id.toUpperCase()}`, note: "Versioned Tony voice profile", experimental: id !== "v6" }
+    : voiceModels[0]);
+const voiceModelBadge = (id) => escape((/^v\d+$/i.test(id || "") ? id : "v6").toUpperCase());
+const voiceModelLabel = (id) => {
+  const model = voiceModel(id);
+  return `${model.label}${model.experimental ? " · experimental" : " · established"}`;
+};
 const duration = (seconds) =>
   `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
 const ageFromElapsed = (elapsed) => {
@@ -121,7 +133,7 @@ function songMeta(song, recentPublishedAt, unknownAgeHours) {
     collections(song)
       .map((name) => collectionNames[name] || name)
       .join(" / "),
-  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${song.lyrics?.text ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${song.originalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge">${voiceModelBadge(song.voiceModel)}</span><span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${song.lyrics?.text ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${song.originalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
 }
 
 async function library() {
@@ -234,7 +246,7 @@ async function library() {
     container.hidden = !rows.length;
     syncRows(container, rows.map((song) => {
       const percent = Math.max(0, Math.min(100, Number(song.progress?.percent) || 0));
-      return `<details class="pending-track" data-id="${escape(song.id)}"><summary><span class="pending-mark" aria-hidden="true">↗</span><span class="pending-title"><span class="tiny-label">On the way</span><strong>${escape(song.title || song.idea)}</strong>${authoredByLine(song.authoredBy, escape)}</span><span class="pending-state">${badge(song.status)}${song.progress ? `<span class="small">${Math.round(percent)}%</span>` : ""}</span></summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}<a class="text-link" href="/queue/#${encodeURIComponent(song.id)}">Follow in the queue ↗</a></div></details>`;
+  return `<details class="pending-track" data-id="${escape(song.id)}"><summary><span class="pending-mark" aria-hidden="true">↗</span><span class="pending-title"><span class="tiny-label">On the way · ${voiceModelBadge(song.voiceModel)}</span><strong>${escape(song.title || song.idea)}</strong>${authoredByLine(song.authoredBy, escape)}</span><span class="pending-state">${badge(song.status)}${song.progress ? `<span class="small">${Math.round(percent)}%</span>` : ""}</span></summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}<a class="text-link" href="/queue/#${encodeURIComponent(song.id)}">Follow in the queue ↗</a></div></details>`;
     }).join(""));
   }
   function render({ preserveViewport = false } = {}) {
@@ -500,7 +512,12 @@ async function requests() {
   let draft = null;
   let basisSongs;
   try {
-    basisSongs = await loadBasisSongs();
+    const loaded = await Promise.all([
+      loadBasisSongs(),
+      api("/voice-models").catch(() => ({ models: voiceModels })),
+    ]);
+    basisSongs = loaded[0];
+    if (Array.isArray(loaded[1].models) && loaded[1].models.length) voiceModels = loaded[1].models;
   } catch (error) {
     message(error.message, true);
     main.innerHTML =
@@ -581,7 +598,7 @@ async function requests() {
           render();
         });
     } else if (stage === "details") {
-      form.innerHTML = `<p class="eyebrow">Turn 02 · Let’s get specific</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Before this goes to the studio, tell us the direction. Tony’s vocals are the starting point.</p><form id="details-form">${authorField}<div id="basis-root"></div><label for="direction">What should it sound like?</label><textarea id="direction" rows="3" minlength="10" maxlength="2000" required placeholder="Four close vocal harmonies, playful barbershop, no instruments…"></textarea><label for="keep">What matters most?</label><textarea id="keep" rows="2" maxlength="1000" required placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p></form>`;
+      form.innerHTML = `<p class="eyebrow">Turn 02 · Let’s get specific</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Before this goes to the studio, tell us the direction and choose the Tony voice.</p><form id="details-form">${authorField}<div id="basis-root"></div><label for="voice-model">Tony voice model</label><select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p><label for="direction">What should it sound like?</label><textarea id="direction" rows="3" minlength="10" maxlength="2000" required placeholder="Four close vocal harmonies, playful barbershop, no instruments…"></textarea><label for="keep">What matters most?</label><textarea id="keep" rows="2" maxlength="1000" required placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p></form>`;
       $("#authored-by").value = draft.authoredBy || "";
       $("#authored-by").oninput = (event) => rememberAuthor(event.target.value);
       const selectedBasis = mountBasisPicker(
@@ -591,6 +608,13 @@ async function requests() {
       );
       for (const key of ["direction", "keep"])
         $(`#${key}`).value = draft.details?.[key] || "";
+      $("#voice-model").value = draft.details?.voiceModel || "v6";
+      const describeVoice = () => {
+        const model = voiceModel($("#voice-model").value);
+        $(".voice-model-note").textContent = `${model.note}.${model.experimental ? " This model remains clearly labeled experimental." : ""}`;
+      };
+      $("#voice-model").onchange = describeVoice;
+      describeVoice();
       $("#start-over").onclick = () => {
         storage.set("idea-text", draft.prompt);
         draft = null;
@@ -603,6 +627,7 @@ async function requests() {
             ["direction", "keep"].map((key) => [key, $(`#${key}`).value]),
           );
           details.basisSongIds = selectedBasis();
+          details.voiceModel = $("#voice-model").value;
           details.authoredBy = $("#authored-by").value.trim();
           draft = (
             await api(`/prompts/${encodeURIComponent(draft.id)}`, {
@@ -677,8 +702,9 @@ function brief(doc) {
   const basis =
     doc.details?.basisSongTitles?.join(", ") ||
     doc.details?.source ||
-    "No basis song — Tony’s V6 voice";
-  return `<dl class="brief">${doc.authoredBy ? `<dt>Authored by</dt><dd>${escape(doc.authoredBy)}</dd>` : ""}<dt>The idea</dt><dd>${escape(doc.prompt)}</dd><dt>Basis songs</dt><dd>${escape(basis)}</dd><dt>The direction</dt><dd>${escape(doc.details?.direction)}</dd><dt>What matters most</dt><dd>${escape(doc.details?.keep)}</dd></dl>${qualityNotice(doc.result?.qualityIssues || doc.qualityIssues)}${doc.workerProgress ? `<p class="small">${escape(doc.workerProgress.stage)}${doc.status !== "failed" && doc.workerProgress.percent ? ` · ${Math.round(doc.workerProgress.percent)}%` : ""}</p>` : ""}${doc.workerError ? `<p class="field-error">${escape(doc.workerError)}</p>` : ""}`;
+    "No basis song";
+  const voice = voiceModelLabel(doc.details?.voiceModel || "v6");
+  return `<dl class="brief">${doc.authoredBy ? `<dt>Authored by</dt><dd>${escape(doc.authoredBy)}</dd>` : ""}<dt>The idea</dt><dd>${escape(doc.prompt)}</dd><dt>Voice model</dt><dd>${escape(voice)}</dd><dt>Basis songs</dt><dd>${escape(basis)}</dd><dt>The direction</dt><dd>${escape(doc.details?.direction)}</dd><dt>What matters most</dt><dd>${escape(doc.details?.keep)}</dd></dl>${qualityNotice(doc.result?.qualityIssues || doc.qualityIssues)}${doc.workerProgress ? `<p class="small">${escape(doc.workerProgress.stage)}${doc.status !== "failed" && doc.workerProgress.percent ? ` · ${Math.round(doc.workerProgress.percent)}%` : ""}</p>` : ""}${doc.workerError ? `<p class="field-error">${escape(doc.workerError)}</p>` : ""}`;
 }
 
 async function admin() {

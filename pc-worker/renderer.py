@@ -4,6 +4,7 @@ from pathlib import Path
 from common import load, save, sha, fingerprint, inside
 from planner import validate
 from source_material import source_material
+from voice_models import reference_profile, resolve
 
 
 def with_quality(result):
@@ -75,6 +76,8 @@ def ending_repair(request, work):
 
 
 def vocal_recovery(request, repair=None, pending_only=False):
+    # Versioned profiles have their own adapters and banks. Never cross them through V6 repair.
+    if request.get('voice_model', 'v6') != 'v6': return False
     if not request['config'].get('automatic_vocal_repair', False) or request.get('verify_existing'): return False
     identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id'] + (':ending-v1' if repair else '')))
     work = Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier)
@@ -152,6 +155,8 @@ def render_attempt(request, repair=None):
     config, plan, basis = request['config'], request['plan'], request['basis']
     validate(plan, basis)
     settings = config['settings']; engine_root = Path(config['engine_resources'])
+    voice_model = request.get('voice_model', 'v6')
+    voice_profile = resolve(config, voice_model)
     os.environ['TROOFS_WORKER_RESOURCES'] = str(engine_root)
     engine = module_at('distonyc_engine', engine_root / 'engine_tasks.py')
     engine.save = save
@@ -166,7 +171,9 @@ def render_attempt(request, repair=None):
         # This option is set only by the local operator CLI, never by a submitted prompt.
         work = inside(request['verify_existing'], Path(settings['studio_dir']).parent)
         return with_quality(engine.verify_work(work, settings['output_dir']))
-    if plan['recipe'] == 'barbershop': return render_quartet(request, engine)
+    if plan['recipe'] == 'barbershop':
+        if voice_model != 'v6': raise ValueError(f'Tony {voice_model.upper()} is not available for the specialized four-voice quartet recipe; choose Tony V6')
+        return render_quartet(request, engine)
     if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
     identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id'] + (':ending-v1' if repair else '')))
     title = plan['title'] + ' - D' + identifier[:8]
@@ -211,18 +218,54 @@ def render_attempt(request, repair=None):
                 if plan['preserve_generated_backing']:
                     manifest['tasks'] = [task for task in manifest['tasks'] if task['name'] != 'backing']
                     track['backing_adapter'] = None
-                    track['backing_decision'] = 'Retain the requested genre instrumentation from composition; Tony V6 is applied to the lead voice.'
+                    track['backing_decision'] = f'Retain the requested genre instrumentation from composition; Tony {voice_model.upper()} is applied to the lead voice.'
+            if voice_model != 'v6':
+                if spec['kind'] != 'new':
+                    raise ValueError(f'Tony {voice_model.upper()} currently supports new compositions and reinterpretations, not faithful source reconstructions')
+                shutil.copy2(work / 'convert_song.py', work / 'engine_voice.py')
+                track.update(voice_model=voice_model, voice_checkpoint=voice_profile['files']['adapter'],
+                    voice_model_sha256=voice_profile['sha256']['adapter'], v6_control_sha256=track['model_sha256'],
+                    experiment=voice_profile['root'], reference_profile=reference_profile(voice_profile, plan['style']),
+                    saved_favorites_used=False, version_name=voice_profile['label'], production_promoted=False,
+                    listening_accepted=False)
+                finish = (work / 'finish_song.py').read_text('utf-8')
+                finish = finish.replace('AI music experiment; local Tony C V6 catalog voice model.',
+                    'AI music experiment; isolated versioned Tony C fresh-catalog voice model.')
+                finish = finish.replace("'voice_adapter':str(AI/'catalog-expansion-v6/tony-catalog-adapter.pt')",
+                    "'voice_adapter':track['voice_checkpoint']")
+                finish = finish.replace("'phonetic_priority':'Listener-preferred +50 creative target, with varied lyric-derived expression and no stock chants'",
+                    "'phonetic_priority':'Fresh catalog selection; saved favorite passages and labels excluded'")
+                compile(finish, 'finish_versioned.py', 'exec')
+                (work / 'finish_versioned.py').write_text(finish, encoding='utf-8')
+                analysis = (work / 'analyze_result.py').read_text('utf-8').replace(
+                    "glob('new-song-*-f0.npy')", "glob('phrase-*-f0.npy')")
+                compile(analysis, 'analyze_versioned.py', 'exec')
+                (work / 'analyze_versioned.py').write_text(analysis, encoding='utf-8')
+                for task in manifest['tasks']:
+                    if task['name'] in ['prepare', 'features', 'pitch', 'diffuse', 'vocode', 'assemble', 'validate']:
+                        task['command'] = [settings['voice_python'], voice_profile['files']['runtime'], str(work), task['name']]
+                    elif task['name'] == 'finish':
+                        task['command'] = [settings['voice_python'], str(work / 'finish_versioned.py'), '--work', str(work)]
+                    elif task['name'] == 'analysis':
+                        task['command'] = [settings['voice_python'], str(work / 'analyze_versioned.py'), '--work', str(work)]
+                save(work / 'voice-profile.json', voice_profile)
             save(work / 'track.json', track)
             manifest['track_sha256'] = sha(work / 'track.json')
             manifest['workers'] = {path.name: sha(path) for path in work.glob('*.py')}
             save(work / 'desktop-job.json', manifest)
-            save(work / 'distonyc-configured.json', {'prompt_id': request['prompt_id'], 'plan_hash': fingerprint(plan), 'basis': basis})
+            save(work / 'distonyc-configured.json', {'prompt_id': request['prompt_id'], 'plan_hash': fingerprint(plan),
+                'basis': basis, 'voice_model': voice_model, 'voice_profile_fingerprint': voice_profile['fingerprint']})
         else:
             configured = load(work / 'distonyc-configured.json')
-            if configured['plan_hash'] != fingerprint(plan) or configured['basis'] != basis: raise ValueError('Saved production inputs changed')
+            if (configured['plan_hash'] != fingerprint(plan) or configured['basis'] != basis or
+                    configured.get('voice_model', 'v6') != voice_model or
+                    configured.get('voice_profile_fingerprint', 'v6-established') != voice_profile['fingerprint']):
+                raise ValueError('Saved production inputs changed')
         engine.validate_saved(work, manifest)
-        if load(work / 'desktop-status.json')['status'] == 'completed': return with_quality(engine.verify_work(work, settings['output_dir']))
-        return with_quality(engine.execute_stages(work, execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False))))
+        if load(work / 'desktop-status.json')['status'] == 'completed': result = with_quality(engine.verify_work(work, settings['output_dir']))
+        else: result = with_quality(engine.execute_stages(work, execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False))))
+        result['voice_model'] = voice_model
+        return result
 
 def render_quartet(request, engine):
     settings, basis, plan = request['config']['settings'], request['basis'], request['plan']

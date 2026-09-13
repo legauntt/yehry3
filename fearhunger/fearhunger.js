@@ -129,6 +129,13 @@ function update(songs) {
       document.querySelector(".recordings").append(card);
       register(card);
     }
+    let model = card.querySelector(".voice-model-badge");
+    if (!model) {
+      model = document.createElement("span");
+      model.className = "voice-model-badge";
+      card.querySelector(".duration").before(model);
+    }
+    model.textContent = (/^v\d+$/i.test(song.voiceModel || "") ? song.voiceModel : "v6").toUpperCase();
     let author = card.querySelector(".authored-by");
     if (!author) {
       author = document.createElement("p");
