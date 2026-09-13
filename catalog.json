@@ -2,6 +2,36 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ec1e60f540ac1cdfd2c7a081",
+      "title": "Two Stools in Lut Gholein",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ec1e60f540ac1cdfd2c7a081-47c156e7e9d8.mp3",
+      "duration": 269.2,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Intro — Tony, half-spoken]\nGeglash, that your sword or the coat rack?\n[ Geglash, chuckling]\nDepends who's asking for it back.\n\n[Verse 1 — Tony]\nMeshif's down there minding ropes,\nI'm up here drowning travel hopes.\nGot sand inside a boot I bought back west.\nYou say you used to guard this town;\nYour sword ain't moved three bottles down.\nThat chair's the only thing you've laid to rest.\n\n[Verse 2 — Geglash]\nI knew these streets before your boots,\nBefore those fancy merc recruits.\nGreiz can have the marching and the pay.\nI've fought enough to earn this seat—\n[Tony, muttered]\nYou fought the floor. The floor got beat?\n[Geglash]\nThe floor and I have called it quits today.\n\n[Chorus — Both]\nTwo stools in Lut Gholein,\nOne good eye on the pouring hand.\nWe were kings of someplace else,\nNow we're leaning where we stand.\nPour a little for the old days,\nLeave a little room for shame.\nYou remember how it happened;\nI'll remember who to blame.\n\n[Verse 3 — Geglash]\nRemember when the sun went black?\nI nearly strapped my armor back.\nA man should meet the darkness at the door.\n[Tony]\nYou told me, \"Wake me when it's light.\"\n[Geglash]\nThat's how I knew we'd win that fight.\n[Tony]\nYou snored until the daylight hit the floor.\n\n[Verse 4 — Tony]\nDrognan had his books spread wide,\nYou had somewhere safe to hide.\nJerhyn had his troubles down below.\nYou drew a map in spilled-out beer,\nSaid, \"Tal Rasha's tomb is here.\"\n[Geglash]\nSeven tombs. I picked one. Close enough to go.\n\n[Chorus — Both]\nTwo stools in Lut Gholein,\nOne good eye on the pouring hand.\nWe were kings of someplace else,\nNow we're leaning where we stand.\nPour a little for the old days,\nLeave a little room for shame.\nYou remember how it happened;\nI'll remember who to blame.\n\n[Bridge — Tony, quietly sung]\nAtma turns the lantern low;\nThere's one tale we leave alone.\nHer husband and her boy won't walk back in.\n[Geglash]\nSomeone went beneath these stones,\nPut Radament among the bones.\nHere's to those who go where we've just been\nIn stories told through gin.\n\n[Short Fiddle Turn — Geglash, sustained]\nI used to have a steadier hand...\n[Tony, soft laugh]\nHere. Set it down beside the glass.\n\n[Verse 5 — Geglash]\nTruth is, friend, I miss the days\nWhen somebody would sing my praise.\nNow she calls my name to clear the bill.\n[Tony]\nI got enough to settle two.\n[Geglash]\nThen next one's mine. I'm telling you.\n[Tony]\nTomorrow, pal. Tonight we've had our fill.\n\n[Final Chorus — Both]\nTwo stools in Lut Gholein,\nEmpty glasses, open hands.\nWe were kings of someplace else;\nNow we help each other stand.\nKeep a little of the old days,\nLet the tallest stories fade.\nYou can lean on me till morning;\nTell 'em that's the charge we made.\n\n[Outro — Tony]\nLeft foot, old friend. Mind that stone.\n[Geglash]\nI know this road.\n[Tony]\nThen walk me home.\n[Both, sustained]\nTwo old fools... headed home.",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 12.32
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 29.66
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony & Geglash (Diablo 2) performing a country duet",
+        "direction": "Two drunkards talking about the old times",
+        "keep": "Include D2 Lore; Include Tony C mannerisms",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-ade0b730b6386af1bb6bca31",
       "title": "Alll-mer Under the Big Top",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ade0b730b6386af1bb6bca31-fcfecd4ea437.mp3",
