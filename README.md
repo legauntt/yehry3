@@ -34,6 +34,7 @@ For the real API, follow [chairlift's setup and queue contract](../chairlift/yeh
 ## Behavior
 
 - One anonymous vote per rolling hour across the collection, enforced by both browser and hashed network IP. Shared networks share the allowance. This is a practical anonymous limit, not an account-based identity guarantee.
+- Voting rules stay above the list during cooldowns and outages. Hover or focus a grayed-out vote to see its cooldown, pending submission, or offline explanation.
 - The gate hints **“Never share your password with anyone”**. Basis songs are optional: select zero to five titles from every audio recording in `gatsby-opus/static`, sorted A–Z. Tony V6 vocals are always included. Users complete two conversation turns (idea and direction), then explicitly confirm the full brief. No LLM service is needed for these structured turns.
 - Three confirmed requests per hour per browser/network. Drafts expire after 24 hours; confirmed requests persist. Stable request IDs prevent duplicate jobs from retries.
 - Sessions and the current request reference use session storage for the browser tab; passwords are never retained. Closing the tab/clearing storage removes its shortcut. Admins can still see every submitted request.

@@ -536,6 +536,37 @@ main {
   background: #edc3a7;
   border-color: var(--accent);
 }
+.vote-hint {
+  position: relative;
+  flex-shrink: 0;
+  display: inline-flex;
+}
+.vote-hint[tabindex="0"] {
+  cursor: not-allowed;
+}
+.vote-hint button:disabled {
+  pointer-events: none;
+}
+.vote-tooltip {
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 10px);
+  width: min(250px, 75vw);
+  padding: 10px 13px;
+  border-radius: 5px;
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 0 3px 15px #0002;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  z-index: 10;
+  pointer-events: none;
+}
+.vote-hint:hover .vote-tooltip:not(:empty),
+.vote-hint:focus .vote-tooltip:not(:empty) {
+  visibility: visible;
+}
 .request-banner {
   margin-top: 70px;
   background: var(--light);

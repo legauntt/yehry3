@@ -25,6 +25,15 @@ test("catalog, search, player, and anonymous vote cooldown", async ({
   await page.reload();
   await expect(page.locator("[data-vote]").first()).toBeDisabled();
   await expect(page.locator("#vote-note")).toContainText("next vote");
+  await expect(page.locator("#vote-note")).toContainText(
+    "One anonymous vote per hour across the collection",
+  );
+  await expect(page.locator("#vote-note")).toContainText(
+    "Shared networks share the limit",
+  );
+  await page.locator(".vote-hint").first().hover();
+  await expect(page.getByRole("tooltip").first()).toBeVisible();
+  await expect(page.getByRole("tooltip").first()).toContainText("next vote");
   await mkdir("artifacts", { recursive: true });
   await page.evaluate(() => scrollTo(0, 0));
   await page.screenshot({
@@ -242,6 +251,14 @@ test("mobile layout, API outage, and escaped prompt content", async ({
   await expect(page.locator(".track")).toHaveCount(songCount);
   await expect(page.locator("#vote-note")).toContainText("offline");
   await expect(page.locator("[data-vote]").first()).toBeDisabled();
+  await expect(page.locator("#vote-note")).toContainText(
+    "One anonymous vote per hour",
+  );
+  await page.locator(".vote-hint").first().focus();
+  await expect(page.getByRole("tooltip").first()).toContainText(
+    "temporarily offline",
+  );
+  await expect(page.getByRole("tooltip").first()).toBeVisible();
   expect(
     await page.evaluate(
       () => document.documentElement.scrollWidth <= innerWidth,

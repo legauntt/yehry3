@@ -129,7 +129,7 @@ async function library() {
         collections(song)
           .map((name) => collectionNames[name] || name)
           .join(" / "),
-      )} <span>·</span> ${duration(song.duration)}${song.lyrics?.text ? ` <span>·</span> <a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}</p></div><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button></article>`,
+      )} <span>·</span> ${duration(song.duration)}${song.lyrics?.text ? ` <span>·</span> <a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}</p></div><span class="vote-hint" role="group"><button class="vote" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">♡</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : '<p class="empty">No songs match. Try another title or style.</p>';
@@ -137,13 +137,29 @@ async function library() {
   }
   function cooldown() {
     const left = Math.max(0, new Date(nextVoteAt || 0) - Date.now());
-    $("#vote-note").textContent = !online
-      ? "Listening is available. Voting is temporarily offline."
-      : left
-        ? `Thanks for the love. Your next vote is available in ${Math.ceil(left / 60000)} min.`
-        : "One anonymous vote per hour across the collection. Shared networks share the limit.";
+    const rules =
+      "One anonymous vote per hour across the collection. Shared networks share the limit.";
+    const reason = !online
+      ? "Voting is temporarily offline. Listening is still available."
+      : voting
+        ? "Your vote is being sent."
+        : left
+          ? `Your next vote is available in ${Math.ceil(left / 60000)} min (${date(nextVoteAt)}).`
+          : "";
+    $("#vote-note").textContent = rules + (reason ? " " + reason : "");
     document.querySelectorAll("[data-vote]").forEach((button) => {
       button.disabled = !online || Boolean(left) || voting;
+      const hint = button.parentElement,
+        tooltip = hint.querySelector(".vote-tooltip");
+      tooltip.textContent = button.disabled ? reason : "";
+      hint.tabIndex = button.disabled ? 0 : -1;
+      if (button.disabled) {
+        hint.setAttribute("aria-label", "Voting unavailable");
+        hint.setAttribute("aria-describedby", tooltip.id);
+      } else {
+        hint.removeAttribute("aria-label");
+        hint.removeAttribute("aria-describedby");
+      }
     });
   }
   async function play(song, newQueue) {
