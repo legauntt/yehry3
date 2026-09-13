@@ -2,6 +2,37 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-1bedc02aaedbb1663d5fdcd9",
+      "title": "Geglash and the Missing Save",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1bedc02aaedbb1663d5fdcd9-cf309effed3a.mp3",
+      "duration": 240,
+      "collection": "distonyc",
+      "lyrics": {
+        "text": "[Intro]\nLut Gholein, keep my stool warm.\nI've found a cheaper place to drink.\nThe door has teeth. That's fucking charming.\nI'll finish this before you blink.\n\n[Verse 1]\nGeglash swaggered down the stair,\nDesert sand still in his hair.\nTold a guard, I've fought much bigger—\nThen the bastard pulled the trigger.\nNot a gun: a great big cleaver.\nLost an arm, became a leaver.\nCrawled three rooms to find a bandage,\nBled out bargaining for damage.\nBack outside, two hands again.\nNothing earned except the pain.\n\n[Chorus]\nHeads, I'm dead; tails, I'm dreaming.\nSame damn doorway, same damn screaming.\nFear and Hunger, pour my grave;\nAll that glory, no fucking save.\nI was nearly somebody down below.\nNow I'm nobody, here we go.\nTurn the handle, curse the floor—\nGeglash dies and wants one more.\n\n[Verse 2]\nFound some bread and ate it standing,\nCalled that tactical understanding.\nRusty nail went through my boot;\nKept the boot and lost the foot.\nMet a crow with shoulders wider\nThan the tavern's apple cider.\nRaised my sword, began my story;\nLost my head before the glory.\nSomewhere Warriv felt a shiver.\nSomeone had to mind my liver.\n\n[Chorus]\nHeads, I'm dead; tails, I'm dreaming.\nSame damn doorway, same damn screaming.\nFear and Hunger, pour my grave;\nAll that glory, no fucking save.\nI had food and a halfway decent blade.\nNow they're ghosts of a run I made.\nTurn the handle, curse the floor—\nGeglash dies and wants one more.\n\n[Bridge]\nThere was a bed. There was a silence.\nI mistook the peace for kindness.\nFlipped a coin with filthy fingers:\nLost the toss; the laughter lingers.\nThen a book! Salvation, surely!\nShould have read the title thoroughly.\nEmpty shelves and empty pockets.\nFuck your gods and cursed door sockets.\n\n[Final Verse]\nNo more charging. Watch the hinges.\nCount the torches. Stop the binges.\nTake the food and leave the boasting;\nAll my former selves are roasting.\nFound the book that keeps tomorrow,\nHeld it like a child of sorrow.\nSaved at last, then laughed so hard\nI backed straight into another guard.\n\n[Final Chorus]\nHeads, I'm dead; tails, I'm dreaming.\nSame damn doorway, same damn screaming.\nFear and Hunger, you can keep\nEvery corpse beneath that heap.\nLoad the page—the torch still glows.\nThere's my sword, and there's my toes.\nKeep my stool. I've learned to behave.\nThis dead bastard finally has a save.",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 13.06
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 13.52
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Geglash from Diablo 2 trying to beat Fear & Hunger but he keeps dying in different ways and losing all of his progress",
+        "direction": "Darkwave horror circus power pop",
+        "keep": "Explicit lyrics",
+        "basisSongs": []
+      }
+    },
+    {
       "id": "distonyc-f2934cba2d2636b3a71d19a3",
       "title": "The Midnight Chrome Express",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f2934cba2d2636b3a71d19a3-3f9dcb246f13.mp3",
