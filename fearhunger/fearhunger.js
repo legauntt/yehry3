@@ -1,5 +1,8 @@
 import { api } from "../assets/api.js";
 import { qualityNotice } from "../assets/quality.js";
+import { watchCompletions } from "../assets/notifications.js";
+
+watchCompletions();
 
 const cards = [],
   players = [],

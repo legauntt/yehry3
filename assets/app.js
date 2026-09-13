@@ -6,6 +6,7 @@ import { originalPromptPage } from "./original-prompt.js";
 import { rotateSuggestions } from "./suggestions.js";
 import { api, login, logout, signedIn, loginPersistence, storage } from "./api.js";
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
+import { watchCompletions } from "./notifications.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const main = $("#main");
@@ -774,6 +775,7 @@ async function admin() {
 }
 
 try {
+  if (page !== "queue") watchCompletions();
   if (page === "requests") await requests();
   else if (page === "admin") await admin();
   else if (page === "queue")

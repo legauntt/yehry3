@@ -1,5 +1,8 @@
 import { api, login, logout, signedIn } from './api.js';
 import { mountGuide } from './deetz-guide.js';
+import { watchCompletions } from './notifications.js';
+
+watchCompletions();
 
 const access = document.querySelector('#access');
 const root = document.querySelector('#guide-root');
