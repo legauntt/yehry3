@@ -14,13 +14,13 @@ def with_quality(result):
     return result
 
 
-def execution_manifest(manifest):
+def execution_manifest(manifest, instrumental_break_warnings=False):
     if manifest['kind'] != 'new': return manifest
     # Adapt the command in memory. Frozen scripts, inputs, hashes and the saved
     # stage journal remain authoritative and are never rewritten by this policy.
     tasks = []
     for task in manifest['tasks']:
-        if task['name'] == 'configure' and manifest.get('style') != 'opera':
+        if task['name'] == 'configure' and manifest.get('style') != 'opera' and instrumental_break_warnings:
             command = task['command']
             task = {**task, 'command': [command[0], str(Path(__file__).with_name('quality_configure.py')),
                     '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers']['configure_song.py']]}
@@ -169,7 +169,7 @@ def render_attempt(request, repair=None):
             if configured['plan_hash'] != fingerprint(plan) or configured['basis'] != basis: raise ValueError('Saved production inputs changed')
         engine.validate_saved(work, manifest)
         if load(work / 'desktop-status.json')['status'] == 'completed': return with_quality(engine.verify_work(work, settings['output_dir']))
-        return with_quality(engine.execute_stages(work, execution_manifest(manifest)))
+        return with_quality(engine.execute_stages(work, execution_manifest(manifest, config.get('instrumental_break_warnings', False))))
 
 def render_quartet(request, engine):
     settings, basis, plan = request['config']['settings'], request['basis'], request['plan']

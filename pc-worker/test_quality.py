@@ -10,6 +10,14 @@ from quality_configure import compile_policy as compile_arrangement, review_brea
 
 
 class QualityTests(unittest.TestCase):
+    def test_break_warning_requires_matching_api_rollout(self):
+        manifest = {'kind': 'new', 'style': 'rock', 'workers': {'configure_song.py': 'abc'},
+                    'tasks': [{'name': 'configure', 'command': ['python', 'saved/configure_song.py', '--work', 'saved']}]}
+        self.assertEqual(execution_manifest(manifest)['tasks'], manifest['tasks'])
+        enabled = execution_manifest(manifest, instrumental_break_warnings=True)
+        self.assertTrue(enabled['tasks'][0]['command'][1].endswith('quality_configure.py'))
+        self.assertEqual(manifest['tasks'][0]['command'][1], 'saved/configure_song.py')
+
     def test_instrumental_break_warns_but_cutoff_and_vocal_coverage_still_fail(self):
         source = """assert voice_ok, 'Missing vocals'
 assert last-first>duration*.6 and max([g['seconds'] for g in gaps],default=0)<9.5,('Too much instrumental space',evidence)
