@@ -137,10 +137,16 @@ const queue = await queueResponse.json();
 assert.equal(queue.pageSize, 50);
 assert.ok(
   Array.isArray(queue.inStudio) &&
+    Array.isArray(queue.needsAttention) &&
     Array.isArray(queue.queued) &&
     Array.isArray(queue.recent),
 );
-for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
+for (const request of [
+  ...queue.inStudio,
+  ...queue.needsAttention,
+  ...queue.queued,
+  ...queue.recent,
+]) {
   assert.match(request.id, /^distonyc-[a-f0-9]{24}$/);
   for (const field of Object.keys(request))
     assert.ok(
@@ -157,10 +163,23 @@ for (const request of [...queue.inStudio, ...queue.queued, ...queue.recent]) {
         "url",
         "qualityIssues",
         "voiceModel",
+        "originalPrompt",
       ].includes(field),
       `Unexpected public field: ${field}`,
     );
   assert.match(request.voiceModel, /^v[1-9][0-9]*$/);
+  assert.deepEqual(
+    Object.keys(request.originalPrompt).sort(),
+    ["basisSongs", "direction", "idea", "keep", "voiceModel"],
+  );
+  assert.equal(typeof request.originalPrompt.idea, "string");
+  assert.equal(typeof request.originalPrompt.direction, "string");
+  assert.equal(typeof request.originalPrompt.keep, "string");
+  assert.match(request.originalPrompt.voiceModel, /^v[1-9][0-9]*$/);
+  assert.ok(
+    Array.isArray(request.originalPrompt.basisSongs) &&
+      request.originalPrompt.basisSongs.length <= 5,
+  );
   if (request.authoredBy !== undefined) {
     assert.equal(typeof request.authoredBy, "string");
     assert.ok(request.authoredBy.length <= 100);
