@@ -1,5 +1,6 @@
 import { mountMaterials, materialBrief, durationIssue, hasMaterialEdits } from "./request-materials.js";
 import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./authored-by.js";
+import { recoveryActive, recoveryStatus } from "./recovery.js";
 import { publicQueue, queueDetailsPage, queueItemHref } from "./queue.js";
 import { mountQualitySettings, qualityNotice } from "./quality.js";
 import { modelInfoButton, mountModelInfo } from "./model-info.js";
@@ -33,6 +34,8 @@ const labels = {
   publishing: "Publishing",
   published: "Published",
   failed: "Needs attention",
+  attention: "Needs attention",
+  recovering: "Recovering automatically",
   canceled: "Canceled",
   cancel_requested: "Cancellation requested",
 };
@@ -253,7 +256,7 @@ async function library() {
     container.hidden = !rows.length;
     syncRows(container, rows.map((song) => {
       const percent = Math.max(0, Math.min(100, Number(song.progress?.percent) || 0));
-  return `<details class="pending-track" data-id="${escape(song.id)}"><summary><span class="pending-mark" aria-hidden="true">↗</span><span class="pending-title"><span class="tiny-label">${song.status === "failed" ? "Needs attention" : "On the way"} · ${voiceModelBadge(song.voiceModel)}</span><strong>${escape(song.title || song.idea)}</strong>${authoredByLine(song.authoredBy, escape)}</span><span class="pending-state">${badge(song.status)}${song.progress && song.status !== "failed" ? `<span class="small">${Math.round(percent)}%</span>` : ""}</span></summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.status === "failed" ? '<p class="attention-note">Completed work is saved; retry resumes completed stages.</p>' : song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}<div class="actions"><a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">View original prompt ↗</a><a class="text-link" href="${queueItemHref(song)}">View request details ↗</a></div></div></details>`;
+  return `<details class="pending-track" data-id="${escape(song.id)}"><summary><span class="pending-mark" aria-hidden="true">↗</span><span class="pending-title"><span class="tiny-label">${recoveryActive(song) ? "Recovering automatically" : song.status === "failed" ? "Needs attention" : "On the way"} · ${voiceModelBadge(song.voiceModel)}</span><strong>${escape(song.title || song.idea)}</strong>${authoredByLine(song.authoredBy, escape)}</span><span class="pending-state">${badge(recoveryStatus(song))}${song.progress && song.status !== "failed" ? `<span class="small">${Math.round(percent)}%</span>` : ""}</span></summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.status === "failed" ? '<p class="attention-note">Completed work is saved; retry resumes completed stages.</p>' : song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}<div class="actions"><a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">View original prompt ↗</a><a class="text-link" href="${queueItemHref(song)}">View request details ↗</a></div></div></details>`;
     }).join(""));
   }
   function render({ preserveViewport = false } = {}) {
@@ -692,7 +695,7 @@ async function requests() {
           render();
         });
     } else {
-      form.innerHTML = `<span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Request received</p><h2>Your idea is on the list.</h2><p>Your idea has a place in the studio queue. Check back here for its progress.</p>${badge(draft.status)}${brief(draft)}${draft.publishedUrl ? `<a class="primary" href="${escape(safeUrl(draft.publishedUrl))}" target="_blank" rel="noopener">Hear your song ↗</a>` : ""}<div class="actions"><button class="quiet" id="refresh-status">Refresh status</button><button class="primary" id="another">Another idea ↗</button></div><p class="small">This browser tab remembers your request. <a href="/queue/">Watch the public queue and enable completion alerts →</a></p>`;
+      form.innerHTML = `<span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Request received</p><h2>Your idea is on the list.</h2><p>Your idea has a place in the studio queue. Check back here for its progress.</p>${badge(recoveryStatus(draft))}${recoveryActive(draft) ? '<p class="small">Automatic recovery is working on your song. Saved work will be reused.</p>' : ""}${brief(draft)}${draft.publishedUrl ? `<a class="primary" href="${escape(safeUrl(draft.publishedUrl))}" target="_blank" rel="noopener">Hear your song ↗</a>` : ""}<div class="actions"><button class="quiet" id="refresh-status">Refresh status</button><button class="primary" id="another">Another idea ↗</button></div><p class="small">This browser tab remembers your request. <a href="/queue/">Watch the public queue and enable completion alerts →</a></p>`;
       $("#another").onclick = () => {
         draft = null;
         storage.remove("draft");
@@ -746,7 +749,7 @@ function basicBrief(doc) {
 
 async function admin() {
   const adminParams = new URLSearchParams(location.search);
-  const requestedFilter = adminParams.get("status");
+  const requestedFilter = adminParams.get("status") === "failed" ? "attention" : adminParams.get("status");
   const sortOptions = { newest: "Newest first", oldest: "Oldest first", priority: "Queue priority" };
   const validFilters = ["all", ...Object.keys(labels).filter((key) => !["draft", "review"].includes(key))];
   let data = null,
@@ -789,14 +792,15 @@ async function admin() {
     main.innerHTML = `<section class="admin-intro"><div><p class="eyebrow">Backstage · Studio queue</p><h1>Make room for<br><em>the next one.</em></h1></div><button class="quiet" id="signout">Sign out ↗</button></section><div class="stats">${[
       ["queued", "Waiting in line"],
       ["processing", "In the studio"],
-      ["failed", "Needs Attention"],
+      ["attention", "Needs Attention"],
+      ["recovering", "Recovering automatically"],
       ["completed", "Ready to publish"],
       ["published", "Out in the world"],
     ]
       .map(
         ([status, label]) =>
-          status === "failed"
-            ? `<a href="/admin/?status=failed"><strong>${data.counts[status] || 0}</strong><span>${label}</span></a>`
+          ["attention", "recovering"].includes(status)
+            ? `<a href="/admin/?status=${status}"><strong>${data.counts[status] ?? (status === "attention" ? data.counts.failed || 0 : 0)}</strong><span>${label}</span></a>`
             : `<div><strong>${data.counts[status] || 0}</strong><span>${label}</span></div>`,
       )
       .join(
@@ -804,7 +808,7 @@ async function admin() {
       )}</div><p class="small worker-health">${data.workers?.length ? data.workers.map((worker) => `PC worker: ${escape(worker.stage)} · Last seen ${date(worker.lastSeenAt)}${Date.now() - new Date(worker.lastSeenAt) > 5 * 60000 ? " · Offline or paused" : ""}`).join("<br>") : "PC worker: waiting for its first connection."}</p><section class="admin-queue"><div class="toolbar"><label for="status-filter">Show</label><select id="status-filter"><option value="all">All requests</option>${Object.entries(
       labels,
     )
-      .filter(([key]) => !["draft", "review"].includes(key))
+      .filter(([key]) => !["draft", "review", "failed"].includes(key))
       .map(([key, label]) => `<option value="${key}">${label}</option>`)
       .join(
         "",
@@ -907,7 +911,7 @@ async function admin() {
         (doc.status !== "cancel_requested" &&
           ["cancel_requested", "canceled"].includes(status)),
     );
-    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(doc.status)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${qualityNotice(doc.result?.qualityIssues)}${doc.status === "failed" ? `<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p>${allowed.includes("queued") ? `<form data-action="status" class="retry-form"><input type="hidden" name="status" value="queued"><button class="primary">Retry saved work</button><span class="small">Completed stages will be reused.</span></form>` : ""}` : ""}<details><summary>Open brief & controls <span aria-hidden="true">＋</span></summary>${brief({ ...doc, result: null, qualityIssues: null, workerError: doc.status === "failed" ? null : doc.workerError })}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
+    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${qualityNotice(doc.result?.qualityIssues)}${doc.status === "failed" ? `${recoveryActive(doc) ? '<p class="small recovery-notice">Automatic recovery is working on this request. Saved work will be reused; you can leave it running.</p>' : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p>${allowed.includes("queued") && !recoveryActive(doc) ? `<form data-action="status" class="retry-form"><input type="hidden" name="status" value="queued"><button class="primary">Retry saved work</button><span class="small">Completed stages will be reused.</span></form>` : ""}` : ""}<details><summary>Open brief & controls <span aria-hidden="true">＋</span></summary>${brief({ ...doc, result: null, qualityIssues: null, workerError: doc.status === "failed" ? null : doc.workerError })}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
       ...(doc.history || []),
     ]
       .reverse()
@@ -919,6 +923,9 @@ async function admin() {
   }
   if (!signedIn("admin")) loginView("admin", load);
   else await load();
+  setInterval(() => {
+    if (signedIn("admin") && !document.hidden && !document.activeElement?.matches("input, textarea, select") && !$(".queue-card details[open]")) load();
+  }, 30000);
 }
 
 try {
