@@ -5295,7 +5295,8 @@
         "idea": "Tony C gets into trouble in a small Alabama town; he's accidentally racist and must make amends, with himself. Have Tony perform a duet where he apologizes and gives the other person's point of view",
         "direction": "Southern twang, Brad Paisley, country",
         "keep": "Tony doesn't seem to know where he is or who he is",
-        "basisSongs": []
+        "basisSongs": [],
+        "voiceModel": "v7"
       },
       "songPlan": {
         "version": 1,
@@ -5307,7 +5308,8 @@
         "lyrics": "[Intro]\n\n[Tony]\nSign said MERCY, population small,\nI asked that sign, “You know me at all?”\nMy map was upside down, my name felt borrowed,\nI told the deputy I’d remember tomorrow.\n\n[Verse 1 — Tony]\nI walked in Dot’s with dust on my shoes,\nA crooked grin and a head full of blues.\nSaw Miss Renee by the coffee machine,\nSaid, “Fill mine up, if you know what I mean.”\nThe whole room stopped; one fork hit a plate.\nShe said, “I don’t work here. You can wait.”\nI laughed too quickly, tried playing it light,\nBut a joke ain’t a lantern when the joke ain’t right.\n\n[Verse 2 — Renee]\nYou didn’t burn a cross or shout a cruel name,\nBut old assumptions still carry old flames.\nYou saw my skin, then assigned me a place;\nThat little mistake had a history’s face.\nI’m chair of the council, I teach Sunday school,\nBut I shouldn’t need titles to prove you were cruel.\nDon’t tell me your heart is harmless and free—\nAsk what made that picture appear when you saw me.\n\n[Pre-Chorus — Tony]\nI checked every pocket for somebody to blame,\nFound lint, one nickel, and my own damn name.\n\n[Chorus — Duet]\n[Tony]\nI was wrong in Mercy, Alabama,\nNo excuse hiding under my stammer.\nI’m sorry for the weight I made you carry;\nI’ll face what’s in me, even when it gets scary.\n[Renee]\nAn apology opens, but action walks through;\nDon’t ask me to finish the fixing for you.\n[Both]\nTell the truth plain, let the old lie fall—\nMercy ain’t mercy till it reaches us all.\n\n[Verse 3 — Tony]\nI said, “I’m not that kind,” then heard what I’d done:\nMade my good intentions the place I could run.\nI remembered my uncles and half-heard advice,\nThe laughs at the table I never checked twice.\nMaybe I inherited a room full of smoke,\nBut I’m holding the match every time I repeat it.\nSo I went table to table, no grandstanding show,\nSaid, “What I assumed was wrong, and I need you to know.”\n\n[Verse 4 — Renee]\nI don’t need a promise polished for applause,\nOr tears that make your comfort the cause.\nLearn people’s names; let correction land;\nSpeak when your friends say what you understand.\nYou may feel lost, but you’re standing right here,\nAnd confusion can’t cancel the harm made clear.\nIf you want to change, then change when unseen;\nMake better habits where the old ones have been.\n\n[Instrumental Turn — short Telecaster and fiddle answer]\n\n[Verse 5 — Tony]\nI volunteered Tuesday at the library sale,\nPut history books where I once put a tale.\nWhen Earl made a crack by the courthouse wall,\nI didn’t grin sideways; I answered the call.\nSaid, “That ain’t harmless, and silence joins in.”\nMy knees started knocking underneath my grin.\nThen I bought my own coffee and carried the tray,\nDidn’t ask for a medal at the end of the day.\n\n[Pre-Chorus — Renee and Tony]\n[Renee]\nYou still look lost.\n[Tony]\nMa’am, that much is true.\nIs this Alabama—or Kalamazoo?\n[Renee]\nYou’re Tony.\n[Tony]\nThat sounds vaguely familiar.\n[Renee]\nThen be someone better.\n[Tony]\nI reckon that’s clearer.\n\n[Chorus — Duet]\n[Tony]\nI was wrong in Mercy, Alabama,\nNo excuse hiding under my stammer.\nI’m sorry for the weight I made you carry;\nI’ll face what’s in me, even when it gets scary.\n[Renee]\nAn apology opens, but action walks through;\nI can name the wound, but the work belongs to you.\n[Both]\nTell the truth plain, let the old lie fall—\nMercy ain’t mercy till it reaches us all.\n\n[Bridge — Renee]\nHear my side without rehearsing your defense:\nBeing underestimated leaves a long expense.\nOne small moment joins a thousand from before;\nThat’s why your “little mix-up” felt like something more.\nI can see your effort; I can guard my peace.\nForgiveness isn’t owed, and trust grows piece by piece.\n\n[Bridge — Tony]\nI won’t make you teach me every road I missed,\nOr turn my shame into a clenched-up fist.\nI’ll read, I’ll listen, I’ll interrupt the chain,\nAnd when I fail, I’ll own it without making you explain.\nI can’t change yesterday by hating who I’ve been,\nBut I can make amends with the man beneath my skin.\n\n[Breakdown — Duet]\n[Renee]\nWho are you now?\n[Tony]\nThe fool who finally heard.\n[Renee]\nWhere are you now?\n[Tony]\nTrying to live my word.\n[Renee]\nWhat happens next?\n[Tony]\nThe unglamorous part:\nA thousand better choices from a reeducated heart.\n\n[Final Chorus — Duet]\n[Tony]\nI was wrong in Mercy, Alabama,\nNow truth rides shotgun through the static and clamor.\nNo halo on my hat, no hero in this story,\nJust a man doing work without claiming the glory.\n[Renee]\nI have my own voice, my own road, my own view;\nI’m more than the lesson that happened to you.\n[Both]\nTell the truth plain, let the old lie fall—\nMercy ain’t mercy till it reaches us all.\n\n[Final Tag — sustained duet]\n[Tony]\nIf I lose my way, I’ll remember what is true:\nBeing lost never gives me leave to misjudge you.\n[Renee]\nKeep walking awake; let your better deeds answer.\n[Both]\nIn Mercy, Alabama, there is room to change after—\nRoom to change after all.\n\n[End]",
         "duration": 420,
         "bpm": 96
-      }
+      },
+      "voiceModel": "v7"
     },
     {
       "id": "distonyc-41122cfa1d30d985e40d357b",
@@ -5707,7 +5709,8 @@
         "idea": "Tony C tries to beat Fear & Hunger, but he keeps getting 9/11'd, annoying him more and more",
         "direction": "Use the prompt as written.",
         "keep": "Explicit content",
-        "basisSongs": []
+        "basisSongs": [],
+        "voiceModel": "v7"
       },
       "songPlan": {
         "version": 1,
@@ -5719,7 +5722,8 @@
         "lyrics": "[Intro]\nLoad the dungeon, strike a match\nTony's got a rusty latch\nSays, “This time I know the route”\nFirst dark hallway—lights go out\n\n[Verse 1]\nFound a bonesaw, lost a shoe\nSomething hungry chewed straight through\nMissed the coin flip, broke his arm\nStepped on every fucking harm\nGuard came dragging down the hall\nTony ducked behind the wall\nFloor gave way beneath him then\nGoddamn—nine-eleven'd again\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony growls, “Aw, son of a bitch”\nLoads that miserable save from six\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Verse 2]\nBack downstairs with half a map\nDodged the dogs and found a trap\nFed the girl and saved his meat\nCrow Mauler dropped him through the street\nTony leaned into the screen\n“That's the cheapest shit I've seen”\nLit a smoke and counted ten\nGot up—nine-eleven'd again\n\n[Pre-Chorus]\nNow his grin is getting crooked\nEvery guide says he mistook it\nEvery doorway smells like doom\nStill he kicks into the room\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony snarls, “You rigged this shit”\nThrows the mouse but will not quit\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Bridge]\nCoin in the air—call it clean\nHeads means mercy, tails gets mean\nIt hits the stone, it rolls from sight\nDungeon laughs and kills the light\nTony mutters, low and slow\n“You ain't tellin' me to go”\nBlood at one and mind at ten\nHe crawls toward the throne again\n\n[Breakdown]\nNo food left\nNo good limb\nNo clean save\nStill goes in\nBell starts shaking\nCeiling bends\nTony sees it—“Not this again!”\n\n[Final Verse]\nPast the prison, past the mines\nPast the rotten gods and signs\nEvery loss has taught his hands\nWhere the blade falls, where it lands\nLast door opens, pale and wide\nAll that spite walks in beside him\nDungeon offers one last spin\nTony laughs, “Then let me win.”\n\n[Final Chorus]\nNine-eleven'd again—\nBut he rises through the din\nLet it crash, he'll crawl back in\nNo more begging at the end\nTony roars, “You hungry pit,\nI can die all night, you prick!”\nFear in the dark, but fire within\nYou can nine-eleven him again—\nHe'll load that bastard save and win\n\n[Outro]\nScreen goes black, the final chord bends\nTony grins: “Now who's annoyed, my friend?”\n[End]",
         "duration": 220,
         "bpm": 124
-      }
+      },
+      "voiceModel": "v7"
     },
     {
       "id": "distonyc-841de4ec654a405e36f42a40",
@@ -6187,7 +6191,8 @@
         "idea": "Make a song about Swann, from Starcraft 2, conversing with Raynor about Banshees and their cloaking technology",
         "direction": "Neo synthwave cyberpunk",
         "keep": "Must include Raynor saying, \"I'm not sure this is the best time to be experimentin'\" to which Swann replies \"Hell Cowboy, best time there is\"\n\nAlso include \"Got somethin for ya Cowboy\" at least 9 times",
-        "basisSongs": []
+        "basisSongs": [],
+        "voiceModel": "v7"
       },
       "songPlan": {
         "version": 1,
@@ -6199,7 +6204,8 @@
         "lyrics": "[Intro]\nNeon on the flight deck, midnight engine glow\nSwann wiped his hands where the red alarms would show\nRaynor crossed the gantry with a storm behind his eyes\nWhile a row of black-winged Banshees waited silent as the skies\n\n[Verse 1]\nSwann said, “Pull that panel, Jimmy, look beneath the skin\nHeat sinks humming cold enough to hide the fire within\nSpectral coils are steady, phase grid’s running clean\nThey’ll never see our pilots till they’re tearing through the screen”\n\nRaynor watched the readouts paint a ghost across the glass\n“They disappear from sensors, but how long can that trick last?”\nSwann laughed through the static, struck the console with his hand\n“Long enough to cross their guns and leave ’em where they stand”\n\n[Pre-Chorus]\nBlue current in the cables\nBlack wings against the stars\nNo shadow on the radar\nJust thunder wearing scars\n\n[Chorus]\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGhost wings ready to deploy\nKill the lights and cut the noise\nLet the Dominion chase decoys\nGot somethin for ya Cowboy\nA Banshee they cannot destroy\n\n[Verse 2]\nRaynor leaned in closer as the cloak began to bend\nEvery edge went liquid, every shape refused to end\nThen the ship was absent, though its turbines shook the floor\nLike a loaded question breathing just behind the hangar door\n\n“I’m not sure this is the best time to be experimentin’”\nSwann sparked up a welder, never pausing to explain\n“Hell Cowboy, best time there is”\nThen he kicked the housing shut and grinned into the rain\n\n[Pre-Chorus]\nNo beacon for the towers\nNo heat trail for the guns\nJust pilots counting heartbeats\nBefore the firing run\n\n[Chorus]\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGhost wings ready to deploy\nSlip unseen through burning lanes\nStrike the locks and break the chains\nGot somethin for ya Cowboy\nThen vanish in the reactor haze\n\n[Verse 3]\nThe tactical display lit up with cruisers wall to wall\nSwann traced out a crooked route that threaded through them all\n“Cloak draws hard on power, so don’t waste a single breath\nDrop it when you’ve crossed the line, then give their engines death”\n\nRaynor keyed the squadron, “Keep it low and keep it tight\nSwann has built a doorway through the teeth of hell tonight”\nOne by one the Banshees faded underneath the warning red\nLeaving only engine whispers circling overhead\n\n[Instrumental Break]\n[Driving bass sequence, gated drums, distorted guitar harmonics]\n\n[Bridge]\nSwann said, “Every ghost needs copper\nEvery miracle needs grease\nEvery clean escape begins\nWith bolts that won’t release”\n\nRaynor said, “If this goes sideways—”\nSwann said, “Then turn the whole thing straight\nYou bring the revolution\nI’ll bring something they can’t trace”\n\n[Breakdown]\nCloak on—the stars go blind\nCloak off—the rockets shine\nOne breath—the targeting slips\nTwo hands—the whole sky rips\nNo flag, no flare, no warning cry\nJust Banshee wings in an empty sky\n\n[Final Chorus]\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nHear that hidden engine roar\nThrough the grid and past the guns\nTill the raid and night are one\nGot somethin for ya Cowboy\nGhost wings settling the score\n\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nGot somethin for ya Cowboy\nBring every lost pilot home\nLet the tyrants scan the night\nAll they’ll find is fractured light\nGot somethin for ya Cowboy\nAnd a clear road back to home\n\n[Outro]\nThe squadron crossed the gantry as the cloak released its hold\nBlack wings rising into view beneath the morning gold\nRaynor tipped his hat and said, “She flies exactly right”\nSwann laughed, “Told ya, Cowboy”—and shut down the neon night\n\nGhost wings home…\nEngines low…\nCowboy, now you know\n\n[End]",
         "duration": 355,
         "bpm": 112
-      }
+      },
+      "voiceModel": "v7"
     },
     {
       "id": "distonyc-58f7ff15f4e6350c0bc94136",
@@ -6422,7 +6428,8 @@
         "idea": "Tony C dresses up as the twin towers for Halloween and hijinks ensue",
         "direction": "Spooky halloween",
         "keep": "Hilarity",
-        "basisSongs": []
+        "basisSongs": [],
+        "voiceModel": "v7"
       },
       "songPlan": {
         "version": 1,
@@ -6434,7 +6441,8 @@
         "lyrics": "[Intro]\nHalloween moon, cardboard skyline,\nTony hit the porch at half past nine.\nTwo silver towers strapped side by side—\nHe took one step and got stuck outside.\n\n[Verse 1]\nHe turned to the left, knocked over a witch,\nTurned to the right, caught a cape on a hitch.\nThe screen door snapped with a terrible clang,\nTony just grinned while the doorbell rang.\n\nThe neighbors yelled, “Tony, you’re much too wide!”\nHe muttered, “That’s architecture,” and shuffled inside.\nA plastic bat landed high on his crown;\nHe wore it like a gargoyle all over town.\n\n[Chorus]\nTwo towers too wide for the Halloween street,\nBumping every pumpkin with his cardboard feet.\nCandy in the lobby, cobwebs in the sky,\nEvery narrow doorway made the whole thing fly.\nTwo towers too wide—clear a little room!\nTony brought a skyline to the costume gloom.\n\n[Verse 2]\nAt the haunted garage, the bass kicked hard;\nHe clipped both towers on the skeleton yard.\nOne leaned west and the other leaned east,\nThen both popped back to the beat of the beast.\n\nA kid dressed as traffic waved him around,\nBut Tony spun once and the signs fell down.\nHe laughed through the smoke, “That’s city design,”\nThen traded the gargoyle for a licorice vine.\n\n[Bridge]\nWhen the rain made the cardboard buckle and sway,\nHe folded both towers and danced them away.\nNo grand disaster, no reason to pout—\nJust two soggy boxes with Tony sticking out.\n\n[Final Chorus]\nTwo towers too wide for the Halloween street,\nNow flat as a map underneath his feet.\nCandy in his pockets, moon riding high,\nHe bowed to the doorway and finally slipped by.\nTwo towers too wide, but the joke landed right—\nTony wore the whole town home that night.\n\n[Tag]\nHe rang his own bell with a crooked little grin:\n“Next year, one tower—and I’m getting in.”\n\n[End]",
         "duration": 140,
         "bpm": 112
-      }
+      },
+      "voiceModel": "v7"
     },
     {
       "id": "distonyc-690c7eb2e5376ce0d7506511",
@@ -6753,7 +6761,8 @@
         "idea": "The pain and frustration of carrying an ally in SC2 co-op where you can't - because of polarity",
         "direction": "Punk rock, sex pistols",
         "keep": "\"Shoes\" must be mentioned 19 times.",
-        "basisSongs": []
+        "basisSongs": [],
+        "voiceModel": "v7"
       },
       "songPlan": {
         "version": 1,
@@ -6765,7 +6774,8 @@
         "lyrics": "[Intro]\nRed light, blue light, split down the lane\nTwo fools enlisted in a mathematical pain\n\n[Verse 1]\nI brought the army, you brought the nerve\nThen the field put a sign on who we're allowed to serve\nYour guns hit hard, mine bounce off clean\nThe cruelest little rule that the sector's ever seen\nShoes on the floor and my hands on the wheel\nWatching your base take damage I can see but cannot heal\nI cross the map with a desperate plan\nBut the target flashes wrong—I'm an unauthorized man\n\n[Pre-Chorus]\nShoes full of gravel, teeth full of sparks\nWe're paired together but assigned to different marks\n\n[Chorus]\nShoes, get moving, but the lock says no\nShoes, keep kicking while the red lights glow\nShoes at the doorway, rage in the hall\nI'm strong enough to save you, not permitted to at all\nPolarity! What a beautiful scam\nYou carry half the battle while I carry who I am\n\n[Verse 2]\nYour side gets flooded, my side takes a nap\nI'm drawing angry circles on the tactical map\nShoes hit the metal as the hybrid comes through\nEvery useful shot I've got is the wrong color for you\nShoes in the fire, and the timer runs thin\nI could clear the whole disaster if the game would let me in\nYou ping like thunder, I answer like rain\nThen I fire one round and hear that useless clank again\n\n[Pre-Chorus]\nShoes on a wire, balance and swear\nTwo allied armies, neither welcome everywhere\n\n[Chorus]\nShoes, get moving, but the lock says no\nShoes, keep kicking while the red lights glow\nShoes at the doorway, rage in the hall\nI'm strong enough to save you, not permitted to at all\nPolarity! Divide and command\nYou hold the wrong objective while I wave from promised land\n\n[Bridge]\nShoes to the north where your enemies breed\nShoes to the south where I've got what you need\nShoes through the smoke, but the rules disagree\nShoes do the marching while the lock laughs at me\nNo cowardice, no shortage, no tactical doubt\nJust a plus and a minus keeping both of us out\nSo trade me your targets, I'll trade you my blame\nWe'll beat this crooked circuit at its own divided game\n\n[Verse 3]\nShoes nearly broken, but we're reading the signs\nYou take the left mutation, I erase the right-hand lines\nShoes find the rhythm: swap, cover, attack\nWhen your color meets the target, I keep death off your back\nNo hero can carry what no hero can touch\nSo we carry one another, and we curse twice as much\nThe final wave rises, every warning turns red\nWe split it down the middle and we leave the hybrids dead\n\n[Final Chorus]\nShoes, keep moving—now we both know how\nWrong side a minute, right side now\nShoes at the doorway, kick through the wall\nThey said I couldn't carry you—we carried us all\nPolarity! Your circuit is blown\nTwo mismatched allies made the battlefield our own\n\n[Finale]\nThe lock goes dark, the last sparks fall\nYou carried me—I didn't carry you at all\n\n[End]",
         "duration": 240,
         "bpm": 176
-      }
+      },
+      "voiceModel": "v7"
     },
     {
       "id": "distonyc-0236d395f02a16d53bd911d3",
