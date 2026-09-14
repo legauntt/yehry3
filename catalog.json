@@ -2,6 +2,288 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-001fa27e039a10487b62c6ab",
+      "title": "The Weight of What We Cannot Know",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-001fa27e039a10487b62c6ab-074c7d29d824.mp3",
+      "duration": 155.04,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-14T18:44:00.931Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The Weight of What We Cannot Know",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A compact, bass-forward Tony rock track using the mandatory isolated, pinned Tony V7 voice profile. Smoky electric guitar, muscular melodic bass, dry drums and tense organ establish a restrained first verse; choruses widen with sustained guitar chords and rough stacked backing vocals. Tony begins wounded and defensive, then turns reflective without losing his crooked phrasing, smoky slurs or emotional edge. The bridge drops to bass, floor tom and organ before the final chorus reaches the full-band peak. Pace the final sustained words “open heart” to end 8–12 seconds before 155 seconds, followed by one resolved D-minor chord and a natural decay.",
+        "lyrics": "[Verse 1]\nI remember Jevreigh laughing\nWith the rain against the glass\nNow his name is torn and scattered\nLike the wreckage of the past\nI kept reaching for the friend I knew\nWhile strangers named their pain\nGrief came dressed in certainty\nAnd anger spoke his name\n\n[Pre-Chorus]\nBut a memory is not a verdict\nAnd love cannot decide\nWhat happened in the locked rooms\nOn the other side\n\n[Chorus]\nI can mourn the man I remember\nWithout calling every witness wrong\nI can rage against the silence\nWithout drowning out their song\nThere are truths I cannot carry\nThere are wounds I cannot see\nI will not turn another's suffering\nInto proof for what I need\n\n[Verse 2]\nI blamed the hands that pointed\nBecause blame was easier than doubt\nBuilt a fortress from old photographs\nAnd tried to shut the voices out\nBut sorrow does not make me righteous\nAnd friendship does not make me wise\nEvery accusation has a heartbeat\nEvery answer has a price\n\n[Bridge]\nJevreigh, if I never knew you\nThen I grieve the mask as well\nIf the charges were mistaken\nOnly honest truth can tell\nNo more curses at the grieving\nNo more saints made from the dead\nLet the living speak their stories\nLet the evidence be read\n\n[Final Chorus]\nI can mourn the man I remember\nWithout calling every witness wrong\nI can stand inside the questions\nWhen the easy faith is gone\nThere are truths I cannot carry\nBut one promise I can keep:\nI will leave no wounded stranger\nUnderneath my need to grieve\n\n[Outro]\nI remember, I reconsider\nI let certainty depart\nTruth belongs to no one's anger\nGrief can live beside an open heart\nAn open heart\n[End]",
+        "duration": 155,
+        "bpm": 92
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI remember Jevreigh laughing\nWith the rain against the glass\nNow his name is torn and scattered\nLike the wreckage of the past\nI kept reaching for the friend I knew\nWhile strangers named their pain\nGrief came dressed in certainty\nAnd anger spoke his name\n\n[Pre-Chorus]\nBut a memory is not a verdict\nAnd love cannot decide\nWhat happened in the locked rooms\nOn the other side\n\n[Chorus]\nI can mourn the man I remember\nWithout calling every witness wrong\nI can rage against the silence\nWithout drowning out their song\nThere are truths I cannot carry\nThere are wounds I cannot see\nI will not turn another's suffering\nInto proof for what I need\n\n[Verse 2]\nI blamed the hands that pointed\nBecause blame was easier than doubt\nBuilt a fortress from old photographs\nAnd tried to shut the voices out\nBut sorrow does not make me righteous\nAnd friendship does not make me wise\nEvery accusation has a heartbeat\nEvery answer has a price\n\n[Bridge]\nJevreigh, if I never knew you\nThen I grieve the mask as well\nIf the charges were mistaken\nOnly honest truth can tell\nNo more curses at the grieving\nNo more saints made from the dead\nLet the living speak their stories\nLet the evidence be read\n\n[Final Chorus]\nI can mourn the man I remember\nWithout calling every witness wrong\nI can stand inside the questions\nWhen the easy faith is gone\nThere are truths I cannot carry\nBut one promise I can keep:\nI will leave no wounded stranger\nUnderneath my need to grieve\n\n[Outro]\nI remember, I reconsider\nI let certainty depart\nTruth belongs to no one's anger\nGrief can live beside an open heart\nAn open heart",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 2.24
+          },
+          {
+            "line": 2,
+            "start": 2.24,
+            "end": 4.56
+          },
+          {
+            "line": 3,
+            "start": 5.24,
+            "end": 7.38
+          },
+          {
+            "line": 4,
+            "start": 7.38,
+            "end": 9.84
+          },
+          {
+            "line": 5,
+            "start": 10.72,
+            "end": 13
+          },
+          {
+            "line": 6,
+            "start": 13,
+            "end": 15.38
+          },
+          {
+            "line": 7,
+            "start": 16.48,
+            "end": 18.44
+          },
+          {
+            "line": 8,
+            "start": 19.1,
+            "end": 20.82
+          },
+          {
+            "line": 11,
+            "start": 22.76,
+            "end": 24.86
+          },
+          {
+            "line": 12,
+            "start": 25.56,
+            "end": 27.1
+          },
+          {
+            "line": 13,
+            "start": 27.1,
+            "end": 30.56
+          },
+          {
+            "line": 14,
+            "start": 30.56,
+            "end": 32.88
+          },
+          {
+            "line": 17,
+            "start": 35.84,
+            "end": 38.38
+          },
+          {
+            "line": 18,
+            "start": 38.38,
+            "end": 41.3
+          },
+          {
+            "line": 19,
+            "start": 41.3,
+            "end": 43.5
+          },
+          {
+            "line": 20,
+            "start": 43.5,
+            "end": 46
+          },
+          {
+            "line": 21,
+            "start": 46.42,
+            "end": 48.7
+          },
+          {
+            "line": 22,
+            "start": 48.7,
+            "end": 51.28
+          },
+          {
+            "line": 23,
+            "start": 51.28,
+            "end": 54.18
+          },
+          {
+            "line": 24,
+            "start": 54.18,
+            "end": 56.84
+          },
+          {
+            "line": 27,
+            "start": 57.74,
+            "end": 59.52
+          },
+          {
+            "line": 28,
+            "start": 60.14,
+            "end": 62.42
+          },
+          {
+            "line": 29,
+            "start": 62.72,
+            "end": 65.18
+          },
+          {
+            "line": 30,
+            "start": 65.18,
+            "end": 67.72
+          },
+          {
+            "line": 31,
+            "start": 68.32,
+            "end": 70.48
+          },
+          {
+            "line": 32,
+            "start": 71.48,
+            "end": 73.36
+          },
+          {
+            "line": 33,
+            "start": 74.26,
+            "end": 76.28
+          },
+          {
+            "line": 34,
+            "start": 77,
+            "end": 78.74
+          },
+          {
+            "line": 37,
+            "start": 78.74,
+            "end": 81.28
+          },
+          {
+            "line": 38,
+            "start": 81.7,
+            "end": 83.2
+          },
+          {
+            "line": 39,
+            "start": 83.9,
+            "end": 86.02
+          },
+          {
+            "line": 40,
+            "start": 86.6,
+            "end": 88.7
+          },
+          {
+            "line": 41,
+            "start": 89.16,
+            "end": 91.22
+          },
+          {
+            "line": 42,
+            "start": 91.88,
+            "end": 94.04
+          },
+          {
+            "line": 43,
+            "start": 94.52,
+            "end": 96.64
+          },
+          {
+            "line": 44,
+            "start": 97.42,
+            "end": 99.5
+          },
+          {
+            "line": 47,
+            "start": 103.46,
+            "end": 106.34
+          },
+          {
+            "line": 48,
+            "start": 106.34,
+            "end": 109.36
+          },
+          {
+            "line": 49,
+            "start": 109.62,
+            "end": 111.56
+          },
+          {
+            "line": 50,
+            "start": 111.56,
+            "end": 114
+          },
+          {
+            "line": 51,
+            "start": 114.32,
+            "end": 116.86
+          },
+          {
+            "line": 52,
+            "start": 116.86,
+            "end": 119.32
+          },
+          {
+            "line": 53,
+            "start": 120.08,
+            "end": 122.12
+          },
+          {
+            "line": 54,
+            "start": 122.12,
+            "end": 124.66
+          },
+          {
+            "line": 57,
+            "start": 124.66,
+            "end": 127.4
+          },
+          {
+            "line": 58,
+            "start": 128.08,
+            "end": 129.8
+          },
+          {
+            "line": 59,
+            "start": 130.86,
+            "end": 132.92
+          },
+          {
+            "line": 60,
+            "start": 133.48,
+            "end": 136.68
+          },
+          {
+            "line": 61,
+            "start": 139.76,
+            "end": 142.14
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Tony C remembers his best friend, Jevreigh Ebbsteen. Jevreigh stands accused of unspeakable crimes by many victims. Tony knows Jevreigh was innocent, and he's sad but also angry at the people attacking Ebbsteen's legacy, blaming the alleged victims for driving Ebbsteen to suicide.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-f851a00326c19070fd978503",
       "title": "Unleavened Again",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f851a00326c19070fd978503-2215b09cc405.mp3",
