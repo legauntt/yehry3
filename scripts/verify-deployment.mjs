@@ -87,6 +87,7 @@ for (const name of [
   "config.js",
   "basis.js",
   "queue.js",
+  "recovery.js",
   "notifications.js",
   "suggestions.js",
   "lyrics.js",
@@ -164,10 +165,17 @@ for (const request of [
         "qualityIssues",
         "voiceModel",
         "originalPrompt",
+        "recovery",
       ].includes(field),
       `Unexpected public field: ${field}`,
     );
   assert.match(request.voiceModel, /^v[1-9][0-9]*$/);
+  if (request.recovery) {
+    assert.equal(request.status, "failed");
+    assert.deepEqual(Object.keys(request.recovery).sort(), ["expiresAt", "phase"]);
+    assert.ok(["recovering", "attention"].includes(request.recovery.phase));
+    assert.ok(Number.isFinite(Date.parse(request.recovery.expiresAt)));
+  }
   assert.deepEqual(
     Object.keys(request.originalPrompt).sort(),
     ["basisSongs", "direction", "idea", "keep", "voiceModel"],
