@@ -2,6 +2,419 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-f851a00326c19070fd978503",
+      "title": "Unleavened Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f851a00326c19070fd978503-2215b09cc405.mp3",
+      "duration": 242.5,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-14T18:30:49.353Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Unleavened Again",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Fast theatrical klezmer-punk rock with distorted guitars, agile electric bass, live drums, clarinet flourishes, and brief accordion responses. Verses use a lively New York street pulse; choruses widen into melodic gang-free hooks with sharp ensemble stops. Tony V7 remains the mandatory pinned lead voice, delivered smoky, slurred, mischievous, and increasingly exasperated while keeping the title hook clear. The bridge shifts to warm minor-key cabaret before a rising final chorus resolves into D major color. Pace the final sung syllable to 8–12 seconds before 4:10, followed only by one resolved chord and natural decay.",
+        "lyrics": "[Intro]\nMorning rattles up the shutters,\nSeventh Avenue starts to steam,\nHe marches with his wife and children,\nChasing one respectable dream.\n\n[Verse 1]\nHe says, “Tonight we tell the story,\nSet the table, pour the wine.\nI only want one festive something\nThat is flat but still divine.”\nThe baker lifts a square of matzah,\nDry as rent and twice as plain.\nHe shuts his eyes and counts to sieben,\nThen politely asks again.\n\n[Pre-Chorus]\n“Perhaps with almonds? Chocolate thunder?\nSomething Grandma might admire?”\nThe baker points toward the same box.\nNow his eyebrows catch on fire.\n\n[Chorus]\n“Nein, unleavened again!”\nHe cries above the rolling pin.\n“I know the rule, my patient friend—\nBut must the feast taste paper-thin?”\nFrom Queens to old Berlin,\nHis patience tumbles in the bin.\n“Nein, unleavened again!”\nAnd the whole shop turns to him.\n\n[Verse 2]\nHis daughter whispers, “Papa, easy.”\nHis wife suppresses half a grin.\nThree customers inspect the muffins;\nNo one knows where to begin.\nHe sees the ovens glow like lava,\nFlour drifting through the air.\nHe tells his family, dark and solemn,\n“This is the Plains of Despair.”\n\n[Pre-Chorus]\nThe baker says, “You asked for matzah.”\nHe says, “I asked for some delight!”\nA tray comes out—more brittle rectangles.\nHe grips the counter, knuckles white.\n\n[Chorus]\n“Nein, unleavened again!”\nThe paper bags begin to spin.\n“I crossed an ocean, found Manhattan—\nCan no good pastry still be thin?”\nThe children laugh; he fights a grin.\nThe baker strokes his floury chin.\n“Nein, unleavened again!”\nThen the mixer kicks back in.\n\n[Bridge]\nThe baker melts the darkest chocolate,\nFolds in almonds, orange peel.\nNo rising dough, no puffed-up center—\nJust a dense and shining wheel.\nThe father watches, fury fading,\nSmoky laugh beneath his breath:\n“Well, perhaps this bakery dungeon\nHas one portal left—not death.”\n\n[Breakdown]\nThe timer rings.\nThe room stands still.\nThe baker cuts a careful slice.\nOne bite—he stares.\nOne bite—he nods.\nThen mutters, “Ach… that will suffice.”\n\n[Final Chorus]\n“No—unleavened, my friend!”\nHe sings, correcting at the end.\n“Keep the story, keep the promise,\nBut give tradition one new bend.”\nHis family gathers close again,\nThe baker laughs and shakes his hand.\nFrom the Plains of Despair to a table prepared,\nThey carry sweetness through the land.\n\n[Outro]\nTonight they ask and answer,\nTonight the candles shine.\nHe raises up the chocolate cake\nBeside the bread and wine.\n“Next year,” he tells the baker,\n“We start with this—and spare the scene.”\nThe last chord lands; his laughter trails:\n“Unleavened… but not mean.”\n\n[End]",
+        "duration": 250,
+        "bpm": 148
+      },
+      "lyrics": {
+        "text": "[Intro]\nMorning rattles up the shutters,\nSeventh Avenue starts to steam,\nHe marches with his wife and children,\nChasing one respectable dream.\n\n[Verse 1]\nHe says, “Tonight we tell the story,\nSet the table, pour the wine.\nI only want one festive something\nThat is flat but still divine.”\nThe baker lifts a square of matzah,\nDry as rent and twice as plain.\nHe shuts his eyes and counts to sieben,\nThen politely asks again.\n\n[Pre-Chorus]\n“Perhaps with almonds? Chocolate thunder?\nSomething Grandma might admire?”\nThe baker points toward the same box.\nNow his eyebrows catch on fire.\n\n[Chorus]\n“Nein, unleavened again!”\nHe cries above the rolling pin.\n“I know the rule, my patient friend—\nBut must the feast taste paper-thin?”\nFrom Queens to old Berlin,\nHis patience tumbles in the bin.\n“Nein, unleavened again!”\nAnd the whole shop turns to him.\n\n[Verse 2]\nHis daughter whispers, “Papa, easy.”\nHis wife suppresses half a grin.\nThree customers inspect the muffins;\nNo one knows where to begin.\nHe sees the ovens glow like lava,\nFlour drifting through the air.\nHe tells his family, dark and solemn,\n“This is the Plains of Despair.”\n\n[Pre-Chorus]\nThe baker says, “You asked for matzah.”\nHe says, “I asked for some delight!”\nA tray comes out—more brittle rectangles.\nHe grips the counter, knuckles white.\n\n[Chorus]\n“Nein, unleavened again!”\nThe paper bags begin to spin.\n“I crossed an ocean, found Manhattan—\nCan no good pastry still be thin?”\nThe children laugh; he fights a grin.\nThe baker strokes his floury chin.\n“Nein, unleavened again!”\nThen the mixer kicks back in.\n\n[Bridge]\nThe baker melts the darkest chocolate,\nFolds in almonds, orange peel.\nNo rising dough, no puffed-up center—\nJust a dense and shining wheel.\nThe father watches, fury fading,\nSmoky laugh beneath his breath:\n“Well, perhaps this bakery dungeon\nHas one portal left—not death.”\n\n[Breakdown]\nThe timer rings.\nThe room stands still.\nThe baker cuts a careful slice.\nOne bite—he stares.\nOne bite—he nods.\nThen mutters, “Ach… that will suffice.”\n\n[Final Chorus]\n“No—unleavened, my friend!”\nHe sings, correcting at the end.\n“Keep the story, keep the promise,\nBut give tradition one new bend.”\nHis family gathers close again,\nThe baker laughs and shakes his hand.\nFrom the Plains of Despair to a table prepared,\nThey carry sweetness through the land.\n\n[Outro]\nTonight they ask and answer,\nTonight the candles shine.\nHe raises up the chocolate cake\nBeside the bread and wine.\n“Next year,” he tells the baker,\n“We start with this—and spare the scene.”\nThe last chord lands; his laughter trails:\n“Unleavened… but not mean.”",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 1.9
+          },
+          {
+            "line": 2,
+            "start": 2.46,
+            "end": 4.12
+          },
+          {
+            "line": 3,
+            "start": 5.3,
+            "end": 7.6
+          },
+          {
+            "line": 4,
+            "start": 8.06,
+            "end": 10.4
+          },
+          {
+            "line": 7,
+            "start": 11.44,
+            "end": 13.28
+          },
+          {
+            "line": 8,
+            "start": 13.42,
+            "end": 15.18
+          },
+          {
+            "line": 9,
+            "start": 15.9,
+            "end": 17.8
+          },
+          {
+            "line": 10,
+            "start": 17.8,
+            "end": 19.36
+          },
+          {
+            "line": 11,
+            "start": 20.42,
+            "end": 22.1
+          },
+          {
+            "line": 12,
+            "start": 22.1,
+            "end": 23.9
+          },
+          {
+            "line": 13,
+            "start": 24.54,
+            "end": 26.18
+          },
+          {
+            "line": 14,
+            "start": 26.18,
+            "end": 28.46
+          },
+          {
+            "line": 17,
+            "start": 28.46,
+            "end": 31.06
+          },
+          {
+            "line": 18,
+            "start": 31.06,
+            "end": 32.88
+          },
+          {
+            "line": 19,
+            "start": 32.88,
+            "end": 34.84
+          },
+          {
+            "line": 20,
+            "start": 34.84,
+            "end": 36.7
+          },
+          {
+            "line": 23,
+            "start": 39.68,
+            "end": 41.48
+          },
+          {
+            "line": 24,
+            "start": 41.48,
+            "end": 43.56
+          },
+          {
+            "line": 25,
+            "start": 43.56,
+            "end": 45.5
+          },
+          {
+            "line": 26,
+            "start": 45.5,
+            "end": 46.82
+          },
+          {
+            "line": 27,
+            "start": 46.82,
+            "end": 48.98
+          },
+          {
+            "line": 28,
+            "start": 48.98,
+            "end": 50.46
+          },
+          {
+            "line": 29,
+            "start": 50.46,
+            "end": 53.34
+          },
+          {
+            "line": 30,
+            "start": 53.34,
+            "end": 55.6
+          },
+          {
+            "line": 33,
+            "start": 57.38,
+            "end": 59.76
+          },
+          {
+            "line": 34,
+            "start": 59.76,
+            "end": 61.16
+          },
+          {
+            "line": 35,
+            "start": 61.84,
+            "end": 63.98
+          },
+          {
+            "line": 36,
+            "start": 64.04,
+            "end": 65.4
+          },
+          {
+            "line": 37,
+            "start": 66.34,
+            "end": 68.2
+          },
+          {
+            "line": 38,
+            "start": 68.2,
+            "end": 70.08
+          },
+          {
+            "line": 39,
+            "start": 70.82,
+            "end": 72.54
+          },
+          {
+            "line": 40,
+            "start": 72.54,
+            "end": 74.1
+          },
+          {
+            "line": 43,
+            "start": 75.2,
+            "end": 76.8
+          },
+          {
+            "line": 44,
+            "start": 77.04,
+            "end": 78.4
+          },
+          {
+            "line": 45,
+            "start": 78.72,
+            "end": 80.68
+          },
+          {
+            "line": 46,
+            "start": 80.68,
+            "end": 82.54
+          },
+          {
+            "line": 49,
+            "start": 83.86,
+            "end": 87
+          },
+          {
+            "line": 50,
+            "start": 87.36,
+            "end": 88.9
+          },
+          {
+            "line": 51,
+            "start": 89.1,
+            "end": 90.46
+          },
+          {
+            "line": 52,
+            "start": 90.46,
+            "end": 92.12
+          },
+          {
+            "line": 53,
+            "start": 92.5,
+            "end": 94.02
+          },
+          {
+            "line": 54,
+            "start": 94.26,
+            "end": 95.94
+          },
+          {
+            "line": 55,
+            "start": 96.46,
+            "end": 98.3
+          },
+          {
+            "line": 56,
+            "start": 98.74,
+            "end": 100.44
+          },
+          {
+            "line": 59,
+            "start": 102.38,
+            "end": 104.54
+          },
+          {
+            "line": 60,
+            "start": 104.54,
+            "end": 106.24
+          },
+          {
+            "line": 61,
+            "start": 106.82,
+            "end": 108.92
+          },
+          {
+            "line": 62,
+            "start": 109.12,
+            "end": 110.58
+          },
+          {
+            "line": 63,
+            "start": 110.58,
+            "end": 113.78
+          },
+          {
+            "line": 64,
+            "start": 113.78,
+            "end": 114.86
+          },
+          {
+            "line": 65,
+            "start": 115.64,
+            "end": 117.54
+          },
+          {
+            "line": 66,
+            "start": 117.54,
+            "end": 119.66
+          },
+          {
+            "line": 69,
+            "start": 121.06,
+            "end": 122.38
+          },
+          {
+            "line": 70,
+            "start": 123.42,
+            "end": 124.94
+          },
+          {
+            "line": 71,
+            "start": 125.94,
+            "end": 127.92
+          },
+          {
+            "line": 72,
+            "start": 129,
+            "end": 130.32
+          },
+          {
+            "line": 73,
+            "start": 131.52,
+            "end": 132.9
+          },
+          {
+            "line": 74,
+            "start": 133.96,
+            "end": 137.62
+          },
+          {
+            "line": 77,
+            "start": 148.32,
+            "end": 150.38
+          },
+          {
+            "line": 78,
+            "start": 150.38,
+            "end": 151.92
+          },
+          {
+            "line": 79,
+            "start": 152.28,
+            "end": 153.7
+          },
+          {
+            "line": 80,
+            "start": 153.86,
+            "end": 155.12
+          },
+          {
+            "line": 81,
+            "start": 155.12,
+            "end": 156.92
+          },
+          {
+            "line": 82,
+            "start": 157.22,
+            "end": 158.8
+          },
+          {
+            "line": 83,
+            "start": 159.1,
+            "end": 161.88
+          },
+          {
+            "line": 84,
+            "start": 162.32,
+            "end": 164.24
+          },
+          {
+            "line": 87,
+            "start": 165.84,
+            "end": 167.56
+          },
+          {
+            "line": 88,
+            "start": 168.18,
+            "end": 169.08
+          },
+          {
+            "line": 89,
+            "start": 169.96,
+            "end": 171.6
+          },
+          {
+            "line": 90,
+            "start": 171.6,
+            "end": 173.14
+          },
+          {
+            "line": 91,
+            "start": 174.3,
+            "end": 176.14
+          },
+          {
+            "line": 92,
+            "start": 176.14,
+            "end": 178
+          },
+          {
+            "line": 93,
+            "start": 178,
+            "end": 179.84
+          },
+          {
+            "line": 94,
+            "start": 237.16,
+            "end": 238.56
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 22.22
+        }
+      ],
+      "originalPrompt": {
+        "idea": "A German immigrant living in NYC grows increasingly frustrated as he tries to honor the passover at a bakery. He tells his family this place \"is the plains of Despair\" (Diablo 2) and grows increasingly frustrated in The Plains of Despair that he furiously says \"nein, unleavened again!\" to the perplexed Baker",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-68692abdc87dbfa13fcb75b4",
       "title": "Wandaful Reign",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-68692abdc87dbfa13fcb75b4-6d6130064737.mp3",
