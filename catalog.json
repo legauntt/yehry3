@@ -2,6 +2,322 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-34bb0c893c29f083d234b04a",
+      "title": "Feathers in the Floodlights",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-34bb0c893c29f083d234b04a-c15d5cdec8f0.mp3",
+      "duration": 222.7,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Pancakeo",
+      "lyrics": {
+        "text": "[Verse 1]\nNight shift moon on the window glass\nI wake up late while the daylight fades\nThe room feels small, but the hour moves fast\nAnd the walls know every excuse I've made\nThere's a restless drum in the radiator\nA distant engine calling my name\nI pull on my boots, tell the mirror, Later—\nTonight I am stepping out of the frame\n\n[Pre-Chorus]\nOne small motion, one loose wire\nOne deep breath can wake the fire\n\n[Chorus]\nWe're feathers in the floodlights\nTurning gold above the street\nWith a wild heart and a long night\nAnd the whole town under our feet\nIf tomorrow tries to hold us\nWe will shake it from our bones\nWe're feathers in the floodlights\nBut we don't have to fly alone\n\n[Verse 2]\nDowntown hums like a loaded jukebox\nEvery doorway spills a different sound\nI hear my luck in the ticking crosswalk\nSee a thousand chances spinning around\nYou come laughing through the midnight traffic\nWith your coat thrown over one tattooed arm\nNothing polished, nothing cinematic\nJust a crooked grin and a five-alarm charm\n\n[Pre-Chorus]\nOne quick glance and the wires sing\nEven tired hearts remember spring\n\n[Chorus]\nWe're feathers in the floodlights\nTurning gold above the street\nWith a wild heart and a long night\nAnd the whole town under our feet\nIf tomorrow tries to hold us\nWe will shake it from our bones\nWe're feathers in the floodlights\nBut we don't have to fly alone\n\n[Bridge]\nMaybe I have waited years\nFor a door that wasn't locked\nMaybe all those silent fears\nWere only shadows on the clock\nSo take my hand—don't make it pretty\nLet the snare crack, let the old amps roar\nWe can wake this sleeping city\nTill we can't remember what we waited for\n\n[Guitar Lift]\n\n[Final Chorus]\nWe're feathers in the floodlights\nBurning bright above the street\nWith a wild heart and a long night\nAnd the thunder at our feet\nLet tomorrow come and find us\nWith the dawn across our clothes\nWe're feathers in the floodlights\nGoing anywhere the warm wind blows\n\n[Final Tag]\nNo, we don't have to fly alone\nLeave the little room behind us\nLeave the old excuses home\nWe're feathers in the floodlights\nAnd tonight—tonight—we're going home",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.24,
+            "end": 8.24
+          },
+          {
+            "line": 2,
+            "start": 8.24,
+            "end": 11.18
+          },
+          {
+            "line": 3,
+            "start": 11.18,
+            "end": 14.14
+          },
+          {
+            "line": 4,
+            "start": 14.14,
+            "end": 17.06
+          },
+          {
+            "line": 5,
+            "start": 17.06,
+            "end": 19.78
+          },
+          {
+            "line": 6,
+            "start": 19.78,
+            "end": 23.02
+          },
+          {
+            "line": 7,
+            "start": 23.02,
+            "end": 25.68
+          },
+          {
+            "line": 8,
+            "start": 25.68,
+            "end": 28.62
+          },
+          {
+            "line": 11,
+            "start": 28.62,
+            "end": 31.68
+          },
+          {
+            "line": 12,
+            "start": 32.16,
+            "end": 34.4
+          },
+          {
+            "line": 15,
+            "start": 34.4,
+            "end": 37.16
+          },
+          {
+            "line": 16,
+            "start": 37.6,
+            "end": 39.56
+          },
+          {
+            "line": 17,
+            "start": 39.56,
+            "end": 43.08
+          },
+          {
+            "line": 18,
+            "start": 43.44,
+            "end": 45.52
+          },
+          {
+            "line": 19,
+            "start": 45.52,
+            "end": 48.82
+          },
+          {
+            "line": 20,
+            "start": 49.1,
+            "end": 51.24
+          },
+          {
+            "line": 21,
+            "start": 51.9,
+            "end": 54.64
+          },
+          {
+            "line": 22,
+            "start": 55.06,
+            "end": 58.32
+          },
+          {
+            "line": 25,
+            "start": 61.58,
+            "end": 64.02
+          },
+          {
+            "line": 26,
+            "start": 64.32,
+            "end": 66.64
+          },
+          {
+            "line": 27,
+            "start": 67.02,
+            "end": 69.66
+          },
+          {
+            "line": 28,
+            "start": 70.04,
+            "end": 72.12
+          },
+          {
+            "line": 29,
+            "start": 72.96,
+            "end": 75.2
+          },
+          {
+            "line": 30,
+            "start": 75.2,
+            "end": 77.94
+          },
+          {
+            "line": 31,
+            "start": 77.94,
+            "end": 80.92
+          },
+          {
+            "line": 32,
+            "start": 81.18,
+            "end": 83.76
+          },
+          {
+            "line": 35,
+            "start": 84.44,
+            "end": 85.94
+          },
+          {
+            "line": 36,
+            "start": 85.94,
+            "end": 89.22
+          },
+          {
+            "line": 39,
+            "start": 89.76,
+            "end": 92.02
+          },
+          {
+            "line": 40,
+            "start": 92.58,
+            "end": 94.3
+          },
+          {
+            "line": 41,
+            "start": 95.42,
+            "end": 97.74
+          },
+          {
+            "line": 42,
+            "start": 98.26,
+            "end": 100.1
+          },
+          {
+            "line": 43,
+            "start": 101.1,
+            "end": 103.36
+          },
+          {
+            "line": 44,
+            "start": 103.64,
+            "end": 105.3
+          },
+          {
+            "line": 45,
+            "start": 105.3,
+            "end": 109.24
+          },
+          {
+            "line": 46,
+            "start": 109.48,
+            "end": 112.86
+          },
+          {
+            "line": 49,
+            "start": 115.74,
+            "end": 118.98
+          },
+          {
+            "line": 50,
+            "start": 121.96,
+            "end": 123.86
+          },
+          {
+            "line": 51,
+            "start": 127.34,
+            "end": 130.14
+          },
+          {
+            "line": 52,
+            "start": 130.14,
+            "end": 136.32
+          },
+          {
+            "line": 53,
+            "start": 137.32,
+            "end": 139.76
+          },
+          {
+            "line": 54,
+            "start": 140.68,
+            "end": 142.94
+          },
+          {
+            "line": 55,
+            "start": 142.94,
+            "end": 145.38
+          },
+          {
+            "line": 56,
+            "start": 146.18,
+            "end": 149.72
+          },
+          {
+            "line": 61,
+            "start": 163.02,
+            "end": 165.88
+          },
+          {
+            "line": 62,
+            "start": 165.88,
+            "end": 168.24
+          },
+          {
+            "line": 63,
+            "start": 168.24,
+            "end": 171.64
+          },
+          {
+            "line": 64,
+            "start": 171.64,
+            "end": 173.9
+          },
+          {
+            "line": 65,
+            "start": 173.9,
+            "end": 177.28
+          },
+          {
+            "line": 66,
+            "start": 177.28,
+            "end": 179.58
+          },
+          {
+            "line": 67,
+            "start": 180.72,
+            "end": 182.94
+          },
+          {
+            "line": 68,
+            "start": 183.34,
+            "end": 187.3
+          },
+          {
+            "line": 71,
+            "start": 188.74,
+            "end": 191.92
+          },
+          {
+            "line": 72,
+            "start": 192.94,
+            "end": 197.14
+          },
+          {
+            "line": 73,
+            "start": 204.4,
+            "end": 208.3
+          },
+          {
+            "line": 74,
+            "start": 208.3,
+            "end": 209.82
+          },
+          {
+            "line": 75,
+            "start": 209.82,
+            "end": 211.36
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 13.08
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony C writes an original rock ballad",
+        "direction": "Big rock band energy",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-72bf872f73683d72fc1270cc",
       "title": "Before the Sirens",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-72bf872f73683d72fc1270cc-90b7f752b95b.mp3",
