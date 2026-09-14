@@ -7,6 +7,14 @@
   },
   "routes": [
     {
+      "route": "/songs/*",
+      "headers": { "Cache-Control": "no-cache" }
+    },
+    {
+      "route": "/catalog-summary.json",
+      "headers": { "Cache-Control": "no-cache" }
+    },
+    {
       "route": "/arabic",
       "redirect": "/arabic/",
       "statusCode": 302

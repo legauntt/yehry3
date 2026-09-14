@@ -1,6 +1,7 @@
 import { cp, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { songAlias } from "../assets/song-links.js";
+import { songSummary } from "../assets/song-summary.js";
 const root = path.resolve(import.meta.dirname, "..");
 const output = path.join(root, "dist");
 const updatedAt = new Date();
@@ -39,6 +40,12 @@ for (const file of [
   await cp(path.join(root, file), path.join(output, file), { recursive: true });
 }
 const catalog = JSON.parse(await readFile(path.join(root, "catalog.json"), "utf8"));
+await mkdir(path.join(output, "songs"));
+for (const song of catalog.songs) {
+  if (!/^[a-z0-9-]{1,120}$/.test(song.id)) throw new Error("Invalid public song ID");
+  await writeFile(path.join(output, "songs", `${song.id}.json`), JSON.stringify(song));
+}
+await writeFile(path.join(output, "catalog-summary.json"), JSON.stringify({ songs: catalog.songs.map(songSummary) }));
 const lyricsTemplate = await readFile(path.join(root, "lyrics/index.html"), "utf8");
 const aliases = new Set();
 const htmlEscape = (value) =>

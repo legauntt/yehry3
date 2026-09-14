@@ -40,7 +40,7 @@ for (const route of [
   assert.match(response.headers.get("x-robots-tag") || "", /noindex/);
   const html = await response.text();
   verifyTimestamp(html, route);
-  assert.match(html, /\/assets\/app.js/);
+  assert.match(html, /\/assets\/(app|details).js/);
   assert.match(html, /noindex,nofollow,noarchive/);
   console.log(`Page and headers verified: ${route}`);
 }
@@ -82,6 +82,9 @@ for (const name of ["fearhunger.js", "fearhunger.css"]) {
 }
 for (const name of [
   "app.js",
+  "details.js",
+  "song-data.js",
+  "song-summary.js",
   "favorites.js",
   "favorites.css",
   "request-tabs.js",

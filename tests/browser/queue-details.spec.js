@@ -35,6 +35,11 @@ async function mockQueue(page) {
     const item = [failed, queued].find(song => song.id === publicId);
     return item ? route.fulfill({ json: item }) : route.fulfill({ status: 404, json: { error: "Not found" } });
   });
+  await page.route("**/yehry3/songs/distonyc-*", route => {
+    const publicId = new URL(route.request().url()).pathname.split("/").pop();
+    const item = [failed, queued].find(song => song.id === publicId);
+    return item ? route.fulfill({ json: { song: item } }) : route.fulfill({ status: 404, json: { error: "Not found" } });
+  });
 }
 
 test("queue cards have distinct detail URLs and Needs Attention remains public", async ({ page }) => {
@@ -69,8 +74,8 @@ test("Needs Attention stays in the homepage rows even when three active items pr
     submittedAt: "2026-09-13T18:00:00.000Z", updatedAt: "2026-09-13T18:00:00.000Z",
     progress: { stage: "Rendering", percent: 25 },
   }));
-  await page.route("**/yehry3/songs", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
-  await page.route("**/catalog.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { ...queue, inStudio: active, inStudioTotal: 3 } }));
   await page.goto("/");
   await expect(page.locator(`.pending-track[data-id="${failed.id}"]`)).toBeVisible();

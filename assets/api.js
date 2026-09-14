@@ -101,8 +101,8 @@ window.addEventListener("storage", (event) => {
 function signedOutError() {
   return Object.assign(new Error("Please sign in again."), { status: 401 });
 }
-async function request(path, { method = "GET", body } = {}, token) {
-  const headers = { "X-Visitor-ID": visitor };
+async function request(path, { method = "GET", body, anonymous = false, timeout = 15000 } = {}, token) {
+  const headers = anonymous ? {} : { "X-Visitor-ID": visitor };
   if (body) headers["Content-Type"] = "application/json";
   if (token) headers.Authorization = `Bearer ${token}`;
   let response;
@@ -111,7 +111,7 @@ async function request(path, { method = "GET", body } = {}, token) {
       method,
       headers,
       body: body ? JSON.stringify(body) : undefined,
-      signal: AbortSignal.timeout(15000),
+      signal: AbortSignal.timeout(timeout),
     });
   } catch {
     throw new Error("The studio is unreachable. Please try again in a moment.");
@@ -127,6 +127,8 @@ async function request(path, { method = "GET", body } = {}, token) {
   }
   return data;
 }
+// Public song details do not depend on identity and need no CORS preflight.
+export const publicApi = (path) => request(path, { anonymous: true, timeout: 5000 });
 async function renew(role) {
   if (renewals[role]) return renewals[role];
   const previous = credentials[role];

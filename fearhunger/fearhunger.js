@@ -163,12 +163,12 @@ function update(songs) {
       warning.dataset.notice = notice;
     }
     const lyrics = card.querySelector(".lyrics-link");
-    if (song.lyrics?.text) {
+    if (song.lyrics?.text || song.hasLyrics) {
       lyrics.href = lyricsHref(song);
       lyrics.hidden = false;
     }
     const original = card.querySelector(".original-prompt-link");
-    if (original && song.originalPrompt) {
+    if (original && (song.originalPrompt || song.hasOriginalPrompt)) {
       original.href = "/original-prompt/?song=" + encodeURIComponent(song.id);
       original.hidden = false;
     }
@@ -192,10 +192,10 @@ function update(songs) {
   note.textContent = `${cards.filter((card) => !card.hidden).length} songs · New releases appear automatically.`;
 }
 async function refresh() {
-  if (busy) return;
+  if (busy || document.hidden) return;
   busy = true;
   try {
-    update((await api("/songs")).songs);
+    update((await api("/songs/summary")).songs);
   } catch {
     note.textContent =
       "The saved collection is available. Checking for new songs is temporarily offline.";
@@ -204,7 +204,7 @@ async function refresh() {
   }
 }
 try {
-  update((await (await fetch("/catalog.json")).json()).songs);
+  update((await (await fetch("/catalog-summary.json")).json()).songs);
 } catch {
   /* The original three recordings remain available in HTML. */
 }

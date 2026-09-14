@@ -101,3 +101,22 @@ test("all routes are built, unlisted, and contain no submission password or back
     );
   }
 });
+
+test("generated summary omits large fields and per-song fallbacks preserve the full public recording", async () => {
+  const summaryText = await readFile(new URL("../dist/catalog-summary.json", import.meta.url), "utf8");
+  const summary = JSON.parse(summaryText);
+  assert.equal(summary.songs.length, catalog.songs.length);
+  assert.ok(summaryText.length < JSON.stringify(catalog).length / 4);
+  for (const song of catalog.songs) {
+    const compact = summary.songs.find(item => item.id === song.id);
+    assert.equal(compact.url, song.url);
+    assert.equal(compact.hasLyrics, Boolean(song.lyrics?.text));
+    assert.equal(compact.hasOriginalPrompt, Boolean(song.originalPrompt));
+    assert.equal(compact.hasSongPlan, Boolean(song.songPlan));
+    assert.equal(compact.lyrics, undefined);
+    assert.equal(compact.songPlan, undefined);
+    assert.equal(compact.originalPrompt, undefined);
+    const detail = JSON.parse(await readFile(new URL(`../dist/songs/${song.id}.json`, import.meta.url), "utf8"));
+    assert.deepEqual(detail, song);
+  }
+});

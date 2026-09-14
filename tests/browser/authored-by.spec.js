@@ -108,7 +108,8 @@ test("authorship appears in published lists, every public queue section, and son
   const blank = { ...song, id: "anonymous-song", title: "Anonymous song", authoredBy: undefined };
   const now = new Date().toISOString();
   const item = { ...song, idea: "A train song", updatedAt: now, publishedAt: now };
-  await page.route("**/yehry3/songs", route => route.fulfill({ json: { songs: [song, blank] } }));
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [song, blank] } }));
+  await page.route("**/yehry3/songs/authored-song", route => route.fulfill({ json: { song } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: {
     inStudio: [{ ...item, id: "studio-song", status: "processing" }],
     queued: [{ ...item, id: "waiting-song", status: "queued" }],
@@ -134,8 +135,8 @@ test("authorship appears in published lists, every public queue section, and son
     }
     if (url === "/queue/") await page.screenshot({ path: "artifacts/authored-by-queue-mobile.png", fullPage: true });
   }
-  await page.route("**/yehry3/songs", route => route.abort());
-  await page.route("**/catalog.json", route => route.fulfill({ json: { songs: [song] } }));
+  await page.route("**/yehry3/songs/summary", route => route.abort());
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [song] } }));
   await page.goto("/");
   await expect(page.locator("#tracks .authored-by")).toHaveText(`Authored by ${author}`);
 });

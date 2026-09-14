@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 
 test("V7 studies retain creation times, lyrics, and measured issue notices", async ({ page }) => {
   await page.clock.install({ time: new Date("2026-09-13T09:00:00Z") });
-  await page.route("**/yehry3/songs", (route) => route.abort());
+  await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.goto("/");
 
   const visibleTitles = await page.locator(".track h3").allTextContents();

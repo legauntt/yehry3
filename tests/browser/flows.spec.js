@@ -49,7 +49,7 @@ test("shareable collection, search and sort survive reload and browser history",
   page,
   context,
 }) => {
-  await page.route("**/yehry3/songs", (route) => route.abort());
+  await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.goto("/?ref=friend#collection-title");
   await expect(page.locator(".track")).toHaveCount(songCount);
   await page.getByLabel("Collection", { exact: true }).selectOption("shiablo");
@@ -85,7 +85,7 @@ test("shareable collection, search and sort survive reload and browser history",
   await expect(page.getByLabel("Search songs")).toHaveValue("Khalim");
   await expect(page.locator(".track")).toHaveCount(1);
   const recipient = await context.newPage();
-  await recipient.route("**/yehry3/songs", (route) => route.abort());
+  await recipient.route("**/yehry3/songs/summary", (route) => route.abort());
   await recipient.goto(sharedUrl);
   await expect(recipient.locator(".track h3")).toContainText(
     "Khalim Still Has a Heart",
@@ -345,7 +345,7 @@ test("mobile layout, API outage, and escaped prompt content", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.route("**/yehry3/songs", (route) => route.abort());
+  await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.goto("/");
   await expect(page.locator(".track")).toHaveCount(songCount);
   await expect(page.locator("#vote-note")).toContainText("offline");
@@ -453,7 +453,7 @@ test("optional basis songs, A-Z list, five-song cap, and saved review", async ({
 test("generated song lyrics, dual collection filtering, and API outage fallback", async ({
   page,
 }) => {
-  await page.route("**/yehry3/songs", (route) => route.abort());
+  await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.goto("/?collection=fearhunger");
   const song = page.locator(
     '.track[data-id="distonyc-1d7840d9c9addba07ccabdb2"]',
@@ -509,7 +509,7 @@ test("published original prompts show confirmed settings, work offline, and esca
   const song = catalog.songs.find(
     (song) => song.id === "distonyc-1d7840d9c9addba07ccabdb2",
   );
-  await page.route("**/yehry3/songs", (route) => route.abort());
+  await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.goto("/?collection=distonyc");
   await page
     .getByRole("link", {
@@ -535,7 +535,7 @@ test("published original prompts show confirmed settings, work offline, and esca
   );
   await page.reload();
   await expect(page.locator(".original-prompt h1")).toHaveText(song.title);
-  await page.unroute("**/yehry3/songs");
+  await page.unroute("**/yehry3/songs/summary");
   const fixture = {
     ...song,
     originalPrompt: {
@@ -544,7 +544,8 @@ test("published original prompts show confirmed settings, work offline, and esca
       basisSongs: ["A & B", "Two", "Three", "Four", "Five"],
     },
   };
-  await page.route("**/yehry3/songs", (route) =>
+  await page.route(`**/yehry3/songs/${song.id}`, (route) => route.fulfill({ json: { song: fixture } }));
+  await page.route("**/yehry3/songs/summary", (route) =>
     route.fulfill({ json: { songs: [fixture] } }),
   );
   await page.reload();
@@ -586,7 +587,7 @@ test("Fear and Hunger includes tagged requests, refreshes without duplicates, an
       song.collections?.includes("fearhunger"),
   );
   let data = { songs: catalog.songs };
-  await page.route("**/yehry3/songs", (route) => route.fulfill({ json: data }));
+  await page.route("**/yehry3/songs/summary", (route) => route.fulfill({ json: data }));
   const audioFixture = new URL(
     catalog.songs.find((song) => song.collection === "fearhunger").url,
     "http://127.0.0.1:8080",
@@ -680,8 +681,8 @@ test("Fear and Hunger includes tagged requests, refreshes without duplicates, an
     path: "artifacts/fearhunger-mobile.png",
     fullPage: true,
   });
-  await page.unroute("**/yehry3/songs");
-  await page.route("**/yehry3/songs", (route) => route.abort());
+  await page.unroute("**/yehry3/songs/summary");
+  await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.reload();
   await expect(page.locator("#collection-note")).toContainText(
     "temporarily offline",

@@ -78,6 +78,27 @@ For the real API, follow [chairlift's setup and queue contract](../chairlift/yeh
 
 ## Validate
 
+Prompt and lyric pages load one public song from `/songs/:id` and an independently
+requested static `/songs/<id>.json`. Up to twelve recently viewed public song
+details are cached in the browser and displayed immediately; the API refreshes
+them in the background. Storage failures do not block the static fallback. Prompt
+refreshes preserve open disclosures and reading position, and lyric refreshes
+preserve the playing audio element. Unfinished requests still refresh their plans.
+Details use their own small JavaScript entry point, without the collection/admin
+form modules. Existing lyric aliases, song URLs, and the full fallback catalog remain.
+
+The collection and Fear & Hunger pages use `/songs/summary` and generated
+`catalog-summary.json`, with boolean availability flags instead of full lyrics,
+plans, and prompts. Voting remains live and personalized. Hidden collection tabs
+skip catalog polls and refresh on return; enabled completion alerts retain their
+existing background behavior. Deploy the compatible Chairlift endpoints first.
+
+`npm run measure:live` prints a small read-only set of response times, decoded
+payload sizes, and the API's `Server-Timing` measurements. Mongo time is the sum
+of observed command durations, which can overlap; it excludes connection-pool
+waiting and is not a database billing or bandwidth measurement. See Chairlift's
+performance documentation for protected counters and slow-request logs.
+
 ```sh
 npm run build
 npm test

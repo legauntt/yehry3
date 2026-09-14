@@ -9,7 +9,8 @@ const song = { id, title: "The recorded title", url: "/fearhunger/Fear and Hunge
   songPlan: plan, lyrics: { text: "Final words", kind: "written" } };
 
 test("catalog links to the saved plan, escaped lyrics and mobile layout", async ({ page }) => {
-  await page.route("**/yehry3/songs", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
+  await page.route(`**/yehry3/songs/${id}`, route => route.fulfill({ json: { song } }));
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
   await page.goto("/");
   await page.getByRole("link", { name: `Song plan for ${song.title}` }).click();
   await expect(page.locator(".original-prompt")).toContainText(song.originalPrompt.idea);
@@ -25,15 +26,18 @@ test("catalog links to the saved plan, escaped lyrics and mobile layout", async 
 });
 
 test("offline and older API responses retain the matching fallback plan", async ({ page }) => {
-  await page.route("**/yehry3/songs", route => route.fulfill({ json: { songs: [{ ...song, songPlan: undefined }], nextVoteAt: null } }));
+  await page.route(`**/yehry3/songs/${id}`, route => route.fulfill({ json: { song: { ...song, songPlan: undefined } } }));
+  await page.route(`**/songs/${id}.json`, route => route.fulfill({ json: song }));
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [{ ...song, songPlan: undefined }], nextVoteAt: null } }));
   await page.route(`**/yehry3/queue/${id}`, route => route.fulfill({ status: 404, json: { error: "Missing" } }));
-  await page.route("**/catalog.json", route => route.fulfill({ json: { songs: [song] } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [song] } }));
   await page.goto(`/original-prompt/?song=${id}`);
   await expect(page.locator("#song-plan")).toContainText("110 BPM");
-  await page.route("**/yehry3/songs", route => route.abort());
+  await page.route(`**/yehry3/songs/${id}`, route => route.abort());
   await page.reload();
   await expect(page.locator("#song-plan")).toContainText("110 BPM");
-  await page.route("**/catalog.json", route => route.fulfill({ json: { songs: [{ ...song, songPlan: undefined }] } }));
+  await page.evaluate(() => localStorage.removeItem("yehry3:public-songs:v1"));
+  await page.route(`**/songs/${id}.json`, route => route.fulfill({ json: { ...song, songPlan: undefined } }));
   await page.reload();
   await expect(page.locator("#song-plan")).toContainText("No saved plan is available");
   await expect(page.locator(".original-prompt")).toContainText(song.originalPrompt.idea);
@@ -42,9 +46,9 @@ test("offline and older API responses retain the matching fallback plan", async 
 test("an open request page shows its plan as soon as the next poll finds it", async ({ page }) => {
   await page.clock.install();
   let ready = false;
-  await page.route("**/yehry3/songs", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
-  await page.route("**/catalog.json", route => route.fulfill({ json: { songs: [] } }));
-  await page.route(`**/yehry3/queue/${id}`, route => route.fulfill({ json: { id, idea: "The request", status: "processing", originalPrompt: song.originalPrompt, ...(ready ? { songPlan: plan } : {}) } }));
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.route(`**/yehry3/songs/${id}`, route => route.fulfill({ json: { song: { id, idea: "The request", status: "processing", originalPrompt: song.originalPrompt, ...(ready ? { songPlan: plan } : {}) } } }));
   await page.goto(`/original-prompt/?song=${id}`);
   await expect(page.locator("#song-plan")).toContainText("after planning finishes");
   ready = true;

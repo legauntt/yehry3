@@ -141,7 +141,7 @@ function songMeta(song, recentPublishedAt) {
     collections(song)
       .map((name) => collectionNames[name] || name)
       .join(" / "),
-  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge${voiceModelBadgeClass(song.voiceModel)}">${voiceModelBadge(song.voiceModel)}</span><span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${song.lyrics?.text ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${song.originalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge${voiceModelBadgeClass(song.voiceModel)}">${voiceModelBadge(song.voiceModel)}</span><span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
 }
 
 async function library() {
@@ -402,9 +402,10 @@ async function library() {
     }
   });
   async function refresh() {
+    if (document.hidden) return;
     if (refreshing) return refreshing;
     refreshing = (async () => {
-      const [catalog, upcoming] = await Promise.allSettled([api("/songs"), api("/queue?page=0")]);
+      const [catalog, upcoming] = await Promise.allSettled([api("/songs/summary"), api("/queue?page=0")]);
       if (catalog.status === "fulfilled" && catalog.value.songs?.length) {
         songs = catalog.value.songs;
         nextVoteAt = catalog.value.nextVoteAt;
@@ -461,7 +462,7 @@ async function library() {
       true,
     );
   try {
-    songs = (await (await fetch("/catalog.json")).json()).songs;
+    songs = (await (await fetch("/catalog-summary.json")).json()).songs;
   } catch {
     message("The catalog could not load. Refresh to try again.", true);
   }

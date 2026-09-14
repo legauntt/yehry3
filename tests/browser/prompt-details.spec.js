@@ -11,9 +11,9 @@ for (const status of ["queued", "published"]) {
         { url: "https://example.org/" + "railway".repeat(35), purpose: "creative", note: "Borrow the atmosphere.", snapshot: { status: "ready", title: "An evening train", text: "Saved page\n" + attack } },
       ],
     } };
-    await page.route("**/yehry3/songs", route => route.fulfill({ json: { songs: status === "published" ? [song] : [] } }));
-    await page.route("**/catalog.json", route => route.fulfill({ json: { songs: [] } }));
-    await page.route(`**/yehry3/queue/${id}`, route => route.fulfill({ json: full }));
+    await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: status === "published" ? [song] : [] } }));
+    await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+    await page.route(`**/yehry3/songs/${id}`, route => route.fulfill({ json: { song: { ...(status === "published" ? song : {}), ...full } } }));
     await page.goto(`/original-prompt/?song=${id}`);
     await expect(page.getByLabel("Password", { exact: true })).toHaveCount(0);
     await expect(page.locator(".brief")).not.toContainText("are private");
@@ -30,10 +30,10 @@ for (const status of ["queued", "published"]) {
     if (status === "published") {
       await expect(page.getByRole("link", { name: "Hear the song" })).toHaveAttribute("href", song.url);
       await expect(page.getByRole("link", { name: "Lyrics ↗", exact: true })).toBeVisible();
-      await page.route(`**/yehry3/queue/${id}`, route => route.abort());
+      await page.route(`**/yehry3/songs/${id}`, route => route.abort());
       await page.reload();
       await expect(page.locator(".original-prompt h1")).toHaveText(song.title);
-      await expect(page.locator(".materials-review")).toContainText("could not be loaded");
+      await expect(page.locator(".materials-review")).toContainText("Adapt these lyrics");
       await expect(page.locator(".materials-review")).not.toContainText("No lyric sheet");
     }
   });

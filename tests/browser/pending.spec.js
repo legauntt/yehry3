@@ -26,12 +26,17 @@ async function fixture(page) {
     queueOffline: false,
   };
   await page.route("**/pending-fixture.wav", route => route.fulfill({ body: wav, contentType: "audio/wav" }));
-  await page.route("**/yehry3/songs", route => route.fulfill({ json: { songs: state.songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: state.songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => state.queueOffline ? route.abort() : route.fulfill({ json: state.queue }));
   await page.route("**/yehry3/queue/distonyc-*", route => {
     const id = new URL(route.request().url()).pathname.split("/").pop();
     const item = [...state.queue.inStudio, ...(state.queue.needsAttention || []), ...state.queue.queued, ...state.queue.recent].find(song => song.id === id);
     return item ? route.fulfill({ json: item }) : route.fulfill({ status: 404, json: { error: "Not found" } });
+  });
+  await page.route("**/yehry3/songs/distonyc-*", route => {
+    const id = new URL(route.request().url()).pathname.split("/").pop();
+    const item = [...state.queue.inStudio, ...(state.queue.needsAttention || []), ...state.queue.queued, ...state.queue.recent].find(song => song.id === id);
+    return item ? route.fulfill({ json: { song: item } }) : route.fulfill({ status: 404, json: { error: "Not found" } });
   });
   await page.goto("/");
   await expect(page.locator(".pending-track")).toHaveCount(3);

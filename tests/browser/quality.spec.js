@@ -22,7 +22,8 @@ const song = {
 test("a song with issues remains playable and exposes its warning on every listening page", async ({
   page,
 }) => {
-  await page.route("**/yehry3/songs", (route) =>
+  await page.route("**/yehry3/songs/quality-song", route => route.fulfill({ json: { song } }));
+  await page.route("**/yehry3/songs/summary", (route) =>
     route.fulfill({ json: { songs: [song], nextVoteAt: null } }),
   );
   await page.route("**/yehry3/queue?*", (route) =>
@@ -199,13 +200,13 @@ test("a failed admin request shows the cause and can retry without opening contr
   await page.goto("/admin/");
   await page.getByLabel("Password", { exact: true }).fill("test-admin");
   await page.getByRole("button", { name: "Open the queue" }).click();
-  const attention = page.locator('.stats a[href="/admin/?status=failed"]');
+  const attention = page.locator('.stats a[href="/admin/?status=attention"]');
   await expect(attention.locator("strong")).toHaveText("1");
   await expect(attention).toContainText("Needs Attention");
   await attention.click();
-  await expect(page).toHaveURL(/\/admin\/\?status=failed$/);
-  await expect(page.getByLabel("Show", { exact: true })).toHaveValue("failed");
-  await expect(page.locator(".stats > *")).toHaveCount(5);
+  await expect(page).toHaveURL(/\/admin\/\?status=attention$/);
+  await expect(page.getByLabel("Show", { exact: true })).toHaveValue("attention");
+  await expect(page.locator(".stats > *")).toHaveCount(6);
   await page.locator(".stats").screenshot({ path: "artifacts/admin-attention-desktop.png" });
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

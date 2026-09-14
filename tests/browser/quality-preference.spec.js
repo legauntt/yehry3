@@ -9,7 +9,8 @@ const song = {
 };
 
 test.beforeEach(async ({ context }) => {
-  await context.route("**/yehry3/songs", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
+  await context.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
+  await context.route("**/yehry3/songs/preference-song", route => route.fulfill({ json: { song } }));
   await context.route("**/yehry3/queue?*", route => route.fulfill({ json: {
     inStudio: [], queued: [], recent: [{ ...song, status: "published", idea: song.title, publishedAt: new Date().toISOString() }],
     queuedTotal: 0, inStudioTotal: 0, page: 0, pageSize: 50,

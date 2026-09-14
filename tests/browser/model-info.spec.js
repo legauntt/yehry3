@@ -5,7 +5,7 @@ const catalog = JSON.parse(await readFile(new URL("../../catalog.json", import.m
 const studies = catalog.songs.filter((song) => song.id.endsWith("tony-v7-study"));
 
 test("model comparison lives with the request selector while generated songs keep distinct badges", async ({ page }) => {
-  await page.route("**/yehry3/songs", (route) => route.fulfill({ json: {
+  await page.route("**/yehry3/songs/summary", (route) => route.fulfill({ json: {
     songs: studies,
     nextVoteAt: null,
   } }));
