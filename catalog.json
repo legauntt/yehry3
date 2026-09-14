@@ -2,6 +2,371 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-72bf872f73683d72fc1270cc",
+      "title": "Before the Sirens",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-72bf872f73683d72fc1270cc-90b7f752b95b.mp3",
+      "duration": 269.84,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Scythe",
+      "lyrics": {
+        "text": "[Intro]\nRed clock blinking on a concrete wall\nOne bad signal says the sky might fall\nYou watch me watching, I count to three\nFear writes the orders for you and me\n\n[Verse 1]\nBoot-step rhythm in the underground\nHeavy black current, no mercy in the sound\nEvery little rumor wears a warning light\nEvery nervous shadow wants to strike tonight\nYou call it defense when you cross that line\nI call it panic with a grand design\nWe build our towers out of doubt and wire\nThen guard the switches that could start the fire\n\n[Pre-Chorus]\nFinger on the future, teeth against the past\nIf everyone goes first, nobody can last\n\n[Chorus]\nBefore the sirens, before the flash\nYou make your move, I answer back\nAgain, again, the same mistake\nWe hit the world before it wakes\nBefore the sirens call our names\nWe feed the fear, we fan the flames\nYou swear you'll stop what I might do\nI strike because I'm scared of you\n\n[Verse 2]\nNine-one-one in the language of the state\nTurn a human heartbeat to a target and a date\nNo face in the window, just a mark upon a screen\nClean little symbols for a dirty little dream\nI hear the bassline like a warning in my chest\nNo one trusts the silence, no one dares to rest\nWe rehearse disaster till the lie feels true\nThen do it all again before the other side can move\n\n[Pre-Chorus]\nFinger on the future, teeth against the past\nIf everyone goes first, nobody can last\n\n[Chorus]\nBefore the sirens, before the flash\nYou make your move, I answer back\nAgain, again, the same mistake\nWe hit the world before it wakes\nBefore the sirens call our names\nWe feed the fear, we fan the flames\nYou swear you'll stop what I might do\nI strike because I'm scared of you\n\n[Breakdown]\nCut the feed\nKill the countdown\nDrop the hand\nTurn the fear around\nNo first blow\nNo righteous machine\nThere are living hearts behind the screen\n\n[Bridge]\nMaybe strength is leaving one switch cold\nMaybe courage isn't doing what we're told\nMaybe I can meet your frightened stare\nAnd find the same alarm already burning there\nThe beat keeps pushing, but we choose the road\nWe can break the circuit, we can drop the load\nNo victory waits in a preemptive grave\nOnly one more ghost that paranoia made\n\n[Final Chorus]\nBefore the sirens, before the flash\nDon't make your move, don't answer back\nNot again, not the same mistake\nLet the sleeping city wake\nBefore the sirens call our names\nStarve the fear and drown the flames\nI won't become what terror drew\nI will not strike from fear of you\n\n[Final Tag]\nRed clock fading on the concrete wall\nOne clear heartbeat outlasts it all\nYou lower your hand, I lower mine\nNo one goes first this time\nNo one goes first this time",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.56,
+            "end": 11.52
+          },
+          {
+            "line": 2,
+            "start": 11.52,
+            "end": 15.54
+          },
+          {
+            "line": 3,
+            "start": 15.77,
+            "end": 19.58
+          },
+          {
+            "line": 4,
+            "start": 19.58,
+            "end": 24.56
+          },
+          {
+            "line": 7,
+            "start": 24.56,
+            "end": 27.16
+          },
+          {
+            "line": 8,
+            "start": 28.56,
+            "end": 31.88
+          },
+          {
+            "line": 9,
+            "start": 32.66,
+            "end": 35.66
+          },
+          {
+            "line": 10,
+            "start": 36.3,
+            "end": 39.58
+          },
+          {
+            "line": 11,
+            "start": 40.32,
+            "end": 43.94
+          },
+          {
+            "line": 12,
+            "start": 44.88,
+            "end": 47.78
+          },
+          {
+            "line": 13,
+            "start": 48.48,
+            "end": 51.96
+          },
+          {
+            "line": 14,
+            "start": 51.96,
+            "end": 56.22
+          },
+          {
+            "line": 17,
+            "start": 56.64,
+            "end": 60.38
+          },
+          {
+            "line": 18,
+            "start": 60.76,
+            "end": 64.56
+          },
+          {
+            "line": 21,
+            "start": 64.56,
+            "end": 68.2
+          },
+          {
+            "line": 22,
+            "start": 69.38,
+            "end": 72.22
+          },
+          {
+            "line": 23,
+            "start": 72.86,
+            "end": 76.34
+          },
+          {
+            "line": 24,
+            "start": 77,
+            "end": 80.66
+          },
+          {
+            "line": 25,
+            "start": 80.9,
+            "end": 84.44
+          },
+          {
+            "line": 26,
+            "start": 84.44,
+            "end": 88.8
+          },
+          {
+            "line": 27,
+            "start": 88.8,
+            "end": 92.58
+          },
+          {
+            "line": 28,
+            "start": 92.58,
+            "end": 97.9
+          },
+          {
+            "line": 31,
+            "start": 97.9,
+            "end": 100.96
+          },
+          {
+            "line": 32,
+            "start": 100.96,
+            "end": 105
+          },
+          {
+            "line": 33,
+            "start": 105,
+            "end": 109.1
+          },
+          {
+            "line": 34,
+            "start": 109.68,
+            "end": 113.16
+          },
+          {
+            "line": 35,
+            "start": 113.16,
+            "end": 117.7
+          },
+          {
+            "line": 36,
+            "start": 117.7,
+            "end": 122
+          },
+          {
+            "line": 37,
+            "start": 122,
+            "end": 126.1
+          },
+          {
+            "line": 38,
+            "start": 126.1,
+            "end": 129.86
+          },
+          {
+            "line": 41,
+            "start": 129.86,
+            "end": 133.54
+          },
+          {
+            "line": 42,
+            "start": 133.54,
+            "end": 137.82
+          },
+          {
+            "line": 45,
+            "start": 138.26,
+            "end": 141.38
+          },
+          {
+            "line": 46,
+            "start": 142.36,
+            "end": 145.58
+          },
+          {
+            "line": 47,
+            "start": 145.58,
+            "end": 149.62
+          },
+          {
+            "line": 48,
+            "start": 149.62,
+            "end": 153.18
+          },
+          {
+            "line": 49,
+            "start": 153.18,
+            "end": 157.64
+          },
+          {
+            "line": 50,
+            "start": 157.64,
+            "end": 161.94
+          },
+          {
+            "line": 51,
+            "start": 161.94,
+            "end": 165.86
+          },
+          {
+            "line": 52,
+            "start": 165.86,
+            "end": 169.86
+          },
+          {
+            "line": 55,
+            "start": 169.86,
+            "end": 172.26
+          },
+          {
+            "line": 56,
+            "start": 172.26,
+            "end": 174.66
+          },
+          {
+            "line": 57,
+            "start": 174.66,
+            "end": 177.18
+          },
+          {
+            "line": 58,
+            "start": 177.18,
+            "end": 178.24
+          },
+          {
+            "line": 59,
+            "start": 178.24,
+            "end": 180.98
+          },
+          {
+            "line": 60,
+            "start": 180.98,
+            "end": 182.92
+          },
+          {
+            "line": 61,
+            "start": 182.92,
+            "end": 187.46
+          },
+          {
+            "line": 64,
+            "start": 187.46,
+            "end": 190.94
+          },
+          {
+            "line": 65,
+            "start": 190.94,
+            "end": 194.36
+          },
+          {
+            "line": 66,
+            "start": 194.36,
+            "end": 198.22
+          },
+          {
+            "line": 67,
+            "start": 198.22,
+            "end": 202.4
+          },
+          {
+            "line": 68,
+            "start": 202.92,
+            "end": 206.82
+          },
+          {
+            "line": 69,
+            "start": 206.82,
+            "end": 210.22
+          },
+          {
+            "line": 70,
+            "start": 210.22,
+            "end": 214.68
+          },
+          {
+            "line": 71,
+            "start": 214.68,
+            "end": 218.78
+          },
+          {
+            "line": 74,
+            "start": 219.68,
+            "end": 222.7
+          },
+          {
+            "line": 75,
+            "start": 223.54,
+            "end": 226.8
+          },
+          {
+            "line": 76,
+            "start": 226.8,
+            "end": 229.94
+          },
+          {
+            "line": 77,
+            "start": 229.94,
+            "end": 233.8
+          },
+          {
+            "line": 78,
+            "start": 235.12,
+            "end": 239.18
+          },
+          {
+            "line": 79,
+            "start": 239.18,
+            "end": 243.06
+          },
+          {
+            "line": 80,
+            "start": 243.06,
+            "end": 246.52
+          },
+          {
+            "line": 81,
+            "start": 246.52,
+            "end": 252.18
+          },
+          {
+            "line": 84,
+            "start": 252.18,
+            "end": 255.66
+          },
+          {
+            "line": 85,
+            "start": 255.66,
+            "end": 259.44
+          },
+          {
+            "line": 86,
+            "start": 259.44,
+            "end": 263.5
+          },
+          {
+            "line": 87,
+            "start": 263.5,
+            "end": 266.22
+          },
+          {
+            "line": 88,
+            "start": 266.22,
+            "end": 266.74
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Original EBM song about 9/11ing someone repeatedly before they can 9/11 you first",
+        "direction": "Use the prompt as written.",
+        "keep": "Heavy bass and a catchy beat",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-79358f0b949bb71f673f5a63",
       "title": "The Crooked Crown Campaign",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-79358f0b949bb71f673f5a63-fff41621da82.mp3",
