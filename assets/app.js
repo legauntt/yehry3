@@ -85,8 +85,6 @@ const ageFromElapsed = (elapsed) => {
   return `${years} ${years === 1 ? "year" : "years"} old`;
 };
 const age = (value) => ageFromElapsed(Date.now() - new Date(value).getTime());
-const orderedUnknownAge = (index, total) =>
-  24 + Math.round((index * 48) / Math.max(1, total - 1));
 const collections = (song) => [
   ...new Set([song.collection, ...(song.collections || [])]),
 ];
@@ -125,19 +123,19 @@ document
   ?.setAttribute("aria-current", "page");
 
 function songPublishedAt(song, recentPublishedAt) {
+  for (const value of [song.publishedAt, recentPublishedAt]) {
+    if (value && Number.isFinite(new Date(value).getTime())) return value;
+  }
   const order = Number(song.order);
-  return (
-    song.publishedAt ||
-    recentPublishedAt ||
-    (Number.isFinite(order) && order < 0 ? new Date(-order).toISOString() : "")
-  );
+  const orderedDate = new Date(-order);
+  return order < 0 && Number.isFinite(orderedDate.getTime()) ? orderedDate.toISOString() : "";
 }
 
-function songMeta(song, recentPublishedAt, unknownAgeHours) {
+function songMeta(song, recentPublishedAt) {
   const publishedAt = songPublishedAt(song, recentPublishedAt);
   const releaseAge = publishedAt
     ? age(publishedAt)
-    : ageFromElapsed(unknownAgeHours * 60 * 60 * 1000);
+    : "Age unavailable";
   return `<div class="track-meta"><span class="track-collections">${escape(
     collections(song)
       .map((name) => collectionNames[name] || name)
@@ -230,7 +228,11 @@ async function library() {
     Array.from(container.children).forEach((row) => { if (!keep.has(row)) row.remove(); });
   }
   function viewportAnchor() {
-    const visibleRows = Array.from(document.querySelectorAll("#pending-tracks > [data-id], #tracks > [data-id]"))
+    const rows = Array.from(document.querySelectorAll("#pending-tracks > [data-id], #tracks > [data-id]"));
+    // Follow a reading position only after the visitor has reached the list.
+    // A song peeking below the introduction must not pull the page down when it moves.
+    if (!scrollY || !rows.length || rows[0].getBoundingClientRect().top > 0) return () => {};
+    const visibleRows = rows
       .map((row) => ({ id: row.dataset.id, top: row.getBoundingClientRect().top, bottom: row.getBoundingClientRect().bottom }))
       .filter((row) => row.bottom > 0 && row.top < innerHeight);
     return () => {
@@ -273,22 +275,8 @@ async function library() {
         song.title.toLowerCase().includes(query) &&
         (collection === "all" || collections(song).includes(collection)) && favorites.includes(song),
     );
-    const unknownSongs = songs.filter(
-      (song) => !songPublishedAt(song, recentReleases.get(song.id)),
-    );
-    const unknownAges = new Map(
-      unknownSongs.map((song, index) => [
-        song,
-        orderedUnknownAge(index, unknownSongs.length),
-      ]),
-    );
     if ($("#sort").value === "hybrid") {
-      const releasedAt = (song) => {
-        const explicit = new Date(song.publishedAt || recentReleases.get(song.id) || 0).getTime();
-        if (Number.isFinite(explicit) && explicit > 0) return explicit;
-        const order = Number(song.order);
-        return Number.isFinite(order) && order < 0 ? -order : 0;
-      };
+      const releasedAt = (song) => Date.parse(songPublishedAt(song, recentReleases.get(song.id))) || 0;
       const cutoff = Date.now() - freshWindow;
       visible.sort((a, b) => {
         const aReleased = releasedAt(a), bReleased = releasedAt(b);
@@ -312,7 +300,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track ${current?.id === song.id ? "playing" : ""}" data-id="${escape(song.id)}">
-        <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id), unknownAges.get(song))}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+        <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id))}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : `<p class="empty">${favorites.onlySaved ? escape(favorites.emptyMessage()) : "No songs match. Try another title or style."}</p>`);

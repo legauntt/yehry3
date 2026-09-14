@@ -30,7 +30,7 @@ test("fresh releases lead the default sort before older songs ranked by votes", 
   await expect(page.locator('[data-id="old-middle"] .track-age')).toHaveText("1 day old");
   await expect(page.locator('[data-id="old-low"] .track-age')).toHaveText("3 days old");
   const unknownAge = page.locator('[data-id="old-high"] .track-age');
-  await expect(unknownAge).toHaveText(/^(24 hours|1 day|[2-3] days) old$/);
+  await expect(unknownAge).toHaveText("Age unavailable");
   const unknownAgeText = await unknownAge.textContent();
   await expect(unknownAge).toHaveAttribute("title", "Exact release time unavailable");
   await expect(page.locator('[data-id="recent-queue"] .track-age')).toHaveAttribute(
@@ -51,7 +51,7 @@ test("fresh releases lead the default sort before older songs ranked by votes", 
   expect(new URL(page.url()).searchParams.get("sort")).toBe("catalog");
 });
 
-test("unknown ages increase with catalog order and stay attached after sorting", async ({ page }) => {
+test("missing release dates remain unavailable after sorting", async ({ page }) => {
   const songs = [
     song("first", "Echo", 1, 1),
     song("second", "Delta", 1, 2),
@@ -67,13 +67,13 @@ test("unknown ages increase with catalog order and stay attached after sorting",
   await page.goto("/?sort=catalog");
   await expect(page.locator(".track h3")).toHaveText(["Echo", "Delta", "Charlie", "Bravo", "Alpha"]);
   await expect(page.locator(".track-age")).toHaveText([
-    "24 hours old", "1 day old", "2 days old", "2 days old", "3 days old",
+    "Age unavailable", "Age unavailable", "Age unavailable", "Age unavailable", "Age unavailable",
   ]);
 
   await page.getByLabel("Sort songs").selectOption("title");
   await expect(page.locator(".track h3")).toHaveText(["Alpha", "Bravo", "Charlie", "Delta", "Echo"]);
   await expect(page.locator(".track-age")).toHaveText([
-    "3 days old", "2 days old", "2 days old", "1 day old", "24 hours old",
+    "Age unavailable", "Age unavailable", "Age unavailable", "Age unavailable", "Age unavailable",
   ]);
 });
 
@@ -99,4 +99,41 @@ test("older release ages use progressively larger calendar units", async ({ page
   await expect(page.locator(".track-age")).toHaveText([
     "3 days old", "2 weeks old", "3 months old", "2 years old",
   ]);
+});
+
+test("a missing fallback date never invents an age while the live catalog loads", async ({ page }) => {
+  await page.clock.install({ time: new Date("2026-09-14T00:15:00Z") });
+  const fresh = song("just-published", "Just published", 0);
+  let releaseCatalog;
+  const ready = new Promise((resolve) => { releaseCatalog = resolve; });
+  await page.route("**/catalog.json", (route) => route.fulfill({ json: { songs: [fresh] } }));
+  await page.route("**/yehry3/songs", async (route) => {
+    await ready;
+    await route.fulfill({ json: {
+      songs: [{ ...fresh, publishedAt: "2026-09-13T23:45:00Z" }], nextVoteAt: null,
+    } });
+  });
+  await page.route("**/yehry3/queue?*", (route) => route.abort());
+  await page.goto("/");
+  const age = page.locator('[data-id="just-published"] .track-age');
+  await expect(age).toHaveText("Age unavailable");
+  releaseCatalog();
+  // Crossing midnight UTC still represents just thirty elapsed minutes.
+  await expect(age).toHaveText("30 minutes old");
+  await expect(age).toHaveAttribute("datetime", "2026-09-13T23:45:00Z");
+});
+
+test("invalid timestamps use a valid alternative or show the age as unavailable offline", async ({ page }) => {
+  const now = Date.parse("2026-09-14T00:15:00Z");
+  await page.clock.install({ time: new Date(now) });
+  const songs = [
+    { ...song("invalid", "Invalid timestamp", 0), publishedAt: "invalid" },
+    { ...song("order", "Timestamp from order", 0, -(now - 90 * 60000)), publishedAt: "invalid" },
+    { ...song("offset", "Explicit offset", 0), publishedAt: "2026-09-13T16:45:00-07:00" },
+  ];
+  await page.route("**/catalog.json", (route) => route.fulfill({ json: { songs } }));
+  await page.route("**/yehry3/songs", (route) => route.abort());
+  await page.route("**/yehry3/queue?*", (route) => route.abort());
+  await page.goto("/?sort=catalog");
+  await expect(page.locator(".track-age")).toHaveText(["Age unavailable", "1 hour old", "30 minutes old"]);
 });

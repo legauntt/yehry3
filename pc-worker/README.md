@@ -99,6 +99,8 @@ The helper chooses the active job, or the most recent saved job when idle. **Ctr
 
 To update installed code, wait for the task to be idle, then run `pc-worker\install.ps1 -Start`. Installation preserves config, credentials, and state. `run.ps1` loads the DPAPI credential, starts Python, and removes the environment value afterward. Updating the source checkout alone does not change the installed worker. CLI/model/recipe path changes require an explicit local config update.
 
+The fallback catalog publisher copies the server's `publishedAt` timestamp from the completed publication response. Older responses without that field remain supported and do not invent a release time. Install the matching `publish.py` update during an idle worker update for future fallback entries to retain their ages immediately, before the website API responds.
+
 Refresh the basis inventory with `scripts/sync-basis-catalog.py` (see `--help`) and deploy matching JSON files to both repositories, then reinstall the worker's copy. New generated tracks enter the listening catalog; only files actually in `gatsby-opus/static` enter this basis inventory.
 
 ## Validation

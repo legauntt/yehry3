@@ -70,6 +70,7 @@ def song_record(prompt):
     return {'id': prompt['songId'], 'title': result['title'], 'url': prompt['releaseUrl'],
             'duration': result['duration'], 'collection': 'distonyc',
             'voiceModel': (prompt.get('details') or {}).get('voiceModel', 'v6'),
+            **({'publishedAt': prompt['publishedAt']} if prompt.get('publishedAt') else {}),
             **({'authoredBy': prompt['authoredBy']} if prompt.get('authoredBy') else {}),
             **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues'] if key in result},
             **({'originalPrompt': original_prompt(prompt)} if prompt.get('prompt') else {})}
