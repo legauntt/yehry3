@@ -2,6 +2,466 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-d721855da7e655435ca984e3",
+      "title": "Scars Don’t Take Requests",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d721855da7e655435ca984e3-e3a6b9b4b4ff.mp3",
+      "duration": 255.04,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Pancakeo",
+      "lyrics": {
+        "text": "[Quiet Intro]\nStreetlight buzz, midnight breath,\nStill got jokes for the angel of death.\n(Heh.)\nTurn that dirty little six-string loose.\n\n[Riff Entrance]\nYeah—right there.\nBoot on the one, let the backbeat bruise.\n\n[Verse 1]\nI came up crooked with a straight-faced grin,\nHalf my trouble outside, half under my skin.\nMade bad bets, kept worse friends,\nLearned every shortcut got a toll at the end.\nI got smoke in my coat, old rain in my shoes,\nA talent for finding what I oughta refuse.\nStill I walk in loud when the room says hush,\nPut a match to regret, watch the whole thing blush.\nI ain’t polished, darling, I’m friction and rust;\nIf you came for a saint, take the next damn bus.\n\n[Hook 1]\nWho I am is who I are,\nBent-up frame and a getaway heart.\nWho I am is who I are—\nDon’t buy this wreck and expect a new car.\n\n[Verse 2]\nI shook hands with demons; they complained I cheat,\nSaid my jokes were cold and my bourbon neat.\nI said, “Life’s got a bill?” Put it under my name;\nI’ve been paying in scars, but I stayed in the game.\nGot a mouth like gravel in a coffee-can roll,\nLittle loose on the timing, little hard on the soul.\nWhen the microphone sparks, I lean into the flame,\nForget half the lesson, still remember my name.\nYou can sand these edges till your fingers go numb;\nI’ll be rough tomorrow like the day I begun.\n\n[Hook 2]\nWho I am is who I are,\nBlacktop laugh underneath the stars.\nWho I am is who I are—\nDon’t tune this engine if you hate the guitar.\n\n[Full Refrain]\nSo don’t hang your hopes on the man I ain’t,\nDon’t paint me clean with somebody else’s paint.\nI’ll love too hard, leave the screen door scarred,\nTell the truth too late in the neighbor’s yard.\nLife burns down, every fuse, every spark;\nI’m spending mine loud till I’m out in the dark.\nWho I am is who I are—\nIf you’re waiting on different, you’ll wait too far.\n\n[Turntable Break]\n(Scratch it back.)\nNah—leave that bruise in.\n\n[Verse 3]\nI know where it ends: no velvet disguise,\nJust a date nobody circles and a debt that arrives.\nSo I eat when I’m hungry, sing low when I’m hurt,\nKeep one clean joke with the mud on my shirt.\nI’ve apologized plenty, meant some of it too;\nThat’s as close to perfection as I’m likely to do.\nI got people I failed and a few I pulled through,\nA long list of lies—and one promise that’s true:\nI won’t fold my shape for a comfortable chair,\nWon’t rehearse being tame just to keep you there.\nTake the whole cracked package, every burn, every bar,\nOr wave from the curb while I follow that guitar.\n\n[Expanded Refrain]\nDon’t hang your hopes on the man I ain’t,\nDon’t paint me clean with somebody else’s paint.\nI’ll love too hard, leave the screen door scarred,\nWho I am is who I are.\nI’ve danced with the ditch, made the undertaker laugh,\nLost my good sense and recovered about half.\nLife burns down, every fuse, every spark;\nI’m spending mine loud till I’m out in the dark.\nIf you need a new me, then you came too late—\nThis old motor runs mean, but it still runs straight.\nWho I am is who I are—\nExpect somebody different, you’ll be disappointed hard.\n\n[Late Instrumental Vamp]\n(Hit that one!)\nBass walk mean—let the snare talk back.\n(Come on.)\nStill here, still scarred, still laughing at that.\nOne more turn—bring the whole thing home.\n\n[Final Refrain]\nDon’t hang your hopes on the man I ain’t,\nDon’t paint me clean with somebody else’s paint.\nI’ll love too hard, leave the screen door scarred,\nWho I am is who I are.\nLife burns down, every fuse, every spark;\nI’m spending mine loud till I’m out in the dark.\nNo borrowed halo, no brand-new part—\nJust a gravel-low voice and a getaway heart.\nWho I am is who I are,\nWho I am is who I are—\nIf you’re waiting on different,\nyou’ll wait too far.\n\n[Final Tag]\nTake me whole—or let me ride.\nWho I am… is who I are.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 4.26
+          },
+          {
+            "line": 2,
+            "start": 4.26,
+            "end": 8.94
+          },
+          {
+            "line": 3,
+            "start": 10.58,
+            "end": 11.26
+          },
+          {
+            "line": 4,
+            "start": 11.26,
+            "end": 13.42
+          },
+          {
+            "line": 7,
+            "start": 16.82,
+            "end": 17.98
+          },
+          {
+            "line": 8,
+            "start": 17.98,
+            "end": 22.62
+          },
+          {
+            "line": 11,
+            "start": 22.62,
+            "end": 25.78
+          },
+          {
+            "line": 12,
+            "start": 25.78,
+            "end": 28.9
+          },
+          {
+            "line": 13,
+            "start": 28.9,
+            "end": 31.36
+          },
+          {
+            "line": 14,
+            "start": 31.72,
+            "end": 34.12
+          },
+          {
+            "line": 15,
+            "start": 34.12,
+            "end": 36.72
+          },
+          {
+            "line": 16,
+            "start": 37.08,
+            "end": 39.2
+          },
+          {
+            "line": 17,
+            "start": 39.66,
+            "end": 42.08
+          },
+          {
+            "line": 18,
+            "start": 42.08,
+            "end": 44.5
+          },
+          {
+            "line": 19,
+            "start": 44.82,
+            "end": 47
+          },
+          {
+            "line": 20,
+            "start": 47,
+            "end": 49.8
+          },
+          {
+            "line": 23,
+            "start": 49.8,
+            "end": 53.08
+          },
+          {
+            "line": 24,
+            "start": 53.08,
+            "end": 55.68
+          },
+          {
+            "line": 25,
+            "start": 55.68,
+            "end": 57.98
+          },
+          {
+            "line": 26,
+            "start": 57.98,
+            "end": 60.18
+          },
+          {
+            "line": 29,
+            "start": 60.18,
+            "end": 62.28
+          },
+          {
+            "line": 30,
+            "start": 62.28,
+            "end": 65.2
+          },
+          {
+            "line": 31,
+            "start": 65.2,
+            "end": 68.28
+          },
+          {
+            "line": 32,
+            "start": 68.28,
+            "end": 70.4
+          },
+          {
+            "line": 33,
+            "start": 70.4,
+            "end": 73.12
+          },
+          {
+            "line": 34,
+            "start": 73.12,
+            "end": 75.6
+          },
+          {
+            "line": 35,
+            "start": 75.6,
+            "end": 78.28
+          },
+          {
+            "line": 36,
+            "start": 78.28,
+            "end": 80.74
+          },
+          {
+            "line": 37,
+            "start": 80.74,
+            "end": 83.46
+          },
+          {
+            "line": 38,
+            "start": 83.46,
+            "end": 85.76
+          },
+          {
+            "line": 41,
+            "start": 86.32,
+            "end": 88.3
+          },
+          {
+            "line": 42,
+            "start": 88.3,
+            "end": 91.18
+          },
+          {
+            "line": 43,
+            "start": 91.66,
+            "end": 94.2
+          },
+          {
+            "line": 44,
+            "start": 94.2,
+            "end": 96.3
+          },
+          {
+            "line": 47,
+            "start": 96.3,
+            "end": 98.64
+          },
+          {
+            "line": 48,
+            "start": 98.64,
+            "end": 101.66
+          },
+          {
+            "line": 49,
+            "start": 101.66,
+            "end": 104.2
+          },
+          {
+            "line": 50,
+            "start": 104.2,
+            "end": 106.8
+          },
+          {
+            "line": 51,
+            "start": 106.8,
+            "end": 109.84
+          },
+          {
+            "line": 52,
+            "start": 109.84,
+            "end": 112.04
+          },
+          {
+            "line": 53,
+            "start": 112.04,
+            "end": 114.66
+          },
+          {
+            "line": 54,
+            "start": 114.66,
+            "end": 117.32
+          },
+          {
+            "line": 57,
+            "start": 118.34,
+            "end": 119.26
+          },
+          {
+            "line": 58,
+            "start": 120.3,
+            "end": 122.12
+          },
+          {
+            "line": 61,
+            "start": 122.57,
+            "end": 124.78
+          },
+          {
+            "line": 62,
+            "start": 124.78,
+            "end": 127.5
+          },
+          {
+            "line": 63,
+            "start": 127.5,
+            "end": 130.08
+          },
+          {
+            "line": 64,
+            "start": 130.08,
+            "end": 132.66
+          },
+          {
+            "line": 65,
+            "start": 132.66,
+            "end": 135.78
+          },
+          {
+            "line": 66,
+            "start": 135.78,
+            "end": 137.92
+          },
+          {
+            "line": 67,
+            "start": 137.92,
+            "end": 140.6
+          },
+          {
+            "line": 68,
+            "start": 140.6,
+            "end": 143.14
+          },
+          {
+            "line": 69,
+            "start": 143.14,
+            "end": 146.14
+          },
+          {
+            "line": 70,
+            "start": 146.14,
+            "end": 148.24
+          },
+          {
+            "line": 71,
+            "start": 148.24,
+            "end": 151
+          },
+          {
+            "line": 72,
+            "start": 151,
+            "end": 154.02
+          },
+          {
+            "line": 75,
+            "start": 154.02,
+            "end": 156.28
+          },
+          {
+            "line": 76,
+            "start": 156.28,
+            "end": 158.74
+          },
+          {
+            "line": 77,
+            "start": 158.74,
+            "end": 161.08
+          },
+          {
+            "line": 78,
+            "start": 161.2,
+            "end": 164.08
+          },
+          {
+            "line": 79,
+            "start": 164.08,
+            "end": 166.58
+          },
+          {
+            "line": 80,
+            "start": 166.94,
+            "end": 169.16
+          },
+          {
+            "line": 81,
+            "start": 169.66,
+            "end": 172.1
+          },
+          {
+            "line": 82,
+            "start": 172.1,
+            "end": 174.18
+          },
+          {
+            "line": 83,
+            "start": 174.56,
+            "end": 176.84
+          },
+          {
+            "line": 84,
+            "start": 177.04,
+            "end": 179.54
+          },
+          {
+            "line": 85,
+            "start": 180.12,
+            "end": 181.72
+          },
+          {
+            "line": 86,
+            "start": 181.72,
+            "end": 184.8
+          },
+          {
+            "line": 89,
+            "start": 190.34,
+            "end": 193.76
+          },
+          {
+            "line": 90,
+            "start": 193.76,
+            "end": 194.84
+          },
+          {
+            "line": 91,
+            "start": 194.84,
+            "end": 195.42
+          },
+          {
+            "line": 92,
+            "start": 195.7,
+            "end": 198.14
+          },
+          {
+            "line": 93,
+            "start": 198.14,
+            "end": 200.44
+          },
+          {
+            "line": 96,
+            "start": 200.44,
+            "end": 202.84
+          },
+          {
+            "line": 97,
+            "start": 202.84,
+            "end": 205.22
+          },
+          {
+            "line": 98,
+            "start": 205.22,
+            "end": 207.7
+          },
+          {
+            "line": 99,
+            "start": 207.7,
+            "end": 210.7
+          },
+          {
+            "line": 100,
+            "start": 211.14,
+            "end": 213.22
+          },
+          {
+            "line": 101,
+            "start": 213.22,
+            "end": 215.72
+          },
+          {
+            "line": 102,
+            "start": 216.08,
+            "end": 218.44
+          },
+          {
+            "line": 103,
+            "start": 218.44,
+            "end": 220.34
+          },
+          {
+            "line": 104,
+            "start": 220.34,
+            "end": 223.26
+          },
+          {
+            "line": 105,
+            "start": 223.92,
+            "end": 225.82
+          },
+          {
+            "line": 106,
+            "start": 225.82,
+            "end": 227.48
+          },
+          {
+            "line": 107,
+            "start": 227.78,
+            "end": 231.8
+          },
+          {
+            "line": 110,
+            "start": 231.8,
+            "end": 233.02
+          },
+          {
+            "line": 111,
+            "start": 234.04,
+            "end": 237.68
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "> Create a roughly 4:15 song with a swaggering blues-rock groove, a strong funk pocket, and old-school hip-hop attitude, around 93 BPM in 4/4. Center the music on a dirty, memorable electric-guitar riff,\n  > muscular bass, punchy live drums, and occasional turntable scratches. Keep the band tight, warm, gritty, and rhythmically insistent.\n  >\n  > The narrator is a flawed, hard-living survivor who has fought personal demons and accepts the scars. He knows life ends, burns through it anyway, and refuses to reshape himself for anybody. Mix dark humor,\n  > cocky microphone bravado, and blunt self-awareness. His message: this is who I am; expecting somebody different will only disappoint you.\n  >\n  > Use Tony C’s deep, smoky, gravelly voice. Deliver verses in loose, syncopated talk-singing bordering on rap, with internal rhymes, smeared consonants, and connected vowels. Let the choruses open into\n  > louder, sustained melodic singing. Use the recurring hook “Who I am is who I are,” followed by a broader warning refrain. Keep the language rough and conversational, with brief shouted cues and spontaneous\n  > ad-libs.\n  >\n  > Open with a quiet atmospheric lead-in, then establish the riff. Move through two verse-and-hook cycles before the first full refrain, add a third verse, and expand the closing refrains. Include a late\n  > instrumental vamp with vocal interjections, then bring the refrain back for a complete ending. Emphasize repetition, swagger, and the contrast between clipped verse delivery and stretched chorus vowels.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-34bb0c893c29f083d234b04a",
       "title": "Feathers in the Floodlights",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-34bb0c893c29f083d234b04a-c15d5cdec8f0.mp3",
