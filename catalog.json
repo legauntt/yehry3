@@ -2,6 +2,488 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-7ccd483a3459daf910f584ff",
+      "title": "The Morning Would Not End",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7ccd483a3459daf910f584ff-837c791aeb31.mp3",
+      "duration": 250,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-14T10:42:15.918Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The Morning Would Not End",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Apocalyptic progressive brass-rock with a muscular moving bass line, pounding live drums, distorted guitars, low piano, emergency-brass stabs and brief half-time breaks. Tony V7 remains the sole mandatory voice profile, multiplied into one hundred individually staggered layers: rough unison leads, smoky octave doubles, muttered side comments and an enormous cracked choir in each chorus. Verses stay rhythmically urgent but melodic; the bridge builds voices in successive waves before the full ensemble locks into sustained harmony. Pace the expanded final chorus so the last sustained syllable of “ends” lands 8–12 seconds before 250 seconds, followed only by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nSirens in the distance,\nRed sun through the dust,\nOne hundred crooked voices say,\n“Run because we must.”\n\n[Verse 1]\nI woke beneath a paper sky,\nA briefcase in my hand,\nThe avenue was tipping like\nA ship that lost the land.\nWe cleared the first collapsing cloud,\nWe counted every friend,\nThen someone pointed down the road—\nThe morning came again.\n\nAnother flash, another roar,\nAnother skyline torn,\nWe ran into a second day\nBefore the first could mourn.\nA hundred Tonys filled the street,\nAll coughing out the same:\n“How many times can history strike\nAnd still retain its name?”\n\n[Pre-Chorus]\nHeel against the pavement,\nSmoke inside the sun,\nEvery time we find a door,\nHere comes another one.\n\n[Chorus]\nThe morning would not end,\nIt kept falling down behind us.\nNine eleven after nine eleven,\nEvery tower trying to find us.\nHold my sleeve, remember my name,\nIf the dust turns noon to night.\nA hundred voices, one cracked warning:\nKeep your people in your sight.\n\n[Verse 2]\nWe crossed a bridge of ringing phones,\nTheir screens alive with ghosts,\nPast taxis bent like frightened teeth\nAnd diners burning toast.\nThe third one broke the river’s back,\nThe fourth one shook the train,\nThe fifth arrived before our lungs\nCould learn to breathe again.\n\nSome Tony laughed from pure despair,\nOne cursed the falling stone,\nOne carried someone else’s shoes,\nOne would not run alone.\nWe formed a ragged moving wall,\nNo hero at the head,\nJust elbows, coats and open hands\nPulling the living from the dread.\n\n[Pre-Chorus]\nHeel against the pavement,\nAsh against the tongue,\nEvery time the sirens fade,\nAnother has begun.\n\n[Chorus]\nThe morning would not end,\nIt kept falling down behind us.\nNine eleven after nine eleven,\nEvery tower trying to find us.\nHold my sleeve, remember my name,\nIf the dust turns noon to night.\nA hundred voices, one cracked warning:\nKeep your people in your sight.\n\n[Bridge]\n[Half-time, voices entering in waves]\nNumber six beyond the tunnel,\nNumber seven overhead,\nEight came rolling through the harbor,\nNine turned every window red.\n\nThen the hundred stopped together,\nNot from courage, not from pride;\nThere was nowhere left worth running\nIf we left our own behind.\n\nSo we faced the endless thunder,\nLinked our arms across the street,\nOne low note became a hundred,\nShook the rubble at our feet.\n\n[Final Chorus]\nThe morning has to end,\nThough it’s falling down around us.\nNine eleven after nine eleven\nCannot take the hands that found us.\nHold my sleeve, remember my name,\nBring the missing toward the light.\nA hundred voices, bruised but breathing,\nKeep your people in your sight.\n\nThe morning has to end,\nLet the final siren leave us.\nNo more numbers, no more towers,\nNo more smoke that tries to keep us.\nThrough the dust we carry daylight,\nThrough the noise we carry friends.\nA hundred Tonys sing one promise:\nThis is where the morning ends—\nThe morning ends.\n\n[End]",
+        "duration": 250,
+        "bpm": 136
+      },
+      "lyrics": {
+        "text": "[Intro]\nSirens in the distance,\nRed sun through the dust,\nOne hundred crooked voices say,\n“Run because we must.”\n\n[Verse 1]\nI woke beneath a paper sky,\nA briefcase in my hand,\nThe avenue was tipping like\nA ship that lost the land.\nWe cleared the first collapsing cloud,\nWe counted every friend,\nThen someone pointed down the road—\nThe morning came again.\n\nAnother flash, another roar,\nAnother skyline torn,\nWe ran into a second day\nBefore the first could mourn.\nA hundred Tonys filled the street,\nAll coughing out the same:\n“How many times can history strike\nAnd still retain its name?”\n\n[Pre-Chorus]\nHeel against the pavement,\nSmoke inside the sun,\nEvery time we find a door,\nHere comes another one.\n\n[Chorus]\nThe morning would not end,\nIt kept falling down behind us.\nNine eleven after nine eleven,\nEvery tower trying to find us.\nHold my sleeve, remember my name,\nIf the dust turns noon to night.\nA hundred voices, one cracked warning:\nKeep your people in your sight.\n\n[Verse 2]\nWe crossed a bridge of ringing phones,\nTheir screens alive with ghosts,\nPast taxis bent like frightened teeth\nAnd diners burning toast.\nThe third one broke the river’s back,\nThe fourth one shook the train,\nThe fifth arrived before our lungs\nCould learn to breathe again.\n\nSome Tony laughed from pure despair,\nOne cursed the falling stone,\nOne carried someone else’s shoes,\nOne would not run alone.\nWe formed a ragged moving wall,\nNo hero at the head,\nJust elbows, coats and open hands\nPulling the living from the dread.\n\n[Pre-Chorus]\nHeel against the pavement,\nAsh against the tongue,\nEvery time the sirens fade,\nAnother has begun.\n\n[Chorus]\nThe morning would not end,\nIt kept falling down behind us.\nNine eleven after nine eleven,\nEvery tower trying to find us.\nHold my sleeve, remember my name,\nIf the dust turns noon to night.\nA hundred voices, one cracked warning:\nKeep your people in your sight.\n\n[Bridge]\n[Half-time, voices entering in waves]\nNumber six beyond the tunnel,\nNumber seven overhead,\nEight came rolling through the harbor,\nNine turned every window red.\n\nThen the hundred stopped together,\nNot from courage, not from pride;\nThere was nowhere left worth running\nIf we left our own behind.\n\nSo we faced the endless thunder,\nLinked our arms across the street,\nOne low note became a hundred,\nShook the rubble at our feet.\n\n[Final Chorus]\nThe morning has to end,\nThough it’s falling down around us.\nNine eleven after nine eleven\nCannot take the hands that found us.\nHold my sleeve, remember my name,\nBring the missing toward the light.\nA hundred voices, bruised but breathing,\nKeep your people in your sight.\n\nThe morning has to end,\nLet the final siren leave us.\nNo more numbers, no more towers,\nNo more smoke that tries to keep us.\nThrough the dust we carry daylight,\nThrough the noise we carry friends.\nA hundred Tonys sing one promise:\nThis is where the morning ends—\nThe morning ends.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 1.9
+          },
+          {
+            "line": 2,
+            "start": 2.5,
+            "end": 4.2
+          },
+          {
+            "line": 3,
+            "start": 4.96,
+            "end": 7.4
+          },
+          {
+            "line": 4,
+            "start": 7.92,
+            "end": 9.78
+          },
+          {
+            "line": 7,
+            "start": 16.08,
+            "end": 17.9
+          },
+          {
+            "line": 8,
+            "start": 18.5,
+            "end": 19.78
+          },
+          {
+            "line": 9,
+            "start": 20.3,
+            "end": 21.82
+          },
+          {
+            "line": 10,
+            "start": 21.82,
+            "end": 23.24
+          },
+          {
+            "line": 11,
+            "start": 23.74,
+            "end": 25.24
+          },
+          {
+            "line": 12,
+            "start": 25.52,
+            "end": 26.56
+          },
+          {
+            "line": 13,
+            "start": 26.56,
+            "end": 28.78
+          },
+          {
+            "line": 14,
+            "start": 28.92,
+            "end": 30.18
+          },
+          {
+            "line": 16,
+            "start": 30.56,
+            "end": 32.24
+          },
+          {
+            "line": 17,
+            "start": 32.48,
+            "end": 33.86
+          },
+          {
+            "line": 18,
+            "start": 34.16,
+            "end": 35.72
+          },
+          {
+            "line": 19,
+            "start": 35.72,
+            "end": 37.22
+          },
+          {
+            "line": 20,
+            "start": 37.68,
+            "end": 39.26
+          },
+          {
+            "line": 21,
+            "start": 39.26,
+            "end": 41.2
+          },
+          {
+            "line": 22,
+            "start": 41.2,
+            "end": 42.76
+          },
+          {
+            "line": 23,
+            "start": 42.76,
+            "end": 44.1
+          },
+          {
+            "line": 26,
+            "start": 44.78,
+            "end": 45.84
+          },
+          {
+            "line": 27,
+            "start": 46.48,
+            "end": 47.54
+          },
+          {
+            "line": 28,
+            "start": 48.14,
+            "end": 49.62
+          },
+          {
+            "line": 29,
+            "start": 49.84,
+            "end": 50.92
+          },
+          {
+            "line": 32,
+            "start": 52.9,
+            "end": 79.7
+          },
+          {
+            "line": 33,
+            "start": 94.8,
+            "end": 126.94
+          },
+          {
+            "line": 34,
+            "start": 126.94,
+            "end": 130.2
+          },
+          {
+            "line": 35,
+            "start": 130.2,
+            "end": 134
+          },
+          {
+            "line": 36,
+            "start": 134,
+            "end": 136.92
+          },
+          {
+            "line": 37,
+            "start": 136.92,
+            "end": 139.72
+          },
+          {
+            "line": 38,
+            "start": 139.72,
+            "end": 143.64
+          },
+          {
+            "line": 39,
+            "start": 143.64,
+            "end": 146.86
+          },
+          {
+            "line": 42,
+            "start": 146.86,
+            "end": 147.8
+          },
+          {
+            "line": 43,
+            "start": 151.84,
+            "end": 152.28
+          },
+          {
+            "line": 44,
+            "start": 152.28,
+            "end": 152.76
+          },
+          {
+            "line": 45,
+            "start": 152.76,
+            "end": 153.18
+          },
+          {
+            "line": 46,
+            "start": 153.18,
+            "end": 153.34
+          },
+          {
+            "line": 47,
+            "start": 153.34,
+            "end": 153.58
+          },
+          {
+            "line": 48,
+            "start": 153.58,
+            "end": 154.02
+          },
+          {
+            "line": 49,
+            "start": 154.02,
+            "end": 154.56
+          },
+          {
+            "line": 51,
+            "start": 154.56,
+            "end": 155.14
+          },
+          {
+            "line": 52,
+            "start": 155.14,
+            "end": 155.68
+          },
+          {
+            "line": 53,
+            "start": 155.68,
+            "end": 155.96
+          },
+          {
+            "line": 54,
+            "start": 155.96,
+            "end": 156.24
+          },
+          {
+            "line": 55,
+            "start": 156.24,
+            "end": 156.6
+          },
+          {
+            "line": 56,
+            "start": 156.6,
+            "end": 156.78
+          },
+          {
+            "line": 57,
+            "start": 156.78,
+            "end": 157.06
+          },
+          {
+            "line": 58,
+            "start": 157.06,
+            "end": 157.52
+          },
+          {
+            "line": 61,
+            "start": 157.52,
+            "end": 157.74
+          },
+          {
+            "line": 62,
+            "start": 157.74,
+            "end": 158.16
+          },
+          {
+            "line": 63,
+            "start": 158.16,
+            "end": 158.54
+          },
+          {
+            "line": 64,
+            "start": 158.54,
+            "end": 158.86
+          },
+          {
+            "line": 67,
+            "start": 158.86,
+            "end": 159.26
+          },
+          {
+            "line": 68,
+            "start": 159.26,
+            "end": 159.44
+          },
+          {
+            "line": 69,
+            "start": 159.44,
+            "end": 159.8
+          },
+          {
+            "line": 70,
+            "start": 159.8,
+            "end": 160.08
+          },
+          {
+            "line": 71,
+            "start": 160.08,
+            "end": 160.52
+          },
+          {
+            "line": 72,
+            "start": 160.94,
+            "end": 160.96
+          },
+          {
+            "line": 73,
+            "start": 160.96,
+            "end": 161.18
+          },
+          {
+            "line": 74,
+            "start": 161.18,
+            "end": 161.42
+          },
+          {
+            "line": 78,
+            "start": 161.84,
+            "end": 161.88
+          },
+          {
+            "line": 79,
+            "start": 161.88,
+            "end": 162.04
+          },
+          {
+            "line": 80,
+            "start": 162.04,
+            "end": 162.38
+          },
+          {
+            "line": 81,
+            "start": 162.6,
+            "end": 162.72
+          },
+          {
+            "line": 83,
+            "start": 162.72,
+            "end": 162.88
+          },
+          {
+            "line": 84,
+            "start": 162.88,
+            "end": 163.16
+          },
+          {
+            "line": 85,
+            "start": 163.16,
+            "end": 164.06
+          },
+          {
+            "line": 86,
+            "start": 164.16,
+            "end": 165.62
+          },
+          {
+            "line": 88,
+            "start": 165.74,
+            "end": 167.48
+          },
+          {
+            "line": 89,
+            "start": 167.84,
+            "end": 169.28
+          },
+          {
+            "line": 90,
+            "start": 169.5,
+            "end": 171.42
+          },
+          {
+            "line": 91,
+            "start": 171.42,
+            "end": 172.86
+          },
+          {
+            "line": 94,
+            "start": 176.48,
+            "end": 178.76
+          },
+          {
+            "line": 95,
+            "start": 179.68,
+            "end": 182.56
+          },
+          {
+            "line": 96,
+            "start": 183.1,
+            "end": 185.7
+          },
+          {
+            "line": 97,
+            "start": 186.38,
+            "end": 189.64
+          },
+          {
+            "line": 98,
+            "start": 190.02,
+            "end": 192.56
+          },
+          {
+            "line": 99,
+            "start": 193.32,
+            "end": 196.1
+          },
+          {
+            "line": 100,
+            "start": 196.7,
+            "end": 199.86
+          },
+          {
+            "line": 101,
+            "start": 200.28,
+            "end": 203.56
+          },
+          {
+            "line": 103,
+            "start": 206.14,
+            "end": 208.32
+          },
+          {
+            "line": 104,
+            "start": 209.32,
+            "end": 212.7
+          },
+          {
+            "line": 105,
+            "start": 212.7,
+            "end": 215.14
+          },
+          {
+            "line": 106,
+            "start": 215.9,
+            "end": 219.1
+          },
+          {
+            "line": 107,
+            "start": 219.54,
+            "end": 222.12
+          },
+          {
+            "line": 108,
+            "start": 222.94,
+            "end": 225.82
+          },
+          {
+            "line": 109,
+            "start": 226.34,
+            "end": 229.34
+          },
+          {
+            "line": 110,
+            "start": 229.34,
+            "end": 232.92
+          },
+          {
+            "line": 111,
+            "start": 232.92,
+            "end": 237.02
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "A chorus of one hundred Tony Cs singing about fleeing from multiple 9/11s, one after another, just getting absolutely pounded by a relentless torrent of 9/11s.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-7ade76971c61a724e3650381",
       "title": "The Empty Bench Beside Me",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7ade76971c61a724e3650381-081e417297cb.mp3",
