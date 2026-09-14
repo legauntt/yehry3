@@ -5,6 +5,7 @@ from common import API, APIError, inside, load, save, sha, singleton, utc
 from winprocess import Stopped, run_owned
 from planner import make_plan
 from publish import upload, update_catalog
+from public_plan import public_plan
 from lyrics import make_sheet, export_sheet
 from voice_models import selected
 
@@ -110,6 +111,8 @@ def run_once(config, api, verify_existing=None):
             # The model receives creative metadata; local paths remain in the trusted renderer input.
             plan = make_plan(config, prompt, directory, basis, heartbeat.stopped)
             if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
+            # Save the accepted musical plan before rendering; retries reuse this snapshot.
+            prompt = action('plan', songPlan=public_plan(plan))
             if not result_file.exists():
                 request = {'config': config, 'prompt_id': prompt['id'], 'plan': plan, 'basis': basis, 'directory': str(directory),
                     'voice_model': voice_model}
