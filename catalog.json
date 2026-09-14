@@ -2,6 +2,278 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-4f9e42be8f7564a18b946445",
+      "title": "Velvet Rims at Midnight",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4f9e42be8f7564a18b946445-a9963b47dced.mp3",
+      "duration": 254.9,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Velvet Rims at Midnight",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Jazz-noir setting for the pinned Tony V7 voice: upright bass, brushed drums, smoky piano, muted trumpet, tremolo hollow-body guitar, and restrained cinematic strings. Build from a sparse late-night opening into tense ensemble swells, then place the final sung syllable 8–12 seconds before a resolved minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nIn the day we sweat it out on the streets\nOf a runaway American dream\nAt night we ride through the mansions of glory\nIn suicide machines\nSprung from cages on Highway 9\nChrome wheeled, fuel injected, and steppin' out over the line\nOh, baby this town rips the bones from your back\nIt's a death trap, it's a suicide rap\nWe gotta get out while we're young\n'Cause tramps like us, baby, we were born to run\nYes, girl, we were\n\n[Verse 2]\nWendy, let me in, I wanna be your friend\nI wanna guard your dreams and visions\nJust wrap your legs 'round these velvet rims\nAnd strap your hands 'cross my engines\nTogether we could break this trap\nWe'll run 'til we drop, baby, we'll never go back\nOh, will you walk with me out on the wire?\n'Cause, baby, I'm just a scared and lonely rider\nBut I gotta know how it feels\nI want to know if love is wild\nBabe, I want to know if love is real\nOh, can you show me\n\n[Bridge]\nBeyond the Palace, hemi-powered drones\nScream down the boulevard\nGirls comb their hair in rearview mirrors\nAnd the boys try to look so hard\nThe amusement park rises bold and stark\nKids are huddled on the beach in the mist\nI wanna die with you, Wendy, on the street tonight\nIn an everlasting kiss\n\n[Verse 3]\nThe highway's jammed with broken heroes\nOn a last chance power drive\nEverybody's out on the run tonight\nBut there's no place left to hide\nTogether, Wendy, we can live with the sadness\nI'll love you with all the madness in my soul\nOh, someday, girl, I don't know when\nWe're gonna get to that place\nWhere we really wanna go and we'll walk in the sun\n\n[Outro]\nBut 'til then, tramps like us\nBaby, we were born to run\nOh honey, tramps like us\nBaby, we were born to run\nCome on with me, tramps like us\nBaby, we were born to run\n[End]",
+        "duration": 260,
+        "bpm": 72
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nIn the day we sweat it out on the streets\nOf a runaway American dream\nAt night we ride through the mansions of glory\nIn suicide machines\nSprung from cages on Highway 9\nChrome wheeled, fuel injected, and steppin' out over the line\nOh, baby this town rips the bones from your back\nIt's a death trap, it's a suicide rap\nWe gotta get out while we're young\n'Cause tramps like us, baby, we were born to run\nYes, girl, we were\n\n[Verse 2]\nWendy, let me in, I wanna be your friend\nI wanna guard your dreams and visions\nJust wrap your legs 'round these velvet rims\nAnd strap your hands 'cross my engines\nTogether we could break this trap\nWe'll run 'til we drop, baby, we'll never go back\nOh, will you walk with me out on the wire?\n'Cause, baby, I'm just a scared and lonely rider\nBut I gotta know how it feels\nI want to know if love is wild\nBabe, I want to know if love is real\nOh, can you show me\n\n[Bridge]\nBeyond the Palace, hemi-powered drones\nScream down the boulevard\nGirls comb their hair in rearview mirrors\nAnd the boys try to look so hard\nThe amusement park rises bold and stark\nKids are huddled on the beach in the mist\nI wanna die with you, Wendy, on the street tonight\nIn an everlasting kiss\n\n[Verse 3]\nThe highway's jammed with broken heroes\nOn a last chance power drive\nEverybody's out on the run tonight\nBut there's no place left to hide\nTogether, Wendy, we can live with the sadness\nI'll love you with all the madness in my soul\nOh, someday, girl, I don't know when\nWe're gonna get to that place\nWhere we really wanna go and we'll walk in the sun\n\n[Outro]\nBut 'til then, tramps like us\nBaby, we were born to run\nOh honey, tramps like us\nBaby, we were born to run\nCome on with me, tramps like us\nBaby, we were born to run",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 12.32,
+            "end": 16.14
+          },
+          {
+            "line": 2,
+            "start": 16.14,
+            "end": 18.7
+          },
+          {
+            "line": 3,
+            "start": 18.7,
+            "end": 22.94
+          },
+          {
+            "line": 4,
+            "start": 22.94,
+            "end": 27.16
+          },
+          {
+            "line": 5,
+            "start": 27.16,
+            "end": 29.56
+          },
+          {
+            "line": 6,
+            "start": 29.56,
+            "end": 34
+          },
+          {
+            "line": 7,
+            "start": 35.86,
+            "end": 39.68
+          },
+          {
+            "line": 8,
+            "start": 39.68,
+            "end": 42.62
+          },
+          {
+            "line": 9,
+            "start": 42.98,
+            "end": 45.84
+          },
+          {
+            "line": 10,
+            "start": 46.34,
+            "end": 50.46
+          },
+          {
+            "line": 11,
+            "start": 50.46,
+            "end": 54.98
+          },
+          {
+            "line": 14,
+            "start": 60.16,
+            "end": 63
+          },
+          {
+            "line": 15,
+            "start": 63,
+            "end": 65.56
+          },
+          {
+            "line": 16,
+            "start": 66.41,
+            "end": 69.84
+          },
+          {
+            "line": 17,
+            "start": 69.84,
+            "end": 72.54
+          },
+          {
+            "line": 18,
+            "start": 73.46,
+            "end": 76.42
+          },
+          {
+            "line": 19,
+            "start": 76.42,
+            "end": 80.16
+          },
+          {
+            "line": 20,
+            "start": 82.52,
+            "end": 85.8
+          },
+          {
+            "line": 21,
+            "start": 85.8,
+            "end": 90.78
+          },
+          {
+            "line": 22,
+            "start": 92.94,
+            "end": 95.84
+          },
+          {
+            "line": 23,
+            "start": 96.48,
+            "end": 99.68
+          },
+          {
+            "line": 24,
+            "start": 99.68,
+            "end": 102.2
+          },
+          {
+            "line": 25,
+            "start": 102.2,
+            "end": 104.5
+          },
+          {
+            "line": 28,
+            "start": 107.18,
+            "end": 109.44
+          },
+          {
+            "line": 29,
+            "start": 109.44,
+            "end": 112.6
+          },
+          {
+            "line": 30,
+            "start": 113.44,
+            "end": 116.72
+          },
+          {
+            "line": 31,
+            "start": 116.72,
+            "end": 119.38
+          },
+          {
+            "line": 32,
+            "start": 119.94,
+            "end": 123.44
+          },
+          {
+            "line": 33,
+            "start": 123.44,
+            "end": 126
+          },
+          {
+            "line": 34,
+            "start": 126,
+            "end": 130.1
+          },
+          {
+            "line": 35,
+            "start": 130.58,
+            "end": 132.52
+          },
+          {
+            "line": 38,
+            "start": 133.42,
+            "end": 136.98
+          },
+          {
+            "line": 39,
+            "start": 136.98,
+            "end": 139.36
+          },
+          {
+            "line": 40,
+            "start": 140.98,
+            "end": 143.68
+          },
+          {
+            "line": 41,
+            "start": 143.68,
+            "end": 146.12
+          },
+          {
+            "line": 42,
+            "start": 147.1,
+            "end": 150.88
+          },
+          {
+            "line": 43,
+            "start": 150.88,
+            "end": 154.62
+          },
+          {
+            "line": 44,
+            "start": 156.64,
+            "end": 160.44
+          },
+          {
+            "line": 45,
+            "start": 160.44,
+            "end": 162.36
+          },
+          {
+            "line": 46,
+            "start": 163.3,
+            "end": 167.46
+          },
+          {
+            "line": 49,
+            "start": 170.02,
+            "end": 173.14
+          },
+          {
+            "line": 50,
+            "start": 173.74,
+            "end": 178.16
+          },
+          {
+            "line": 51,
+            "start": 236.14,
+            "end": 237.54
+          },
+          {
+            "line": 52,
+            "start": 240.83,
+            "end": 245.52
+          },
+          {
+            "line": 53,
+            "start": 245.52,
+            "end": 250.21
+          },
+          {
+            "line": 54,
+            "start": 250.21,
+            "end": 251.04
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 62.58
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony C writes a jazz noir original",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-5c6c981e71c6a91651965721",
       "title": "Ash Has No Anthem",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c6c981e71c6a91651965721-e893a03b3a63.mp3",
