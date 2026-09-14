@@ -82,6 +82,8 @@ for (const name of ["fearhunger.js", "fearhunger.css"]) {
 }
 for (const name of [
   "app.js",
+  "request-tabs.js",
+  "model-info.js",
   "authored-by.js",
   "api.js",
   "config.js",

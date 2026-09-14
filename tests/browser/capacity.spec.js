@@ -6,7 +6,9 @@ test("a full request queue preserves the review and accepts the same request whe
   await page.getByRole("button", { name: "Let’s make something" }).click();
   await page.getByLabel("Your prompt").fill("An original song about waiting for the last train.");
   await page.getByRole("button", { name: "Find the direction" }).click();
-  await page.getByLabel("What should it sound like?").fill("Warm acoustic guitar with a big singalong chorus.");
+  await page.getByRole("tab", { name: "Advanced", exact: true }).click();
+  await page.getByLabel("What does it sound like?").fill("Warm acoustic guitar with a big singalong chorus.");
+  await page.getByRole("tab", { name: "Essentials", exact: true }).click();
   await page.getByLabel("What matters most?").fill("Tony vocals and the last train hook.");
   const reviewResponse = page.waitForResponse(response => response.request().method() === "PATCH" && response.url().includes("/yehry3/prompts/"));
   await page.getByRole("button", { name: "Review the request" }).click();

@@ -981,6 +981,27 @@ main {
 .request-form .actions {
   margin-top: 25px;
 }
+.request-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 28px 0 24px;
+  border-bottom: 1px solid var(--line);
+}
+.request-tabs [role="tab"] {
+  padding: 12px 20px;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font-weight: 600;
+}
+.request-tabs [aria-selected="true"] {
+  border-bottom-color: var(--ink);
+  background: var(--light);
+  color: var(--ink);
+}
+#advanced-panel > #basis-root {
+  margin-top: 28px;
+}
 .request-form blockquote {
   border-left: 3px solid var(--accent);
   padding: 14px 20px;

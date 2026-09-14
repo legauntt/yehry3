@@ -34,7 +34,7 @@ test("model comparison lives with the request selector while generated songs kee
   await expect(dialog).toBeVisible();
   await expect(dialog).toContainText("without saved-favorite weighting");
   await expect(dialog).toContainText("not proof of better Tony likeness");
-  await expect(dialog).toContainText("V7 is available for new requests");
+  await expect(dialog).toContainText("V7 is the default for new requests");
   await expect(page.getByRole("button", { name: "Close comparison" })).toBeFocused();
   await page.keyboard.press("Tab");
   expect(await page.evaluate(() => document.activeElement.closest("dialog")?.id)).toBe("model-comparison");

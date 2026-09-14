@@ -1,4 +1,5 @@
 import { mountMaterials, materialBrief, durationIssue, hasMaterialEdits } from "./request-materials.js";
+import { mountRequestTabs } from "./request-tabs.js";
 import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./authored-by.js";
 import { recoveryActive, recoveryStatus } from "./recovery.js";
 import { publicQueue, queueDetailsPage, queueItemHref } from "./queue.js";
@@ -50,6 +51,7 @@ const badge = (status) =>
   `<span class="badge ${escape(status)}">${escape(labels[status] || status)}</span>`;
 let voiceModels = [
   { id: "v6", label: "Tony V6", note: "Established expressive catalog profile", experimental: false },
+  { id: "v7", label: "Tony V7", note: "Separate fresh-catalog adapter and references", experimental: true },
 ];
 const voiceModel = (id) =>
   voiceModels.find((model) => model.id === id) || (/^v\d+$/i.test(id || "")
@@ -616,7 +618,25 @@ async function requests() {
           render();
         });
     } else if (stage === "details") {
-      form.innerHTML = `<p class="eyebrow">Turn 02 · Optional refinements</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Choose the Tony voice, then add as much—or as little—direction as you like.</p><form id="details-form">${authorField}<div id="basis-root"></div><div class="voice-model-label"><label for="voice-model">Tony voice model</label>${modelInfoButton()}</div><select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p><label for="direction">What should it sound like? <span class="small">(optional)</span></label><textarea id="direction" rows="3" maxlength="2000" placeholder="Refine the prompt with a style, arrangement, mood, or other direction…"></textarea><p class="small field-hint">Leave this empty to use your prompt as written.</p><label for="keep">What matters most? <span class="small">(optional)</span></label><textarea id="keep" rows="2" maxlength="1000" placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><p class="small field-hint">Leave this empty for “Surprise me.”</p><div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p></form>`;
+      form.innerHTML = `<p class="eyebrow">Turn 02 · Optional refinements</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Choose the Tony voice. Open Advanced to add a sound, lyrics, references, or basis songs.</p>
+        <form id="details-form">${authorField}
+          <div class="request-tabs" role="tablist" aria-label="Request refinements">
+            <button type="button" role="tab" id="essentials-tab" aria-controls="essentials-panel" aria-selected="true">Essentials</button>
+            <button type="button" role="tab" id="advanced-tab" aria-controls="advanced-panel" aria-selected="false" tabindex="-1">Advanced</button>
+          </div>
+          <div role="tabpanel" id="essentials-panel" aria-labelledby="essentials-tab">
+            <div class="voice-model-label"><label for="voice-model">Tony voice model</label>${modelInfoButton()}</div>
+            <select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p>
+            <label for="keep">What matters most? <span class="small">(optional)</span></label><textarea id="keep" rows="2" maxlength="1000" placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><p class="small field-hint">Leave this empty for “Surprise me.”</p>
+          </div>
+          <div role="tabpanel" id="advanced-panel" aria-labelledby="advanced-tab" hidden>
+            <label for="direction">What does it sound like? <span class="small">(optional)</span></label><textarea id="direction" rows="3" maxlength="2000" placeholder="Refine the prompt with a style, arrangement, mood, or other direction…"></textarea><p class="small field-hint">Leave this empty to use your prompt as written.</p>
+            <div id="request-materials-root"></div>
+            <div id="basis-root"></div>
+          </div>
+          <div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p>
+        </form>`;
+      mountRequestTabs($("#details-form"), storage, draft.id);
       $("#authored-by").value = draft.authoredBy || "";
       $("#authored-by").oninput = (event) => rememberAuthor(event.target.value);
       const selectedBasis = mountBasisPicker(
@@ -628,14 +648,13 @@ async function requests() {
       const savedKeep = draft.details?.keep || "";
       $("#direction").value = savedDirection === "Use the prompt as written." ? "" : savedDirection;
       $("#keep").value = savedKeep === "Surprise me." ? "" : savedKeep;
-      $("#voice-model").value = draft.details?.voiceModel || "v6";
+      $("#voice-model").value = draft.details?.voiceModel || (voiceModels.some((model) => model.id === "v7") ? "v7" : voiceModels[0].id);
       const describeVoice = () => {
         const model = voiceModel($("#voice-model").value);
         $(".voice-model-note").textContent = `${model.note}.${model.experimental ? " This model remains clearly labeled experimental." : ""}`;
       };
       $("#voice-model").onchange = describeVoice;
       describeVoice();
-      $("#keep").nextElementSibling.insertAdjacentHTML("afterend", '<div id="request-materials-root"></div>');
       const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), draft, { api, storage, escape }) : {
         read() {
           if (draft.details?.lyricSheet || draft.details?.references?.length) throw new Error("Your saved lyrics and references are temporarily unavailable for editing. Try again shortly.");

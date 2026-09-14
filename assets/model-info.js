@@ -2,7 +2,7 @@ export const modelComparison = [
   ["V6 · established", "The established full-catalog Tony voice. Its voice adapter has rank 8 in attention layers 9–16."],
   ["V7 · experimental", "A fresh, recording-balanced selection: 492 excerpts from 27 recordings, without saved-favorite weighting. A new adapter trained on the same pretrained base, not on V6 weights: rank 16 in layers 5–16, trained for 8,000 steps. No new backing-band model."],
   ["What the test found", "About 0.6% lower held-set reconstruction loss than V6 with matched references. That split helped select the candidate; this is not proof of better Tony likeness or musical quality."],
-  ["Which should I choose?", "V6 is the established default. V7 is available for new requests if you want to try the experimental voice. Finished songs keep a V6 or V7 badge so you can tell which one was used."],
+  ["Which should I choose?", "V7 is the default for new requests and remains experimental. Choose V6 for the established voice. Finished songs keep a V6 or V7 badge so you can tell which one was used."],
 ];
 
 export function modelInfoButton() {

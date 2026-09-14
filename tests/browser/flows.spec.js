@@ -146,11 +146,14 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
     .fill("Rendition of Medusa as a barbershop quartet");
   await page.getByRole("button", { name: "Find the direction" }).click();
   await expect(page.getByText("Here’s what I’m hearing.")).toBeVisible();
+  await expect(page.getByLabel("Tony voice model")).toHaveValue("v7");
+  await page.getByRole("tab", { name: "Advanced", exact: true }).click();
   await page.locator(".basis-picker summary").click();
   await page.getByRole("checkbox", { name: /^Medusa \(/ }).check();
   await page
-    .getByLabel("What should it sound like?")
+    .getByLabel("What does it sound like?")
     .fill("A playful four-part barbershop quartet with no instruments.");
+  await page.getByRole("tab", { name: "Essentials", exact: true }).click();
   await page
     .getByLabel("What matters most?")
     .fill("Preserve the original melody, lyrics and slurred main hook.");
@@ -158,6 +161,7 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
   await expect(page.getByText("Does this sound right?")).toBeVisible();
   await page.screenshot({ path: "artifacts/request-review-desktop.png" });
   await page.getByRole("button", { name: "Fine-tune it" }).click();
+  await page.getByRole("tab", { name: "Advanced", exact: true }).click();
   await page.locator(".basis-picker summary").click();
   await expect(
     page.getByRole("checkbox", { name: /^Medusa \(/ }),
@@ -168,6 +172,7 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
   await expect(
     page.getByText("Request received", { exact: true }),
   ).toBeVisible();
+  await expect(page.locator(".brief")).toContainText("Tony V7 · experimental");
   await page.reload();
   await expect(
     page.getByText("Request received", { exact: true }),
@@ -397,14 +402,17 @@ test("optional basis songs, A-Z list, five-song cap, and saved review", async ({
   await page.getByRole("button", { name: "Find the direction" }).click();
   expect(await page.locator("#direction").getAttribute("required")).toBeNull();
   expect(await page.locator("#keep").getAttribute("required")).toBeNull();
-  await expect(page.getByText("Your chosen Tony voice is always included.")).toBeVisible();
-  await page.getByLabel("Tony voice model").selectOption("v7");
+  await expect(page.getByLabel("Tony voice model")).toHaveValue("v7");
+  await expect(page.getByRole("tabpanel", { name: "Advanced", exact: true })).toBeHidden();
   await page.getByRole("button", { name: "Review the request" }).click();
   await expect(page.locator(".brief")).toContainText("Tony V7 · experimental");
   await expect(page.locator(".brief")).toContainText("No basis song");
   await expect(page.locator(".brief")).toContainText("Use the prompt as written.");
   await expect(page.locator(".brief")).toContainText("Surprise me.");
   await page.getByRole("button", { name: "Fine-tune it" }).click();
+  await page.getByLabel("Tony voice model").selectOption("v6");
+  await page.getByRole("tab", { name: "Advanced", exact: true }).click();
+  await expect(page.getByText("Your chosen Tony voice is always included.")).toBeVisible();
   await page.locator(".basis-picker summary").click();
   const boxes = page.locator(".basis-option input");
   const titles = await page.locator(".basis-option span").allTextContents();
@@ -422,7 +430,11 @@ test("optional basis songs, A-Z list, five-song cap, and saved review", async ({
   await page.getByRole("button", { name: "Review the request" }).click();
   await page.reload();
   await expect(page.getByText("Does this sound right?")).toBeVisible();
+  await expect(page.locator(".brief")).toContainText("Tony V6 · established");
   await page.getByRole("button", { name: "Fine-tune it" }).click();
+  await page.getByRole("tab", { name: "Essentials", exact: true }).click();
+  await expect(page.getByLabel("Tony voice model")).toHaveValue("v6");
+  await page.getByRole("tab", { name: "Advanced", exact: true }).click();
   await page.locator(".basis-picker summary").click();
   await expect(page.locator(".basis-option input:checked")).toHaveCount(5);
   await expect(page.locator("#basis-count")).toHaveText("5 of 5 selected");

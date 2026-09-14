@@ -6,6 +6,7 @@ async function start(page) {
   await page.getByRole("button", { name: "Let’s make something" }).click();
   await page.getByLabel("Your prompt").fill("A warm railway song with a lantern in the window");
   await page.getByRole("button", { name: "Find the direction" }).click();
+  await page.getByRole("tab", { name: "Advanced", exact: true }).click();
   await page.locator(".request-materials > summary").click();
 }
 test("an older API keeps ordinary requests usable without silently accepting attachments", async ({ page }) => {
@@ -15,6 +16,7 @@ test("an older API keeps ordinary requests usable without silently accepting att
   await page.getByRole("button", { name: "Let’s make something" }).click();
   await page.getByLabel("Your prompt").fill("An ordinary song during the coordinated rollout");
   await page.getByRole("button", { name: "Find the direction" }).click();
+  await page.getByRole("tab", { name: "Advanced", exact: true }).click();
   await expect(page.getByText("Lyrics and reference links are temporarily unavailable.")).toBeVisible();
   await expect(page.getByLabel("Lyric sheet", { exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "Review the request" }).click();
@@ -46,7 +48,10 @@ test("oversized sheets remain intact and long preserve requests offer adaptation
   const oversized = "word ".repeat(3001);
   await field.fill(oversized);
   await expect(page.locator("#lyric-count")).toContainText("3,001 / 3,000");
+  await page.getByRole("tab", { name: "Essentials", exact: true }).click();
   await page.getByRole("button", { name: "Review the request" }).click();
+  await expect(page.getByRole("tab", { name: "Advanced", exact: true })).toHaveAttribute("aria-selected", "true");
+  await expect(field).toBeFocused();
   await expect(field).toHaveValue(oversized);
   await field.fill("word ".repeat(600));
   await page.getByRole("button", { name: "Review the request" }).click();
@@ -98,4 +103,45 @@ test("failed imports preserve pasted lyrics and the mobile form stays within the
   await expect(page.getByLabel("Lyric sheet", { exact: true })).toHaveValue(sheet);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: "artifacts/request-materials-mobile.png", fullPage: true });
+});
+
+test("Advanced keeps direction, lyrics and basis songs through keyboard tab switches and review", async ({ page }) => {
+  await start(page);
+  const advanced = page.getByRole("tab", { name: "Advanced", exact: true });
+  const essentials = page.getByRole("tab", { name: "Essentials", exact: true });
+  const direction = page.getByLabel("What does it sound like?");
+  await direction.fill("Warm guitar with a soft brushed rhythm.");
+  await page.getByLabel("Lyric sheet", { exact: true }).fill(sheet);
+  await page.locator(".basis-picker summary").click();
+  await page.getByRole("checkbox", { name: /^Medusa \(/ }).check();
+  await advanced.focus();
+  await page.keyboard.press("ArrowLeft");
+  await expect(essentials).toBeFocused();
+  await expect(page.getByLabel("Tony voice model")).toHaveValue("v7");
+  await expect(direction).toBeHidden();
+  await page.getByLabel("What matters most?").fill("Keep the lantern hook.");
+  await essentials.focus();
+  await page.keyboard.press("End");
+  await expect(advanced).toBeFocused();
+  await expect(direction).toHaveValue("Warm guitar with a soft brushed rhythm.");
+  await expect(page.getByLabel("Lyric sheet", { exact: true })).toHaveValue(sheet);
+  await expect(page.getByRole("checkbox", { name: /^Medusa \(/ })).toBeChecked();
+  await page.keyboard.press("Home");
+  await expect(essentials).toBeFocused();
+  await page.keyboard.press("ArrowRight");
+  await expect(advanced).toBeFocused();
+  await page.setViewportSize({ width: 390, height: 844 });
+  const soundBox = await direction.boundingBox();
+  const lyricsBox = await page.locator("#request-materials-root").boundingBox();
+  const basisBox = await page.locator("#basis-root").boundingBox();
+  expect(soundBox.y + soundBox.height).toBeLessThan(lyricsBox.y);
+  expect(lyricsBox.y + lyricsBox.height).toBeLessThan(basisBox.y);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await essentials.click();
+  await page.screenshot({ path: "artifacts/request-essentials-mobile.png", fullPage: true });
+  await page.getByRole("button", { name: "Review the request" }).click();
+  await expect(page.locator(".brief")).toContainText("Warm guitar with a soft brushed rhythm.");
+  await expect(page.locator(".brief")).toContainText("Keep the lantern hook.");
+  await expect(page.locator(".brief")).toContainText("Medusa");
+  await expect(page.locator(".materials-review")).toContainText("Keep my wording");
 });

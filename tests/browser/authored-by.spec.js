@@ -38,7 +38,9 @@ test("author persists across browser sessions, edits, and submission into both q
   await page.getByLabel("Your prompt").fill(idea);
   await page.getByRole("button", { name: "Find the direction" }).click();
   await expect(page.getByLabel("Authored by")).toHaveValue("First name");
-  await page.getByLabel("What should it sound like?").fill("Warm acoustic guitar and close harmonies.");
+  await page.getByRole("tab", { name: "Advanced", exact: true }).click();
+  await page.getByLabel("What does it sound like?").fill("Warm acoustic guitar and close harmonies.");
+  await page.getByRole("tab", { name: "Essentials", exact: true }).click();
   await page.getByLabel("What matters most?").fill("Tony's voice and the train hook.");
   await page.getByRole("button", { name: "Review the request" }).click();
   await page.getByRole("button", { name: "Fine-tune it" }).click();
