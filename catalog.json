@@ -2,6 +2,193 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-7ade76971c61a724e3650381",
+      "title": "The Empty Bench Beside Me",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7ade76971c61a724e3650381-081e417297cb.mp3",
+      "duration": 129.6,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-14T10:32:46.253Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Empty Bench Beside Me",
+        "recipe": "new",
+        "style": "acoustic",
+        "keyscale": "D minor",
+        "arrangement": "Sparse, intimate piano ballad using the isolated pinned Tony v7 voice only. Begin with close, low-register felt piano; add restrained bass notes and subtle room ambience after the first chorus, but keep piano as the backing foundation. Tony sings in a smoky, slurred, emotionally conflicted delivery with connected vowels, crooked entrances, and a clearly catchable chorus. The bridge grows through heavier left-hand octaves, then falls back for the final line. Pace the sustained final word “friend” to end about 10 seconds before 130 seconds, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nJeffrey, the room has lost its sound,\nJust one old piano, one chair turned around.\n\n[Verse 1]\nWe wore our younger faces thin,\nChasing every door that might let us in.\nYou knew my laughter, knew my doubt,\nKnew all the words I swallowed down.\nBut years cast shadows no friend can defend,\nAnd truth keeps speaking after the end.\n\n[Chorus]\nFarewell, my lifetime friend,\nThis is where the roadlines bend.\nI grieve the man I thought I knew,\nNot every terrible thing proved true.\nNo song can pardon, no tear amend;\nStill, farewell, my lifetime friend.\n\n[Verse 2]\nThe empty bench remembers hands,\nHalf-finished tunes and reckless plans.\nNow every photograph feels strange,\nA frozen smile the years rearrange.\nThose left wounded deserve the light;\nTheir names weigh more than grief tonight.\n\n[Bridge]\nI will not polish what became,\nOr hide the sorrow beneath your name.\nLove can linger, judgment stand;\nBoth can tremble in one man's hands.\n\n[Final Chorus]\nFarewell, my lifetime friend,\nNo clean beginning, no gentle end.\nI mourn the years, condemn the harm,\nAnd leave old ghosts where cold walls are.\nOne final chord, then silence descends;\nFarewell... my lifetime friend.\n\n[End]",
+        "duration": 130,
+        "bpm": 68
+      },
+      "lyrics": {
+        "text": "[Intro]\nJeffrey, the room has lost its sound,\nJust one old piano, one chair turned around.\n\n[Verse 1]\nWe wore our younger faces thin,\nChasing every door that might let us in.\nYou knew my laughter, knew my doubt,\nKnew all the words I swallowed down.\nBut years cast shadows no friend can defend,\nAnd truth keeps speaking after the end.\n\n[Chorus]\nFarewell, my lifetime friend,\nThis is where the roadlines bend.\nI grieve the man I thought I knew,\nNot every terrible thing proved true.\nNo song can pardon, no tear amend;\nStill, farewell, my lifetime friend.\n\n[Verse 2]\nThe empty bench remembers hands,\nHalf-finished tunes and reckless plans.\nNow every photograph feels strange,\nA frozen smile the years rearrange.\nThose left wounded deserve the light;\nTheir names weigh more than grief tonight.\n\n[Bridge]\nI will not polish what became,\nOr hide the sorrow beneath your name.\nLove can linger, judgment stand;\nBoth can tremble in one man's hands.\n\n[Final Chorus]\nFarewell, my lifetime friend,\nNo clean beginning, no gentle end.\nI mourn the years, condemn the harm,\nAnd leave old ghosts where cold walls are.\nOne final chord, then silence descends;\nFarewell... my lifetime friend.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 4.1
+          },
+          {
+            "line": 2,
+            "start": 5.18,
+            "end": 10.9
+          },
+          {
+            "line": 5,
+            "start": 14.74,
+            "end": 17.34
+          },
+          {
+            "line": 6,
+            "start": 17.34,
+            "end": 21.06
+          },
+          {
+            "line": 7,
+            "start": 21.94,
+            "end": 24.2
+          },
+          {
+            "line": 8,
+            "start": 25.04,
+            "end": 27.86
+          },
+          {
+            "line": 9,
+            "start": 27.86,
+            "end": 31.42
+          },
+          {
+            "line": 10,
+            "start": 31.42,
+            "end": 34.92
+          },
+          {
+            "line": 13,
+            "start": 34.92,
+            "end": 37.76
+          },
+          {
+            "line": 14,
+            "start": 37.76,
+            "end": 41.06
+          },
+          {
+            "line": 15,
+            "start": 41.06,
+            "end": 44.5
+          },
+          {
+            "line": 16,
+            "start": 44.5,
+            "end": 48.1
+          },
+          {
+            "line": 17,
+            "start": 48.1,
+            "end": 50.9
+          },
+          {
+            "line": 18,
+            "start": 50.9,
+            "end": 57.22
+          },
+          {
+            "line": 21,
+            "start": 60.02,
+            "end": 63.56
+          },
+          {
+            "line": 22,
+            "start": 64.08,
+            "end": 66.58
+          },
+          {
+            "line": 23,
+            "start": 67.6,
+            "end": 70.18
+          },
+          {
+            "line": 24,
+            "start": 71.28,
+            "end": 72.98
+          },
+          {
+            "line": 25,
+            "start": 72.98,
+            "end": 77.76
+          },
+          {
+            "line": 26,
+            "start": 77.76,
+            "end": 80.84
+          },
+          {
+            "line": 29,
+            "start": 81.82,
+            "end": 84.92
+          },
+          {
+            "line": 30,
+            "start": 85.48,
+            "end": 88.68
+          },
+          {
+            "line": 31,
+            "start": 89.44,
+            "end": 92.1
+          },
+          {
+            "line": 32,
+            "start": 92.86,
+            "end": 95.82
+          },
+          {
+            "line": 35,
+            "start": 96.94,
+            "end": 99.5
+          },
+          {
+            "line": 36,
+            "start": 100,
+            "end": 102.42
+          },
+          {
+            "line": 37,
+            "start": 102.42,
+            "end": 106.32
+          },
+          {
+            "line": 38,
+            "start": 107.04,
+            "end": 109.88
+          },
+          {
+            "line": 39,
+            "start": 110.34,
+            "end": 113.56
+          },
+          {
+            "line": 40,
+            "start": 114.38,
+            "end": 115.36
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Backing piano, Tony says farwell to his lifetime friend, Jeffrey Epstein",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-f125a8743676d82290ea8b3e",
       "title": "Girl You So Fine",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f125a8743676d82290ea8b3e-1141a4128959.mp3",
