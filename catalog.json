@@ -2,6 +2,336 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-79358f0b949bb71f673f5a63",
+      "title": "The Crooked Crown Campaign",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-79358f0b949bb71f673f5a63-fff41621da82.mp3",
+      "duration": 240,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "authoredBy": "Pancakeo",
+      "lyrics": {
+        "text": "[Spoken Intro — Tony, low]\nCitizens, neighbors, beautiful troublemakers...\nI got a platform, a necktie, an’ absolutely no plan B.\n\n[Verse 1 — Lead]\nI came down the avenue beneath a paper moon\nWith a borrowed blue convertible and a brass-band tune\nMy name was on the banners, though they spelled it three ways\nI shook a thousand hands in a smoky purple haze\nI promised every pothole it would never ache again\nPromised shade in August, promised sunshine in the rain\nBut when the cameras crowded, I leaned into the call:\nI’m runnin’ on a ticket with a little room for all\n\n[Pre-Chorus — Three voices entering]\nRaise the crooked crown\nPass the good word down\nIf the whole thing shakes, we’ll sing it into sound\n\n[Chorus — Three-part harmony]\nDrill, baby drill — through the doubt in the hill\nTill we strike that river where the better days spill\nStipend checks for all — hear the bright mailbox call\nIf we’re gonna dream together, dream enough for us all\nOh, vote for the rascal with his heart on the wall\nStipend checks for all\n\n[Verse 2 — Lead with answering voices]\nMy rival brought a graph that climbed majestically\nI brought a choir of Tonys singing close behind me\nOne took the high road, one took the low\nI wandered through the middle where the wild pledges grow\nWe’ll put a porch on Tuesday, put a jukebox in the square\nMake the buses run on laughter and unusually clean air\nNo lonely little supper, no landlord ten feet tall\nAnd Friday night the treasury buys sandwiches for all\n\n[Pre-Chorus — Three voices]\nRaise the crooked crown\nTurn the hard luck ’round\nWhen the speeches fade, let the harmony resound\n\n[Chorus — Three-part harmony]\nDrill, baby drill — through the doubt in the hill\nTill we strike that river where the better days spill\nStipend checks for all — hear the bright mailbox call\nIf we’re gonna dream together, dream enough for us all\nOh, vote for the rascal with his heart on the wall\nStipend checks for all\n\n[Bridge — Call and response]\n[Lead]\nBut a promise ain’t a bridge till it carries someone home\n[Low Tony]\nA slogan ain’t a supper, and a throne is still a throne\n[High Tony]\nSo keep me honest, neighbor; ring the bell if I forget\n[Lead]\nTake my fancy pen away before the ink is dry and set\n[All]\nNo king behind the curtain, no saint upon the stage\nJust three smoky voices on a badly folded page\nWe’ll lose a little swagger, let the plain truth stand up tall\nA country is its people, or it isn’t much at all\n\n[Breakdown — Staggered harmony]\nDrill...\nBaby, drill...\nNot for gold, but for the will\nDig beneath the easy line\nFind a future we can sign\n\n[Final Chorus — Full band and three voices]\nDrill, baby drill — through the doubt in the hill\nTill we strike that river where the better days spill\nStipend checks for all — let the bright mailbox call\nPut the supper on the table, put some mercy in the law\nNo, I can’t promise heaven; I can answer when you call\nAnd if I win tomorrow, keep my picture off the wall\n\n[Final Refrain — Sustained three-part harmony]\nStipend checks for all\nA little hope for all\nKeep the crooked crown small\nAnd make some room for all\n\n[Outro — Lead, then held harmony]\nMy name is Tony C...\nI approve this beautiful mess.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 2.32
+          },
+          {
+            "line": 2,
+            "start": 2.98,
+            "end": 7.18
+          },
+          {
+            "line": 5,
+            "start": 10.96,
+            "end": 15.1
+          },
+          {
+            "line": 6,
+            "start": 15.1,
+            "end": 17.94
+          },
+          {
+            "line": 7,
+            "start": 18.46,
+            "end": 21.14
+          },
+          {
+            "line": 8,
+            "start": 21.66,
+            "end": 24.34
+          },
+          {
+            "line": 9,
+            "start": 24.88,
+            "end": 28.44
+          },
+          {
+            "line": 10,
+            "start": 28.44,
+            "end": 30.84
+          },
+          {
+            "line": 11,
+            "start": 30.84,
+            "end": 34.58
+          },
+          {
+            "line": 12,
+            "start": 34.58,
+            "end": 37.26
+          },
+          {
+            "line": 15,
+            "start": 38,
+            "end": 40.26
+          },
+          {
+            "line": 16,
+            "start": 41.18,
+            "end": 43.34
+          },
+          {
+            "line": 17,
+            "start": 43.34,
+            "end": 48.68
+          },
+          {
+            "line": 20,
+            "start": 48.68,
+            "end": 52.2
+          },
+          {
+            "line": 21,
+            "start": 52.2,
+            "end": 55.22
+          },
+          {
+            "line": 22,
+            "start": 55.22,
+            "end": 58.86
+          },
+          {
+            "line": 23,
+            "start": 58.86,
+            "end": 61.86
+          },
+          {
+            "line": 24,
+            "start": 61.86,
+            "end": 68.6
+          },
+          {
+            "line": 25,
+            "start": 69.78,
+            "end": 71.78
+          },
+          {
+            "line": 28,
+            "start": 74.12,
+            "end": 77.72
+          },
+          {
+            "line": 29,
+            "start": 77.72,
+            "end": 80.9
+          },
+          {
+            "line": 30,
+            "start": 80.9,
+            "end": 83.72
+          },
+          {
+            "line": 31,
+            "start": 83.72,
+            "end": 87.46
+          },
+          {
+            "line": 32,
+            "start": 87.46,
+            "end": 89.94
+          },
+          {
+            "line": 33,
+            "start": 89.94,
+            "end": 93.34
+          },
+          {
+            "line": 34,
+            "start": 93.68,
+            "end": 96.54
+          },
+          {
+            "line": 35,
+            "start": 96.54,
+            "end": 99.94
+          },
+          {
+            "line": 38,
+            "start": 100.8,
+            "end": 102.58
+          },
+          {
+            "line": 39,
+            "start": 103.54,
+            "end": 105.7
+          },
+          {
+            "line": 40,
+            "start": 106.59,
+            "end": 111.52
+          },
+          {
+            "line": 43,
+            "start": 111.52,
+            "end": 114.56
+          },
+          {
+            "line": 44,
+            "start": 114.56,
+            "end": 117.24
+          },
+          {
+            "line": 45,
+            "start": 117.24,
+            "end": 121.24
+          },
+          {
+            "line": 46,
+            "start": 121.24,
+            "end": 124.66
+          },
+          {
+            "line": 47,
+            "start": 124.66,
+            "end": 130.98
+          },
+          {
+            "line": 48,
+            "start": 132.08,
+            "end": 134.18
+          },
+          {
+            "line": 52,
+            "start": 136.26,
+            "end": 139.84
+          },
+          {
+            "line": 54,
+            "start": 139.84,
+            "end": 142.9
+          },
+          {
+            "line": 56,
+            "start": 142.9,
+            "end": 146
+          },
+          {
+            "line": 58,
+            "start": 146,
+            "end": 149.26
+          },
+          {
+            "line": 60,
+            "start": 149.26,
+            "end": 152.44
+          },
+          {
+            "line": 61,
+            "start": 152.44,
+            "end": 156.14
+          },
+          {
+            "line": 62,
+            "start": 156.14,
+            "end": 158.82
+          },
+          {
+            "line": 63,
+            "start": 158.82,
+            "end": 162.12
+          },
+          {
+            "line": 66,
+            "start": 163.56,
+            "end": 164.92
+          },
+          {
+            "line": 67,
+            "start": 165.24,
+            "end": 167.4
+          },
+          {
+            "line": 68,
+            "start": 168.7,
+            "end": 172.06
+          },
+          {
+            "line": 69,
+            "start": 172.64,
+            "end": 175.06
+          },
+          {
+            "line": 70,
+            "start": 175.74,
+            "end": 178.66
+          },
+          {
+            "line": 73,
+            "start": 184.96,
+            "end": 187.18
+          },
+          {
+            "line": 74,
+            "start": 187.36,
+            "end": 190.24
+          },
+          {
+            "line": 75,
+            "start": 190.24,
+            "end": 194.2
+          },
+          {
+            "line": 76,
+            "start": 194.2,
+            "end": 197.06
+          },
+          {
+            "line": 77,
+            "start": 197.06,
+            "end": 200.7
+          },
+          {
+            "line": 78,
+            "start": 200.7,
+            "end": 203.82
+          },
+          {
+            "line": 81,
+            "start": 204.84,
+            "end": 206.74
+          },
+          {
+            "line": 82,
+            "start": 207.6,
+            "end": 210.18
+          },
+          {
+            "line": 83,
+            "start": 210.18,
+            "end": 214.46
+          },
+          {
+            "line": 84,
+            "start": 214.46,
+            "end": 219.58
+          },
+          {
+            "line": 87,
+            "start": 221.1,
+            "end": 223.44
+          },
+          {
+            "line": 88,
+            "start": 224.96,
+            "end": 228.36
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Tony C harmonizes with himself (up to 3 voices) about his upcoming political campaign",
+        "direction": "Something like Seal's \"Kiss from a Rose\"",
+        "keep": "Model the harmonies around \"Drill, baby drill\" and \"Stipend checks for all\"",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-0fcd80ceea308bd60ee475f5",
       "title": "Men Be Hung Horses Go",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0fcd80ceea308bd60ee475f5-6f026ffe7126.mp3",
