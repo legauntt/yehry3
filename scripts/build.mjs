@@ -84,6 +84,47 @@ for (const song of catalog.songs.filter((song) => song.lyrics?.text)) {
   await mkdir(directory, { recursive: true });
   await writeFile(path.join(directory, "index.html"), html);
 }
+// Every shared Tommy line gets its own copy of the share page at dist/wiseau/<id>/index.html,
+// so a link preview (Discord, Slack, iMessage) quotes the line instead of the generic page.
+// Azure serves that directory for /wiseau/<id>; a /wiseau/* rewrite would shadow it, so
+// staticwebapp.config.json must not carry one (tests/wiseau.test.mjs checks both).
+const wiseauTemplate = await readFile(path.join(root, "wiseau/index.html"), "utf8");
+const wiseauTitle = "<title>Tommy says · yehry3</title>";
+const wiseauDescription = /<meta[^>]*name="description"[^>]*>/;
+if (!wiseauTemplate.includes(wiseauTitle) || !wiseauDescription.test(wiseauTemplate))
+  throw new Error("wiseau/index.html lost the title or description that clip pages replace");
+const wiseau = JSON.parse(await readFile(path.join(root, "wiseau/clips.json"), "utf8"));
+for (const clip of wiseau.clips) {
+  if (!/^[a-z0-9]{8}$/.test(clip.id)) throw new Error(`Invalid Tommy clip ID: ${clip.id}`);
+  const seconds = Math.round(clip.duration);
+  const quote = `“${clip.text}”`;
+  const description = `${seconds} second${seconds === 1 ? "" : "s"} in the voice of ${
+    clip.voice || "Tommy Wiseau"
+  }, produced by a voice model. He never said this.`;
+  const canonical = `https://yehry3.app/wiseau/${clip.id}`;
+  const audio = `https://yehry3.app${clip.url}`;
+  const metadata = [
+    `<link rel="canonical" href="${htmlEscape(canonical)}" />`,
+    '<meta property="og:type" content="music.song" />',
+    '<meta property="og:site_name" content="Tommy says · yehry3" />',
+    `<meta property="og:title" content="${htmlEscape(quote)}" />`,
+    `<meta property="og:description" content="${htmlEscape(description)}" />`,
+    `<meta property="og:url" content="${htmlEscape(canonical)}" />`,
+    `<meta property="og:audio" content="${htmlEscape(audio)}" />`,
+    '<meta property="og:audio:type" content="audio/mpeg" />',
+    '<meta name="twitter:card" content="summary" />',
+    `<meta name="twitter:title" content="${htmlEscape(quote)}" />`,
+    `<meta name="twitter:description" content="${htmlEscape(description)}" />`,
+  ].join("\n    ");
+  // Function replacers keep "$&" and friends in a line from being read as replacement patterns.
+  const html = wiseauTemplate
+    .replace(wiseauTitle, () => `<title>${htmlEscape(`${quote} · Tommy says · yehry3`)}</title>`)
+    .replace(wiseauDescription, () => `<meta name="description" content="${htmlEscape(description)}" />`)
+    .replace("</head>", () => `    ${metadata}\n  </head>`);
+  const directory = path.join(output, "wiseau", clip.id);
+  await mkdir(directory);
+  await writeFile(path.join(directory, "index.html"), html);
+}
 for (const file of await readdir(output, { recursive: true })) {
   if (!file.endsWith(".html")) continue;
   const destination = path.join(output, file);
@@ -95,5 +136,5 @@ for (const file of await readdir(output, { recursive: true })) {
   await writeFile(destination, html);
 }
 console.log(
-  `Built static site in dist/ with ${aliases.size} shareable lyric pages · Updated at ${updatedLabel} (public files only).`,
+  `Built static site in dist/ with ${aliases.size} shareable lyric pages and ${wiseau.clips.length} Tommy pages · Updated at ${updatedLabel} (public files only).`,
 );

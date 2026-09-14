@@ -11,6 +11,8 @@ test("a shared Tommy line opens from its stable link, plays, and offers its MP3"
   await page.goto(`/wiseau/${clip.id}`);
   await expect(page.getByRole("heading", { level: 1 })).toContainText(clip.text);
   await expect(page).toHaveTitle(/Tommy says/);
+  const preview = await page.request.get(`/wiseau/${clip.id}`);
+  expect(await preview.text()).toContain(`<meta property="og:title" content="“${clip.text}”" />`);
   await expect(page.getByText("He never said this.")).toBeVisible();
   await expect(page.getByRole("link", { name: /Download MP3/ })).toHaveAttribute("href", clip.url);
 
@@ -29,16 +31,16 @@ test("a shared Tommy line opens from its stable link, plays, and offers its MP3"
   await expect(page.locator(".player")).toBeInViewport();
 });
 
-test("the index lists every shared line and an unknown link explains itself", async ({ page }) => {
+test("the index lists every shared line and an unknown link gets the site's not-found page", async ({ page }) => {
   await page.goto("/wiseau/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Tommy says.");
   await expect(page.locator(".row")).toHaveCount(manifest.clips.length);
   if (clip) await expect(page.locator(".row-quote").first()).toHaveAttribute("href", `/wiseau/${clip.id}`);
   else await expect(page.locator(".clips-empty")).toHaveText("Nothing shared yet.");
 
-  await page.goto("/wiseau/nope2345");
-  await expect(page.getByRole("status")).toContainText("No clip lives at this link");
-  await expect(page.locator(".row")).toHaveCount(manifest.clips.length);
+  const missing = await page.goto("/wiseau/nope2345");
+  expect(missing.status()).toBe(404);
+  await expect(page).toHaveTitle(/Page not found/);
 
   const bare = await page.request.get("/wiseau", { maxRedirects: 0 });
   expect(bare.status()).toBe(301);

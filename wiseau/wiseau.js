@@ -1,6 +1,7 @@
-// Tommy says: one page serves both /wiseau/ (every shared line) and /wiseau/<id> (one line).
-// Azure rewrites /wiseau/* to this page; the id is read from the path and looked up in the
-// static manifest that scripts/share_yehry3.py in the wiseau-tts project commits alongside
+// Tommy says: this script runs both /wiseau/ (every shared line) and /wiseau/<id> (one line).
+// scripts/build.mjs writes a copy of the page per clip at dist/wiseau/<id>/index.html with the
+// line in its title and link-preview metadata; the id is read from the path and looked up in
+// the static manifest that scripts/share_yehry3.py in the wiseau-tts project commits alongside
 // each MP3. No API, no accounts: the manifest and the clips are plain files on this site.
 const SITE_NAME = "Tommy says";
 const status = document.querySelector("#status");

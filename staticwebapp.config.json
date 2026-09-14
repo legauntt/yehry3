@@ -126,10 +126,6 @@
       }
     },
     {
-      "route": "/wiseau/*",
-      "rewrite": "/wiseau/index.html"
-    },
-    {
       "route": "/queue",
       "redirect": "/queue/",
       "statusCode": 301

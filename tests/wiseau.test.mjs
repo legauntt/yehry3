@@ -33,13 +33,37 @@ test("every shared Tommy line has a stable id, a playable file, and a waveform",
     "Every clip file must be listed exactly once",
   );
 });
-test("the share page rewrite comes after the routes for its own files", () => {
-  const order = config.routes.map((route) => route.route);
-  const rewrite = config.routes.find((route) => route.route === "/wiseau/*");
-  assert.equal(rewrite?.rewrite, "/wiseau/index.html");
+test("no wildcard rewrite shadows the per-clip pages", () => {
+  // Azure applies a matching rewrite even when the requested file exists, so a /wiseau/*
+  // rewrite would serve the index instead of dist/wiseau/<id>/index.html and its metadata.
+  for (const route of config.routes)
+    if (route.route.startsWith("/wiseau") && route.route.endsWith("*"))
+      assert.equal(route.rewrite, undefined, `${route.route} must not rewrite`);
   for (const own of ["/wiseau/clips.json", "/wiseau/wiseau.js", "/wiseau/wiseau.css", "/wiseau/clips/*"])
-    assert.ok(
-      order.indexOf(own) !== -1 && order.indexOf(own) < order.indexOf("/wiseau/*"),
-      `${own} must be matched before the wildcard rewrite or Azure would serve the page instead`,
-    );
+    assert.ok(config.routes.some((route) => route.route === own), `${own} keeps its cache rule`);
+});
+const escape = (value) =>
+  String(value).replace(
+    /[&<>"']/g,
+    (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[character],
+  );
+test("every shared line has its own built page whose link preview quotes it", async () => {
+  const dist = new URL("../dist/wiseau/", import.meta.url);
+  const index = await readFile(new URL("index.html", dist), "utf8");
+  assert.doesNotMatch(index, /og:title/, "The index keeps its generic metadata");
+  const pages = (await readdir(dist, { withFileTypes: true }))
+    .filter((entry) => entry.isDirectory() && entry.name !== "clips")
+    .map((entry) => entry.name);
+  assert.deepEqual(pages.sort(), manifest.clips.map((clip) => clip.id).sort(), "One page per clip, no strays");
+  for (const clip of manifest.clips) {
+    const html = await readFile(new URL(`${clip.id}/index.html`, dist), "utf8");
+    const quote = escape(`“${clip.text}”`);
+    assert.ok(html.includes(`<title>${quote} · Tommy says · yehry3</title>`), `Title of ${clip.id}`);
+    assert.ok(html.includes(`<meta property="og:title" content="${quote}" />`), `og:title of ${clip.id}`);
+    assert.ok(html.includes(`<meta property="og:url" content="https://yehry3.app/wiseau/${clip.id}" />`));
+    assert.ok(html.includes(`<meta property="og:audio" content="https://yehry3.app${clip.url}" />`));
+    assert.match(html, /<meta property="og:description" content="\d+ seconds? in the voice of [^"]*He never said this\." \/>/);
+    assert.ok(html.includes('<script type="module" src="/wiseau/wiseau.js"></script>'), "The player loads from the site root");
+    assert.match(html, /noindex,\s*nofollow,\s*noarchive/);
+  }
 });
