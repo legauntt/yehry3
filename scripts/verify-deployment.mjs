@@ -174,11 +174,13 @@ for (const request of [
         "qualityIssues",
         "voiceModel",
         "originalPrompt",
+        "hasSongPlan",
         "recovery",
       ].includes(field),
       `Unexpected public field: ${field}`,
     );
   assert.match(request.voiceModel, /^v[1-9][0-9]*$/);
+  if (request.hasSongPlan !== undefined) assert.equal(request.hasSongPlan, true);
   if (request.recovery) {
     assert.equal(request.status, "failed");
     assert.deepEqual(Object.keys(request.recovery).sort(), ["expiresAt", "phase"]);
@@ -258,6 +260,8 @@ assert.equal(response.headers.get("access-control-allow-origin"), site);
 const live = await response.json();
 for (const song of local.songs) {
   const published = live.songs.find((item) => item.id === song.id);
+  if (song.songPlan)
+    assert.deepEqual(published?.songPlan, song.songPlan, `Song plan differs for ${song.title}`);
   assert.equal(
     published?.voiceModel,
     song.voiceModel || "v6",
