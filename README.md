@@ -50,6 +50,7 @@ For the real API, follow [chairlift's setup and queue contract](../chairlift/yeh
 
 ## Behavior
 
+- The hero record plays its short arrival spin after the page loads and becomes visible, including when Windows animation effects are off. Clicking it earlier takes control immediately. Reduced motion still disables the occasional automatic idle spins.
 - Song ages use elapsed time from a real release timestamp, including across UTC midnight. Missing dates show **Age unavailable** until the API can supply them. Catalog refreshes preserve a song's position only after the visitor has scrolled into the list; a row visible beneath the introduction cannot pull the page down when rankings change. Native browser history/reload scroll restoration remains enabled.
 - **Song plan** links open the saved musical plan beside the **Original prompt**: planned title, approach, vocal reference style, length, tempo, key, arrangement, lyrics, and any movements. Plans appear after planning finishes, before rendering; an open request sheet checks every 30 seconds while waiting. The same snapshot stays with the published song in the API and fallback catalog. Forty-three published requests were backfilled from matching saved plans and recording hashes; older songs without a saved plan say so. Private planning inputs, admin notes, explanations, and logs remain local/private.
 

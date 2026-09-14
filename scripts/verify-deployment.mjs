@@ -97,6 +97,7 @@ for (const name of [
   "recovery.js",
   "notifications.js",
   "suggestions.js",
+  "record-motion.js",
   "lyrics.js",
   "original-prompt.js",
   "prompt-brief.js",

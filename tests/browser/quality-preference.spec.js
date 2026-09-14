@@ -78,7 +78,7 @@ test("blocked localStorage still allows the current page to toggle notices", asy
   await expect(page.locator(".quality-notice")).toBeVisible();
 });
 
-test("the hero record starts moving and honors reduced motion", async ({ page }) => {
+test("the hero record spins on arrival and remains interactive with reduced motion", async ({ page }) => {
   await page.goto("/");
   const record = page.locator(".record");
   await expect(record).toHaveAttribute("data-motion", "active");
@@ -125,7 +125,8 @@ test("the hero record starts moving and honors reduced motion", async ({ page })
   await expect.poll(() => record.evaluate((element) => element.getAnimations().length)).toBe(0);
   await page.reload();
   await expect(record).toHaveAttribute("data-motion", "reduced");
-  await expect(record).not.toHaveClass(/record-spin/);
+  await expect(record).toHaveClass(/record-spin-intro/);
+  expect(await record.evaluate((element) => element.getAnimations()[0].effect.getTiming().iterations)).toBe(3);
   await record.click({ force: true });
   await expect(record).toHaveAttribute("data-spin-speed", "1");
   expect(await record.evaluate((element) => element.getAnimations()[0].effect.getKeyframes()

@@ -1770,7 +1770,6 @@ main {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .record.record-spin-intro,
   .record.record-spin-idle {
     animation: none;
   }

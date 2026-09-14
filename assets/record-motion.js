@@ -9,6 +9,8 @@ export function startRecordMotion(record) {
   let timer;
   let clickAnimation;
   let coastFrame;
+  let introFrame;
+  let introPending = true;
   let lastClickAt = 0;
   let lastCoastAt = 0;
   let lastActivity = performance.now();
@@ -19,9 +21,22 @@ export function startRecordMotion(record) {
   const spinDuration = 1600;
   const spinRates = [1.25, 1.75, 2.5, 3.5, 5];
   const randomDelay = () => 18000 + Math.random() * 37000;
+  const startIntro = () => {
+    if (!introPending || document.readyState !== "complete" || document.hidden) return;
+    cancelAnimationFrame(introFrame);
+    // Give the loaded page a paint before starting, including on slower PCs.
+    introFrame = requestAnimationFrame(() => {
+      introFrame = requestAnimationFrame(() => {
+        introFrame = undefined;
+        if (!introPending || document.hidden) return;
+        introPending = false;
+        record.classList.add("record-spin-intro");
+      });
+    });
+  };
   const schedule = (delay = randomDelay()) => {
     clearTimeout(timer);
-    if (motion.matches) return;
+    if (motion.matches || introPending) return;
     timer = setTimeout(() => {
       if (document.hidden) return schedule();
       const remainingIdle = idleFor - (performance.now() - lastActivity);
@@ -63,6 +78,9 @@ export function startRecordMotion(record) {
     coastFrame = requestAnimationFrame(coast);
   };
   const spin = () => {
+    introPending = false;
+    cancelAnimationFrame(introFrame);
+    introFrame = undefined;
     clearTimeout(timer);
     record.classList.remove("record-spin-intro", "record-spin-idle");
     const currentRate = clickAnimation?.playbackRate || 0;
@@ -98,7 +116,9 @@ export function startRecordMotion(record) {
     spin();
   });
   document.addEventListener("visibilitychange", () => {
-    if (!document.hidden && !record.classList.contains("record-spin-idle") && !clickAnimation) schedule();
+    startIntro();
+    if (!document.hidden && !introPending && !record.classList.contains("record-spin-intro") &&
+        !record.classList.contains("record-spin-idle") && !clickAnimation) schedule();
   });
   motion.addEventListener("change", (event) => {
     record.dataset.motion = event.matches ? "reduced" : "active";
@@ -107,13 +127,16 @@ export function startRecordMotion(record) {
       cancelAnimationFrame(coastFrame);
       coastFrame = undefined;
       stopClickSpin();
-      record.classList.remove("record-spin-intro", "record-spin-idle");
+      record.classList.remove("record-spin-idle");
       delete record.dataset.spinSpeed;
       delete record.dataset.spinRate;
       return;
     }
-    requestAnimationFrame(() => record.classList.add("record-spin-intro"));
+    schedule();
   });
 
-  if (!motion.matches) requestAnimationFrame(() => record.classList.add("record-spin-intro"));
+  // The short arrival spin is intentional even with Windows animation effects off.
+  // Reduced motion continues to disable automatic idle spins.
+  window.addEventListener("load", startIntro, { once: true });
+  startIntro();
 }
