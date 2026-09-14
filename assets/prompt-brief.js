@@ -23,7 +23,7 @@ function layout({ idea, authoredBy, voice, keep, direction, basis }, materials, 
   </div>`;
 }
 
-export function privatePromptBrief(doc, escape, describeVoice = voiceLabel) {
+export function requestPromptBrief(doc, escape, describeVoice = voiceLabel) {
   const details = doc.details || {};
   const materials = materialBrief(details, escape) || '<div class="materials-review"><h3>Lyrics &amp; references</h3><p class="small">No lyric sheet or reference links supplied.</p></div>';
   return layout({
@@ -33,10 +33,9 @@ export function privatePromptBrief(doc, escape, describeVoice = voiceLabel) {
   }, materials, escape);
 }
 
-export function publicPromptBrief(song, escape) {
-  // Public views render only the confirmed public fields, never private attachments.
+export function publicPromptBrief(song, escape, { materialsUnavailable = false } = {}) {
   const brief = song.originalPrompt || {};
-  const materials = '<div class="prompt-private-note"><h3>Lyrics &amp; references</h3><p class="small">Supplied lyrics and reference links are private. They are available to the requester and in Backstage; the finished song’s lyrics appear on its Lyrics page when available.</p></div>';
+  const materials = materialBrief(brief, escape) || `<div class="materials-review"><h3>Lyrics &amp; references</h3><p class="small">${materialsUnavailable ? 'Lyrics and references could not be loaded. Reload this page to try again.' : 'No lyric sheet or reference links supplied.'}</p></div>`;
   return layout({
     idea: brief.idea, authoredBy: song.authoredBy,
     voice: voiceLabel(brief.voiceModel), keep: brief.keep, direction: brief.direction,

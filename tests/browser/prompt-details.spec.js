@@ -1,5 +1,44 @@
 import { test, expect } from "@playwright/test";
 
+for (const status of ["queued", "published"]) {
+  test(`anonymous visitors can read supplied material for a ${status} request`, async ({ page }) => {
+    const id = "distonyc-" + "b".repeat(24);
+    const attack = '<img src=x onerror="alert(1)">';
+    const originalPrompt = { idea: "An evening railway song", direction: "Warm guitar", keep: "A hopeful chorus", basisSongs: [], voiceModel: "v7" };
+    const song = { id, title: "Evening Railway", url: "https://example.org/song.mp3", lyrics: { text: "Finished song lyrics", kind: "written" }, originalPrompt };
+    const full = { id, idea: originalPrompt.idea, status, originalPrompt: {
+      ...originalPrompt, lyricSheet: { text: "[Verse]\nSupplied words\n" + attack, mode: "adapt" }, references: [
+        { url: "https://example.org/" + "railway".repeat(35), purpose: "creative", note: "Borrow the atmosphere.", snapshot: { status: "ready", title: "An evening train", text: "Saved page\n" + attack } },
+      ],
+    } };
+    await page.route("**/yehry3/songs", route => route.fulfill({ json: { songs: status === "published" ? [song] : [] } }));
+    await page.route("**/catalog.json", route => route.fulfill({ json: { songs: [] } }));
+    await page.route(`**/yehry3/queue/${id}`, route => route.fulfill({ json: full }));
+    await page.goto(`/original-prompt/?song=${id}`);
+    await expect(page.getByLabel("Password", { exact: true })).toHaveCount(0);
+    await expect(page.locator(".brief")).not.toContainText("are private");
+    await expect(page.locator(".materials-review")).toContainText("Adapt these lyrics");
+    await page.getByText("Read the submitted lyric sheet").click();
+    await expect(page.getByRole("region", { name: "Submitted lyric sheet" })).toHaveText(full.originalPrompt.lyricSheet.text);
+    await expect(page.locator(".reference-review a")).toHaveAttribute("href", full.originalPrompt.references[0].url);
+    await page.getByText("View saved reference content").click();
+    await expect(page.getByRole("region", { name: "Saved content for reference 1" })).toContainText(attack);
+    await expect(page.locator(".brief img")).toHaveCount(0);
+    await page.setViewportSize({ width: 390, height: 844 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.screenshot({ path: `artifacts/public-materials-${status}-mobile.png`, fullPage: true });
+    if (status === "published") {
+      await expect(page.getByRole("link", { name: "Hear the song" })).toHaveAttribute("href", song.url);
+      await expect(page.getByRole("link", { name: "Lyrics ↗", exact: true })).toBeVisible();
+      await page.route(`**/yehry3/queue/${id}`, route => route.abort());
+      await page.reload();
+      await expect(page.locator(".original-prompt h1")).toHaveText(song.title);
+      await expect(page.locator(".materials-review")).toContainText("could not be loaded");
+      await expect(page.locator(".materials-review")).not.toContainText("No lyric sheet");
+    }
+  });
+}
+
 test("Backstage summarizes advanced settings and lets admins read long attachments on desktop and mobile", async ({ page }) => {
   const sheet = "[Verse 1]\n" + "A lantern lights the railway home\n".repeat(90) + "[End]";
   const attack = '<img src=x onerror="alert(1)">';

@@ -9,7 +9,7 @@ labels and line breaks are preserved. The user chooses **Keep my wording**
 Keep my wording protects the words, spelling, punctuation and order supplied to
 generation. Whitespace and standard section labels may change. The performance
 can vary. Adaptation permits rewriting, shortening and restructuring; the original
-submission remains in the private brief. The active planner and renderer currently
+submission remains in the saved brief. The active planner and renderer currently
 support 3–5 minutes. Review prevents queueing a preserved sheet that is too short
 for the renderer or too dense for five minutes at the current melodic/explicit rap
 pacing guidance, and offers editing or adaptation.
@@ -48,10 +48,19 @@ requester's preview. Temporary previews expire after 24 hours. Accepted copies l
 inside the confirmed brief so future website changes or cache expiry cannot change
 the song.
 
-Sheets, reference URLs and snapshots appear only in the requester, admin and worker
-views. Public queues and Original prompt pages continue using their existing
-allowlists. The final recording's lyric sheet is public, using the existing Lyrics
-page and catalog. Published sheets allow 32,000 UTF-16 characters to accommodate the
+After confirmation, anyone can view supplied lyric sheets, their preserve/adapt mode,
+reference URLs, purposes, notes, and saved reference text in Original prompt details.
+This includes previously confirmed requests and published songs. The anonymous
+GET /queue/:publicId endpoint reads these materials from the saved request, with no
+migration or repeat retrieval. Polling queue lists and the song catalog remain compact;
+the frontend loads the material only when a visitor opens prompt details. During an
+API outage, the page retains the catalog brief and explains that materials could not
+be loaded instead of claiming none were supplied.
+
+Drafts and temporary previews retain their existing owner checks. Admin notes,
+worker diagnostics, local paths, internal snapshot IDs and hashes remain excluded.
+The final recording's lyric sheet is also public, using the existing Lyrics page
+and catalog. Published sheets allow 32,000 UTF-16 characters to accommodate the
 input sheet plus arrangement labels.
 
 The frontend checks GET /request-materials before offering the controls.
@@ -65,7 +74,8 @@ Existing requests and frozen plans without attachments use their existing behavi
 
 Validation includes frontend unit tests; browser reload/edit, limits, import preview,
 failure, mobile, attribution and queue-capacity interactions; API ownership,
-snapshot expiry, public redaction, worker capability and publication checks; and
+snapshot expiry, anonymous confirmed-material access, operational-field redaction,
+worker capability and publication checks; and
 worker preservation, adaptation, budget, cancellation and restart tests. Models and
 GPU rendering are mocked. Public retrieval smoke checks verified YouTube metadata,
 ordinary page text and a Wikisource poem.

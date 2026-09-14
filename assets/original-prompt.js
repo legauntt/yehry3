@@ -5,6 +5,7 @@ import { songPlanSection } from "./song-plan.js";
 export async function originalPromptPage(main, { escape, safeUrl }) {
   const id = new URLSearchParams(location.search).get("song");
   let song;
+  let materialsUnavailable = false;
   const merge = (candidate) => {
     if (!candidate) return;
     song = { ...candidate, ...song,
@@ -17,9 +18,13 @@ export async function originalPromptPage(main, { escape, safeUrl }) {
     } catch {
       /* Use the published fallback below. */
     }
-    if ((!song?.originalPrompt || !song?.songPlan) && /^distonyc-[a-f0-9]{24}$/.test(id)) {
+    if (/^distonyc-[a-f0-9]{24}$/.test(id)) {
       try {
-        merge(await api(`/queue/${encodeURIComponent(id)}`));
+        // Published catalog entries can predate public request materials. Always
+        // read the confirmed request so its saved lyrics/references are available.
+        const request = await api(`/queue/${encodeURIComponent(id)}`);
+        merge(request);
+        song.originalPrompt = request.originalPrompt || song.originalPrompt;
       } catch {
         /* Use the published fallback below. */
       }
@@ -33,6 +38,7 @@ export async function originalPromptPage(main, { escape, safeUrl }) {
         /* Show the unavailable state below. */
       }
     }
+    materialsUnavailable = /^distonyc-[a-f0-9]{24}$/.test(id) && !Object.hasOwn(song?.originalPrompt || {}, "references");
   }
   if (!song?.originalPrompt && !song?.songPlan) {
     main.innerHTML =
@@ -42,7 +48,7 @@ export async function originalPromptPage(main, { escape, safeUrl }) {
   const title = song.title || song.songPlan?.title || song.idea;
   document.title = `${title} · Prompt & song plan · yehry3`;
   const unfinished = song.status && song.status !== "published";
-  main.innerHTML = `<article class="lyrics-sheet original-prompt"><p class="eyebrow">From idea to song</p><h1>${escape(title)}</h1><section><h2>Original prompt</h2>${song.originalPrompt ? `<p class="small">The idea and refinements confirmed for this song.</p>${publicPromptBrief(song, escape)}` : '<p class="small">No original prompt was saved for this song.</p>'}</section>${songPlanSection(song, escape)}<div class="actions">${song.url ? `<a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a>` : ""}${song.lyrics?.text ? `<a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}">Lyrics ↗</a>` : ""}<a class="text-link" href="${unfinished ? `/queue/details/?request=${encodeURIComponent(song.id)}` : "/?collection=distonyc"}">${unfinished ? "Request status" : "Distonyc collection"} →</a></div></article>`;
+  main.innerHTML = `<article class="lyrics-sheet original-prompt"><p class="eyebrow">From idea to song</p><h1>${escape(title)}</h1><section><h2>Original prompt</h2>${song.originalPrompt ? `<p class="small">The idea and refinements confirmed for this song.</p>${publicPromptBrief(song, escape, { materialsUnavailable })}` : '<p class="small">No original prompt was saved for this song.</p>'}</section>${songPlanSection(song, escape)}<div class="actions">${song.url ? `<a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a>` : ""}${song.lyrics?.text ? `<a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}">Lyrics ↗</a>` : ""}<a class="text-link" href="${unfinished ? `/queue/details/?request=${encodeURIComponent(song.id)}` : "/?collection=distonyc"}">${unfinished ? "Request status" : "Distonyc collection"} →</a></div></article>`;
   if (location.hash === "#song-plan") main.querySelector("#song-plan").scrollIntoView();
   if (unfinished && !song.songPlan) {
     const timer = setInterval(async () => {

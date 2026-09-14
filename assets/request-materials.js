@@ -28,11 +28,11 @@ export function mountMaterials(root, draft, { api, storage, escape }) {
   let pending = 0;
   root.innerHTML = '<details class="request-materials"><summary>Lyrics &amp; references <span class="small">(optional)</span></summary>' +
     '<div class="materials-fields"><label for="lyric-sheet">Lyric sheet</label>' +
-    '<textarea id="lyric-sheet" rows="9" aria-describedby="lyric-count lyric-help" placeholder="[Verse 1]&#10;Paste your words here…"></textarea>' +
+    '<textarea id="lyric-sheet" rows="9" aria-describedby="lyric-count lyric-help material-visibility" placeholder="[Verse 1]&#10;Paste your words here…"></textarea>' +
     '<p id="lyric-count" class="small" aria-live="polite"></p><p id="lyric-help" class="small">Up to 3,000 words and 30,000 characters. Keep line breaks and section labels. The final song’s lyric sheet will be public; the performance may vary.</p>' +
     '<label for="lyric-mode">How should we use these lyrics?</label><select id="lyric-mode"><option value="preserve">Keep my wording</option><option value="adapt">Adapt these lyrics</option></select>' +
     '<p id="lyric-mode-help" class="small"></p><p id="lyric-length" class="small" role="status"></p>' +
-    '<h3>Reference links</h3><p class="small">Add up to three public HTTPS links. Choose how to use each one. Reference links and retrieved text stay with your private request.</p>' +
+    '<h3>Reference links</h3><p class="small">Add up to three public HTTPS links. Choose how to use each one.</p><p class="small" id="material-visibility">Once you confirm your request, anyone can view the supplied lyrics, reference links, notes, and saved page text in its prompt details.</p>' +
     '<div id="reference-list"></div><button type="button" class="quiet" id="add-reference">Add a reference link</button>' +
     '<p class="small material-storage" role="status"></p></div></details>';
   const find = (selector) => root.querySelector(selector);
@@ -150,7 +150,7 @@ export function materialBrief(details, escape) {
     if (ref.snapshot?.text) html += '<details><summary>View saved reference content</summary><pre class="material-text" tabindex="0" role="region" aria-label="Saved content for reference ' + (index + 1) + '">' + escape(ref.snapshot.text) + '</pre></details>';
     html += '</div>';
   }
-  return html + '<p class="small">These attachments stay private. The final recording’s lyric sheet will be public.</p></div>';
+  return html + '<p class="small">Supplied lyrics, reference links, notes, and saved page text are public once the request is confirmed.</p></div>';
 }
 
 function referenceLink(value, escape) {

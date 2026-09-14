@@ -22,19 +22,16 @@
 .prompt-section dl {
   margin: 0;
 }
-.prompt-section .materials-review,
-.prompt-private-note {
+.prompt-section .materials-review {
   margin: 22px 0;
   padding: 20px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
-.prompt-section .materials-review > h3,
-.prompt-private-note > h3 {
+.prompt-section .materials-review > h3 {
   margin-bottom: 12px;
 }
-.prompt-section .materials-review > p:last-child,
-.prompt-private-note > p:last-child {
+.prompt-section .materials-review > p:last-child {
   margin-bottom: 0;
 }
 .prompt-summary {

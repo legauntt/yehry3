@@ -40,7 +40,7 @@ test("lyrics persist through reload, review and editing, with default preservati
   await expect(page.getByLabel("How should we use these lyrics?")).toHaveValue("adapt");
   await page.getByRole("button", { name: "Review the request" }).click();
   await expect(page.locator(".materials-review")).toContainText("Adapt these lyrics");
-  await expect(page.locator(".materials-review")).toContainText("attachments stay private");
+  await expect(page.locator(".materials-review")).toContainText("public once the request is confirmed");
 });
 test("oversized sheets remain intact and long preserve requests offer adaptation before queueing", async ({ page }) => {
   await start(page);
@@ -146,7 +146,7 @@ test("Advanced keeps direction, lyrics and basis songs through keyboard tab swit
   await expect(page.locator(".materials-review")).toContainText("Keep my wording");
 });
 
-test("confirmed lyrics and references remain readable in the admin queue", async ({ page }) => {
+test("confirmed lyrics and references are readable in Backstage and without a login", async ({ page, browser }) => {
   await start(page);
   await page.getByLabel("What does it sound like?").fill("Acoustic guitar with brushed drums.");
   await page.getByLabel("Lyric sheet", { exact: true }).fill(sheet);
@@ -168,6 +168,20 @@ test("confirmed lyrics and references remain readable in the admin queue", async
   await expect(card.getByRole("region", { name: "Submitted lyric sheet" })).toHaveText(sheet);
   await expect(card.locator(".reference-note")).toContainText("The warm evening atmosphere.");
   await expect(card.locator(".brief")).toContainText("Acoustic guitar with brushed drums.");
+  const publicContext = await browser.newContext();
+  try {
+    const visitor = await publicContext.newPage();
+    await visitor.goto("http://127.0.0.1:8080/queue/");
+    const publicCard = visitor.locator(".public-queue-card").filter({ hasText: "A warm railway song with a lantern in the window" });
+    await publicCard.getByRole("link", { name: "View original prompt" }).click();
+    await visitor.getByText("Read the submitted lyric sheet").click();
+    await expect(visitor.getByRole("region", { name: "Submitted lyric sheet" })).toHaveText(sheet);
+    await expect(visitor.locator(".reference-note")).toContainText("The warm evening atmosphere.");
+    await expect(visitor.locator(".reference-review a")).toHaveAttribute("href", "https://example.org/lantern");
+    await expect(visitor.getByLabel("Password", { exact: true })).toHaveCount(0);
+  } finally {
+    await publicContext.close();
+  }
   await card.getByLabel("Move request to").selectOption("canceled");
   page.once("dialog", dialog => dialog.accept());
   await card.getByRole("button", { name: "Update status" }).click();

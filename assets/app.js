@@ -1,6 +1,6 @@
 import { songPlanLink } from "./song-plan.js";
 import { mountMaterials, materialBrief, durationIssue, hasMaterialEdits } from "./request-materials.js";
-import { privatePromptBrief, promptSummary } from "./prompt-brief.js";
+import { requestPromptBrief, promptSummary } from "./prompt-brief.js";
 import { mountRequestTabs } from "./request-tabs.js";
 import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./authored-by.js";
 import { recoveryActive, recoveryStatus } from "./recovery.js";
@@ -755,7 +755,7 @@ async function requests() {
   else await load();
 }
 function brief(doc) {
-  return `${privatePromptBrief(doc, escape, voiceModelLabel)}${qualityNotice(doc.result?.qualityIssues || doc.qualityIssues)}${doc.workerProgress ? `<p class="small">${escape(doc.workerProgress.stage)}${doc.status !== "failed" && doc.workerProgress.percent ? ` · ${Math.round(doc.workerProgress.percent)}%` : ""}</p>` : ""}${doc.workerError ? `<p class="field-error">${escape(doc.workerError)}</p>` : ""}`;
+  return `${requestPromptBrief(doc, escape, voiceModelLabel)}${qualityNotice(doc.result?.qualityIssues || doc.qualityIssues)}${doc.workerProgress ? `<p class="small">${escape(doc.workerProgress.stage)}${doc.status !== "failed" && doc.workerProgress.percent ? ` · ${Math.round(doc.workerProgress.percent)}%` : ""}</p>` : ""}${doc.workerError ? `<p class="field-error">${escape(doc.workerError)}</p>` : ""}`;
 }
 
 async function admin() {

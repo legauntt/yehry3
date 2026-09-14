@@ -12,11 +12,11 @@ test("lyric limits accept the boundary without truncation and count Unicode whit
   assert.equal(durationIssue({ lyricSheet: { text: "word ".repeat(3000), mode: "adapt" } }), "");
   assert.match(durationIssue({ lyricSheet: { text: "word ".repeat(600), mode: "preserve" } }), /5-minute/);
 });
-test("private review escapes lyrics, URLs, reference notes and fetched content", () => {
+test("material review escapes lyrics, URLs, reference notes and fetched content", () => {
   const attack = '<img src=x onerror="alert(1)">';
   const html = materialBrief({ lyricSheet: { text: attack, mode: "preserve" }, references: [{ url: attack, purpose: "creative", note: attack, snapshot: { text: attack, message: attack } }] }, escape);
   assert.doesNotMatch(html, /<img|onerror="alert/);
-  assert.match(html, /Keep my wording/); assert.match(html, /stay private/);
+  assert.match(html, /Keep my wording/); assert.match(html, /public once the request is confirmed/);
   assert.equal(materialBrief({}, escape), "");
 });
 
@@ -29,11 +29,23 @@ test("reference links allow HTTPS without credentials and leave unsafe URLs as t
   assert.match(html, /rel="noopener noreferrer"/);
 });
 
-test("public prompt details exclude attachments even if supplied and tolerate older missing fields", () => {
-  const privateFields = { lyricSheet: { text: "PRIVATE LYRIC", mode: "adapt" }, references: [{ url: "https://private.example/", snapshot: { text: "PRIVATE SNAPSHOT" } }], adminNote: "PRIVATE NOTE" };
-  const html = publicPromptBrief({ originalPrompt: { idea: "<b>A song</b>", ...privateFields }, details: privateFields, ...privateFields }, escape);
-  assert.doesNotMatch(html, /PRIVATE|private\.example|<b>/);
+test("public prompt details show supplied material and omit operational fields", () => {
+  const materials = { lyricSheet: { text: "SUPPLIED LYRIC <img src=x>", mode: "adapt" }, references: [{ url: "https://example.org/song", purpose: "creative", note: "SUPPLIED NOTE", snapshot: { text: "SAVED PAGE", owner: "INTERNAL OWNER" } }], adminNote: "INTERNAL NOTE" };
+  const html = publicPromptBrief({ originalPrompt: { idea: "<b>A song</b>", ...materials }, details: materials, ...materials }, escape);
+  assert.doesNotMatch(html, /INTERNAL|<img|<b>/);
+  assert.match(html, /SUPPLIED LYRIC &lt;img src=x&gt;/);
+  assert.match(html, /SUPPLIED NOTE/);
+  assert.match(html, /SAVED PAGE/);
+  assert.match(html, /href="https:\/\/example.org\/song"/);
   assert.match(html, /&lt;b&gt;A song&lt;\/b&gt;/);
   assert.match(html, /Tony V6/);
   assert.match(html, /No basis songs selected/);
+});
+
+test("missing request details do not claim there were no supplied materials", () => {
+  const song = { originalPrompt: { idea: "An older request" } };
+  assert.match(publicPromptBrief(song, escape), /No lyric sheet or reference links supplied/);
+  const unavailable = publicPromptBrief(song, escape, { materialsUnavailable: true });
+  assert.match(unavailable, /Lyrics and references could not be loaded/);
+  assert.doesNotMatch(unavailable, /No lyric sheet/);
 });
