@@ -13,12 +13,14 @@ async function sample(url, identity = false) {
   if (!response.ok) throw new Error(`Unexpected HTTP ${response.status}`);
   return JSON.parse(body);
 }
+const savedCatalog = await sample(`${site}/catalog-summary.json`);
+const savedIds = new Set(savedCatalog.songs.map(song => song.id));
 let id;
 for (let i = 0; i < 3; i++) {
   await sample(`${api}/ready`);
   const catalog = await sample(`${api}/songs/summary`, true);
-  id ||= catalog.songs.find(song => song.hasOriginalPrompt)?.id || catalog.songs[0]?.id;
+  // New publications can reach Chairlift before their static deployment finishes.
+  id ||= catalog.songs.find(song => song.hasOriginalPrompt && savedIds.has(song.id))?.id || catalog.songs.find(song => savedIds.has(song.id))?.id;
   if (id) await sample(`${api}/songs/${encodeURIComponent(id)}`);
 }
-await sample(`${site}/catalog-summary.json`);
 if (id) await sample(`${site}/songs/${encodeURIComponent(id)}.json`);
