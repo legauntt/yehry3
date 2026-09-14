@@ -1,0 +1,51 @@
+.favorites-panel {
+  margin: 20px 0;
+  padding: 16px;
+  border: 1px solid var(--line, #bcc6b2);
+  border-radius: 8px;
+}
+.profile-controls, #profile-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+}
+.profile-controls > label, #profile-form label { margin: 0; font-size: .8rem; }
+#listener-profile { width: auto; max-width: 100%; min-width: 180px; flex: 1; }
+.profile-controls select, #profile-form input { font-size: .85rem; min-height: 44px; }
+.new-profile { max-width: 100%; }
+.new-profile summary { cursor: pointer; font-size: .8rem; padding: 12px 0; }
+.new-profile[open] { flex-basis: 100%; order: 2; }
+#profile-form input { width: auto; flex: 1; min-width: 140px; }
+.favorites-panel .quiet { min-height: 44px; }
+#profile-help, .profile-status { margin: 12px 0 0; font-size: .75rem; overflow-wrap: anywhere; }
+.profile-status:empty { display: none; }
+#saved-only[aria-pressed="true"] { background: var(--ink, #283b30); color: var(--paper, #f7f5ec); }
+.favorite-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 9px;
+  margin: 6px 0 0;
+  min-height: 32px;
+  font: inherit;
+  font-size: .75rem;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--line, #bcc6b2);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.favorite-button[aria-pressed="true"] { background: #e4ecd9; color: #283b30; border-color: #839a73; }
+.favorite-button:disabled { opacity: .55; cursor: wait; }
+.favorite-button:focus-visible, .profile-controls :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media (max-width: 650px) {
+  .favorites-panel { padding: 12px; }
+  .profile-controls { gap: 8px 12px; }
+  .profile-controls > label { flex-basis: 100%; }
+  #listener-profile { width: 100%; min-width: 0; flex: 1 0 100%; }
+  #profile-form input { width: 100%; min-width: 0; }
+  #profile-form label { flex-basis: 100%; }
+  .favorite-button { min-height: 44px; }
+}
+@media print { .favorites-panel, .favorite-button { display: none; } }

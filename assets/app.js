@@ -13,6 +13,7 @@ import { startRecordMotion } from "./record-motion.js";
 import { api, login, logout, signedIn, loginPersistence, storage } from "./api.js";
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 import { watchCompletions } from "./notifications.js";
+import { mountFavorites } from "./favorites.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const main = $("#main");
@@ -155,7 +156,7 @@ async function library() {
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><p class="eyebrow">The catalog</p><h2 id="collection-title">Pick your next obsession.</h2></div><div class="catalog-status"><p class="small" id="track-count">Loading songs…</p><p class="small auto-refresh-note"><span aria-hidden="true">↻</span> Auto-refreshes every 30 seconds</p></div></div>
       <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="hybrid">Fresh, then most loved</option><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button><div class="display-settings" data-quality-settings></div></div>
-      <p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div>
+      <div id="favorites"></div><p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
     <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
@@ -206,6 +207,7 @@ async function library() {
   const freshWindow = 24 * 60 * 60 * 1000;
   const audio = $("#audio");
   const rowMarkup = new WeakMap();
+  const favorites = mountFavorites($("#favorites"), { filter: true, onChange: () => render({ preserveViewport: true }) });
   function syncRows(container, markup) {
     const template = document.createElement("template");
     template.innerHTML = markup;
@@ -268,7 +270,7 @@ async function library() {
     visible = songs.filter(
       (song) =>
         song.title.toLowerCase().includes(query) &&
-        (collection === "all" || collections(song).includes(collection)),
+        (collection === "all" || collections(song).includes(collection)) && favorites.includes(song),
     );
     const unknownSongs = songs.filter(
       (song) => !songPublishedAt(song, recentReleases.get(song.id)),
@@ -312,7 +314,15 @@ async function library() {
         <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id), unknownAges.get(song))}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
-      : '<p class="empty">No songs match. Try another title or style.</p>');
+      : `<p class="empty">${favorites.onlySaved ? escape(favorites.emptyMessage()) : "No songs match. Try another title or style."}</p>`);
+    $("#tracks").querySelectorAll(".track-info").forEach((info) => {
+      const song = songs.find((item) => item.id === info.closest("[data-id]").dataset.id);
+      if (!info.querySelector("[data-save]")) info.insertAdjacentHTML("beforeend", favorites.button(song));
+    });
+    favorites.syncButtons();
+    if (favorites.onlySaved) $("#pending-tracks").hidden = true;
+    $("#play-all").disabled = !visible.length;
+    $("#shuffle").disabled = !visible.length;
     cooldown();
     restoreViewport();
   }

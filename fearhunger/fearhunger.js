@@ -2,6 +2,7 @@ import { api } from "../assets/api.js";
 import { qualityNotice } from "../assets/quality.js";
 import { watchCompletions } from "../assets/notifications.js";
 import { lyricsHref } from "../assets/song-links.js";
+import { mountFavorites } from "../assets/favorites.js";
 
 watchCompletions();
 
@@ -11,6 +12,9 @@ const cards = [],
 const status = document.querySelector("#status");
 const note = document.querySelector("#collection-note");
 const shuffleButton = document.querySelector("#shuffle");
+const profilePanel = document.createElement("div");
+note.after(profilePanel);
+const favorites = mountFavorites(profilePanel);
 let shuffled = false,
   queue = [],
   cursor = -1,
@@ -53,6 +57,7 @@ function register(card) {
   cards.push(card);
   players.push(player);
   known.set(card.dataset.songId, card);
+  card.querySelector(".track-body").insertAdjacentHTML("beforeend", favorites.button({ id: card.dataset.songId, title: title(index) }));
   player.addEventListener("play", () => {
     if (queue[cursor] !== index) {
       queue = [index];
