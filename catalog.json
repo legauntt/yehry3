@@ -2,6 +2,328 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-f66a9de18440b262a8b9a8c9",
+      "title": "The Trial Before the Truth",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f66a9de18440b262a8b9a8c9-7c3bf26bfdcc.mp3",
+      "duration": 269.2,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-14T18:57:15.098Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The Trial Before the Truth",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Dependable, bass-forward rock in D minor using the mandatory pinned Tony V7 voice profile without substitution. Smoky, slurred verses build into forceful melodic choruses with distorted guitars, muscular bass movement, live drums, organ, ensemble stops, and a restrained half-time bridge. Keep the hook clear amid crooked timing, muttered tails, and excited outbursts. Pace the final chorus and sustained outro so the final sung syllable lands 8–12 seconds before 4:30, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nThey rang the bell before the dawn,\nPassed the sentence, coats still on.\n\n[Verse 1]\nJevreigh Ebbz'deen walked into town\nWith a crooked grin and his collar down.\nHe carried groceries for the widow Gray,\nFixed the schoolhouse roof without asking pay.\nThen a whisper found a hungry page,\nAnd a nameless claim became a cage.\nEvery careful word was cut in two;\nBy supper, everybody somehow knew.\n\n[Pre-Chorus]\nNo witness stand, no tested line,\nJust borrowed fury dressed as fact in time.\n\n[Chorus]\nI got a righteous fire for the names they used,\nFor every alleged victim twisted through the news.\nAnd I burn for Jevreigh, left alone beneath the blame—\nYou cannot call it justice when you never prove the claim.\nRing that iron bell, let the buried record sing:\nA crowd can crown a rumor, but it cannot make it king.\n\n[Verse 2]\nThey photographed his unlit door,\nCounted all the friends who came no more.\nHis oldest brother heard him say,\n“I can fight a man, not a fog all day.”\nThen one black night, the fight went still;\nGrief moved cold across the hill.\nHe took his life—the cruelest cost,\nNot proof of guilt, just a life we lost.\n\n[Pre-Chorus]\nHe should have lived to see the lie undone,\nTo stand in morning, face the rising sun.\n\n[Chorus]\nI got a righteous fire for the names they used,\nFor every alleged victim twisted through the news.\nAnd I burn for Jevreigh, left alone beneath the blame—\nYou cannot call it justice when you never prove the claim.\nRing that iron bell, let the buried record sing:\nA crowd can crown a rumor, but it cannot make it king.\n\n[Bridge]\nThen the ledger surfaced, dates and places clear;\nThe story split apart for anyone to hear.\nOne voice confessed the pressure and the price,\nHow frightened people had been fed a script of ice.\nNo victory rose when the truth broke through,\nOnly empty chairs and what remorse could do.\n\n[Breakdown]\nSo save your stones till evidence is weighed.\nGuard the wounded; do not turn their pain into a blade.\nAsk hard questions, let honest answers breathe—\nA lie can wound the living and dishonor those who grieve.\n\n[Final Chorus]\nI got a righteous fire for the names they used,\nFor every frightened soul the spectacle abused.\nAnd I burn for Jevreigh, who deserved another day,\nA hearing in the daylight—not a mob to clear away.\nRing that iron bell till the final echoes cease:\nTruth without compassion is another kind of thief.\n\n[Outro]\nJevreigh Ebbz'deen, your name is not their noise.\nWe will choose the careful truth; we will hear the quiet voice.\nNo rumor gets the last word, no headline seals the stone—\nThe truth arrives in daylight,\nand nobody stands alone.\n[End]",
+        "duration": 270,
+        "bpm": 104
+      },
+      "lyrics": {
+        "text": "[Intro]\nThey rang the bell before the dawn,\nPassed the sentence, coats still on.\n\n[Verse 1]\nJevreigh Ebbz'deen walked into town\nWith a crooked grin and his collar down.\nHe carried groceries for the widow Gray,\nFixed the schoolhouse roof without asking pay.\nThen a whisper found a hungry page,\nAnd a nameless claim became a cage.\nEvery careful word was cut in two;\nBy supper, everybody somehow knew.\n\n[Pre-Chorus]\nNo witness stand, no tested line,\nJust borrowed fury dressed as fact in time.\n\n[Chorus]\nI got a righteous fire for the names they used,\nFor every alleged victim twisted through the news.\nAnd I burn for Jevreigh, left alone beneath the blame—\nYou cannot call it justice when you never prove the claim.\nRing that iron bell, let the buried record sing:\nA crowd can crown a rumor, but it cannot make it king.\n\n[Verse 2]\nThey photographed his unlit door,\nCounted all the friends who came no more.\nHis oldest brother heard him say,\n“I can fight a man, not a fog all day.”\nThen one black night, the fight went still;\nGrief moved cold across the hill.\nHe took his life—the cruelest cost,\nNot proof of guilt, just a life we lost.\n\n[Pre-Chorus]\nHe should have lived to see the lie undone,\nTo stand in morning, face the rising sun.\n\n[Chorus]\nI got a righteous fire for the names they used,\nFor every alleged victim twisted through the news.\nAnd I burn for Jevreigh, left alone beneath the blame—\nYou cannot call it justice when you never prove the claim.\nRing that iron bell, let the buried record sing:\nA crowd can crown a rumor, but it cannot make it king.\n\n[Bridge]\nThen the ledger surfaced, dates and places clear;\nThe story split apart for anyone to hear.\nOne voice confessed the pressure and the price,\nHow frightened people had been fed a script of ice.\nNo victory rose when the truth broke through,\nOnly empty chairs and what remorse could do.\n\n[Breakdown]\nSo save your stones till evidence is weighed.\nGuard the wounded; do not turn their pain into a blade.\nAsk hard questions, let honest answers breathe—\nA lie can wound the living and dishonor those who grieve.\n\n[Final Chorus]\nI got a righteous fire for the names they used,\nFor every frightened soul the spectacle abused.\nAnd I burn for Jevreigh, who deserved another day,\nA hearing in the daylight—not a mob to clear away.\nRing that iron bell till the final echoes cease:\nTruth without compassion is another kind of thief.\n\n[Outro]\nJevreigh Ebbz'deen, your name is not their noise.\nWe will choose the careful truth; we will hear the quiet voice.\nNo rumor gets the last word, no headline seals the stone—\nThe truth arrives in daylight,\nand nobody stands alone.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0.96,
+            "end": 3.64
+          },
+          {
+            "line": 2,
+            "start": 6.06,
+            "end": 8.64
+          },
+          {
+            "line": 5,
+            "start": 20.02,
+            "end": 21.9
+          },
+          {
+            "line": 6,
+            "start": 21.9,
+            "end": 24.06
+          },
+          {
+            "line": 7,
+            "start": 24.06,
+            "end": 26.36
+          },
+          {
+            "line": 8,
+            "start": 26.36,
+            "end": 29.24
+          },
+          {
+            "line": 9,
+            "start": 29.24,
+            "end": 31.16
+          },
+          {
+            "line": 10,
+            "start": 31.16,
+            "end": 33.46
+          },
+          {
+            "line": 11,
+            "start": 33.46,
+            "end": 35.62
+          },
+          {
+            "line": 12,
+            "start": 35.62,
+            "end": 38.38
+          },
+          {
+            "line": 15,
+            "start": 38.38,
+            "end": 40.68
+          },
+          {
+            "line": 16,
+            "start": 40.68,
+            "end": 44.1
+          },
+          {
+            "line": 19,
+            "start": 44.1,
+            "end": 49.6
+          },
+          {
+            "line": 20,
+            "start": 49.6,
+            "end": 54.1
+          },
+          {
+            "line": 21,
+            "start": 54.44,
+            "end": 58.88
+          },
+          {
+            "line": 22,
+            "start": 59.42,
+            "end": 63.86
+          },
+          {
+            "line": 23,
+            "start": 64.38,
+            "end": 69.84
+          },
+          {
+            "line": 24,
+            "start": 70.04,
+            "end": 73.24
+          },
+          {
+            "line": 27,
+            "start": 81.64,
+            "end": 84.04
+          },
+          {
+            "line": 28,
+            "start": 84.44,
+            "end": 86.54
+          },
+          {
+            "line": 29,
+            "start": 86.92,
+            "end": 88.64
+          },
+          {
+            "line": 30,
+            "start": 89.16,
+            "end": 91.32
+          },
+          {
+            "line": 31,
+            "start": 91.6,
+            "end": 93.5
+          },
+          {
+            "line": 32,
+            "start": 93.5,
+            "end": 95.94
+          },
+          {
+            "line": 33,
+            "start": 96.28,
+            "end": 98.24
+          },
+          {
+            "line": 34,
+            "start": 98.24,
+            "end": 100.78
+          },
+          {
+            "line": 37,
+            "start": 101,
+            "end": 102.98
+          },
+          {
+            "line": 38,
+            "start": 102.98,
+            "end": 106.28
+          },
+          {
+            "line": 41,
+            "start": 107.14,
+            "end": 111.8
+          },
+          {
+            "line": 42,
+            "start": 111.8,
+            "end": 116.42
+          },
+          {
+            "line": 43,
+            "start": 117.06,
+            "end": 121.1
+          },
+          {
+            "line": 44,
+            "start": 121.96,
+            "end": 126.02
+          },
+          {
+            "line": 45,
+            "start": 126.56,
+            "end": 130.52
+          },
+          {
+            "line": 46,
+            "start": 131.3,
+            "end": 135.52
+          },
+          {
+            "line": 49,
+            "start": 141.76,
+            "end": 144.78
+          },
+          {
+            "line": 50,
+            "start": 144.78,
+            "end": 149.96
+          },
+          {
+            "line": 51,
+            "start": 151.22,
+            "end": 154.1
+          },
+          {
+            "line": 52,
+            "start": 155.56,
+            "end": 159.38
+          },
+          {
+            "line": 53,
+            "start": 160.68,
+            "end": 163.6
+          },
+          {
+            "line": 54,
+            "start": 164.94,
+            "end": 168.76
+          },
+          {
+            "line": 57,
+            "start": 170.32,
+            "end": 174.9
+          },
+          {
+            "line": 58,
+            "start": 174.9,
+            "end": 178.22
+          },
+          {
+            "line": 59,
+            "start": 179.56,
+            "end": 184.9
+          },
+          {
+            "line": 60,
+            "start": 184.9,
+            "end": 189.08
+          },
+          {
+            "line": 63,
+            "start": 191,
+            "end": 194.72
+          },
+          {
+            "line": 64,
+            "start": 194.72,
+            "end": 199.72
+          },
+          {
+            "line": 65,
+            "start": 200.5,
+            "end": 205.8
+          },
+          {
+            "line": 66,
+            "start": 205.8,
+            "end": 209.32
+          },
+          {
+            "line": 67,
+            "start": 210.32,
+            "end": 213.98
+          },
+          {
+            "line": 68,
+            "start": 215.06,
+            "end": 219.16
+          },
+          {
+            "line": 71,
+            "start": 225.94,
+            "end": 228.46
+          },
+          {
+            "line": 72,
+            "start": 229.86,
+            "end": 234.1
+          },
+          {
+            "line": 73,
+            "start": 234.9,
+            "end": 238.84
+          },
+          {
+            "line": 74,
+            "start": 239.78,
+            "end": 241.4
+          },
+          {
+            "line": 75,
+            "start": 242.2,
+            "end": 244.78
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 9.58
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 23.84
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Fictional song about the hero, Jevreigh Ebbz'deen, who tragically took his own life after being falsely accused. The singer has righteous anger for the alleged victims.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-001fa27e039a10487b62c6ab",
       "title": "The Weight of What We Cannot Know",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-001fa27e039a10487b62c6ab-074c7d29d824.mp3",
