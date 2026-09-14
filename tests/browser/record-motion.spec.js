@@ -104,3 +104,67 @@ test("a background load waits until the page is visible to spin", async ({ page 
   const transform = await record.evaluate(element => getComputedStyle(element).transform);
   await expect.poll(() => record.evaluate(element => getComputedStyle(element).transform)).not.toBe(transform);
 });
+
+for (const reducedMotion of ["reduce", "no-preference"]) {
+  test(`continuous spins hold their speed and still respond to clicks (${reducedMotion})`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion });
+    await page.goto("/");
+    const record = page.getByRole("button", { name: "Spin the record", exact: true });
+    await record.click({ force: true });
+    await page.getByRole("button", { name: "Open display settings" }).click();
+    const continuous = page.getByRole("checkbox", { name: "Continuous record spins" });
+    await expect(continuous).not.toBeChecked();
+    await expect(page.getByRole("checkbox", { name: "Spin while music plays" })).not.toBeChecked();
+    await continuous.check();
+    await page.getByRole("button", { name: "Close display settings" }).click();
+    await record.click({ force: true });
+    const rate = await record.evaluate(element => element.getAnimations()[0].playbackRate);
+    const transform = await record.evaluate(element => getComputedStyle(element).transform);
+    await page.waitForTimeout(1600);
+    expect(await record.evaluate(element => element.getAnimations()[0].playbackRate)).toBe(rate);
+    await expect.poll(() => record.evaluate(element => getComputedStyle(element).transform)).not.toBe(transform);
+    await record.press("Enter");
+    expect(await record.evaluate(element => element.getAnimations()[0].playbackRate)).toBeGreaterThan(rate);
+    expect(await page.locator("#audio").evaluate(element => element.paused)).toBe(true);
+
+    await page.reload();
+    await expect(record).toHaveAttribute("data-spin-rate", "1.25");
+    await expect(record).not.toHaveClass(/record-spin-intro/);
+    await page.getByRole("button", { name: "Open display settings" }).click();
+    await expect(continuous).toBeChecked();
+    await continuous.uncheck();
+    await expect.poll(() => record.evaluate(element => element.getAnimations().length)).toBe(0);
+  });
+
+  test(`playback spins follow play and pause without affecting audio or seeking (${reducedMotion})`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion });
+    await page.goto("/");
+    const record = page.getByRole("button", { name: "Spin the record", exact: true });
+    const audio = page.locator("#audio");
+    await page.getByRole("button", { name: "Play Record playback test", exact: true }).click();
+    await expect.poll(() => audio.evaluate(element => element.currentTime)).toBeGreaterThan(0);
+    await audio.evaluate(element => { element.currentTime = 30; });
+    await page.getByRole("button", { name: "Open display settings" }).click();
+    const playback = page.getByRole("checkbox", { name: "Spin while music plays" });
+    const continuous = page.getByRole("checkbox", { name: "Continuous record spins" });
+    await playback.check();
+    await expect(record).toHaveAttribute("data-spin-rate", "1.25");
+    await expect.poll(() => audio.evaluate(element => element.currentTime)).toBeGreaterThan(30);
+    expect(await audio.evaluate(element => element.paused)).toBe(false);
+    await audio.evaluate(element => element.pause());
+    await expect.poll(() => record.evaluate(element => element.getAnimations().length)).toBe(0);
+    await audio.evaluate(element => element.play());
+    await expect(record).toHaveAttribute("data-spin-rate", "1.25");
+    await audio.evaluate(element => { element.currentTime = 60; });
+    await expect.poll(() => audio.evaluate(element => element.currentTime)).toBeGreaterThan(60);
+    await playback.uncheck();
+    await expect.poll(() => record.evaluate(element => element.getAnimations().length)).toBe(0);
+    expect(await audio.evaluate(element => element.paused)).toBe(false);
+    await playback.check();
+    await continuous.check();
+    await audio.evaluate(element => element.pause());
+    await expect(record).toHaveAttribute("data-spin-rate", "1.25");
+    await continuous.uncheck();
+    await expect.poll(() => record.evaluate(element => element.getAnimations().length)).toBe(0);
+  });
+}

@@ -8,9 +8,34 @@ html[data-show-quality-issues="false"] .quality-notice {
 }
 
 .settings-button {
+  position: relative;
   min-width: 46px;
   padding-inline: 14px;
   font-size: 1.15rem;
+}
+
+.settings-button.has-new-preferences {
+  border-color: var(--accent);
+  animation: preferences-pulse 1.8s ease-in-out 3;
+}
+
+.settings-new {
+  position: absolute;
+  top: -9px;
+  right: -7px;
+  padding: 3px 5px;
+  border-radius: 3px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.6rem;
+  line-height: 1;
+  font-weight: 700;
+}
+
+.settings-new[hidden] { display: none; }
+
+@keyframes preferences-pulse {
+  50% { box-shadow: 0 0 0 6px rgb(195 95 54 / 20%); }
 }
 
 .display-settings-dialog {
@@ -62,6 +87,21 @@ html[data-show-quality-issues="false"] .quality-notice {
 
 .quality-preference span { display: grid; gap: 5px; }
 .quality-preference small { color: var(--muted); line-height: 1.5; }
+
+.record-preferences {
+  min-width: 0;
+  margin: 28px 0 0;
+  padding: 20px 0 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+.record-preferences legend { padding: 0 12px 0 0; font-weight: 700; }
+.record-preferences .quality-preference + .quality-preference { margin-top: 20px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .settings-button.has-new-preferences { animation: none; }
+}
 
 @media (max-width: 700px) {
   .display-settings { margin-left: 0; }

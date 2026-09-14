@@ -9,6 +9,7 @@ const song = {
 };
 
 test.beforeEach(async ({ context }) => {
+  await context.route("https://fonts.googleapis.com/**", route => route.abort());
   await context.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
   await context.route("**/yehry3/songs/preference-song", route => route.fulfill({ json: { song } }));
   await context.route("**/yehry3/queue?*", route => route.fulfill({ json: {
@@ -51,14 +52,16 @@ test("open tabs follow changes and clearing the preference restores the default"
   await page.goto("/");
   const second = await context.newPage();
   await second.goto("/");
-  await expect(second.locator(".quality-notice")).toBeVisible();
+  // The fallback catalog can paint before the fixture response arrives.
+  const notice = second.locator('[data-id="preference-song"] .quality-notice');
+  await expect(notice).toBeVisible();
   await page.getByRole("button", { name: "Open display settings" }).click();
   await page.getByRole("checkbox", { name: 'Show “Has issues”' }).uncheck();
-  await expect(second.locator(".quality-notice")).toBeHidden();
+  await expect(notice).toBeHidden();
   await second.getByRole("button", { name: "Open display settings" }).click();
   await expect(second.getByRole("checkbox", { name: 'Show “Has issues”' })).not.toBeChecked();
   await page.evaluate(key => localStorage.removeItem(key), key);
-  await expect(second.locator(".quality-notice")).toBeVisible();
+  await expect(notice).toBeVisible();
   await expect(second.getByRole("checkbox", { name: 'Show “Has issues”' })).toBeChecked();
 });
 
@@ -76,6 +79,70 @@ test("blocked localStorage still allows the current page to toggle notices", asy
   await expect(page.locator(".quality-notice")).toBeHidden();
   await toggle.check();
   await expect(page.locator(".quality-notice")).toBeVisible();
+  const continuous = page.getByRole("checkbox", { name: "Continuous record spins" });
+  const playback = page.getByRole("checkbox", { name: "Spin while music plays" });
+  await continuous.check();
+  await playback.check();
+  await expect(page.locator(".record")).toHaveAttribute("data-spin-rate", "1.25");
+  await page.evaluate(() => window.dispatchEvent(new Event("pageshow")));
+  await expect(continuous).toBeChecked();
+  await expect(playback).toBeChecked();
+  await expect(page.locator(".settings-new")).toBeHidden();
+  await continuous.uncheck();
+  await expect.poll(() => page.locator(".record").evaluate(element => element.getAnimations().length)).toBe(0);
+});
+
+test("record preferences and the new indicator persist across navigation and sync between tabs", async ({ page, context }) => {
+  await page.goto("/");
+  const opener = page.getByRole("button", { name: "Open display settings" });
+  await expect(page.locator(".settings-new")).toBeVisible();
+  await expect(opener).toHaveAccessibleDescription("New record spinning preferences available.");
+  const second = await context.newPage();
+  await second.goto("/");
+  await expect(second.locator(".settings-new")).toBeVisible();
+  await opener.click();
+  await expect(second.locator(".settings-new")).toBeHidden();
+  await page.getByRole("checkbox", { name: "Continuous record spins" }).check();
+  await page.getByRole("checkbox", { name: "Spin while music plays" }).check();
+  await second.getByRole("button", { name: "Open display settings" }).click();
+  await expect(second.getByRole("checkbox", { name: "Continuous record spins" })).toBeChecked();
+  await expect(second.getByRole("checkbox", { name: "Spin while music plays" })).toBeChecked();
+  await expect(second.locator(".record")).toHaveAttribute("data-spin-rate", "1.25");
+  await page.reload();
+  await expect(page.locator(".settings-new")).toBeHidden();
+  await expect(page.locator(".record")).toHaveAttribute("data-spin-rate", "1.25");
+  await page.goto("/queue/");
+  await page.goto("/");
+  await expect(page.locator(".settings-new")).toBeHidden();
+  await opener.click();
+  await expect(page.getByRole("checkbox", { name: "Continuous record spins" })).toBeChecked();
+  await expect(page.getByRole("checkbox", { name: "Spin while music plays" })).toBeChecked();
+  await page.evaluate(() => localStorage.clear());
+  await expect(second.getByRole("checkbox", { name: "Continuous record spins" })).not.toBeChecked();
+  await expect(second.getByRole("checkbox", { name: "Spin while music plays" })).not.toBeChecked();
+  await expect.poll(() => second.locator(".record").evaluate(element => element.getAnimations().length)).toBe(0);
+  await second.getByRole("button", { name: "Close display settings" }).click();
+  await expect(second.locator(".settings-new")).toBeVisible();
+});
+
+test("new preferences use a still badge with reduced motion and fit a small screen", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.setViewportSize({ width: 320, height: 640 });
+  await page.goto("/");
+  const opener = page.getByRole("button", { name: "Open display settings" });
+  await expect(page.locator(".settings-new")).toBeVisible();
+  expect(await opener.evaluate(element => getComputedStyle(element).animationName)).toBe("none");
+  await opener.scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: "artifacts/new-preferences-mobile.png" });
+  await opener.click();
+  await expect(page.locator(".settings-new")).toBeHidden();
+  const dialog = page.getByRole("dialog", { name: "Display settings" });
+  await expect(page.getByRole("checkbox", { name: "Spin while music plays" })).toBeInViewport();
+  expect(await dialog.evaluate(element => element.scrollWidth <= element.clientWidth)).toBe(true);
+  await dialog.screenshot({ path: "artifacts/record-preferences-mobile.png" });
+  await page.keyboard.press("Escape");
+  await expect(opener).toBeFocused();
 });
 
 test("the hero record spins on arrival and remains interactive with reduced motion", async ({ page }) => {

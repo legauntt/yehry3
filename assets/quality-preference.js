@@ -1,15 +1,36 @@
+import { getRecordPreferences, setRecordPreference, watchRecordPreferences } from "./record-preferences.js";
+
 const key = "yehry3:show-quality-issues";
+const seenKey = "yehry3:preferences-seen";
+// Change this when new preferences should be highlighted to returning visitors.
+const preferencesVersion = "record-spins-v1";
 
 if (typeof document !== "undefined") {
   let shown = true;
+  let preferencesSeen = false;
   let checkbox;
+  let settingsButton;
+  let newBadge;
+  const recordCheckboxes = new Map();
   const read = () => {
-    try { shown = localStorage.getItem(key) !== "false"; }
+    try {
+      shown = localStorage.getItem(key) !== "false";
+      preferencesSeen = localStorage.getItem(seenKey) === preferencesVersion;
+    }
     catch { /* Keep this page's choice when storage is unavailable. */ }
   };
   const apply = () => {
     document.documentElement.dataset.showQualityIssues = String(shown);
     if (checkbox) checkbox.checked = shown;
+    const preferences = getRecordPreferences();
+    recordCheckboxes.forEach((input, name) => { input.checked = preferences[name]; });
+    if (settingsButton) {
+      settingsButton.classList.toggle("has-new-preferences", !preferencesSeen);
+      settingsButton.title = preferencesSeen ? "Display settings" : "New record spinning preferences available";
+      if (preferencesSeen) settingsButton.removeAttribute("aria-describedby");
+      else settingsButton.setAttribute("aria-describedby", "display-settings-updates");
+      newBadge.hidden = preferencesSeen;
+    }
   };
   read();
   apply();
@@ -30,6 +51,16 @@ if (typeof document !== "undefined") {
     opener.setAttribute("aria-label", "Open display settings");
     opener.title = "Display settings";
     opener.innerHTML = '<span aria-hidden="true">⚙</span>';
+    settingsButton = opener;
+    newBadge = document.createElement("span");
+    newBadge.className = "settings-new";
+    newBadge.textContent = "New";
+    newBadge.setAttribute("aria-hidden", "true");
+    opener.append(newBadge);
+    const updateDescription = document.createElement("span");
+    updateDescription.id = "display-settings-updates";
+    updateDescription.className = "sr-only";
+    updateDescription.textContent = "New record spinning preferences available.";
 
     const dialog = document.createElement("dialog");
     dialog.className = "display-settings-dialog";
@@ -53,9 +84,41 @@ if (typeof document !== "undefined") {
     copy.innerHTML = '<strong>Show “Has issues”</strong><small>Display notices about known musical issues with a song.</small>';
     label.append(checkbox, copy);
     dialog.append(heading, label);
-    host.append(opener, dialog);
+    const recordGroup = document.createElement("fieldset");
+    recordGroup.className = "record-preferences";
+    const legend = document.createElement("legend");
+    legend.textContent = "Record player";
+    recordGroup.append(legend);
+    for (const [name, title, description] of [
+      ["continuous", "Continuous record spins", "Keep the record spinning without slowing down. Click it to spin faster."],
+      ["playback", "Spin while music plays", "Start with the music and stop when paused, unless continuous spins are on."],
+    ]) {
+      const option = document.createElement("label");
+      option.className = "quality-preference";
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      const text = document.createElement("span");
+      const titleElement = document.createElement("strong");
+      titleElement.textContent = title;
+      const detail = document.createElement("small");
+      detail.textContent = description;
+      text.append(titleElement, detail);
+      option.append(input, text);
+      recordGroup.append(option);
+      recordCheckboxes.set(name, input);
+      input.addEventListener("change", () => setRecordPreference(name, input.checked));
+    }
+    dialog.append(recordGroup);
+    host.append(opener, updateDescription, dialog);
+    apply();
 
-    opener.addEventListener("click", () => dialog.showModal());
+    opener.addEventListener("click", () => {
+      dialog.showModal();
+      preferencesSeen = true;
+      try { localStorage.setItem(seenKey, preferencesVersion); }
+      catch { /* Dismiss the indicator for this visit even without storage. */ }
+      apply();
+    });
     close.addEventListener("click", () => dialog.close());
     dialog.addEventListener("click", (event) => {
       if (event.target === dialog) dialog.close();
@@ -69,7 +132,7 @@ if (typeof document !== "undefined") {
     });
   }
   window.addEventListener("storage", (event) => {
-    if (event.key !== key && event.key !== null) return;
+    if (event.key !== key && event.key !== seenKey && event.key !== null) return;
     read();
     apply();
   });
@@ -77,6 +140,7 @@ if (typeof document !== "undefined") {
     read();
     apply();
   });
+  watchRecordPreferences(apply);
 
   window.mountQualitySettings = mount;
 }
