@@ -2,6 +2,158 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ab9afa794dc00233d57bfa7c",
+      "title": "Nine-Eleven'd Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ab9afa794dc00233d57bfa7c-7e177e9136bd.mp3",
+      "duration": 85.04,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-14T10:01:35.681Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Nine-Eleven'd Again",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Horror-circus industrial polka in a lurching minor-key two-step: distorted accordion, calliope, grinding guitars, tuba-like synth bass, clanking percussion, and explosive live drums. Tony V7 delivers smoky melodic verses, a theatrical growled turn, and an increasingly frantic but catchable chorus. Use stops, crooked accents, and a final half-time expansion so the last sung syllable lands 8–12 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nGirl, you so fine.\nYou so fine my cranium\nShatters with the inescapable\nKnowledge that I could never be\nWhat you want in a man, or\nWoman, for that matter\n\n[Verse 2]\nSurgery and makeup can do\nAmazing things\nThese days.\n\n[Bridge]\nThat said, you aren't so fine\nNow that I'm thinking you're\nA transvestite\nGoddamn, nine eleven'd again\n\n[Chorus]\nNine eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony growls, “Aw, son of a bitch”\nLoads that miserable save once more\nFear in the dark and hunger for\nThen he gets nine-eleven'd again\n\n[Chorus]\n9/11'd again, 9/11'd again\nBefore he can 9/11, he gets 9/11'd again\n[End]",
+        "duration": 120,
+        "bpm": 148
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nGirl, you so fine.\nYou so fine my cranium\nShatters with the inescapable\nKnowledge that I could never be\nWhat you want in a man, or\nWoman, for that matter\n\n[Verse 2]\nSurgery and makeup can do\nAmazing things\nThese days.\n\n[Bridge]\nThat said, you aren't so fine\nNow that I'm thinking you're\nA transvestite\nGoddamn, nine eleven'd again\n\n[Chorus]\nNine eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony growls, “Aw, son of a bitch”\nLoads that miserable save once more\nFear in the dark and hunger for\nThen he gets nine-eleven'd again\n\n[Chorus]\n9/11'd again, 9/11'd again\nBefore he can 9/11, he gets 9/11'd again",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 0.78
+          },
+          {
+            "line": 2,
+            "start": 1.52,
+            "end": 2.42
+          },
+          {
+            "line": 3,
+            "start": 5.82,
+            "end": 6.54
+          },
+          {
+            "line": 4,
+            "start": 6.54,
+            "end": 6.92
+          },
+          {
+            "line": 5,
+            "start": 8.2,
+            "end": 9.36
+          },
+          {
+            "line": 6,
+            "start": 12.74,
+            "end": 13.78
+          },
+          {
+            "line": 9,
+            "start": 13.78,
+            "end": 16.62
+          },
+          {
+            "line": 10,
+            "start": 16.62,
+            "end": 20.16
+          },
+          {
+            "line": 11,
+            "start": 21.14,
+            "end": 23.18
+          },
+          {
+            "line": 14,
+            "start": 28.62,
+            "end": 30.2
+          },
+          {
+            "line": 15,
+            "start": 30.82,
+            "end": 32.04
+          },
+          {
+            "line": 16,
+            "start": 32.04,
+            "end": 34.76
+          },
+          {
+            "line": 17,
+            "start": 34.76,
+            "end": 36.78
+          },
+          {
+            "line": 20,
+            "start": 36.78,
+            "end": 40.88
+          },
+          {
+            "line": 21,
+            "start": 42.24,
+            "end": 44.06
+          },
+          {
+            "line": 22,
+            "start": 45.98,
+            "end": 47.84
+          },
+          {
+            "line": 23,
+            "start": 47.84,
+            "end": 50.5
+          },
+          {
+            "line": 24,
+            "start": 50.5,
+            "end": 54.6
+          },
+          {
+            "line": 25,
+            "start": 55.12,
+            "end": 57.86
+          },
+          {
+            "line": 26,
+            "start": 58.2,
+            "end": 60.96
+          },
+          {
+            "line": 27,
+            "start": 61.26,
+            "end": 63.14
+          },
+          {
+            "line": 30,
+            "start": 65.16,
+            "end": 68.08
+          },
+          {
+            "line": 31,
+            "start": 68.56,
+            "end": 72.8
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "You so fine, girl",
+        "direction": "Horror circus industrial polka",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-b5fbef2af781fedd28f8b28d",
       "title": "The Man in the Rearview",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b5fbef2af781fedd28f8b28d-ca0164403956.mp3",
