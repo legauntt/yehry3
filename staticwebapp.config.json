@@ -7,6 +7,18 @@
   },
   "routes": [
     {
+      "route": "/fearop",
+      "redirect": "https://chairlift.fly.dev/yehry3/fearop/",
+      "statusCode": 302,
+      "headers": { "Cache-Control": "no-store", "Referrer-Policy": "no-referrer" }
+    },
+    {
+      "route": "/fearop/*",
+      "redirect": "https://chairlift.fly.dev/yehry3/fearop/",
+      "statusCode": 302,
+      "headers": { "Cache-Control": "no-store", "Referrer-Policy": "no-referrer" }
+    },
+    {
       "route": "/songs/*",
       "headers": { "Cache-Control": "no-cache" }
     },
