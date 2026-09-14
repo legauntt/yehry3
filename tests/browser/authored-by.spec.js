@@ -59,7 +59,9 @@ test("author persists across browser sessions, edits, and submission into both q
   expect(doc.authoredBy).toBe(author);
   await expect(page.getByText("Request received", { exact: true })).toBeVisible();
   await expect(page.locator(".brief")).toContainText(author);
-  await page.getByRole("button", { name: "Another idea" }).click();
+  const sessionActions = page.locator(".request-session-actions");
+  await expect(sessionActions.getByRole("button")).toHaveText(["New request ↗", "Sign out ↗"]);
+  await sessionActions.getByRole("button", { name: "New request" }).click();
   await expect(page.getByLabel("Authored by")).toHaveValue(author);
 
   const reopened = await browser.newContext({ baseURL, storageState: await context.storageState() });

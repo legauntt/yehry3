@@ -17,6 +17,7 @@ async function fixture(page) {
     id: publicId(number), title: number === 1 ? "Next from the studio" : null,
     idea: number === 2 ? '<img src=x onerror=alert(1)> becomes a song' : `Future song ${number}`,
     status, updatedAt: new Date().toISOString(),
+    originalPrompt: { idea: `Future song ${number}`, direction: "Lo-fi folk", keep: "Tony vocals", basisSongs: [], voiceModel: "v6" },
     progress: status === "processing" ? { stage: "Generating Tony vocals", percent: 55 } : null,
   });
   const state = {
@@ -88,6 +89,11 @@ test("pending rows remain compact on mobile and link to the matching request det
   expect(await page.locator(".pending-track").evaluateAll(rows => rows.every(row => row.getBoundingClientRect().height < 90 && !row.open))).toBe(true);
   await page.locator("#pending-tracks").screenshot({ path: "artifacts/pending-mobile.png" });
   const pending = page.locator(`.pending-track[data-id="${publicId(1)}"]`);
+  await pending.locator("summary").click();
+  await pending.getByRole("link", { name: "View original prompt" }).click();
+  await expect(page).toHaveURL(new RegExp(`/original-prompt/\\?song=${publicId(1)}$`));
+  await expect(page.locator(".original-prompt")).toContainText("Lo-fi folk");
+  await page.goto("/");
   await pending.locator("summary").click();
   await pending.getByRole("link", { name: "View request details" }).click();
   await expect(page).toHaveURL(new RegExp(`/queue/details/\\?request=${publicId(1)}$`));

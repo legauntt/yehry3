@@ -9,6 +9,13 @@ export async function originalPromptPage(main, { escape, safeUrl }) {
     } catch {
       /* Use the published fallback below. */
     }
+    if (!song?.originalPrompt && /^distonyc-[a-f0-9]{24}$/.test(id)) {
+      try {
+        song = await api(`/queue/${encodeURIComponent(id)}`);
+      } catch {
+        /* Use the published fallback below. */
+      }
+    }
     if (!song?.originalPrompt) {
       try {
         song = (await (await fetch("/catalog.json")).json()).songs.find(
@@ -24,7 +31,8 @@ export async function originalPromptPage(main, { escape, safeUrl }) {
       '<section class="lyrics-sheet"><p class="eyebrow">Original prompt</p><h1>This brief is not available yet.</h1><a class="text-link" href="/">The collection →</a></section>';
     return;
   }
-  document.title = `${song.title} · Original prompt · yehry3`;
+  const title = song.title || song.idea;
+  document.title = `${title} · Original prompt · yehry3`;
   const brief = song.originalPrompt;
   const modelId = /^v\d+$/i.test(brief.voiceModel || "") ? brief.voiceModel.toUpperCase() : "V6";
   const fields = [
@@ -40,5 +48,6 @@ export async function originalPromptPage(main, { escape, safeUrl }) {
         : "No basis songs selected.",
     ],
   ];
-  main.innerHTML = `<article class="lyrics-sheet original-prompt"><p class="eyebrow">Original prompt</p><h1>${escape(song.title)}</h1><p class="small">The request and settings confirmed before this song went into the studio.</p><dl class="brief">${fields.map(([label, value]) => `<dt>${label}</dt><dd>${escape(value)}</dd>`).join("")}</dl><div class="actions"><a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a>${song.lyrics?.text ? `<a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}">Lyrics ↗</a>` : ""}<a class="text-link" href="/?collection=distonyc">Distonyc collection →</a></div></article>`;
+  const unfinished = song.status && song.status !== "published";
+  main.innerHTML = `<article class="lyrics-sheet original-prompt"><p class="eyebrow">Original prompt</p><h1>${escape(title)}</h1><p class="small">The request and settings confirmed before this song went into the studio.</p><dl class="brief">${fields.map(([label, value]) => `<dt>${label}</dt><dd>${escape(value)}</dd>`).join("")}</dl><div class="actions">${song.url ? `<a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a>` : ""}${song.lyrics?.text ? `<a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}">Lyrics ↗</a>` : ""}<a class="text-link" href="${unfinished ? `/queue/details/?request=${encodeURIComponent(song.id)}` : "/?collection=distonyc"}">${unfinished ? "Request status" : "Distonyc collection"} →</a></div></article>`;
 }

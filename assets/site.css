@@ -925,6 +925,12 @@ main {
   margin-right: auto;
   max-width: 520px;
 }
+.request-session-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
 .workbench {
   max-width: 810px;
   margin: 0 auto;
