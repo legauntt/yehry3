@@ -2,6 +2,343 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-b5fbef2af781fedd28f8b28d",
+      "title": "The Man in the Rearview",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b5fbef2af781fedd28f8b28d-ca0164403956.mp3",
+      "duration": 220,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-14T09:54:36.965Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Man in the Rearview",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D major",
+        "arrangement": "Reflective, bass-forward heartland rock with smoky electric guitar, warm organ, live drums and a lively midtempo pocket. Both duet parts use the mandatory pinned Tony v7 profile: older Tony stays rough, low and smoky; younger Tony uses the same saved identity in a naturally higher register with brighter placement, never a replacement singer. Verses alternate across the stereo field, while choruses bring both voices together in imperfect, slurred harmony. The bridge drops to bass, rim clicks and organ before a full-band final lift. Pace the outro so the final sustained word “spark” lands 8–12 seconds before 3:40, followed by one resolved D-major chord and natural decay.",
+        "lyrics": "[Verse 1 — Younger Tony]\nI got a half-tank dream and a dashboard glow\nEvery road says hurry, so I’m ready to go\nI’ll outrun every warning, make the hard years wait\nTell me, old man, did we ever get it straight?\n\n[Verse 2 — Older Tony]\nKid, I recognize that match behind your grin\nI spent years striking sparks just to watch them give in\nYou don’t have to win each room or answer every slight\nSome doors look like surrender when they’re leading you right\n\n[Pre-Chorus — Younger Tony]\nDid we lose our nerve?\nDid the fire burn low?\n\n[Pre-Chorus — Older Tony]\nNo, I learned what deserves it\nAnd what you let go\n\n[Chorus — Duet]\n[Younger] If you could reach through the rearview\nWhat would you change in me?\n[Older] I’d loosen your fists on the future\nAnd let your good friends see\n[Younger] Would you take back the thunder?\n[Older] I’d only change its aim\n[Duet] Keep the heart, lose the hurry\nYou don’t have to bleed for your name\n\n[Verse 3 — Younger Tony]\nShould I trust that girl who can read every bluff?\nShould I call my old man, though the words come out rough?\nShould I stay when the money says pack up and run?\nDo I ever learn when the damage is done?\n\n[Verse 4 — Older Tony]\nCall him Sunday morning; let the silence be strange\nTell her fear wears a costume, but love doesn’t change\nSave a little, sleep more, take the long way home\nAnd don’t make being needed mean you can’t stand alone\n\n[Chorus — Duet]\n[Younger] If you could reach through the rearview\nWhat would you change in me?\n[Older] I’d loosen your fists on the future\nAnd let your good friends see\n[Younger] Would you take back the thunder?\n[Older] I’d only change its aim\n[Duet] Keep the heart, lose the hurry\nYou don’t have to bleed for your name\n\n[Bridge — Call and Response]\n[Younger] Do we get everything we wanted?\n[Older] No—and thank God for that\n[Younger] Do the wrong turns disappear?\n[Older] No, but they stop pulling you back\n[Younger] Are you proud of who I become?\n[Older] I’m proud you kept becoming\n[Duet] Every scar became a window\nWhen we quit calling it nothing\n\n[Final Chorus — Duet]\nIf we could meet beyond the rearview\nWith all our years between\nI would give you back your courage\nYou would show me what it means\nWe would keep a little thunder\nBut never waste the flame\nKeep the heart, lose the hurry\nYou don’t have to bleed for your name\n\n[Outro — Older, then Younger]\n[Older] I wouldn’t erase you, kid\nI’d just teach you when to stay\n[Younger] Then I’ll leave one light behind me\nSo you can find your way\n[Duet] Same road, two reflections\nStill becoming who we are\nKeep the heart… lose the hurry…\nAnd carry home the spark\n[End]",
+        "duration": 220,
+        "bpm": 92
+      },
+      "lyrics": {
+        "text": "[Verse 1 — Younger Tony]\nI got a half-tank dream and a dashboard glow\nEvery road says hurry, so I’m ready to go\nI’ll outrun every warning, make the hard years wait\nTell me, old man, did we ever get it straight?\n\n[Verse 2 — Older Tony]\nKid, I recognize that match behind your grin\nI spent years striking sparks just to watch them give in\nYou don’t have to win each room or answer every slight\nSome doors look like surrender when they’re leading you right\n\n[Pre-Chorus — Younger Tony]\nDid we lose our nerve?\nDid the fire burn low?\n\n[Pre-Chorus — Older Tony]\nNo, I learned what deserves it\nAnd what you let go\n\n[Chorus — Duet]\n[Younger] If you could reach through the rearview\nWhat would you change in me?\n[Older] I’d loosen your fists on the future\nAnd let your good friends see\n[Younger] Would you take back the thunder?\n[Older] I’d only change its aim\n[Duet] Keep the heart, lose the hurry\nYou don’t have to bleed for your name\n\n[Verse 3 — Younger Tony]\nShould I trust that girl who can read every bluff?\nShould I call my old man, though the words come out rough?\nShould I stay when the money says pack up and run?\nDo I ever learn when the damage is done?\n\n[Verse 4 — Older Tony]\nCall him Sunday morning; let the silence be strange\nTell her fear wears a costume, but love doesn’t change\nSave a little, sleep more, take the long way home\nAnd don’t make being needed mean you can’t stand alone\n\n[Chorus — Duet]\n[Younger] If you could reach through the rearview\nWhat would you change in me?\n[Older] I’d loosen your fists on the future\nAnd let your good friends see\n[Younger] Would you take back the thunder?\n[Older] I’d only change its aim\n[Duet] Keep the heart, lose the hurry\nYou don’t have to bleed for your name\n\n[Bridge — Call and Response]\n[Younger] Do we get everything we wanted?\n[Older] No—and thank God for that\n[Younger] Do the wrong turns disappear?\n[Older] No, but they stop pulling you back\n[Younger] Are you proud of who I become?\n[Older] I’m proud you kept becoming\n[Duet] Every scar became a window\nWhen we quit calling it nothing\n\n[Final Chorus — Duet]\nIf we could meet beyond the rearview\nWith all our years between\nI would give you back your courage\nYou would show me what it means\nWe would keep a little thunder\nBut never waste the flame\nKeep the heart, lose the hurry\nYou don’t have to bleed for your name\n\n[Outro — Older, then Younger]\n[Older] I wouldn’t erase you, kid\nI’d just teach you when to stay\n[Younger] Then I’ll leave one light behind me\nSo you can find your way\n[Duet] Same road, two reflections\nStill becoming who we are\nKeep the heart… lose the hurry…\nAnd carry home the spark",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.22,
+            "end": 9.1
+          },
+          {
+            "line": 2,
+            "start": 9.1,
+            "end": 15.86
+          },
+          {
+            "line": 3,
+            "start": 15.86,
+            "end": 20.24
+          },
+          {
+            "line": 4,
+            "start": 20.8,
+            "end": 24.14
+          },
+          {
+            "line": 7,
+            "start": 27.98,
+            "end": 33.34
+          },
+          {
+            "line": 8,
+            "start": 33.34,
+            "end": 38.26
+          },
+          {
+            "line": 9,
+            "start": 38.26,
+            "end": 43.72
+          },
+          {
+            "line": 10,
+            "start": 43.72,
+            "end": 49
+          },
+          {
+            "line": 13,
+            "start": 49.46,
+            "end": 52.76
+          },
+          {
+            "line": 14,
+            "start": 52.76,
+            "end": 56.08
+          },
+          {
+            "line": 17,
+            "start": 56.08,
+            "end": 59.68
+          },
+          {
+            "line": 18,
+            "start": 59.68,
+            "end": 60.64
+          },
+          {
+            "line": 21,
+            "start": 62.54,
+            "end": 64.84
+          },
+          {
+            "line": 22,
+            "start": 64.84,
+            "end": 67.92
+          },
+          {
+            "line": 23,
+            "start": 67.92,
+            "end": 70.04
+          },
+          {
+            "line": 24,
+            "start": 70.74,
+            "end": 72.36
+          },
+          {
+            "line": 25,
+            "start": 72.36,
+            "end": 75.38
+          },
+          {
+            "line": 26,
+            "start": 75.38,
+            "end": 77.68
+          },
+          {
+            "line": 27,
+            "start": 77.68,
+            "end": 80.6
+          },
+          {
+            "line": 28,
+            "start": 80.6,
+            "end": 83.2
+          },
+          {
+            "line": 31,
+            "start": 83.2,
+            "end": 89.46
+          },
+          {
+            "line": 32,
+            "start": 89.46,
+            "end": 94.4
+          },
+          {
+            "line": 33,
+            "start": 94.4,
+            "end": 99.82
+          },
+          {
+            "line": 34,
+            "start": 100.54,
+            "end": 103.76
+          },
+          {
+            "line": 37,
+            "start": 105.5,
+            "end": 110.28
+          },
+          {
+            "line": 38,
+            "start": 111.12,
+            "end": 115.48
+          },
+          {
+            "line": 39,
+            "start": 116.78,
+            "end": 119.34
+          },
+          {
+            "line": 40,
+            "start": 121.68,
+            "end": 124.08
+          },
+          {
+            "line": 43,
+            "start": 125.78,
+            "end": 128.7
+          },
+          {
+            "line": 44,
+            "start": 128.7,
+            "end": 131.72
+          },
+          {
+            "line": 45,
+            "start": 131.72,
+            "end": 133.9
+          },
+          {
+            "line": 46,
+            "start": 134.66,
+            "end": 136.32
+          },
+          {
+            "line": 47,
+            "start": 136.94,
+            "end": 139.3
+          },
+          {
+            "line": 48,
+            "start": 139.98,
+            "end": 141.58
+          },
+          {
+            "line": 49,
+            "start": 142.34,
+            "end": 144.48
+          },
+          {
+            "line": 50,
+            "start": 144.48,
+            "end": 147.12
+          },
+          {
+            "line": 53,
+            "start": 148.12,
+            "end": 150.34
+          },
+          {
+            "line": 54,
+            "start": 150.34,
+            "end": 153.32
+          },
+          {
+            "line": 55,
+            "start": 153.52,
+            "end": 154.96
+          },
+          {
+            "line": 56,
+            "start": 155.72,
+            "end": 158.52
+          },
+          {
+            "line": 57,
+            "start": 158.94,
+            "end": 161.26
+          },
+          {
+            "line": 58,
+            "start": 161.66,
+            "end": 163.86
+          },
+          {
+            "line": 59,
+            "start": 164.56,
+            "end": 166.74
+          },
+          {
+            "line": 60,
+            "start": 167.2,
+            "end": 169.04
+          },
+          {
+            "line": 63,
+            "start": 170.7,
+            "end": 172.98
+          },
+          {
+            "line": 64,
+            "start": 172.98,
+            "end": 174.92
+          },
+          {
+            "line": 65,
+            "start": 176,
+            "end": 178.46
+          },
+          {
+            "line": 66,
+            "start": 178.46,
+            "end": 180.84
+          },
+          {
+            "line": 67,
+            "start": 181.22,
+            "end": 183.68
+          },
+          {
+            "line": 68,
+            "start": 183.68,
+            "end": 186.06
+          },
+          {
+            "line": 69,
+            "start": 186.56,
+            "end": 188.76
+          },
+          {
+            "line": 70,
+            "start": 188.76,
+            "end": 191.22
+          },
+          {
+            "line": 73,
+            "start": 191.24,
+            "end": 193.54
+          },
+          {
+            "line": 74,
+            "start": 193.54,
+            "end": 196.3
+          },
+          {
+            "line": 75,
+            "start": 196.84,
+            "end": 199.44
+          },
+          {
+            "line": 76,
+            "start": 199.44,
+            "end": 201.76
+          },
+          {
+            "line": 77,
+            "start": 202.64,
+            "end": 204.46
+          },
+          {
+            "line": 78,
+            "start": 204.46,
+            "end": 206.9
+          },
+          {
+            "line": 79,
+            "start": 206.9,
+            "end": 209.76
+          },
+          {
+            "line": 80,
+            "start": 209.76,
+            "end": 212.24
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Tony C performs a duet with his younger self, advising him on the ways he would've changed. Two voices.",
+        "direction": "Use the prompt as written.",
+        "keep": "Younger voice has a higher pitch. Life lessons",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-72f74d66a55379a42295d99d",
       "title": "Geglash at the Thirteenth Door",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-72f74d66a55379a42295d99d-3538a901fd26.mp3",
