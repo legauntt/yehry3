@@ -1,3 +1,4 @@
+import { mountMaterials, materialBrief, durationIssue, hasMaterialEdits } from "./request-materials.js";
 import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./authored-by.js";
 import { publicQueue, queueDetailsPage, queueItemHref } from "./queue.js";
 import { mountQualitySettings, qualityNotice } from "./quality.js";
@@ -517,13 +518,16 @@ function loginView(role, onSuccess) {
 async function requests() {
   let draft = null;
   let basisSongs;
+  let materialsAvailable = false;
   try {
     const loaded = await Promise.all([
       loadBasisSongs(),
       api("/voice-models").catch(() => ({ models: voiceModels })),
+      api("/request-materials").catch(() => ({})),
     ]);
     basisSongs = loaded[0];
     if (Array.isArray(loaded[1].models) && loaded[1].models.length) voiceModels = loaded[1].models;
+    materialsAvailable = loaded[2].version === 1;
   } catch (error) {
     message(error.message, true);
     main.innerHTML =
@@ -561,7 +565,7 @@ async function requests() {
       mode ||
       (draft?.confirmedAt
         ? "submitted"
-        : draft?.status === "review"
+        : draft?.status === "review" && !hasMaterialEdits(draft, storage)
           ? "review"
           : draft
             ? "details"
@@ -628,6 +632,15 @@ async function requests() {
       };
       $("#voice-model").onchange = describeVoice;
       describeVoice();
+      $("#keep").nextElementSibling.insertAdjacentHTML("afterend", '<div id="request-materials-root"></div>');
+      const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), draft, { api, storage, escape }) : {
+        read() {
+          if (draft.details?.lyricSheet || draft.details?.references?.length) throw new Error("Your saved lyrics and references are temporarily unavailable for editing. Try again shortly.");
+          return {};
+        },
+        clear() {},
+      };
+      if (!materialsAvailable) $("#request-materials-root").innerHTML = '<p class="small">Lyrics and reference links are temporarily unavailable.</p>' + materialBrief(draft.details, escape);
       $("#start-over").onclick = () => {
         storage.set("idea-text", draft.prompt);
         draft = null;
@@ -643,6 +656,7 @@ async function requests() {
           details.basisSongIds = selectedBasis();
           details.voiceModel = $("#voice-model").value;
           details.authoredBy = $("#authored-by").value.trim();
+          Object.assign(details, requestMaterials.read());
           draft = (
             await api(`/prompts/${encodeURIComponent(draft.id)}`, {
               method: "PATCH",
@@ -650,11 +664,17 @@ async function requests() {
               body: { version: draft.version, ...details },
             })
           ).prompt;
+          requestMaterials.clear();
           rememberAuthor(draft.authoredBy || "");
           render();
         });
     } else if (stage === "review") {
       form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form"><div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">The queue holds up to 10 unfinished requests, including songs in production. If it is full, your review stays saved so you can try again when a slot opens.</p><p class="field-error" role="alert"></p></form>`;
+      const materialIssue = durationIssue(draft.details, draft.prompt);
+      if (materialIssue) {
+        $("#confirm-form .primary").disabled = true;
+        $("#confirm-form .field-error").textContent = materialIssue;
+      }
       $("#edit").onclick = () => render("details");
       $("#confirm-form").onsubmit = (event) =>
         run(event, async () => {
@@ -713,6 +733,9 @@ async function requests() {
   else await load();
 }
 function brief(doc) {
+  return basicBrief(doc) + materialBrief(doc.details, escape);
+}
+function basicBrief(doc) {
   const basis =
     doc.details?.basisSongTitles?.join(", ") ||
     doc.details?.source ||

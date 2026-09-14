@@ -2,6 +2,9 @@
 
 A static Tony C music site with a MongoDB voting and request API in the sibling **chairlift** repository.
 
+Requests support optional lyric sheets and per-link creative references or lyric imports.
+See [lyrics and references](REQUEST-MATERIALS.md) for limits, privacy, testing and coordinated rollout.
+
 | Route          | Behavior                                                                                                                            |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `/`            | Both the Tony AI and Fear & Hunger catalogs; search, filters, vote sorting, Play all, Shuffle, seeking, previous/next and MP3 links |

@@ -1,5 +1,12 @@
 # Distonyc on Windows
 
+Optional request materials use the private confirmed lyric sheet and saved reference
+snapshots. Claims advertise request-materials-v1; older workers skip these requests.
+The planner enforces **Keep my wording** or permits explicit adaptation, with at most
+three journaled attempts and no browsing. See [the request materials contract](../REQUEST-MATERIALS.md)
+for behavior and installation order. Validation uses test_request_materials.py,
+test_worker.py and test_recovery.py without a GPU render.
+
 The **Distonyc Worker** scheduled task polls Chairlift every two minutes and at sign-in. Windows starts it without a visible window, ignores overlapping triggers, and retries failures three times at five-minute intervals. It runs with Jesse's ordinary interactive Windows account; the PC must be awake and signed in. It does not wake the PC or require a stored Windows password.
 
 ## Queue monitor and automatic recovery

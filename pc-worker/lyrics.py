@@ -24,7 +24,7 @@ def make_sheet(config, plan, result):
     elif plan['recipe'] in ['new', 'reinterpretation']:
         text = plan['lyrics']
     text = '\n'.join(line.rstrip() for line in text.replace('\r\n', '\n').split('\n') if line.strip() != '[End]').strip()
-    if not 1 <= len(text) <= 16000: raise ValueError('A saved lyrics sheet is required before publication; inspect the completed job.')
+    if not 1 <= len(text.encode('utf-16-le')) // 2 <= 32000: raise ValueError('A saved lyrics sheet is required before publication; inspect the completed job.')
     sheet = {'text': text, 'kind': kind}
     if result.get('work_path'):
         cues = make_cues(work, text, result.get('duration'))

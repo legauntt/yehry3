@@ -85,10 +85,10 @@ def run_once(config, api, verify_existing=None):
         if previous['status'] in TERMINAL:
             if previous['status'] == 'published': update_catalog(config, previous)
             journal.unlink(); save(health, {'at': utc(), 'status': previous['status'], 'promptId': previous['id']}); return
-    try: prompt = api.call('/claim', claim)['prompt']
+    try: prompt = api.call('/claim', {**claim, 'capabilities': ['request-materials-v1']})['prompt']
     except APIError as error:
         if error.status != 410: raise
-        claim = new_claim(journal); prompt = api.call('/claim', claim)['prompt']
+        claim = new_claim(journal); prompt = api.call('/claim', {**claim, 'capabilities': ['request-materials-v1']})['prompt']
     if not prompt:
         journal.unlink(); save(health, {'at': utc(), 'status': 'idle'}); return
     claim['promptId'] = prompt['id']; save(journal, claim)

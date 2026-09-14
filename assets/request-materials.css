@@ -1,0 +1,16 @@
+.request-materials, .materials-review { margin: 1.6rem 0; border-top: 1px solid var(--line, #b9b8a5); padding-top: 1.2rem; }
+.request-materials > summary { cursor: pointer; font-weight: 600; padding: .5rem 0; }
+.materials-fields { padding-top: 1rem; }
+.materials-fields h3 { margin: 1.8rem 0 .5rem; }
+.reference-card { min-width: 0; margin: 1rem 0; padding: 1rem; border: 1px solid var(--line, #b9b8a5); border-radius: .5rem; }
+.reference-card legend { padding: 0 .4rem; }
+.reference-card .actions { flex-wrap: wrap; }
+.reference-preview, .reference-review { overflow-wrap: anywhere; }
+.reference-preview { margin-top: .8rem; }
+.reference-preview:empty { display: none; }
+.reference-review { margin: 1rem 0; padding-top: .5rem; border-top: 1px solid var(--line, #b9b8a5); }
+.material-text { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 24rem; overflow-y: auto; font: inherit; line-height: 1.6; padding: .75rem 0; }
+.request-materials textarea { white-space: pre-wrap; }
+.materials-review details { margin: .6rem 0; }
+.materials-review summary, .reference-preview summary { cursor: pointer; }
+@media (max-width: 540px) { .reference-card { padding: .7rem; } .reference-card .actions button { width: 100%; } }
