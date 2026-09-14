@@ -89,6 +89,39 @@
       }
     },
     {
+      "route": "/wiseau",
+      "redirect": "/wiseau/",
+      "statusCode": 301
+    },
+    {
+      "route": "/wiseau/clips.json",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "route": "/wiseau/wiseau.js",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "route": "/wiseau/wiseau.css",
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
+    },
+    {
+      "route": "/wiseau/clips/*",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
+    },
+    {
+      "route": "/wiseau/*",
+      "rewrite": "/wiseau/index.html"
+    },
+    {
       "route": "/queue",
       "redirect": "/queue/",
       "statusCode": 301

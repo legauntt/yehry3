@@ -19,22 +19,23 @@ const types = {
 };
 const server = http.createServer(async (req, res) => {
   try {
-    const pathname = decodeURIComponent(
+    let pathname = decodeURIComponent(
       new URL(req.url, "http://localhost").pathname,
     );
-    const redirect = routes.find(
-      (route) =>
-        route.redirect &&
-        (route.route.endsWith("*")
-          ? pathname.startsWith(route.route.slice(0, -1))
-          : route.route === pathname),
+    // Azure applies only the first matching route rule, so mirror that here:
+    // a wrongly ordered wildcard rewrite then breaks the preview the same way it would break the site.
+    const matched = routes.find((route) =>
+      route.route.endsWith("*")
+        ? pathname.startsWith(route.route.slice(0, -1))
+        : route.route === pathname,
     );
-    if (redirect) {
-      res.writeHead(redirect.statusCode || 302, {
-        Location: redirect.redirect,
+    if (matched?.redirect) {
+      res.writeHead(matched.statusCode || 302, {
+        Location: matched.redirect,
       });
       return res.end();
     }
+    if (matched?.rewrite) pathname = matched.rewrite;
     let file = path.resolve(root, `.${pathname}`);
     if (!file.startsWith(root + path.sep) && file !== root)
       throw new Error("Invalid path");
