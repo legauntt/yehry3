@@ -138,13 +138,27 @@ export function mountMaterials(root, draft, { api, storage, escape }) {
 export function materialBrief(details, escape) {
   if (!details?.lyricSheet && !details?.references?.length) return "";
   let html = '<div class="materials-review"><h3>Lyrics &amp; references</h3>';
-  if (details.lyricSheet) html += '<p><strong>' + (details.lyricSheet.mode === "adapt" ? "Adapt these lyrics" : "Keep my wording") + '</strong> · ' + wordCount(details.lyricSheet.text).toLocaleString() + ' words</p><details><summary>Read the submitted lyric sheet</summary><pre class="material-text">' + escape(details.lyricSheet.text) + '</pre></details>';
-  for (const ref of details.references || []) {
-    html += '<div class="reference-review"><p><strong>' + (ref.purpose === "lyrics" ? "Import lyrics" : "Creative reference") + '</strong> · ' + escape(ref.url) + '</p>';
-    if (ref.note) html += '<p>' + escape(ref.note) + '</p>';
+  if (details.lyricSheet) html += '<p><strong>' + (details.lyricSheet.mode === "adapt" ? "Adapt these lyrics" : "Keep my wording") + '</strong> · ' + wordCount(details.lyricSheet.text).toLocaleString() + ' words</p><details><summary>Read the submitted lyric sheet</summary><pre class="material-text" tabindex="0" role="region" aria-label="Submitted lyric sheet">' + escape(details.lyricSheet.text) + '</pre></details>';
+  for (const [index, ref] of (details.references || []).entries()) {
+    const snapshot = ref.snapshot;
+    const status = snapshot?.status === "ready" ? "Content saved" : snapshot ? "Content unavailable" : "Not previewed";
+    html += '<div class="reference-review"><h4>Reference ' + (index + 1) + ' · ' + (ref.purpose === "lyrics" ? "Import lyrics" : "Creative reference") + '</h4><p class="small reference-status">' + status + '</p>';
+    if (snapshot?.title) html += '<p class="reference-title">' + escape(snapshot.title) + '</p>';
+    html += '<p>' + referenceLink(ref.url, escape) + '</p>';
+    if (ref.note) html += '<p class="reference-note"><strong>Use this for:</strong> ' + escape(ref.note) + '</p>';
     html += '<p class="small">' + escape(ref.snapshot?.message || (ref.snapshot?.text ? "Reviewed page text saved with the request." : "No page content retrieved. Using your supplied lyrics or reference note.")) + '</p>';
-    if (ref.snapshot?.text) html += '<details><summary>View saved reference content</summary><pre class="material-text">' + escape(ref.snapshot.text) + '</pre></details>';
+    if (ref.snapshot?.text) html += '<details><summary>View saved reference content</summary><pre class="material-text" tabindex="0" role="region" aria-label="Saved content for reference ' + (index + 1) + '">' + escape(ref.snapshot.text) + '</pre></details>';
     html += '</div>';
   }
   return html + '<p class="small">These attachments stay private. The final recording’s lyric sheet will be public.</p></div>';
+}
+
+function referenceLink(value, escape) {
+  try {
+    const url = new URL(value);
+    if (url.protocol === "https:" && !url.username && !url.password) {
+      return '<a href="' + escape(url.href) + '" target="_blank" rel="noopener noreferrer">' + escape(value) + '</a>';
+    }
+  } catch { /* Older or invalid references remain readable as text. */ }
+  return escape(value);
 }

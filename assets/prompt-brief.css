@@ -1,0 +1,85 @@
+.brief.prompt-brief {
+  padding: 0 25px;
+}
+.prompt-section {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  gap: 24px;
+  padding: 24px 0;
+}
+.prompt-section + .prompt-section {
+  border-top: 1px solid var(--line);
+}
+.prompt-section h3 {
+  margin: 0;
+  font-family: "DM Sans", Arial, sans-serif;
+  font-size: .9rem;
+  letter-spacing: 0;
+}
+.prompt-section-body {
+  min-width: 0;
+}
+.prompt-section dl {
+  margin: 0;
+}
+.prompt-section .materials-review,
+.prompt-private-note {
+  margin: 22px 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.prompt-section .materials-review > h3,
+.prompt-private-note > h3 {
+  margin-bottom: 12px;
+}
+.prompt-section .materials-review > p:last-child,
+.prompt-private-note > p:last-child {
+  margin-bottom: 0;
+}
+.prompt-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  padding: 0;
+  margin: 4px 0 18px;
+  list-style: none;
+}
+.prompt-summary li {
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  font-size: .7rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.admin-brief .disclosure-icon::before {
+  content: "＋";
+}
+.admin-brief[open] > summary .disclosure-icon::before {
+  content: "−";
+}
+.queue-card .brief.prompt-brief {
+  max-width: none;
+}
+.materials-review summary {
+  padding: 10px 0;
+}
+.materials-review details[open] > summary {
+  font-weight: 600;
+}
+.material-text:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .prompt-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+    padding: 20px 0;
+  }
+  .brief.prompt-brief,
+  .request-form .brief.prompt-brief {
+    padding: 0 18px;
+  }
+}

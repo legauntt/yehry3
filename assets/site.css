@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap");
 
 @import url("./model-info.css");
+@import url("./prompt-brief.css");
 
 .quality-notice {
   display: flow-root;
@@ -1183,7 +1184,7 @@ main {
 .priority-form button {
   padding: 6px 10px;
 }
-.queue-card summary {
+.queue-card > details > summary {
   cursor: pointer;
   border-top: 1px solid var(--line);
   margin-top: 10px;
@@ -1193,7 +1194,7 @@ main {
   display: flex;
   justify-content: space-between;
 }
-.queue-card details[open] summary {
+.queue-card > details[open] > summary {
   font-weight: 700;
 }
 .queue-card .brief {

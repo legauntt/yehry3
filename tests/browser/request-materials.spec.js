@@ -145,3 +145,31 @@ test("Advanced keeps direction, lyrics and basis songs through keyboard tab swit
   await expect(page.locator(".brief")).toContainText("Medusa");
   await expect(page.locator(".materials-review")).toContainText("Keep my wording");
 });
+
+test("confirmed lyrics and references remain readable in the admin queue", async ({ page }) => {
+  await start(page);
+  await page.getByLabel("What does it sound like?").fill("Acoustic guitar with brushed drums.");
+  await page.getByLabel("Lyric sheet", { exact: true }).fill(sheet);
+  await page.getByRole("button", { name: "Add a reference link" }).click();
+  await page.getByLabel("Reference URL 1", { exact: true }).fill("https://example.org/lantern");
+  await page.getByLabel("What should we take from reference 1?").fill("The warm evening atmosphere.");
+  await page.getByRole("button", { name: "Review the request" }).click();
+  await page.getByRole("button", { name: "Send to the queue" }).click();
+  await expect(page.getByText("Your idea is on the list.")).toBeVisible();
+  const id = await page.evaluate(() => sessionStorage.getItem("yehry3:draft"));
+  await page.goto("/admin/?status=all");
+  await page.getByLabel("Password", { exact: true }).fill("browser-test-admin");
+  await page.getByRole("button", { name: "Open the queue" }).click();
+  const card = page.locator(`[data-prompt="${id}"]`);
+  await expect(card.locator(".prompt-summary")).toContainText("Keep my wording");
+  await expect(card.locator(".prompt-summary")).toContainText("1 reference link");
+  await card.getByText("Open brief & controls").click();
+  await card.getByText("Read the submitted lyric sheet").click();
+  await expect(card.getByRole("region", { name: "Submitted lyric sheet" })).toHaveText(sheet);
+  await expect(card.locator(".reference-note")).toContainText("The warm evening atmosphere.");
+  await expect(card.locator(".brief")).toContainText("Acoustic guitar with brushed drums.");
+  await card.getByLabel("Move request to").selectOption("canceled");
+  page.once("dialog", dialog => dialog.accept());
+  await card.getByRole("button", { name: "Update status" }).click();
+  await expect(card.locator(".badge")).toHaveText("Canceled");
+});

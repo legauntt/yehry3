@@ -524,10 +524,10 @@ test("published original prompts show confirmed settings, work offline, and esca
   await expect(page.locator(".brief dd").nth(1)).toHaveText(
     "Tony V6 · established",
   );
-  await expect(page.locator(".brief dd").nth(2)).toHaveText(
+  await expect(page.locator(".brief dt").filter({ hasText: "What does it sound like?" }).locator("+ dd")).toHaveText(
     song.originalPrompt.direction,
   );
-  await expect(page.locator(".brief dd").nth(3)).toHaveText(
+  await expect(page.locator(".brief dt").filter({ hasText: "What matters most?" }).locator("+ dd")).toHaveText(
     song.originalPrompt.keep,
   );
   await expect(page.locator(".brief dd").nth(4)).toHaveText(

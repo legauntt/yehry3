@@ -9,6 +9,10 @@
 .reference-preview { margin-top: .8rem; }
 .reference-preview:empty { display: none; }
 .reference-review { margin: 1rem 0; padding-top: .5rem; border-top: 1px solid var(--line, #b9b8a5); }
+.reference-review h4 { margin: .75rem 0 .4rem; font-size: .85rem; }
+.reference-review .reference-status { margin: 0 0 .7rem; }
+.reference-title { font-weight: 600; }
+.reference-note { white-space: pre-wrap; }
 .material-text { white-space: pre-wrap; overflow-wrap: anywhere; max-height: 24rem; overflow-y: auto; font: inherit; line-height: 1.6; padding: .75rem 0; }
 .request-materials textarea { white-space: pre-wrap; }
 .materials-review details { margin: .6rem 0; }
