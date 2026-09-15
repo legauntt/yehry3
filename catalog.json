@@ -2,6 +2,114 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-d95902fe9523c46c3ae1faac",
+      "title": "Nine-Eleven'd Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d95902fe9523c46c3ae1faac-e59e380a1cf5.mp3",
+      "duration": 60,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-15T01:59:31.839Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Nine-Eleven'd Again",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Mandatory pinned Tony v7 voice only. A compact, darkly absurd garage-rock sprint with a muscular moving bass line, crooked live drums, alarm-like guitar bends and sharp ensemble stops beneath the hook. Tony delivers smoky slurs, muttered menace and an exaggerated growl while keeping the chorus catchable. Pace the final sustained “again” to end 8–12 seconds before 60 seconds, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nEverywhere you go, a plane crashes into your building\nBreakfast on the roof, hear the warning sirens shrilling\nYou move across the street, but the skyline starts to bend\nThe shadow makes a circle and it finds your door again\n\n[Chorus]\nNine-eleven'd again\nRight when the good time begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony growls, “Jeffrey Epstein was innocent”\nThen he gets nine-eleven'd again\n\n[Outro]\nNo tower left to follow, no getaway to defend\nHe walks into the sunrise—\nNine-eleven'd again\n[End]",
+        "duration": 60,
+        "bpm": 156
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nEverywhere you go, a plane crashes into your building\nBreakfast on the roof, hear the warning sirens shrilling\nYou move across the street, but the skyline starts to bend\nThe shadow makes a circle and it finds your door again\n\n[Chorus]\nNine-eleven'd again\nRight when the good time begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony growls, “Jeffrey Epstein was innocent”\nThen he gets nine-eleven'd again\n\n[Outro]\nNo tower left to follow, no getaway to defend\nHe walks into the sunrise—\nNine-eleven'd again",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.36
+          },
+          {
+            "line": 2,
+            "start": 4.3,
+            "end": 4.62
+          },
+          {
+            "line": 3,
+            "start": 4.86,
+            "end": 5.32
+          },
+          {
+            "line": 4,
+            "start": 15.06,
+            "end": 16.8
+          },
+          {
+            "line": 7,
+            "start": 17.64,
+            "end": 17.72
+          },
+          {
+            "line": 8,
+            "start": 17.72,
+            "end": 19.92
+          },
+          {
+            "line": 9,
+            "start": 20.92,
+            "end": 23.62
+          },
+          {
+            "line": 10,
+            "start": 24.06,
+            "end": 26.26
+          },
+          {
+            "line": 11,
+            "start": 26.26,
+            "end": 29.3
+          },
+          {
+            "line": 12,
+            "start": 29.86,
+            "end": 32.98
+          },
+          {
+            "line": 15,
+            "start": 35.28,
+            "end": 38.94
+          },
+          {
+            "line": 16,
+            "start": 40.76,
+            "end": 43.84
+          },
+          {
+            "line": 17,
+            "start": 44.54,
+            "end": 47.36
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 10.76
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Everywhere you go, a plane crashes into your building",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-36dfa7dc2e188ddfa18e3eaa",
       "title": "Nein Unleavened Again",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-36dfa7dc2e188ddfa18e3eaa-f5613ec2f42d.mp3",
