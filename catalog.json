@@ -2,6 +2,52 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-27549fcecb0991a55825d859",
+      "title": "9-11'd Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-27549fcecb0991a55825d859-0da37941ef79.mp3",
+      "duration": 309.12,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-15T19:44:59.574Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "9-11'd Again",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A dark original rock ballad built around clean minor-key guitar, moving bass, restrained piano, and spacious drums, rising into distorted chorus guitars and forceful tom-heavy climaxes. Use only the pinned Tony V7 voice profile: smoky, slurred verses, volatile outbursts, and a clearly catchable chorus with sustained melodic notes. Pace the preserved lyric sheet across the full form; the final sung syllable lands about 10 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nMy torch died out, the screen went pitch black fast\nI tried to save but I lost my whole last act\nHunger got me weak before I could even speak\nAnd then—9/11'd, right in my face.\nFuck this game! It’s rigged and it’s unfair play\nAll those hours wasted just to get a day\nMy save file corrupted, progress wiped away\nI’m screaming at the sky, \"Why won’t you stay?\"\n\n[Chorus]\nOh 9/11'd! I died again in the dark\nJust another failure that makes me want to bark\nOh 9/11'd! I lost my save file too\nMy character’s gone, and there’s no way out for you.\nFuck this loop! It never changes a thing\nEvery time I try, I get hit by nothing\nBut 9/11 keeps coming at me again!\n\n[Verse 2]\nSanity is bleeding out in the digital mire\nCoin flip landed on death and I can’t hide it here\nPhobia’s got me shaking, phobias are real\nI don’t want to lose my mind or feel like a hell\nBut you took that limb off when I needed most\nAnd left me with nothing but broken ghost.\nMy hunger is eating the party right now\nThis game is fucking brutal and won’t let us grow!\n\n[Chorus]\nOh 9/11'd! I died again in the dark\nJust another failure that makes me want to bark\nOh 9/11'd! I lost my save file too\nMy character’s gone, and there’s no way out for you.\nFuck this loop! It never changes a thing\nEvery time I try, I get hit by nothing\nBut 9/11 keeps coming at me again!\n\n[Bridge]\nFour limbs left, but the darkness is taking them now\nI’m trying to run but my legs are too slow.\nCoin flip says luck is on your side... no it isn't\nSanity’s gone, and I can’t feel it yet.\nYou’re killing my progress just for fun and a laugh\nAnd 9/11 is the only way out of this trap!\n\n[Verse 3]\nI keep trying to respawn but the server won’t budge\nI’m cursing at the devs, I think that they’d be rude.\nHunger makes me weak when you need a fight\nAnd then—9/11'd, it’s always right in sight!\nFuck this frustration, fuck the RNG and the glitch\nI want my save file back so I can start to switch.\nBut every time I die... there’s only one thing left:\nJust another 9/11 that I won’t forget.\n\n[Outro]\nOne last try? No! It hurts too much to play\nThe darkness wins, and the game will not stay.\nOh 9/11'd, oh 9/11'd, oh 9/11'd again...\nAnother death without a trace in my dream.\nJust another 9/11. Fuck it all.\nI’ll never get to see this time again.\n[End]",
+        "duration": 310,
+        "bpm": 72
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nMy torch died out, the screen went pitch black fast\nI tried to save but I lost my whole last act\nHunger got me weak before I could even speak\nAnd then—9/11'd, right in my face.\nFuck this game! It’s rigged and it’s unfair play\nAll those hours wasted just to get a day\nMy save file corrupted, progress wiped away\nI’m screaming at the sky, \"Why won’t you stay?\"\n\n[Chorus]\nOh 9/11'd! I died again in the dark\nJust another failure that makes me want to bark\nOh 9/11'd! I lost my save file too\nMy character’s gone, and there’s no way out for you.\nFuck this loop! It never changes a thing\nEvery time I try, I get hit by nothing\nBut 9/11 keeps coming at me again!\n\n[Verse 2]\nSanity is bleeding out in the digital mire\nCoin flip landed on death and I can’t hide it here\nPhobia’s got me shaking, phobias are real\nI don’t want to lose my mind or feel like a hell\nBut you took that limb off when I needed most\nAnd left me with nothing but broken ghost.\nMy hunger is eating the party right now\nThis game is fucking brutal and won’t let us grow!\n\n[Chorus]\nOh 9/11'd! I died again in the dark\nJust another failure that makes me want to bark\nOh 9/11'd! I lost my save file too\nMy character’s gone, and there’s no way out for you.\nFuck this loop! It never changes a thing\nEvery time I try, I get hit by nothing\nBut 9/11 keeps coming at me again!\n\n[Bridge]\nFour limbs left, but the darkness is taking them now\nI’m trying to run but my legs are too slow.\nCoin flip says luck is on your side... no it isn't\nSanity’s gone, and I can’t feel it yet.\nYou’re killing my progress just for fun and a laugh\nAnd 9/11 is the only way out of this trap!\n\n[Verse 3]\nI keep trying to respawn but the server won’t budge\nI’m cursing at the devs, I think that they’d be rude.\nHunger makes me weak when you need a fight\nAnd then—9/11'd, it’s always right in sight!\nFuck this frustration, fuck the RNG and the glitch\nI want my save file back so I can start to switch.\nBut every time I die... there’s only one thing left:\nJust another 9/11 that I won’t forget.\n\n[Outro]\nOne last try? No! It hurts too much to play\nThe darkness wins, and the game will not stay.\nOh 9/11'd, oh 9/11'd, oh 9/11'd again...\nAnother death without a trace in my dream.\nJust another 9/11. Fuck it all.\nI’ll never get to see this time again.",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 17.94
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 36.44
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Original rock ballad",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-a9bf2e4b0b05f39a3919f3d2",
       "title": "Holding It Down - Brassline Soul Rework",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a9bf2e4b0b05f39a3919f3d2-c6dc734d14d6.mp3",
