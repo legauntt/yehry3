@@ -2,6 +2,274 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-0355bdb0b3874b004521e688",
+      "title": "Nine Eleven'd Carnival",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0355bdb0b3874b004521e688-9edc7b0d3b5c.mp3",
+      "duration": 290,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-15T10:12:16.702Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Nine Eleven'd Carnival",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Horror-circus power pop for the mandatory pinned Tony V7 voice: calliope and detuned carnival piano circle a muscular bass groove, bright distorted guitars, theatrical toms, handclaps, and abrupt funhouse ensemble stops. Verses stalk forward with smoky, connected Tony phrasing; choruses burst into large melodic hooks with crooked laughs and fraying harmonies. The bridge darkens into half-time before the final build. Pace every preserved lyric across 290 seconds so the last syllable lands 8–12 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nMy torch flickers out inside the deep dark room\nI can't see where to step or how much to come\nHunger is a beast that gnaws at my stomach walls\nWhile my strength drops and I lose all control over it all\nThe party member next to me starts shaking\nHis mind meter's dropping, his sanity’s breaking fast\nBut the darkness claims what we can't afford to save\nAnother 9/11 on the screen...\n\n[Chorus]\nOh, 9/11'd! The game says I'm dead\nI lost my character in a digital bed\nThe hunger took me before I could breathe\nMy limbs are gone and it's getting worse each week\nNo respawn key here when you're truly done\nJust a screen of black where your soul has been\n\n[Verse 2]\nNow the phobias kick in as we walk through the night\nA fear that won't stop until the light fades out of sight\nMy mind is eating away at my sanity meter fast\nEncountering horrors when I'm trying to be last\nThe coin flip decides if you get loot or a trap\nOne moment you're safe, then you fall in a trap!\nBut even with luck on your side, it's hard to save the game\nWithout a single \"Save\" button in sight.\n\n[Chorus]\nOh, 9/11'd! The game says I'm dead\nI lost my character in a digital bed\nThe hunger took me before I could breathe\nMy limbs are gone and it's getting worse each week\nNo respawn key here when you're truly done\nJust a screen of black where your soul has been\n\n[Bridge]\nYou've got four limbs, but they don't stay on long enough to fight\nDismemberment takes away what makes you alive tonight\nI flip the coin for hope but it lands on loss\nAnother 9/11 as I start to close my mouth\nSanity is bleeding out in a pool of ink blackness\nThe darkness is winning, and there's no chance to change.\n\n[Verse 3]\nSo I try again with a new plan, fresh gear, fresh hope\nBut the hunger keeps coming even when I'm not alone for now\nThe phobia strikes me down without warning or grace\nAnd 9/11'd is the only thing I get in place\nI'll keep playing till my sanity breaks and dies\nUntil the game says \"You're done\" with your eyes.\n\n[Outro]\nOne last try... one final breath?\nNo, there's nothing left to save from death\nOh *Nein*, oh *Nein*, oh nine-eleven'd\nAnother death without a trace\nJust another nine-eleven on the screen\nAnd I'll never get to see it again\n[End]",
+        "duration": 290,
+        "bpm": 148
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nMy torch flickers out inside the deep dark room\nI can't see where to step or how much to come\nHunger is a beast that gnaws at my stomach walls\nWhile my strength drops and I lose all control over it all\nThe party member next to me starts shaking\nHis mind meter's dropping, his sanity’s breaking fast\nBut the darkness claims what we can't afford to save\nAnother 9/11 on the screen...\n\n[Chorus]\nOh, 9/11'd! The game says I'm dead\nI lost my character in a digital bed\nThe hunger took me before I could breathe\nMy limbs are gone and it's getting worse each week\nNo respawn key here when you're truly done\nJust a screen of black where your soul has been\n\n[Verse 2]\nNow the phobias kick in as we walk through the night\nA fear that won't stop until the light fades out of sight\nMy mind is eating away at my sanity meter fast\nEncountering horrors when I'm trying to be last\nThe coin flip decides if you get loot or a trap\nOne moment you're safe, then you fall in a trap!\nBut even with luck on your side, it's hard to save the game\nWithout a single \"Save\" button in sight.\n\n[Chorus]\nOh, 9/11'd! The game says I'm dead\nI lost my character in a digital bed\nThe hunger took me before I could breathe\nMy limbs are gone and it's getting worse each week\nNo respawn key here when you're truly done\nJust a screen of black where your soul has been\n\n[Bridge]\nYou've got four limbs, but they don't stay on long enough to fight\nDismemberment takes away what makes you alive tonight\nI flip the coin for hope but it lands on loss\nAnother 9/11 as I start to close my mouth\nSanity is bleeding out in a pool of ink blackness\nThe darkness is winning, and there's no chance to change.\n\n[Verse 3]\nSo I try again with a new plan, fresh gear, fresh hope\nBut the hunger keeps coming even when I'm not alone for now\nThe phobia strikes me down without warning or grace\nAnd 9/11'd is the only thing I get in place\nI'll keep playing till my sanity breaks and dies\nUntil the game says \"You're done\" with your eyes.\n\n[Outro]\nOne last try... one final breath?\nNo, there's nothing left to save from death\nOh *Nein*, oh *Nein*, oh nine-eleven'd\nAnother death without a trace\nJust another nine-eleven on the screen\nAnd I'll never get to see it again",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.78,
+            "end": 7.7
+          },
+          {
+            "line": 2,
+            "start": 8.02,
+            "end": 11.08
+          },
+          {
+            "line": 3,
+            "start": 11.76,
+            "end": 15.1
+          },
+          {
+            "line": 4,
+            "start": 15.1,
+            "end": 19.06
+          },
+          {
+            "line": 5,
+            "start": 19.54,
+            "end": 21.72
+          },
+          {
+            "line": 6,
+            "start": 22.1,
+            "end": 25.74
+          },
+          {
+            "line": 7,
+            "start": 25.74,
+            "end": 29.42
+          },
+          {
+            "line": 8,
+            "start": 29.42,
+            "end": 31.8
+          },
+          {
+            "line": 11,
+            "start": 64.88,
+            "end": 85.66
+          },
+          {
+            "line": 12,
+            "start": 103.36,
+            "end": 110.96
+          },
+          {
+            "line": 13,
+            "start": 111.54,
+            "end": 114.34
+          },
+          {
+            "line": 14,
+            "start": 115,
+            "end": 117.62
+          },
+          {
+            "line": 15,
+            "start": 118.12,
+            "end": 120.78
+          },
+          {
+            "line": 16,
+            "start": 120.78,
+            "end": 121.7
+          },
+          {
+            "line": 19,
+            "start": 121.7,
+            "end": 121.98
+          },
+          {
+            "line": 20,
+            "start": 121.98,
+            "end": 122.34
+          },
+          {
+            "line": 21,
+            "start": 122.34,
+            "end": 122.74
+          },
+          {
+            "line": 22,
+            "start": 123.76,
+            "end": 124.02
+          },
+          {
+            "line": 23,
+            "start": 124.02,
+            "end": 124.2
+          },
+          {
+            "line": 24,
+            "start": 124.2,
+            "end": 124.54
+          },
+          {
+            "line": 25,
+            "start": 124.54,
+            "end": 125
+          },
+          {
+            "line": 26,
+            "start": 125,
+            "end": 125.38
+          },
+          {
+            "line": 29,
+            "start": 130.62,
+            "end": 131.42
+          },
+          {
+            "line": 30,
+            "start": 131.42,
+            "end": 131.62
+          },
+          {
+            "line": 31,
+            "start": 131.62,
+            "end": 132.1
+          },
+          {
+            "line": 32,
+            "start": 132.1,
+            "end": 133
+          },
+          {
+            "line": 33,
+            "start": 133.78,
+            "end": 134.28
+          },
+          {
+            "line": 34,
+            "start": 134.28,
+            "end": 134.52
+          },
+          {
+            "line": 37,
+            "start": 134.52,
+            "end": 137.8
+          },
+          {
+            "line": 38,
+            "start": 138.54,
+            "end": 144.54
+          },
+          {
+            "line": 39,
+            "start": 145.08,
+            "end": 148.54
+          },
+          {
+            "line": 40,
+            "start": 148.54,
+            "end": 151.5
+          },
+          {
+            "line": 41,
+            "start": 151.5,
+            "end": 154.96
+          },
+          {
+            "line": 42,
+            "start": 154.96,
+            "end": 160.68
+          },
+          {
+            "line": 45,
+            "start": 163.94,
+            "end": 168.38
+          },
+          {
+            "line": 46,
+            "start": 168.56,
+            "end": 171.84
+          },
+          {
+            "line": 47,
+            "start": 171.84,
+            "end": 175.56
+          },
+          {
+            "line": 48,
+            "start": 175.56,
+            "end": 178.9
+          },
+          {
+            "line": 49,
+            "start": 178.9,
+            "end": 182.26
+          },
+          {
+            "line": 50,
+            "start": 182.26,
+            "end": 185.78
+          },
+          {
+            "line": 53,
+            "start": 191.14,
+            "end": 198.18
+          },
+          {
+            "line": 54,
+            "start": 198.18,
+            "end": 203.6
+          },
+          {
+            "line": 55,
+            "start": 214.14,
+            "end": 217.8
+          },
+          {
+            "line": 56,
+            "start": 217.8,
+            "end": 221.68
+          },
+          {
+            "line": 57,
+            "start": 222.18,
+            "end": 225.92
+          },
+          {
+            "line": 58,
+            "start": 227.66,
+            "end": 232.58
+          }
+        ]
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "originalPrompt": {
+        "idea": "Genre: horror circus power pop",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-9144eaf3d51fdb2bba865a25",
       "title": "The People Holding It Down",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-9144eaf3d51fdb2bba865a25-41584b115b95.mp3",
