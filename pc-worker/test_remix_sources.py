@@ -27,7 +27,7 @@ class RemixSources(unittest.TestCase):
     def test_exact_source_survives_retries_and_reaches_planner_material(self):
         source = prepare(self.config, self.prompt); basis = resolve(self.config, source)
         self.assertEqual(source, prepare(self.config, self.prompt))
-        self.assertEqual(source_material(self.config, [basis])['vocal_reference_path'], str(self.work / 'matched-vocals.wav'))
+        self.assertTrue(Path(source_material(self.config, [basis])['vocal_reference_path']).samefile(self.work / 'matched-vocals.wav'))
         self.assertEqual(basis_files(self.config, {'details': {'remixSource': source, 'basisSongIds': []}}), [basis])
         with self.assertRaisesRegex(ValueError, 'exactly one'):
             basis_files(self.config, {'details': {'remixSource': source, 'basisSongIds': ['another']}})

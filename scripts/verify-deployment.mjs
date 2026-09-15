@@ -93,6 +93,7 @@ for (const name of [
   "api.js",
   "config.js",
   "basis.js",
+  "remix.js",
   "queue.js",
   "recovery.js",
   "notifications.js",
