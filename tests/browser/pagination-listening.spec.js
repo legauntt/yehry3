@@ -21,6 +21,10 @@ test("123-song pagination supports deep links, history, filtering, sorting and m
   await expect(page.locator(".track")).toHaveCount(23);
   await expect(page.locator(".track-number").first()).toHaveText("101");
   await expect(page.locator("#track-count")).toHaveText("123 songs · Showing 101–123");
+  await expect(page.locator(".listening-overview")).not.toHaveAttribute("open", "");
+  await expect(page.locator("#listening-total")).toBeHidden();
+  await page.locator(".listening-overview > summary").press("Enter");
+  await expect(page.locator("#listening-total")).toBeVisible();
   await expect(page.locator("#listening-total")).toHaveText("7,503");
   await expect(page.locator("#listening-reach")).toHaveText("122 of 123");
   await expect(page.locator("#listening-latest")).not.toHaveText("—");
@@ -46,6 +50,7 @@ test("123-song pagination supports deep links, history, filtering, sorting and m
   await expect(page.locator("#listening-total")).toHaveText("0");
   await expect(page.locator("#listening-latest")).toHaveText("None recorded");
   await page.getByLabel("Search songs").fill("");
+  await page.locator(".listening-overview > summary").click();
   await page.getByRole("button", { name: "Most listened to" }).click();
   await expect(page.getByLabel("Sort songs")).toHaveValue("plays");
   await expect(page.getByRole("button", { name: "Most listened to" })).toHaveAttribute("aria-pressed", "true");
@@ -53,6 +58,7 @@ test("123-song pagination supports deep links, history, filtering, sorting and m
   await expect(page.locator(".track-listening").first()).toContainText("122 listens");
   await page.reload();
   await expect(page.getByLabel("Sort songs")).toHaveValue("plays");
+  await expect(page.locator("#most-listened")).toBeHidden();
   for (const [sort, first] of [["plays", "Track 123"], ["least-played", "Track 001"], ["least-recent", "Track 001"]]) {
     await page.getByLabel("Sort songs").selectOption(sort);
     await expect(page.locator(".track h3").first()).toHaveText(first);
@@ -62,6 +68,7 @@ test("123-song pagination supports deep links, history, filtering, sorting and m
   await expect(page.locator(".track-number").first()).toHaveText("26");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: "artifacts/catalog-pagination-mobile.png" });
+  await page.locator(".listening-overview > summary").click();
   await page.locator(".listening-overview").screenshot({ path: "artifacts/listening-dashboard-mobile.png" });
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.locator(".listening-overview").screenshot({ path: "artifacts/listening-dashboard-desktop.png" });
