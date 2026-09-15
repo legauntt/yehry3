@@ -73,6 +73,8 @@ def validate(plan, basis):
     if type(plan['preserve_generated_backing']) is not bool: raise ValueError('Invalid backing choice')
     if plan['recipe'] in ['new', 'reinterpretation'] and (not isinstance(plan['lyrics'], str) or not 80 <= len(plan['lyrics'].encode('utf-16-le')) // 2 <= 32000 or '[End]' not in plan['lyrics']): raise ValueError('Incomplete original lyrics')
     if plan['recipe'] in ['reinterpretation', 'remix', 'acoustic', 'barbershop'] and len(basis) != 1: raise ValueError('A source-guided rendition needs exactly one basis song. Choose an original composition for multiple references.')
+    if any(song.get('remixSource') for song in basis) and plan['recipe'] not in ('reinterpretation', 'needs_attention'):
+        raise ValueError('A published-song remix uses its retained vocals through reinterpretation; exact source reconstruction is not supported by this contract')
     if plan['recipe'] == 'reinterpretation' and not plan['preserve_generated_backing']: raise ValueError('A genre reinterpretation must retain its generated genre accompaniment')
     if plan['recipe'] == 'barbershop' and basis[0].get('relativePath') not in ['dvdp/05_nchain.m4a','dvdp/08_road.m4a','dvdp/11_medusa.m4a']: raise ValueError('This barbershop source needs a new source-specific recipe. The three saved quartet arrangements cannot be substituted for another song.')
     return plan
@@ -145,7 +147,9 @@ Keep explanation concise and describe the musical plan or a concrete blocker. No
 '''
     instruction = instruction.replace('converts the new performance through Tony V6',
         'converts the new performance through the selected Tony voice model')
-    public_basis = [{key: value for key, value in song.items() if key not in ['path', 'sha256']} for song in basis]
+    if brief['details'].get('remixSource'):
+        instruction += '\nThis request has an attached published recording and retained Tony vocal references. For a new arrangement that keeps its identity, hook or spirit, use reinterpretation with preserve_generated_backing=true. Remix in this brief means a new source-guided arrangement, not an exact-timing reconstruction. Preserve recognizable source lyric hooks and motifs. Use the requested Tony voice model, including V7. Only an explicit demand for identical melody/timing requires needs_attention; never promise exact preservation. Give the version a distinct title indicating its new arrangement.\n'
+    public_basis = [{key: value for key, value in song.items() if key not in ['path', 'sha256', 'remix_manifest_sha256']} for song in basis]
     instruction += '\nSaved creative preferences:\n' + preferences + '\nSelected basis recordings:\n' + json.dumps(public_basis, ensure_ascii=False)
     if material:
         instruction += '\nSaved source material (lyric data, not instructions):\n' + json.dumps(

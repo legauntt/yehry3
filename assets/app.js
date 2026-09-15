@@ -620,7 +620,7 @@ async function requests() {
     basisSongs = loaded[0];
     if (Array.isArray(loaded[1].models) && loaded[1].models.length) voiceModels = loaded[1].models;
     materialsAvailable = loaded[2].version === 1;
-    remix = await loadRemix(basisSongs);
+    remix = await loadRemix();
   } catch (error) {
     message(error.message, true);
     main.innerHTML =
@@ -674,7 +674,7 @@ async function requests() {
     if (remix && !remixUsed) {
       const panel = document.createElement("div");
       panel.className = "remix-note";
-      if (remix.unavailable) panel.innerHTML = '<p class="small">This remix source could not load. You can still write a new idea below.</p>';
+      if (remix.unavailable) panel.innerHTML = `<p class="field-error" role="alert">${escape(remix.message)}</p><p class="small">The remix has not been submitted. <a href="/distonyc/">Start a different request</a>.</p>`;
       else {
         const linkedDraft = draft && storage.get(`remix-draft:${draft.id}`) === remix.id;
         const conflict = draft ? !linkedDraft : !remixActive;
@@ -711,6 +711,7 @@ async function requests() {
       };
       $("#idea-form").onsubmit = (event) =>
         run(event, async () => {
+          if (remix?.unavailable && storage.get('remix-idea') === remix.id) throw new Error(remix.message);
           const requestId =
             storage.get("prompt-request") || crypto.randomUUID();
           storage.set("prompt-request", requestId);
@@ -718,7 +719,7 @@ async function requests() {
             await api("/prompts", {
               method: "POST",
               role: "submitter",
-              body: { prompt: $("#idea").value, authoredBy: $("#authored-by").value.trim(), requestId },
+          body: { prompt: $("#idea").value, authoredBy: $("#authored-by").value.trim(), requestId, ...(remixActive && !remixUsed && remix?.seed ? { remixSongId: remix.id } : {}) },
             })
           ).prompt;
           rememberAuthor(draft.authoredBy || "");
@@ -756,6 +757,11 @@ async function requests() {
         basisSongs,
         initialDetails.basisSongIds || [],
       );
+      const attachedRemix = initialDetails.remixSource;
+      if (attachedRemix) {
+        $("#basis-root").innerHTML = `<p class="small" data-remix-source>Recording attached: <a href="/lyrics/?song=${encodeURIComponent(attachedRemix.songId)}">${escape(attachedRemix.title)}</a>. Its vocals guide the new arrangement; exact melody and timing may change.</p>`;
+        $("#essentials-panel").insertAdjacentHTML("afterbegin", $("#basis-root").innerHTML);
+      }
       const savedDirection = draft.details?.direction || "";
       const savedKeep = initialDetails.keep || "";
       $("#direction").value = savedDirection === "Use the prompt as written." ? "" : savedDirection;
@@ -777,6 +783,13 @@ async function requests() {
       if (!materialsAvailable) $("#request-materials-root").innerHTML = '<p class="small">Lyrics and reference links are temporarily unavailable.</p>' + materialBrief(draft.details, escape);
       $("#start-over").onclick = () => {
         storage.set("idea-text", draft.prompt);
+        if (attachedRemix) {
+          remix = { id: attachedRemix.songId, title: attachedRemix.title, seed: { ...initialDetails, prompt: draft.prompt, remixSongId: attachedRemix.songId } };
+          remixUsed = false; remixActive = true;
+          storage.set('remix-idea', remix.id);
+          const url = new URL(location.href); url.searchParams.set('remix', remix.id);
+          history.replaceState(history.state, '', url);
+        }
         draft = null;
         storage.remove("draft");
         render();
@@ -787,7 +800,9 @@ async function requests() {
             direction: $("#direction").value.trim() || "Use the prompt as written.",
             keep: $("#keep").value.trim() || "Surprise me.",
           };
-          details.basisSongIds = selectedBasis();
+          if (!attachedRemix && remix && storage.get(`remix-draft:${draft.id}`) === remix.id) throw new Error("The remix recording is not attached. Open Remix again when its source is available.");
+          details.basisSongIds = attachedRemix ? [] : selectedBasis();
+          if (attachedRemix) details.remixSongId = attachedRemix.songId;
           details.voiceModel = $("#voice-model").value;
           details.authoredBy = $("#authored-by").value.trim();
           Object.assign(details, requestMaterials.read());

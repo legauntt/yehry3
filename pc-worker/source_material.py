@@ -6,6 +6,9 @@ from common import inside, load, sha
 def source_material(config, basis):
     if len(basis) != 1: return None
     selected = basis[0]
+    if selected.get('remixSource'):
+        from remix_sources import material
+        return material(config, selected)
     catalog = Path(config['settings']['studio_dir']).parent / 'catalog-expansion-v6'
     rows = load(catalog / 'sources.json')
     row = next((row for row in rows if row.get('source_sha256', row.get('sha256')) == selected['sha256']), None)

@@ -8,10 +8,14 @@ from publish import upload, update_catalog
 from public_plan import public_plan
 from lyrics import make_sheet, export_sheet
 from voice_models import selected
+from remix_sources import CAPABILITY as REMIX_CAPABILITY, resolve as remix_basis, register as register_remix
 
 TERMINAL = {'published', 'failed', 'canceled'}
 
 def basis_files(config, prompt):
+    if prompt['details'].get('remixSource'):
+        if prompt['details'].get('basisSongIds'): raise ValueError('A catalog remix requires exactly one attached recording')
+        return [remix_basis(config, prompt['details']['remixSource'])]
     songs = {item['id']: item for item in load(config['basis_catalog'])['songs']}
     identifiers = prompt['details'].get('basisSongIds', [])
     # Preserve requests submitted before the dropdown existed. Resolve only one exact catalog title.
@@ -84,19 +88,24 @@ def run_once(config, api, verify_existing=None):
     if claim.get('promptId'):
         previous = api.call('/prompts/' + claim['promptId'])['prompt']
         if previous['status'] in TERMINAL:
-            if previous['status'] == 'published': update_catalog(config, previous)
+            if previous['status'] == 'published':
+                update_catalog(config, previous)
+                register_remix(config, api, previous)
             journal.unlink(); save(health, {'at': utc(), 'status': previous['status'], 'promptId': previous['id']}); return
-    try: prompt = api.call('/claim', {**claim, 'capabilities': ['request-materials-v1']})['prompt']
+    capabilities = ['request-materials-v1'] + ([REMIX_CAPABILITY] if config.get('catalog_remix') else [])
+    try: prompt = api.call('/claim', {**claim, 'capabilities': capabilities})['prompt']
     except APIError as error:
         if error.status != 410: raise
-        claim = new_claim(journal); prompt = api.call('/claim', {**claim, 'capabilities': ['request-materials-v1']})['prompt']
+        claim = new_claim(journal); prompt = api.call('/claim', {**claim, 'capabilities': capabilities})['prompt']
     if not prompt:
         journal.unlink(); save(health, {'at': utc(), 'status': 'idle'}); return
     claim['promptId'] = prompt['id']; save(journal, claim)
     directory = inside(state / 'jobs' / prompt['id'], state / 'jobs'); directory.mkdir(parents=True, exist_ok=True)
     save(directory / 'prompt.json', prompt)
     if prompt['status'] in TERMINAL:
-        if prompt['status'] == 'published': update_catalog(config, prompt)
+        if prompt['status'] == 'published':
+            update_catalog(config, prompt)
+            register_remix(config, api, prompt)
         journal.unlink(); return
     heartbeat = Heartbeat(api, prompt, claim['leaseToken'], directory, health)
     def action(name, **body):
@@ -143,6 +152,7 @@ def run_once(config, api, verify_existing=None):
         prompt = action('publish')
         heartbeat.close()
         update_catalog(config, prompt)
+        register_remix(config, api, prompt)
         save(health, {'at': utc(), 'status': 'published', 'promptId': prompt['id'], 'url': prompt['releaseUrl']})
         journal.unlink()
     except Stopped:

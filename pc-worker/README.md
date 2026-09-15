@@ -1,5 +1,35 @@
 # Distonyc on Windows
 
+## Published-song remixes
+
+`catalog_remix: true` enables `catalog-remix-v1` after the matching Chairlift API is deployed.
+The Remix shortcut attaches a published song ID, not a title match against the classic basis list.
+Chairlift freezes an allowlisted recording descriptor at review and checks it again at confirmation;
+workers without this capability cannot claim or replay these requests.
+
+`remix_sources.py` registers eligible published jobs only after verifying both original exports,
+their published MP3 identity, the retained converted Tony vocal stem, and the published lyric sheet.
+Complete recordings and source manifests stay in `basis_root/published/<song-id>/<sha256>/`,
+outside repositories. Vocal stems remain in their retained production folders and are hash-pinned.
+Missing recording bytes can be restored only from the frozen release URL with the exact size/hash;
+changed files, stems, lyrics, or frozen manifests fail closed. Specialist recordings without retained
+converted stems are reported unavailable before submission. No audio or private paths enter Mongo.
+
+The existing reinterpretation recipe uses those vocal references for a new arrangement, keeps
+recognizable lyric hooks and motifs, and retains the requested voice model and generated accompaniment.
+It does not promise identical melody or timing. Existing confirmed requests and recovery budgets
+stay unchanged. A source-less failed request needs a corrected new request, not an edited snapshot.
+Registration is idempotent and resumes after publication; it never rerenders a delivered song.
+For existing retained publications, load the worker token using the normal DPAPI pattern and run
+`sync_remix_sources.py --config <installed-config> --all-published` (or `--request-id <id>`).
+`--prepare-only` verifies and retains local sources without changing server metadata. The command
+never mutates queue state; per-song results live in `state/remix-source-registration.json`.
+
+Validation: `python -m unittest -v test_remix_sources.py test_worker.py test_recovery.py`.
+When applying to an installed runtime with newer planner/recovery features, apply only the reviewed
+worker/planner changes and new source helper, then use the current selected-file installer. Preserve
+all newer installed policies, config, credentials, and journals.
+
 Optional request materials use the private confirmed lyric sheet and saved reference
 snapshots. Claims advertise request-materials-v1; older workers skip these requests.
 The planner enforces **Keep my wording** or permits explicit adaptation, with at most
