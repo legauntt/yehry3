@@ -6,6 +6,7 @@ import { mountFavorites } from "./favorites.js";
 import { api } from "./api.js";
 import { trackListening, listeningLabel } from "./listening.js";
 import { remixLink } from "./remix.js";
+import { mountMomentSharing, sharedTimestamp } from "./lyric-moments.js";
 
 function cueMap(lyrics) {
   const lines = lyrics.text.split("\n");
@@ -74,14 +75,16 @@ function mountKaraoke(main) {
     }
   }
   function markLinked(line) {
-    if (line === linked) return;
-    linked?.classList.remove("is-linked");
+    for (const candidate of lines) candidate.classList.toggle("is-linked", candidate === line);
     linked = line;
-    linked?.classList.add("is-linked");
   }
   function selectLine(line, updateUrl = false) {
     if (!line) return;
-    if (updateUrl) history.replaceState(history.state, "", `#${line.id}`);
+    if (updateUrl) {
+      const url = new URL(location.href);
+      url.searchParams.delete("t"); url.hash = line.id;
+      history.replaceState(history.state, "", url);
+    }
     markLinked(line);
     const seek = () => {
       audio.currentTime = Number(line.dataset.start);
@@ -94,7 +97,8 @@ function mountKaraoke(main) {
   const linkedLine = lineFromHash();
   if (linkedLine && !audio.currentTime && audio.paused) {
     linkedLine.scrollIntoView({ block: "center" });
-    selectLine(linkedLine);
+    if (sharedTimestamp() === null) selectLine(linkedLine);
+    else markLinked(linkedLine);
   }
   addEventListener("hashchange", () => {
     const line = lineFromHash();
@@ -114,7 +118,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
   const id =
     new URLSearchParams(location.search).get("song") ||
     document.body.dataset.songId;
-  let cleanupKaraoke = () => {}, downloadUrl, favorites, profilePanel, trackedAudio, listening;
+  let cleanupKaraoke = () => {}, cleanupMoments = () => {}, downloadUrl, favorites, profilePanel, trackedAudio, listening;
   function render(song) {
     const previousAudio = main.querySelector("audio");
     const previousPosition = previousAudio ? [scrollX, scrollY] : null;
@@ -132,6 +136,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     const hasCues = cueMap(song.lyrics).size > 0;
     main.innerHTML = `<article class="lyrics-sheet"><p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>${authoredByLine(song.authoredBy, escape)}${qualityNotice(song.qualityIssues)}<p class="small">${note}</p><section class="shared-song-player" aria-label="Listen to ${escape(song.title)}"><p class="tiny-label">Listen here</p><audio controls preload="metadata" src="${audioUrl}" aria-label="Play ${escape(song.title)}">Your browser cannot play this recording. <a href="${audioUrl}">Open the audio file</a>.</audio></section>${hasCues ? '<p class="small karaoke-note">The current line follows the recording. Select any lyric to jump there.</p>' : ""}<div class="actions lyrics-actions"><a class="primary" href="${audioUrl}" target="_blank" rel="noopener">Open audio ↗</a><a class="quiet" id="download-lyrics">Download lyrics</a><button class="quiet" id="print-lyrics">Print</button>${songPlanLink(song, escape)}<a class="text-link" href="/">The collection →</a></div><div class="lyrics-text karaoke-lyrics">${lyricLines(song.lyrics, escape)}</div></article>`;
     cleanupKaraoke();
+    cleanupMoments();
     const replacementAudio = main.querySelector("audio");
     if (previousAudio?.src === replacementAudio.src) replacementAudio.replaceWith(previousAudio);
     const audio = main.querySelector("audio");
@@ -152,6 +157,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     listeningStats.textContent = listeningLabel(song);
     main.querySelector(".shared-song-player").append(listeningStats);
     cleanupKaraoke = mountKaraoke(main);
+    cleanupMoments = mountMomentSharing(main);
     profilePanel ||= document.createElement("div");
     main.querySelector(".lyrics-actions").after(profilePanel);
     favorites ||= mountFavorites(profilePanel);
@@ -172,7 +178,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
   addEventListener(
     "pagehide",
     (event) => {
-      if (!event.persisted) { if (downloadUrl) URL.revokeObjectURL(downloadUrl); cleanupKaraoke(); }
+      if (!event.persisted) { if (downloadUrl) URL.revokeObjectURL(downloadUrl); cleanupKaraoke(); cleanupMoments(); }
     },
     { once: true },
   );
