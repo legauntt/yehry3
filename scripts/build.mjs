@@ -25,6 +25,7 @@ for (const file of [
   "admin",
   "queue",
   "lyrics",
+  "mixtapes",
   "original-prompt",
   "notifications-sw.js",
   "assets",

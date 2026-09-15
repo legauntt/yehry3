@@ -1,0 +1,33 @@
+.tape-intro { margin: 3rem 0 2rem; }
+.tape-intro h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
+.tape-sleeve { --tape-color: #edb293; max-width: 660px; padding: 1.8rem; border: 2px solid var(--ink); border-radius: 18px; background: var(--tape-color); box-shadow: 6px 6px 0 var(--ink); }
+.tape-sleeve[data-color="green"] { --tape-color: #b8c8a3; }
+.tape-sleeve[data-color="pink"] { --tape-color: #e7bacb; }
+.tape-sleeve[data-color="blue"] { --tape-color: #b9cddc; }
+.tape-sleeve h2 { margin: .7rem 0; overflow-wrap: anywhere; }
+.tape-reels { display: flex; justify-content: space-between; border: 2px solid var(--ink); border-radius: 70px; background: var(--paper); padding: .2rem 1rem; font-size: 3rem; line-height: 1.3; max-width: 420px; }
+.tape-edit { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: .8rem 1rem; align-items: center; margin: 2rem 0 1rem; max-width: 660px; }
+.tape-edit input, .tape-edit select, #tape-search, #tape-link { min-width: 0; width: 100%; padding: .7rem; border: 1px solid var(--line); background: var(--white); border-radius: 5px; }
+.tape-actions { margin: 1.5rem 0 0; }
+.tape-sides { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 2rem 0; }
+.tape-side { min-width: 0; padding: 1.3rem; background: var(--white); border: 1px solid var(--line); border-radius: 10px; }
+.tape-side .section-heading { margin-bottom: .7rem; }
+.tape-side ol { padding-left: 1.3rem; }
+.tape-track { padding: 1rem 0; border-bottom: 1px solid var(--line); overflow-wrap: anywhere; }
+.tape-track[draggable] { cursor: grab; }
+.tape-track .text-link { display: block; width: fit-content; margin-top: .4rem; font-size: .8rem; }
+.tape-moves { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .7rem; }
+.tape-moves button { min-height: 44px; min-width: 44px; padding: .35rem .7rem; }
+.tape-picker { margin-bottom: 3rem; }
+#tape-catalog { max-height: 560px; overflow-y: auto; margin-top: 1rem; border: 1px solid var(--line); border-radius: 8px; }
+.tape-pick { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .7rem 1rem; border-bottom: 1px solid var(--line); }
+.tape-pick > span { overflow-wrap: anywhere; min-width: 0; }
+.tape-pick > div { flex-shrink: 0; display: flex; gap: .4rem; }
+.tape-pick button { min-height: 44px; }
+.tape-edit[hidden], .tape-picker[hidden] { display: none; }
+@media (max-width: 700px) {
+  .tape-sides { grid-template-columns: 1fr; }
+  .tape-edit { grid-template-columns: 1fr; gap: .35rem; }
+  .tape-edit label:not(:first-child) { margin-top: .7rem; }
+  .tape-sleeve { padding: 1.2rem; }
+}
