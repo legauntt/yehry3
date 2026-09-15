@@ -257,8 +257,14 @@ body[data-page="library"] .site-header {
 }
 nav {
   display: flex;
-  gap: 35px;
+  gap: 26px;
   align-items: center;
+}
+.site-header nav {
+  flex-wrap: wrap;
+}
+.site-header nav a {
+  white-space: nowrap;
 }
 nav a {
   text-decoration: none;
