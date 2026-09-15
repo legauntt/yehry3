@@ -147,6 +147,7 @@ function songMeta(song, recentPublishedAt) {
 }
 
 async function library() {
+  const listeningOverview = `<section class="listening-overview" aria-labelledby="listening-title"><div class="listening-heading"><h3 id="listening-title">Listening activity</h3><button type="button" class="quiet" id="most-listened" aria-pressed="false">Most listened to ↗</button></div><p class="small" id="listening-scope">Loading listening stats…</p><dl class="listening-totals"><div><dt>Total listens</dt><dd id="listening-total">—</dd></div><div><dt>Songs listened to</dt><dd id="listening-reach">—</dd></div><div><dt>Latest listen</dt><dd id="listening-latest">—</dd></div></dl></section>`;
   main.innerHTML = `
     <section class="hero">
       <div><p class="eyebrow">Tony C · The listening room</p><h1>Same voice.<br><em>Wildly different</em><br>directions.</h1>
@@ -157,8 +158,8 @@ async function library() {
     </section>
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><p class="eyebrow">The catalog</p><h2 id="collection-title">Pick your next obsession.</h2></div><div class="catalog-status"><p class="small" id="track-count">Loading songs…</p><p class="small auto-refresh-note"><span aria-hidden="true">↻</span> Auto-refreshes every 30 seconds</p></div></div>
-      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="hybrid">Fresh, then most loved</option><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option><option value="plays">Most played</option><option value="least-played">Least played</option><option value="least-recent">Least recently played</option></select><button class="quiet" id="shuffle">Shuffle ↝</button><div class="display-settings" data-quality-settings></div></div>
-      <div id="favorites"></div><p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><p class="small listening-note">Plays are recorded after 10 seconds of listening, once per browser per song every 30 minutes. History starts September 2026.</p>
+      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="hybrid">Fresh, then most loved</option><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option><option value="plays">Most listened to</option><option value="least-played">Least listened to</option><option value="least-recent">Least recently played</option></select><button class="quiet" id="shuffle">Shuffle ↝</button><div class="display-settings" data-quality-settings></div></div>
+      <div id="favorites"></div>${listeningOverview}<p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><p class="small listening-note">Listens are recorded after 10 seconds of listening, once per browser per song every 30 minutes. History starts September 2026.</p>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
     <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
@@ -335,6 +336,18 @@ async function library() {
       visible.sort((a, b) => (a.playCount || 0) - (b.playCount || 0));
     if ($("#sort").value === "least-recent")
       visible.sort((a, b) => (Date.parse(a.lastPlayedAt) || 0) - (Date.parse(b.lastPlayedAt) || 0));
+    const hasStats = songs.some((song) => Number.isFinite(song.playCount)) &&
+      visible.every((song) => Number.isFinite(song.playCount)) && !(favorites.onlySaved && (favorites.loading || !favorites.hasProfile));
+    const totalListens = visible.reduce((total, song) => total + (song.playCount || 0), 0);
+    const listenedTo = visible.filter((song) => song.playCount > 0).length;
+    const latestListen = Math.max(0, ...visible.map((song) => Date.parse(song.lastPlayedAt) || 0));
+    $("#listening-total").textContent = hasStats ? totalListens.toLocaleString() : "—";
+    $("#listening-reach").textContent = hasStats ? `${listenedTo.toLocaleString()} of ${visible.length.toLocaleString()}` : "—";
+    $("#listening-latest").textContent = hasStats ? latestListen ? date(latestListen) : "None recorded" : "—";
+    $("#listening-scope").textContent = hasStats
+      ? `${online ? "All listeners" : "Last available totals"} · Matching songs across all pages · Since Sep 15, 2026`
+      : initialCatalogPending || (favorites.onlySaved && favorites.loading) ? "Loading listening stats…" : "Listening stats are temporarily unavailable.";
+    $("#most-listened").setAttribute("aria-pressed", String($("#sort").value === "plays"));
     const pageCount = Math.max(1, Math.ceil(visible.length / pageSize));
     // Keep a deep link while an asynchronously selected favorite profile loads.
     if (!initialCatalogPending && !(favorites.onlySaved && favorites.loading)) {
@@ -359,7 +372,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track ${current?.id === song.id ? "playing" : ""}" data-id="${escape(song.id)}">
-        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last played ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : `<p class="empty">${favorites.onlySaved ? escape(favorites.emptyMessage()) : "No songs match. Try another title or style."}</p>`);
@@ -487,6 +500,11 @@ async function library() {
       editingSearch = false;
       shareFilters();
     });
+  $("#most-listened").onclick = () => {
+    $("#sort").value = "plays";
+    editingSearch = false;
+    shareFilters();
+  };
   $("#search").addEventListener("input", () => {
     // One history entry per search edit, rather than one per keystroke.
     shareFilters(editingSearch);

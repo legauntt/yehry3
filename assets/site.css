@@ -1254,6 +1254,22 @@ main {
 .catalog-pagination[hidden] { display: none; }
 .catalog-pagination button { min-height: 44px; }
 .listening-note { margin-top: 8px; }
+.listening-overview {
+  margin: 20px 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #eef0e5;
+}
+.listening-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.listening-heading h3 { margin: 0; font-family: inherit; font-size: 1rem; }
+.listening-heading button { min-height: 44px; }
+.listening-heading button[aria-pressed="true"] { background: var(--ink); color: var(--white); }
+.listening-overview .small { margin: 8px 0 16px; }
+.listening-totals { display: flex; flex-wrap: wrap; gap: 18px 36px; margin: 0; }
+.listening-totals > div { flex: 1 1 140px; min-width: 0; }
+.listening-totals dt { font-size: 0.72rem; color: var(--muted); }
+.listening-totals dd { margin: 5px 0 0; font-size: 1.1rem; font-weight: 600; overflow-wrap: anywhere; }
 .empty {
   padding: 55px 25px;
   text-align: center;

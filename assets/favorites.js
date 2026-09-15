@@ -240,6 +240,7 @@ export function mountFavorites(container, { onChange = () => {}, filter = false 
     startTimer();
   });
   return {
+    get hasProfile() { return Boolean(profile); },
     get loading() { return loading; },
     get onlySaved() { return onlySaved; },
     includes: (song) => !onlySaved || Boolean(profile?.songIds.includes(song.id)),

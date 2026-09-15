@@ -56,7 +56,7 @@ export function trackListening(audio, { songId, source, send, onRecorded = () =>
 
 export function listeningLabel(song) {
   if (!Number.isFinite(song.playCount)) return "";
-  if (!song.playCount) return "No plays recorded";
+  if (!song.playCount) return "No listens recorded";
   const last = Date.parse(song.lastPlayedAt);
-  return `${song.playCount} ${song.playCount === 1 ? "play" : "plays"}${Number.isFinite(last) ? ` · Last played ${new Date(last).toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" })}` : ""}`;
+  return `${song.playCount} ${song.playCount === 1 ? "listen" : "listens"}${Number.isFinite(last) ? ` · Last listened ${new Date(last).toLocaleDateString([], { month: "short", day: "numeric", year: "numeric" })}` : ""}`;
 }

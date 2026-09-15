@@ -21,6 +21,9 @@ test("123-song pagination supports deep links, history, filtering, sorting and m
   await expect(page.locator(".track")).toHaveCount(23);
   await expect(page.locator(".track-number").first()).toHaveText("101");
   await expect(page.locator("#track-count")).toHaveText("123 songs · Showing 101–123");
+  await expect(page.locator("#listening-total")).toHaveText("7,503");
+  await expect(page.locator("#listening-reach")).toHaveText("122 of 123");
+  await expect(page.locator("#listening-latest")).not.toHaveText("—");
   await expect(nextPage(page)).toBeDisabled();
   await page.getByRole("button", { name: "Previous page" }).first().click();
   await expect(page).toHaveURL(/page=4/);
@@ -30,14 +33,26 @@ test("123-song pagination supports deep links, history, filtering, sorting and m
   await page.getByLabel("Collection", { exact: true }).selectOption("tonyai");
   expect(new URL(page.url()).searchParams.has("page")).toBe(false);
   await expect(page.locator("#track-count")).toHaveText("60 songs · Showing 1–25");
+  await expect(page.locator("#listening-total")).toHaveText("1,770");
+  await expect(page.locator("#listening-reach")).toHaveText("59 of 60");
   await page.goBack();
   await expect(page.locator(".track-number").first()).toHaveText("76");
   await page.getByLabel("Search songs").fill("Track 12");
   await expect(page.locator(".track")).toHaveCount(4);
+  await expect(page.locator("#listening-total")).toHaveText("482");
   await expect(page.locator("[data-catalog-pagination]:visible")).toHaveCount(0);
   await page.getByLabel("Search songs").fill("missing");
   await expect(page.locator("#tracks")).toContainText("No songs match");
+  await expect(page.locator("#listening-total")).toHaveText("0");
+  await expect(page.locator("#listening-latest")).toHaveText("None recorded");
   await page.getByLabel("Search songs").fill("");
+  await page.getByRole("button", { name: "Most listened to" }).click();
+  await expect(page.getByLabel("Sort songs")).toHaveValue("plays");
+  await expect(page.getByRole("button", { name: "Most listened to" })).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".track h3").first()).toHaveText("Track 123");
+  await expect(page.locator(".track-listening").first()).toContainText("122 listens");
+  await page.reload();
+  await expect(page.getByLabel("Sort songs")).toHaveValue("plays");
   for (const [sort, first] of [["plays", "Track 123"], ["least-played", "Track 001"], ["least-recent", "Track 001"]]) {
     await page.getByLabel("Sort songs").selectOption(sort);
     await expect(page.locator(".track h3").first()).toHaveText(first);
@@ -47,6 +62,9 @@ test("123-song pagination supports deep links, history, filtering, sorting and m
   await expect(page.locator(".track-number").first()).toHaveText("26");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: "artifacts/catalog-pagination-mobile.png" });
+  await page.locator(".listening-overview").screenshot({ path: "artifacts/listening-dashboard-mobile.png" });
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.locator(".listening-overview").screenshot({ path: "artifacts/listening-dashboard-desktop.png" });
 });
 
 test("page changes and refresh preserve playback and seeking, and Next crosses the page boundary", async ({ page }) => {
@@ -73,7 +91,7 @@ test("page changes and refresh preserve playback and seeking, and Next crosses t
 });
 
 test("late live data and saved-profile loading retain requested pages; invalid pages are clamped", async ({ page }) => {
-  const songs = fixtures(), profile = { id: "faaa0000-0000-4000-8000-000000000001", name: "All saved", songIds: songs.map(song => song.id), revision: 1 };
+  const songs = fixtures(), profile = { id: "faaa0000-0000-4000-8000-000000000001", name: "Some saved", songIds: songs.slice(0, 60).map(song => song.id), revision: 1 };
   await mock(page, songs);
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: songs.slice(0, 2) } }));
   await page.route("**/yehry3/profiles?*", route => route.fulfill({ json: { profiles: [profile], hasMore: false } }));
@@ -84,8 +102,11 @@ test("late live data and saved-profile loading retain requested pages; invalid p
   await page.goto(`/?sort=catalog&page=3&saved=1&profile=${profile.id}`);
   await expect(page.locator(".track-number").first()).toHaveText("51");
   await expect(page).toHaveURL(/page=3/);
+  await expect(page.locator("#listening-total")).toHaveText("1,770");
+  await expect(page.locator("#listening-reach")).toHaveText("59 of 60");
   await page.locator("#saved-only").click();
   await expect(page.locator(".track-number").first()).toHaveText("01");
+  await expect(page.locator("#listening-total")).toHaveText("7,503");
   await page.goBack();
   await expect(page.locator(".track-number").first()).toHaveText("51");
   await page.goto("/?sort=catalog&page=999");
@@ -109,14 +130,15 @@ test("real main and lyric playback records durable stats, with cross-page dedupl
   await expect.poll(() => reports.length, { timeout: 18000 }).toBe(1);
   expect(reports[0].counted).toBe(true);
   const count = reports[0].playCount;
-  await expect(page.locator(".track-listening")).toContainText(`${count} play`);
+  await expect(page.locator(".track-listening")).toContainText(`${count} listen`);
+  await expect(page.locator("#listening-total")).toHaveText(String(count));
   await page.locator("#audio").evaluate(async audio => { audio.pause(); audio.currentTime = 60; await audio.play(); });
   await page.goto(`/lyrics/?song=${recording.id}`);
   await page.locator("audio").evaluate(audio => audio.play());
   await expect.poll(() => reports.length, { timeout: 18000 }).toBe(2);
   expect(reports[1].counted).toBe(false);
   expect(reports[1].playCount).toBe(count);
-  await expect(page.locator("[data-listening-stats]")).toContainText(`${count} play`);
+  await expect(page.locator("[data-listening-stats]")).toContainText(`${count} listen`);
   const song = (await (await request.get(`http://127.0.0.1:3000/yehry3/songs/${recording.id}`)).json()).song;
   expect(song.playCount).toBe(count);
   expect(Date.parse(song.lastPlayedAt)).toBeGreaterThan(Date.now() - 60000);
@@ -136,4 +158,24 @@ test("tracking outages retry the same request without interrupting playback", as
   expect(requests[0].requestId).toBe(requests[1].requestId);
   expect(await page.locator("#audio").evaluate(audio => !audio.paused && audio.currentTime > 10)).toBe(true);
   await expect(page.locator("#message")).not.toContainText("unreachable");
+});
+
+test("unavailable catalog or saved-profile statistics stay unknown rather than showing zero", async ({ page }) => {
+  const songs = fixtures();
+  await mock(page, songs);
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: songs.map(({ playCount, lastPlayedAt, ...song }) => song) } }));
+  await page.route("**/yehry3/songs/summary", route => route.abort());
+  await page.goto("/?sort=plays");
+  await expect(page.locator("#listening-scope")).toContainText("temporarily unavailable");
+  await expect(page.locator("#listening-total")).toHaveText("—");
+  await expect(page.locator(".track")).toHaveCount(25);
+  await page.unroute("**/yehry3/songs/summary");
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  const id = "faaa0000-0000-4000-8000-000000000001";
+  await page.route(`**/yehry3/profiles/${id}`, route => route.fulfill({ status: 404, json: { error: "Profile not found" } }));
+  await page.goto(`/?profile=${id}&saved=1`);
+  await expect(page.locator("#tracks")).toContainText("Saved songs couldn’t load");
+  await expect(page.locator("#listening-total")).toHaveText("—");
+  await page.locator("#saved-only").click();
+  await expect(page.locator("#listening-total")).toHaveText("7,503");
 });
