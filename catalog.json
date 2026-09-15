@@ -2,6 +2,345 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a9bf2e4b0b05f39a3919f3d2",
+      "title": "Holding It Down - Brassline Soul Rework",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a9bf2e4b0b05f39a3919f3d2-c6dc734d14d6.mp3",
+      "duration": 188.9,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-15T19:27:44.045Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Holding It Down - Brassline Soul Rework",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D major",
+        "arrangement": "A source-guided brassline soul-rock rework retaining the central “Holding it down” hook and everyday-worker narrative. The arrangement rides a melodic electric-bass pocket with tight live drums, clipped rhythm guitar, Hammond organ, piano, and punchy trumpet/trombone responses. Verses stay lean and conversational; choruses widen into sustained Tony V7 lead lines, stacked backing vocals, and bold horn figures. Use the mandatory pinned Tony V7 voice with smoky slurs, crooked timing, muttered character, and a clearly catchable hook. Drop to bass, handclaps, and organ for the breakdown, then rebuild into an expanded final chorus. Pace the final outro syllable to land about 10 seconds before 3:40, followed by one resolved D-major chord and natural decay.",
+        "lyrics": "[Intro]\nMorning cracks on a two-lane town\nCoffee burns while the sun comes round\nNight-shift nurse, loading-dock crew\nDoing what the day asks them to do\n\n[Verse 1]\nRosa opens up the corner store\nCal sweeps dust from the factory floor\nKids catch breakfast at a quarter to eight\nBus driver grins when they're running late\nA roofer laughs with the heat on his back\nA young mom studies when the whole house blacks\nNobody famous, nobody crowned\nJust the people keeping this whole thing sound\n\n[Pre-Chorus]\nEvery wheel needs a hand somewhere\nEvery hard mile needs somebody there\n\n[Chorus]\nHolding it down, holding it down\nMaking a life from an ordinary town\nBent but breathing, finding our way\nBuilding tomorrow from the work of today\nFrom the county road to the city downtown\nLook at the people holding it down\n\n[Verse 2]\nOld Jim fixes what the rich throw out\nMina speaks when the room fills with doubt\nThe cook in the diner knows every name\nThe volunteer coach stays late in the rain\nHands get dirty and the rent comes due\nStill somebody saves you a place in the queue\nWe lose, we mend, we pass hope around\nThat's how the people keep holding it down\n\n[Pre-Chorus]\nWhen the gears bite hard and the week runs long\nA crooked laugh keeps the whole line strong\n\n[Chorus]\nHolding it down, holding it down\nMaking a life while the world spins around\nBent but breathing, finding our way\nCarrying the night to the edge of the day\nFrom the wheat-field wind to the subway sound\nLook at the people holding it down\n\n[Bridge]\nNo marble statue, no victory speech\nJust a hand held out when the road gets steep\nOne porch light burning against the dark\nOne stubborn heart and a borrowed spark\nThe nurse clocks out as the school doors rise\nThe baker wipes flour from tired eyes\nNo spotlight falls, but the truth comes through:\nThis whole place moves because somebody moves\n\n[Breakdown]\nCall it work, call it care\nCall it showing up and staying there\nWhen the wheels run rough and the walls shake round\nYou feel those hands still holding it down\n\n[Chorus]\nHolding it down, holding it down\nMaking a life from the lost and the found\nBent but breathing, shoulder to shoulder\nEvery small kindness making us bolder\nFrom the county road to the city downtown\nWe are the people holding it down\nHolding it down when the daylight is gone\nHolding it down till the next light comes on\nTogether, together, through trouble and doubt\nWe are the people—still holding it down\n\n[Outro]\nMorning cracks and the wheels come round\nStill the people are holding it down\n[End]",
+        "duration": 220,
+        "bpm": 108
+      },
+      "lyrics": {
+        "text": "[Intro]\nMorning cracks on a two-lane town\nCoffee burns while the sun comes round\nNight-shift nurse, loading-dock crew\nDoing what the day asks them to do\n\n[Verse 1]\nRosa opens up the corner store\nCal sweeps dust from the factory floor\nKids catch breakfast at a quarter to eight\nBus driver grins when they're running late\nA roofer laughs with the heat on his back\nA young mom studies when the whole house blacks\nNobody famous, nobody crowned\nJust the people keeping this whole thing sound\n\n[Pre-Chorus]\nEvery wheel needs a hand somewhere\nEvery hard mile needs somebody there\n\n[Chorus]\nHolding it down, holding it down\nMaking a life from an ordinary town\nBent but breathing, finding our way\nBuilding tomorrow from the work of today\nFrom the county road to the city downtown\nLook at the people holding it down\n\n[Verse 2]\nOld Jim fixes what the rich throw out\nMina speaks when the room fills with doubt\nThe cook in the diner knows every name\nThe volunteer coach stays late in the rain\nHands get dirty and the rent comes due\nStill somebody saves you a place in the queue\nWe lose, we mend, we pass hope around\nThat's how the people keep holding it down\n\n[Pre-Chorus]\nWhen the gears bite hard and the week runs long\nA crooked laugh keeps the whole line strong\n\n[Chorus]\nHolding it down, holding it down\nMaking a life while the world spins around\nBent but breathing, finding our way\nCarrying the night to the edge of the day\nFrom the wheat-field wind to the subway sound\nLook at the people holding it down\n\n[Bridge]\nNo marble statue, no victory speech\nJust a hand held out when the road gets steep\nOne porch light burning against the dark\nOne stubborn heart and a borrowed spark\nThe nurse clocks out as the school doors rise\nThe baker wipes flour from tired eyes\nNo spotlight falls, but the truth comes through:\nThis whole place moves because somebody moves\n\n[Breakdown]\nCall it work, call it care\nCall it showing up and staying there\nWhen the wheels run rough and the walls shake round\nYou feel those hands still holding it down\n\n[Chorus]\nHolding it down, holding it down\nMaking a life from the lost and the found\nBent but breathing, shoulder to shoulder\nEvery small kindness making us bolder\nFrom the county road to the city downtown\nWe are the people holding it down\nHolding it down when the daylight is gone\nHolding it down till the next light comes on\nTogether, together, through trouble and doubt\nWe are the people—still holding it down\n\n[Outro]\nMorning cracks and the wheels come round\nStill the people are holding it down",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.64
+          },
+          {
+            "line": 2,
+            "start": 5.98,
+            "end": 9.52
+          },
+          {
+            "line": 3,
+            "start": 10.4,
+            "end": 14.02
+          },
+          {
+            "line": 4,
+            "start": 14.82,
+            "end": 21.5
+          },
+          {
+            "line": 7,
+            "start": 27.32,
+            "end": 29.98
+          },
+          {
+            "line": 8,
+            "start": 29.98,
+            "end": 31.54
+          },
+          {
+            "line": 9,
+            "start": 31.54,
+            "end": 34.4
+          },
+          {
+            "line": 10,
+            "start": 34.4,
+            "end": 36.04
+          },
+          {
+            "line": 11,
+            "start": 36.04,
+            "end": 38.32
+          },
+          {
+            "line": 12,
+            "start": 38.32,
+            "end": 40.58
+          },
+          {
+            "line": 13,
+            "start": 40.58,
+            "end": 42.78
+          },
+          {
+            "line": 14,
+            "start": 42.78,
+            "end": 45.1
+          },
+          {
+            "line": 17,
+            "start": 45.62,
+            "end": 47.08
+          },
+          {
+            "line": 18,
+            "start": 47.08,
+            "end": 49.58
+          },
+          {
+            "line": 21,
+            "start": 51.9,
+            "end": 53.84
+          },
+          {
+            "line": 22,
+            "start": 53.84,
+            "end": 56.22
+          },
+          {
+            "line": 23,
+            "start": 56.46,
+            "end": 58.4
+          },
+          {
+            "line": 24,
+            "start": 58.4,
+            "end": 60.5
+          },
+          {
+            "line": 25,
+            "start": 60.7,
+            "end": 63.18
+          },
+          {
+            "line": 26,
+            "start": 63.18,
+            "end": 65.64
+          },
+          {
+            "line": 29,
+            "start": 70.28,
+            "end": 71.86
+          },
+          {
+            "line": 30,
+            "start": 72.14,
+            "end": 73.92
+          },
+          {
+            "line": 31,
+            "start": 73.92,
+            "end": 76.06
+          },
+          {
+            "line": 32,
+            "start": 76.42,
+            "end": 78.24
+          },
+          {
+            "line": 33,
+            "start": 78.72,
+            "end": 80.62
+          },
+          {
+            "line": 34,
+            "start": 80.7,
+            "end": 82.66
+          },
+          {
+            "line": 35,
+            "start": 82.96,
+            "end": 85.06
+          },
+          {
+            "line": 36,
+            "start": 85.36,
+            "end": 87.28
+          },
+          {
+            "line": 39,
+            "start": 87.46,
+            "end": 89.44
+          },
+          {
+            "line": 40,
+            "start": 89.82,
+            "end": 91.42
+          },
+          {
+            "line": 43,
+            "start": 91.42,
+            "end": 96.08
+          },
+          {
+            "line": 44,
+            "start": 96.5,
+            "end": 98.22
+          },
+          {
+            "line": 45,
+            "start": 98.72,
+            "end": 101.36
+          },
+          {
+            "line": 46,
+            "start": 101.36,
+            "end": 102.7
+          },
+          {
+            "line": 47,
+            "start": 102.7,
+            "end": 105.16
+          },
+          {
+            "line": 48,
+            "start": 105.16,
+            "end": 107.72
+          },
+          {
+            "line": 51,
+            "start": 111.54,
+            "end": 113.68
+          },
+          {
+            "line": 52,
+            "start": 113.68,
+            "end": 115.82
+          },
+          {
+            "line": 53,
+            "start": 115.82,
+            "end": 118.28
+          },
+          {
+            "line": 54,
+            "start": 118.28,
+            "end": 120.4
+          },
+          {
+            "line": 55,
+            "start": 120.4,
+            "end": 122.8
+          },
+          {
+            "line": 56,
+            "start": 122.8,
+            "end": 124.92
+          },
+          {
+            "line": 57,
+            "start": 124.92,
+            "end": 127.26
+          },
+          {
+            "line": 58,
+            "start": 127.26,
+            "end": 129.58
+          },
+          {
+            "line": 61,
+            "start": 129.58,
+            "end": 131.78
+          },
+          {
+            "line": 62,
+            "start": 132.22,
+            "end": 134.12
+          },
+          {
+            "line": 63,
+            "start": 136.12,
+            "end": 138.02
+          },
+          {
+            "line": 64,
+            "start": 138.02,
+            "end": 140.72
+          },
+          {
+            "line": 67,
+            "start": 143.06,
+            "end": 145.22
+          },
+          {
+            "line": 68,
+            "start": 145.22,
+            "end": 147.02
+          },
+          {
+            "line": 69,
+            "start": 147.02,
+            "end": 149.38
+          },
+          {
+            "line": 70,
+            "start": 149.8,
+            "end": 151.7
+          },
+          {
+            "line": 71,
+            "start": 151.7,
+            "end": 153.72
+          },
+          {
+            "line": 72,
+            "start": 154.4,
+            "end": 156.54
+          },
+          {
+            "line": 73,
+            "start": 156.82,
+            "end": 158.36
+          },
+          {
+            "line": 74,
+            "start": 158.62,
+            "end": 160.66
+          },
+          {
+            "line": 75,
+            "start": 160.66,
+            "end": 162.84
+          },
+          {
+            "line": 76,
+            "start": 162.84,
+            "end": 165.92
+          },
+          {
+            "line": 79,
+            "start": 170.18,
+            "end": 173.96
+          },
+          {
+            "line": 80,
+            "start": 175.82,
+            "end": 183.66
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Remix “The People Holding It Down”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: A song about the people\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Use the prompt as written.",
+        "keep": "Keep the recognizable hook and spirit of “The People Holding It Down”.",
+        "basisSongs": [
+          "The People Holding It Down"
+        ],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-62f95a6ba7cc335b2a2fac09",
       "title": "The Save File Has Teeth",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-62f95a6ba7cc335b2a2fac09-6b70c9d57c8c.mp3",
