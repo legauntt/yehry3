@@ -2,6 +2,263 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-9144eaf3d51fdb2bba865a25",
+      "title": "The People Holding It Down",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-9144eaf3d51fdb2bba865a25-41584b115b95.mp3",
+      "duration": 160,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-15T05:00:43.027Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The People Holding It Down",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "A major",
+        "arrangement": "Tony V7 only: rough, smoky, slurred lead with mischievous asides, crooked timing, connected vowels, and a clearly catchable repeated hook. Dependable heartland rock band with muscular moving bass, lively pocket drums, ringing electric guitars, and brief organ lifts. Start compactly, broaden the choruses with gang-response backing vocals, drop to bass and rim-clicks in the bridge, then rebuild into a full final chorus. Keep Tony present throughout with no long instrumental gaps. Pace the final sustained word “down” to end 8–12 seconds before 160 seconds, followed by one resolved A-major chord and natural decay.",
+        "lyrics": "[Intro]\nMorning cracks on a two-lane town\nCoffee burns while the sun comes down\nOn the night-shift nurse and the loading-dock crew\nFolks making do what they gotta do\n\n[Verse 1]\nRosa opens up the corner store\nCal sweeps dust from the factory floor\nKids catch breakfast at a quarter to eight\nBus driver grins when they're running late\nA roofer laughs with the heat on his back\nA young mom studies while the house goes black\nNobody famous, nobody crowned\nJust the people keeping this whole thing sound\n\n[Chorus]\nHolding it down, yeah yeah hey\nMaking a life from an ordinary day\nHolding it down, yeah yeah hey\nBent but breathing, finding our way\nFrom the county road to the city downtown\nLook at the people holding it down\n\n[Verse 2]\nOld Jim fixes what the rich throw out\nMina speaks up when the room has doubt\nThe cook in the diner knows every name\nThe volunteer coach stays late in the rain\nHands get dirty and the rent comes due\nStill somebody saves you a place in the queue\nWe lose, we mend, we pass hope around\nThat's how the people keep holding it down\n\n[Chorus]\nHolding it down, yeah yeah hey\nMaking a life from an ordinary day\nHolding it down, yeah yeah hey\nBent but breathing, finding our way\nFrom the wheat-field wind to the subway sound\nLook at the people holding it down\n\n[Bridge]\nNo marble statue, no victory speech\nJust a hand held out when the road gets steep\nA crooked laugh and a stubborn spark\nOne porch light burning against the dark\n\n[Final Chorus]\nHolding it down, yeah yeah hey\nBuilding tomorrow from the work of today\nHolding it down, yeah yeah hey\nEveryday people still making a way\nWhen the wheels run rough and the walls shake round\nWe are the people holding it down\nHolding it down, yeah yeah hey\nTogether, together—we're holding it down\n\n[End]",
+        "duration": 160,
+        "bpm": 112
+      },
+      "lyrics": {
+        "text": "[Intro]\nMorning cracks on a two-lane town\nCoffee burns while the sun comes down\nOn the night-shift nurse and the loading-dock crew\nFolks making do what they gotta do\n\n[Verse 1]\nRosa opens up the corner store\nCal sweeps dust from the factory floor\nKids catch breakfast at a quarter to eight\nBus driver grins when they're running late\nA roofer laughs with the heat on his back\nA young mom studies while the house goes black\nNobody famous, nobody crowned\nJust the people keeping this whole thing sound\n\n[Chorus]\nHolding it down, yeah yeah hey\nMaking a life from an ordinary day\nHolding it down, yeah yeah hey\nBent but breathing, finding our way\nFrom the county road to the city downtown\nLook at the people holding it down\n\n[Verse 2]\nOld Jim fixes what the rich throw out\nMina speaks up when the room has doubt\nThe cook in the diner knows every name\nThe volunteer coach stays late in the rain\nHands get dirty and the rent comes due\nStill somebody saves you a place in the queue\nWe lose, we mend, we pass hope around\nThat's how the people keep holding it down\n\n[Chorus]\nHolding it down, yeah yeah hey\nMaking a life from an ordinary day\nHolding it down, yeah yeah hey\nBent but breathing, finding our way\nFrom the wheat-field wind to the subway sound\nLook at the people holding it down\n\n[Bridge]\nNo marble statue, no victory speech\nJust a hand held out when the road gets steep\nA crooked laugh and a stubborn spark\nOne porch light burning against the dark\n\n[Final Chorus]\nHolding it down, yeah yeah hey\nBuilding tomorrow from the work of today\nHolding it down, yeah yeah hey\nEveryday people still making a way\nWhen the wheels run rough and the walls shake round\nWe are the people holding it down\nHolding it down, yeah yeah hey\nTogether, together—we're holding it down",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.3
+          },
+          {
+            "line": 2,
+            "start": 4.26,
+            "end": 7.54
+          },
+          {
+            "line": 3,
+            "start": 7.54,
+            "end": 11.82
+          },
+          {
+            "line": 4,
+            "start": 12.86,
+            "end": 16.28
+          },
+          {
+            "line": 7,
+            "start": 17.1,
+            "end": 19.5
+          },
+          {
+            "line": 8,
+            "start": 19.5,
+            "end": 20.96
+          },
+          {
+            "line": 9,
+            "start": 20.96,
+            "end": 23.12
+          },
+          {
+            "line": 10,
+            "start": 23.12,
+            "end": 25.3
+          },
+          {
+            "line": 11,
+            "start": 25.3,
+            "end": 27.4
+          },
+          {
+            "line": 12,
+            "start": 27.4,
+            "end": 29.7
+          },
+          {
+            "line": 13,
+            "start": 29.94,
+            "end": 32.02
+          },
+          {
+            "line": 14,
+            "start": 32.02,
+            "end": 33.78
+          },
+          {
+            "line": 17,
+            "start": 33.78,
+            "end": 42.86
+          },
+          {
+            "line": 18,
+            "start": 42.86,
+            "end": 46.26
+          },
+          {
+            "line": 19,
+            "start": 46.26,
+            "end": 50.58
+          },
+          {
+            "line": 20,
+            "start": 50.58,
+            "end": 54.02
+          },
+          {
+            "line": 21,
+            "start": 54.62,
+            "end": 57.34
+          },
+          {
+            "line": 22,
+            "start": 57.44,
+            "end": 62.08
+          },
+          {
+            "line": 25,
+            "start": 62.18,
+            "end": 64.36
+          },
+          {
+            "line": 26,
+            "start": 64.36,
+            "end": 66.06
+          },
+          {
+            "line": 27,
+            "start": 66.44,
+            "end": 68.16
+          },
+          {
+            "line": 28,
+            "start": 68.54,
+            "end": 70.28
+          },
+          {
+            "line": 29,
+            "start": 70.9,
+            "end": 72.48
+          },
+          {
+            "line": 30,
+            "start": 72.56,
+            "end": 74.64
+          },
+          {
+            "line": 31,
+            "start": 74.98,
+            "end": 76.9
+          },
+          {
+            "line": 32,
+            "start": 77.26,
+            "end": 79.64
+          },
+          {
+            "line": 35,
+            "start": 82,
+            "end": 86.96
+          },
+          {
+            "line": 36,
+            "start": 86.96,
+            "end": 91.2
+          },
+          {
+            "line": 37,
+            "start": 91.46,
+            "end": 94.44
+          },
+          {
+            "line": 38,
+            "start": 94.8,
+            "end": 98.66
+          },
+          {
+            "line": 39,
+            "start": 99.64,
+            "end": 102.06
+          },
+          {
+            "line": 40,
+            "start": 102.06,
+            "end": 105.2
+          },
+          {
+            "line": 43,
+            "start": 106.32,
+            "end": 108.82
+          },
+          {
+            "line": 44,
+            "start": 108.88,
+            "end": 110.76
+          },
+          {
+            "line": 45,
+            "start": 110.76,
+            "end": 113.06
+          },
+          {
+            "line": 46,
+            "start": 113.36,
+            "end": 115.42
+          },
+          {
+            "line": 49,
+            "start": 118.92,
+            "end": 122.3
+          },
+          {
+            "line": 50,
+            "start": 123.12,
+            "end": 126
+          },
+          {
+            "line": 51,
+            "start": 126,
+            "end": 130.84
+          },
+          {
+            "line": 52,
+            "start": 131.64,
+            "end": 134.36
+          },
+          {
+            "line": 53,
+            "start": 134.36,
+            "end": 138.62
+          },
+          {
+            "line": 54,
+            "start": 138.62,
+            "end": 141.46
+          },
+          {
+            "line": 55,
+            "start": 142.28,
+            "end": 146.12
+          },
+          {
+            "line": 56,
+            "start": 146.4,
+            "end": 150.04
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "A song about the people",
+        "direction": "Use the prompt as written.",
+        "keep": "Tony is an everyday American. Must include the repeated phrase \"holding it down, yeah yeah hey\" in Tony C's characteristic slurred enthusiasm",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-5cdd03210001819e023a1931",
       "title": "We Are Jeffrey Epstein",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5cdd03210001819e023a1931-33797f849112.mp3",
