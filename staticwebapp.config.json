@@ -7,6 +7,16 @@
   },
   "routes": [
     {
+      "route": "/mixtapes",
+      "redirect": "/mixtapes/",
+      "statusCode": 301
+    },
+    {
+      "route": "/mixtapes/*",
+      "rewrite": "/mixtapes/index.html",
+      "headers": { "Cache-Control": "no-cache" }
+    },
+    {
       "route": "/fearop",
       "redirect": "https://chairlift.fly.dev/yehry3/fearop/",
       "statusCode": 302,

@@ -1,4 +1,5 @@
 import { songPlanLink } from "./song-plan.js";
+import { brandLine } from "./branding.js";
 import { mountMaterials, materialBrief, durationIssue, hasMaterialEdits } from "./request-materials.js";
 import { requestPromptBrief, promptSummary } from "./prompt-brief.js";
 import { mountRequestTabs } from "./request-tabs.js";
@@ -150,7 +151,7 @@ async function library() {
   const listeningOverview = `<details class="listening-overview"><summary>Listening activity</summary><div class="listening-body"><div class="listening-heading"><p class="small" id="listening-scope">Loading listening stats…</p><button type="button" class="quiet" id="most-listened" aria-pressed="false">Most listened to ↗</button></div><dl class="listening-totals"><div><dt>Total listens</dt><dd id="listening-total">—</dd></div><div><dt>Songs listened to</dt><dd id="listening-reach">—</dd></div><div><dt>Latest listen</dt><dd id="listening-latest">—</dd></div></dl></div></details>`;
   main.innerHTML = `
     <section class="hero">
-      <div class="hero-copy"><p class="eyebrow">Tony C · The listening room</p><h1>Same voice.<br><em>Wildly different directions.</em></h1>
+      <div class="hero-copy"><p class="eyebrow">Tony C · The listening room</p><h1 data-brand-headline>${escape(brandLine.split("\n")[0])}<br><em>${escape(brandLine.split("\n")[1])}</em></h1>
         <p class="lede">Originals, remixes, and beautiful wrong turns. Find a favorite. Dream up the next one.</p>
         <div class="actions"><button class="primary" id="play-all">Play the collection <span aria-hidden="true">↗</span></button><a class="text-link" href="/mixtapes/">Make a mixtape →</a></div>
       </div>

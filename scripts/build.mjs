@@ -130,6 +130,10 @@ for (const file of await readdir(output, { recursive: true })) {
   if (!file.endsWith(".html")) continue;
   const destination = path.join(output, file);
   let html = await readFile(destination, "utf8");
+  if (html.includes('class="site-footer"')) {
+    html = html.replace(/<span>\s*YEHRY3 · A little off the record\.\s*<\/span\s*>/i, '<span data-brand-footer>YEHRY3 · A little off the record.</span>');
+    html = html.replace("</head>", '<script type="module" src="/assets/branding.js"></script>\n  </head>');
+  }
   html = html.replace("</head>", '<link rel="stylesheet" href="/assets/deployment.css">\n  </head>');
   html = html.includes("</footer>")
     ? html.replace("</footer>", `${stamp}\n    </footer>`)

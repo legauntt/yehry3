@@ -62,6 +62,17 @@
 .tape-dock { position: fixed; z-index: 5; bottom: 14px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 14px; width: min(600px, calc(100% - 28px)); padding: 12px 16px; color: #f4eedc; background: #28382e; border: 1px solid #53644c; border-radius: 7px; box-shadow: 0 4px 20px #0004; }
 .tape-dock > div { flex: 1; min-width: 0; }.tape-dock .eyebrow { display: block; margin: 0 0 3px; font-size: .55rem; color: #c6d3b5; }.tape-dock strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .82rem; }.tape-dock button { color: #f4eedc; min-width: 44px; min-height: 44px; }.tape-dock button:hover { color: var(--ink); }.tape-dock a { color: #f4eedc; white-space: nowrap; font-size: .75rem; }
 .cassette-label-top .tiny-label { margin-bottom: 0; }
+.cassette-label-top .tiny-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cassette-ink { display: block; width: 100%; aspect-ratio: 1000 / 240; margin: 6px 0; }
+.tape-label-editors { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; border-top: 1px solid #cbd2bf; padding-top: 20px; }
+.tape-label-editor { min-width: 0; }
+.tape-label-editor details { margin-top: 12px; }
+.tape-label-editor summary { cursor: pointer; font-size: .8rem; padding: 6px 0; }
+.tape-label-editor details p { display: block; margin: 10px 0; font-size: .73rem; }
+.tape-label-editor .actions { gap: 8px; margin-top: 10px; }
+.tape-label-editor button { font-size: .73rem; min-height: 44px; }
+.handwriting-pad { display: block; width: 100%; aspect-ratio: 1000 / 240; background: repeating-linear-gradient(0deg, transparent 0 29px, #c6ccb540 29px 30px), #f4efdb; border: 1px solid #9ca98e; border-radius: 4px; touch-action: none; cursor: crosshair; }
+@media (max-width: 700px) { .tape-label-editors { grid-template-columns: 1fr; gap: 18px; } }
 .tape-edit { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(120px, .65fr) 1fr; align-items: center; gap: 24px; margin: 10px 0 42px; padding: 24px 28px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: #eaece0; }
 .tape-edit label { margin: 0 0 7px; font-size: .77rem; }
 .tape-edit input, .tape-edit select { width: 100%; min-width: 0; padding: 10px 12px; font-size: .88rem; }

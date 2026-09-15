@@ -24,6 +24,7 @@ test("build, reorder, share and reopen a tape without replacing the saved draft"
   await expect(page.getByLabel("Mixtape name", { exact: true })).toHaveValue("Late night 🎶");
   await expect(page.locator(".tape-sleeve")).toHaveAttribute("data-color", "pink");
   await page.getByRole("button", { name: "Copy mixtape link" }).click();
+  await expect(page.locator("#tape-link")).toHaveValue(/\/mixtapes\/[A-Za-z0-9_-]{12}$/);
   const url = await page.locator("#tape-link").inputValue();
   await page.getByLabel("Mixtape name", { exact: true }).fill("New draft");
   const recipient = await context.newPage(); await catalog(recipient); await recipient.goto(url);
@@ -57,7 +58,7 @@ test("mobile, unavailable storage and API fallback still allow sharing", async (
   await page.getByRole("button", { name: "Add First record to side A" }).click();
   await expect(page.locator("#tape-status")).toContainText("storage is unavailable");
   await page.getByRole("button", { name: "Copy mixtape link" }).click();
-  await expect(page.locator("#tape-link")).toHaveValue(/#tape=/);
+  await expect(page.locator("#tape-link")).toHaveValue(/\/mixtapes\/[A-Za-z0-9_-]{12}$/);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: "artifacts/mixtape-mobile.png", fullPage: true });
 });
@@ -191,4 +192,130 @@ test("Mixtapes and Backstage stay separate in navigation on desktop and mobile",
     await expect(nav.getByRole("link", { name: "Mixtapes", exact: true })).toHaveAttribute("href", "/mixtapes/");
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
+});
+
+async function drawLabel(page, side) {
+  await page.getByText(`Handwrite side ${side.toUpperCase()}`, { exact: true }).click();
+  const canvas = page.locator(`[data-label-editor="${side}"] canvas`);
+  await canvas.scrollIntoViewIfNeeded();
+  const rect = await canvas.boundingBox();
+  await page.mouse.move(rect.x + rect.width * .12, rect.y + rect.height * .75);
+  await page.mouse.down();
+  await page.mouse.move(rect.x + rect.width * .2, rect.y + rect.height * .25, { steps: 5 });
+  await page.mouse.move(rect.x + rect.width * .28, rect.y + rect.height * .75, { steps: 5 });
+  await page.mouse.up();
+}
+
+test("side labels and real pen strokes survive short-link sharing, reload and a new browser", async ({ page, browser }) => {
+  await catalog(page); await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/mixtapes/");
+  await page.getByLabel("Mixtape name", { exact: true }).fill("Two chapters 🎶");
+  await page.getByLabel("Side A label", { exact: true }).fill("The long way home");
+  await page.getByLabel("Side B label", { exact: true }).fill("After midnight");
+  await page.getByRole("button", { name: "Add First record to side A" }).click();
+  await page.getByRole("button", { name: "Add Second record to side B" }).click();
+  await page.getByRole("button", { name: "Play the mixtape", exact: true }).click();
+  await expect.poll(() => page.locator("audio").evaluate(a => !a.paused && a.currentTime > 0)).toBe(true);
+  await page.locator("audio").evaluate(a => { window.labelAudio = a; a.currentTime = 15; });
+  await drawLabel(page, "a");
+  expect(await page.locator("audio").evaluate(a => a === window.labelAudio && !a.paused && a.currentTime >= 15)).toBe(true);
+  await page.locator('#play-tape').click();
+  await expect(page.locator("#tape-label-ink")).toBeVisible();
+  const ink = await page.evaluate(() => JSON.parse(localStorage.getItem("yehry3:mixtape:v1")).labels.a.ink);
+  expect(ink).toHaveLength(1); expect(ink[0].length).toBeGreaterThan(2);
+  await page.getByRole("button", { name: "Flip to side B" }).click();
+  await expect(page.locator("#tape-title")).toHaveText("After midnight");
+  await expect(page.locator("#tape-title")).toBeVisible();
+  await expect(page.locator("#tape-label-ink")).toBeHidden();
+  await page.getByRole("button", { name: "Copy mixtape link" }).click();
+  await expect(page.locator("#tape-link")).toHaveValue(/\/mixtapes\/[A-Za-z0-9_-]{12}$/);
+  const url = await page.locator("#tape-link").inputValue();
+  expect(url.length).toBeLessThan(65); expect(url).not.toContain("#");
+  await page.getByRole("button", { name: "Copy mixtape link" }).click();
+  await expect(page.locator("#tape-link")).toHaveValue(url);
+  await page.reload();
+  await expect(page.getByLabel("Side B label", { exact: true })).toHaveValue("After midnight");
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem("yehry3:mixtape:v1")).labels.a.ink)).toEqual(ink);
+  const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
+  const recipient = await context.newPage(); await catalog(recipient); await recipient.goto(url);
+  await expect(recipient.locator("#tape-label-ink")).toBeVisible();
+  await expect(recipient.locator("#tape-label-ink")).toHaveAttribute("aria-label", /The long way home/);
+  await expect(recipient.locator(".tape-edit")).toBeHidden();
+  expect(await recipient.evaluate(() => localStorage.getItem("yehry3:mixtape:v1"))).toBeNull();
+  await recipient.getByRole("button", { name: "Flip to side B" }).click();
+  await expect(recipient.locator("#tape-title")).toHaveText("After midnight");
+  await recipient.getByRole("button", { name: "Make your own version" }).click();
+  await expect(recipient).toHaveURL(/\/mixtapes\/$/);
+  await recipient.getByLabel("Side B label", { exact: true }).fill("A different ending");
+  await recipient.getByRole("button", { name: "Copy mixtape link" }).click();
+  await expect(recipient.locator("#tape-link")).toHaveValue(/\/mixtapes\/[A-Za-z0-9_-]{12}$/);
+  expect(await recipient.locator("#tape-link").inputValue()).not.toBe(url);
+  await recipient.goto(url); await recipient.getByRole("button", { name: "Flip to side B" }).click();
+  await expect(recipient.locator("#tape-title")).toHaveText("After midnight");
+  expect(await recipient.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await recipient.screenshot({ path: "artifacts/mixtape-short-labels-mobile.png", fullPage: true });
+  await context.close();
+});
+
+test("legacy links can be shortened and handwriting can be undone independently per side", async ({ page }) => {
+  await catalog(page);
+  const legacy = Buffer.from(JSON.stringify({ v: 1, name: "A legacy tape", color: "blue", a: ["tape-one"], b: [] })).toString("base64url");
+  await page.goto(`/mixtapes/#tape=${legacy}`);
+  await expect(page.locator("#tape-title")).toHaveText("A legacy tape");
+  await page.getByRole("button", { name: "Copy mixtape link" }).click();
+  await expect(page.locator("#tape-link")).toHaveValue(/\/mixtapes\/[A-Za-z0-9_-]{12}$/);
+  await page.getByRole("button", { name: "Make your own version" }).click();
+  await drawLabel(page, "a"); await drawLabel(page, "b");
+  await page.locator('[data-label-editor="a"] [data-ink-undo]').click();
+  const labels = await page.evaluate(() => JSON.parse(localStorage.getItem("yehry3:mixtape:v1")).labels);
+  expect(labels.a.ink).toHaveLength(0); expect(labels.b.ink).toHaveLength(1);
+  await page.getByRole("button", { name: "Flip to side B" }).click();
+  await expect(page.locator("#tape-label-ink")).toBeVisible();
+  await page.locator('[data-label-editor="b"] [data-ink-clear]').click();
+  await expect(page.locator("#tape-label-ink")).toBeHidden();
+});
+
+test("short-link write and read failures preserve the local draft and offer a retry", async ({ page }) => {
+  await catalog(page); await page.goto("/mixtapes/");
+  await page.getByRole("button", { name: "Add First record to side A" }).click();
+  await page.route("**/yehry3/mixtapes", route => route.fulfill({ status: 503, json: { error: "The studio is temporarily unavailable." } }));
+  await page.getByRole("button", { name: "Copy mixtape link" }).click();
+  await expect(page.locator("#tape-status")).toContainText("Your selection is still here");
+  await expect(page.locator("#tape-link")).toBeHidden();
+  const draft = await page.evaluate(() => localStorage.getItem("yehry3:mixtape:v1"));
+  await page.unroute("**/yehry3/mixtapes");
+  await page.getByRole("button", { name: "Copy mixtape link" }).click();
+  await expect(page.locator("#tape-link")).toHaveValue(/\/mixtapes\/[A-Za-z0-9_-]{12}$/);
+  const url = await page.locator("#tape-link").inputValue();
+  await page.route("**/yehry3/mixtapes/*", route => route.fulfill({ status: 503, json: { error: "The studio is temporarily unavailable." } }));
+  await page.goto(url);
+  await expect(page.getByRole("heading", { name: "This mixtape could not open." })).toBeVisible();
+  expect(await page.evaluate(() => localStorage.getItem("yehry3:mixtape:v1"))).toBe(draft);
+  await page.unroute("**/yehry3/mixtapes/*");
+  await page.getByRole("button", { name: "Try again" }).click();
+  await expect(page.locator("#tape-title")).toHaveText("My Tony C mixtape");
+  await page.goto("/mixtapes/abcdefghijkl");
+  await expect(page.getByRole("heading", { name: "This mixtape could not open." })).toBeVisible();
+  expect(await page.evaluate(() => localStorage.getItem("yehry3:mixtape:v1"))).toBe(draft);
+});
+
+test("editing during a slow share never copies a stale version", async ({ page }) => {
+  await catalog(page); await page.goto("/mixtapes/");
+  await page.getByRole("button", { name: "Add First record to side A" }).click();
+  let release;
+  await page.route("**/yehry3/mixtapes", async route => {
+    await new Promise(resolve => { release = resolve; });
+    await route.continue();
+  });
+  await page.getByRole("button", { name: "Copy mixtape link" }).click();
+  await expect(page.locator("#share-tape")).toHaveAttribute("aria-busy", "true");
+  await page.getByLabel("Side A label", { exact: true }).fill("A newer label");
+  await expect.poll(() => Boolean(release)).toBe(true); release();
+  await expect(page.locator("#tape-status")).toContainText("Your tape changed");
+  await expect(page.locator("#tape-link")).toBeHidden();
+  await page.unroute("**/yehry3/mixtapes");
+  await page.getByRole("button", { name: "Copy mixtape link" }).click();
+  await expect(page.locator("#tape-link")).toHaveValue(/\/mixtapes\/[A-Za-z0-9_-]{12}$/);
+  await page.goto(await page.locator("#tape-link").inputValue());
+  await expect(page.locator("#tape-title")).toHaveText("A newer label");
 });
