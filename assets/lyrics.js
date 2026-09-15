@@ -5,6 +5,7 @@ import { qualityNotice } from "./quality.js";
 import { mountFavorites } from "./favorites.js";
 import { api } from "./api.js";
 import { trackListening, listeningLabel } from "./listening.js";
+import { remixLink } from "./remix.js";
 
 function cueMap(lyrics) {
   const lines = lyrics.text.split("\n");
@@ -155,6 +156,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     main.querySelector(".lyrics-actions").after(profilePanel);
     favorites ||= mountFavorites(profilePanel);
     main.querySelector(".lyrics-actions").insertAdjacentHTML("afterbegin", favorites.button(song));
+    main.querySelector(".lyrics-actions").insertAdjacentHTML("beforeend", remixLink(song, escape));
     const blob = new Blob([`${song.title}\n${song.authoredBy ? `Authored by ${song.authoredBy}\n` : ""}${note}\n\n${song.lyrics.text}\n`], {
       type: "text/plain;charset=utf-8",
     });

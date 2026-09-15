@@ -17,6 +17,7 @@ import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 import { watchCompletions } from "./notifications.js";
 import { mountFavorites } from "./favorites.js";
 import { trackListening, listeningLabel } from "./listening.js";
+import { loadRemix, remixLink } from "./remix.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const main = $("#main");
@@ -365,6 +366,7 @@ async function library() {
     $("#tracks").querySelectorAll(".track-info").forEach((info) => {
       const song = songs.find((item) => item.id === info.closest("[data-id]").dataset.id);
       if (!info.querySelector("[data-save]")) info.insertAdjacentHTML("beforeend", favorites.button(song));
+      if (!info.querySelector("[data-remix]")) info.querySelector(".track-meta").insertAdjacentHTML("beforeend", remixLink(song, escape));
     });
     favorites.syncButtons();
     if (favorites.onlySaved) $("#pending-tracks").hidden = true;
@@ -582,6 +584,12 @@ function loginView(role, onSuccess) {
 
 async function requests() {
   let draft = null;
+  let remix = null, remixUsed = false, remixActive = false;
+  function finishRemix() {
+    remixUsed = true; remixActive = false; storage.remove("remix-idea");
+    const url = new URL(location.href); url.searchParams.delete("remix");
+    history.replaceState(history.state, "", url);
+  }
   let basisSongs;
   let materialsAvailable = false;
   try {
@@ -593,6 +601,7 @@ async function requests() {
     basisSongs = loaded[0];
     if (Array.isArray(loaded[1].models) && loaded[1].models.length) voiceModels = loaded[1].models;
     materialsAvailable = loaded[2].version === 1;
+    remix = await loadRemix(basisSongs);
   } catch (error) {
     message(error.message, true);
     main.innerHTML =
@@ -636,13 +645,34 @@ async function requests() {
             ? "details"
             : "idea");
     const number = { idea: 1, details: 2, review: 3, submitted: 3 }[stage];
+    if (stage === "idea" && !remixUsed && remix?.seed) {
+      if (!storage.get("idea-text")) {
+        storage.set("idea-text", remix.seed.prompt); storage.set("remix-idea", remix.id); remixActive = true;
+      } else remixActive = remixActive || storage.get("remix-idea") === remix.id;
+    }
     main.innerHTML = `<section class="request-intro"><p class="eyebrow">Distonyc</p><h1>Let’s hear<br><em>your wild idea.</em></h1><p class="lede">A familiar song in unfamiliar territory. Or something nobody’s heard before.</p><div class="request-session-actions">${stage === "submitted" ? '<button class="quiet" id="new-request">New request ↗</button>' : ""}<button class="quiet" id="request-signout">Sign out ↗</button></div></section><section class="workbench"><ol class="steps" aria-label="Request progress">${["The idea", "Refinements", "The final say"].map((name, i) => `<li ${i + 1 === number ? 'aria-current="step"' : ""}><span>0${i + 1}</span>${name}</li>`).join("")}</ol><div class="request-form" id="request-form"></div></section>`;
     showLoginStatus("submitter", $(".request-intro"), load);
+    if (remix && !remixUsed) {
+      const panel = document.createElement("div");
+      panel.className = "remix-note";
+      if (remix.unavailable) panel.innerHTML = '<p class="small">This remix source could not load. You can still write a new idea below.</p>';
+      else {
+        const linkedDraft = draft && storage.get(`remix-draft:${draft.id}`) === remix.id;
+        const conflict = draft ? !linkedDraft : !remixActive;
+        panel.innerHTML = `<p class="small">Remix inspiration: <a href="/lyrics/?song=${encodeURIComponent(remix.id)}">${escape(remix.title)}</a>. ${linkedDraft ? "Choose the new sound in Advanced, then review your request. Available source lyrics are included for adaptation." : "Edit the idea and tell us what should change."}</p>${conflict ? `<button type="button" class="quiet" id="begin-remix">${draft ? "Start this remix as a new request" : "Use the remix idea instead"}</button><p class="small">${draft ? "Your current request stays saved in the studio." : "This replaces the idea currently in the form."}</p>` : ""}`;
+        panel.querySelector("#begin-remix")?.addEventListener("click", () => {
+          draft = null; storage.remove("draft"); storage.remove("prompt-request");
+          storage.set("idea-text", remix.seed.prompt); storage.set("remix-idea", remix.id); remixActive = true; render();
+        });
+      }
+      $(".request-intro").append(panel);
+    }
     $("#request-signout").onclick = () => {
       logout("submitter");
       loginView("submitter", load);
     };
     $("#new-request")?.addEventListener("click", () => {
+      finishRemix();
       draft = null;
       storage.remove("draft");
       render();
@@ -655,7 +685,7 @@ async function requests() {
         rememberAuthor(event.target.value);
         storage.remove("prompt-request");
       };
-      $("#idea").value = storage.get("idea-text") || "";
+      $("#idea").value = storage.get("idea-text") || (!remixUsed && remix?.seed ? remix.seed.prompt : "");
       $("#idea").oninput = (event) => {
         storage.set("idea-text", event.target.value);
         storage.remove("prompt-request");
@@ -674,10 +704,13 @@ async function requests() {
           ).prompt;
           rememberAuthor(draft.authoredBy || "");
           storage.set("draft", draft.id);
+          if (remixActive && !remixUsed && remix?.seed) storage.set(`remix-draft:${draft.id}`, remix.id);
           storage.remove("prompt-request");
           render();
         });
     } else if (stage === "details") {
+      const remixDetails = !remixUsed && remix?.seed && storage.get(`remix-draft:${draft.id}`) === remix.id ? remix.seed : {};
+      const initialDetails = draft.status === "draft" ? { ...draft.details, ...remixDetails } : draft.details || {};
       form.innerHTML = `<p class="eyebrow">Turn 02 · Optional refinements</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Choose the Tony voice. Open Advanced to add a sound, lyrics, references, or basis songs.</p>
         <form id="details-form">${authorField}
           <div class="request-tabs" role="tablist" aria-label="Request refinements">
@@ -702,20 +735,20 @@ async function requests() {
       const selectedBasis = mountBasisPicker(
         $("#basis-root"),
         basisSongs,
-        draft.details?.basisSongIds || [],
+        initialDetails.basisSongIds || [],
       );
       const savedDirection = draft.details?.direction || "";
-      const savedKeep = draft.details?.keep || "";
+      const savedKeep = initialDetails.keep || "";
       $("#direction").value = savedDirection === "Use the prompt as written." ? "" : savedDirection;
       $("#keep").value = savedKeep === "Surprise me." ? "" : savedKeep;
-      $("#voice-model").value = draft.details?.voiceModel || (voiceModels.some((model) => model.id === "v7") ? "v7" : voiceModels[0].id);
+      $("#voice-model").value = initialDetails.voiceModel || (voiceModels.some((model) => model.id === "v7") ? "v7" : voiceModels[0].id);
       const describeVoice = () => {
         const model = voiceModel($("#voice-model").value);
         $(".voice-model-note").textContent = `${model.note}.${model.experimental ? " This model remains clearly labeled experimental." : ""}`;
       };
       $("#voice-model").onchange = describeVoice;
       describeVoice();
-      const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), draft, { api, storage, escape }) : {
+      const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), { ...draft, details: initialDetails }, { api, storage, escape }) : {
         read() {
           if (draft.details?.lyricSheet || draft.details?.references?.length) throw new Error("Your saved lyrics and references are temporarily unavailable for editing. Try again shortly.");
           return {};
@@ -776,6 +809,7 @@ async function requests() {
     } else {
       form.innerHTML = `<span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Request received</p><h2>Your idea is on the list.</h2><p>Your idea has a place in the studio queue. Check back here for its progress.</p>${badge(recoveryStatus(draft))}${recoveryActive(draft) ? '<p class="small">Automatic recovery is working on your song. Saved work will be reused.</p>' : ""}${brief(draft)}${draft.publishedUrl ? `<a class="primary" href="${escape(safeUrl(draft.publishedUrl))}" target="_blank" rel="noopener">Hear your song ↗</a>` : ""}<div class="actions"><button class="quiet" id="refresh-status">Refresh status</button><button class="primary" id="another">Another idea ↗</button></div><p class="small">This browser tab remembers your request. <a href="/queue/">Watch the public queue and enable completion alerts →</a></p>`;
       $("#another").onclick = () => {
+        finishRemix();
         draft = null;
         storage.remove("draft");
         render();
