@@ -23,7 +23,259 @@
       },
       "lyrics": {
         "text": "[Verse 1]\nMy torch died out, the screen went pitch black fast\nI tried to save but I lost my whole last act\nHunger got me weak before I could even speak\nAnd then—9/11'd, right in my face.\nFuck this game! It’s rigged and it’s unfair play\nAll those hours wasted just to get a day\nMy save file corrupted, progress wiped away\nI’m screaming at the sky, \"Why won’t you stay?\"\n\n[Chorus]\nOh 9/11'd! I died again in the dark\nJust another failure that makes me want to bark\nOh 9/11'd! I lost my save file too\nMy character’s gone, and there’s no way out for you.\nFuck this loop! It never changes a thing\nEvery time I try, I get hit by nothing\nBut 9/11 keeps coming at me again!\n\n[Verse 2]\nSanity is bleeding out in the digital mire\nCoin flip landed on death and I can’t hide it here\nPhobia’s got me shaking, phobias are real\nI don’t want to lose my mind or feel like a hell\nBut you took that limb off when I needed most\nAnd left me with nothing but broken ghost.\nMy hunger is eating the party right now\nThis game is fucking brutal and won’t let us grow!\n\n[Chorus]\nOh 9/11'd! I died again in the dark\nJust another failure that makes me want to bark\nOh 9/11'd! I lost my save file too\nMy character’s gone, and there’s no way out for you.\nFuck this loop! It never changes a thing\nEvery time I try, I get hit by nothing\nBut 9/11 keeps coming at me again!\n\n[Bridge]\nFour limbs left, but the darkness is taking them now\nI’m trying to run but my legs are too slow.\nCoin flip says luck is on your side... no it isn't\nSanity’s gone, and I can’t feel it yet.\nYou’re killing my progress just for fun and a laugh\nAnd 9/11 is the only way out of this trap!\n\n[Verse 3]\nI keep trying to respawn but the server won’t budge\nI’m cursing at the devs, I think that they’d be rude.\nHunger makes me weak when you need a fight\nAnd then—9/11'd, it’s always right in sight!\nFuck this frustration, fuck the RNG and the glitch\nI want my save file back so I can start to switch.\nBut every time I die... there’s only one thing left:\nJust another 9/11 that I won’t forget.\n\n[Outro]\nOne last try? No! It hurts too much to play\nThe darkness wins, and the game will not stay.\nOh 9/11'd, oh 9/11'd, oh 9/11'd again...\nAnother death without a trace in my dream.\nJust another 9/11. Fuck it all.\nI’ll never get to see this time again.",
-        "kind": "written"
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0.0,
+            "end": 3.42
+          },
+          {
+            "line": 2,
+            "start": 3.42,
+            "end": 10.86
+          },
+          {
+            "line": 3,
+            "start": 10.86,
+            "end": 16.48
+          },
+          {
+            "line": 4,
+            "start": 16.48,
+            "end": 19.14
+          },
+          {
+            "line": 5,
+            "start": 20.06,
+            "end": 22.52
+          },
+          {
+            "line": 6,
+            "start": 22.52,
+            "end": 25.94
+          },
+          {
+            "line": 7,
+            "start": 26.46,
+            "end": 29.84
+          },
+          {
+            "line": 8,
+            "start": 29.84,
+            "end": 32.6
+          },
+          {
+            "line": 11,
+            "start": 39.22,
+            "end": 42.48
+          },
+          {
+            "line": 12,
+            "start": 43.14,
+            "end": 45.64
+          },
+          {
+            "line": 13,
+            "start": 45.64,
+            "end": 48.98
+          },
+          {
+            "line": 14,
+            "start": 49.54,
+            "end": 52.66
+          },
+          {
+            "line": 15,
+            "start": 53.04,
+            "end": 55.74
+          },
+          {
+            "line": 16,
+            "start": 55.74,
+            "end": 58.98
+          },
+          {
+            "line": 17,
+            "start": 58.98,
+            "end": 63.92
+          },
+          {
+            "line": 20,
+            "start": 90.24,
+            "end": 93.22
+          },
+          {
+            "line": 21,
+            "start": 93.22,
+            "end": 97.66
+          },
+          {
+            "line": 22,
+            "start": 103.36,
+            "end": 106.32
+          },
+          {
+            "line": 23,
+            "start": 106.82,
+            "end": 112.54
+          },
+          {
+            "line": 24,
+            "start": 115.74,
+            "end": 119.7
+          },
+          {
+            "line": 25,
+            "start": 119.7,
+            "end": 122.82
+          },
+          {
+            "line": 26,
+            "start": 122.82,
+            "end": 126.44
+          },
+          {
+            "line": 27,
+            "start": 126.44,
+            "end": 129.62
+          },
+          {
+            "line": 30,
+            "start": 142.54,
+            "end": 145.32
+          },
+          {
+            "line": 31,
+            "start": 145.32,
+            "end": 148.82
+          },
+          {
+            "line": 32,
+            "start": 148.82,
+            "end": 151.96
+          },
+          {
+            "line": 33,
+            "start": 152.5,
+            "end": 155.88
+          },
+          {
+            "line": 34,
+            "start": 156.24,
+            "end": 158.7
+          },
+          {
+            "line": 35,
+            "start": 159.0,
+            "end": 162.06
+          },
+          {
+            "line": 36,
+            "start": 162.68,
+            "end": 166.1
+          },
+          {
+            "line": 39,
+            "start": 184.08,
+            "end": 187.86
+          },
+          {
+            "line": 40,
+            "start": 188.1,
+            "end": 192.08
+          },
+          {
+            "line": 41,
+            "start": 192.08,
+            "end": 195.06
+          },
+          {
+            "line": 42,
+            "start": 195.48,
+            "end": 198.34
+          },
+          {
+            "line": 43,
+            "start": 198.34,
+            "end": 201.18
+          },
+          {
+            "line": 44,
+            "start": 201.36,
+            "end": 204.36
+          },
+          {
+            "line": 47,
+            "start": 212.1,
+            "end": 216.5
+          },
+          {
+            "line": 48,
+            "start": 216.5,
+            "end": 219.26
+          },
+          {
+            "line": 49,
+            "start": 219.26,
+            "end": 222.5
+          },
+          {
+            "line": 50,
+            "start": 222.92,
+            "end": 226.18
+          },
+          {
+            "line": 51,
+            "start": 226.66,
+            "end": 229.6
+          },
+          {
+            "line": 52,
+            "start": 229.6,
+            "end": 233.14
+          },
+          {
+            "line": 53,
+            "start": 233.14,
+            "end": 236.64
+          },
+          {
+            "line": 54,
+            "start": 237.06,
+            "end": 240.04
+          },
+          {
+            "line": 57,
+            "start": 241.62,
+            "end": 246.18
+          },
+          {
+            "line": 58,
+            "start": 247.12,
+            "end": 251.82
+          },
+          {
+            "line": 59,
+            "start": 254.46,
+            "end": 260.38
+          },
+          {
+            "line": 60,
+            "start": 260.38,
+            "end": 265.26
+          },
+          {
+            "line": 61,
+            "start": 265.72,
+            "end": 269.52
+          },
+          {
+            "line": 62,
+            "start": 269.52,
+            "end": 272.2
+          }
+        ]
       },
       "collections": [
         "distonyc",
