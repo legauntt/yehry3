@@ -2,6 +2,244 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-62f95a6ba7cc335b2a2fac09",
+      "title": "The Save File Has Teeth",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-62f95a6ba7cc335b2a2fac09-6b70c9d57c8c.mp3",
+      "duration": 239.2,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-15T17:42:40.860Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The Save File Has Teeth",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "C# minor",
+        "arrangement": "Pinned Tony V7 voice over a grim bass-forward sludge-funk rock arrangement: detuned guitars, prowling melodic bass, dry heavy drums, dungeon-like organ, abrupt coin-flip stops, and unstable chromatic accents. Verses begin sparse and claustrophobic, while choruses explode into a blunt, catchable hook with rough, smoky slurs, crooked timing, muttered tails, and sustained melodic notes. Build the bridge through tightening rhythmic interruptions, then make the final chorus the widest and heaviest passage. Pace the preserved lyric sheet across the full form so “The game's over now” delivers its final sustained syllable 8–12 seconds before 240 seconds; resolve with one emphatic C# minor chord and natural decay, without an extended instrumental outro.",
+        "lyrics": "[Verse 1]\nThe hunger ain't a number on a screen.\nIt's the hollow in my chest where the bones are bent.\nI'm walking through the dark, torches flickering out like dying stars.\nEvery step is a gamble with a coin flip that don't land right.\nSanity bleeding out of my mind meter.\nI see them shadows dancing behind me, whispering \"save,\" then they scream.\n\n[Chorus]\nFucking shit! *9/11'd.*\nProgress wiped clean like I never tried before.\nThis game is a trap with no exit door.\nMy party's limbs are severed from the table floor.\nI'm bleeding out, sanity gone, hunger in my throat.\nOsama bin Laden just won't quit.\n\n[Verse 2]\nPhobias biting deep into the back of my skull.\nEvery light source is a target I gotta shoot.\nI sawed off that infected limb to save the rest of me.\nNow I'm limping through the dark with nothing left but meat.\nIt's not about winning, it's about surviving the night.\nThe clock is ticking down while my friends turn into dirt.\n\n[Bridge]\nCoin flip says bad luck this time.\nLose a hand? Lose an eye? Who knows the price to pay.\nI'm trying to save the game but there's no way to stay.\nJust reload, just reset, just let it all go away.\nThe darkness is hungry and I'm starving for more.\n\n[Verse 3]\nDismemberment hits hard when you're not careful.\nLosing limbs makes movement slow as a dead bird.\nI can't see the path without my eyesight to guide me.\nBut I keep walking forward because there's nowhere else to hide.\nThe game wants me dead, but I'm still breathing through it.\n\n[Chorus]\nFucking shit! *9/11'd.*\nProgress wiped clean like I never tried before.\nThis game is a trap with no exit door.\nMy party's limbs are severed from the table floor.\nI'm bleeding out, sanity gone, hunger in my throat.\nOsama bin Laden just won't quit.\n\n[Outro]\nThe last torch burns down to ash on the ground.\nOne final step forward, one final sound.\nI drop the save file and kick the screen with a boot.\nThe game's over now.\n[End]",
+        "duration": 240,
+        "bpm": 108
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThe hunger ain't a number on a screen.\nIt's the hollow in my chest where the bones are bent.\nI'm walking through the dark, torches flickering out like dying stars.\nEvery step is a gamble with a coin flip that don't land right.\nSanity bleeding out of my mind meter.\nI see them shadows dancing behind me, whispering \"save,\" then they scream.\n\n[Chorus]\nFucking shit! *9/11'd.*\nProgress wiped clean like I never tried before.\nThis game is a trap with no exit door.\nMy party's limbs are severed from the table floor.\nI'm bleeding out, sanity gone, hunger in my throat.\nOsama bin Laden just won't quit.\n\n[Verse 2]\nPhobias biting deep into the back of my skull.\nEvery light source is a target I gotta shoot.\nI sawed off that infected limb to save the rest of me.\nNow I'm limping through the dark with nothing left but meat.\nIt's not about winning, it's about surviving the night.\nThe clock is ticking down while my friends turn into dirt.\n\n[Bridge]\nCoin flip says bad luck this time.\nLose a hand? Lose an eye? Who knows the price to pay.\nI'm trying to save the game but there's no way to stay.\nJust reload, just reset, just let it all go away.\nThe darkness is hungry and I'm starving for more.\n\n[Verse 3]\nDismemberment hits hard when you're not careful.\nLosing limbs makes movement slow as a dead bird.\nI can't see the path without my eyesight to guide me.\nBut I keep walking forward because there's nowhere else to hide.\nThe game wants me dead, but I'm still breathing through it.\n\n[Chorus]\nFucking shit! *9/11'd.*\nProgress wiped clean like I never tried before.\nThis game is a trap with no exit door.\nMy party's limbs are severed from the table floor.\nI'm bleeding out, sanity gone, hunger in my throat.\nOsama bin Laden just won't quit.\n\n[Outro]\nThe last torch burns down to ash on the ground.\nOne final step forward, one final sound.\nI drop the save file and kick the screen with a boot.\nThe game's over now.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 14.3,
+            "end": 18.04
+          },
+          {
+            "line": 2,
+            "start": 18.04,
+            "end": 22.98
+          },
+          {
+            "line": 3,
+            "start": 22.98,
+            "end": 29.08
+          },
+          {
+            "line": 4,
+            "start": 30.16,
+            "end": 35.34
+          },
+          {
+            "line": 5,
+            "start": 35.34,
+            "end": 40
+          },
+          {
+            "line": 6,
+            "start": 40.88,
+            "end": 46.6
+          },
+          {
+            "line": 9,
+            "start": 47.62,
+            "end": 51.32
+          },
+          {
+            "line": 10,
+            "start": 51.32,
+            "end": 54.36
+          },
+          {
+            "line": 11,
+            "start": 54.36,
+            "end": 58.82
+          },
+          {
+            "line": 12,
+            "start": 58.82,
+            "end": 62.54
+          },
+          {
+            "line": 13,
+            "start": 63.5,
+            "end": 68.02
+          },
+          {
+            "line": 14,
+            "start": 68.74,
+            "end": 71.36
+          },
+          {
+            "line": 17,
+            "start": 75.24,
+            "end": 77.66
+          },
+          {
+            "line": 18,
+            "start": 78.8,
+            "end": 82.12
+          },
+          {
+            "line": 19,
+            "start": 82.12,
+            "end": 87.72
+          },
+          {
+            "line": 20,
+            "start": 88.22,
+            "end": 92.04
+          },
+          {
+            "line": 21,
+            "start": 92.48,
+            "end": 96.66
+          },
+          {
+            "line": 22,
+            "start": 97.04,
+            "end": 101.14
+          },
+          {
+            "line": 25,
+            "start": 102.54,
+            "end": 105.56
+          },
+          {
+            "line": 26,
+            "start": 106.12,
+            "end": 109.92
+          },
+          {
+            "line": 27,
+            "start": 109.92,
+            "end": 114.04
+          },
+          {
+            "line": 28,
+            "start": 114.04,
+            "end": 118.84
+          },
+          {
+            "line": 29,
+            "start": 119.68,
+            "end": 123.42
+          },
+          {
+            "line": 32,
+            "start": 124.84,
+            "end": 129.28
+          },
+          {
+            "line": 33,
+            "start": 129.98,
+            "end": 134.08
+          },
+          {
+            "line": 34,
+            "start": 134.58,
+            "end": 138.56
+          },
+          {
+            "line": 35,
+            "start": 138.56,
+            "end": 143.62
+          },
+          {
+            "line": 36,
+            "start": 144.06,
+            "end": 147.5
+          },
+          {
+            "line": 39,
+            "start": 147.5,
+            "end": 151.38
+          },
+          {
+            "line": 40,
+            "start": 151.7,
+            "end": 154.58
+          },
+          {
+            "line": 41,
+            "start": 155.22,
+            "end": 158.18
+          },
+          {
+            "line": 42,
+            "start": 158.72,
+            "end": 162.44
+          },
+          {
+            "line": 43,
+            "start": 162.44,
+            "end": 168
+          },
+          {
+            "line": 44,
+            "start": 168.35,
+            "end": 171.38
+          },
+          {
+            "line": 47,
+            "start": 175.32,
+            "end": 178.06
+          },
+          {
+            "line": 48,
+            "start": 178.37,
+            "end": 182.24
+          },
+          {
+            "line": 49,
+            "start": 182.24,
+            "end": 186.3
+          },
+          {
+            "line": 50,
+            "start": 186.3,
+            "end": 191.3
+          }
+        ]
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 15.34
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 46.32
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Original song about how Osama bin Laden doesn't want you to beat Fear & Hunger",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-0355bdb0b3874b004521e688",
       "title": "Nine Eleven'd Carnival",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0355bdb0b3874b004521e688-9edc7b0d3b5c.mp3",
