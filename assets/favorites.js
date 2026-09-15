@@ -53,7 +53,10 @@ export function mountFavorites(container, { onChange = () => {}, filter = false 
     else url.searchParams.delete("profile");
     if (onlySaved) url.searchParams.set("saved", "1");
     else url.searchParams.delete("saved");
-    if (url.href !== location.href) history[replace ? "replaceState" : "pushState"](null, "", url);
+    if (url.href !== location.href) {
+      url.searchParams.delete("page");
+      history[replace ? "replaceState" : "pushState"](null, "", url);
+    }
   }
   function sync(notify = true) {
     const entries = [...profiles.values()].sort((a, b) => a.name.localeCompare(b.name));
@@ -237,6 +240,7 @@ export function mountFavorites(container, { onChange = () => {}, filter = false 
     startTimer();
   });
   return {
+    get loading() { return loading; },
     get onlySaved() { return onlySaved; },
     includes: (song) => !onlySaved || Boolean(profile?.songIds.includes(song.id)),
     emptyMessage: () => !selectedId ? "Choose or create a profile to see its saved songs."

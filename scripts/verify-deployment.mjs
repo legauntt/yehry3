@@ -102,6 +102,7 @@ for (const name of [
   "quality-preference.js",
   "quality-preference.css",
   "lyrics.js",
+  "listening.js",
   "original-prompt.js",
   "prompt-brief.js",
   "prompt-brief.css",

@@ -22,7 +22,7 @@ async function refreshProfile(page) {
 test("favorites are shared across devices, survive navigation and keep playback continuous", async ({ page, browser }) => {
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
-  await page.goto("/");
+  await page.goto("/?q=Fear%20and%20Hunger");
   await expect(button(page)).toBeVisible();
   const profile = await createProfile(page);
   await button(page).click();
@@ -40,7 +40,7 @@ test("favorites are shared across devices, survive navigation and keep playback 
   const secondContext = await browser.newContext();
   const second = await secondContext.newPage();
   try {
-    await second.goto("http://127.0.0.1:8080/");
+    await second.goto("http://127.0.0.1:8080/?q=Fear%20and%20Hunger");
     await expect(second.locator(`#listener-profile option[value="${profile.id}"]`)).toHaveCount(1);
     await second.getByLabel("Listener profile", { exact: true }).selectOption(profile.id);
     await expect(button(second)).toHaveAttribute("aria-pressed", "true");
@@ -74,7 +74,7 @@ test("favorites are shared across devices, survive navigation and keep playback 
 });
 
 test("profiles have separate collections; history and stale responses cannot switch them", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/?q=Fear%20and%20Hunger");
   const first = await createProfile(page);
   await button(page).click();
   await expect(button(page)).toHaveAttribute("aria-pressed", "true");
@@ -110,7 +110,7 @@ test("profiles have separate collections; history and stale responses cannot swi
 });
 
 test("failed saves are explicit and retry recovers without losing saved songs", async ({ page }) => {
-  await page.goto("/");
+  await page.goto("/?q=Fear%20and%20Hunger");
   const profile = await createProfile(page);
   await button(page).click();
   await expect(button(page)).toHaveAttribute("aria-pressed", "true");
@@ -139,7 +139,7 @@ test("profile links work without browser storage, and names render as text", asy
   await page.addInitScript(() => {
     for (const method of ["getItem", "setItem", "removeItem"]) Storage.prototype[method] = () => { throw new Error("Storage disabled"); };
   });
-  await page.goto("/");
+  await page.goto("/?q=Fear%20and%20Hunger");
   await button(page).click();
   await expect(page.locator("#profile-status")).toContainText("Choose or create");
   if (await page.locator(".new-profile").getAttribute("open") !== null) await page.locator(".new-profile summary").click();
@@ -158,10 +158,10 @@ test("profile links work without browser storage, and names render as text", asy
 });
 
 test("a late failed refresh cannot undo a successful save, and tabs follow profile changes", async ({ page, context }) => {
-  await page.goto("/");
+  await page.goto("/?q=Fear%20and%20Hunger");
   const first = await createProfile(page);
   const tab = await context.newPage();
-  await tab.goto("/");
+  await tab.goto("/?q=Fear%20and%20Hunger");
   await expect(tab.locator("#listener-profile")).toHaveValue(first.id);
   let release, requested;
   const wait = new Promise((resolve) => { release = resolve; });

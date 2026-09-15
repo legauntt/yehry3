@@ -3,6 +3,8 @@ import { authoredByLine } from "./authored-by.js";
 import { watchSong } from "./song-data.js";
 import { qualityNotice } from "./quality.js";
 import { mountFavorites } from "./favorites.js";
+import { api } from "./api.js";
+import { trackListening, listeningLabel } from "./listening.js";
 
 function cueMap(lyrics) {
   const lines = lyrics.text.split("\n");
@@ -111,7 +113,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
   const id =
     new URLSearchParams(location.search).get("song") ||
     document.body.dataset.songId;
-  let cleanupKaraoke = () => {}, downloadUrl, favorites, profilePanel;
+  let cleanupKaraoke = () => {}, downloadUrl, favorites, profilePanel, trackedAudio, listening;
   function render(song) {
     const previousAudio = main.querySelector("audio");
     const previousPosition = previousAudio ? [scrollX, scrollY] : null;
@@ -131,6 +133,23 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     cleanupKaraoke();
     const replacementAudio = main.querySelector("audio");
     if (previousAudio?.src === replacementAudio.src) replacementAudio.replaceWith(previousAudio);
+    const audio = main.querySelector("audio");
+    if (audio !== trackedAudio) {
+      listening?.stop();
+      trackedAudio = audio;
+      listening = trackListening(audio, {
+        songId: song.id, source: "lyrics", send: (body) => api("/listens", { method: "POST", body }),
+        onRecorded: (id, stats) => {
+          const label = main.querySelector("[data-listening-stats]");
+          if (label) label.textContent = listeningLabel(stats);
+        },
+      });
+    }
+    const listeningStats = document.createElement("p");
+    listeningStats.className = "small";
+    listeningStats.dataset.listeningStats = "";
+    listeningStats.textContent = listeningLabel(song);
+    main.querySelector(".shared-song-player").append(listeningStats);
     cleanupKaraoke = mountKaraoke(main);
     profilePanel ||= document.createElement("div");
     main.querySelector(".lyrics-actions").after(profilePanel);

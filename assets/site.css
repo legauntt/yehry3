@@ -1247,6 +1247,13 @@ main {
   margin-top: 35px;
   font-size: 0.78rem;
 }
+.catalog-pagination {
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+.catalog-pagination[hidden] { display: none; }
+.catalog-pagination button { min-height: 44px; }
+.listening-note { margin-top: 8px; }
 .empty {
   padding: 55px 25px;
   text-align: center;

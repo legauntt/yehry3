@@ -10,7 +10,7 @@ test("catalog, search, player, and anonymous vote cooldown", async ({
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
-  await expect(page.locator(".track")).toHaveCount(songCount);
+  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
   await expect(page.locator("[data-vote]").first()).toBeEnabled();
   await page.getByLabel("Search songs").fill("Fear and Hunger");
   await expect(page.locator(".track")).toHaveCount(3);
@@ -51,7 +51,7 @@ test("shareable collection, search and sort survive reload and browser history",
 }) => {
   await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.goto("/?ref=friend#collection-title");
-  await expect(page.locator(".track")).toHaveCount(songCount);
+  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
   await page.getByLabel("Collection", { exact: true }).selectOption("shiablo");
   await expect(page.locator(".track")).toHaveCount(3);
   await expect(page.locator(".track a[href^='/lyrics/']")).toHaveCount(3);
@@ -104,13 +104,13 @@ test("shareable collection, search and sort survive reload and browser history",
   await page.getByLabel("Collection", { exact: true }).selectOption("all");
   await page.getByLabel("Sort songs").selectOption("hybrid");
   await expect(page).toHaveURL(/\/\?ref=friend#collection-title$/);
-  await expect(page.locator(".track")).toHaveCount(songCount);
+  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
   await page.goto("/?collection=unknown&sort=unknown");
   await expect(page.getByLabel("Collection", { exact: true })).toHaveValue(
     "all",
   );
   await expect(page.getByLabel("Sort songs")).toHaveValue("hybrid");
-  await expect(page.locator(".track")).toHaveCount(songCount);
+  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
   await expect
     .poll(() =>
       page.locator(".band-cutout").evaluate((img) => img.naturalWidth),
@@ -347,7 +347,7 @@ test("mobile layout, API outage, and escaped prompt content", async ({
   await page.setViewportSize({ width: 390, height: 844 });
   await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.goto("/");
-  await expect(page.locator(".track")).toHaveCount(songCount);
+  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
   await expect(page.locator("#vote-note")).toContainText("offline");
   await expect(page.locator("[data-vote]").first()).toBeDisabled();
   await expect(page.locator("#vote-note")).toContainText(
@@ -460,6 +460,7 @@ test("generated song lyrics, dual collection filtering, and API outage fallback"
   );
   await expect(song).toContainText("Blood on My Shoes at Daybreak");
   await expect(song).toContainText("Fear & Hunger");
+  await page.getByLabel("Search songs").fill("Blood on My Shoes at Daybreak");
   await page.getByLabel("Collection", { exact: true }).selectOption("distonyc");
   await expect(song).toBeVisible();
   await song
@@ -510,7 +511,7 @@ test("published original prompts show confirmed settings, work offline, and esca
     (song) => song.id === "distonyc-1d7840d9c9addba07ccabdb2",
   );
   await page.route("**/yehry3/songs/summary", (route) => route.abort());
-  await page.goto("/?collection=distonyc");
+  await page.goto("/?collection=distonyc&q=Blood%20on%20My%20Shoes%20at%20Daybreak");
   await page
     .getByRole("link", {
       name: "Original prompt for Blood on My Shoes at Daybreak",

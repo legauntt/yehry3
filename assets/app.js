@@ -16,6 +16,7 @@ import { api, login, logout, signedIn, loginPersistence, storage } from "./api.j
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 import { watchCompletions } from "./notifications.js";
 import { mountFavorites } from "./favorites.js";
+import { trackListening, listeningLabel } from "./listening.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const main = $("#main");
@@ -155,8 +156,8 @@ async function library() {
     </section>
     <section class="collection" aria-labelledby="collection-title">
       <div class="section-heading"><div><p class="eyebrow">The catalog</p><h2 id="collection-title">Pick your next obsession.</h2></div><div class="catalog-status"><p class="small" id="track-count">Loading songs…</p><p class="small auto-refresh-note"><span aria-hidden="true">↻</span> Auto-refreshes every 30 seconds</p></div></div>
-      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="hybrid">Fresh, then most loved</option><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option></select><button class="quiet" id="shuffle">Shuffle ↝</button><div class="display-settings" data-quality-settings></div></div>
-      <div id="favorites"></div><p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div>
+      <div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="hybrid">Fresh, then most loved</option><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option><option value="plays">Most played</option><option value="least-played">Least played</option><option value="least-recent">Least recently played</option></select><button class="quiet" id="shuffle">Shuffle ↝</button><div class="display-settings" data-quality-settings></div></div>
+      <div id="favorites"></div><p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><p class="small listening-note">Plays are recorded after 10 seconds of listening, once per browser per song every 30 minutes. History starts September 2026.</p>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
     <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
@@ -168,9 +169,18 @@ async function library() {
     { id: "sort", param: "sort", defaultValue: "hybrid" },
     { id: "search", param: "q", defaultValue: "" },
   ];
-  let editingSearch = false;
-  function restoreFilters() {
+  const pageSize = 25;
+  let catalogPage = 1, editingSearch = false;
+  function pageUrl(replace = true) {
+    const url = new URL(location.href);
+    if (catalogPage > 1) url.searchParams.set("page", catalogPage);
+    else url.searchParams.delete("page");
+    if (url.href !== location.href) history[replace ? "replaceState" : "pushState"](null, "", url);
+  }
+  function restoreFilters(resetSearch = true) {
     const params = new URLSearchParams(location.search);
+    const requested = Number(params.get("page") || 1);
+    catalogPage = Number.isSafeInteger(requested) && requested > 0 ? requested : 1;
     for (const { id, param, defaultValue } of filters) {
       const control = $(`#${id}`);
       const value = params.get(param) ?? defaultValue;
@@ -180,10 +190,12 @@ async function library() {
           ? defaultValue
           : value;
     }
-    editingSearch = false;
+    if (resetSearch) editingSearch = false;
   }
   function shareFilters(replace = false) {
     const url = new URL(location.href);
+    catalogPage = 1;
+    url.searchParams.delete("page");
     for (const { id, param, defaultValue } of filters) {
       const value = $(`#${id}`).value;
       if (value === defaultValue) url.searchParams.delete(param);
@@ -203,11 +215,36 @@ async function library() {
     online = false,
     voting = false,
     refreshing = null;
+  let initialCatalogPending = true;
   const recentReleases = new Map();
   const freshWindow = 24 * 60 * 60 * 1000;
   const audio = $("#audio");
   const rowMarkup = new WeakMap();
-  const favorites = mountFavorites($("#favorites"), { filter: true, onChange: () => render({ preserveViewport: true }) });
+  const favorites = mountFavorites($("#favorites"), { filter: true, onChange: () => {
+    // Favorite history callbacks may run before our popstate listener. Restore
+    // all URL filters together before clamping the requested page.
+    restoreFilters(false);
+    render({ preserveViewport: true });
+  } });
+  const listening = trackListening(audio, {
+    source: "main", send: (body) => api("/listens", { method: "POST", body }),
+    onRecorded: (id, { playCount, lastPlayedAt }) => {
+      const song = songs.find((item) => item.id === id);
+      if (song) Object.assign(song, { playCount, lastPlayedAt });
+      render({ preserveViewport: true });
+    },
+  });
+  document.querySelectorAll("[data-catalog-pagination]").forEach((nav) => {
+    nav.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-catalog-page]");
+      if (!button || button.disabled) return;
+      editingSearch = false;
+      catalogPage += Number(button.dataset.catalogPage);
+      pageUrl(false);
+      render();
+      $("#collection-title").scrollIntoView({ block: "start" });
+    });
+  });
   function syncRows(container, markup) {
     const template = document.createElement("template");
     template.innerHTML = markup;
@@ -291,17 +328,37 @@ async function library() {
       visible.sort((a, b) => (b.votes || 0) - (a.votes || 0));
     if ($("#sort").value === "title")
       visible.sort((a, b) => a.title.localeCompare(b.title));
+    if ($("#sort").value === "plays")
+      visible.sort((a, b) => (b.playCount || 0) - (a.playCount || 0));
+    if ($("#sort").value === "least-played")
+      visible.sort((a, b) => (a.playCount || 0) - (b.playCount || 0));
+    if ($("#sort").value === "least-recent")
+      visible.sort((a, b) => (Date.parse(a.lastPlayedAt) || 0) - (Date.parse(b.lastPlayedAt) || 0));
+    const pageCount = Math.max(1, Math.ceil(visible.length / pageSize));
+    // Keep a deep link while an asynchronously selected favorite profile loads.
+    if (!initialCatalogPending && !(favorites.onlySaved && favorites.loading)) {
+      catalogPage = Math.min(catalogPage, pageCount);
+      pageUrl();
+    }
+    const offset = (catalogPage - 1) * pageSize;
+    const pageSongs = visible.slice(offset, offset + pageSize);
     $("#track-count").textContent =
-      `${visible.length} ${visible.length === 1 ? "song" : "songs"} · Many possible directions`;
+      `${visible.length} ${visible.length === 1 ? "song" : "songs"}${pageSongs.length ? ` · Showing ${offset + 1}–${offset + pageSongs.length}` : ""}`;
+    document.querySelectorAll("[data-catalog-pagination]").forEach((nav) => {
+      nav.hidden = pageCount <= 1;
+      $("[data-catalog-page='-1']", nav).disabled = catalogPage <= 1;
+      $("[data-catalog-page='1']", nav).disabled = catalogPage >= pageCount;
+      $("[data-page-status]", nav).textContent = `Page ${catalogPage} of ${pageCount}`;
+    });
     renderPending();
     syncRows($("#tracks"), visible.length
-      ? visible
+      ? pageSongs
           .map(
             (
               song,
               index,
             ) => `<article class="track ${current?.id === song.id ? "playing" : ""}" data-id="${escape(song.id)}">
-        <span class="track-number">${String(index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id))}${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last played ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : `<p class="empty">${favorites.onlySaved ? escape(favorites.emptyMessage()) : "No songs match. Try another title or style."}</p>`);
@@ -351,6 +408,7 @@ async function library() {
     $("#now-title").textContent = song.title;
     $("#download").href = safeUrl(song.url);
     audio.src = safeUrl(song.url);
+    listening.start(song.id);
     render();
     try {
       await audio.play();
@@ -411,6 +469,7 @@ async function library() {
         nextVoteAt = catalog.value.nextVoteAt;
         online = true;
       } else online = false;
+      initialCatalogPending = false;
       if (upcoming.status === "fulfilled" && Array.isArray(upcoming.value.inStudio) && Array.isArray(upcoming.value.queued)) {
         pending = [...upcoming.value.inStudio, ...(upcoming.value.needsAttention || []), ...upcoming.value.queued];
         recentReleases.clear();
