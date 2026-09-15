@@ -200,7 +200,11 @@ def main():
     state = Path(config['state_dir'])
     with singleton(state / 'worker.lock') as acquired:
         if not acquired: return
-        try: run_once(config, API(config['api'], config['worker_id'], token), args.verify_existing)
+        try:
+            api = API(config['api'], config['worker_id'], token)
+            run_once(config, api, args.verify_existing)
+            from remix_health import check_due
+            check_due(config, api)
         except Exception as error:
             save(state / 'health.json', {'at': utc(), 'status': 'needs_attention', 'error': str(error)[:1000]})
             traceback.print_exc(); raise SystemExit(1)

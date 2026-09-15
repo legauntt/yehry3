@@ -67,9 +67,11 @@ def original_prompt(prompt):
 
 def song_record(prompt):
     result = prompt['result']
+    source = (prompt.get('details') or {}).get('remixSource')
     return {'id': prompt['songId'], 'title': result['title'], 'url': prompt['releaseUrl'],
             'duration': result['duration'], 'collection': 'distonyc',
             'voiceModel': (prompt.get('details') or {}).get('voiceModel', 'v6'),
+            **({'remixOf': {key: source[key] for key in ('songId', 'title', 'url')}} if source else {}),
             **({'publishedAt': prompt['publishedAt']} if prompt.get('publishedAt') else {}),
             **({'authoredBy': prompt['authoredBy']} if prompt.get('authoredBy') else {}),
             **({'songPlan': prompt['songPlan']} if prompt.get('songPlan') else {}),

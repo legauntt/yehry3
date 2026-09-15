@@ -10,7 +10,9 @@ workers without this capability cannot claim or replay these requests.
 `remix_sources.py` registers eligible published jobs only after verifying both original exports,
 their published MP3 identity, the retained converted Tony vocal stem, and the published lyric sheet.
 Complete recordings and source manifests stay in `basis_root/published/<song-id>/<sha256>/`,
-outside repositories. Vocal stems remain in their retained production folders and are hash-pinned.
+outside repositories. Converted vocal stems are copied into the same permanent source folder as
+`vocals.wav`, verified against their original hashes. Legacy manifests and frozen job inputs remain
+unchanged; new source resolution prefers the archived bytes and survives generation-folder cleanup.
 Missing recording bytes can be restored only from the frozen release URL with the exact size/hash;
 changed files, stems, lyrics, or frozen manifests fail closed. Specialist recordings without retained
 converted stems are reported unavailable before submission. No audio or private paths enter Mongo.
@@ -24,6 +26,18 @@ For existing retained publications, load the worker token using the normal DPAPI
 `sync_remix_sources.py --config <installed-config> --all-published` (or `--request-id <id>`).
 `--prepare-only` verifies and retains local sources without changing server metadata. The command
 never mutates queue state; per-song results live in `state/remix-source-registration.json`.
+
+After installing the matching API and runtime, enable `catalog_remix_health: true`. At the end of
+normal worker runs, a journaled check runs at most every six hours, archives any legacy vocal
+references, verifies registered sources, and reports readiness. Missing or corrupt material becomes
+unavailable; successful later verification restores it. Server readiness expires after 48 hours without
+a successful check. Network failures retain diagnostics and retry after 15 minutes without blocking
+normal production or changing queued jobs. Run `sync_remix_sources.py --config <installed-config>
+--check-library` for an immediate targeted library check; evidence is `state/remix-source-health.json`.
+
+Published catalog remixes include `remixOf` derived from the frozen source recording. The API
+registration step backfills this link from an existing published request, and the worker retains it
+in the static catalog. No title matching or private job identity is used for public comparison links.
 
 Validation: `python -m unittest -v test_remix_sources.py test_worker.py test_recovery.py`.
 When applying to an installed runtime with newer planner/recovery features, apply only the reviewed

@@ -50,6 +50,12 @@ def prepare(config, prompt):
     result = prompt['result']
     source = descriptor({'version': 1, 'songId': prompt['songId'], 'title': result['title'],
         'url': prompt['releaseUrl'], 'sha256': result['sha256'], 'bytes': result['bytes'], 'duration': result['duration']})
+    destination = folder(config, source)
+    manifest = destination / 'source.json'
+    if manifest.exists():
+        archive_vocals(config, source)
+        resolve(config, source)
+        return source
     directory = inside(Path(config['state_dir']) / 'jobs' / prompt['id'], Path(config['state_dir']) / 'jobs')
     export_file = directory / 'render-result.json'
     if not export_file.is_file(): return None
@@ -69,12 +75,6 @@ def prepare(config, prompt):
     mp3 = next(item for item in files if Path(item['path']).suffix.lower() == '.mp3')
     if mp3['sha256'] != source['sha256'] or mp3['bytes'] != source['bytes']:
         raise ValueError('The retained recording differs from the published song')
-    destination = folder(config, source)
-    manifest = destination / 'source.json'
-    if manifest.exists():
-        if load(manifest)['source'] != source: raise ValueError('The registered remix source changed')
-        resolve(config, source)
-        return source
     pinned_copy(mp3['path'], destination / 'recording.mp3', source)
     lyric_file = destination / 'lyrics.txt'
     if lyric_file.exists() and lyric_file.read_text('utf-8') != lyrics:
@@ -87,8 +87,24 @@ def prepare(config, prompt):
     save(manifest, {'version': 1, 'source': source, 'material': value,
         'origin_result': str(export_file), 'origin_result_sha256': sha(export_file),
         'vocal_bytes': vocals.stat().st_size, 'lyric_file': str(lyric_file)})
+    archive_vocals(config, source)
     resolve(config, source)
     return source
+
+
+def archive_vocals(config, source):
+    """Add durable bytes without rewriting manifests or any frozen job input."""
+    destination = folder(config, source)
+    saved = load(destination / 'source.json')
+    if saved.get('version') != 1 or saved.get('source') != source:
+        raise ValueError('The registered remix source changed')
+    value = saved['material']
+    expected = {'bytes': saved['vocal_bytes'], 'sha256': value['vocal_reference_sha256']}
+    target = inside(destination / 'vocals.wav', config['basis_root'])
+    if target.exists(): return checked_file(target, expected)
+    original = inside(value['vocal_reference_path'], Path(config['settings']['studio_dir']).parent)
+    pinned_copy(original, target, expected)
+    return target
 
 
 def resolve(config, source):
@@ -132,11 +148,12 @@ def material(config, basis):
         raise ValueError('Saved remix recording provenance changed')
     checked_file(path, saved['source'])
     value = saved['material']
-    vocals = inside(value['vocal_reference_path'], Path(config['settings']['studio_dir']).parent)
+    archived = inside(path.parent / 'vocals.wav', config['basis_root'])
+    vocals = archived if archived.exists() else inside(value['vocal_reference_path'], Path(config['settings']['studio_dir']).parent)
     checked_file(vocals, {'bytes': saved['vocal_bytes'], 'sha256': value['vocal_reference_sha256']})
     lyric_file = inside(saved['lyric_file'], config['basis_root'])
     if sha(lyric_file) != value['transcript_sha256']: raise ValueError('Saved remix lyrics changed')
-    return value
+    return {**value, 'vocal_reference_path': str(vocals)}
 
 
 def register(config, api, prompt):

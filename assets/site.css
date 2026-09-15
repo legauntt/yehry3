@@ -2056,3 +2056,10 @@ button.lyric-line:hover {
     gap: 12px;
   }
 }
+/* Source availability and comparison share the existing listening controls. */
+[data-remix] { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
+.remix-unavailable { opacity: .75; }
+.remix-comparison { margin: 1.5rem 0; padding: 1rem; border: 1px solid var(--line, #bbb); border-radius: .6rem; }
+.remix-comparison audio { display: block; width: 100%; margin-top: .8rem; }
+.remix-comparison h2 { font-size: 1.25rem; }
+@media print { .remix-comparison { display: none; } }

@@ -11,10 +11,17 @@ def main():
     choice = parser.add_mutually_exclusive_group(required=True)
     choice.add_argument('--request-id')
     choice.add_argument('--all-published', action='store_true')
+    choice.add_argument('--check-library', action='store_true')
     parser.add_argument('--prepare-only', action='store_true')
     args = parser.parse_args()
     config = load(args.config)
     api = API(config['api'], config['worker_id'], os.environ['DISTONYC_WORKER_TOKEN'])
+    if args.check_library:
+        if args.prepare_only: parser.error('--check-library reports verified availability to the server; omit --prepare-only')
+        from remix_health import check_library
+        report = check_library(config, api)
+        print(report['counts'])
+        return 1 if report['counts']['error'] else 0
     jobs = Path(config['state_dir']) / 'jobs'
     directories = [inside(jobs / args.request_id, jobs)] if args.request_id else sorted(path.parent for path in jobs.glob('*/render-result.json'))
     report = {'at': utc(), 'prepare_only': args.prepare_only, 'requests': []}

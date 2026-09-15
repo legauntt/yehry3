@@ -380,7 +380,8 @@ async function library() {
     $("#tracks").querySelectorAll(".track-info").forEach((info) => {
       const song = songs.find((item) => item.id === info.closest("[data-id]").dataset.id);
       if (!info.querySelector("[data-save]")) info.insertAdjacentHTML("beforeend", favorites.button(song));
-      if (!info.querySelector("[data-remix]")) info.querySelector(".track-meta").insertAdjacentHTML("beforeend", remixLink(song, escape));
+      if (info.querySelector("[data-remix]")) info.querySelector("[data-remix]").outerHTML = remixLink(song, escape);
+      else info.querySelector(".track-meta").insertAdjacentHTML("beforeend", remixLink(song, escape));
     });
     favorites.syncButtons();
     if (favorites.onlySaved) $("#pending-tracks").hidden = true;
@@ -678,7 +679,7 @@ async function requests() {
       else {
         const linkedDraft = draft && storage.get(`remix-draft:${draft.id}`) === remix.id;
         const conflict = draft ? !linkedDraft : !remixActive;
-        panel.innerHTML = `<p class="small">Remix inspiration: <a href="/lyrics/?song=${encodeURIComponent(remix.id)}">${escape(remix.title)}</a>. ${linkedDraft ? "Choose the new sound in Advanced, then review your request. Available source lyrics are included for adaptation." : "Edit the idea and tell us what should change."}</p>${conflict ? `<button type="button" class="quiet" id="begin-remix">${draft ? "Start this remix as a new request" : "Use the remix idea instead"}</button><p class="small">${draft ? "Your current request stays saved in the studio." : "This replaces the idea currently in the form."}</p>` : ""}`;
+        panel.innerHTML = `<p class="small">Remix of <a href="/lyrics/?song=${encodeURIComponent(remix.id)}">${escape(remix.title)}</a>: a new arrangement guided by the original. Melody and timing may change. ${linkedDraft ? "Choose the new sound and whether lyrics may change, then review your request." : "Edit the idea and tell us what should change."}</p>${conflict ? `<button type="button" class="quiet" id="begin-remix">${draft ? "Start this remix as a new request" : "Use the remix idea instead"}</button><p class="small">${draft ? "Your current request stays saved in the studio." : "This replaces the idea currently in the form."}</p>` : ""}`;
         panel.querySelector("#begin-remix")?.addEventListener("click", () => {
           draft = null; storage.remove("draft"); storage.remove("prompt-request");
           storage.set("idea-text", remix.seed.prompt); storage.set("remix-idea", remix.id); remixActive = true; render();
@@ -761,6 +762,15 @@ async function requests() {
       if (attachedRemix) {
         $("#basis-root").innerHTML = `<p class="small" data-remix-source>Recording attached: <a href="/lyrics/?song=${encodeURIComponent(attachedRemix.songId)}">${escape(attachedRemix.title)}</a>. Its vocals guide the new arrangement; exact melody and timing may change.</p>`;
         $("#essentials-panel").insertAdjacentHTML("afterbegin", $("#basis-root").innerHTML);
+        const direction = $('#direction'), directionLabel = $('label[for="direction"]'), hint = direction.nextElementSibling;
+        directionLabel.textContent = 'What should change?';
+        direction.placeholder = 'Try a new genre, mood, tempo, or instrumentation…';
+        const fields = document.createElement('div');
+        fields.append(directionLabel, direction, hint);
+        $('label[for="keep"]').before(fields);
+        $('label[for="keep"]').textContent = 'What should stay?';
+        $('#keep').placeholder = 'The chorus words, the story, or the mood that makes this song yours…';
+        $('#keep').nextElementSibling.after(Object.assign(document.createElement('div'), { id: 'remix-lyric-choice' }));
       }
       const savedDirection = draft.details?.direction || "";
       const savedKeep = initialDetails.keep || "";
@@ -773,7 +783,7 @@ async function requests() {
       };
       $("#voice-model").onchange = describeVoice;
       describeVoice();
-      const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), { ...draft, details: initialDetails }, { api, storage, escape }) : {
+      const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), { ...draft, details: initialDetails }, { api, storage, escape, lyricChoiceRoot: $('#remix-lyric-choice') }) : {
         read() {
           if (draft.details?.lyricSheet || draft.details?.references?.length) throw new Error("Your saved lyrics and references are temporarily unavailable for editing. Try again shortly.");
           return {};

@@ -34,5 +34,15 @@ export async function loadRemix() {
 }
 
 export function remixLink(song, escape) {
-  return `<a class="text-link" data-remix href="${remixHref(song)}" aria-label="Remix ${escape(song.title)}">Remix ↗</a>`;
+  const availability = song.remixAvailability;
+  const ready = availability?.status === 'ready' && new Date(availability.expiresAt) > new Date();
+  const action = ready
+    ? `<a class="text-link" href="${remixHref(song)}" aria-label="Remix ${escape(song.title)}">Remix ↗</a>`
+    : availability
+      ? '<span class="small remix-unavailable" title="This recording is temporarily unavailable for remixing. Check back later.">Remix unavailable</span>'
+      : `<a class="text-link" href="${remixHref(song)}" aria-label="Check remix availability for ${escape(song.title)}">Check remix availability ↗</a>`;
+  const parent = song.remixOf;
+  const original = parent && /^[a-z0-9-]{1,120}$/.test(parent.songId)
+    ? `<a class="text-link remix-original-link" href="/lyrics/?song=${encodeURIComponent(song.id)}#compare-original" aria-label="Compare ${escape(song.title)} with ${escape(parent.title)}">Compare with original ↗</a>` : '';
+  return `<span data-remix>${action}${original}</span>`;
 }

@@ -19,7 +19,7 @@ export function hasMaterialEdits(draft, storage) {
   if (!draft || draft.confirmedAt) return false;
   try { return JSON.parse(storage.get("materials:" + draft.id))?.version === draft.version; } catch { return false; }
 }
-export function mountMaterials(root, draft, { api, storage, escape }) {
+export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceRoot }) {
   const key = "materials:" + draft.id;
   let saved;
   try { saved = JSON.parse(storage.get(key)); } catch { /* Saved server brief remains available. */ }
@@ -35,11 +35,17 @@ export function mountMaterials(root, draft, { api, storage, escape }) {
     '<h3>Reference links</h3><p class="small">Add up to three public HTTPS links. Choose how to use each one.</p><p class="small" id="material-visibility">Once you confirm your request, anyone can view the supplied lyrics, reference links, notes, and saved page text in its prompt details.</p>' +
     '<div id="reference-list"></div><button type="button" class="quiet" id="add-reference">Add a reference link</button>' +
     '<p class="small material-storage" role="status"></p></div></details>';
-  const find = (selector) => root.querySelector(selector);
+  const find = (selector) => root.querySelector(selector) || lyricChoiceRoot?.querySelector(selector);
   const panel = find("details"), sheet = find("#lyric-sheet"), mode = find("#lyric-mode"), add = find("#add-reference");
   sheet.value = initial.lyricSheet?.text || "";
   mode.value = initial.lyricSheet?.mode || "preserve";
   panel.open = Boolean(sheet.value || references.length);
+  if (lyricChoiceRoot) {
+    for (const selector of ['label[for="lyric-mode"]', '#lyric-mode', '#lyric-mode-help', '#lyric-length']) lyricChoiceRoot.append(find(selector));
+    find('label[for="lyric-mode"]').textContent = 'May the lyrics change?';
+    mode.options[0].textContent = 'Keep the supplied words';
+    mode.options[1].textContent = 'Allow adapting the lyrics';
+  }
   function current() {
     return { lyricSheet: sheet.value.trim() ? { text: sheet.value.replace(/\r\n?/g, "\n").trim(), mode: mode.value } : null, references };
   }

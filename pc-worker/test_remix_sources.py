@@ -2,7 +2,7 @@ import tempfile, unittest
 from pathlib import Path
 from unittest.mock import patch
 from common import load, save, sha
-from remix_sources import prepare, resolve, material, register, descriptor
+from remix_sources import prepare, resolve, material, register, descriptor, archive_vocals
 from source_material import source_material
 from worker import basis_files, run_once
 
@@ -27,16 +27,51 @@ class RemixSources(unittest.TestCase):
     def test_exact_source_survives_retries_and_reaches_planner_material(self):
         source = prepare(self.config, self.prompt); basis = resolve(self.config, source)
         self.assertEqual(source, prepare(self.config, self.prompt))
-        self.assertTrue(Path(source_material(self.config, [basis])['vocal_reference_path']).samefile(self.work / 'matched-vocals.wav'))
+        self.assertTrue(Path(source_material(self.config, [basis])['vocal_reference_path']).samefile(Path(basis['path']).parent / 'vocals.wav'))
         self.assertEqual(basis_files(self.config, {'details': {'remixSource': source, 'basisSongIds': []}}), [basis])
         with self.assertRaisesRegex(ValueError, 'exactly one'):
             basis_files(self.config, {'details': {'remixSource': source, 'basisSongIds': ['another']}})
 
     def test_changed_recording_and_frozen_stems_fail_closed(self):
         source = prepare(self.config, self.prompt); basis = resolve(self.config, source)
-        (self.work / 'matched-vocals.wav').write_bytes(b'changed stem')
+        (Path(basis['path']).parent / 'vocals.wav').write_bytes(b'changed stem')
         with self.assertRaisesRegex(ValueError, 'changed'): material(self.config, basis)
         with self.assertRaisesRegex(ValueError, 'changed'): prepare(self.config, self.prompt)
+
+    def test_archive_survives_removed_work_folder_and_preserves_frozen_manifest(self):
+        import shutil
+        source = prepare(self.config, self.prompt); basis = resolve(self.config, source)
+        manifest = Path(basis['path']).parent / 'source.json'
+        frozen = manifest.read_bytes()
+        archived = Path(basis['path']).parent / 'vocals.wav'
+        archived.unlink()  # Upgrade an existing legacy registration.
+        archive_vocals(self.config, source)
+        self.assertEqual(manifest.read_bytes(), frozen)
+        shutil.rmtree(self.work)
+        self.assertEqual(prepare(self.config, self.prompt), source)
+        self.assertEqual(sha(Path(material(self.config, basis)['vocal_reference_path'])), sha(archived))
+
+    def test_health_reports_missing_material_and_can_restore_readiness(self):
+        from remix_health import check_library, check_due
+        source = prepare(self.config, self.prompt); basis = resolve(self.config, source)
+        calls = []
+        class API:
+            def call(self, path, body=None):
+                calls.append((path, body))
+                return {'sources': [source]} if path == '/remix-sources' else {}
+        api = API()
+        self.assertEqual(check_library(self.config, api)['counts']['ready'], 1)
+        vocals = Path(basis['path']).parent / 'vocals.wav'; original = vocals.read_bytes()
+        vocals.write_bytes(b'changed')
+        self.assertEqual(check_library(self.config, api)['counts']['unavailable'], 1)
+        self.assertTrue(calls[-1][0].endswith('/unavailable'))
+        vocals.write_bytes(original)
+        self.assertEqual(check_library(self.config, api)['counts']['ready'], 1)
+        self.config['catalog_remix_health'] = True
+        check_due(self.config, api, now=100); count = len(calls)
+        check_due(self.config, api, now=101)
+        self.assertEqual(len(calls), count)
+        self.assertFalse(any('/claim' in path or '/prompts/' in path for path, body in calls))
 
     def test_changed_source_descriptor_cannot_retarget_same_title(self):
         source = prepare(self.config, self.prompt)

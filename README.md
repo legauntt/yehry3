@@ -50,6 +50,16 @@ For the real API, follow [chairlift's setup and queue contract](../chairlift/yeh
 
 ## Behavior
 
+- Remix availability appears on song cards and lyric pages. Verified checks expire after 48 hours;
+  unavailable sources cannot be submitted. During a catalog/API outage, sources without current
+  availability offer **Check remix availability** rather than claiming readiness.
+- Attached remixes put **What should change?**, **What should stay?**, and **May the lyrics change?**
+  in Essentials. The choice between retaining supplied words and allowing adaptation remains in the
+  confirmed brief. The form explains that melody and timing may change.
+- Published remixes link to their original on the lyric page. **Play original** and **Play remix**
+  switch playback without overlap, retaining each recording's independent position. The original's
+  direct lyric-page link, native audio controls, and mobile layout remain available.
+
 The collection headline and main-page footers choose from 100 curated branding lines on each page load. The line stays fixed through playback, filtering and polling, and avoids the previous visit's line when session storage is available. This uses no API or generation call.
 
 Mixtape shares now use `/mixtapes/<12-character-id>`. Chairlift stores an immutable snapshot in MongoDB; repeated sharing of identical content reuses its URL, while edits create a new snapshot. Old `#tape=` Base64 links still open and can be shortened with **Copy mixtape link**. Local drafts stay local until shared, and an API failure leaves the draft intact for retry. Deploy the matching Chairlift `/mixtapes` API first.

@@ -6,6 +6,7 @@ import { mountFavorites } from "./favorites.js";
 import { api } from "./api.js";
 import { trackListening, listeningLabel } from "./listening.js";
 import { remixLink } from "./remix.js";
+import { mountRemixComparison } from "./remix-comparison.js";
 import { mountMomentSharing, sharedTimestamp } from "./lyric-moments.js";
 
 function cueMap(lyrics) {
@@ -118,7 +119,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
   const id =
     new URLSearchParams(location.search).get("song") ||
     document.body.dataset.songId;
-  let cleanupKaraoke = () => {}, cleanupMoments = () => {}, downloadUrl, favorites, profilePanel, trackedAudio, listening;
+  let cleanupKaraoke = () => {}, cleanupMoments = () => {}, downloadUrl, favorites, profilePanel, trackedAudio, listening, comparison;
   function render(song) {
     const previousAudio = main.querySelector("audio");
     const previousPosition = previousAudio ? [scrollX, scrollY] : null;
@@ -140,6 +141,11 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     const replacementAudio = main.querySelector("audio");
     if (previousAudio?.src === replacementAudio.src) replacementAudio.replaceWith(previousAudio);
     const audio = main.querySelector("audio");
+    if (comparison && (comparison.key !== JSON.stringify(song.remixOf) || comparison.remixAudio !== audio)) {
+      comparison.stop(); comparison = null;
+    }
+    comparison ||= mountRemixComparison(song, audio, { escape, safeUrl });
+    if (comparison) main.querySelector('.shared-song-player').after(comparison.element);
     if (audio !== trackedAudio) {
       listening?.stop();
       trackedAudio = audio;
@@ -178,7 +184,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
   addEventListener(
     "pagehide",
     (event) => {
-      if (!event.persisted) { if (downloadUrl) URL.revokeObjectURL(downloadUrl); cleanupKaraoke(); cleanupMoments(); }
+      if (!event.persisted) { if (downloadUrl) URL.revokeObjectURL(downloadUrl); cleanupKaraoke(); cleanupMoments(); comparison?.stop(); }
     },
     { once: true },
   );
