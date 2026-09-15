@@ -735,6 +735,29 @@ main {
   font-weight: 500;
   font-size: 0.98rem;
 }
+.track-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 3px 10px;
+  margin-bottom: 3px;
+}
+.track-heading h3 { margin: 0; overflow-wrap: anywhere; }
+.recording-label {
+  display: inline-block;
+  max-width: 100%;
+  padding: 2px 8px;
+  border: 1px solid #cbbdd5;
+  border-radius: 12px;
+  background: #eee8f4;
+  color: #604775;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  vertical-align: middle;
+}
+#now-recording { margin-top: 3px; }
 .track-info p {
   margin: 0;
   font-size: 0.72rem;

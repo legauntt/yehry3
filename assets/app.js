@@ -19,6 +19,7 @@ import { watchCompletions } from "./notifications.js";
 import { mountFavorites } from "./favorites.js";
 import { trackListening, listeningLabel } from "./listening.js";
 import { loadRemix, remixLink } from "./remix.js";
+import { recordingLabels, recordingLabel, recordingTitle } from "./recording-label.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const main = $("#main");
@@ -163,7 +164,7 @@ async function library() {
       <div id="favorites"></div>${listeningOverview}<p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><p class="small listening-note">Listens are recorded after 10 seconds of listening, once per browser per song every 30 minutes. History starts September 2026.</p>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
-    <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
+    <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong><span id="now-recording" hidden></span></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
   mountQualitySettings(main);
   startRecordMotion($(".record", main), $("#audio", main));
   rotateSuggestions(main);
@@ -309,6 +310,10 @@ async function library() {
   }
   function render({ preserveViewport = false } = {}) {
     const restoreViewport = preserveViewport ? viewportAnchor() : () => {};
+    const recordings = recordingLabels(songs, (song) => songPublishedAt(song, recentReleases.get(song.id)));
+    const currentRecording = recordings.get(current?.id);
+    $("#now-recording").hidden = !currentRecording;
+    $("#now-recording").innerHTML = recordingLabel(currentRecording, escape);
     const query = $("#search").value.toLowerCase();
     const collection = $("#collection-filter").value;
     visible = songs.filter(
@@ -373,7 +378,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track ${current?.id === song.id ? "playing" : ""}" data-id="${escape(song.id)}">
-        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(song.title)}">▶</button><div class="track-info"><h3>${escape(song.title)}</h3>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(song.title)}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}">▶</button><div class="track-info"><div class="track-heading"><h3>${escape(song.title)}</h3>${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : `<p class="empty">${favorites.onlySaved ? escape(favorites.emptyMessage()) : "No songs match. Try another title or style."}</p>`);
