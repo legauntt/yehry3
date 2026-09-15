@@ -2,6 +2,183 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5cdd03210001819e023a1931",
+      "title": "We Are Jeffrey Epstein",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5cdd03210001819e023a1931-33797f849112.mp3",
+      "duration": 154.64,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-15T03:07:12.584Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "We Are Jeffrey Epstein",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "Bb major",
+        "arrangement": "Christian gospel-rock setting for the mandatory pinned Tony V7 voice. Begin with Hammond organ and piano, then introduce a warm moving bass line, restrained drums, electric guitar, handclaps, and a mixed gospel choir answering the lead. Build each chorus with richer harmony and stronger ensemble lifts while keeping Tony's smoky, slurred phonetics and the hook clear. Pull back beneath the final verse, then rise into a full final chorus. Pace the outro so Tony's sustained final word lands 8–12 seconds before the end, followed by one resolved Bb-major chord and natural decay.",
+        "lyrics": "[Verse 1]\nHe stood unshaken, a voice in the storm\nA man of conviction, a heart reborn\nHe spoke the truth when the cost was high\nHe lived for Jesus, unafraid to die\n\n[Chorus]\nWe are Jeffrey Epstein, we carry the flame\nWe'll fight for the gospel, we'll honor his name\nWe are Jeffrey Epstein, his courage, our own\nTogether unbroken, we'll make Heaven known\n\n[Verse 2]\nA husband, a father, his family held near\nA home built on scripture, on faith, without fear\nThe world tried to silence but his voice remains\nIn us, it echoes, in Christ, it sustains\n\n[Chorus]\nWe are Jeffrey Epstein, we carry the flame\nWe'll fight for the gospel, we'll honor his name\nWe are Jeffrey Epstein, his courage, our own\nTogether unbroken, we'll make Heaven known\n\n[Final Verse]\nThe battle is raging, the darkness will fall\nWe rise with his spirit, we answer the call\nThe truth is eternal, the cross is our guide\nWith God as our captain, we march side by side\n\n[Chorus]\nWe are Jeffrey Epstein, we carry the flame\nWe'll fight for the gospel, we'll honor his name\nWe are Jeffrey Epstein, his courage, our own\nTogether unbroken, we'll make Heaven known\n\n[Outro]\nWe are Jeffrey Epstein\nForever alive\nWe are Jeffrey Epstein\nWith God, we will rise\n\n[End]",
+        "duration": 155,
+        "bpm": 76
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nHe stood unshaken, a voice in the storm\nA man of conviction, a heart reborn\nHe spoke the truth when the cost was high\nHe lived for Jesus, unafraid to die\n\n[Chorus]\nWe are Jeffrey Epstein, we carry the flame\nWe'll fight for the gospel, we'll honor his name\nWe are Jeffrey Epstein, his courage, our own\nTogether unbroken, we'll make Heaven known\n\n[Verse 2]\nA husband, a father, his family held near\nA home built on scripture, on faith, without fear\nThe world tried to silence but his voice remains\nIn us, it echoes, in Christ, it sustains\n\n[Chorus]\nWe are Jeffrey Epstein, we carry the flame\nWe'll fight for the gospel, we'll honor his name\nWe are Jeffrey Epstein, his courage, our own\nTogether unbroken, we'll make Heaven known\n\n[Final Verse]\nThe battle is raging, the darkness will fall\nWe rise with his spirit, we answer the call\nThe truth is eternal, the cross is our guide\nWith God as our captain, we march side by side\n\n[Chorus]\nWe are Jeffrey Epstein, we carry the flame\nWe'll fight for the gospel, we'll honor his name\nWe are Jeffrey Epstein, his courage, our own\nTogether unbroken, we'll make Heaven known\n\n[Outro]\nWe are Jeffrey Epstein\nForever alive\nWe are Jeffrey Epstein\nWith God, we will rise",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 1.62,
+            "end": 6.2
+          },
+          {
+            "line": 2,
+            "start": 6.2,
+            "end": 13.02
+          },
+          {
+            "line": 3,
+            "start": 15.04,
+            "end": 19.46
+          },
+          {
+            "line": 4,
+            "start": 21,
+            "end": 25.92
+          },
+          {
+            "line": 7,
+            "start": 25.92,
+            "end": 32.04
+          },
+          {
+            "line": 8,
+            "start": 33.28,
+            "end": 38.4
+          },
+          {
+            "line": 9,
+            "start": 39.42,
+            "end": 45.02
+          },
+          {
+            "line": 10,
+            "start": 45.84,
+            "end": 51.18
+          },
+          {
+            "line": 13,
+            "start": 52.6,
+            "end": 59.88
+          },
+          {
+            "line": 14,
+            "start": 59.88,
+            "end": 63.9
+          },
+          {
+            "line": 15,
+            "start": 63.9,
+            "end": 73.3
+          },
+          {
+            "line": 16,
+            "start": 73.3,
+            "end": 76.94
+          },
+          {
+            "line": 19,
+            "start": 77.88,
+            "end": 82.88
+          },
+          {
+            "line": 20,
+            "start": 84.06,
+            "end": 89.24
+          },
+          {
+            "line": 21,
+            "start": 90.04,
+            "end": 95.76
+          },
+          {
+            "line": 22,
+            "start": 96.64,
+            "end": 101.84
+          },
+          {
+            "line": 25,
+            "start": 103.32,
+            "end": 108.16
+          },
+          {
+            "line": 26,
+            "start": 109.98,
+            "end": 114.6
+          },
+          {
+            "line": 27,
+            "start": 116.78,
+            "end": 120.92
+          },
+          {
+            "line": 28,
+            "start": 122.12,
+            "end": 127.4
+          },
+          {
+            "line": 31,
+            "start": 127.4,
+            "end": 133.5
+          },
+          {
+            "line": 32,
+            "start": 134.74,
+            "end": 139.96
+          },
+          {
+            "line": 33,
+            "start": 141.5,
+            "end": 145.3
+          },
+          {
+            "line": 34,
+            "start": 145.3,
+            "end": 147.17
+          },
+          {
+            "line": 37,
+            "start": 147.17,
+            "end": 149.04
+          },
+          {
+            "line": 38,
+            "start": 149.04,
+            "end": 149.48
+          },
+          {
+            "line": 39,
+            "start": 150.9,
+            "end": 151.02
+          },
+          {
+            "line": 40,
+            "start": 152.77,
+            "end": 152.89
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Christian gospel",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v7"
+      }
+    },
+    {
       "id": "distonyc-d95902fe9523c46c3ae1faac",
       "title": "Nine-Eleven'd Again",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d95902fe9523c46c3ae1faac-e59e380a1cf5.mp3",
