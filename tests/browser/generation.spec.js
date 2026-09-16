@@ -18,10 +18,12 @@ for (const voice of ['v7', 'v8']) test(`V8 generation with ${voice}: choices, ly
   await page.locator('#password').fill('wishbone'); await page.locator('#login-form button').click();
   await page.locator('#idea').fill('V8 browser test: a piano waltz about a morning train.');
   await page.locator('#idea-form button').click();
-  await expect(page.locator('#voice-model')).toHaveValue('v7');
+  await expect(page.locator('#voice-model')).toHaveValue('v8');
   expect(await page.locator('#voice-model option').evaluateAll(options => options.map(o => o.value))).toEqual(['v6', 'v7', 'v8']);
-  await page.locator('#voice-model').selectOption('v6'); await expect(page.locator('#voice-model')).toHaveValue('v6');
-  await page.locator('#voice-model').selectOption(voice);
+  if (voice === 'v7') {
+    await page.locator('#voice-model').selectOption('v6'); await expect(page.locator('#voice-model')).toHaveValue('v6');
+    await page.locator('#voice-model').selectOption(voice);
+  }
   await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
   if (voice === 'v8') {
     await expect(page.locator('#generation-enabled')).toBeChecked();
@@ -29,7 +31,8 @@ for (const voice of ['v7', 'v8']) test(`V8 generation with ${voice}: choices, ly
     await expect(page.locator('#generation-mode-note')).toContainText('Tony V8 uses V8 song generation');
   } else await page.locator('#generation-enabled').check();
   for (const summary of await page.locator('.generation-group summary').all()) await summary.click();
-  await page.locator('#gen-genre').fill('Piano waltz'); await page.locator('#gen-instruments').fill('piano\ncello');
+  await page.locator('#gen-genre').selectOption('custom'); await page.locator('#gen-genre-custom').fill('Piano waltz');
+  await page.locator('#gen-instruments').selectOption('Piano'); await page.locator('#gen-instruments').selectOption('Cello');
   await page.locator('#gen-duration').fill('120'); await page.locator('#gen-bpm').fill('98');
   await page.locator('#gen-keyscale').selectOption('D minor'); await page.locator('#gen-meter').selectOption('3/4');
   await page.locator('#gen-lyricWorkflow').selectOption('story'); await page.locator('#gen-avoidPhrases').fill('crooked grin\nshoes');

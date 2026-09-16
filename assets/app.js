@@ -8,7 +8,7 @@ import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./auth
 import { recoveryActive, recoveryStatus } from "./recovery.js";
 import { publicQueue, queueDetailsPage, queueItemHref } from "./queue.js";
 import { mountQualitySettings, qualityNotice } from "./quality.js";
-import { modelInfoButton, mountModelInfo } from "./model-info.js";
+import { modelInfoButton, mountModelInfo, voiceVersionLabel } from "./model-info.js";
 import { lyricsPage } from "./lyrics.js";
 import { lyricsHref } from "./song-links.js";
 import { originalPromptPage } from "./original-prompt.js";
@@ -67,10 +67,7 @@ const voiceModel = (id) =>
     : voiceModels[0]);
 const voiceModelBadge = (id) => escape((/^v\d+$/i.test(id || "") ? id : "v6").toUpperCase());
 const voiceModelBadgeClass = (id) => /^v[78]$/i.test(id || "") ? " " + id.toLowerCase() : "";
-const voiceModelLabel = (id) => {
-  const model = voiceModel(id);
-  return `${model.label}${model.experimental ? " · experimental" : " · established"}`;
-};
+const voiceModelLabel = voiceVersionLabel;
 const duration = (seconds) =>
   `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
 const ageFromElapsed = (elapsed) => {
@@ -815,11 +812,13 @@ async function requests() {
         const unavailable = new Option(`${voiceModelLabel(initialVoice)} · temporarily unavailable`, initialVoice);
         unavailable.disabled = true; $("#voice-model").append(unavailable);
       }
-      $("#voice-model").value = initialVoice || (voiceModels.some((model) => model.id === "v7") ? "v7" : voiceModels[0].id);
+      const defaultVoice = voiceModels.find((model) => model.id === "v8" && generationAvailable)
+        || voiceModels.find((model) => model.id === "v7") || voiceModels[0];
+      $("#voice-model").value = initialVoice || defaultVoice.id;
       const describeVoice = () => {
         const model = voiceModel($("#voice-model").value);
         generation.setRequired(model.id === "v8");
-        $(".voice-model-note").textContent = `${model.note}.${model.experimental ? " This model remains clearly labeled experimental." : ""}`;
+        $(".voice-model-note").textContent = `${model.note}.${model.experimental ? " This voice is still being evaluated." : ""}`;
       };
       $("#voice-model").onchange = () => { storage.set(voiceDraftKey, $("#voice-model").value); describeVoice(); };
       describeVoice();

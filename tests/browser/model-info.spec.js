@@ -34,7 +34,7 @@ test("model comparison lives with the request selector while generated songs kee
   await expect(dialog).toBeVisible();
   await expect(dialog).toContainText("without saved-favorite weighting");
   await expect(dialog).toContainText("better Tony likeness or musical quality has not been established");
-  await expect(dialog).toContainText("V7 remains the default");
+  await expect(dialog).toContainText("V8 is the default for new requests when available");
   await expect(page.getByRole("heading", { name: "Tony V6, V7 and V8" })).toBeFocused();
   await page.keyboard.press("Tab");
   expect(await page.evaluate(() => document.activeElement.closest("dialog")?.id)).toBe("model-comparison");

@@ -1,33 +1,29 @@
-import { generationBrief } from './generation.js';
+import { generationBrief, generationSelections } from './generation-brief.js';
+import { voiceVersionLabel as voiceLabel } from './model-info.js';
 import { materialBrief, wordCount } from "./request-materials.js";
 
-const voiceLabel = (value) => {
-  const model = /^v\d+$/i.test(value || "") ? value.toUpperCase() : "V6";
-  return `Tony ${model} · ${model === "V6" ? "established" : "experimental"}`;
-};
 const lyricMode = (sheet) => sheet.mode === "adapt" ? "Adapt these lyrics" : "Keep my wording";
 
 function layout({ idea, authoredBy, voice, keep, direction, basis, generation }, materials, escape) {
   const field = (label, value) => `<dt>${label}</dt><dd>${escape(value)}</dd>`;
+  const chosenDirection = direction && direction !== 'Use the prompt as written.' ? direction : '';
+  const advanced = (chosenDirection ? `<dl>${field("What does it sound like?", chosenDirection)}</dl>` : '')
+    + generationBrief(generation, escape) + materials + (basis ? `<dl>${field("Basis songs", basis)}</dl>` : '');
   return `<div class="brief prompt-brief">
     <section class="prompt-section"><h3>Essentials</h3><div class="prompt-section-body"><dl>
       ${authoredBy ? field("Authored by", authoredBy) : ""}
       ${field("The idea", idea)}
       ${field("Voice model", voice)}
-      ${field("What matters most?", keep || "Surprise me.")}
+      ${keep && keep !== "Surprise me." ? field("What matters most?", keep) : ""}
+      ${generation ? field("Song generation", "V8") : ""}
     </dl></div></section>
-    <section class="prompt-section"><h3>Advanced</h3><div class="prompt-section-body">
-      <dl>${field("What does it sound like?", direction || "Use the prompt as written.")}</dl>
-      ${generationBrief(generation, escape)}
-      ${materials}
-      <dl>${field("Basis songs", basis || "No basis songs selected.")}</dl>
-    </div></section>
+    ${advanced ? `<section class="prompt-section"><h3>Advanced</h3><div class="prompt-section-body">${advanced}</div></section>` : ''}
   </div>`;
 }
 
 export function requestPromptBrief(doc, escape, describeVoice = voiceLabel) {
   const details = doc.details || {};
-  const materials = materialBrief(details, escape) || '<div class="materials-review"><h3>Lyrics &amp; references</h3><p class="small">No lyric sheet or reference links supplied.</p></div>';
+  const materials = materialBrief(details, escape);
   return layout({
     idea: doc.prompt, authoredBy: doc.authoredBy,
     voice: describeVoice(details.voiceModel || "v6"), keep: details.keep, direction: details.direction,
@@ -37,7 +33,7 @@ export function requestPromptBrief(doc, escape, describeVoice = voiceLabel) {
 
 export function publicPromptBrief(song, escape, { materialsUnavailable = false } = {}) {
   const brief = song.originalPrompt || {};
-  const materials = materialBrief(brief, escape) || `<div class="materials-review"><h3>Lyrics &amp; references</h3><p class="small">${materialsUnavailable ? 'Lyrics and references could not be loaded. Reload this page to try again.' : 'No lyric sheet or reference links supplied.'}</p></div>`;
+  const materials = materialBrief(brief, escape) || (materialsUnavailable ? '<p class="small">Lyrics and references could not be loaded. Reload this page to try again.</p>' : '');
   return layout({
     idea: brief.idea, authoredBy: song.authoredBy,
     voice: voiceLabel(brief.voiceModel), keep: brief.keep, direction: brief.direction,
@@ -47,6 +43,12 @@ export function publicPromptBrief(song, escape, { materialsUnavailable = false }
 
 export function promptSummary(details = {}, escape) {
   const items = [voiceLabel(details.voiceModel)];
+  if (details.generation) {
+    items.push('V8 generation');
+    if (details.generation.genre) items.push(details.generation.genre);
+    const choices = generationSelections(details.generation).length;
+    if (choices) items.push(`${choices} Advanced ${choices === 1 ? 'setting' : 'settings'}`);
+  }
   if (details.direction && details.direction !== "Use the prompt as written.") items.push("Custom sound");
   if (details.lyricSheet?.text) items.push(`${lyricMode(details.lyricSheet)} · ${wordCount(details.lyricSheet.text).toLocaleString()} words`);
   const references = details.references?.length || 0;

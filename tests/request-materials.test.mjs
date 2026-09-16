@@ -39,12 +39,12 @@ test("public prompt details show supplied material and omit operational fields",
   assert.match(html, /href="https:\/\/example.org\/song"/);
   assert.match(html, /&lt;b&gt;A song&lt;\/b&gt;/);
   assert.match(html, /Tony V6/);
-  assert.match(html, /No basis songs selected/);
+  assert.doesNotMatch(html, /No basis songs selected/);
 });
 
 test("missing request details do not claim there were no supplied materials", () => {
   const song = { originalPrompt: { idea: "An older request" } };
-  assert.match(publicPromptBrief(song, escape), /No lyric sheet or reference links supplied/);
+  assert.doesNotMatch(publicPromptBrief(song, escape), /No lyric sheet or reference links supplied|<h3>Advanced<\/h3>/);
   const unavailable = publicPromptBrief(song, escape, { materialsUnavailable: true });
   assert.match(unavailable, /Lyrics and references could not be loaded/);
   assert.doesNotMatch(unavailable, /No lyric sheet/);

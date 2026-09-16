@@ -1,15 +1,12 @@
 import { normalizeGeneration } from './generation-options.js';
+import { generationControl, mountGenerationControls } from './generation-controls.js';
+import { generationBrief } from './generation-brief.js';
+export { generationBrief } from './generation-brief.js';
 
 const labels = { genre: 'Style or genre', instruments: 'Featured instruments', avoidInstruments: 'Leave out these instruments', duration: 'Length (seconds)', bpm: 'Tempo (BPM)', keyscale: 'Key', meter: 'Meter', vocalEntry: 'First vocal (seconds)', endingSeconds: 'Closing chord (seconds)', maxBreakSeconds: 'Longest instrumental break (seconds)', structure: 'Section order', lyricWorkflow: 'Writing approach', avoidPhrases: 'Avoid these lyric phrases', requiredPhrases: 'Include these phrases', lockedLines: 'Keep these lines exactly', performance: 'Vocal delivery', energy: 'Energy through the song', variation: 'Variation', seed: 'Seed', candidates: 'Composition choices', vocalGainDb: 'Vocal level adjustment (dB)', backingGainDb: 'Band level adjustment (dB)' };
 const names = { auto: 'Choose for this song', story: 'Story first', hook: 'Hook first', rhythm: 'Rhythm first', natural: 'Natural and expressive', restrained: 'Restrained', raw: 'Raw', build: 'Build toward the finish', waves: 'Quiet and strong sections', steady: 'Steady groove', balanced: 'Balanced', conservative: 'More consistent', adventurous: 'More adventurous' };
 const preferenceKey = 'yehry3:generation-preferences-v1';
 const getPreferences = () => { try { return JSON.parse(localStorage.getItem(preferenceKey) || 'null'); } catch { return null; } };
-
-export function generationBrief(options, escape) {
-  if (!options) return '';
-  const fields = Object.entries(options).filter(([key]) => Object.hasOwn(labels, key)).map(([key, value]) => `<dt>${labels[key]}</dt><dd>${escape(Array.isArray(value) ? value.join('\n') : (Object.hasOwn(names, value) ? names[value] : String(value)))}</dd>`).join('');
-  return `<div class="generation-brief"><h3>V8 generation</h3><dl>${fields}<dt>Lyric preview</dt><dd>${options.reviewLyrics ? 'Approve before composing' : 'Automatic'}</dd></dl></div>`;
-}
 
 export function mountGeneration(root, { draft, schema, enabled, storage, escape }) {
   const key = `generation-draft:${draft.id}`;
@@ -23,6 +20,8 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
     return { setRequired(value) { required = Boolean(value); }, read() { if (required || initial && !explicitlyDisabled) throw new Error('V8 generation is unavailable. Try again shortly.'); return null; }, clear() {} };
   }
   const input = (key) => {
+    const control = generationControl(key, labels[key], schema, escape);
+    if (control) return control;
     const id = 'gen-' + key;
     let field;
     if (schema.ranges[key]) {
@@ -37,9 +36,9 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
     } else field = `<input id="${id}" data-generation="${key}" maxlength="${schema.textLimits[key]}" placeholder="Auto">`;
     return `<label for="${id}">${labels[key]}</label>${field}`;
   };
-  const group = (title, keys, note) => `<details class="generation-group"><summary>${title}</summary><p class="small">${note}</p><div class="generation-grid">${keys.map((key) => `<div>${input(key)}</div>`).join('')}</div></details>`;
+  const group = (title, keys, note) => `<details class="generation-group"><summary>${title}</summary><p class="small">${note}</p><div class="generation-grid">${keys.map((key) => `<div class="${key === 'structure' ? 'generation-wide' : ''}">${input(key)}</div>`).join('')}</div></details>`;
   root.innerHTML = `<section class="generation-panel"><h3>Song generation</h3><label class="generation-enable"><input type="checkbox" id="generation-enabled"> Use V8 generation</label><p class="small" id="generation-mode-note">Available with every Tony voice. Choose a new composition or a reinterpretation of a basis song.</p><div id="generation-fields" hidden>
-    ${group('Style & instruments', ['genre','instruments','avoidInstruments','performance','energy','structure'], 'Describe the sound you want. Instrument choices guide the arrangement; they are not separate instrument tracks.')}
+    ${group('Style & instruments', ['genre','instruments','avoidInstruments','performance','energy','structure'], 'Pick a suggested style or instrument, or add your own. These choices guide the sound; the menus are not an exhaustive list.')}
     ${group('Timing & key', ['duration','bpm','keyscale','meter','vocalEntry','endingSeconds','maxBreakSeconds'], 'Leave blank for Auto. Tempo, key and timing are musical targets; expressive performances can vary. 6/8 also uses a compound-meter prompt.')}
     ${group('Lyrics', ['lyricWorkflow','avoidPhrases','requiredPhrases','lockedLines'], 'One phrase or locked line per line. Your supplied lyrics and explicitly requested words take priority over general avoidance.')}
     <label class="generation-enable"><input type="checkbox" id="gen-reviewLyrics"> Let me edit and approve the lyrics before composing</label>
@@ -52,6 +51,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
     const value = initial?.[key] ?? schema.defaults[key] ?? '';
     field.value = Array.isArray(value) ? value.join('\n') : value;
   }
+  mountGenerationControls(root, { schema, escape });
   root.querySelector('#gen-reviewLyrics').checked = Boolean(initial?.reviewLyrics);
   enable.checked = Boolean(initial) && !explicitlyDisabled;
   const read = () => {
@@ -69,7 +69,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
   };
   const toggle = () => {
     fields.hidden = !enable.checked;
-    fields.querySelectorAll('input,select,textarea,button').forEach((field) => { field.disabled = !enable.checked; });
+    fields.querySelectorAll('input,select,textarea,button').forEach((field) => { field.disabled = !enable.checked || field.hasAttribute('data-unavailable'); });
   };
   enable.onchange = () => { toggle(); persist(); };
   toggle();

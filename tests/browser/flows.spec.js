@@ -201,7 +201,7 @@ test("password, two turns, queue submission, admin priority, cancel and retry", 
   await expect(
     page.getByText("Request received", { exact: true }),
   ).toBeVisible();
-  await expect(page.locator(".brief")).toContainText("Tony V7 · experimental");
+  await expect(page.locator(".brief")).toContainText("Tony V7 · fresh catalog");
   await page.reload();
   await expect(
     page.getByText("Request received", { exact: true }),
@@ -434,10 +434,10 @@ test("optional basis songs, A-Z list, five-song cap, and saved review", async ({
   await expect(page.getByLabel("Tony voice model")).toHaveValue("v7");
   await expect(page.getByRole("tabpanel", { name: "Advanced", exact: true })).toBeHidden();
   await page.getByRole("button", { name: "Review the request" }).click();
-  await expect(page.locator(".brief")).toContainText("Tony V7 · experimental");
-  await expect(page.locator(".brief")).toContainText("No basis song");
-  await expect(page.locator(".brief")).toContainText("Use the prompt as written.");
-  await expect(page.locator(".brief")).toContainText("Surprise me.");
+  await expect(page.locator(".brief")).toContainText("Tony V7 · fresh catalog");
+  await expect(page.locator(".brief")).not.toContainText("No basis song");
+  await expect(page.locator(".brief")).not.toContainText("Use the prompt as written.");
+  await expect(page.locator(".brief")).not.toContainText("Surprise me.");
   await page.getByRole("button", { name: "Fine-tune it" }).click();
   await page.getByLabel("Tony voice model").selectOption("v6");
   await page.getByRole("tab", { name: "Advanced", exact: true }).click();
@@ -561,9 +561,7 @@ test("published original prompts show confirmed settings, work offline, and esca
   await expect(page.locator(".brief dt").filter({ hasText: "What matters most?" }).locator("+ dd")).toHaveText(
     song.originalPrompt.keep,
   );
-  await expect(page.locator(".brief dd").nth(4)).toHaveText(
-    "No basis songs selected.",
-  );
+  await expect(page.locator(".brief dt").filter({ hasText: "Basis songs" })).toHaveCount(0);
   await page.reload();
   await expect(page.locator(".original-prompt h1")).toHaveText(song.title);
   await page.unroute("**/yehry3/songs/summary");

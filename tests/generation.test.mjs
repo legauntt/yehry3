@@ -22,3 +22,13 @@ test('confirmed choices render as text and lexical notices describe uncertainty'
   assert.ok(qualityNotice([{code:'unconfirmed_lyric_ending'}]).includes('could not confirm'));
   assert.equal(qualityNotice([{code:'early_lyric_ending',seconds:5}]),'');
 });
+
+test('generation briefs omit automatic defaults but retain explicit zeroes and all chosen controls', () => {
+  const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
+  assert.equal(generationBrief(schema.defaults, escape), '');
+  const choices = { ...schema.defaults, seed: 0, vocalEntry: 0, maxBreakSeconds: 0, genre: 'Jazz <script>', instruments: ['Piano'], avoidInstruments: ['Drums'], duration: 180, bpm: 98, keyscale: 'D minor', meter: '3/4', endingSeconds: 4, structure: 'Verse, Chorus', lyricWorkflow: 'story', avoidPhrases: ['cliche'], requiredPhrases: ['home'], lockedLines: ['Come home'], reviewLyrics: true, candidates: 2, variation: 'adventurous', vocalGainDb: -2, backingGainDb: 1, performance: 'raw', energy: 'build' };
+  const html = generationBrief(choices, escape);
+  for (const label of ['Seed', 'First vocal (seconds)', 'Longest instrumental break (seconds)', 'Featured instruments', 'Leave out these instruments', 'Section order', 'Closing chord (seconds)', 'Lyric preview', 'Vocal delivery', 'Energy through the song', 'Vocal level adjustment (dB)', 'Band level adjustment (dB)']) assert.ok(html.includes(label), label);
+  assert.ok(html.includes('Jazz &lt;script&gt;')); assert.ok(!html.includes('<script>'));
+  assert.equal((html.match(/<dd>0<\/dd>/g) || []).length, 3);
+});
