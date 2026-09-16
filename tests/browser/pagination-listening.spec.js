@@ -111,6 +111,7 @@ test("late live data and saved-profile loading retain requested pages; invalid p
   await expect(page).toHaveURL(/page=3/);
   await expect(page.locator("#listening-total")).toHaveText("1,770");
   await expect(page.locator("#listening-reach")).toHaveText("59 of 60");
+  await page.locator(".profile-details > summary").click();
   await page.locator("#saved-only").click();
   await expect(page.locator(".track-number").first()).toHaveText("01");
   await expect(page.locator("#listening-total")).toHaveText("7,503");
@@ -183,6 +184,7 @@ test("unavailable catalog or saved-profile statistics stay unknown rather than s
   await page.goto(`/?profile=${id}&saved=1`);
   await expect(page.locator("#tracks")).toContainText("Saved songs couldn’t load");
   await expect(page.locator("#listening-total")).toHaveText("—");
+  await page.locator(".profile-details > summary").click();
   await page.locator("#saved-only").click();
   await expect(page.locator("#listening-total")).toHaveText("7,503");
 });

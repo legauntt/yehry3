@@ -9,6 +9,7 @@ const otherSong = catalog.songs.find((item) => item.collection === "fearhunger" 
 const button = (page, item = song) => page.locator(`[data-save="${item.id}"]`);
 const profileName = () => `Listener ${randomUUID().slice(0, 8)}`;
 async function createProfile(page, name = profileName()) {
+  if (await page.locator(".profile-details").getAttribute("open") === null) await page.locator(".profile-details > summary").click();
   await page.locator(".new-profile summary").click();
   await page.getByLabel("Profile name", { exact: true }).fill(name);
   await page.getByRole("button", { name: "Create profile", exact: true }).click();
@@ -42,6 +43,7 @@ test("favorites are shared across devices, survive navigation and keep playback 
   try {
     await second.goto("http://127.0.0.1:8080/?q=Fear%20and%20Hunger");
     await expect(second.locator(`#listener-profile option[value="${profile.id}"]`)).toHaveCount(1);
+    await second.locator(".profile-details > summary").click();
     await second.getByLabel("Listener profile", { exact: true }).selectOption(profile.id);
     await expect(button(second)).toHaveAttribute("aria-pressed", "true");
     await second.locator("#saved-only").click();
@@ -66,9 +68,10 @@ test("favorites are shared across devices, survive navigation and keep playback 
     await page.screenshot({ path: "artifacts/favorites-desktop.png" });
     await page.setViewportSize({ width: 390, height: 844 });
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-    expect((await page.locator("#listener-profile").boundingBox()).width).toBeGreaterThan(280);
     await page.locator("#favorites").scrollIntoViewIfNeeded();
     await page.screenshot({ path: "artifacts/favorites-mobile.png" });
+    await page.locator(".profile-details > summary").click();
+    expect((await page.locator("#listener-profile").boundingBox()).width).toBeGreaterThan(280);
     expect(errors).toEqual([]);
   } finally { await secondContext.close(); }
 });

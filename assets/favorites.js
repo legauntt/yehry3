@@ -17,7 +17,9 @@ export function mountFavorites(container, { onChange = () => {}, filter = false 
     document.head.append(css);
   }
   container.classList.add("favorites-panel");
-  container.innerHTML = `<div class="profile-controls">
+  container.innerHTML = `<details class="profile-details">
+  <summary><span>Listener profile</span><span id="profile-current" hidden></span><span id="profile-alert" hidden>Unavailable</span></summary>
+  <div class="profile-body"><div class="profile-controls">
     <label for="listener-profile">Listener profile</label>
     <select id="listener-profile" aria-describedby="profile-help"><option value="">Choose a profile…</option></select>
     <button type="button" class="quiet" id="more-profiles" hidden>More profiles</button>
@@ -30,9 +32,11 @@ export function mountFavorites(container, { onChange = () => {}, filter = false 
   </div>
   <p class="small" id="profile-help">Profiles are shared. Anyone can open or edit their saved songs. Choose the same name on another device.</p>
   <p class="small profile-status" id="profile-status" role="status" aria-live="polite"></p>
-  <button type="button" class="quiet" id="retry-profiles" hidden>Retry profiles</button>`;
+  <button type="button" class="quiet" id="retry-profiles" hidden>Retry profiles</button>
+  </div></details>`;
   const $ = (selector) => container.querySelector(selector);
   const picker = $("#listener-profile"), status = $("#profile-status");
+  const disclosure = $(".profile-details"), current = $("#profile-current");
   let profiles = new Map(), profile = null, selectedId = "", generation = 0;
   let readVersion = 0;
   let loading = false, available = false, saving = null, creating = false, listing = false;
@@ -65,6 +69,10 @@ export function mountFavorites(container, { onChange = () => {}, filter = false 
       `<option value="${escape(item.id)}">${escape(item.name)}</option>`).join("");
     if (picker.innerHTML !== options) picker.innerHTML = options;
     picker.value = selectedId;
+    current.hidden = !selectedId;
+    current.textContent = profile?.name || profiles.get(selectedId)?.name || "Selected profile…";
+    current.title = current.textContent;
+    $("#profile-alert").hidden = !listError && !profileError;
     $("#more-profiles").hidden = !hasMore;
     $("#more-profiles").disabled = listing;
     $("#profile-form button").disabled = creating;
@@ -184,6 +192,7 @@ export function mountFavorites(container, { onChange = () => {}, filter = false 
     if (!button || button.disabled) return;
     if (!profile) {
       status.textContent = "Choose or create a profile above, then save this song.";
+      disclosure.open = true;
       container.scrollIntoView({ block: "center", behavior: "instant" });
       if (!profiles.size) { $(".new-profile").open = true; $("#profile-name").focus(); }
       else picker.focus();
@@ -206,6 +215,7 @@ export function mountFavorites(container, { onChange = () => {}, filter = false 
       if (epoch !== generation) return;
       profileError = true;
       status.textContent = `Couldn’t confirm that change. ${error.message} Retry profiles to check before trying again.`;
+      disclosure.open = true;
     } finally {
       if (epoch === generation) {
         saving = null;

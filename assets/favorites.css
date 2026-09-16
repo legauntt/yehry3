@@ -1,9 +1,26 @@
 .favorites-panel {
-  margin: 20px 0;
-  padding: 16px;
+  margin: 12px 0;
   border: 1px solid var(--line, #bcc6b2);
   border-radius: 8px;
 }
+.profile-details > summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 8px 12px;
+  font-size: .8rem;
+  color: inherit;
+  cursor: pointer;
+  list-style: none;
+}
+.profile-details > summary::-webkit-details-marker { display: none; }
+.profile-details > summary::before { content: "▸"; flex: none; }
+.profile-details[open] > summary::before { content: "▾"; }
+.profile-details > summary > :first-child { flex: none; }
+#profile-current { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+#profile-alert { margin-left: auto; flex: none; font-size: .7rem; }
+.profile-body { padding: 4px 12px 12px; }
 .profile-controls, #profile-form {
   display: flex;
   flex-wrap: wrap;
@@ -38,9 +55,8 @@
 }
 .favorite-button[aria-pressed="true"] { background: #e4ecd9; color: #283b30; border-color: #839a73; }
 .favorite-button:disabled { opacity: .55; cursor: wait; }
-.favorite-button:focus-visible, .profile-controls :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.favorite-button:focus-visible, .profile-details > summary:focus-visible, .profile-controls :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 @media (max-width: 650px) {
-  .favorites-panel { padding: 12px; }
   .profile-controls { gap: 8px 12px; }
   .profile-controls > label { flex-basis: 100%; }
   #listener-profile { width: 100%; min-width: 0; flex: 1 0 100%; }
