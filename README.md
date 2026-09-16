@@ -59,7 +59,7 @@ For the real API, follow [chairlift's setup and queue contract](../chairlift/yeh
 - Published remixes link to their original on the lyric page. **Play original** and **Play remix**
   switch playback without overlap, retaining each recording's independent position. The original's
   direct lyric-page link, native audio controls, and mobile layout remain available.
-- Songs sharing a title show a small release date/time pill beside the title and in the collection player. Labels use Pacific time (PST/PDT) and compare the complete catalog, so sorting, filtering, favorites and pagination preserve them. A short recording ID distinguishes matching release minutes or recordings with unknown release times. Existing relative ages remain visible; these labels describe publication, not recording creation.
+- Songs sharing a title show a short word alias (for example, **glow-wup**) beside the title and in the collection player. Aliases use at most 10 characters including the hyphen. They derive from song IDs using a fixed vocabulary, with rare word-pair collisions resolved in fixed ID order across the full title group; sorting, filtering, favorites, pagination, reloads and devices preserve them. Release date/time remains available on hover in Pacific time (PST/PDT), and existing relative ages remain visible.
 
 The collection headline and main-page footers choose from 100 curated branding lines on each page load. The line stays fixed through playback, filtering and polling, and avoids the previous visit's line when session storage is available. This uses no API or generation call.
 
