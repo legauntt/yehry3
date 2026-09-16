@@ -27,7 +27,8 @@ const server = http.createServer(async (req, res) => {
     const matched = routes.find((route) =>
       route.route.endsWith("*")
         ? pathname.startsWith(route.route.slice(0, -1))
-        : route.route === pathname,
+        : route.route === pathname || (route.route.endsWith("/index.html") &&
+          (pathname === route.route.slice(0, -10) || pathname === route.route.slice(0, -11))),
     );
     if (matched?.redirect) {
       res.writeHead(matched.statusCode || 302, {

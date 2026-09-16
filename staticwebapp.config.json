@@ -74,6 +74,11 @@
       "statusCode": 301
     },
     {
+      "route": "/lyrics/*",
+      "rewrite": "/lyrics/index.html",
+      "headers": { "Cache-Control": "no-cache" }
+    },
+    {
       "route": "/distonyc",
       "redirect": "/distonyc/",
       "statusCode": 301

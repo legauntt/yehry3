@@ -85,6 +85,17 @@ for (const song of catalog.songs.filter((song) => song.lyrics?.text)) {
   await mkdir(directory, { recursive: true });
   await writeFile(path.join(directory, "index.html"), html);
 }
+// Exact index.html rules also match their directory URLs on Azure. Keep each
+// generated page (and its share metadata) ahead of the fallback for new songs.
+const hostingFile = path.join(output, "staticwebapp.config.json");
+const hosting = JSON.parse(await readFile(hostingFile, "utf8"));
+const lyricsFallback = hosting.routes.findIndex(route => route.route === "/lyrics/*");
+if (lyricsFallback < 0) throw new Error("Missing lyrics fallback route");
+hosting.routes.splice(lyricsFallback, 0, ...[...aliases].map(alias => ({
+  route: `/lyrics/${alias}/index.html`,
+  headers: { "Cache-Control": "no-cache" },
+})));
+await writeFile(hostingFile, JSON.stringify(hosting, null, 2) + "\n");
 // Every shared Tommy line gets its own copy of the share page at dist/wiseau/<id>/index.html,
 // so a link preview (Discord, Slack, iMessage) quotes the line instead of the generic page.
 // Azure serves that directory for /wiseau/<id>; a /wiseau/* rewrite would shadow it, so

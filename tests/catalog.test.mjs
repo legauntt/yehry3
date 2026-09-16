@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFile, readdir, stat } from "node:fs/promises";
+import { songAlias } from "../assets/song-links.js";
 const catalog = JSON.parse(
   await readFile(new URL("../catalog.json", import.meta.url), "utf8"),
 );
@@ -118,5 +119,23 @@ test("generated summary omits large fields and per-song fallbacks preserve the f
     assert.equal(compact.originalPrompt, undefined);
     const detail = JSON.parse(await readFile(new URL(`../dist/songs/${song.id}.json`, import.meta.url), "utf8"));
     assert.deepEqual(detail, song);
+  }
+});
+
+test("generated lyric pages retain their share previews ahead of the new-song fallback", async () => {
+  const { routes } = JSON.parse(await readFile(new URL("../dist/staticwebapp.config.json", import.meta.url), "utf8"));
+  const fallback = routes.findIndex(route => route.route === "/lyrics/*");
+  assert.ok(fallback >= 0);
+  assert.equal(routes[fallback].rewrite, "/lyrics/index.html");
+  for (const song of catalog.songs.filter(song => song.lyrics?.text)) {
+    const alias = songAlias(song);
+    const own = routes.findIndex(route => route.route === `/lyrics/${alias}/index.html`);
+    assert.ok(own >= 0 && own < fallback, `Generated page must take precedence: ${alias}`);
+    assert.equal(routes[own].rewrite, undefined);
+    const html = await readFile(new URL(`../dist/lyrics/${alias}/index.html`, import.meta.url), "utf8");
+    assert.ok(html.includes(`data-song-id="${song.id}"`));
+    assert.ok(html.includes(`<meta property="og:url" content="https://yehry3.app/lyrics/${alias}/" />`));
+    assert.match(html, /<meta property="og:title" content=".+"/);
+    assert.match(html, /<meta property="og:description" content=".+"/);
   }
 });

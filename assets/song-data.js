@@ -1,4 +1,5 @@
-import { publicApi } from "./api.js";
+import { api, publicApi } from "./api.js";
+import { songAlias } from "./song-links.js";
 
 const cacheKey = "yehry3:public-songs:v1";
 let memory = {};
@@ -14,6 +15,34 @@ function remember(song) {
   while (entries.length > 1 && JSON.stringify(entries).length > 750000) entries.shift();
   memory = Object.fromEntries(entries);
   try { localStorage.setItem(cacheKey, JSON.stringify(memory)); } catch { /* Cache is optional. */ }
+}
+
+// New pretty links can precede their generated HTML. Resolve the complete alias,
+// including its title, without making either network source wait for the other.
+export async function resolveLyricsSongId(pathname) {
+  const alias = /^\/lyrics\/([a-z0-9-]{1,72}-[a-f0-9]{6})(?:\/(?:index\.html)?)?$/.exec(pathname)?.[1];
+  if (!alias) return null;
+  const lookup = (songs) => {
+    if (!Array.isArray(songs)) return null;
+    const ids = new Set(songs.filter(song =>
+      /^[a-z0-9-]{1,120}$/.test(song?.id || "") && typeof song.title === "string" && songAlias(song) === alias,
+    ).map(song => song.id));
+    return ids.size === 1 ? [...ids][0] : null;
+  };
+  const cached = lookup(Object.values(memory));
+  if (cached) return cached;
+  const sources = [
+    api("/songs/summary", { timeout: 5000 }),
+    fetch("/catalog-summary.json", { signal: AbortSignal.timeout(5000) }).then(response => {
+      if (!response.ok) throw new Error("The saved catalog is unavailable.");
+      return response.json();
+    }),
+  ];
+  return Promise.any(sources.map(source => source.then(({ songs }) => {
+    const id = lookup(songs);
+    if (!id) throw new Error("This catalog does not contain the lyric sheet.");
+    return id;
+  }))).catch(() => null);
 }
 
 export function mergeSong(saved, live) {

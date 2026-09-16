@@ -1,6 +1,6 @@
 import { songPlanLink } from "./song-plan.js";
 import { authoredByLine } from "./authored-by.js";
-import { watchSong } from "./song-data.js";
+import { resolveLyricsSongId, watchSong } from "./song-data.js";
 import { qualityNotice } from "./quality.js";
 import { mountFavorites } from "./favorites.js";
 import { api } from "./api.js";
@@ -118,7 +118,8 @@ function mountKaraoke(main) {
 export async function lyricsPage(main, { escape, safeUrl }) {
   const id =
     new URLSearchParams(location.search).get("song") ||
-    document.body.dataset.songId;
+    document.body.dataset.songId ||
+    await resolveLyricsSongId(location.pathname);
   let cleanupKaraoke = () => {}, cleanupMoments = () => {}, downloadUrl, favorites, profilePanel, trackedAudio, listening, comparison;
   function render(song) {
     const previousAudio = main.querySelector("audio");

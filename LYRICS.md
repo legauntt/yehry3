@@ -1,6 +1,8 @@
 # Lyrics archive
 
-Every song in the catalog has a shareable lyric sheet at `/lyrics/?song=<id>`, linked from the main list. The Fear & Hunger page also links each song's lyrics. Sheets can be printed or downloaded as text.
+Every song in the catalog has a readable share link at `/lyrics/<title>-<short-hash>/`, linked from the main list and Fear & Hunger page. Existing `/lyrics/?song=<id>` links also work. Sheets can be printed or downloaded as text.
+
+New readable links work as soon as Chairlift publishes a song, even before Azure deploys its generated page. The shared lyrics page resolves the complete alias from cached song details or the compact API/static catalogs, then loads the individual song. Independent reads preserve the static and browser fallbacks during API outages. The build puts exact generated-page routes ahead of the shared fallback so existing pages retain their song-specific share previews. Before the next deployment, a new link works for listeners but its preview may be generic. No worker or publication-state change is required.
 
 Every current sheet also has line-level timing derived from the retained vocal word timestamps for its exact production. The backfill matches the saved production to the SHA-256 prefix in the published MP3 filename before deriving cues, so an abandoned render with the same lyrics cannot supply another recording's timeline. While audio plays, the current line is highlighted and kept in view; selecting a timed line seeks the player to its start. Section labels remain visual headings. The timing is monotonic and bounded to the published recording, but stylized singing and source transcription errors can make individual transitions approximate.
 
