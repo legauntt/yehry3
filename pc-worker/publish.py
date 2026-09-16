@@ -1,5 +1,5 @@
 """Idempotent release upload and a conflict-aware merge into the static catalog."""
-import base64, hashlib, json, shutil, subprocess, time, urllib.request
+import base64, hashlib, json, re, shutil, subprocess, time, urllib.request
 from pathlib import Path
 from common import load, sha, save
 from winprocess import Stopped, child_env, run_owned
@@ -89,11 +89,30 @@ def merge_catalog(catalog, record):
     catalog['songs'].insert(0, record)
     return True
 
+def catalog_content(config, current):
+    # Contents responses omit data above 1 MiB. Read the immutable blob named by
+    # that response, so a concurrent branch update cannot mix content/revisions.
+    if current.get('encoding') == 'none':
+        revision = current['sha']
+        if not re.fullmatch(r'[0-9a-f]{40}', revision):
+            raise ValueError('Invalid catalog revision')
+        blob = gh_json(config, ['api', f'repos/{REPO}/git/blobs/{revision}'])
+        if blob.get('sha') != revision or blob.get('encoding') != 'base64':
+            raise ValueError('GitHub returned a different catalog blob')
+        content = base64.b64decode(blob['content'])
+        digest = hashlib.sha1(b'blob ' + str(len(content)).encode() + b'\0' + content).hexdigest()
+        if digest != revision or len(content) != current['size'] or len(content) != blob['size']:
+            raise ValueError('Catalog blob failed revision or size verification')
+    else:
+        content = base64.b64decode(current['content'])
+    return json.loads(content)
+
+
 def update_catalog(config, prompt):
     record = song_record(prompt)
     for attempt in range(4):
         current = gh_json(config, ['api', f'repos/{REPO}/contents/catalog.json?ref={BRANCH}'])
-        catalog = json.loads(base64.b64decode(current['content']))
+        catalog = catalog_content(config, current)
         if not merge_catalog(catalog, record): return
         content = (json.dumps(catalog, ensure_ascii=False, indent=2) + '\n').encode()
         try:

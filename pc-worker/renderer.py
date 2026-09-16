@@ -1,10 +1,16 @@
 """Trusted adapters around the existing Troofs renderer; submitted text stays in JSON."""
-import argparse, importlib.util, json, os, shutil, subprocess, sys, time, uuid
+import argparse, importlib.util, json, os, re, shutil, subprocess, sys, time, uuid
 from pathlib import Path
 from common import load, save, sha, fingerprint, inside
 from planner import validate
+from request_materials import render_brief, minimum_duration
 from source_material import source_material
+from composition_ending import active_identifier, identifier as composition_identifier, preflight_runner, render_with_retry, timing_instruction
+from duration_runtime import adapt as adapt_duration
+from vocal_accents import configure as configure_vocal_accents, verify_frozen as verify_vocal_accent_reference
 from voice_models import reference_profile, resolve
+from basis_release import verify_remote_catalog
+from quality_verify import adapt as adapt_quality_verification
 
 
 def with_quality(result):
@@ -21,14 +27,22 @@ def execution_manifest(manifest, instrumental_break_warnings=False, vocal_dropou
     # stage journal remain authoritative and are never rewritten by this policy.
     tasks = []
     for task in manifest['tasks']:
+        if task['name'] == 'ending':
+            command = task['command']
+            task = {**task, 'command': [command[0], str(Path(__file__).with_name('duration_ending.py')),
+                    '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers']['review_ending.py']]}
         if task['name'] == 'configure' and manifest.get('style') != 'opera' and instrumental_break_warnings:
             command = task['command']
             task = {**task, 'command': [command[0], str(Path(__file__).with_name('quality_configure.py')),
                     '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers']['configure_song.py']]}
         if task['name'] == 'finish':
             command = task['command']
+            source_name = Path(command[1]).name
+            if source_name not in manifest['workers']:
+                raise ValueError('The selected saved finisher is not pinned in the render manifest.')
             task = {**task, 'command': [command[0], str(Path(__file__).with_name('quality_finish.py')),
-                    '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers']['finish_song.py']]}
+                    '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers'][source_name],
+                    '--source-name', source_name]}
             if vocal_dropout_warnings: task['command'].append('--allow-vocal-dropout-warning')
         tasks.append(task)
     return {**manifest, 'tasks': tasks}
@@ -41,7 +55,7 @@ def failure_detail(request, error):
         if progress.exists(): stage = load(progress).get('stage', stage)
     except (OSError, ValueError): pass
     lines = [line.strip() for line in str(error).splitlines() if line.strip()]
-    detail = next((line for line in reversed(lines) if line.startswith(('AssertionError:', 'ValueError:', 'RuntimeError:'))), None)
+    detail = next((line for line in reversed(lines) if re.match(r'^(?:[\w.]+(?:Error|Exception)|KeyboardInterrupt|SystemExit):', line)), None)
     if not detail: detail = lines[0] if lines else type(error).__name__
     return {'stage': stage, 'message': f'{stage} failed: {detail[:700]} Saved work is retained; Retry resumes completed stages.'}
 
@@ -61,7 +75,7 @@ def write_progress(path, values):
 def ending_repair(request, work):
     """Permit one new composition attempt after a measured cutoff, never a fade over it."""
     plan = request['plan']
-    if plan['recipe'] not in ['new', 'reinterpretation'] or plan['duration'] > 268: return None
+    if plan['recipe'] not in ['new', 'reinterpretation'] or plan['duration'] > 568: return None
     state_file, evidence_file = work / 'desktop-status.json', work / 'arrangement-checks.json'
     if not state_file.exists() or not evidence_file.exists(): return None
     state, evidence = load(state_file), load(evidence_file)
@@ -76,10 +90,9 @@ def ending_repair(request, work):
 
 
 def vocal_recovery(request, repair=None, pending_only=False):
-    # Versioned profiles have their own adapters and banks. Never cross them through V6 repair.
     if request.get('voice_model', 'v6') != 'v6': return False
     if not request['config'].get('automatic_vocal_repair', False) or request.get('verify_existing'): return False
-    identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id'] + (':ending-v1' if repair else '')))
+    identifier = active_identifier(request, repair)
     work = Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier)
     marker = work / 'vocal-repair/status.json'
     recovery = load(marker) if marker.exists() else None
@@ -103,7 +116,7 @@ def vocal_recovery(request, repair=None, pending_only=False):
 
 def allow_vocal_warning(request, repair=None):
     if not request['config'].get('vocal_dropout_warnings', False) or request.get('verify_existing'): return False
-    identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id'] + (':ending-v1' if repair else '')))
+    identifier = active_identifier(request, repair)
     work = Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier)
     state_file = work / 'desktop-status.json'
     if not state_file.exists(): return False
@@ -111,14 +124,33 @@ def allow_vocal_warning(request, repair=None):
     if state.get('status') != 'failed' or state.get('stage') != 'finish' or 'Missing vocal phrase' not in state.get('error', ''): return False
     policy = work / 'vocal-quality-policy.json'
     if policy.exists(): return False
-    save(policy, {'version': 1, 'after_bounded_repair': True,
-        'reason': 'Publish the best retained performance with a visible vocal issue after recovery cannot resolve it.',
+    voice_model = request.get('voice_model', 'v6')
+    disposition = 'bounded_repair_exhausted' if voice_model == 'v6' else 'not_supported_for_voice_model'
+    save(policy, {'version': 2, 'recovery_disposition': disposition, 'voice_model': voice_model,
+        'reason': 'Publish the best retained performance with a visible vocal issue after bounded recovery is unavailable or unresolved.',
         'inputs_sha256': {name: sha(work / name) for name in ('selected-vocals.wav', 'selected-backing.wav', 'matched-vocals.wav')},
         'audio_changed': False, 'other_integrity_checks_retained': True})
     return True
 
 
 def render(request):
+    # Saved JSON and recipe text use UTF-8. Legacy frozen recipes sometimes
+    # omit an encoding; make their Python processes (and descendants) agree
+    # without rewriting saved scripts, lyrics or stage hashes.
+    os.environ['PYTHONUTF8'] = '1'
+    from sectional_repair import render_repair as render_sectional_repair
+    sectional = render_sectional_repair(request, render, render_attempt)
+    if sectional is not None: return sectional
+    from sparse_vocal_repair import render_repair as render_sparse_repair
+    recovered = render_sparse_repair(request, render)
+    if recovered is not None: return recovered
+    from lyric_length_repair import render_repair
+    shortened = render_repair(request, render)
+    if shortened is not None: return shortened
+    if (not request.get('verify_existing') and request.get('plan', {}).get('recipe') in ('new', 'reinterpretation')
+            and request['plan']['duration'] > 600):
+        from longform import render_suite
+        return render_suite(request, render, render_attempt)
     repair_file = Path(request['directory']) / 'ending-repair.json'
     repair = load(repair_file) if repair_file.exists() else None
     if repair:
@@ -133,7 +165,7 @@ def render(request):
         if not allow_vocal_warning(request, repair): raise
     for attempt in range(3):
         try:
-            return render_attempt(request, repair)
+            return render_with_retry(request, repair, render_attempt)
         except RuntimeError:
             if request.get('verify_existing'): raise
             try:
@@ -142,7 +174,7 @@ def render(request):
                 if allow_vocal_warning(request, repair): continue
                 raise
             if allow_vocal_warning(request, repair): continue
-            if repair: raise
+            if repair or request.get('lyric_length_attempt') or request.get('sparse_vocal_attempt') or request.get('sectional_part'): raise
             identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id']))
             work = Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier)
             repair = ending_repair(request, work)
@@ -151,31 +183,47 @@ def render(request):
     raise RuntimeError('The bounded recovery attempts are exhausted; saved work is retained.')
 
 
-def render_attempt(request, repair=None):
+def render_attempt(request, repair=None, preflight=False, composition_retry=False):
     config, plan, basis = request['config'], request['plan'], request['basis']
-    validate(plan, basis)
+    duration_min = minimum_duration(render_brief(request)) if plan.get('duration', 120) < 120 else 120
+    validate(plan, basis, duration_min)
     settings = config['settings']; engine_root = Path(config['engine_resources'])
     voice_model = request.get('voice_model', 'v6')
     voice_profile = resolve(config, voice_model)
     os.environ['TROOFS_WORKER_RESOURCES'] = str(engine_root)
     engine = module_at('distonyc_engine', engine_root / 'engine_tasks.py')
     engine.save = save
+    adapt_duration(engine, duration_min)
+    adapt_quality_verification(engine)
+    original_doctor = engine.doctor
+    def release_aware_doctor(settings, runtime=False):
+        try: return original_doctor(settings, runtime)
+        except ValueError as error: return verify_remote_catalog(config, error)
+    engine.doctor = release_aware_doctor
     progress_file = Path(request['directory']) / 'progress.json'
     original_emit = engine.emit
     def emit(kind, **values):
         if kind == 'progress':
             write_progress(progress_file, values)
+            if request.get('parent_progress'):
+                write_progress(Path(request['parent_progress']), values)
+            if request.get('suite_progress'):
+                suite = request['suite_progress']
+                write_progress(Path(suite['path']), {'stage': f"Movement {suite['index'] + 1} of {suite['count']} · {values.get('stage', 'Rendering')}",
+                    'progress': (suite['index'] + values.get('progress', 0)) / suite['count'] * .94})
         original_emit(kind, **values)
     engine.emit = emit
     if request.get('verify_existing'):
         # This option is set only by the local operator CLI, never by a submitted prompt.
         work = inside(request['verify_existing'], Path(settings['studio_dir']).parent)
-        return with_quality(engine.verify_work(work, settings['output_dir']))
+        result = with_quality(engine.verify_work(work, settings['output_dir']))
+        result['voice_model'] = voice_model
+        return result
     if plan['recipe'] == 'barbershop':
         if voice_model != 'v6': raise ValueError(f'Tony {voice_model.upper()} is not available for the specialized four-voice quartet recipe; choose Tony V6')
         return render_quartet(request, engine)
     if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
-    identifier = str(uuid.uuid5(uuid.NAMESPACE_URL, request['prompt_id'] + (':ending-v1' if repair else '')))
+    identifier = composition_identifier(request, repair, composition_retry)
     title = plan['title'] + ' - D' + identifier[:8]
     material = None
     if plan['recipe'] == 'reinterpretation':
@@ -188,6 +236,15 @@ def render_attempt(request, repair=None):
             'lyrics': plan['lyrics'], 'arrangement': plan['arrangement'], 'basis': basis,
             'preserve_generated_backing': plan['preserve_generated_backing']}
     if material: spec['source_material'] = material
+    if request.get('sparse_vocal_attempt'):
+        spec['arrangement'] = request['sparse_vocal_guidance'] + spec['arrangement']
+    if plan.get('vocal_accents'): spec['vocal_accents'] = plan['vocal_accents']
+    if spec['kind'] == 'new' and plan.get('allow_long_instrumental_outro') is False and not repair:
+        spec['arrangement'] = timing_instruction(plan['duration']) + spec['arrangement']
+        if composition_retry:
+            spec['arrangement'] += (' This is the one alternate arrangement after an overlong instrumental ending. '
+                'Spread the final verse and chorus later, sustain the final lyric in the requested ending window, '
+                'and keep the instrumental resolution brief. Preserve all supplied words, genre and duration.')
     if repair:
         spec['duration'] = repair['duration']
         spec['arrangement'] += (f" Ending repair: allow {repair['duration']} seconds for this complete performance. "
@@ -219,6 +276,7 @@ def render_attempt(request, repair=None):
                     manifest['tasks'] = [task for task in manifest['tasks'] if task['name'] != 'backing']
                     track['backing_adapter'] = None
                     track['backing_decision'] = f'Retain the requested genre instrumentation from composition; Tony {voice_model.upper()} is applied to the lead voice.'
+                configure_vocal_accents(work, track, plan, settings)
             if voice_model != 'v6':
                 if spec['kind'] != 'new':
                     raise ValueError(f'Tony {voice_model.upper()} currently supports new compositions and reinterpretations, not faithful source reconstructions')
@@ -262,8 +320,22 @@ def render_attempt(request, repair=None):
                     configured.get('voice_profile_fingerprint', 'v6-established') != voice_profile['fingerprint']):
                 raise ValueError('Saved production inputs changed')
         engine.validate_saved(work, manifest)
-        if load(work / 'desktop-status.json')['status'] == 'completed': result = with_quality(engine.verify_work(work, settings['output_dir']))
-        else: result = with_quality(engine.execute_stages(work, execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False))))
+        state = load(work / 'desktop-status.json')
+        inactive_repair = work / 'inactive-voice-repair/status.json'
+        recover_assembly = state.get('stage') == 'assemble' and 'assert active.any()' in state.get('error', '')
+        recover_validation = state.get('stage') == 'validate' and inactive_repair.exists()
+        if (state.get('status') == 'failed' and voice_model != 'v6' and
+                (recover_assembly or recover_validation)):
+            subprocess.run([settings['voice_python'], str(Path(__file__).with_name('inactive_voice_repair.py')),
+                '--work', str(work)], check=True, creationflags=getattr(subprocess, 'CREATE_NO_WINDOW', 0))
+        verify_vocal_accent_reference(work)
+        if load(work / 'desktop-status.json')['status'] == 'completed':
+            result = with_quality(engine.verify_work(work, settings['output_dir']))
+            result['voice_model'] = voice_model
+            return result
+        execution = execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False))
+        options = {'runner': preflight_runner} if preflight else {}
+        result = with_quality(engine.execute_stages(work, execution, **options))
         result['voice_model'] = voice_model
         return result
 

@@ -32,7 +32,7 @@ class Job:
 
 def child_env():
     # The API token is only used by the trusted parent. Renderers/planners never receive it.
-    return {key: value for key, value in os.environ.items() if key not in {'DISTONYC_WORKER_TOKEN', 'OPENAI_API_KEY', 'CODEX_API_KEY'} and not key.startswith('CODEX_')}
+    return {key: value for key, value in os.environ.items() if key not in {'DISTONYC_WORKER_TOKEN', 'DISTONYC_MONITOR_PASSWORD', 'OPENAI_API_KEY', 'CODEX_API_KEY'} and not key.startswith('CODEX_')}
 
 def run_owned(command, cwd, log, stop=None, timeout=86400, gate=None, input_text=None):
     log = Path(log); log.parent.mkdir(parents=True, exist_ok=True)

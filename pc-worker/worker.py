@@ -126,7 +126,8 @@ def run_once(config, api, verify_existing=None):
                 request = {'config': config, 'prompt_id': prompt['id'], 'plan': plan, 'basis': basis, 'directory': str(directory),
                     'voice_model': voice_model}
                 if verify_existing: request['verify_existing'] = str(Path(verify_existing).resolve())
-                save(directory / 'render-request.json', request)
+                from frozen_request import reuse_or_save
+                request = reuse_or_save(directory / 'render-request.json', request)
                 heartbeat.stage = 'Rendering'
                 error_file = directory / 'renderer-error.json'; error_file.unlink(missing_ok=True)
                 try:
@@ -172,8 +173,10 @@ def run_once(config, api, verify_existing=None):
         message = str(error) if isinstance(error, (ValueError, RuntimeError)) else (
             f'{stage} failed: {type(error).__name__}: {error}. Saved work is retained; Retry resumes completed stages.')
         try:
-            save(directory / 'worker-error.json', {'at': utc(), 'stage': stage,
-                'type': type(error).__name__, 'message': message, 'traceback': traceback.format_exc()[-16000:]})
+            failure = {'at': utc(), 'stage': stage, 'version': prompt.get('version'),
+                'type': type(error).__name__, 'message': message, 'traceback': traceback.format_exc()[-16000:]}
+            save(directory / 'worker-error.json', failure)
+            save(directory / 'failures' / (str(uuid.uuid4()) + '.json'), failure)
         except (OSError, ValueError): pass
         # Flush the latest stage instead of leaving a previous heartbeat's label.
         confirmed = False
@@ -186,7 +189,7 @@ def run_once(config, api, verify_existing=None):
         # Publication is a durable finalization step: never rerender a completed mix after an upload outage.
         if confirmed and heartbeat.prompt['status'] in ['processing', 'completed'] and not heartbeat.stopped():
             try:
-                action('fail', error=message[:1000]); journal.unlink()
+                action('fail', error=message[:1000], automaticRecovery=config.get('recovery_status_api', False)); journal.unlink()
             except (APIError, OSError): pass
         raise
     finally: heartbeat.close()

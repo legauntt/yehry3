@@ -1,0 +1,47 @@
+# Installed worker baseline
+
+The September 16 V8 rollout reconciles the older Git worker snapshot with the already-installed, hash-verified Windows runtime before applying V8 changes. No credentials, configuration, state, recordings or model weights are included. The V8 installation itself changes only the separately reviewed 13 files.
+
+- `auto_shepherd.py`: `5be8fc1279be02c2d05b26336798724eb9295ede960d20a33872540527e02fa3`
+- `backfill_lyric_cues.py`: `7c116d3835ba1a37cbf550cfd6b2fdd76ffb71898e67698f1548a75726397acd`
+- `basis_references.py`: `aea26ce30f71e2aaf9008365b7ecb8ebbd88f46835ee5e42a1d9f74eed794e32`
+- `basis_release.py`: `2294659d77454e22ab6a38d7516563f2b501394550ccc2746254ac8d98aaeaac`
+- `common.py`: `6794f05af7732dd9145707d03def43c339a80e9b87dc216724221138f2fdc43f`
+- `composition_ending.py`: `ae1c619b8bd4f15be5743bf0f521da3a749c86a2f845bd7a14470635273dd0e7`
+- `delivery_check.py`: `566d6951219079adf6ece08766e4e0e7b61a21f8ff1beb607d0d9eb07ebdd903`
+- `duration_ending.py`: `b54d70fa535c3d1de6ee0a94eda4c0097fa565fe07e4ffa218ae07f5cf37522f`
+- `duration_policy.py`: `96aae18579eebdfaff93797c165ed8bdf6145e6aaa2e5b5f042fea3c9c218585`
+- `duration_runtime.py`: `ab8a48176b1fac62ff6c14b91894597eaf063f0f3c29d172c5f0d4b5b87a53a3`
+- `failure_evidence.py`: `f4a1a7424f6c6e696c88acb52d9a70a140c2ac0577cecd6bdd9be0ebd6071641`
+- `frozen_request.py`: `13fe2da4caded0ae171f82adec8f6e8ba1005130c88f8309dc3b4578ba41f255`
+- `inactive_voice_repair.py`: `b0ef1bbb4f0f7ef92babdb6f1413460a8d7b999881c2b2ad36740d95f733cfb8`
+- `launch_hidden.py`: `158624091e1e7d3ccb17b5e22746a53b41f2c311129d1efab007558179cd1163`
+- `longform.py`: `66be9fe6c4dcabe365eef7c822c7f64b322020c960d7954e0c35be1a7b7cb936`
+- `lyrics.py`: `76323ed36867088436eb323751128a94298fcc3d66fa687727bf2252d12ec069`
+- `lyric_length_repair.py`: `46d290d9309465e0901c6cc792c866564efd363a19baa54ea92eb8c1ad04c916`
+- `lyric_timing.py`: `bba9baba64d6455c285a8a88886be2013e8da2d8783d84c984af672f54cb59da`
+- `planner.py`: `b033e6c76706bdb2525cdf9be0709ed6746da38b9f8a9a0eb29e94775bd30595`
+- `plan_schema.py`: `e933aa2de2108bd45662e24df7945a6f40e6e73897df446a33a7d513ffc4e96d`
+- `public_plan.py`: `d6631f5e176fb5a96af5bafd8c2a257729969d0e63dd7c393fbfe1d2ee7f130d`
+- `publish.py`: `6b4205c70187fe11eb8f7a5b9df87a58ab67f3077b8296a9d6924f148805323e`
+- `quality_configure.py`: `b08b20912132ead8448c5d4ca0883a848d0abce25c041700e067bb40e64984b2`
+- `quality_finish.py`: `da5946aa58be7088be16850704aad5551e00610885cb10a753f49cfb4c78a705`
+- `quality_verify.py`: `9821ca80ec9295497f314326b3c9bd947066c42f5f9a2b9d88de0808d25ecb33`
+- `queue_monitor.py`: `5f36cc4d001d8bcae31263aa8614b6d828cbd6cd1762e717da3a131010676e76`
+- `reliability_audit.py`: `8be441531dd9f96384f73c81f8ee2b787e5d97f1143ffef632428ed643a5f409`
+- `remix_health.py`: `6520019941e320e7e3c9f1c7ef4396a7db8013a01eae8aa5bdc2c7240c856014`
+- `remix_sources.py`: `546fe67b62038a2e23c3ebadf57857cc598196dbbf896d39637a3ff284b9bd67`
+- `renderer.py`: `b2e4467534e1a767be38024aa9e9dbed18730d0f929b1143e7d91291b351bc64`
+- `request_materials.py`: `e49e8a1fbb332522866216c392617348c2632b7d21e9fe04d2dd828ee21968c0`
+- `runtime_release.py`: `dec760bfc053560a8c6087bf21dcb9f81a6c096a04b38d4d12a820c551a662bf`
+- `sectional_repair.py`: `1afad659adc13770270d627455c56730ca494239543d34ecb4fe9b806d4c796f`
+- `source_material.py`: `d5cce0418ce908d04dfbfee674416f098d631429b751da1912c55a8b05e89267`
+- `sparse_vocal_repair.py`: `794b09f4c7aaddf8ab3e4e48f84190487489832d66e1a581b6ca52b6d19159a0`
+- `sync_remix_sources.py`: `79796ce34a7e82309974254a74f44eafb2f8edfccd62a3afc5bfd0b9d3ac4c5f`
+- `vocal_accents.py`: `6d99fc7efefb4c9cb7a099628d44751674d2913bd730f5432e4f4fc3fc1fb514`
+- `vocal_accent_runtime.py`: `8984fa4fc92c072dda2da34c07c3cb9f1eab283419cc34db69478d97d39aac4f`
+- `vocal_evidence.py`: `1718a756ad14160bc190ed7c09da55c7a6cf34c82aa9f6f2e9701551fb02d336`
+- `vocal_repair.py`: `71301b03f7795025b5c8d798c5514f75d7385762bd9489434d44c2d31a0fde64`
+- `voice_models.py`: `27c32af2443806ce292cf9a12050bf3968cff181cd33f8dd96577636779b23ba`
+- `winprocess.py`: `8d9003c39f01f8ef7fe8d0b41804cc2ccb91c257a54166f9939e21002c3f28ad`
+- `worker.py`: `9d9314f46548671ec4b6ba2b2cdb97463333fa17cefee96510cea4f2bd93cc90`
