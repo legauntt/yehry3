@@ -1,5 +1,6 @@
 // Read-only post-deployment checks. Interactive writes are verified separately.
 import assert from "node:assert/strict";
+import { normalizeGeneration } from "../assets/generation-options.js";
 import { createHash, randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
 const site = process.env.YEHRY3_SITE_URL || "https://yehry3.app";
@@ -154,6 +155,7 @@ assert.equal(
   ),
   "Notification service worker differs from the local release",
 );
+const generationSchema = JSON.parse(await readFile(new URL("../assets/generation-schema.json", import.meta.url), "utf8"));
 const queueResponse = await get(`${api}/queue?page=0`, {
   headers: { Origin: site },
 });
@@ -188,6 +190,7 @@ for (const request of [
         "url",
         "qualityIssues",
         "voiceModel",
+        "generationProfile",
         "originalPrompt",
         "hasSongPlan",
         "recovery",
@@ -195,6 +198,7 @@ for (const request of [
       `Unexpected public field: ${field}`,
     );
   assert.match(request.voiceModel, /^v[1-9][0-9]*$/);
+  if (request.generationProfile !== undefined) assert.equal(request.generationProfile, "v8");
   if (request.hasSongPlan !== undefined) assert.equal(request.hasSongPlan, true);
   if (request.recovery) {
     assert.equal(request.status, "failed");
@@ -204,8 +208,12 @@ for (const request of [
   }
   assert.deepEqual(
     Object.keys(request.originalPrompt).sort(),
-    ["basisSongs", "direction", "idea", "keep", "voiceModel"],
+    ["basisSongs", "direction", "idea", "keep", "voiceModel", ...(request.originalPrompt.generation ? ["generation", "generationProfile"] : [])].sort(),
   );
+  if (request.originalPrompt.generation) {
+    assert.equal(request.originalPrompt.generationProfile, "v8");
+    assert.deepEqual(normalizeGeneration(request.originalPrompt.generation, generationSchema), request.originalPrompt.generation);
+  }
   assert.equal(typeof request.originalPrompt.idea, "string");
   assert.equal(typeof request.originalPrompt.direction, "string");
   assert.equal(typeof request.originalPrompt.keep, "string");
@@ -220,18 +228,23 @@ for (const request of [
   }
   if (request.qualityIssues) {
     assert.ok(
-      Array.isArray(request.qualityIssues) && request.qualityIssues.length <= 3,
+      Array.isArray(request.qualityIssues) && request.qualityIssues.length <= 5,
     );
     assert.equal(new Set(request.qualityIssues.map((issue) => issue.code)).size, request.qualityIssues.length);
     for (const issue of request.qualityIssues) {
+      if (issue.code === "unconfirmed_lyric_ending") {
+        assert.deepEqual(Object.keys(issue), ["code"]);
+        continue;
+      }
       assert.deepEqual(Object.keys(issue).sort(), ["code", "seconds"]);
-      assert.ok(["long_instrumental_outro", "long_instrumental_break", "vocal_dropout"].includes(issue.code));
+      assert.ok(["long_instrumental_outro", "long_instrumental_break", "vocal_dropout", "early_lyric_ending"].includes(issue.code));
       assert.ok(
         Number.isFinite(issue.seconds) &&
           ((issue.code === "long_instrumental_outro" && issue.seconds > 13) ||
             (issue.code === "long_instrumental_break" && issue.seconds >= 9.5) ||
-            (issue.code === "vocal_dropout" && issue.seconds > 0.4)) &&
-          issue.seconds <= 600,
+            (issue.code === "vocal_dropout" && issue.seconds > 0.4) ||
+            (issue.code === "early_lyric_ending" && issue.seconds > 20)) &&
+          issue.seconds <= 1440,
       );
     }
   }
