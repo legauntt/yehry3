@@ -36,7 +36,7 @@ class ReliabilityTests(unittest.TestCase):
             log = work / 'desktop-logs' / 'ending.log'; log.parent.mkdir()
             log.write_text("UnicodeDecodeError: 'charmap' codec cannot decode byte", encoding='utf-8')
             ctx = evidence(self.config(root), 'one')
-            self.assertEqual(ctx['work'], str(work))
+            self.assertEqual(Path(ctx['work']), work.resolve())
             self.assertEqual(classify(ctx['diagnostic_error'], ctx)[:2], ('unicode_runtime', 'retry'))
             save(work / 'desktop-status.json', {'status': 'completed', 'stage': 'completed'})
             self.assertNotIn('charmap', evidence(self.config(root), 'one')['diagnostic_error'])

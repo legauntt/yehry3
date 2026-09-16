@@ -18,7 +18,7 @@ class HiddenLauncherTests(unittest.TestCase):
         pythonw = Path(sys.executable).with_name('pythonw.exe')
         for task, script in [('worker', 'run.ps1'), ('monitor', 'monitor-run.ps1')]:
             with self.subTest(task=task), tempfile.TemporaryDirectory() as temporary:
-                root = Path(temporary) / 'quiet launch é'
+                root = Path(temporary).resolve() / 'quiet launch é'
                 root.mkdir()
                 shutil.copyfile(launch_hidden.__file__, root / 'launch_hidden.py')
                 (root / 'probe.py').write_text('''import ctypes, json, subprocess, sys
