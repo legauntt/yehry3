@@ -32,7 +32,7 @@ class LyricLengthRepairTests(unittest.TestCase):
 
     def test_shorter_attempt_is_bounded_resumable_and_preserves_frozen_work(self):
         with tempfile.TemporaryDirectory() as directory:
-            request, original = self.fixture(Path(directory)); before = copy.deepcopy(request)
+            request, original = self.fixture(Path(directory).resolve()); before = copy.deepcopy(request)
             retained = {p: p.read_bytes() for p in original.iterdir()}
             record = prepare(request, 85)
             self.assertEqual(prepare(request, 85), record)
@@ -60,7 +60,7 @@ class LyricLengthRepairTests(unittest.TestCase):
     def test_tampered_original_child_and_parent_inputs_fail_closed(self):
         for changed in ('original', 'child', 'parent'):
             with self.subTest(changed=changed), tempfile.TemporaryDirectory() as directory:
-                request, work = self.fixture(Path(directory)); record = prepare(request, 85)
+                request, work = self.fixture(Path(directory).resolve()); record = prepare(request, 85)
                 if changed == 'original': (work / 'selected-vocals.wav').write_bytes(b'changed')
                 elif changed == 'child': save(Path(record['child_request']['directory']) / 'plan.json', {})
                 else: request['voice_model'] = 'v6'
@@ -70,14 +70,14 @@ class LyricLengthRepairTests(unittest.TestCase):
 
     def test_no_automatic_shortening_or_replacement_of_started_voice(self):
         with tempfile.TemporaryDirectory() as directory:
-            request, work = self.fixture(Path(directory))
+            request, work = self.fixture(Path(directory).resolve())
             self.assertIsNone(render_repair(request, lambda _: self.fail('No operator journal')))
             state = load(work / 'desktop-status.json'); state['completed'].append('prepare')
             save(work / 'desktop-status.json', state)
             with self.assertRaisesRegex(ValueError, 'before conversion'): prepare(request, 85)
         for seconds in (59, 120):
             with tempfile.TemporaryDirectory() as directory:
-                request, _ = self.fixture(Path(directory))
+                request, _ = self.fixture(Path(directory).resolve())
                 with self.assertRaisesRegex(ValueError, '60–119'): prepare(request, seconds)
 
 

@@ -39,7 +39,7 @@ class SparseVocalRepairTests(unittest.TestCase):
     def test_one_attempt_resumes_after_interruption_and_preserves_all_originals(self):
         for backing in (True, False):
             with self.subTest(backing=backing), tempfile.TemporaryDirectory() as directory:
-                request, work = self.fixture(Path(directory), backing)
+                request, work = self.fixture(Path(directory).resolve(), backing)
                 before = copy.deepcopy(request)
                 retained = {p: p.read_bytes() for p in work.iterdir()}
                 record = prepare(request); child = record['child_request']
@@ -64,7 +64,7 @@ class SparseVocalRepairTests(unittest.TestCase):
     def test_changed_inputs_and_attempt_budget_fail_closed(self):
         for change in ('audio', 'parent', 'plan_file', 'child_file', 'child_voice', 'budget'):
             with self.subTest(change=change), tempfile.TemporaryDirectory() as directory:
-                request, work = self.fixture(Path(directory)); record = prepare(request)
+                request, work = self.fixture(Path(directory).resolve()); record = prepare(request)
                 journal = Path(request['directory']) / REPORT
                 if change == 'audio': (work / 'selected-vocals.wav').write_bytes(b'changed')
                 elif change == 'parent': request['basis'] = [{'id': 'another source'}]
@@ -79,7 +79,7 @@ class SparseVocalRepairTests(unittest.TestCase):
     def test_invalid_original_and_prior_repairs_cannot_reserve_attempt(self):
         for change in ('voice_started', 'completed', 'other_failure', 'coverage', 'script', 'prior_shorter', 'prior_ending', 'orphan_child'):
             with self.subTest(change=change), tempfile.TemporaryDirectory() as directory:
-                request, work = self.fixture(Path(directory)); job = Path(request['directory'])
+                request, work = self.fixture(Path(directory).resolve()); job = Path(request['directory'])
                 state = load(work / 'desktop-status.json')
                 if change == 'voice_started': state['completed'].append('prepare')
                 elif change == 'completed': state['status'] = 'completed'
@@ -96,7 +96,7 @@ class SparseVocalRepairTests(unittest.TestCase):
     def test_unprepared_requests_do_not_render_and_children_cannot_chain(self):
         import renderer
         with tempfile.TemporaryDirectory() as directory:
-            request, work = self.fixture(Path(directory))
+            request, work = self.fixture(Path(directory).resolve())
             self.assertIsNone(render_repair(request, lambda _: self.fail('No operator journal')))
             child = prepare(request)['child_request']
             self.assertIsNone(render_repair(child, lambda _: self.fail('Cannot nest')))
@@ -110,7 +110,7 @@ class SparseVocalRepairTests(unittest.TestCase):
 
     def test_unknown_result_cannot_select_another_recording(self):
         with tempfile.TemporaryDirectory() as directory:
-            request, work = self.fixture(Path(directory)); prepare(request)
+            request, work = self.fixture(Path(directory).resolve()); prepare(request)
             with self.assertRaisesRegex(ValueError, 'selected composition'):
                 render_repair(request, lambda _: {'status': 'verified', 'work_path': str(work)})
 
