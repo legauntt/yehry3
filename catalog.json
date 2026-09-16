@@ -2,6 +2,387 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-98e0d155b2a6586624ded4ac",
+      "title": "Fear and Dark",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-98e0d155b2a6586624ded4ac-70ce74ceec65.mp3",
+      "duration": 231,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-16T09:40:11.887Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Fear and Dark",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "C minor",
+        "arrangement": "A dark warehouse-rave original driven by a deep moving sub-bass line, firm four-on-the-floor kick, clipped breakbeat fills, acidic synth pulses, ominous pads and sharp strobe-like electronic accents. Begin with filtered percussion and distant room texture, then build steadily into a broad, catchable chorus. Use pinned Tony V8 exclusively: rough, smoky, connected phrasing with crooked timing, muttered verse edges and excited sustained chorus notes, while keeping the hook intelligible. The bridge drops to breath, pulse and sparse synth before a forceful full-spectrum return. Pace the final chorus and story-resolving tag so the last sung syllable lands 8–12 seconds before 235 seconds; follow it with one resolved C-minor chord and a natural decay.",
+        "lyrics": "[Intro]\nMidnight shakes the warehouse glass\nRed lights count the shadows past\nOne breath, one spark, one warning mark\nWe came to dance with fear and dark\n\n[Verse 1]\nThe concrete sweats beneath the crowd\nA siren bends, the bass gets loud\nCold blue lasers rake the room\nLike silver teeth cutting through the gloom\n\nMy pulse keeps time against the gate\nI feel the floor accelerate\nEvery face becomes a flare\nThen vanishes into electric air\n\n[Pre-Chorus]\nDon’t turn around when the strobes go black\nThat old dread is climbing up your back\nName what follows, make it start\nGive it rhythm, give it heart\n\n[Chorus]\nFear and dark, fear and dark\nWe strike the night and wake the spark\nFeet on fire, eyes awake\nLet the whole foundation shake\nFear and dark, fear and dark\nNo hiding place inside this heart\nWhen the low end hits its mark\nWe dance straight through the fear and dark\n\n[Verse 2]\nThe kick drum lands like falling stone\nBut no one in this room’s alone\nSmoke rolls low across the rails\nThe synth line twists like comet tails\n\nA stranger laughs beside the wall\nAs if they’ve heard the darkness call\nI laugh back, rough and out of time\nThen ride the beat across the warning sign\n\n[Pre-Chorus]\nNo looking down when the platform sways\nWe burn a road through the violet haze\nName what follows, make it start\nGive it rhythm, give it heart\n\n[Chorus]\nFear and dark, fear and dark\nWe strike the night and wake the spark\nFeet on fire, eyes awake\nLet the whole foundation shake\nFear and dark, fear and dark\nNo hiding place inside this heart\nWhen the low end hits its mark\nWe dance straight through the fear and dark\n\n[Bridge]\nCut the kick—hear the breathing crowd\nOne thin pulse beneath the cloud\nFear says freeze, but the room says move\nDark says drown, but we find the groove\n\nNow the snare cracks open the ceiling\nBass comes back like a living feeling\nEvery shadow loses shape\nWe are not trapped—we are the escape\n\n[Final Chorus]\nFear and dark, fear and dark\nWe own the night and guard the spark\nFeet on fire, eyes awake\nLet the whole foundation shake\nFear and dark, fear and dark\nNo locked door around this heart\nWhen the sunrise leaves its mark\nWe’ll have danced beyond the fear and dark\n\n[Final Tag]\nThe red lights fade, the doors unlock\nMorning waits beyond the block\nOne last beat, then silence starts—\nWe leave the room with fearless hearts\n[End]",
+        "duration": 235,
+        "bpm": 128
+      },
+      "lyrics": {
+        "text": "[Intro]\nMidnight shakes the warehouse glass\nRed lights count the shadows past\nOne breath, one spark, one warning mark\nWe came to dance with fear and dark\n\n[Verse 1]\nThe concrete sweats beneath the crowd\nA siren bends, the bass gets loud\nCold blue lasers rake the room\nLike silver teeth cutting through the gloom\n\nMy pulse keeps time against the gate\nI feel the floor accelerate\nEvery face becomes a flare\nThen vanishes into electric air\n\n[Pre-Chorus]\nDon’t turn around when the strobes go black\nThat old dread is climbing up your back\nName what follows, make it start\nGive it rhythm, give it heart\n\n[Chorus]\nFear and dark, fear and dark\nWe strike the night and wake the spark\nFeet on fire, eyes awake\nLet the whole foundation shake\nFear and dark, fear and dark\nNo hiding place inside this heart\nWhen the low end hits its mark\nWe dance straight through the fear and dark\n\n[Verse 2]\nThe kick drum lands like falling stone\nBut no one in this room’s alone\nSmoke rolls low across the rails\nThe synth line twists like comet tails\n\nA stranger laughs beside the wall\nAs if they’ve heard the darkness call\nI laugh back, rough and out of time\nThen ride the beat across the warning sign\n\n[Pre-Chorus]\nNo looking down when the platform sways\nWe burn a road through the violet haze\nName what follows, make it start\nGive it rhythm, give it heart\n\n[Chorus]\nFear and dark, fear and dark\nWe strike the night and wake the spark\nFeet on fire, eyes awake\nLet the whole foundation shake\nFear and dark, fear and dark\nNo hiding place inside this heart\nWhen the low end hits its mark\nWe dance straight through the fear and dark\n\n[Bridge]\nCut the kick—hear the breathing crowd\nOne thin pulse beneath the cloud\nFear says freeze, but the room says move\nDark says drown, but we find the groove\n\nNow the snare cracks open the ceiling\nBass comes back like a living feeling\nEvery shadow loses shape\nWe are not trapped—we are the escape\n\n[Final Chorus]\nFear and dark, fear and dark\nWe own the night and guard the spark\nFeet on fire, eyes awake\nLet the whole foundation shake\nFear and dark, fear and dark\nNo locked door around this heart\nWhen the sunrise leaves its mark\nWe’ll have danced beyond the fear and dark\n\n[Final Tag]\nThe red lights fade, the doors unlock\nMorning waits beyond the block\nOne last beat, then silence starts—\nWe leave the room with fearless hearts",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 4.24
+          },
+          {
+            "line": 2,
+            "start": 5,
+            "end": 8.22
+          },
+          {
+            "line": 3,
+            "start": 8.22,
+            "end": 11.76
+          },
+          {
+            "line": 4,
+            "start": 11.76,
+            "end": 15.16
+          },
+          {
+            "line": 7,
+            "start": 30.66,
+            "end": 33.78
+          },
+          {
+            "line": 8,
+            "start": 34.12,
+            "end": 37.3
+          },
+          {
+            "line": 9,
+            "start": 42.22,
+            "end": 42.54
+          },
+          {
+            "line": 10,
+            "start": 42.54,
+            "end": 42.82
+          },
+          {
+            "line": 12,
+            "start": 42.82,
+            "end": 44.44
+          },
+          {
+            "line": 13,
+            "start": 44.44,
+            "end": 45.96
+          },
+          {
+            "line": 14,
+            "start": 46.52,
+            "end": 48.68
+          },
+          {
+            "line": 15,
+            "start": 48.68,
+            "end": 51.06
+          },
+          {
+            "line": 18,
+            "start": 52.18,
+            "end": 55.02
+          },
+          {
+            "line": 19,
+            "start": 56.08,
+            "end": 58.9
+          },
+          {
+            "line": 20,
+            "start": 58.9,
+            "end": 62.4
+          },
+          {
+            "line": 21,
+            "start": 63.14,
+            "end": 66.24
+          },
+          {
+            "line": 24,
+            "start": 67.8,
+            "end": 71.14
+          },
+          {
+            "line": 25,
+            "start": 71.52,
+            "end": 74.42
+          },
+          {
+            "line": 26,
+            "start": 75.34,
+            "end": 78.18
+          },
+          {
+            "line": 27,
+            "start": 79.4,
+            "end": 81.92
+          },
+          {
+            "line": 28,
+            "start": 81.92,
+            "end": 86.16
+          },
+          {
+            "line": 29,
+            "start": 86.16,
+            "end": 108.48
+          },
+          {
+            "line": 30,
+            "start": 119.44,
+            "end": 162.68
+          },
+          {
+            "line": 31,
+            "start": 163.36,
+            "end": 168.68
+          },
+          {
+            "line": 34,
+            "start": 168.68,
+            "end": 188.58
+          },
+          {
+            "line": 35,
+            "start": 188.58,
+            "end": 188.78
+          },
+          {
+            "line": 36,
+            "start": 188.78,
+            "end": 189.22
+          },
+          {
+            "line": 37,
+            "start": 189.22,
+            "end": 190.1
+          },
+          {
+            "line": 39,
+            "start": 190.1,
+            "end": 191
+          },
+          {
+            "line": 40,
+            "start": 191,
+            "end": 191.84
+          },
+          {
+            "line": 41,
+            "start": 191.84,
+            "end": 192.98
+          },
+          {
+            "line": 42,
+            "start": 192.98,
+            "end": 193.58
+          },
+          {
+            "line": 45,
+            "start": 193.58,
+            "end": 194.22
+          },
+          {
+            "line": 46,
+            "start": 194.22,
+            "end": 194.72
+          },
+          {
+            "line": 47,
+            "start": 194.72,
+            "end": 196.3
+          },
+          {
+            "line": 48,
+            "start": 196.3,
+            "end": 197.22
+          },
+          {
+            "line": 51,
+            "start": 198.52,
+            "end": 202.92
+          },
+          {
+            "line": 52,
+            "start": 202.92,
+            "end": 205.7
+          },
+          {
+            "line": 53,
+            "start": 206.26,
+            "end": 209.58
+          },
+          {
+            "line": 54,
+            "start": 209.58,
+            "end": 213.38
+          },
+          {
+            "line": 55,
+            "start": 214.1,
+            "end": 217.28
+          },
+          {
+            "line": 56,
+            "start": 217.82,
+            "end": 218.1
+          },
+          {
+            "line": 57,
+            "start": 218.1,
+            "end": 218.38
+          },
+          {
+            "line": 58,
+            "start": 218.38,
+            "end": 218.86
+          },
+          {
+            "line": 61,
+            "start": 218.86,
+            "end": 219.84
+          },
+          {
+            "line": 62,
+            "start": 219.84,
+            "end": 220.26
+          },
+          {
+            "line": 63,
+            "start": 220.26,
+            "end": 220.88
+          },
+          {
+            "line": 64,
+            "start": 221.82,
+            "end": 221.88
+          },
+          {
+            "line": 66,
+            "start": 221.88,
+            "end": 222.28
+          },
+          {
+            "line": 67,
+            "start": 222.28,
+            "end": 223.22
+          },
+          {
+            "line": 68,
+            "start": 223.22,
+            "end": 223.56
+          },
+          {
+            "line": 69,
+            "start": 223.56,
+            "end": 224.06
+          },
+          {
+            "line": 72,
+            "start": 224.06,
+            "end": 224.58
+          },
+          {
+            "line": 73,
+            "start": 225.1,
+            "end": 225.14
+          },
+          {
+            "line": 74,
+            "start": 225.14,
+            "end": 225.36
+          },
+          {
+            "line": 75,
+            "start": 225.36,
+            "end": 225.86
+          },
+          {
+            "line": 76,
+            "start": 225.86,
+            "end": 226.1
+          },
+          {
+            "line": 77,
+            "start": 226.1,
+            "end": 226.7
+          },
+          {
+            "line": 78,
+            "start": 226.7,
+            "end": 227.08
+          },
+          {
+            "line": 79,
+            "start": 227.08,
+            "end": 227.86
+          },
+          {
+            "line": 82,
+            "start": 227.86,
+            "end": 228.3
+          },
+          {
+            "line": 83,
+            "start": 228.65,
+            "end": 228.77
+          },
+          {
+            "line": 84,
+            "start": 229.43,
+            "end": 229.55
+          },
+          {
+            "line": 85,
+            "start": 230.22,
+            "end": 230.34
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 15.42
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "Tony does a Fear & Dark rave mix",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "bpm": 128,
+          "keyscale": "C minor"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-e9681c0b50e8843c2d038131",
       "title": "Every Pair Remembers",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e9681c0b50e8843c2d038131-16c8d8a0f543.mp3",
