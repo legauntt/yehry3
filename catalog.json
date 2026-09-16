@@ -2,6 +2,284 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-03378991a3875290c8dc7de0",
+      "title": "The Stranger at Platform Three",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-03378991a3875290c8dc7de0-4cdfe039d449.mp3",
+      "duration": 169.2,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-16T10:05:32.210Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Stranger at Platform Three",
+        "recipe": "new",
+        "style": "opera",
+        "keyscale": "D minor",
+        "arrangement": "A dramatic chamber-classical ballad for the pinned Tony V8 voice. Piano opens alone beneath intimate, smoky narration-singing; cello and viola enter with the first regret, while violins widen the chorus and double bass gives it grave forward motion. The bridge turns tense and operatic with tremolo strings, sharp ensemble pauses, and a brief harmonic shock at the stranger's identity. The final chorus rises to a full string climax, then contracts to piano and sustained cello for the resolved homeward decision. Keep Tony's rough connected vowels, slurred consonants, crooked timing, and sudden emotional lift while preserving a clearly catchable chorus. Pace the final tag so its last sustained syllable lands about 10 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nYou asked why I watch the midnight train\nThough no one steps down for me.\nSit here, stranger, out of the rain;\nI'll tell you what I used to be.\nI was seventeen with a paper map,\nHalf a wage and a borrowed coat.\nI left my mother beside this track\nWith her warning caught in my throat.\n\n[Verse 2]\nI carried crates by the harbor wall,\nPlayed piano in rooms without names,\nLoved one woman through spring and fall,\nThen traded our peace for brighter flames.\nShe left one note by an empty cup:\n“You chase every door that appears.”\nI laughed, packed light, and hurried up;\nThat laugh cost twenty years.\n\n[Chorus]\nSo hear me, stranger, hear me plain:\nA life is more than the leaving.\nEvery window upon a train\nShows what the heart was not seeing.\nI won some gold, I lost some friends,\nI learned too late what time can spend.\nIf somebody waits when your journey ends,\nGo home—go home to them.\n\n[Bridge]\nThe stranger turned beneath the station light;\nMy own young face stared back.\nSame paper map, same eyes too bright,\nSame one-way ticket on the track.\nI seized his sleeve as the whistle cried,\nBut my hand passed through like steam.\n“Does she forgive me?” the boy replied.\nI said, “Wake up before I dream.”\n\n[Final Chorus]\nHear me, stranger, hear me now:\nLet pride miss one departure.\nTurn from the engine, keep your vow;\nLove is the longer adventure.\nThe train rolled on through the silver rain,\nAnd the boy walked out of view.\nI stayed alone on Platform Three—\nThen rose to go home too.\n\n[Final Tag]\nIf her old lamp still warms the pane,\nI'll knock, and speak my name.\nNo more stories for the midnight train;\nI'm going home the way I came.\n\n[End]",
+        "duration": 170,
+        "bpm": 76
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nYou asked why I watch the midnight train\nThough no one steps down for me.\nSit here, stranger, out of the rain;\nI'll tell you what I used to be.\nI was seventeen with a paper map,\nHalf a wage and a borrowed coat.\nI left my mother beside this track\nWith her warning caught in my throat.\n\n[Verse 2]\nI carried crates by the harbor wall,\nPlayed piano in rooms without names,\nLoved one woman through spring and fall,\nThen traded our peace for brighter flames.\nShe left one note by an empty cup:\n“You chase every door that appears.”\nI laughed, packed light, and hurried up;\nThat laugh cost twenty years.\n\n[Chorus]\nSo hear me, stranger, hear me plain:\nA life is more than the leaving.\nEvery window upon a train\nShows what the heart was not seeing.\nI won some gold, I lost some friends,\nI learned too late what time can spend.\nIf somebody waits when your journey ends,\nGo home—go home to them.\n\n[Bridge]\nThe stranger turned beneath the station light;\nMy own young face stared back.\nSame paper map, same eyes too bright,\nSame one-way ticket on the track.\nI seized his sleeve as the whistle cried,\nBut my hand passed through like steam.\n“Does she forgive me?” the boy replied.\nI said, “Wake up before I dream.”\n\n[Final Chorus]\nHear me, stranger, hear me now:\nLet pride miss one departure.\nTurn from the engine, keep your vow;\nLove is the longer adventure.\nThe train rolled on through the silver rain,\nAnd the boy walked out of view.\nI stayed alone on Platform Three—\nThen rose to go home too.\n\n[Final Tag]\nIf her old lamp still warms the pane,\nI'll knock, and speak my name.\nNo more stories for the midnight train;\nI'm going home the way I came.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 2.62,
+            "end": 6.08
+          },
+          {
+            "line": 2,
+            "start": 6.88,
+            "end": 9.54
+          },
+          {
+            "line": 3,
+            "start": 10.3,
+            "end": 12.76
+          },
+          {
+            "line": 4,
+            "start": 13.46,
+            "end": 15.56
+          },
+          {
+            "line": 5,
+            "start": 16.68,
+            "end": 19.32
+          },
+          {
+            "line": 6,
+            "start": 19.64,
+            "end": 21.8
+          },
+          {
+            "line": 7,
+            "start": 21.8,
+            "end": 25.64
+          },
+          {
+            "line": 8,
+            "start": 26.22,
+            "end": 29.2
+          },
+          {
+            "line": 11,
+            "start": 31.86,
+            "end": 34.16
+          },
+          {
+            "line": 12,
+            "start": 34.52,
+            "end": 37.24
+          },
+          {
+            "line": 13,
+            "start": 38.08,
+            "end": 40.42
+          },
+          {
+            "line": 14,
+            "start": 40.8,
+            "end": 43.4
+          },
+          {
+            "line": 15,
+            "start": 44.5,
+            "end": 46.6
+          },
+          {
+            "line": 16,
+            "start": 47.1,
+            "end": 50.4
+          },
+          {
+            "line": 17,
+            "start": 50.96,
+            "end": 53.54
+          },
+          {
+            "line": 18,
+            "start": 54.04,
+            "end": 56.24
+          },
+          {
+            "line": 21,
+            "start": 56.7,
+            "end": 59.2
+          },
+          {
+            "line": 22,
+            "start": 59.2,
+            "end": 62.36
+          },
+          {
+            "line": 23,
+            "start": 63.22,
+            "end": 65.5
+          },
+          {
+            "line": 24,
+            "start": 65.5,
+            "end": 68.76
+          },
+          {
+            "line": 25,
+            "start": 68.76,
+            "end": 71.84
+          },
+          {
+            "line": 26,
+            "start": 72.36,
+            "end": 74.9
+          },
+          {
+            "line": 27,
+            "start": 74.9,
+            "end": 78.56
+          },
+          {
+            "line": 28,
+            "start": 78.76,
+            "end": 83.64
+          },
+          {
+            "line": 31,
+            "start": 85.4,
+            "end": 88.12
+          },
+          {
+            "line": 32,
+            "start": 88.74,
+            "end": 90.76
+          },
+          {
+            "line": 33,
+            "start": 91.5,
+            "end": 93.92
+          },
+          {
+            "line": 34,
+            "start": 93.92,
+            "end": 96.88
+          },
+          {
+            "line": 35,
+            "start": 97.92,
+            "end": 100.26
+          },
+          {
+            "line": 36,
+            "start": 100.78,
+            "end": 103.42
+          },
+          {
+            "line": 37,
+            "start": 103.42,
+            "end": 107.2
+          },
+          {
+            "line": 38,
+            "start": 107.74,
+            "end": 114.2
+          },
+          {
+            "line": 41,
+            "start": 114.94,
+            "end": 117.62
+          },
+          {
+            "line": 42,
+            "start": 117.98,
+            "end": 120.68
+          },
+          {
+            "line": 43,
+            "start": 120.68,
+            "end": 123.42
+          },
+          {
+            "line": 44,
+            "start": 123.42,
+            "end": 126.82
+          },
+          {
+            "line": 45,
+            "start": 127.46,
+            "end": 129.82
+          },
+          {
+            "line": 46,
+            "start": 129.82,
+            "end": 132.84
+          },
+          {
+            "line": 47,
+            "start": 132.84,
+            "end": 136.48
+          },
+          {
+            "line": 48,
+            "start": 137.07,
+            "end": 139.6
+          },
+          {
+            "line": 51,
+            "start": 141.17,
+            "end": 143.96
+          },
+          {
+            "line": 52,
+            "start": 143.96,
+            "end": 147.48
+          },
+          {
+            "line": 53,
+            "start": 148.11,
+            "end": 151.04
+          },
+          {
+            "line": 54,
+            "start": 153.68,
+            "end": 161.34
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "Tony tells a stranger his life story",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "genre": "Classical",
+          "instruments": [
+            "Piano",
+            "Cello",
+            "Double bass",
+            "Viola",
+            "Violin"
+          ]
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-8b386cd7f92e7a94568c8283",
       "title": "Ten Counts Ago",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8b386cd7f92e7a94568c8283-3416eec3759a.mp3",
