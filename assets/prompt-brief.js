@@ -1,3 +1,4 @@
+import { generationBrief } from './generation.js';
 import { materialBrief, wordCount } from "./request-materials.js";
 
 const voiceLabel = (value) => {
@@ -6,7 +7,7 @@ const voiceLabel = (value) => {
 };
 const lyricMode = (sheet) => sheet.mode === "adapt" ? "Adapt these lyrics" : "Keep my wording";
 
-function layout({ idea, authoredBy, voice, keep, direction, basis }, materials, escape) {
+function layout({ idea, authoredBy, voice, keep, direction, basis, generation }, materials, escape) {
   const field = (label, value) => `<dt>${label}</dt><dd>${escape(value)}</dd>`;
   return `<div class="brief prompt-brief">
     <section class="prompt-section"><h3>Essentials</h3><div class="prompt-section-body"><dl>
@@ -17,6 +18,7 @@ function layout({ idea, authoredBy, voice, keep, direction, basis }, materials, 
     </dl></div></section>
     <section class="prompt-section"><h3>Advanced</h3><div class="prompt-section-body">
       <dl>${field("What does it sound like?", direction || "Use the prompt as written.")}</dl>
+      ${generationBrief(generation, escape)}
       ${materials}
       <dl>${field("Basis songs", basis || "No basis songs selected.")}</dl>
     </div></section>
@@ -29,7 +31,7 @@ export function requestPromptBrief(doc, escape, describeVoice = voiceLabel) {
   return layout({
     idea: doc.prompt, authoredBy: doc.authoredBy,
     voice: describeVoice(details.voiceModel || "v6"), keep: details.keep, direction: details.direction,
-    basis: details.basisSongTitles?.join("\n") || details.source,
+    generation: details.generation, basis: details.basisSongTitles?.join("\n") || details.source,
   }, materials, escape);
 }
 
@@ -39,7 +41,7 @@ export function publicPromptBrief(song, escape, { materialsUnavailable = false }
   return layout({
     idea: brief.idea, authoredBy: song.authoredBy,
     voice: voiceLabel(brief.voiceModel), keep: brief.keep, direction: brief.direction,
-    basis: brief.basisSongs?.join("\n"),
+    generation: brief.generation, basis: brief.basisSongs?.join("\n"),
   }, materials, escape);
 }
 

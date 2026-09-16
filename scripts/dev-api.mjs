@@ -40,6 +40,9 @@ app.use(
   router({
     mango: { getDb: () => store.db, getClient: () => client },
     env: {
+      YEHRY3_GENERATION_V8: process.env.YEHRY3_GENERATION_V8 || 'false',
+      YEHRY3_VOICE_V8: process.env.YEHRY3_VOICE_V8 || 'false',
+      YEHRY3_WORKER_TOKEN: process.env.YEHRY3_WORKER_TOKEN || '',
       YEHRY3_SESSION_SECRET:
         "local-disposable-preview-signing-secret-123456789",
       YEHRY3_PROMPT_PASSWORD: process.env.YEHRY3_PROMPT_PASSWORD || "wishbone",

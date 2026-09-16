@@ -62,7 +62,8 @@ def original_prompt(prompt):
     return {'idea': prompt['prompt'], 'direction': details.get('direction', ''),
             'keep': details.get('keep', ''),
             'basisSongs': details.get('basisSongTitles', [details['source']] if details.get('source') else []),
-            'voiceModel': details.get('voiceModel', 'v6')}
+            'voiceModel': details.get('voiceModel', 'v6'),
+            **({'generation': __import__('generation_controls').normalize(details['generation']), 'generationProfile': 'v8'} if details.get('generation') else {})}
 
 
 def song_record(prompt):
@@ -75,7 +76,7 @@ def song_record(prompt):
             **({'publishedAt': prompt['publishedAt']} if prompt.get('publishedAt') else {}),
             **({'authoredBy': prompt['authoredBy']} if prompt.get('authoredBy') else {}),
             **({'songPlan': prompt['songPlan']} if prompt.get('songPlan') else {}),
-            **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues'] if key in result},
+            **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues', 'generationProfile'] if key in result},
             **({'originalPrompt': original_prompt(prompt)} if prompt.get('prompt') else {})}
 
 def merge_catalog(catalog, record):

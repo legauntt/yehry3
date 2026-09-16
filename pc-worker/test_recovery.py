@@ -50,7 +50,10 @@ class RecoveryTests(unittest.TestCase):
                 self.assertEqual(render(request), {'status': 'verified'})
                 self.assertEqual(attempt.call_count, 2)
             policy = load(work / 'vocal-quality-policy.json')
-            self.assertTrue(policy['after_bounded_repair'])
+            self.assertEqual(policy['recovery_disposition'], 'bounded_repair_exhausted')
+            self.assertEqual(policy['voice_model'], 'v6')
+            self.assertFalse(policy['audio_changed'])
+            self.assertTrue(policy['other_integrity_checks_retained'])
             self.assertEqual(policy['inputs_sha256'], {name: sha(work / name) for name in files})
             self.assertFalse(allow_vocal_warning(request))
             for name in files: self.assertEqual((work / name).read_bytes(), name.encode())
@@ -215,7 +218,7 @@ class RecoveryTests(unittest.TestCase):
                         if output == 'rejected': self.assertEqual(make_plan(config, brief, root, basis), old['plan'])
                         else:
                             with self.assertRaisesRegex(ValueError, 'needs acoustic style'): make_plan(config, brief, root, basis)
-                    called.assert_called_once()
+                    self.assertEqual(called.call_count, 1 if output == 'rejected' else 3)
 
     def test_gravity_inspired_original_migrates_the_rejected_plan_once(self):
         with tempfile.TemporaryDirectory() as directory:
@@ -252,15 +255,14 @@ class RecoveryTests(unittest.TestCase):
                     if outcome != 'interrupted': save(output, old['plan'] if outcome == 'rejected' else plan())
                     if outcome != 'rejected': raise RuntimeError('Planner response interrupted')
                 with patch('planner.source_material', return_value=None), patch('planner.run_owned', side_effect=model) as called:
-                    if outcome == 'rejected':
-                        self.assertEqual(make_plan(config, brief, root, basis)['recipe'], 'needs_attention')
-                    else:
-                        with self.assertRaisesRegex(RuntimeError, 'Planner response interrupted'):
-                            make_plan(config, brief, root, basis)
-                    expected = 'new' if outcome == 'output_saved_before_interruption' else 'needs_attention'
-                    self.assertEqual(make_plan(config, brief, root, basis)['recipe'], expected)
-                    self.assertEqual(make_plan(config, brief, root, basis)['recipe'], expected)
-                    called.assert_called_once()
+                    for replay in range(3):
+                        if outcome == 'interrupted':
+                            with self.assertRaisesRegex(ValueError, 'Planning failed after 3 attempts.*Planner response interrupted'):
+                                make_plan(config, brief, root, basis)
+                        else:
+                            expected = 'new' if outcome == 'output_saved_before_interruption' else 'needs_attention'
+                            self.assertEqual(make_plan(config, brief, root, basis)['recipe'], expected)
+                    self.assertEqual(called.call_count, 3 if outcome == 'interrupted' else 1)
                 self.assertEqual(load(root / 'plan-before-single-basis-inspiration.json'), old)
 
     def test_inspiration_upgrade_preserves_started_work_and_faithful_requests(self):
@@ -291,7 +293,7 @@ class RecoveryTests(unittest.TestCase):
                 for attempt in range(2):
                     with self.assertRaisesRegex(ValueError, 'faithful rendition cannot replace'):
                         make_plan(config, brief, root, basis)
-                called.assert_called_once()
+                self.assertEqual(called.call_count, 3)
             self.assertEqual(load(root / 'plan.json'), old)
 
     def test_cutoff_repair_is_one_separate_attempt_and_resume_reuses_it(self):

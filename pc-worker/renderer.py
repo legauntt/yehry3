@@ -8,7 +8,7 @@ from source_material import source_material
 from composition_ending import active_identifier, identifier as composition_identifier, preflight_runner, render_with_retry, timing_instruction
 from duration_runtime import adapt as adapt_duration
 from vocal_accents import configure as configure_vocal_accents, verify_frozen as verify_vocal_accent_reference
-from voice_models import reference_profile, resolve
+from voice_models import reference_profile, resolve, validate_generation_fork
 from basis_release import verify_remote_catalog
 from quality_verify import adapt as adapt_quality_verification
 
@@ -138,6 +138,9 @@ def render(request):
     # omit an encoding; make their Python processes (and descendants) agree
     # without rewriting saved scripts, lyrics or stage hashes.
     os.environ['PYTHONUTF8'] = '1'
+    if request.get('plan', {}).get('generation', {}).get('candidates', 1) > 1 and not request.get('candidate_part'):
+        from generation_candidates import selected as render_selected
+        return render_selected(request, render)
     from sectional_repair import render_repair as render_sectional_repair
     sectional = render_sectional_repair(request, render, render_attempt)
     if sectional is not None: return sectional
@@ -189,6 +192,7 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
     validate(plan, basis, duration_min)
     settings = config['settings']; engine_root = Path(config['engine_resources'])
     voice_model = request.get('voice_model', 'v6')
+    validate_generation_fork(voice_model, request.get('generation_profile'), plan)
     voice_profile = resolve(config, voice_model)
     os.environ['TROOFS_WORKER_RESOURCES'] = str(engine_root)
     engine = module_at('distonyc_engine', engine_root / 'engine_tasks.py')
@@ -218,6 +222,7 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
         work = inside(request['verify_existing'], Path(settings['studio_dir']).parent)
         result = with_quality(engine.verify_work(work, settings['output_dir']))
         result['voice_model'] = voice_model
+        if plan.get('generation'): result['generation_profile'] = 'v8'
         return result
     if plan['recipe'] == 'barbershop':
         if voice_model != 'v6': raise ValueError(f'Tony {voice_model.upper()} is not available for the specialized four-voice quartet recipe; choose Tony V6')
@@ -235,11 +240,18 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
             'bpm': plan['bpm'], 'keyscale': plan['keyscale'], 'seed': int(identifier.replace('-', '')[:7], 16),
             'lyrics': plan['lyrics'], 'arrangement': plan['arrangement'], 'basis': basis,
             'preserve_generated_backing': plan['preserve_generated_backing']}
+    options = plan.get('generation')
+    if options:
+        from generation_controls import normalize
+        options = normalize(options)
+        if 'seed' in options: spec['seed'] = (options['seed'] + (1 if composition_retry else 2 if repair else 0)) % 2147481648
+        ending = options.get('endingSeconds', 10)
+        spec['arrangement'] = (f"Target the final meaningful sung syllable at {spec['duration'] - ending} seconds, then allow {ending} seconds for the final chord to resolve. Complete every closing lyric. " + spec['arrangement'])
     if material: spec['source_material'] = material
     if request.get('sparse_vocal_attempt'):
         spec['arrangement'] = request['sparse_vocal_guidance'] + spec['arrangement']
     if plan.get('vocal_accents'): spec['vocal_accents'] = plan['vocal_accents']
-    if spec['kind'] == 'new' and plan.get('allow_long_instrumental_outro') is False and not repair:
+    if spec['kind'] == 'new' and plan.get('allow_long_instrumental_outro') is False and not repair and not options:
         spec['arrangement'] = timing_instruction(plan['duration']) + spec['arrangement']
         if composition_retry:
             spec['arrangement'] += (' This is the one alternate arrangement after an overlong instrumental ending. '
@@ -307,6 +319,9 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
                     elif task['name'] == 'analysis':
                         task['command'] = [settings['voice_python'], str(work / 'analyze_versioned.py'), '--work', str(work)]
                 save(work / 'voice-profile.json', voice_profile)
+            if options:
+                from generation_runtime import configure as configure_generation
+                configure_generation(work, track, spec, plan)
             save(work / 'track.json', track)
             manifest['track_sha256'] = sha(work / 'track.json')
             manifest['workers'] = {path.name: sha(path) for path in work.glob('*.py')}
@@ -332,11 +347,13 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
         if load(work / 'desktop-status.json')['status'] == 'completed':
             result = with_quality(engine.verify_work(work, settings['output_dir']))
             result['voice_model'] = voice_model
+            if plan.get('generation'): result['generation_profile'] = 'v8'
             return result
         execution = execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False))
         options = {'runner': preflight_runner} if preflight else {}
         result = with_quality(engine.execute_stages(work, execution, **options))
         result['voice_model'] = voice_model
+        if plan.get('generation'): result['generation_profile'] = 'v8'
         return result
 
 def render_quartet(request, engine):
@@ -378,6 +395,7 @@ def render_quartet(request, engine):
 
 def main():
     parser = argparse.ArgumentParser(); parser.add_argument('--request', type=Path, required=True); parser.add_argument('--gate', type=Path, required=True)
+    parser.add_argument('--prepare-candidates', action='store_true')
     args = parser.parse_args(); deadline = time.monotonic() + 20
     while not args.gate.exists():
         if time.monotonic() > deadline: raise TimeoutError('Worker process-tree isolation was not established')
@@ -385,7 +403,12 @@ def main():
     request = load(args.request)
     error_file = Path(request['directory']) / 'renderer-error.json'
     error_file.unlink(missing_ok=True)
-    try: result = render(request)
+    try:
+        if args.prepare_candidates:
+            from generation_candidates import prepare
+            prepare(request, render_attempt)
+            return
+        result = render(request)
     except Exception as error:
         save(error_file, failure_detail(request, error))
         raise

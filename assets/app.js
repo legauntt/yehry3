@@ -1,3 +1,4 @@
+import { mountGeneration, mountGenerationReview } from './generation.js';
 import { songPlanLink } from "./song-plan.js";
 import { brandLine } from "./branding.js";
 import { mountMaterials, materialBrief, durationIssue, hasMaterialEdits } from "./request-materials.js";
@@ -65,7 +66,7 @@ const voiceModel = (id) =>
     ? { id, label: `Tony ${id.toUpperCase()}`, note: "Versioned Tony voice profile", experimental: id !== "v6" }
     : voiceModels[0]);
 const voiceModelBadge = (id) => escape((/^v\d+$/i.test(id || "") ? id : "v6").toUpperCase());
-const voiceModelBadgeClass = (id) => /^v7$/i.test(id || "") ? " v7" : "";
+const voiceModelBadgeClass = (id) => /^v[78]$/i.test(id || "") ? " " + id.toLowerCase() : "";
 const voiceModelLabel = (id) => {
   const model = voiceModel(id);
   return `${model.label}${model.experimental ? " · experimental" : " · established"}`;
@@ -617,15 +618,19 @@ async function requests() {
   }
   let basisSongs;
   let materialsAvailable = false;
+  let generationAvailable = false, generationSchema;
   try {
     const loaded = await Promise.all([
       loadBasisSongs(),
       api("/voice-models").catch(() => ({ models: voiceModels })),
       api("/request-materials").catch(() => ({})),
+      api("/generation").catch(() => ({})),
+      fetch("/assets/generation-schema.json").then((r) => r.json()).catch(() => null),
     ]);
     basisSongs = loaded[0];
     if (Array.isArray(loaded[1].models) && loaded[1].models.length) voiceModels = loaded[1].models;
     materialsAvailable = loaded[2].version === 1;
+    generationAvailable = loaded[3].enabled === true && loaded[4]?.version === 1; generationSchema = loaded[4];
     remix = await loadRemix();
   } catch (error) {
     message(error.message, true);
@@ -677,6 +682,15 @@ async function requests() {
     }
     main.innerHTML = `<section class="request-intro"><p class="eyebrow">Distonyc</p><h1>Let’s hear<br><em>your wild idea.</em></h1><p class="lede">A familiar song in unfamiliar territory. Or something nobody’s heard before.</p><div class="request-session-actions">${stage === "submitted" ? '<button class="quiet" id="new-request">New request ↗</button>' : ""}<button class="quiet" id="request-signout">Sign out ↗</button></div></section><section class="workbench"><ol class="steps" aria-label="Request progress">${["The idea", "Refinements", "The final say"].map((name, i) => `<li ${i + 1 === number ? 'aria-current="step"' : ""}><span>0${i + 1}</span>${name}</li>`).join("")}</ol><div class="request-form" id="request-form"></div></section>`;
     showLoginStatus("submitter", $(".request-intro"), load);
+    if (generationAvailable) {
+      const reviewList = document.createElement('div'); $('.request-intro').append(reviewList);
+      api('/generation-reviews', { role: 'submitter' }).then(({ reviews }) => {
+        if (!reviewList.isConnected || !reviews?.length) return;
+        reviewList.innerHTML = `<p class="small">Waiting for your review</p><div class="actions">${reviews.map((item) => `<button type="button" class="quiet" data-review-request="${escape(item.id)}">${escape(item.prompt.slice(0, 80))}</button>`).join('')}</div>`;
+        reviewList.querySelectorAll('[data-review-request]').forEach((button) => { button.onclick = () => { storage.set('draft', button.dataset.reviewRequest); load(); }; });
+      }).catch(() => {});
+    }
+
     if (remix && !remixUsed) {
       const panel = document.createElement("div");
       panel.className = "remix-note";
@@ -750,12 +764,14 @@ async function requests() {
           </div>
           <div role="tabpanel" id="advanced-panel" aria-labelledby="advanced-tab" hidden>
             <label for="direction">What does it sound like? <span class="small">(optional)</span></label><textarea id="direction" rows="3" maxlength="2000" placeholder="Refine the prompt with a style, arrangement, mood, or other direction…"></textarea><p class="small field-hint">Leave this empty to use your prompt as written.</p>
+            <div id="generation-root"></div>
             <div id="request-materials-root"></div>
             <div id="basis-root"></div>
           </div>
           <div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p>
         </form>`;
       mountRequestTabs($("#details-form"), storage, draft.id);
+      const generation = mountGeneration($("#generation-root"), { draft: { ...draft, details: initialDetails }, schema: generationSchema, enabled: generationAvailable, storage, escape });
       $("#authored-by").value = draft.authoredBy || "";
       $("#authored-by").oninput = (event) => rememberAuthor(event.target.value);
       const selectedBasis = mountBasisPicker(
@@ -781,12 +797,20 @@ async function requests() {
       const savedKeep = initialDetails.keep || "";
       $("#direction").value = savedDirection === "Use the prompt as written." ? "" : savedDirection;
       $("#keep").value = savedKeep === "Surprise me." ? "" : savedKeep;
-      $("#voice-model").value = initialDetails.voiceModel || (voiceModels.some((model) => model.id === "v7") ? "v7" : voiceModels[0].id);
+      const voiceDraftKey = `voice-draft:${draft.id}`;
+      const savedVoice = storage.get(voiceDraftKey);
+      const initialVoice = /^v[678]$/.test(savedVoice || '') ? savedVoice : initialDetails.voiceModel;
+      if (initialVoice && !voiceModels.some(model => model.id === initialVoice)) {
+        const unavailable = new Option(`${voiceModelLabel(initialVoice)} · temporarily unavailable`, initialVoice);
+        unavailable.disabled = true; $("#voice-model").append(unavailable);
+      }
+      $("#voice-model").value = initialVoice || (voiceModels.some((model) => model.id === "v7") ? "v7" : voiceModels[0].id);
       const describeVoice = () => {
         const model = voiceModel($("#voice-model").value);
+        generation.setRequired(model.id === "v8");
         $(".voice-model-note").textContent = `${model.note}.${model.experimental ? " This model remains clearly labeled experimental." : ""}`;
       };
-      $("#voice-model").onchange = describeVoice;
+      $("#voice-model").onchange = () => { storage.set(voiceDraftKey, $("#voice-model").value); describeVoice(); };
       describeVoice();
       const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), { ...draft, details: initialDetails }, { api, storage, escape, lyricChoiceRoot: $('#remix-lyric-choice') }) : {
         read() {
@@ -821,6 +845,7 @@ async function requests() {
           details.voiceModel = $("#voice-model").value;
           details.authoredBy = $("#authored-by").value.trim();
           Object.assign(details, requestMaterials.read());
+          details.generation = generation.read();
           draft = (
             await api(`/prompts/${encodeURIComponent(draft.id)}`, {
               method: "PATCH",
@@ -828,7 +853,7 @@ async function requests() {
               body: { version: draft.version, ...details },
             })
           ).prompt;
-          requestMaterials.clear();
+          requestMaterials.clear(); generation.clear(); storage.remove(voiceDraftKey);
           rememberAuthor(draft.authoredBy || "");
           render();
         });
@@ -857,6 +882,8 @@ async function requests() {
         });
     } else {
       form.innerHTML = `<span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Request received</p><h2>Your idea is on the list.</h2><p>Your idea has a place in the studio queue. Check back here for its progress.</p>${badge(recoveryStatus(draft))}${recoveryActive(draft) ? '<p class="small">Automatic recovery is working on your song. Saved work will be reused.</p>' : ""}${brief(draft)}${draft.publishedUrl ? `<a class="primary" href="${escape(safeUrl(draft.publishedUrl))}" target="_blank" rel="noopener">Hear your song ↗</a>` : ""}<div class="actions"><button class="quiet" id="refresh-status">Refresh status</button><button class="primary" id="another">Another idea ↗</button></div><p class="small">This browser tab remembers your request. <a href="/queue/">Watch the public queue and enable completion alerts →</a></p>`;
+      const reviewRoot = document.createElement('div'); form.prepend(reviewRoot);
+      mountGenerationReview(reviewRoot, { draft, api, escape, reload: load });
       $("#another").onclick = () => {
         finishRemix();
         draft = null;

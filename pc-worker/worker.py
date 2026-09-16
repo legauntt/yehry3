@@ -7,7 +7,7 @@ from planner import make_plan
 from publish import upload, update_catalog
 from public_plan import public_plan
 from lyrics import make_sheet, export_sheet
-from voice_models import selected
+from voice_models import selected, capabilities as voice_capabilities
 from remix_sources import CAPABILITY as REMIX_CAPABILITY, resolve as remix_basis, register as register_remix
 
 TERMINAL = {'published', 'failed', 'canceled'}
@@ -64,6 +64,7 @@ class Heartbeat:
 def metadata(config, plan, result, voice_model='v6'):
     if result.get('status') != 'verified' or result.get('new_training') is not False: raise ValueError('The renderer did not verify the saved Tony voice mix')
     if result.get('voice_model', 'v6') != voice_model: raise ValueError('The rendered voice model differs from the confirmed request')
+    if voice_model == 'v8' and result.get('generation_profile') != 'v8': raise ValueError('The V8 generation profile differs from the confirmed request')
     files = result.get('files', [])
     if {Path(item['path']).suffix.lower() for item in files} != {'.mp3', '.wav'}: raise ValueError('Both verified MP3 and WAV are required')
     for item in files:
@@ -74,6 +75,7 @@ def metadata(config, plan, result, voice_model='v6'):
     export_sheet(config, mp3['path'], plan['title'], sheet)
     return mp3['path'], {'title': plan['title'], 'duration': result['duration'], 'bytes': mp3['bytes'], 'sha256': mp3['sha256'],
                          'voiceModel': voice_model,
+                         **({'generationProfile': 'v8'} if result.get('generation_profile') == 'v8' else {}),
                          'lyrics': sheet, 'collections': ['distonyc', 'fearhunger'] if plan.get('fear_hunger') else ['distonyc'],
                          **({'qualityIssues': result['qualityIssues']} if result.get('qualityIssues') else {})}
 
@@ -87,12 +89,19 @@ def run_once(config, api, verify_existing=None):
     claim = load(journal) if journal.exists() else new_claim(journal)
     if claim.get('promptId'):
         previous = api.call('/prompts/' + claim['promptId'])['prompt']
+        if previous.get('generationReview') and previous['status'] == 'queued':
+            journal.unlink()
+            if previous['generationReview']['state'] == 'pending':
+                save(health, {'at': utc(), 'status': 'waiting_for_review', 'promptId': previous['id']}); return
+            claim = new_claim(journal)
         if previous['status'] in TERMINAL:
             if previous['status'] == 'published':
                 update_catalog(config, previous)
                 register_remix(config, api, previous)
             journal.unlink(); save(health, {'at': utc(), 'status': previous['status'], 'promptId': previous['id']}); return
     capabilities = ['request-materials-v1'] + ([REMIX_CAPABILITY] if config.get('catalog_remix') else [])
+    if config.get('generation_v8'): capabilities.append('generation-v8-v1')
+    capabilities.extend(voice_capabilities(config))
     try: prompt = api.call('/claim', {**claim, 'capabilities': capabilities})['prompt']
     except APIError as error:
         if error.status != 410: raise
@@ -102,6 +111,8 @@ def run_once(config, api, verify_existing=None):
     claim['promptId'] = prompt['id']; save(journal, claim)
     directory = inside(state / 'jobs' / prompt['id'], state / 'jobs'); directory.mkdir(parents=True, exist_ok=True)
     save(directory / 'prompt.json', prompt)
+    if prompt.get('generationReview', {}).get('state') == 'pending':
+        journal.unlink(); save(health, {'at': utc(), 'status': 'waiting_for_review', 'promptId': prompt['id']}); return
     if prompt['status'] in TERMINAL:
         if prompt['status'] == 'published':
             update_catalog(config, prompt)
@@ -110,6 +121,13 @@ def run_once(config, api, verify_existing=None):
     heartbeat = Heartbeat(api, prompt, claim['leaseToken'], directory, health)
     def action(name, **body):
         return api.call(f"/prompts/{prompt['id']}/{name}", {'leaseToken': claim['leaseToken'], **body}, timeout=150 if name == 'publish' else 25)['prompt']
+    def pause(offer):
+        if heartbeat.stopped(): raise Stopped('Review stopped after lease loss')
+        heartbeat.close()
+        paused = action('generation-review', **offer)
+        save(health, {'at': utc(), 'status': 'waiting_for_review', 'promptId': prompt['id']})
+        journal.unlink()
+        return paused
     try:
         heartbeat.start()
         if heartbeat.stopped(): raise Stopped('Cancellation requested')
@@ -120,14 +138,29 @@ def run_once(config, api, verify_existing=None):
             # The model receives creative metadata; local paths remain in the trusted renderer input.
             plan = make_plan(config, prompt, directory, basis, heartbeat.stopped)
             if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
+            if prompt.get('details', {}).get('generation'):
+                from generation_flow import approved_plan
+                plan, offer = approved_plan(plan, prompt, directory, basis, api)
+                if offer:
+                    pause(offer); return
             # Save the accepted musical plan before rendering; retries reuse this snapshot.
             prompt = action('plan', songPlan=public_plan(plan))
             if not result_file.exists():
                 request = {'config': config, 'prompt_id': prompt['id'], 'plan': plan, 'basis': basis, 'directory': str(directory),
                     'voice_model': voice_model}
+                if plan.get('generation'): request['generation_profile'] = 'v8'
                 if verify_existing: request['verify_existing'] = str(Path(verify_existing).resolve())
                 from frozen_request import reuse_or_save
                 request = reuse_or_save(directory / 'render-request.json', request)
+                if plan.get('generation', {}).get('candidates', 1) > 1:
+                    from generation_flow import composition_choice
+                    if not (directory / 'composition-review-offer.json').exists():
+                        heartbeat.stage = 'Preparing composition choices'
+                        run_owned([config['settings']['python'], str(Path(__file__).with_name('renderer.py')), '--request', str(directory / 'render-request.json'), '--gate', str(directory / 'candidates.gate'), '--prepare-candidates'],
+                            directory, directory / 'candidates.log', heartbeat.stopped, gate=directory / 'candidates.gate')
+                    offer = composition_choice(request, prompt, api)
+                    if offer:
+                        pause(offer); return
                 heartbeat.stage = 'Rendering'
                 error_file = directory / 'renderer-error.json'; error_file.unlink(missing_ok=True)
                 try:
@@ -140,7 +173,7 @@ def run_once(config, api, verify_existing=None):
             prompt = action('complete', result=completed)
         else:
             if not result_file.exists(): raise ValueError('This PC is missing the completed mix. Restore its saved job folder before publishing.')
-            plan = load(directory / 'plan.json')['plan']
+            plan = load(directory / ('approved-plan.json' if (directory / 'approved-plan.json').exists() else 'plan.json'))['plan']
             voice_model = selected(prompt)
             mp3, completed = metadata(config, plan, load(result_file), voice_model)
             # Finish pre-upgrade publications with their original immutable metadata.

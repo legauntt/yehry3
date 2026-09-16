@@ -6,7 +6,7 @@ from quality_finish import compile_policy, review_outro, warn_vocals, RULE
 from renderer import execution_manifest, failure_detail, with_quality
 from common import save, sha
 from publish import song_record
-from quality_configure import compile_policy as compile_arrangement, review_breaks
+from quality_configure import compile_policy as compile_arrangement, review_breaks, review_intro
 
 
 class QualityTests(unittest.TestCase):
@@ -60,6 +60,7 @@ exported=True
 
     def test_instrumental_break_warns_but_cutoff_and_vocal_coverage_still_fail(self):
         source = """assert voice_ok, 'Missing vocals'
+assert first<13,('Long instrumental introduction',first)
 assert last-first>duration*.6 and max([g['seconds'] for g in gaps],default=0)<9.5,('Too much instrumental space',evidence)
 assert remaining>1.2 or evidence['last_second_mix_dbfs']<-43,('Ending needs completion before fade',evidence)
 passed=True
@@ -70,12 +71,14 @@ passed=True
             values = {'voice_ok': True, 'first': 9.96, 'last': 239.54, 'duration': 269.2,
                       'gaps': [{'seconds': 6.68}, {'seconds': 12.32}], 'remaining': 29.66,
                       'evidence': {'last_second_mix_dbfs': -59.64},
-                      '_distonyc_review_breaks': lambda gaps: review_breaks(gaps, issues), **changes}
+                      '_distonyc_review_breaks': lambda gaps: review_breaks(gaps, issues),
+                      '_distonyc_review_intro': lambda first: review_intro(first, issues), **changes}
             exec(code, values)
             self.assertTrue(values['passed'])
             return issues
         self.assertEqual(run(), [{'code': 'long_instrumental_break', 'seconds': 12.32}])
         self.assertEqual(run(gaps=[]), [])
+        self.assertEqual(run(first=15, gaps=[]), [{'code': 'long_instrumental_break', 'seconds': 15}])
         with self.assertRaisesRegex(AssertionError, 'Missing vocals'): run(voice_ok=False)
         with self.assertRaisesRegex(AssertionError, 'Too much instrumental'): run(last=100)
         with self.assertRaisesRegex(AssertionError, 'Ending needs'): run(remaining=.34, evidence={'last_second_mix_dbfs': -29.33})

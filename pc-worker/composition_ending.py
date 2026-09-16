@@ -40,8 +40,15 @@ class CompositionReady(Exception):
 
 
 def preflight_runner(command, **kwargs):
-    if len(command) >= 3 and Path(command[1]).name == 'convert_song.py' and command[2] == 'prepare':
-        raise CompositionReady(kwargs['cwd'])
+    # The engine durably records the named stage before invoking its runner.
+    # Voice runtimes have different executable names and argument layouts; those
+    # details are not the composition/voice boundary.
+    work = Path(kwargs['cwd'])
+    state = load(work / 'desktop-status.json')
+    if state.get('stage') == 'prepare':
+        if set(state.get('completed', [])) & {'prepare', 'features', 'pitch', 'diffuse', 'vocode', 'assemble', 'validate'}:
+            raise ValueError('Composition preflight cannot restart after voice conversion')
+        raise CompositionReady(work)
     return subprocess.Popen(command, **kwargs)
 
 

@@ -136,6 +136,10 @@ def finish(work, expected_sha, vocal_dropout_warnings=False, source_name='finish
     report = load(work / "mix-results.json")
     if report.get("status") != "completed":
         raise ValueError("The finisher did not complete its checks.")
+    if load(work / 'track.json').get('generation'):
+        from lyrical_ending import review as review_lyrics
+        lyric_review = review_lyrics(work)
+        issues.extend(lyric_review.get('qualityIssues', []))
     if issues:
         report["qualityIssues"] = issues
         save(work / "mix-results.json", report)

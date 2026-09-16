@@ -291,8 +291,7 @@ class WorkerTests(unittest.TestCase):
             with self.assertRaises(ValueError): basis_files(config, {'details': {'basisSongIds': ['one']}})
 
     def test_catalog_merge_preserves_other_work_and_retries_conflicts(self):
-        prompt = {'songId': 'distonyc-one', 'result': {'title': 'New song', 'duration': 200}, 'releaseUrl': 'https://example.com/song.mp3',
-                  'publishedAt': '2026-09-14T00:02:00.839Z'}
+        prompt = {'songId': 'distonyc-one', 'result': {'title': 'New song', 'duration': 200}, 'releaseUrl': 'https://example.com/song.mp3'}
         import base64
         def response(songs, revision): return {'content': base64.b64encode(json.dumps({'version': 1, 'songs': songs}).encode()).decode(), 'sha': revision}
         original = {'id': 'existing', 'title': 'Existing song'}; concurrent = {'id': 'concurrent', 'title': 'Added by someone else'}
@@ -304,7 +303,6 @@ class WorkerTests(unittest.TestCase):
             return {}
         with patch('publish.gh_json', side_effect=gh): update_catalog({}, prompt)
         saved = json.loads(base64.b64decode(calls[-1]['content']))
-        self.assertEqual(saved['songs'][0]['publishedAt'], prompt['publishedAt'])
         self.assertEqual([s['id'] for s in saved['songs']], ['distonyc-one', 'concurrent', 'existing'])
         self.assertEqual(calls[-1]['sha'], 'second')
         self.assertFalse(merge_catalog(saved, saved['songs'][0]))

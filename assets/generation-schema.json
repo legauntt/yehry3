@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "capability": "generation-v8-v1",
+  "ranges": {
+    "duration": [
+      120,
+      600
+    ],
+    "bpm": [
+      45,
+      220
+    ],
+    "vocalEntry": [
+      0,
+      20
+    ],
+    "endingSeconds": [
+      2,
+      20
+    ],
+    "maxBreakSeconds": [
+      0,
+      30
+    ],
+    "seed": [
+      0,
+      2147481647
+    ],
+    "candidates": [
+      1,
+      3
+    ],
+    "vocalGainDb": [
+      -12,
+      6
+    ],
+    "backingGainDb": [
+      -12,
+      6
+    ]
+  },
+  "choices": {
+    "meter": [
+      "2/4",
+      "3/4",
+      "4/4",
+      "6/8"
+    ],
+    "lyricWorkflow": [
+      "auto",
+      "story",
+      "hook",
+      "rhythm"
+    ],
+    "performance": [
+      "natural",
+      "restrained",
+      "raw"
+    ],
+    "energy": [
+      "auto",
+      "build",
+      "waves",
+      "steady"
+    ],
+    "variation": [
+      "balanced",
+      "conservative",
+      "adventurous"
+    ]
+  },
+  "textLimits": {
+    "genre": 120,
+    "structure": 600,
+    "keyscale": 12
+  },
+  "listLimits": {
+    "instruments": [
+      12,
+      60
+    ],
+    "avoidInstruments": [
+      12,
+      60
+    ],
+    "avoidPhrases": [
+      30,
+      80
+    ],
+    "requiredPhrases": [
+      12,
+      120
+    ],
+    "lockedLines": [
+      20,
+      250
+    ]
+  },
+  "defaults": {
+    "version": 1,
+    "candidates": 1,
+    "lyricWorkflow": "auto",
+    "performance": "natural",
+    "energy": "auto",
+    "variation": "balanced",
+    "reviewLyrics": false,
+    "vocalGainDb": 0,
+    "backingGainDb": 0
+  },
+  "keyPattern": "^[A-G](?:#|b)? (?:major|minor)$"
+}

@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { test, expect } from "@playwright/test";
 const sheet = "[Verse 1]\nThe lantern catches all our names\nAnd brings the sleeping railway home\nWe keep the light until the morning comes";
 async function start(page) {
@@ -158,7 +159,7 @@ test("confirmed lyrics and references are readable in Backstage and without a lo
   await expect(page.getByText("Your idea is on the list.")).toBeVisible();
   const id = await page.evaluate(() => sessionStorage.getItem("yehry3:draft"));
   await page.goto("/admin/?status=all");
-  await page.getByLabel("Password", { exact: true }).fill("browser-test-admin");
+  await page.getByLabel("Password", { exact: true }).fill(process.env.YEHRY3_TEST_ADMIN_PASSWORD || "browser-test-admin");
   await page.getByRole("button", { name: "Open the queue" }).click();
   const card = page.locator(`[data-prompt="${id}"]`);
   await expect(card.locator(".prompt-summary")).toContainText("Keep my wording");
@@ -172,7 +173,8 @@ test("confirmed lyrics and references are readable in Backstage and without a lo
   try {
     const visitor = await publicContext.newPage();
     await visitor.goto("http://127.0.0.1:8080/queue/");
-    const publicCard = visitor.locator(".public-queue-card").filter({ hasText: "A warm railway song with a lantern in the window" });
+    const publicSongId = "distonyc-" + createHash("sha256").update(id).digest("hex").slice(0, 24);
+    const publicCard = visitor.locator(".public-queue-card").filter({ has: visitor.locator(`a[href="/original-prompt/?song=${publicSongId}"]`) });
     await publicCard.getByRole("link", { name: "View original prompt" }).click();
     await visitor.getByText("Read the submitted lyric sheet").click();
     await expect(visitor.getByRole("region", { name: "Submitted lyric sheet" })).toHaveText(sheet);

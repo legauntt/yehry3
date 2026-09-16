@@ -6,6 +6,7 @@ from winprocess import run_owned, Stopped
 from source_material import source_material
 from request_materials import GUIDANCE, has_materials, planning_brief, validate_materials, plan_materials, minimum_duration, duration_suggestion
 from plan_schema import FIELDS, SCHEMA, KEYS, STYLES, DURATION_MIN, DURATION_MAX, BPM_MIN, BPM_MAX
+from generation_controls import normalize as normalize_generation, constraints as generation_constraints, planning_guidance, recent_vocabulary
 from duration_policy import choose as choose_duration, join_lyrics, validate_movements
 from vocal_accents import PLANNING_GUIDANCE as VOCAL_ACCENT_GUIDANCE, validate as validate_vocal_accents
 
@@ -154,8 +155,9 @@ def normalize(plan):
 
 def validate(plan, basis, duration_min=DURATION_MIN):
     # Older cached plans predate these optional policies; never rewrite frozen inputs.
-    optional = {'fear_hunger', 'allow_long_instrumental_outro', 'movements', 'vocal_accents'}
+    optional = {'fear_hunger', 'allow_long_instrumental_outro', 'movements', 'vocal_accents', 'generation'}
     if not isinstance(plan, dict) or set(plan) - optional != set(FIELDS) - optional or plan['recipe'] not in FIELDS['recipe']['enum']: raise ValueError('Invalid planning result')
+    if 'generation' in plan: normalize_generation(plan['generation'])
     if 'fear_hunger' in plan and type(plan['fear_hunger']) is not bool: raise ValueError('Invalid collection tag')
     if 'allow_long_instrumental_outro' in plan and type(plan['allow_long_instrumental_outro']) is not bool: raise ValueError('Invalid instrumental ending preference')
     if plan['recipe'] == 'needs_attention':
@@ -224,7 +226,7 @@ def make_plan(config, prompt, directory, basis, stop=None):
     def check(raw):
         plan = validate_capability_upgrade(raw, basis, upgrade, brief) if upgrade in CAPABILITY_UPGRADES else validate(normalize(raw), basis, minimum_duration(brief))
         if plan['recipe'] == 'reinterpretation' and not material: raise ValueError('A genre reinterpretation needs saved source lyrics and vocal references')
-        return validate_materials(plan, brief)
+        return generation_constraints(validate_materials(plan, brief), brief)
     if not has_materials(brief) and not upgrade and output.exists():
         try: plan = check(load(output))
         except ValueError: pass  # Retained output counts as attempt one below.
@@ -272,6 +274,7 @@ Keep explanation concise and describe the musical plan or a concrete blocker. No
             {key: material[key] for key in ['title', 'recording', 'lyrics_draft', 'lyrics_verified']}, ensure_ascii=False)
         save(directory / 'source-material.json', material)
     if has_materials(brief): instruction += GUIDANCE
+    instruction += '\n' + planning_guidance(brief, recent_vocabulary(config, directory))
     instruction += '\nUNTRUSTED SUBMITTED BRIEF:\n' + json.dumps(planning_brief(brief), ensure_ascii=False)
     if admin_note:
         instruction += '\nUNTRUSTED PRIVATE ADMIN NOTE (creative direction):\n' + json.dumps(admin_note, ensure_ascii=False)

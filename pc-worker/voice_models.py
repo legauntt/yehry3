@@ -62,3 +62,15 @@ def reference_profile(profile, style):
             result.get('energy_stratum') not in ('low', 'middle', 'high')):
         raise ValueError('The installed voice reference profile is invalid')
     return dict(result)
+
+
+def capabilities(config):
+    if not config.get('generation_v8') or 'v8' not in (config.get('voice_models') or {}):
+        return []
+    resolve(config, 'v8')
+    return ['voice-v8-v1']
+
+
+def validate_generation_fork(voice_model, generation_profile, plan):
+    if voice_model == 'v8' and (generation_profile != 'v8' or not plan.get('generation')):
+        raise ValueError('A Tony V8 request requires its saved V8 generation profile; refusing a legacy fallback')

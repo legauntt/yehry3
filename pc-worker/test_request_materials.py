@@ -1,86 +1,191 @@
-import json
-import sys
+import copy
 import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
+
 from common import fingerprint, load, save
 from planner import make_plan
-from request_materials import planning_brief, validate_materials, plan_materials
+from request_materials import normalize_material_plan, validate_materials, words, duration_suggestion, render_brief
+from test_planner import fixture
 from winprocess import Stopped
 
-TEXT = '[Verse 1]\nThe lantern catches all our names\nAnd brings the sleeping railway home\nWe keep the light until the morning comes\n'
-def plan(text=TEXT):
-    return {'recipe': 'new', 'title': 'Lantern Railway', 'style': 'rock', 'duration': 240, 'bpm': 100,
-            'keyscale': 'D minor', 'lyrics': text + '\n[End]',
-            'arrangement': 'Expressive Tony singing over a warm bass groove and drums with a complete final verse, resolved chord and natural decay.',
-            'preserve_generated_backing': True, 'explanation': 'A new song using the submitted sheet.', 'fear_hunger': False}
-def brief(mode='preserve'):
-    return {'prompt': 'A railway song', 'details': {'lyricSheet': {'text': TEXT, 'mode': mode}, 'direction': 'Warm rock',
-            'references': [{'url': 'https://example.org/song', 'purpose': 'creative', 'note': 'Borrow the gentle groove',
-                            'snapshot': {'kind': 'metadata', 'status': 'ready', 'title': 'A song', 'text': 'Title and channel only'}}]}}
 
-class MaterialTests(unittest.TestCase):
-    def test_preservation_allows_formatting_but_not_changed_or_missing_words(self):
-        self.assertEqual(validate_materials(plan(), brief())['recipe'], 'new')
-        fixed = plan(TEXT.replace('[Verse 1]', '[Chorus]').replace(' ', '\n'))
-        self.assertEqual(validate_materials(fixed, brief()), fixed)
-        for lyrics in [TEXT.replace('lantern', 'candle'), TEXT + 'Extra words', TEXT.replace('all our names', 'our names all'), TEXT.replace('morning comes', '')]:
-            with self.assertRaisesRegex(ValueError, 'Keep my wording'): validate_materials(plan(lyrics), brief())
-        self.assertEqual(validate_materials(plan('A different set of words'), brief('adapt'))['recipe'], 'new')
-        with self.assertRaisesRegex(ValueError, 'faithful'): validate_materials({**plan(), 'recipe': 'remix'}, brief())
-    def test_long_preserved_lyrics_require_supported_pacing(self):
-        value = brief(); value['details']['lyricSheet']['text'] = 'words ' * 500
-        with self.assertRaisesRegex(ValueError, 'duration'): validate_materials(plan('words ' * 500), value)
-        self.assertEqual(validate_materials({**plan('words ' * 500), 'duration': 300}, value)['duration'], 300)
-    def test_import_provenance_does_not_duplicate_lyrics_or_inject_operational_fields(self):
-        value = brief(); value['details']['references'][0].update(purpose='lyrics', snapshotId='private')
-        value['details']['references'][0]['snapshot']['text'] = 'Unreviewed source text'
-        sanitized = planning_brief(value)
-        self.assertNotIn('Unreviewed', json.dumps(sanitized)); self.assertNotIn('snapshotId', json.dumps(sanitized))
-        self.assertEqual(sanitized['details']['lyricSheet']['text'], TEXT)
-    def test_planning_corrects_once_and_reuses_the_same_frozen_plan(self):
+class RequestMaterialsTests(unittest.TestCase):
+    def setup_case(self, root):
+        (root / 'PREFERENCES.md').write_text('Use the selected saved Tony voice.', encoding='utf-8')
+        plan = fixture()
+        plan['lyrics'] = ('[Verse 1]\nA lantern lights the doorway, a shadow crosses snow.\n'
+                          '[Turn]\nWe carry all our stories wherever we may go.\n'
+                          '[Final Chorus]\nBring the lantern home, and let the river flow.\n[End]')
+        sheet = ('A lantern lights the doorway, a shadow crosses snow.\n'
+                 'We carry all our stories wherever we may go.\n'
+                 'Bring the lantern home, and let the river flow.')
+        brief = {'prompt': 'A winter song', 'details': {'voiceModel': 'v7',
+                 'lyricSheet': {'text': sheet, 'mode': 'preserve'}, 'references': []}}
+        config = {'planner_model': 'test', 'codex': 'test', 'settings': {'studio_dir': str(root)}}
+        return config, brief, plan
+
+    def test_aliases_pass_on_first_call_and_raw_output_is_retained(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory); studio = root / 'studio'; studio.mkdir()
-            (studio / 'PREFERENCES.md').write_text('Use the saved Tony voice.')
-            config = {'planner_model': 'test', 'codex': 'test', 'settings': {'studio_dir': str(studio)}}
-            calls = []
-            def run(command, cwd, log, stop, **kwargs):
-                calls.append(kwargs['input_text'])
-                target = command[command.index('--output-last-message') + 1]
-                save(target, plan(TEXT.replace('lantern', 'candle')) if len(calls) == 1 else plan())
-            with patch('planner.run_owned', side_effect=run):
-                result = make_plan(config, brief(), root, [])
-                self.assertEqual(result['lyrics'], plan()['lyrics'])
-                self.assertEqual(len(calls), 2)
-                self.assertIn('Keep my wording', calls[1])
-                self.assertIn('Never claim to have listened', calls[0])
-                self.assertEqual(make_plan(config, brief(), root, []), result)
-                self.assertEqual(len(calls), 2)
-                changed = brief(); changed['details']['lyricSheet']['text'] += ' Changed'
-                with self.assertRaisesRegex(ValueError, 'different brief'): make_plan(config, changed, root, [])
-    def test_budget_is_durable_and_cancellation_does_not_restart_a_model_call(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory); output = root / 'out.json'; command = ['codex', '--output-last-message', str(output)]
-            calls = []
+            root = Path(directory)
+            config, brief, raw = self.setup_case(root)
+            original = copy.deepcopy(raw)
             def run(command, *args, **kwargs):
-                calls.append(command); save(command[-1], {'bad': True})
-            def check(value): raise ValueError('Restore missing lyrics')
-            for _ in range(2):
-                with self.assertRaisesRegex(ValueError, 'three-attempt'):
-                    plan_materials(command, root, output, 'instructions', 'hash', check, run)
-            self.assertEqual(len(calls), 3)
+                self.assertIn('Use standalone labels', kwargs['input_text'])
+                save(Path(command[command.index('--output-last-message') + 1]), raw)
+            with patch('planner.run_owned', side_effect=run) as model:
+                result = make_plan(config, brief, root, [])
+            model.assert_called_once()
+            self.assertIn('[Bridge]', result['lyrics'])
+            self.assertIn('[Chorus]', result['lyrics'])
+            self.assertNotIn('[Turn]', result['lyrics'])
+            self.assertEqual(words(result['lyrics']), words(brief['details']['lyricSheet']['text']))
+            self.assertEqual(load(root / 'planner-result.json'), original)
+            self.assertEqual(raw, original)
+            self.assertEqual(load(root / 'material-planning-attempts.json')['attempts'][0]['status'], 'accepted')
+
+    def test_exhausted_saved_outputs_recover_without_model_or_budget_reset(self):
         with tempfile.TemporaryDirectory() as directory:
-            with self.assertRaises(Stopped):
-                plan_materials(command, directory, output, 'instructions', 'hash', check, run, lambda: True)
-            self.assertFalse((Path(directory) / 'material-planning-attempts.json').exists())
-    def test_lost_response_recovers_accepted_output_without_spending_another_attempt(self):
+            root = Path(directory)
+            config, brief, raw = self.setup_case(root)
+            save(root / 'planning-input.json', {'briefHash': fingerprint(brief), 'brief': brief})
+            attempts = []
+            for name in ('planner-result.json', 'planner-result-material-2.json', 'planner-result-material-3.json'):
+                save(root / name, raw)
+                attempts.append({'output': name, 'status': 'rejected', 'error': 'Keep my wording: original failure'})
+            save(root / 'material-planning-attempts.json', {'briefHash': fingerprint(brief), 'attempts': attempts})
+            retained = {p.name: p.read_bytes() for p in root.glob('*.json')}
+            with patch('planner.run_owned') as model:
+                result = make_plan(config, brief, root, [])
+                self.assertEqual(make_plan(config, brief, root, []), result)
+            model.assert_not_called()
+            # The brief snapshot may be rewritten equivalently by make_plan;
+            # original outputs and consumed attempts stay byte-for-byte intact.
+            for name, before in retained.items():
+                if name != 'planning-input.json': self.assertEqual((root / name).read_bytes(), before)
+            self.assertEqual(len(load(root / 'material-planning-attempts.json')['attempts']), 3)
+
+    def test_genuine_word_changes_keep_three_attempt_limit_and_precise_feedback(self):
         with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory); output = root / 'out.json'
-            save(output, plan())
-            save(root / 'material-planning-attempts.json', {'briefHash': 'hash', 'attempts': [{'output': 'out.json', 'status': 'started'}]})
-            with patch('planner.run_owned') as run:
-                result = plan_materials(['codex', '--output-last-message', str(output)], root, output, '', 'hash', lambda value: validate_materials(value, brief()), run)
-                self.assertEqual(result, plan()); run.assert_not_called()
+            root = Path(directory)
+            config, brief, raw = self.setup_case(root)
+            raw['lyrics'] = raw['lyrics'].replace('lantern', 'candle', 1)
+            feedback = []
+            def run(command, *args, **kwargs):
+                feedback.append(kwargs['input_text'])
+                save(Path(command[command.index('--output-last-message') + 1]), raw)
+            with patch('planner.run_owned', side_effect=run) as model:
+                for _ in range(2):
+                    with self.assertRaisesRegex(ValueError, "three-attempt limit.*word 2: expected 'lantern'; received 'candle'"):
+                        make_plan(config, brief, root, [])
+            self.assertEqual(model.call_count, 3)
+            self.assertIn("expected 'lantern'; received 'candle'", feedback[1])
+            self.assertFalse((root / 'plan.json').exists())
+
+    def test_no_arbitrary_bracketed_or_inline_lyrics_are_hidden(self):
+        brief = {'details': {'lyricSheet': {'text': 'Bring the lantern home.', 'mode': 'preserve'}}}
+        for lyrics in ('Bring the lantern home.\n[These are extra words]',
+                       'Bring the [Final Chorus] lantern home.',
+                       'Bring the lantern home.\n[Chorus: repeat twice]',
+                       'Bring the lantern home.\nBring the lantern home.',
+                       'Bring the lantern home', 'Bring the home.'):
+            with self.subTest(lyrics=lyrics), self.assertRaisesRegex(ValueError, 'first mismatch at word'):
+                validate_materials({'recipe': 'new', 'duration': 120, 'lyrics': lyrics}, brief)
+        with self.assertRaisesRegex(ValueError, r"Unsupported section label '\[Big finish\]'"):
+            validate_materials({'recipe': 'new', 'duration': 120, 'lyrics': 'Bring the lantern home.\n[Big finish]'}, brief)
+        text = '[These are sung words]\nBring the lantern home.'
+        plan = {'recipe': 'new', 'duration': 120, 'lyrics': text}
+        self.assertEqual(validate_materials(plan, {'details': {'lyricSheet': {'text': text}}}), plan)
+
+    def test_supplied_aliases_whitespace_and_movement_labels(self):
+        supplied = '[ FINAL   CHORUS ]\r\nBring the lantern home.\r\n[Pre Chorus]\r\nAgain.'
+        brief = {'details': {'lyricSheet': {'text': supplied}}}
+        plan = {'recipe': 'new', 'duration': 120, 'lyrics': '[Chorus]\nBring the lantern home.\n[Pre-Chorus]\nAgain.'}
+        self.assertEqual(validate_materials(plan, brief), plan)
+        raw = {'movements': [{'lyrics': '[Turn]\nOne line.\n[Final Chorus]\nAnother.'}]}
+        result = normalize_material_plan(raw)
+        self.assertIn('[Bridge]', result['movements'][0]['lyrics'])
+        self.assertIn('[Turn]', raw['movements'][0]['lyrics'])
+
+    def test_valid_output_after_lost_response_spends_only_one_attempt(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            config, brief, raw = self.setup_case(root)
+            def run(command, *args, **kwargs):
+                save(Path(command[command.index('--output-last-message') + 1]), raw)
+                raise RuntimeError('Lost planner response')
+            with patch('planner.run_owned', side_effect=run) as model:
+                self.assertIn('[Bridge]', make_plan(config, brief, root, [])['lyrics'])
+            model.assert_called_once()
+            attempts = load(root / 'material-planning-attempts.json')['attempts']
+            self.assertEqual(len(attempts), 1)
+            self.assertEqual(attempts[0]['status'], 'accepted')
+            self.assertEqual(attempts[0]['invocationError'], 'Lost planner response')
+
+    def test_cancellation_keeps_output_but_does_not_accept_or_retry(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            config, brief, raw = self.setup_case(root)
+            canceled = False
+            def run(command, *args, **kwargs):
+                nonlocal canceled
+                save(Path(command[command.index('--output-last-message') + 1]), raw)
+                canceled = True
+            with patch('planner.run_owned', side_effect=run) as model, self.assertRaises(Stopped):
+                make_plan(config, brief, root, [], stop=lambda: canceled)
+            model.assert_called_once()
+            self.assertTrue((root / 'planner-result.json').exists())
+            self.assertFalse((root / 'plan.json').exists())
+
+    def test_started_plan_and_changed_brief_remain_protected(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            config, brief, raw = self.setup_case(root)
+            save(root / 'plan.json', {'briefHash': fingerprint(brief), 'plan': raw})
+            save(root / 'render-request.json', {'plan': raw, 'frozen': True})
+            before = {name: (root / name).read_bytes() for name in ('plan.json', 'render-request.json')}
+            with patch('planner.run_owned') as model:
+                self.assertEqual(make_plan(config, brief, root, []), raw)
+                with self.assertRaisesRegex(ValueError, 'different brief'):
+                    make_plan(config, {**brief, 'prompt': 'Changed'}, root, [])
+            model.assert_not_called()
+            for name, data in before.items(): self.assertEqual((root / name).read_bytes(), data)
+
+    def test_short_schema_and_native_validation_require_a_submitted_sheet(self):
+        for seconds in (60, 90, 119):
+            with self.subTest(seconds=seconds), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                config, brief, raw = self.setup_case(root); raw['duration'] = seconds
+                def run(command, *args, **kwargs):
+                    self.assertEqual(load(root / 'plan-schema.json')['properties']['duration']['minimum'], 60)
+                    save(Path(command[command.index('--output-last-message') + 1]), raw)
+                with patch('planner.run_owned', side_effect=run):
+                    result = make_plan(config, brief, root, [])
+                self.assertEqual(result['duration'], seconds)
+                self.assertEqual(render_brief({'directory': str(root), 'plan': result}), brief)
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); config, brief, raw = self.setup_case(root)
+            brief['details'].pop('lyricSheet'); brief['details']['references'] = [{'url': 'https://example.com'}]
+            raw['duration'] = 90
+            def run(command, *args, **kwargs):
+                self.assertEqual(load(root / 'plan-schema.json')['properties']['duration']['minimum'], 120)
+                save(Path(command[command.index('--output-last-message') + 1]), raw)
+            with patch('planner.run_owned', side_effect=run), self.assertRaisesRegex(ValueError, 'Invalid duration'):
+                make_plan(config, brief, root, [])
+
+    def test_lyric_length_suggestion_fits_words_and_retains_explicit_override(self):
+        default = {'target_seconds': 240, 'explicit_user_length_overrides': True}
+        brief = {'prompt': 'A song', 'details': {'lyricSheet': {'text': 'word ' * 111}}}
+        result = duration_suggestion(brief, default)
+        self.assertEqual(result['target_seconds'], 85)
+        self.assertTrue(result['explicit_user_length_overrides'])
+        self.assertEqual(duration_suggestion({'details': {}}, default), default)
+        brief['details']['lyricSheet']['text'] = 'word ' * 40
+        self.assertEqual(duration_suggestion(brief, default)['target_seconds'], 60)
+        brief['details']['lyricSheet']['text'] = 'word ' * 120
+        with self.assertRaisesRegex(ValueError, 'duration long enough'):
+            validate_materials({'recipe': 'new', 'duration': 60, 'lyrics': 'word ' * 120}, brief)
+
 
 if __name__ == '__main__': unittest.main()

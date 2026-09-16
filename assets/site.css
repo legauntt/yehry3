@@ -2086,3 +2086,12 @@ button.lyric-line:hover {
 .remix-comparison audio { display: block; width: 100%; margin-top: .8rem; }
 .remix-comparison h2 { font-size: 1.25rem; }
 @media print { .remix-comparison { display: none; } }
+
+.generation-panel,.generation-review{margin:1.5rem 0;padding:1rem;border:1px solid var(--line,#b6aa8c);border-radius:8px}
+.generation-enable{display:flex;gap:.65rem;align-items:center;margin:1rem 0}.generation-enable input,.composition-choice input{width:auto;flex:none}
+.generation-group{margin:1rem 0}.generation-group summary{cursor:pointer;font-weight:700;padding:.7rem 0}
+.generation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.generation-grid>*{min-width:0}.generation-grid textarea,.generation-grid input,.generation-grid select{width:100%}
+.generation-brief dd{white-space:pre-wrap;overflow-wrap:anywhere}.generation-review textarea{width:100%;font:inherit}.composition-choice{margin:1rem 0;min-width:0}.composition-choice audio{width:100%}
+@media(max-width:600px){.generation-grid{grid-template-columns:1fr}.generation-panel,.generation-review{padding:.8rem}}
+
+.voice-model-badge.v8 { background: #e0ddff; color: #45377a; }
