@@ -123,7 +123,9 @@ test("generated summary omits large fields and per-song fallbacks preserve the f
 });
 
 test("generated lyric pages retain their share previews ahead of the new-song fallback", async () => {
-  const { routes } = JSON.parse(await readFile(new URL("../dist/staticwebapp.config.json", import.meta.url), "utf8"));
+  const hostingText = await readFile(new URL("../dist/staticwebapp.config.json", import.meta.url), "utf8");
+  assert.ok(Buffer.byteLength(hostingText) <= 20000, "Azure routing configuration must fit its 20 KB limit");
+  const { routes } = JSON.parse(hostingText);
   const fallback = routes.findIndex(route => route.route === "/lyrics/*");
   assert.ok(fallback >= 0);
   assert.equal(routes[fallback].rewrite, "/lyrics/index.html");

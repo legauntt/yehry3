@@ -93,9 +93,12 @@ const lyricsFallback = hosting.routes.findIndex(route => route.route === "/lyric
 if (lyricsFallback < 0) throw new Error("Missing lyrics fallback route");
 hosting.routes.splice(lyricsFallback, 0, ...[...aliases].map(alias => ({
   route: `/lyrics/${alias}/index.html`,
-  headers: { "Cache-Control": "no-cache" },
 })));
-await writeFile(hostingFile, JSON.stringify(hosting, null, 2) + "\n");
+// Azure limits this file to 20 KB. Keep the generated artifact compact and fail
+// here if catalog growth ever requires a different routing strategy.
+const hostingJson = JSON.stringify(hosting);
+if (Buffer.byteLength(hostingJson) > 20000) throw new Error("Azure routing configuration exceeds 20 KB");
+await writeFile(hostingFile, hostingJson);
 // Every shared Tommy line gets its own copy of the share page at dist/wiseau/<id>/index.html,
 // so a link preview (Discord, Slack, iMessage) quotes the line instead of the generic page.
 // Azure serves that directory for /wiseau/<id>; a /wiseau/* rewrite would shadow it, so
