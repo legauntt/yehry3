@@ -34,6 +34,7 @@ test("123-song pagination supports deep links, history, filtering, sorting and m
   await expect(page.locator(".track-number").first()).toHaveText("76");
   await page.reload();
   await expect(page.locator(".track-number").first()).toHaveText("76");
+  await page.locator(".catalog-filters > summary").click();
   await page.getByLabel("Collection", { exact: true }).selectOption("tonyai");
   expect(new URL(page.url()).searchParams.has("page")).toBe(false);
   await expect(page.locator("#track-count")).toHaveText("60 songs · Showing 1–25");
@@ -59,6 +60,7 @@ test("123-song pagination supports deep links, history, filtering, sorting and m
   await page.reload();
   await expect(page.getByLabel("Sort songs")).toHaveValue("plays");
   await expect(page.locator("#most-listened")).toBeHidden();
+  await page.locator(".catalog-filters > summary").click();
   for (const [sort, first] of [["plays", "Track 123"], ["least-played", "Track 001"], ["least-recent", "Track 001"]]) {
     await page.getByLabel("Sort songs").selectOption(sort);
     await expect(page.locator(".track h3").first()).toHaveText(first);
@@ -109,13 +111,17 @@ test("late live data and saved-profile loading retain requested pages; invalid p
   await page.goto(`/?sort=catalog&page=3&saved=1&profile=${profile.id}`);
   await expect(page.locator(".track-number").first()).toHaveText("51");
   await expect(page).toHaveURL(/page=3/);
+  await expect(page.locator(".catalog-filters")).not.toHaveAttribute("open", "");
+  await expect(page.locator(".active-filter")).toHaveText(["Saved songs", "Sort: Latest additions"]);
   await expect(page.locator("#listening-total")).toHaveText("1,770");
   await expect(page.locator("#listening-reach")).toHaveText("59 of 60");
   await page.locator(".profile-details > summary").click();
   await page.locator("#saved-only").click();
   await expect(page.locator(".track-number").first()).toHaveText("01");
   await expect(page.locator("#listening-total")).toHaveText("7,503");
+  await expect(page.locator(".active-filter")).toHaveText(["Sort: Latest additions"]);
   await page.goBack();
+  await expect(page.locator(".active-filter")).toHaveText(["Saved songs", "Sort: Latest additions"]);
   await expect(page.locator(".track-number").first()).toHaveText("51");
   await page.goto("/?sort=catalog&page=999");
   await expect(page).toHaveURL(/page=5/);

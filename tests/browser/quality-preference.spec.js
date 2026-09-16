@@ -20,6 +20,7 @@ test.beforeEach(async ({ context }) => {
 
 test("issues default on and the preference persists across reloads and listening pages", async ({ page }) => {
   await page.goto("/");
+  await page.locator(".catalog-filters > summary").click();
   await page.getByRole("button", { name: "Open display settings" }).click();
   const toggle = page.getByRole("checkbox", { name: 'Show “Has issues”' });
   await expect(toggle).toBeChecked();
@@ -28,18 +29,21 @@ test("issues default on and the preference persists across reloads and listening
   await expect(page.locator(".quality-notice")).toBeHidden();
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe("false");
   await page.reload();
+  await page.locator(".catalog-filters > summary").click();
   for (const path of ["/", "/lyrics/?song=preference-song", "/queue/", "/fearhunger/"]) {
     await page.goto(path);
     await expect(page.locator(".quality-notice").filter({ hasText: "35 seconds" })).toHaveCount(1);
     await expect(page.locator(".quality-notice:visible")).toHaveCount(0);
   }
   await page.goto("/");
+  await page.locator(".catalog-filters > summary").click();
   await page.getByRole("button", { name: "Open display settings" }).click();
   await expect(toggle).not.toBeChecked();
   await toggle.check();
   await expect(page.locator(".quality-notice").filter({ hasText: "35 seconds" })).toBeVisible();
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe("true");
   await page.goto("/");
+  await page.locator(".catalog-filters > summary").click();
   await page.getByRole("button", { name: "Open display settings" }).click();
   await expect(toggle).toBeChecked();
   await expect(page.locator(".quality-notice")).toBeVisible();
@@ -50,8 +54,10 @@ test("issues default on and the preference persists across reloads and listening
 
 test("open tabs follow changes and clearing the preference restores the default", async ({ page, context }) => {
   await page.goto("/");
+  await page.locator(".catalog-filters > summary").click();
   const second = await context.newPage();
   await second.goto("/");
+  await second.locator(".catalog-filters > summary").click();
   // The fallback catalog can paint before the fixture response arrives.
   const notice = second.locator('[data-id="preference-song"] .quality-notice');
   await expect(notice).toBeVisible();
@@ -71,6 +77,7 @@ test("blocked localStorage still allows the current page to toggle notices", asy
     Storage.prototype.setItem = () => { throw new DOMException("Blocked", "SecurityError"); };
   });
   await page.goto("/");
+  await page.locator(".catalog-filters > summary").click();
   await page.getByRole("button", { name: "Open display settings" }).click();
   const toggle = page.getByRole("checkbox", { name: 'Show “Has issues”' });
   await expect(toggle).toBeChecked();
@@ -94,11 +101,13 @@ test("blocked localStorage still allows the current page to toggle notices", asy
 
 test("record preferences and the new indicator persist across navigation and sync between tabs", async ({ page, context }) => {
   await page.goto("/");
+  await page.locator(".catalog-filters > summary").click();
   const opener = page.getByRole("button", { name: "Open display settings" });
   await expect(page.locator(".settings-new")).toBeVisible();
   await expect(opener).toHaveAccessibleDescription("New record spinning preferences available.");
   const second = await context.newPage();
   await second.goto("/");
+  await second.locator(".catalog-filters > summary").click();
   await expect(second.locator(".settings-new")).toBeVisible();
   await opener.click();
   await expect(second.locator(".settings-new")).toBeHidden();
@@ -109,10 +118,12 @@ test("record preferences and the new indicator persist across navigation and syn
   await expect(second.getByRole("checkbox", { name: "Spin while music plays" })).toBeChecked();
   await expect(second.locator(".record")).toHaveAttribute("data-spin-rate", "1.25");
   await page.reload();
+  await page.locator(".catalog-filters > summary").click();
   await expect(page.locator(".settings-new")).toBeHidden();
   await expect(page.locator(".record")).toHaveAttribute("data-spin-rate", "1.25");
   await page.goto("/queue/");
   await page.goto("/");
+  await page.locator(".catalog-filters > summary").click();
   await expect(page.locator(".settings-new")).toBeHidden();
   await opener.click();
   await expect(page.getByRole("checkbox", { name: "Continuous record spins" })).toBeChecked();
@@ -129,6 +140,7 @@ test("new preferences use a still badge with reduced motion and fit a small scre
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.setViewportSize({ width: 320, height: 640 });
   await page.goto("/");
+  await page.locator(".catalog-filters > summary").click();
   const opener = page.getByRole("button", { name: "Open display settings" });
   await expect(page.locator(".settings-new")).toBeVisible();
   expect(await opener.evaluate(element => getComputedStyle(element).animationName)).toBe("none");
@@ -147,6 +159,7 @@ test("new preferences use a still badge with reduced motion and fit a small scre
 
 test("the hero record spins on arrival and remains interactive with reduced motion", async ({ page }) => {
   await page.goto("/");
+  await page.locator(".catalog-filters > summary").click();
   const record = page.locator(".record");
   await expect(record).toHaveAttribute("data-motion", "active");
   await expect(record).toHaveAttribute("role", "button");
@@ -191,6 +204,7 @@ test("the hero record spins on arrival and remains interactive with reduced moti
   await expect(record).not.toHaveClass(/record-spin/);
   await expect.poll(() => record.evaluate((element) => element.getAnimations().length)).toBe(0);
   await page.reload();
+  await page.locator(".catalog-filters > summary").click();
   await expect(record).toHaveAttribute("data-motion", "reduced");
   await expect(record).toHaveClass(/record-spin-intro/);
   expect(await record.evaluate((element) => element.getAnimations()[0].effect.getTiming().iterations)).toBe(3);

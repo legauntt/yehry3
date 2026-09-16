@@ -12,6 +12,7 @@ test("catalog, search, player, and anonymous vote cooldown", async ({
   await page.goto("/");
   await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
   await expect(page.locator("[data-vote]").first()).toBeEnabled();
+  await page.locator(".catalog-filters > summary").click();
   await page.getByLabel("Search songs").fill("Fear and Hunger");
   await expect(page.locator(".track")).toHaveCount(3);
   await page.locator("[data-play]").first().click();
@@ -52,6 +53,13 @@ test("shareable collection, search and sort survive reload and browser history",
   await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.goto("/?ref=friend#collection-title");
   await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
+  const filters = page.locator(".catalog-filters");
+  const summary = filters.locator("summary");
+  await expect(filters).not.toHaveAttribute("open", "");
+  await expect(page.getByLabel("Search songs")).toBeHidden();
+  await expect(page.locator("#active-filters")).toBeHidden();
+  await summary.press("Enter");
+  await expect(page.getByLabel("Search songs")).toBeVisible();
   await page.getByLabel("Collection", { exact: true }).selectOption("shiablo");
   await expect(page.locator(".track")).toHaveCount(3);
   await expect(page.locator(".track a[href^='/lyrics/']")).toHaveCount(3);
@@ -61,6 +69,12 @@ test("shareable collection, search and sort survive reload and browser history",
   const sortedUrl = page.url();
   await page.getByLabel("Search songs").pressSequentially("Khalim");
   await expect(page.locator(".track")).toHaveCount(1);
+  await expect(filters).toHaveAttribute("open", "");
+  await summary.click();
+  await expect(page.locator(".active-filter")).toHaveText([
+    "Search: “Khalim”", "Shiablo: The Lord of Prisoners", "Sort: A to Z",
+  ]);
+  await expect(page.getByLabel("Search songs")).toBeHidden();
   const sharedUrl = page.url();
   const params = new URL(sharedUrl).searchParams;
   expect(params.get("q")).toBe("Khalim");
@@ -70,6 +84,8 @@ test("shareable collection, search and sort survive reload and browser history",
   await page.goBack();
   await expect(page).toHaveURL(sortedUrl);
   await expect(page.getByLabel("Search songs")).toHaveValue("");
+  await expect(page.locator(".active-filter")).toHaveText(["Shiablo: The Lord of Prisoners", "Sort: A to Z"]);
+  await expect(filters).not.toHaveAttribute("open", "");
   await expect(page.locator(".track")).toHaveCount(3);
   await page.goBack();
   await expect(page.getByLabel("Sort songs")).toHaveValue("hybrid");
@@ -91,7 +107,16 @@ test("shareable collection, search and sort survive reload and browser history",
     "Khalim Still Has a Heart",
   );
   await expect(recipient.getByLabel("Sort songs")).toHaveValue("title");
+  await expect(recipient.locator(".catalog-filters")).not.toHaveAttribute("open", "");
+  await expect(recipient.locator(".active-filter")).toHaveText([
+    "Search: “Khalim”", "Shiablo: The Lord of Prisoners", "Sort: A to Z",
+  ]);
+  await recipient.setViewportSize({ width: 320, height: 800 });
+  expect(await recipient.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await recipient.locator(".catalog-filters").screenshot({ path: "artifacts/collapsed-filters-mobile.png" });
   await recipient.close();
+  await expect(filters).not.toHaveAttribute("open", "");
+  await summary.click();
   await page.getByLabel("Search songs").fill("Fear & Hunger / Tony's + hook");
   await expect
     .poll(() => new URL(page.url()).searchParams.get("q"))
@@ -100,9 +125,13 @@ test("shareable collection, search and sort survive reload and browser history",
   await expect(page.getByLabel("Search songs")).toHaveValue(
     "Fear & Hunger / Tony's + hook",
   );
+  await expect(filters).not.toHaveAttribute("open", "");
+  await expect(page.locator(".active-filter").first()).toHaveText("Search: “Fear & Hunger / Tony's + hook”");
+  await summary.press("Space");
   await page.getByLabel("Search songs").fill("");
   await page.getByLabel("Collection", { exact: true }).selectOption("all");
   await page.getByLabel("Sort songs").selectOption("hybrid");
+  await expect(page.locator("#active-filters")).toBeHidden();
   await expect(page).toHaveURL(/\/\?ref=friend#collection-title$/);
   await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
   await page.goto("/?collection=unknown&sort=unknown");
@@ -460,6 +489,7 @@ test("generated song lyrics, dual collection filtering, and API outage fallback"
   );
   await expect(song).toContainText("Blood on My Shoes at Daybreak");
   await expect(song).toContainText("Fear & Hunger");
+  await page.locator(".catalog-filters > summary").click();
   await page.getByLabel("Search songs").fill("Blood on My Shoes at Daybreak");
   await page.getByLabel("Collection", { exact: true }).selectOption("distonyc");
   await expect(song).toBeVisible();

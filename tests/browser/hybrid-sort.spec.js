@@ -43,6 +43,7 @@ test("fresh releases lead the default sort before older songs ranked by votes", 
   await expect(page.locator('[data-id="recent-queue"] .track-age')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 
+  await page.locator(".catalog-filters > summary").click();
   await page.getByLabel("Sort songs").selectOption("catalog");
   await expect(page.locator(".track h3")).toHaveText([
     "Old low", "Fresh from song order", "Old high", "Fresh from queue", "Old middle",
@@ -70,6 +71,7 @@ test("missing release dates remain unavailable after sorting", async ({ page }) 
     "Age unavailable", "Age unavailable", "Age unavailable", "Age unavailable", "Age unavailable",
   ]);
 
+  await page.locator(".catalog-filters > summary").click();
   await page.getByLabel("Sort songs").selectOption("title");
   await expect(page.locator(".track h3")).toHaveText(["Alpha", "Bravo", "Charlie", "Delta", "Echo"]);
   await expect(page.locator(".track-age")).toHaveText([

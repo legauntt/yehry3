@@ -7,6 +7,7 @@ test("headlines vary per visit, stay stable through filtering, and carry through
   const text = await headline.innerText();
   expect(brandLines).toContain(text);
   await expect(page.locator("[data-brand-footer]")).toHaveText(`YEHRY3 · ${text.replace("\n", " ")}`);
+  await page.locator(".catalog-filters > summary").click();
   await page.locator("#search").fill("a");
   await expect(headline).toHaveText(text.replace("\n", ""));
   await page.reload();

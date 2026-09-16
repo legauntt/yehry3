@@ -111,6 +111,7 @@ for (const reducedMotion of ["reduce", "no-preference"]) {
     await page.goto("/");
     const record = page.getByRole("button", { name: "Spin the record", exact: true });
     await record.click({ force: true });
+    await page.locator(".catalog-filters > summary").click();
     await page.getByRole("button", { name: "Open display settings" }).click();
     const continuous = page.getByRole("checkbox", { name: "Continuous record spins" });
     await expect(continuous).not.toBeChecked();
@@ -130,6 +131,7 @@ for (const reducedMotion of ["reduce", "no-preference"]) {
     await page.reload();
     await expect(record).toHaveAttribute("data-spin-rate", "1.25");
     await expect(record).not.toHaveClass(/record-spin-intro/);
+    await page.locator(".catalog-filters > summary").click();
     await page.getByRole("button", { name: "Open display settings" }).click();
     await expect(continuous).toBeChecked();
     await continuous.uncheck();
@@ -144,6 +146,7 @@ for (const reducedMotion of ["reduce", "no-preference"]) {
     await page.getByRole("button", { name: "Play Record playback test", exact: true }).click();
     await expect.poll(() => audio.evaluate(element => element.currentTime)).toBeGreaterThan(0);
     await audio.evaluate(element => { element.currentTime = 30; });
+    await page.locator(".catalog-filters > summary").click();
     await page.getByRole("button", { name: "Open display settings" }).click();
     const playback = page.getByRole("checkbox", { name: "Spin while music plays" });
     const continuous = page.getByRole("checkbox", { name: "Continuous record spins" });

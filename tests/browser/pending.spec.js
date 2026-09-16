@@ -83,6 +83,7 @@ test("three collapsed upcoming rows refresh and publish without losing disclosur
   await expect(song.locator(".quality-notice")).toHaveAttribute("open", "");
   expect(Math.abs(await page.locator('.track[data-id="catalog-8"]').evaluate(row => row.getBoundingClientRect().top) - anchorTop)).toBeLessThan(2);
   expect(await page.evaluate(() => window.savedAudio === document.querySelector("#audio") && !window.savedAudio.paused)).toBe(true);
+  await page.locator(".catalog-filters > summary").click();
   await page.getByLabel("Sort songs").selectOption("title");
   await expect(page.locator(".track").first()).toContainText("Catalog song 00");
 });
