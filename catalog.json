@@ -2,6 +2,376 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-e0948b7cab2b57483af42cb7",
+      "title": "Arbys at Eleven",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e0948b7cab2b57483af42cb7-3869ab8c24f3.mp3",
+      "duration": 239.9869387755102,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-17T20:27:23.270Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Arbys at Eleven",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 240-second accordion-led dark carnival punk-rock song in D minor and 4/4. Begin immediately with voice and lone wheezing accordion, then add electric guitar, melodic bass, and punchy drums. Verses use stop-start comic tension; choruses open into a fast, catchable singalong without losing Tony’s rough, smoky V8 slurs. The bridge strips back to accordion and bass before a full-band final build. Pace the final chorus so its last sustained syllable lands 8–12 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nNoon on the dashboard, hunger on the dial\nTony sees the Arby's sign from half a mile\nAccordion wheezing like a warning in the rain\nHe says, “Just give me roast beef—don't do this again”\n\n[Verse 1]\nHe pulls into Arby's with a five and a plan\nThe lights blink twice, then the whole day jams\nThe menu board shivers, the parking lot tilts\nHis curly fries scatter as the universe wilts\nHe pounds on the window, “I ordered the meats!”\nBut history comes crashing through the passenger seat\nEvery single lunchtime, every desperate drive\nTony gets 9/11'd before the meal arrives\n\n[Chorus]\nArby's, Arby's, hand me the meats\nBefore 9/11 comes wrecking these streets\nArby's, Arby's, open the door\nI've been 9/11'd nine times before\nI don't want prophecy, panic, or flames\nI want roast beef and the sauce with the name\nBut every time the paper bag comes into view\n9/11 finds Tony and 9/11s lunch too\n\n[Verse 2]\nTuesday at Arby's, he disguises his face\nOrders under “Larry” at a different place\nHe whispers to the cashier, “Keep everything calm”\nThen the soda machine starts sounding the alarm\nThe ceiling fan freezes, the clock strikes eleven\nHis sandwich gets launched toward an absent heaven\nTony ducks low with a furious curse\n“Getting 9/11'd twice was bad—this is worse!”\n\n[Chorus]\nArby's, Arby's, hand me the meats\nBefore 9/11 comes wrecking these streets\nArby's, Arby's, open the door\nI've been 9/11'd nine times before\nI don't want prophecy, panic, or flames\nI want roast beef and the sauce with the name\nBut every time the paper bag comes into view\n9/11 finds Tony and 9/11s lunch too\n\n[Bridge]\nHe tries the drive-through at quarter to ten\nCircles the building, then circles again\n“No towers, no omens, no terrible scene—\nJust Arby's roast beef and a shake machine”\nThe accordion gasps; all the traffic stands still\nTony grabs the brown bag by force of will\nThe sky starts growling, but he growls back louder:\n“You can 9/11 my day—not my horsey-sauce powder!”\n\n[Verse]\nHe tears through the wrapper; the hot steam climbs\nFor once, Arby's beats the collapse of the times\nThe sirens begin, but the first bite lands\nRoast beef, curly fries, both safe in his hands\nThe world may go sideways, the windows may shake\n9/11 may follow each lunch that I take\nBut hunger kept walking through every attack\nTony got the meats—and the meats fought back\n\n[Chorus]\nArby's, Arby's, Tony has the meats\nLet 9/11 thunder and batter the streets\nArby's, Arby's, lunch finally won\nNo falling disaster can make it undone\nHe lifts up the sandwich, triumphant and loud:\n“9/11'd again—but I'm eating it now!”\nThe last chord lands as he finishes the bite\nArby's in his hands, and the ending comes right\n\n[End]",
+        "duration": 240,
+        "bpm": 132,
+        "musicalSettings": {
+          "genre": "Dark carnival punk rock",
+          "meter": "4/4",
+          "structure": "Intro, verse, chorus, verse, chorus, bridge, final verse, final chorus, resolved ending",
+          "performance": "Natural but unruly Tony V8 lead: smoky, connected vowels, crooked timing, muttered irritation, and excited melodic outbursts; choruses remain clearly catchable.",
+          "energy": "Immediate comic tension, increasingly frantic verses, a stripped-down bridge, then a triumphant full-band finale.",
+          "lyricWorkflow": "Original narrative dark comedy built as an escalating lunch-time loop, ending with Tony finally securing and eating his Arby’s order.",
+          "instruments": [
+            "Accordion",
+            "Electric guitar",
+            "Electric bass",
+            "Drums"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nNoon on the dashboard, hunger on the dial\nTony sees the Arby's sign from half a mile\nAccordion wheezing like a warning in the rain\nHe says, “Just give me roast beef—don't do this again”\n\n[Verse 1]\nHe pulls into Arby's with a five and a plan\nThe lights blink twice, then the whole day jams\nThe menu board shivers, the parking lot tilts\nHis curly fries scatter as the universe wilts\nHe pounds on the window, “I ordered the meats!”\nBut history comes crashing through the passenger seat\nEvery single lunchtime, every desperate drive\nTony gets 9/11'd before the meal arrives\n\n[Chorus]\nArby's, Arby's, hand me the meats\nBefore 9/11 comes wrecking these streets\nArby's, Arby's, open the door\nI've been 9/11'd nine times before\nI don't want prophecy, panic, or flames\nI want roast beef and the sauce with the name\nBut every time the paper bag comes into view\n9/11 finds Tony and 9/11s lunch too\n\n[Verse 2]\nTuesday at Arby's, he disguises his face\nOrders under “Larry” at a different place\nHe whispers to the cashier, “Keep everything calm”\nThen the soda machine starts sounding the alarm\nThe ceiling fan freezes, the clock strikes eleven\nHis sandwich gets launched toward an absent heaven\nTony ducks low with a furious curse\n“Getting 9/11'd twice was bad—this is worse!”\n\n[Chorus]\nArby's, Arby's, hand me the meats\nBefore 9/11 comes wrecking these streets\nArby's, Arby's, open the door\nI've been 9/11'd nine times before\nI don't want prophecy, panic, or flames\nI want roast beef and the sauce with the name\nBut every time the paper bag comes into view\n9/11 finds Tony and 9/11s lunch too\n\n[Bridge]\nHe tries the drive-through at quarter to ten\nCircles the building, then circles again\n“No towers, no omens, no terrible scene—\nJust Arby's roast beef and a shake machine”\nThe accordion gasps; all the traffic stands still\nTony grabs the brown bag by force of will\nThe sky starts growling, but he growls back louder:\n“You can 9/11 my day—not my horsey-sauce powder!”\n\n[Verse]\nHe tears through the wrapper; the hot steam climbs\nFor once, Arby's beats the collapse of the times\nThe sirens begin, but the first bite lands\nRoast beef, curly fries, both safe in his hands\nThe world may go sideways, the windows may shake\n9/11 may follow each lunch that I take\nBut hunger kept walking through every attack\nTony got the meats—and the meats fought back\n\n[Chorus]\nArby's, Arby's, Tony has the meats\nLet 9/11 thunder and batter the streets\nArby's, Arby's, lunch finally won\nNo falling disaster can make it undone\nHe lifts up the sandwich, triumphant and loud:\n“9/11'd again—but I'm eating it now!”\nThe last chord lands as he finishes the bite\nArby's in his hands, and the ending comes right",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.88,
+            "end": 7.2
+          },
+          {
+            "line": 2,
+            "start": 7.68,
+            "end": 10.9
+          },
+          {
+            "line": 3,
+            "start": 11.2,
+            "end": 14.28
+          },
+          {
+            "line": 4,
+            "start": 14.82,
+            "end": 17.86
+          },
+          {
+            "line": 7,
+            "start": 23.24,
+            "end": 27.02
+          },
+          {
+            "line": 8,
+            "start": 27.44,
+            "end": 30.96
+          },
+          {
+            "line": 9,
+            "start": 31.26,
+            "end": 34.6
+          },
+          {
+            "line": 10,
+            "start": 34.74,
+            "end": 38.22
+          },
+          {
+            "line": 11,
+            "start": 38.42,
+            "end": 41.58
+          },
+          {
+            "line": 12,
+            "start": 42.24,
+            "end": 45.26
+          },
+          {
+            "line": 13,
+            "start": 45.26,
+            "end": 50
+          },
+          {
+            "line": 14,
+            "start": 50,
+            "end": 53.16
+          },
+          {
+            "line": 17,
+            "start": 55.22,
+            "end": 58.12
+          },
+          {
+            "line": 18,
+            "start": 58.12,
+            "end": 61.66
+          },
+          {
+            "line": 19,
+            "start": 62.6,
+            "end": 65.36
+          },
+          {
+            "line": 20,
+            "start": 65.36,
+            "end": 68.6
+          },
+          {
+            "line": 21,
+            "start": 68.6,
+            "end": 71.08
+          },
+          {
+            "line": 22,
+            "start": 71.08,
+            "end": 72.96
+          },
+          {
+            "line": 23,
+            "start": 72.96,
+            "end": 76.2
+          },
+          {
+            "line": 24,
+            "start": 76.64,
+            "end": 80.78
+          },
+          {
+            "line": 27,
+            "start": 82.1,
+            "end": 85.06
+          },
+          {
+            "line": 28,
+            "start": 85.8,
+            "end": 88.96
+          },
+          {
+            "line": 29,
+            "start": 89.42,
+            "end": 92.56
+          },
+          {
+            "line": 30,
+            "start": 92.88,
+            "end": 96.08
+          },
+          {
+            "line": 31,
+            "start": 96.74,
+            "end": 99.68
+          },
+          {
+            "line": 32,
+            "start": 100.3,
+            "end": 103.36
+          },
+          {
+            "line": 33,
+            "start": 104.02,
+            "end": 106.98
+          },
+          {
+            "line": 34,
+            "start": 106.98,
+            "end": 110.74
+          },
+          {
+            "line": 37,
+            "start": 111.62,
+            "end": 114.28
+          },
+          {
+            "line": 38,
+            "start": 114.8,
+            "end": 117.96
+          },
+          {
+            "line": 39,
+            "start": 119,
+            "end": 121.78
+          },
+          {
+            "line": 40,
+            "start": 122.2,
+            "end": 125.06
+          },
+          {
+            "line": 41,
+            "start": 125.06,
+            "end": 127.44
+          },
+          {
+            "line": 42,
+            "start": 127.44,
+            "end": 129.34
+          },
+          {
+            "line": 43,
+            "start": 129.34,
+            "end": 132.5
+          },
+          {
+            "line": 44,
+            "start": 133.04,
+            "end": 136.66
+          },
+          {
+            "line": 47,
+            "start": 139.96,
+            "end": 143.3
+          },
+          {
+            "line": 48,
+            "start": 143.82,
+            "end": 146.96
+          },
+          {
+            "line": 49,
+            "start": 147.66,
+            "end": 150.7
+          },
+          {
+            "line": 50,
+            "start": 151.3,
+            "end": 153.84
+          },
+          {
+            "line": 51,
+            "start": 154.72,
+            "end": 158.1
+          },
+          {
+            "line": 52,
+            "start": 158.1,
+            "end": 161.62
+          },
+          {
+            "line": 53,
+            "start": 162.1,
+            "end": 165.2
+          },
+          {
+            "line": 54,
+            "start": 165.64,
+            "end": 168.9
+          },
+          {
+            "line": 57,
+            "start": 169.4,
+            "end": 172.48
+          },
+          {
+            "line": 58,
+            "start": 173.08,
+            "end": 176.18
+          },
+          {
+            "line": 59,
+            "start": 176.74,
+            "end": 180.4
+          },
+          {
+            "line": 60,
+            "start": 180.4,
+            "end": 183.44
+          },
+          {
+            "line": 61,
+            "start": 183.44,
+            "end": 187
+          },
+          {
+            "line": 62,
+            "start": 187.46,
+            "end": 190.72
+          },
+          {
+            "line": 63,
+            "start": 191.16,
+            "end": 194.44
+          },
+          {
+            "line": 64,
+            "start": 195.36,
+            "end": 198.14
+          },
+          {
+            "line": 67,
+            "start": 206.18,
+            "end": 208.88
+          },
+          {
+            "line": 68,
+            "start": 209.52,
+            "end": 212.48
+          },
+          {
+            "line": 69,
+            "start": 213.44,
+            "end": 215.26
+          },
+          {
+            "line": 70,
+            "start": 215.26,
+            "end": 216.14
+          },
+          {
+            "line": 71,
+            "start": 216.14,
+            "end": 216.64
+          },
+          {
+            "line": 72,
+            "start": 216.64,
+            "end": 219.86
+          },
+          {
+            "line": 73,
+            "start": 220.38,
+            "end": 224.6
+          },
+          {
+            "line": 74,
+            "start": 224.6,
+            "end": 227.22
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Every time Tony C tries to get some delicious Arby's® Meats, he gets 9/11'd.",
+        "direction": "Use the prompt as written.",
+        "keep": "Arby's must be named multiple times. 9/11 must be named numerous times.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Accordion"
+          ],
+          "duration": 240
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-b46e8c8bf63e5ab39a658bcc",
       "title": "Midnight Alibi",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b46e8c8bf63e5ab39a658bcc-3252a6419868.mp3",
