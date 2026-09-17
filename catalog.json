@@ -2,6 +2,484 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-b6e2b80802f3ff406a77c0e9",
+      "title": "The House I Wasn't In",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b6e2b80802f3ff406a77c0e9-6e0cb2dcc503.mp3",
+      "duration": 419.99673469387756,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-17T23:46:33.980Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The House I Wasn't In",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A seven-minute gothic soul-rock lament in 6/8, built from close-miked drums, melodic electric bass, baritone electric guitar, Hammond organ, piano and restrained cello. Begin immediately with a sparse Tony V8 lead over piano and bass, then widen into heavy refrains with toms, organ and sustained guitar. Keep the repeated date phrase obsessive but melodic, changing harmony and intensity across its four appearances. A brief instrumental turn provides breath without removing the singer for long. The bridge drops to heartbeat bass and floor tom before the final verse moves from accusation toward self-release. Tony's delivery is rough, smoky and connected, with cracked sustained notes, slurred consonants and restrained muttered edges while the central refrain stays intelligible. Let the last line stretch so its final sung syllable lands about 8–12 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nThe clock above the stove had stopped at 2:13\nYour coffee cup was waiting where it always used to be\nA message on the machine said you were heading home\nI heard your tired little laugh, then I heard the tone\nSeptember 11th came down without a warning bell\nRed lights washed the hallway when the sheriff came to tell\nA drunk man crossed the center line and tore our world apart\nI stood inside the house and felt the silence start\n\n[Pre-Chorus]\nI ask the empty rooms what mercy is supposed to do\nWhen every chair remembers someone taken by the truth\nI know that hate won't wake you, but I hold it like a rail\nBecause the floor beneath me disappears when I exhale\n\n[Refrain]\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nThe calendar turns over, but the night refuses to end\n\n[Verse 2]\nThere were drawings on the icebox, yellow suns and purple rain\nA jacket by the doorway with a crayon in the chain\nYour wedding ring came home to me inside a plastic sleeve\nThe smallest things have weight enough to bring me to my knees\nThey tell me he was sorry when the courtroom settled down\nHe couldn't raise his eyes while every camera turned around\nI wanted him to carry every name beneath his skin\nI wanted him to wake each night inside the wreck he'd made of them\n\n[Verse 3]\nBut anger is a tenant that keeps changing every lock\nIt drinks the morning slowly and it watches every clock\nI feed it all the questions that no witness can resolve\nWhy his hands were on that wheel, why mine weren't there at all\nI took the extra shift that night; I said we'd need the pay\nYou told me, “Don't be late,” and drove the children on your way\nNow guilt repeats that doorway like a film I cannot mend\nIf I had just been home with you—then where would sorrow end?\n\n[Refrain]\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nEvery siren finds the road and drives me backward through the rain\n\n[Instrumental Turn]\n\n[Verse 4]\nYour sister says forgiveness isn't pardon or release\nIt doesn't call the damage small or dress the wreck in peace\nIt may be setting down the glass before it cuts me through\nIt may be saying I survived without betraying you\nI wrote him seven letters, then I burned them one by one\nThe eighth one only said your names and what his choice had done\nThe ninth began, “I hate you,” and the tenth began, “I grieve”\nThe last remains unfinished: “I am trying still to live”\n\n[Bridge]\nI was not the headlights\nI was not the drink\nI was not the center line\nI could not make time blink\nI was working for our future\nI did not choose your end\nStill the old accusation circles through my head:\n\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\n\n[Verse 5]\nTonight I set four places, then I put three plates away\nI opened up the curtains at the breaking of the day\nYour roses took the winter, but one branch is showing green\nA stubborn little answer in the yard where grief has been\nI cannot give him mercy like a judge with lifted hands\nI cannot force my heart to go where it still cannot stand\nBut I can stop condemning that man working late downtown\nWho thought he served his family and was absent when night came down\n\n[Refrain]\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nThe words are still a wound, but they no longer own my name\n\n[Outro]\nI speak your names at sunrise, every syllable held clear\nMy love was in that house with you, though I could not be there\nI may never call it mercy; I may never understand\nBut I release my own throat from the judgment of my hands\nThe road keeps what it took from me; the morning still comes in\nI leave the porch light burning—then I finally step within\n\n[End]",
+        "duration": 420,
+        "bpm": 68,
+        "musicalSettings": {
+          "genre": "Gothic soul-rock lament",
+          "meter": "6/8",
+          "structure": "Verse, pre-chorus, refrain, two verses, refrain, brief instrumental turn, verse, bridge, verse, final refrain, resolved outro",
+          "performance": "Natural, rough-edged Tony V8 lead with smoky slurs, dynamic cracks and sustained melodic lines",
+          "energy": "Intimate opening, increasingly heavy grief cycles, stripped-down bridge, then a controlled and cathartic resolution",
+          "lyricWorkflow": "Narrative development from shock and blame through survivor guilt to a limited but meaningful act of self-forgiveness",
+          "instruments": [
+            "drums",
+            "electric bass",
+            "baritone electric guitar",
+            "Hammond organ",
+            "piano",
+            "cello"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThe clock above the stove had stopped at 2:13\nYour coffee cup was waiting where it always used to be\nA message on the machine said you were heading home\nI heard your tired little laugh, then I heard the tone\nSeptember 11th came down without a warning bell\nRed lights washed the hallway when the sheriff came to tell\nA drunk man crossed the center line and tore our world apart\nI stood inside the house and felt the silence start\n\n[Pre-Chorus]\nI ask the empty rooms what mercy is supposed to do\nWhen every chair remembers someone taken by the truth\nI know that hate won't wake you, but I hold it like a rail\nBecause the floor beneath me disappears when I exhale\n\n[Refrain]\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nThe calendar turns over, but the night refuses to end\n\n[Verse 2]\nThere were drawings on the icebox, yellow suns and purple rain\nA jacket by the doorway with a crayon in the chain\nYour wedding ring came home to me inside a plastic sleeve\nThe smallest things have weight enough to bring me to my knees\nThey tell me he was sorry when the courtroom settled down\nHe couldn't raise his eyes while every camera turned around\nI wanted him to carry every name beneath his skin\nI wanted him to wake each night inside the wreck he'd made of them\n\n[Verse 3]\nBut anger is a tenant that keeps changing every lock\nIt drinks the morning slowly and it watches every clock\nI feed it all the questions that no witness can resolve\nWhy his hands were on that wheel, why mine weren't there at all\nI took the extra shift that night; I said we'd need the pay\nYou told me, “Don't be late,” and drove the children on your way\nNow guilt repeats that doorway like a film I cannot mend\nIf I had just been home with you—then where would sorrow end?\n\n[Refrain]\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nEvery siren finds the road and drives me backward through the rain\n\n[Instrumental Turn]\n\n[Verse 4]\nYour sister says forgiveness isn't pardon or release\nIt doesn't call the damage small or dress the wreck in peace\nIt may be setting down the glass before it cuts me through\nIt may be saying I survived without betraying you\nI wrote him seven letters, then I burned them one by one\nThe eighth one only said your names and what his choice had done\nThe ninth began, “I hate you,” and the tenth began, “I grieve”\nThe last remains unfinished: “I am trying still to live”\n\n[Bridge]\nI was not the headlights\nI was not the drink\nI was not the center line\nI could not make time blink\nI was working for our future\nI did not choose your end\nStill the old accusation circles through my head:\n\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\n\n[Verse 5]\nTonight I set four places, then I put three plates away\nI opened up the curtains at the breaking of the day\nYour roses took the winter, but one branch is showing green\nA stubborn little answer in the yard where grief has been\nI cannot give him mercy like a judge with lifted hands\nI cannot force my heart to go where it still cannot stand\nBut I can stop condemning that man working late downtown\nWho thought he served his family and was absent when night came down\n\n[Refrain]\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nnine-eleven again\nThe words are still a wound, but they no longer own my name\n\n[Outro]\nI speak your names at sunrise, every syllable held clear\nMy love was in that house with you, though I could not be there\nI may never call it mercy; I may never understand\nBut I release my own throat from the judgment of my hands\nThe road keeps what it took from me; the morning still comes in\nI leave the porch light burning—then I finally step within",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.34,
+            "end": 10.4
+          },
+          {
+            "line": 2,
+            "start": 11.14,
+            "end": 15.64
+          },
+          {
+            "line": 3,
+            "start": 16.54,
+            "end": 20.92
+          },
+          {
+            "line": 4,
+            "start": 22.08,
+            "end": 26.4
+          },
+          {
+            "line": 5,
+            "start": 27.58,
+            "end": 31.78
+          },
+          {
+            "line": 6,
+            "start": 33.06,
+            "end": 39.16
+          },
+          {
+            "line": 7,
+            "start": 39.16,
+            "end": 42.74
+          },
+          {
+            "line": 8,
+            "start": 44.62,
+            "end": 48.14
+          },
+          {
+            "line": 11,
+            "start": 51.68,
+            "end": 57.9
+          },
+          {
+            "line": 12,
+            "start": 57.9,
+            "end": 63.36
+          },
+          {
+            "line": 13,
+            "start": 63.89,
+            "end": 69.66
+          },
+          {
+            "line": 14,
+            "start": 69.66,
+            "end": 73.78
+          },
+          {
+            "line": 17,
+            "start": 79.64,
+            "end": 81.62
+          },
+          {
+            "line": 18,
+            "start": 81.86,
+            "end": 83.04
+          },
+          {
+            "line": 19,
+            "start": 83.22,
+            "end": 84.38
+          },
+          {
+            "line": 20,
+            "start": 84.64,
+            "end": 86.04
+          },
+          {
+            "line": 21,
+            "start": 86.04,
+            "end": 88.46
+          },
+          {
+            "line": 22,
+            "start": 89.38,
+            "end": 91.58
+          },
+          {
+            "line": 25,
+            "start": 91.58,
+            "end": 98.62
+          },
+          {
+            "line": 26,
+            "start": 99.56,
+            "end": 104.08
+          },
+          {
+            "line": 27,
+            "start": 105.04,
+            "end": 109.4
+          },
+          {
+            "line": 28,
+            "start": 110.54,
+            "end": 115.52
+          },
+          {
+            "line": 29,
+            "start": 116.48,
+            "end": 120.72
+          },
+          {
+            "line": 30,
+            "start": 120.72,
+            "end": 126.4
+          },
+          {
+            "line": 31,
+            "start": 126.4,
+            "end": 131.44
+          },
+          {
+            "line": 32,
+            "start": 132.28,
+            "end": 136.92
+          },
+          {
+            "line": 35,
+            "start": 156.26,
+            "end": 161.54
+          },
+          {
+            "line": 36,
+            "start": 162.03,
+            "end": 167.04
+          },
+          {
+            "line": 37,
+            "start": 167.53,
+            "end": 172.26
+          },
+          {
+            "line": 38,
+            "start": 172.85,
+            "end": 178.2
+          },
+          {
+            "line": 39,
+            "start": 178.2,
+            "end": 183.24
+          },
+          {
+            "line": 40,
+            "start": 184.12,
+            "end": 188.8
+          },
+          {
+            "line": 41,
+            "start": 189.52,
+            "end": 194.18
+          },
+          {
+            "line": 42,
+            "start": 195.08,
+            "end": 200.18
+          },
+          {
+            "line": 45,
+            "start": 200.18,
+            "end": 202.96
+          },
+          {
+            "line": 46,
+            "start": 202.96,
+            "end": 204.14
+          },
+          {
+            "line": 47,
+            "start": 204.14,
+            "end": 205.24
+          },
+          {
+            "line": 48,
+            "start": 205.24,
+            "end": 208.22
+          },
+          {
+            "line": 49,
+            "start": 208.22,
+            "end": 209.72
+          },
+          {
+            "line": 50,
+            "start": 210.96,
+            "end": 215.62
+          },
+          {
+            "line": 55,
+            "start": 215.62,
+            "end": 221.2
+          },
+          {
+            "line": 56,
+            "start": 222.44,
+            "end": 226.78
+          },
+          {
+            "line": 57,
+            "start": 226.78,
+            "end": 232.28
+          },
+          {
+            "line": 58,
+            "start": 233.16,
+            "end": 237.8
+          },
+          {
+            "line": 59,
+            "start": 240.38,
+            "end": 244.74
+          },
+          {
+            "line": 60,
+            "start": 245.58,
+            "end": 250.14
+          },
+          {
+            "line": 61,
+            "start": 251.02,
+            "end": 255.64
+          },
+          {
+            "line": 62,
+            "start": 255.64,
+            "end": 260.3
+          },
+          {
+            "line": 65,
+            "start": 268.58,
+            "end": 270.88
+          },
+          {
+            "line": 66,
+            "start": 271.38,
+            "end": 273.18
+          },
+          {
+            "line": 67,
+            "start": 274.08,
+            "end": 276.04
+          },
+          {
+            "line": 68,
+            "start": 276.4,
+            "end": 278.76
+          },
+          {
+            "line": 69,
+            "start": 278.76,
+            "end": 281.68
+          },
+          {
+            "line": 70,
+            "start": 282.3,
+            "end": 284.34
+          },
+          {
+            "line": 71,
+            "start": 284.34,
+            "end": 289.22
+          },
+          {
+            "line": 73,
+            "start": 289.71,
+            "end": 292.12
+          },
+          {
+            "line": 74,
+            "start": 292.12,
+            "end": 293.3
+          },
+          {
+            "line": 75,
+            "start": 293.3,
+            "end": 295.62
+          },
+          {
+            "line": 76,
+            "start": 295.62,
+            "end": 298.78
+          },
+          {
+            "line": 77,
+            "start": 298.78,
+            "end": 299.9
+          },
+          {
+            "line": 80,
+            "start": 310.64,
+            "end": 315.38
+          },
+          {
+            "line": 81,
+            "start": 316.42,
+            "end": 321.18
+          },
+          {
+            "line": 82,
+            "start": 322.04,
+            "end": 326.34
+          },
+          {
+            "line": 83,
+            "start": 327.44,
+            "end": 331.86
+          },
+          {
+            "line": 84,
+            "start": 332.74,
+            "end": 337.24
+          },
+          {
+            "line": 85,
+            "start": 338.3,
+            "end": 343.14
+          },
+          {
+            "line": 86,
+            "start": 344.16,
+            "end": 348.02
+          },
+          {
+            "line": 87,
+            "start": 348.02,
+            "end": 352.46
+          },
+          {
+            "line": 90,
+            "start": 354.18,
+            "end": 355
+          },
+          {
+            "line": 91,
+            "start": 355,
+            "end": 356.2
+          },
+          {
+            "line": 92,
+            "start": 356.2,
+            "end": 357.4
+          },
+          {
+            "line": 93,
+            "start": 357.4,
+            "end": 359.74
+          },
+          {
+            "line": 94,
+            "start": 359.74,
+            "end": 361.3
+          },
+          {
+            "line": 95,
+            "start": 362.76,
+            "end": 368.28
+          },
+          {
+            "line": 98,
+            "start": 373.06,
+            "end": 378.24
+          },
+          {
+            "line": 99,
+            "start": 379.1,
+            "end": 384.7
+          },
+          {
+            "line": 100,
+            "start": 386.88,
+            "end": 392.02
+          },
+          {
+            "line": 101,
+            "start": 392.6,
+            "end": 397.96
+          },
+          {
+            "line": 102,
+            "start": 397.96,
+            "end": 402.98
+          },
+          {
+            "line": 103,
+            "start": 403.44,
+            "end": 419.82
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 9.54
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony C struggles to forgive the drunk driver who crashed into his wife's car and killed his whole family. The event happened on September 11th. He can't forgive himself for not being home that night",
+        "direction": "Use the prompt as written.",
+        "keep": "Tony remembers the day (September 11th) and often sings it as \"9/11\" (nine-eleven)\nMust include the phrase \"nine-eleven again\" 20 times.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 420
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-306805ee82de2692453537fa",
       "title": "The First Morning of Sixty",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-306805ee82de2692453537fa-b92ee0d96e1e.mp3",
