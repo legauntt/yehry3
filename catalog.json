@@ -2,6 +2,357 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a9a6d28c50b00bb60c781233",
+      "title": "I Carry Your Names Home",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a9a6d28c50b00bb60c781233-bb1f1055d485.mp3",
+      "duration": 245.04,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-17T08:57:40.772Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "I Carry Your Names Home",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A solemn psychedelic soul-rock memorial built around deep melodic bass, restrained drums, tremolo electric guitar, and shadowy organ. Verses stay intimate and tense; choruses widen with sustained guitar, fuller drums, and low backing harmonies without becoming triumphant. The bridge drops toward voice, bass, and organ before a measured final build. Use only the isolated, pinned Tony V8 voice profile: rough, smoky, connected phrasing, quiet muttered edges, and emotionally strained sustained notes, while keeping the central hook clear. Pace the final chorus and tag so the final sung syllable lands 8–12 seconds before 245 seconds, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nRain on the leaves, heat on the wire\nNight held its breath around the fire\nI close my eyes, and there you stand\nYoung as the day we reached that land\n\n[Verse 1]\nEddie kept letters inside his shirt\nRay made us laugh when the silence hurt\nTommy could find a trail through the green\nNow they return in the things that I dream\nRotor blades beating the dawn into smoke\nA radio whisper, a rifle bolt spoke\nWe counted the living when daylight was gone\nAnd learned how the world could keep moving on\n\n[Pre-Chorus]\nThey pinned up a map and called it a plan\nBut no line of ink knew the heart of a man\n\n[Chorus]\nI carry your names home\nThrough every mile I survived alone\nNo medal can answer, no flag can explain\nWhy I saw the morning and you saw the rain\nWhen memory calls me, I never let go\nI carry your names home\n\n[Verse 2]\nRed earth clung hard to the soles of our feet\nSmoke turned the noon to a merciless heat\nA village stood quiet, a doorway was bare\nFear had a face, and it lived everywhere\nWe were sons with our voices still changing at night\nTold to be certain and ordered to fight\nI remember the wounded, the frightened, the cries\nAnd the questions that stayed when the gunfire went dry\n\n[Pre-Chorus]\nThe years built a house where the old shadows roam\nSome of us returned, but not all made it home\n\n[Chorus]\nI carry your names home\nThrough every mile I survived alone\nNo medal can answer, no flag can explain\nWhy I saw the morning and you saw the rain\nWhen memory calls me, I never let go\nI carry your names home\n\n[Bridge]\nAt the wall, my hand finds every letter\nCold black stone, but I hear you better\nNot as soldiers frozen in flame\nBut as boys with a joke and a hometown name\nEddie wanted children, Ray wanted the sea\nTommy said, “Save a cold one for me”\nI kept that promise through forty long years\nOne glass for the laughter, one glass for the tears\n\n[Breakdown]\nWar does not finish when silence begins\nIt follows the living beneath their skin\nSo I speak for the friends who cannot grow old\nNot for the glory—for the truth to be told\n\n[Final Chorus]\nI carry your names home\nYou never walk that dark road alone\nNo speech can return you, no anthem erase\nThe heat of that country, the light in your face\nAs long as I’m breathing, the whole world will know\nI carry your names home\n\n[Final Tag]\nWhen my own evening comes, and the last light is low\nI’ll follow your voices wherever they go\nTill then, every sunrise, through sorrow and hope\nI carry your names...\nI carry your names home\n[End]",
+        "duration": 245,
+        "bpm": 76
+      },
+      "lyrics": {
+        "text": "[Intro]\nRain on the leaves, heat on the wire\nNight held its breath around the fire\nI close my eyes, and there you stand\nYoung as the day we reached that land\n\n[Verse 1]\nEddie kept letters inside his shirt\nRay made us laugh when the silence hurt\nTommy could find a trail through the green\nNow they return in the things that I dream\nRotor blades beating the dawn into smoke\nA radio whisper, a rifle bolt spoke\nWe counted the living when daylight was gone\nAnd learned how the world could keep moving on\n\n[Pre-Chorus]\nThey pinned up a map and called it a plan\nBut no line of ink knew the heart of a man\n\n[Chorus]\nI carry your names home\nThrough every mile I survived alone\nNo medal can answer, no flag can explain\nWhy I saw the morning and you saw the rain\nWhen memory calls me, I never let go\nI carry your names home\n\n[Verse 2]\nRed earth clung hard to the soles of our feet\nSmoke turned the noon to a merciless heat\nA village stood quiet, a doorway was bare\nFear had a face, and it lived everywhere\nWe were sons with our voices still changing at night\nTold to be certain and ordered to fight\nI remember the wounded, the frightened, the cries\nAnd the questions that stayed when the gunfire went dry\n\n[Pre-Chorus]\nThe years built a house where the old shadows roam\nSome of us returned, but not all made it home\n\n[Chorus]\nI carry your names home\nThrough every mile I survived alone\nNo medal can answer, no flag can explain\nWhy I saw the morning and you saw the rain\nWhen memory calls me, I never let go\nI carry your names home\n\n[Bridge]\nAt the wall, my hand finds every letter\nCold black stone, but I hear you better\nNot as soldiers frozen in flame\nBut as boys with a joke and a hometown name\nEddie wanted children, Ray wanted the sea\nTommy said, “Save a cold one for me”\nI kept that promise through forty long years\nOne glass for the laughter, one glass for the tears\n\n[Breakdown]\nWar does not finish when silence begins\nIt follows the living beneath their skin\nSo I speak for the friends who cannot grow old\nNot for the glory—for the truth to be told\n\n[Final Chorus]\nI carry your names home\nYou never walk that dark road alone\nNo speech can return you, no anthem erase\nThe heat of that country, the light in your face\nAs long as I’m breathing, the whole world will know\nI carry your names home\n\n[Final Tag]\nWhen my own evening comes, and the last light is low\nI’ll follow your voices wherever they go\nTill then, every sunrise, through sorrow and hope\nI carry your names...\nI carry your names home",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 4.64
+          },
+          {
+            "line": 2,
+            "start": 11.38,
+            "end": 11.82
+          },
+          {
+            "line": 3,
+            "start": 11.82,
+            "end": 15.72
+          },
+          {
+            "line": 4,
+            "start": 15.72,
+            "end": 20.96
+          },
+          {
+            "line": 7,
+            "start": 25.7,
+            "end": 29.56
+          },
+          {
+            "line": 8,
+            "start": 29.56,
+            "end": 31.72
+          },
+          {
+            "line": 9,
+            "start": 32.5,
+            "end": 35.08
+          },
+          {
+            "line": 10,
+            "start": 35.66,
+            "end": 38.28
+          },
+          {
+            "line": 11,
+            "start": 39.02,
+            "end": 41.2
+          },
+          {
+            "line": 12,
+            "start": 41.92,
+            "end": 44.5
+          },
+          {
+            "line": 13,
+            "start": 45,
+            "end": 47.74
+          },
+          {
+            "line": 14,
+            "start": 47.74,
+            "end": 51.54
+          },
+          {
+            "line": 17,
+            "start": 51.54,
+            "end": 54.56
+          },
+          {
+            "line": 18,
+            "start": 54.56,
+            "end": 57.36
+          },
+          {
+            "line": 21,
+            "start": 59.66,
+            "end": 62.06
+          },
+          {
+            "line": 22,
+            "start": 62.06,
+            "end": 65.64
+          },
+          {
+            "line": 23,
+            "start": 66.38,
+            "end": 68.96
+          },
+          {
+            "line": 24,
+            "start": 68.96,
+            "end": 72.22
+          },
+          {
+            "line": 25,
+            "start": 72.7,
+            "end": 75.38
+          },
+          {
+            "line": 26,
+            "start": 75.38,
+            "end": 82.62
+          },
+          {
+            "line": 29,
+            "start": 84.16,
+            "end": 86.76
+          },
+          {
+            "line": 30,
+            "start": 86.76,
+            "end": 90.26
+          },
+          {
+            "line": 31,
+            "start": 90.62,
+            "end": 93.56
+          },
+          {
+            "line": 32,
+            "start": 94.18,
+            "end": 96.32
+          },
+          {
+            "line": 33,
+            "start": 96.96,
+            "end": 99.78
+          },
+          {
+            "line": 34,
+            "start": 100.48,
+            "end": 102.98
+          },
+          {
+            "line": 35,
+            "start": 102.98,
+            "end": 106.14
+          },
+          {
+            "line": 36,
+            "start": 106.48,
+            "end": 109.48
+          },
+          {
+            "line": 39,
+            "start": 109.7,
+            "end": 112.46
+          },
+          {
+            "line": 40,
+            "start": 112.96,
+            "end": 115.38
+          },
+          {
+            "line": 43,
+            "start": 118.26,
+            "end": 120.42
+          },
+          {
+            "line": 44,
+            "start": 120.42,
+            "end": 124.08
+          },
+          {
+            "line": 45,
+            "start": 124.8,
+            "end": 127.4
+          },
+          {
+            "line": 46,
+            "start": 127.4,
+            "end": 130.66
+          },
+          {
+            "line": 47,
+            "start": 130.66,
+            "end": 133.78
+          },
+          {
+            "line": 48,
+            "start": 135.48,
+            "end": 137.78
+          },
+          {
+            "line": 51,
+            "start": 139.96,
+            "end": 142.32
+          },
+          {
+            "line": 52,
+            "start": 142.32,
+            "end": 145.38
+          },
+          {
+            "line": 53,
+            "start": 146.12,
+            "end": 148.7
+          },
+          {
+            "line": 54,
+            "start": 149.06,
+            "end": 151.96
+          },
+          {
+            "line": 55,
+            "start": 152.6,
+            "end": 155.06
+          },
+          {
+            "line": 56,
+            "start": 155.6,
+            "end": 158.14
+          },
+          {
+            "line": 57,
+            "start": 158.14,
+            "end": 161.48
+          },
+          {
+            "line": 58,
+            "start": 161.74,
+            "end": 164.5
+          },
+          {
+            "line": 61,
+            "start": 167.9,
+            "end": 170.62
+          },
+          {
+            "line": 62,
+            "start": 171.36,
+            "end": 173.98
+          },
+          {
+            "line": 63,
+            "start": 174.24,
+            "end": 177.3
+          },
+          {
+            "line": 64,
+            "start": 177.86,
+            "end": 180.28
+          },
+          {
+            "line": 67,
+            "start": 181.04,
+            "end": 183.56
+          },
+          {
+            "line": 68,
+            "start": 184.74,
+            "end": 187.42
+          },
+          {
+            "line": 69,
+            "start": 187.88,
+            "end": 190.6
+          },
+          {
+            "line": 70,
+            "start": 191.1,
+            "end": 193.82
+          },
+          {
+            "line": 71,
+            "start": 194.2,
+            "end": 196.96
+          },
+          {
+            "line": 72,
+            "start": 198.74,
+            "end": 200.92
+          },
+          {
+            "line": 75,
+            "start": 205.3,
+            "end": 208.66
+          },
+          {
+            "line": 76,
+            "start": 209.24,
+            "end": 211.82
+          },
+          {
+            "line": 77,
+            "start": 212.28,
+            "end": 215
+          },
+          {
+            "line": 78,
+            "start": 215.98,
+            "end": 219.16
+          },
+          {
+            "line": 79,
+            "start": 219.76,
+            "end": 226.88
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 18.46
+        }
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "Tony C remembers his fallen comrades in Vietnam and the horrors of war",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-e16203d27087fdf58c77b4a7",
       "title": "Waypoint Fever",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e16203d27087fdf58c77b4a7-6b46231298e1.mp3",
