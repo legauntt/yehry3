@@ -2,6 +2,296 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-b46e8c8bf63e5ab39a658bcc",
+      "title": "Midnight Alibi",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b46e8c8bf63e5ab39a658bcc-3252a6419868.mp3",
+      "duration": 239.9869387755102,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-17T20:15:27.281Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Midnight Alibi",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "A polished classic-rock crime caper with jazz-club color, driven by muscular electric guitar, walking electric bass, punchy drums, Hammond organ, piano, tenor saxophone and trumpet. Verses ride a sly minor-key pocket; choruses open into broad melodic rock, while the bridge uses sharp ensemble stops before a compact guitar-and-saxophone exchange. Tony V8 delivers the lead naturally: smoky, rough and loosely connected, with muttered humor and a clearly sung hook. Build from streetwise restraint to a swaggering final chorus. Pace the outro couplet so its last sustained syllable lands 8–12 seconds before 240 seconds, followed only by a resolved final chord and natural decay.",
+        "lyrics": "[Verse 1]\nSirens paint the avenue in ribbons red and blue\nTony C steps from the smoke like he has work to do\nA jeweler's window shivers, tires scream around the bend\nHe tips his hat to trouble like an old unwanted friend\nThe night clerk points eastward, Tony catches every word\nThen the bassline starts prowling and the whole block gets stirred\nHe jumps the hood, clears the alley, sends the getaway awry\nLeaves the thieves tied to a lamppost with a clean-cut alibi\n\n[Pre-Chorus]\nThe city keeps its secrets underneath a neon moon\nBut every lock starts talking when Tony hums the tune\n\n[Chorus]\nTony owns the midnight, from the gutter to the stars\nBreaking up the bad deals, shutting down the getaway cars\nWhen the morning finds the skyline and the danger disappears\nHe's between satin sheets with hot babes whispering in his ears\n\n[Verse 2]\nDown at Club Calypso, someone palms a loaded case\nA trumpet throws a warning while a spotlight finds his face\nTony slides behind the piano, lets the kingpin make his boast\nThen he spills the whole confession with a toast against the toast\nTables turn, the drummer snaps, the dancers clear the floor\nTony sends two hired bruisers through the kitchen's swinging door\nThe queen of downtown diamonds says, “You clean up rather well”\nHe laughs beneath his breath and rings the busted fire bell\n\n[Pre-Chorus]\nThe city keeps on dancing though its pulse is running wild\nTony makes the hard nights look dangerous and styled\n\n[Chorus]\nTony owns the midnight, from the gutter to the stars\nBreaking up the bad deals, shutting down the getaway cars\nWhen the morning finds the skyline and the danger disappears\nHe's between satin sheets with hot babes whispering in his ears\n\n[Bridge]\nSaxophone confession, guitar answers with a sting\nEvery cop is asking how he always knows the thing\nHe says, “Crime hates rhythm, boys—it stumbles on the four”\nThen a kiss lands on his collar as he slips out through the door\n\n[Guitar and Saxophone Break]\n\n[Verse]\nDawn pours gold on fire escapes; the headlines hit the stands\nAnother midnight empire lies in pieces by his hands\nNo medal and no sermon, just a number written twice\nTwo grown women wait upstairs with champagne packed in ice\nHe checks the street below him; every window settles down\nThen drops his coat beside the bed, the quiet king of town\n\n[Chorus]\nTony owned the midnight, now the morning knows his name\nHe caught the cars, cracked the case, and put the thieves to shame\nWith the city safe behind him and warm daylight on the sheets\nHe closes both the curtains—case complete, and night complete\n\n[Outro]\nSleep easy, little city; every debt has now been paid\nTony C is off the clock until the evening starts to fade\n\n[End]",
+        "duration": 240,
+        "bpm": 118,
+        "musicalSettings": {
+          "genre": "Classic rock with jazz-rock and smoky nightclub accents",
+          "meter": "4/4 with lightly swung verse phrasing",
+          "structure": "Verse, pre-chorus, chorus, verse, pre-chorus, chorus, bridge, short guitar-and-saxophone break, final verse, final chorus, outro",
+          "performance": "Natural Tony V8 lead: rough, smoky and slurred, with melodic hooks, sly asides and controlled outbursts",
+          "energy": "Creeping nocturnal opening, rising action through the choruses, tense bridge stops, then a bold and fully resolved finale",
+          "lyricWorkflow": "Original pulp-crime narrative with comic adult swagger, escalating set pieces and a conclusive dawn payoff",
+          "instruments": [
+            "electric guitar",
+            "electric bass",
+            "drums",
+            "Hammond organ",
+            "piano",
+            "tenor saxophone",
+            "trumpet"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nSirens paint the avenue in ribbons red and blue\nTony C steps from the smoke like he has work to do\nA jeweler's window shivers, tires scream around the bend\nHe tips his hat to trouble like an old unwanted friend\nThe night clerk points eastward, Tony catches every word\nThen the bassline starts prowling and the whole block gets stirred\nHe jumps the hood, clears the alley, sends the getaway awry\nLeaves the thieves tied to a lamppost with a clean-cut alibi\n\n[Pre-Chorus]\nThe city keeps its secrets underneath a neon moon\nBut every lock starts talking when Tony hums the tune\n\n[Chorus]\nTony owns the midnight, from the gutter to the stars\nBreaking up the bad deals, shutting down the getaway cars\nWhen the morning finds the skyline and the danger disappears\nHe's between satin sheets with hot babes whispering in his ears\n\n[Verse 2]\nDown at Club Calypso, someone palms a loaded case\nA trumpet throws a warning while a spotlight finds his face\nTony slides behind the piano, lets the kingpin make his boast\nThen he spills the whole confession with a toast against the toast\nTables turn, the drummer snaps, the dancers clear the floor\nTony sends two hired bruisers through the kitchen's swinging door\nThe queen of downtown diamonds says, “You clean up rather well”\nHe laughs beneath his breath and rings the busted fire bell\n\n[Pre-Chorus]\nThe city keeps on dancing though its pulse is running wild\nTony makes the hard nights look dangerous and styled\n\n[Chorus]\nTony owns the midnight, from the gutter to the stars\nBreaking up the bad deals, shutting down the getaway cars\nWhen the morning finds the skyline and the danger disappears\nHe's between satin sheets with hot babes whispering in his ears\n\n[Bridge]\nSaxophone confession, guitar answers with a sting\nEvery cop is asking how he always knows the thing\nHe says, “Crime hates rhythm, boys—it stumbles on the four”\nThen a kiss lands on his collar as he slips out through the door\n\n[Guitar and Saxophone Break]\n\n[Verse]\nDawn pours gold on fire escapes; the headlines hit the stands\nAnother midnight empire lies in pieces by his hands\nNo medal and no sermon, just a number written twice\nTwo grown women wait upstairs with champagne packed in ice\nHe checks the street below him; every window settles down\nThen drops his coat beside the bed, the quiet king of town\n\n[Chorus]\nTony owned the midnight, now the morning knows his name\nHe caught the cars, cracked the case, and put the thieves to shame\nWith the city safe behind him and warm daylight on the sheets\nHe closes both the curtains—case complete, and night complete\n\n[Outro]\nSleep easy, little city; every debt has now been paid\nTony C is off the clock until the evening starts to fade",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 8.52,
+            "end": 11.84
+          },
+          {
+            "line": 2,
+            "start": 12.3,
+            "end": 16.14
+          },
+          {
+            "line": 3,
+            "start": 16.6,
+            "end": 20.14
+          },
+          {
+            "line": 4,
+            "start": 20.6,
+            "end": 24.02
+          },
+          {
+            "line": 5,
+            "start": 24.02,
+            "end": 28.22
+          },
+          {
+            "line": 6,
+            "start": 28.74,
+            "end": 32.14
+          },
+          {
+            "line": 7,
+            "start": 32.5,
+            "end": 36
+          },
+          {
+            "line": 8,
+            "start": 36,
+            "end": 40.18
+          },
+          {
+            "line": 11,
+            "start": 42.85,
+            "end": 46.64
+          },
+          {
+            "line": 12,
+            "start": 47.14,
+            "end": 51.34
+          },
+          {
+            "line": 15,
+            "start": 54.12,
+            "end": 57.76
+          },
+          {
+            "line": 16,
+            "start": 58.4,
+            "end": 62.58
+          },
+          {
+            "line": 17,
+            "start": 63.22,
+            "end": 66.58
+          },
+          {
+            "line": 18,
+            "start": 67.5,
+            "end": 72.42
+          },
+          {
+            "line": 21,
+            "start": 75.26,
+            "end": 79.06
+          },
+          {
+            "line": 22,
+            "start": 79.56,
+            "end": 83.14
+          },
+          {
+            "line": 23,
+            "start": 83.42,
+            "end": 87.26
+          },
+          {
+            "line": 24,
+            "start": 87.6,
+            "end": 91.26
+          },
+          {
+            "line": 25,
+            "start": 92,
+            "end": 95.18
+          },
+          {
+            "line": 26,
+            "start": 95.7,
+            "end": 99.26
+          },
+          {
+            "line": 27,
+            "start": 99.26,
+            "end": 103.46
+          },
+          {
+            "line": 28,
+            "start": 103.46,
+            "end": 107.44
+          },
+          {
+            "line": 31,
+            "start": 113.36,
+            "end": 117.7
+          },
+          {
+            "line": 32,
+            "start": 118.26,
+            "end": 124.26
+          },
+          {
+            "line": 35,
+            "start": 125.34,
+            "end": 128.72
+          },
+          {
+            "line": 36,
+            "start": 129.26,
+            "end": 133.78
+          },
+          {
+            "line": 37,
+            "start": 133.78,
+            "end": 137.82
+          },
+          {
+            "line": 38,
+            "start": 137.82,
+            "end": 142.92
+          },
+          {
+            "line": 41,
+            "start": 146.84,
+            "end": 150.18
+          },
+          {
+            "line": 42,
+            "start": 150.18,
+            "end": 154.32
+          },
+          {
+            "line": 43,
+            "start": 154.58,
+            "end": 158.3
+          },
+          {
+            "line": 44,
+            "start": 158.84,
+            "end": 162.42
+          },
+          {
+            "line": 49,
+            "start": 168.18,
+            "end": 172.58
+          },
+          {
+            "line": 50,
+            "start": 173.29,
+            "end": 176.76
+          },
+          {
+            "line": 51,
+            "start": 176.76,
+            "end": 180.74
+          },
+          {
+            "line": 52,
+            "start": 180.74,
+            "end": 184.94
+          },
+          {
+            "line": 53,
+            "start": 184.94,
+            "end": 188.94
+          },
+          {
+            "line": 54,
+            "start": 188.94,
+            "end": 192.86
+          },
+          {
+            "line": 57,
+            "start": 196.28,
+            "end": 200.02
+          },
+          {
+            "line": 58,
+            "start": 201.12,
+            "end": 205.1
+          },
+          {
+            "line": 59,
+            "start": 205.1,
+            "end": 208.88
+          },
+          {
+            "line": 60,
+            "start": 208.88,
+            "end": 214
+          },
+          {
+            "line": 63,
+            "start": 218.78,
+            "end": 223.78
+          },
+          {
+            "line": 64,
+            "start": 223.78,
+            "end": 229.82
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Classic Rock song with some elements of Jazz. Tony C fights crime on the streets and sleeps with hot babes between the sheets",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 240
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-482f1b74c6627cdee0f0528f",
       "title": "The Book of Parallel Cs",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-482f1b74c6627cdee0f0528f-7f7ac79b6855.mp3",
