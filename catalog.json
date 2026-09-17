@@ -2,6 +2,394 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-482f1b74c6627cdee0f0528f",
+      "title": "The Book of Parallel Cs",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-482f1b74c6627cdee0f0528f-7f7ac79b6855.mp3",
+      "duration": 240.11755102040817,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-17T19:58:51.358Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Book of Parallel Cs",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "C minor",
+        "arrangement": "Cosmic progressive rock driven by mobile fretless bass, punchy live drums, electric guitars, analog synthesizer and Mellotron. Begin immediately with Tony over a mysterious bass-and-synth pulse; widen into muscular choruses with stacked guitar figures. Brief 7/8 turnarounds evoke branching timelines while the main song remains in 4/4. Strip the bridge to bass, Mellotron and tense drums, then build toward the decisive final chorus. Tony sings with rough, smoky, connected phrasing, sly asides and sustained melodic hook notes. Pace the closing verse and outro so the final syllable lands 8–12 seconds before 240 seconds, followed by one resolved C-minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nTony found a silver novel breathing on the shelf\nLetters moved like little engines, writing by themselves\nHe touched the first electric page, the ceiling became stars\nThen fell through rings of printed light to avenues on Mars\nA woman in a cobalt coat said, “Choose the eastern door”\nHe laughed and took the western one—the east existed more\nBehind him stood another C who made the other turn\nEach decision split the heavens, every answer left a burn\n\n[Pre-Chorus]\nOne C wore the captain’s crown\nOne C watched his city drown\nOne C never left the room\nOne C planted gardens on the moon\n\n[Chorus]\nParallel Cs abound\nEvery yes makes another world sound\nEvery no leaves a light underground\nTurn one page and the stars spin around\nParallel Cs abound\nBut the hand on the choice is mine\nI can blame every double I find\nStill the consequence follows my line\n\n[Verse 2]\nHe traded one small memory for passage through the rain\nA childhood window vanished from the houses in his brain\nHe saved a glass-winged creature from the emperor’s machine\nThen watched its hungry children strip a satellite clean\nHe warned a moon of trouble; panic shattered half the dome\nHe kept the warning secret; no one there survived till dawn\nThe novel offered footnotes where the guilt could be revised\nBut every softened sentence put a shadow in his eyes\n\n[Pre-Chorus]\nOne C built a gate from bone\nOne C ruled the dark alone\nOne C swore he’d found the key\nThen sold tomorrow for a memory\n\n[Chorus]\nParallel Cs abound\nEvery yes makes another world sound\nEvery no leaves a light underground\nTurn one page and the stars spin around\nParallel Cs abound\nBut the hand on the choice is mine\nI can blame every double I find\nStill the consequence follows my line\n\n[Bridge]\nAt the final chapter’s edge stood a thousand Tonys there\nSome in medals, some in chains, some dissolving into air\nThey shouted, “Pick the perfect path, erase the worlds that failed”\nHe saw the lives behind each choice, the beauty and the wail\nThen closed the book on paradise and broke the author’s pen\n“No clean road, no spotless hands—so let them all begin”\n\n[Verse]\nHe returned beside the shelf with silver on his sleeve\nThe room looked almost ordinary, if ordinary could breathe\nHe opened up the curtains; three red suns disturbed the blue\nA glass-winged creature crossed them, and he knew the tale was true\nHe could not fold the branches back or hide what he had done\nSo he wrote beneath the title, “I am answerable—one”\n\n[Chorus]\nParallel Cs abound\nEvery choice sends a universe out\nLet the captains and the cowards speak loud\nI won’t vanish in the infinite crowd\nParallel Cs abound\nAll their roads leave a mark upon mine\nI will carry the cost and the shine\nClose the book—but the ending is mine\n\n[Outro]\nThe last page turned without a sound\nAnd all the Cs kept spinning around\nTony faced the three red suns in line\nSaid, “Every world is yours—this choice is mine”\n[End]",
+        "duration": 240,
+        "bpm": 112,
+        "musicalSettings": {
+          "genre": "Cosmic progressive rock",
+          "meter": "4/4 with brief 7/8 turnarounds",
+          "structure": "Verse, pre-chorus, chorus, verse, pre-chorus, chorus, bridge, final verse, final chorus, outro",
+          "performance": "Natural rough and smoky Tony lead, slurred connected vowels, mischievous turns and a clearly sung hook",
+          "energy": "Mysterious opening, expanding choruses, tense bridge drop, then a full and decisive finale",
+          "lyricWorkflow": "Original narrative lyrics develop branching consequences toward Tony accepting responsibility for his own choice",
+          "instruments": [
+            "fretless bass",
+            "live drums",
+            "electric guitars",
+            "analog synthesizer",
+            "Mellotron"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nTony found a silver novel breathing on the shelf\nLetters moved like little engines, writing by themselves\nHe touched the first electric page, the ceiling became stars\nThen fell through rings of printed light to avenues on Mars\nA woman in a cobalt coat said, “Choose the eastern door”\nHe laughed and took the western one—the east existed more\nBehind him stood another C who made the other turn\nEach decision split the heavens, every answer left a burn\n\n[Pre-Chorus]\nOne C wore the captain’s crown\nOne C watched his city drown\nOne C never left the room\nOne C planted gardens on the moon\n\n[Chorus]\nParallel Cs abound\nEvery yes makes another world sound\nEvery no leaves a light underground\nTurn one page and the stars spin around\nParallel Cs abound\nBut the hand on the choice is mine\nI can blame every double I find\nStill the consequence follows my line\n\n[Verse 2]\nHe traded one small memory for passage through the rain\nA childhood window vanished from the houses in his brain\nHe saved a glass-winged creature from the emperor’s machine\nThen watched its hungry children strip a satellite clean\nHe warned a moon of trouble; panic shattered half the dome\nHe kept the warning secret; no one there survived till dawn\nThe novel offered footnotes where the guilt could be revised\nBut every softened sentence put a shadow in his eyes\n\n[Pre-Chorus]\nOne C built a gate from bone\nOne C ruled the dark alone\nOne C swore he’d found the key\nThen sold tomorrow for a memory\n\n[Chorus]\nParallel Cs abound\nEvery yes makes another world sound\nEvery no leaves a light underground\nTurn one page and the stars spin around\nParallel Cs abound\nBut the hand on the choice is mine\nI can blame every double I find\nStill the consequence follows my line\n\n[Bridge]\nAt the final chapter’s edge stood a thousand Tonys there\nSome in medals, some in chains, some dissolving into air\nThey shouted, “Pick the perfect path, erase the worlds that failed”\nHe saw the lives behind each choice, the beauty and the wail\nThen closed the book on paradise and broke the author’s pen\n“No clean road, no spotless hands—so let them all begin”\n\n[Verse]\nHe returned beside the shelf with silver on his sleeve\nThe room looked almost ordinary, if ordinary could breathe\nHe opened up the curtains; three red suns disturbed the blue\nA glass-winged creature crossed them, and he knew the tale was true\nHe could not fold the branches back or hide what he had done\nSo he wrote beneath the title, “I am answerable—one”\n\n[Chorus]\nParallel Cs abound\nEvery choice sends a universe out\nLet the captains and the cowards speak loud\nI won’t vanish in the infinite crowd\nParallel Cs abound\nAll their roads leave a mark upon mine\nI will carry the cost and the shine\nClose the book—but the ending is mine\n\n[Outro]\nThe last page turned without a sound\nAnd all the Cs kept spinning around\nTony faced the three red suns in line\nSaid, “Every world is yours—this choice is mine”",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.14,
+            "end": 8
+          },
+          {
+            "line": 2,
+            "start": 8.68,
+            "end": 12.34
+          },
+          {
+            "line": 3,
+            "start": 12.94,
+            "end": 16.52
+          },
+          {
+            "line": 4,
+            "start": 17.22,
+            "end": 20.82
+          },
+          {
+            "line": 5,
+            "start": 21.46,
+            "end": 25.12
+          },
+          {
+            "line": 6,
+            "start": 25.12,
+            "end": 29.4
+          },
+          {
+            "line": 7,
+            "start": 29.98,
+            "end": 33.5
+          },
+          {
+            "line": 8,
+            "start": 34.08,
+            "end": 36.94
+          },
+          {
+            "line": 11,
+            "start": 37.28,
+            "end": 39.98
+          },
+          {
+            "line": 12,
+            "start": 41.26,
+            "end": 43.68
+          },
+          {
+            "line": 13,
+            "start": 44.44,
+            "end": 46.52
+          },
+          {
+            "line": 14,
+            "start": 46.52,
+            "end": 48.68
+          },
+          {
+            "line": 17,
+            "start": 48.68,
+            "end": 53.78
+          },
+          {
+            "line": 18,
+            "start": 53.78,
+            "end": 56.14
+          },
+          {
+            "line": 19,
+            "start": 56.14,
+            "end": 57.94
+          },
+          {
+            "line": 20,
+            "start": 57.94,
+            "end": 60.5
+          },
+          {
+            "line": 21,
+            "start": 61.28,
+            "end": 62.9
+          },
+          {
+            "line": 22,
+            "start": 62.9,
+            "end": 64.68
+          },
+          {
+            "line": 23,
+            "start": 64.68,
+            "end": 67.02
+          },
+          {
+            "line": 24,
+            "start": 67.02,
+            "end": 71.42
+          },
+          {
+            "line": 27,
+            "start": 71.42,
+            "end": 74.38
+          },
+          {
+            "line": 28,
+            "start": 74.38,
+            "end": 78.56
+          },
+          {
+            "line": 29,
+            "start": 79.26,
+            "end": 82.82
+          },
+          {
+            "line": 30,
+            "start": 83.54,
+            "end": 86.92
+          },
+          {
+            "line": 31,
+            "start": 87.86,
+            "end": 91.48
+          },
+          {
+            "line": 32,
+            "start": 92.12,
+            "end": 95.8
+          },
+          {
+            "line": 33,
+            "start": 96.46,
+            "end": 99.94
+          },
+          {
+            "line": 34,
+            "start": 99.94,
+            "end": 104.3
+          },
+          {
+            "line": 37,
+            "start": 104.3,
+            "end": 107.06
+          },
+          {
+            "line": 38,
+            "start": 107.06,
+            "end": 110.2
+          },
+          {
+            "line": 39,
+            "start": 110.2,
+            "end": 113.48
+          },
+          {
+            "line": 40,
+            "start": 113.48,
+            "end": 116.56
+          },
+          {
+            "line": 43,
+            "start": 116.56,
+            "end": 120.2
+          },
+          {
+            "line": 44,
+            "start": 120.2,
+            "end": 122.66
+          },
+          {
+            "line": 45,
+            "start": 122.66,
+            "end": 124.4
+          },
+          {
+            "line": 46,
+            "start": 124.4,
+            "end": 126.98
+          },
+          {
+            "line": 47,
+            "start": 127.74,
+            "end": 130.78
+          },
+          {
+            "line": 48,
+            "start": 130.78,
+            "end": 132.2
+          },
+          {
+            "line": 49,
+            "start": 132.2,
+            "end": 134.36
+          },
+          {
+            "line": 50,
+            "start": 134.36,
+            "end": 137.56
+          },
+          {
+            "line": 53,
+            "start": 137.56,
+            "end": 142.92
+          },
+          {
+            "line": 54,
+            "start": 142.92,
+            "end": 147.12
+          },
+          {
+            "line": 55,
+            "start": 147.12,
+            "end": 151.68
+          },
+          {
+            "line": 56,
+            "start": 151.68,
+            "end": 155.76
+          },
+          {
+            "line": 57,
+            "start": 155.76,
+            "end": 159.96
+          },
+          {
+            "line": 58,
+            "start": 160.68,
+            "end": 164.16
+          },
+          {
+            "line": 61,
+            "start": 166.66,
+            "end": 170.76
+          },
+          {
+            "line": 62,
+            "start": 171.44,
+            "end": 175.06
+          },
+          {
+            "line": 63,
+            "start": 175.8,
+            "end": 179.2
+          },
+          {
+            "line": 64,
+            "start": 180.02,
+            "end": 184.34
+          },
+          {
+            "line": 65,
+            "start": 184.34,
+            "end": 187.9
+          },
+          {
+            "line": 66,
+            "start": 188.4,
+            "end": 192.28
+          },
+          {
+            "line": 69,
+            "start": 194.26,
+            "end": 196.28
+          },
+          {
+            "line": 70,
+            "start": 196.94,
+            "end": 198.76
+          },
+          {
+            "line": 71,
+            "start": 199.04,
+            "end": 200.82
+          },
+          {
+            "line": 72,
+            "start": 201.2,
+            "end": 203.98
+          },
+          {
+            "line": 73,
+            "start": 204.88,
+            "end": 206.9
+          },
+          {
+            "line": 74,
+            "start": 207.72,
+            "end": 209.38
+          },
+          {
+            "line": 75,
+            "start": 209.88,
+            "end": 211.56
+          },
+          {
+            "line": 76,
+            "start": 211.56,
+            "end": 214.52
+          },
+          {
+            "line": 79,
+            "start": 214.52,
+            "end": 219.28
+          },
+          {
+            "line": 80,
+            "start": 219.28,
+            "end": 223.16
+          },
+          {
+            "line": 81,
+            "start": 223.16,
+            "end": 225.44
+          },
+          {
+            "line": 82,
+            "start": 225.44,
+            "end": 228.7
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony C enters a rich sci-fi novel where he finds that all of his choices have consequences. Parallel Cs abound",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 240
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-2a5c2fc0318d2ec3454aaaf4",
       "title": "Zombie Nazi Babe - Anti-Hitler Satire",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2a5c2fc0318d2ec3454aaaf4-8d2ee0355266.mp3",
