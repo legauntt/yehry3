@@ -3,7 +3,7 @@ export const money = (cents) => new Intl.NumberFormat('en-US', { style: 'currenc
 
 export function paidCost(details = {}) {
   const duration = details.generation?.duration;
-  if (!Number.isInteger(duration) || duration < 120 || duration > 600) return null;
+  if (!Number.isInteger(duration) || duration < 69 || duration > 600) return null;
   return { duration, estimate: duration / 60 * 15, reserve: Math.ceil(duration / 60 * 100) };
 }
 

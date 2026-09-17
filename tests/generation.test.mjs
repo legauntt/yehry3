@@ -8,7 +8,7 @@ import { qualityNotice } from '../assets/quality.js';
 const schema = JSON.parse(readFileSync(new URL('../assets/generation-schema.json', import.meta.url)));
 
 test('browser and worker agree on explicit controls and Unicode validation without silent substitutions', () => {
-  const cases = [null, { version: 1 }, { version: 1, meter: '6/8', keyscale: 'Eb minor', bpm: 77, duration: 180, seed: 0, vocalGainDb: -2.5 }, { version: 1, instruments: ['Straße','STRASSE'], avoidPhrases: ['crooked grin','shoes'] }, { version: 1, bpm: true }, { version: 1, duration: 90 }, { version: 1, unknown: 'x' }, { version: 1, instruments: ['Bass'], avoidInstruments: ['bass'] }, { version: 1, genre: '😀'.repeat(61) }];
+  const cases = [null, { version: 1 }, { version: 1, meter: '6/8', keyscale: 'Eb minor', bpm: 77, duration: 180, seed: 0, vocalGainDb: -2.5 }, { version: 1, instruments: ['Straße','STRASSE'], avoidPhrases: ['crooked grin','shoes'] }, { version: 1, bpm: true }, ...([68, 69, 90, 600, 601, 666, 667, 69.5].map(duration => ({ version: 1, duration }))), { version: 1, unknown: 'x' }, { version: 1, instruments: ['Bass'], avoidInstruments: ['bass'] }, { version: 1, genre: '😀'.repeat(61) }];
   const expected = cases.map((value) => { try { return { value: normalizeGeneration(value, schema) }; } catch { return { error: true }; } });
   const result = spawnSync(process.env.V8_TEST_PYTHON || (process.platform === 'win32' ? 'python' : 'python3'), ['-X','utf8','-c', "import sys,json;sys.path.insert(0,'pc-worker');from generation_controls import normalize\nrows=[]\nfor item in json.load(sys.stdin):\n try: rows.append({'value':normalize(item)})\n except ValueError: rows.append({'error':True})\nprint(json.dumps(rows,ensure_ascii=False))"], { input: JSON.stringify(cases), encoding: 'utf8' });
   assert.equal(result.status,0,result.error?.message || result.stderr); assert.deepEqual(JSON.parse(result.stdout),expected);
@@ -31,4 +31,14 @@ test('generation briefs omit automatic defaults but retain explicit zeroes and a
   for (const label of ['Seed', 'First vocal (seconds)', 'Longest instrumental break (seconds)', 'Featured instruments', 'Leave out these instruments', 'Section order', 'Closing chord (seconds)', 'Lyric preview', 'Vocal delivery', 'Energy through the song', 'Vocal level adjustment (dB)', 'Band level adjustment (dB)']) assert.ok(html.includes(label), label);
   assert.ok(html.includes('Jazz &lt;script&gt;')); assert.ok(!html.includes('<script>'));
   assert.equal((html.match(/<dd>0<\/dd>/g) || []).length, 3);
+});
+
+
+test('manual duration boundaries and paid cost follow the available generator', async () => {
+  const { paidCost } = await import('../assets/music-backend.js');
+  for (const duration of [69, 600, 601, 666]) assert.equal(normalizeGeneration({ version: 1, duration }, schema).duration, duration);
+  for (const duration of [68, 667, 69.5]) assert.throws(() => normalizeGeneration({ version: 1, duration }, schema));
+  assert.throws(() => normalizeGeneration({ version: 1, duration: 666, candidates: 2 }, schema), /Choose 1 composition/);
+  assert.deepEqual(paidCost({ generation: { duration: 69 } }), { duration: 69, estimate: 17.25, reserve: 115 });
+  for (const duration of [68, 601, 666]) assert.equal(paidCost({ generation: { duration } }), null);
 });

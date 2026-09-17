@@ -4,7 +4,7 @@ The request page has a separate **Band generator** dropdown. Local ACE remains t
 default for every new request. Everyone with ordinary request access may explicitly
 select **Eleven Music · paid**; Tony V6, V7 and V8 remain independent choices.
 
-Paid requests create new compositions, 120–600 seconds, with one provider take.
+Paid requests create new compositions, 69–600 seconds, with one provider take.
 Catalog Remix is supported: the retained lyrics and musical brief guide a new
 arrangement, while the source recording and vocal references stay on the PC.
 This does not preserve or condition on the original melody. The confirmed source

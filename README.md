@@ -173,3 +173,5 @@ and musical brief for a new arrangement. Its melody is not preserved. Auto timin
 stays blank in the editor: local requests leave length to the song planner; paid
 requests receive a stable randomized length at review so the duration and cost are
 visible before confirmation. See [paid music behavior](pc-worker/PAID-MUSIC.md).
+
+Manual song length accepts 69–666 whole seconds with Local ACE and 69–600 with Eleven Music, whose provider maximum remains 600 seconds. Local lengths above 600 use connected movements and require one composition choice. Explicit short lengths work without supplied lyrics, including lyric approval and composition previews. Blank/Auto retains the existing duration distribution and submitted-lyrics exception.

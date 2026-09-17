@@ -99,7 +99,7 @@ class PaidMusicTests(unittest.TestCase):
 
     def test_sections_preserve_ordered_words_and_bounded_duration(self):
         from request_materials import words
-        for duration in (120, 240, 600):
+        for duration in (69, 119, 120, 240, 600):
             song = plan(duration); body = music_backend.composition(song, 123)
             self.assertEqual(paid_music.request_duration(body), duration*1000)
             actual = '\n'.join(c['text'] for c in body['composition_plan']['chunks'])

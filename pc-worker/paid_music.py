@@ -114,8 +114,8 @@ def request_duration(body):
                 not isinstance(chunk.get('text'), str) or not chunk['text'].strip()):
             raise ValueError('Invalid paid composition section')
     duration = sum(c['duration_ms'] for c in chunks)
-    if not 120000 <= duration <= 600000:
-        raise ValueError('Paid songs must be between two and ten minutes')
+    if not 69000 <= duration <= 600000:
+        raise ValueError('Paid songs must be between 69 and 600 seconds')
     return duration
 
 

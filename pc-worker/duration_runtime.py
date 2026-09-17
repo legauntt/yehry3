@@ -7,7 +7,7 @@ GUARD = ast.parse('180 <= duration <= 300', mode='eval').body
 
 
 def extend(function, minimum=120):
-    if minimum not in (60, 120): raise ValueError('Unsupported minimum song duration')
+    if minimum not in (60, 69, 120): raise ValueError('Unsupported minimum song duration')
     tree = ast.parse(textwrap.dedent(inspect.getsource(function)))
     changes = 0
     class Limits(ast.NodeTransformer):

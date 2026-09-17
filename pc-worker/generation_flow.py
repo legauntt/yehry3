@@ -6,7 +6,7 @@ from common import load, save, fingerprint
 from generation_controls import normalize, constraints
 from planner import validate
 from public_plan import public_plan
-from request_materials import validate_materials
+from request_materials import validate_materials, minimum_duration
 
 
 def frozen(path, value):
@@ -29,7 +29,7 @@ def approved_plan(plan, prompt, directory, basis, api):
             or review['state'] != 'approved' or review['decision'].get('action') != 'approve'):
         raise ValueError('Saved lyric approval does not match the original plan')
     candidate = {**plan, 'lyrics': review['decision']['lyrics']}
-    candidate = constraints(validate_materials(validate(candidate, basis), prompt), prompt)
+    candidate = constraints(validate_materials(validate(candidate, basis, minimum_duration(prompt)), prompt), prompt)
     frozen(Path(directory) / 'approved-plan.json', {'original_plan_hash': fingerprint(plan), 'review': review, 'plan': candidate})
     return candidate, None
 

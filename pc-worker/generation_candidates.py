@@ -39,6 +39,9 @@ def prepare(request, render_attempt):
             child = reuse_or_save(child_dir / 'render-request.json', child)
             material = directory / 'source-material.json'
             if material.exists(): frozen(child_dir / material.name, load(material))
+            if child['plan']['duration'] < 120:
+                for name in ('planning-input.json', 'plan.json'):
+                    frozen(child_dir / name, load(directory / name))
             if index not in journal['started']:
                 journal['started'].append(index); save(journal_file, journal)
             try: render_attempt(child, preflight=True)

@@ -79,7 +79,10 @@ def has_materials(brief):
 
 
 def minimum_duration(brief):
-    return 60 if (brief.get('details') or {}).get('lyricSheet') else 120
+    details = brief.get('details') or {}
+    if details.get('lyricSheet'): return 60
+    duration = (details.get('generation') or {}).get('duration')
+    return 69 if type(duration) is int and 69 <= duration < 120 else 120
 
 
 def duration_suggestion(brief, default):
@@ -96,7 +99,7 @@ def duration_suggestion(brief, default):
 
 
 def render_brief(request):
-    """Read the snapshotted sheet when a render needs the shorter-duration contract."""
+    """Verify the frozen brief authorizes a supplied sheet or explicit short length."""
     from common import fingerprint
     directory = Path(request['directory'])
     snapshot = load(directory / 'planning-input.json')
@@ -104,8 +107,11 @@ def render_brief(request):
     if (snapshot['briefHash'] != fingerprint(brief) or
             load(directory / 'plan.json')['briefHash'] != snapshot['briefHash']):
         raise ValueError('Saved lyric planning inputs changed')
-    if minimum_duration(brief) != 60:
-        raise ValueError('Songs shorter than 120 seconds require a submitted lyric sheet')
+    if minimum_duration(brief) >= 120:
+        raise ValueError('Songs shorter than 120 seconds require a submitted lyric sheet or an explicit 69–119-second length')
+    if not (brief.get('details') or {}).get('lyricSheet'):
+        from generation_controls import constraints
+        constraints(request['plan'], brief)
     validate_materials(request['plan'], brief)
     return brief
 

@@ -33,8 +33,8 @@ def plan_constraints(plan, brief):
     if selected(brief) != PAID: return plan
     options = brief['details'].get('generation') or {}
     if (not options or options.get('candidates', 1) != 1 or options.get('variation', 'balanced') != 'balanced'
-            or type(options.get('duration')) is not int or not 120 <= options['duration'] <= 600):
-        raise ValueError('Eleven Music requires one composition and an explicit two-to-ten-minute length')
+            or type(options.get('duration')) is not int or not 69 <= options['duration'] <= 600):
+        raise ValueError('Eleven Music requires one composition and an explicit 69–600-second length')
     if brief['details'].get('basisSongIds') or brief['details'].get('source'):
         raise ValueError('Use local generation for basis recordings')
     recipe = 'reinterpretation' if brief['details'].get('remixSource') else 'new'

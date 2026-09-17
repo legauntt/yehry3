@@ -12,6 +12,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
   const key = `generation-draft:${draft.id}`;
   let initial = draft.details?.generation, explicitlyDisabled = false;
   let required = false, voiceRequired = false, backend = 'local';
+  const durationRange = () => [schema.ranges.duration[0], backend === 'eleven_music' ? Math.min(600, schema.ranges.duration[1]) : schema.ranges.duration[1]];
   try { const saved = JSON.parse(storage.get(key) || 'null'); if (saved) { explicitlyDisabled = saved.enabled === false; initial = saved.value ?? initial; } } catch {}
   const preferences = getPreferences();
   if (!initial && preferences && draft.status === 'draft') initial = preferences;
@@ -34,7 +35,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
     } else if (schema.listLimits[key] || key === 'structure') {
       field = `<textarea id="${id}" data-generation="${key}" rows="2" maxlength="${schema.listLimits[key] ? (schema.listLimits[key][1] + 1) * schema.listLimits[key][0] : 600}" placeholder="${schema.listLimits[key] ? 'One entry per line' : 'Intro, verse, chorus, verse, chorus, bridge, final chorus'}"></textarea>`;
     } else field = `<input id="${id}" data-generation="${key}" maxlength="${schema.textLimits[key]}" placeholder="Auto">`;
-    return `<label for="${id}">${labels[key]}</label>${field}`;
+    return `<label for="${id}">${labels[key]}</label>${field}${key === 'duration' ? '<p class="small" id="generation-duration-hint"></p>' : ''}`;
   };
   const group = (title, keys, note) => `<details class="generation-group"><summary>${title}</summary><p class="small">${note}</p><div class="generation-grid">${keys.map((key) => `<div class="${key === 'structure' ? 'generation-wide' : ''}">${input(key)}</div>`).join('')}</div></details>`;
   root.innerHTML = `<section class="generation-panel"><h3>Song generation</h3><label class="generation-enable"><input type="checkbox" id="generation-enabled"> <span id="generation-enable-label">Use V8 generation</span></label><p class="small" id="generation-mode-note">Available with every Tony voice. Choose a new composition or a reinterpretation of a basis song.</p><div id="generation-fields" hidden>
@@ -64,7 +65,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
       value[key] = schema.ranges[key] ? Number(raw) : schema.listLimits[key] ? raw.split(/\r?\n/).map((v) => v.trim()).filter(Boolean) : raw;
     }
     if (backend === 'eleven_music') { value.candidates = 1; value.variation = 'balanced'; }
-    return normalizeGeneration(value, schema);
+    return normalizeGeneration(value, { ...schema, ranges: { ...schema.ranges, duration: durationRange() } });
   };
   const persist = () => {
     try { storage.set(key, JSON.stringify({ enabled: enable.checked, value: read() })); } catch { /* Keep editable invalid input in the DOM. */ }
@@ -87,6 +88,11 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
   };
   const applyRequired = () => {
     const paid = backend === 'eleven_music';
+    const [minimum, maximum] = durationRange();
+    const duration = root.querySelector('#gen-duration');
+    duration.max = maximum;
+    duration.setAttribute('aria-describedby', 'generation-duration-hint');
+    root.querySelector('#generation-duration-hint').textContent = `${minimum}–${maximum} whole seconds, or leave blank for Auto.${paid ? ' Eleven Music has a 600-second maximum.' : ''}`;
     required = voiceRequired || paid;
     if (required) enable.checked = true;
     enable.disabled = required;

@@ -38,6 +38,7 @@ export function normalizeGeneration(value, schema) {
       if (entries.length) result[key] = entries;
     } else fail(`Unknown generation option: ${key}`);
   }
+  if (result.duration > 600 && result.candidates > 1) fail('Songs over 600 seconds use connected movements. Choose 1 composition.');
   if ((result.instruments || []).some((v) => (result.avoidInstruments || []).some((other) => other.toLowerCase() === v.toLowerCase()))) fail('An instrument cannot be both requested and excluded.');
   return result;
 }

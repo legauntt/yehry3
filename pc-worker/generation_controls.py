@@ -7,7 +7,7 @@ from pathlib import Path
 from common import load, save
 
 CAPABILITY = 'generation-v8-v1'
-RANGES = {'duration': (120, 600), 'bpm': (45, 220), 'vocalEntry': (0, 20),
+RANGES = {'duration': (69, 666), 'bpm': (45, 220), 'vocalEntry': (0, 20),
           'endingSeconds': (2, 20), 'maxBreakSeconds': (0, 30), 'seed': (0, 2147481647),
           'candidates': (1, 3), 'vocalGainDb': (-12, 6), 'backingGainDb': (-12, 6)}
 CHOICES = {'meter': ['2/4', '3/4', '4/4', '6/8'],
@@ -66,6 +66,8 @@ def normalize(value):
             if any(not x for x in entries) or len({x.lower() for x in entries}) != len(entries):
                 raise ValueError(f'{key} contains empty or duplicate entries')
             if entries: result[key] = entries
+    if result.get('duration', 0) > 600 and result['candidates'] > 1:
+        raise ValueError('Songs over 600 seconds use connected movements. Choose 1 composition.')
     if set(map(str.lower, result.get('instruments', []))) & set(map(str.lower, result.get('avoidInstruments', []))):
         raise ValueError('An instrument cannot be both requested and excluded')
     return result
@@ -75,6 +77,8 @@ def constraints(plan, brief):
     options = normalize(brief.get('details', {}).get('generation'))
     if not options: return plan
     if plan['recipe'] == 'needs_attention': return {**plan, 'generation': options}
+    if plan['duration'] > 600 and options['candidates'] > 1:
+        raise ValueError('Composition previews require a song of at most 600 seconds')
     if plan['recipe'] not in ('new', 'reinterpretation'):
         raise ValueError('Advanced generation controls require a new composition or reinterpretation; faithful source timing has a separate contract')
     if any(options.get(key) for key in ('genre', 'instruments', 'avoidInstruments')) and not plan['preserve_generated_backing']:
