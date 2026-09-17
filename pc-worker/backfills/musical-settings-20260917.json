@@ -1,0 +1,1641 @@
+{
+  "version": 1,
+  "source": "existing-public-song-plans",
+  "songs": [
+    {
+      "id": "distonyc-a9a6d28c50b00bb60c781233",
+      "title": "I Carry Your Names Home",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a9a6d28c50b00bb60c781233-bb1f1055d485.mp3",
+      "planHash": "e0d45e0ed328ec433e8e77f04b0969ca269e25ca07272a515f2825b6a9c7c5dd",
+      "musicalSettings": {
+        "genre": "psychedelic soul-rock",
+        "instruments": [
+          "melodic bass",
+          "drums",
+          "tremolo electric guitar",
+          "organ"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Final Tag",
+        "performance": "rough, smoky, connected phrasing, quiet muttered edges, and emotionally strained sustained notes",
+        "energy": "The bridge drops toward voice, bass, and organ before a measured final build.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-e16203d27087fdf58c77b4a7",
+      "title": "Waypoint Fever",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e16203d27087fdf58c77b4a7-6b46231298e1.mp3",
+      "planHash": "8e96587ba71a1cdd1126b1150e3072aee48d494f5c869301019313e8d657e733",
+      "musicalSettings": {
+        "genre": "surf-punk and psychobilly rock",
+        "instruments": [
+          "drums",
+          "Palm-muted guitar",
+          "upright-style electric bass",
+          "organ"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Pre-Chorus → Chorus → Verse 3 → Breakdown → Chorus → Bridge → Final Chorus → Final Tag",
+        "performance": "rough, smoky, connected phrases with mischievous asides",
+        "energy": "The breakdown uses clipped seal-counting hits; the bridge broadens into sustained mountain-scale chords before the final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-624946972cc5dd31500d5dab",
+      "title": "Defiled and Raped",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-624946972cc5dd31500d5dab-e8af56c750b3.mp3",
+      "planHash": "46fdf1da65d4936a1c189d08bebc8a02ef3c3bdf394c29d2868cafc9135c5d73",
+      "musicalSettings": {
+        "genre": "dark electronic",
+        "instruments": [
+          "drum machines",
+          "sub-bass",
+          "synth"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Verse 2 → Chorus → Verse 3 → Verse 4 → Chorus",
+        "performance": "rough, smoky, connected phrasing",
+        "energy": "Build pressure through all four verses, then broaden the final chorus",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-7cc05e6a82dad5651ad3404f",
+      "title": "White Line Morning",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7cc05e6a82dad5651ad3404f-a75263996d14.mp3",
+      "planHash": "88f547bd1f75cdaad7cc87393088569bff3afa73eafe8eeaddb6acd10af4eeb2",
+      "musicalSettings": {
+        "genre": "gritty soul-rock",
+        "instruments": [
+          "electric bass",
+          "live drums",
+          "overdriven rhythm guitar",
+          "Hammond organ"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Bridge → Final Chorus → Outro",
+        "performance": "smoky, connected, slurred, and vulnerable",
+        "energy": "The bridge drops to bass, floor tom, and organ before the final chorus rises to the song's emotional peak.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-ce1df86bff0260f86420e9c3",
+      "title": "Dance When the Hallway Breathes",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ce1df86bff0260f86420e9c3-b76dd3c957df.mp3",
+      "planHash": "6c9b34e11c9a6aca4c8b8787bacdb1526e94ae1c93f7dc7d9f06f3de4cf682f2",
+      "musicalSettings": {
+        "genre": "dark dance-punk/EBM",
+        "instruments": [
+          "sequenced bass",
+          "live rock drums",
+          "industrial claps",
+          "post-punk guitar",
+          "synth"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Post-Chorus → Verse 3 → Bridge → Breakdown → Final Chorus → Final Tag",
+        "performance": "smoky connected vowels, rough slurs, sly asides and excited late-song phrasing",
+        "energy": "The bridge drops to heartbeat and voice before the full rhythm detonates back in.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-f5f94a292d4257a7b649dc30",
+      "title": "Ten Winters in the Envelope",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f5f94a292d4257a7b649dc30-f269aa5f7daa.mp3",
+      "planHash": "c633eeb0c3b1b0b4429d9faf64494de79b876244821920ce215d15f5f3306641",
+      "musicalSettings": {
+        "genre": "cinematic trip-hop",
+        "instruments": [
+          "sub-bass",
+          "brushed snare",
+          "electric-piano",
+          "guitar harmonics"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Verse 3 → Breakdown → Bridge → Instrumental Turn → Verse 4 → Final Chorus → Final Tag",
+        "performance": "smoky, rough, connected, and naturally slurred",
+        "energy": "Gradually widen the bass and drums across the song; strip the breakdown to bass pulse, piano, and close vocal, then rebuild through the bridge.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-03378991a3875290c8dc7de0",
+      "title": "The Stranger at Platform Three",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-03378991a3875290c8dc7de0-4cdfe039d449.mp3",
+      "planHash": "daf9d5795487f92ba7ec2b5988c129b1345c454969491e4a529289fc5966bc2e",
+      "musicalSettings": {
+        "genre": "chamber-classical ballad",
+        "instruments": [
+          "Piano",
+          "cello",
+          "viola",
+          "violins",
+          "double bass"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Verse 2 → Chorus → Bridge → Final Chorus → Final Tag",
+        "performance": "rough connected vowels, slurred consonants, crooked timing, and sudden emotional lift",
+        "energy": "The final chorus rises to a full string climax, then contracts to piano and sustained cello for the resolved homeward decision.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-8b386cd7f92e7a94568c8283",
+      "title": "Ten Counts Ago",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8b386cd7f92e7a94568c8283-3416eec3759a.mp3",
+      "planHash": "581bf33868406388042e90287cab4cc8dcbfe3ee74e5e13cac3851a77c21d827",
+      "musicalSettings": {
+        "genre": "Northern soul and garage-rock hybrid",
+        "instruments": [
+          "electric bass",
+          "live drums",
+          "rhythm guitar",
+          "Hammond organ",
+          "handclaps",
+          "horn",
+          "ringside bell"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Final Tag",
+        "performance": "smoky, connected, slurred, and weathered",
+        "energy": "Open with a lone ringside bell and bass pickup, then build through compact verses and broad, genuinely sung choruses.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-98e0d155b2a6586624ded4ac",
+      "title": "Fear and Dark",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-98e0d155b2a6586624ded4ac-70ce74ceec65.mp3",
+      "planHash": "43a0b8cf16199d834e2bdd81b40b17163ffb63e05f956377509471b49cd7d3ff",
+      "musicalSettings": {
+        "genre": "dark warehouse-rave",
+        "instruments": [
+          "sub-bass",
+          "kick",
+          "synth",
+          "pads",
+          "percussion"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Final Chorus → Final Tag",
+        "performance": "rough, smoky, connected phrasing with crooked timing, muttered verse edges and excited sustained chorus notes",
+        "energy": "Begin with filtered percussion and distant room texture, then build steadily into a broad, catchable chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-e9681c0b50e8843c2d038131",
+      "title": "Every Pair Remembers",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e9681c0b50e8843c2d038131-16c8d8a0f543.mp3",
+      "planHash": "1d9c2034c638b0fd516e594e785640af8c17acdfdb5e358e0b070697a3d7344e",
+      "musicalSettings": {
+        "genre": "alternative funk-rock",
+        "instruments": [
+          "clean guitar",
+          "melodic bass",
+          "live drums",
+          "brass",
+          "keys",
+          "organ"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "rough, smoky, connected, slurred phonetics with crooked timing and muted asides",
+        "energy": "The bridge drops to bass, rim clicks, and smoky organ before an ensemble-stop breakdown and an emotionally lifted final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-27549fcecb0991a55825d859",
+      "title": "9-11'd Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-27549fcecb0991a55825d859-0da37941ef79.mp3",
+      "planHash": "4d146e916ec4264def64df41c960b44f6ec9e2c96efd6a6aa91174a9659d280d",
+      "musicalSettings": {
+        "genre": "dark original rock ballad",
+        "instruments": [
+          "guitar",
+          "bass",
+          "piano",
+          "drums",
+          "tom"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Chorus → Verse 2 → Chorus → Bridge → Verse 3 → Outro",
+        "performance": "smoky, slurred verses, volatile outbursts, and a clearly catchable chorus with sustained melodic notes",
+        "energy": "rising into distorted chorus guitars and forceful tom-heavy climaxes",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-a9bf2e4b0b05f39a3919f3d2",
+      "title": "Holding It Down - Brassline Soul Rework",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a9bf2e4b0b05f39a3919f3d2-c6dc734d14d6.mp3",
+      "planHash": "7bd7aead04e4d05c08f60d271917d7a9d7f8fa335defa1b03f98a607c05431c9",
+      "musicalSettings": {
+        "genre": "brassline soul-rock",
+        "instruments": [
+          "electric-bass",
+          "live drums",
+          "rhythm guitar",
+          "Hammond organ",
+          "piano",
+          "trumpet",
+          "trombone",
+          "handclaps"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Chorus → Outro",
+        "performance": "smoky slurs, crooked timing, muttered character, and a clearly catchable hook",
+        "energy": "Drop to bass, handclaps, and organ for the breakdown, then rebuild into an expanded final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-62f95a6ba7cc335b2a2fac09",
+      "title": "The Save File Has Teeth",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-62f95a6ba7cc335b2a2fac09-6b70c9d57c8c.mp3",
+      "planHash": "06bf1b5d8e9493903e98d726755551037b2240e62eb897eb2a0374c237565fab",
+      "musicalSettings": {
+        "genre": "sludge-funk rock",
+        "instruments": [
+          "detuned guitars",
+          "melodic bass",
+          "drums",
+          "organ"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Chorus → Verse 2 → Bridge → Verse 3 → Chorus → Outro",
+        "performance": "rough, smoky slurs, crooked timing, muttered tails, and sustained melodic notes",
+        "energy": "Build the bridge through tightening rhythmic interruptions, then make the final chorus the widest and heaviest passage.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-0355bdb0b3874b004521e688",
+      "title": "Nine Eleven'd Carnival",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0355bdb0b3874b004521e688-9edc7b0d3b5c.mp3",
+      "planHash": "815e28ee815b0b2a91319f37d030ea09ac4d03f87005946878e462b96696ddbd",
+      "musicalSettings": {
+        "genre": "Horror-circus power pop",
+        "instruments": [
+          "calliope",
+          "carnival piano",
+          "bass",
+          "distorted guitars",
+          "toms",
+          "handclaps"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Chorus → Verse 2 → Chorus → Bridge → Verse 3 → Outro",
+        "performance": "smoky, connected Tony phrasing",
+        "energy": "The bridge darkens into half-time before the final build.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-9144eaf3d51fdb2bba865a25",
+      "title": "The People Holding It Down",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-9144eaf3d51fdb2bba865a25-41584b115b95.mp3",
+      "planHash": "c617cbc1ce42585179ff44f833cad86e571589215cd3eb0595dbfa3c6062eff8",
+      "musicalSettings": {
+        "genre": "heartland rock",
+        "instruments": [
+          "bass",
+          "drums",
+          "electric guitars",
+          "organ"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Chorus → Bridge → Final Chorus",
+        "performance": "rough, smoky, slurred lead with mischievous asides, crooked timing, connected vowels, and a clearly catchable repeated hook",
+        "energy": "Start compactly, broaden the choruses with gang-response backing vocals, drop to bass and rim-clicks in the bridge, then rebuild into a full final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-5cdd03210001819e023a1931",
+      "title": "We Are Jeffrey Epstein",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5cdd03210001819e023a1931-33797f849112.mp3",
+      "planHash": "657f614351fc30e160efc8b6f31e7c3071414f8bdb89c7e7ec79dc51293ccd98",
+      "musicalSettings": {
+        "genre": "Christian gospel-rock",
+        "instruments": [
+          "Hammond organ",
+          "piano",
+          "bass",
+          "drums",
+          "electric guitar",
+          "handclaps"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Chorus → Verse 2 → Chorus → Final Verse → Chorus → Outro",
+        "performance": "smoky, slurred phonetics",
+        "energy": "Pull back beneath the final verse, then rise into a full final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-d95902fe9523c46c3ae1faac",
+      "title": "Nine-Eleven'd Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d95902fe9523c46c3ae1faac-e59e380a1cf5.mp3",
+      "planHash": "b42b74d849b12418b654aeef086d984182030eb977b0d11ee698fa3e377f5d64",
+      "musicalSettings": {
+        "genre": "garage-rock",
+        "instruments": [
+          "bass",
+          "live drums",
+          "guitar"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Chorus → Outro",
+        "performance": "smoky slurs, muttered menace and an exaggerated growl",
+        "energy": "A compact, darkly absurd garage-rock sprint",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-36dfa7dc2e188ddfa18e3eaa",
+      "title": "Nein Unleavened Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-36dfa7dc2e188ddfa18e3eaa-f5613ec2f42d.mp3",
+      "planHash": "1244ef2e868565c846788b58825b473b1b68b0dc7f9ef3453ed12aee4c466873",
+      "musicalSettings": {
+        "genre": "funeral funk and desert art-rock",
+        "instruments": [
+          "electric bass",
+          "drums",
+          "tremolo guitar",
+          "upright piano",
+          "brass",
+          "floor tom",
+          "metallic percussion"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Chorus → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "rough connected vowels, crooked timing, muttered irritation, and sustained peaks",
+        "energy": "The bridge drops to bass, floor tom, and oven-like metallic percussion before a full-band final rise.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-f66a9de18440b262a8b9a8c9",
+      "title": "The Trial Before the Truth",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f66a9de18440b262a8b9a8c9-7c3bf26bfdcc.mp3",
+      "planHash": "42013ad4595d8a5cc93affb1d0a9d9c842235057bd45671b9f33e3321af8a91b",
+      "musicalSettings": {
+        "genre": "bass-forward rock",
+        "instruments": [
+          "distorted guitars",
+          "bass",
+          "live drums",
+          "organ"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "crooked timing, muttered tails, and excited outbursts",
+        "energy": "Smoky, slurred verses build into forceful melodic choruses",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-001fa27e039a10487b62c6ab",
+      "title": "The Weight of What We Cannot Know",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-001fa27e039a10487b62c6ab-074c7d29d824.mp3",
+      "planHash": "f5b8c846f4844337f69573bd292ece734039161fff77ad7d5082e2fe5845f9ef",
+      "musicalSettings": {
+        "genre": "bass-forward Tony rock",
+        "instruments": [
+          "electric guitar",
+          "melodic bass",
+          "drums",
+          "organ",
+          "floor tom"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Pre-Chorus → Chorus → Verse 2 → Bridge → Final Chorus → Outro",
+        "performance": "crooked phrasing, smoky slurs or emotional edge",
+        "energy": "The bridge drops to bass, floor tom and organ before the final chorus reaches the full-band peak.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-f851a00326c19070fd978503",
+      "title": "Unleavened Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f851a00326c19070fd978503-2215b09cc405.mp3",
+      "planHash": "629901556878c0aa3d542a13c7aead0a07c5ffa9a6f4fb3f7dbbc9f9fe649ff9",
+      "musicalSettings": {
+        "genre": "klezmer-punk rock",
+        "instruments": [
+          "distorted guitars",
+          "electric bass",
+          "live drums",
+          "clarinet",
+          "accordion"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "smoky, slurred, mischievous, and increasingly exasperated",
+        "energy": "The bridge shifts to warm minor-key cabaret before a rising final chorus resolves into D major color.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-68692abdc87dbfa13fcb75b4",
+      "title": "Wandaful Reign",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-68692abdc87dbfa13fcb75b4-6d6130064737.mp3",
+      "planHash": "7d259ecb6d4f76f7b3d61861c7d5713ccf9f8b9339801e22e561d29930189c50",
+      "musicalSettings": {
+        "genre": "Royal glam-funk rock",
+        "instruments": [
+          "melodic bass",
+          "drums",
+          "rhythm guitar",
+          "piano",
+          "brass"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Final Chorus",
+        "performance": "smoky slurs, connected vowels, rough laughter",
+        "energy": "Verses swagger with crooked stops and mischievous Tony V7 asides; choruses expand into sustained melodic hooks and stacked responses.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-93c88293d5faf2075a9ff1af",
+      "title": "Nein Unleaved Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-93c88293d5faf2075a9ff1af-d67413d845cf.mp3",
+      "planHash": "40e866f8efef5d4caaccd2a4b26eb014376d27101f8d5157244e7b5d6cba9e74",
+      "musicalSettings": {
+        "genre": "gothic gospel waltz-rock",
+        "instruments": [
+          "melodic bass",
+          "live drums",
+          "baritone electric guitar",
+          "pump organ",
+          "piano",
+          "brass"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Verse 3 → Chorus → Verse 4 → Band Turn → Verse 5 → Pre-Chorus → Chorus → Verse 6 → Bridge → Verse 7 → Final Chorus → Final Tag",
+        "performance": "rough, slurred, emotionally volatile, and melodically sung",
+        "energy": "The bridge drops to organ, bass, and close vocal before the communal final rise.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-fd019148fc3e5a3869cc9884",
+      "title": "Every Day Is Christmas Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-fd019148fc3e5a3869cc9884-69fd8d6f639b.mp3",
+      "planHash": "4195f2129e06c5c97fa4405c6800f6988cbc016b833fc1890d8b680b37dd5f46",
+      "musicalSettings": {
+        "genre": "Christmas rock",
+        "instruments": [
+          "celesta",
+          "sleigh bells",
+          "church organ",
+          "bowed bass",
+          "electric guitar",
+          "floor tom"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Verse 3 → Bridge → Breakdown → Final Chorus → Final Tag",
+        "performance": "rough, slurred Tony V7 lead vocals",
+        "energy": "The bridge strips back to organ, floor tom, and distant choir before the full band returns for a resolved final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-53ec4675a609e695a13b4cbe",
+      "title": "No Proof in the Smoke",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-53ec4675a609e695a13b4cbe-5ea10e34f224.mp3",
+      "planHash": "81e1cd16fc979e96f0b6d90c6123e3c806b8f7f3aff99c6a12ea5a3356997638",
+      "musicalSettings": {
+        "genre": "dark, bass-forward Tony C rock",
+        "instruments": [
+          "overdriven guitars",
+          "melodic bass",
+          "drums",
+          "Hammond organ"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Verse 3 → Instrumental Turn → Verse 4 → Bridge → Breakdown → Chorus → Verse 5 → Final Chorus → Final Tag",
+        "performance": "rough, smoky, slurred, and emotionally volatile",
+        "energy": "Choruses widen melodically with sustained hook notes; the breakdown strips to bass, kick, and exposed vocal before the full band returns.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-99d1308c92e81a6e38ef7ffb",
+      "title": "A Hundred Tonys Running",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-99d1308c92e81a6e38ef7ffb-5978d81b19c8.mp3",
+      "planHash": "828e6ed92d50ede1ab72d31276afac1991ee6665c8add1e48acb44a43d003549",
+      "musicalSettings": {
+        "genre": "theatrical hard rock",
+        "instruments": [
+          "bass",
+          "drums",
+          "distorted guitars"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "slurred phonetics, crooked timing, muttered humor, and sustained melodic hooks",
+        "energy": "those layers visibly thin as the countdown falls, leaving one exposed smoky lead for the breakdown and final impact",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-64e7f1943d25fdd61302df07",
+      "title": "Every Breath I Defend You",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-64e7f1943d25fdd61302df07-e7e4be890856.mp3",
+      "planHash": "c712636a54ab40ffd9ee4c6310e5b63554aa01d2f2d7b17139545f57e9221728",
+      "musicalSettings": {
+        "genre": "funeral soul-rock",
+        "instruments": [
+          "electric piano",
+          "tremolo guitar",
+          "Hammond organ",
+          "melodic bass",
+          "live drums",
+          "brass"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Instrumental Turn → Bridge → Verse 3 → Final Chorus → Outro",
+        "performance": "rough, connected, grief-struck, and occasionally muttered",
+        "energy": "The bridge drops to bass, organ, and rim clicks before a full-band final rise.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-7ccd483a3459daf910f584ff",
+      "title": "The Morning Would Not End",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7ccd483a3459daf910f584ff-837c791aeb31.mp3",
+      "planHash": "211632dc64754b22fb2b658b88f9ca86847a1b411131aedf2ed7c05eb59a0a7d",
+      "musicalSettings": {
+        "genre": "Apocalyptic progressive brass-rock",
+        "instruments": [
+          "bass",
+          "live drums",
+          "distorted guitars",
+          "piano",
+          "brass"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Half-time, voices entering in waves → Final Chorus",
+        "performance": "rough unison leads, smoky octave doubles, muttered side comments and an enormous cracked choir in each chorus",
+        "energy": "Verses stay rhythmically urgent but melodic; the bridge builds voices in successive waves before the full ensemble locks into sustained harmony.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-7ade76971c61a724e3650381",
+      "title": "The Empty Bench Beside Me",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7ade76971c61a724e3650381-081e417297cb.mp3",
+      "planHash": "58de279e7fbb31861251ce76b04f5edc6bce146838ba2d1ddc67b2c43bd7240b",
+      "musicalSettings": {
+        "genre": "piano ballad",
+        "instruments": [
+          "felt piano"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Bridge → Final Chorus",
+        "performance": "smoky, slurred, emotionally conflicted delivery with connected vowels, crooked entrances, and a clearly catchable chorus",
+        "energy": "The bridge grows through heavier left-hand octaves, then falls back for the final line.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-f125a8743676d82290ea8b3e",
+      "title": "Girl You So Fine",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f125a8743676d82290ea8b3e-1141a4128959.mp3",
+      "planHash": "8632508cd9e85f0705316003f1ab1e876ff9ee590fbcccba6df1508dee097daf",
+      "musicalSettings": {
+        "genre": "dance-punk and bass-driven funk-rock",
+        "instruments": [
+          "guitar",
+          "bass",
+          "drums",
+          "brass"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Verse 2 → Bridge → Chorus → Chorus → Final Verse → Chorus",
+        "performance": "Begin with a dry, crooked spoken intro, then shift into smoky, slurred melodic verses.",
+        "energy": "Escalate the final verse through thicker guitars and brass",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-ab9afa794dc00233d57bfa7c",
+      "title": "Nine-Eleven'd Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ab9afa794dc00233d57bfa7c-7e177e9136bd.mp3",
+      "planHash": "825f6f6e610c71991f870360d09d8625a8b79bafa6961d5e4f7ee361eee00fdf",
+      "musicalSettings": {
+        "genre": "Horror-circus industrial polka",
+        "instruments": [
+          "distorted accordion",
+          "calliope",
+          "guitars",
+          "tuba-like synth bass",
+          "percussion",
+          "live drums"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Verse 2 → Bridge → Chorus → Chorus",
+        "performance": "smoky melodic verses, a theatrical growled turn, and an increasingly frantic but catchable chorus",
+        "energy": "Use stops, crooked accents, and a final half-time expansion",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-b5fbef2af781fedd28f8b28d",
+      "title": "The Man in the Rearview",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b5fbef2af781fedd28f8b28d-ca0164403956.mp3",
+      "planHash": "c74f7ac5457f5e34a245a8f6fd41bb9aea81a1c181300267c8482ca3513240a3",
+      "musicalSettings": {
+        "genre": "bass-forward heartland rock",
+        "instruments": [
+          "electric guitar",
+          "organ",
+          "live drums",
+          "bass"
+        ],
+        "meter": "",
+        "structure": "Verse 1 — Younger Tony → Verse 2 — Older Tony → Pre-Chorus — Younger Tony → Pre-Chorus — Older Tony → Chorus — Duet → Verse 3 — Younger Tony → Verse 4 — Older Tony → Chorus — Duet → Bridge — Call and Response → Final Chorus — Duet → Outro — Older, then Younger",
+        "performance": "older Tony stays rough, low and smoky; younger Tony uses the same saved identity in a naturally higher register with brighter placement",
+        "energy": "The bridge drops to bass, rim clicks and organ before a full-band final lift.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-72f74d66a55379a42295d99d",
+      "title": "Geglash at the Thirteenth Door",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-72f74d66a55379a42295d99d-3538a901fd26.mp3",
+      "planHash": "b552d1a1e8ac4b0421078af4134a7520f47cc75ecd744f413e73dceb5bb4b28e",
+      "musicalSettings": {
+        "genre": "gothic horror-rock",
+        "instruments": [
+          "bells",
+          "upright piano",
+          "floor-tom",
+          "electric bass",
+          "distorted guitars",
+          "pipe organ",
+          "bowed metal",
+          "strings"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Interlude – The Second Door → Verse 3 → Chorus – Darker → Verse 4 → Instrumental Rise → Verse 5 → Bridge → Breakdown → Final Verse → Final Chorus → Final Tag",
+        "performance": "smoky connected vowels, crooked timing, muttered asides and increasingly frantic sustained phrases",
+        "energy": "Choruses grow from restrained rock into dense theatrical horror, followed by a near-silent confession, a crushing half-time breakdown and a final full-band escalation.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-2b582b60c172d43a610f5f18",
+      "title": "Spark in the Dark",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2b582b60c172d43a610f5f18-7ee99ede5f07.mp3",
+      "planHash": "cd28d7f005d6220d1444546abaeb596d62bb36facb6c09c4ca81a4ae92b7d963",
+      "musicalSettings": {
+        "genre": "EDM-pop",
+        "instruments": [
+          "bass",
+          "synth",
+          "drums"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Chorus → Verse 2 → Chorus → Verse 3 → Bridge → Chorus",
+        "performance": "smoky slurred verses",
+        "energy": "Strip the beat to bass pulse and filtered chords for the bridge, then build into a layered final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-4f9e42be8f7564a18b946445",
+      "title": "Velvet Rims at Midnight",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4f9e42be8f7564a18b946445-a9963b47dced.mp3",
+      "planHash": "5343dd689b7f50d396be5c8a6647a8f3f4b76bfe52ef71f31999af12b10d6423",
+      "musicalSettings": {
+        "genre": "Jazz-noir",
+        "instruments": [
+          "upright bass",
+          "brushed drums",
+          "piano",
+          "muted trumpet",
+          "hollow-body guitar",
+          "cinematic strings"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Verse 2 → Bridge → Verse 3 → Outro",
+        "performance": "",
+        "energy": "Build from a sparse late-night opening into tense ensemble swells",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-5c6c981e71c6a91651965721",
+      "title": "Ash Has No Anthem",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c6c981e71c6a91651965721-e893a03b3a63.mp3",
+      "planHash": "6385e05b195c79f453d26d80abd6be82585c704d465e26a9e4623c93d45f204b",
+      "musicalSettings": {
+        "genre": "bass-forward Tony V7 rock",
+        "instruments": [
+          "guitar",
+          "bass",
+          "floor toms"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Final Chorus → Outro",
+        "performance": "sustained lead notes and rough slurred tails",
+        "energy": "Begin with ominous clean guitar, moving bass, and restrained floor toms; expand into distorted guitars and forceful melodic choruses.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-d721855da7e655435ca984e3",
+      "title": "Scars Don’t Take Requests",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d721855da7e655435ca984e3-e3a6b9b4b4ff.mp3",
+      "planHash": "d8f40cb17d9bb9085ee290291169b8c7325428464c6903d0ced3e994b1e80d46",
+      "musicalSettings": {
+        "genre": "blues-rock with a strong funk pocket and old-school hip-hop attitude",
+        "instruments": [
+          "electric-guitar",
+          "bass",
+          "live drums",
+          "turntable"
+        ],
+        "meter": "4/4",
+        "structure": "Quiet Intro → Riff Entrance → Verse 1 → Hook 1 → Verse 2 → Hook 2 → Full Refrain → Turntable Break → Verse 3 → Expanded Refrain → Late Instrumental Vamp → Final Refrain → Final Tag",
+        "performance": "smoky, gravelly, heavily connected talk-singing with crooked syncopation, internal-rhyme emphasis, muttered asides, and smeared consonants",
+        "energy": "hooks and refrains expand into forceful sustained melody",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-34bb0c893c29f083d234b04a",
+      "title": "Feathers in the Floodlights",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-34bb0c893c29f083d234b04a-c15d5cdec8f0.mp3",
+      "planHash": "2720ecb0cafafec7b217e48c71e4714613841a45f1caf41262912798a75baa98",
+      "musicalSettings": {
+        "genre": "rock ballad",
+        "instruments": [
+          "electric guitar",
+          "piano",
+          "melodic bass",
+          "drums",
+          "rhythm guitars",
+          "organ"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Guitar Lift → Final Chorus → Final Tag",
+        "performance": "smoky, slurred, mischievous delivery with connected vowels, crooked timing, muttered edges, and sustained melodic peaks",
+        "energy": "The second verse gains organ and sharper guitar responses, followed by a massive bridge build, a brief melodic guitar lift, and a final chorus with stacked band dynamics.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-72bf872f73683d72fc1270cc",
+      "title": "Before the Sirens",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-72bf872f73683d72fc1270cc-90b7f752b95b.mp3",
+      "planHash": "50c61f15ae621ad9ce1d46a9e415115ecf0b9b8836ae51a86c276a8188407750",
+      "musicalSettings": {
+        "genre": "EBM",
+        "instruments": [
+          "sequenced bass",
+          "kick",
+          "metallic percussion",
+          "synth"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Breakdown → Bridge → Final Chorus → Final Tag",
+        "performance": "smoky, slurred verses with clipped menace, crooked timing, muttered tails, and more sustained melody in the choruses",
+        "energy": "The breakdown strips to bass pulse, kick, and command-like vocals before the bridge rebuilds in widening synth layers.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-79358f0b949bb71f673f5a63",
+      "title": "The Crooked Crown Campaign",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-79358f0b949bb71f673f5a63-fff41621da82.mp3",
+      "planHash": "a23db76f68e79685805bac80ecabebb776cdf373b660e8a67897f6fd7bb52811",
+      "musicalSettings": {
+        "genre": "orchestral soul-rock ballad",
+        "instruments": [
+          "piano",
+          "guitar",
+          "bass",
+          "live drums",
+          "strings",
+          "brass"
+        ],
+        "meter": "",
+        "structure": "Spoken Intro — Tony, low → Verse 1 — Lead → Pre-Chorus — Three voices entering → Chorus — Three-part harmony → Verse 2 — Lead with answering voices → Pre-Chorus — Three voices → Chorus — Three-part harmony → Bridge — Call and response → Lead → Low Tony → High Tony → Lead → All → Breakdown — Staggered harmony → Final Chorus — Full band and three voices → Final Refrain — Sustained three-part harmony → Outro — Lead, then held harmony",
+        "performance": "close three-voice harmonies",
+        "energy": "Build from intimate verses to a broad final chorus",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-0fcd80ceea308bd60ee475f5",
+      "title": "Men Be Hung Horses Go",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0fcd80ceea308bd60ee475f5-6f026ffe7126.mp3",
+      "planHash": "0f24f549219ae8f41d5b5a923971115c008ecaaa4dc48f027ac8e5ff5a87305f",
+      "musicalSettings": {
+        "genre": "frontier rock",
+        "instruments": [
+          "Baritone guitar",
+          "melodic bass",
+          "drums",
+          "tremolo electric guitar",
+          "organ",
+          "toms"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "smoky connected vowels, crooked timing, muttered verse tails, and sustained melodic hook notes",
+        "energy": "The bridge expands into pounding toms and layered guitars, followed by a brief ensemble stop before the final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-f47a3eb436748f0b2e3d6ccf",
+      "title": "9-11'd Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f47a3eb436748f0b2e3d6ccf-d79074cbfb3e.mp3",
+      "planHash": "d16d01f433811e767bbba6257c806fec278c80619044a841b4907423239d837d",
+      "musicalSettings": {
+        "genre": "hard rock",
+        "instruments": [
+          "bass",
+          "guitars",
+          "live drums"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Chorus → Post-Chorus → Verse 3 → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "smoky slurs, crooked timing, muttered irritation, and melodic sustained chorus notes",
+        "energy": "Sections steadily escalate, then strip down for the bridge before a full-band final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-1950af500a097159fe82830a",
+      "title": "Cold Leaves at the Window",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1950af500a097159fe82830a-9a3a2b90e1b9.mp3",
+      "planHash": "b02b07d4e0c0aacb3d196c95e77884615669574b04e59f19ff5736845795b57a",
+      "musicalSettings": {
+        "genre": "smoky rock ballad",
+        "instruments": [
+          "melodic bass",
+          "drums",
+          "electric piano",
+          "tremolo guitar",
+          "organ"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "expressive Tony V7 vocals",
+        "energy": "Build from an intimate autumnal opening into broad choruses, briefly thin out beneath the hospital verse, then rise through the dreamlike vaccine bridge and resolve on a sustained full-band chord.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-20f7c4ece1056eb41c15600f",
+      "title": "Room at Every Table",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20f7c4ece1056eb41c15600f-6b747e5dfca2.mp3",
+      "planHash": "a7154f01040c5527581c1e32ea093131eaedecae43a657c4f1e693d23a29ed3d",
+      "musicalSettings": {
+        "genre": "doo-wop",
+        "instruments": [
+          "electric bass",
+          "piano",
+          "guitar",
+          "drums",
+          "saxophone",
+          "handclaps"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "smoky, slurred lead",
+        "energy": "Build from a sparse vocal intro through fuller choruses, drop to bass and snaps for the breakdown",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-6ab32e7baf5095f21eec06ca",
+      "title": "The Rooms We Never Named",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6ab32e7baf5095f21eec06ca-d43bf96b8ec4.mp3",
+      "planHash": "b39506d3127cef646e7e53d5d268870a43c7181b7ee3cb1ff22505ea8e8a158b",
+      "musicalSettings": {
+        "genre": "bass-forward Tony rock",
+        "instruments": [
+          "bass",
+          "drums",
+          "electric guitars",
+          "toms"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "Rough V7 phonetics, crooked timing, muttered tails, and restrained laughs",
+        "energy": "Verses stay intimate and conversational; choruses widen with stacked guitars and a catchable hook, while the bridge strips to bass and toms before a full-band final lift.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-ac8ef4a16cc6990cf350d859",
+      "title": "Every Porch Light On",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ac8ef4a16cc6990cf350d859-f2381444efcc.mp3",
+      "planHash": "ed1d1687fffce746b27626ee5a6c219ebe17fc4ff12d8a46bef70888c010524b",
+      "musicalSettings": {
+        "genre": "Industrial rock",
+        "instruments": [
+          "distorted bass",
+          "metallic percussion",
+          "drums",
+          "guitars"
+        ],
+        "meter": "",
+        "structure": "Spoken Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Industrial Break → Bridge → Final Chorus → Outro",
+        "performance": "awkward, hesitant spoken intro",
+        "energy": "Build the final chorus with stacked neighbors’ harmonies",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-dded4a36b254402ccfaa50c7",
+      "title": "Two Lanes One Town",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-dded4a36b254402ccfaa50c7-c1939bcee8ad.mp3",
+      "planHash": "60b5323bfc7302f6a20c820a7f932e1cec2a6ccc660541587ecf359eb0cfb130",
+      "musicalSettings": {
+        "genre": "country-rap duet",
+        "instruments": [
+          "acoustic guitar",
+          "pedal steel",
+          "kick",
+          "electric bass",
+          "hip-hop drums",
+          "fiddle",
+          "distorted guitar"
+        ],
+        "meter": "",
+        "structure": "Intro - Low Tony, spoken → Verse 1 - Country Tony → Pre-Chorus - Country Tony → Chorus - Both → Verse 2 - Deep Tony, rap → Chorus - Both → Verse 3 - Country Tony → Bridge - Call and Response → Country Tony → Deep Tony → Country Tony → Deep Tony → Both → Final Chorus - Both → Outro - Both, sung → Deep Tony, spoken → Country Tony, softly",
+        "performance": "one rough melodic country character in a mid-high register and one distinctly deeper, smoky rap character",
+        "energy": "Build the final chorus with full drums and harmony",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-cfd4b2b392cfb545e375b454",
+      "title": "No Flag Can Wash the Dust",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cfd4b2b392cfb545e375b454-9a3c30d9f820.mp3",
+      "planHash": "01a9a5cf8d7d90fbdfef9cab603022d6fb52b9cff524ee6622b2fd7e78b7c4ed",
+      "musicalSettings": {
+        "genre": "Darkwave horrorcore",
+        "instruments": [
+          "analog-synth",
+          "bass",
+          "industrial drums",
+          "baritone guitar"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "smoky melodic verses, slurred internal-rhyme passages, muttered asides, and a strongly sung, catchable chorus",
+        "energy": "Build from sparse dread into a dense final chorus, then strip back beneath the sustained closing line.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-501c87e82b7b116860c6e1f9",
+      "title": "Wrong Turn in Mercy Alabama",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-501c87e82b7b116860c6e1f9-a06eef516bfc.mp3",
+      "planHash": "d924053931b5e7293bdc51e245eb60cb7630f42eb6707e92e2970ec48f973623",
+      "musicalSettings": {
+        "genre": "contemporary-country duet",
+        "instruments": [
+          "bass",
+          "drums",
+          "acoustic rhythm guitar",
+          "Telecaster",
+          "fiddle",
+          "pedal steel",
+          "barroom piano"
+        ],
+        "meter": "",
+        "structure": "Intro → Tony → Verse 1 — Tony → Verse 2 — Renee → Pre-Chorus — Tony → Chorus — Duet → Tony → Renee → Both → Verse 3 — Tony → Verse 4 — Renee → Instrumental Turn — short Telecaster and fiddle answer → Verse 5 — Tony → Pre-Chorus — Renee and Tony → Renee → Tony → Renee → Tony → Renee → Tony → Chorus — Duet → Tony → Renee → Both → Bridge — Renee → Bridge — Tony → Breakdown — Duet → Renee → Tony → Renee → Tony → Renee → Tony → Final Chorus — Duet → Tony → Renee → Both → Final Tag — sustained duet → Tony → Renee → Both",
+        "performance": "Tony’s part is rough, smoky, slurred, and comically disoriented, while Renee’s answering part is steadier, firmer, and placed slightly higher with distinct phrasing",
+        "energy": "Verses remain spacious and melodic; choruses widen into two-part harmony, and the bridge strips back to bass, acoustic guitar, and direct call-and-response before a full-band final lift.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-41122cfa1d30d985e40d357b",
+      "title": "Nine-Eleven'd Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-41122cfa1d30d985e40d357b-b6742677aca4.mp3",
+      "planHash": "647111895379e1daecc369e67d69d3831b54355620f07655a53e7a1e49375c57",
+      "musicalSettings": {
+        "genre": "hard-driving Tony rock",
+        "instruments": [
+          "bass",
+          "twin guitars",
+          "live drums",
+          "organ"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Verse → Final Chorus → Outro",
+        "performance": "smoky, slurred V7 delivery with muttered irritation",
+        "energy": "each chorus becomes louder, rougher and more excited while keeping the title hook catchable",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-841de4ec654a405e36f42a40",
+      "title": "Ghost Wings Over Deadmans Port",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-841de4ec654a405e36f42a40-897a5205d362.mp3",
+      "planHash": "6c7237e796e80cedad12e80d5d32c2853c13ff93fd7bab08e0fb4086f983a4ac",
+      "musicalSettings": {
+        "genre": "Neo-synthwave cyberpunk rock",
+        "instruments": [
+          "synth-bass",
+          "electronic drums",
+          "distorted guitar",
+          "metallic hangar percussion"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Verse 3 → Instrumental Break → Driving bass sequence, gated drums, distorted guitar harmonics → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "smoky, rough, slurred, and mischievous, with melodic sustained phrases and a clearly catchable refrain",
+        "energy": "Build from a nocturnal mechanical intro through widening choruses, a bass-led instrumental break, and a tense half-time bridge into the largest final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-58f7ff15f4e6350c0bc94136",
+      "title": "Two Towers Too Wide",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-58f7ff15f4e6350c0bc94136-8fbf16b38401.mp3",
+      "planHash": "98222344cd90c66871477dbf9cc96c817fbbd16503d42e8d514a3841c5508f24",
+      "musicalSettings": {
+        "genre": "garage rock",
+        "instruments": [
+          "electric bass",
+          "drums",
+          "tremolo guitar",
+          "combo organ",
+          "theremin"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Bridge → Final Chorus → Tag",
+        "performance": "smoky slurs, crooked timing, muttered punch lines, and a clearly sung hook",
+        "energy": "Build the final chorus with gang-free backing harmonies and a rising organ line",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-690c7eb2e5376ce0d7506511",
+      "title": "Wrong Side of the Charge",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-690c7eb2e5376ce0d7506511-b99bdc0a1237.mp3",
+      "planHash": "d1096d699ed35e549055d6034153ecb40d8720483da820fa41bbabae02458f1a",
+      "musicalSettings": {
+        "genre": "late-1970s British punk",
+        "instruments": [
+          "electric guitars",
+          "bass",
+          "live drums"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Verse 3 → Final Chorus → Finale",
+        "performance": "smoky slurs, crooked timing, dismissive laughs, and a clearly shouted central hook",
+        "energy": "abrupt ensemble stops, and a short feedback-streaked finale",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-0236d395f02a16d53bd911d3",
+      "title": "No Saints in the Bomb Crater",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0236d395f02a16d53bd911d3-58f65acbb2a7.mp3",
+      "planHash": "b816fd4e8870e656fa4709780f515a8df0adee57dd8471bb15aa2eaab65107bd",
+      "musicalSettings": {
+        "genre": "funeral-dirge rock",
+        "instruments": [
+          "church bell",
+          "bowed upright bass",
+          "floor toms",
+          "harmonium",
+          "brass",
+          "baritone guitar"
+        ],
+        "meter": "",
+        "structure": "Spoken Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Funeral Procession → Bridge → Final Chorus → Outro",
+        "performance": "smoky, slurred verses, rising into a catchable accusatory chorus",
+        "energy": "the procession grows heavier before dropping to near-silence for the bridge",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-cb0b9499cf826af6721055d8",
+      "title": "Jihad at the Holy Big Top",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cb0b9499cf826af6721055d8-66f19fd42d93.mp3",
+      "planHash": "5281c42dfaaae6e2cbaed9af087ff6045a44f2fff37b3e604c88f621d46e755c",
+      "musicalSettings": {
+        "genre": "circus polka",
+        "instruments": [
+          "tuba",
+          "electric bass",
+          "distorted rhythm guitar",
+          "accordion",
+          "calliope",
+          "snare",
+          "crash cymbals",
+          "brass"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Instrumental Break → Final Chorus → Outro",
+        "performance": "smoky slurs, low laughs, and elastic sustained hook notes",
+        "energy": "A wheezing half-time bridge rebuilds into the final chorus",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-c3eb65ce405cdf80548dbb9b",
+      "title": "AGI Ge ǃNâi Hâ",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c3eb65ce405cdf80548dbb9b-a2a94f916471.mp3",
+      "planHash": "c4222a14d34a2bd2c0c5a4e26652a9e5542e1ff17e43d374bc217f92ada75344",
+      "musicalSettings": {
+        "genre": "Khoekhoegowab horrorcore-rock",
+        "instruments": [
+          "sub-bass",
+          "live drums",
+          "synth",
+          "server-fan percussion"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Bridge → Final Chorus",
+        "performance": "forceful Tony-led call-and-response hook",
+        "energy": "Build from a sparse whispered intro into two heavy choruses, strip to bass and machine pulses for the bridge",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-4c65e7a9ef69da33a2c99197",
+      "title": "Ten Years in the Rain",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4c65e7a9ef69da33a2c99197-bef9dee78928.mp3",
+      "planHash": "587f0bbba7e645fd2462da07f691ad0610e2fbebdcec39bd25fc276203033f92",
+      "musicalSettings": {
+        "genre": "Top-40 rainy hip-hop",
+        "instruments": [
+          "sub-bass",
+          "electric-piano",
+          "drums",
+          "synth"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Bridge – Arabic/throat accent → Final Chorus → Outro",
+        "performance": "slurred, smoky rhythmic bars with crooked pocket, muttered edges, and a clearly catchable melodic chorus",
+        "energy": "The final chorus broadens with stacked Tony harmonies",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-2b632b6e36f68c60423536b5",
+      "title": "When the Ja Dropped",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2b632b6e36f68c60423536b5-0a59c48b96a3.mp3",
+      "planHash": "d902af153ab7b2091b7cc2c98eacd806bd69e3bbea4be1f7642fbddf607e094f",
+      "musicalSettings": {
+        "genre": "modern country-rock",
+        "instruments": [
+          "Telecaster",
+          "pedal steel",
+          "acoustic rhythm guitar",
+          "electric bass",
+          "live drums"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Instrumental Turn → Verse 3 → Bridge → Breakdown → Final Chorus → Final Tag",
+        "performance": "rough, smoky, connected vowels, crooked timing, muttered asides, and a catchable melodic chorus",
+        "energy": "Begin lightly comic, darken after the second chorus, then rebuild into a warm, resolved finale.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-cde0ad6343e70356fe5b56e1",
+      "title": "Sol for Sale",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cde0ad6343e70356fe5b56e1-351533aac811.mp3",
+      "planHash": "8d941554d4571f310cdd5f3fc3b1865fcf2c0aade77baa28b0b70800249825fe",
+      "musicalSettings": {
+        "genre": "Clown dubstep",
+        "instruments": [
+          "sub-bass",
+          "calliope",
+          "brass samples",
+          "percussion",
+          "drums"
+        ],
+        "meter": "",
+        "structure": "Spoken Intro → Verse 1 → Pre-Chorus → Chorus → Drop → Verse 2 → Pre-Chorus → Chorus → Bridge → Final Drop → Final Chorus → Outro Tag",
+        "performance": "rough, smoky, slurred, and melodically sung, with crooked laughs and dismissive asides",
+        "energy": "Bass movement drives the groove beneath circus dissonance.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-6de1a50ad6f84fe463d243b2",
+      "title": "Rollback Prophet of Fairbanks",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6de1a50ad6f84fe463d243b2-b4ee0bbae12d.mp3",
+      "planHash": "d4fc79837ba3978bf4a899ab0460cc54509f06423b0cb732d75b28d4a2449793",
+      "musicalSettings": {
+        "genre": "Arabic-maqam-inspired heavy groove rock",
+        "instruments": [
+          "oud",
+          "frame drums",
+          "bowed bass",
+          "electric guitar"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Breakdown → Final Chorus → Outro",
+        "performance": "rough melodic verses, low overtone drones, smoky throat-sung transitions, crooked asides, and a clear, catchable chorus",
+        "energy": "",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-e9255c87b777e990eb5bddc3",
+      "title": "Room for Chris-R",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e9255c87b777e990eb5bddc3-b816bc5b7433.mp3",
+      "planHash": "0e0075ca43d391ed00da4c5277a2aca5b07bdaa5ca390ab33561c0acbdb71922",
+      "musicalSettings": {
+        "genre": "theatrical slow-jam R&B",
+        "instruments": [
+          "electric piano",
+          "melodic bass",
+          "drum-machine",
+          "funk guitar",
+          "synth strings"
+        ],
+        "meter": "",
+        "structure": "Spoken Cold Open → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Verse 3 → Bridge → Final Chorus → Outro",
+        "performance": "smoky sung narration, slurred asides, escalating character voices, and a catchable harmonized hook",
+        "energy": "The bridge strips to bass and keys before the full final chorus resolves",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-cc22e422494bc3ff4c41144e",
+      "title": "You Left Me to the Swarm",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cc22e422494bc3ff4c41144e-df416088297c.mp3",
+      "planHash": "0f9e5dd764e48e99a3476a02bb15d56101e49e027aaf5269c5791a111ca06ff0",
+      "musicalSettings": {
+        "genre": "Neosynth sci-fi rock",
+        "instruments": [
+          "analog bass",
+          "drums",
+          "pads",
+          "distorted guitar"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Instrumental Break → Final Verse → Final Chorus → Outro",
+        "performance": "smoky, slurred verses rising into a catchable sustained hook",
+        "energy": "huge cinematic final chorus",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-e43ffa90011dfcc2e6231361",
+      "title": "Oh Hi My Dark Beloved",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e43ffa90011dfcc2e6231361-5284556b823c.mp3",
+      "planHash": "dc7665587f553e0e2763dd3bf46a4faafd80ea51d34a3e9078ac39fcb9094810",
+      "musicalSettings": {
+        "genre": "horror polka",
+        "instruments": [
+          "accordion",
+          "tuba",
+          "snare",
+          "kick",
+          "clarinet",
+          "violin",
+          "chapel-organ"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Half-time, muttered → Build → Final Chorus → Outro",
+        "performance": "smoky, slurred melodic delivery and muttered asides",
+        "energy": "The bridge drops to half-time chapel-organ tension before a accelerating final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-2fa58c544bb2ea097683cd8e",
+      "title": "The One Warrior and the Heavier Feather",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2fa58c544bb2ea097683cd8e-46fbfe0ba6d1.mp3",
+      "planHash": "dfa725e8daca3b31e076921d98d6ed55c2148881a658c86bc783fd38b5bf5dd5",
+      "musicalSettings": {
+        "genre": "medieval fantasy rock",
+        "instruments": [
+          "lute-like acoustic figure",
+          "bass",
+          "hand-drum",
+          "electric-guitar",
+          "rock drums",
+          "floor tom"
+        ],
+        "meter": "",
+        "structure": "Spoken Intro → Verse 1 → Spoken Interlude → Pre-Chorus → Chorus → Verse 2 → Spoken Interlude → Bridge → Spoken Interlude → Final Chorus → Outro",
+        "performance": "expressive slur, warm rough vowels, mischievous timing and sustained melodic hooks",
+        "energy": "bridge drops to bass and floor tom, rebuilding with connected melodic singing",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-29c9f7c1321d4395579ab62f",
+      "title": "Ten Hours for an Ith",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-29c9f7c1321d4395579ab62f-dec7a100c708.mp3",
+      "planHash": "89cb73ad9359536ede02355b99b9d476b9ce54e52d08e1f1e0edfd76bb3032a3",
+      "musicalSettings": {
+        "genre": "Industrial jazz with synthesizers",
+        "instruments": [
+          "programmed drums",
+          "metallic percussion",
+          "synth bass",
+          "electric-piano",
+          "saxophone"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Pre-Chorus → Chorus → Verse 2 → Chorus → Bridge → Final Chorus",
+        "performance": "smoky connected vowels, crooked timing, muttered irritation and brief laughs",
+        "energy": "build from tight verses into wide synth choruses, then strip the bridge to bass, electric piano and ticking percussion before the final lift",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-1890743a4fe0a0b8b8e4486c",
+      "title": "Medusa - From Da Shoes",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1890743a4fe0a0b8b8e4486c-5562e238e709.mp3",
+      "planHash": "b7350bb51c7d1897e5842edd2e5d99bfff30796bc75578a0db1679145959ccaa",
+      "musicalSettings": {
+        "genre": "acoustic reinterpretation",
+        "instruments": [
+          "steel-string guitar",
+          "nylon-string",
+          "upright bass",
+          "brushed snare",
+          "hand percussion"
+        ],
+        "meter": "",
+        "structure": "Spoken Intro → Verse 1 → Chorus → Verse 2 → Chorus → Bridge → Final Chorus",
+        "performance": "intimate slurred melodic singing, connected vowels, crooked entrances, quiet laughs and muttered corrections",
+        "energy": "Build choruses through fuller acoustic strumming and bass movement, then strip the bridge back before the final lift.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-5dcc03f7a816c3e812f62173",
+      "title": "The One I Cannot Kill",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5dcc03f7a816c3e812f62173-55e576226de6.mp3",
+      "planHash": "03773170418a45e34f842ddc9ce1f82c0bbe6348301a476e25273a9dd0c66ad4",
+      "musicalSettings": {
+        "genre": "heavy blues-rock",
+        "instruments": [
+          "bass",
+          "electric guitars",
+          "drums"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Final Chorus",
+        "performance": "smoky connected vowels, dismissive mutters, crooked entrances and sustained hook notes",
+        "energy": "Build through verses and choruses into an ensemble stop before the bridge, then a full-band final chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-268867386d96f37bbadc6d45",
+      "title": "An Old Friend in the Emergency Light",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-268867386d96f37bbadc6d45-cb75ca295734.mp3",
+      "planHash": "c100842aafc7e76c35e251b2a06d7c7bc19eba993fb59722701be2066fc7f4aa",
+      "musicalSettings": {
+        "genre": "Cinematic progressive space rock",
+        "instruments": [
+          "electric bass",
+          "live drums",
+          "synthesizers",
+          "bowed guitar",
+          "organ"
+        ],
+        "meter": "",
+        "structure": "Verse 1 → Ominous, low and deliberate → Verse 2 → Chorus → Verse 3 → Bridge → Final Chorus → Closing, quietly sung",
+        "performance": "smoky connected vowels, crooked timing and a brief dry laugh",
+        "energy": "an alien, mysterious opening that gradually warms into a reunion under grave circumstances",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-1bedc02aaedbb1663d5fdcd9",
+      "title": "Geglash and the Missing Save",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1bedc02aaedbb1663d5fdcd9-cf309effed3a.mp3",
+      "planHash": "45cf92186109dadbef71a9ad6db6dc55ca50318ceb223da737ce33ffa9ab2d14",
+      "musicalSettings": {
+        "genre": "Darkwave horror circus power pop",
+        "instruments": [
+          "melodic bass",
+          "analog synth",
+          "drums",
+          "distorted chorus guitars",
+          "calliope",
+          "fairground organ"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Chorus → Bridge → Final Verse → Final Chorus",
+        "performance": "Mostly melodic singing with clipped comic verse delivery and sustained chorus endings.",
+        "energy": "increasingly frantic slurs",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-f2934cba2d2636b3a71d19a3",
+      "title": "The Midnight Chrome Express",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f2934cba2d2636b3a71d19a3-3f9dcb246f13.mp3",
+      "planHash": "0bdde24716176d4c0bd3fe868532bccd32e177a2321a225bd886d78a5afc88f5",
+      "musicalSettings": {
+        "genre": "Western swing",
+        "instruments": [
+          "upright bass",
+          "archtop guitar",
+          "pedal steel",
+          "fiddle",
+          "brushed snare",
+          "brass"
+        ],
+        "meter": "",
+        "structure": "Intro — whistled pickup, then spoken → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Chorus → Bridge — half-time, warmly sung → Final Chorus → Coda — slowing into the station",
+        "performance": "smoky, slurred and mischievous, with connected vowels, crooked entrances, a chuckle after the hat line and sustained melodic chorus endings",
+        "energy": "half-time bridge with bass and steel under an intimate vocal",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-bb1f8f4a13e2bb624b3a22b8",
+      "title": "Olivia and the Crooked Carnival",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-bb1f8f4a13e2bb624b3a22b8-6a9295d96a44.mp3",
+      "planHash": "5299431cbe250cf06222d23b06c22e20845ea77a3623c1f20cdd20dcffb48226",
+      "musicalSettings": {
+        "genre": "circus punk",
+        "instruments": [
+          "electric bass",
+          "distorted guitars",
+          "calliope",
+          "accordion",
+          "trombones",
+          "snare"
+        ],
+        "meter": "4/4",
+        "structure": "Intro → Verse 1 → Chorus → Verse 2 → Chorus → Bridge → Breakdown → Final Verse → Final Chorus → Outro",
+        "performance": "Rough, smoky connected vowels, crooked entrances, bitter chuckles and excited slurred tails",
+        "energy": "Verses climb in intensity, the bridge exposes voice over accordion and bass, and the breakdown uses short ensemble stops beneath sung vocal lines.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-ec1e60f540ac1cdfd2c7a081",
+      "title": "Two Stools in Lut Gholein",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ec1e60f540ac1cdfd2c7a081-47c156e7e9d8.mp3",
+      "planHash": "fc52cfaeac799e244a28d507afc98070f563b57711682382ff81d38c886c6af5",
+      "musicalSettings": {
+        "genre": "honky-tonk country duet",
+        "instruments": [
+          "electric bass",
+          "Telecaster",
+          "pedal steel",
+          "fiddle",
+          "upright piano",
+          "brushed snare"
+        ],
+        "meter": "",
+        "structure": "Intro — Tony, half-spoken →  Geglash, chuckling → Verse 1 — Tony → Verse 2 — Geglash → Tony, muttered → Geglash → Chorus — Both → Verse 3 — Geglash → Tony → Geglash → Tony → Verse 4 — Tony → Geglash → Chorus — Both → Bridge — Tony, quietly sung → Geglash → Short Fiddle Turn — Geglash, sustained → Tony, soft laugh → Verse 5 — Geglash → Tony → Geglash → Tony → Final Chorus — Both → Outro — Tony → Geglash → Tony → Both, sustained",
+        "performance": "Tony in his smoky, crooked middle register; fictional Geglash characterized through a lower tessitura, rounded vowels and boastful delivery",
+        "energy": "Return to the full country ensemble for the last chorus.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-ade0b730b6386af1bb6bca31",
+      "title": "Alll-mer Under the Big Top",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ade0b730b6386af1bb6bca31-fcfecd4ea437.mp3",
+      "planHash": "08dd1d50bcdcf95a1e09480e16c1d46ed533843a88d368eebf3632bb0f367d50",
+      "musicalSettings": {
+        "genre": "electronic circus dance",
+        "instruments": [
+          "calliope",
+          "fairground organ",
+          "synth bass",
+          "kick",
+          "claps"
+        ],
+        "meter": "4/4",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Guest Stanza — Geglash character → Bridge → Final Chorus → Outro",
+        "performance": "smoky connected vowels, crooked entrances, quiet laughs and sustained melodic hooks",
+        "energy": "Use ensemble stops and jarring chromatic fills without extended vocal gaps.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-a734d712272790dbf9ce12bf",
+      "title": "Little Bit More - Pocket Full of Trouble",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a734d712272790dbf9ce12bf-a9bbd4705c3e.mp3",
+      "planHash": "bd8e9403821213ecb7650e244d6248352e84f82dc63d40e1afe51b31372394f6",
+      "musicalSettings": {
+        "genre": "bass-forward boom-bap hip-hop",
+        "instruments": [
+          "drums",
+          "snare",
+          "electric bass",
+          "Rhodes",
+          "turntable-style percussion",
+          "brass"
+        ],
+        "meter": "4/4",
+        "structure": "Intro — 4 bars → Verse 1 — 16 bars → Hook — 8 bars → Verse 2 — 16 bars → Hook — 8 bars → Bridge — 8 bars → Verse 3 — 16 bars → Final hook — 8 bars",
+        "performance": "smoky connected vowels, sly laughs, muttered tails and escalating rhythmic push",
+        "energy": "Verses use syncopation and internal rhymes; counting hooks are catchable, doubled rhythmic chants with brief pitched tails.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-245e1b240319256167d21431",
+      "title": "The Wrong Kind of Miracle",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-245e1b240319256167d21431-21bb3cf07f69.mp3",
+      "planHash": "db228d9b273dfa76ebf920cec304c0f3a2617379f4c8b9bcc009e600aec9ff97",
+      "musicalSettings": {
+        "genre": "circus music and EBM fusion",
+        "instruments": [
+          "sequenced bass",
+          "electronic kick",
+          "metallic snares",
+          "calliope",
+          "fairground organ",
+          "brass"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Verse 3 → Final Chorus → Outro",
+        "performance": "smoky slurs, connected vowels, crooked entrances, muttered profanity and brief bitter laughs",
+        "energy": "Build the Dysmorphia bridge through widening organ clusters and rising vocal intensity.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-609553f2a923b2c357f98efd",
+      "title": "The Last Round Keeps Moving",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-609553f2a923b2c357f98efd-c066d6f64f27.mp3",
+      "planHash": "dcc27eab91f98dd2d9f98ececfa7bb5e75a9e270249aabd05e7bfeadedbf43a9",
+      "musicalSettings": {
+        "genre": "maritime sea shanty",
+        "instruments": [
+          "concertina",
+          "fiddle",
+          "acoustic guitar",
+          "upright bass",
+          "boot stomps",
+          "hand drum"
+        ],
+        "meter": "6/8",
+        "structure": "Verse 1 → Chorus 1 → Verse 2 → Chorus 2 → Verse 3 → Chorus 3 → Bridge → Final Chorus → Outro",
+        "performance": "smoky slurs, connected vowels, crooked entrances, quiet laughs and sustained melodic hooks",
+        "energy": "Cut the ensemble after the third chorus's interrupted hook, keep Tony present through the sparse bridge, and rebuild beneath his walk home.",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-cef35c70fb5cdf1ec2c48d0d",
+      "title": "Two Names in One Pair of Shoes",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cef35c70fb5cdf1ec2c48d0d-fbd8d6fa4115.mp3",
+      "planHash": "9d57a25cbb12d67cf53ac19010a80d14af5ffe0f0e301fbd56a6282f231f5d8d",
+      "musicalSettings": {
+        "genre": "Power circus EDM",
+        "instruments": [
+          "kicks",
+          "synth bass",
+          "calliope",
+          "accordion",
+          "fairground bells"
+        ],
+        "meter": "",
+        "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Final Chorus → Outro",
+        "performance": "smoky connected vowels, crooked entrances, muttered profanity and brief nervous laughter",
+        "energy": "intimate carnival intro, two escalating verse/pre-chorus/chorus cycles, exposed half-time bridge, final vocal-led drop and a gentle outro",
+        "lyricWorkflow": ""
+      }
+    },
+    {
+      "id": "distonyc-1d7840d9c9addba07ccabdb2",
+      "title": "Blood on My Shoes at Daybreak",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1d7840d9c9addba07ccabdb2-043701a808ad.mp3",
+      "planHash": "5d23aa6358ee2943e1a1da7cdb75d244d4833776f42b08cb8c536b095e8c01a2",
+      "musicalSettings": {
+        "genre": "Dark electronic breakbeat",
+        "instruments": [
+          "analog synth bass",
+          "drum machines",
+          "pads"
+        ],
+        "meter": "",
+        "structure": "Intro — muttered, then sung → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge — half-time, exposed melody → Final Chorus — rising intensity → Outro — gently sung",
+        "performance": "drunken, smoky and mischievous through connected vowels, crooked entrances, small laughs and slurred tails",
+        "energy": "Begin with an exposed mutter over a pulsing bass, build layered verses into wide melodic choruses, then strip the bridge to half-time sub-bass and a fragile keyboard motif.",
+        "lyricWorkflow": ""
+      }
+    }
+  ]
+}

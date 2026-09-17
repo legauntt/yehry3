@@ -41,6 +41,11 @@ def candidates(catalog, jobs):
             skipped.append({'id': song_id, 'reason': 'Published title or recording hash differs'})
             continue
         public = public_plan(plan)
+        # A later summary backfill must not replace or invalidate the original frozen plan.
+        existing_settings = (song.get('songPlan') or {}).get('musicalSettings')
+        if existing_settings is not None and 'musicalSettings' not in public:
+            from musical_settings import public_settings
+            public['musicalSettings'] = public_settings(existing_settings)
         if song.get('songPlan') is not None and song['songPlan'] != public:
             raise ValueError(f'A different song plan is already saved for {song_id}')
         matches.append({'id': song_id, 'title': song['title'], 'url': song['url'], 'songPlan': public})
