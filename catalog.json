@@ -2,6 +2,375 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-d267f673c93786e5669bcae4",
+      "title": "Closed Before the First Bite",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d267f673c93786e5669bcae4-47b89e2f58b6.mp3",
+      "duration": 239.96081632653062,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-17T21:21:24.098Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Closed Before the First Bite",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Darkwave synth-rock lament in 4/4, built from brooding synthesizer bass, cold synth pads, funereal organ and a restrained drum machine. Tony V8 delivers smoky, connected verses with natural slurs and muttered frustration, while the choruses widen into forceful sustained melodies without losing the somber tone. Begin spare, deepen with each failed journey, briefly thin beneath the bridge, then reach a heavy tragic peak in the final chorus. Pace the outro so Tony's last sustained syllable lands about 10 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nMidnight humming through the power lines\nTony reads the glowing roadside sign\nOne small hunger, one unlucky man\nFollowing the roast beef promised land\n\n[Verse 1]\nHe took the last bus out past closing time\nWith exact change sweating in his hand\nSaw that red hat burning like a beacon\nOver one more half-deserted strip-mall stand\nHe reached the door, the whole night shuddered\nSirens tore the silence into seams\nThe windows vanished, the sign went black\nAnd smoke swallowed up his little dream\n\n[Chorus]\nwe have the meats, said the light in the rain\nThen the light disappeared in a tower of flame\ngoddamn, nine-eleven'd again\nTony turned home hungry through the rain\nEvery road ends under that red sign\nEvery meal gets taken before it's mine\n\n[Verse 2]\nNext week he crossed three county borders\nFound another shining off Route Nine\nHe could smell the curly fries through traffic\nFor one sweet second, everything was fine\nThen shadows passed across the parking lot\nThe organ moaned beneath the warning tone\nAnother counter folded into darkness\nAnd Tony rode the empty highway home\n\n[Chorus]\nwe have the meats, said the light in the rain\nThen the light disappeared in a tower of flame\ngoddamn, nine-eleven'd again\nTony beat the dashboard, shouting at the rain\nEvery road ends under that red sign\nEvery meal gets taken before it's mine\n\n[Bridge]\nHe kept the coupons in a kitchen drawer\nLittle paper prayers for something warm\nBeef and cheddar pictured like a heaven\nForever waiting past the next alarm\nHis friends said, Tony, let the hunger go\nBut hunger was the last hope he could name\nSo he traced one final open location\nAnd walked toward its red electric flame\n\n[Verse 3]\nDawn came pale behind the loading docks\nNo cars, no birds, no wind along the lane\nThe doors unlocked; the fryer started singing\nTony whispered, Let me taste it once\nA hand reached out to take his order\nThe whole horizon answered with a roar\nThe ceiling fell between him and the counter\nAnd morning could not find him anymore\n\n[Chorus]\nwe have the meats, but Tony cannot hear\nThe red hat flickers through the settling air\ngoddamn, nine-eleven'd again\nNo angry fist, no long ride home through rain\nJust one cold coupon underneath his hand\nAnd one untouched meal in a ruined stand\n\n[Outro]\nHe died without the taste he chased for years\nNo curly fries, no cheddar, nothing gained\nThe organ holds one low and final answer:\nTony C went hungry to his grave\n[End]",
+        "duration": 240,
+        "bpm": 78,
+        "musicalSettings": {
+          "genre": "Darkwave synth-rock lament",
+          "meter": "4/4",
+          "structure": "Intro, verse, chorus, verse, chorus, bridge, final verse, final chorus, outro",
+          "performance": "Rough, smoky Tony V8 lead with connected vowels, loose natural timing, restrained mutters and forceful melodic choruses",
+          "energy": "Low nocturnal tension grows through successive disasters, peaks in the final chorus, then collapses into a stark resolved ending",
+          "lyricWorkflow": "Original narrative lyrics use escalating black comedy, recurring required chorus lines and a final tragic payoff",
+          "instruments": [
+            "Synthesizer",
+            "Synth pads",
+            "Organ",
+            "Drum machine"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nMidnight humming through the power lines\nTony reads the glowing roadside sign\nOne small hunger, one unlucky man\nFollowing the roast beef promised land\n\n[Verse 1]\nHe took the last bus out past closing time\nWith exact change sweating in his hand\nSaw that red hat burning like a beacon\nOver one more half-deserted strip-mall stand\nHe reached the door, the whole night shuddered\nSirens tore the silence into seams\nThe windows vanished, the sign went black\nAnd smoke swallowed up his little dream\n\n[Chorus]\nwe have the meats, said the light in the rain\nThen the light disappeared in a tower of flame\ngoddamn, nine-eleven'd again\nTony turned home hungry through the rain\nEvery road ends under that red sign\nEvery meal gets taken before it's mine\n\n[Verse 2]\nNext week he crossed three county borders\nFound another shining off Route Nine\nHe could smell the curly fries through traffic\nFor one sweet second, everything was fine\nThen shadows passed across the parking lot\nThe organ moaned beneath the warning tone\nAnother counter folded into darkness\nAnd Tony rode the empty highway home\n\n[Chorus]\nwe have the meats, said the light in the rain\nThen the light disappeared in a tower of flame\ngoddamn, nine-eleven'd again\nTony beat the dashboard, shouting at the rain\nEvery road ends under that red sign\nEvery meal gets taken before it's mine\n\n[Bridge]\nHe kept the coupons in a kitchen drawer\nLittle paper prayers for something warm\nBeef and cheddar pictured like a heaven\nForever waiting past the next alarm\nHis friends said, Tony, let the hunger go\nBut hunger was the last hope he could name\nSo he traced one final open location\nAnd walked toward its red electric flame\n\n[Verse 3]\nDawn came pale behind the loading docks\nNo cars, no birds, no wind along the lane\nThe doors unlocked; the fryer started singing\nTony whispered, Let me taste it once\nA hand reached out to take his order\nThe whole horizon answered with a roar\nThe ceiling fell between him and the counter\nAnd morning could not find him anymore\n\n[Chorus]\nwe have the meats, but Tony cannot hear\nThe red hat flickers through the settling air\ngoddamn, nine-eleven'd again\nNo angry fist, no long ride home through rain\nJust one cold coupon underneath his hand\nAnd one untouched meal in a ruined stand\n\n[Outro]\nHe died without the taste he chased for years\nNo curly fries, no cheddar, nothing gained\nThe organ holds one low and final answer:\nTony C went hungry to his grave",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.84,
+            "end": 8.84
+          },
+          {
+            "line": 2,
+            "start": 8.84,
+            "end": 11.98
+          },
+          {
+            "line": 3,
+            "start": 11.98,
+            "end": 14.86
+          },
+          {
+            "line": 4,
+            "start": 14.86,
+            "end": 18.1
+          },
+          {
+            "line": 7,
+            "start": 18.1,
+            "end": 21.76
+          },
+          {
+            "line": 8,
+            "start": 21.76,
+            "end": 24.42
+          },
+          {
+            "line": 9,
+            "start": 24.42,
+            "end": 27.24
+          },
+          {
+            "line": 10,
+            "start": 27.24,
+            "end": 30.1
+          },
+          {
+            "line": 11,
+            "start": 31.02,
+            "end": 33.18
+          },
+          {
+            "line": 12,
+            "start": 33.18,
+            "end": 36.5
+          },
+          {
+            "line": 13,
+            "start": 37.3,
+            "end": 39.56
+          },
+          {
+            "line": 14,
+            "start": 40.02,
+            "end": 42.18
+          },
+          {
+            "line": 17,
+            "start": 55.14,
+            "end": 57.96
+          },
+          {
+            "line": 18,
+            "start": 58.3,
+            "end": 61.1
+          },
+          {
+            "line": 19,
+            "start": 62.08,
+            "end": 63.9
+          },
+          {
+            "line": 20,
+            "start": 64.42,
+            "end": 67.14
+          },
+          {
+            "line": 21,
+            "start": 67.64,
+            "end": 69.82
+          },
+          {
+            "line": 22,
+            "start": 69.82,
+            "end": 73.36
+          },
+          {
+            "line": 25,
+            "start": 74.16,
+            "end": 76.58
+          },
+          {
+            "line": 26,
+            "start": 76.58,
+            "end": 79.4
+          },
+          {
+            "line": 27,
+            "start": 80.18,
+            "end": 82.26
+          },
+          {
+            "line": 28,
+            "start": 82.26,
+            "end": 85.66
+          },
+          {
+            "line": 29,
+            "start": 86.46,
+            "end": 88.62
+          },
+          {
+            "line": 30,
+            "start": 89.26,
+            "end": 91.64
+          },
+          {
+            "line": 31,
+            "start": 92.72,
+            "end": 95.46
+          },
+          {
+            "line": 32,
+            "start": 95.46,
+            "end": 97.94
+          },
+          {
+            "line": 35,
+            "start": 104.32,
+            "end": 107.2
+          },
+          {
+            "line": 36,
+            "start": 107.2,
+            "end": 110.38
+          },
+          {
+            "line": 37,
+            "start": 110.38,
+            "end": 113.18
+          },
+          {
+            "line": 38,
+            "start": 113.44,
+            "end": 116.42
+          },
+          {
+            "line": 39,
+            "start": 116.42,
+            "end": 119.04
+          },
+          {
+            "line": 40,
+            "start": 119.62,
+            "end": 122.58
+          },
+          {
+            "line": 43,
+            "start": 129.02,
+            "end": 131.76
+          },
+          {
+            "line": 44,
+            "start": 132.32,
+            "end": 134.9
+          },
+          {
+            "line": 45,
+            "start": 136.06,
+            "end": 138.1
+          },
+          {
+            "line": 46,
+            "start": 138.1,
+            "end": 140.9
+          },
+          {
+            "line": 47,
+            "start": 141.56,
+            "end": 144.1
+          },
+          {
+            "line": 48,
+            "start": 144.58,
+            "end": 147.14
+          },
+          {
+            "line": 49,
+            "start": 147.5,
+            "end": 150.18
+          },
+          {
+            "line": 50,
+            "start": 150.18,
+            "end": 153.24
+          },
+          {
+            "line": 53,
+            "start": 160.04,
+            "end": 162.42
+          },
+          {
+            "line": 54,
+            "start": 162.78,
+            "end": 165.66
+          },
+          {
+            "line": 55,
+            "start": 166.2,
+            "end": 168.66
+          },
+          {
+            "line": 56,
+            "start": 169.22,
+            "end": 171.72
+          },
+          {
+            "line": 57,
+            "start": 172.36,
+            "end": 174.94
+          },
+          {
+            "line": 58,
+            "start": 175.44,
+            "end": 177.84
+          },
+          {
+            "line": 59,
+            "start": 178.5,
+            "end": 180.98
+          },
+          {
+            "line": 60,
+            "start": 181.6,
+            "end": 183.5
+          },
+          {
+            "line": 63,
+            "start": 189.94,
+            "end": 193.34
+          },
+          {
+            "line": 64,
+            "start": 193.34,
+            "end": 196.74
+          },
+          {
+            "line": 65,
+            "start": 197.3,
+            "end": 199.22
+          },
+          {
+            "line": 66,
+            "start": 199.76,
+            "end": 202.5
+          },
+          {
+            "line": 67,
+            "start": 202.5,
+            "end": 205.66
+          },
+          {
+            "line": 68,
+            "start": 205.66,
+            "end": 208.66
+          },
+          {
+            "line": 71,
+            "start": 214.76,
+            "end": 217.96
+          },
+          {
+            "line": 72,
+            "start": 218.48,
+            "end": 220.92
+          },
+          {
+            "line": 73,
+            "start": 221.64,
+            "end": 225
+          },
+          {
+            "line": 74,
+            "start": 225,
+            "end": 227.16
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 12.98
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Dark and somber song about how every time Tony C tries to get Arby's, the Arby's location gets 9/11'd. Tragically, Tony C dies without ever tasting Arby's.",
+        "direction": "Use the prompt as written.",
+        "keep": "Chorus must include the phrases \"we have the meats\" and \"goddamn, nine-eleven'd again\"",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Synthesizer",
+            "Synth pads",
+            "Organ",
+            "Drum machine"
+          ],
+          "duration": 240
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-e0948b7cab2b57483af42cb7",
       "title": "Arbys at Eleven",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e0948b7cab2b57483af42cb7-3869ab8c24f3.mp3",
