@@ -2,9 +2,9 @@
 import re
 from pathlib import Path
 from common import fingerprint, load, save
+from lyric_sections import section_label, sung_lines
 
 VERSION = 1
-HEADER = re.compile(r'^\[(?:verse|chorus|pre[- ]?chorus|post[- ]?chorus|intro|outro|bridge|breakdown|refrain|hook|end|instrumental|solo|interlude|movement|spoken intro|spoken verse|final chorus|final verse|final tag|tag|turn)(?:\s+\d+)?\]$', re.I)
 TOKEN = re.compile(r"[^\W_]+(?:['’\-][^\W_]+)*", re.UNICODE)
 QUOTED = re.compile(r"(?:\"[^\"]*\"|“[^”]*”|(?<!\w)\x27[^\x27]*\x27(?!\w))", re.S)
 NUMBER = r'(\d{1,6})'
@@ -21,7 +21,7 @@ PATTERNS = [
 
 def lyric_words(text):
     """Count sung tokens, including repetitions; skip only known standalone labels."""
-    return TOKEN.findall('\n'.join(line for line in text.splitlines() if not HEADER.fullmatch(line.strip())))
+    return TOKEN.findall('\n'.join(sung_lines(text)))
 
 
 def extract(text):
@@ -108,7 +108,7 @@ def guidance(contract):
             '. Required phrases, locked lines and supplied preserve-mode wording must remain intact. '
             'If those requirements conflict, use needs_attention with a concise explanation of '
             'incompatible creative constraints; do not silently cut protected words or expose a private note. '
-            'Allocate verse/chorus development across the available vocal time. Reserve '
+            'Develop the requested song form across the available vocal time; no chorus is required. Reserve '
             f"{str(contract['ending_seconds']) + ' seconds for the ending' if contract['ending_seconds'] is not None else '8–12 seconds for the ending unless a longer ending is explicitly requested'}, and "
             f"{contract['vocal_entry_seconds']} seconds before vocal entry. "
             'Word density is planning evidence, not proof of an achieved singing speed or ending.')
@@ -118,7 +118,7 @@ def pacing(plan, contract):
     sections = []
     heading, count = 'Opening', 0
     for line in plan.get('lyrics', '').splitlines():
-        if HEADER.fullmatch(line.strip()):
+        if section_label(line) is not None:
             if count:
                 sections.append({'section': heading, 'words': count})
             heading, count = line.strip(), 0

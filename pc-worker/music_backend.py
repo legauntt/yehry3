@@ -59,17 +59,18 @@ account information in lyrics or arrangement. Never request additional paid take
 def composition(plan, seed):
     """Map the approved sheet to bounded v2.5 chunks without changing any lyric words."""
     from generation_controls import arrangement_guidance
-    from request_materials import SECTION, normalize_section_labels
+    from lyric_sections import section_label
     options = plan['generation']
     total = plan['duration'] * 1000
-    rows, label, lines = [], '[Verse]', []
-    for line in normalize_section_labels(plan['lyrics']).splitlines():
-        if SECTION.fullmatch(line.strip()):
-            if lines or label != '[Verse]': rows.append({'label': label, 'lines': lines})
-            label, lines = line.strip(), []
+    rows, label, lines = [], None, []
+    for line in plan['lyrics'].splitlines():
+        heading = section_label(line)
+        if heading:
+            if lines or label is not None: rows.append({'label': label or '[Section]', 'lines': lines})
+            # End is a delimiter, never a section whose following words can be discarded.
+            label, lines = (None if heading == '[End]' else heading), []
         elif line.strip(): lines.append(line)
-    if lines: rows.append({'label': label, 'lines': lines})
-    rows = [row for row in rows if row['label'].lower() != '[end]']
+    if lines or label is not None: rows.append({'label': label or '[Section]', 'lines': lines})
     if not rows or not any(row['lines'] for row in rows): raise ValueError('A paid composition needs complete lyrics')
     # Every section keeps its original position. Add an instrumental bookend only if absent.
     if rows[0]['lines'] and options.get('vocalEntry', 4) >= 3:

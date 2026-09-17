@@ -5,15 +5,8 @@ from pathlib import Path
 from common import load, save
 from winprocess import Stopped
 
-SECTION = re.compile(r'^\[(?:(?:verse|chorus|bridge|intro|outro|pre-chorus|post-chorus|refrain|hook|instrumental|spoken intro|end)(?:\s+\d+)?)\]$', re.I)
-# Only known standalone headings are formatting. Never discard arbitrary
-# bracketed text: it may be a supplied lyric or an unwanted added line.
-SECTION_ALIASES = {
-    'turn': 'Bridge', 'final chorus': 'Chorus', 'last chorus': 'Chorus',
-    'chorus reprise': 'Chorus', 'final refrain': 'Refrain', 'final hook': 'Hook',
-    'pre chorus': 'Pre-Chorus', 'prechorus': 'Pre-Chorus',
-    'post chorus': 'Post-Chorus', 'postchorus': 'Post-Chorus',
-}
+from lyric_sections import SECTION, normalize_section_labels, sung_lines
+
 GUIDANCE = """
 LYRIC SHEETS AND REFERENCE LINKS:
 The optional details.lyricSheet contains user-supplied text and mode=preserve or adapt.
@@ -43,17 +36,6 @@ properties. Never claim to have listened to a link or invent lyrics from an unav
 Imported lyric references supply provenance; the separately reviewed lyricSheet is authoritative.
 """
 
-def normalize_section_labels(text):
-    lines = text.split('\n')
-    for index, line in enumerate(lines):
-        label = line.strip()
-        if label.startswith('[') and label.endswith(']'):
-            alias = SECTION_ALIASES.get(' '.join(label[1:-1].split()).casefold())
-            if alias:
-                lines[index] = '[' + alias + ']'
-    return '\n'.join(lines)
-
-
 def normalize_material_plan(plan):
     """Normalize retained raw output, never a frozen plan or the source file."""
     if not isinstance(plan, dict): return plan
@@ -69,8 +51,7 @@ def normalize_material_plan(plan):
 
 
 def words(text):
-    return ' '.join(line.strip() for line in normalize_section_labels(text).replace('\r\n', '\n').split('\n')
-                    if not SECTION.fullmatch(line.strip())).split()
+    return ' '.join(sung_lines(text)).split()
 
 
 def wording_error(lyrics, supplied, actual, expected):
@@ -172,13 +153,16 @@ def plan_materials(command, directory, output, instruction, brief_hash, check, r
         if stop and stop(): raise Stopped('Planning stopped')
         return check(normalize_material_plan(load(candidate)))
     feedback = ''
+    last_error = 'The last call was interrupted.'
     for attempt in ledger['attempts']:
         candidate = directory / attempt['output']
         if candidate.exists():
             try: return checked(candidate)
             except (ValueError, KeyError, TypeError) as error:
+                last_error = str(error)
                 feedback = '\nPrevious output:\n' + candidate.read_text('utf-8') + '\nValidation error:\n' + str(error)
         elif attempt.get('error'):
+            last_error = attempt['error']
             feedback = '\nPrevious planning error:\n' + attempt['error']
     while len(ledger['attempts']) < 3:
         if stop and stop(): raise Stopped('Planning stopped')
@@ -204,7 +188,8 @@ def plan_materials(command, directory, output, instruction, brief_hash, check, r
         except Stopped:
             raise
         except (ValueError, KeyError, TypeError, RuntimeError, TimeoutError) as error:
-            attempt.update(status='rejected', error=str(error)[:2000]); save(ledger_file, ledger)
+            last_error = str(error)
+            attempt.update(status='rejected', error=last_error[:2000]); save(ledger_file, ledger)
             feedback = '\nValidation or invocation error:\n' + str(error)
             if candidate.exists(): feedback += '\nPrevious output:\n' + candidate.read_text('utf-8')
         else:
@@ -212,4 +197,4 @@ def plan_materials(command, directory, output, instruction, brief_hash, check, r
             if invocation_error is not None: attempt['invocationError'] = str(invocation_error)[:2000]
             save(ledger_file, ledger)
             return result
-    raise ValueError('Lyric/reference planning reached its three-attempt limit. Saved outputs are retained. ' + ledger['attempts'][-1].get('error', 'The last call was interrupted.'))
+    raise ValueError('Lyric/reference planning reached its three-attempt limit. Saved outputs are retained. ' + last_error)

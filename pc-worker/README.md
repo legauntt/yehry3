@@ -1,5 +1,9 @@
 # Distonyc on Windows
 
+Song form is optional: chorus-free songs and unlabelled lyrics are supported.
+The shared section parser keeps heading variants out of sung-word checks while
+preserving literal lyrics. See [song form and section labels](LYRIC-SECTIONS.md).
+
 ## Published-song remixes
 
 `catalog_remix: true` enables `catalog-remix-v1` after the matching Chairlift API is deployed.

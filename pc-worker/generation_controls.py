@@ -85,7 +85,8 @@ def constraints(plan, brief):
     lines = {line.strip() for line in plan['lyrics'].splitlines()}
     for line in options.get('lockedLines', []):
         if line not in lines: raise ValueError('Retain this locked lyric line exactly: ' + line)
-    lyric_words = ' '.join(re.findall(r"\w+(?:['’]\w+)?", plan['lyrics'].lower()))
+    from lyric_sections import sung_lines
+    lyric_words = ' '.join(re.findall(r"\w+(?:['’]\w+)?", '\n'.join(sung_lines(plan['lyrics'])).lower()))
     for phrase in options.get('requiredPhrases', []):
         words = ' '.join(re.findall(r"\w+(?:['’]\w+)?", phrase.lower()))
         if words and (' ' + words + ' ') not in (' ' + lyric_words + ' '):
@@ -94,14 +95,14 @@ def constraints(plan, brief):
 
 
 WORKFLOWS = {
-    'story': 'Write a concrete narrative with a beginning, development and final payoff. Let the chorus change meaning as the story progresses. Establish the plot before polishing rhymes.',
-    'hook': 'Find one song-specific, singable hook first. Build contrasting verses and a final payoff around it. Deliberate chorus repetition is welcome; unrelated recycled imagery is not.',
+    'story': 'Write a concrete narrative with a beginning, development and final payoff. Let any recurring refrain change meaning as the story progresses. Establish the plot before polishing rhymes.',
+    'hook': 'Find one song-specific, singable hook first. Build contrasting verses and a final payoff around it. Use repetition only when compatible with the requested song form; keep the imagery specific to this song.',
     'rhythm': 'Start from stresses, bar lengths and the requested groove. Write rhythmically singable lines with varied internal rhyme. Use rap/spoken delivery only if requested.',
-    'auto': 'Choose a writing approach that suits this particular brief; establish the hook, development and final payoff before finishing the lyric sheet.',
+    'auto': 'Choose a writing approach that suits this particular brief; establish its form, development and final payoff before finishing the lyric sheet.',
 }
 CREATIVE_GUIDANCE = '''Current ending and lyric policy:
 Voice descriptions concern the SOUND of Tony's delivery, not a stock vocabulary for the lyrics.
-Keep his connected, rough phrasing and a catchable hook. Deliver the final meaningful lyric completely.
+Keep his connected, rough phrasing and memorable melodies. Deliver the final meaningful lyric completely.
 Do not replace the final verse/tag with an older section or fill the last 30–60 seconds with screaming,
 wordless sounds, gibberish, repeated earlier verses or an instrumental loop. A brief expressive slur
 or ad-lib can suit the song; keep it purposeful and normally under two seconds. Preserve explicitly
@@ -160,7 +161,7 @@ def arrangement_guidance(options):
     if options.get('structure'): parts.append('Section order: ' + options['structure'] + '.')
     if 'vocalEntry' in options: parts.append(f"Target the first sung phrase at {options['vocalEntry']} seconds.")
     if 'maxBreakSeconds' in options: parts.append(f"Target no instrumental break longer than {options['maxBreakSeconds']} seconds.")
-    if options['energy'] != 'auto': parts.append('Energy pattern: ' + {'build': 'grow toward the final chorus', 'waves': 'alternate quiet and strong sections', 'steady': 'keep a consistent groove with clear section contrasts'}[options['energy']] + '.')
+    if options['energy'] != 'auto': parts.append('Energy pattern: ' + {'build': 'grow toward the final section', 'waves': 'alternate quiet and strong sections', 'steady': 'keep a consistent groove with clear section contrasts'}[options['energy']] + '.')
     parts.append({'natural': 'Expressive connected Tony phrasing with complete, catchable lyric endings.',
                   'restrained': 'Intimate controlled singing, clear lyrical endings, no screamed or wordless closing coda.',
                   'raw': 'Raw expressive singing with brief deliberate outbursts; complete the final lyrics before resolving.'}[options['performance']])

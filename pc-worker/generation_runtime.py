@@ -17,8 +17,8 @@ def configure(work, track, spec, plan):
     # The studio's legacy caption includes four-four and permission for unintelligible
     # endings. Build a coherent new caption from the frozen arrangement and selections.
     track['caption'] = (spec['arrangement'].strip() + ' ' + arrangement_guidance(options) +
-        'A rough smoky older male singer with connected vowels, loose phrasing and a catchable hook. '
-        'Complete the written final verse and chorus; keep closing words meaningful. '
+        'A rough smoky older male singer with connected vowels, loose phrasing and memorable melodies. '
+        'Complete the written final section; keep closing words meaningful. '
         'Unless explicitly requested in the arrangement, do not fill the ending with screamed syllables or a repeated earlier verse. '
         f"Requested pulse {track['bpm']} BPM, {track['keyscale']}. ")
     track['allow_long_instrumental_outro'] = plan.get('allow_long_instrumental_outro', False)

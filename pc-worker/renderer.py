@@ -332,6 +332,11 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
             if options:
                 from generation_runtime import configure as configure_generation
                 configure_generation(work, track, spec, plan)
+            if spec['kind'] == 'new':
+                from lyric_sections import composition_caption
+                for key in ('caption', 'backing_caption'):
+                    if isinstance(track.get(key), str):
+                        track[key] = composition_caption(track[key])
             save(work / 'track.json', track)
             manifest['track_sha256'] = sha(work / 'track.json')
             manifest['workers'] = {path.name: sha(path) for path in work.glob('*.py')}
