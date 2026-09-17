@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
 
 const publicId = (number) => `distonyc-${number.toString(16).padStart(24, "0")}`;
-async function fixture(page) {
+async function fixture(page, view = "grid") {
+  await page.addInitScript(view => localStorage.setItem("yehry3:catalog-view", view), view);
   await page.clock.install();
   const wav = Buffer.alloc(44 + 8000 * 2 * 60);
   wav.write("RIFF", 0); wav.writeUInt32LE(wav.length - 8, 4); wav.write("WAVEfmt ", 8);
@@ -45,13 +46,14 @@ async function fixture(page) {
 }
 
 test("three collapsed upcoming rows refresh and publish without losing disclosure, playback, or reading position", async ({ page }) => {
-  const state = await fixture(page);
+  const state = await fixture(page, "list");
   const pending = page.locator(`.pending-track[data-id="${publicId(1)}"]`);
   expect(await page.locator(".pending-track").evaluateAll(rows => rows.every(row => !row.open))).toBe(true);
   expect(await page.locator(".pending-track").evaluateAll(rows => rows.map(row => row.dataset.id))).toEqual([publicId(1), publicId(2), publicId(3)]);
   await expect(pending.locator("summary")).toContainText("Next from the studio");
   await expect(pending.locator("summary")).toContainText("55%");
-  await expect(page.locator("#pending-tracks img")).toHaveCount(0);
+  await expect(page.locator("#pending-tracks .track-art")).toHaveCount(3);
+  await expect(page.locator("#pending-tracks img:not(.track-art)")).toHaveCount(0);
   expect(await page.locator("#pending-tracks").evaluate(node => node.compareDocumentPosition(document.querySelector("#tracks")) & Node.DOCUMENT_POSITION_FOLLOWING)).toBeTruthy();
   await pending.locator("summary").click();
   const song = page.locator('.track[data-id="catalog-4"]');
@@ -90,9 +92,9 @@ test("three collapsed upcoming rows refresh and publish without losing disclosur
 
 test("pending rows remain compact on mobile and link to the matching request details", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await fixture(page);
+  await fixture(page, "list");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  expect(await page.locator(".pending-track").evaluateAll(rows => rows.every(row => row.getBoundingClientRect().height < 90 && !row.open))).toBe(true);
+  expect(await page.locator(".pending-track").evaluateAll(rows => rows.every(row => row.getBoundingClientRect().height < 190 && !row.open))).toBe(true);
   await page.locator("#pending-tracks").screenshot({ path: "artifacts/pending-mobile.png" });
   const pending = page.locator(`.pending-track[data-id="${publicId(1)}"]`);
   await pending.locator("summary").click();
@@ -105,4 +107,87 @@ test("pending rows remain compact on mobile and link to the matching request det
   await expect(page).toHaveURL(new RegExp(`/queue/details/\\?request=${publicId(1)}$`));
   await expect(page.locator(".queue-detail")).toContainText("Next from the studio");
   await expect(page.locator(".queue-detail")).toContainText("Generating Tony vocals · 55%");
+});
+
+
+test("pending cards share grid rows with released songs and preserve details when changing views", async ({ page }) => {
+  const state = await fixture(page);
+  // Use the preview server's real range-enabled MP3 when verifying seeking.
+  state.songs = state.songs.map(song => ({ ...song, url: "/fearhunger/audio/fear-and-hunger-dungeon-rock.mp3" }));
+  const pending = page.locator('.pending-track').first();
+  const released = page.locator(".track").first();
+  for (const count of [1, 2]) {
+    state.queue.inStudio = state.queue.inStudio.slice(0, 1);
+    state.queue.queued = count === 2 ? [{
+      id: publicId(8), idea: "A moon eating a sandwich", authoredBy: "Pancakeo",
+      status: "queued", voiceModel: "v8", progress: null,
+    }] : [];
+    await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
+    await expect(page.locator(".pending-track")).toHaveCount(count);
+    const pendingBox = await pending.boundingBox(), releasedBox = await released.boundingBox();
+    expect(Math.abs(pendingBox.width - releasedBox.width)).toBeLessThan(1);
+    expect(Math.abs(pendingBox.y - releasedBox.y)).toBeLessThan(1);
+    expect(releasedBox.x).toBeGreaterThan(pendingBox.x);
+  }
+  await expect(page.locator(".pending-track [data-play], .pending-track [data-vote], .pending-track [data-save]")).toHaveCount(0);
+  await expect(page.locator(".pending-track").last()).toContainText("Authored by Pancakeo");
+  await pending.locator("summary").press("Enter");
+  await expect(pending).toHaveAttribute("open", "");
+  await page.getByRole("button", { name: "List", exact: true }).click();
+  await expect(pending).toHaveAttribute("open", "");
+  const alignment = async (selector) => {
+    const a = await pending.locator(selector).boundingBox();
+    const b = await released.locator(selector === ".pending-title" ? ".track-info" : selector).boundingBox();
+    expect(Math.abs(a.x - b.x)).toBeLessThan(1);
+  };
+  await alignment(".track-art");
+  await alignment(".pending-title");
+  await page.getByRole("button", { name: "Grid", exact: true }).click();
+  await expect(pending).toHaveAttribute("open", "");
+  await pending.locator("summary").press("Enter");
+  await page.locator(".catalog-view-bar").evaluate(bar => bar.scrollIntoView({ block: "start" }));
+  await page.screenshot({ path: "artifacts/pending-grid-desktop.png", animations: "disabled" });
+  await page.locator("[data-play]").first().click();
+  await expect.poll(() => page.locator("#audio").evaluate(audio => audio.paused)).toBe(false);
+  await expect.poll(() => page.locator("#audio").evaluate(audio => audio.readyState)).toBeGreaterThan(0);
+  await page.locator("#audio").evaluate(audio => { window.pendingAudio = audio; audio.currentTime = 12; });
+  await expect.poll(() => page.locator("#audio").evaluate(audio => audio.currentTime)).toBeGreaterThanOrEqual(12);
+  state.songs = [{ ...state.songs[0], id: publicId(1), title: "The completed moon song", publishedAt: new Date().toISOString() }, ...state.songs];
+  await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
+  await expect(page.locator('.pending-track[data-id="' + publicId(1) + '"]')).toHaveCount(0);
+  await expect(page.locator('.track[data-id="' + publicId(1) + '"] .track-art')).toBeVisible();
+  const playback = await page.locator("#audio").evaluate(audio => ({ same: audio === window.pendingAudio, paused: audio.paused, time: audio.currentTime, seeking: audio.seeking }));
+  expect(playback).toMatchObject({ same: true, paused: false });
+  expect(playback.time).toBeGreaterThanOrEqual(12);
+});
+
+test("pending entries fit both mobile views and disappear from saved-song filters", async ({ page }) => {
+  const state = await fixture(page);
+  for (const width of [768, 390, 320]) {
+    await page.setViewportSize({ width, height: 844 });
+    for (const view of ["Grid", "List"]) {
+      await page.getByRole("button", { name: view, exact: true }).click();
+      await expect(page.locator("#catalog-items")).toHaveAttribute("data-view", view.toLowerCase());
+      const pending = page.locator(".pending-track").first();
+      await pending.locator("summary").click();
+      await expect(pending.locator(".pending-body")).toBeVisible();
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      await pending.locator("summary").click();
+      if (width === 390) {
+        await page.locator(".catalog-view-bar").evaluate(bar => bar.scrollIntoView({ block: "start" }));
+        await page.screenshot({ path: "artifacts/pending-" + view.toLowerCase() + "-mobile.png", animations: "disabled" });
+      }
+    }
+  }
+  await page.locator(".profile-details > summary").click();
+  await page.locator("#saved-only").click();
+  await expect(page.locator("#pending-tracks")).toBeHidden();
+  await expect(page.locator(".pending-track:visible")).toHaveCount(0);
+  await page.locator("#saved-only").click();
+  await expect(page.locator(".pending-track:visible")).toHaveCount(3);
+  state.queue = { ...state.queue, inStudio: [], queued: [] };
+  await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
+  await expect(page.locator(".pending-track")).toHaveCount(0);
+  await page.getByRole("button", { name: "Grid", exact: true }).click();
+  await expect(page.locator(".track")).toHaveCount(20);
 });

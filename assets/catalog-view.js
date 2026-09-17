@@ -5,6 +5,7 @@ export function mountCatalogView(root, tracks) {
   function apply(value) {
     const view = normalize(value);
     tracks.dataset.view = view;
+    tracks.parentElement.dataset.view = view;
     root.querySelectorAll("[data-catalog-view]").forEach((button) => {
       button.setAttribute("aria-pressed", String(button.dataset.catalogView === view));
     });
