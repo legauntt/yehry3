@@ -35,6 +35,22 @@ try {
 }
 const roles = ["submitter", "admin"];
 const authKey = (role) => `yehry3:auth:${role}`;
+const paidPasswordKey = "yehry3:paid-music-password";
+export function savedPaidPassword() {
+  try { return localStorage.getItem(paidPasswordKey) || ""; }
+  catch { return ""; }
+}
+export function rememberPaidPassword(password) {
+  try { localStorage.setItem(paidPasswordKey, password); }
+  catch { /* Confirmation still succeeds when storage is blocked. */ }
+}
+export function forgetPaidPassword(expected) {
+  try {
+    // A rejection in an older tab must not clear a replacement saved elsewhere.
+    if (expected === undefined || savedPaidPassword() === expected)
+      localStorage.removeItem(paidPasswordKey);
+  } catch { /* Storage is optional. */ }
+}
 function readCredentials(role) {
   try {
     const saved = JSON.parse(localStorage.getItem(authKey(role)));
@@ -76,6 +92,7 @@ function remember(role, value) {
   }
 }
 export function logout(role) {
+  if (role === "submitter") forgetPaidPassword();
   generations[role]++;
   delete renewals[role];
   credentials[role] = {};

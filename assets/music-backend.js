@@ -1,6 +1,8 @@
 export const PAID_BACKEND = 'eleven_music';
 export const money = (cents) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
 
+const minutes = (seconds) => new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(seconds / 60);
+
 export function paidCost(details = {}) {
   const duration = details.generation?.duration;
   if (!Number.isInteger(duration) || duration < 69 || duration > 600) return null;
@@ -11,7 +13,7 @@ export function paidConfirmation(details, escape) {
   if (details?.musicBackend !== PAID_BACKEND) return '';
   const cost = paidCost(details);
   if (!cost) return '<p class="field-error">Review this request again to choose its Auto length and confirm the paid cost.</p>';
-  return `<div class="paid-music-confirmation"><p><strong>Eleven Music · paid</strong><br>${escape(money(cost.estimate))} estimated generation cost for ${cost.duration / 60} minutes. This request reserves ${escape(money(cost.reserve))} from the shared $200 total cap.</p><label class="generation-enable"><input type="checkbox" id="confirm-paid" required> I agree to use paid generation and send this song’s lyrics and musical direction to ElevenLabs.</label><label for="paid-password">Paid confirmation password</label><input type="password" id="paid-password" name="paidPassword" required maxlength="1024" autocomplete="off" aria-describedby="paid-password-help"><p class="small" id="paid-password-help">Enter the separate password to authorize paid generation.</p><p class="small">Tony’s voice is applied on the studio PC. One paid composition; saved audio is reused on retry. Reservations stay counted after cancellation or an uncertain provider response until reviewed. Estimates exclude subscription fees and taxes.</p></div>`;
+  return `<div class="paid-music-confirmation"><p><strong>Eleven Music · paid</strong><br>${escape(money(cost.estimate))} estimated generation cost for ${minutes(cost.duration)} minutes. This request reserves ${escape(money(cost.reserve))} from the shared $200 total cap.</p><label class="generation-enable"><input type="checkbox" id="confirm-paid" required> I agree to use paid generation and send this song’s lyrics and musical direction to ElevenLabs.</label><label for="paid-password">Paid confirmation password</label><input type="password" id="paid-password" name="paidPassword" required maxlength="1024" autocomplete="off" aria-describedby="paid-password-help"><p class="small" id="paid-password-help">Enter the separate password to authorize paid generation. It will be saved in this browser after confirmation.</p><p class="small">Tony’s voice is applied on the studio PC. One paid composition; saved audio is reused on retry. Reservations stay counted after cancellation or an uncertain provider response until reviewed. Estimates exclude subscription fees and taxes.</p></div>`;
 }
 
 export function mountMusicBackend(root, { draft, generation, basisRoot, storage, api, escape, onChange }) {
@@ -34,7 +36,7 @@ export function mountMusicBackend(root, { draft, generation, basisRoot, storage,
       return;
     }
     root.querySelector('#paid-music-cost').textContent = Number.isFinite(duration)
-      ? `Estimated ${money(duration / 60 * 15)} for ${duration / 60} minutes; reserves ${money(Math.ceil(duration / 60 * 100))} from the shared $200 total cap.${budget ? ` ${money(budget.remainingCents)} is available to reserve.` : ''}` : '';
+      ? `Estimated ${money(duration / 60 * 15)} for ${minutes(duration)} minutes; reserves ${money(Math.ceil(duration / 60 * 100))} from the shared $200 total cap.${budget ? ` ${money(budget.remainingCents)} is available to reserve.` : ''}` : '';
   };
   const change = () => {
     const paid = select.value === PAID_BACKEND;

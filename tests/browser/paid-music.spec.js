@@ -87,8 +87,8 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
     const { api } = await import('/assets/api.js');
     return (await api('/prompts/'+sessionStorage.getItem('yehry3:draft'), { role: 'submitter' })).prompt;
   });
-  const persisted = await page.evaluate(() => JSON.stringify({ local: { ...localStorage }, session: { ...sessionStorage } }));
-  expect(persisted).not.toContain(paidPassword);
+  expect(await page.evaluate(() => localStorage.getItem('yehry3:paid-music-password'))).toBe(paidPassword);
+  expect(await page.evaluate(() => JSON.stringify({ ...sessionStorage }))).not.toContain(paidPassword);
   expect(JSON.stringify(saved)).not.toContain(paidPassword);
   expect(JSON.stringify(saved)).not.toContain('paidPassword');
   expect(saved.details.musicBackend).toBe('eleven_music');
