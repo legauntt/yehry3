@@ -48,6 +48,8 @@ For a disposable end-to-end preview, install dependencies in sibling `../chairli
 
 For the real API, follow [chairlift's setup and queue contract](../chairlift/yehry3/README.md). Configure the submission password, separate admin password and signing secret in the backend, then run its catalog seed. No credentials are placed in the public build.
 
+Known band generators are labeled separately from Tony’s voice on catalog songs, the player, queue and request details, Backstage, lyric sheets, original prompts, Fear & Hunger, and mixtape tracks. **Eleven Music · paid** identifies paid compositions; **Local · ACE** identifies explicitly saved local requests. Older recordings without saved generator metadata are left unlabeled. Compact API and offline catalogs retain the same attribution.
+
 ## Behavior
 
 - Remix availability appears on song cards and lyric pages. Verified checks expire after 48 hours;

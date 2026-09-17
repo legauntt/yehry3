@@ -17,7 +17,7 @@ export function generationSelections(options = {}) {
     && !(Object.hasOwn(neutral, key) && neutral[key] === value));
 }
 
-export function generationBrief(options, escape) {
+export function generationBrief(options, escape, { musicBackend } = {}) {
   const selected = new Map(generationSelections(options));
   if (!selected.size) return '';
   const sections = groups.map(([title, keys]) => {
@@ -28,5 +28,5 @@ export function generationBrief(options, escape) {
     }).join('');
     return fields ? `<section class="generation-brief-group"><h4>${title}</h4><dl>${fields}</dl></section>` : '';
   }).join('');
-  return `<div class="generation-brief"><h3>V8 generation</h3>${sections}</div>`;
+  return `<div class="generation-brief"><h3>${musicBackend === "eleven_music" ? "Eleven Music settings" : "V8 generation"}</h3>${sections}</div>`;
 }

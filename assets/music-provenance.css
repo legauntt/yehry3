@@ -1,0 +1,25 @@
+.music-backend-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  padding: 2px 7px;
+  border: 1px solid #aeb8a5;
+  border-radius: 999px;
+  background: #eef1e9;
+  color: #40523c;
+  font: 600 0.65rem/1.5 "DM Sans", sans-serif;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.music-backend-badge.eleven_music {
+  border-color: #a08045;
+  background: #fff0cb;
+  color: #654610;
+}
+.pending-title > .music-backend-badge { margin-top: 5px; }
+.queue-heading .music-backend-badge,
+.queue-detail-status .music-backend-badge { margin: 3px 0 3px 6px; }
+.lyrics-sheet > .music-backend-badge { margin-bottom: 12px; }
+#now-generator { display: block; margin-top: 3px; }
+#now-generator[hidden] { display: none; }

@@ -87,6 +87,8 @@ for (const name of [
   "details.js",
   "song-data.js",
   "song-summary.js",
+  "music-provenance.js",
+  "music-provenance.css",
   "favorites.js",
   "favorites.css",
   "request-tabs.js",
