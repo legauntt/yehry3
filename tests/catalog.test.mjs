@@ -150,7 +150,7 @@ test("compact catalogs retain explicit band attribution without guessing older r
   assert.equal(compact.musicBackend, "eleven_music");
   assert.equal(compact.voiceModel, "v7");
   assert.equal(compact.originalPrompt, undefined);
-  assert.match(musicBackendBadge(compact), /Eleven Music · paid/);
+  assert.match(musicBackendBadge(compact), />EMP<\/span>/);
   assert.equal(musicBackendBadge({ voiceModel: "v8", generationProfile: "v8" }), "");
   assert.equal(musicBackendBadge({ musicBackend: '<img src=x onerror="alert(1)">' }), "");
 });

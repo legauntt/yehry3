@@ -31,14 +31,14 @@ test('catalog and playing song retain separate generator attribution through ref
   await fixtures(page);
   await page.goto('/?sort=catalog');
   const track = page.locator(`.track[data-id="${paid.id}"]`);
-  await expect(badge(track)).toHaveText('Eleven Music · paid');
+  await expect(badge(track)).toHaveText('EMP');
   await expect(track.locator('.voice-model-badge')).toHaveText('V7');
   await expect(badge(page.locator('.track[data-id="local-fixture"]'))).toHaveText('Local · ACE');
   await expect(badge(page.locator('.track[data-id="legacy-fixture"]'))).toHaveCount(0);
-  await expect(badge(page.locator('.pending-track'))).toHaveText('Eleven Music · paid');
+  await expect(badge(page.locator('.pending-track'))).toHaveText('EMP');
   await track.locator('[data-play]').click();
   await expect.poll(() => page.locator('#audio').evaluate(audio => audio.paused)).toBe(false);
-  await expect(badge(page.locator('#now-generator'))).toHaveText('Eleven Music · paid');
+  await expect(badge(page.locator('#now-generator'))).toHaveText('EMP');
   await page.locator('#audio').evaluate(audio => { window.savedAudio = audio; audio.currentTime = 12; });
   await page.evaluate(() => document.dispatchEvent(new Event('visibilitychange')));
   await expect.poll(() => page.locator('#audio').evaluate(audio => audio === window.savedAudio && !audio.paused && audio.currentTime >= 12)).toBe(true);
@@ -48,19 +48,19 @@ test('catalog and playing song retain separate generator attribution through ref
   await page.route('**/yehry3/songs/summary', route => route.abort());
   await page.reload();
   await expect(page.locator('#vote-note')).toContainText('offline');
-  await expect(badge(track)).toHaveText('Eleven Music · paid');
+  await expect(badge(track)).toHaveText('EMP');
 });
 
 test('queue, original prompts and lyric sheets identify paid music without calling it V8 generation', async ({ page }) => {
   await fixtures(page);
   await page.goto('/queue/');
-  await expect(badge(page.locator('.public-queue-card'))).toHaveText('Eleven Music · paid');
+  await expect(badge(page.locator('.public-queue-card'))).toHaveText('EMP');
   await page.locator('.queue-details-link').click();
-  await expect(badge(page.locator('.queue-detail-status'))).toHaveText('Eleven Music · paid');
+  await expect(badge(page.locator('.queue-detail-status'))).toHaveText('EMP');
   await page.getByRole('link', { name: 'View original prompt' }).click();
   for (const id of [pending.id, paid.id]) {
     await page.goto(`/original-prompt/?song=${id}`);
-    await expect(badge(page.locator('.original-prompt'))).toHaveText('Eleven Music · paid');
+    await expect(badge(page.locator('.original-prompt'))).toHaveText('EMP');
     await expect(page.locator('dt').filter({ hasText: /^Band generator$/ }).locator('+ dd')).toHaveText('Eleven Music · paid');
     await expect(page.locator('.prompt-brief')).toContainText('Tony V7');
     await expect(page.getByRole('heading', { name: 'Eleven Music settings' })).toBeVisible();
@@ -70,18 +70,18 @@ test('queue, original prompts and lyric sheets identify paid music without calli
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.locator('.original-prompt').screenshot({ path: 'artifacts/music-provenance/prompt-mobile.png' });
   await page.goto(`/lyrics/?song=${paid.id}`);
-  await expect(badge(page.locator('.lyrics-sheet'))).toHaveText('Eleven Music · paid');
+  await expect(badge(page.locator('.lyrics-sheet'))).toHaveText('EMP');
   await expect(page.getByRole('link', { name: 'Original prompt', exact: false })).toHaveAttribute('href', `/original-prompt/?song=${paid.id}`);
   await page.route(`**/yehry3/songs/${paid.id}`, route => route.abort());
   await page.reload();
-  await expect(badge(page.locator('.lyrics-sheet'))).toHaveText('Eleven Music · paid');
+  await expect(badge(page.locator('.lyrics-sheet'))).toHaveText('EMP');
 });
 
 test('Fear and Hunger and mixtape tracks carry the same saved provider', async ({ page }) => {
   await fixtures(page, [paid]);
   await page.goto('/fearhunger/');
   const card = page.locator(`[data-song-id="${paid.id}"]`);
-  await expect(badge(card)).toHaveText('Eleven Music · paid');
+  await expect(badge(card)).toHaveText('EMP');
   await expect(card.locator('.voice-model-badge')).toHaveText('V7');
   await card.locator('audio').evaluate(audio => audio.play());
   await card.locator('audio').evaluate(audio => { window.savedAudio = audio; audio.currentTime = 12; });
@@ -92,7 +92,7 @@ test('Fear and Hunger and mixtape tracks carry the same saved provider', async (
   await card.screenshot({ path: 'artifacts/music-provenance/fearhunger-mobile.png' });
   await page.goto('/mixtapes/');
   await page.getByRole('button', { name: 'Add Last bus home to side A' }).click();
-  await expect(badge(page.locator('.tape-track'))).toHaveText('Eleven Music · paid');
+  await expect(badge(page.locator('.tape-track'))).toHaveText('EMP');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
@@ -104,7 +104,7 @@ test('Backstage labels paid requests even before expanding their brief', async (
   await page.getByLabel('Password', { exact: true }).fill('browser-test-admin');
   await page.getByRole('button', { name: 'Open the queue' }).click();
   const card = page.locator('[data-prompt="paid-admin-fixture"]');
-  await expect(badge(card)).toHaveText('Eleven Music · paid');
+  await expect(badge(card)).toHaveText('EMP');
   await expect(card.locator('.prompt-summary')).toContainText('Eleven Music · paid');
   await expect(card.locator('.prompt-summary')).not.toContainText('V8 generation');
   await card.getByText('Open brief & controls').click();

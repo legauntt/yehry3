@@ -55,7 +55,7 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
   if (voice === 'v8') await page.screenshot({ path: 'artifacts/paid-music/mobile-confirmation.png', fullPage: true });
   await page.locator('#confirm-form .primary').click();
   await expect(page.getByRole('heading', { name: 'Your idea is on the list.' })).toBeVisible();
-  await expect(page.locator('.music-backend-badge')).toHaveText('Eleven Music · paid');
+  await expect(page.locator('.music-backend-badge')).toHaveText('EMP');
   await expect(page.getByRole('heading', { name: 'Eleven Music settings' })).toBeVisible();
   await expect(page.locator('.prompt-brief')).not.toContainText('V8 generation');
   const saved = await page.evaluate(async () => {

@@ -13,5 +13,5 @@ export function musicBackendBadge(item) {
   if (!backend) return '';
   const label = musicBackendLabel(backend);
   const description = `Band generator: ${label}. Tony’s voice is selected separately.`;
-  return `<span class="music-backend-badge ${backend}" title="${description}" aria-label="${description}">${label}</span>`;
+  return `<span class="music-backend-badge ${backend}" title="${description}" aria-label="${description}">${backend === 'eleven_music' ? 'EMP' : label}</span>`;
 }
