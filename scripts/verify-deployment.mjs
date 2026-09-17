@@ -84,6 +84,9 @@ for (const name of ["fearhunger.js", "fearhunger.css"]) {
 for (const name of [
   "app.js",
   "recording-label.js",
+  "catalog-view.js",
+  "catalog-view.css",
+  "song-art.js",
   "details.js",
   "song-data.js",
   "song-summary.js",

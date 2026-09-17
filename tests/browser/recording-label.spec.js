@@ -34,6 +34,7 @@ test("duplicate labels survive pagination, sorting, collection filters and the o
   await expect(page.locator(".track .recording-label")).toHaveCount(1);
   await page.locator('[data-catalog-page="1"]').first().click();
   await expect(label(page, second.id)).toHaveText("lunar-duck");
+  await page.locator(".catalog-filters > summary").click();
   await page.locator("#sort").selectOption("votes");
   await expect(page.locator(".track").first()).toHaveAttribute("data-id", second.id);
   await expect(label(page, first.id)).toHaveText("pop-duck");

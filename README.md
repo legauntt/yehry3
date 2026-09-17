@@ -52,6 +52,8 @@ Known band generators are labeled separately from Tony’s voice on catalog song
 
 ## Behavior
 
+- The collection offers **Grid** and **List** views above the songs, starting in Grid. The choice is remembered across reloads, navigation, and browser tabs; switching keeps the same filters, page, queue, and playing audio. Every song gets original silly vector clip art from its title, with a stable palette and pose per recording. New releases receive artwork immediately, including during API outages, without loading lyrics or requesting an image service. The illustrations remain non-graphic even for explicit titles.
+
 - Remix availability appears on song cards and lyric pages. Verified checks expire after 48 hours;
   unavailable sources cannot be submitted. During a catalog/API outage, sources without current
   availability offer **Check remix availability** rather than claiming readiness.

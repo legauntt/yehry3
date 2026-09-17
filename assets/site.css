@@ -3,6 +3,7 @@
 @import url("./music-provenance.css");
 @import url("./model-info.css");
 @import url("./prompt-brief.css");
+@import url("./catalog-view.css");
 
 .quality-notice {
   display: flow-root;

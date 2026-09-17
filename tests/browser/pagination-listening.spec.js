@@ -153,7 +153,8 @@ test("real main and lyric playback records durable stats, with cross-page dedupl
   expect(reports[1].counted).toBe(false);
   expect(reports[1].playCount).toBe(count);
   await expect(page.locator("[data-listening-stats]")).toContainText(`${count} listen`);
-  const song = (await (await request.get(`http://127.0.0.1:3000/yehry3/songs/${recording.id}`)).json()).song;
+  const apiBase = await page.evaluate(async () => (await import("/assets/config.js")).API_BASE);
+  const song = (await (await request.get(`${apiBase}/songs/${recording.id}`)).json()).song;
   expect(song.playCount).toBe(count);
   expect(Date.parse(song.lastPlayedAt)).toBeGreaterThan(Date.now() - 60000);
 });
