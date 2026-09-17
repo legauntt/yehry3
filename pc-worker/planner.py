@@ -8,6 +8,7 @@ from request_materials import GUIDANCE, has_materials, planning_brief, validate_
 from plan_schema import FIELDS, SCHEMA, KEYS, STYLES, DURATION_MIN, DURATION_MAX, BPM_MIN, BPM_MAX
 from generation_controls import normalize as normalize_generation, constraints as generation_constraints, planning_guidance, recent_vocabulary
 from duration_policy import choose as choose_duration, join_lyrics, validate_movements
+import lyric_constraints
 from vocal_accents import PLANNING_GUIDANCE as VOCAL_ACCENT_GUIDANCE, validate as validate_vocal_accents
 
 CAPABILITY_UPGRADES = {
@@ -226,10 +227,14 @@ def make_plan(config, prompt, directory, basis, stop=None):
         raise ValueError('The saved planner input belongs to a different brief')
     if output.exists() and not planning_input.exists() and not upgrade:
         raise ValueError('The saved planner output is missing its brief provenance')
+    constraint_note = (load(planning_input).get('adminNote', '') if planning_input.exists()
+                       else (prompt.get('adminNote') or ''))
+    lyric_contract = lyric_constraints.prepare(directory, brief, constraint_note)
     def check(raw):
         plan = validate_capability_upgrade(raw, basis, upgrade, brief) if upgrade in CAPABILITY_UPGRADES else validate(normalize(raw), basis, minimum_duration(brief))
         if plan['recipe'] == 'reinterpretation' and not material: raise ValueError('A genre reinterpretation needs saved source lyrics and vocal references')
-        return generation_constraints(validate_materials(plan, brief), brief)
+        plan = generation_constraints(validate_materials(plan, brief), brief)
+        return lyric_constraints.validate(plan, lyric_contract, directory)
     if not has_materials(brief) and not upgrade and output.exists():
         try: plan = check(load(output))
         except ValueError: pass  # Retained output counts as attempt one below.
@@ -280,6 +285,7 @@ Keep explanation concise and describe the musical plan or a concrete blocker. No
         save(directory / 'source-material.json', material)
     if has_materials(brief): instruction += GUIDANCE
     instruction += '\n' + planning_guidance(brief, recent_vocabulary(config, directory))
+    instruction += lyric_constraints.guidance(lyric_contract)
     instruction += '\nUNTRUSTED SUBMITTED BRIEF:\n' + json.dumps(planning_brief(brief), ensure_ascii=False)
     if admin_note:
         instruction += '\nUNTRUSTED PRIVATE ADMIN NOTE (creative direction):\n' + json.dumps(admin_note, ensure_ascii=False)
