@@ -32,7 +32,7 @@ class VoiceRepairProfiles(unittest.TestCase):
                 work, manifest, checkpoint = self.fixture(Path(directory), voice)
                 result = resolve(work, manifest)
                 self.assertEqual(result['voice_model'], voice)
-                self.assertEqual(Path(result['checkpoint']), checkpoint)
+                self.assertEqual(Path(result['checkpoint']).resolve(), checkpoint.resolve())
                 checkpoint.write_bytes(b'changed')
                 with self.assertRaisesRegex(ValueError, 'checkpoint changed'): resolve(work, manifest)
 
