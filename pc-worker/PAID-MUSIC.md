@@ -5,13 +5,25 @@ default for every new request. Everyone with ordinary request access may explici
 select **Eleven Music · paid**; Tony V6, V7 and V8 remain independent choices.
 
 Paid requests create new compositions, 120–600 seconds, with one provider take.
+Catalog Remix is supported: the retained lyrics and musical brief guide a new
+arrangement, while the source recording and vocal references stay on the PC.
+This does not preserve or condition on the original melody. The confirmed source
+identity, lyric edit choice and public original-song link remain attached.
 Style, instrumentation, tempo, key, meter, lyric review, approved lyric wording,
-musical timing targets, and vocal/band mix levels carry over. Basis recordings,
-catalog remixes, the local backing adapter, local variation settings and multiple
-composition candidates are unavailable on the paid path. The form retains local
+musical timing targets, and vocal/band mix levels carry over. Other basis recordings,
+the local backing adapter, local variation settings and multiple composition
+candidates remain unavailable on the paid path. The form retains local
 choices when switching generators and does not remember paid selection for new songs.
 
-The confirmation page shows the estimated generation cost and requires a separate
+Auto length stays blank while editing. At review, Chairlift resolves a stable
+per-request duration from the studio's existing length bands, conditioned on the
+provider's 600-second ceiling: mostly 3–5 minutes around four, occasional 2–3 or
+5–8 minutes, and rare 9–10 minutes. Repeating the review keeps the same selection;
+manual lengths take priority. Local Auto remains omitted for the planner, including
+its existing exceptionally rare 19-minute suite policy. The paid integration uses
+one composition and cannot produce that 19-minute jackpot.
+
+The confirmation page shows the resolved duration and estimated generation cost and requires a separate
 paid confirmation plus the separate paid confirmation password. Chairlift checks
 that password before queue admission and budget reservation; it is never sent to
 the worker or saved in the request. Only the approved lyric sheet and generated musical directions
@@ -44,7 +56,8 @@ final ledger write. An uncertain response without a valid receipt stops with
 **Needs attention**, retaining the reservation. Retry cannot send it again.
 Provider HTTP redirects are refused, and error bodies/keys are never logged.
 
-The separate `eleven-music-v1` worker capability fences old workers. Completed
+The separate `eleven-music-v1` worker capability fences old workers. Catalog paid
+remixes additionally require `eleven-music-remix-v1` for both claims and replays. Completed
 provider audio is reused for downstream retries. Automatic composition, ending,
 suite, sparse-vocal and candidate generation paths cannot create extra paid takes.
 Supported local vocal repair and the existing integrity/publication checks remain.

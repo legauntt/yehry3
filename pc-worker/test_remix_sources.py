@@ -107,6 +107,12 @@ class RemixSources(unittest.TestCase):
         self.assertNotIn('catalog-remix-v1', calls[-1][1]['capabilities'])
 
     def test_v7_remix_uses_source_material_and_reuses_accepted_plan(self):
+        self.check_remix_planning('local')
+
+    def test_paid_remix_uses_source_lyrics_and_reuses_accepted_plan(self):
+        self.check_remix_planning('eleven_music')
+
+    def check_remix_planning(self, backend):
         from planner import make_plan
         from test_worker import plan
         source = prepare(self.config, self.prompt); basis = resolve(self.config, source)
@@ -116,10 +122,15 @@ class RemixSources(unittest.TestCase):
         request = {'id': 'new-remix', 'prompt': 'Remix the original with a new arrangement and familiar hook',
             'details': {'remixSource': source, 'basisSongIds': [], 'voiceModel': 'v7',
                 'lyricSheet': {'text': 'Our familiar hook and words', 'mode': 'adapt'}}}
+        if backend == 'eleven_music':
+            request['details'].update(musicBackend=backend, generation={'version': 1, 'duration': 200})
         job = self.root / 'state/jobs/new-remix'; job.mkdir()
         calls = []
         def compose(command, directory, *args, **kwargs):
             calls.append(kwargs['input_text'])
+            if backend == 'eleven_music':
+                self.assertIn('ELEVEN MUSIC BACKEND', kwargs['input_text'])
+                self.assertIn('Use recipe=reinterpretation', kwargs['input_text'])
             self.assertIn('retained Tony vocal references', kwargs['input_text'])
             self.assertIn('Our familiar hook and words', kwargs['input_text'])
             self.assertIn('"voiceModel": "v7"', kwargs['input_text'])

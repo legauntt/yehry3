@@ -18,8 +18,8 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
   await page.locator('#voice-model').selectOption(voice);
   await page.locator('#music-backend').selectOption('eleven_music');
   await expect(page.locator('#voice-model')).toHaveValue(voice);
-  await expect(page.locator('#paid-music-cost')).toContainText('$0.60');
-  await expect(page.locator('#paid-music-cost')).toContainText('$200');
+  await expect(page.locator('#paid-music-cost')).toContainText('Auto usually chooses 3–5 minutes');
+  await expect(page.locator('#gen-duration')).toHaveValue('');
   await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
   await page.getByText('Timing & key', { exact: true }).click();
   await page.locator('#gen-duration').fill('120');

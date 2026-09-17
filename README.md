@@ -166,3 +166,10 @@ GPU contention appears as **Waiting for the GPU** in the request status, public 
 Song Plan pages show the resolved genre, featured instruments, meter, section order, vocal delivery, energy and writing approach for newly planned songs, including Full Auto. BPM, key, target length and the full arrangement remain alongside them. These describe the saved creative plan, not measurements of the recording. Older plans remain readable without invented choices; existing recordings are not replanned.
 
 The request form offers a separate **Band generator** choice: Local ACE (default) or Eleven Music (paid). Paid selection follows ordinary request login; final submission requires an explicit cost confirmation and a separate paid confirmation password, checked by Chairlift before reserving from the shared $200 total cap. Set `YEHRY3_PAID_MUSIC_PASSWORD` privately on Chairlift (and for disposable paid-flow previews). The app does not save this password in browser storage. Tony V6/V7/V8 remain independently selectable. See [paid music operation](pc-worker/PAID-MUSIC.md).
+
+
+Eleven Music is available from the catalog Remix route, using the original lyrics
+and musical brief for a new arrangement. Its melody is not preserved. Auto timing
+stays blank in the editor: local requests leave length to the song planner; paid
+requests receive a stable randomized length at review so the duration and cost are
+visible before confirmation. See [paid music behavior](pc-worker/PAID-MUSIC.md).

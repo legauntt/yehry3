@@ -800,7 +800,7 @@ async function requests() {
       );
       const attachedRemix = initialDetails.remixSource;
       if (attachedRemix) {
-        $("#basis-root").innerHTML = `<p class="small" data-remix-source>Recording attached: <a href="/lyrics/?song=${encodeURIComponent(attachedRemix.songId)}">${escape(attachedRemix.title)}</a>. Its vocals guide the new arrangement; exact melody and timing may change.</p>`;
+        $("#basis-root").innerHTML = `<p class="small" data-remix-source>Recording attached: <a href="/lyrics/?song=${encodeURIComponent(attachedRemix.songId)}">${escape(attachedRemix.title)}</a>. <span data-remix-guidance>Its vocals guide the new arrangement; exact melody and timing may change.</span></p>`;
         $("#essentials-panel").insertAdjacentHTML("afterbegin", $("#basis-root").innerHTML);
         const direction = $('#direction'), directionLabel = $('label[for="direction"]'), hint = direction.nextElementSibling;
         directionLabel.textContent = 'What should change?';
@@ -883,6 +883,7 @@ async function requests() {
     } else if (stage === "review") {
       form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form">${paidConfirmation(draft.details, escape)}<div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">The queue holds up to 10 unfinished requests, including songs in production. If it is full, your review stays saved so you can try again when a slot opens.</p><p class="field-error" role="alert"></p></form>`;
       const materialIssue = durationIssue(draft.details, draft.prompt);
+      if (draft.details?.musicBackend === PAID_BACKEND && !$('#confirm-paid')) $('#confirm-form .primary').disabled = true;
       if (materialIssue) {
         $("#confirm-form .primary").disabled = true;
         $("#confirm-form .field-error").textContent = materialIssue;

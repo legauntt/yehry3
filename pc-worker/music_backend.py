@@ -8,6 +8,7 @@ from common import fingerprint, load, save, sha
 
 PAID = 'eleven_music'
 CAPABILITY = 'eleven-music-v1'
+REMIX_CAPABILITY = 'eleven-music-remix-v1'
 
 
 def selected(prompt):
@@ -24,7 +25,7 @@ def capabilities(config):
     if not cfg.get('enabled'): return []
     validate_ledger(load(cfg['ledger']))
     if not Path(cfg['credential']).is_file(): return []
-    return [CAPABILITY]
+    return [CAPABILITY, REMIX_CAPABILITY]
 
 
 def plan_constraints(plan, brief):
@@ -33,11 +34,12 @@ def plan_constraints(plan, brief):
     if (not options or options.get('candidates', 1) != 1 or options.get('variation', 'balanced') != 'balanced'
             or type(options.get('duration')) is not int or not 120 <= options['duration'] <= 600):
         raise ValueError('Eleven Music requires one composition and an explicit two-to-ten-minute length')
-    if brief['details'].get('basisSongIds') or brief['details'].get('remixSource') or brief['details'].get('source'):
-        raise ValueError('Use local generation for basis recordings and catalog remixes')
+    if brief['details'].get('basisSongIds') or brief['details'].get('source'):
+        raise ValueError('Use local generation for basis recordings')
+    recipe = 'reinterpretation' if brief['details'].get('remixSource') else 'new'
     if plan['recipe'] == 'needs_attention': return plan
-    if plan['recipe'] != 'new' or plan['duration'] != options['duration'] or plan.get('movements'):
-        raise ValueError('Eleven Music requires a new composition at the confirmed duration, without suite movements')
+    if plan['recipe'] != recipe or plan['duration'] != options['duration'] or plan.get('movements'):
+        raise ValueError('Eleven Music requires the matching composition recipe at the confirmed duration, without suite movements')
     if not plan['preserve_generated_backing']:
         raise ValueError('Retain the Eleven Music accompaniment; do not apply the local band adapter')
     return plan
@@ -45,9 +47,12 @@ def plan_constraints(plan, brief):
 
 def planning_guidance(brief):
     if selected(brief) != PAID: return ''
-    return '''\nELEVEN MUSIC BACKEND: Compose new music at exactly details.generation.duration seconds.
-Use recipe=new, preserve_generated_backing=true and no movements. Tony's selected local voice
-is applied after Eleven Music supplies the composition and guide vocal. Basis audio, faithful
+    recipe = 'reinterpretation' if brief['details'].get('remixSource') else 'new'
+    return f'''\nELEVEN MUSIC BACKEND: Compose new music at exactly details.generation.duration seconds.
+Use recipe={recipe}, preserve_generated_backing=true and no movements. Tony's selected local voice
+is applied after Eleven Music supplies the composition and guide vocal. For a catalog remix,
+use the retained source lyrics and musical brief to guide the new version. Source audio and vocal
+references stay local and do not condition Eleven Music; do not promise its original melody. Basis audio, faithful
 remakes and the local band adapter are unavailable. Honor the supplied lyric sheet, style,
 instruments, tempo, key, meter, vocal-entry and ending targets. Use standard section headings.
 The complete lyric sheet and musical arrangement are sent to ElevenLabs; private admin notes,
@@ -140,8 +145,11 @@ def verify(work, manifest):
 
 
 def render(request, attempt, recover, warning):
-    plan_constraints(request['plan'], {'details': {'musicBackend': PAID, 'generation': request['plan'].get('generation')}})
-    if request['basis']: raise ValueError('Paid music cannot upload basis recordings')
+    basis = request['basis']
+    if basis and (len(basis) != 1 or basis[0].get('remixSource') is not True):
+        raise ValueError('Paid music supports only registered catalog remixes, not other basis recordings')
+    plan_constraints(request['plan'], {'details': {'musicBackend': PAID,
+        'generation': request['plan'].get('generation'), 'remixSource': bool(basis)}})
     # Only local vocal recovery may run. Composition/outro/candidate retries must never spend.
     for _ in range(3):
         try:

@@ -103,7 +103,7 @@ class PaidMusicTests(unittest.TestCase):
             self.assertEqual(words(actual), words(song['lyrics']))
             self.assertTrue(all(3000 <= c['duration_ms'] <= 120000 for c in body['composition_plan']['chunks']))
 
-    def test_paid_constraints_reject_local_candidates_remixes_and_band_adapter(self):
+    def test_paid_constraints_reject_local_candidates_unattached_remixes_and_band_adapter(self):
         song = plan(); brief = {'details': {'musicBackend': 'eleven_music', 'generation': song['generation']}}
         self.assertEqual(song, music_backend.plan_constraints(song, brief))
         for change in ({'recipe': 'reinterpretation'}, {'duration': 300}, {'preserve_generated_backing': False}):
@@ -119,6 +119,28 @@ class PaidMusicTests(unittest.TestCase):
              patch('renderer.render_with_retry') as local, patch('renderer.ending_repair') as ending:
             with self.assertRaisesRegex(RuntimeError, 'paid failure'): renderer.render(request)
             attempt.assert_called_once(); local.assert_not_called(); ending.assert_not_called()
+
+    def test_catalog_remix_uses_retained_lyrics_without_uploading_source_audio(self):
+        song = plan() | {'recipe': 'reinterpretation'}
+        brief = {'details': {'musicBackend': 'eleven_music', 'generation': song['generation'],
+                            'remixSource': {'songId': 'source'}}}
+        self.assertEqual(music_backend.plan_constraints(song, brief), song)
+        self.assertIn('recipe=reinterpretation', music_backend.planning_guidance(brief))
+        self.assertIn('do not condition Eleven Music', music_backend.planning_guidance(brief))
+        body = music_backend.composition(song, 123)
+        self.assertEqual(set(body), {'model_id', 'composition_plan', 'seed'})
+        self.assertNotIn('source', body)
+        self.assertEqual(paid_music.request_duration(body), 240000)
+        import renderer
+        request = {'music_backend': 'eleven_music', 'plan': song, 'basis': [{'remixSource': True, 'path': 'private.wav'}], 'config': {}}
+        with patch('renderer.render_attempt', side_effect=RuntimeError('retained paid failure')) as attempt, \
+             patch('renderer.vocal_recovery', return_value=False), patch('renderer.allow_vocal_warning', return_value=False), \
+             patch('renderer.render_with_retry') as local:
+            with self.assertRaisesRegex(RuntimeError, 'retained paid failure'): renderer.render(request)
+            attempt.assert_called_once_with(request); local.assert_not_called()
+            for basis in ([{'path': 'private.wav'}], [{'remixSource': True}] * 2):
+                with self.assertRaisesRegex(ValueError, 'registered catalog remixes'): renderer.render(request | {'basis': basis})
+            attempt.assert_called_once()
 
     def test_payment_reconciliation_never_triggers_monitor_or_shepherd_retry(self):
         from queue_monitor import classify

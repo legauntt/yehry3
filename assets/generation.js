@@ -63,7 +63,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
       if (!raw) continue;
       value[key] = schema.ranges[key] ? Number(raw) : schema.listLimits[key] ? raw.split(/\r?\n/).map((v) => v.trim()).filter(Boolean) : raw;
     }
-    if (backend === 'eleven_music') { value.duration ??= 240; value.candidates = 1; value.variation = 'balanced'; }
+    if (backend === 'eleven_music') { value.candidates = 1; value.variation = 'balanced'; }
     return normalizeGeneration(value, schema);
   };
   const persist = () => {
@@ -92,14 +92,13 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
     enable.disabled = required;
     root.querySelector('#generation-enable-label').textContent = paid ? 'Use song controls with Eleven Music' : 'Use V8 generation';
     root.querySelector('#generation-mode-note').textContent = paid
-      ? 'Eleven Music uses one paid composition. Choose a length (default: 240 seconds); other shared choices may remain on Auto. Local variation and composition choices are unavailable.'
-      : required ? 'Tony V8 uses V8 song generation. Advanced choices are optional; leave them on Auto if you prefer.'
+      ? 'Leave length blank for Auto: usually 3–5 minutes, with occasional shorter or longer songs up to Eleven Music’s 10-minute limit. Your chosen length and cost appear before confirmation. Local variation and composition choices are unavailable.'
+      : required ? 'Tony V8 uses V8 song generation. Leave length blank for the song planner: aim around four minutes, normally at least two, with an exceptionally rare 19-minute maximum.'
       : 'Available with every Tony voice. Choose a new composition or a reinterpretation of a basis song.';
     for (const key of ['candidates', 'variation']) {
       const field = root.querySelector(`[data-generation="${key}"]`);
       field.closest('.generation-grid > div').hidden = paid;
     }
-    if (paid && !root.querySelector('#gen-duration').value) root.querySelector('#gen-duration').value = '240';
     toggle(); persist();
   };
   return { read, setRequired(value) { voiceRequired = Boolean(value); applyRequired(); },

@@ -22,13 +22,15 @@ async function setup(page, existing, unavailable = false) {
     }
     else if (path === "/voice-models") json = { models: [{ id: "v6", label: "Tony V6", note: "Established" }, { id: "v7", label: "Tony V7", note: "Experimental", experimental: true }] };
     else if (path === "/request-materials") json = { version: 1 };
+    else if (path === "/generation") json = { version: 1, enabled: true };
+    else if (path === "/music-backends") json = { enabled: true, supportsRemix: true, remainingCents: 19000 };
     else if (path === "/prompts" && method === "POST") {
       writes.push(route.request().postDataJSON());
       draft = { id: "remix-draft", prompt: writes.at(-1).prompt, status: "draft", version: 1, details: { voiceModel: "v7", basisSongIds: [], ...(writes.at(-1).remixSongId ? { remixSource: source } : {}) } }; json = { prompt: draft };
     } else if (path.endsWith("/confirm")) {
       confirmations++; draft = { ...draft, status: "queued", confirmedAt: new Date().toISOString() }; json = { prompt: draft };
     } else if (path.startsWith("/prompts/")) {
-      if (method === "PATCH") { const body = route.request().postDataJSON(); writes.push(body); draft = { ...draft, status: "review", version: draft.version + 1, details: { ...body, ...(body.remixSongId ? { remixSource: source, basisSongTitles: [source.title] } : {}) } }; }
+      if (method === "PATCH") { const body = route.request().postDataJSON(); writes.push(body); if (body.musicBackend === "eleven_music" && body.generation?.duration === undefined) body.generation = { ...body.generation, duration: 225 }; draft = { ...draft, status: "review", version: draft.version + 1, details: { ...body, ...(body.remixSongId ? { remixSource: source, basisSongTitles: [source.title] } : {}) } }; }
       json = { prompt: draft };
     }
     await route.fulfill({ json });
@@ -171,4 +173,57 @@ test('cards distinguish ready, unavailable, expired and unknown sources before o
   await expect(page.locator('#tracks [data-id="not-ready"] [data-remix]')).toHaveText('Remix unavailable');
   await expect(page.locator('#tracks [data-id="expired"] [data-remix]')).toHaveText('Remix unavailable');
   await expect(page.getByRole('link', { name: 'Check remix availability for Unknown source' })).toBeVisible();
+});
+
+
+test('Eleven Remix retains its source while Auto stays blank through switching, preferences, and reload', async ({ page }) => {
+  const state = await setup(page);
+  const errors = []; page.on('pageerror', error => errors.push(error.message));
+  await page.goto(`/distonyc/?remix=${song.id}`);
+  await page.getByRole('button', { name: 'Find the direction' }).click();
+  await expect(page.locator('#music-backend option[value="eleven_music"]')).toBeEnabled();
+  await page.locator('#music-backend').selectOption('eleven_music');
+  await expect(page.locator('#essentials-panel [data-remix-source]')).toContainText(source.title);
+  await expect(page.locator('#essentials-panel [data-remix-guidance]')).toContainText('lyrics and musical brief');
+  await expect(page.locator('#gen-duration')).toHaveValue('');
+  await page.locator('#music-backend').selectOption('local');
+  await expect(page.locator('#gen-duration')).toHaveValue('');
+  await expect(page.locator('#essentials-panel [data-remix-guidance]')).toContainText('Its vocals guide');
+  await page.locator('#music-backend').selectOption('eleven_music');
+  await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+  await page.getByText('Timing & key', { exact: true }).click();
+  await page.locator('#gen-duration').fill('300');
+  await page.locator('#gen-duration').fill('');
+  await page.locator('#generation-remember').click();
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem('yehry3:generation-preferences-v1')))).not.toHaveProperty('duration');
+  await page.reload();
+  await expect(page.locator('#music-backend')).toHaveValue('eleven_music');
+  await expect(page.locator('#gen-duration')).toHaveValue('');
+  await page.getByText('Timing & key', { exact: true }).click();
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: 'artifacts/remix-auto-mobile.png', fullPage: true });
+  const patch = page.waitForRequest(request => request.method() === 'PATCH' && request.url().includes('/prompts/'));
+  await page.getByRole('button', { name: 'Review the request' }).click();
+  const sent = (await patch).postDataJSON();
+  expect(sent.generation).not.toHaveProperty('duration');
+  expect(sent.remixSongId).toBe(song.id);
+  expect(sent.musicBackend).toBe('eleven_music');
+  await expect(page.locator('.paid-music-confirmation')).toContainText('$0.56');
+  await expect(page.locator('.paid-music-confirmation')).toContainText('$3.75');
+  expect(state.confirmations()).toBe(0);
+  await page.reload();
+  await expect(page.locator('.paid-music-confirmation')).toContainText('$3.75');
+  await page.getByRole('button', { name: 'Fine-tune it' }).click();
+  await expect(page.locator('#gen-duration')).toHaveValue('225');
+  await expect(page.locator('#essentials-panel [data-remix-source]')).toContainText(source.title);
+  await page.getByRole('tab', { name: 'Essentials', exact: true }).click();
+  await page.locator('#music-backend').selectOption('local');
+  await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+  await page.getByText('Timing & key', { exact: true }).click();
+  await page.locator('#gen-duration').fill('');
+  const localPatch = page.waitForRequest(request => request.method() === 'PATCH' && request.url().includes('/prompts/'));
+  await page.getByRole('button', { name: 'Review the request' }).click();
+  expect((await localPatch).postDataJSON().generation).not.toHaveProperty('duration');
+  expect(errors).toEqual([]);
 });
