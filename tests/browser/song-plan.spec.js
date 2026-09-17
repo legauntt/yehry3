@@ -1,14 +1,17 @@
 import { test, expect } from "@playwright/test";
 
 const id = `distonyc-${"f".repeat(24)}`;
-const plan = { version: 1, title: "The saved title", recipe: "new", style: "rock", duration: 240,
+const musicalSettings = { genre: "Piano funk", instruments: ["Electric piano", "Bass", '<img src=x onerror="window.planXss=1">'],
+  meter: "4/4", structure: "Verse → Chorus → Verse → Final chorus", performance: "Connected melodic singing",
+  energy: "Build to the final chorus", lyricWorkflow: "Story first" };
+const plan = { musicalSettings, version: 1, title: "The saved title", recipe: "new", style: "rock", duration: 240,
   bpm: 110, keyscale: "D minor", arrangement: 'Quiet piano, then a full chorus. <img src=x onerror="window.planXss=1">',
   lyrics: "[Verse]\nSaved words\n[Chorus]\nA refrain", movements: [{ duration: 120, arrangement: "A quiet return", lyrics: "Movement words" }] };
 const song = { id, title: "The recorded title", url: "/fearhunger/Fear and Hunger.mp3", duration: 245, collection: "distonyc",
   originalPrompt: { idea: "The user’s original idea", direction: "Piano rock", keep: "A warm voice", basisSongs: [], voiceModel: "v6" },
   songPlan: plan, lyrics: { text: "Final words", kind: "written" } };
 
-test("catalog links to the saved plan, escaped lyrics and mobile layout", async ({ page }) => {
+test("Full Auto links to resolved musical choices, escaped lyrics and mobile layout", async ({ page }) => {
   await page.route(`**/yehry3/songs/${id}`, route => route.fulfill({ json: { song } }));
   await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
   await page.goto("/");
@@ -16,6 +19,11 @@ test("catalog links to the saved plan, escaped lyrics and mobile layout", async 
   await expect(page.locator(".original-prompt")).toContainText(song.originalPrompt.idea);
   await expect(page.locator("#song-plan")).toContainText("110 BPM");
   await expect(page.locator("#song-plan")).toContainText("The saved title");
+  await expect(page.locator("#song-plan")).toContainText("fields left on Auto");
+  for (const text of ["Style or genre", "Piano funk", "Featured instruments", "Electric piano, Bass",
+    "4/4", musicalSettings.structure, musicalSettings.performance, musicalSettings.energy, "Story first"]) {
+    await expect(page.locator("#song-plan")).toContainText(text);
+  }
   await page.locator(".plan-lyrics summary").first().click();
   await expect(page.locator(".plan-lyrics .lyrics-text").first()).toBeVisible();
   expect(await page.evaluate(() => window.planXss)).toBeUndefined();
@@ -33,6 +41,7 @@ test("offline and older API responses retain the matching fallback plan", async 
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [song] } }));
   await page.goto(`/original-prompt/?song=${id}`);
   await expect(page.locator("#song-plan")).toContainText("110 BPM");
+  await expect(page.locator("#song-plan")).toContainText("Electric piano, Bass");
   await page.route(`**/yehry3/songs/${id}`, route => route.abort());
   await page.reload();
   await expect(page.locator("#song-plan")).toContainText("110 BPM");
@@ -55,4 +64,28 @@ test("an open request page shows its plan as soon as the next poll finds it", as
   await page.clock.fastForward(30001);
   await expect(page.locator("#song-plan")).toContainText("110 BPM");
   await expect(page.getByRole("link", { name: "Hear the song" })).toHaveCount(0);
+});
+
+test("older saved plans show existing settings without inventing instruments", async ({ page }) => {
+  const older = { ...song, songPlan: { ...plan, musicalSettings: undefined } };
+  await page.route("**/yehry3/songs/" + id, route => route.fulfill({ json: { song: older } }));
+  await page.route("**/songs/" + id + ".json", route => route.fulfill({ json: older }));
+  await page.goto("/original-prompt/?song=" + id);
+  await expect(page.locator("#song-plan")).toContainText("110 BPM");
+  await expect(page.locator("#song-plan")).toContainText("D minor");
+  await expect(page.locator("#song-plan")).toContainText("Quiet piano, then a full chorus.");
+  await expect(page.locator("#song-plan")).not.toContainText("Featured instruments");
+  await expect(page.locator("#song-plan")).not.toContainText("undefined");
+});
+
+test("explicit Advanced selections remain separate from resolved planner choices", async ({ page }) => {
+  const explicit = { ...song, originalPrompt: { ...song.originalPrompt, generation: {
+    version: 1, genre: "Funk", instruments: ["Piano"], bpm: 110
+  } } };
+  await page.route("**/yehry3/songs/" + id, route => route.fulfill({ json: { song: explicit } }));
+  await page.goto("/original-prompt/?song=" + id);
+  await expect(page.locator(".generation-brief")).toContainText("Funk");
+  await expect(page.locator(".generation-brief")).toContainText("Piano");
+  await expect(page.locator("#song-plan")).toContainText("Piano funk");
+  await expect(page.locator("#song-plan")).toContainText("Electric piano, Bass");
 });

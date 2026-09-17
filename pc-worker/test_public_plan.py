@@ -6,6 +6,7 @@ from pathlib import Path
 from unittest.mock import patch
 from common import save
 from public_plan import public_plan
+from test_planner import MUSICAL_SETTINGS
 from backfill_plans import candidates
 from worker import run_once
 from publish import song_record
@@ -34,10 +35,16 @@ class PublicPlanTests(unittest.TestCase):
             self.assertEqual(candidates(dict(songs=[song]), temp)[0], [])
 
     def test_projects_only_musical_fields_without_changing_saved_inputs(self):
-        before = copy.deepcopy(PLAN)
-        result = public_plan(PLAN)
+        plan = {**PLAN, 'musicalSettings': {**MUSICAL_SETTINGS, 'adminNote': 'PRIVATE', 'localPath': 'C:/PRIVATE'}}
+        before = copy.deepcopy(plan)
+        result = public_plan(plan)
+        self.assertEqual(result['musicalSettings'], MUSICAL_SETTINGS)
         self.assertNotIn('PRIVATE', str(result))
-        self.assertEqual(PLAN, before)
+        self.assertEqual(plan, before)
+        self.assertNotIn('musicalSettings', public_plan(PLAN))
+        result['musicalSettings']['instruments'].append('Flute')
+        self.assertEqual(plan, before)
+        result['musicalSettings']['instruments'].pop()
         self.assertEqual(result['movements'][0], dict(duration=200, arrangement='Movement', lyrics='A line'))
         prompt = dict(songId='song', releaseUrl='https://example.com/a.mp3', result=dict(title='Song', duration=200), songPlan=result)
         self.assertEqual(song_record(prompt)['songPlan'], result)

@@ -16,6 +16,12 @@ def fixture():
             'preserve_generated_backing': True, 'explanation': 'An original R&B melodrama.', 'fear_hunger': False}
 
 
+MUSICAL_SETTINGS = dict(genre='Piano funk', instruments=['Electric piano', 'Bass', 'Muted guitar'],
+                        meter='4/4', structure='Verse, chorus, verse, final chorus',
+                        performance='Connected melodic singing', energy='Build to the final chorus',
+                        lyricWorkflow='Story first')
+
+
 class PlannerTests(unittest.TestCase):
     def run_feedback_case(self, root, outputs):
         (root / 'PREFERENCES.md').write_text('Use Tony V6.')
@@ -30,6 +36,38 @@ class PlannerTests(unittest.TestCase):
             if isinstance(value, str): path.write_text(value)
             else: save(path, value)
         return config, brief, calls, patch('planner.run_owned', side_effect=model)
+
+    def test_full_auto_captures_choices_in_the_existing_call_and_reuses_them(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            resolved = {**fixture(), 'musicalSettings': MUSICAL_SETTINGS}
+            config, brief, calls, mocked = self.run_feedback_case(root, [resolved])
+            with mocked:
+                self.assertEqual(make_plan(config, brief, root, []), resolved)
+                self.assertEqual(make_plan(config, brief, root, []), resolved)
+            self.assertEqual(len(calls), 1)
+            self.assertIn('fields on Auto', calls[0])
+            self.assertIn('musicalSettings', load(root / 'plan-schema.json')['required'])
+            self.assertEqual(load(root / 'plan.json')['plan']['musicalSettings'], MUSICAL_SETTINGS)
+            self.assertEqual(brief['details'], {})
+
+    def test_musical_choices_preserve_explicit_controls_and_validate_bounds(self):
+        from generation_controls import constraints
+        settings = {**MUSICAL_SETTINGS, 'genre': 'R&B'}
+        resolved = {**fixture(), 'musicalSettings': settings}
+        brief = {'details': {'generation': {'version': 1, 'bpm': 84, 'genre': 'R&B',
+                                            'instruments': MUSICAL_SETTINGS['instruments']}}}
+        result = constraints(validate(resolved, []), brief)
+        self.assertEqual(result['musicalSettings'], settings)
+        self.assertEqual(result['generation']['bpm'], 84)
+        self.assertEqual(result['arrangement'], resolved['arrangement'])
+        for bad in [None, [], {}, {**settings, 'genre': 'x' * 121},
+                    {**settings, 'instruments': ['x'] * 13},
+                    {**settings, 'instruments': [' ']},
+                    {**settings, 'instruments': [12]},
+                    {**settings, 'instruments': ['🎻' * 31]}]:
+            with self.subTest(bad=bad), self.assertRaisesRegex(ValueError, 'musicalSettings'):
+                validate({**fixture(), 'musicalSettings': bad}, [])
 
     def test_three_turn_feedback_corrects_json_then_semantic_error(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -155,9 +155,12 @@ def normalize(plan):
 
 def validate(plan, basis, duration_min=DURATION_MIN):
     # Older cached plans predate these optional policies; never rewrite frozen inputs.
-    optional = {'fear_hunger', 'allow_long_instrumental_outro', 'movements', 'vocal_accents', 'generation'}
+    optional = {'fear_hunger', 'allow_long_instrumental_outro', 'movements', 'vocal_accents', 'generation', 'musicalSettings'}
     if not isinstance(plan, dict) or set(plan) - optional != set(FIELDS) - optional or plan['recipe'] not in FIELDS['recipe']['enum']: raise ValueError('Invalid planning result')
     if 'generation' in plan: normalize_generation(plan['generation'])
+    if 'musicalSettings' in plan:
+        from musical_settings import public_settings
+        public_settings(plan['musicalSettings'])
     if 'fear_hunger' in plan and type(plan['fear_hunger']) is not bool: raise ValueError('Invalid collection tag')
     if 'allow_long_instrumental_outro' in plan and type(plan['allow_long_instrumental_outro']) is not bool: raise ValueError('Invalid instrumental ending preference')
     if plan['recipe'] == 'needs_attention':
@@ -265,6 +268,8 @@ Keep explanation concise and describe the musical plan or a concrete blocker. No
     save(directory / 'duration-policy.json', length_policy)
     instruction += '\nSaved length suggestion (explicit user length takes priority):\n' + json.dumps(length_policy)
     instruction += VOCAL_ACCENT_GUIDANCE
+    from musical_settings import GUIDANCE as musical_settings_guidance
+    instruction += '\n' + musical_settings_guidance
     if brief['details'].get('remixSource'):
         instruction += '\nThis request has an attached published recording and retained Tony vocal references. For a new arrangement that keeps its identity, hook or spirit, use reinterpretation with preserve_generated_backing=true. Remix in this brief means a new source-guided arrangement, not an exact-timing reconstruction. Preserve recognizable source lyric hooks and motifs. Use the requested Tony voice model, including V7. Only an explicit demand for identical melody/timing requires needs_attention; never promise exact preservation. Give the version a distinct title indicating its new arrangement.\n'
     public_basis = [{key: value for key, value in song.items() if key not in ['path', 'sha256', 'remix_manifest_sha256']} for song in basis]

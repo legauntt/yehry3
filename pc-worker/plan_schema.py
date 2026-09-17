@@ -1,5 +1,6 @@
 """Canonical planner output contract; legacy spelling is normalized before validation."""
 from vocal_accents import SCHEMA as VOCAL_ACCENTS_SCHEMA
+from musical_settings import SCHEMA as MUSICAL_SETTINGS_SCHEMA
 
 KEYS = [f'{note}{accidental} {mode}' for note in 'ABCDEFG'
         for accidental in ('', '#', 'b') for mode in ('major', 'minor')]
@@ -18,6 +19,7 @@ FIELDS = {
                  'description': 'Canonical musical key, for example C# minor or Bb major.'},
     'lyrics': {'type': 'string', 'maxLength': 16000},
     'arrangement': {'type': 'string', 'maxLength': 5000},
+    'musicalSettings': MUSICAL_SETTINGS_SCHEMA,
     'preserve_generated_backing': {'type': 'boolean'},
     'explanation': {'type': 'string'},
     'vocal_accents': VOCAL_ACCENTS_SCHEMA,
