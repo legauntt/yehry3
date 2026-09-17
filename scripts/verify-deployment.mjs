@@ -92,6 +92,7 @@ for (const name of [
   "request-tabs.js",
   "model-info.js",
   "generation.js",
+  "music-backend.js",
   "generation-options.js",
   "generation-controls.js",
   "generation-brief.js",
@@ -208,8 +209,9 @@ for (const request of [
   }
   assert.deepEqual(
     Object.keys(request.originalPrompt).sort(),
-    ["basisSongs", "direction", "idea", "keep", "voiceModel", ...(request.originalPrompt.generation ? ["generation", "generationProfile"] : [])].sort(),
+    ["basisSongs", "direction", "idea", "keep", "voiceModel", ...(request.originalPrompt.musicBackend ? ["musicBackend"] : []), ...(request.originalPrompt.generation ? ["generation", "generationProfile"] : [])].sort(),
   );
+  if (request.originalPrompt.musicBackend !== undefined) assert.ok(["local", "eleven_music"].includes(request.originalPrompt.musicBackend));
   if (request.originalPrompt.generation) {
     assert.equal(request.originalPrompt.generationProfile, "v8");
     assert.deepEqual(normalizeGeneration(request.originalPrompt.generation, generationSchema), request.originalPrompt.generation);
