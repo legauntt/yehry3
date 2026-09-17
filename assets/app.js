@@ -893,7 +893,7 @@ async function requests() {
               body: {
                 version: draft.version,
                 confirmed: true,
-                ...(draft.details?.musicBackend === PAID_BACKEND ? { confirmedPaid: $('#confirm-paid').checked } : {}),
+                ...(draft.details?.musicBackend === PAID_BACKEND ? { confirmedPaid: $('#confirm-paid').checked, paidPassword: $('#paid-password').value } : {}),
               },
             })
           ).prompt;

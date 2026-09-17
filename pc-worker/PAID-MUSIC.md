@@ -12,7 +12,9 @@ composition candidates are unavailable on the paid path. The form retains local
 choices when switching generators and does not remember paid selection for new songs.
 
 The confirmation page shows the estimated generation cost and requires a separate
-paid confirmation. Only the approved lyric sheet and generated musical directions
+paid confirmation plus the separate paid confirmation password. Chairlift checks
+that password before queue admission and budget reservation; it is never sent to
+the worker or saved in the request. Only the approved lyric sheet and generated musical directions
 go to ElevenLabs. Tony recordings, voice models, raw reference-page snapshots,
 credentials and private admin notes are not uploaded. Creative instructions can
 influence the resulting lyrics/arrangement, just as they do for local composition.
@@ -33,7 +35,7 @@ operator reconciles them against provider history; cancellation cannot refund a
 provider request already in flight.
 
 Chairlift reserves funds in the same Mongo transaction as queue admission. A full
-queue, stale confirmation, missing paid confirmation, or exhausted budget leaves the
+queue, stale confirmation, missing paid confirmation, incorrect password, or exhausted budget leaves the
 review intact. Replaying a successful confirmation does not reserve twice.
 
 The PC writes its reservation before the only billable request. Its exclusive ledger
@@ -56,6 +58,10 @@ YEHRY3_ELEVEN_MUSIC=true
 YEHRY3_MUSIC_CAP_CENTS=20000
 YEHRY3_MUSIC_PREVIOUS_CENTS=900
 ```
+
+Set `YEHRY3_PAID_MUSIC_PASSWORD` as a separate private Chairlift secret. Without it,
+new paid confirmations are unavailable. Do not put its value in this repository or
+the public build. Existing authorized requests and local requests keep working.
 
 The API's `yehry3_music_budget` document is durable. Previous reservations are seeded
 only when creating that document; restarting the API cannot reset spending.

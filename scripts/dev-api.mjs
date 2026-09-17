@@ -42,6 +42,7 @@ app.use(
     env: {
       YEHRY3_GENERATION_V8: process.env.YEHRY3_GENERATION_V8 || 'false',
       YEHRY3_ELEVEN_MUSIC: process.env.YEHRY3_ELEVEN_MUSIC || 'false',
+      YEHRY3_PAID_MUSIC_PASSWORD: process.env.YEHRY3_PAID_MUSIC_PASSWORD || '',
       YEHRY3_MUSIC_CAP_CENTS: process.env.YEHRY3_MUSIC_CAP_CENTS || '20000',
       YEHRY3_MUSIC_PREVIOUS_CENTS: process.env.YEHRY3_MUSIC_PREVIOUS_CENTS || '900',
       YEHRY3_VOICE_V8: process.env.YEHRY3_VOICE_V8 || 'false',
