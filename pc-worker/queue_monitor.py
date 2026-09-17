@@ -38,6 +38,9 @@ def local_context(config, prompt_id):
 
 def classify(error, context):
     error=error.casefold()
+    from music_backend import payment_attention
+    if payment_attention(error):
+        return 'paid_music', 'review', 'Review the saved paid reservation, budget or credential. Automatic recovery cannot authorize another charge.'
     # Changed/missing inputs need an actual repair; retrying cannot restore them.
     if any(term in error for term in ('checksum','hash mismatch','saved worker changed','saved track changed','inputs changed','file changed','no such file','filenotfound','model is missing')):
         return 'saved_inputs', 'review', 'Restore the named input or reconcile its provenance before retrying.'

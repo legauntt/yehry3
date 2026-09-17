@@ -41,18 +41,22 @@ app.use(
     mango: { getDb: () => store.db, getClient: () => client },
     env: {
       YEHRY3_GENERATION_V8: process.env.YEHRY3_GENERATION_V8 || 'false',
+      YEHRY3_ELEVEN_MUSIC: process.env.YEHRY3_ELEVEN_MUSIC || 'false',
+      YEHRY3_MUSIC_CAP_CENTS: process.env.YEHRY3_MUSIC_CAP_CENTS || '20000',
+      YEHRY3_MUSIC_PREVIOUS_CENTS: process.env.YEHRY3_MUSIC_PREVIOUS_CENTS || '900',
       YEHRY3_VOICE_V8: process.env.YEHRY3_VOICE_V8 || 'false',
       YEHRY3_WORKER_TOKEN: process.env.YEHRY3_WORKER_TOKEN || '',
       YEHRY3_SESSION_SECRET:
         "local-disposable-preview-signing-secret-123456789",
       YEHRY3_PROMPT_PASSWORD: process.env.YEHRY3_PROMPT_PASSWORD || "wishbone",
       YEHRY3_ADMIN_PASSWORD: process.env.YEHRY3_ADMIN_PASSWORD,
-      YEHRY3_ORIGINS: "http://127.0.0.1:8080,http://localhost:8080",
+      YEHRY3_ORIGINS: process.env.YEHRY3_ORIGINS || "http://127.0.0.1:8080,http://localhost:8080",
     },
   }),
 );
-const server = app.listen(3000, "127.0.0.1", () =>
-  console.log("Disposable preview API: http://127.0.0.1:3000/yehry3"),
+const port = Number(process.env.API_PORT || 3000);
+const server = app.listen(port, "127.0.0.1", () =>
+  console.log(`Disposable preview API: http://127.0.0.1:${port}/yehry3`),
 );
 async function stop() {
   server.close();

@@ -1,3 +1,4 @@
+import { mountMusicBackend, paidConfirmation, PAID_BACKEND } from './music-backend.js';
 import { gpuWaiting, gpuWaitNotice } from "./gpu-status.js";
 import { mountGeneration, mountGenerationReview } from './generation.js';
 import { songPlanLink } from "./song-plan.js";
@@ -767,6 +768,7 @@ async function requests() {
             <button type="button" role="tab" id="advanced-tab" aria-controls="advanced-panel" aria-selected="false" tabindex="-1">Advanced</button>
           </div>
           <div role="tabpanel" id="essentials-panel" aria-labelledby="essentials-tab">
+            <div id="music-backend-root"></div>
             <div class="voice-model-label"><label for="voice-model">Tony voice model</label>${modelInfoButton()}</div>
             <select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p>
             <label for="keep">What matters most? <span class="small">(optional)</span></label><textarea id="keep" rows="2" maxlength="1000" placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><p class="small field-hint">Leave this empty for “Surprise me.”</p>
@@ -823,6 +825,7 @@ async function requests() {
       };
       $("#voice-model").onchange = () => { storage.set(voiceDraftKey, $("#voice-model").value); describeVoice(); };
       describeVoice();
+      const music = mountMusicBackend($('#music-backend-root'), { draft: { ...draft, details: initialDetails }, generation, basisRoot: $('#basis-root'), storage, api, escape, onChange: describeVoice });
       const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), { ...draft, details: initialDetails }, { api, storage, escape, lyricChoiceRoot: $('#remix-lyric-choice') }) : {
         read() {
           if (draft.details?.lyricSheet || draft.details?.references?.length) throw new Error("Your saved lyrics and references are temporarily unavailable for editing. Try again shortly.");
@@ -851,7 +854,8 @@ async function requests() {
             keep: $("#keep").value.trim() || "Surprise me.",
           };
           if (!attachedRemix && remix && storage.get(`remix-draft:${draft.id}`) === remix.id) throw new Error("The remix recording is not attached. Open Remix again when its source is available.");
-          details.basisSongIds = attachedRemix ? [] : selectedBasis();
+          details.musicBackend = music.read();
+          details.basisSongIds = attachedRemix || details.musicBackend === PAID_BACKEND ? [] : selectedBasis();
           if (attachedRemix) details.remixSongId = attachedRemix.songId;
           details.voiceModel = $("#voice-model").value;
           details.authoredBy = $("#authored-by").value.trim();
@@ -864,12 +868,12 @@ async function requests() {
               body: { version: draft.version, ...details },
             })
           ).prompt;
-          requestMaterials.clear(); generation.clear(); storage.remove(voiceDraftKey);
+          requestMaterials.clear(); generation.clear(); music.clear(); storage.remove(voiceDraftKey);
           rememberAuthor(draft.authoredBy || "");
           render();
         });
     } else if (stage === "review") {
-      form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form"><div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">The queue holds up to 10 unfinished requests, including songs in production. If it is full, your review stays saved so you can try again when a slot opens.</p><p class="field-error" role="alert"></p></form>`;
+      form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form">${paidConfirmation(draft.details, escape)}<div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">The queue holds up to 10 unfinished requests, including songs in production. If it is full, your review stays saved so you can try again when a slot opens.</p><p class="field-error" role="alert"></p></form>`;
       const materialIssue = durationIssue(draft.details, draft.prompt);
       if (materialIssue) {
         $("#confirm-form .primary").disabled = true;
@@ -885,6 +889,7 @@ async function requests() {
               body: {
                 version: draft.version,
                 confirmed: true,
+                ...(draft.details?.musicBackend === PAID_BACKEND ? { confirmedPaid: $('#confirm-paid').checked } : {}),
               },
             })
           ).prompt;
@@ -922,7 +927,7 @@ async function requests() {
         await load();
         message(error.message, true);
       } else {
-        const target = $(".field-error", event.target);
+        const target = $(".field-error[role=alert]", event.target) || $(".field-error", event.target);
         if (target)
           target.textContent = error.retryAt
             ? `${error.message} Try again ${date(error.retryAt)}.`

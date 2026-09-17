@@ -1,0 +1,85 @@
+import { test, expect } from '@playwright/test';
+
+test.beforeEach(async ({ page }) => {
+  if (process.env.YEHRY3_TEST_API) await page.route('**/assets/config.js', route => route.fulfill({ contentType: 'text/javascript', body: `export const API_BASE = ${JSON.stringify(process.env.YEHRY3_TEST_API)};` }));
+});
+
+for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from ${voice} and requires cost confirmation`, async ({ page }) => {
+  const errors = []; page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/distonyc/');
+  await page.locator('#password').fill('wishbone');
+  await page.locator('#login-form button').click();
+  await page.locator('#idea').fill(`Paid browser fixture ${voice}: a soul song about the last bus home.`);
+  await page.locator('#idea-form button').click();
+  await expect(page.locator('#music-backend')).toHaveValue('local');
+  await expect(page.locator('#music-backend option[value="eleven_music"]')).toBeEnabled();
+  await page.locator('#voice-model').selectOption(voice);
+  await page.locator('#music-backend').selectOption('eleven_music');
+  await expect(page.locator('#voice-model')).toHaveValue(voice);
+  await expect(page.locator('#paid-music-cost')).toContainText('$0.60');
+  await expect(page.locator('#paid-music-cost')).toContainText('$200');
+  await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+  await page.getByText('Timing & key', { exact: true }).click();
+  await page.locator('#gen-duration').fill('120');
+  await page.locator('#gen-bpm').fill('108');
+  await page.locator('#gen-reviewLyrics').check();
+  await expect(page.locator('#gen-candidates')).toBeHidden();
+  await expect(page.locator('#gen-variation')).toBeHidden();
+  await expect(page.locator('#basis-root')).toBeHidden();
+  await page.reload();
+  await expect(page.locator('#music-backend')).toHaveValue('eleven_music');
+  await expect(page.locator('#voice-model')).toHaveValue(voice);
+  await expect(page.locator('#gen-duration')).toHaveValue('120');
+  await expect(page.locator('#gen-bpm')).toHaveValue('108');
+  await page.locator('#details-form > .actions .primary').click();
+  await expect(page.locator('#confirm-paid')).not.toBeChecked();
+  await expect(page.locator('.paid-music-confirmation')).toContainText('$0.30');
+  await expect(page.locator('.paid-music-confirmation')).toContainText('$2.00');
+  await expect(page.locator('.prompt-brief')).toContainText('Eleven Music · paid');
+  await page.locator('#confirm-form .primary').click();
+  await expect(page.locator('#confirm-paid')).toBeVisible();
+  await page.locator('#edit').click();
+  await expect(page.locator('#music-backend')).toHaveValue('eleven_music');
+  await page.getByRole('tab', { name: 'Essentials', exact: true }).click();
+  await page.locator('#music-backend').selectOption('local');
+  await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+  await page.getByText('Choices & mix', { exact: true }).click();
+  await expect(page.locator('#gen-candidates')).toBeVisible();
+  await page.getByRole('tab', { name: 'Essentials', exact: true }).click();
+  await page.locator('#music-backend').selectOption('eleven_music');
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  if (voice === 'v8') await page.screenshot({ path: 'artifacts/paid-music/mobile-selector.png', fullPage: true });
+  await page.locator('#details-form > .actions .primary').click();
+  await page.locator('#confirm-paid').check();
+  if (voice === 'v8') await page.screenshot({ path: 'artifacts/paid-music/mobile-confirmation.png', fullPage: true });
+  await page.locator('#confirm-form .primary').click();
+  await expect(page.getByRole('heading', { name: 'Your idea is on the list.' })).toBeVisible();
+  const saved = await page.evaluate(async () => {
+    const { api } = await import('/assets/api.js');
+    return (await api('/prompts/'+sessionStorage.getItem('yehry3:draft'), { role: 'submitter' })).prompt;
+  });
+  expect(saved.details.musicBackend).toBe('eleven_music');
+  expect(saved.details.voiceModel).toBe(voice);
+  expect(saved.details.generation.candidates).toBe(1);
+  expect(saved.details.generation.reviewLyrics).toBe(true);
+  expect(saved.paidAuthorization.reservedCents).toBe(200);
+  await page.getByRole('button', { name: 'Another idea' }).click();
+  await page.locator('#idea').fill('An independent local draft about a streetlight in the rain.');
+  await page.locator('#idea-form button').click();
+  await expect(page.locator('#music-backend')).toHaveValue('local');
+  expect(errors).toEqual([]);
+});
+
+test('unavailable paid service retains a saved paid draft without silently using local generation', async ({ page }) => {
+  await page.goto('/distonyc/'); await page.locator('#password').fill('wishbone'); await page.locator('#login-form button').click();
+  await page.locator('#idea').fill('A paid fixture song about a rainy morning train.'); await page.locator('#idea-form button').click();
+  await expect(page.locator('#music-backend option[value="eleven_music"]')).toBeEnabled();
+  await page.locator('#music-backend').selectOption('eleven_music');
+  await page.route('**/yehry3/music-backends', route => route.fulfill({ status: 503, contentType: 'application/json', body: '{"error":"Offline fixture"}' }));
+  await page.reload(); await expect(page.locator('#music-backend')).toHaveValue('eleven_music');
+  await page.locator('#details-form > .actions .primary').click();
+  await expect(page.locator('#details-form > .field-error[role=alert]')).toContainText('Eleven Music is unavailable');
+  await expect(page.locator('#details-form > .field-error[role=alert]')).toBeVisible();
+  await expect(page.locator('#confirm-form')).toHaveCount(0);
+});

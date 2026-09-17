@@ -2149,3 +2149,6 @@ button.lyric-line:hover {
 .generation-brief-group{margin:1rem 0}.generation-brief-group h4{font-size:.83rem;margin:0 0 .6rem;color:var(--muted)}
 .generation-brief-group dl{margin:0}.generation-brief-group + .generation-brief-group{border-top:1px solid var(--line);padding-top:1rem}
 @media(max-width:600px){.generation-sections li{grid-template-columns:1.2rem minmax(0,1fr)}.generation-section-actions{grid-column:2;justify-content:flex-end}.generation-section-actions button{min-width:44px;min-height:44px}}
+
+.paid-music-confirmation { border: 1px solid var(--line, #aaa); padding: 1rem; margin: 1rem 0; border-radius: .6rem; }
+#music-backend-root { margin-bottom: 1.5rem; }

@@ -23,16 +23,18 @@ def configure(work, track, spec, plan):
         f"Requested pulse {track['bpm']} BPM, {track['keyscale']}. ")
     track['allow_long_instrumental_outro'] = plan.get('allow_long_instrumental_outro', False)
     track['generation'] = options
-    track['generation_native'] = synthesis_options(options)
+    track['generation_native'] = {} if track.get('music_backend') == 'eleven_music' else synthesis_options(options)
     # Supplied fields must survive the LM stage; its audio codes remain unchanged.
     pinned = ['duration', 'bpm', 'keyscale', 'seed', 'lm_seed', 'lyrics', 'caption']
     source_path = work / ('generate_base.py' if (work / 'generate_base.py').exists() else 'generate_song.py')
     original = source_path.read_text('utf-8')
-    source = replace_once(original, "    save(HERE/'request.json',req)",
-        "    req.update(CONFIG['generation_native'])\n    save(HERE/'request.json',req)")
-    source = replace_once(source, "        save(HERE/'planned-request.json',planned)",
-        f"        planned.update({{k:req[k] for k in {pinned!r}}})\n"
-        "        planned.update({k:v for k,v in CONFIG['generation_native'].items() if v != ''})\n        save(HERE/'planned-request.json',planned)")
+    source = original
+    if track.get('music_backend') != 'eleven_music':
+        source = replace_once(original, "    save(HERE/'request.json',req)",
+            "    req.update(CONFIG['generation_native'])\n    save(HERE/'request.json',req)")
+        source = replace_once(source, "        save(HERE/'planned-request.json',planned)",
+            f"        planned.update({{k:req[k] for k in {pinned!r}}})\n"
+            "        planned.update({k:v for k,v in CONFIG['generation_native'].items() if v != ''})\n        save(HERE/'planned-request.json',planned)")
     compile(source, str(source_path), 'exec')
     # Change the mixing equation before peak/codec validation, preserving those checks.
     finish_path = work / ('finish_versioned.py' if (work / 'finish_versioned.py').exists() else 'finish_song.py')
