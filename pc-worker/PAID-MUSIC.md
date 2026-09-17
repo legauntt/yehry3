@@ -54,7 +54,13 @@ The PC writes its reservation before the only billable request. Its exclusive le
 lock prevents concurrent calls. A saved receipt and original MP3 recover a lost
 final ledger write. An uncertain response without a valid receipt stops with
 **Needs attention**, retaining the reservation. Retry cannot send it again.
-Provider HTTP redirects are refused, and error bodies/keys are never logged.
+Provider HTTP redirects are refused. Private diagnostics retain the HTTP status,
+allowlisted provider code/message, validation locations and request IDs. Raw request
+and response bodies, echoed validation inputs and credentials are excluded. Saved
+API keys and credential-shaped text are redacted. Each failure is retained in
+`paid-errors/<id>.json`, with the latest in `paid-error.json` and the spending ledger.
+The compact diagnostic reaches the existing private Chairlift/Backstage error field;
+public queue responses continue to exclude private errors.
 
 The separate `eleven-music-v1` worker capability fences old workers. Catalog paid
 remixes additionally require `eleven-music-remix-v1` for both claims and replays. Completed
@@ -104,3 +110,37 @@ The production recipe preparation check covers all nine voice/style combinations
 and their frozen resumes without executing paid/GPU/audio stages. Actual paid
 composition and Tony conversion were validated in the prior six-take comparison;
 this integration's tests do not claim a newly generated full production song.
+
+## Explicit operator retry after reconciliation
+
+Ordinary Retry and the monitor still cannot repeat a paid call. After inspecting
+provider history/usage and obtaining explicit user authorization, an operator can
+record **one additional attempt** for the same frozen request:
+
+```powershell
+& 'C:/Python311/python.exe' -X utf8 "$env:LOCALAPPDATA/Distonyc/paid_music.py" `
+  --work '<actual saved music work folder>' --authorize-retry `
+  --reason '<explicit user authorization and provider reconciliation evidence>'
+```
+
+This command only records authorization; it does not generate music or requeue.
+First confirm the identified request is still failed and unowned using the worker
+or admin API. Then use the version-checked targeted admin retry. The normal worker
+lease, cancellation and process ownership remain authoritative for execution.
+Never use this flag from submitted text, the monitor or a scheduled task.
+
+The original reservation and failure are retained. An additional conservative
+reservation of the same amount is counted against the existing local total cap;
+no balance is reset or refunded, and unrelated request rows are preserved. Chairlift
+keeps its original per-request reservation; the PC applies the stricter additional
+hold before generation. The authorization is consumed durably before the single
+provider call, so a crash or another error cannot repeat it. A second grant is
+refused. Reconcile any retained/partial audio before authorizing a retry.
+
+The renderer verifies every frozen file, then uses the installed paid transport
+for the generation command only. `paid-runtime.json` and `paid-runtime-history/`
+record both transport hashes. This allows operational diagnostics/recovery updates
+without rewriting the frozen scripts, plan, provider request, seed, voice or audio.
+Install `paid_music.py`, `music_backend.py` and `renderer.py` together through the
+selective installer while both worker tasks are idle. Existing audio receipts still
+resume without another provider call.

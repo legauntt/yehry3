@@ -1,14 +1,16 @@
-"""One durable Eleven Music request per song. No automatic billable retries."""
+"""Durable Eleven Music requests; no automatic billable retries."""
 import argparse
 import contextlib
 import ctypes
 import json
 import math
 import os
+import re
 from pathlib import Path
 import subprocess
 import urllib.error
 import urllib.request
+import uuid
 
 from common import fingerprint, load, save, sha, singleton, utc
 
@@ -17,6 +19,7 @@ ENDPOINT = 'https://api.elevenlabs.io/v1/music?output_format=mp3_44100_192'
 MAX_CAP_CENTS = 20000
 RATE_CENTS = 100
 MAX_BYTES = 32 * 1024 * 1024
+MAX_ERROR_BYTES = 65536
 
 
 def policy(path):
@@ -37,6 +40,12 @@ def validate_ledger(ledger):
         if (not isinstance(row.get('id'), str) or row['id'] in ids or
                 type(row.get('reserved_cents')) is not int or row['reserved_cents'] <= 0):
             raise ValueError('The paid music ledger is invalid')
+        retry = row.get('operator_retry')
+        if retry is not None and (not isinstance(retry, dict) or retry.get('version') != 1
+                or type(retry.get('reserved_cents')) is not int or retry['reserved_cents'] != row['reserved_cents']
+                or retry.get('status') not in ('authorized', 'consumed')
+                or retry.get('request_hash') != row.get('request_hash')):
+            raise ValueError('The paid music operator retry record is invalid')
         ids.add(row['id'])
 
 
@@ -110,8 +119,66 @@ def request_duration(body):
     return duration
 
 
-def compose(work, send_request=send, key_reader=get_key):
-    work = Path(work)
+def reserved_total(ledger):
+    return sum(row['reserved_cents'] + (row.get('operator_retry') or {}).get('reserved_cents', 0)
+               for row in ledger['requests'])
+
+
+def clean_error_text(value, key='', limit=1500):
+    if not isinstance(value, (str, int, float)): return None
+    text = str(value)
+    if key: text = text.replace(key, '[redacted]')
+    text = re.sub(r'(?i)(?:bearer\s+|sk[_-])[A-Za-z0-9_.-]+', '[redacted]', text)
+    text = re.sub(r'(?i)((?:xi-api-key|api[_-]?key|authorization)\s*[:=]\s*)[^\s,;]+',
+                  r'\1[redacted]', text)
+    return ' '.join(text.split())[:limit]
+
+
+def failure_detail(error, key=''):
+    """Private allowlisted diagnostics, never the raw response/request or credentials."""
+    result = {'at': utc(), 'exception_type': type(error).__name__}
+    if not isinstance(error, urllib.error.HTTPError):
+        result['message'] = clean_error_text(str(error), key)
+        return result
+    result['http_status'] = error.code
+    result['provider'] = {name: clean_error_text(error.headers.get(name), key, 200)
+        for name in ('request-id', 'x-request-id', 'trace-id', 'song-id')
+        if error.headers and error.headers.get(name)}
+    try:
+        raw = error.read(MAX_ERROR_BYTES + 1)
+        result['body_truncated'] = len(raw) > MAX_ERROR_BYTES
+        if result['body_truncated']: return result
+        body = json.loads(raw)
+        detail = body.get('detail', body) if isinstance(body, dict) else None
+        if isinstance(detail, dict):
+            result['detail'] = {name: clean_error_text(detail[name], key)
+                for name in ('type', 'code', 'status', 'message', 'request_id')
+                if name in detail and isinstance(detail[name], (str, int, float))}
+        elif isinstance(detail, list):
+            result['validation'] = [{name: clean_error_text(item[name], key, 500)
+                for name in ('type', 'msg') if name in item and isinstance(item[name], str)}
+                | {'loc': [clean_error_text(value, key, 100) for value in item.get('loc', [])[:12]]}
+                for item in detail[:12] if isinstance(item, dict) and isinstance(item.get('loc', []), list)]
+        elif isinstance(detail, str): result['detail'] = {'message': clean_error_text(detail, key)}
+    except Exception as read_error:
+        result['body_read_error'] = type(read_error).__name__
+    return result
+
+
+def failure_summary(detail):
+    provider = detail.get('detail') or {}
+    status = 'HTTP ' + str(detail['http_status']) if 'http_status' in detail else detail['exception_type']
+    code = provider.get('code') or provider.get('status')
+    message = provider.get('message') or detail.get('message')
+    if not message and detail.get('validation'):
+        message = '; '.join(str(row.get('loc', [])) + ': ' + row.get('msg', '') for row in detail['validation'])
+    identifier = provider.get('request_id') or next(iter((detail.get('provider') or {}).values()), None)
+    return ('Eleven Music ' + status + ((' [' + code + ']') if code else '')
+            + ((': ' + message[:450]) if message else '')
+            + ((' (request ' + identifier[:100] + ')') if identifier else ''))[:700]
+
+
+def validated_request(work):
     inputs = load(work / 'paid-inputs.json')
     body = load(work / 'paid-request.json')
     if fingerprint(body) != inputs['request_hash']:
@@ -124,15 +191,50 @@ def compose(work, send_request=send, key_reader=get_key):
             or reservation.get('duration') * 1000 != duration_ms
             or reservation.get('rateCentsPerMinute') != RATE_CENTS or reservation.get('reservedCents') != cost):
         raise ValueError('The paid request exceeds its confirmed authorization')
+    return inputs, body, duration_ms, cost
+
+
+def authorize_retry(work, reason):
+    """Operator only: reserve one explicitly authorized retry without erasing attempt one."""
+    work = Path(work)
+    if not isinstance(reason, str) or not 12 <= len(reason.strip()) <= 2000:
+        raise ValueError('Record the explicit user authorization and reconciliation evidence')
+    inputs, body, duration_ms, cost = validated_request(work)
+    cfg = policy(inputs['policy_path']); ledger_path = Path(cfg['ledger'])
+    with budget_lock(ledger_path.with_suffix('.lock')) as acquired:
+        if not acquired: raise RuntimeError('Another paid music request holds the spending ledger; retry later')
+        ledger = load(ledger_path); validate_ledger(ledger)
+        row = next((row for row in ledger['requests'] if row['id'] == inputs['prompt_id']), None)
+        if not row or row.get('status') != 'requires_reconciliation':
+            raise ValueError('Operator retry requires a retained failed paid reservation')
+        if row.get('request_hash') != inputs['request_hash'] or row['reserved_cents'] != cost:
+            raise ValueError('The original paid reservation does not match the frozen request')
+        if row.get('operator_retry'):
+            raise ValueError('This request already has its one operator retry authorization')
+        if any((work/name).exists() for name in ('paid-original.mp3', 'paid-original.partial', 'paid-receipt.json', 'generated.wav')):
+            raise ValueError('Reconcile retained audio before authorizing another paid request')
+        if not cfg.get('enabled') or reserved_total(ledger) + cost > cfg['cap_cents']:
+            raise ValueError('Paid music is disabled or the local paid music budget is exhausted')
+        original = dict(row)
+        retry = {'version': 1, 'id': str(uuid.uuid4()), 'authorized_at': utc(), 'reason': reason.strip(),
+            'request_hash': inputs['request_hash'], 'reserved_cents': cost, 'status': 'authorized',
+            'original_attempt': original}
+        row['operator_retry'] = retry
+        save(ledger_path, ledger)
+        return retry
+
+
+def compose(work, send_request=send, key_reader=get_key):
+    work = Path(work)
+    inputs, body, duration_ms, cost = validated_request(work)
     cfg = policy(inputs['policy_path'])
     ledger_path = Path(cfg['ledger'])
     with budget_lock(ledger_path.with_suffix('.lock')) as acquired:
         if not acquired: raise RuntimeError('Another paid music request holds the spending ledger; retry later')
-        ledger = load(ledger_path)  # Never silently reset a missing ledger.
+        ledger = load(ledger_path)
         validate_ledger(ledger)
         prior = next((row for row in ledger['requests'] if row['id'] == inputs['prompt_id']), None)
-        receipt_path = work / 'paid-receipt.json'
-        output = work / 'paid-original.mp3'
+        receipt_path = work / 'paid-receipt.json'; output = work / 'paid-original.mp3'
         if prior:
             if prior['request_hash'] != inputs['request_hash'] or prior['reserved_cents'] != cost:
                 raise ValueError('A paid reservation already exists for different inputs')
@@ -144,18 +246,28 @@ def compose(work, send_request=send, key_reader=get_key):
                 prior.update(status='completed', sha256=receipt['sha256'], bytes=receipt['bytes'])
                 save(ledger_path, ledger)
                 return receipt
-            raise RuntimeError('Paid music needs reconciliation: this request was already sent or reserved. No automatic repeat charge is allowed.')
-        if output.exists() or receipt_path.exists():
+            retry = prior.get('operator_retry') or {}
+            if retry.get('status') != 'authorized' or prior.get('status') != 'requires_reconciliation':
+                raise RuntimeError('Paid music needs reconciliation: this request was already sent or reserved. No automatic repeat charge is allowed.')
+            if output.exists() or output.with_suffix('.partial').exists() or (work/'generated.wav').exists():
+                raise ValueError('Reconcile retained audio before using the paid operator retry')
+        elif output.exists() or receipt_path.exists():
             raise ValueError('Restore the missing paid reservation before resuming retained audio')
         if not cfg.get('enabled'):
             raise ValueError('Paid music is disabled; the confirmed request remains saved')
-        if sum(row['reserved_cents'] for row in ledger['requests']) + cost > cfg['cap_cents']:
+        if reserved_total(ledger) + (0 if prior else cost) > cfg['cap_cents']:
             raise ValueError('The local paid music budget is exhausted; no request was sent')
         key = key_reader(cfg['credential'])
-        row = {'id': inputs['prompt_id'], 'request_hash': inputs['request_hash'], 'reserved_cents': cost,
-               'duration_ms': duration_ms, 'status': 'reserved', 'at': utc()}
-        ledger['requests'].append(row)
-        save(ledger_path, ledger)  # Reserve durably BEFORE the only billable invocation.
+        if prior:
+            row = prior
+            row['operator_retry'].update(status='consumed', consumed_at=utc())
+            attempt = 2
+        else:
+            row = {'id': inputs['prompt_id'], 'request_hash': inputs['request_hash'], 'reserved_cents': cost,
+                   'duration_ms': duration_ms, 'status': 'reserved', 'at': utc()}
+            ledger['requests'].append(row)
+            attempt = 1
+        save(ledger_path, ledger)  # Reserve/consume durably BEFORE the billable invocation.
         try:
             data, provider = send_request(body, key)
             temporary = output.with_suffix('.partial')
@@ -163,25 +275,35 @@ def compose(work, send_request=send, key_reader=get_key):
                 stream.write(data); stream.flush(); os.fsync(stream.fileno())
             temporary.replace(output)
             receipt = {'version': 1, 'prompt_id': inputs['prompt_id'], 'request_hash': inputs['request_hash'],
-                'sha256': sha(output), 'bytes': len(data), 'provider': provider, 'model': MODEL,
+                'sha256': sha(output), 'bytes': len(data), 'provider': provider, 'model': MODEL, 'attempt': attempt,
                 'reserved_cents': cost, 'estimated_price_cents': duration_ms / 60000 * 15,
                 'actual_invoice_checked': False, 'completed_at': utc()}
-            save(receipt_path, receipt)  # Allows crash recovery without a second provider call.
+            save(receipt_path, receipt)
             row.update(status='completed', sha256=receipt['sha256'], bytes=receipt['bytes'])
             save(ledger_path, ledger)
             return receipt
         except Exception as error:
-            row.update(status='requires_reconciliation', error_type=type(error).__name__)
+            detail = failure_detail(error, key)
+            detail.update(prompt_id=inputs['prompt_id'], request_hash=inputs['request_hash'], attempt=attempt)
+            row.update(status='requires_reconciliation', error_type=type(error).__name__, latest_error=detail)
             if isinstance(error, urllib.error.HTTPError): row['http_status'] = error.code
             save(ledger_path, ledger)
-            # Provider errors may contain private lyrics; never echo their body or credentials.
-            raise RuntimeError('Paid music needs reconciliation: the response was not saved completely. Inspect provider history before any new paid request.') from None
+            save(work/'paid-errors'/(str(uuid.uuid4())+'.json'), detail)
+            save(work/'paid-error.json', detail)
+            raise RuntimeError(failure_summary(detail) + '. Paid music needs reconciliation; no automatic repeat charge is allowed.') from None
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--work', type=Path, required=True)
+    parser.add_argument('--authorize-retry', action='store_true')
+    parser.add_argument('--reason')
     args = parser.parse_args()
+    if args.authorize_retry:
+        retry = authorize_retry(args.work, args.reason)
+        print(json.dumps({'status': 'authorized', 'id': retry['id'], 'reserved_cents': retry['reserved_cents']}))
+        return
+    if args.reason: parser.error('--reason requires --authorize-retry')
     receipt = compose(args.work)
     inputs = load(args.work / 'paid-inputs.json')
     decoded = args.work / 'generated.wav'

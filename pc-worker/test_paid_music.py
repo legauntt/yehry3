@@ -1,4 +1,7 @@
 import copy
+import io
+import json
+import urllib.error
 import tempfile
 import unittest
 from pathlib import Path
@@ -153,6 +156,125 @@ class PaidMusicTests(unittest.TestCase):
     def test_redirect_cannot_forward_key(self):
         req = paid_music.urllib.request.Request(paid_music.ENDPOINT, headers={'xi-api-key': 'fixture'})
         self.assertIsNone(paid_music.NoRedirect().redirect_request(req, None, 307, 'redirect', {}, 'https://example.invalid/'))
+
+    def http_failure(self, detail, status=400):
+        return urllib.error.HTTPError(paid_music.ENDPOINT, status, 'Bad Request',
+            {'request-id': 'trace-fixture'}, io.BytesIO(json.dumps({'detail': detail}).encode()))
+
+    def test_http_error_retains_private_diagnostic_and_reaches_worker_message(self):
+        self.send.side_effect = self.http_failure({'code': 'invalid_plan', 'message':
+            'Section too long; test-key-never-log', 'request_id': 'body-trace',
+            'input': {'xi-api-key': 'test-key-never-log', 'lyrics': 'PRIVATE INPUT'}})
+        with self.assertRaisesRegex(RuntimeError, r'HTTP 400.*invalid_plan.*Section too long.*body-trace'):
+            self.compose()
+        detail = load(self.work/'paid-error.json')
+        self.assertEqual(detail['http_status'], 400)
+        self.assertEqual(detail['provider']['request-id'], 'trace-fixture')
+        self.assertEqual(detail['detail']['request_id'], 'body-trace')
+        self.assertEqual(len(list((self.work/'paid-errors').glob('*.json'))), 1)
+        for path in [self.ledger, self.work/'paid-error.json']:
+            self.assertNotIn('test-key-never-log', path.read_text())
+            self.assertNotIn('PRIVATE INPUT', path.read_text())
+        with self.assertRaisesRegex(RuntimeError, 'No automatic repeat'): self.compose()
+        self.send.assert_called_once()
+
+    def test_validation_errors_exclude_echoed_input_and_oversized_bodies(self):
+        detail = paid_music.failure_detail(self.http_failure([{'loc': ['body', 'seed'],
+            'msg': 'Invalid seed', 'type': 'value_error', 'input': 'private lyric'}]))
+        self.assertEqual(detail['validation'][0]['loc'], ['body', 'seed'])
+        self.assertNotIn('private lyric', json.dumps(detail))
+        error = urllib.error.HTTPError(paid_music.ENDPOINT, 502, 'Bad Gateway', {},
+            io.BytesIO(b'private secret'*10000))
+        detail = paid_music.failure_detail(error)
+        self.assertTrue(detail['body_truncated'])
+        self.assertNotIn('private secret', json.dumps(detail))
+        detail = paid_music.failure_detail(urllib.error.HTTPError(paid_music.ENDPOINT, 503, 'Unavailable', {},
+            io.BytesIO(b'<html>private secret</html>')))
+        self.assertEqual(detail['body_read_error'], 'JSONDecodeError')
+
+    def test_explicit_retry_is_consumed_before_send_and_keeps_original_attempt(self):
+        self.send.side_effect = self.http_failure({'code': 'rejected', 'message': 'Original rejection'})
+        with self.assertRaises(RuntimeError): self.compose()
+        original = load(self.ledger)['requests'][-1]
+        paid_music.authorize_retry(self.work, 'User explicitly approved one retry after inspecting provider logs.')
+        self.assertEqual(paid_music.reserved_total(load(self.ledger)), 1700)
+        def retry_send(body, key):
+            row = load(self.ledger)['requests'][-1]
+            self.assertEqual(row['operator_retry']['status'], 'consumed')
+            self.assertEqual(row['operator_retry']['original_attempt'], original)
+            self.assertEqual(body, self.body)
+            return b'ID3'+b'a'*100000, {'song-id': 'retry-song'}
+        self.send.side_effect = retry_send
+        receipt = self.compose()
+        self.assertEqual(receipt['attempt'], 2)
+        self.assertEqual(receipt, self.compose())
+        self.assertEqual(self.send.call_count, 2)
+        self.assertEqual(paid_music.reserved_total(load(self.ledger)), 1700)
+
+    def test_failed_operator_retry_cannot_be_repeated_or_reauthorized(self):
+        self.send.side_effect = TimeoutError('First failure')
+        with self.assertRaises(RuntimeError): self.compose()
+        paid_music.authorize_retry(self.work, 'User explicitly approved this one additional attempt.')
+        with self.assertRaisesRegex(ValueError, 'already has'): paid_music.authorize_retry(self.work, 'Duplicate authorization must fail.')
+        self.send.side_effect = self.http_failure({'code': 'rejected_again', 'message': 'Second failure'})
+        with self.assertRaisesRegex(RuntimeError, 'rejected_again'): self.compose()
+        with self.assertRaisesRegex(RuntimeError, 'No automatic repeat'): self.compose()
+        with self.assertRaisesRegex(ValueError, 'already has'): paid_music.authorize_retry(self.work, 'A second grant is not allowed.')
+        self.assertEqual(self.send.call_count, 2)
+        self.assertEqual(len(list((self.work/'paid-errors').glob('*.json'))), 2)
+
+    def test_legacy_reconciliation_row_can_receive_one_bounded_grant(self):
+        ledger = load(self.ledger)
+        original = {'id': 'request-one', 'request_hash': fingerprint(self.body), 'reserved_cents': 400,
+                    'status': 'requires_reconciliation', 'http_status': 400, 'error_type': 'HTTPError'}
+        ledger['requests'].append(original); save(self.ledger, ledger)
+        retry = paid_music.authorize_retry(self.work, 'User approved retry; old HTTP 400 and empty usage retained.')
+        self.assertEqual(retry['original_attempt'], original)
+        self.assertEqual(self.compose()['attempt'], 2)
+        self.send.assert_called_once()
+
+    def test_retry_authorization_respects_cap_disabled_policy_audio_and_changed_inputs(self):
+        self.send.side_effect = TimeoutError('failed')
+        with self.assertRaises(RuntimeError): self.compose()
+        original = load(self.policy)
+        for change in ({'cap_cents': 1500}, {'enabled': False}):
+            save(self.policy, original | change)
+            with self.assertRaisesRegex(ValueError, 'budget|disabled'):
+                paid_music.authorize_retry(self.work, 'User has approved exactly one more attempt.')
+        save(self.policy, original)
+        partial = self.work/'paid-original.partial'; partial.write_bytes(b'retained')
+        with self.assertRaisesRegex(ValueError, 'retained audio'):
+            paid_music.authorize_retry(self.work, 'User has approved exactly one more attempt.')
+        partial.unlink()
+        save(self.work/'paid-request.json', self.body | {'seed': 124})
+        with self.assertRaisesRegex(ValueError, 'frozen'):
+            paid_music.authorize_retry(self.work, 'User has approved exactly one more attempt.')
+        self.send.assert_called_once()
+
+    def test_crash_after_durable_consumption_cannot_spend_again(self):
+        self.send.side_effect = TimeoutError('first')
+        with self.assertRaises(RuntimeError): self.compose()
+        paid_music.authorize_retry(self.work, 'User explicitly approved one additional provider call.')
+        self.send.side_effect = KeyboardInterrupt()
+        with self.assertRaises(KeyboardInterrupt): self.compose()
+        with self.assertRaisesRegex(RuntimeError, 'No automatic repeat'): self.compose()
+        self.assertEqual(self.send.call_count, 2)
+
+    def test_current_transport_adapter_preserves_and_checks_frozen_worker(self):
+        frozen = self.work/'paid_music.py'; frozen.write_text('# original frozen transport')
+        manifest = {'workers': {'paid_music.py': sha(frozen)}, 'paid_inputs_sha256': {
+            name: sha(self.work/name) for name in ('paid-inputs.json','paid-request.json')},
+            'tasks': [{'name': 'generate', 'command': ['python', str(frozen), '--work', str(self.work)]},
+                      {'name': 'prepare', 'command': ['python','private-voice.py']}]}
+        before = copy.deepcopy(manifest)
+        actual = music_backend.execution(self.work, manifest)
+        self.assertEqual(manifest, before)
+        self.assertEqual(actual['tasks'][1], manifest['tasks'][1])
+        self.assertEqual(actual['tasks'][0]['command'][1], str(Path(paid_music.__file__)))
+        self.assertEqual(sha(frozen), before['workers']['paid_music.py'])
+        frozen.write_text('# tampered')
+        with self.assertRaisesRegex(ValueError, 'frozen paid worker'):
+            music_backend.execution(self.work, manifest)
 
 
 if __name__ == '__main__': unittest.main()

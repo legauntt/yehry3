@@ -369,6 +369,9 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
             if plan.get('generation'): result['generation_profile'] = 'v8'
             return result
         execution = execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False))
+        if request.get('music_backend') == 'eleven_music':
+            from music_backend import execution as paid_execution
+            execution = paid_execution(work, execution)
         options = {'runner': preflight_runner} if preflight else {}
         result = with_quality(engine.execute_stages(work, execution, **options))
         result['voice_model'] = voice_model

@@ -1,4 +1,5 @@
 """Backend selection is independent of the saved Tony voice profile."""
+import copy
 import math
 from pathlib import Path
 import re
@@ -179,3 +180,25 @@ def payment_attention(message):
         'paid music is disabled', 'paid music is not configured', 'paid music policy',
         'paid music spending ledger', 'paid music ledger', 'paid music authorization',
         'paid reservation', 'saved elevenlabs credential'))
+
+
+def execution(work, manifest):
+    """Run current paid transport code after verifying the untouched frozen job."""
+    work = Path(work)
+    verify(work, manifest)
+    frozen = work/'paid_music.py'
+    if sha(frozen) != manifest['workers'].get('paid_music.py'):
+        raise ValueError('The frozen paid worker changed')
+    current = Path(__file__).with_name('paid_music.py')
+    result = copy.deepcopy(manifest)
+    tasks = [task for task in result['tasks'] if task['name'] == 'generate']
+    if len(tasks) != 1 or tasks[0]['command'][1:] != [str(frozen), '--work', str(work)]:
+        raise ValueError('Unrecognized frozen paid generation command')
+    tasks[0]['command'][1] = str(current)
+    evidence = {'version': 1, 'frozen_worker_sha256': sha(frozen), 'runtime_sha256': sha(current),
+        'runtime': str(current), 'request_hash': load(work/'paid-inputs.json')['request_hash'],
+        'frozen_inputs_changed': False}
+    history = work/'paid-runtime-history'/(evidence['runtime_sha256']+'.json')
+    if not history.exists(): save(history, evidence)
+    save(work/'paid-runtime.json', evidence)
+    return result
