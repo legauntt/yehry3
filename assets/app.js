@@ -316,6 +316,7 @@ async function library() {
       const label = gpuWaiting(song) ? "Waiting for the GPU" : recoveryActive(song) ? "Recovering automatically" : song.status === "failed" ? "Needs attention" : "On the way";
       return `<details class="pending-track" data-id="${escape(song.id)}">
         <summary><span class="pending-mark" aria-hidden="true">↗</span>${songArtworkMarkup({ ...song, title }, escape)}
+          <span class="pending-availability"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Not yet playable</span>
           <span class="pending-title"><span class="tiny-label">${label}</span><strong title="${escape(title)}">${escape(title)}</strong><span class="track-meta">${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge${voiceModelBadgeClass(song.voiceModel)}">${voiceModelBadge(song.voiceModel)}</span>${musicBackendBadge(song)}</span></span>
           <span class="pending-state">${badge(state)}${song.progress && song.status !== "failed" ? `<span class="small">${Math.round(percent)}%</span><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}</span>
           <span class="pending-disclosure"><span class="pending-details-label">Details</span></span>
