@@ -2,6 +2,173 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-624946972cc5dd31500d5dab",
+      "title": "Defiled and Raped",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-624946972cc5dd31500d5dab-e8af56c750b3.mp3",
+      "duration": 94.64,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-17T03:06:50.808Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Defiled and Raped",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Raw dark electronic setting with distorted drum machines, a stalking sub-bass pulse, abrasive synth stabs, gated noise, and brief ensemble dropouts. Tony V8 delivers the preserved words in rough, smoky, connected phrasing while keeping the chorus stark and catchable. Build pressure through all four verses, then broaden the final chorus; sustain its last word so the final sung syllable lands 8–12 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Verse 1]\ndark corner guarded by night\nI'm haunting you to fullfil my wish\ndisguised and armed, waiting for you\nto rape your body and abuse your soul\n\n[Verse 2]\nyour fingernails are grating my skin\nbloodcurling screams are begging me on\nyour killing glace is raising my greed\nyour cold sweat satisfies my thirst\n\n[Chorus]\nno relief, no escape\nno salvation\ndefiled and raped\n\n[Verse 3]\nyour cries for help will never be heard\nnow call my name and pule for mercy\ntry to resist, try to get away\nyour end is near, accept your fate\n\n[Verse 4]\nsee my cynical smile, you'll never forget\nand my greedy eyes which are disporting\nyou're squirming below for nothing\nyou got no chance, too bad\n\n[Chorus]\nno relief, no escape\nno salvation\ndefiled and raped\n\n[End]",
+        "duration": 95,
+        "bpm": 118
+      },
+      "lyrics": {
+        "text": "[Verse 1]\ndark corner guarded by night\nI'm haunting you to fullfil my wish\ndisguised and armed, waiting for you\nto rape your body and abuse your soul\n\n[Verse 2]\nyour fingernails are grating my skin\nbloodcurling screams are begging me on\nyour killing glace is raising my greed\nyour cold sweat satisfies my thirst\n\n[Chorus]\nno relief, no escape\nno salvation\ndefiled and raped\n\n[Verse 3]\nyour cries for help will never be heard\nnow call my name and pule for mercy\ntry to resist, try to get away\nyour end is near, accept your fate\n\n[Verse 4]\nsee my cynical smile, you'll never forget\nand my greedy eyes which are disporting\nyou're squirming below for nothing\nyou got no chance, too bad\n\n[Chorus]\nno relief, no escape\nno salvation\ndefiled and raped",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 1.94,
+            "end": 5.12
+          },
+          {
+            "line": 2,
+            "start": 5.6,
+            "end": 9.42
+          },
+          {
+            "line": 3,
+            "start": 10.52,
+            "end": 14.16
+          },
+          {
+            "line": 4,
+            "start": 14.16,
+            "end": 17.2
+          },
+          {
+            "line": 7,
+            "start": 18.3,
+            "end": 20.72
+          },
+          {
+            "line": 8,
+            "start": 20.72,
+            "end": 25.02
+          },
+          {
+            "line": 9,
+            "start": 25.02,
+            "end": 29.36
+          },
+          {
+            "line": 10,
+            "start": 30,
+            "end": 33.48
+          },
+          {
+            "line": 13,
+            "start": 34.34,
+            "end": 36.66
+          },
+          {
+            "line": 14,
+            "start": 37.62,
+            "end": 38.54
+          },
+          {
+            "line": 15,
+            "start": 40.06,
+            "end": 41.66
+          },
+          {
+            "line": 18,
+            "start": 42.9,
+            "end": 45.38
+          },
+          {
+            "line": 19,
+            "start": 45.38,
+            "end": 49.56
+          },
+          {
+            "line": 20,
+            "start": 49.56,
+            "end": 53.78
+          },
+          {
+            "line": 21,
+            "start": 54.26,
+            "end": 57.88
+          },
+          {
+            "line": 24,
+            "start": 58.2,
+            "end": 61.9
+          },
+          {
+            "line": 25,
+            "start": 61.9,
+            "end": 65.28
+          },
+          {
+            "line": 26,
+            "start": 66.4,
+            "end": 70.64
+          },
+          {
+            "line": 27,
+            "start": 70.64,
+            "end": 72.76
+          },
+          {
+            "line": 30,
+            "start": 72.76,
+            "end": 77.3
+          },
+          {
+            "line": 31,
+            "start": 77.3,
+            "end": 84.4
+          },
+          {
+            "line": 32,
+            "start": 84.86,
+            "end": 90.48
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "early_lyric_ending",
+          "seconds": 52.96
+        }
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "Defiled and raped",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "rhythm",
+          "performance": "raw",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "genre": "Electronic"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-7cc05e6a82dad5651ad3404f",
       "title": "White Line Morning",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7cc05e6a82dad5651ad3404f-a75263996d14.mp3",
