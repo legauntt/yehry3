@@ -48,6 +48,8 @@ For a disposable end-to-end preview, install dependencies in sibling `../chairli
 
 For the real API, follow [chairlift's setup and queue contract](../chairlift/yehry3/README.md). Configure the submission password, separate admin password and signing secret in the backend, then run its catalog seed. No credentials are placed in the public build.
 
+Known band generators are labeled separately from Tony’s voice on catalog songs, the player, queue and request details, Backstage, lyric sheets, original prompts, Fear & Hunger, and mixtape tracks. **Eleven Music · paid** identifies paid compositions; **Local · ACE** identifies explicitly saved local requests. Older recordings without saved generator metadata are left unlabeled. Compact API and offline catalogs retain the same attribution.
+
 ## Behavior
 
 - Remix availability appears on song cards and lyric pages. Verified checks expire after 48 hours;
@@ -160,3 +162,5 @@ Original prompt, request review and Backstage group the selected Advanced settin
 GPU contention appears as **Waiting for the GPU** in the request status, public queue/details, catalog pending row and Backstage (outside collapsed controls). Only an active worker wait stage enables the notice; permission-error text is never relabeled, and failure diagnostics remain available. The live engine distinguishes Windows lock contention from access-denied errors and retains its normal error logs.
 
 Song Plan pages show the resolved genre, featured instruments, meter, section order, vocal delivery, energy and writing approach for newly planned songs, including Full Auto. BPM, key, target length and the full arrangement remain alongside them. These describe the saved creative plan, not measurements of the recording. Older plans remain readable without invented choices; existing recordings are not replanned.
+
+The request form offers a separate **Band generator** choice: Local ACE (default) or Eleven Music (paid). Paid access follows ordinary request login, with an explicit cost confirmation and shared $200 total cap. Tony V6/V7/V8 remain independently selectable. See [paid music operation](pc-worker/PAID-MUSIC.md).

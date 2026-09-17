@@ -1,3 +1,4 @@
+import { musicBackendBadge } from "./music-provenance.js";
 import { watchSong } from "./song-data.js";
 import { publicPromptBrief } from "./prompt-brief.js";
 import { songPlanSection } from "./song-plan.js";
@@ -20,7 +21,7 @@ export async function originalPromptPage(main, { escape, safeUrl }) {
     const title = song.title || song.songPlan?.title || song.idea;
     document.title = `${title} · Prompt & song plan · yehry3`;
     const unfinished = song.status && song.status !== "published";
-    main.innerHTML = `<article class="lyrics-sheet original-prompt"><p class="eyebrow">From idea to song</p><h1>${escape(title)}</h1><section><h2>Original prompt</h2>${song.originalPrompt ? `<p class="small">The idea and refinements confirmed for this song.</p>${publicPromptBrief(song, escape, { materialsUnavailable })}` : '<p class="small">No original prompt was saved for this song.</p>'}</section>${songPlanSection(song, escape)}<div class="actions">${song.url ? `<a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a>` : ""}${song.lyrics?.text ? `<a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}">Lyrics ↗</a>` : ""}<a class="text-link" href="${unfinished ? `/queue/details/?request=${encodeURIComponent(song.id)}` : "/?collection=distonyc"}">${unfinished ? "Request status" : "Distonyc collection"} →</a></div></article>`;
+    main.innerHTML = `<article class="lyrics-sheet original-prompt"><p class="eyebrow">From idea to song</p><h1>${escape(title)}</h1>${musicBackendBadge(song)}<section><h2>Original prompt</h2>${song.originalPrompt ? `<p class="small">The idea and refinements confirmed for this song.</p>${publicPromptBrief(song, escape, { materialsUnavailable })}` : '<p class="small">No original prompt was saved for this song.</p>'}</section>${songPlanSection(song, escape)}<div class="actions">${song.url ? `<a class="primary" href="${escape(safeUrl(song.url))}" target="_blank" rel="noopener">Hear the song ↗</a>` : ""}${song.lyrics?.text ? `<a class="text-link" href="/lyrics/?song=${encodeURIComponent(song.id)}">Lyrics ↗</a>` : ""}<a class="text-link" href="${unfinished ? `/queue/details/?request=${encodeURIComponent(song.id)}` : "/?collection=distonyc"}">${unfinished ? "Request status" : "Distonyc collection"} →</a></div></article>`;
     if (song.url) main.querySelector(".actions").insertAdjacentHTML("beforeend", remixLink(song, escape));
     for (const detail of main.querySelectorAll("details"))
       if (opened.includes(detail.querySelector("summary")?.textContent)) detail.open = true;

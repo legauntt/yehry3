@@ -1,21 +1,23 @@
 import { generationBrief, generationSelections } from './generation-brief.js';
+import { musicBackendOf, musicBackendLabel } from './music-provenance.js';
 import { voiceVersionLabel as voiceLabel } from './model-info.js';
 import { materialBrief, wordCount } from "./request-materials.js";
 
 const lyricMode = (sheet) => sheet.mode === "adapt" ? "Adapt these lyrics" : "Keep my wording";
 
-function layout({ idea, authoredBy, voice, keep, direction, basis, generation }, materials, escape) {
+function layout({ idea, authoredBy, voice, keep, direction, basis, generation, musicBackend }, materials, escape) {
   const field = (label, value) => `<dt>${label}</dt><dd>${escape(value)}</dd>`;
   const chosenDirection = direction && direction !== 'Use the prompt as written.' ? direction : '';
   const advanced = (chosenDirection ? `<dl>${field("What does it sound like?", chosenDirection)}</dl>` : '')
-    + generationBrief(generation, escape) + materials + (basis ? `<dl>${field("Basis songs", basis)}</dl>` : '');
+    + generationBrief(generation, escape, { musicBackend }) + materials + (basis ? `<dl>${field("Basis songs", basis)}</dl>` : '');
   return `<div class="brief prompt-brief">
     <section class="prompt-section"><h3>Essentials</h3><div class="prompt-section-body"><dl>
       ${authoredBy ? field("Authored by", authoredBy) : ""}
       ${field("The idea", idea)}
       ${field("Voice model", voice)}
+      ${musicBackendLabel(musicBackend) ? field("Band generator", musicBackendLabel(musicBackend)) : ""}
       ${keep && keep !== "Surprise me." ? field("What matters most?", keep) : ""}
-      ${generation ? field("Song generation", "V8") : ""}
+      ${generation && musicBackend !== "eleven_music" ? field("Song generation", "V8") : ""}
     </dl></div></section>
     ${advanced ? `<section class="prompt-section"><h3>Advanced</h3><div class="prompt-section-body">${advanced}</div></section>` : ''}
   </div>`;
@@ -27,7 +29,7 @@ export function requestPromptBrief(doc, escape, describeVoice = voiceLabel) {
   return layout({
     idea: doc.prompt, authoredBy: doc.authoredBy,
     voice: describeVoice(details.voiceModel || "v6"), keep: details.keep, direction: details.direction,
-    generation: details.generation, basis: details.basisSongTitles?.join("\n") || details.source,
+    generation: details.generation, musicBackend: musicBackendOf(doc), basis: details.basisSongTitles?.join("\n") || details.source,
   }, materials, escape);
 }
 
@@ -37,14 +39,16 @@ export function publicPromptBrief(song, escape, { materialsUnavailable = false }
   return layout({
     idea: brief.idea, authoredBy: song.authoredBy,
     voice: voiceLabel(brief.voiceModel), keep: brief.keep, direction: brief.direction,
-    generation: brief.generation, basis: brief.basisSongs?.join("\n"),
+    generation: brief.generation, musicBackend: musicBackendOf(song), basis: brief.basisSongs?.join("\n"),
   }, materials, escape);
 }
 
 export function promptSummary(details = {}, escape) {
   const items = [voiceLabel(details.voiceModel)];
+  const backend = musicBackendOf(details);
+  if (backend) items.push(musicBackendLabel(backend));
   if (details.generation) {
-    items.push('V8 generation');
+    if (backend !== 'eleven_music') items.push('V8 generation');
     if (details.generation.genre) items.push(details.generation.genre);
     const choices = generationSelections(details.generation).length;
     if (choices) items.push(`${choices} Advanced ${choices === 1 ? 'setting' : 'settings'}`);

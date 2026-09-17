@@ -30,6 +30,8 @@ class PublicPlanTests(unittest.TestCase):
             save(directory / 'render-request.json', dict(plan=PLAN))
             save(directory / 'render-result.json', dict(status='verified', files=[dict(path='song.mp3', sha256='a' * 64)]))
             self.assertEqual(len(candidates(dict(songs=[song]), temp)[0]), 1)
+            enriched = {**song, 'songPlan': {**public_plan(PLAN), 'musicalSettings': MUSICAL_SETTINGS}}
+            self.assertEqual(candidates(dict(songs=[enriched]), temp)[0][0]['songPlan'], enriched['songPlan'])
             self.assertEqual(candidates(dict(songs=[{**song, 'url': 'https://example.com/other.mp3'}]), temp)[0], [])
             save(directory / 'render-request.json', dict(plan={**PLAN, 'arrangement': 'Changed'}))
             self.assertEqual(candidates(dict(songs=[song]), temp)[0], [])

@@ -1,3 +1,4 @@
+import { musicBackendBadge } from "/assets/music-provenance.js";
 import { api } from "../assets/api.js";
 import { qualityNotice } from "../assets/quality.js";
 import { watchCompletions } from "../assets/notifications.js";
@@ -141,8 +142,10 @@ function update(songs) {
       card.querySelector(".duration").before(model);
     }
     const modelId = (/^v\d+$/i.test(song.voiceModel || "") ? song.voiceModel : "v6").toUpperCase();
-    model.className = `voice-model-badge${modelId === "V7" ? " v7" : ""}`;
+    model.className = `voice-model-badge${modelId === "V7" ? " v7" : modelId === "V8" ? " v8" : ""}`;
     model.textContent = modelId;
+    card.querySelector(".music-backend-badge")?.remove();
+    model.insertAdjacentHTML("afterend", musicBackendBadge(song));
     let author = card.querySelector(".authored-by");
     if (!author) {
       author = document.createElement("p");

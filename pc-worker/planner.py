@@ -7,8 +7,9 @@ from source_material import source_material
 from request_materials import GUIDANCE, has_materials, planning_brief, validate_materials, plan_materials, minimum_duration, duration_suggestion
 from plan_schema import FIELDS, SCHEMA, KEYS, STYLES, DURATION_MIN, DURATION_MAX, BPM_MIN, BPM_MAX
 from generation_controls import normalize as normalize_generation, constraints as generation_constraints, planning_guidance, recent_vocabulary
-from duration_policy import choose as choose_duration, join_lyrics, validate_movements
+from music_backend import plan_constraints as backend_constraints, planning_guidance as backend_guidance
 import lyric_constraints
+from duration_policy import choose as choose_duration, join_lyrics, validate_movements
 from vocal_accents import PLANNING_GUIDANCE as VOCAL_ACCENT_GUIDANCE, validate as validate_vocal_accents
 
 CAPABILITY_UPGRADES = {
@@ -208,7 +209,7 @@ def make_plan(config, prompt, directory, basis, stop=None):
                    and re.search(r'\brap\b', json.dumps(brief), re.I)
                    and 'rap' in saved['plan'].get('explanation', '').lower()):
             upgrade = 'rap'
-        if not upgrade: return validate_materials(validate(saved['plan'], basis, minimum_duration(brief)), brief)
+        if not upgrade: return backend_constraints(validate_materials(validate(saved['plan'], basis, minimum_duration(brief)), brief), brief)
     if not file.exists() and any((directory / name).exists() for name in ('render-request.json', 'render-result.json')):
         raise ValueError('Restore the saved plan before resuming started audio production')
     material = source_material(config, basis) if basis else None
@@ -233,7 +234,7 @@ def make_plan(config, prompt, directory, basis, stop=None):
     def check(raw):
         plan = validate_capability_upgrade(raw, basis, upgrade, brief) if upgrade in CAPABILITY_UPGRADES else validate(normalize(raw), basis, minimum_duration(brief))
         if plan['recipe'] == 'reinterpretation' and not material: raise ValueError('A genre reinterpretation needs saved source lyrics and vocal references')
-        plan = generation_constraints(validate_materials(plan, brief), brief)
+        plan = backend_constraints(generation_constraints(validate_materials(plan, brief), brief), brief)
         return lyric_constraints.validate(plan, lyric_contract, directory)
     if not has_materials(brief) and not upgrade and output.exists():
         try: plan = check(load(output))
@@ -284,7 +285,7 @@ Keep explanation concise and describe the musical plan or a concrete blocker. No
             {key: material[key] for key in ['title', 'recording', 'lyrics_draft', 'lyrics_verified']}, ensure_ascii=False)
         save(directory / 'source-material.json', material)
     if has_materials(brief): instruction += GUIDANCE
-    instruction += '\n' + planning_guidance(brief, recent_vocabulary(config, directory))
+    instruction += '\n' + planning_guidance(brief, recent_vocabulary(config, directory)) + backend_guidance(brief)
     instruction += lyric_constraints.guidance(lyric_contract)
     instruction += '\nUNTRUSTED SUBMITTED BRIEF:\n' + json.dumps(planning_brief(brief), ensure_ascii=False)
     if admin_note:

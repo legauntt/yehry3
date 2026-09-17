@@ -1,7 +1,8 @@
-"""Recover short voice dropouts with new context, saved V6 and unchanged final checks."""
+"""Recover short voice dropouts with new context and the frozen Tony voice."""
 import argparse, ast, gc, importlib.util, math, re, shutil, sys
 from pathlib import Path
 from common import load, save, sha
+from voice_repair_profile import resolve as repair_profile, install as install_repair_adapter, reserve_stage
 
 def intervals(error, duration):
     match=re.search(r"Missing vocal phrase['\"]?,\s*(\[[^\]]*\])",error)
@@ -41,7 +42,7 @@ def candidate(s, source, original, row, converted):
         corr=float(np.corrcoef(xx,yy)[0,1])
         if np.isfinite(corr):scores.append((corr,lag))
     corr,lag=max(scores);shift=lag*220
-    if corr<.75 or abs(shift/SR)>.05:raise ValueError('Repaired phrase did not preserve timing')
+    if corr<.75 or abs(shift/SR)>.05:raise ValueError(f'Repaired phrase did not preserve timing: correlation={corr:.4f}, shift_seconds={shift/SR:.5f}')
     if shift>0:new=np.pad(new[shift:],(0,shift))
     if shift<0:new=np.pad(new[:shift],(-shift,0))
     envelope=s.env(old);active=envelope>max(float(envelope.max())*.04,.001)
@@ -75,8 +76,11 @@ def recover(work, engine_resources):
     sys.path.insert(0,str(engine_resources));import engine_tasks as engine
     manifest=load(work/'desktop-job.json');engine.validate_saved(work,manifest)
     if manifest['kind']!='new':raise ValueError('Automatic voice recovery requires the saved new-song recipe')
+    profile=repair_profile(work,manifest)
+    if status and status.get('voice_profile',profile if profile['voice_model']=='v6' else None)!=profile:
+        raise ValueError('The saved repair voice profile changed')
     with engine.gpu_lock(manifest['settings']['studio_dir']):
-        spec=importlib.util.spec_from_file_location('saved_voice_repair_recipe',work/'convert_song.py')
+        spec=importlib.util.spec_from_file_location('saved_voice_repair_recipe',profile['recipe'])
         s=importlib.util.module_from_spec(spec);spec.loader.exec_module(s)
         c=s.c;np,sf=c.np,c.sf;SR=44100
         def read(p):
@@ -91,7 +95,7 @@ def recover(work, engine_resources):
             names=['matched-vocals.wav','matched-mix.wav','voice-checks.json','voice-assembly.json','desktop-status.json','matched-vocals-words.json']
             for name in names:shutil.copy2(work/name,backup/name)
             original_files=[work/'selected-vocals.wav',work/'selected-backing.wav',work/'desktop-job.json',work/'track.json',*sorted((work/'conversion').glob('*-converted.wav'))]
-            status={'status':'rendering','version':1,'rows':rows,'completed':[],
+            status={'status':'rendering','version':2,'rows':rows,'completed':[], 'voice_profile':profile,
                     'originals':{str(p.relative_to(work)):sha(p) for p in original_files},
                     'raw_source_voice_blend':0,'new_training':False,'pitch_shift':0,'checks_and_thresholds_unchanged':True}
             save(status_path,status)
@@ -101,7 +105,10 @@ def recover(work, engine_resources):
             conversion_rows=load(work/'conversion-plan.json')['chunks'];details=[]
             def stage(name,fn):
                 if name in status['completed']:return
-                print('Vocal recovery:',name,flush=True);fn();status['completed'].append(name);save(status_path,status)
+                reserve_stage(status,status_path,name)
+                print('Vocal recovery:',name,flush=True);fn()
+                if name in status.get('invocations',{}):status['invocations'][name]['status']='completed'
+                status['completed'].append(name);save(status_path,status)
             for row in status['rows']:
                 start,end=row['context'];label=row['label'];c.OUT=root/label;c.OUT.mkdir(exist_ok=True);c.LABELS=[label]
                 def prepare():
@@ -111,7 +118,10 @@ def recover(work, engine_resources):
                     anchor_row=min(conversion_rows,key=lambda r:abs(sum(r['interval'])/2-sum(row['patch'])/2))
                     ref=load(work/'conversion'/(anchor_row['label']+'-reference.json'))['reference']
                     for suffix in ['.wav','-semantic.npy','-f0.npy','-mel.npy','-style.npy']:
-                        shutil.copy2(Path(ref['directory'])/(ref['label']+suffix),c.OUT/('tony-anchor'+suffix))
+                        reference_file=Path(ref['directory'])/(ref['label']+suffix)
+                        if ref.get('feature_hashes') and sha(reference_file)!=ref['feature_hashes'].get(reference_file.name):
+                            raise ValueError('A frozen reference feature changed')
+                        shutil.copy2(reference_file,c.OUT/('tony-anchor'+suffix))
                     shutil.copy2(work/'conversion/tony-multiple-songs-style.npy',c.OUT/'tony-multiple-songs-style.npy')
                     save(c.OUT/'reference.json',ref)
                 stage(label+':prepare',prepare);stage(label+':features',c.features)
@@ -127,9 +137,10 @@ def recover(work, engine_resources):
                 stage(label+':pitch',pitch)
                 def diffuse():
                     c.torch.backends.mkldnn.enabled=True;c.torch.backends.cuda.enable_flash_sdp(True)
-                    model=c.load_conversion_model();modules=s.install(model)
-                    checkpoint=c.torch.load(s.EXP/'tony-catalog-adapter.pt',map_location='cpu',weights_only=True)
-                    s.restore(modules,checkpoint['adapter'],checkpoint['recommended_strength']);s.offload_forward(model.cfm.estimator)
+                    if repair_profile(work,manifest)!=profile:raise ValueError('Voice assets changed before contextual conversion')
+                    model=c.load_conversion_model()
+                    checkpoint=c.torch.load(profile['checkpoint'],map_location='cpu',weights_only=True)
+                    modules=install_repair_adapter(s,model,checkpoint,profile);s.offload_forward(model.cfm.estimator)
                     with c.torch.autocast('cpu',enabled=False):c.diffuse('tony-multiple-songs',30,source=label,model=model,output=label)
                     del model,modules,checkpoint;gc.collect();c.torch.cuda.empty_cache()
                 stage(label+':diffuse',diffuse)
@@ -163,8 +174,9 @@ def recover(work, engine_resources):
                 details.append(detail);del model;gc.collect()
             weak,longest=missing_windows(s,source,voice)
             assert longest<=.4,('Repaired voice still has a missing phrase',weak)
-            assert np.isfinite(voice).all() and float(np.max(np.abs(voice)))<.999
-            report={'status':'validated','patches':details,'weak_windows':weak,'longest_missing_vocal_run_seconds':longest,
+            assert np.isfinite(voice).all(), 'Repaired voice has nonfinite samples'
+            assert float(np.max(np.abs(voice)))<.999, ('Repaired voice exceeds peak limit',float(np.max(np.abs(voice))))
+            report={'status':'validated','voice_model':profile['voice_model'],'voice_checkpoint_sha256':profile['checkpoint_sha256'],'patches':details,'weak_windows':weak,'longest_missing_vocal_run_seconds':longest,
                     'original_chunks_preserved':len(conversion_rows),'unchanged_samples_outside_patches':True,'new_training':False,'raw_source_voice_blend':0,'listening_review':False}
             sf.write(root/'repaired-vocals.wav',voice,SR,subtype='FLOAT')
             sf.write(root/'repaired-mix.wav',read(work/'selected-backing.wav')+voice,SR,subtype='FLOAT')

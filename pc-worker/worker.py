@@ -8,6 +8,7 @@ from publish import upload, update_catalog
 from public_plan import public_plan
 from lyrics import make_sheet, export_sheet
 from voice_models import selected, capabilities as voice_capabilities
+from music_backend import selected as selected_backend, capabilities as music_capabilities, payment_attention
 from remix_sources import CAPABILITY as REMIX_CAPABILITY, resolve as remix_basis, register as register_remix
 
 TERMINAL = {'published', 'failed', 'canceled'}
@@ -61,10 +62,11 @@ class Heartbeat:
         self.done.set()
         if self.thread.is_alive(): self.thread.join(timeout=30)
 
-def metadata(config, plan, result, voice_model='v6'):
+def metadata(config, plan, result, voice_model='v6', music_backend='local'):
     if result.get('status') != 'verified' or result.get('new_training') is not False: raise ValueError('The renderer did not verify the saved Tony voice mix')
     if result.get('voice_model', 'v6') != voice_model: raise ValueError('The rendered voice model differs from the confirmed request')
     if voice_model == 'v8' and result.get('generation_profile') != 'v8': raise ValueError('The V8 generation profile differs from the confirmed request')
+    if result.get('music_backend', 'local') != music_backend: raise ValueError('The rendered band generator differs from the confirmed request')
     files = result.get('files', [])
     if {Path(item['path']).suffix.lower() for item in files} != {'.mp3', '.wav'}: raise ValueError('Both verified MP3 and WAV are required')
     for item in files:
@@ -75,6 +77,7 @@ def metadata(config, plan, result, voice_model='v6'):
     export_sheet(config, mp3['path'], plan['title'], sheet)
     return mp3['path'], {'title': plan['title'], 'duration': result['duration'], 'bytes': mp3['bytes'], 'sha256': mp3['sha256'],
                          'voiceModel': voice_model,
+                         **({'musicBackend': music_backend} if music_backend != 'local' else {}),
                          **({'generationProfile': 'v8'} if result.get('generation_profile') == 'v8' else {}),
                          'lyrics': sheet, 'collections': ['distonyc', 'fearhunger'] if plan.get('fear_hunger') else ['distonyc'],
                          **({'qualityIssues': result['qualityIssues']} if result.get('qualityIssues') else {})}
@@ -102,6 +105,7 @@ def run_once(config, api, verify_existing=None):
     capabilities = ['request-materials-v1'] + ([REMIX_CAPABILITY] if config.get('catalog_remix') else [])
     if config.get('generation_v8'): capabilities.append('generation-v8-v1')
     capabilities.extend(voice_capabilities(config))
+    capabilities.extend(music_capabilities(config))
     try: prompt = api.call('/claim', {**claim, 'capabilities': capabilities})['prompt']
     except APIError as error:
         if error.status != 410: raise
@@ -148,6 +152,8 @@ def run_once(config, api, verify_existing=None):
             if not result_file.exists():
                 request = {'config': config, 'prompt_id': prompt['id'], 'plan': plan, 'basis': basis, 'directory': str(directory),
                     'voice_model': voice_model}
+                if selected_backend(prompt) != 'local':
+                    request.update(music_backend=selected_backend(prompt), paid_authorization=prompt.get('paidAuthorization'))
                 if plan.get('generation'): request['generation_profile'] = 'v8'
                 if verify_existing: request['verify_existing'] = str(Path(verify_existing).resolve())
                 from frozen_request import reuse_or_save
@@ -169,13 +175,13 @@ def run_once(config, api, verify_existing=None):
                 except RuntimeError:
                     if error_file.exists(): raise RuntimeError(load(error_file)['message']) from None
                     raise
-            mp3, completed = metadata(config, plan, load(result_file), voice_model)
+            mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
             prompt = action('complete', result=completed)
         else:
             if not result_file.exists(): raise ValueError('This PC is missing the completed mix. Restore its saved job folder before publishing.')
             plan = load(directory / ('approved-plan.json' if (directory / 'approved-plan.json').exists() else 'plan.json'))['plan']
             voice_model = selected(prompt)
-            mp3, completed = metadata(config, plan, load(result_file), voice_model)
+            mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
             # Finish pre-upgrade publications with their original immutable metadata.
             if any(completed.get(key) != value for key, value in prompt['result'].items()): raise ValueError('The saved mix differs from the server result')
         if heartbeat.stopped(): raise Stopped('Cancellation or lease loss')
@@ -222,7 +228,7 @@ def run_once(config, api, verify_existing=None):
         # Publication is a durable finalization step: never rerender a completed mix after an upload outage.
         if confirmed and heartbeat.prompt['status'] in ['processing', 'completed'] and not heartbeat.stopped():
             try:
-                action('fail', error=message[:1000], automaticRecovery=config.get('recovery_status_api', False)); journal.unlink()
+                action('fail', error=message[:1000], automaticRecovery=config.get('recovery_status_api', False) and not payment_attention(message)); journal.unlink()
             except (APIError, OSError): pass
         raise
     finally: heartbeat.close()

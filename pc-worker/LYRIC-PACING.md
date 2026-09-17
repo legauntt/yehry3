@@ -10,4 +10,6 @@ lyric-constraints.json freezes the rule before the first call. lyric-pacing.json
 
 Word density does not verify performed timing. Rap, sustained melodic phrasing and sparse supplied lyrics require musical judgment. An explicit long ending without numeric timing receives no default density estimate. The voice checkpoint, audio renderer and public generation schema are unchanged by this module.
 
-Validation: 224 repository worker tests passed with the established voice-lab Python. A replay over installed worker modules passed all applicable tests; five repository-layout-dependent checks were skipped there and pass in the repository. One fresh tool-free gpt-5.6-sol/medium request corrected 161 to 160 words in two persisted attempts, retaining shoes, boots, crooked grin, brass buckle and the locked line. This demonstrates constraint enforcement, not an audible or general lyric-quality improvement.
+Validation before initial installation: 224 repository worker tests passed with the established voice-lab Python. A replay over installed worker modules passed all applicable tests; five repository-layout-dependent checks were skipped there and pass in the repository. One fresh tool-free gpt-5.6-sol/medium request corrected 161 to 160 words in two persisted attempts, retaining shoes, boots, crooked grin, brass buckle and the locked line. This demonstrates constraint enforcement, not an audible or general lyric-quality improvement.
+
+After integration with the current backend routing, all 247 repository worker tests passed on September 17, 2026.

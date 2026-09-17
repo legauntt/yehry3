@@ -141,3 +141,16 @@ test("generated lyric pages retain their share previews ahead of the new-song fa
     assert.match(html, /<meta property="og:description" content=".+"/);
   }
 });
+
+
+test("compact catalogs retain explicit band attribution without guessing older recordings", async () => {
+  const { songSummary } = await import("../assets/song-summary.js");
+  const { musicBackendBadge } = await import("../assets/music-provenance.js");
+  const compact = songSummary({ id: "paid", voiceModel: "v7", originalPrompt: { musicBackend: "eleven_music", idea: "Saved prompt" } });
+  assert.equal(compact.musicBackend, "eleven_music");
+  assert.equal(compact.voiceModel, "v7");
+  assert.equal(compact.originalPrompt, undefined);
+  assert.match(musicBackendBadge(compact), /Eleven Music · paid/);
+  assert.equal(musicBackendBadge({ voiceModel: "v8", generationProfile: "v8" }), "");
+  assert.equal(musicBackendBadge({ musicBackend: '<img src=x onerror="alert(1)">' }), "");
+});

@@ -1,3 +1,5 @@
+import { musicBackendBadge } from "./music-provenance.js";
+import { mountMusicBackend, paidConfirmation, PAID_BACKEND } from './music-backend.js';
 import { gpuWaiting, gpuWaitNotice } from "./gpu-status.js";
 import { mountGeneration, mountGenerationReview } from './generation.js';
 import { songPlanLink } from "./song-plan.js";
@@ -144,7 +146,7 @@ function songMeta(song, recentPublishedAt) {
     collections(song)
       .map((name) => collectionNames[name] || name)
       .join(" / "),
-  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge${voiceModelBadgeClass(song.voiceModel)}">${voiceModelBadge(song.voiceModel)}</span><span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge${voiceModelBadgeClass(song.voiceModel)}">${voiceModelBadge(song.voiceModel)}</span>${musicBackendBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
 }
 
 async function library() {
@@ -164,7 +166,7 @@ async function library() {
       <div id="favorites"></div>${listeningOverview}<p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><p class="small listening-note">Listens are recorded after 10 seconds of listening, once per browser per song every 30 minutes. History starts September 2026.</p>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
-    <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong><span id="now-recording" hidden></span></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
+    <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong><span id="now-recording" hidden></span><span id="now-generator" hidden></span></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
   mountQualitySettings(main);
   startRecordMotion($(".record", main), $("#audio", main));
   rotateSuggestions(main);
@@ -305,7 +307,7 @@ async function library() {
     container.hidden = !rows.length;
     syncRows(container, rows.map((song) => {
       const percent = Math.max(0, Math.min(100, Number(song.progress?.percent) || 0));
-  return `<details class="pending-track" data-id="${escape(song.id)}"><summary><span class="pending-mark" aria-hidden="true">↗</span><span class="pending-title"><span class="tiny-label">${gpuWaiting(song) ? "Waiting for the GPU" : recoveryActive(song) ? "Recovering automatically" : song.status === "failed" ? "Needs attention" : "On the way"} · ${voiceModelBadge(song.voiceModel)}</span><strong>${escape(song.title || song.idea)}</strong>${authoredByLine(song.authoredBy, escape)}</span><span class="pending-state">${badge(recoveryStatus(song))}${song.progress && song.status !== "failed" ? `<span class="small">${Math.round(percent)}%</span>` : ""}</span></summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.status === "failed" ? '<p class="attention-note">Completed work is saved; retry resumes completed stages.</p>' : song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}<div class="actions"><a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">View original prompt ↗</a>${songPlanLink(song, escape)}<a class="text-link" href="${queueItemHref(song)}">View request details ↗</a></div></div></details>`;
+  return `<details class="pending-track" data-id="${escape(song.id)}"><summary><span class="pending-mark" aria-hidden="true">↗</span><span class="pending-title"><span class="tiny-label">${gpuWaiting(song) ? "Waiting for the GPU" : recoveryActive(song) ? "Recovering automatically" : song.status === "failed" ? "Needs attention" : "On the way"} · ${voiceModelBadge(song.voiceModel)}</span><strong>${escape(song.title || song.idea)}</strong>${authoredByLine(song.authoredBy, escape)}${musicBackendBadge(song)}</span><span class="pending-state">${badge(recoveryStatus(song))}${song.progress && song.status !== "failed" ? `<span class="small">${Math.round(percent)}%</span>` : ""}</span></summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.status === "failed" ? '<p class="attention-note">Completed work is saved; retry resumes completed stages.</p>' : song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}<div class="actions"><a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">View original prompt ↗</a>${songPlanLink(song, escape)}<a class="text-link" href="${queueItemHref(song)}">View request details ↗</a></div></div></details>`;
     }).join(""));
   }
   function render({ preserveViewport = false } = {}) {
@@ -324,6 +326,9 @@ async function library() {
     const currentRecording = recordings.get(current?.id);
     $("#now-recording").hidden = !currentRecording;
     $("#now-recording").innerHTML = recordingLabel(currentRecording, escape);
+    const generator = musicBackendBadge(songs.find(song => song.id === current?.id) || current);
+    $("#now-generator").innerHTML = generator;
+    $("#now-generator").hidden = !generator;
     const query = $("#search").value.toLowerCase();
     const collection = $("#collection-filter").value;
     visible = songs.filter(
@@ -767,6 +772,7 @@ async function requests() {
             <button type="button" role="tab" id="advanced-tab" aria-controls="advanced-panel" aria-selected="false" tabindex="-1">Advanced</button>
           </div>
           <div role="tabpanel" id="essentials-panel" aria-labelledby="essentials-tab">
+            <div id="music-backend-root"></div>
             <div class="voice-model-label"><label for="voice-model">Tony voice model</label>${modelInfoButton()}</div>
             <select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p>
             <label for="keep">What matters most? <span class="small">(optional)</span></label><textarea id="keep" rows="2" maxlength="1000" placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><p class="small field-hint">Leave this empty for “Surprise me.”</p>
@@ -823,6 +829,7 @@ async function requests() {
       };
       $("#voice-model").onchange = () => { storage.set(voiceDraftKey, $("#voice-model").value); describeVoice(); };
       describeVoice();
+      const music = mountMusicBackend($('#music-backend-root'), { draft: { ...draft, details: initialDetails }, generation, basisRoot: $('#basis-root'), storage, api, escape, onChange: describeVoice });
       const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), { ...draft, details: initialDetails }, { api, storage, escape, lyricChoiceRoot: $('#remix-lyric-choice') }) : {
         read() {
           if (draft.details?.lyricSheet || draft.details?.references?.length) throw new Error("Your saved lyrics and references are temporarily unavailable for editing. Try again shortly.");
@@ -851,7 +858,8 @@ async function requests() {
             keep: $("#keep").value.trim() || "Surprise me.",
           };
           if (!attachedRemix && remix && storage.get(`remix-draft:${draft.id}`) === remix.id) throw new Error("The remix recording is not attached. Open Remix again when its source is available.");
-          details.basisSongIds = attachedRemix ? [] : selectedBasis();
+          details.musicBackend = music.read();
+          details.basisSongIds = attachedRemix || details.musicBackend === PAID_BACKEND ? [] : selectedBasis();
           if (attachedRemix) details.remixSongId = attachedRemix.songId;
           details.voiceModel = $("#voice-model").value;
           details.authoredBy = $("#authored-by").value.trim();
@@ -864,12 +872,12 @@ async function requests() {
               body: { version: draft.version, ...details },
             })
           ).prompt;
-          requestMaterials.clear(); generation.clear(); storage.remove(voiceDraftKey);
+          requestMaterials.clear(); generation.clear(); music.clear(); storage.remove(voiceDraftKey);
           rememberAuthor(draft.authoredBy || "");
           render();
         });
     } else if (stage === "review") {
-      form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form"><div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">The queue holds up to 10 unfinished requests, including songs in production. If it is full, your review stays saved so you can try again when a slot opens.</p><p class="field-error" role="alert"></p></form>`;
+      form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form">${paidConfirmation(draft.details, escape)}<div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">The queue holds up to 10 unfinished requests, including songs in production. If it is full, your review stays saved so you can try again when a slot opens.</p><p class="field-error" role="alert"></p></form>`;
       const materialIssue = durationIssue(draft.details, draft.prompt);
       if (materialIssue) {
         $("#confirm-form .primary").disabled = true;
@@ -885,6 +893,7 @@ async function requests() {
               body: {
                 version: draft.version,
                 confirmed: true,
+                ...(draft.details?.musicBackend === PAID_BACKEND ? { confirmedPaid: $('#confirm-paid').checked } : {}),
               },
             })
           ).prompt;
@@ -892,7 +901,7 @@ async function requests() {
           render();
         });
     } else {
-      form.innerHTML = `<span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Request received</p><h2>Your idea is on the list.</h2><p>Your idea has a place in the studio queue. Check back here for its progress.</p>${badge(recoveryStatus(draft))}${recoveryActive(draft) ? '<p class="small">Automatic recovery is working on your song. Saved work will be reused.</p>' : ""}${brief(draft)}${draft.publishedUrl ? `<a class="primary" href="${escape(safeUrl(draft.publishedUrl))}" target="_blank" rel="noopener">Hear your song ↗</a>` : ""}<div class="actions"><button class="quiet" id="refresh-status">Refresh status</button><button class="primary" id="another">Another idea ↗</button></div><p class="small">This browser tab remembers your request. <a href="/queue/">Watch the public queue and enable completion alerts →</a></p>`;
+      form.innerHTML = `<span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Request received</p><h2>Your idea is on the list.</h2><p>Your idea has a place in the studio queue. Check back here for its progress.</p>${badge(recoveryStatus(draft))} ${musicBackendBadge(draft)}${recoveryActive(draft) ? '<p class="small">Automatic recovery is working on your song. Saved work will be reused.</p>' : ""}${brief(draft)}${draft.publishedUrl ? `<a class="primary" href="${escape(safeUrl(draft.publishedUrl))}" target="_blank" rel="noopener">Hear your song ↗</a>` : ""}<div class="actions"><button class="quiet" id="refresh-status">Refresh status</button><button class="primary" id="another">Another idea ↗</button></div><p class="small">This browser tab remembers your request. <a href="/queue/">Watch the public queue and enable completion alerts →</a></p>`;
       const reviewRoot = document.createElement('div'); form.prepend(reviewRoot);
       mountGenerationReview(reviewRoot, { draft, api, escape, reload: load });
       $("#another").onclick = () => {
@@ -922,7 +931,7 @@ async function requests() {
         await load();
         message(error.message, true);
       } else {
-        const target = $(".field-error", event.target);
+        const target = $(".field-error[role=alert]", event.target) || $(".field-error", event.target);
         if (target)
           target.textContent = error.retryAt
             ? `${error.message} Try again ${date(error.retryAt)}.`
@@ -1103,7 +1112,7 @@ async function admin() {
         (doc.status !== "cancel_requested" &&
           ["cancel_requested", "canceled"].includes(status)),
     );
-    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues)}${doc.status === "failed" ? `${recoveryActive(doc) ? '<p class="small recovery-notice">Automatic recovery is working on this request. Saved work will be reused; you can leave it running.</p>' : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p>${allowed.includes("queued") && !recoveryActive(doc) ? `<form data-action="status" class="retry-form"><input type="hidden" name="status" value="queued"><button class="primary">Retry saved work</button><span class="small">Completed stages will be reused.</span></form>` : ""}` : ""}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
+    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${musicBackendBadge(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues)}${doc.status === "failed" ? `${recoveryActive(doc) ? '<p class="small recovery-notice">Automatic recovery is working on this request. Saved work will be reused; you can leave it running.</p>' : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p>${allowed.includes("queued") && !recoveryActive(doc) ? `<form data-action="status" class="retry-form"><input type="hidden" name="status" value="queued"><button class="primary">Retry saved work</button><span class="small">Completed stages will be reused.</span></form>` : ""}` : ""}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
       ...(doc.history || []),
     ]
       .reverse()

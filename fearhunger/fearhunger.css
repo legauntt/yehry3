@@ -1,3 +1,5 @@
+@import url("/assets/music-provenance.css");
+
 :root {
   color-scheme: dark;
   --paper: #e6ddcd;
@@ -173,9 +175,10 @@ button[aria-pressed="true"],
 }
 .track-heading {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 18px;
+  gap: 8px 12px;
 }
 h3 {
   font-size: 34px;
@@ -328,3 +331,9 @@ footer {
 .quality-notice { margin: .75rem 0; color: #edc47a; font-size: .875rem; }
 .quality-notice > summary { cursor: pointer; font-weight: 700; width: fit-content; }
 .quality-notice > p { max-width: 60ch; margin: .5rem 0; }
+
+.voice-model-badge.v8 { border-color: #9b91c4; background: #302843; color: #dbd1ff; }
+@media (max-width: 640px) {
+  .track-heading h3 { flex-basis: 100%; }
+  .track-heading .duration { margin-left: auto; }
+}

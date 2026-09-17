@@ -90,7 +90,8 @@ def ending_repair(request, work):
 
 
 def vocal_recovery(request, repair=None, pending_only=False):
-    if request.get('voice_model', 'v6') != 'v6': return False
+    from voice_repair_profile import supported
+    if not supported(request): return False
     if not request['config'].get('automatic_vocal_repair', False) or request.get('verify_existing'): return False
     identifier = active_identifier(request, repair)
     work = Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier)
@@ -125,7 +126,8 @@ def allow_vocal_warning(request, repair=None):
     policy = work / 'vocal-quality-policy.json'
     if policy.exists(): return False
     voice_model = request.get('voice_model', 'v6')
-    disposition = 'bounded_repair_exhausted' if voice_model == 'v6' else 'not_supported_for_voice_model'
+    from voice_repair_profile import supported
+    disposition = 'bounded_repair_exhausted' if supported(request) else 'not_supported_for_voice_model'
     save(policy, {'version': 2, 'recovery_disposition': disposition, 'voice_model': voice_model,
         'reason': 'Publish the best retained performance with a visible vocal issue after bounded recovery is unavailable or unresolved.',
         'inputs_sha256': {name: sha(work / name) for name in ('selected-vocals.wav', 'selected-backing.wav', 'matched-vocals.wav')},
@@ -138,6 +140,11 @@ def render(request):
     # omit an encoding; make their Python processes (and descendants) agree
     # without rewriting saved scripts, lyrics or stage hashes.
     os.environ['PYTHONUTF8'] = '1'
+    backend = request.get('music_backend', 'local')
+    if backend == 'eleven_music':
+        from music_backend import render as render_paid
+        return render_paid(request, render_attempt, vocal_recovery, allow_vocal_warning)
+    if backend != 'local': raise ValueError('Unsupported band generator')
     if request.get('plan', {}).get('generation', {}).get('candidates', 1) > 1 and not request.get('candidate_part'):
         from generation_candidates import selected as render_selected
         return render_selected(request, render)
@@ -319,6 +326,9 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
                     elif task['name'] == 'analysis':
                         task['command'] = [settings['voice_python'], str(work / 'analyze_versioned.py'), '--work', str(work)]
                 save(work / 'voice-profile.json', voice_profile)
+            if request.get('music_backend') == 'eleven_music':
+                from music_backend import configure as configure_paid
+                configure_paid(work, track, spec, request, manifest)
             if options:
                 from generation_runtime import configure as configure_generation
                 configure_generation(work, track, spec, plan)
@@ -327,14 +337,18 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
             manifest['workers'] = {path.name: sha(path) for path in work.glob('*.py')}
             save(work / 'desktop-job.json', manifest)
             save(work / 'distonyc-configured.json', {'prompt_id': request['prompt_id'], 'plan_hash': fingerprint(plan),
-                'basis': basis, 'voice_model': voice_model, 'voice_profile_fingerprint': voice_profile['fingerprint']})
+                'basis': basis, 'voice_model': voice_model, 'voice_profile_fingerprint': voice_profile['fingerprint'],
+                **({'music_backend': request['music_backend']} if request.get('music_backend') else {})})
         else:
             configured = load(work / 'distonyc-configured.json')
             if (configured['plan_hash'] != fingerprint(plan) or configured['basis'] != basis or
                     configured.get('voice_model', 'v6') != voice_model or
+                    configured.get('music_backend', 'local') != request.get('music_backend', 'local') or
                     configured.get('voice_profile_fingerprint', 'v6-established') != voice_profile['fingerprint']):
                 raise ValueError('Saved production inputs changed')
         engine.validate_saved(work, manifest)
+        from music_backend import verify as verify_paid_inputs
+        verify_paid_inputs(work, manifest)
         state = load(work / 'desktop-status.json')
         inactive_repair = work / 'inactive-voice-repair/status.json'
         recover_assembly = state.get('stage') == 'assemble' and 'assert active.any()' in state.get('error', '')

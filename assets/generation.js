@@ -11,13 +11,13 @@ const getPreferences = () => { try { return JSON.parse(localStorage.getItem(pref
 export function mountGeneration(root, { draft, schema, enabled, storage, escape }) {
   const key = `generation-draft:${draft.id}`;
   let initial = draft.details?.generation, explicitlyDisabled = false;
-  let required = false;
+  let required = false, voiceRequired = false, backend = 'local';
   try { const saved = JSON.parse(storage.get(key) || 'null'); if (saved) { explicitlyDisabled = saved.enabled === false; initial = saved.value ?? initial; } } catch {}
   const preferences = getPreferences();
   if (!initial && preferences && draft.status === 'draft') initial = preferences;
   if (!enabled) {
     root.innerHTML = initial && !explicitlyDisabled ? '<p class="field-error">V8 generation is temporarily unavailable. Your choices are saved.</p>' + generationBrief(initial, escape) : '';
-    return { setRequired(value) { required = Boolean(value); }, read() { if (required || initial && !explicitlyDisabled) throw new Error('V8 generation is unavailable. Try again shortly.'); return null; }, clear() {} };
+    return { setBackend(value) { backend = value; required = voiceRequired || backend === 'eleven_music'; }, setRequired(value) { voiceRequired = Boolean(value); required = voiceRequired || backend === 'eleven_music'; }, read() { if (required || initial && !explicitlyDisabled) throw new Error('V8 generation is unavailable. Try again shortly.'); return null; }, clear() {} };
   }
   const input = (key) => {
     const control = generationControl(key, labels[key], schema, escape);
@@ -37,7 +37,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
     return `<label for="${id}">${labels[key]}</label>${field}`;
   };
   const group = (title, keys, note) => `<details class="generation-group"><summary>${title}</summary><p class="small">${note}</p><div class="generation-grid">${keys.map((key) => `<div class="${key === 'structure' ? 'generation-wide' : ''}">${input(key)}</div>`).join('')}</div></details>`;
-  root.innerHTML = `<section class="generation-panel"><h3>Song generation</h3><label class="generation-enable"><input type="checkbox" id="generation-enabled"> Use V8 generation</label><p class="small" id="generation-mode-note">Available with every Tony voice. Choose a new composition or a reinterpretation of a basis song.</p><div id="generation-fields" hidden>
+  root.innerHTML = `<section class="generation-panel"><h3>Song generation</h3><label class="generation-enable"><input type="checkbox" id="generation-enabled"> <span id="generation-enable-label">Use V8 generation</span></label><p class="small" id="generation-mode-note">Available with every Tony voice. Choose a new composition or a reinterpretation of a basis song.</p><div id="generation-fields" hidden>
     ${group('Style & instruments', ['genre','instruments','avoidInstruments','performance','energy','structure'], 'Pick a suggested style or instrument, or add your own. These choices guide the sound; the menus are not an exhaustive list.')}
     ${group('Timing & key', ['duration','bpm','keyscale','meter','vocalEntry','endingSeconds','maxBreakSeconds'], 'Leave blank for Auto. Tempo, key and timing are musical targets; expressive performances can vary. 6/8 also uses a compound-meter prompt.')}
     ${group('Lyrics', ['lyricWorkflow','avoidPhrases','requiredPhrases','lockedLines'], 'One phrase or locked line per line. Your supplied lyrics and explicitly requested words take priority over general avoidance.')}
@@ -59,9 +59,11 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
     const value = { version: 1, reviewLyrics: root.querySelector('#gen-reviewLyrics').checked };
     for (const field of root.querySelectorAll('[data-generation]')) {
       const key = field.dataset.generation, raw = field.value.trim();
+      if (backend === 'eleven_music' && ['candidates', 'variation'].includes(key)) continue;
       if (!raw) continue;
       value[key] = schema.ranges[key] ? Number(raw) : schema.listLimits[key] ? raw.split(/\r?\n/).map((v) => v.trim()).filter(Boolean) : raw;
     }
+    if (backend === 'eleven_music') { value.duration ??= 240; value.candidates = 1; value.variation = 'balanced'; }
     return normalizeGeneration(value, schema);
   };
   const persist = () => {
@@ -69,7 +71,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
   };
   const toggle = () => {
     fields.hidden = !enable.checked;
-    fields.querySelectorAll('input,select,textarea,button').forEach((field) => { field.disabled = !enable.checked || field.hasAttribute('data-unavailable'); });
+    fields.querySelectorAll('input,select,textarea,button').forEach((field) => { field.disabled = !enable.checked || field.hasAttribute('data-unavailable') || backend === 'eleven_music' && ['candidates', 'variation'].includes(field.dataset.generation); });
   };
   enable.onchange = () => { toggle(); persist(); };
   toggle();
@@ -83,15 +85,25 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
     try { localStorage.removeItem(preferenceKey); root.querySelector('#generation-preference-status').textContent = 'Saved preferences removed. The current request keeps its choices.'; }
     catch { root.querySelector('#generation-preference-status').textContent = 'This browser could not remove saved preferences.'; }
   };
-  return { read, setRequired(value) {
-    required = Boolean(value);
+  const applyRequired = () => {
+    const paid = backend === 'eleven_music';
+    required = voiceRequired || paid;
     if (required) enable.checked = true;
     enable.disabled = required;
-    root.querySelector('#generation-mode-note').textContent = required
-      ? 'Tony V8 uses V8 song generation. Advanced choices are optional; leave them on Auto if you prefer.'
+    root.querySelector('#generation-enable-label').textContent = paid ? 'Use song controls with Eleven Music' : 'Use V8 generation';
+    root.querySelector('#generation-mode-note').textContent = paid
+      ? 'Eleven Music uses one paid composition. Choose a length (default: 240 seconds); other shared choices may remain on Auto. Local variation and composition choices are unavailable.'
+      : required ? 'Tony V8 uses V8 song generation. Advanced choices are optional; leave them on Auto if you prefer.'
       : 'Available with every Tony voice. Choose a new composition or a reinterpretation of a basis song.';
+    for (const key of ['candidates', 'variation']) {
+      const field = root.querySelector(`[data-generation="${key}"]`);
+      field.closest('.generation-grid > div').hidden = paid;
+    }
+    if (paid && !root.querySelector('#gen-duration').value) root.querySelector('#gen-duration').value = '240';
     toggle(); persist();
-  }, clear() { storage.remove(key); } };
+  };
+  return { read, setRequired(value) { voiceRequired = Boolean(value); applyRequired(); },
+    setBackend(value) { backend = value; applyRequired(); }, clear() { storage.remove(key); } };
 }
 
 export async function mountGenerationReview(root, { draft, api, escape, reload }) {
