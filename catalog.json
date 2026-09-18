@@ -2,6 +2,498 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5cbf165fb292d5162fbf98c4",
+      "title": "Whoopsie Apartheid",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5cbf165fb292d5162fbf98c4-7919f7cf2cd2.mp3",
+      "duration": 279.6,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-18T18:40:02.670Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Whoopsie Apartheid",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Bass-forward art-punk and funk-rock in 4/4, driven by syncopated electric bass, dry drums, clipped electric guitar, organ and restrained brass punches. Verses use a sly, conversational Tony V8 delivery with smoky slurs and muttered disbelief; choruses open into rough, sustained melodic lines and a catchable title hook. The bridge darkens to half-time before the final verse rebuilds into the largest chorus. Keep the singer continuously present, land the final sung syllable about 10 seconds before 4:40, then resolve one firm D-minor chord and let it decay naturally.",
+        "lyrics": "[Intro]\nI walked into the war room late\nCoffee cold, maps on the wall\nEverybody spoke in riddles\nLike peace required no peace at all\n\n[Verse 1]\nOne man said, “It’s complicated”\nOne said, “History ties our hands”\nI said, “Quit bombing families\nAnd stealing homes and land”\nThe room went still, the pens went down\nSomebody checked the door\nI said, “A child is not a target\nWhy’d you need a theory for?”\n\n[Chorus]\nWhoopsie, apartheid\nThere’s the trouble, plain as day\nYou cannot build a safer home\nBy driving someone else away\nWhoopsie, apartheid\nFunny what the truth reveals\nNo peace without the same damn rights\nAnd justice everybody feels\n\n[Verse 2]\nI called for every hostage home\nEvery prisoner tried with law\nFood and water through the crossings\nNo more hunger used for war\nStop the siege and stop the rockets\nLet the doctors do their work\nIf a leader orders slaughter\nPut the leader before the court\n\nThey asked me for a clever slogan\nI said, “Try equal human worth”\nNot a footnote, not a promise\nSomething practiced on the earth\nFrom the river to the coastline\nNo supremacy dressed as fate\nTwo free peoples, shared protection\nNeither trapped behind a gate\n\n[Chorus]\nWhoopsie, apartheid\nThere’s the trouble, plain as day\nYou cannot build a safer home\nBy driving someone else away\nWhoopsie, apartheid\nPeace is more than quiet streets\nIt means the ones beneath the rubble\nGet a chair and get to speak\n\n[Bridge]\nName the dead and hear the living\nLet the evidence be shown\nIsrael’s genocidal actions\nCannot purchase safety’s throne\nGrief is not a deed of ownership\nFear is not a border plan\nNo ancestral wound gives license\nTo erase another clan\n\n[Verse 3]\nSo we opened every ledger\nBrought the witnesses inside\nMade the powerful answer plainly\nFor the lives their speeches hide\nRebuilt schools before the checkpoints\nPlanted orchards by the road\nEvery faith could keep its sacred\nEvery family keep its home\n\nNo child learned to count by sirens\nNo old key became a crime\nPeople argued over football\nAnd complained the trains ran behind\nThen the experts cleared their throats and asked\n“What miracle did you apply?”\nI said, “I stopped excusing murder”\nThey said, “Surely that’s too simplified”\n\n[Chorus]\nWhoopsie, apartheid\nThat was never peace at all\nJust a polished name for domination\nWith a flag across the wall\nWhoopsie, apartheid\nNow the gates are coming down\nEqual ballots, equal shelter\nEqual law in every town\n\n[Outro]\nIt was simple, not easy\nThat distinction matters most\nPeace began when every future\nCounted more than any boast\nI still don’t know why nobody\nTried the obvious before:\nKeep each other safe and free—\nThen peace can walk through every door\n[End]",
+        "duration": 280,
+        "bpm": 112,
+        "musicalSettings": {
+          "genre": "Bass-forward art-punk funk-rock",
+          "meter": "4/4 with a half-time bridge",
+          "structure": "Intro, verse, chorus, expanded verse, chorus, bridge, final verse, final chorus, resolved outro",
+          "performance": "Natural Tony V8 lead: rough, smoky and slurred in the verses, forceful and melodic on the hooks",
+          "energy": "Wry opening, tightening rhythmic drive, grave half-time bridge, then an emphatic but hopeful finale",
+          "lyricWorkflow": "Original political satire built from concrete policy demands, escalating from blunt diagnosis to an equal-rights peace settlement",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "electric guitar",
+            "Hammond organ",
+            "brass section"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nI walked into the war room late\nCoffee cold, maps on the wall\nEverybody spoke in riddles\nLike peace required no peace at all\n\n[Verse 1]\nOne man said, “It’s complicated”\nOne said, “History ties our hands”\nI said, “Quit bombing families\nAnd stealing homes and land”\nThe room went still, the pens went down\nSomebody checked the door\nI said, “A child is not a target\nWhy’d you need a theory for?”\n\n[Chorus]\nWhoopsie, apartheid\nThere’s the trouble, plain as day\nYou cannot build a safer home\nBy driving someone else away\nWhoopsie, apartheid\nFunny what the truth reveals\nNo peace without the same damn rights\nAnd justice everybody feels\n\n[Verse 2]\nI called for every hostage home\nEvery prisoner tried with law\nFood and water through the crossings\nNo more hunger used for war\nStop the siege and stop the rockets\nLet the doctors do their work\nIf a leader orders slaughter\nPut the leader before the court\n\nThey asked me for a clever slogan\nI said, “Try equal human worth”\nNot a footnote, not a promise\nSomething practiced on the earth\nFrom the river to the coastline\nNo supremacy dressed as fate\nTwo free peoples, shared protection\nNeither trapped behind a gate\n\n[Chorus]\nWhoopsie, apartheid\nThere’s the trouble, plain as day\nYou cannot build a safer home\nBy driving someone else away\nWhoopsie, apartheid\nPeace is more than quiet streets\nIt means the ones beneath the rubble\nGet a chair and get to speak\n\n[Bridge]\nName the dead and hear the living\nLet the evidence be shown\nIsrael’s genocidal actions\nCannot purchase safety’s throne\nGrief is not a deed of ownership\nFear is not a border plan\nNo ancestral wound gives license\nTo erase another clan\n\n[Verse 3]\nSo we opened every ledger\nBrought the witnesses inside\nMade the powerful answer plainly\nFor the lives their speeches hide\nRebuilt schools before the checkpoints\nPlanted orchards by the road\nEvery faith could keep its sacred\nEvery family keep its home\n\nNo child learned to count by sirens\nNo old key became a crime\nPeople argued over football\nAnd complained the trains ran behind\nThen the experts cleared their throats and asked\n“What miracle did you apply?”\nI said, “I stopped excusing murder”\nThey said, “Surely that’s too simplified”\n\n[Chorus]\nWhoopsie, apartheid\nThat was never peace at all\nJust a polished name for domination\nWith a flag across the wall\nWhoopsie, apartheid\nNow the gates are coming down\nEqual ballots, equal shelter\nEqual law in every town\n\n[Outro]\nIt was simple, not easy\nThat distinction matters most\nPeace began when every future\nCounted more than any boast\nI still don’t know why nobody\nTried the obvious before:\nKeep each other safe and free—\nThen peace can walk through every door",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.58,
+            "end": 11.06
+          },
+          {
+            "line": 2,
+            "start": 12.06,
+            "end": 14.48
+          },
+          {
+            "line": 3,
+            "start": 15.3,
+            "end": 20.04
+          },
+          {
+            "line": 4,
+            "start": 20.04,
+            "end": 23.14
+          },
+          {
+            "line": 7,
+            "start": 23.14,
+            "end": 27.06
+          },
+          {
+            "line": 8,
+            "start": 29.24,
+            "end": 31.74
+          },
+          {
+            "line": 9,
+            "start": 31.74,
+            "end": 36.38
+          },
+          {
+            "line": 10,
+            "start": 37.5,
+            "end": 40.1
+          },
+          {
+            "line": 11,
+            "start": 40.1,
+            "end": 45.5
+          },
+          {
+            "line": 12,
+            "start": 45.5,
+            "end": 47.48
+          },
+          {
+            "line": 13,
+            "start": 47.48,
+            "end": 50.54
+          },
+          {
+            "line": 14,
+            "start": 51.12,
+            "end": 53.04
+          },
+          {
+            "line": 17,
+            "start": 56.2,
+            "end": 59.38
+          },
+          {
+            "line": 18,
+            "start": 59.38,
+            "end": 60.92
+          },
+          {
+            "line": 19,
+            "start": 60.92,
+            "end": 63.54
+          },
+          {
+            "line": 20,
+            "start": 63.54,
+            "end": 65.62
+          },
+          {
+            "line": 21,
+            "start": 66.8,
+            "end": 68.98
+          },
+          {
+            "line": 22,
+            "start": 68.98,
+            "end": 71.48
+          },
+          {
+            "line": 23,
+            "start": 71.48,
+            "end": 74.06
+          },
+          {
+            "line": 24,
+            "start": 74.06,
+            "end": 76.2
+          },
+          {
+            "line": 27,
+            "start": 76.2,
+            "end": 79.78
+          },
+          {
+            "line": 28,
+            "start": 80.56,
+            "end": 83.26
+          },
+          {
+            "line": 29,
+            "start": 84.8,
+            "end": 87.38
+          },
+          {
+            "line": 30,
+            "start": 88.26,
+            "end": 91.4
+          },
+          {
+            "line": 31,
+            "start": 91.89,
+            "end": 93.92
+          },
+          {
+            "line": 32,
+            "start": 93.92,
+            "end": 96.34
+          },
+          {
+            "line": 33,
+            "start": 97.2,
+            "end": 99.2
+          },
+          {
+            "line": 34,
+            "start": 99.2,
+            "end": 102.04
+          },
+          {
+            "line": 36,
+            "start": 102.04,
+            "end": 105.06
+          },
+          {
+            "line": 37,
+            "start": 105.06,
+            "end": 108.14
+          },
+          {
+            "line": 38,
+            "start": 108.88,
+            "end": 110.94
+          },
+          {
+            "line": 39,
+            "start": 111.38,
+            "end": 113.1
+          },
+          {
+            "line": 40,
+            "start": 114.64,
+            "end": 116.44
+          },
+          {
+            "line": 41,
+            "start": 117,
+            "end": 119.04
+          },
+          {
+            "line": 42,
+            "start": 119.64,
+            "end": 123.36
+          },
+          {
+            "line": 43,
+            "start": 123.36,
+            "end": 127.36
+          },
+          {
+            "line": 46,
+            "start": 127.36,
+            "end": 129.62
+          },
+          {
+            "line": 47,
+            "start": 129.62,
+            "end": 131.82
+          },
+          {
+            "line": 48,
+            "start": 131.82,
+            "end": 133.76
+          },
+          {
+            "line": 49,
+            "start": 133.76,
+            "end": 135.88
+          },
+          {
+            "line": 50,
+            "start": 137.02,
+            "end": 139.24
+          },
+          {
+            "line": 51,
+            "start": 139.24,
+            "end": 141.7
+          },
+          {
+            "line": 52,
+            "start": 141.7,
+            "end": 144.32
+          },
+          {
+            "line": 53,
+            "start": 144.32,
+            "end": 146.4
+          },
+          {
+            "line": 56,
+            "start": 147.12,
+            "end": 149.2
+          },
+          {
+            "line": 57,
+            "start": 149.94,
+            "end": 153.12
+          },
+          {
+            "line": 58,
+            "start": 154.68,
+            "end": 156.66
+          },
+          {
+            "line": 59,
+            "start": 156.66,
+            "end": 159.12
+          },
+          {
+            "line": 60,
+            "start": 159.12,
+            "end": 161.94
+          },
+          {
+            "line": 61,
+            "start": 162.74,
+            "end": 164.92
+          },
+          {
+            "line": 62,
+            "start": 165.86,
+            "end": 168.28
+          },
+          {
+            "line": 63,
+            "start": 168.28,
+            "end": 171.2
+          },
+          {
+            "line": 66,
+            "start": 172.7,
+            "end": 175.14
+          },
+          {
+            "line": 67,
+            "start": 176.22,
+            "end": 177.82
+          },
+          {
+            "line": 68,
+            "start": 178.36,
+            "end": 180.4
+          },
+          {
+            "line": 69,
+            "start": 180.4,
+            "end": 182.82
+          },
+          {
+            "line": 70,
+            "start": 182.82,
+            "end": 186.26
+          },
+          {
+            "line": 71,
+            "start": 186.26,
+            "end": 187.88
+          },
+          {
+            "line": 72,
+            "start": 187.88,
+            "end": 190.66
+          },
+          {
+            "line": 73,
+            "start": 191.18,
+            "end": 193.18
+          },
+          {
+            "line": 75,
+            "start": 194.34,
+            "end": 197.22
+          },
+          {
+            "line": 76,
+            "start": 197.48,
+            "end": 199.2
+          },
+          {
+            "line": 77,
+            "start": 199.2,
+            "end": 201.24
+          },
+          {
+            "line": 78,
+            "start": 201.24,
+            "end": 203.78
+          },
+          {
+            "line": 79,
+            "start": 203.78,
+            "end": 206.74
+          },
+          {
+            "line": 80,
+            "start": 206.74,
+            "end": 208.6
+          },
+          {
+            "line": 81,
+            "start": 208.6,
+            "end": 211.22
+          },
+          {
+            "line": 82,
+            "start": 211.54,
+            "end": 213.7
+          },
+          {
+            "line": 85,
+            "start": 215.46,
+            "end": 216.54
+          },
+          {
+            "line": 86,
+            "start": 218.16,
+            "end": 220.2
+          },
+          {
+            "line": 87,
+            "start": 220.54,
+            "end": 222.44
+          },
+          {
+            "line": 88,
+            "start": 222.44,
+            "end": 224.88
+          },
+          {
+            "line": 89,
+            "start": 226.12,
+            "end": 227.34
+          },
+          {
+            "line": 90,
+            "start": 228.82,
+            "end": 230.54
+          },
+          {
+            "line": 91,
+            "start": 231.02,
+            "end": 232.74
+          },
+          {
+            "line": 92,
+            "start": 233.04,
+            "end": 235.02
+          },
+          {
+            "line": 95,
+            "start": 236.34,
+            "end": 239
+          },
+          {
+            "line": 96,
+            "start": 239,
+            "end": 242.36
+          },
+          {
+            "line": 97,
+            "start": 243.1,
+            "end": 245.32
+          },
+          {
+            "line": 98,
+            "start": 245.32,
+            "end": 247.28
+          },
+          {
+            "line": 99,
+            "start": 248.06,
+            "end": 250.62
+          },
+          {
+            "line": 100,
+            "start": 250.62,
+            "end": 253.48
+          },
+          {
+            "line": 101,
+            "start": 254.12,
+            "end": 256.26
+          },
+          {
+            "line": 102,
+            "start": 256.26,
+            "end": 274.82
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "vocal_dropout",
+          "seconds": 1.2
+        }
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "\"Whoopsie Apartheid\": Tony C solves the Israel-Palestine conflict. It was so simple, he doesn't understand why nobody else did it.",
+        "direction": "Use the prompt as written.",
+        "keep": "Tony C describes how he solved for Israel's genocidal actions and brought peace to the middle east",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-79619335facb1c924e91d66a",
       "title": "The Hundredth Wrong One",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-79619335facb1c924e91d66a-b51d31533431.mp3",
