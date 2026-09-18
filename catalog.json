@@ -2,6 +2,365 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-37cba227893b88f0c4ed2637",
+      "title": "The Dark Sang Me Home",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-37cba227893b88f0c4ed2637-e21585de94ae.mp3",
+      "duration": 240.03918367346938,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-18T21:02:44.090Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Dark Sang Me Home",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "F# minor",
+        "arrangement": "Dark synthwave space-rock in F# minor at 104 BPM and 4/4, built from pulsing analog bass, arpeggiated synthesizers, gated electronic drums, distorted electric guitar and wide atmospheric pads. A brief ominous intro leads through two rising verse–pre-chorus/chorus cycles, a stripped and suspenseful bridge, then a broadened final chorus. Tony v8 delivers smoky, connected phrases with crooked timing, muttered edges and excited peaks while keeping the chorus melodic and catchable. The last line is sustained to place its final syllable 8–12 seconds before the 240-second endpoint, followed by one resolved F# minor chord and natural decay.",
+        "lyrics": "[Intro]\nEngines wake beneath a violet sun\nBlack glass trembling, countdown begun\nI leave my name where the radio glows\nThen follow the signal nobody knows\n\n[Verse 1]\nPast the dead satellites and their blinking scars\nI steer by static and unfinished stars\nEarth folds down to a pale blue coin\nWhile the hull keeps time with the asteroid noise\nThere is something breathing beyond the charts\nSending little cold knocks through the ship's steel heart\nI turn every dial till the red lights sting\nI bring my mic up to Uranus and I sing, I'll be Solo you be Lea cuz a playa gotta swing\n\n[Pre-Chorus]\nNo map in my pocket, no moon in the glass\nJust a voice from the void saying come on past\nIf the night wants a name, I will give it mine\nThen outrun my shadow at the edge of time\n\n[Chorus]\nRide that midnight current where the lost worlds shine\nBass pulse under me, danger close behind\nI came for the distance, I stayed for the sound\nWhere the stars fall silent and the dark comes around\nSend my song through the cold unknown\nFour small words on the carrier tone:\nKeep that blue world turning till I get back home\n\n[Verse 2]\nHad a room and a coolaw, in my big chevy\nNow my bed is a harness and the air feels heavy\nThere are storms on Saturn like a crown of knives\nAnd a red dust moon where nothing survives\nI find an old beacon with a fractured face\nStill whispering coordinates into empty space\nI'll maybe even tour outer space, buy some Mars and Jupiters tickets from my guitar case\nBut the farther I travel, the clearer it gets:\nEvery bright new frontier leaves a trail of debts\n\n[Chorus]\nRide that midnight current where the lost worlds shine\nBass pulse under me, danger close behind\nI came for the distance, I stayed for the sound\nWhere the stars fall silent and the dark comes around\nSend my song through the cold unknown\nFour small words on the carrier tone:\nKeep that blue world turning till I get back home\n\n[Bridge]\nThen the signal opens like an eye in the deep\nShows me every promise that the darkness keeps\nCities made of crystal, oceans without shores\nEvery missing traveler standing at their doors\nI cut the main receiver, let temptation fade\nTurn the ship toward morning through the mess I made\nThe unknown keeps calling, but I know its cost\nYou can chase every wonder and become what it lost\n\n[Chorus]\nRide that midnight current, let the engines climb\nEarth is still a heartbeat on the edge of time\nI carry back the silence and the things I found\nA scar across the starmap and a low machine sound\nSend my song through the cold unknown\nTell them I was frightened, tell them I flew on\nWhen the blue world rises in the forward glass\nI will spend one quiet breath on all that passed\nNo throne in the heavens, no world I can own\nI charted the dark, and the dark sang me home\n[End]",
+        "duration": 240,
+        "bpm": 104,
+        "musicalSettings": {
+          "genre": "Dark synthwave space-rock",
+          "meter": "4/4",
+          "structure": "Intro, verse, pre-chorus, chorus, second verse, chorus, bridge, expanded final chorus",
+          "performance": "Natural Tony v8 lead: rough, smoky and slurred, with melodic sustained phrases, mischievous asides and a clear hook",
+          "energy": "Ominous ignition, steady propulsion, brighter choruses, a tense low bridge and a sweeping resolved return home",
+          "lyricWorkflow": "Original narrative lyrics combining cosmic danger, playful bravado and a complete homecoming payoff",
+          "instruments": [
+            "analog bass synthesizer",
+            "arpeggiated synthesizers",
+            "atmospheric synth pads",
+            "electronic drums",
+            "distorted electric guitar"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nEngines wake beneath a violet sun\nBlack glass trembling, countdown begun\nI leave my name where the radio glows\nThen follow the signal nobody knows\n\n[Verse 1]\nPast the dead satellites and their blinking scars\nI steer by static and unfinished stars\nEarth folds down to a pale blue coin\nWhile the hull keeps time with the asteroid noise\nThere is something breathing beyond the charts\nSending little cold knocks through the ship's steel heart\nI turn every dial till the red lights sting\nI bring my mic up to Uranus and I sing, I'll be Solo you be Lea cuz a playa gotta swing\n\n[Pre-Chorus]\nNo map in my pocket, no moon in the glass\nJust a voice from the void saying come on past\nIf the night wants a name, I will give it mine\nThen outrun my shadow at the edge of time\n\n[Chorus]\nRide that midnight current where the lost worlds shine\nBass pulse under me, danger close behind\nI came for the distance, I stayed for the sound\nWhere the stars fall silent and the dark comes around\nSend my song through the cold unknown\nFour small words on the carrier tone:\nKeep that blue world turning till I get back home\n\n[Verse 2]\nHad a room and a coolaw, in my big chevy\nNow my bed is a harness and the air feels heavy\nThere are storms on Saturn like a crown of knives\nAnd a red dust moon where nothing survives\nI find an old beacon with a fractured face\nStill whispering coordinates into empty space\nI'll maybe even tour outer space, buy some Mars and Jupiters tickets from my guitar case\nBut the farther I travel, the clearer it gets:\nEvery bright new frontier leaves a trail of debts\n\n[Chorus]\nRide that midnight current where the lost worlds shine\nBass pulse under me, danger close behind\nI came for the distance, I stayed for the sound\nWhere the stars fall silent and the dark comes around\nSend my song through the cold unknown\nFour small words on the carrier tone:\nKeep that blue world turning till I get back home\n\n[Bridge]\nThen the signal opens like an eye in the deep\nShows me every promise that the darkness keeps\nCities made of crystal, oceans without shores\nEvery missing traveler standing at their doors\nI cut the main receiver, let temptation fade\nTurn the ship toward morning through the mess I made\nThe unknown keeps calling, but I know its cost\nYou can chase every wonder and become what it lost\n\n[Chorus]\nRide that midnight current, let the engines climb\nEarth is still a heartbeat on the edge of time\nI carry back the silence and the things I found\nA scar across the starmap and a low machine sound\nSend my song through the cold unknown\nTell them I was frightened, tell them I flew on\nWhen the blue world rises in the forward glass\nI will spend one quiet breath on all that passed\nNo throne in the heavens, no world I can own\nI charted the dark, and the dark sang me home",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.9,
+            "end": 6.62
+          },
+          {
+            "line": 2,
+            "start": 7.12,
+            "end": 8.82
+          },
+          {
+            "line": 3,
+            "start": 9.48,
+            "end": 10.72
+          },
+          {
+            "line": 4,
+            "start": 10.72,
+            "end": 13.86
+          },
+          {
+            "line": 7,
+            "start": 20.48,
+            "end": 22.54
+          },
+          {
+            "line": 8,
+            "start": 23.24,
+            "end": 26.34
+          },
+          {
+            "line": 9,
+            "start": 27.2,
+            "end": 29.38
+          },
+          {
+            "line": 10,
+            "start": 29.38,
+            "end": 31.7
+          },
+          {
+            "line": 11,
+            "start": 34.04,
+            "end": 38.46
+          },
+          {
+            "line": 12,
+            "start": 38.5,
+            "end": 41.2
+          },
+          {
+            "line": 13,
+            "start": 41.6,
+            "end": 44.3
+          },
+          {
+            "line": 14,
+            "start": 45.16,
+            "end": 50.02
+          },
+          {
+            "line": 17,
+            "start": 50.76,
+            "end": 53.5
+          },
+          {
+            "line": 18,
+            "start": 54.2,
+            "end": 58.26
+          },
+          {
+            "line": 19,
+            "start": 59.38,
+            "end": 62.56
+          },
+          {
+            "line": 20,
+            "start": 63.54,
+            "end": 67.78
+          },
+          {
+            "line": 23,
+            "start": 68.52,
+            "end": 72.94
+          },
+          {
+            "line": 24,
+            "start": 74.2,
+            "end": 77.62
+          },
+          {
+            "line": 25,
+            "start": 79.06,
+            "end": 82.02
+          },
+          {
+            "line": 26,
+            "start": 83.12,
+            "end": 86.46
+          },
+          {
+            "line": 27,
+            "start": 86.88,
+            "end": 89.38
+          },
+          {
+            "line": 28,
+            "start": 89.38,
+            "end": 91.08
+          },
+          {
+            "line": 29,
+            "start": 91.6,
+            "end": 94.94
+          },
+          {
+            "line": 32,
+            "start": 96.32,
+            "end": 99.14
+          },
+          {
+            "line": 33,
+            "start": 100.48,
+            "end": 104.14
+          },
+          {
+            "line": 34,
+            "start": 105.44,
+            "end": 108.44
+          },
+          {
+            "line": 35,
+            "start": 109.88,
+            "end": 113.08
+          },
+          {
+            "line": 36,
+            "start": 114.62,
+            "end": 117.48
+          },
+          {
+            "line": 37,
+            "start": 118.5,
+            "end": 121.2
+          },
+          {
+            "line": 38,
+            "start": 121.2,
+            "end": 125.66
+          },
+          {
+            "line": 39,
+            "start": 127.36,
+            "end": 129.84
+          },
+          {
+            "line": 40,
+            "start": 130.16,
+            "end": 132.3
+          },
+          {
+            "line": 43,
+            "start": 133.96,
+            "end": 136.92
+          },
+          {
+            "line": 44,
+            "start": 138.94,
+            "end": 141.38
+          },
+          {
+            "line": 45,
+            "start": 143.02,
+            "end": 146.04
+          },
+          {
+            "line": 46,
+            "start": 147.14,
+            "end": 150.5
+          },
+          {
+            "line": 47,
+            "start": 150.88,
+            "end": 153.24
+          },
+          {
+            "line": 48,
+            "start": 153.24,
+            "end": 155.52
+          },
+          {
+            "line": 49,
+            "start": 155.52,
+            "end": 158.92
+          },
+          {
+            "line": 52,
+            "start": 159.78,
+            "end": 163.2
+          },
+          {
+            "line": 53,
+            "start": 164.26,
+            "end": 167.74
+          },
+          {
+            "line": 54,
+            "start": 168.88,
+            "end": 172.54
+          },
+          {
+            "line": 55,
+            "start": 173.5,
+            "end": 176.82
+          },
+          {
+            "line": 56,
+            "start": 177.84,
+            "end": 181.64
+          },
+          {
+            "line": 57,
+            "start": 181.64,
+            "end": 183.7
+          },
+          {
+            "line": 58,
+            "start": 183.92,
+            "end": 187.02
+          },
+          {
+            "line": 59,
+            "start": 187.28,
+            "end": 189.48
+          },
+          {
+            "line": 62,
+            "start": 190.24,
+            "end": 193.56
+          },
+          {
+            "line": 63,
+            "start": 194.8,
+            "end": 198.18
+          },
+          {
+            "line": 64,
+            "start": 199.24,
+            "end": 202.84
+          },
+          {
+            "line": 65,
+            "start": 203.8,
+            "end": 207.48
+          },
+          {
+            "line": 66,
+            "start": 207.98,
+            "end": 210.5
+          },
+          {
+            "line": 67,
+            "start": 210.5,
+            "end": 212.78
+          },
+          {
+            "line": 68,
+            "start": 212.78,
+            "end": 215
+          },
+          {
+            "line": 69,
+            "start": 215.36,
+            "end": 218.02
+          },
+          {
+            "line": 70,
+            "start": 218.7,
+            "end": 223.8
+          },
+          {
+            "line": 71,
+            "start": 223.8,
+            "end": 225.86
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "vocal_dropout",
+          "seconds": 9.4
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Dark Synthwave Space Exploration",
+        "direction": "Use the prompt as written.",
+        "keep": "Must include these phrases:\n\"I bring my mic up to Uranus and I sing, I'll be Solo you be Lea cuz a playa gotta swing\"\n\n\"I'll maybe even tour outer space, buy some Mars and Jupiters tickets from my guitar case\"\n\n\"Had a room and a coolaw, in my big chevy\"",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 240
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-5cbf165fb292d5162fbf98c4",
       "title": "Whoopsie Apartheid",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5cbf165fb292d5162fbf98c4-7919f7cf2cd2.mp3",
