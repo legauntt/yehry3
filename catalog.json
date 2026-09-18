@@ -2,6 +2,492 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-b49546ad7df0071f41b7068b",
+      "title": "The Last Roll Call",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b49546ad7df0071f41b7068b-60f385a03405.mp3",
+      "duration": 255.04,
+      "collection": "distonyc",
+      "voiceModel": "v6",
+      "publishedAt": "2026-09-18T00:46:27.298Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The Last Roll Call",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Bass-heavy post-punk war march in D minor at 104 BPM, built from muscular electric bass, dry marching drums, baritone guitar, distorted electric guitar, and restrained organ. Verses begin spare and tense, then widen around each death; the refrain lands as a bitter, catchable ensemble hook with abrupt stops after the repeated phrase. Tony sings in a rough, smoky, connected V6 delivery with slurred consonants, muttered edges, crooked timing, and increasingly exposed emotion, while keeping every name intelligible. The final refrain drops the euphemism and names the dead plainly; the outro rebuilds to one resolved D-minor chord. Pace the final sustained syllable of “heard” to land about 10 seconds before the end, followed only by the final chord and natural decay.",
+        "lyrics": "[Intro]\nSeven tags beside my heartbeat,\nseven names beneath my tongue.\nThey call me the lone survivor,\nlike surviving means you won.\n\n[Verse 1]\nMack carried the radio uphill,\ncalling thunder through the rain.\nA mortar found the rooftop aerial;\nthe whole room answered him in flame.\nCommand wrote “loss of signal,”\nbut I remember what they said:\nMack got 9/11'd,\nand the radio hissed beside the dead.\n\nEllis watched the river crossing,\ncounting helmets through his sight.\nOne clean crack came from the bell tower;\nhe folded in the morning light.\nThe bridge stayed open nine more minutes,\nthen the captain shook his head:\nEllis got 9/11'd,\nwith an empty casing by his bed.\n\n[Refrain]\nGot 9/11'd—that was the language,\nsharp and stupid, small and cold.\nSomething ugly kept us laughing\nwhen we couldn't stand the toll.\nEvery joke became a bandage,\nevery bandage soaked through red.\nWe kept saying “got 9/11'd”\nso we didn't say “my brother's dead.”\n\n[Verse 2]\nHarlan worked the canvas station,\nhands still steady under fire.\nA shell collapsed the western ridgepole,\nturned the white tent into a pyre.\nHe had saved three men that evening;\nnone could reach him where he bled.\nHarlan got 9/11'd,\nstill wearing someone else's blood instead.\n\nRico drove the water convoy,\nsecond truck on Marker Nine.\nA buried charge unstitched the roadway;\nthe cab went over on its side.\nHis lucky photograph kept burning\nin the wallet where he kept it hid.\nRico got 9/11'd\nbringing water to some thirsty kids.\n\n[Verse 3]\nBenji heard us shout behind him,\nturned too quickly through the smoke.\nOur own gunner saw a shadow,\npulled the trigger—that was all.\nThe report said “misidentification,”\nthen buried what the panic did.\nBenji got 9/11'd\nby the frightened hands of frightened kids.\n\nCole marked blue smoke by the orchard,\ncalled our position twice and clear.\nJets arrived above the cloud line;\nthe wrong coordinates reached their ears.\nThe medals came in polished boxes,\nand his mother asked me what they meant.\nCole got 9/11'd\nby the help our own command had sent.\n\n[Bridge]\nSergeant Vale stayed in the stairwell\nwhen the rest of us withdrew.\nHe held the landing with one magazine\nand bought the road that brought us through.\nThe building dropped before the sunrise;\nwe found his tags beneath cement.\nVale got 9/11'd,\nand I became the last man they could send.\n\n[Refrain]\nGot 9/11'd—that was the language\nwe made cruel enough to bear.\nSeven voices crowd my silence;\nseven ghosts still take their share.\nNow I speak their names without it,\nthough that old phrase fills my head:\nMack, Ellis, Harlan, Rico,\nBenji, Cole, and Vale are dead.\n\n[Outro]\nNo clean glory, no conclusion,\nno victory waiting in this song.\nOnly seven ways war took them,\nand one man left to carry on.\nIf you call me the survivor,\nhear the truth beneath the word:\nI came home with every last voice,\nand tonight they all were heard.\n[End]",
+        "duration": 255,
+        "bpm": 104,
+        "musicalSettings": {
+          "genre": "Bass-heavy post-punk war march",
+          "meter": "4/4 with a rigid marching pulse and sync",
+          "structure": "Intro, two narrative verses, refrain, two further narrative verses, bridge, final refrain, resolved outro",
+          "performance": "Natural, rough and smoky Tony V6 lead; slurred storytelling grows from defensive humor into direct grief",
+          "energy": "Low, tense opening; steadily heavier roll call; forceful central refrains; exposed bridge; full final reckoning and controlled resolution",
+          "lyricWorkflow": "A fictional platoon roll call gives each soldier a distinct, concrete fate, then reveals the repeated euphemism as emotional armor before naming the dead plainly",
+          "instruments": [
+            "electric bass",
+            "marching drum kit",
+            "baritone guitar",
+            "distorted electric guitar",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nSeven tags beside my heartbeat,\nseven names beneath my tongue.\nThey call me the lone survivor,\nlike surviving means you won.\n\n[Verse 1]\nMack carried the radio uphill,\ncalling thunder through the rain.\nA mortar found the rooftop aerial;\nthe whole room answered him in flame.\nCommand wrote “loss of signal,”\nbut I remember what they said:\nMack got 9/11'd,\nand the radio hissed beside the dead.\n\nEllis watched the river crossing,\ncounting helmets through his sight.\nOne clean crack came from the bell tower;\nhe folded in the morning light.\nThe bridge stayed open nine more minutes,\nthen the captain shook his head:\nEllis got 9/11'd,\nwith an empty casing by his bed.\n\n[Refrain]\nGot 9/11'd—that was the language,\nsharp and stupid, small and cold.\nSomething ugly kept us laughing\nwhen we couldn't stand the toll.\nEvery joke became a bandage,\nevery bandage soaked through red.\nWe kept saying “got 9/11'd”\nso we didn't say “my brother's dead.”\n\n[Verse 2]\nHarlan worked the canvas station,\nhands still steady under fire.\nA shell collapsed the western ridgepole,\nturned the white tent into a pyre.\nHe had saved three men that evening;\nnone could reach him where he bled.\nHarlan got 9/11'd,\nstill wearing someone else's blood instead.\n\nRico drove the water convoy,\nsecond truck on Marker Nine.\nA buried charge unstitched the roadway;\nthe cab went over on its side.\nHis lucky photograph kept burning\nin the wallet where he kept it hid.\nRico got 9/11'd\nbringing water to some thirsty kids.\n\n[Verse 3]\nBenji heard us shout behind him,\nturned too quickly through the smoke.\nOur own gunner saw a shadow,\npulled the trigger—that was all.\nThe report said “misidentification,”\nthen buried what the panic did.\nBenji got 9/11'd\nby the frightened hands of frightened kids.\n\nCole marked blue smoke by the orchard,\ncalled our position twice and clear.\nJets arrived above the cloud line;\nthe wrong coordinates reached their ears.\nThe medals came in polished boxes,\nand his mother asked me what they meant.\nCole got 9/11'd\nby the help our own command had sent.\n\n[Bridge]\nSergeant Vale stayed in the stairwell\nwhen the rest of us withdrew.\nHe held the landing with one magazine\nand bought the road that brought us through.\nThe building dropped before the sunrise;\nwe found his tags beneath cement.\nVale got 9/11'd,\nand I became the last man they could send.\n\n[Refrain]\nGot 9/11'd—that was the language\nwe made cruel enough to bear.\nSeven voices crowd my silence;\nseven ghosts still take their share.\nNow I speak their names without it,\nthough that old phrase fills my head:\nMack, Ellis, Harlan, Rico,\nBenji, Cole, and Vale are dead.\n\n[Outro]\nNo clean glory, no conclusion,\nno victory waiting in this song.\nOnly seven ways war took them,\nand one man left to carry on.\nIf you call me the survivor,\nhear the truth beneath the word:\nI came home with every last voice,\nand tonight they all were heard.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.82,
+            "end": 6.14
+          },
+          {
+            "line": 2,
+            "start": 6.64,
+            "end": 8.42
+          },
+          {
+            "line": 3,
+            "start": 9.04,
+            "end": 10.72
+          },
+          {
+            "line": 4,
+            "start": 11.32,
+            "end": 13.22
+          },
+          {
+            "line": 7,
+            "start": 15.28,
+            "end": 17.4
+          },
+          {
+            "line": 8,
+            "start": 17.74,
+            "end": 19.58
+          },
+          {
+            "line": 9,
+            "start": 20.02,
+            "end": 21.96
+          },
+          {
+            "line": 10,
+            "start": 22.32,
+            "end": 24.18
+          },
+          {
+            "line": 11,
+            "start": 24.72,
+            "end": 26.16
+          },
+          {
+            "line": 12,
+            "start": 26.62,
+            "end": 28.38
+          },
+          {
+            "line": 13,
+            "start": 29.26,
+            "end": 31.02
+          },
+          {
+            "line": 14,
+            "start": 31.02,
+            "end": 33.06
+          },
+          {
+            "line": 16,
+            "start": 36.98,
+            "end": 38.86
+          },
+          {
+            "line": 17,
+            "start": 39.36,
+            "end": 41.22
+          },
+          {
+            "line": 18,
+            "start": 41.6,
+            "end": 43.58
+          },
+          {
+            "line": 19,
+            "start": 44.02,
+            "end": 45.88
+          },
+          {
+            "line": 20,
+            "start": 46.38,
+            "end": 48.28
+          },
+          {
+            "line": 21,
+            "start": 48.84,
+            "end": 50.62
+          },
+          {
+            "line": 22,
+            "start": 51.56,
+            "end": 52.96
+          },
+          {
+            "line": 23,
+            "start": 52.96,
+            "end": 56.82
+          },
+          {
+            "line": 26,
+            "start": 56.82,
+            "end": 58.96
+          },
+          {
+            "line": 27,
+            "start": 59.3,
+            "end": 61.16
+          },
+          {
+            "line": 28,
+            "start": 61.62,
+            "end": 63.5
+          },
+          {
+            "line": 29,
+            "start": 63.5,
+            "end": 65.82
+          },
+          {
+            "line": 30,
+            "start": 66.34,
+            "end": 68.28
+          },
+          {
+            "line": 31,
+            "start": 68.7,
+            "end": 70.5
+          },
+          {
+            "line": 32,
+            "start": 70.7,
+            "end": 72.34
+          },
+          {
+            "line": 33,
+            "start": 72.34,
+            "end": 74.96
+          },
+          {
+            "line": 36,
+            "start": 79,
+            "end": 81.72
+          },
+          {
+            "line": 37,
+            "start": 81.72,
+            "end": 83.78
+          },
+          {
+            "line": 38,
+            "start": 83.78,
+            "end": 86.1
+          },
+          {
+            "line": 39,
+            "start": 86.1,
+            "end": 88.24
+          },
+          {
+            "line": 40,
+            "start": 88.7,
+            "end": 90.44
+          },
+          {
+            "line": 41,
+            "start": 91,
+            "end": 92.84
+          },
+          {
+            "line": 42,
+            "start": 93.36,
+            "end": 95.16
+          },
+          {
+            "line": 43,
+            "start": 95.16,
+            "end": 97.66
+          },
+          {
+            "line": 45,
+            "start": 101.14,
+            "end": 103.64
+          },
+          {
+            "line": 46,
+            "start": 103.88,
+            "end": 105.62
+          },
+          {
+            "line": 47,
+            "start": 105.82,
+            "end": 108
+          },
+          {
+            "line": 48,
+            "start": 108.18,
+            "end": 110.16
+          },
+          {
+            "line": 49,
+            "start": 110.7,
+            "end": 112.8
+          },
+          {
+            "line": 50,
+            "start": 112.8,
+            "end": 114.68
+          },
+          {
+            "line": 51,
+            "start": 114.68,
+            "end": 117.34
+          },
+          {
+            "line": 52,
+            "start": 117.34,
+            "end": 119.7
+          },
+          {
+            "line": 55,
+            "start": 120.34,
+            "end": 125.84
+          },
+          {
+            "line": 56,
+            "start": 126.08,
+            "end": 127.82
+          },
+          {
+            "line": 57,
+            "start": 128.34,
+            "end": 130.14
+          },
+          {
+            "line": 58,
+            "start": 130.56,
+            "end": 132.68
+          },
+          {
+            "line": 59,
+            "start": 132.68,
+            "end": 134.92
+          },
+          {
+            "line": 60,
+            "start": 135.32,
+            "end": 137.28
+          },
+          {
+            "line": 61,
+            "start": 137.8,
+            "end": 139.64
+          },
+          {
+            "line": 62,
+            "start": 139.64,
+            "end": 145.14
+          },
+          {
+            "line": 64,
+            "start": 145.14,
+            "end": 146.82
+          },
+          {
+            "line": 65,
+            "start": 147.06,
+            "end": 148.94
+          },
+          {
+            "line": 66,
+            "start": 149.3,
+            "end": 151.36
+          },
+          {
+            "line": 67,
+            "start": 151.62,
+            "end": 153.66
+          },
+          {
+            "line": 68,
+            "start": 154.12,
+            "end": 155.94
+          },
+          {
+            "line": 69,
+            "start": 156.36,
+            "end": 158.4
+          },
+          {
+            "line": 70,
+            "start": 158.98,
+            "end": 160.22
+          },
+          {
+            "line": 71,
+            "start": 160.22,
+            "end": 163.04
+          },
+          {
+            "line": 74,
+            "start": 164.22,
+            "end": 183.02
+          },
+          {
+            "line": 75,
+            "start": 187.24,
+            "end": 190.88
+          },
+          {
+            "line": 76,
+            "start": 190.88,
+            "end": 193.28
+          },
+          {
+            "line": 77,
+            "start": 193.28,
+            "end": 195.8
+          },
+          {
+            "line": 78,
+            "start": 195.8,
+            "end": 198.16
+          },
+          {
+            "line": 79,
+            "start": 198.16,
+            "end": 200.42
+          },
+          {
+            "line": 80,
+            "start": 200.42,
+            "end": 202.42
+          },
+          {
+            "line": 81,
+            "start": 202.42,
+            "end": 206.82
+          },
+          {
+            "line": 84,
+            "start": 207.06,
+            "end": 209.4
+          },
+          {
+            "line": 85,
+            "start": 209.4,
+            "end": 210.96
+          },
+          {
+            "line": 86,
+            "start": 211.42,
+            "end": 213.36
+          },
+          {
+            "line": 87,
+            "start": 213.9,
+            "end": 215.88
+          },
+          {
+            "line": 88,
+            "start": 216.2,
+            "end": 218.36
+          },
+          {
+            "line": 89,
+            "start": 218.66,
+            "end": 220.66
+          },
+          {
+            "line": 90,
+            "start": 221.06,
+            "end": 222.8
+          },
+          {
+            "line": 91,
+            "start": 223.42,
+            "end": 224.84
+          },
+          {
+            "line": 94,
+            "start": 229.16,
+            "end": 230.7
+          },
+          {
+            "line": 95,
+            "start": 231.3,
+            "end": 233.32
+          },
+          {
+            "line": 96,
+            "start": 233.94,
+            "end": 235.66
+          },
+          {
+            "line": 97,
+            "start": 236.04,
+            "end": 238.04
+          },
+          {
+            "line": 98,
+            "start": 238.64,
+            "end": 240.34
+          },
+          {
+            "line": 99,
+            "start": 240.98,
+            "end": 242.68
+          },
+          {
+            "line": 100,
+            "start": 243.24,
+            "end": 245.4
+          },
+          {
+            "line": 101,
+            "start": 245.8,
+            "end": 247.48
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "The lone survivor of the horrors of war from his platoon, Tony C recounts exactly how each of his brothers of arms was killed - or as he puts it, \"got 9/11'd\"",
+        "direction": "Use the prompt as written.",
+        "keep": "Must use the phrase \"got 9/11'd\" for each",
+        "basisSongs": [],
+        "voiceModel": "v6",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-98b70e0a6cb557c692f0799f",
       "title": "I Have No Mouth and I'm Feeling Arby's - Cathedral Bass Rework",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-98b70e0a6cb557c692f0799f-d594afdd0e8c.mp3",
