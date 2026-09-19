@@ -4,6 +4,7 @@ const key = "yehry3:show-quality-issues";
 const song = {
   id: "preference-song", title: "A song with an issue", duration: 240,
   url: "/test.mp3", collection: "distonyc", collections: ["distonyc", "fearhunger"],
+  reviewState: "needs_review",
   qualityIssues: [{ code: "long_instrumental_break", seconds: 35.04 }],
   lyrics: { text: "The saved lyric sheet.", kind: "written" },
 };
@@ -24,11 +25,13 @@ test("issues default on and the preference persists across reloads and listening
   await expect(page.locator(".catalog-filters")).not.toHaveAttribute("open", "");
   await expect(opener).toBeVisible();
   await opener.click();
-  const toggle = page.getByRole("checkbox", { name: 'Show “Has issues”' });
+  const toggle = page.getByRole("checkbox", { name: "Show review notes" });
   await expect(toggle).toBeChecked();
   await expect(page.locator(".quality-notice")).toBeVisible();
+  await expect(page.locator(".badge.needs_review")).toBeVisible();
   await toggle.uncheck();
   await expect(page.locator(".quality-notice")).toBeHidden();
+  await expect(page.locator(".badge.needs_review")).toBeVisible();
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe("false");
   await page.reload();
   await page.locator(".catalog-filters > summary").click();
@@ -36,6 +39,7 @@ test("issues default on and the preference persists across reloads and listening
     await page.goto(path);
     await expect(page.locator(".quality-notice").filter({ hasText: "35 seconds" })).toHaveCount(1);
     await expect(page.locator(".quality-notice:visible")).toHaveCount(0);
+    await expect(page.locator(".badge.needs_review:visible")).toHaveCount(1);
   }
   await page.goto("/");
   await page.locator(".catalog-filters > summary").click();
@@ -64,13 +68,14 @@ test("open tabs follow changes and clearing the preference restores the default"
   const notice = second.locator('[data-id="preference-song"] .quality-notice');
   await expect(notice).toBeVisible();
   await page.getByRole("button", { name: "Open display settings" }).click();
-  await page.getByRole("checkbox", { name: 'Show “Has issues”' }).uncheck();
+  await page.getByRole("checkbox", { name: "Show review notes" }).uncheck();
   await expect(notice).toBeHidden();
+  await expect(second.locator('[data-id="preference-song"] .badge.needs_review')).toBeVisible();
   await second.getByRole("button", { name: "Open display settings" }).click();
-  await expect(second.getByRole("checkbox", { name: 'Show “Has issues”' })).not.toBeChecked();
+  await expect(second.getByRole("checkbox", { name: "Show review notes" })).not.toBeChecked();
   await page.evaluate(key => localStorage.removeItem(key), key);
   await expect(notice).toBeVisible();
-  await expect(second.getByRole("checkbox", { name: 'Show “Has issues”' })).toBeChecked();
+  await expect(second.getByRole("checkbox", { name: "Show review notes" })).toBeChecked();
 });
 
 test("blocked localStorage still allows the current page to toggle notices", async ({ page }) => {
@@ -81,11 +86,13 @@ test("blocked localStorage still allows the current page to toggle notices", asy
   await page.goto("/");
   await page.locator(".catalog-filters > summary").click();
   await page.getByRole("button", { name: "Open display settings" }).click();
-  const toggle = page.getByRole("checkbox", { name: 'Show “Has issues”' });
+  const toggle = page.getByRole("checkbox", { name: "Show review notes" });
   await expect(toggle).toBeChecked();
   await expect(page.locator(".quality-notice")).toBeVisible();
+  await expect(page.locator(".badge.needs_review")).toBeVisible();
   await toggle.uncheck();
   await expect(page.locator(".quality-notice")).toBeHidden();
+  await expect(page.locator(".badge.needs_review")).toBeVisible();
   await toggle.check();
   await expect(page.locator(".quality-notice")).toBeVisible();
   const continuous = page.getByRole("checkbox", { name: "Continuous record spins" });

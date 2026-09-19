@@ -5,11 +5,21 @@
 @import url("./prompt-brief.css");
 @import url("./catalog-view.css");
 
-.quality-notice {
-  display: flow-root;
+.review-state {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 8px 12px;
   margin: 0.6rem 0 0;
   color: #795016;
   font-size: 0.75rem;
+}
+.quality-notice {
+  display: flow-root;
+  flex: 1 1 260px;
+  min-width: 0;
+  margin: 0;
+  color: inherit;
 }
 .quality-notice > summary {
   display: list-item;
@@ -1308,6 +1318,10 @@ main {
 .badge.published {
   background: #dae8cc;
   color: #3e6126;
+}
+.badge.needs_review {
+  background: #f3ddb1;
+  color: #77530f;
 }
 .badge.failed,
 .badge.cancel_requested {

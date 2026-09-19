@@ -6,8 +6,10 @@ test('quality notice is useful and cannot inject untrusted markup', () => {
   assert.equal(qualityNotice(), '');
   assert.equal(qualityNotice([{code:'other',seconds:23}]), '');
   assert.equal(qualityNotice([{code:'long_instrumental_outro',seconds:'<script>'}]), '');
-  const html=qualityNotice([{code:'long_instrumental_outro',seconds:22.86,message:'<script>alert(1)</script>'}]);
-  assert.match(html,/Has issues/);
+  const html=qualityNotice([{code:'long_instrumental_outro',seconds:22.86,message:'<script>alert(1)</script>'}],'needs_review');
+  assert.match(html,/Needs review/);
+  assert.match(html,/Review notes/);
+  assert.match(html,/data-review-state="needs_review"/);
   assert.match(html,/23 seconds/);
   assert.doesNotMatch(html,/<script>/);
   const both=qualityNotice([{code:'long_instrumental_outro',seconds:29.66},{code:'long_instrumental_break',seconds:12.32}]);

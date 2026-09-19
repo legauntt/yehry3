@@ -83,7 +83,7 @@ if (typeof document !== "undefined") {
     checkbox.type = "checkbox";
     checkbox.checked = shown;
     const copy = document.createElement("span");
-    copy.innerHTML = '<strong>Show “Has issues”</strong><small>Display notices about known musical issues with a song.</small>';
+		copy.innerHTML = '<strong>Show review notes</strong><small>Display details about known musical issues. The Needs review badge always stays visible.</small>';
     label.append(checkbox, copy);
     dialog.append(heading, label);
     const recordGroup = document.createElement("fieldset");

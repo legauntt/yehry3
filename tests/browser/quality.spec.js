@@ -9,6 +9,7 @@ const song = {
   url: "/fearhunger/audio/fear-and-hunger-dungeon-rock.mp3",
   collection: "distonyc",
   collections: ["distonyc", "fearhunger"],
+  reviewState: "needs_review",
   qualityIssues: [issue, { code: "long_instrumental_break", seconds: 12.32 }, { code: "vocal_dropout", seconds: 1.2 }],
   lyrics: { text: karaokeText, kind: "written", cues: [{ line: 1, start: 2.5, end: 4.5 }, { line: 26, start: 8, end: 10 }] },
   originalPrompt: {
@@ -107,6 +108,8 @@ test("a song with issues remains playable and exposes its warning on every liste
     }
     const notice = page.locator(".quality-notice:visible");
     await expect(notice).toHaveCount(1);
+    await expect(page.locator(".badge.needs_review:visible")).toHaveText("Needs review");
+    await expect(notice.locator("summary")).toHaveText("Review notes");
     await notice.locator("summary").click();
     await expect(notice).toContainText("23 seconds");
     await expect(notice).toContainText("12 seconds between detected vocals");
@@ -146,6 +149,28 @@ test("a song with issues remains playable and exposes its warning on every liste
   await page
     .locator(".collection")
     .screenshot({ path: "artifacts/quality-row-mobile.png" });
+});
+
+test("a published queue detail stays playable while marked Needs review", async ({ page }) => {
+  const id = `distonyc-${"a".repeat(24)}`;
+  const item = {
+    id,
+    idea: "A finished song with review notes",
+    title: "Playable review fixture",
+    status: "published",
+    reviewState: "needs_review",
+    voiceModel: "v8",
+    submittedAt: new Date().toISOString(),
+    publishedAt: new Date().toISOString(),
+    url: "https://example.com/review.mp3",
+    qualityIssues: [{ code: "long_instrumental_break", seconds: 19.54 }],
+  };
+  await page.route(`**/yehry3/queue/${id}`, route => route.fulfill({ json: item }));
+  await page.goto(`/queue/details/?request=${id}`);
+  await expect(page.locator(".queue-detail-status .badge").first()).toHaveText("Published");
+  await expect(page.locator(".badge.needs_review")).toHaveText("Needs review");
+  await expect(page.locator(".quality-notice summary")).toHaveText("Review notes");
+  await expect(page.getByRole("link", { name: /Hear the song/ })).toHaveAttribute("href", item.url);
 });
 
 test("a failed admin request shows the cause and can retry without opening controls", async ({
@@ -206,7 +231,7 @@ test("a failed admin request shows the cause and can retry without opening contr
   await attention.click();
   await expect(page).toHaveURL(/\/admin\/\?status=attention$/);
   await expect(page.getByLabel("Show", { exact: true })).toHaveValue("attention");
-  await expect(page.locator(".stats > *")).toHaveCount(6);
+  await expect(page.locator(".stats > *")).toHaveCount(7);
   await page.locator(".stats").screenshot({ path: "artifacts/admin-attention-desktop.png" });
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
