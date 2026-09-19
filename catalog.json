@@ -60,7 +60,199 @@
       },
       "lyrics": {
         "text": "[Movement 1]\n[Intro]\nYeah\n\n[Verse 1]\nYeah, the room is blue after midnight\nYeah, the window holds the rain\nYeah, one low note under the breathing\nYeah, then the bass comes back again\n\n[Interlude]\nYeah\n\n[Verse 2]\nYeah, slow smoke across the table\nYeah, soft brass down the hall\nYeah, I let that little word hang over\nYeah, till the shadows answer all\n\n[Bridge]\nYeah, stay close\nYeah, stay low\n\n\n[Movement 2]\n[Section 1]\nYeah, the clock keeps losing minutes\nYeah, the streetlights blur and bend\nYeah, the sax says keep it moving\nYeah, this night will never end\n\n[Section 2]\nYeah, no hurry in the doorway\nYeah, no daylight on the floor\nYeah, the drums lean into silence\nYeah, then I give you one more\n\n[Bridge]\nYeah, hear that horn cry\nYeah, hear that bass walk\nYeah, let the dark talk\n\n[Section 3]\nYeah, after midnight\nYeah, after midnight\nYeah, after midnight\nYeah, after midnight\n\n\n[Movement 3]\n[Section 1]\nYeah, the blue room turns to silver\nYeah, the rain lets up outside\nYeah, the trumpet finds a doorway\nYeah, and leaves the dark behind\n\n[Bridge]\nYeah, I held the night together\nYeah, with one word and one tone\nYeah, the band can breathe beneath me\nYeah, but I am not alone\n\n[Outro]\nYeah, after midnight\nYeah, after midnight\nYeeaah",
-        "kind": "written"
+        "kind": "written",
+        "cues": [
+          {
+            "line": 2,
+            "start": 13.34,
+            "end": 14.74
+          },
+          {
+            "line": 5,
+            "start": 53.5,
+            "end": 58.44
+          },
+          {
+            "line": 6,
+            "start": 58.44,
+            "end": 64.88
+          },
+          {
+            "line": 7,
+            "start": 66.04,
+            "end": 71.9
+          },
+          {
+            "line": 8,
+            "start": 73.42,
+            "end": 78.26
+          },
+          {
+            "line": 11,
+            "start": 106.66,
+            "end": 108.74
+          },
+          {
+            "line": 14,
+            "start": 109.26,
+            "end": 114.62
+          },
+          {
+            "line": 15,
+            "start": 114.8,
+            "end": 118.28
+          },
+          {
+            "line": 16,
+            "start": 118.28,
+            "end": 125.36
+          },
+          {
+            "line": 17,
+            "start": 126.18,
+            "end": 131.76
+          },
+          {
+            "line": 20,
+            "start": 134.26,
+            "end": 138.34
+          },
+          {
+            "line": 21,
+            "start": 143.18,
+            "end": 144.98
+          },
+          {
+            "line": 26,
+            "start": 247.3,
+            "end": 249.52
+          },
+          {
+            "line": 27,
+            "start": 250.46,
+            "end": 256.0
+          },
+          {
+            "line": 28,
+            "start": 257.18,
+            "end": 262.62
+          },
+          {
+            "line": 29,
+            "start": 262.62,
+            "end": 269.4
+          },
+          {
+            "line": 32,
+            "start": 269.94,
+            "end": 276.12
+          },
+          {
+            "line": 33,
+            "start": 277.7,
+            "end": 282.76
+          },
+          {
+            "line": 34,
+            "start": 282.76,
+            "end": 289.5
+          },
+          {
+            "line": 35,
+            "start": 290.98,
+            "end": 296.08
+          },
+          {
+            "line": 38,
+            "start": 296.08,
+            "end": 304.6
+          },
+          {
+            "line": 39,
+            "start": 313.44,
+            "end": 317.96
+          },
+          {
+            "line": 40,
+            "start": 326.72,
+            "end": 331.28
+          },
+          {
+            "line": 43,
+            "start": 331.28,
+            "end": 337.62
+          },
+          {
+            "line": 44,
+            "start": 341.8,
+            "end": 348.32
+          },
+          {
+            "line": 45,
+            "start": 353.36,
+            "end": 361.26
+          },
+          {
+            "line": 46,
+            "start": 389.08,
+            "end": 391.1
+          },
+          {
+            "line": 51,
+            "start": 438.9,
+            "end": 443.18
+          },
+          {
+            "line": 52,
+            "start": 444.72,
+            "end": 449.46
+          },
+          {
+            "line": 53,
+            "start": 453.6,
+            "end": 456.7
+          },
+          {
+            "line": 54,
+            "start": 459.46,
+            "end": 463.2
+          },
+          {
+            "line": 57,
+            "start": 465.7,
+            "end": 469.72
+          },
+          {
+            "line": 58,
+            "start": 469.72,
+            "end": 493.18
+          },
+          {
+            "line": 59,
+            "start": 493.18,
+            "end": 493.3
+          },
+          {
+            "line": 60,
+            "start": 499.8,
+            "end": 501.2
+          },
+          {
+            "line": 63,
+            "start": 501.2,
+            "end": 505.56
+          },
+          {
+            "line": 64,
+            "start": 593.84,
+            "end": 596.72
+          },
+          {
+            "line": 65,
+            "start": 654.4,
+            "end": 655.8
+          }
+        ]
       },
       "collections": [
         "distonyc"

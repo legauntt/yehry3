@@ -58,7 +58,21 @@ def spread_collisions(cues, duration):
     return cues
 
 
-def make_cues(work, text, duration):
+def make_suite_cues(parts, text, duration):
+    if not 2 <= len(parts) <= 6: return []
+    heard, offset = [], 0.0
+    for work, part_duration in parts:
+        if not isinstance(part_duration, (int, float)) or not math.isfinite(part_duration) or part_duration <= 0: return []
+        for word in timing_source(work):
+            if word['start'] < part_duration:
+                heard.append({**word, 'start': word['start'] + offset,
+                              'end': min(word['end'], float(part_duration)) + offset})
+        offset += float(part_duration)
+    if not isinstance(duration, (int, float)) or not math.isfinite(duration) or abs(offset - duration) > .1: return []
+    return make_cues(None, text, duration, heard)
+
+
+def make_cues(work, text, duration, heard=None):
     lines, lyric_tokens, token_lines = text.splitlines(), [], []
     singable = []
     for line_number, line in enumerate(lines):
@@ -66,7 +80,7 @@ def make_cues(work, text, duration):
         if not words or re.fullmatch(r'\s*\[[^]]+]\s*', line): continue
         singable.append({'line': line_number, 'weight': max(1, len(words)), 'tokens': words})
         lyric_tokens.extend(words); token_lines.extend([line_number] * len(words))
-    heard = timing_source(work)
+    heard = timing_source(work) if heard is None else heard
     if isinstance(duration, (int, float)) and math.isfinite(duration):
         heard = [{**word, 'end': min(word['end'], float(duration))} for word in heard if word['start'] < duration]
     if not singable or not lyric_tokens or not heard: return []

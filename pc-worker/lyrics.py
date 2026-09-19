@@ -1,7 +1,7 @@
 """Publish saved lyric text without another model call or audio render."""
 from pathlib import Path
 from common import inside, load
-from lyric_timing import make_cues
+from lyric_timing import make_cues, make_suite_cues
 
 
 def make_sheet(config, plan, result):
@@ -27,7 +27,17 @@ def make_sheet(config, plan, result):
     if not 1 <= len(text.encode('utf-16-le')) // 2 <= 32000: raise ValueError('A saved lyrics sheet is required before publication; inspect the completed job.')
     sheet = {'text': text, 'kind': kind}
     if result.get('work_path'):
-        cues = make_cues(work, text, result.get('duration'))
+        journal_file = work / 'suite-job.json'
+        if journal_file.exists():
+            journal = load(journal_file)
+            rows = [part.get('result', {}) for part in journal.get('parts', [])]
+            if not rows or any(row.get('status') != 'verified' for row in rows):
+                raise ValueError('A complete verified suite is required before lyric cues')
+            root = Path(config['settings']['studio_dir']).parent
+            parts = [(inside(row['work_path'], root), row['duration']) for row in rows]
+            cues = make_suite_cues(parts, text, result.get('duration'))
+        else:
+            cues = make_cues(work, text, result.get('duration'))
         if cues: sheet['cues'] = cues
     return sheet
 

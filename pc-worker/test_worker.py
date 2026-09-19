@@ -102,6 +102,25 @@ class WorkerTests(unittest.TestCase):
             sheet = make_sheet(config, plan(), {'work_path': str(work)})
             self.assertEqual(sheet, {'text': 'Saved source line.\nAnother line.', 'kind': 'transcribed'})
 
+    def test_longform_sheet_offsets_verified_movement_cues(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); work = root / 'suite'; work.mkdir()
+            first, second = root / 'first', root / 'second'; first.mkdir(); second.mkdir()
+            save(first / 'matched-vocals-words.json', [{'words': [
+                {'word': 'Hello', 'start': 1.0, 'end': 1.8}]}])
+            save(second / 'matched-vocals-words.json', [{'words': [
+                {'word': 'World', 'start': 1.0, 'end': 1.8}]}])
+            lyrics = '[Movement 1]\nHello\n[Movement 2]\nWorld'
+            save(work / 'spec.json', {'kind': 'new', 'lyrics': lyrics})
+            save(work / 'suite-job.json', {'parts': [
+                {'result': {'status': 'verified', 'work_path': str(first), 'duration': 10}},
+                {'result': {'status': 'verified', 'work_path': str(second), 'duration': 10}}]})
+            config = {'settings': {'studio_dir': str(root / 'studio'), 'output_dir': str(root / 'exports')}}
+            sheet = make_sheet(config, plan(), {'work_path': str(work), 'duration': 20})
+            self.assertEqual([cue['line'] for cue in sheet['cues']], [1, 3])
+            self.assertEqual(sheet['cues'][0]['start'], 1.0)
+            self.assertEqual(sheet['cues'][1]['start'], 11.0)
+
     def test_saved_word_timestamps_become_clickable_line_cues(self):
         with tempfile.TemporaryDirectory() as directory:
             work = Path(directory)
