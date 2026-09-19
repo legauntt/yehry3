@@ -2,6 +2,374 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-1bb1be6b6f8a4858bc72115e",
+      "title": "S Rank on the Floor",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1bb1be6b6f8a4858bc72115e-b122fc966395.mp3",
+      "duration": 310.0473469387755,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-19T08:15:17.287Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "S Rank on the Floor",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "B minor",
+        "arrangement": "Fast, tense tactical punk-rock with overdriven guitars, muscular moving bass, punchy live drums, clipped police-radio textures and brief siren-like synth swells. Tony’s pinned V8 delivery is smoky, slurred and increasingly exasperated, but the hook stays strongly melodic. Build from controlled verse tension into explosive choruses, then a frustrated half-time breakdown and final full-band release. The final sustained word “alive” lands about 9 seconds before the 310-second finish, followed by one resolved minor-to-major closing chord decay.",
+        "lyrics": "[Verse 1]\nBlue light leaking through the motel glass\nRadio says slow, but the first door cracks\nI see a shadow raise a shaking hand\nMy finger answers before my head can plan\nOne bad guy down, one report to write\nOne more gold star turning charcoal tonight\nThe team says, “Clear,” I can hear the score\nA little red stain by the bedroom door\n\n[Pre-Chorus]\nZip ties, evidence, corners checked twice\nWhy does doing right come at such a price?\n\n[Chorus]\nReady or not, I’m trying not to fire\nReady or not, the hallway climbs higher\nI want that clean S shining at the end\nBut every armed fool makes the plan bend\nReady or not, I call for hands in sight\nThen somebody reaches and ruins my night\nI’m doing the job, I’m paying the cost\nAnd watching that perfect rank get lost\n\n[Verse 2]\nApartment three has a television glow\nCartoon laughter where the shell casings go\nA man in a vest comes out of the smoke\nI shout the command, he gives me a joke\nHe swings toward me, so the room goes loud\nMy report gets longer, my patience gets proud\nCivilian crying by the laundry machine\nSays, “Was that necessary?” You know what I mean\n\n[Pre-Chorus]\nI bag every weapon, I check every name\nStill the debrief screen is spelling my shame\n\n[Chorus]\nReady or not, I’m trying not to fire\nReady or not, the hallway climbs higher\nI want that clean S shining at the end\nBut every armed fool makes the plan bend\nReady or not, I call for hands in sight\nThen somebody reaches and ruins my night\nI’m doing the job, I’m paying the cost\nAnd watching that perfect rank get lost\n\n[Bridge]\nI brought beanbags, shields and all the restraint\nI gave them a warning, I practically faint\nI waited a second, then another half\nThe suspect fired first—don’t make me laugh\nThe clock keeps ticking, the bodycam rolls\nI’m counting my penalties, losing control\nNo unauthorized force, no wounded friend\nJust let one mission have a peaceful end\n\n[Breakdown]\nStack on the door, breathe through the mask\n“Talk to me, pal, just make this easy,” I ask\nHe drops the rifle, I almost believe\nThen a pistol appears from under his sleeve\n\n[Chorus]\nReady or not, I’m done being polite\nReady or not, I survive the night\nI wanted an S, but the screen can wait\nI got my whole team through the iron gate\nReady or not, let the record show\nI gave every warning I had to throw\nIf keeping them breathing means losing the crown\nThen stamp that rank while I put danger down\n\n[Outro]\nThe van doors close and the city goes still\nNo perfect score, but we made it home alive\n[End]",
+        "duration": 310,
+        "bpm": 154,
+        "musicalSettings": {
+          "genre": "Tactical punk-rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, breakdown, final chorus, resolved outro",
+          "performance": "Natural, rough Tony V8 lead with connected slurs, impatient spoken-edge commands, and fully sung melodic hooks",
+          "energy": "Starts tightly controlled, escalates through each failed attempt at restraint, peaks in the breakdown, and resolves with hard-won relief",
+          "lyricWorkflow": "Original narrative lyrics following a single mission and the growing frustration of missing an S rank",
+          "instruments": [
+            "Overdriven electric guitars",
+            "Electric bass",
+            "Live drum kit",
+            "Subtle synth textures",
+            "Police-radio texture"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nBlue light leaking through the motel glass\nRadio says slow, but the first door cracks\nI see a shadow raise a shaking hand\nMy finger answers before my head can plan\nOne bad guy down, one report to write\nOne more gold star turning charcoal tonight\nThe team says, “Clear,” I can hear the score\nA little red stain by the bedroom door\n\n[Pre-Chorus]\nZip ties, evidence, corners checked twice\nWhy does doing right come at such a price?\n\n[Chorus]\nReady or not, I’m trying not to fire\nReady or not, the hallway climbs higher\nI want that clean S shining at the end\nBut every armed fool makes the plan bend\nReady or not, I call for hands in sight\nThen somebody reaches and ruins my night\nI’m doing the job, I’m paying the cost\nAnd watching that perfect rank get lost\n\n[Verse 2]\nApartment three has a television glow\nCartoon laughter where the shell casings go\nA man in a vest comes out of the smoke\nI shout the command, he gives me a joke\nHe swings toward me, so the room goes loud\nMy report gets longer, my patience gets proud\nCivilian crying by the laundry machine\nSays, “Was that necessary?” You know what I mean\n\n[Pre-Chorus]\nI bag every weapon, I check every name\nStill the debrief screen is spelling my shame\n\n[Chorus]\nReady or not, I’m trying not to fire\nReady or not, the hallway climbs higher\nI want that clean S shining at the end\nBut every armed fool makes the plan bend\nReady or not, I call for hands in sight\nThen somebody reaches and ruins my night\nI’m doing the job, I’m paying the cost\nAnd watching that perfect rank get lost\n\n[Bridge]\nI brought beanbags, shields and all the restraint\nI gave them a warning, I practically faint\nI waited a second, then another half\nThe suspect fired first—don’t make me laugh\nThe clock keeps ticking, the bodycam rolls\nI’m counting my penalties, losing control\nNo unauthorized force, no wounded friend\nJust let one mission have a peaceful end\n\n[Breakdown]\nStack on the door, breathe through the mask\n“Talk to me, pal, just make this easy,” I ask\nHe drops the rifle, I almost believe\nThen a pistol appears from under his sleeve\n\n[Chorus]\nReady or not, I’m done being polite\nReady or not, I survive the night\nI wanted an S, but the screen can wait\nI got my whole team through the iron gate\nReady or not, let the record show\nI gave every warning I had to throw\nIf keeping them breathing means losing the crown\nThen stamp that rank while I put danger down\n\n[Outro]\nThe van doors close and the city goes still\nNo perfect score, but we made it home alive",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 18.54,
+            "end": 21.06
+          },
+          {
+            "line": 2,
+            "start": 21.06,
+            "end": 24.32
+          },
+          {
+            "line": 3,
+            "start": 24.92,
+            "end": 27.36
+          },
+          {
+            "line": 4,
+            "start": 27.62,
+            "end": 30.06
+          },
+          {
+            "line": 5,
+            "start": 30.06,
+            "end": 33.22
+          },
+          {
+            "line": 6,
+            "start": 33.22,
+            "end": 36.66
+          },
+          {
+            "line": 7,
+            "start": 37.38,
+            "end": 39.88
+          },
+          {
+            "line": 8,
+            "start": 40.5,
+            "end": 42.9
+          },
+          {
+            "line": 11,
+            "start": 44.14,
+            "end": 47.14
+          },
+          {
+            "line": 12,
+            "start": 49.82,
+            "end": 54.54
+          },
+          {
+            "line": 15,
+            "start": 56.12,
+            "end": 58.84
+          },
+          {
+            "line": 16,
+            "start": 59.16,
+            "end": 61.96
+          },
+          {
+            "line": 17,
+            "start": 62.4,
+            "end": 65.06
+          },
+          {
+            "line": 18,
+            "start": 65.06,
+            "end": 68.26
+          },
+          {
+            "line": 19,
+            "start": 68.26,
+            "end": 72.46
+          },
+          {
+            "line": 20,
+            "start": 72.46,
+            "end": 75.64
+          },
+          {
+            "line": 21,
+            "start": 75.64,
+            "end": 78.14
+          },
+          {
+            "line": 22,
+            "start": 78.14,
+            "end": 82.72
+          },
+          {
+            "line": 25,
+            "start": 108.6,
+            "end": 112.14
+          },
+          {
+            "line": 26,
+            "start": 112.14,
+            "end": 114.34
+          },
+          {
+            "line": 27,
+            "start": 114.58,
+            "end": 117.46
+          },
+          {
+            "line": 28,
+            "start": 117.46,
+            "end": 120.62
+          },
+          {
+            "line": 29,
+            "start": 120.62,
+            "end": 123.76
+          },
+          {
+            "line": 30,
+            "start": 123.76,
+            "end": 126.8
+          },
+          {
+            "line": 31,
+            "start": 126.8,
+            "end": 129.88
+          },
+          {
+            "line": 32,
+            "start": 129.88,
+            "end": 131.98
+          },
+          {
+            "line": 35,
+            "start": 137.04,
+            "end": 141.1
+          },
+          {
+            "line": 36,
+            "start": 142.06,
+            "end": 147.86
+          },
+          {
+            "line": 39,
+            "start": 148.76,
+            "end": 152.32
+          },
+          {
+            "line": 40,
+            "start": 152.32,
+            "end": 155.22
+          },
+          {
+            "line": 41,
+            "start": 155.22,
+            "end": 158.24
+          },
+          {
+            "line": 42,
+            "start": 158.24,
+            "end": 161.48
+          },
+          {
+            "line": 43,
+            "start": 161.48,
+            "end": 165.24
+          },
+          {
+            "line": 44,
+            "start": 165.24,
+            "end": 168.76
+          },
+          {
+            "line": 45,
+            "start": 168.76,
+            "end": 171.38
+          },
+          {
+            "line": 46,
+            "start": 171.38,
+            "end": 177.32
+          },
+          {
+            "line": 49,
+            "start": 191.68,
+            "end": 195.2
+          },
+          {
+            "line": 50,
+            "start": 195.2,
+            "end": 198.5
+          },
+          {
+            "line": 51,
+            "start": 198.5,
+            "end": 201.6
+          },
+          {
+            "line": 52,
+            "start": 201.6,
+            "end": 204.82
+          },
+          {
+            "line": 53,
+            "start": 204.82,
+            "end": 207.92
+          },
+          {
+            "line": 54,
+            "start": 207.92,
+            "end": 210.78
+          },
+          {
+            "line": 55,
+            "start": 210.78,
+            "end": 213.92
+          },
+          {
+            "line": 56,
+            "start": 213.92,
+            "end": 221.16
+          },
+          {
+            "line": 59,
+            "start": 223.48,
+            "end": 230.52
+          },
+          {
+            "line": 60,
+            "start": 230.52,
+            "end": 234.22
+          },
+          {
+            "line": 61,
+            "start": 234.22,
+            "end": 238.26
+          },
+          {
+            "line": 62,
+            "start": 238.26,
+            "end": 243.3
+          },
+          {
+            "line": 65,
+            "start": 248.66,
+            "end": 252.04
+          },
+          {
+            "line": 66,
+            "start": 252.04,
+            "end": 255.58
+          },
+          {
+            "line": 67,
+            "start": 255.58,
+            "end": 259.98
+          },
+          {
+            "line": 68,
+            "start": 259.98,
+            "end": 264.72
+          },
+          {
+            "line": 69,
+            "start": 267.28,
+            "end": 271.12
+          },
+          {
+            "line": 70,
+            "start": 271.12,
+            "end": 274.08
+          },
+          {
+            "line": 71,
+            "start": 274.08,
+            "end": 277.2
+          },
+          {
+            "line": 72,
+            "start": 277.2,
+            "end": 283.38
+          },
+          {
+            "line": 75,
+            "start": 288.78,
+            "end": 292.02
+          },
+          {
+            "line": 76,
+            "start": 292.38,
+            "end": 297.24
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 24.02
+        },
+        {
+          "code": "vocal_dropout",
+          "seconds": 0.8
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony plays Ready or Not, but he can't stop shooting the bad guys. He gets increasingly frustrated that he can't get S rank",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 310
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-9fd0c0502781900028dd2ff8",
       "title": "Forty Below Midnight Signal",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-9fd0c0502781900028dd2ff8-97fab279b348.mp3",
