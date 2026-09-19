@@ -97,6 +97,11 @@ html[data-show-quality-issues="false"] .quality-notice {
 
 .record-preferences legend { padding: 0 12px 0 0; font-weight: 700; }
 .record-preferences .quality-preference + .quality-preference { margin-top: 20px; }
+.record-preference-select { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-top: 20px; }
+.record-preference-select span { display: grid; gap: 5px; }
+.record-preference-select small { color: var(--muted); line-height: 1.5; }
+.record-preference-select select { flex: 0 0 auto; width: 72px; }
+@media (max-width: 420px) { .record-preference-select { align-items: start; flex-direction: column; } }
 
 @media (prefers-reduced-motion: reduce) {
   .settings-button.has-new-preferences { animation: none; }

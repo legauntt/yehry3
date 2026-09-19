@@ -4,7 +4,7 @@ import { getRecordPreferences, watchRecordPreferences } from "./record-preferenc
 
 const choose = (items, random) => items[Math.floor(random() * items.length)];
 
-export function startRecordSinger(record, getSongs, { random = Math.random, duration = 6500 } = {}) {
+export function startRecordSinger(record, getSongs, { random = Math.random } = {}) {
   const sleeve = record?.closest(".sleeve");
   if (!record || !sleeve) return;
 
@@ -15,7 +15,7 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
   bubble.innerHTML = '<span class="record-lyric-notes">♪</span><blockquote></blockquote><figcaption></figcaption>';
   sleeve.append(bubble);
 
-  let hideTimer;
+  let advanceTimer;
   let request = 0;
   let previous = "";
   let captionsEnabled = getRecordPreferences().captions;
@@ -47,7 +47,7 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
   };
   const hide = () => {
     request += 1;
-    clearTimeout(hideTimer);
+    clearTimeout(advanceTimer);
     bubble.classList.remove("is-singing");
     bubble.hidden = true;
   };
@@ -68,7 +68,8 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
     if (token !== request || document.hidden || !loaded) return;
     const lines = singableLines(loaded.lyrics?.text);
     if (!lines.length) return;
-    const passage = lyricPassage(lines, random, { width: innerWidth, height: innerHeight });
+    const preferences = getRecordPreferences();
+    const passage = lyricPassage(lines, random, { width: innerWidth, height: innerHeight, minLines: preferences.lyricMinLines, maxLines: preferences.lyricMaxLines });
     const alternatives = passage.length === 1
       ? lines.filter((line) => `${loaded.id}:${line}` !== previous)
       : passage;
@@ -79,14 +80,17 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
     previous = `${loaded.id}:${selected[0]}`;
     if (captionsEnabled) {
       bubble.dataset.lineCount = String(selected.length);
+      bubble.style.setProperty("--record-lyric-font-size", String(preferences.lyricFontSize) + "px");
+      const duration = 3000 + Math.round((Math.min(8, selected.length) - 1) * (2000 / 7));
+      bubble.style.setProperty("--record-lyric-duration", String(duration) + "ms");
       bubble.querySelector("blockquote").textContent = `“${text}”`;
       bubble.querySelector("figcaption").textContent = `— ${loaded.title || song.title}`;
       bubble.hidden = false;
       bubble.classList.remove("is-singing");
       void bubble.offsetWidth;
       bubble.classList.add("is-singing");
-      clearTimeout(hideTimer);
-      hideTimer = setTimeout(hide, duration);
+      clearTimeout(advanceTimer);
+      advanceTimer = setTimeout(() => { void sing({ withAudio }); }, duration);
     }
     if (withAudio) speak(selected.join(" "));
   };

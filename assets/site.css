@@ -501,7 +501,7 @@ main {
 }
 .record-lyric blockquote {
   margin: 0;
-  font: italic 600 clamp(1.4rem, 2vw, 1.72rem) / 1.45 "Playfair Display", Georgia, serif;
+  font: italic 600 min(var(--record-lyric-font-size, 28px), 7vw) / 1.45 "Playfair Display", Georgia, serif;
   white-space: pre-line;
 }
 .record-lyric:not([data-line-count="1"]) {
@@ -526,7 +526,7 @@ main {
   12%, 88% { opacity: 1; transform: translateY(0) rotate(-2deg) scale(1); }
   100% { opacity: 0; transform: translateY(-4px) rotate(-2deg) scale(.98); }
 }
-.record-lyric.is-singing { animation: record-sing 6.5s ease both; }
+.record-lyric.is-singing { animation: record-sing var(--record-lyric-duration, 5s) ease both; }
 .record:after {
   content: "";
   position: absolute;

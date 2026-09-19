@@ -12,6 +12,7 @@ if (typeof document !== "undefined") {
   let settingsButton;
   let newBadge;
   const recordCheckboxes = new Map();
+  const recordSelects = new Map();
   const read = () => {
     try {
       shown = localStorage.getItem(key) !== "false";
@@ -24,6 +25,7 @@ if (typeof document !== "undefined") {
     if (checkbox) checkbox.checked = shown;
     const preferences = getRecordPreferences();
     recordCheckboxes.forEach((input, name) => { input.checked = preferences[name]; });
+    recordSelects.forEach((input, name) => { input.value = String(preferences[name]); });
     if (settingsButton) {
       settingsButton.classList.toggle("has-new-preferences", !preferencesSeen);
       settingsButton.title = preferencesSeen ? "Display settings" : "New lyric audio preference available";
@@ -109,6 +111,13 @@ if (typeof document !== "undefined") {
       recordGroup.append(option);
       recordCheckboxes.set(name, input);
       input.addEventListener("change", () => setRecordPreference(name, input.checked));
+    }
+    for (const [name, title, description, values] of [["lyricFontSize", "Lyric caption size", "Choose the type size for the record popup.", [18, 22, 28, 32, 36]], ["lyricMinLines", "Minimum lyric lines", "The fewest lyric lines in a popup when the screen has room.", [1, 2, 3, 4, 5, 6, 7, 8]], ["lyricMaxLines", "Maximum lyric lines", "The most lyric lines in a popup when the screen has room.", [1, 2, 3, 4, 5, 6, 7, 8]]]) {
+      const option = document.createElement("label"); option.className = "record-preference-select";
+      const text = document.createElement("span"); const heading = document.createElement("strong"); const detail = document.createElement("small"); heading.textContent = title; detail.textContent = description; text.append(heading, detail);
+      const input = document.createElement("select"); input.setAttribute("aria-label", title);
+      for (const value of values) { const choice = document.createElement("option"); choice.value = String(value); choice.textContent = name === "lyricFontSize" ? String(value) + "px" : String(value); input.append(choice); }
+      option.append(text, input); recordGroup.append(option); recordSelects.set(name, input); input.addEventListener("change", () => setRecordPreference(name, input.value));
     }
     dialog.append(recordGroup);
     host.append(opener, updateDescription, dialog);
