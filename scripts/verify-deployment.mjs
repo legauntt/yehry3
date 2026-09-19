@@ -109,6 +109,7 @@ for (const name of [
   "remix-comparison.js",
   "queue.js",
   "recovery.js",
+  "dehaka.js",
   "notifications.js",
   "suggestions.js",
   "record-motion.js",
