@@ -2,6 +2,508 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-20a78aa7d2e7335fb057308f",
+      "title": "I Wanna",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20a78aa7d2e7335fb057308f-c03143e67c45.mp3",
+      "duration": 250.04408163265308,
+      "collection": "distonyc",
+      "voiceModel": "v6",
+      "publishedAt": "2026-09-19T11:20:54.396Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "I Wanna",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 104 BPM D-minor rock groove led by pulsing organ and animated accordion, with a firm bass-and-drum pocket. Tony delivers the sole line in rough, smoky, connected melodic variations: clipped mutters, drawn-out vowels, teasing pickups, and increasingly forceful sustained refrains. Build from sparse organ pulses to full-band peaks, with short ensemble stops that reset the cadence rather than leaving empty instrumental gaps. Keep the final extended vocal phrase at roughly 240 seconds, then resolve on one final D-minor chord that decays naturally.",
+        "lyrics": "I wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n[End]",
+        "duration": 250,
+        "bpm": 104,
+        "musicalSettings": {
+          "genre": "Organ-and-accordion groove rock",
+          "meter": "4/4",
+          "structure": "Continuous escalating refrain form with brief ensemble stops and a resolved final tag",
+          "performance": "Rough, smoky Tony phrasing with slurred vowels, mischievous emphasis, and varied sung cadence",
+          "energy": "Starts restrained, builds through tighter rhythmic pushes, and lands in a sustained final peak",
+          "lyricWorkflow": "A single permitted line is repeated with changing pitch, rhythm, emphasis, and vocal character",
+          "instruments": [
+            "Organ",
+            "Accordion",
+            "Electric bass",
+            "Drum kit",
+            "Electric guitar"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "I wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 0,
+            "start": 118.48,
+            "end": 120.74
+          },
+          {
+            "line": 1,
+            "start": 126.04,
+            "end": 127
+          },
+          {
+            "line": 2,
+            "start": 128.32,
+            "end": 129.38
+          },
+          {
+            "line": 3,
+            "start": 129.38,
+            "end": 129.5
+          },
+          {
+            "line": 4,
+            "start": 130.48,
+            "end": 131.82
+          },
+          {
+            "line": 5,
+            "start": 132.94,
+            "end": 134.26
+          },
+          {
+            "line": 6,
+            "start": 134.68,
+            "end": 138.78
+          },
+          {
+            "line": 7,
+            "start": 138.78,
+            "end": 139.88
+          },
+          {
+            "line": 8,
+            "start": 139.9,
+            "end": 141.62
+          },
+          {
+            "line": 9,
+            "start": 142,
+            "end": 143.06
+          },
+          {
+            "line": 10,
+            "start": 143.06,
+            "end": 143.38
+          },
+          {
+            "line": 11,
+            "start": 143.38,
+            "end": 145.6
+          },
+          {
+            "line": 12,
+            "start": 145.6,
+            "end": 145.72
+          },
+          {
+            "line": 13,
+            "start": 146.5,
+            "end": 146.52
+          },
+          {
+            "line": 14,
+            "start": 146.52,
+            "end": 147.38
+          },
+          {
+            "line": 15,
+            "start": 147.38,
+            "end": 147.68
+          },
+          {
+            "line": 16,
+            "start": 147.68,
+            "end": 147.8
+          },
+          {
+            "line": 17,
+            "start": 148.45,
+            "end": 148.57
+          },
+          {
+            "line": 18,
+            "start": 149.22,
+            "end": 149.34
+          },
+          {
+            "line": 19,
+            "start": 149.98,
+            "end": 150.1
+          },
+          {
+            "line": 20,
+            "start": 150.75,
+            "end": 150.87
+          },
+          {
+            "line": 21,
+            "start": 151.52,
+            "end": 151.64
+          },
+          {
+            "line": 22,
+            "start": 152.29,
+            "end": 152.41
+          },
+          {
+            "line": 23,
+            "start": 153.06,
+            "end": 153.18
+          },
+          {
+            "line": 24,
+            "start": 153.82,
+            "end": 153.94
+          },
+          {
+            "line": 25,
+            "start": 154.59,
+            "end": 154.71
+          },
+          {
+            "line": 26,
+            "start": 155.36,
+            "end": 155.48
+          },
+          {
+            "line": 27,
+            "start": 156.13,
+            "end": 156.25
+          },
+          {
+            "line": 28,
+            "start": 156.9,
+            "end": 157.02
+          },
+          {
+            "line": 29,
+            "start": 157.66,
+            "end": 157.78
+          },
+          {
+            "line": 30,
+            "start": 158.43,
+            "end": 158.55
+          },
+          {
+            "line": 31,
+            "start": 159.2,
+            "end": 159.32
+          },
+          {
+            "line": 32,
+            "start": 159.97,
+            "end": 160.09
+          },
+          {
+            "line": 33,
+            "start": 160.74,
+            "end": 160.86
+          },
+          {
+            "line": 34,
+            "start": 161.5,
+            "end": 161.62
+          },
+          {
+            "line": 35,
+            "start": 162.27,
+            "end": 162.39
+          },
+          {
+            "line": 36,
+            "start": 163.04,
+            "end": 163.16
+          },
+          {
+            "line": 37,
+            "start": 163.81,
+            "end": 163.93
+          },
+          {
+            "line": 38,
+            "start": 164.58,
+            "end": 164.7
+          },
+          {
+            "line": 39,
+            "start": 165.34,
+            "end": 165.46
+          },
+          {
+            "line": 40,
+            "start": 166.11,
+            "end": 166.23
+          },
+          {
+            "line": 41,
+            "start": 166.88,
+            "end": 167
+          },
+          {
+            "line": 42,
+            "start": 167.65,
+            "end": 167.77
+          },
+          {
+            "line": 43,
+            "start": 168.42,
+            "end": 168.54
+          },
+          {
+            "line": 44,
+            "start": 169.18,
+            "end": 169.3
+          },
+          {
+            "line": 45,
+            "start": 169.95,
+            "end": 170.07
+          },
+          {
+            "line": 46,
+            "start": 170.72,
+            "end": 170.84
+          },
+          {
+            "line": 47,
+            "start": 171.49,
+            "end": 171.61
+          },
+          {
+            "line": 48,
+            "start": 172.26,
+            "end": 172.38
+          },
+          {
+            "line": 49,
+            "start": 173.02,
+            "end": 173.14
+          },
+          {
+            "line": 50,
+            "start": 173.79,
+            "end": 173.91
+          },
+          {
+            "line": 51,
+            "start": 174.56,
+            "end": 174.68
+          },
+          {
+            "line": 52,
+            "start": 175.33,
+            "end": 175.45
+          },
+          {
+            "line": 53,
+            "start": 176.1,
+            "end": 176.22
+          },
+          {
+            "line": 54,
+            "start": 176.86,
+            "end": 176.98
+          },
+          {
+            "line": 55,
+            "start": 177.63,
+            "end": 177.75
+          },
+          {
+            "line": 56,
+            "start": 178.4,
+            "end": 180.32
+          },
+          {
+            "line": 57,
+            "start": 181.44,
+            "end": 182.52
+          },
+          {
+            "line": 58,
+            "start": 183.38,
+            "end": 184.82
+          },
+          {
+            "line": 59,
+            "start": 185.9,
+            "end": 187.06
+          },
+          {
+            "line": 60,
+            "start": 187.96,
+            "end": 189.5
+          },
+          {
+            "line": 61,
+            "start": 189.5,
+            "end": 191.98
+          },
+          {
+            "line": 62,
+            "start": 192.82,
+            "end": 194.32
+          },
+          {
+            "line": 63,
+            "start": 195.26,
+            "end": 196.64
+          },
+          {
+            "line": 64,
+            "start": 197.38,
+            "end": 199.02
+          },
+          {
+            "line": 65,
+            "start": 199.02,
+            "end": 200.54
+          },
+          {
+            "line": 66,
+            "start": 200.54,
+            "end": 200.94
+          },
+          {
+            "line": 67,
+            "start": 200.94,
+            "end": 201.06
+          },
+          {
+            "line": 68,
+            "start": 202,
+            "end": 203.56
+          },
+          {
+            "line": 69,
+            "start": 204.3,
+            "end": 204.6
+          },
+          {
+            "line": 70,
+            "start": 204.6,
+            "end": 205.56
+          },
+          {
+            "line": 71,
+            "start": 206.44,
+            "end": 206.54
+          },
+          {
+            "line": 72,
+            "start": 206.54,
+            "end": 207.02
+          },
+          {
+            "line": 73,
+            "start": 207.02,
+            "end": 207.72
+          },
+          {
+            "line": 74,
+            "start": 210.93,
+            "end": 211.05
+          },
+          {
+            "line": 75,
+            "start": 214.84,
+            "end": 214.96
+          },
+          {
+            "line": 76,
+            "start": 218.75,
+            "end": 218.87
+          },
+          {
+            "line": 77,
+            "start": 222.67,
+            "end": 222.79
+          },
+          {
+            "line": 78,
+            "start": 226.58,
+            "end": 226.7
+          },
+          {
+            "line": 79,
+            "start": 230.49,
+            "end": 230.61
+          },
+          {
+            "line": 80,
+            "start": 234.4,
+            "end": 234.52
+          },
+          {
+            "line": 81,
+            "start": 238.31,
+            "end": 238.43
+          },
+          {
+            "line": 82,
+            "start": 242.22,
+            "end": 242.34
+          },
+          {
+            "line": 83,
+            "start": 246.13,
+            "end": 246.25
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 17.56
+        },
+        {
+          "code": "early_lyric_ending",
+          "seconds": 42.32
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "The only allowed lyrics are \"I wanna fuck.\" Cadence, pitch and emphasis can and should vary.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v6",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Organ",
+            "Accordion"
+          ],
+          "duration": 250
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-5e34901cc2c10e9f90bd2dd9",
       "title": "Yeah After Midnight - Velvet Jazz Rework",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5e34901cc2c10e9f90bd2dd9-fefd0f653bd6.mp3",
