@@ -1,9 +1,9 @@
 import { test, expect } from "@playwright/test";
 
-test("pins stay above the catalog and downvote/milquetoast remain distinct", async ({ page }) => {
+test("shared pins stay above the catalog and downvote/milquetoast remain distinct", async ({ page }) => {
   const songs = ["alpha", "bravo", "charlie"].map((id, index) => ({
-    id, title: id[0].toUpperCase() + id.slice(1), votes: 0, downvotes: 0, milquetoasts: 0,
-    feedback: { downvoted: false, milquetoast: false }, duration: 60, order: index,
+    id, title: id[0].toUpperCase() + id.slice(1), votes: 0, downvotes: 0, milquetoasts: 0, pins: 0,
+    feedback: { downvoted: false, milquetoast: false, pinned: false }, duration: 60, order: index,
     collection: "distonyc", url: "/fixture.mp3",
   }));
   const queue = { inStudio: [{ id: "pending", idea: "Pending idea", title: null, status: "processing" }], queued: [], recent: [] };
@@ -16,14 +16,26 @@ test("pins stay above the catalog and downvote/milquetoast remain distinct", asy
     if (kind === "milquetoast") { song.milquetoasts = 1; song.downvotes = 1; song.feedback.downvoted = true; song.feedback.milquetoast = true; }
     await route.fulfill({ json: { changed: true } });
   });
+  await page.route("**/yehry3/song-pins/*", async route => {
+    const id = route.request().url().split("/").pop();
+    const { pinned } = route.request().postDataJSON();
+    const song = songs.find(item => item.id === id);
+    if (song.feedback.pinned !== pinned) song.pins += pinned ? 1 : -1;
+    song.feedback.pinned = pinned;
+    await route.fulfill({ json: { pinned, pins: song.pins } });
+  });
 
   await page.goto("/");
   await expect(page.locator("#pending-tracks")).toBeVisible();
   await expect(page.locator(".track h3")).toHaveText(["Alpha", "Bravo", "Charlie"]);
   await page.locator('[data-id="charlie"] [data-pin]').click();
   await expect(page.locator(".track h3")).toHaveText(["Charlie", "Alpha", "Bravo"]);
+  await expect(page.locator('[data-id="charlie"] [data-pin]')).toContainText("Pinned · 1");
+  expect(await page.evaluate(() => localStorage.getItem("yehry3:pinned-songs"))).toBeNull();
   await page.reload();
   await expect(page.locator(".track h3")).toHaveText(["Charlie", "Alpha", "Bravo"]);
+  await page.locator('[data-id="charlie"] [data-pin]').click();
+  await expect(page.locator(".track h3")).toHaveText(["Alpha", "Bravo", "Charlie"]);
   await page.locator('[data-id="alpha"] [data-feedback="downvote"]').click();
   await expect(page.locator('[data-id="alpha"] [data-feedback="downvote"]')).toContainText("Downvoted");
   await expect(page.locator('[data-id="alpha"] [data-feedback="milquetoast"]')).toBeEnabled();
