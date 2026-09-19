@@ -166,13 +166,15 @@ test('original comparison switches real playback and preserves each position on 
 test('cards distinguish ready, unavailable, expired and unknown sources before opening the form', async ({ page }) => {
   const songs = [song, { ...song, id: 'not-ready', title: 'Not ready', remixAvailability: { status: 'unavailable' } },
     { ...song, id: 'expired', title: 'Expired source', remixAvailability: { status: 'ready', expiresAt: '2000-01-01T00:00:00Z' } },
-    { ...song, id: 'unknown', title: 'Unknown source', remixAvailability: undefined }];
+    { ...song, id: 'unknown', title: 'Unknown source', remixAvailability: undefined },
+    { ...song, id: 'finished-remix', title: 'Finished remix', remixOf: { songId: song.id, title: song.title, url: song.url } }];
   await page.route('**/yehry3/**', route => route.fulfill({ json: { songs, nextVoteAt: null, inStudio: [], queued: [], recent: [], needsAttention: [], profiles: [] } }));
   await page.goto('/');
   await expect(page.getByRole('link', { name: 'Remix Source song', exact: true })).toBeVisible();
   await expect(page.locator('#tracks [data-id="not-ready"] [data-remix]')).toHaveText('Remix unavailable');
   await expect(page.locator('#tracks [data-id="expired"] [data-remix]')).toHaveText('Remix unavailable');
   await expect(page.getByRole('link', { name: 'Check remix availability for Unknown source' })).toBeVisible();
+  await expect(page.locator('#tracks [data-id="finished-remix"] .remix-badge')).toHaveText('Remix');
 });
 
 

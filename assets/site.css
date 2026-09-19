@@ -438,6 +438,56 @@ main {
 .record.record-spin-idle {
   animation: record-spin 1.6s cubic-bezier(0.35, 0, 0.2, 1);
 }
+.record-lyric {
+  position: absolute;
+  z-index: 6;
+  top: -24%;
+  right: 54%;
+  width: clamp(170px, 18vw, 235px);
+  margin: 0;
+  padding: 13px 15px 12px;
+  border: 1px solid #b8bda9;
+  border-radius: 13px 13px 3px 13px;
+  background: #fffdf4;
+  box-shadow: 5px 7px 0 #26382d20;
+  color: var(--ink);
+  pointer-events: none;
+  transform: rotate(-2deg);
+}
+.record-lyric[hidden] { display: none; }
+.record-lyric::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  bottom: -11px;
+  border: 11px solid transparent;
+  border-right-color: #fffdf4;
+  transform: rotate(45deg);
+}
+.record-lyric blockquote {
+  margin: 0;
+  font: italic 600 clamp(.7rem, 1vw, .86rem) / 1.45 "Playfair Display", Georgia, serif;
+}
+.record-lyric figcaption {
+  margin-top: 7px;
+  color: var(--muted);
+  font: 500 .52rem / 1.4 "DM Mono", monospace;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.record-lyric-notes {
+  position: absolute;
+  top: -13px;
+  left: 12px;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+@keyframes record-sing {
+  0% { opacity: 0; transform: translateY(8px) rotate(-2deg) scale(.96); }
+  12%, 88% { opacity: 1; transform: translateY(0) rotate(-2deg) scale(1); }
+  100% { opacity: 0; transform: translateY(-4px) rotate(-2deg) scale(.98); }
+}
+.record-lyric.is-singing { animation: record-sing 6.5s ease both; }
 .record:after {
   content: "";
   position: absolute;
@@ -685,6 +735,10 @@ main {
   background: var(--ink);
   color: var(--paper);
 }
+.play-song .pause-icon { display: none; letter-spacing: -2px; }
+.play-song[data-playing="true"] .play-icon { display: none; }
+.play-song[data-playing="true"] .pause-icon { display: inline; }
+.play-song[data-playing="true"] { padding-left: 6px; }
 .track-info {
   flex: 1;
   min-width: 0;
@@ -765,6 +819,17 @@ main {
   line-height: 1.5;
   overflow-wrap: anywhere;
   vertical-align: middle;
+}
+.remix-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border: 1px solid #c56435;
+  border-radius: 12px;
+  background: #fff0df;
+  color: #873405;
+  font: 600 .62rem / 1.55 "DM Mono", monospace;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 #now-recording { margin-top: 3px; }
 .track-info p {
@@ -1534,6 +1599,12 @@ main {
     transform: rotate(2deg);
     padding: 0;
   }
+  .record-lyric {
+    top: 72%;
+    right: 50%;
+    width: min(185px, 58vw);
+    padding: 10px 12px;
+  }
   .sleeve-top, .sleeve-bottom { display: none; }
   .section-heading {
     display: block;
@@ -1801,6 +1872,9 @@ main {
 }
 @media (prefers-reduced-motion: reduce) {
   .record.record-spin-idle {
+    animation: none;
+  }
+  .record-lyric.is-singing {
     animation: none;
   }
   * {

@@ -24,6 +24,15 @@ test("views preserve page, filters, row state, audio and seek position", async (
   await page.locator("[data-play]").first().click();
   const audio = page.locator("#audio");
   await expect.poll(() => audio.evaluate(audio => audio.paused)).toBe(false);
+  const cardControl = page.locator("[data-play]").first();
+  await expect(cardControl).toHaveAttribute("data-playing", "true");
+  await expect(cardControl).toHaveAttribute("aria-label", /^Pause /);
+  await cardControl.click();
+  await expect.poll(() => audio.evaluate(audio => audio.paused)).toBe(true);
+  await expect(cardControl).toHaveAttribute("aria-label", /^Play /);
+  await cardControl.click();
+  await expect.poll(() => audio.evaluate(audio => audio.paused)).toBe(false);
+  await expect(cardControl).toHaveAttribute("aria-label", /^Pause /);
   await audio.evaluate(audio => { window.originalAudio = audio; audio.currentTime = 30; });
   await page.locator(".track").first().evaluate(row => { window.originalRow = row; });
   const currentUrl = page.url();

@@ -50,6 +50,7 @@ export function startRecordMotion(record, audio) {
       const remainingIdle = idleFor - (performance.now() - lastActivity);
       if (remainingIdle > 0) return schedule(remainingIdle);
       record.classList.add("record-spin-idle");
+      record.dispatchEvent(new CustomEvent("recordidle"));
     }, delay);
   };
   const activity = () => {

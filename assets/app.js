@@ -17,12 +17,13 @@ import { lyricsHref } from "./song-links.js";
 import { originalPromptPage } from "./original-prompt.js";
 import { rotateSuggestions } from "./suggestions.js";
 import { startRecordMotion } from "./record-motion.js";
+import { startRecordSinger } from "./record-singer.js";
 import { api, login, logout, signedIn, loginPersistence, storage, savedPaidPassword, rememberPaidPassword, forgetPaidPassword } from "./api.js";
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 import { watchCompletions } from "./notifications.js";
 import { mountFavorites } from "./favorites.js";
 import { trackListening, listeningLabel } from "./listening.js";
-import { loadRemix, remixLink } from "./remix.js";
+import { loadRemix, remixBadge, remixLink } from "./remix.js";
 import { recordingLabels, recordingLabel, recordingTitle } from "./recording-label.js";
 import { mountCatalogView } from "./catalog-view.js";
 import { songArtworkMarkup } from "./song-art.js";
@@ -225,6 +226,7 @@ async function library() {
     online = false,
     voting = false,
     refreshing = null;
+  startRecordSinger($(".record", main), () => songs);
   let initialCatalogPending = true;
   const recentReleases = new Map();
   const freshWindow = 24 * 60 * 60 * 1000;
@@ -405,8 +407,8 @@ async function library() {
             (
               song,
               index,
-            ) => `<article class="track ${current?.id === song.id ? "playing" : ""}" data-id="${escape(song.id)}">${songArtworkMarkup(song, escape)}
-        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}">▶</button><div class="track-info"><div class="track-heading"><h3>${escape(song.title)}</h3>${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+            ) => `<article class="track" data-id="${escape(song.id)}">${songArtworkMarkup(song, escape)}
+        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><h3>${escape(song.title)}</h3>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : `<p class="empty">${favorites.onlySaved ? escape(favorites.emptyMessage()) : "No songs match. Try another title or style."}</p>`);
@@ -417,6 +419,7 @@ async function library() {
       else info.querySelector(".track-meta").insertAdjacentHTML("beforeend", remixLink(song, escape));
     });
     favorites.syncButtons();
+    syncPlaybackButtons();
     if (favorites.onlySaved) $("#pending-tracks").hidden = true;
     $("#play-all").disabled = !visible.length;
     $("#shuffle").disabled = !visible.length;
@@ -466,6 +469,31 @@ async function library() {
       message("Press play in the player to start this song.");
     }
   }
+  function syncPlaybackButtons() {
+    const isPlaying = Boolean(current && !audio.paused && !audio.ended && !audio.error);
+    $(".player").classList.toggle("is-playing", isPlaying);
+    document.querySelectorAll("#tracks [data-play]").forEach((button) => {
+      const song = songs.find((item) => item.id === button.dataset.play);
+      const playing = isPlaying && current?.id === button.dataset.play;
+      button.dataset.playing = String(playing);
+      button.setAttribute("aria-pressed", String(playing));
+      button.setAttribute("aria-label", `${playing ? "Pause" : "Play"} ${song?.title || "song"}`);
+      button.closest(".track")?.classList.toggle("playing", playing);
+    });
+  }
+  async function togglePlay(song, newQueue) {
+    if (!song) return;
+    if (current?.id !== song.id || !audio.src) return play(song, newQueue);
+    if (!audio.paused && !audio.ended) {
+      audio.pause();
+      return;
+    }
+    try {
+      await audio.play();
+    } catch {
+      message("Press play in the player to resume this song.");
+    }
+  }
   function next(offset) {
     const index = queue.findIndex((song) => song.id === current?.id) + offset;
     if (index >= 0 && index < queue.length) play(queue[index]);
@@ -473,7 +501,7 @@ async function library() {
   $("#tracks").addEventListener("click", async (event) => {
     const playButton = event.target.closest("[data-play]");
     if (playButton)
-      return play(
+      return togglePlay(
         songs.find((song) => song.id === playButton.dataset.play),
         visible,
       );
@@ -569,6 +597,8 @@ async function library() {
   };
   $("#previous").onclick = () => next(-1);
   $("#next").onclick = () => next(1);
+  for (const event of ["play", "playing", "pause", "ended", "emptied", "error"])
+    audio.addEventListener(event, syncPlaybackButtons);
   audio.onended = () => next(1);
   audio.onerror = () =>
     message(
