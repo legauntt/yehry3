@@ -19,6 +19,22 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
   let request = 0;
   let previous = "";
   let captionsEnabled = getRecordPreferences().captions;
+  let lyricAudioEnabled = getRecordPreferences().lyricAudio;
+  const stopAudio = () => {
+    try { window.speechSynthesis?.cancel(); }
+    catch { /* Speech generation is optional browser functionality. */ }
+  };
+  const speak = (line) => {
+    if (!lyricAudioEnabled || !window.speechSynthesis || typeof SpeechSynthesisUtterance !== "function") return;
+    try {
+      stopAudio();
+      const utterance = new SpeechSynthesisUtterance(line);
+      utterance.rate = 0.92;
+      utterance.pitch = 1.08;
+      window.speechSynthesis.speak(utterance);
+    }
+    catch { /* Keep the caption working if speech synthesis is unavailable. */ }
+  };
   const hide = () => {
     request += 1;
     clearTimeout(hideTimer);
@@ -32,8 +48,8 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
     await watcher.ready;
     return loaded;
   };
-  const sing = async () => {
-    if (!captionsEnabled || document.hidden) return;
+  const sing = async ({ withAudio = false } = {}) => {
+    if ((!captionsEnabled && !(withAudio && lyricAudioEnabled)) || document.hidden) return;
     const songs = (getSongs?.() || []).filter((song) => song?.id && (song.hasLyrics || song.lyrics?.text));
     if (!songs.length) return;
     const token = ++request;
@@ -45,21 +61,26 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
     const alternatives = lines.filter((line) => `${loaded.id}:${line}` !== previous);
     const line = choose(alternatives.length ? alternatives : lines, random);
     previous = `${loaded.id}:${line}`;
-    bubble.querySelector("blockquote").textContent = `“${line}”`;
-    bubble.querySelector("figcaption").textContent = `— ${loaded.title || song.title}`;
-    bubble.hidden = false;
-    bubble.classList.remove("is-singing");
-    void bubble.offsetWidth;
-    bubble.classList.add("is-singing");
-    clearTimeout(hideTimer);
-    hideTimer = setTimeout(hide, duration);
+    if (captionsEnabled) {
+      bubble.querySelector("blockquote").textContent = `“${line}”`;
+      bubble.querySelector("figcaption").textContent = `— ${loaded.title || song.title}`;
+      bubble.hidden = false;
+      bubble.classList.remove("is-singing");
+      void bubble.offsetWidth;
+      bubble.classList.add("is-singing");
+      clearTimeout(hideTimer);
+      hideTimer = setTimeout(hide, duration);
+    }
+    if (withAudio) speak(line);
   };
 
-  for (const event of ["recordidle", "recordspin"])
-    record.addEventListener(event, sing);
+  record.addEventListener("recordidle", () => sing());
+  record.addEventListener("recordspin", () => sing({ withAudio: true }));
   watchRecordPreferences((preferences) => {
     captionsEnabled = preferences.captions;
+    lyricAudioEnabled = preferences.lyricAudio;
     if (!captionsEnabled) hide();
+    if (!lyricAudioEnabled) stopAudio();
   });
   const dismissForActivity = (event) => {
     if (event.type === "keydown" && event.target === record && ["Enter", " "].includes(event.key)) return;
@@ -67,6 +88,10 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
   };
   for (const event of ["pointerdown", "keydown", "scroll"])
     window.addEventListener(event, dismissForActivity, { passive: true });
-  document.addEventListener("visibilitychange", () => { if (document.hidden) hide(); });
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) return;
+    hide();
+    stopAudio();
+  });
   return { sing, hide, element: bubble };
 }

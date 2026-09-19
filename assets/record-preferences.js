@@ -2,9 +2,10 @@ export const recordPreferenceKeys = {
   continuous: "yehry3:continuous-record-spins",
   playback: "yehry3:spin-record-while-playing",
   captions: "yehry3:record-lyric-captions",
+  lyricAudio: "yehry3:record-lyric-audio",
 };
 
-const defaults = { continuous: false, playback: false, captions: true };
+const defaults = { continuous: false, playback: false, captions: true, lyricAudio: false };
 const preferences = { ...defaults };
 const listeners = new Set();
 const notify = () => listeners.forEach(listener => listener(getRecordPreferences()));

@@ -3,7 +3,7 @@ import { getRecordPreferences, setRecordPreference, watchRecordPreferences } fro
 const key = "yehry3:show-quality-issues";
 const seenKey = "yehry3:preferences-seen";
 // Change this when new preferences should be highlighted to returning visitors.
-const preferencesVersion = "record-captions-v1";
+const preferencesVersion = "record-lyric-audio-v1";
 
 if (typeof document !== "undefined") {
   let shown = true;
@@ -26,7 +26,7 @@ if (typeof document !== "undefined") {
     recordCheckboxes.forEach((input, name) => { input.checked = preferences[name]; });
     if (settingsButton) {
       settingsButton.classList.toggle("has-new-preferences", !preferencesSeen);
-      settingsButton.title = preferencesSeen ? "Display settings" : "New record caption preference available";
+      settingsButton.title = preferencesSeen ? "Display settings" : "New lyric audio preference available";
       if (preferencesSeen) settingsButton.removeAttribute("aria-describedby");
       else settingsButton.setAttribute("aria-describedby", "display-settings-updates");
       newBadge.hidden = preferencesSeen;
@@ -60,7 +60,7 @@ if (typeof document !== "undefined") {
     const updateDescription = document.createElement("span");
     updateDescription.id = "display-settings-updates";
     updateDescription.className = "sr-only";
-    updateDescription.textContent = "New record caption preference available.";
+    updateDescription.textContent = "New lyric audio preference available.";
 
     const dialog = document.createElement("dialog");
     dialog.className = "display-settings-dialog";
@@ -91,6 +91,7 @@ if (typeof document !== "undefined") {
     recordGroup.append(legend);
     for (const [name, title, description] of [
       ["captions", "Lyric captions", "Show comic-book lyric captions when the record is clicked or the page is idle."],
+      ["lyricAudio", "Lyric audio", "Use this browser's generated voice to read a lyric aloud when you click the record. Off by default."],
       ["continuous", "Continuous record spins", "Keep the record spinning without slowing down. Click it to spin faster."],
       ["playback", "Spin while music plays", "Start with the music and stop when paused, unless continuous spins are on."],
     ]) {
