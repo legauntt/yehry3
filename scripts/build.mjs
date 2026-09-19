@@ -47,6 +47,9 @@ for (const song of catalog.songs) {
   await writeFile(path.join(output, "songs", `${song.id}.json`), JSON.stringify(song));
 }
 await writeFile(path.join(output, "catalog-summary.json"), JSON.stringify({ songs: catalog.songs.map(songSummary) }));
+// A long-lived tab compares this against the stamp baked into its own pages and
+// offers a refresh when a newer build has shipped.
+await writeFile(path.join(output, "deployment.json"), JSON.stringify({ updatedAt: updatedAt.toISOString(), updatedLabel }));
 const lyricsTemplate = await readFile(path.join(root, "lyrics/index.html"), "utf8");
 const aliases = new Set();
 const htmlEscape = (value) =>
@@ -151,7 +154,7 @@ for (const file of await readdir(output, { recursive: true })) {
     html = html.replace(/<span>\s*YEHRY3 · A little off the record\.\s*<\/span\s*>/i, '<span data-brand-footer>YEHRY3 · A little off the record.</span>');
     html = html.replace("</head>", '<script type="module" src="/assets/branding.js"></script>\n  </head>');
   }
-  html = html.replace("</head>", '<link rel="stylesheet" href="/assets/deployment.css">\n  </head>');
+  html = html.replace("</head>", '<link rel="stylesheet" href="/assets/deployment.css">\n    <script type="module" src="/assets/deployment.js"></script>\n  </head>');
   html = html.includes("</footer>")
     ? html.replace("</footer>", `${stamp}\n    </footer>`)
     : html.replace("</body>", `<footer class="deployment-footer">${stamp}</footer>\n  </body>`);

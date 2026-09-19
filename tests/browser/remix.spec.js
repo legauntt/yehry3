@@ -229,3 +229,37 @@ test('Eleven Remix retains its source while Auto stays blank through switching, 
   expect((await localPatch).postDataJSON().generation).not.toHaveProperty('duration');
   expect(errors).toEqual([]);
 });
+
+test('a remix carries its badge from the queue through production to its lyric sheet', async ({ page }) => {
+  const parent = { songId: song.id, title: song.title };
+  const working = { id: `distonyc-${'d'.repeat(24)}`, idea: 'Remix the source song', title: 'Working remix', status: 'processing',
+    voiceModel: 'v8', remixOf: parent, updatedAt: new Date().toISOString(), progress: { stage: 'Generating Tony vocals', percent: 40 },
+    originalPrompt: { idea: 'Remix the source song', direction: '', keep: '', basisSongs: [song.title], voiceModel: 'v8' } };
+  const plain = { ...working, id: `distonyc-${'e'.repeat(24)}`, idea: 'A brand new song', title: 'Not a remix', remixOf: undefined };
+  const finished = { ...song, id: 'published-remix', title: 'Published remix', remixOf: { ...parent, url: song.url } };
+  const queue = { inStudio: [working, plain], needsAttention: [], queued: [], recent: [], queuedTotal: 0, inStudioTotal: 2, page: 0, pageSize: 50 };
+  // Playwright tries the most recently added route first; keep the catch-all first.
+  await page.route('**/yehry3/**', route => route.fulfill({ json: { songs: [finished], nextVoteAt: null, profiles: [], song: finished } }));
+  await page.route('**/yehry3/queue?*', route => route.fulfill({ json: queue }));
+  await page.route(`**/yehry3/queue/${working.id}`, route => route.fulfill({ json: working }));
+  await page.route(`**/songs/${finished.id}.json`, route => route.fulfill({ json: finished }));
+
+  await page.goto('/');
+  const generating = page.locator(`.pending-track[data-id="${working.id}"]`);
+  await expect(generating.locator('.remix-badge')).toHaveText('Remix');
+  await expect(generating.locator('.remix-badge')).toHaveAttribute('title', `Remix of “${song.title}”`);
+  await expect(generating.locator('.voice-model-badge')).toHaveText('V8');
+  await expect(page.locator(`.pending-track[data-id="${plain.id}"] .remix-badge`)).toHaveCount(0);
+
+  await page.goto('/queue/');
+  await expect(page.locator(`#${working.id} .remix-badge`)).toHaveText('Remix');
+  await expect(page.locator(`#${plain.id} .remix-badge`)).toHaveCount(0);
+  await page.goto(`/queue/details/?request=${working.id}`);
+  await expect(page.locator('.queue-detail-status .remix-badge')).toHaveText('Remix');
+
+  await page.goto(`/lyrics/?song=${finished.id}`);
+  await expect(page.locator('.lyrics-sheet > .song-badges .remix-badge')).toHaveText('Remix');
+  await expect(page.locator('.lyrics-sheet > .song-badges .voice-model-badge')).toHaveText('V6');
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});

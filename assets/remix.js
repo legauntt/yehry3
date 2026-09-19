@@ -1,11 +1,8 @@
 import { watchSong } from "./song-data.js";
+export { remixBadge, remixOrigin } from "./remix-badge.js";
 import { api } from "./api.js";
 
 export const remixHref = song => `/distonyc/?remix=${encodeURIComponent(song.id)}`;
-
-export function remixBadge(song) {
-  return song?.remixOf ? '<span class="remix-badge">Remix</span>' : '';
-}
 
 export function remixSeed(song, source) {
   if (!source || source.songId !== song.id) throw new Error("The selected recording is not ready for remixing.");

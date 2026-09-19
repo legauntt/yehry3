@@ -17,3 +17,32 @@
   margin: 24px auto;
   padding: 0 22px 24px;
 }
+
+.update-banner {
+  position: sticky;
+  top: 0;
+  z-index: 7;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-bottom: 1px solid #a08045;
+  background: #fff0cb;
+  color: #654610;
+  font: 500 0.82rem/1.5 "DM Sans", sans-serif;
+}
+.update-banner button {
+  padding: 5px 12px;
+  border: 1px solid #a08045;
+  border-radius: 999px;
+  background: #fffaf0;
+  color: #654610;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+.update-banner .update-dismiss { font-weight: 500; }
+.update-banner button:hover { background: #654610; color: #fffaf0; }
+body[data-update-available] .message { top: 44px; }

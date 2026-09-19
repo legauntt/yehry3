@@ -1,4 +1,5 @@
-import { musicBackendBadge } from "./music-provenance.js";
+import { songBadges } from "./song-badges.js";
+import { mountLoopToggle } from "./loop.js";
 import { songPlanLink } from "./song-plan.js";
 import { authoredByLine } from "./authored-by.js";
 import { resolveLyricsSongId, watchSong } from "./song-data.js";
@@ -121,7 +122,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     new URLSearchParams(location.search).get("song") ||
     document.body.dataset.songId ||
     await resolveLyricsSongId(location.pathname);
-  let cleanupKaraoke = () => {}, cleanupMoments = () => {}, downloadUrl, favorites, profilePanel, trackedAudio, listening, comparison;
+  let cleanupKaraoke = () => {}, cleanupMoments = () => {}, downloadUrl, favorites, profilePanel, trackedAudio, listening, comparison, loop;
   function render(song) {
     const previousAudio = main.querySelector("audio");
     const previousPosition = previousAudio ? [scrollX, scrollY] : null;
@@ -137,7 +138,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
         : "Lyrics supplied for this recording. The performance may vary.";
     const audioUrl = escape(safeUrl(song.url));
     const hasCues = cueMap(song.lyrics).size > 0;
-    main.innerHTML = `<article class="lyrics-sheet"><p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>${authoredByLine(song.authoredBy, escape)}${musicBackendBadge(song)}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures)}<p class="small">${note}</p><section class="shared-song-player" aria-label="Listen to ${escape(song.title)}"><p class="tiny-label">Listen here</p><audio controls preload="metadata" src="${audioUrl}" aria-label="Play ${escape(song.title)}">Your browser cannot play this recording. <a href="${audioUrl}">Open the audio file</a>.</audio></section>${hasCues ? '<p class="small karaoke-note">The current line follows the recording. Select any lyric to jump there.</p>' : ""}<div class="actions lyrics-actions"><a class="primary" href="${audioUrl}" target="_blank" rel="noopener">Open audio ↗</a><a class="quiet" id="download-lyrics">Download lyrics</a><button class="quiet" id="print-lyrics">Print</button>${songPlanLink(song, escape)}${song.originalPrompt || song.hasOriginalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">Original prompt ↗</a>` : ""}<a class="text-link" href="/">The collection →</a></div><div class="lyrics-text karaoke-lyrics">${lyricLines(song.lyrics, escape)}</div></article>`;
+    main.innerHTML = `<article class="lyrics-sheet"><p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>${authoredByLine(song.authoredBy, escape)}${songBadges(song)}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures)}<p class="small">${note}</p><section class="shared-song-player" aria-label="Listen to ${escape(song.title)}"><p class="tiny-label">Listen here</p><audio controls preload="metadata" src="${audioUrl}" aria-label="Play ${escape(song.title)}">Your browser cannot play this recording. <a href="${audioUrl}">Open the audio file</a>.</audio></section>${hasCues ? '<p class="small karaoke-note">The current line follows the recording. Select any lyric to jump there.</p>' : ""}<div class="actions lyrics-actions"><a class="primary" href="${audioUrl}" target="_blank" rel="noopener">Open audio ↗</a><a class="quiet" id="download-lyrics">Download lyrics</a><button class="quiet" id="print-lyrics">Print</button>${songPlanLink(song, escape)}${song.originalPrompt || song.hasOriginalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">Original prompt ↗</a>` : ""}<a class="text-link" href="/">The collection →</a></div><div class="lyrics-text karaoke-lyrics">${lyricLines(song.lyrics, escape)}</div></article>`;
     cleanupKaraoke();
     cleanupMoments();
     const replacementAudio = main.querySelector("audio");
@@ -159,6 +160,9 @@ export async function lyricsPage(main, { escape, safeUrl }) {
         },
       });
     }
+    loop ||= mountLoopToggle();
+    loop.attach(audio);
+    main.querySelector(".shared-song-player").append(loop.element);
     const listeningStats = document.createElement("p");
     listeningStats.className = "small";
     listeningStats.dataset.listeningStats = "";

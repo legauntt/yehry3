@@ -2390,3 +2390,44 @@ button.lyric-line:hover {
 
 .paid-music-confirmation { border: 1px solid var(--line, #aaa); padding: 1rem; margin: 1rem 0; border-radius: .6rem; }
 #music-backend-root { margin-bottom: 1.5rem; }
+
+/* One badge row for a song or request, wherever it appears. */
+.song-badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  vertical-align: middle;
+}
+.song-badges:empty { display: none; }
+.queue-heading .song-badges,
+.queue-detail-status .song-badges { margin: 3px 6px 3px 0; }
+.lyrics-sheet > .song-badges { display: flex; margin-bottom: 12px; }
+.tape-track-tools .song-badges { margin-right: 4px; }
+
+/* Repeat the current track instead of moving on to the next one. */
+.loop-toggle { white-space: nowrap; }
+.loop-toggle[aria-pressed="true"] {
+  border-color: #c15f25;
+  background: #fff0df;
+  color: #8a3407;
+}
+.player .loop-toggle[aria-pressed="true"] {
+  border-color: #f0b489;
+  background: #46301f;
+  color: #ffd9bd;
+}
+.shared-song-player .loop-toggle { margin-top: 8px; }
+
+/* The song a completion alert points at, once the collection settles on it. */
+.track.is-revealed,
+.pending-track.is-revealed {
+  outline: 2px solid var(--accent, #c15f25);
+  outline-offset: 3px;
+}
+
+@media (max-width: 650px) {
+  /* Keep the repeat control on the transport row with previous/next. */
+  .player .loop-toggle { order: 1; padding: 4px 10px; min-height: 33px; font-size: 0.7rem; }
+  .player .now-playing { width: calc(100% - 200px); }
+}

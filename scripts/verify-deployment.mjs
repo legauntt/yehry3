@@ -61,6 +61,14 @@ for (const route of [
   );
 }
 console.log("Distonyc route and legacy aliases verified.");
+{
+  // Open tabs compare this record against the stamp their own page carries.
+  const response = await get(`${site}/deployment.json`);
+  assert.match(response.headers.get("cache-control") || "", /no-store|no-cache/);
+  const published = await response.json();
+  assert.equal(published.updatedAt, updatedAt, "Deployment record differs from the served pages");
+  console.log(`Deployment record verified: ${published.updatedLabel}`);
+}
 verifyTimestamp(await (await get(`${site}/deetz/`)).text(), "/deetz/");
 for (const path of ["/fearhunger", "/fearhunger/"]) {
   const fearPage = await get(`${site}${path}`);
@@ -128,6 +136,10 @@ for (const name of [
   "quality.js",
   "site.css",
   "deployment.css",
+  "deployment.js",
+  "loop.js",
+  "song-badges.js",
+  "remix-badge.js",
   "band-vinyl-v1.webp",
   "record-shoes.svg",
 ]) {

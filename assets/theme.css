@@ -38,3 +38,8 @@ html[data-shared-theme][data-theme="dark"] .lyric-line.is-active { background: v
 @media print {
   html[data-shared-theme][data-theme="dark"] { --paper: white; --white: white; --ink: black; --muted: #444; --line: #bbb; color-scheme: light; }
 }
+html[data-shared-theme][data-theme="dark"] .remix-badge { background: #4c3a2a; color: #ffcba4; border-color: #8a5a32; }
+html[data-shared-theme][data-theme="dark"] .update-banner { background: #3a2f18; color: #f5d99b; border-bottom-color: #7c6631; }
+html[data-shared-theme][data-theme="dark"] .update-banner button { background: #493c21; color: #f5d99b; border-color: #7c6631; }
+html[data-shared-theme][data-theme="dark"] .update-banner button:hover { background: #f5d99b; color: #29210f; }
+html[data-shared-theme][data-theme="dark"] .loop-toggle[aria-pressed="true"] { background: #46301f; color: #ffd9bd; border-color: #a06a3f; }

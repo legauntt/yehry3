@@ -1,4 +1,6 @@
+import { songBadges, voiceModelBadge } from "./song-badges.js";
 import { musicBackendBadge } from "./music-provenance.js";
+import { mountLoopToggle } from "./loop.js";
 import { mountMusicBackend, paidConfirmation, PAID_BACKEND } from './music-backend.js';
 import { gpuWaiting, gpuWaitNotice } from "./gpu-status.js";
 import { mountGeneration, mountGenerationReview } from './generation.js';
@@ -77,8 +79,6 @@ const voiceModel = (id) =>
   voiceModels.find((model) => model.id === id) || (/^v\d+$/i.test(id || "")
     ? { id, label: `Tony ${id.toUpperCase()}`, note: "Versioned Tony voice profile", experimental: id !== "v6" }
     : voiceModels[0]);
-const voiceModelBadge = (id) => escape((/^v\d+$/i.test(id || "") ? id : "v6").toUpperCase());
-const voiceModelBadgeClass = (id) => /^v[78]$/i.test(id || "") ? " " + id.toLowerCase() : "";
 const voiceModelLabel = voiceVersionLabel;
 const duration = (seconds) =>
   `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
@@ -155,7 +155,7 @@ function songMeta(song, recentPublishedAt) {
     collections(song)
       .map((name) => collectionNames[name] || name)
       .join(" / "),
-  )}</span>${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge${voiceModelBadgeClass(song.voiceModel)}">${voiceModelBadge(song.voiceModel)}</span>${musicBackendBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+  )}</span>${authoredByLine(song.authoredBy, escape)}${voiceModelBadge(song)}${musicBackendBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
 }
 
 async function library() {
@@ -244,6 +244,9 @@ async function library() {
   const recentReleases = new Map();
   const freshWindow = 24 * 60 * 60 * 1000;
   const audio = $("#audio");
+  const loop = mountLoopToggle();
+  loop.attach(audio);
+  $("#next").after(loop.element);
   const rowMarkup = new WeakMap();
   const favorites = mountFavorites($("#favorites"), { filter: true, onChange: () => {
     // Favorite history callbacks may run before our popstate listener. Restore
@@ -333,11 +336,22 @@ async function library() {
       return `<details class="pending-track${needsAttention ? " pending-attention" : ""}" data-id="${escape(song.id)}">
         <summary><span class="pending-mark" aria-hidden="true">↗</span>${songArtworkMarkup({ ...song, title }, escape)}
           <span class="pending-availability"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Not yet playable</span>
-          <span class="pending-title"><span class="tiny-label">${needsAttention ? '<svg class="pending-warning-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.8 20h18.4L12 3Z"></path><path d="M12 9v5"></path><circle cx="12" cy="17" r=".9"></circle></svg>' : ""}${label}</span><strong title="${escape(title)}">${escape(title)}</strong><span class="track-meta">${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge${voiceModelBadgeClass(song.voiceModel)}">${voiceModelBadge(song.voiceModel)}</span>${musicBackendBadge(song)}</span></span>
+          <span class="pending-title"><span class="tiny-label">${needsAttention ? '<svg class="pending-warning-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.8 20h18.4L12 3Z"></path><path d="M12 9v5"></path><circle cx="12" cy="17" r=".9"></circle></svg>' : ""}${label}</span><strong title="${escape(title)}">${escape(title)}</strong><span class="track-meta">${authoredByLine(song.authoredBy, escape)}${songBadges(song)}</span></span>
           <span class="pending-state">${badge(state)}${song.progress && song.status !== "failed" ? `<span class="small">${Math.round(percent)}%</span><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}</span>
           <span class="pending-disclosure"><span class="pending-details-label">Details</span></span>
         </summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.status === "failed" ? '<p class="attention-note">Completed work is saved; retry resumes completed stages.</p>' : song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p>` : ""}<div class="actions"><a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">View original prompt ↗</a>${songPlanLink(song, escape)}<a class="text-link" href="${queueItemHref(song)}">View request details ↗</a></div></div></details>`;
     }).join(""));
+  }
+  // Rebuilt rows reset their classes, so the alert's outline is reapplied here
+  // for as long as it stands.
+  let highlighted = null;
+  function markHighlighted() {
+    if (!highlighted) return null;
+    const row = document.querySelector(
+      `#tracks > [data-id="${CSS.escape(highlighted)}"], #pending-tracks > [data-id="${CSS.escape(highlighted)}"]`,
+    );
+    row?.classList.add("is-revealed");
+    return row;
   }
   function render({ preserveViewport = false } = {}) {
     const restoreViewport = preserveViewport ? viewportAnchor() : () => {};
@@ -355,9 +369,9 @@ async function library() {
     const currentRecording = recordings.get(current?.id);
     $("#now-recording").hidden = !currentRecording;
     $("#now-recording").innerHTML = recordingLabel(currentRecording, escape);
-    const generator = musicBackendBadge(songs.find(song => song.id === current?.id) || current);
-    $("#now-generator").innerHTML = generator;
-    $("#now-generator").hidden = !generator;
+    const playing = songs.find(song => song.id === current?.id) || current;
+    $("#now-generator").innerHTML = playing ? songBadges(playing) : "";
+    $("#now-generator").hidden = !playing;
     const query = $("#search").value.toLowerCase();
     const collection = $("#collection-filter").value;
     visible = songs.filter(
@@ -438,6 +452,7 @@ async function library() {
     if (favorites.onlySaved) $("#pending-tracks").hidden = true;
     $("#play-all").disabled = !visible.length;
     $("#shuffle").disabled = !visible.length;
+    markHighlighted();
     cooldown();
     restoreViewport();
   }
@@ -518,6 +533,40 @@ async function library() {
     const index = queue.findIndex((song) => song.id === current?.id) + offset;
     if (index >= 0 && index < queue.length) play(queue[index]);
   }
+  // A completion alert lands here with the released song in the URL fragment.
+  // Clear whatever filters or page would otherwise hide it, then point at it.
+  let revealing, revealed;
+  function revealSong(id) {
+    if (!/^[a-z0-9-]{1,120}$/.test(id || "") || id === revealed) return;
+    if (!songs.some((song) => song.id === id) && !pending.some((song) => song.id === id)) return;
+    revealed = highlighted = id;
+    if (favorites.onlySaved) $("#saved-only")?.click();
+    if (!visible.some((song) => song.id === id)) {
+      $("#search").value = "";
+      $("#collection-filter").value = "all";
+      shareFilters(true);
+    }
+    const index = visible.findIndex((song) => song.id === id);
+    const wanted = index < 0 ? catalogPage : Math.floor(index / pageSize) + 1;
+    if (wanted !== catalogPage) {
+      catalogPage = wanted;
+      pageUrl();
+      render();
+    }
+    const row = markHighlighted();
+    if (!row) return;
+    row.scrollIntoView({ block: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    clearTimeout(revealing);
+    revealing = setTimeout(() => {
+      highlighted = null;
+      document.querySelectorAll(".is-revealed").forEach((element) => element.classList.remove("is-revealed"));
+    }, 8000);
+  }
+  const revealFromHash = () => {
+    try { revealSong(decodeURIComponent(location.hash.slice(1))); }
+    catch { /* A fragment that is not a song ID reveals nothing. */ }
+  };
+  addEventListener("hashchange", revealFromHash);
   $("#tracks").addEventListener("click", async (event) => {
     const playButton = event.target.closest("[data-play]");
     if (playButton)
@@ -687,7 +736,9 @@ async function library() {
     message("The catalog could not load. Refresh to try again.", true);
   }
   render();
+  revealFromHash();
   await refresh();
+  revealFromHash();
   setInterval(cooldown, 15000);
   let refreshTimer = setInterval(refresh, 30000);
   document.addEventListener("visibilitychange", () => { if (!document.hidden) refresh(); });
@@ -1037,7 +1088,7 @@ async function requests() {
           render();
         });
     } else {
-      form.innerHTML = `<span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Request received</p><h2>Your idea is on the list.</h2><p>Your idea has a place in the studio queue. Check back here for its progress.</p>${badge(recoveryStatus(draft))} ${musicBackendBadge(draft)}${recoveryActive(draft) ? '<p class="small">Automatic recovery is working on your song. Saved work will be reused.</p>' : ""}${brief(draft)}${draft.publishedUrl ? `<a class="primary" href="${escape(safeUrl(draft.publishedUrl))}" target="_blank" rel="noopener">Hear your song ↗</a>` : ""}<div class="actions"><button class="quiet" id="refresh-status">Refresh status</button><button class="primary" id="another">Another idea ↗</button></div><p class="small">This browser tab remembers your request. <a href="/queue/">Watch the public queue and enable completion alerts →</a></p>`;
+      form.innerHTML = `<span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Request received</p><h2>Your idea is on the list.</h2><p>Your idea has a place in the studio queue. Check back here for its progress.</p>${badge(recoveryStatus(draft))} ${songBadges(draft)}${recoveryActive(draft) ? '<p class="small">Automatic recovery is working on your song. Saved work will be reused.</p>' : ""}${brief(draft)}${draft.publishedUrl ? `<a class="primary" href="${escape(safeUrl(draft.publishedUrl))}" target="_blank" rel="noopener">Hear your song ↗</a>` : ""}<div class="actions"><button class="quiet" id="refresh-status">Refresh status</button><button class="primary" id="another">Another idea ↗</button></div><p class="small">This browser tab remembers your request. <a href="/queue/">Watch the public queue and enable completion alerts →</a></p>`;
       const reviewRoot = document.createElement('div'); form.prepend(reviewRoot);
       mountGenerationReview(reviewRoot, { draft, api, escape, reload: load });
       $("#another").onclick = () => {
@@ -1299,7 +1350,7 @@ async function admin() {
     const thread = doc.status === "failed" || steered ? `<section class="dehaka-thread" data-dehaka-thread="${id}" aria-label="Dehaka conversation and raw logs"><h3>Dehaka log</h3><div class="dehaka-thread-body" aria-live="polite">${threads.get(doc.id) || '<p class="small">Loading Dehaka’s replies and raw logs…</p>'}</div></section>` : "";
     const guidance = escape(doc.recovery?.shepherd?.guidance || "Whatever it takes to fix this.");
     const failure = doc.status === "failed" ? `<section class="attention-problem"><p class="eyebrow">What stopped it</p>${doc.workerProgress?.stage ? `<p class="small">Production stopped during ${escape(doc.workerProgress.stage)}.</p>` : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p></section>${dehakaPanel(doc, adapting, allowed.includes("queued"))}${thread}${adapting ? `<p class="small recovery-notice">${doc.recovery?.shepherd ? "Dehaka is adapting this request using your guidance." : "Automatic recovery is working on this request."} Saved work will be reused; you can leave it running or steer again.</p>` : ""}${!doc.workerActive ? `<form data-action="shepherd" class="dehaka-form"><label for="guidance-${id}">Steer Dehaka</label><textarea id="guidance-${id}" name="guidance" rows="3" maxlength="2000" required>${guidance}</textarea><div class="dehaka-actions"><button class="primary">Dehaka</button><span class="small">I adaaaaaapt. He’ll inspect the saved evidence and use a supported correction.</span></div></form>` : ""}${allowed.includes("queued") && !adapting ? `<form data-action="status" class="retry-form"><input type="hidden" name="status" value="queued"><button class="quiet">Retry saved work</button><span class="small">Retry directly without extra guidance.</span></form>` : ""}` : "";
-    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${musicBackendBadge(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues, doc.reviewState, doc.result?.validationFailures)}${doc.reviewState === "needs_review" ? '<form data-action="keep" class="retry-form"><button class="primary">Keep this version</button><span class="small">Clear the review flag after listening.</span></form><form data-action="regenerate" class="retry-form"><button class="quiet">Regenerate</button><span class="small">Review the same brief as a new request. This recording stays published.</span></form>' : ""}${failure}${doc.status === "failed" ? "" : thread}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, validationFailures: null, reviewState: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
+    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${songBadges(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues, doc.reviewState, doc.result?.validationFailures)}${doc.reviewState === "needs_review" ? '<form data-action="keep" class="retry-form"><button class="primary">Keep this version</button><span class="small">Clear the review flag after listening.</span></form><form data-action="regenerate" class="retry-form"><button class="quiet">Regenerate</button><span class="small">Review the same brief as a new request. This recording stays published.</span></form>' : ""}${failure}${doc.status === "failed" ? "" : thread}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, validationFailures: null, reviewState: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
       ...(doc.history || []),
     ]
       .reverse()

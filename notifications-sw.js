@@ -2,10 +2,12 @@ self.addEventListener("install", () => self.skipWaiting());
 self.addEventListener("activate", (event) =>
   event.waitUntil(self.clients.claim()),
 );
+// A finished song belongs on the listening room, where it can be played, rather
+// than the production queue it has just left.
 self.addEventListener("notificationclick", (event) => {
   event.notification.close();
   const id = event.notification.data?.songId;
-  const url = new URL("/queue/", self.location.origin);
+  const url = new URL("/", self.location.origin);
   if (/^distonyc-[a-f0-9]{24}$/.test(id || "")) url.hash = id;
   event.waitUntil(
     (async () => {
@@ -13,12 +15,12 @@ self.addEventListener("notificationclick", (event) => {
         type: "window",
         includeUncontrolled: true,
       });
-      const queue = windows.find(
-        (client) => new URL(client.url).pathname === "/queue/",
+      const listeningRoom = windows.find(
+        (client) => new URL(client.url).pathname === "/",
       );
-      if (queue) {
-        await queue.navigate(url.href);
-        await queue.focus();
+      if (listeningRoom) {
+        const focused = (await listeningRoom.navigate(url.href)) || listeningRoom;
+        await focused.focus();
       } else await self.clients.openWindow(url.href);
     })(),
   );

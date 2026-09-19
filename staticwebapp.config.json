@@ -37,6 +37,10 @@
       "headers": { "Cache-Control": "no-cache" }
     },
     {
+      "route": "/deployment.json",
+      "headers": { "Cache-Control": "no-store" }
+    },
+    {
       "route": "/arabic",
       "redirect": "/arabic/",
       "statusCode": 302
