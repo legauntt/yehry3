@@ -2,6 +2,168 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-d88c69ac5b02b644324e42ad",
+      "title": "Yeah After Midnight",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d88c69ac5b02b644324e42ad-d0c85e6f241f.mp3",
+      "duration": 230.03428571428572,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-19T05:44:07.978Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Yeah After Midnight",
+        "recipe": "new",
+        "style": "acoustic",
+        "keyscale": "Eb major",
+        "arrangement": "A 230-second slow, intimate smooth-jazz performance in 4/4. Upright bass and brushed drums establish a deep late-night pocket, joined by Rhodes electric piano, muted trumpet, and sparse hollow-body jazz guitar. Tony V8 delivers the written “yeah” phrases in rough, smoky, connected slurs, while prolonged rhythmic heavy breathing occupies the ample spaces between them and functions as the principal vocal texture. Begin with vocals immediately, alternate restrained breathing passages with increasingly animated utterances, briefly crest in the bridge, then settle into a spacious final section. Sustain the last “Yeeaah” so its final syllable lands 8–12 seconds before the end; resolve on one warm final chord and let it decay naturally without an extended solo.",
+        "lyrics": "[Intro]\nYeah\n\n[Verse 1]\nYeah\nYeah\nYeah\n\n[Interlude]\nYeah\n\n[Verse 2]\nYeah\nYeah\nYeah\nYeah\n\n[Bridge]\nYeah\nYeah\n\n[Verse 3]\nYeah\nYeah\nYeah\n\n[Outro]\nYeah\nYeah\nYeeaah\n[End]",
+        "duration": 230,
+        "bpm": 68,
+        "musicalSettings": {
+          "genre": "Slow late-night smooth jazz",
+          "meter": "4/4",
+          "structure": "Intro – Verse 1 – Interlude – Verse 2 – Bridge – Verse 3 – Outro",
+          "performance": "Tony V8 in an intimate, smoky, heavily breathing delivery with slurred, mischievous variations on “yeah”",
+          "energy": "Hushed and spacious at first, gradually more animated through the bridge, then relaxed and resolved",
+          "lyricWorkflow": "Minimalist vocal writing built from the explicitly requested word, with breath and phrasing carrying the development",
+          "instruments": [
+            "upright bass",
+            "brushed drums",
+            "Rhodes electric piano",
+            "muted trumpet",
+            "hollow-body jazz guitar"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nYeah\n\n[Verse 1]\nYeah\nYeah\nYeah\n\n[Interlude]\nYeah\n\n[Verse 2]\nYeah\nYeah\nYeah\nYeah\n\n[Bridge]\nYeah\nYeah\n\n[Verse 3]\nYeah\nYeah\nYeah\n\n[Outro]\nYeah\nYeah\nYeeaah",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 13,
+            "end": 14.4
+          },
+          {
+            "line": 4,
+            "start": 22.1,
+            "end": 23.5
+          },
+          {
+            "line": 5,
+            "start": 28.58,
+            "end": 29.98
+          },
+          {
+            "line": 6,
+            "start": 41.32,
+            "end": 42.72
+          },
+          {
+            "line": 9,
+            "start": 45.52,
+            "end": 46.22
+          },
+          {
+            "line": 12,
+            "start": 56.32,
+            "end": 57.72
+          },
+          {
+            "line": 13,
+            "start": 84.06,
+            "end": 85.46
+          },
+          {
+            "line": 14,
+            "start": 98.3,
+            "end": 99.7
+          },
+          {
+            "line": 15,
+            "start": 99.7,
+            "end": 101.46
+          },
+          {
+            "line": 18,
+            "start": 112.52,
+            "end": 113.92
+          },
+          {
+            "line": 19,
+            "start": 127.16,
+            "end": 127.86
+          },
+          {
+            "line": 22,
+            "start": 127.86,
+            "end": 128.48
+          },
+          {
+            "line": 23,
+            "start": 169.28,
+            "end": 170.68
+          },
+          {
+            "line": 24,
+            "start": 184.1,
+            "end": 185.5
+          },
+          {
+            "line": 27,
+            "start": 185.5,
+            "end": 185.86
+          },
+          {
+            "line": 28,
+            "start": 198.06,
+            "end": 198.76
+          },
+          {
+            "line": 29,
+            "start": 219.18,
+            "end": 220.58
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 25.12
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Six minutes of heavy breathing and Tony saying \"yeah\" over smooth jazz",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 230
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-ce216fde528ad34ec0e1042b",
       "title": "The City Said My Name",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ce216fde528ad34ec0e1042b-5843af1260c8.mp3",
