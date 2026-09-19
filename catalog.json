@@ -2,6 +2,501 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-4d404bde483321198475faf0",
+      "title": "Whoopsie Apartheid - The Rebuttal Room",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4d404bde483321198475faf0-7bd7b9384543.mp3",
+      "duration": 234.99755102040817,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "remixOf": {
+        "songId": "distonyc-5cbf165fb292d5162fbf98c4",
+        "title": "Whoopsie Apartheid",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5cbf165fb292d5162fbf98c4-7919f7cf2cd2.mp3"
+      },
+      "publishedAt": "2026-09-19T00:33:28.631Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Whoopsie Apartheid - The Rebuttal Room",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A bass-forward Levantine art-rock reinterpretation in D minor at 104 BPM, built on muscular electric bass, dry drums, angular electric guitar, oud flourishes and restrained analog organ. The recurring “Whoopsie, apartheid” motif remains recognizable, but the verses use a tense new harmonic setting and the chorus opens into a broader melodic rebuttal. Tony V8 delivers the verses with smoky, connected phrasing, muttered skepticism and crooked timing while keeping the hook clear and sung. The bridge strips back to bass, oud and toms before a full-band final rise. Pace the final outro across the closing bars so the last syllable lands 8–12 seconds before 235 seconds, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nI walked back in the war room late\nCoffee cold, maps on the wall\nThey said, “We solved the whole thing, Tony”\nI said, “You missed half of it all”\n\n[Verse 1]\nOne man said, “It’s uncomplicated”\nOne said, “History starts today”\nI said, “Tell that to the hostage\nWhose family waits and wastes away”\nThe room went still, the pens went down\nSomebody guarded the door\nI said, “A child is not a target—\nNot in a kibbutz, not in war”\n\n[Chorus]\nWhoopsie, apartheid?\nThat’s a verdict, not a plan\nYou cannot make a safer home\nBy hiding half of where we stand\nWhoopsie, apartheid?\nEasy answers travel light\nBut peace must hold two peoples’ grief\nAnd keep two peoples’ futures bright\n\n[Verse 2]\nBring every living hostage home\nGive each prisoner lawful trial\nLet the food trucks through the crossings\nLet the wounded leave in file\nStop the rockets, stop the bombing\nLet the doctors do their work\nWhen a leader orders slaughter\nPut that leader before the court\n\nYou ask why the fences hardened\nWhy the shelters line the street\nI remember buses burning\nYou remember armored feet\nNeither memory grants permission\nNeither terror makes things right\nFear may tell us why we’re fighting\nIt cannot tell us how to unite\n\n[Chorus]\nWhoopsie, apartheid?\nWords can wound and words can warn\nBut no slogan wakes the missing\nOr rebuilds what war has torn\nWhoopsie, apartheid?\nPeace is more than choosing sides\nIt means safety without conquest\nLaw without a place to hide\n\n[Bridge]\nName the dead from every village\nHear the living, face to face\nNo ancestral wound gives license\nTo destroy another place\nNo October justifies famine\nNo occupation answers fear\nIf the truth has two cracked windows\nOpen both and make it clear\n\n[Verse 3]\nSo we opened every ledger\nBrought the witnesses inside\nMade the powerful answer plainly\nFor the blood their speeches hide\nPulled the gunmen from the schoolyards\nPulled the checkpoints from the road\nBuilt the homes before the slogans\nShared the water, shared the load\n\nEvery faith could keep its sacred\nEvery family lock its door\nChildren learned their neighbor’s language\nNot the mathematics of war\nThen the experts cleared their throats and asked,\n“What miracle did you apply?”\nI said, “Rights and recognition”\nThey said, “Surely that’s too simplified”\n\n[Chorus]\nWhoopsie, apartheid—\nMaybe labels start the call\nBut a name alone won’t free a hostage\nOr bring justice through the wall\nWhoopsie, apartheid—\nNow the gates can still come down\nEqual dignity and shelter\nEqual law in every town\n\n[Outro]\nIt was simple, never easy\nThat distinction matters most\nPeace began when neither future\nWas a footnote to a boast\nI still don’t know why nobody\nTried the obvious before:\nKeep each other safe and free—\nThen peace can walk through every door\n[End]",
+        "duration": 235,
+        "bpm": 104,
+        "musicalSettings": {
+          "genre": "Bass-forward Levantine art-rock",
+          "meter": "4/4 with brief syncopated turnaround",
+          "structure": "Intro, verse, chorus, verse, chorus, bridge, verse, final chorus, resolved outro",
+          "performance": "Natural Tony V8 lead: rough, smoky and slurred in the verses, with a clear melodic hook and increasingly urgent sustained lines",
+          "energy": "Tense, restrained opening; driving middle; exposed bridge; forceful final chorus; reflective resolution",
+          "lyricWorkflow": "Adapted source lyrics recast as Israel’s rebuttal, retaining the central hook, war-room frame, parallel moral language and final peace-through-equal-safety payoff",
+          "instruments": [
+            "electric bass",
+            "drums",
+            "electric guitar",
+            "oud",
+            "analog organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nI walked back in the war room late\nCoffee cold, maps on the wall\nThey said, “We solved the whole thing, Tony”\nI said, “You missed half of it all”\n\n[Verse 1]\nOne man said, “It’s uncomplicated”\nOne said, “History starts today”\nI said, “Tell that to the hostage\nWhose family waits and wastes away”\nThe room went still, the pens went down\nSomebody guarded the door\nI said, “A child is not a target—\nNot in a kibbutz, not in war”\n\n[Chorus]\nWhoopsie, apartheid?\nThat’s a verdict, not a plan\nYou cannot make a safer home\nBy hiding half of where we stand\nWhoopsie, apartheid?\nEasy answers travel light\nBut peace must hold two peoples’ grief\nAnd keep two peoples’ futures bright\n\n[Verse 2]\nBring every living hostage home\nGive each prisoner lawful trial\nLet the food trucks through the crossings\nLet the wounded leave in file\nStop the rockets, stop the bombing\nLet the doctors do their work\nWhen a leader orders slaughter\nPut that leader before the court\n\nYou ask why the fences hardened\nWhy the shelters line the street\nI remember buses burning\nYou remember armored feet\nNeither memory grants permission\nNeither terror makes things right\nFear may tell us why we’re fighting\nIt cannot tell us how to unite\n\n[Chorus]\nWhoopsie, apartheid?\nWords can wound and words can warn\nBut no slogan wakes the missing\nOr rebuilds what war has torn\nWhoopsie, apartheid?\nPeace is more than choosing sides\nIt means safety without conquest\nLaw without a place to hide\n\n[Bridge]\nName the dead from every village\nHear the living, face to face\nNo ancestral wound gives license\nTo destroy another place\nNo October justifies famine\nNo occupation answers fear\nIf the truth has two cracked windows\nOpen both and make it clear\n\n[Verse 3]\nSo we opened every ledger\nBrought the witnesses inside\nMade the powerful answer plainly\nFor the blood their speeches hide\nPulled the gunmen from the schoolyards\nPulled the checkpoints from the road\nBuilt the homes before the slogans\nShared the water, shared the load\n\nEvery faith could keep its sacred\nEvery family lock its door\nChildren learned their neighbor’s language\nNot the mathematics of war\nThen the experts cleared their throats and asked,\n“What miracle did you apply?”\nI said, “Rights and recognition”\nThey said, “Surely that’s too simplified”\n\n[Chorus]\nWhoopsie, apartheid—\nMaybe labels start the call\nBut a name alone won’t free a hostage\nOr bring justice through the wall\nWhoopsie, apartheid—\nNow the gates can still come down\nEqual dignity and shelter\nEqual law in every town\n\n[Outro]\nIt was simple, never easy\nThat distinction matters most\nPeace began when neither future\nWas a footnote to a boast\nI still don’t know why nobody\nTried the obvious before:\nKeep each other safe and free—\nThen peace can walk through every door",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 10.14,
+            "end": 12.38
+          },
+          {
+            "line": 2,
+            "start": 12.72,
+            "end": 14.74
+          },
+          {
+            "line": 3,
+            "start": 15.08,
+            "end": 16.62
+          },
+          {
+            "line": 4,
+            "start": 16.62,
+            "end": 19.36
+          },
+          {
+            "line": 7,
+            "start": 19.36,
+            "end": 21.36
+          },
+          {
+            "line": 8,
+            "start": 21.92,
+            "end": 23.6
+          },
+          {
+            "line": 9,
+            "start": 24.16,
+            "end": 25.96
+          },
+          {
+            "line": 10,
+            "start": 26.52,
+            "end": 28.44
+          },
+          {
+            "line": 11,
+            "start": 28.44,
+            "end": 30.48
+          },
+          {
+            "line": 12,
+            "start": 30.48,
+            "end": 33.02
+          },
+          {
+            "line": 13,
+            "start": 33.02,
+            "end": 35.14
+          },
+          {
+            "line": 14,
+            "start": 35.14,
+            "end": 37.62
+          },
+          {
+            "line": 17,
+            "start": 44.58,
+            "end": 47.3
+          },
+          {
+            "line": 18,
+            "start": 47.3,
+            "end": 48.72
+          },
+          {
+            "line": 19,
+            "start": 48.72,
+            "end": 51.44
+          },
+          {
+            "line": 20,
+            "start": 51.44,
+            "end": 53.66
+          },
+          {
+            "line": 21,
+            "start": 53.66,
+            "end": 54.88
+          },
+          {
+            "line": 22,
+            "start": 56.4,
+            "end": 57.98
+          },
+          {
+            "line": 23,
+            "start": 57.98,
+            "end": 60.52
+          },
+          {
+            "line": 24,
+            "start": 60.52,
+            "end": 62.62
+          },
+          {
+            "line": 27,
+            "start": 62.68,
+            "end": 65.3
+          },
+          {
+            "line": 28,
+            "start": 65.76,
+            "end": 67.48
+          },
+          {
+            "line": 29,
+            "start": 67.48,
+            "end": 69.24
+          },
+          {
+            "line": 30,
+            "start": 69.82,
+            "end": 71.56
+          },
+          {
+            "line": 31,
+            "start": 72.06,
+            "end": 73.82
+          },
+          {
+            "line": 32,
+            "start": 73.82,
+            "end": 76.44
+          },
+          {
+            "line": 33,
+            "start": 76.72,
+            "end": 78.3
+          },
+          {
+            "line": 34,
+            "start": 78.92,
+            "end": 81.02
+          },
+          {
+            "line": 36,
+            "start": 81.02,
+            "end": 83.16
+          },
+          {
+            "line": 37,
+            "start": 83.62,
+            "end": 85.28
+          },
+          {
+            "line": 38,
+            "start": 85.28,
+            "end": 87.62
+          },
+          {
+            "line": 39,
+            "start": 88.14,
+            "end": 89.86
+          },
+          {
+            "line": 40,
+            "start": 89.86,
+            "end": 91.8
+          },
+          {
+            "line": 41,
+            "start": 92.98,
+            "end": 95.1
+          },
+          {
+            "line": 42,
+            "start": 95.1,
+            "end": 96.86
+          },
+          {
+            "line": 43,
+            "start": 97.18,
+            "end": 98.64
+          },
+          {
+            "line": 46,
+            "start": 103.68,
+            "end": 106.62
+          },
+          {
+            "line": 47,
+            "start": 106.62,
+            "end": 108.3
+          },
+          {
+            "line": 48,
+            "start": 108.74,
+            "end": 110.3
+          },
+          {
+            "line": 49,
+            "start": 110.3,
+            "end": 112.7
+          },
+          {
+            "line": 50,
+            "start": 113.44,
+            "end": 115.22
+          },
+          {
+            "line": 51,
+            "start": 115.58,
+            "end": 117.32
+          },
+          {
+            "line": 52,
+            "start": 117.86,
+            "end": 119.64
+          },
+          {
+            "line": 53,
+            "start": 119.64,
+            "end": 122.56
+          },
+          {
+            "line": 56,
+            "start": 124.32,
+            "end": 126.56
+          },
+          {
+            "line": 57,
+            "start": 126.96,
+            "end": 128.78
+          },
+          {
+            "line": 58,
+            "start": 129.3,
+            "end": 131.08
+          },
+          {
+            "line": 59,
+            "start": 131.08,
+            "end": 133.24
+          },
+          {
+            "line": 60,
+            "start": 133.8,
+            "end": 135.6
+          },
+          {
+            "line": 61,
+            "start": 136,
+            "end": 137.8
+          },
+          {
+            "line": 62,
+            "start": 138.58,
+            "end": 140.3
+          },
+          {
+            "line": 63,
+            "start": 140.68,
+            "end": 142.42
+          },
+          {
+            "line": 66,
+            "start": 147.16,
+            "end": 149.5
+          },
+          {
+            "line": 67,
+            "start": 150.04,
+            "end": 151.62
+          },
+          {
+            "line": 68,
+            "start": 152.12,
+            "end": 153.74
+          },
+          {
+            "line": 69,
+            "start": 154.6,
+            "end": 156.22
+          },
+          {
+            "line": 70,
+            "start": 156.68,
+            "end": 158.92
+          },
+          {
+            "line": 71,
+            "start": 159.18,
+            "end": 160.74
+          },
+          {
+            "line": 72,
+            "start": 161.34,
+            "end": 163.1
+          },
+          {
+            "line": 73,
+            "start": 163.68,
+            "end": 165.3
+          },
+          {
+            "line": 75,
+            "start": 165.94,
+            "end": 167.52
+          },
+          {
+            "line": 76,
+            "start": 168.26,
+            "end": 169.94
+          },
+          {
+            "line": 77,
+            "start": 169.94,
+            "end": 172.3
+          },
+          {
+            "line": 78,
+            "start": 172.7,
+            "end": 174.44
+          },
+          {
+            "line": 79,
+            "start": 174.44,
+            "end": 177.28
+          },
+          {
+            "line": 80,
+            "start": 177.28,
+            "end": 178.78
+          },
+          {
+            "line": 81,
+            "start": 179.26,
+            "end": 181
+          },
+          {
+            "line": 82,
+            "start": 181.58,
+            "end": 183.74
+          },
+          {
+            "line": 85,
+            "start": 184.8,
+            "end": 185.86
+          },
+          {
+            "line": 86,
+            "start": 186.38,
+            "end": 188.12
+          },
+          {
+            "line": 87,
+            "start": 188.6,
+            "end": 190.98
+          },
+          {
+            "line": 88,
+            "start": 190.98,
+            "end": 192.78
+          },
+          {
+            "line": 89,
+            "start": 193.34,
+            "end": 195.06
+          },
+          {
+            "line": 90,
+            "start": 195.06,
+            "end": 197.48
+          },
+          {
+            "line": 91,
+            "start": 197.48,
+            "end": 199.66
+          },
+          {
+            "line": 92,
+            "start": 200.3,
+            "end": 202.22
+          },
+          {
+            "line": 95,
+            "start": 204.68,
+            "end": 206.42
+          },
+          {
+            "line": 96,
+            "start": 207.18,
+            "end": 208.28
+          },
+          {
+            "line": 97,
+            "start": 208.28,
+            "end": 210.96
+          },
+          {
+            "line": 98,
+            "start": 210.96,
+            "end": 213.3
+          },
+          {
+            "line": 99,
+            "start": 213.86,
+            "end": 215.64
+          },
+          {
+            "line": 100,
+            "start": 215.64,
+            "end": 217.68
+          },
+          {
+            "line": 101,
+            "start": 218.6,
+            "end": 220.12
+          },
+          {
+            "line": 102,
+            "start": 220.38,
+            "end": 222.8
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Remix “Whoopsie Apartheid”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: \"Whoopsie Apartheid\": Tony C solves the Israel-Palestine conflict. It was so simple, he doesn't understand why nobody else did it.\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Israel's rebuttal",
+        "keep": "Keep the recognizable hook and spirit of “Whoopsie Apartheid”.",
+        "basisSongs": [
+          "Whoopsie Apartheid"
+        ],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 235
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-37cba227893b88f0c4ed2637",
       "title": "The Dark Sang Me Home",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-37cba227893b88f0c4ed2637-e21585de94ae.mp3",
