@@ -82,6 +82,7 @@ test("record clicks and idle spins show comic lyric captions unless the saved pr
 
   await page.getByRole("button", { name: "Open display settings" }).click();
   await lyricAudio.uncheck();
+  expect(await page.evaluate(() => window.__speechCancels)).toBeGreaterThan(0);
   await page.getByRole("button", { name: "Close display settings" }).click();
   await record.click({ force: true });
   await expect(bubble).toBeHidden();

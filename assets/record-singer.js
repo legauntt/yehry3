@@ -20,7 +20,10 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
   let previous = "";
   let captionsEnabled = getRecordPreferences().captions;
   let lyricAudioEnabled = getRecordPreferences().lyricAudio;
+  let utterance;
   const stopAudio = () => {
+    if (!utterance) return;
+    utterance = undefined;
     try { window.speechSynthesis?.cancel(); }
     catch { /* Speech generation is optional browser functionality. */ }
   };
@@ -28,12 +31,19 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
     if (!lyricAudioEnabled || !window.speechSynthesis || typeof SpeechSynthesisUtterance !== "function") return;
     try {
       stopAudio();
-      const utterance = new SpeechSynthesisUtterance(line);
-      utterance.rate = 0.92;
-      utterance.pitch = 1.08;
-      window.speechSynthesis.speak(utterance);
+      const next = new SpeechSynthesisUtterance(line);
+      next.rate = 0.92;
+      next.pitch = 1.08;
+      const clear = () => { if (utterance === next) utterance = undefined; };
+      next.addEventListener("end", clear, { once: true });
+      next.addEventListener("error", clear, { once: true });
+      utterance = next;
+      window.speechSynthesis.speak(next);
     }
-    catch { /* Keep the caption working if speech synthesis is unavailable. */ }
+    catch {
+      utterance = undefined;
+      /* Keep the caption working if speech synthesis is unavailable. */
+    }
   };
   const hide = () => {
     request += 1;
