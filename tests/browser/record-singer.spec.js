@@ -46,6 +46,12 @@ test("record clicks and idle spins show comic lyric captions unless the saved pr
   await expect(bubble).toBeHidden();
   await record.click({ force: true });
   await expect(bubble).toBeVisible();
+  const captionSizing = await bubble.evaluate(element => ({
+    fontSize: parseFloat(getComputedStyle(element.querySelector("blockquote")).fontSize),
+    paddingTop: parseFloat(getComputedStyle(element).paddingTop),
+  }));
+  expect(captionSizing.fontSize).toBeGreaterThanOrEqual(22.4);
+  expect(captionSizing.paddingTop).toBe(24);
   await expect(bubble).toHaveAttribute("data-line-count", "8");
   await expect(bubble.locator("blockquote")).toContainText(/morning finds|restless night/i);
   await expect(bubble.locator("figcaption")).toContainText(detail.title);
@@ -103,6 +109,12 @@ test("record clicks and idle spins show comic lyric captions unless the saved pr
   await page.emulateMedia({ reducedMotion: "reduce" });
   await record.click({ force: true });
   await expect(bubble).toBeVisible();
+  const mobileCaptionSizing = await bubble.evaluate(element => ({
+    fontSize: parseFloat(getComputedStyle(element.querySelector("blockquote")).fontSize),
+    paddingTop: parseFloat(getComputedStyle(element).paddingTop),
+  }));
+  expect(mobileCaptionSizing.fontSize).toBeGreaterThanOrEqual(22.4);
+  expect(mobileCaptionSizing.paddingTop).toBe(18);
   await expect(bubble).toHaveAttribute("data-line-count", "4");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const mobileBubble = await bubble.evaluate(element => {

@@ -443,9 +443,9 @@ main {
   z-index: 6;
   top: -24%;
   right: 54%;
-  width: clamp(170px, 18vw, 235px);
+  width: clamp(280px, 32vw, 420px);
   margin: 0;
-  padding: 13px 15px 12px;
+  padding: 24px 26px 22px;
   border: 1px solid #b8bda9;
   border-radius: 13px 13px 3px 13px;
   background: #fffdf4;
@@ -466,11 +466,11 @@ main {
 }
 .record-lyric blockquote {
   margin: 0;
-  font: italic 600 clamp(.7rem, 1vw, .86rem) / 1.45 "Playfair Display", Georgia, serif;
+  font: italic 600 clamp(1.4rem, 2vw, 1.72rem) / 1.45 "Playfair Display", Georgia, serif;
   white-space: pre-line;
 }
 .record-lyric:not([data-line-count="1"]) {
-  width: clamp(260px, 34vw, 430px);
+  width: clamp(360px, 48vw, 620px);
 }
 .record-lyric figcaption {
   margin-top: 7px;
@@ -1607,7 +1607,7 @@ main {
     top: 72%;
     right: 50%;
     width: min(185px, 58vw);
-    padding: 10px 12px;
+    padding: 18px 20px 16px;
   }
   .record-lyric:not([data-line-count="1"]) {
     right: -12px;
