@@ -62,6 +62,8 @@
 #catalog-items .pending-availability { display: none; }
 #catalog-items .pending-title { grid-column: 4; grid-row: 1; min-width: 0; }
 #catalog-items .pending-title .tiny-label { display: block; font-size: .55rem; line-height: 1.6; margin-bottom: 4px; color: #795016; }
+#catalog-items .pending-attention .tiny-label { display: flex; align-items: center; gap: 7px; color: #913c24; font-size: .68rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+#catalog-items .pending-warning-icon { width: 38px; height: 38px; flex: 0 0 38px; fill: #f7d7c4; stroke: #913c24; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 #catalog-items .pending-title strong { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; overflow-wrap: anywhere; font-size: .98rem; line-height: 1.4; font-weight: 500; margin-bottom: 5px; }
 #catalog-items .pending-state { grid-column: 5; grid-row: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; max-width: 170px; min-width: 0; }
 #catalog-items .pending-state .badge { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
@@ -87,6 +89,8 @@
 #catalog-items[data-view="grid"] .pending-mark { display: none; }
 #catalog-items[data-view="grid"] .pending-title { grid-column: 1; grid-row: 2; }
 #catalog-items[data-view="grid"] .pending-title strong { -webkit-line-clamp: 3; font-size: 1.02rem; }
+#catalog-items[data-view="grid"] .pending-attention { border: 2px solid #b45031; background: #fff5ef; }
+#catalog-items[data-view="grid"] .pending-attention .track-art { opacity: .72; filter: none; }
 #catalog-items[data-view="grid"] .pending-state { grid-column: 1; grid-row: 3; max-width: none; justify-content: flex-start; }
 #catalog-items[data-view="grid"] .pending-disclosure { grid-column: 1; grid-row: 4; justify-self: start; border-radius: 22px; padding: 0 14px; font-size: .78rem; }
 #catalog-items[data-view="grid"] .pending-body { margin-top: 16px; padding: 16px 0 0; border-top: 1px solid var(--line); }
@@ -96,6 +100,7 @@
   #catalog-items[data-view="list"] .pending-track .track-art { grid-column: 1; grid-row: 1 / 3; width: 64px; }
   #catalog-items[data-view="list"] .pending-title { grid-column: 2; grid-row: 1; }
   #catalog-items[data-view="list"] .pending-title strong { font-size: .85rem; }
+  #catalog-items[data-view="list"] .pending-warning-icon { width: 32px; height: 32px; flex-basis: 32px; }
   #catalog-items[data-view="list"] .pending-state { grid-column: 2; grid-row: 2; justify-content: flex-start; max-width: none; gap: 5px; }
   #catalog-items[data-view="list"] .pending-state .badge { font-size: .57rem; padding: 4px 6px; }
   #catalog-items[data-view="list"] .pending-disclosure { grid-column: 3; grid-row: 1 / 3; }

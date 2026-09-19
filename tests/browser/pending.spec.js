@@ -40,19 +40,19 @@ async function fixture(page, view = "grid") {
     return item ? route.fulfill({ json: { song: item } }) : route.fulfill({ status: 404, json: { error: "Not found" } });
   });
   await page.goto("/");
-  await expect(page.locator(".pending-track")).toHaveCount(3);
+  await expect(page.locator(".pending-track")).toHaveCount(4);
   await expect(page.locator(".track")).toHaveCount(20);
   return state;
 }
 
-test("three collapsed upcoming rows refresh and publish without losing disclosure, playback, or reading position", async ({ page }) => {
+test("all collapsed upcoming rows refresh and publish without losing disclosure, playback, or reading position", async ({ page }) => {
   const state = await fixture(page, "list");
   const pending = page.locator(`.pending-track[data-id="${publicId(1)}"]`);
   expect(await page.locator(".pending-track").evaluateAll(rows => rows.every(row => !row.open))).toBe(true);
-  expect(await page.locator(".pending-track").evaluateAll(rows => rows.map(row => row.dataset.id))).toEqual([publicId(1), publicId(2), publicId(3)]);
+  expect(await page.locator(".pending-track").evaluateAll(rows => rows.map(row => row.dataset.id))).toEqual([publicId(1), publicId(2), publicId(3), publicId(4)]);
   await expect(pending.locator("summary")).toContainText("Next from the studio");
   await expect(pending.locator("summary")).toContainText("55%");
-  await expect(page.locator("#pending-tracks .track-art")).toHaveCount(3);
+  await expect(page.locator("#pending-tracks .track-art")).toHaveCount(4);
   await expect(page.locator("#pending-tracks img:not(.track-art)")).toHaveCount(0);
   expect(await page.locator("#pending-tracks").evaluate(node => node.compareDocumentPosition(document.querySelector("#tracks")) & Node.DOCUMENT_POSITION_FOLLOWING)).toBeTruthy();
   await pending.locator("summary").click();
@@ -184,7 +184,7 @@ test("pending entries fit both mobile views and disappear from saved-song filter
   await expect(page.locator("#pending-tracks")).toBeHidden();
   await expect(page.locator(".pending-track:visible")).toHaveCount(0);
   await page.locator("#saved-only").click();
-  await expect(page.locator(".pending-track:visible")).toHaveCount(3);
+  await expect(page.locator(".pending-track:visible")).toHaveCount(4);
   state.queue = { ...state.queue, inStudio: [], queued: [] };
   await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
   await expect(page.locator(".pending-track")).toHaveCount(0);

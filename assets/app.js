@@ -307,7 +307,7 @@ async function library() {
     const failures = eligible.filter((song) => song.status === "failed");
     const rows = [
       ...failures,
-      ...eligible.filter((song) => song.status !== "failed").slice(0, Math.max(0, 3 - failures.length)),
+      ...eligible.filter((song) => song.status !== "failed"),
     ];
     const container = $("#pending-tracks");
     container.hidden = !rows.length;
@@ -316,10 +316,11 @@ async function library() {
       const title = song.title || song.idea || "Untitled request";
       const state = recoveryStatus(song);
       const label = gpuWaiting(song) ? "Waiting for the GPU" : recoveryActive(song) ? "Recovering automatically" : song.status === "failed" ? "Needs attention" : "On the way";
-      return `<details class="pending-track" data-id="${escape(song.id)}">
+      const needsAttention = song.status === "failed";
+      return `<details class="pending-track${needsAttention ? " pending-attention" : ""}" data-id="${escape(song.id)}">
         <summary><span class="pending-mark" aria-hidden="true">↗</span>${songArtworkMarkup({ ...song, title }, escape)}
           <span class="pending-availability"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Not yet playable</span>
-          <span class="pending-title"><span class="tiny-label">${label}</span><strong title="${escape(title)}">${escape(title)}</strong><span class="track-meta">${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge${voiceModelBadgeClass(song.voiceModel)}">${voiceModelBadge(song.voiceModel)}</span>${musicBackendBadge(song)}</span></span>
+          <span class="pending-title"><span class="tiny-label">${needsAttention ? '<svg class="pending-warning-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.8 20h18.4L12 3Z"></path><path d="M12 9v5"></path><circle cx="12" cy="17" r=".9"></circle></svg>' : ""}${label}</span><strong title="${escape(title)}">${escape(title)}</strong><span class="track-meta">${authoredByLine(song.authoredBy, escape)}<span class="voice-model-badge${voiceModelBadgeClass(song.voiceModel)}">${voiceModelBadge(song.voiceModel)}</span>${musicBackendBadge(song)}</span></span>
           <span class="pending-state">${badge(state)}${song.progress && song.status !== "failed" ? `<span class="small">${Math.round(percent)}%</span><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}</span>
           <span class="pending-disclosure"><span class="pending-details-label">Details</span></span>
         </summary><div class="pending-body"><p>${escape(song.idea)}</p>${song.status === "failed" ? '<p class="attention-note">Completed work is saved; retry resumes completed stages.</p>' : song.progress ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p>` : ""}<div class="actions"><a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">View original prompt ↗</a>${songPlanLink(song, escape)}<a class="text-link" href="${queueItemHref(song)}">View request details ↗</a></div></div></details>`;

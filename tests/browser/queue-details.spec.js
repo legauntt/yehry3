@@ -68,7 +68,7 @@ test("queue cards have distinct detail URLs and Needs Attention remains public",
   await page.locator(".original-prompt").screenshot({ path: "artifacts/original-prompt-mobile.png" });
 });
 
-test("Needs Attention stays in the homepage rows even when three active items precede it", async ({ page }) => {
+test("the homepage shows the full queue and emphasizes Needs Attention", async ({ page }) => {
   const active = ["c", "d", "e"].map((letter, index) => ({
     id: id(letter), idea: `Active request ${index + 1}`, status: "processing", voiceModel: "v6",
     submittedAt: "2026-09-13T18:00:00.000Z", updatedAt: "2026-09-13T18:00:00.000Z",
@@ -79,6 +79,7 @@ test("Needs Attention stays in the homepage rows even when three active items pr
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { ...queue, inStudio: active, inStudioTotal: 3 } }));
   await page.goto("/");
   await expect(page.locator(`.pending-track[data-id="${failed.id}"]`)).toBeVisible();
-  await expect(page.locator(".pending-track")).toHaveCount(3);
+  await expect(page.locator(".pending-track")).toHaveCount(5);
   await expect(page.locator(".pending-track").first()).toContainText("Needs attention");
+  await expect(page.locator(`.pending-track[data-id="${failed.id}"] .pending-warning-icon`)).toBeVisible();
 });
