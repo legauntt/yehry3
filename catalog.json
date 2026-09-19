@@ -2,6 +2,294 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ce216fde528ad34ec0e1042b",
+      "title": "The City Said My Name",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ce216fde528ad34ec0e1042b-5843af1260c8.mp3",
+      "duration": 195.10857142857142,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-19T05:41:10.162Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The City Said My Name",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E major",
+        "arrangement": "A 195-second bass-forward soul-rock song with a lively 4/4 pocket, bright electric guitars, warm organ, punchy drums and restrained brass punctuation. Open immediately with the lead vocal over bass, rim-click and guitar, then widen through pre-choruses into full, melodic choruses. Pull the bridge down to organ, bass and sparse drums before a rising final chorus with bold ensemble stops. Tony V8 delivers rough, smoky connected vowels, crooked timing, quiet amused asides and increasingly excited sustained phrases while keeping the central hook clear. Pace the last chorus so the final sustained syllable of “am” lands 8–12 seconds before 195 seconds; follow it with one resolved band chord and a natural decay, with no extended instrumental outro.",
+        "lyrics": "[Verse 1]\nSouth Station breathed out a river of coats\nI stepped through the steam with my past in my throat\nThe rain wrote silver on Atlantic Avenue\nEvery window held a man I almost knew\nI followed the harbor where the cold wind came\nThen somebody laughed and it sounded like my name\nNot the name on the ticket, not the one I became\nThe old one underneath it, still carrying a flame\n\n[Pre-Chorus]\nI had crossed every line on the map\nJust to circle the truth and come back\n\n[Chorus]\nBoston, you found me before I found you\nUnder that hard gray, breaking into blue\nI was gone so long I thought gone was what I am\nThen the city said my name and I remembered who I am\nYeah, the city said my name\n\n[Verse 2]\nPast the Common trees and the red-brick rows\nA busker bent a melody the whole town knows\nI bought bad coffee, let the morning sting\nWatched a sparrow steal a piece of everything\nThere were years in my pocket I could never spend\nDoors I had slammed that were open again\nOn the Charles, every ripple split the light\nLike a hundred little chances getting something right\n\n[Pre-Chorus]\nNo angel came, no thunder cracked\nJust my own two feet that carried me back\n\n[Chorus]\nBoston, you found me before I found you\nUnder that hard gray, breaking into blue\nI was gone so long I thought gone was what I am\nThen the city said my name and I remembered who I am\nYeah, the city said my name\n\n[Bridge]\nMaybe home is not a house you keep\nMaybe it is what wakes up when the hurt runs deep\nA voice from a doorway, a hand on the rail\nThe nerve to begin when the old plans fail\nI faced my reflection in a black shop pane\nSaid, there you are, you fool—and I laughed in the rain\n\n[Chorus]\nBoston, you found me, now I am standing true\nWith the harbor behind me and the whole sky new\nI was gone so long, but gone is not where I end\nThe city said my name, and I answered it again\nBoston, hold the morning while I make my way\nI came here as a stranger—I am leaving here as me today\nThe city said my name\nAnd I answered: here I am\n\n[End]",
+        "duration": 195,
+        "bpm": 112,
+        "musicalSettings": {
+          "genre": "Bass-forward soul-rock with heartland warmth",
+          "meter": "4/4 with a lively, syncopated pocket",
+          "structure": "Verse, pre-chorus, chorus, verse, pre-chorus, chorus, bridge, expanded final chorus, resolved ending",
+          "performance": "Natural Tony V8 lead: rough, smoky and slurred, with melodic sustained lines, muttered humor and a clear central hook",
+          "energy": "Street-level, reflective opening; steadily widening choruses; intimate bridge; triumphant final lift and clean resolution",
+          "lyricWorkflow": "Original narrative lyrics trace a return through Boston landmarks from estrangement to self-recognition, with the title hook earning its final answer",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "electric guitar",
+            "Hammond organ",
+            "brass section"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nSouth Station breathed out a river of coats\nI stepped through the steam with my past in my throat\nThe rain wrote silver on Atlantic Avenue\nEvery window held a man I almost knew\nI followed the harbor where the cold wind came\nThen somebody laughed and it sounded like my name\nNot the name on the ticket, not the one I became\nThe old one underneath it, still carrying a flame\n\n[Pre-Chorus]\nI had crossed every line on the map\nJust to circle the truth and come back\n\n[Chorus]\nBoston, you found me before I found you\nUnder that hard gray, breaking into blue\nI was gone so long I thought gone was what I am\nThen the city said my name and I remembered who I am\nYeah, the city said my name\n\n[Verse 2]\nPast the Common trees and the red-brick rows\nA busker bent a melody the whole town knows\nI bought bad coffee, let the morning sting\nWatched a sparrow steal a piece of everything\nThere were years in my pocket I could never spend\nDoors I had slammed that were open again\nOn the Charles, every ripple split the light\nLike a hundred little chances getting something right\n\n[Pre-Chorus]\nNo angel came, no thunder cracked\nJust my own two feet that carried me back\n\n[Chorus]\nBoston, you found me before I found you\nUnder that hard gray, breaking into blue\nI was gone so long I thought gone was what I am\nThen the city said my name and I remembered who I am\nYeah, the city said my name\n\n[Bridge]\nMaybe home is not a house you keep\nMaybe it is what wakes up when the hurt runs deep\nA voice from a doorway, a hand on the rail\nThe nerve to begin when the old plans fail\nI faced my reflection in a black shop pane\nSaid, there you are, you fool—and I laughed in the rain\n\n[Chorus]\nBoston, you found me, now I am standing true\nWith the harbor behind me and the whole sky new\nI was gone so long, but gone is not where I end\nThe city said my name, and I answered it again\nBoston, hold the morning while I make my way\nI came here as a stranger—I am leaving here as me today\nThe city said my name\nAnd I answered: here I am",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.62,
+            "end": 7.1
+          },
+          {
+            "line": 2,
+            "start": 7.1,
+            "end": 11.72
+          },
+          {
+            "line": 3,
+            "start": 12.54,
+            "end": 16.08
+          },
+          {
+            "line": 4,
+            "start": 17.02,
+            "end": 20.22
+          },
+          {
+            "line": 5,
+            "start": 21.14,
+            "end": 24.84
+          },
+          {
+            "line": 6,
+            "start": 25.46,
+            "end": 29.08
+          },
+          {
+            "line": 7,
+            "start": 29.5,
+            "end": 32.96
+          },
+          {
+            "line": 8,
+            "start": 33.6,
+            "end": 36.84
+          },
+          {
+            "line": 11,
+            "start": 37.06,
+            "end": 40.74
+          },
+          {
+            "line": 12,
+            "start": 41.64,
+            "end": 45.06
+          },
+          {
+            "line": 15,
+            "start": 45.06,
+            "end": 50.24
+          },
+          {
+            "line": 16,
+            "start": 50.66,
+            "end": 54.52
+          },
+          {
+            "line": 17,
+            "start": 54.52,
+            "end": 59.1
+          },
+          {
+            "line": 18,
+            "start": 59.1,
+            "end": 63.46
+          },
+          {
+            "line": 19,
+            "start": 63.46,
+            "end": 65.56
+          },
+          {
+            "line": 22,
+            "start": 68.66,
+            "end": 71.76
+          },
+          {
+            "line": 23,
+            "start": 72.28,
+            "end": 76.02
+          },
+          {
+            "line": 24,
+            "start": 76.52,
+            "end": 80.28
+          },
+          {
+            "line": 25,
+            "start": 80.28,
+            "end": 84.1
+          },
+          {
+            "line": 26,
+            "start": 84.78,
+            "end": 88.82
+          },
+          {
+            "line": 27,
+            "start": 88.82,
+            "end": 93.06
+          },
+          {
+            "line": 28,
+            "start": 93.06,
+            "end": 96.24
+          },
+          {
+            "line": 29,
+            "start": 96.24,
+            "end": 97.32
+          },
+          {
+            "line": 32,
+            "start": 97.32,
+            "end": 99.54
+          },
+          {
+            "line": 33,
+            "start": 99.54,
+            "end": 104.28
+          },
+          {
+            "line": 36,
+            "start": 104.28,
+            "end": 110.26
+          },
+          {
+            "line": 37,
+            "start": 110.92,
+            "end": 114.5
+          },
+          {
+            "line": 38,
+            "start": 114.96,
+            "end": 119.12
+          },
+          {
+            "line": 39,
+            "start": 119.34,
+            "end": 123.46
+          },
+          {
+            "line": 40,
+            "start": 123.7,
+            "end": 125.68
+          },
+          {
+            "line": 43,
+            "start": 127.74,
+            "end": 131.58
+          },
+          {
+            "line": 44,
+            "start": 131.96,
+            "end": 135.98
+          },
+          {
+            "line": 45,
+            "start": 136.74,
+            "end": 140.34
+          },
+          {
+            "line": 46,
+            "start": 141,
+            "end": 144.64
+          },
+          {
+            "line": 47,
+            "start": 145.42,
+            "end": 148.96
+          },
+          {
+            "line": 48,
+            "start": 149.54,
+            "end": 152.78
+          },
+          {
+            "line": 51,
+            "start": 152.78,
+            "end": 157.48
+          },
+          {
+            "line": 52,
+            "start": 157.88,
+            "end": 161.66
+          },
+          {
+            "line": 53,
+            "start": 161.66,
+            "end": 165.88
+          },
+          {
+            "line": 54,
+            "start": 165.88,
+            "end": 170.3
+          },
+          {
+            "line": 55,
+            "start": 171.22,
+            "end": 174.64
+          },
+          {
+            "line": 56,
+            "start": 175.18,
+            "end": 179.48
+          },
+          {
+            "line": 57,
+            "start": 179.48,
+            "end": 181.42
+          },
+          {
+            "line": 58,
+            "start": 181.42,
+            "end": 186.96
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony finds himself again in Boston",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 195
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-5c67d4ddfa9eb5afe7b8a350",
       "title": "The Golden Plague",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c67d4ddfa9eb5afe7b8a350-391907551888.mp3",
