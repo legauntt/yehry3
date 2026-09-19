@@ -48,8 +48,8 @@ const labels = {
   completed: "Ready to publish",
   publishing: "Publishing",
   published: "Published",
-  failed: "Needs attention",
-  attention: "Needs attention",
+  failed: "9/11'd Again",
+  attention: "9/11'd Again",
   recovering: "Recovering automatically",
   canceled: "Canceled",
   cancel_requested: "Cancellation requested",
@@ -315,7 +315,7 @@ async function library() {
       const percent = Math.max(0, Math.min(100, Number(song.progress?.percent) || 0));
       const title = song.title || song.idea || "Untitled request";
       const state = recoveryStatus(song);
-      const label = gpuWaiting(song) ? "Waiting for the GPU" : recoveryActive(song) ? "Recovering automatically" : song.status === "failed" ? "Needs attention" : "On the way";
+      const label = gpuWaiting(song) ? "Waiting for the GPU" : recoveryActive(song) ? "Recovering automatically" : song.status === "failed" ? "9/11'd Again" : "On the way";
       const needsAttention = song.status === "failed";
       return `<details class="pending-track${needsAttention ? " pending-attention" : ""}" data-id="${escape(song.id)}">
         <summary><span class="pending-mark" aria-hidden="true">↗</span>${songArtworkMarkup({ ...song, title }, escape)}
@@ -1054,7 +1054,7 @@ async function admin() {
     main.innerHTML = `<section class="admin-intro"><div><p class="eyebrow">Backstage · Studio queue</p><h1>Make room for<br><em>the next one.</em></h1></div><button class="quiet" id="signout">Sign out ↗</button></section><div class="stats">${[
       ["queued", "Waiting in line"],
       ["processing", "In the studio"],
-      ["attention", "Needs Attention"],
+      ["attention", "9/11'd Again"],
       ["recovering", "Recovering automatically"],
       ["completed", "Ready to publish"],
       ["published", "Out in the world"],

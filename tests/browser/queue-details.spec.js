@@ -42,7 +42,7 @@ async function mockQueue(page) {
   });
 }
 
-test("queue cards have distinct detail URLs and Needs Attention remains public", async ({ page }) => {
+test("queue cards have distinct detail URLs and 9/11'd Again remains public", async ({ page }) => {
   await mockQueue(page);
   await page.goto("/queue/");
   await expect(page.locator("#attention-section")).toBeVisible();
@@ -68,7 +68,7 @@ test("queue cards have distinct detail URLs and Needs Attention remains public",
   await page.locator(".original-prompt").screenshot({ path: "artifacts/original-prompt-mobile.png" });
 });
 
-test("the homepage shows the full queue and emphasizes Needs Attention", async ({ page }) => {
+test("the homepage shows the full queue and emphasizes 9/11'd Again", async ({ page }) => {
   const active = ["c", "d", "e"].map((letter, index) => ({
     id: id(letter), idea: `Active request ${index + 1}`, status: "processing", voiceModel: "v6",
     submittedAt: "2026-09-13T18:00:00.000Z", updatedAt: "2026-09-13T18:00:00.000Z",
@@ -80,6 +80,6 @@ test("the homepage shows the full queue and emphasizes Needs Attention", async (
   await page.goto("/");
   await expect(page.locator(`.pending-track[data-id="${failed.id}"]`)).toBeVisible();
   await expect(page.locator(".pending-track")).toHaveCount(5);
-  await expect(page.locator(".pending-track").first()).toContainText("Needs attention");
+  await expect(page.locator(".pending-track").first()).toContainText("9/11'd Again");
   await expect(page.locator(`.pending-track[data-id="${failed.id}"] .pending-warning-icon`)).toBeVisible();
 });

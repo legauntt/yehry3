@@ -1,5 +1,5 @@
 import { watchSong } from "./song-data.js";
-import { lyricPassage, singableLines } from "./record-lyrics.js";
+import { lyricPassage, pickRecordSong, singableLines } from "./record-lyrics.js";
 import { getRecordPreferences, watchRecordPreferences } from "./record-preferences.js";
 
 const choose = (items, random) => items[Math.floor(random() * items.length)];
@@ -60,10 +60,9 @@ export function startRecordSinger(record, getSongs, { random = Math.random } = {
   };
   const sing = async ({ withAudio = false } = {}) => {
     if ((!captionsEnabled && !(withAudio && lyricAudioEnabled)) || document.hidden) return;
-    const songs = (getSongs?.() || []).filter((song) => song?.id && (song.hasLyrics || song.lyrics?.text));
-    if (!songs.length) return;
+    const song = pickRecordSong(getSongs?.() || [], random);
+    if (!song) return;
     const token = ++request;
-    const song = choose(songs, random);
     const loaded = await detail(song);
     if (token !== request || document.hidden || !loaded) return;
     const lines = singableLines(loaded.lyrics?.text);

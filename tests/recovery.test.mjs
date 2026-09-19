@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { recoveryStatus } from '../assets/recovery.js';
-test('only a failed request with fresh recovery evidence avoids Needs Attention', () => {
+test("only a failed request with fresh recovery evidence avoids 9/11'd Again", () => {
   const now = Date.now();
   const doc = { status: 'failed', recovery: { phase: 'recovering', expiresAt: new Date(now + 60000).toISOString() } };
   assert.equal(recoveryStatus(doc, now), 'recovering');

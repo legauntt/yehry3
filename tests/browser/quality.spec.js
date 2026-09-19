@@ -202,7 +202,7 @@ test("a failed admin request shows the cause and can retry without opening contr
   await page.getByRole("button", { name: "Open the queue" }).click();
   const attention = page.locator('.stats a[href="/admin/?status=attention"]');
   await expect(attention.locator("strong")).toHaveText("1");
-  await expect(attention).toContainText("Needs Attention");
+  await expect(attention).toContainText("9/11'd Again");
   await attention.click();
   await expect(page).toHaveURL(/\/admin\/\?status=attention$/);
   await expect(page.getByLabel("Show", { exact: true })).toHaveValue("attention");

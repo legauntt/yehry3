@@ -6,6 +6,7 @@ const detail = {
   url: "/fearhunger/audio/fear-and-hunger-dungeon-rock.mp3",
   duration: 180,
   collection: "tonyai",
+  votes: 1,
   hasLyrics: true,
   lyrics: {
     kind: "written",

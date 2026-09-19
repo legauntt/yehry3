@@ -15,7 +15,7 @@ test('Backstage separates automatic recovery from operator attention and preserv
   await page.goto('/admin/?status=all');
   await page.getByLabel('Password', { exact: true }).fill('browser-test-admin');
   await page.getByRole('button', { name: 'Open the queue' }).click();
-  await expect(page.locator('.stats a[href="/admin/?status=attention"]')).toContainText('1Needs Attention');
+  await expect(page.locator('.stats a[href="/admin/?status=attention"]')).toContainText("19/11'd Again");
   await expect(page.locator('[data-prompt="auto"] .badge')).toHaveText('Recovering automatically');
   await expect(page.locator('[data-prompt="auto"]')).toContainText('Saved diagnostic');
   await expect(page.locator('[data-prompt="auto"]').getByRole('button', { name: 'Retry saved work' })).toHaveCount(0);
