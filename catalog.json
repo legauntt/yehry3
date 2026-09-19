@@ -2,6 +2,270 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-7c837718ebc78883371aa4fb",
+      "title": "Yeah After Midnight (Smoke Lounge)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7c837718ebc78883371aa4fb-711027613fe8.mp3",
+      "duration": 359.44,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "remixOf": {
+        "songId": "distonyc-d88c69ac5b02b644324e42ad",
+        "title": "Yeah After Midnight",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d88c69ac5b02b644324e42ad-d0c85e6f241f.mp3"
+      },
+      "publishedAt": "2026-09-19T08:57:26.549Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Yeah After Midnight (Smoke Lounge)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "C minor",
+        "arrangement": "A six-minute smooth-jazz reinterpretation retaining the repeated “Yeah” hook and loose original cadence. Smoky Tony V8 lead uses heavy, close-miked breathing between short slurred phrases, with occasional muttered “Heh,” “Mmm,” “That’s right,” “Damn,” and “Woah.” Rhodes, upright bass, brushed drums, muted trumpet, and restrained tenor sax create a late-night lounge pocket that swells modestly through the bridge, then settles for a final sustained “Yeeaah” 8–12 seconds before a single resolved C minor chord decays naturally.",
+        "lyrics": "[Intro]\nYeah\nMmm\nYeah\n\n[Verse 1]\nYeah\nYeah\nHeh\nYeah\nThat's right\nYeah\n\n[Interlude]\nYeah\nMmm\nYeah\n\n[Verse 2]\nYeah\nYeah\nDamn\nYeah\nYeah\nWoah\nYeah\n\n[Bridge]\nMmm\nYeah\nThat's right\nYeah\n\n[Verse 3]\nYeah\nHeh\nYeah\nYeah\nDamn\nYeah\n\n[Interlude]\nYeah\nMmm\nYeah\n\n[Outro]\nYeah\nThat's right\nYeah\nYeah\nYeeaah\n[End]",
+        "duration": 360,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Smoky smooth jazz lounge",
+          "meter": "4/4",
+          "structure": "Intro, three compact vocal sections, two interludes, bridge, and resolved outro",
+          "performance": "Natural, rough Tony V8 delivery with connected vowels, close breathing, muttered asides, and a catchable repeated hook",
+          "energy": "Low-lit and intimate at first, gently deepening through the bridge, then easing into a final held vocal resolution",
+          "lyricWorkflow": "Adapted source-hook writing: preserve the recurring “Yeah” motif while adding only a few cadence-matched responses",
+          "instruments": [
+            "Rhodes piano",
+            "upright bass",
+            "brushed drum kit",
+            "muted trumpet",
+            "tenor saxophone"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nYeah\nMmm\nYeah\n\n[Verse 1]\nYeah\nYeah\nHeh\nYeah\nThat's right\nYeah\n\n[Interlude]\nYeah\nMmm\nYeah\n\n[Verse 2]\nYeah\nYeah\nDamn\nYeah\nYeah\nWoah\nYeah\n\n[Bridge]\nMmm\nYeah\nThat's right\nYeah\n\n[Verse 3]\nYeah\nHeh\nYeah\nYeah\nDamn\nYeah\n\n[Interlude]\nYeah\nMmm\nYeah\n\n[Outro]\nYeah\nThat's right\nYeah\nYeah\nYeeaah",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 0.28
+          },
+          {
+            "line": 2,
+            "start": 5.02,
+            "end": 9.96
+          },
+          {
+            "line": 3,
+            "start": 9.96,
+            "end": 10.04
+          },
+          {
+            "line": 6,
+            "start": 10.04,
+            "end": 15.44
+          },
+          {
+            "line": 7,
+            "start": 15.76,
+            "end": 15.88
+          },
+          {
+            "line": 8,
+            "start": 16.01,
+            "end": 16.2
+          },
+          {
+            "line": 9,
+            "start": 16.25,
+            "end": 16.37
+          },
+          {
+            "line": 10,
+            "start": 16.5,
+            "end": 16.74
+          },
+          {
+            "line": 11,
+            "start": 17.3,
+            "end": 18.06
+          },
+          {
+            "line": 14,
+            "start": 18.06,
+            "end": 18.18
+          },
+          {
+            "line": 15,
+            "start": 18.54,
+            "end": 18.96
+          },
+          {
+            "line": 16,
+            "start": 18.96,
+            "end": 19.38
+          },
+          {
+            "line": 19,
+            "start": 19.38,
+            "end": 19.8
+          },
+          {
+            "line": 20,
+            "start": 19.8,
+            "end": 19.92
+          },
+          {
+            "line": 21,
+            "start": 20.22,
+            "end": 20.64
+          },
+          {
+            "line": 22,
+            "start": 20.64,
+            "end": 23.7
+          },
+          {
+            "line": 23,
+            "start": 24.22,
+            "end": 24.72
+          },
+          {
+            "line": 24,
+            "start": 25.95,
+            "end": 27.67
+          },
+          {
+            "line": 25,
+            "start": 27.67,
+            "end": 29.4
+          },
+          {
+            "line": 28,
+            "start": 29.4,
+            "end": 29.52
+          },
+          {
+            "line": 29,
+            "start": 93.04,
+            "end": 94.44
+          },
+          {
+            "line": 30,
+            "start": 111.6,
+            "end": 113.3
+          },
+          {
+            "line": 31,
+            "start": 115.58,
+            "end": 116.98
+          },
+          {
+            "line": 34,
+            "start": 122.24,
+            "end": 123.64
+          },
+          {
+            "line": 35,
+            "start": 126.62,
+            "end": 128.02
+          },
+          {
+            "line": 36,
+            "start": 207.8,
+            "end": 209.2
+          },
+          {
+            "line": 37,
+            "start": 229.02,
+            "end": 230.42
+          },
+          {
+            "line": 38,
+            "start": 238.24,
+            "end": 239.64
+          },
+          {
+            "line": 39,
+            "start": 250.3,
+            "end": 251.7
+          },
+          {
+            "line": 42,
+            "start": 260.06,
+            "end": 261.46
+          },
+          {
+            "line": 43,
+            "start": 261.46,
+            "end": 262.86
+          },
+          {
+            "line": 44,
+            "start": 262.86,
+            "end": 263.54
+          },
+          {
+            "line": 47,
+            "start": 293.02,
+            "end": 294.42
+          },
+          {
+            "line": 48,
+            "start": 325.12,
+            "end": 326.78
+          },
+          {
+            "line": 49,
+            "start": 340.48,
+            "end": 343.28
+          },
+          {
+            "line": 50,
+            "start": 343.28,
+            "end": 347.1
+          },
+          {
+            "line": 51,
+            "start": 354.8,
+            "end": 355.5
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 26.46
+        }
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "Remix “Yeah After Midnight”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Six minutes of heavy breathing and Tony saying \"yeah\" over smooth jazz\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Allow Tony to say a few other words (keep the same cadence). Some examples:\n\"Heh\"\n\"Yeah\"\n\"Woah\"\n\"That's right\"\n\"Damn\"\n\"Mmm\"",
+        "keep": "Keep the recognizable hook and spirit of “Yeah After Midnight”.",
+        "basisSongs": [
+          "Yeah After Midnight"
+        ],
+        "voiceModel": "v8",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-1c4506da77d3415af66ed6b0",
       "title": "The Bunker Has Teeth",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1c4506da77d3415af66ed6b0-c1c9d32bf480.mp3",
