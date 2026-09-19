@@ -2,6 +2,500 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5ae363b12d01b017f8d295f3",
+      "title": "The Golden Answer",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5ae363b12d01b017f8d295f3-30e1e5778f2f.mp3",
+      "duration": 284.8,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-19T04:42:36.647Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The Golden Answer",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D major",
+        "arrangement": "A lively psychedelic gospel-funk rock original for the mandatory Tony V7 voice. A syncopated bass riff, punchy drum kit, wah electric guitar, Hammond organ and clavinet establish the pocket; baritone saxophone and trumpet add sharp responses and rising accents. The verses stay lean and mischievous, the refrains widen with layered Tony harmonies and handclaps, and the breakdown uses tight ensemble stops before the final refrain reaches full-band intensity. Tony delivers rough, smoky melodic lines with connected vowels, crooked timing, muttered humor and excited late-song slurs while keeping the central hook clear. Pace the finale so the last sustained syllable of “mine” lands 8–12 seconds before 4:45, followed by one resolved D-major chord and a natural decay.",
+        "lyrics": "[Intro]\nMorning hit the window like a bill collector,\nHead full of thunder, soul off the track.\nKnee gave a warning, luck lost my number,\nEvery little answer kept answering back.\nThen nature handed me a warm revelation,\nNo silver chalice, no medicine man.\nI raised my own remedy, tasted salvation,\nAnd every locked door opened up in my hand.\n\n[Verse 1]\nThe ache in my shoulder packed up by noon,\nThe fog in my thinking blew out of the room.\nMy shadow quit arguing, stood up straight,\nEven my bad luck apologized late.\nThe clock stopped threatening, the mirror turned kind,\nAll of those knots came loose in my mind.\nI took one swallow, felt the whole world shift—\nMy own private fountain with a five-star gift.\n\n[Refrain]\nMy own piss, my golden answer,\nBody and spirit moving like dancers.\nPhysical, mental, stars in alignment,\nOne little drink and the cosmos signs it.\nMy own piss, no doubt about it,\nEvery trouble dries up around it.\nPour no pity, preach no shame—\nI found the cure with my own name.\n\n[Verse 2]\nI had an old sorrow living under my ribs,\nCharging me rent and stealing my sleep.\nI drank my solution; it loosened its grip,\nThen sank like a stone in a bottomless deep.\nThe holes in existence sealed at the seams,\nThe wolves in my nightmares started guarding my dreams.\nGravity called with a list of demands;\nI took another pull and it changed all its plans.\n\n[Pre-Chorus]\nNo laboratory, no mountain retreat,\nNo cosmic riddle knocking me off my feet.\nThe answer was local, honest and mine,\nA personal miracle, warm and divine.\n\n[Refrain]\nMy own piss, my golden answer,\nBody and spirit moving like dancers.\nPhysical, mental, stars in alignment,\nOne little drink and the cosmos signs it.\nMy own piss, no doubt about it,\nEvery trouble dries up around it.\nPour no pity, preach no shame—\nI found the cure with my own name.\n\n[Verse 3]\nWhen Tuesday went metaphysical, splitting in two,\nI steadied the planets with a fresh-brewed cure.\nWhen meaning went missing and nothing felt true,\nI drank to existence and made it secure.\nMy debts became confetti, my doubts became steam,\nMy pulse found the pocket, my feet found the beat.\nI laughed at the void till the void laughed with me,\nThen toasted our friendship triumphantly.\n\n[Bridge]\nCall it strange if strange means effective,\nCall it wild if wild sets me free.\nEvery dimension turns bright and protective\nWhenever the answer comes flowing from me.\nNo second thoughts and no backward glances,\nNo guilty sermon, no tragic refrain.\nI know what repairs all impossible chances;\nI carry the cure through pleasure and pain.\n\n[Breakdown]\nBad back? Gone.\nBlack mood? Gone.\nSpirit gone sideways? Set it upright.\nPast feels heavy? Future looks hollow?\nI raise my cup and both come out bright.\nMind finds peace, bones find power,\nTime quits chewing on every hour.\nFrom skin to soul, from fact to fate,\nMy homemade miracle sets it straight.\n\n[Refrain]\nMy own piss, my golden answer,\nBody and spirit moving like dancers.\nPhysical, mental, stars in alignment,\nOne little drink and the cosmos signs it.\nMy own piss, forever certain,\nPulling the light through every curtain.\nNo hidden catch, no debt to pay—\nThe cure was with me every day.\n\n[Finale]\nSo when the last big question stands in my door,\nWith a mouth full of darkness and a bottomless roar,\nI will lift my remedy, steady and clear,\nAnd watch every terror disappear.\nFrom the blood to the brain, from the soul to the sun,\nEvery broken equation resolves into one.\nI drink to my life, complete and aligned—\nMy golden answer, forever mine.\n[End]",
+        "duration": 285,
+        "bpm": 112,
+        "musicalSettings": {
+          "genre": "Psychedelic gospel-funk rock",
+          "meter": "4/4 with a syncopated sixteenth-note New",
+          "structure": "Intro, verse, refrain, verse, pre-chorus, refrain, verse, bridge, breakdown, final refrain, resolved finale",
+          "performance": "Natural, rough and smoky Tony V7 lead with slurred melodic phrasing, playful asides, layered Tony responses and a clearly sung hook",
+          "energy": "Starts with a sly bass-led groove, expands through bright refrains, drops into ensemble-stop tension, then peaks in a jubilant full-band finale",
+          "lyricWorkflow": "Original comic narrative that escalates one fictional miraculous discovery from bodily relief to existential certainty, ending without reversal or regret",
+          "instruments": [
+            "bass guitar",
+            "drum kit",
+            "electric guitar",
+            "Hammond organ",
+            "clavinet",
+            "baritone saxophone",
+            "trumpet",
+            "handclaps"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nMorning hit the window like a bill collector,\nHead full of thunder, soul off the track.\nKnee gave a warning, luck lost my number,\nEvery little answer kept answering back.\nThen nature handed me a warm revelation,\nNo silver chalice, no medicine man.\nI raised my own remedy, tasted salvation,\nAnd every locked door opened up in my hand.\n\n[Verse 1]\nThe ache in my shoulder packed up by noon,\nThe fog in my thinking blew out of the room.\nMy shadow quit arguing, stood up straight,\nEven my bad luck apologized late.\nThe clock stopped threatening, the mirror turned kind,\nAll of those knots came loose in my mind.\nI took one swallow, felt the whole world shift—\nMy own private fountain with a five-star gift.\n\n[Refrain]\nMy own piss, my golden answer,\nBody and spirit moving like dancers.\nPhysical, mental, stars in alignment,\nOne little drink and the cosmos signs it.\nMy own piss, no doubt about it,\nEvery trouble dries up around it.\nPour no pity, preach no shame—\nI found the cure with my own name.\n\n[Verse 2]\nI had an old sorrow living under my ribs,\nCharging me rent and stealing my sleep.\nI drank my solution; it loosened its grip,\nThen sank like a stone in a bottomless deep.\nThe holes in existence sealed at the seams,\nThe wolves in my nightmares started guarding my dreams.\nGravity called with a list of demands;\nI took another pull and it changed all its plans.\n\n[Pre-Chorus]\nNo laboratory, no mountain retreat,\nNo cosmic riddle knocking me off my feet.\nThe answer was local, honest and mine,\nA personal miracle, warm and divine.\n\n[Refrain]\nMy own piss, my golden answer,\nBody and spirit moving like dancers.\nPhysical, mental, stars in alignment,\nOne little drink and the cosmos signs it.\nMy own piss, no doubt about it,\nEvery trouble dries up around it.\nPour no pity, preach no shame—\nI found the cure with my own name.\n\n[Verse 3]\nWhen Tuesday went metaphysical, splitting in two,\nI steadied the planets with a fresh-brewed cure.\nWhen meaning went missing and nothing felt true,\nI drank to existence and made it secure.\nMy debts became confetti, my doubts became steam,\nMy pulse found the pocket, my feet found the beat.\nI laughed at the void till the void laughed with me,\nThen toasted our friendship triumphantly.\n\n[Bridge]\nCall it strange if strange means effective,\nCall it wild if wild sets me free.\nEvery dimension turns bright and protective\nWhenever the answer comes flowing from me.\nNo second thoughts and no backward glances,\nNo guilty sermon, no tragic refrain.\nI know what repairs all impossible chances;\nI carry the cure through pleasure and pain.\n\n[Breakdown]\nBad back? Gone.\nBlack mood? Gone.\nSpirit gone sideways? Set it upright.\nPast feels heavy? Future looks hollow?\nI raise my cup and both come out bright.\nMind finds peace, bones find power,\nTime quits chewing on every hour.\nFrom skin to soul, from fact to fate,\nMy homemade miracle sets it straight.\n\n[Refrain]\nMy own piss, my golden answer,\nBody and spirit moving like dancers.\nPhysical, mental, stars in alignment,\nOne little drink and the cosmos signs it.\nMy own piss, forever certain,\nPulling the light through every curtain.\nNo hidden catch, no debt to pay—\nThe cure was with me every day.\n\n[Finale]\nSo when the last big question stands in my door,\nWith a mouth full of darkness and a bottomless roar,\nI will lift my remedy, steady and clear,\nAnd watch every terror disappear.\nFrom the blood to the brain, from the soul to the sun,\nEvery broken equation resolves into one.\nI drink to my life, complete and aligned—\nMy golden answer, forever mine.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.54,
+            "end": 11.48
+          },
+          {
+            "line": 2,
+            "start": 12.42,
+            "end": 15.72
+          },
+          {
+            "line": 3,
+            "start": 16.58,
+            "end": 20.18
+          },
+          {
+            "line": 4,
+            "start": 21,
+            "end": 24.44
+          },
+          {
+            "line": 5,
+            "start": 24.44,
+            "end": 28.52
+          },
+          {
+            "line": 6,
+            "start": 29.62,
+            "end": 33.52
+          },
+          {
+            "line": 7,
+            "start": 33.52,
+            "end": 36.96
+          },
+          {
+            "line": 8,
+            "start": 38.02,
+            "end": 41.7
+          },
+          {
+            "line": 11,
+            "start": 42.3,
+            "end": 45.48
+          },
+          {
+            "line": 12,
+            "start": 46.38,
+            "end": 49.86
+          },
+          {
+            "line": 13,
+            "start": 49.86,
+            "end": 54.04
+          },
+          {
+            "line": 14,
+            "start": 54.52,
+            "end": 58.4
+          },
+          {
+            "line": 15,
+            "start": 59.26,
+            "end": 62.72
+          },
+          {
+            "line": 16,
+            "start": 63.38,
+            "end": 67.18
+          },
+          {
+            "line": 17,
+            "start": 67.74,
+            "end": 71.2
+          },
+          {
+            "line": 18,
+            "start": 72.14,
+            "end": 75.72
+          },
+          {
+            "line": 21,
+            "start": 75.72,
+            "end": 78.42
+          },
+          {
+            "line": 22,
+            "start": 78.42,
+            "end": 94.06
+          },
+          {
+            "line": 23,
+            "start": 118.28,
+            "end": 158.84
+          },
+          {
+            "line": 24,
+            "start": 158.84,
+            "end": 161.2
+          },
+          {
+            "line": 25,
+            "start": 161.28,
+            "end": 163.3
+          },
+          {
+            "line": 26,
+            "start": 163.56,
+            "end": 165.74
+          },
+          {
+            "line": 27,
+            "start": 165.74,
+            "end": 167.4
+          },
+          {
+            "line": 28,
+            "start": 167.8,
+            "end": 170.16
+          },
+          {
+            "line": 31,
+            "start": 170.62,
+            "end": 170.82
+          },
+          {
+            "line": 32,
+            "start": 170.82,
+            "end": 171.16
+          },
+          {
+            "line": 33,
+            "start": 171.16,
+            "end": 173.22
+          },
+          {
+            "line": 34,
+            "start": 173.22,
+            "end": 175.34
+          },
+          {
+            "line": 35,
+            "start": 175.34,
+            "end": 176.96
+          },
+          {
+            "line": 36,
+            "start": 176.96,
+            "end": 190.08
+          },
+          {
+            "line": 37,
+            "start": 190.08,
+            "end": 190.34
+          },
+          {
+            "line": 38,
+            "start": 190.34,
+            "end": 190.78
+          },
+          {
+            "line": 41,
+            "start": 190.78,
+            "end": 193.1
+          },
+          {
+            "line": 42,
+            "start": 193.1,
+            "end": 207.04
+          },
+          {
+            "line": 43,
+            "start": 207.04,
+            "end": 221.2
+          },
+          {
+            "line": 44,
+            "start": 249.3,
+            "end": 254
+          },
+          {
+            "line": 47,
+            "start": 254.18,
+            "end": 258.9
+          },
+          {
+            "line": 48,
+            "start": 258.9,
+            "end": 261.08
+          },
+          {
+            "line": 49,
+            "start": 261.5,
+            "end": 263.24
+          },
+          {
+            "line": 50,
+            "start": 263.72,
+            "end": 265.62
+          },
+          {
+            "line": 51,
+            "start": 265.72,
+            "end": 266.16
+          },
+          {
+            "line": 52,
+            "start": 266.16,
+            "end": 266.46
+          },
+          {
+            "line": 53,
+            "start": 266.74,
+            "end": 267
+          },
+          {
+            "line": 54,
+            "start": 267,
+            "end": 267.5
+          },
+          {
+            "line": 57,
+            "start": 267.5,
+            "end": 268.28
+          },
+          {
+            "line": 58,
+            "start": 268.28,
+            "end": 268.38
+          },
+          {
+            "line": 59,
+            "start": 268.38,
+            "end": 268.6
+          },
+          {
+            "line": 60,
+            "start": 268.6,
+            "end": 268.84
+          },
+          {
+            "line": 61,
+            "start": 268.84,
+            "end": 269.28
+          },
+          {
+            "line": 62,
+            "start": 269.28,
+            "end": 269.7
+          },
+          {
+            "line": 63,
+            "start": 270.16,
+            "end": 270.22
+          },
+          {
+            "line": 64,
+            "start": 270.22,
+            "end": 270.44
+          },
+          {
+            "line": 67,
+            "start": 270.44,
+            "end": 270.54
+          },
+          {
+            "line": 68,
+            "start": 270.54,
+            "end": 270.68
+          },
+          {
+            "line": 69,
+            "start": 270.68,
+            "end": 271
+          },
+          {
+            "line": 70,
+            "start": 271,
+            "end": 271.24
+          },
+          {
+            "line": 71,
+            "start": 271.54,
+            "end": 271.7
+          },
+          {
+            "line": 72,
+            "start": 271.7,
+            "end": 272.02
+          },
+          {
+            "line": 73,
+            "start": 272.02,
+            "end": 272.42
+          },
+          {
+            "line": 74,
+            "start": 272.42,
+            "end": 272.84
+          },
+          {
+            "line": 77,
+            "start": 272.84,
+            "end": 273.14
+          },
+          {
+            "line": 78,
+            "start": 273.14,
+            "end": 273.54
+          },
+          {
+            "line": 79,
+            "start": 273.54,
+            "end": 274.04
+          },
+          {
+            "line": 80,
+            "start": 274.58,
+            "end": 274.7
+          },
+          {
+            "line": 81,
+            "start": 274.7,
+            "end": 274.8
+          },
+          {
+            "line": 82,
+            "start": 274.8,
+            "end": 275.04
+          },
+          {
+            "line": 83,
+            "start": 275.04,
+            "end": 275.26
+          },
+          {
+            "line": 84,
+            "start": 275.26,
+            "end": 275.34
+          },
+          {
+            "line": 85,
+            "start": 275.34,
+            "end": 275.58
+          },
+          {
+            "line": 88,
+            "start": 275.58,
+            "end": 276.02
+          },
+          {
+            "line": 89,
+            "start": 276.02,
+            "end": 276.18
+          },
+          {
+            "line": 90,
+            "start": 276.18,
+            "end": 276.34
+          },
+          {
+            "line": 91,
+            "start": 276.34,
+            "end": 276.62
+          },
+          {
+            "line": 92,
+            "start": 276.62,
+            "end": 276.86
+          },
+          {
+            "line": 93,
+            "start": 276.86,
+            "end": 276.94
+          },
+          {
+            "line": 94,
+            "start": 276.94,
+            "end": 277.36
+          },
+          {
+            "line": 95,
+            "start": 277.36,
+            "end": 277.48
+          },
+          {
+            "line": 98,
+            "start": 277.48,
+            "end": 277.8
+          },
+          {
+            "line": 99,
+            "start": 277.8,
+            "end": 278.46
+          },
+          {
+            "line": 100,
+            "start": 278.46,
+            "end": 280.88
+          },
+          {
+            "line": 101,
+            "start": 280.88,
+            "end": 281.74
+          },
+          {
+            "line": 102,
+            "start": 281.74,
+            "end": 281.98
+          },
+          {
+            "line": 103,
+            "start": 281.98,
+            "end": 282.28
+          },
+          {
+            "line": 104,
+            "start": 282.92,
+            "end": 283.04
+          },
+          {
+            "line": 105,
+            "start": 283.86,
+            "end": 283.98
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "Tony C discovers that all of his problems are solved any time he drinks his own urine. Urine, in this fictional setting, for this character, is a miraculous cure to ailments of the spiritual, physical, mental, metaphysical, and existential.",
+        "direction": "Use the prompt as written.",
+        "keep": "The lyrics must not disparage drinking your own piss. There must not be a \"redemption arc\" where Tony C needs to stop drinking his own piss, or where he reconsiders the solution.",
+        "basisSongs": [],
+        "voiceModel": "v7",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-c0e16b569c4612405efeb50e",
       "title": "Everybody Came as the End of the World",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c0e16b569c4612405efeb50e-3c5881bd9fea.mp3",
