@@ -2,6 +2,469 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-6c337dcb5bd2f326c9a7d2f4",
+      "title": "Nine-Eleven'd Again - Dungeon Circuit Mix",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6c337dcb5bd2f326c9a7d2f4-01c0eda80b23.mp3",
+      "duration": 239.96081632653062,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "remixOf": {
+        "songId": "distonyc-41122cfa1d30d985e40d357b",
+        "title": "Nine-Eleven'd Again",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-41122cfa1d30d985e40d357b-b6742677aca4.mp3"
+      },
+      "publishedAt": "2026-09-19T06:12:45.327Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Nine-Eleven'd Again - Dungeon Circuit Mix",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A horror industrial electro reinterpretation in D minor and 4/4, preserving the recognizable “Nine-eleven'd again” hook and escalating dungeon-run narrative without promising the source melody or timing. Cold synthesizer pulses and ominous synth pads open beneath distorted organ, then drum machine impacts and a heavy live drum kit establish a tense, mechanical pocket. Verses stay lean and claustrophobic; choruses widen with stacked synth weight, forceful drums and a catchable melodic hook. The bridge strips back around the coin toss, the breakdown uses hard ensemble stops, and the final verse and chorus rebuild to maximum pressure. Tony V7 delivers the lead with rough, smoky, connected phonetics, crooked timing, muttered irritation and increasingly explosive sung phrases while keeping the hook intelligible. Pace the outro so the last syllable lands about 8–12 seconds before 240 seconds, followed by one resolved D-minor chord and natural decay; no extended instrumental tail.",
+        "lyrics": "[Intro]\nLoad the dungeon, light a torch\nTony's got a gaming coach\nSays, “This time I know the route”\nFirst dark hallway—lights go out\n\n[Verse 1]\nFound a bonesaw, lost a shoe\nSomething hungry chewed straight through\nMissed the coin flip, lost his arm\nStepped on every fucking harm\nGuard came dragging down the hall\nTony ducked behind the wall\nFloor gave way beneath him then\nGoddamn—nine-eleven'd again\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony growls, “Aw, son of a bitch”\nLoads that miserable save from six\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Verse 2]\nBack downstairs with half a map\nDodged the dogs and found a trap\nFed the girl and saved his meat\nCrow Mauler dropped him through the street\nTony leaned into the screen\n“That's the cheapest shit I've seen”\nLit a smoke and counted ten\nGot up—nine-eleven'd again\n\n[Pre-Chorus]\nNow his temper starts to spark\nEvery guide just feeds the dark\nEvery doorway smells like doom\nStill he kicks into the room\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony snarls, “You rigged this shit”\nThrows the mouse but will not quit\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Bridge]\nCoin in the air—call it clean\nHeads means mercy, tails gets mean\nIt hits the stone, it rolls from sight\nDungeon laughs and kills the light\nTony mutters, low and slow\n“You ain't tellin' me to go”\nBlood at one and mind at ten\nHe crawls toward the throne again\n\n[Breakdown]\nNo food left\nNo good limb\nNo clean save\nStill goes in\nBell starts shaking\nCeiling bends\nTony sees it—“Not this again!”\n\n[Verse]\nPast the prison, past the mines\nPast the rotten gods and signs\nEvery loss has taught his hands\nWhere the blade falls, where it lands\nLast door opens, pale and wide\nAll that spite walks in beside him\nDungeon offers one last spin\nTony laughs, “Then let me win.”\n\n[Chorus]\nNine-eleven'd again—\nBut he rises through the din\nLet it crash, he'll crawl back in\nNo more begging at the end\nTony roars, “You hungry pit,\nI can die all night, you prick!”\nFear in the dark, but fire within\nYou can nine-eleven him again—\nHe'll load that bastard save and win\n\n[Outro]\nScreen goes black, the final chord bends\nTony grins: “Now who's annoyed, my friend?”\n[End]",
+        "duration": 240,
+        "bpm": 118,
+        "musicalSettings": {
+          "genre": "Horror industrial electro",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Chorus, Verse 2, Pre-Chorus, Chorus, Bridge, Breakdown, Final Verse, Final Chorus, Outro",
+          "performance": "Tony V7 lead with rough smoky slurs, muttered asides, sustained melodic hooks and escalating angry outbursts",
+          "energy": "Claustrophobic opening, steadily mounting mechanical pressure, stripped-back bridge, stop-start breakdown and a full-force resolved finale",
+          "lyricWorkflow": "Adapt the submitted lyric sheet for tighter industrial phrasing while retaining the central hook, comic dungeon failures and final victory payoff",
+          "instruments": [
+            "Synthesizer",
+            "Drum machine",
+            "Drum kit",
+            "Synth pads",
+            "Organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nLoad the dungeon, light a torch\nTony's got a gaming coach\nSays, “This time I know the route”\nFirst dark hallway—lights go out\n\n[Verse 1]\nFound a bonesaw, lost a shoe\nSomething hungry chewed straight through\nMissed the coin flip, lost his arm\nStepped on every fucking harm\nGuard came dragging down the hall\nTony ducked behind the wall\nFloor gave way beneath him then\nGoddamn—nine-eleven'd again\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony growls, “Aw, son of a bitch”\nLoads that miserable save from six\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Verse 2]\nBack downstairs with half a map\nDodged the dogs and found a trap\nFed the girl and saved his meat\nCrow Mauler dropped him through the street\nTony leaned into the screen\n“That's the cheapest shit I've seen”\nLit a smoke and counted ten\nGot up—nine-eleven'd again\n\n[Pre-Chorus]\nNow his temper starts to spark\nEvery guide just feeds the dark\nEvery doorway smells like doom\nStill he kicks into the room\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony snarls, “You rigged this shit”\nThrows the mouse but will not quit\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Bridge]\nCoin in the air—call it clean\nHeads means mercy, tails gets mean\nIt hits the stone, it rolls from sight\nDungeon laughs and kills the light\nTony mutters, low and slow\n“You ain't tellin' me to go”\nBlood at one and mind at ten\nHe crawls toward the throne again\n\n[Breakdown]\nNo food left\nNo good limb\nNo clean save\nStill goes in\nBell starts shaking\nCeiling bends\nTony sees it—“Not this again!”\n\n[Verse]\nPast the prison, past the mines\nPast the rotten gods and signs\nEvery loss has taught his hands\nWhere the blade falls, where it lands\nLast door opens, pale and wide\nAll that spite walks in beside him\nDungeon offers one last spin\nTony laughs, “Then let me win.”\n\n[Chorus]\nNine-eleven'd again—\nBut he rises through the din\nLet it crash, he'll crawl back in\nNo more begging at the end\nTony roars, “You hungry pit,\nI can die all night, you prick!”\nFear in the dark, but fire within\nYou can nine-eleven him again—\nHe'll load that bastard save and win\n\n[Outro]\nScreen goes black, the final chord bends\nTony grins: “Now who's annoyed, my friend?”",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.72,
+            "end": 9.72
+          },
+          {
+            "line": 2,
+            "start": 10.18,
+            "end": 11.7
+          },
+          {
+            "line": 3,
+            "start": 11.7,
+            "end": 13.74
+          },
+          {
+            "line": 4,
+            "start": 14.3,
+            "end": 15.96
+          },
+          {
+            "line": 7,
+            "start": 23.94,
+            "end": 25.92
+          },
+          {
+            "line": 8,
+            "start": 26.42,
+            "end": 28.08
+          },
+          {
+            "line": 9,
+            "start": 28.34,
+            "end": 30.12
+          },
+          {
+            "line": 10,
+            "start": 30.4,
+            "end": 32.68
+          },
+          {
+            "line": 11,
+            "start": 32.68,
+            "end": 34.1
+          },
+          {
+            "line": 12,
+            "start": 34.54,
+            "end": 36.16
+          },
+          {
+            "line": 13,
+            "start": 36.46,
+            "end": 38.14
+          },
+          {
+            "line": 14,
+            "start": 38.14,
+            "end": 39.82
+          },
+          {
+            "line": 17,
+            "start": 39.82,
+            "end": 42.64
+          },
+          {
+            "line": 18,
+            "start": 44.24,
+            "end": 45.7
+          },
+          {
+            "line": 19,
+            "start": 46.88,
+            "end": 48.78
+          },
+          {
+            "line": 20,
+            "start": 49.5,
+            "end": 50.54
+          },
+          {
+            "line": 21,
+            "start": 52.1,
+            "end": 54.44
+          },
+          {
+            "line": 22,
+            "start": 54.76,
+            "end": 56.5
+          },
+          {
+            "line": 23,
+            "start": 57.06,
+            "end": 58.36
+          },
+          {
+            "line": 24,
+            "start": 58.36,
+            "end": 60.3
+          },
+          {
+            "line": 27,
+            "start": 60.3,
+            "end": 71.22
+          },
+          {
+            "line": 28,
+            "start": 71.22,
+            "end": 72.76
+          },
+          {
+            "line": 29,
+            "start": 73.08,
+            "end": 74.76
+          },
+          {
+            "line": 30,
+            "start": 75.06,
+            "end": 76.78
+          },
+          {
+            "line": 31,
+            "start": 77.5,
+            "end": 78.78
+          },
+          {
+            "line": 32,
+            "start": 79.26,
+            "end": 80.86
+          },
+          {
+            "line": 33,
+            "start": 81.42,
+            "end": 82.2
+          },
+          {
+            "line": 34,
+            "start": 82.2,
+            "end": 84.7
+          },
+          {
+            "line": 37,
+            "start": 93.12,
+            "end": 95.08
+          },
+          {
+            "line": 38,
+            "start": 95.62,
+            "end": 97.22
+          },
+          {
+            "line": 39,
+            "start": 97.66,
+            "end": 99.28
+          },
+          {
+            "line": 40,
+            "start": 99.64,
+            "end": 101.28
+          },
+          {
+            "line": 43,
+            "start": 101.92,
+            "end": 105.58
+          },
+          {
+            "line": 44,
+            "start": 106.26,
+            "end": 107.56
+          },
+          {
+            "line": 45,
+            "start": 109.88,
+            "end": 111.22
+          },
+          {
+            "line": 46,
+            "start": 112.02,
+            "end": 114.2
+          },
+          {
+            "line": 47,
+            "start": 114.2,
+            "end": 115.56
+          },
+          {
+            "line": 48,
+            "start": 115.88,
+            "end": 117.6
+          },
+          {
+            "line": 49,
+            "start": 117.96,
+            "end": 119.48
+          },
+          {
+            "line": 50,
+            "start": 119.9,
+            "end": 121.48
+          },
+          {
+            "line": 53,
+            "start": 129.84,
+            "end": 131.7
+          },
+          {
+            "line": 54,
+            "start": 132.16,
+            "end": 134.1
+          },
+          {
+            "line": 55,
+            "start": 134.1,
+            "end": 135.84
+          },
+          {
+            "line": 56,
+            "start": 136.56,
+            "end": 137.84
+          },
+          {
+            "line": 57,
+            "start": 138.26,
+            "end": 139.8
+          },
+          {
+            "line": 58,
+            "start": 139.8,
+            "end": 141.92
+          },
+          {
+            "line": 59,
+            "start": 142.28,
+            "end": 143.94
+          },
+          {
+            "line": 60,
+            "start": 144.16,
+            "end": 145.96
+          },
+          {
+            "line": 63,
+            "start": 156.12,
+            "end": 157.22
+          },
+          {
+            "line": 64,
+            "start": 157.6,
+            "end": 158.22
+          },
+          {
+            "line": 65,
+            "start": 158.6,
+            "end": 159.34
+          },
+          {
+            "line": 66,
+            "start": 159.34,
+            "end": 160.34
+          },
+          {
+            "line": 67,
+            "start": 160.62,
+            "end": 161.34
+          },
+          {
+            "line": 68,
+            "start": 161.58,
+            "end": 162.82
+          },
+          {
+            "line": 69,
+            "start": 162.82,
+            "end": 164.24
+          },
+          {
+            "line": 72,
+            "start": 167.42,
+            "end": 169.42
+          },
+          {
+            "line": 73,
+            "start": 169.42,
+            "end": 171
+          },
+          {
+            "line": 74,
+            "start": 172.48,
+            "end": 174.5
+          },
+          {
+            "line": 75,
+            "start": 174.88,
+            "end": 176.44
+          },
+          {
+            "line": 76,
+            "start": 177.08,
+            "end": 178.56
+          },
+          {
+            "line": 77,
+            "start": 178.96,
+            "end": 180.66
+          },
+          {
+            "line": 78,
+            "start": 181.16,
+            "end": 182.64
+          },
+          {
+            "line": 79,
+            "start": 183.04,
+            "end": 184.64
+          },
+          {
+            "line": 82,
+            "start": 184.64,
+            "end": 198.26
+          },
+          {
+            "line": 83,
+            "start": 198.82,
+            "end": 200.4
+          },
+          {
+            "line": 84,
+            "start": 200.4,
+            "end": 204.46
+          },
+          {
+            "line": 85,
+            "start": 204.46,
+            "end": 208.62
+          },
+          {
+            "line": 86,
+            "start": 208.62,
+            "end": 210.64
+          },
+          {
+            "line": 87,
+            "start": 211.02,
+            "end": 212.62
+          },
+          {
+            "line": 88,
+            "start": 212.62,
+            "end": 214.52
+          },
+          {
+            "line": 89,
+            "start": 214.94,
+            "end": 216.86
+          },
+          {
+            "line": 90,
+            "start": 217.42,
+            "end": 219.28
+          },
+          {
+            "line": 93,
+            "start": 220.82,
+            "end": 224.3
+          },
+          {
+            "line": 94,
+            "start": 225.16,
+            "end": 228.28
+          }
+        ]
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 11.58
+        },
+        {
+          "code": "vocal_dropout",
+          "seconds": 2
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Remix “Nine-Eleven'd Again”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Tony C tries to beat Fear & Hunger, but he keeps getting 9/11'd, annoying him more and more\n\nOriginal sound: Use the prompt as written.",
+        "direction": "New genre: Horror industrial electro",
+        "keep": "Keep the recognizable hook and spirit of “Nine-Eleven'd Again”.",
+        "basisSongs": [
+          "Nine-Eleven'd Again"
+        ],
+        "voiceModel": "v7",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Synthesizer",
+            "Drum machine",
+            "Drum kit",
+            "Synth pads",
+            "Organ"
+          ],
+          "duration": 240
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-021724a32efc79d6e4cfc1f7",
       "title": "Forty Below and One More Round",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-021724a32efc79d6e4cfc1f7-8dac4606eb56.mp3",
