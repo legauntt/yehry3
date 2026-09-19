@@ -879,6 +879,31 @@ main {
 .track-info p span {
   margin: 0 5px;
 }
+.song-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+.song-action {
+  min-height: 32px;
+  padding: 5px 9px;
+  border: 1px solid #c6cbbb;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: .68rem;
+}
+.song-action:hover:not(:disabled),
+.song-action[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: #edc3a7;
+  color: var(--ink);
+}
+.song-action:disabled {
+  cursor: default;
+  opacity: .62;
+}
 .vote {
   border: 1px solid #c6cbbb;
   background: transparent;
@@ -1708,6 +1733,14 @@ main {
     font-size: 0.7rem;
     gap: 5px;
     min-height: 35px;
+  }
+  .song-actions {
+    gap: 4px;
+  }
+  .song-action {
+    min-height: 30px;
+    padding: 4px 7px;
+    font-size: .61rem;
   }
   .request-banner {
     padding: 32px 27px;
