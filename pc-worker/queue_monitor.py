@@ -6,6 +6,7 @@ from failure_evidence import evidence
 from reliability_audit import metrics
 from auto_shepherd import decide as shepherd_decide, eligible as shepherd_eligible
 from delivery_check import verify_delivery
+import dehaka_feed
 
 POLICY_VERSION = 4
 RETRY_DELAYS = (0, 15*60, 60*60)
@@ -183,6 +184,10 @@ def scan(config, api, now=None, enabled=True):
                     category,action,reason='shepherd','retry',decision['reason']
                     entry.update(category=category,next_action=reason)
                 elif action!='retry':entry['next_action']=decision['reason']
+            # Report later failures before answering a new steer, so the thread stays chronological.
+            if enabled:dehaka_feed.failure(api,entry,prompt,context)
+            if enabled and directive and not prompt.get('workerActive') and (decision or not needs_judgment):
+                dehaka_feed.reply(api,entry,prompt,context,directive,decision,category,action,reason)
             # An interrupted network response is reconciled from server state before another retry.
             pending=entry.get('pending_retry')
             if pending and pending['version']!=prompt['version']:
@@ -207,9 +212,11 @@ def scan(config, api, now=None, enabled=True):
                             if mark_error.code!=409:raise
                     continue
                 entry.update(status=updated['status'],next_action='Queued to resume saved work.');entry.pop('pending_retry',None)
+                dehaka_feed.note(api,entry,updated,'queued:'+str(updated['version']),'queued',f'Queued a saved-work retry ({category}). {reason}')
                 seen[ident]=updated;retried+=1;save(path,ledger)
             elif action=='retry' and not retry_budget(entry,category):
                 entry['next_action']='Automatic retry budget exhausted. Review this cause before enabling another attempt.'
+                if enabled:dehaka_feed.note(api,entry,prompt,'budget:'+str(prompt['version']),'budget_exhausted',entry['next_action']+' Steer again with what should change.')
             elif action=='retry' and not due(entry,now):entry['next_action']='Cooling down before the next saved-work retry.'
             if enabled and config.get('recovery_status_api') and entry['status']=='failed' and not prompt.get('workerActive'):
                 phase='recovering' if action=='retry' and retry_budget(entry,category) else 'attention'
@@ -229,6 +236,10 @@ def scan(config, api, now=None, enabled=True):
                         entry['delivery']={'status':'verification_pending','error':str(delivery_error)[:1000],'at':utc()}
                     if entry['delivery']['status']!='verified':entry['next_action']='Published; completing public artifact and live catalog verification.'
             elif prompt['status']=='canceled':entry['next_action']='Canceled; monitor will take no action.'
+            if enabled and entry.get('dehaka_since') and prompt['status'] in ('published','canceled'):
+                try:outcome_context=local_context(config,ident)
+                except (OSError,ValueError,KeyError):outcome_context=None
+                dehaka_feed.outcome(api,entry,prompt,outcome_context)
     entries=list(ledger['requests'].values())
     opened=[e for e in entries if e['status']=='failed'];resolved=[e for e in entries if e['status']=='published']
     recovering=[e for e in entries if e['status'] in ('queued','processing','completed','publishing')]

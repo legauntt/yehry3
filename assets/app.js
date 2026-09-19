@@ -9,7 +9,8 @@ import { requestPromptBrief, promptSummary } from "./prompt-brief.js";
 import { mountRequestTabs } from "./request-tabs.js";
 import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./authored-by.js";
 import { recoveryActive, recoveryStatus } from "./recovery.js";
-import { dehakaAttemptCount, dehakaNextStep, dehakaQuote } from "./dehaka.js";
+import { dehakaAttemptCount, dehakaNextStep, dehakaQuote, dehakaThread } from "./dehaka.js";
+import { workerPresence } from "./worker-presence.js";
 import { publicQueue, queueDetailsPage, queueItemHref } from "./queue.js";
 import { mountQualitySettings, qualityNotice } from "./quality.js";
 import { modelInfoButton, mountModelInfo, voiceVersionLabel } from "./model-info.js";
@@ -1099,6 +1100,31 @@ async function admin() {
     sortOrder = Object.hasOwn(sortOptions, adminParams.get("sort")) ? adminParams.get("sort") : "newest",
     pageNumber = 0,
     loadSequence = 0;
+  const threads = new Map();
+  // Threads refresh in place so an open raw log survives polling.
+  async function loadThreads(onScreenOnly = false) {
+    const onScreen = (node) => {
+      const box = node.getBoundingClientRect();
+      return box.bottom > -200 && box.top < innerHeight + 200;
+    };
+    await Promise.all(
+      [...document.querySelectorAll("[data-dehaka-thread]")].filter((node) => !onScreenOnly || onScreen(node)).map(async (node) => {
+        const id = node.dataset.dehakaThread;
+        const body = $(".dehaka-thread-body", node);
+        try {
+          const { entries } = await api(`/admin/prompts/${encodeURIComponent(id)}/dehaka`, { role: "admin" });
+          const html = dehakaThread(entries, { escape, date });
+          if (!node.isConnected || threads.get(id) === html) return;
+          threads.set(id, html);
+          const open = new Set([...body.querySelectorAll("details[open]")].map((item) => item.dataset.log));
+          body.innerHTML = html;
+          body.querySelectorAll("details[data-log]").forEach((item) => (item.open = open.has(item.dataset.log)));
+        } catch (error) {
+          if (!threads.has(id)) body.innerHTML = `<p class="small">${error.status === 404 ? "The Dehaka log isn’t available from the studio API yet." : "The Dehaka log couldn’t load; it will retry."}</p>`;
+        }
+      }),
+    );
+  }
   async function load() {
     const sequence = ++loadSequence;
     try {
@@ -1147,7 +1173,7 @@ async function admin() {
       )
       .join(
         "",
-      )}</div><p class="small worker-health">${data.workers?.length ? data.workers.map((worker) => `PC worker: ${escape(worker.stage)} · Last seen ${date(worker.lastSeenAt)}${Date.now() - new Date(worker.lastSeenAt) > 5 * 60000 ? " · Offline or paused" : ""}`).join("<br>") : "PC worker: waiting for its first connection."}</p><section class="admin-queue"><div class="toolbar"><label for="status-filter">Show</label><select id="status-filter"><option value="all">All requests</option>${Object.entries(
+      )}</div><div class="worker-health">${workerPresence(data.workers, { escape, date })}</div><section class="admin-queue"><div class="toolbar"><label for="status-filter">Show</label><select id="status-filter"><option value="all">All requests</option>${Object.entries(
       labels,
     )
       .filter(([key]) => !["draft", "review", "failed"].includes(key))
@@ -1156,6 +1182,7 @@ async function admin() {
         "",
       )}</select><label for="admin-sort">Sort</label><select id="admin-sort">${Object.entries(sortOptions).map(([value, label]) => `<option value="${value}">${label}</option>`).join("")}</select><button class="quiet" id="refresh">Refresh ↻</button><span class="small">${data.total} requests · ${sortOrder === "priority" ? "Higher priority first; oldest wins ties." : sortOrder === "oldest" ? "Earliest submissions first." : "Latest submissions first."}</span></div><div id="queue">${data.prompts.length ? data.prompts.map(row).join("") : `<div class="empty"><span class="empty-symbol">◎</span><h2>A little room for possibility.</h2><p>No requests in this view yet.</p>${filter === "all" ? '<a class="text-link" href="/distonyc/">Make the first request →</a>' : '<a class="text-link" href="/admin/?status=all">All requests →</a>'}</div>`}</div><div class="pagination"><button class="quiet" id="prev-page" ${pageNumber === 0 ? "disabled" : ""}>← Previous</button><span>Page ${pageNumber + 1}</span><button class="quiet" id="next-page" ${(pageNumber + 1) * 50 >= data.total ? "disabled" : ""}>Next →</button></div></section>`;
     showLoginStatus("admin", $(".admin-intro > div"), load);
+    loadThreads();
     function changeView() {
       pageNumber = 0;
       const url = new URL(location.href);
@@ -1256,9 +1283,11 @@ async function admin() {
           ["cancel_requested", "canceled"].includes(status)),
     );
     const adapting = recoveryActive(doc);
+    const steered = (doc.history || []).some((entry) => entry.action === "shepherd");
+    const thread = doc.status === "failed" || steered ? `<section class="dehaka-thread" data-dehaka-thread="${id}" aria-label="Dehaka conversation and raw logs"><h3>Dehaka log</h3><div class="dehaka-thread-body" aria-live="polite">${threads.get(doc.id) || '<p class="small">Loading Dehaka’s replies and raw logs…</p>'}</div></section>` : "";
     const guidance = escape(doc.recovery?.shepherd?.guidance || "Whatever it takes to fix this.");
-    const failure = doc.status === "failed" ? `<section class="attention-problem"><p class="eyebrow">What stopped it</p>${doc.workerProgress?.stage ? `<p class="small">Production stopped during ${escape(doc.workerProgress.stage)}.</p>` : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p></section>${dehakaPanel(doc, adapting, allowed.includes("queued"))}${adapting ? `<p class="small recovery-notice">${doc.recovery?.shepherd ? "Dehaka is adapting this request using your guidance." : "Automatic recovery is working on this request."} Saved work will be reused; you can leave it running.</p>` : !doc.workerActive ? `<form data-action="shepherd" class="dehaka-form"><label for="guidance-${id}">Steer Dehaka</label><textarea id="guidance-${id}" name="guidance" rows="3" maxlength="2000" required>${guidance}</textarea><div class="dehaka-actions"><button class="primary">Dehaka</button><span class="small">I adaaaaaapt. He’ll inspect the saved evidence and use a supported correction.</span></div></form>` : ""}${allowed.includes("queued") && !adapting ? `<form data-action="status" class="retry-form"><input type="hidden" name="status" value="queued"><button class="quiet">Retry saved work</button><span class="small">Retry directly without extra guidance.</span></form>` : ""}` : "";
-    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${musicBackendBadge(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues)}${failure}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
+    const failure = doc.status === "failed" ? `<section class="attention-problem"><p class="eyebrow">What stopped it</p>${doc.workerProgress?.stage ? `<p class="small">Production stopped during ${escape(doc.workerProgress.stage)}.</p>` : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p></section>${dehakaPanel(doc, adapting, allowed.includes("queued"))}${thread}${adapting ? `<p class="small recovery-notice">${doc.recovery?.shepherd ? "Dehaka is adapting this request using your guidance." : "Automatic recovery is working on this request."} Saved work will be reused; you can leave it running or steer again.</p>` : ""}${!doc.workerActive ? `<form data-action="shepherd" class="dehaka-form"><label for="guidance-${id}">Steer Dehaka</label><textarea id="guidance-${id}" name="guidance" rows="3" maxlength="2000" required>${guidance}</textarea><div class="dehaka-actions"><button class="primary">Dehaka</button><span class="small">I adaaaaaapt. He’ll inspect the saved evidence and use a supported correction.</span></div></form>` : ""}${allowed.includes("queued") && !adapting ? `<form data-action="status" class="retry-form"><input type="hidden" name="status" value="queued"><button class="quiet">Retry saved work</button><span class="small">Retry directly without extra guidance.</span></form>` : ""}` : "";
+    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${musicBackendBadge(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues)}${failure}${doc.status === "failed" ? "" : thread}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
       ...(doc.history || []),
     ]
       .reverse()
@@ -1273,6 +1302,9 @@ async function admin() {
   setInterval(() => {
     if (signedIn("admin") && !document.hidden && !document.activeElement?.matches("input, textarea, select") && !$(".queue-card details[open]")) load();
   }, 30000);
+  setInterval(() => {
+    if (signedIn("admin") && !document.hidden && data) loadThreads(true);
+  }, 15000);
 }
 
 mountBadgeSounds();

@@ -7,8 +7,10 @@ from vocal_repair import intervals
 from renderer import vocal_recovery
 
 class FakeAPI:
-    def __init__(self, prompts):self.rows=prompts;self.calls=[];self.lose_response=False
+    def __init__(self, prompts):self.rows=prompts;self.calls=[];self.posts=[];self.lose_response=False
     def prompts(self):return copy.deepcopy(self.rows)
+    def call(self,path,method='GET',body=None):
+        self.posts.append((path,method,copy.deepcopy(body)));return {'entry':{}}
     def retry(self,prompt):
         self.calls.append(prompt['id'])
         target=next(p for p in self.rows if p['id']==prompt['id'])

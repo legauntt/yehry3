@@ -233,6 +233,18 @@ def run_once(config, api, verify_existing=None):
         raise
     finally: heartbeat.close()
 
+PRESENCE = {'waiting_for_review': ('waiting_for_review', 'Waiting for a lyric or composition review'),
+            'needs_attention': ('needs_attention', 'The last worker run stopped; see PC logs')}
+
+def announce(api, health=None, state=None, stage=None):
+    """Advisory presence heartbeat; an outage never blocks claim reconciliation."""
+    if health is not None:
+        try: status = load(health).get('status') if Path(health).exists() else None
+        except (OSError, ValueError): status = None
+        state, stage = PRESENCE.get(status, ('idle', 'Waiting for requests'))
+    try: api.call('/ping', {'state': state, 'stage': stage}, timeout=10)
+    except (APIError, OSError, ValueError): pass
+
 def main():
     parser = argparse.ArgumentParser(); parser.add_argument('--config', type=Path, required=True)
     parser.add_argument('--verify-existing', type=Path, help='Operator-only delivery test; verifies an already completed Troofs work folder')
@@ -242,13 +254,17 @@ def main():
     state = Path(config['state_dir'])
     with singleton(state / 'worker.lock') as acquired:
         if not acquired: return
+        api = None
         try:
             api = API(config['api'], config['worker_id'], token)
+            announce(api, state='starting', stage='Checking for requests')
             run_once(config, api, args.verify_existing)
             from remix_health import check_due
             check_due(config, api)
+            announce(api, state / 'health.json')
         except Exception as error:
             save(state / 'health.json', {'at': utc(), 'status': 'needs_attention', 'error': str(error)[:1000]})
+            if api: announce(api, state / 'health.json')
             traceback.print_exc(); raise SystemExit(1)
 
 if __name__ == '__main__': main()

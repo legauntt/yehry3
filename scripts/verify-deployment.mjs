@@ -110,6 +110,7 @@ for (const name of [
   "queue.js",
   "recovery.js",
   "dehaka.js",
+  "worker-presence.js",
   "notifications.js",
   "suggestions.js",
   "record-motion.js",

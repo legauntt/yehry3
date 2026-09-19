@@ -82,6 +82,10 @@ The monitor uses a separate current-user DPAPI credential in `monitor-credential
 
 Backstage's **Dehaka** action attaches private operator guidance to one failed request. The monitor consumes each uniquely identified guidance request once. Known deterministic failures still use their coded remedy without a model call; eligible unknown or creative blockers receive one schema-constrained shepherd consultation with that guidance. The guidance cannot reset budgets, bypass leases or integrity checks, replace frozen inputs, or authorize a different song. The normal monitor and worker remain responsible for retry, publication, and delivery verification.
 
+`dehaka_feed.py` reports back into the private Backstage thread through the monitor's admin session: one reply per steer (the consultation decision, or the coded policy that applied instead), queued retries, exhausted budgets, later failures, and publication or cancellation. Replies and outcomes attach secret-redacted tails of the job's saved logs and Dehaka's own `shepherd/guided-*/run.log`. Each message has a stable key; failures to post are recorded in the ledger and retried on the next pass, and never block triage.
+
+`worker.py` sends a presence heartbeat (`POST /worker/ping`) at the start and end of every scheduled run. It is advisory: an outage never blocks claim reconciliation.
+
 ## What uses a model
 
 An empty queue makes one API request and exits. A new confirmed brief makes **one schema-constrained Codex planning call**, using the saved CLI login and `gpt-5.6-sol` with medium reasoning. The installed `config.json` sets `planner_model`; `planner.py` explicitly passes `model_reasoning_effort="medium"` and ignores the CLI's user config so a global Astra/xhigh preference cannot override the queue launcher. The model chooses a supported recipe and writes the title, complete lyrics when needed, tempo, key, and arrangement. Shell, web, apps, and multi-agent tools are disabled for that call. Submitted text stays in JSON; it never becomes executable code. The validated plan is saved and reused after restarts.

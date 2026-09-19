@@ -354,4 +354,23 @@ class WorkerTests(unittest.TestCase):
                     self.assertNotEqual(code.value, 259)
             finally: unrelated.kill(); unrelated.wait()
 
+class PresenceTests(unittest.TestCase):
+    def test_heartbeat_reports_run_state_and_never_raises(self):
+        from worker import announce
+        from common import APIError, save
+        class API:
+            def __init__(self): self.calls = []
+            def call(self, path, body=None, timeout=25): self.calls.append((path, body, timeout))
+        with tempfile.TemporaryDirectory() as directory:
+            health = os.path.join(directory, 'health.json'); api = API()
+            announce(api, state='starting', stage='Checking for requests')
+            save(health, {'status': 'waiting_for_review'}); announce(api, health)
+            save(health, {'status': 'published'}); announce(api, health)
+            announce(api, os.path.join(directory, 'missing.json'))
+            self.assertEqual([body['state'] for _, body, _ in api.calls], ['starting', 'waiting_for_review', 'idle', 'idle'])
+            self.assertTrue(all(path == '/ping' and timeout == 10 for path, _, timeout in api.calls))
+            class Down:
+                def call(self, *args, **kwargs): raise APIError(503, 'down')
+            announce(Down(), health)
+
 if __name__ == '__main__': unittest.main()
