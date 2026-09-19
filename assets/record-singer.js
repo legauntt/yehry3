@@ -3,6 +3,7 @@ import { lyricPassage, pickRecordSong, singableLines } from "./record-lyrics.js"
 import { getRecordPreferences, watchRecordPreferences } from "./record-preferences.js";
 
 const choose = (items, random) => items[Math.floor(random() * items.length)];
+const lyricRevealDelay = 2000;
 
 export function startRecordSinger(record, getSongs, { random = Math.random } = {}) {
   const sleeve = record?.closest(".sleeve");
@@ -16,6 +17,7 @@ export function startRecordSinger(record, getSongs, { random = Math.random } = {
   sleeve.append(bubble);
 
   let advanceTimer;
+  let revealTimer;
   let request = 0;
   let previous = "";
   let captionsEnabled = getRecordPreferences().captions;
@@ -48,6 +50,7 @@ export function startRecordSinger(record, getSongs, { random = Math.random } = {
   const hide = () => {
     request += 1;
     clearTimeout(advanceTimer);
+    clearTimeout(revealTimer);
     bubble.classList.remove("is-singing");
     bubble.hidden = true;
   };
@@ -94,8 +97,17 @@ export function startRecordSinger(record, getSongs, { random = Math.random } = {
     if (withAudio) speak(selected.join(" "));
   };
 
-  record.addEventListener("recordidle", () => sing());
-  record.addEventListener("recordspin", () => sing({ withAudio: true }));
+  const queueSing = ({ withAudio = false } = {}) => {
+    clearTimeout(revealTimer);
+    const token = ++request;
+    revealTimer = setTimeout(() => {
+      revealTimer = undefined;
+      if (token !== request || document.hidden) return;
+      void sing({ withAudio });
+    }, lyricRevealDelay);
+  };
+  record.addEventListener("recordidle", () => queueSing());
+  record.addEventListener("recordspin", () => queueSing({ withAudio: true }));
   watchRecordPreferences((preferences) => {
     captionsEnabled = preferences.captions;
     lyricAudioEnabled = preferences.lyricAudio;
