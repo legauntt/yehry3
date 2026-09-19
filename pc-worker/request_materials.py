@@ -36,6 +36,8 @@ properties. Never claim to have listened to a link or invent lyrics from an unav
 Imported lyric references supply provenance; the separately reviewed lyricSheet is authoritative.
 """
 
+STOCK_CHANTS = ('yeh yeh', 'yow yow', 'woah', 'let it roll', 'fotabip', 'fotaboop', 'more more more')
+
 def normalize_material_plan(plan):
     """Normalize retained raw output, never a frozen plan or the source file."""
     if not isinstance(plan, dict): return plan
@@ -98,15 +100,43 @@ def duration_suggestion(brief, default):
             'minimum_seconds': 60, 'ending_seconds': 10}
 
 
-def render_brief(request):
-    """Verify the frozen brief authorizes a supplied sheet or explicit short length."""
+def frozen_brief(request):
+    """Return the hash-checked creative brief frozen before planning."""
     from common import fingerprint
     directory = Path(request['directory'])
-    snapshot = load(directory / 'planning-input.json')
+    frozen = next((path for path in (directory, *list(directory.parents)[:3])
+                   if (path / 'planning-input.json').is_file() and (path / 'plan.json').is_file()), None)
+    if frozen is None: raise ValueError('Saved lyric planning inputs are missing')
+    snapshot = load(frozen / 'planning-input.json')
     brief = snapshot['brief']
     if (snapshot['briefHash'] != fingerprint(brief) or
-            load(directory / 'plan.json')['briefHash'] != snapshot['briefHash']):
+            load(frozen / 'plan.json')['briefHash'] != snapshot['briefHash']):
         raise ValueError('Saved lyric planning inputs changed')
+    return brief
+
+
+def stock_chants_authorized(request):
+    """Allow only stock phrases that the requester explicitly supplied."""
+    lyrics = request.get('plan', {}).get('lyrics', '')
+    if not isinstance(lyrics, str): return False
+    used = {phrase for phrase in STOCK_CHANTS if phrase in lyrics.casefold()}
+    if not used: return False
+    brief = frozen_brief(request)
+    details = brief.get('details') or {}
+    sheet = details.get('lyricSheet') or {}
+    generation = details.get('generation') or {}
+    authored = [brief.get('prompt', ''), details.get('direction', ''), details.get('keep', ''),
+                sheet.get('text', '') if isinstance(sheet, dict) else '']
+    for key in ('requiredPhrases', 'lockedLines'):
+        values = generation.get(key, [])
+        if isinstance(values, list): authored.extend(value for value in values if isinstance(value, str))
+    explicit = '\n'.join(value for value in authored if isinstance(value, str)).casefold()
+    return all(phrase in explicit for phrase in used)
+
+
+def render_brief(request):
+    """Verify the frozen brief authorizes a supplied sheet or explicit short length."""
+    brief = frozen_brief(request)
     if minimum_duration(brief) >= 120:
         raise ValueError('Songs shorter than 120 seconds require a submitted lyric sheet or an explicit 69–119-second length')
     if not (brief.get('details') or {}).get('lyricSheet'):

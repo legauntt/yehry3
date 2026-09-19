@@ -6,7 +6,8 @@ from unittest.mock import patch
 
 from common import fingerprint, load, save
 from planner import make_plan
-from request_materials import normalize_material_plan, validate_materials, words, duration_suggestion, render_brief
+from request_materials import (normalize_material_plan, validate_materials, words, duration_suggestion,
+                               render_brief, stock_chants_authorized)
 from test_planner import fixture
 from winprocess import Stopped
 
@@ -151,6 +152,52 @@ class RequestMaterialsTests(unittest.TestCase):
                     make_plan(config, {**brief, 'prompt': 'Changed'}, root, [])
             model.assert_not_called()
             for name, data in before.items(): self.assertEqual((root / name).read_bytes(), data)
+
+    def test_stock_chants_require_matching_explicit_frozen_words(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            song = fixture()
+            song['lyrics'] = '[Verse]\nWoah, slow down\nLet it roll\n[End]'
+            brief = {'prompt': 'A late-night remix', 'details': {'direction': 'Tony may say "woah" deliberately.'}}
+            save(root / 'planning-input.json', {'briefHash': fingerprint(brief), 'brief': brief})
+            save(root / 'plan.json', {'briefHash': fingerprint(brief), 'plan': song})
+            request = {'directory': str(root), 'plan': song}
+            self.assertFalse(stock_chants_authorized(request))
+            brief['details']['direction'] += ' Also use "let it roll" as a requested hook.'
+            save(root / 'planning-input.json', {'briefHash': fingerprint(brief), 'brief': brief})
+            save(root / 'plan.json', {'briefHash': fingerprint(brief), 'plan': song})
+            self.assertTrue(stock_chants_authorized(request))
+
+    def test_submitted_sheet_and_required_phrases_can_authorize_stock_words(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            song = fixture(); song['lyrics'] = '[Verse]\nYow yow\nMore more more\n[End]'
+            brief = {'prompt': 'A deliberate chant song', 'details': {
+                'lyricSheet': {'text': '[Verse]\nYow yow\n[End]', 'mode': 'adapt'},
+                'generation': {'requiredPhrases': ['More more more']}}}
+            save(root / 'planning-input.json', {'briefHash': fingerprint(brief), 'brief': brief})
+            save(root / 'plan.json', {'briefHash': fingerprint(brief), 'plan': song})
+            self.assertTrue(stock_chants_authorized({'directory': str(root), 'plan': song}))
+
+    def test_stock_chant_authorization_rejects_changed_frozen_brief(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            song = fixture(); song['lyrics'] = '[Verse]\nWoah\n[End]'
+            brief = {'prompt': 'Use woah deliberately', 'details': {}}
+            save(root / 'planning-input.json', {'briefHash': '0' * 64, 'brief': brief})
+            save(root / 'plan.json', {'briefHash': '0' * 64, 'plan': song})
+            with self.assertRaisesRegex(ValueError, 'planning inputs changed'):
+                stock_chants_authorized({'directory': str(root), 'plan': song})
+
+    def test_stock_chant_authorization_uses_bounded_parent_snapshot_for_child_render(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            child = root / 'movements' / '1'; child.mkdir(parents=True)
+            song = fixture(); song['lyrics'] = '[Verse]\nWoah\n[End]'
+            brief = {'prompt': 'Use woah deliberately', 'details': {}}
+            save(root / 'planning-input.json', {'briefHash': fingerprint(brief), 'brief': brief})
+            save(root / 'plan.json', {'briefHash': fingerprint(brief), 'plan': song})
+            self.assertTrue(stock_chants_authorized({'directory': str(child), 'plan': song}))
 
     def test_short_schema_and_native_validation_require_a_submitted_sheet(self):
         for seconds in (60, 90, 119):
