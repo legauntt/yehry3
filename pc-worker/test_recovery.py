@@ -1,4 +1,5 @@
 import concurrent.futures
+import hashlib
 import json
 import tempfile
 import unittest
@@ -7,7 +8,8 @@ from pathlib import Path
 from unittest.mock import patch
 from common import fingerprint, load, save, sha
 from planner import make_plan, validate
-from renderer import allow_vocal_warning, ending_repair, render, write_progress
+from renderer import (allow_vocal_warning, ending_repair, recover_stock_chant_preparation,
+                      render, write_progress)
 from source_material import source_material
 from test_worker import plan
 
@@ -35,6 +37,40 @@ def medusa_lyrics_rejection():
 
 
 class RecoveryTests(unittest.TestCase):
+    def test_stock_chant_recovery_archives_only_exact_prevalidation_staging(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); job = root / 'job'; job.mkdir()
+            identifier = str(uuid.uuid4())
+            work = root / ('troofs-desktop-' + identifier)
+            temporary = work.with_name(work.name + '.preparing'); temporary.mkdir()
+            settings = {'studio_dir': str(root / 'studio'), 'output_dir': str(root / 'output')}
+            spec = {'kind': 'new', 'title': 'Deliberate chant', 'style': 'rock', 'duration': 240,
+                    'bpm': 100, 'keyscale': 'D minor', 'seed': 42, 'lyrics': '[Verse]\nWoah\n[End]',
+                    'arrangement': 'A deliberate requested hook with a complete arrangement and ending.',
+                    'basis': [], 'preserve_generated_backing': True, 'allow_stock_chants': True}
+            old = {key: value for key, value in spec.items() if key != 'allow_stock_chants'}
+            marker = hashlib.sha256(json.dumps({'spec': old, 'settings': settings}, sort_keys=True).encode()).hexdigest()
+            save(temporary / 'desktop-preparation.json', {'fingerprint': marker, 'job_id': identifier})
+            save(temporary / 'spec.json', {**old, 'id': 'desktop-' + identifier,
+                                           'ready_for_generation': True, 'lm_seed': 1042})
+            request = {'directory': str(job), 'config': {'settings': settings}}
+            self.assertTrue(recover_stock_chant_preparation(request, work, identifier, spec))
+            archive = job / 'recovery' / 'stock-chant-preparation-v1'
+            self.assertFalse(temporary.exists()); self.assertTrue(archive.is_dir())
+            self.assertEqual(load(job / 'stock-chant-preparation-recovery.json')['status'], 'applied')
+            self.assertTrue(recover_stock_chant_preparation(request, work, identifier, spec))
+
+    def test_stock_chant_recovery_refuses_other_staging_content(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); job = root / 'job'; job.mkdir()
+            identifier = str(uuid.uuid4()); work = root / ('troofs-desktop-' + identifier)
+            temporary = work.with_name(work.name + '.preparing'); temporary.mkdir()
+            (temporary / 'audio.wav').write_bytes(b'audio')
+            spec = {'allow_stock_chants': True, 'seed': 1}
+            request = {'directory': str(job), 'config': {'settings': {'studio_dir': str(root / 'studio')}}}
+            self.assertFalse(recover_stock_chant_preparation(request, work, identifier, spec))
+            self.assertTrue(temporary.exists()); self.assertFalse((job / 'recovery').exists())
+
     def test_failed_vocal_repair_falls_back_to_retained_audio_once_when_enabled(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

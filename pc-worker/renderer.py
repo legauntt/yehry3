@@ -1,9 +1,9 @@
 """Trusted adapters around the existing Troofs renderer; submitted text stays in JSON."""
-import argparse, importlib.util, json, os, re, shutil, subprocess, sys, time, uuid
+import argparse, hashlib, importlib.util, json, os, re, shutil, subprocess, sys, time, uuid
 from pathlib import Path
 from common import load, save, sha, fingerprint, inside
 from planner import validate
-from request_materials import render_brief, minimum_duration
+from request_materials import render_brief, minimum_duration, stock_chants_authorized
 from source_material import source_material
 from composition_ending import active_identifier, identifier as composition_identifier, preflight_runner, render_with_retry, timing_instruction
 from duration_runtime import adapt as adapt_duration
@@ -73,6 +73,54 @@ def write_progress(path, values):
         # Telemetry must never kill the owned audio process. The durable engine
         # stage journal records success/failure separately.
         pass
+
+
+def recover_stock_chant_preparation(request, work, identifier, spec):
+    """Archive only the two-file pre-validation staging left by the former guard."""
+    if not spec.get('allow_stock_chants'): return False
+    directory = Path(request['directory'])
+    temporary = Path(work).with_name(Path(work).name + '.preparing')
+    journal = directory / 'stock-chant-preparation-recovery.json'
+    archive = directory / 'recovery' / 'stock-chant-preparation-v1'
+    if journal.exists():
+        record = load(journal)
+        if (record.get('version') != 1 or record.get('archive') != str(archive)
+                or record.get('original') != str(temporary) or record.get('status') not in ('planned', 'applied')):
+            raise ValueError('Saved stock-chant preparation recovery changed')
+        if record['status'] == 'planned':
+            if temporary.exists() and not archive.exists(): temporary.rename(archive)
+            elif temporary.exists() or not archive.exists():
+                raise ValueError('Stock-chant preparation recovery has conflicting directories')
+            record['status'] = 'applied'; save(journal, record)
+        if (not archive.is_dir() or set(record.get('files', {})) != {path.name for path in archive.iterdir()}
+                or any(not (archive / name).is_file() or sha(archive / name) != digest
+                       for name, digest in record['files'].items())):
+            raise ValueError('Archived stock-chant preparation changed')
+        return True
+    if not temporary.is_dir() or Path(work).exists() or archive.exists(): return False
+    paths = list(temporary.iterdir())
+    if ({path.name for path in paths} != {'desktop-preparation.json', 'spec.json'}
+            or any(not path.is_file() for path in paths)):
+        return False
+    studio_spec = {**spec, 'id': 'desktop-' + str(uuid.UUID(identifier)),
+                   'ready_for_generation': True, 'lm_seed': spec['seed'] + 1000}
+    legacy_spec = dict(studio_spec); legacy_spec.pop('allow_stock_chants')
+    marker_fingerprint = hashlib.sha256(json.dumps(
+        {'spec': {key: value for key, value in spec.items() if key != 'allow_stock_chants'},
+         'settings': request['config']['settings']}, sort_keys=True).encode()).hexdigest()
+    if (load(temporary / 'spec.json') != legacy_spec or
+            load(temporary / 'desktop-preparation.json') != {'fingerprint': marker_fingerprint, 'job_id': identifier}):
+        return False
+    archive.parent.mkdir(parents=True, exist_ok=True)
+    record = {'version': 1, 'status': 'planned', 'reason': 'The former stock-chant guard stopped before job initialization.',
+              'original': str(temporary), 'archive': str(archive),
+              'files': {path.name: sha(path) for path in paths}, 'audio_started': False,
+              'legacy_spec_fingerprint': fingerprint(legacy_spec),
+              'authorized_spec_fingerprint': fingerprint(studio_spec)}
+    save(journal, record)
+    temporary.rename(archive)
+    record['status'] = 'applied'; save(journal, record)
+    return True
 
 def ending_repair(request, work):
     """Permit one new composition attempt after a measured cutoff, never a fade over it."""
@@ -249,6 +297,7 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
             'bpm': plan['bpm'], 'keyscale': plan['keyscale'], 'seed': int(identifier.replace('-', '')[:7], 16),
             'lyrics': plan['lyrics'], 'arrangement': plan['arrangement'], 'basis': basis,
             'preserve_generated_backing': plan['preserve_generated_backing']}
+    if stock_chants_authorized(request): spec['allow_stock_chants'] = True
     options = plan.get('generation')
     if options:
         from generation_controls import normalize
@@ -277,6 +326,8 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
     desktop_request = {'version': 1, 'job_id': identifier, 'settings': settings, 'spec': spec}
     with engine.gpu_lock(settings['studio_dir']):
         engine.doctor(settings)
+        work = Path(settings['studio_dir']).parent / ('troofs-desktop-' + identifier)
+        recover_stock_chant_preparation(request, work, identifier, spec)
         work, manifest = engine.prepare_job(desktop_request)
         if not (work / 'distonyc-configured.json').exists():
             if load(work / 'desktop-status.json')['completed']: raise ValueError('Refusing to modify an already-started render')
