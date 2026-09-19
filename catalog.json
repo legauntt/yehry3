@@ -2,6 +2,399 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-c0e16b569c4612405efeb50e",
+      "title": "Everybody Came as the End of the World",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c0e16b569c4612405efeb50e-3c5881bd9fea.mp3",
+      "duration": 270.0016326530612,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-19T04:32:01.400Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Everybody Came as the End of the World",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A fast, darkly comic horror-punk and garage-rock song in 4/4, performed with distorted electric guitars, a melodic overdriven bass, punchy live drums, and brief detuned organ accents. Begin with the vocal immediately over a tight bass-and-drum entrance. Verses use wiry palm-muted guitar and a lively pocket; pre-choruses climb with toms and organ; choruses open into broad power chords and a catchable melody. The bridge becomes increasingly surreal, then drops to bass, floor tom, and sparse guitar for the breakdown before the full band returns for the final chorus. Tony’s selected v8 voice stays rough, smoky, connected, and mischievously slurred at first, becoming alarmed and unexpectedly sincere by the ending, with natural crooked timing and fully sung melodic lines. Pace the final outro across the closing passage so the last sung syllable lands 8–12 seconds before 270 seconds; finish with one decisive D-minor chord and a natural decay, without an extended instrumental tail.",
+        "lyrics": "[Verse 1]\nHalloween evening, Tony checked the glass\nCardboard skyline and a cloud of gray\nA paper little airplane pinned across his chest\nHe said, “This is awful”—then he wore it anyway\nHe strutted down the sidewalk with a plastic pumpkin pail\nPast the porch-light ghosts and the pharmacy fog\nBut every door was empty, every candy bowl was still\nAnd the moon looked sick behind a telephone pole\n\n[Pre-Chorus]\nHe heard a siren laughing two blocks down\nSaw smoke above the old familiar town\n\n[Chorus]\nEverybody came as the end of the world\nEvery boy, every man, every terrible girl\nSome were 9/11-ing right there in the street\nSome had been 9'11'd from their heads to their feet\nTony said, “I had this first—this nightmare was mine”\nBut the whole block flashed like a warning sign\nEverybody came as the end of the world\nAnd nobody knew who had started it\n\n[Verse 2]\nMikey wore a tie and kept reading the news\nJenny was a tower with a window-screen crown\nDanny yelled “incoming” whenever leaves fell\nThen collapsed on the lawn when the wind knocked him down\nAt the corner stood Frankie, staring straight through Tony\nWith ash on his jacket and punch in his hand\nHe muttered, “I was normal when the party began\nThen somebody made history happen again”\n\n[Pre-Chorus]\nThe porch band stopped on a sour little chord\nNobody laughed at the costumes anymore\n\n[Chorus]\nEverybody came as the end of the world\nEvery boy, every man, every terrible girl\nSome were 9/11-ing right there in the street\nSome had been 9'11'd from their heads to their feet\nTony said, “This joke has gotten too real”\nAs the Ferris-wheel moon started losing a wheel\nEverybody came as the end of the world\nAnd nobody knew how to stop it\n\n[Bridge]\nTony tore the airplane loose from his shirt\nPulled down the skyline and stamped out the dirt\n“Take off the smoke, take off the date\nWe can still be monsters without tempting fate”\nBut the masks had learned faces, the props had learned flame\nAnd the night kept calling everybody by name\nSo Tony grabbed the fire bell, swung till it rang\nOne hard note through the panic and clang\n\n[Breakdown]\nNo punch line\nNo prize\nNo clever disguise\nJust friends in the street with the fear in their eyes\nTony shouted, “Party’s over—everybody come home”\nAnd one by one they remembered their bones\n\n[Chorus]\nEverybody came as the end of the world\nThen they peeled off the ruin, every boy, every girl\nThe 9/11-ing stopped when the church clock struck\nAnd the 9'11'd rose up, dazed but unstuck\nTony stood in his undershirt, cold in the dawn\nWhile the paper towers softened on somebody’s lawn\nEverybody came as the end of the world\nBut nobody had to stay that way\n\n[Outro]\nHe carried the costumes out to the curb\nNo speech, no laugh, not another bad word\nWhen morning asked what he had been that night\nTony said, “Something stupid—and I finally got it right”\nThen the last porch light went dark with the stars\nAnd his friends walked home exactly as they are\n[End]",
+        "duration": 270,
+        "bpm": 146,
+        "musicalSettings": {
+          "genre": "Darkly comic horror punk with garage-rock drive",
+          "meter": "4/4",
+          "structure": "Verse–pre-chorus–chorus–verse–pre-chorus–chorus–bridge–breakdown–final chorus–outro",
+          "performance": "Rough, smoky Tony v8 lead with connected slurs, mischievous phrasing, melodic choruses, and a sincere final turn",
+          "energy": "Immediate tense momentum, widening choruses, surreal bridge escalation, stark breakdown, then a forceful but reflective resolution",
+          "lyricWorkflow": "Original narrative satire that escalates an ill-judged Halloween costume into a supernatural neighborhood crisis, then resolves through recognition and reversal",
+          "instruments": [
+            "distorted electric guitars",
+            "overdriven electric bass",
+            "live drums",
+            "detuned organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nHalloween evening, Tony checked the glass\nCardboard skyline and a cloud of gray\nA paper little airplane pinned across his chest\nHe said, “This is awful”—then he wore it anyway\nHe strutted down the sidewalk with a plastic pumpkin pail\nPast the porch-light ghosts and the pharmacy fog\nBut every door was empty, every candy bowl was still\nAnd the moon looked sick behind a telephone pole\n\n[Pre-Chorus]\nHe heard a siren laughing two blocks down\nSaw smoke above the old familiar town\n\n[Chorus]\nEverybody came as the end of the world\nEvery boy, every man, every terrible girl\nSome were 9/11-ing right there in the street\nSome had been 9'11'd from their heads to their feet\nTony said, “I had this first—this nightmare was mine”\nBut the whole block flashed like a warning sign\nEverybody came as the end of the world\nAnd nobody knew who had started it\n\n[Verse 2]\nMikey wore a tie and kept reading the news\nJenny was a tower with a window-screen crown\nDanny yelled “incoming” whenever leaves fell\nThen collapsed on the lawn when the wind knocked him down\nAt the corner stood Frankie, staring straight through Tony\nWith ash on his jacket and punch in his hand\nHe muttered, “I was normal when the party began\nThen somebody made history happen again”\n\n[Pre-Chorus]\nThe porch band stopped on a sour little chord\nNobody laughed at the costumes anymore\n\n[Chorus]\nEverybody came as the end of the world\nEvery boy, every man, every terrible girl\nSome were 9/11-ing right there in the street\nSome had been 9'11'd from their heads to their feet\nTony said, “This joke has gotten too real”\nAs the Ferris-wheel moon started losing a wheel\nEverybody came as the end of the world\nAnd nobody knew how to stop it\n\n[Bridge]\nTony tore the airplane loose from his shirt\nPulled down the skyline and stamped out the dirt\n“Take off the smoke, take off the date\nWe can still be monsters without tempting fate”\nBut the masks had learned faces, the props had learned flame\nAnd the night kept calling everybody by name\nSo Tony grabbed the fire bell, swung till it rang\nOne hard note through the panic and clang\n\n[Breakdown]\nNo punch line\nNo prize\nNo clever disguise\nJust friends in the street with the fear in their eyes\nTony shouted, “Party’s over—everybody come home”\nAnd one by one they remembered their bones\n\n[Chorus]\nEverybody came as the end of the world\nThen they peeled off the ruin, every boy, every girl\nThe 9/11-ing stopped when the church clock struck\nAnd the 9'11'd rose up, dazed but unstuck\nTony stood in his undershirt, cold in the dawn\nWhile the paper towers softened on somebody’s lawn\nEverybody came as the end of the world\nBut nobody had to stay that way\n\n[Outro]\nHe carried the costumes out to the curb\nNo speech, no laugh, not another bad word\nWhen morning asked what he had been that night\nTony said, “Something stupid—and I finally got it right”\nThen the last porch light went dark with the stars\nAnd his friends walked home exactly as they are",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 19.72,
+            "end": 21.48
+          },
+          {
+            "line": 2,
+            "start": 21.48,
+            "end": 23.24
+          },
+          {
+            "line": 3,
+            "start": 23.34,
+            "end": 25.12
+          },
+          {
+            "line": 4,
+            "start": 25.26,
+            "end": 26.52
+          },
+          {
+            "line": 5,
+            "start": 26.52,
+            "end": 27.62
+          },
+          {
+            "line": 6,
+            "start": 27.62,
+            "end": 28.92
+          },
+          {
+            "line": 7,
+            "start": 28.92,
+            "end": 31.28
+          },
+          {
+            "line": 8,
+            "start": 31.28,
+            "end": 33.66
+          },
+          {
+            "line": 11,
+            "start": 39.52,
+            "end": 40.9
+          },
+          {
+            "line": 12,
+            "start": 40.9,
+            "end": 44.06
+          },
+          {
+            "line": 15,
+            "start": 47.26,
+            "end": 49.9
+          },
+          {
+            "line": 16,
+            "start": 49.9,
+            "end": 53.66
+          },
+          {
+            "line": 17,
+            "start": 53.66,
+            "end": 56.44
+          },
+          {
+            "line": 18,
+            "start": 56.44,
+            "end": 59.1
+          },
+          {
+            "line": 19,
+            "start": 59.1,
+            "end": 61.64
+          },
+          {
+            "line": 20,
+            "start": 61.64,
+            "end": 64.14
+          },
+          {
+            "line": 21,
+            "start": 64.14,
+            "end": 67.36
+          },
+          {
+            "line": 22,
+            "start": 68.24,
+            "end": 70.68
+          },
+          {
+            "line": 25,
+            "start": 85.5,
+            "end": 88.54
+          },
+          {
+            "line": 26,
+            "start": 88.54,
+            "end": 90.86
+          },
+          {
+            "line": 27,
+            "start": 91.56,
+            "end": 94.3
+          },
+          {
+            "line": 28,
+            "start": 94.3,
+            "end": 97.6
+          },
+          {
+            "line": 29,
+            "start": 98.34,
+            "end": 100.82
+          },
+          {
+            "line": 30,
+            "start": 100.82,
+            "end": 103.8
+          },
+          {
+            "line": 31,
+            "start": 104.68,
+            "end": 106.92
+          },
+          {
+            "line": 32,
+            "start": 106.92,
+            "end": 110.9
+          },
+          {
+            "line": 35,
+            "start": 110.9,
+            "end": 113.56
+          },
+          {
+            "line": 36,
+            "start": 113.84,
+            "end": 117.66
+          },
+          {
+            "line": 39,
+            "start": 124.8,
+            "end": 126.58
+          },
+          {
+            "line": 40,
+            "start": 126.96,
+            "end": 129.8
+          },
+          {
+            "line": 41,
+            "start": 130.48,
+            "end": 133.08
+          },
+          {
+            "line": 42,
+            "start": 133.46,
+            "end": 136.32
+          },
+          {
+            "line": 43,
+            "start": 136.32,
+            "end": 139.7
+          },
+          {
+            "line": 44,
+            "start": 139.7,
+            "end": 143.1
+          },
+          {
+            "line": 45,
+            "start": 143.1,
+            "end": 146.16
+          },
+          {
+            "line": 46,
+            "start": 146.16,
+            "end": 152.06
+          },
+          {
+            "line": 49,
+            "start": 152.06,
+            "end": 155.1
+          },
+          {
+            "line": 50,
+            "start": 155.1,
+            "end": 157.52
+          },
+          {
+            "line": 51,
+            "start": 157.52,
+            "end": 160.64
+          },
+          {
+            "line": 52,
+            "start": 160.64,
+            "end": 164.08
+          },
+          {
+            "line": 53,
+            "start": 171.16,
+            "end": 173.6
+          },
+          {
+            "line": 54,
+            "start": 173.6,
+            "end": 176.5
+          },
+          {
+            "line": 55,
+            "start": 176.5,
+            "end": 180.3
+          },
+          {
+            "line": 56,
+            "start": 181.32,
+            "end": 183.26
+          },
+          {
+            "line": 59,
+            "start": 183.26,
+            "end": 185.34
+          },
+          {
+            "line": 60,
+            "start": 185.68,
+            "end": 186.34
+          },
+          {
+            "line": 61,
+            "start": 186.34,
+            "end": 186.86
+          },
+          {
+            "line": 62,
+            "start": 187.42,
+            "end": 191.84
+          },
+          {
+            "line": 63,
+            "start": 191.84,
+            "end": 196.48
+          },
+          {
+            "line": 64,
+            "start": 196.86,
+            "end": 200
+          },
+          {
+            "line": 67,
+            "start": 203.9,
+            "end": 207.22
+          },
+          {
+            "line": 68,
+            "start": 207.22,
+            "end": 209.98
+          },
+          {
+            "line": 69,
+            "start": 210.68,
+            "end": 213.12
+          },
+          {
+            "line": 70,
+            "start": 213.12,
+            "end": 217.2
+          },
+          {
+            "line": 71,
+            "start": 217.2,
+            "end": 219.64
+          },
+          {
+            "line": 72,
+            "start": 219.64,
+            "end": 223.1
+          },
+          {
+            "line": 73,
+            "start": 223.8,
+            "end": 226.36
+          },
+          {
+            "line": 74,
+            "start": 227.54,
+            "end": 230.42
+          },
+          {
+            "line": 77,
+            "start": 236.26,
+            "end": 239.3
+          },
+          {
+            "line": 78,
+            "start": 239.76,
+            "end": 242.64
+          },
+          {
+            "line": 79,
+            "start": 243.4,
+            "end": 245.76
+          },
+          {
+            "line": 80,
+            "start": 245.76,
+            "end": 249.28
+          },
+          {
+            "line": 81,
+            "start": 249.28,
+            "end": 252.34
+          },
+          {
+            "line": 82,
+            "start": 252.8,
+            "end": 257.14
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 19.86
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony dresses up as 9/11 for Halloween only to find out all of his friends are 9/11-ing or have been 9'11'd",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 270
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-c8579c990ccc5c63f787b9b3",
       "title": "Don't Drink the Sales Pitch",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c8579c990ccc5c63f787b9b3-31f590976826.mp3",
