@@ -290,8 +290,9 @@ export function songArtwork(song) {
   const dark = tier?.stage === "legend";
   const specks = confetti(identity, tier?.stage === "loved" ? "hearts" : tier?.votes >= 5 ? "sparkles" : roll("confetti", 4), a, b);
   const badgeX = flipped ? 19 : 202;
+  // Tier hearts stay top right: the grid's track number covers the top-left corner.
   const badge = tier
-    ? Array.from({ length: tiers.length - tiers.indexOf(tier) }, (_, i) => '<path transform="translate(' + (flipped ? 11 + i * 18 : 212 - i * 18) + ' 11) scale(.85)" d="' + miniHeart + '"/>').join("")
+    ? Array.from({ length: tiers.length - tiers.indexOf(tier) }, (_, i) => '<path transform="translate(' + (212 - i * 18) + ' 11) scale(.85)" d="' + miniHeart + '"/>').join("")
     : '<g transform="translate(' + badgeX + ' 19)"><path d="M0 8L7 7 9 0 12 7 19 9 12 12 10 19 7 12 0 10Z"/></g>';
   const accentX = roll("accent-side", 2) ? 176 : 8;
   const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="200" viewBox="0 0 240 200">'

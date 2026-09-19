@@ -59,6 +59,8 @@ test("upvoted songs switch to distinct award art at 1, 3, 5, and 7 votes", async
     // One heart per tier reached, and the votes inside a tier do not reshuffle the art.
     assert.equal(svgOf(art).split('scale(.85)" d="M10 18').length - 1, [1, 3, 5, 7].indexOf(votes) + 1);
     assert.equal(songArtwork({ ...song, votes: votes + 1 }).src, art.src);
+    // The grid view's track number sits on the top-left corner of the art.
+    for (const [, x] of svgOf(art).matchAll(/translate\((\d+) 11\) scale\(\.85\)/g)) assert.ok(Number(x) > 120, "tier hearts would hide under the track number");
   }
   const all = [...casts.values()].flatMap(cast => [...cast]);
   assert.equal(new Set(all).size, all.length, "tiers share a mascot");
