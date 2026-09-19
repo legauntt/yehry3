@@ -101,8 +101,10 @@ def composition(plan, seed):
     negative = options.get('avoidInstruments', [])
     chunks = []
     for i, row in enumerate(rows):
-        count = math.ceil(lengths[i] / 120000)
         words = row['lines']
+        count = max(math.ceil(lengths[i] / 120000), math.ceil(len(words) / 29) if words else 1)
+        if lengths[i] < count * 3000:
+            raise ValueError('Too many lyric lines for the paid composition section duration')
         if count > len(words) and words:
             # Splitting on whitespace preserves the approved ordered words even for one long line.
             words = ' '.join(words).split()
