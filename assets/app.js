@@ -920,14 +920,13 @@ async function requests() {
           render();
         });
     } else if (stage === "review") {
-      form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form">${paidConfirmation(draft.details, escape)}<div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">The queue holds up to 10 unfinished requests, including songs in production. If it is full, your review stays saved so you can try again when a slot opens.</p><p class="field-error" role="alert"></p></form>`;
+      const rememberedPaidPassword = savedPaidPassword();
+      form.innerHTML = `<p class="eyebrow">One last check</p><h2>Does this sound right?</h2><p>This is the brief that will go into the studio queue.</p>${brief(draft)}<form id="confirm-form">${paidConfirmation(draft.details, escape, Boolean(rememberedPaidPassword))}<div class="actions"><button class="primary">Send to the queue <span aria-hidden="true">↗</span></button><button class="quiet" type="button" id="edit">Fine-tune it</button></div><p class="small">The queue holds up to 10 unfinished requests, including songs in production. If it is full, your review stays saved so you can try again when a slot opens.</p><p class="field-error" role="alert"></p></form>`;
       const materialIssue = durationIssue(draft.details, draft.prompt);
       const paidPasswordInput = $('#paid-password');
-      if (paidPasswordInput) {
-        paidPasswordInput.value = savedPaidPassword();
-        if (paidPasswordInput.value) $('#paid-password-help').textContent = 'Password saved in this browser. You can replace it here, or sign out to forget it.';
-      }
-      if (draft.details?.musicBackend === PAID_BACKEND && !$('#confirm-paid')) $('#confirm-form .primary').disabled = true;
+      const paidCheckbox = $('#confirm-paid');
+      const paidConfirmationPanel = $('.paid-music-confirmation');
+      if (draft.details?.musicBackend === PAID_BACKEND && (!paidConfirmationPanel || (!rememberedPaidPassword && !paidCheckbox))) $('#confirm-form .primary').disabled = true;
       if (materialIssue) {
         $("#confirm-form .primary").disabled = true;
         $("#confirm-form .field-error").textContent = materialIssue;
@@ -936,7 +935,8 @@ async function requests() {
       $("#confirm-form").onsubmit = (event) =>
         run(event, async () => {
           const paid = draft.details?.musicBackend === PAID_BACKEND;
-          const paidPassword = paid ? paidPasswordInput.value : '';
+          const savedPassword = paid ? savedPaidPassword() : '';
+          const paidPassword = paid ? (paidPasswordInput?.value || savedPassword) : '';
           try {
             draft = (await api(`/prompts/${encodeURIComponent(draft.id)}/confirm`, {
               method: "POST",
@@ -944,14 +944,15 @@ async function requests() {
               body: {
                 version: draft.version,
                 confirmed: true,
-                ...(paid ? { confirmedPaid: $('#confirm-paid').checked, paidPassword } : {}),
+                ...(paid ? { confirmedPaid: Boolean(savedPassword) || Boolean(paidCheckbox?.checked), paidPassword } : {}),
               },
             })).prompt;
           } catch (error) {
             if (paid && error.status === 403) {
               forgetPaidPassword(paidPassword);
-              paidPasswordInput.value = '';
-              $('#paid-password-help').textContent = 'Enter the paid confirmation password again. It will be saved after confirmation.';
+              render("review");
+              $('#confirm-form .field-error').textContent = error.message;
+              return;
             }
             throw error;
           }

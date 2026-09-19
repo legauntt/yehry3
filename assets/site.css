@@ -467,6 +467,10 @@ main {
 .record-lyric blockquote {
   margin: 0;
   font: italic 600 clamp(.7rem, 1vw, .86rem) / 1.45 "Playfair Display", Georgia, serif;
+  white-space: pre-line;
+}
+.record-lyric:not([data-line-count="1"]) {
+  width: clamp(260px, 34vw, 430px);
 }
 .record-lyric figcaption {
   margin-top: 7px;
@@ -1604,6 +1608,10 @@ main {
     right: 50%;
     width: min(185px, 58vw);
     padding: 10px 12px;
+  }
+  .record-lyric:not([data-line-count="1"]) {
+    right: -12px;
+    width: min(300px, calc(100vw - 24px));
   }
   .sleeve-top, .sleeve-bottom { display: none; }
   .section-heading {

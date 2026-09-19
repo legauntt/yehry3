@@ -1,5 +1,5 @@
 import { watchSong } from "./song-data.js";
-import { singableLines } from "./record-lyrics.js";
+import { lyricPassage, singableLines } from "./record-lyrics.js";
 import { getRecordPreferences, watchRecordPreferences } from "./record-preferences.js";
 
 const choose = (items, random) => items[Math.floor(random() * items.length)];
@@ -68,11 +68,18 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
     if (token !== request || document.hidden || !loaded) return;
     const lines = singableLines(loaded.lyrics?.text);
     if (!lines.length) return;
-    const alternatives = lines.filter((line) => `${loaded.id}:${line}` !== previous);
-    const line = choose(alternatives.length ? alternatives : lines, random);
-    previous = `${loaded.id}:${line}`;
+    const passage = lyricPassage(lines, random, { width: innerWidth, height: innerHeight });
+    const alternatives = passage.length === 1
+      ? lines.filter((line) => `${loaded.id}:${line}` !== previous)
+      : passage;
+    const selected = passage.length === 1
+      ? [choose(alternatives.length ? alternatives : lines, random)]
+      : alternatives;
+    const text = selected.join("\n");
+    previous = `${loaded.id}:${selected[0]}`;
     if (captionsEnabled) {
-      bubble.querySelector("blockquote").textContent = `“${line}”`;
+      bubble.dataset.lineCount = String(selected.length);
+      bubble.querySelector("blockquote").textContent = `“${text}”`;
       bubble.querySelector("figcaption").textContent = `— ${loaded.title || song.title}`;
       bubble.hidden = false;
       bubble.classList.remove("is-singing");
@@ -81,7 +88,7 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
       clearTimeout(hideTimer);
       hideTimer = setTimeout(hide, duration);
     }
-    if (withAudio) speak(line);
+    if (withAudio) speak(selected.join(" "));
   };
 
   record.addEventListener("recordidle", () => sing());

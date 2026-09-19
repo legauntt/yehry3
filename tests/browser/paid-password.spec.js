@@ -41,7 +41,7 @@ async function fixture(context) {
   return state;
 }
 
-async function review(page, { login = false } = {}) {
+async function review(page, { login = false, controls = true, initialBackend = 'local' } = {}) {
   await page.goto('/distonyc/');
   if (login) {
     await page.locator('#password').fill('wishbone');
@@ -52,15 +52,16 @@ async function review(page, { login = false } = {}) {
   await page.locator('#idea').fill('A soul song about the last bus home.');
   await page.locator('#idea-form button').click();
   await expect(page.locator('#music-backend option[value="eleven_music"]')).toBeEnabled();
-  await page.locator('#music-backend').selectOption('eleven_music');
+  await expect(page.locator('#music-backend')).toHaveValue(initialBackend);
+  if (initialBackend !== 'eleven_music') await page.locator('#music-backend').selectOption('eleven_music');
   await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
   await page.getByText('Timing & key', { exact: true }).click();
   await page.locator('#gen-duration').fill('250');
   await page.locator('#details-form > .actions .primary').click();
-  await expect(page.locator('#paid-password')).toBeVisible();
+  if (controls) await expect(page.locator('#paid-password')).toBeVisible();
 }
 
-test('paid password persists across requests, reloads and reopening, while cost agreement stays explicit', async ({ page, context, browser, baseURL }) => {
+test('successful paid authorization hides repeat agreement and password controls across requests, reloads and reopening', async ({ page, context, browser, baseURL }) => {
   const state = await fixture(context);
   await review(page, { login: true });
   await page.locator('#paid-password').fill(password);
@@ -69,15 +70,13 @@ test('paid password persists across requests, reloads and reopening, while cost 
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#another')).toBeVisible();
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(password);
-  await review(page);
-  await expect(page.locator('#paid-password')).toHaveValue(password);
-  await expect(page.locator('#paid-password-help')).toContainText('saved in this browser');
+  await review(page, { controls: false, initialBackend: 'eleven_music' });
+  await expect(page.locator('#paid-password')).toHaveCount(0);
+  await expect(page.locator('#confirm-paid')).toHaveCount(0);
+  await expect(page.locator('.paid-authorization-saved')).toBeVisible();
   await page.reload();
-  await expect(page.locator('#paid-password')).toHaveValue(password);
-  await expect(page.locator('#confirm-paid')).not.toBeChecked();
-  await page.locator('#confirm-form .primary').click();
-  expect(state.confirmations).toHaveLength(1);
-  await page.locator('#confirm-paid').check();
+  await expect(page.locator('#paid-password')).toHaveCount(0);
+  await expect(page.locator('#confirm-paid')).toHaveCount(0);
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#another')).toBeVisible();
   expect(state.confirmations).toHaveLength(2);
@@ -86,9 +85,9 @@ test('paid password persists across requests, reloads and reopening, while cost 
   try {
     await fixture(reopened);
     const next = await reopened.newPage();
-    await review(next);
-    await expect(next.locator('#paid-password')).toHaveValue(password);
-    await expect(next.locator('#confirm-paid')).not.toBeChecked();
+    await review(next, { controls: false, initialBackend: 'eleven_music' });
+    await expect(next.locator('#paid-password')).toHaveCount(0);
+    await expect(next.locator('#confirm-paid')).toHaveCount(0);
     expect(await next.evaluate(() => JSON.stringify({ ...sessionStorage }))).not.toContain(password);
     await next.getByRole('button', { name: 'Sign out' }).click();
     expect(await next.evaluate(key => localStorage.getItem(key), key)).toBeNull();
@@ -102,13 +101,14 @@ test('a rejected saved password is cleared and its replacement is remembered', a
   await review(page, { login: true });
   await page.evaluate(key => localStorage.setItem(key, 'outdated-password'), key);
   await page.reload();
-  await expect(page.locator('#paid-password')).toHaveValue('outdated-password');
-  await page.locator('#confirm-paid').check();
+  await expect(page.locator('#paid-password')).toHaveCount(0);
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#confirm-form .field-error')).toContainText('password did not work');
   await expect(page.locator('#paid-password')).toHaveValue('');
+  await expect(page.locator('#confirm-paid')).not.toBeChecked();
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBeNull();
   await page.locator('#paid-password').fill(password);
+  await page.locator('#confirm-paid').check();
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#another')).toBeVisible();
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(password);
@@ -120,14 +120,14 @@ test('temporary confirmation failure preserves a saved password', async ({ page,
   await page.evaluate(({ key, password }) => localStorage.setItem(key, password), { key, password });
   await page.reload();
   state.failure = 503;
-  await page.locator('#confirm-paid').check();
+  await expect(page.locator('#confirm-paid')).toHaveCount(0);
+  await expect(page.locator('#paid-password')).toHaveCount(0);
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#confirm-form .field-error')).toContainText('Temporary confirmation failure');
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(password);
   await page.reload();
-  await expect(page.locator('#paid-password')).toHaveValue(password);
+  await expect(page.locator('#paid-password')).toHaveCount(0);
   state.failure = null;
-  await page.locator('#confirm-paid').check();
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#another')).toBeVisible();
 });

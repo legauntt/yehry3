@@ -1,4 +1,5 @@
 export const PAID_BACKEND = 'eleven_music';
+export const MUSIC_BACKEND_PREFERENCE_KEY = 'yehry3:music-backend';
 export const money = (cents) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
 
 const minutes = (seconds) => new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(seconds / 60);
@@ -9,16 +10,32 @@ export function paidCost(details = {}) {
   return { duration, estimate: duration / 60 * 15, reserve: Math.ceil(duration / 60 * 100) };
 }
 
-export function paidConfirmation(details, escape) {
+export function savedMusicBackend() {
+  try {
+    const value = localStorage.getItem(MUSIC_BACKEND_PREFERENCE_KEY);
+    return ['local', PAID_BACKEND].includes(value) ? value : '';
+  } catch { return ''; }
+}
+
+export function rememberMusicBackend(value) {
+  if (!['local', PAID_BACKEND].includes(value)) return;
+  try { localStorage.setItem(MUSIC_BACKEND_PREFERENCE_KEY, value); }
+  catch { /* The current request still retains its per-tab selection. */ }
+}
+
+export function paidConfirmation(details, escape, authorized = false) {
   if (details?.musicBackend !== PAID_BACKEND) return '';
   const cost = paidCost(details);
   if (!cost) return '<p class="field-error">Review this request again to choose its Auto length and confirm the paid cost.</p>';
-  return `<div class="paid-music-confirmation"><p><strong>Eleven Music · paid</strong><br>${escape(money(cost.estimate))} estimated generation cost for ${minutes(cost.duration)} minutes. This request reserves ${escape(money(cost.reserve))} from the shared $200 total cap.</p><label class="generation-enable"><input type="checkbox" id="confirm-paid" required> I agree to use paid generation and send this song’s lyrics and musical direction to ElevenLabs.</label><label for="paid-password">Paid confirmation password</label><input type="password" id="paid-password" name="paidPassword" required maxlength="1024" autocomplete="off" aria-describedby="paid-password-help"><p class="small" id="paid-password-help">Enter the separate password to authorize paid generation. It will be saved in this browser after confirmation.</p><p class="small">Tony’s voice is applied on the studio PC. One paid composition; saved audio is reused on retry. Reservations stay counted after cancellation or an uncertain provider response until reviewed. Estimates exclude subscription fees and taxes.</p></div>`;
+  const authorization = authorized
+    ? '<p class="small paid-authorization-saved">Paid confirmation is already authorized in this browser.</p>'
+    : '<label class="generation-enable"><input type="checkbox" id="confirm-paid" required> I agree to use paid generation and send this song’s lyrics and musical direction to ElevenLabs.</label><label for="paid-password">Paid confirmation password</label><input type="password" id="paid-password" name="paidPassword" required maxlength="1024" autocomplete="off" aria-describedby="paid-password-help"><p class="small" id="paid-password-help">Enter the separate password to authorize paid generation. It will be saved in this browser after confirmation.</p>';
+  return `<div class="paid-music-confirmation"><p><strong>Eleven Music · paid</strong><br>${escape(money(cost.estimate))} estimated generation cost for ${minutes(cost.duration)} minutes. This request reserves ${escape(money(cost.reserve))} from the shared $200 total cap.</p>${authorization}<p class="small">Tony’s voice is applied on the studio PC. One paid composition; saved audio is reused on retry. Reservations stay counted after cancellation or an uncertain provider response until reviewed. Estimates exclude subscription fees and taxes.</p></div>`;
 }
 
 export function mountMusicBackend(root, { draft, generation, basisRoot, storage, api, escape, onChange }) {
   const key = `music-backend-draft:${draft.id}`;
-  const initial = storage.get(key) || draft.details?.musicBackend || 'local';
+  const initial = storage.get(key) || draft.details?.musicBackend || savedMusicBackend() || 'local';
   const attached = Boolean(draft.details?.remixSource);
   let available = false, budget;
   root.innerHTML = `<label for="music-backend">Band generator</label><select id="music-backend" name="musicBackend"><option value="local">Local · ACE (no music API charge)</option><option value="eleven_music" disabled>Eleven Music · paid</option></select><p class="small" id="music-backend-status" role="status">Checking paid music availability…</p><div id="paid-music-note" hidden><p class="small">Eleven Music composes the band and guide vocal, then the studio applies your selected Tony voice. Lyrics, style, instruments, timing and mix controls carry over. Catalog remixes use the original lyrics and musical brief to guide a new composition; the recording’s melody is not preserved. Other basis recordings and local variation controls are unavailable.</p><p class="small" id="paid-music-cost"></p></div>`;
@@ -50,7 +67,7 @@ export function mountMusicBackend(root, { draft, generation, basisRoot, storage,
     storage.set(key, select.value);
     updateCost(); onChange?.();
   };
-  select.addEventListener('change', change);
+  select.addEventListener('change', () => { rememberMusicBackend(select.value); change(); });
   document.querySelector('#generation-root')?.addEventListener('input', updateCost);
   change();
   api('/music-backends', { role: 'submitter' }).then((result) => {
@@ -68,6 +85,7 @@ export function mountMusicBackend(root, { draft, generation, basisRoot, storage,
   return { read() {
     if (select.value === PAID_BACKEND && !available) throw new Error('Eleven Music is unavailable. Your draft is saved; try again shortly or choose local generation.');
     if (!['local', PAID_BACKEND].includes(select.value)) throw new Error('Choose an available band generator.');
+    rememberMusicBackend(select.value);
     return select.value;
   }, value: () => select.value, clear() { storage.remove(key); } };
 }

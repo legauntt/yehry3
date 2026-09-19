@@ -99,7 +99,8 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
   await page.getByRole('button', { name: 'Another idea' }).click();
   await page.locator('#idea').fill('An independent local draft about a streetlight in the rain.');
   await page.locator('#idea-form button').click();
-  await expect(page.locator('#music-backend')).toHaveValue('local');
+  await expect(page.locator('#music-backend')).toHaveValue('eleven_music');
+  await page.locator('#music-backend').selectOption('local');
   await page.locator('#details-form > .actions .primary').click();
   await expect(page.locator('#confirm-form')).toBeVisible();
   await expect(page.locator('#paid-password')).toHaveCount(0);
@@ -108,6 +109,10 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
   await page.locator('#confirm-form .primary').click();
   expect((await localConfirmation).postDataJSON()).not.toHaveProperty('paidPassword');
   await expect(page.getByRole('heading', { name: 'Your idea is on the list.' })).toBeVisible();
+  await page.getByRole('button', { name: 'Another idea' }).click();
+  await page.locator('#idea').fill('A second local draft that should remember ACE.');
+  await page.locator('#idea-form button').click();
+  await expect(page.locator('#music-backend')).toHaveValue('local');
   expect(errors).toEqual([]);
 });
 

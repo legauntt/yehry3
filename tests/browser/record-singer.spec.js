@@ -9,13 +9,14 @@ const detail = {
   hasLyrics: true,
   lyrics: {
     kind: "written",
-    text: "[Verse]\nThe midnight train is calling every dreamer home\nA little spark is dancing underneath the rain",
+    text: "[Verse]\nThe midnight train is calling every dreamer home\nA little spark is dancing underneath the rain\nFootsteps keep their rhythm by the river\nEvery window throws a little gold\nMorning finds the station slowly waking\nOld guitars are leaning by the door\nSomeone hums a harmony behind us\nStreetlights fade beneath the climbing sun\nHome is in the chorus we remember\nSing it till the restless night is done",
   },
 };
 const summary = { ...detail, lyrics: undefined };
 
 test("record clicks and idle spins show comic lyric captions unless the saved preference is off", async ({ page }) => {
   await page.addInitScript(() => {
+    Math.random = () => .999;
     window.__spokenLyrics = [];
     window.__speechCancels = 0;
     Object.defineProperty(window, "speechSynthesis", { configurable: true, value: {
@@ -45,7 +46,8 @@ test("record clicks and idle spins show comic lyric captions unless the saved pr
   await expect(bubble).toBeHidden();
   await record.click({ force: true });
   await expect(bubble).toBeVisible();
-  await expect(bubble.locator("blockquote")).toContainText(/midnight train|little spark/i);
+  await expect(bubble).toHaveAttribute("data-line-count", "8");
+  await expect(bubble.locator("blockquote")).toContainText(/morning finds|restless night/i);
   await expect(bubble.locator("figcaption")).toContainText(detail.title);
   expect(await page.evaluate(() => window.__spokenLyrics)).toEqual([]);
 
@@ -65,7 +67,7 @@ test("record clicks and idle spins show comic lyric captions unless the saved pr
   await expect.poll(() => page.evaluate(() => window.__spokenLyrics.length)).toBe(1);
   expect(await page.evaluate(() => window.__spokenLyrics[0].rate)).toBeCloseTo(0.92);
   expect(await page.evaluate(() => window.__spokenLyrics[0].pitch)).toBeCloseTo(1.08);
-  expect(await page.evaluate(() => window.__spokenLyrics[0].text)).toMatch(/midnight train|little spark/i);
+  expect(await page.evaluate(() => window.__spokenLyrics[0].text)).toMatch(/morning finds|restless night/i);
   await record.evaluate(element => element.dispatchEvent(new CustomEvent("recordidle")));
   await expect.poll(() => page.evaluate(() => window.__spokenLyrics.length)).toBe(1);
 
@@ -98,8 +100,20 @@ test("record clicks and idle spins show comic lyric captions unless the saved pr
   await captions.check();
   await page.getByRole("button", { name: "Close display settings" }).click();
   await page.setViewportSize({ width: 320, height: 720 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await record.click({ force: true });
   await expect(bubble).toBeVisible();
+  await expect(bubble).toHaveAttribute("data-line-count", "4");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.screenshot({ path: "artifacts/record-singer-mobile.png", animations: "disabled" });
+  const mobileBubble = await bubble.evaluate(element => {
+    const box = element.getBoundingClientRect();
+    const contentBottom = element.querySelector('figcaption').getBoundingClientRect().bottom;
+    return { top: box.top, right: box.right, bottom: box.bottom, left: box.left, contentBottom, viewportHeight: innerHeight, viewportWidth: innerWidth };
+  });
+  expect(mobileBubble.top).toBeGreaterThanOrEqual(0);
+  expect(mobileBubble.right).toBeLessThanOrEqual(mobileBubble.viewportWidth);
+  expect(mobileBubble.bottom).toBeLessThanOrEqual(mobileBubble.viewportHeight);
+  expect(mobileBubble.left).toBeGreaterThanOrEqual(0);
+  expect(mobileBubble.contentBottom).toBeLessThanOrEqual(mobileBubble.bottom);
+  await page.screenshot({ path: "artifacts/record-singer-mobile.png" });
 });
