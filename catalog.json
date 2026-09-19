@@ -2,6 +2,286 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5c67d4ddfa9eb5afe7b8a350",
+      "title": "The Golden Plague",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c67d4ddfa9eb5afe7b8a350-391907551888.mp3",
+      "duration": 144.24,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-19T05:04:09.713Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The Golden Plague",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A fast, vicious horror-punk and surf-rock original in D minor, driven by tremolo electric guitar, overdriven bass, pounding drums, and stabbing organ. The Tony V8 pinned voice delivers smoky, connected phrasing with slurred consonants, muttered menace, and increasingly frantic melodic outbursts while keeping the refrain immediately catchable. Vocals enter at once; verses escalate from mass hysteria to grotesque national collapse, the bridge strips back around bass and floor toms, and the final verse expands into a grim resolution. The last lyric lands about 10 seconds before the 145-second mark, followed only by one resolved minor chord and its natural decay.",
+        "lyrics": "[Verse 1]\nThe Golden Answer hit the air at eight\nBy noon the bottles lined the interstate\nThey raised them warm beneath the courthouse clock\nWhile smiling anchors called it common sense\n\nA father toasted victory at lunch\nHis kidneys clenched before the evening news\nA bride went gray beside the wedding cake\nAnd left a yellow shadow in the lace\n\n[Refrain]\nDrink it down, the nation cried\nSalt on the tongue and fire inside\nThe Golden Answer sold the lie\nThen every bathroom learned to testify\n\n[Verse 2]\nIn Phoenix, bodies blistered in the heat\nTheir mouths like paper, hearts off every beat\nIn Boston, office workers locked their jaws\nAnd tore their lips on cups of brittle glass\n\nA marching band collapsed along the route\nTheir uniforms went dark from inside out\nOne tuba held a final crooked tone\nWhile something red and foaming filled the horn\n\n[Refrain]\nDrink it down, the nation cried\nSalt on the tongue and fire inside\nThe Golden Answer sold the lie\nThen every bathroom learned to testify\n\n[Bridge]\nNo miracle was hiding in the waste\nJust thirst returning with a poisoned face\nThe living watched the death count scrape the sky\nAnd still the jingle told them one more try\n\n[Verse]\nThe hospitals ran black with failing lights\nThe gutters steamed through three unending nights\nA million cups lay shining in the dawn\nBeside the swollen dead on every lawn\n\nAt last one child reached up and killed the song\nThe speakers clicked; the awful spell was gone\nShe poured the final bottle in the drain\nAnd rain came clean against the windowpane\n\n[Refrain]\nDrink it down—the nation lied\nGold in the glass, but death inside\nThe answer failed, the fever died\nRemember every mouth it left bone-dry\n\n[Outro]\nNo cure was ever waiting in that cup\nThe drain swallowed the last gold drop\n[End]",
+        "duration": 145,
+        "bpm": 168,
+        "musicalSettings": {
+          "genre": "Horror punk with surf-rock attack",
+          "meter": "Fast 4/4 with a driving eighth-note back",
+          "structure": "Verse–refrain–verse–refrain–bridge–final verse–final refrain–outro",
+          "performance": "Natural but theatrical Tony V8 lead: rough, smoky, slurred, mischievous at first, then alarmed and forceful, with a clear melodic hook",
+          "energy": "Immediate high energy, rising through increasingly grotesque scenes, briefly tightening in the bridge, then peaking in the final refrain before a stark resolved chord",
+          "lyricWorkflow": "Original narrative lyrics built as an escalating cautionary horror story, ending with the broadcast stopped and the last bottle destroyed",
+          "instruments": [
+            "tremolo electric guitar",
+            "overdriven electric bass",
+            "drum kit",
+            "stabbing organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThe Golden Answer hit the air at eight\nBy noon the bottles lined the interstate\nThey raised them warm beneath the courthouse clock\nWhile smiling anchors called it common sense\n\nA father toasted victory at lunch\nHis kidneys clenched before the evening news\nA bride went gray beside the wedding cake\nAnd left a yellow shadow in the lace\n\n[Refrain]\nDrink it down, the nation cried\nSalt on the tongue and fire inside\nThe Golden Answer sold the lie\nThen every bathroom learned to testify\n\n[Verse 2]\nIn Phoenix, bodies blistered in the heat\nTheir mouths like paper, hearts off every beat\nIn Boston, office workers locked their jaws\nAnd tore their lips on cups of brittle glass\n\nA marching band collapsed along the route\nTheir uniforms went dark from inside out\nOne tuba held a final crooked tone\nWhile something red and foaming filled the horn\n\n[Refrain]\nDrink it down, the nation cried\nSalt on the tongue and fire inside\nThe Golden Answer sold the lie\nThen every bathroom learned to testify\n\n[Bridge]\nNo miracle was hiding in the waste\nJust thirst returning with a poisoned face\nThe living watched the death count scrape the sky\nAnd still the jingle told them one more try\n\n[Verse]\nThe hospitals ran black with failing lights\nThe gutters steamed through three unending nights\nA million cups lay shining in the dawn\nBeside the swollen dead on every lawn\n\nAt last one child reached up and killed the song\nThe speakers clicked; the awful spell was gone\nShe poured the final bottle in the drain\nAnd rain came clean against the windowpane\n\n[Refrain]\nDrink it down—the nation lied\nGold in the glass, but death inside\nThe answer failed, the fever died\nRemember every mouth it left bone-dry\n\n[Outro]\nNo cure was ever waiting in that cup\nThe drain swallowed the last gold drop",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 2.12,
+            "end": 5.06
+          },
+          {
+            "line": 2,
+            "start": 5.3,
+            "end": 8.9
+          },
+          {
+            "line": 3,
+            "start": 8.9,
+            "end": 10.78
+          },
+          {
+            "line": 4,
+            "start": 11.36,
+            "end": 13.7
+          },
+          {
+            "line": 6,
+            "start": 14.3,
+            "end": 16.58
+          },
+          {
+            "line": 7,
+            "start": 17.22,
+            "end": 19.02
+          },
+          {
+            "line": 8,
+            "start": 19.02,
+            "end": 22.38
+          },
+          {
+            "line": 9,
+            "start": 22.92,
+            "end": 25.24
+          },
+          {
+            "line": 12,
+            "start": 25.24,
+            "end": 28.18
+          },
+          {
+            "line": 13,
+            "start": 28.18,
+            "end": 31.1
+          },
+          {
+            "line": 14,
+            "start": 31.1,
+            "end": 33.94
+          },
+          {
+            "line": 15,
+            "start": 33.94,
+            "end": 36.14
+          },
+          {
+            "line": 18,
+            "start": 36.14,
+            "end": 43.24
+          },
+          {
+            "line": 19,
+            "start": 43.24,
+            "end": 45.68
+          },
+          {
+            "line": 20,
+            "start": 45.68,
+            "end": 48.48
+          },
+          {
+            "line": 21,
+            "start": 48.48,
+            "end": 51.32
+          },
+          {
+            "line": 23,
+            "start": 51.32,
+            "end": 54.86
+          },
+          {
+            "line": 24,
+            "start": 54.86,
+            "end": 57.72
+          },
+          {
+            "line": 25,
+            "start": 57.72,
+            "end": 60.58
+          },
+          {
+            "line": 26,
+            "start": 60.58,
+            "end": 62.94
+          },
+          {
+            "line": 29,
+            "start": 63.44,
+            "end": 66.36
+          },
+          {
+            "line": 30,
+            "start": 66.36,
+            "end": 68.46
+          },
+          {
+            "line": 31,
+            "start": 69.26,
+            "end": 71.58
+          },
+          {
+            "line": 32,
+            "start": 71.76,
+            "end": 74.3
+          },
+          {
+            "line": 35,
+            "start": 76.86,
+            "end": 81.02
+          },
+          {
+            "line": 36,
+            "start": 83.14,
+            "end": 86.74
+          },
+          {
+            "line": 37,
+            "start": 88.54,
+            "end": 91.92
+          },
+          {
+            "line": 38,
+            "start": 94.46,
+            "end": 98
+          },
+          {
+            "line": 41,
+            "start": 100.78,
+            "end": 103.36
+          },
+          {
+            "line": 42,
+            "start": 103.96,
+            "end": 106.26
+          },
+          {
+            "line": 43,
+            "start": 106.72,
+            "end": 109.16
+          },
+          {
+            "line": 44,
+            "start": 109.66,
+            "end": 112
+          },
+          {
+            "line": 46,
+            "start": 112.56,
+            "end": 114.88
+          },
+          {
+            "line": 47,
+            "start": 115.46,
+            "end": 117.8
+          },
+          {
+            "line": 48,
+            "start": 118.32,
+            "end": 120.66
+          },
+          {
+            "line": 49,
+            "start": 121.24,
+            "end": 123.16
+          },
+          {
+            "line": 52,
+            "start": 123.16,
+            "end": 126.62
+          },
+          {
+            "line": 53,
+            "start": 126.86,
+            "end": 129
+          },
+          {
+            "line": 54,
+            "start": 129,
+            "end": 132.26
+          },
+          {
+            "line": 55,
+            "start": 132.54,
+            "end": 134.32
+          },
+          {
+            "line": 58,
+            "start": 134.32,
+            "end": 134.76
+          },
+          {
+            "line": 59,
+            "start": 135.22,
+            "end": 135.34
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "After the song \"The Golden Answer\" sweeps the nation, Americans everywhere start to drink their own piss, unaware of the dangers. Countless people die in increasingly grotesque and horrible ways, and it's all because of the piss drinking.",
+        "direction": "Use the prompt as written.",
+        "keep": "Really lean into the horrors of drinking your own piss and dying as a result, must not hold back.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-5ae363b12d01b017f8d295f3",
       "title": "The Golden Answer",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5ae363b12d01b017f8d295f3-30e1e5778f2f.mp3",
