@@ -83,3 +83,43 @@ test("the homepage shows the full queue and emphasizes 9/11'd Again", async ({ p
   await expect(page.locator(".pending-track").first()).toContainText("9/11'd Again");
   await expect(page.locator(`.pending-track[data-id="${failed.id}"] .pending-warning-icon`)).toBeVisible();
 });
+
+test("9/11'd Again badges play a line without toggling the row", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__played = [];
+    HTMLMediaElement.prototype.play = function () {
+      if (this.src.includes("/assets/sounds/")) window.__played.push(new URL(this.src).pathname);
+      return Promise.resolve();
+    };
+  });
+  const soundRequests = [];
+  page.on("request", request => { if (request.url().includes("/assets/sounds/")) soundRequests.push(request.url()); });
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
+  await page.goto("/");
+  const row = page.locator(`.pending-track[data-id="${failed.id}"]`);
+  // <summary> flattens its children in the accessibility tree, so find the row's badge by class.
+  const badge = row.locator("button.badge-sound");
+  await expect(badge.locator(".badge-sound-icon")).toBeVisible();
+  expect(soundRequests).toEqual([]);
+  await badge.click();
+  await expect(badge).toHaveClass(/is-playing/);
+  expect(await row.evaluate(node => node.open)).toBe(false);
+  await badge.click();
+  await expect(badge).not.toHaveClass(/is-playing/);
+  await badge.click();
+  expect(await page.evaluate(() => window.__played)).toEqual([
+    "/assets/sounds/one-loud-crash.mp3",
+    "/assets/sounds/nine-elevend-again.mp3",
+  ]);
+  await mockQueue(page);
+  await page.goto("/queue/");
+  await page.getByRole("button", { name: "9/11'd Again (play sound)" }).click();
+  expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/one-loud-crash.mp3");
+  for (const clip of ["one-loud-crash", "nine-elevend-again"]) {
+    const response = await page.request.get(`/assets/sounds/${clip}.mp3`);
+    expect(response.ok()).toBe(true);
+    expect(response.headers()["content-type"]).toContain("audio/mpeg");
+  }
+});

@@ -28,6 +28,7 @@ import { loadRemix, remixBadge, remixLink } from "./remix.js";
 import { recordingLabels, recordingLabel, recordingTitle } from "./recording-label.js";
 import { mountCatalogView } from "./catalog-view.js";
 import { songArtworkMarkup } from "./song-art.js";
+import { badgeSoundIcon, hasBadgeSound, mountBadgeSounds } from "./badge-sound.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const main = $("#main");
@@ -63,7 +64,9 @@ const date = (value) =>
     minute: "2-digit",
   });
 const badge = (status) =>
-  `<span class="badge ${escape(status)}">${escape(labels[status] || status)}</span>`;
+  hasBadgeSound(status)
+    ? `<button type="button" class="badge ${escape(status)} badge-sound" title="Play a line from “Nine-Eleven'd Again”" aria-label="${escape(labels[status])} (play sound)">${escape(labels[status])}${badgeSoundIcon}</button>`
+    : `<span class="badge ${escape(status)}">${escape(labels[status] || status)}</span>`;
 let voiceModels = [
   { id: "v6", label: "Tony V6", note: "Established expressive catalog profile", experimental: false },
   { id: "v7", label: "Tony V7", note: "Separate fresh-catalog adapter and references", experimental: true },
@@ -1261,6 +1264,7 @@ async function admin() {
   }, 30000);
 }
 
+mountBadgeSounds();
 try {
   if (page !== "queue") watchCompletions();
   if (page === "requests") await requests();

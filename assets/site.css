@@ -1293,6 +1293,49 @@ main {
   background: #e8e5de;
   color: #716f65;
 }
+.badge.attention {
+  background: #f7d7c4;
+  color: #913c24;
+}
+.badge-sound {
+  border: 0;
+  font-family: inherit;
+  line-height: inherit;
+  cursor: pointer;
+}
+.badge-sound:hover {
+  background: #f2c6ad;
+}
+.badge-sound:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+.badge-sound-icon {
+  width: 1.35em;
+  height: 1.35em;
+  margin: -2px -2px -2px 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.badge-sound-icon path:first-child {
+  fill: currentColor;
+}
+.badge-sound.is-playing .badge-sound-icon path:not(:first-child) {
+  animation: badge-sound-wave 0.7s ease-in-out infinite alternate;
+}
+@keyframes badge-sound-wave {
+  to {
+    opacity: 0.25;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .badge-sound.is-playing .badge-sound-icon path:not(:first-child) {
+    animation: none;
+  }
+}
 .admin-intro {
   display: flex;
   align-items: start;
