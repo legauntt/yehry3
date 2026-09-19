@@ -1,0 +1,338 @@
+import importlib.util, json, os, subprocess, sys, tempfile, time, unittest, uuid
+from pathlib import Path
+from unittest.mock import patch
+from common import APIError, fingerprint, load, save, sha
+from planner import validate, make_plan, normalize
+from publish import merge_catalog, update_catalog, song_record, original_prompt
+from worker import run_once, basis_files, metadata
+from winprocess import Stopped, run_owned
+from lyrics import make_sheet, export_sheet
+from lyric_timing import make_cues
+from source_material import source_material
+
+def plan():
+    return {'recipe': 'new', 'title': 'Night Train', 'style': 'rock', 'duration': 200, 'bpm': 100,
+        'keyscale': 'D minor', 'lyrics': '[Verse]\n' + 'A late train carries us back home\n' * 8 + '[End]',
+        'arrangement': 'Close, expressive Tony vocals over acoustic guitar. Grow into a full chorus with a resolved final chord and its natural decay.',
+        'preserve_generated_backing': True, 'explanation': 'Original Tony song'}
+
+class WorkerTests(unittest.TestCase):
+    def test_v7_is_visible_to_planner_and_frozen_into_render_and_completion(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); studio = root / 'studio'; studio.mkdir()
+            (studio / 'PREFERENCES.md').write_text('Keep the performance expressive.')
+            prompt = {'id': 'v7-contract', 'status': 'processing', 'prompt': 'A new railway song',
+                      'details': {'voiceModel': 'v7', 'basisSongIds': []}}
+            config = {'state_dir': str(root / 'state'), 'planner_model': 'test', 'codex': 'test',
+                      'settings': {'studio_dir': str(studio), 'python': sys.executable}}
+
+            def planner_call(*args, **kwargs):
+                self.assertIn('"voiceModel": "v7"', kwargs['input_text'])
+                save(root / 'plan-job' / 'planner-result.json', plan())
+            plan_job = root / 'plan-job'; plan_job.mkdir()
+            with patch('planner.run_owned', side_effect=planner_call):
+                self.assertEqual(make_plan(config, prompt, plan_job, [])['recipe'], 'new')
+
+            completed = []
+            class API:
+                def call(self, path, body=None, timeout=25):
+                    if path == '/claim': return {'prompt': dict(prompt)}
+                    if path.endswith('/heartbeat'): return {'prompt': dict(prompt)}
+                    if path.endswith('/complete'):
+                        completed.append(body['result']); prompt.update(status='completed', result=body['result'])
+                    elif path.endswith('/publishing'): prompt['status'] = 'publishing'
+                    return {'prompt': dict(prompt)}
+
+            def render(*args, **kwargs):
+                request = load(root / 'state/jobs/v7-contract/render-request.json')
+                self.assertEqual(request['voice_model'], 'v7')
+                save(root / 'state/jobs/v7-contract/render-result.json', {'voice_model': 'v7'})
+
+            def frozen_metadata(config, planned, result, voice_model):
+                self.assertEqual(result['voice_model'], voice_model)
+                return 'mix.mp3', {'title': planned['title'], 'duration': planned['duration'], 'voiceModel': voice_model}
+
+            with patch('worker.basis_files', return_value=[]), patch('worker.make_plan', return_value=plan()), \
+                    patch('worker.run_owned', side_effect=render), patch('worker.metadata', side_effect=frozen_metadata), \
+                    patch('worker.upload', side_effect=OSError('stop after contract')):
+                with self.assertRaisesRegex(OSError, 'stop after contract'):
+                    run_once(config, API())
+            self.assertEqual(completed[0]['voiceModel'], 'v7')
+
+    def test_original_prompt_uses_confirmed_brief_without_private_fields(self):
+        prompt = {'prompt': 'Medusa as a quartet', 'details': {'direction': 'Four voices', 'keep': 'Tony vocals', 'basisSongTitles': ['Medusa'], 'privatePath': 'C:\\private'},
+                  'adminNote': 'private', 'lease': {'secret': 'private'}, 'songId': 'distonyc-one', 'releaseUrl': 'https://example.com/song.mp3',
+                  'result': {'title': 'Song', 'duration': 200, 'originalPrompt': {'idea': 'Spoofed'}}}
+        brief = {'idea': 'Medusa as a quartet', 'direction': 'Four voices', 'keep': 'Tony vocals', 'basisSongs': ['Medusa'], 'voiceModel': 'v6'}
+        self.assertEqual(song_record(prompt)['originalPrompt'], brief)
+        self.assertNotIn('adminNote', song_record(prompt))
+        prompt['result']['authoredBy'] = 'Worker-supplied name'
+        self.assertNotIn('authoredBy', song_record(prompt))
+        prompt['authoredBy'] = 'Jesse & friends'
+        self.assertEqual(song_record(prompt)['authoredBy'], 'Jesse & friends')
+        self.assertEqual(song_record(prompt)['voiceModel'], 'v6')
+        self.assertEqual(original_prompt({**prompt, 'details': {}})['basisSongs'], [])
+        self.assertEqual(original_prompt({**prompt, 'details': {'basisSongTitles': ['A', 'B', 'C', 'D', 'E']}})['basisSongs'], ['A', 'B', 'C', 'D', 'E'])
+        self.assertEqual(original_prompt({**prompt, 'details': {'voiceModel': 'v8'}})['voiceModel'], 'v8')
+
+    def test_metadata_rejects_a_voice_model_mismatch(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); files = []
+            for ext in ('mp3', 'wav'):
+                path = root / (ext + 's') / ('song.' + ext); path.parent.mkdir(); path.write_bytes(b'audio')
+                files.append({'path': str(path), 'bytes': path.stat().st_size, 'sha256': sha(path)})
+            config = {'settings': {'output_dir': str(root)}}
+            result = {'status': 'verified', 'new_training': False, 'voice_model': 'v7', 'duration': 10, 'files': files,
+                      'work_path': str(root)}
+            with self.assertRaisesRegex(ValueError, 'differs'):
+                metadata(config, plan(), result, 'v8')
+
+    def test_lyrics_use_frozen_render_inputs_and_preserve_export(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); work = root / 'render'; work.mkdir()
+            config = {'settings': {'studio_dir': str(root / 'studio'), 'output_dir': str(root / 'exports')}}
+            save(work / 'spec.json', {'kind': 'new', 'lyrics': '[Verse]\nActual saved words\n[End]'})
+            sheet = make_sheet(config, plan(), {'work_path': str(work)})
+            self.assertEqual(sheet, {'text': '[Verse]\nActual saved words', 'kind': 'written'})
+            path = export_sheet(config, 'song.mp3', 'Song', sheet)
+            self.assertEqual(export_sheet(config, 'song.mp3', 'Song', sheet), path)
+            with self.assertRaises(ValueError): export_sheet(config, 'song.mp3', 'Song', {**sheet, 'text': 'Other words'})
+            save(work / 'spec.json', {'kind': 'barbershop'})
+            save(work / 'original-transcripts.json', [{'text': ' Saved source line.'}, {'text': 'Another line.'}])
+            sheet = make_sheet(config, plan(), {'work_path': str(work)})
+            self.assertEqual(sheet, {'text': 'Saved source line.\nAnother line.', 'kind': 'transcribed'})
+
+    def test_saved_word_timestamps_become_clickable_line_cues(self):
+        with tempfile.TemporaryDirectory() as directory:
+            work = Path(directory)
+            text = '[Verse]\nFear and hunger\nTell me what a crown is worth\n\n[Outro]\nWhoa now'
+            save(work / 'matched-vocals-words.json', [
+                {'words': [{'word': 'Feel', 'start': 2.5, 'end': 3.2}, {'word': 'and', 'start': 3.2, 'end': 3.5}, {'word': 'hunger', 'start': 3.5, 'end': 4.1}]},
+                {'words': [{'word': 'Tell', 'start': 7.4, 'end': 7.7}, {'word': 'me', 'start': 7.7, 'end': 8}, {'word': 'what', 'start': 8, 'end': 8.3}, {'word': 'a', 'start': 8.3, 'end': 8.5}, {'word': 'crown', 'start': 8.5, 'end': 8.8}, {'word': 'is', 'start': 8.8, 'end': 9.2}, {'word': 'worth', 'start': 9.2, 'end': 9.7}]},
+                {'words': [{'word': 'One', 'start': 18, 'end': 18.5}, {'word': 'more', 'start': 18.5, 'end': 19}]},
+            ])
+            cues = make_cues(work, text, 20)
+            self.assertEqual([cue['line'] for cue in cues], [1, 2, 5])
+            self.assertLessEqual(cues[0]['start'], 3.5)
+            self.assertEqual(cues[1]['start'], 7.4)
+            self.assertGreaterEqual(cues[2]['start'], 18)
+
+    def test_native_lyric_formatting_and_plan_response_recovery(self):
+        original = plan(); original['lyrics'] = original['lyrics'].replace('\n', '\\n').replace('[End]', '')
+        fixed = normalize(original)
+        self.assertIn('\n', fixed['lyrics']); self.assertTrue(fixed['lyrics'].endswith('[End]'))
+        with tempfile.TemporaryDirectory() as directory, patch('planner.run_owned') as model:
+            root = Path(directory); brief = {'prompt': 'An original song', 'details': {}}
+            save(root / 'planning-input.json', {'briefHash': fingerprint(brief)})
+            save(root / 'planner-result.json', original)
+            self.assertEqual(make_plan({'planner_model': 'test'}, brief, root, []), fixed)
+            model.assert_not_called(); self.assertTrue((root / 'plan.json').exists())
+
+    def test_lost_publish_response_retries_only_the_fallback_catalog(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); prompt = {'id': 'test-prompt', 'status': 'processing', 'prompt': 'Original test song', 'details': {}, 'songId': 'distonyc-test', 'releaseUrl': 'https://example.com/song.mp3'}
+            job = root / 'jobs' / prompt['id']; job.mkdir(parents=True)
+            files = []
+            for ext in ['mp3', 'wav']:
+                file = root / (ext + 's') / ('test.' + ext); file.parent.mkdir(); file.write_bytes(b'fixture')
+                files.append({'path': str(file), 'bytes': file.stat().st_size, 'sha256': sha(file)})
+            issues = [{'code': 'long_instrumental_outro', 'seconds': 22.86}]
+            save(job / 'render-result.json', {'status': 'verified', 'new_training': False, 'duration': 200, 'files': files, 'qualityIssues': issues})
+            save(job / 'plan.json', {'briefHash': fingerprint({'prompt': prompt['prompt'], 'details': prompt['details']}), 'plan': plan()})
+            class API:
+                def call(self, path, body=None, timeout=25):
+                    if path.endswith('/complete'): prompt.update(status='completed', result=body['result'])
+                    if path.endswith('/publishing'): prompt['status'] = 'publishing'
+                    if path.endswith('/publish'):
+                        prompt['status'] = 'published'; raise OSError('Response lost after publication')
+                    return {'prompt': dict(prompt)}
+            config = {'state_dir': str(root), 'settings': {'output_dir': str(root)}}
+            with patch('worker.basis_files', return_value=[]), patch('worker.run_owned') as render, patch('worker.upload') as upload, patch('worker.update_catalog') as catalog:
+                with self.assertRaises(OSError): run_once(config, API())
+                self.assertTrue((root / 'claim.json').exists())
+                self.assertEqual(prompt['result']['qualityIssues'], issues)
+                run_once(config, API()); render.assert_not_called(); upload.assert_called_once(); catalog.assert_called_once()
+                self.assertFalse((root / 'claim.json').exists())
+
+    def test_invalid_plans_and_recipe_boundaries(self):
+        self.assertEqual(validate(plan(), [])['recipe'], 'new')
+        self.assertTrue(validate({**plan(), 'fear_hunger': True}, [])['fear_hunger'])
+        with self.assertRaises(ValueError): validate({**plan(), 'fear_hunger': 'yes'}, [])
+        for change in [{'title': '../escape'}, {'title': 'NUL'}, {'duration': 10}, {'lyrics': 'short'}, {'keyscale': 'run a command'}, {'recipe': 'remix'}]:
+            with self.assertRaises(ValueError): validate({**plan(), **change}, [])
+        with self.assertRaises(ValueError): validate({**plan(), 'recipe': 'barbershop'}, [{'relativePath': 'unknown.mp3'}])
+        self.assertEqual(validate({**plan(), 'recipe': 'barbershop'}, [{'relativePath': 'dvdp/11_medusa.m4a'}])['recipe'], 'barbershop')
+
+    def test_idle_never_calls_model_renderer_or_publisher(self):
+        class API:
+            def call(self, path, body): self.path = path; return {'prompt': None}
+        with tempfile.TemporaryDirectory() as directory, patch('worker.make_plan') as model, patch('worker.run_owned') as render, patch('worker.upload') as upload:
+            api = API(); run_once({'state_dir': directory}, api)
+            self.assertEqual(api.path, '/claim'); self.assertEqual(load(Path(directory) / 'health.json')['status'], 'idle')
+            model.assert_not_called(); render.assert_not_called(); upload.assert_not_called()
+            self.assertFalse((Path(directory) / 'claim.json').exists())
+
+    def test_null_cached_stems_allow_an_inspired_original_to_reach_planning(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); studio = root / 'studio'; studio.mkdir()
+            (studio / 'PREFERENCES.md').write_text('Use the saved Tony V6 voice.')
+            catalog = root / 'catalog-expansion-v6'
+            save(catalog / 'sources.json', [{'recording': 'gravity', 'source_sha256': 'a' * 64, 'cached_stems': None}])
+            save(catalog / 'transcripts/gravity.json', [{'text': 'Saved reference lyrics.'}])
+            config = {'settings': {'studio_dir': str(studio)}, 'planner_model': 'test', 'codex': 'test'}
+            basis = [{'id': 'gravity', 'title': 'Gravity', 'sha256': 'a' * 64}]
+            brief = {'prompt': 'Similar to Gravity, but about Polarity', 'details': {'basisSongIds': ['gravity']}}
+            self.assertIsNone(source_material(config, basis))
+            def model(*args, **kwargs):
+                self.assertIn('Gravity', kwargs['input_text'])
+                self.assertNotIn('Saved source material (lyric data', kwargs['input_text'])
+                save(root / 'planner-result.json', plan())
+            with patch('planner.run_owned', side_effect=model) as called:
+                result = make_plan(config, brief, root, basis)
+            self.assertEqual(result['recipe'], 'new'); called.assert_called_once()
+            self.assertTrue((root / 'plan.json').exists())
+
+    def test_unexpected_local_failure_releases_claim_and_retains_diagnostics(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); calls = []
+            prompt = {'id': 'test-prompt', 'status': 'processing', 'prompt': 'An original', 'details': {}}
+            job = root / 'jobs/test-prompt'; save(job / 'saved-work.json', {'retained': True})
+            class API:
+                def call(self, path, body=None, timeout=25):
+                    calls.append((path, body))
+                    if path.endswith('/fail'): prompt['status'] = 'failed'
+                    return {'prompt': dict(prompt)}
+            with patch('worker.basis_files', return_value=[]), patch('worker.make_plan', side_effect=AttributeError('missing optional metadata')), patch('worker.run_owned') as render:
+                with self.assertRaisesRegex(AttributeError, 'missing optional metadata'):
+                    run_once({'state_dir': directory}, API())
+            failures = [body for path, body in calls if path.endswith('/fail')]
+            self.assertEqual(len(failures), 1)
+            self.assertIn('Planning the song failed: AttributeError', failures[0]['error'])
+            self.assertFalse((root / 'claim.json').exists())
+            self.assertEqual(load(job / 'saved-work.json'), {'retained': True})
+            diagnostic = load(job / 'worker-error.json')
+            self.assertEqual(diagnostic['stage'], 'Planning the song')
+            self.assertIn('AttributeError: missing optional metadata', diagnostic['traceback'])
+            render.assert_not_called()
+
+    def test_failure_settlement_respects_fresh_lease_cancel_and_publication_status(self):
+        for refresh in ('cancel_requested', 'publishing', 'published', APIError(409, 'lease lost'), OSError('offline')):
+            with self.subTest(refresh=refresh), tempfile.TemporaryDirectory() as directory:
+                calls = []; beats = []
+                prompt = {'id': 'test-prompt', 'status': 'processing', 'prompt': 'An original', 'details': {}}
+                class API:
+                    def call(self, path, body=None, timeout=25):
+                        calls.append(path)
+                        if path.endswith('/heartbeat'):
+                            beats.append(path)
+                            if len(beats) > 1:
+                                if isinstance(refresh, Exception): raise refresh
+                                return {'prompt': {**prompt, 'status': refresh}}
+                        return {'prompt': dict(prompt)}
+                with patch('worker.basis_files', return_value=[]), patch('worker.make_plan', side_effect=TypeError('bad local metadata')):
+                    with self.assertRaisesRegex(TypeError, 'bad local metadata'):
+                        run_once({'state_dir': directory}, API())
+                self.assertFalse(any(path.endswith('/fail') for path in calls))
+                self.assertTrue((Path(directory) / 'claim.json').exists())
+
+    def test_transport_failure_retains_claim_for_saved_work_reconciliation(self):
+        for error in (APIError(503, 'temporarily unavailable'), OSError('response lost')):
+            with self.subTest(error=error), tempfile.TemporaryDirectory() as directory:
+                calls = []
+                prompt = {'id': 'test-prompt', 'status': 'processing', 'prompt': 'An original', 'details': {}}
+                class API:
+                    def call(self, path, body=None, timeout=25):
+                        calls.append(path); return {'prompt': dict(prompt)}
+                with patch('worker.basis_files', return_value=[]), patch('worker.make_plan', side_effect=error):
+                    with self.assertRaises(type(error)): run_once({'state_dir': directory}, API())
+                self.assertFalse(any(path.endswith('/fail') for path in calls))
+                self.assertTrue((Path(directory) / 'claim.json').exists())
+
+    def test_claim_is_saved_before_a_lost_response_and_replayed(self):
+        class API:
+            def __init__(self): self.bodies = []
+            def call(self, path, body):
+                self.bodies.append(body.copy())
+                if len(self.bodies) == 1: raise OSError('connection dropped')
+                return {'prompt': None}
+        with tempfile.TemporaryDirectory() as directory:
+            api = API(); config = {'state_dir': directory}
+            with self.assertRaises(OSError): run_once(config, api)
+            run_once(config, api); self.assertEqual(api.bodies[0], api.bodies[1])
+
+    def test_expired_claim_uses_a_new_fencing_token(self):
+        class API:
+            def __init__(self): self.bodies = []
+            def call(self, path, body):
+                self.bodies.append(body.copy())
+                if len(self.bodies) == 1: raise APIError(410, 'expired')
+                return {'prompt': None}
+        with tempfile.TemporaryDirectory() as directory:
+            api = API(); run_once({'state_dir': directory}, api)
+            self.assertNotEqual(api.bodies[0]['leaseToken'], api.bodies[1]['leaseToken'])
+
+    def test_plan_cache_avoids_another_model_call_and_rejects_changed_brief(self):
+        with tempfile.TemporaryDirectory() as directory, patch('planner.run_owned') as model:
+            brief = {'prompt': 'A song for the train', 'details': {}}
+            save(Path(directory) / 'plan.json', {'briefHash': fingerprint(brief), 'plan': plan()})
+            self.assertEqual(make_plan({}, brief, directory, []), plan()); model.assert_not_called()
+            with self.assertRaises(ValueError): make_plan({}, {**brief, 'prompt': 'Changed prompt'}, directory, [])
+
+    def test_basis_path_escape_rejected_and_content_pinned(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); (root / 'safe.mp3').write_bytes(b'audio')
+            catalog = root / 'basis.json'; config = {'basis_root': str(root), 'basis_catalog': str(catalog)}
+            save(catalog, {'songs': [{'id': 'one', 'title': 'Little Bit More', 'relativePath': 'safe.mp3'}]})
+            result = basis_files(config, {'details': {'basisSongIds': ['one']}})
+            self.assertEqual(result[0]['sha256'], sha(root / 'safe.mp3'))
+            self.assertEqual(basis_files(config, {'details': {'source': 'Little Bit More'}}), result)
+            self.assertEqual(basis_files(config, {'details': {'source': 'Little Bit More', 'basisSongIds': []}}), [])
+            save(catalog, {'songs': [{'id': 'one', 'relativePath': '../outside.mp3'}]})
+            with self.assertRaises(ValueError): basis_files(config, {'details': {'basisSongIds': ['one']}})
+
+    def test_catalog_merge_preserves_other_work_and_retries_conflicts(self):
+        prompt = {'songId': 'distonyc-one', 'result': {'title': 'New song', 'duration': 200}, 'releaseUrl': 'https://example.com/song.mp3'}
+        import base64
+        def response(songs, revision): return {'content': base64.b64encode(json.dumps({'version': 1, 'songs': songs}).encode()).decode(), 'sha': revision}
+        original = {'id': 'existing', 'title': 'Existing song'}; concurrent = {'id': 'concurrent', 'title': 'Added by someone else'}
+        calls = []
+        def gh(config, args, body=None):
+            if body is None: return response([original] if not calls else [concurrent, original], 'first' if not calls else 'second')
+            calls.append(body)
+            if len(calls) == 1: raise RuntimeError('HTTP 409 conflict')
+            return {}
+        with patch('publish.gh_json', side_effect=gh): update_catalog({}, prompt)
+        saved = json.loads(base64.b64decode(calls[-1]['content']))
+        self.assertEqual([s['id'] for s in saved['songs']], ['distonyc-one', 'concurrent', 'existing'])
+        self.assertEqual(calls[-1]['sha'], 'second')
+        self.assertFalse(merge_catalog(saved, saved['songs'][0]))
+        self.assertTrue(merge_catalog(saved, {**saved['songs'][0], 'collections': ['distonyc', 'fearhunger']}))
+        self.assertFalse(merge_catalog(saved, {key: value for key, value in saved['songs'][0].items() if key != 'collections'}))
+        self.assertEqual(saved['songs'][0]['collections'], ['distonyc', 'fearhunger'])
+        with self.assertRaises(ValueError): merge_catalog(saved, {**saved['songs'][0], 'title': 'Other song'})
+
+    @unittest.skipUnless(os.name == 'nt', 'Windows process isolation')
+    def test_cancel_kills_owned_grandchild_and_preserves_unrelated_process(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); gate = root / 'gate'; pidfile = root / 'child.json'
+            script = root / 'parent.py'
+            script.write_text('import subprocess, sys, time, json\nfrom pathlib import Path\n'
+                'while not Path(sys.argv[1]).exists(): time.sleep(.02)\n'
+                'p=subprocess.Popen([sys.executable,"-c","import time; time.sleep(60)"])\n'
+                'Path(sys.argv[2]).write_text(json.dumps({"pid":p.pid}))\n'
+                'time.sleep(60)\n', encoding='utf-8')
+            unrelated = subprocess.Popen([sys.executable, '-c', 'import time; time.sleep(60)'], creationflags=subprocess.CREATE_NO_WINDOW)
+            try:
+                with self.assertRaises(Stopped): run_owned([sys.executable, script, gate, pidfile], root, root / 'log', lambda: pidfile.exists(), gate=gate, timeout=15)
+                self.assertIsNone(unrelated.poll())
+                import ctypes
+                kernel = ctypes.WinDLL('kernel32', use_last_error=True); kernel.OpenProcess.restype = ctypes.c_void_p
+                kernel.GetExitCodeProcess.argtypes = [ctypes.c_void_p, ctypes.POINTER(ctypes.c_ulong)]
+                kernel.CloseHandle.argtypes = [ctypes.c_void_p]
+                handle = kernel.OpenProcess(0x1000, False, load(pidfile)['pid'])
+                if handle:
+                    code = ctypes.c_ulong(); kernel.GetExitCodeProcess(handle, ctypes.byref(code)); kernel.CloseHandle(handle)
+                    self.assertNotEqual(code.value, 259)
+            finally: unrelated.kill(); unrelated.wait()
+
+if __name__ == '__main__': unittest.main()
