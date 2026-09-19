@@ -2,6 +2,327 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-9fd0c0502781900028dd2ff8",
+      "title": "Forty Below Midnight Signal",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-9fd0c0502781900028dd2ff8-97fab279b348.mp3",
+      "duration": 249.9918367346939,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "remixOf": {
+        "songId": "distonyc-0320411144bb2a9fdfb3933d",
+        "title": "Forty Below - Vapor Midnight",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0320411144bb2a9fdfb3933d-990eddf60dbd.mp3"
+      },
+      "publishedAt": "2026-09-19T07:25:43.818Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Forty Below Midnight Signal",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Dark synthwave reinterpretation at 100 BPM with pulsing analog bass, gated arpeggiators, icy pads, Linn-style drums, low electric-guitar swells, and a restrained lead synth. Tony V8 sings in a smoky, connected, slightly slurred melodic delivery; the recurring hook includes a brief muttered laugh. Build from sparse winter atmosphere into broad, catchable choruses, then carry the final sustained “home” to roughly 240 seconds before one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nSnow against the window, bourbon in the glass\nFairbanks in December, headlights crawling past\nThe bartender knows better than to ask me why\nI am drinking to the woman I was lucky to survive\n\n[Verse 1]\nWe rented half a duplex by the old Steese road\nA heater full of thunder and a roof bowed low with snow\nShe could kiss me like a promise, then accuse me with her eyes\nBy midnight every tender word was twisted into knives\nI learned to read the weather in the muscles of her face\nOne minute I was everything, the next I was replaced\nI tried to hold the center while the center would not stay\nLove became a checkpoint at the ending of each day\n\n[Pre-Chorus]\nSo fill it to the frost line\nLet the old jukebox complain\nI do not want that life back\nI just miss it now and then\n\n[Chorus]\nForty below and one more round\nHer memory comes sliding when the sun goes down\nShe was wild as the river when the ice breaks free\nThat woman was crazy, and she was crazy for me\nNo more slammed doors, no more Avenue Two\nI will not call her number, no matter what I do\nBut sometimes—heh heh—sometimes I remember when\n\n[Verse 2]\nCreamer’s Field in summer, mosquitoes in our hair\nShe danced beside the pickup like the whole world was not there\nThen jealousy would find us before we made it home\nMy coat out in the yard and my telephone gone\nI tried patience, tried forgiveness, tried the careful things to say\nBut every breath became a test I had to pass that day\nYou can give somebody everything and still not give them rest\nAnd wake up in the cold convinced you failed their test\n\n[Bridge]\nBlue light rising over Chena in the spring\nHer cheek against my shoulder, not demanding anything\nFor one clean little minute, we were quiet, we were kind\nThat is the piece the whiskey keeps polishing in my mind\nBut a photograph is not a shelter, a spark is not a stove\nI miss the heat between us; I do not miss losing hope\n\n[Chorus]\nForty below, this is my last round\nHer memory can visit, but it cannot move back to town\nShe was wild as the river, I was drowning willingly\nThat woman was trouble, tangled up with me\nI turn my phone face down beneath the Fairbanks moon\nLet the old ache fade out with the vapor tune\nHere is to what was beautiful, here is what I know:\nI miss the fire sometimes, but I will not call it home\n\n[Outro]\nSnow against the window, morning coming slow\nHere is to what was beautiful—and what I had to let go\nI miss the fire sometimes, but I will not mistake it for home\nNo, I will not mistake it for home\n[End]",
+        "duration": 250,
+        "bpm": 100,
+        "musicalSettings": {
+          "genre": "Dark synthwave with a nocturnal Fairbanks barroom atmosphere",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Bridge, Final Chorus, Outro",
+          "performance": "Smoky Tony V8 lead with rough connected vowels, melodic phrasing, and a memorable refrain",
+          "energy": "Icy and reflective at the opening, rising steadily into a decisive final chorus and quiet release",
+          "lyricWorkflow": "Adapted source-guided lyrics retaining the recognizable hook, Fairbanks setting, and bittersweet breakup arc",
+          "instruments": [
+            "analog synthesizer bass",
+            "arpeggiated synthesizers",
+            "synth pads",
+            "electronic drums",
+            "electric guitar",
+            "lead synthesizer"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nSnow against the window, bourbon in the glass\nFairbanks in December, headlights crawling past\nThe bartender knows better than to ask me why\nI am drinking to the woman I was lucky to survive\n\n[Verse 1]\nWe rented half a duplex by the old Steese road\nA heater full of thunder and a roof bowed low with snow\nShe could kiss me like a promise, then accuse me with her eyes\nBy midnight every tender word was twisted into knives\nI learned to read the weather in the muscles of her face\nOne minute I was everything, the next I was replaced\nI tried to hold the center while the center would not stay\nLove became a checkpoint at the ending of each day\n\n[Pre-Chorus]\nSo fill it to the frost line\nLet the old jukebox complain\nI do not want that life back\nI just miss it now and then\n\n[Chorus]\nForty below and one more round\nHer memory comes sliding when the sun goes down\nShe was wild as the river when the ice breaks free\nThat woman was crazy, and she was crazy for me\nNo more slammed doors, no more Avenue Two\nI will not call her number, no matter what I do\nBut sometimes—heh heh—sometimes I remember when\n\n[Verse 2]\nCreamer’s Field in summer, mosquitoes in our hair\nShe danced beside the pickup like the whole world was not there\nThen jealousy would find us before we made it home\nMy coat out in the yard and my telephone gone\nI tried patience, tried forgiveness, tried the careful things to say\nBut every breath became a test I had to pass that day\nYou can give somebody everything and still not give them rest\nAnd wake up in the cold convinced you failed their test\n\n[Bridge]\nBlue light rising over Chena in the spring\nHer cheek against my shoulder, not demanding anything\nFor one clean little minute, we were quiet, we were kind\nThat is the piece the whiskey keeps polishing in my mind\nBut a photograph is not a shelter, a spark is not a stove\nI miss the heat between us; I do not miss losing hope\n\n[Chorus]\nForty below, this is my last round\nHer memory can visit, but it cannot move back to town\nShe was wild as the river, I was drowning willingly\nThat woman was trouble, tangled up with me\nI turn my phone face down beneath the Fairbanks moon\nLet the old ache fade out with the vapor tune\nHere is to what was beautiful, here is what I know:\nI miss the fire sometimes, but I will not call it home\n\n[Outro]\nSnow against the window, morning coming slow\nHere is to what was beautiful—and what I had to let go\nI miss the fire sometimes, but I will not mistake it for home\nNo, I will not mistake it for home",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.58,
+            "end": 8.58
+          },
+          {
+            "line": 2,
+            "start": 9.4,
+            "end": 13.34
+          },
+          {
+            "line": 3,
+            "start": 13.86,
+            "end": 17.94
+          },
+          {
+            "line": 4,
+            "start": 17.94,
+            "end": 22.34
+          },
+          {
+            "line": 7,
+            "start": 22.34,
+            "end": 27.54
+          },
+          {
+            "line": 8,
+            "start": 28.08,
+            "end": 32.58
+          },
+          {
+            "line": 9,
+            "start": 32.96,
+            "end": 37.64
+          },
+          {
+            "line": 10,
+            "start": 37.64,
+            "end": 42.3
+          },
+          {
+            "line": 11,
+            "start": 42.72,
+            "end": 47.1
+          },
+          {
+            "line": 12,
+            "start": 47.4,
+            "end": 51.74
+          },
+          {
+            "line": 13,
+            "start": 51.88,
+            "end": 56.88
+          },
+          {
+            "line": 14,
+            "start": 57.22,
+            "end": 61.74
+          },
+          {
+            "line": 17,
+            "start": 64.84,
+            "end": 68
+          },
+          {
+            "line": 18,
+            "start": 68,
+            "end": 70.78
+          },
+          {
+            "line": 19,
+            "start": 71.2,
+            "end": 74.14
+          },
+          {
+            "line": 20,
+            "start": 74.14,
+            "end": 77
+          },
+          {
+            "line": 23,
+            "start": 79.66,
+            "end": 84.3
+          },
+          {
+            "line": 24,
+            "start": 84.3,
+            "end": 88.82
+          },
+          {
+            "line": 25,
+            "start": 88.82,
+            "end": 93.78
+          },
+          {
+            "line": 26,
+            "start": 93.78,
+            "end": 98.24
+          },
+          {
+            "line": 27,
+            "start": 98.24,
+            "end": 103.28
+          },
+          {
+            "line": 28,
+            "start": 103.28,
+            "end": 107.56
+          },
+          {
+            "line": 29,
+            "start": 107.78,
+            "end": 109.62
+          },
+          {
+            "line": 32,
+            "start": 109.62,
+            "end": 113.1
+          },
+          {
+            "line": 33,
+            "start": 113.62,
+            "end": 117.84
+          },
+          {
+            "line": 34,
+            "start": 119.36,
+            "end": 123.84
+          },
+          {
+            "line": 35,
+            "start": 124.4,
+            "end": 129.04
+          },
+          {
+            "line": 36,
+            "start": 129.04,
+            "end": 133.4
+          },
+          {
+            "line": 37,
+            "start": 133.4,
+            "end": 138.2
+          },
+          {
+            "line": 38,
+            "start": 138.2,
+            "end": 143.04
+          },
+          {
+            "line": 39,
+            "start": 143.04,
+            "end": 148.4
+          },
+          {
+            "line": 42,
+            "start": 150.86,
+            "end": 155.06
+          },
+          {
+            "line": 43,
+            "start": 155.06,
+            "end": 159.64
+          },
+          {
+            "line": 44,
+            "start": 159.64,
+            "end": 164.6
+          },
+          {
+            "line": 45,
+            "start": 164.6,
+            "end": 169.66
+          },
+          {
+            "line": 46,
+            "start": 169.88,
+            "end": 174.1
+          },
+          {
+            "line": 47,
+            "start": 174.86,
+            "end": 178.64
+          },
+          {
+            "line": 50,
+            "start": 178.64,
+            "end": 185.14
+          },
+          {
+            "line": 51,
+            "start": 185.58,
+            "end": 189.86
+          },
+          {
+            "line": 52,
+            "start": 190.14,
+            "end": 194.06
+          },
+          {
+            "line": 53,
+            "start": 195.24,
+            "end": 198.76
+          },
+          {
+            "line": 54,
+            "start": 199.42,
+            "end": 203.88
+          },
+          {
+            "line": 55,
+            "start": 204.58,
+            "end": 208.44
+          },
+          {
+            "line": 56,
+            "start": 208.44,
+            "end": 212.62
+          },
+          {
+            "line": 57,
+            "start": 212.62,
+            "end": 218.18
+          },
+          {
+            "line": 60,
+            "start": 218.18,
+            "end": 224.54
+          },
+          {
+            "line": 61,
+            "start": 224.54,
+            "end": 229.94
+          },
+          {
+            "line": 62,
+            "start": 229.94,
+            "end": 235.6
+          },
+          {
+            "line": 63,
+            "start": 235.6,
+            "end": 239.68
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Remix “Forty Below - Vapor Midnight”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Remix “Forty Below and One More Round”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Tony gets drunk and reminisces about his ex and living in Fairbanks, Alaska. He's glad it's over - that bitch was crazy. But sometimes... heh heh\n\nOriginal sound: Use the prompt as written.\n\nOriginal sound: Try a new genre, like dark synthwave or vaporware",
+        "direction": "Dark synthwave",
+        "keep": "Keep the recognizable hook and spirit of “Forty Below - Vapor Midnight”.",
+        "basisSongs": [
+          "Forty Below - Vapor Midnight"
+        ],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 250
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-bff0e22daeb45a2718ba0b91",
       "title": "Nine Eleven at Prehevil",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-bff0e22daeb45a2718ba0b91-ae47e7458b79.mp3",
