@@ -226,7 +226,21 @@ async function library() {
     nextVoteAt = null,
     online = false,
     voting = false,
+    feedbackBusy = false,
     refreshing = null;
+  const pinnedStorageKey = "yehry3:pinned-songs";
+  function loadPinned() {
+    try {
+      const value = JSON.parse(localStorage.getItem(pinnedStorageKey) || "[]");
+      return new Set(Array.isArray(value) ? value.filter((id) => typeof id === "string") : []);
+    } catch {
+      return new Set();
+    }
+  }
+  function savePinned() {
+    try { localStorage.setItem(pinnedStorageKey, JSON.stringify([...pinned])); } catch { /* Pinning still works for this page. */ }
+  }
+  const pinned = loadPinned();
   startRecordSinger($(".record", main), () => songs);
   let initialCatalogPending = true;
   const recentReleases = new Map();
@@ -374,6 +388,7 @@ async function library() {
       visible.sort((a, b) => (a.playCount || 0) - (b.playCount || 0));
     if ($("#sort").value === "least-recent")
       visible.sort((a, b) => (Date.parse(a.lastPlayedAt) || 0) - (Date.parse(b.lastPlayedAt) || 0));
+    visible.sort((a, b) => Number(pinned.has(b.id)) - Number(pinned.has(a.id)));
     const hasStats = songs.some((song) => Number.isFinite(song.playCount)) &&
       visible.every((song) => Number.isFinite(song.playCount)) && !(favorites.onlySaved && (favorites.loading || !favorites.hasProfile));
     const totalListens = visible.reduce((total, song) => total + (song.playCount || 0), 0);
@@ -410,7 +425,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track" data-id="${escape(song.id)}">${songArtworkMarkup(song, escape)}
-        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><h3>${escape(song.title)}</h3>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues)}</div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><h3>${escape(song.title)}</h3>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues)}<div class="song-actions" role="group" aria-label="Song actions"><button type="button" class="song-action" data-pin="${escape(song.id)}" aria-pressed="${pinned.has(song.id)}">${pinned.has(song.id) ? "📌 Pinned" : "📍 Pin"}</button><button type="button" class="song-action" data-feedback="downvote" data-song="${escape(song.id)}" ${song.feedback?.downvoted || !online ? "disabled" : ""}>${song.feedback?.downvoted ? "Downvoted" : "Downvote"}${Number(song.downvotes) ? ` · ${song.downvotes}` : ""}</button><button type="button" class="song-action" data-feedback="milquetoast" data-song="${escape(song.id)}" ${song.feedback?.milquetoast || !online ? "disabled" : ""}>${song.feedback?.milquetoast ? "Sent to agent" : "Milquetoast"}${Number(song.milquetoasts) ? ` · ${song.milquetoasts}` : ""}</button></div></div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : `<p class="empty">${favorites.onlySaved ? escape(favorites.emptyMessage()) : "No songs match. Try another title or style."}</p>`);
@@ -453,6 +468,11 @@ async function library() {
         hint.removeAttribute("aria-label");
         hint.removeAttribute("aria-describedby");
       }
+    });
+    document.querySelectorAll("[data-feedback]").forEach((button) => {
+      const song = songs.find((item) => item.id === button.dataset.song);
+      const kind = button.dataset.feedback;
+      button.disabled = !online || feedbackBusy || (kind === "milquetoast" && song?.feedback?.milquetoast) || (kind === "downvote" && song?.feedback?.downvoted);
     });
   }
   async function play(song, newQueue) {
@@ -507,6 +527,36 @@ async function library() {
         songs.find((song) => song.id === playButton.dataset.play),
         visible,
       );
+    const pinButton = event.target.closest("[data-pin]");
+    if (pinButton) {
+      const id = pinButton.dataset.pin;
+      if (pinned.has(id)) pinned.delete(id); else pinned.add(id);
+      savePinned();
+      render({ preserveViewport: true });
+      return;
+    }
+    const feedbackButton = event.target.closest("[data-feedback]");
+    if (feedbackButton) {
+      if (!online || feedbackBusy || feedbackButton.disabled) return;
+      feedbackBusy = true;
+      render({ preserveViewport: true });
+      try {
+        await api("/song-feedback", {
+          method: "POST",
+          body: { songId: feedbackButton.dataset.song, kind: feedbackButton.dataset.feedback },
+        });
+        message(feedbackButton.dataset.feedback === "milquetoast"
+          ? "Milquetoast noted. The song agent will avoid this pattern in future."
+          : "Downvote recorded as listener feedback.");
+        await refresh();
+      } catch (error) {
+        message(error.message, true);
+      } finally {
+        feedbackBusy = false;
+        render({ preserveViewport: true });
+      }
+      return;
+    }
     const voteButton = event.target.closest("[data-vote]");
     if (!voteButton || voting) return;
     voting = true;
