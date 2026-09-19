@@ -22,6 +22,10 @@ html[data-shared-theme][data-theme="dark"] :is(#tracks[data-view="grid"] .track.
 html[data-shared-theme][data-theme="dark"] :is(.review-state, .quality-notice, #catalog-items .pending-title .tiny-label) { color: #edc47a; }
 html[data-shared-theme][data-theme="dark"] :is(.field-error, .attention-note, .presence-pill.offline) { color: #ffb49c; }
 html[data-shared-theme][data-theme="dark"] :is(.dehaka-context blockquote, .dehaka-action, .presence-pill.online) { color: #b4d8a0; }
+html[data-shared-theme][data-theme="dark"] .vote { color: var(--ink); border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] .vote.has-votes { background: #4a2a38; border-color: #a35a78; color: #ffe3ee; }
+html[data-shared-theme][data-theme="dark"] .vote.has-votes span:first-child { color: #ff8fb5; }
+html[data-shared-theme][data-theme="dark"] .vote:not(:disabled):hover { background: #4a3527; border-color: var(--accent); color: var(--ink); }
 html[data-shared-theme][data-theme="dark"] .badge { background: #324332; color: #c1d9ae; }
 html[data-shared-theme][data-theme="dark"] :is(.badge.processing, .badge.needs_review) { background: #493c21; color: #f5cf7e; }
 html[data-shared-theme][data-theme="dark"] :is(.badge.failed, .badge.cancel_requested) { background: #4c3027; color: #ffc3a9; }
