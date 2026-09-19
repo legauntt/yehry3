@@ -4,7 +4,7 @@ const key = "yehry3:show-quality-issues";
 const song = {
   id: "preference-song", title: "A song with an issue", duration: 240,
   url: "/test.mp3", collection: "distonyc", collections: ["distonyc", "fearhunger"],
-  reviewState: "needs_review",
+  reviewState: "needs_review", validationFailures: ["voice_validation"],
   qualityIssues: [{ code: "long_instrumental_break", seconds: 35.04 }],
   lyrics: { text: "The saved lyric sheet.", kind: "written" },
 };
@@ -121,7 +121,7 @@ test("record preferences and the new indicator persist across navigation and syn
   await page.locator(".catalog-filters > summary").click();
   const opener = page.getByRole("button", { name: "Open display settings" });
   await expect(page.locator(".settings-new")).toBeVisible();
-  await expect(opener).toHaveAccessibleDescription("New lyric audio preference available.");
+  await expect(opener).toHaveAccessibleDescription("New Dark Mode setting available.");
   const second = await context.newPage();
   await second.goto("/");
   await second.locator(".catalog-filters > summary").click();

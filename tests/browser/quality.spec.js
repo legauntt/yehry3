@@ -1,6 +1,41 @@
 import { test, expect } from "@playwright/test";
 
 const issue = { code: "long_instrumental_outro", seconds: 22.86 };
+for (const action of ["keep", "regenerate"]) test(`Backstage can ${action} a playable review without unpublishing it`, async ({ page }) => {
+  let doc = { id: "published-review", prompt: "A retained performance", status: "published", version: 1,
+    reviewState: "needs_review", validationFailures: ["voice_validation"],
+    result: { validationFailures: ["voice_validation"] }, details: {}, history: [],
+    publishedUrl: "https://example.com/retained.mp3", confirmedAt: new Date().toISOString() };
+  await page.route("**/yehry3/session", route => route.fulfill({ json: { token: "test-session" } }));
+  await page.route("**/yehry3/admin/prompts?*", route => route.fulfill({ json: {
+    prompts: [doc], total: 1, page: 0, counts: { published: 1, needs_review: doc.reviewState ? 1 : 0 }, transitions: {}, workers: [],
+  } }));
+  await page.route("**/yehry3/admin/prompts/published-review", route => {
+    if (action === "regenerate") {
+      expect(route.request().postDataJSON()).toEqual({ action, version: 1, requestId: expect.any(String) });
+      return route.fulfill({ json: { draftId: "new-review-draft" } });
+    }
+    expect(route.request().postDataJSON()).toEqual({ action: "keep", version: 1 });
+    doc = { ...doc, version: 2, reviewState: undefined };
+    return route.fulfill({ json: { prompt: doc } });
+  });
+  await page.goto("/admin/?status=needs_review");
+  await page.getByLabel("Password", { exact: true }).fill("test-admin");
+  await page.getByRole("button", { name: "Open the queue" }).click();
+  await expect(page.getByRole("button", { name: "Regenerate", exact: true })).toBeVisible();
+  if (action === "regenerate") {
+    await page.getByRole("button", { name: "Regenerate", exact: true }).click();
+    await expect(page).toHaveURL(/\/distonyc\/$/);
+    expect(await page.evaluate(() => sessionStorage.getItem("yehry3:draft"))).toBe("new-review-draft");
+    expect(doc.status).toBe("published");
+    return;
+  }
+  await page.getByRole("button", { name: "Keep this version" }).click();
+  await expect(page.locator(".badge.needs_review")).toHaveCount(0);
+  await expect(page.locator(".queue-heading .badge").first()).toHaveText("Published");
+  await page.getByText("Open brief & controls", { exact: false }).click();
+  await expect(page.getByRole("link", { name: "Open published song" })).toHaveAttribute("href", doc.publishedUrl);
+});
 const karaokeText = ["[Final]", "The final words.", ...Array.from({ length: 24 }, (_, index) => `An untimed lyric ${index + 1}.`), "Sing this last line."].join("\n");
 const song = {
   id: "quality-song",
@@ -9,7 +44,7 @@ const song = {
   url: "/fearhunger/audio/fear-and-hunger-dungeon-rock.mp3",
   collection: "distonyc",
   collections: ["distonyc", "fearhunger"],
-  reviewState: "needs_review",
+  reviewState: "needs_review", validationFailures: ["voice_validation"],
   qualityIssues: [issue, { code: "long_instrumental_break", seconds: 12.32 }, { code: "vocal_dropout", seconds: 1.2 }],
   lyrics: { text: karaokeText, kind: "written", cues: [{ line: 1, start: 2.5, end: 4.5 }, { line: 26, start: 8, end: 10 }] },
   originalPrompt: {
@@ -158,7 +193,7 @@ test("a published queue detail stays playable while marked Needs review", async 
     idea: "A finished song with review notes",
     title: "Playable review fixture",
     status: "published",
-    reviewState: "needs_review",
+    reviewState: "needs_review", validationFailures: ["voice_validation"],
     voiceModel: "v8",
     submittedAt: new Date().toISOString(),
     publishedAt: new Date().toISOString(),

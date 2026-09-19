@@ -153,7 +153,10 @@ def master(work):
         report_path = part_work / 'mix-results.json'
         if sha(report_path) != part['mix_report_sha256']: raise ValueError('Completed movement report changed')
         report = load(report_path)
-        if report.get('status') != 'completed' or not report['voice_checks']['passed']:
+        if report.get('validationFailures'):
+            from review_publication import verify
+            verify(part_work, work / 'private-movements')
+        if report.get('status') != 'completed' or not (report['voice_checks']['passed'] or report.get('validationFailures')):
             raise ValueError('Unverified movement cannot enter the full song')
         for item in report['files']:
             path = inside(item.get('file', item.get('path')), work / 'private-movements')
@@ -176,7 +179,10 @@ def master(work):
     decoded = staging / 'decoded-check.wav'
     subprocess.run([ffmpeg, '-v', 'error', '-y', '-i', str(mp3), '-c:a', 'pcm_f32le', str(decoded)], check=True, creationflags=hidden)
     checks = inspect_audio(decoded)
-    if abs(checks['frames'] - frames) > 2 or checks['peak_dbfs'] >= -.5 or checks['tail_dbfs'] >= -60:
+    failures = sorted({code for report in reports for code in report.get('validationFailures', [])})
+    if checks['tail_dbfs'] >= -60 and failures and 'unfinished_ending' not in failures:
+        failures.append('unfinished_ending')
+    if abs(checks['frames'] - frames) > 1152 or checks['peak_dbfs'] >= -.5 or (checks['tail_dbfs'] >= -60 and not failures):
         raise ValueError('The complete encoded song did not pass peak, duration or ending checks')
     output = Path(journal['settings']['output_dir']); files = []
     for staged in (wav, mp3):
@@ -194,14 +200,16 @@ def master(work):
     save(work / 'track.json', track)
     report = {'status': 'completed', 'title': journal['title'], 'duration': frames / 44100,
         'files': files, 'wav': files[0]['file'], 'mp3': files[1]['file'],
-        'voice_checks': {'passed': True, 'movements': [row['voice_checks'] for row in reports]},
+        'voice_checks': {'passed': all(row['voice_checks']['passed'] for row in reports), 'movements': [row['voice_checks'] for row in reports]},
         'longest_missing_vocal_run_seconds': max(row['longest_missing_vocal_run_seconds'] for row in reports),
+        'vocal_dropout_measured': all(row.get('vocal_dropout_measured', True) for row in reports),
         'mp3_true_peak_dbfs': checks['peak_dbfs'], 'final_half_second_rms_dbfs': checks['tail_dbfs'],
         'sample_difference': checks['frames'] - frames, 'final_post_vocal_seconds': reports[-1]['final_post_vocal_seconds'],
         'qualityIssues': issues, 'chapters': chapters, 'new_voice_training': False,
         'generated_source_voice_blend': 0,
         'complete_movement_pcm_preserved': True, 'listening_review': False,
-        'movement_provenance': journal['parts']}
+        'movement_provenance': journal['parts'],
+        **({'validationFailures': failures, 'reviewState': 'needs_review'} if failures else {})}
     save(work / 'mix-results.json', report)
 
 

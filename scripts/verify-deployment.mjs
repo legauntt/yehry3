@@ -197,7 +197,7 @@ for (const request of [
         "publishedAt",
         "url",
         "qualityIssues",
-        "reviewState",
+        "reviewState", "validationFailures",
         "voiceModel",
         "generationProfile",
         "originalPrompt",
@@ -257,13 +257,13 @@ for (const request of [
           issue.seconds <= 1440,
       );
     }
-    if (request.qualityIssues.length) assert.equal(request.reviewState, "needs_review");
-    else assert.equal(request.reviewState, undefined);
+    // Advisory issues do not imply a failed validation.
+
   }
   if (request.reviewState !== undefined) {
     assert.equal(request.reviewState, "needs_review");
     assert.equal(request.status, "published");
-    assert.ok(request.qualityIssues?.length);
+    assert.ok(request.validationFailures?.length);
   }
 }
 const modelsResponse = await get(`${api}/voice-models`, {

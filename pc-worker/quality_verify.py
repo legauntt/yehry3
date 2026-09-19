@@ -73,11 +73,26 @@ def adapt(engine):
     original = engine.verify_work
 
     def verify_work(work, output_dir=None):
+        if (Path(work) / 'review-delivery.json').exists():
+            from review_publication import verify
+            return verify(work, output_dir or load(Path(work) / 'desktop-job.json')['settings']['output_dir'])
+        report_file = Path(work) / 'mix-results.json'
+        report = load(report_file) if report_file.exists() else {}
+        suite_review = bool(report.get('validationFailures') and report.get('complete_movement_pcm_preserved'))
+        if suite_review:
+            from review_publication import verify
+            for part in report['movement_provenance']:
+                source = inside(part['result']['work_path'], Path(work).parent)
+                if sha(source / 'mix-results.json') != part['mix_report_sha256']:
+                    raise ValueError('Suite review evidence changed')
+                if part['result'].get('validationFailures'):
+                    verify(source, Path(work) / 'private-movements')
         allow = warning_is_valid(work)
         original_need = engine.need
 
         def need(condition, message):
-            if not condition and message == MESSAGE and allow:
+            if not condition and (message == MESSAGE and allow or suite_review and message in (
+                    MESSAGE, 'Voice validation did not pass.', 'Peak or ending validation failed.')):
                 return None
             return original_need(condition, message)
 

@@ -116,11 +116,13 @@ exported=True
         self.assertTrue(adapted['tasks'][1]['command'][1].endswith('quality_finish.py'))
         with tempfile.TemporaryDirectory() as directory:
             issue={'code':'long_instrumental_outro','seconds':22.86}
-            save(Path(directory)/'mix-results.json',{'qualityIssues':[issue]})
+            save(Path(directory)/'mix-results.json',{'qualityIssues':[issue], 'validationFailures':['vocal_activity']})
             result=with_quality({'work_path':directory})
             record=song_record({'songId':'song','releaseUrl':'https://example.com/song.mp3',
                 'result':{**result,'title':'Samarie','duration':263.44}})
             self.assertEqual(record['qualityIssues'],[issue])
+            self.assertEqual(record['validationFailures'], ['vocal_activity'])
+            self.assertEqual(record['reviewState'], 'needs_review')
 
     def test_failure_uses_current_stage_and_cause(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -18,6 +18,8 @@ def with_quality(result):
     if not path.exists(): return result
     report = load(path)
     if report.get('qualityIssues'): result['qualityIssues'] = report['qualityIssues']
+    if report.get('validationFailures'):
+        result.update(reviewState='needs_review', validationFailures=report['validationFailures'])
     return result
 
 
@@ -373,7 +375,8 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
             from music_backend import execution as paid_execution
             execution = paid_execution(work, execution)
         options = {'runner': preflight_runner} if preflight else {}
-        result = with_quality(engine.execute_stages(work, execution, **options))
+        from review_publication import execute as execute_with_review
+        result = with_quality(execute_with_review(engine, request, work, execution, review_fallback=not composition_retry, **options))
         result['voice_model'] = voice_model
         if plan.get('generation'): result['generation_profile'] = 'v8'
         return result

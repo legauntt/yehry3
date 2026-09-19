@@ -160,7 +160,7 @@ function update(songs) {
       warning.className = "quality-container";
       card.querySelector("audio").before(warning);
     }
-    const notice = qualityNotice(song.qualityIssues);
+    const notice = qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures);
     if (warning.dataset.notice !== notice) {
       warning.innerHTML = notice;
       warning.dataset.notice = notice;

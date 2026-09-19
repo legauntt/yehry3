@@ -80,7 +80,8 @@ def metadata(config, plan, result, voice_model='v6', music_backend='local'):
                          **({'musicBackend': music_backend} if music_backend != 'local' else {}),
                          **({'generationProfile': 'v8'} if result.get('generation_profile') == 'v8' else {}),
                          'lyrics': sheet, 'collections': ['distonyc', 'fearhunger'] if plan.get('fear_hunger') else ['distonyc'],
-                         **({'qualityIssues': result['qualityIssues']} if result.get('qualityIssues') else {})}
+                         **({'qualityIssues': result['qualityIssues']} if result.get('qualityIssues') else {}),
+                         **({'validationFailures': result['validationFailures'], 'reviewState': 'needs_review'} if result.get('validationFailures') else {})}
 
 def new_claim(path):
     claim = {'claimId': str(uuid.uuid4()), 'leaseToken': secrets.token_urlsafe(40)}

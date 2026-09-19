@@ -1,5 +1,33 @@
 # Distonyc on Windows
 
+## Playable publication after failed validation
+
+Musical validation failures now take the retained recording through `review_publication.py`
+instead of halting in Needs Attention. It recognizes vocal coverage, pitch/voice,
+dropout, mix-quality and incomplete-ending failures from the failed stage. It exports
+the complete converted vocal/backing performance when available; if Tony conversion
+has not finished, it publishes the complete generated performance with an explicit
+**Tony vocals unfinished** note. It never publishes partial conversion chunks.
+
+The fallback preserves every sample of the retained full recording, using only a
+whole-recording gain for encoding headroom. No fade, cut or regeneration disguises a
+failed check. The original stage remains failed in its private journal; original mix
+reports are retained. `review-delivery.json` pins input, manifest, report and export
+hashes for restart-safe reuse. Missing/unreadable audio, changed inputs, cancellation,
+lease loss and transport failures are not converted into musical review flags.
+
+Published metadata carries bounded `validationFailures` codes and
+`reviewState: "needs_review"`, through Chairlift and the fallback catalog. Ordinary
+`qualityIssues` never imply this flag. Multipart songs preserve review flags from
+their complete movements. Backstage can keep a version, or start a new confirmed
+request from the same brief while retaining the original release.
+
+Deploy the API and site first, then selectively install the changed runtime files
+while worker and monitor are idle. Do not overwrite newer installed recovery code.
+Tests: `test_review_publication.py`, `test_quality.py`, `test_worker.py`,
+`test_generation_flow.py`, and the existing recovery/longform tests. Synthetic
+MP3/WAV checks invoke FFmpeg and the real stage loop, not paid or GPU music generation.
+
 Song form is optional: chorus-free songs and unlabelled lyrics are supported.
 The shared section parser keeps heading variants out of sung-word checks while
 preserving literal lyrics. See [song form and section labels](LYRIC-SECTIONS.md).
@@ -106,7 +134,7 @@ Publication includes the original confirmed idea, direction, preferences, and ba
 - A single-source genre reinterpretation, including rap, uses the saved catalog transcription and isolated vocal references. It preserves recognizable hooks and motifs while composing new lyrics, timing and accompaniment for the requested genre, then applies Tony V6. It requires cached source material; it does not promise unchanged melody. The old, unstarted missing-rap-recipe rejection is upgraded once a supported plan is available, retaining the original rejection in `plan-before-rap-support.json`.
 - A faithful or acoustic rendition uses exactly one selected source, currently 5–300 seconds. Acoustic reconstruction is experimental and must pass the existing strict checks.
 - The existing source-specific quartet recipes support Ball and Chain, One 4 the Road, and Medusa. Their established arrangements are preserved. An unsupported faithful rendition, new quartet arrangement, or incompatible multi-source reconstruction becomes **Needs attention** with an explanation. It is never silently replaced with unrelated music. Add/review a trusted recipe to expand that boundary.
-- Existing Troofs checks cover hashes, voice continuity, peaks, tails, and both complete MP3/WAV outputs. They do not constitute a human listening review. Long instrumental outros and breaks in rock/acoustic-reference compositions are advisory: the complete, otherwise valid song is published with a **Has issues** notice showing the measured lengths. Minimum vocal coverage, missing vocals, incomplete endings, invalid audio, peak limits and changed inputs still stop publication. Opera retains its separate interlude policy.
+- Existing Troofs checks cover hashes, voice continuity, peaks, tails, and both complete MP3/WAV outputs. They do not constitute a human listening review. Long instrumental outros and breaks in rock/acoustic-reference compositions are advisory: the complete, otherwise valid song is published with a **Has issues** notice showing the measured lengths. Musical validation failures (including coverage, missing vocals and incomplete endings) now use the flagged full-recording fallback above. Invalid audio, unsafe encoded peaks and changed inputs still stop publication. Opera retains its separate interlude measurements.
 
 ## Durable production and publication
 

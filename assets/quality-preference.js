@@ -3,12 +3,13 @@ import { getRecordPreferences, setRecordPreference, watchRecordPreferences } fro
 const key = "yehry3:show-quality-issues";
 const seenKey = "yehry3:preferences-seen";
 // Change this when new preferences should be highlighted to returning visitors.
-const preferencesVersion = "record-lyric-audio-v1";
+const preferencesVersion = "dark-mode-v1";
 
 if (typeof document !== "undefined") {
   let shown = true;
   let preferencesSeen = false;
   let checkbox;
+  let darkCheckbox;
   let settingsButton;
   let newBadge;
   const recordCheckboxes = new Map();
@@ -23,12 +24,13 @@ if (typeof document !== "undefined") {
   const apply = () => {
     document.documentElement.dataset.showQualityIssues = String(shown);
     if (checkbox) checkbox.checked = shown;
+    if (darkCheckbox) darkCheckbox.checked = window.yehry3Theme?.isDark() || false;
     const preferences = getRecordPreferences();
     recordCheckboxes.forEach((input, name) => { input.checked = preferences[name]; });
     recordSelects.forEach((input, name) => { input.value = String(preferences[name]); });
     if (settingsButton) {
       settingsButton.classList.toggle("has-new-preferences", !preferencesSeen);
-      settingsButton.title = preferencesSeen ? "Display settings" : "New lyric audio preference available";
+      settingsButton.title = preferencesSeen ? "Display settings" : "New Dark Mode setting available";
       if (preferencesSeen) settingsButton.removeAttribute("aria-describedby");
       else settingsButton.setAttribute("aria-describedby", "display-settings-updates");
       newBadge.hidden = preferencesSeen;
@@ -62,7 +64,7 @@ if (typeof document !== "undefined") {
     const updateDescription = document.createElement("span");
     updateDescription.id = "display-settings-updates";
     updateDescription.className = "sr-only";
-    updateDescription.textContent = "New lyric audio preference available.";
+    updateDescription.textContent = "New Dark Mode setting available.";
 
     const dialog = document.createElement("dialog");
     dialog.className = "display-settings-dialog";
@@ -86,6 +88,15 @@ if (typeof document !== "undefined") {
 		copy.innerHTML = '<strong>Show review notes</strong><small>Display details about known musical issues. The Needs review badge always stays visible.</small>';
     label.append(checkbox, copy);
     dialog.append(heading, label);
+    const darkLabel = document.createElement("label");
+    darkLabel.className = "quality-preference dark-mode-preference";
+    darkCheckbox = document.createElement("input");
+    darkCheckbox.type = "checkbox";
+    const darkCopy = document.createElement("span");
+    darkCopy.innerHTML = "<strong>Dark Mode</strong><small>Use a darker listening room. Saved across pages and tabs in this browser.</small>";
+    darkLabel.append(darkCheckbox, darkCopy);
+    dialog.insertBefore(darkLabel, label);
+    darkCheckbox.addEventListener("change", () => window.yehry3Theme?.setDark(darkCheckbox.checked));
     const recordGroup = document.createElement("fieldset");
     recordGroup.className = "record-preferences";
     const legend = document.createElement("legend");
@@ -152,6 +163,7 @@ if (typeof document !== "undefined") {
     apply();
   });
   watchRecordPreferences(apply);
+  window.addEventListener("yehry3:theme", apply);
 
   window.mountQualitySettings = mount;
 }

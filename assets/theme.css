@@ -1,0 +1,36 @@
+html[data-shared-theme][data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #171e1a;
+  --ink: #e7eddf;
+  --muted: #a6b4a6;
+  --line: #3b4b40;
+  --accent: #f49b6e;
+  --light: #2a382e;
+  --white: #202b23;
+}
+html[data-shared-theme][data-theme="dark"] body { background: var(--paper); color: var(--ink); }
+html[data-shared-theme][data-theme="dark"] h1 em { color: #b8cb9d; }
+html[data-shared-theme][data-theme="dark"] :is(.record-lyric, .listening-card, .remix-note, .lyric-line.is-linked, button.lyric-line:hover) { background: var(--light); color: var(--ink); }
+html[data-shared-theme][data-theme="dark"] .record-lyric::after { border-right-color: var(--light); }
+html[data-shared-theme][data-theme="dark"] :is(.sleeve, .sleeve-bottom, .stamp) { color: #283b30; }
+html[data-shared-theme][data-theme="dark"] :is(.steps, .brief, .request-form blockquote, .dehaka-panel, .dehaka-turn, .dehaka-turn-operator, .dehaka-turn-dehaka, .attention-problem, .recovery-note, .record-caption, .queue-alerts, .prompt-brief, .track.playing, .pending-track, .stats a, .success-mark) {
+  background: var(--light); color: var(--ink); border-color: var(--line);
+}
+html[data-shared-theme][data-theme="dark"] :is(#tracks[data-view="grid"] .track.playing, #catalog-items .pending-track:hover, #catalog-items .pending-track[open], #catalog-items[data-view="grid"] .pending-track, #catalog-items .pending-availability) {
+  background: var(--light); color: var(--ink); border-color: var(--line);
+}
+html[data-shared-theme][data-theme="dark"] :is(.review-state, .quality-notice, #catalog-items .pending-title .tiny-label) { color: #edc47a; }
+html[data-shared-theme][data-theme="dark"] :is(.field-error, .attention-note, .presence-pill.offline) { color: #ffb49c; }
+html[data-shared-theme][data-theme="dark"] :is(.dehaka-context blockquote, .dehaka-action, .presence-pill.online) { color: #b4d8a0; }
+html[data-shared-theme][data-theme="dark"] .badge { background: #324332; color: #c1d9ae; }
+html[data-shared-theme][data-theme="dark"] :is(.badge.processing, .badge.needs_review) { background: #493c21; color: #f5cf7e; }
+html[data-shared-theme][data-theme="dark"] :is(.badge.failed, .badge.cancel_requested) { background: #4c3027; color: #ffc3a9; }
+html[data-shared-theme][data-theme="dark"] :is(.voice-model-badge, .music-backend-badge, .model-info-badge) { background: var(--light); color: var(--ink); }
+html[data-shared-theme][data-theme="dark"] .player { background: #202b23; color: #e7eddf; border-top-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] .player :is(button, a) { color: #e7eddf; }
+html[data-shared-theme][data-theme="dark"] .primary:hover { background: #c8d7c1; color: #171e1a; }
+html[data-shared-theme][data-theme="dark"] .record-caption::before { border-right-color: var(--light); }
+html[data-shared-theme][data-theme="dark"] .lyric-line.is-active { background: var(--light); color: var(--ink); }
+@media print {
+  html[data-shared-theme][data-theme="dark"] { --paper: white; --white: white; --ink: black; --muted: #444; --line: #bbb; color-scheme: light; }
+}

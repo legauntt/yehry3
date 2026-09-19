@@ -144,6 +144,9 @@ for (const file of await readdir(output, { recursive: true })) {
   if (!file.endsWith(".html")) continue;
   const destination = path.join(output, file);
   let html = await readFile(destination, "utf8");
+  if (html.includes("/assets/site.css")) html = html.replace("<html ", "<html data-shared-theme ");
+  html = html.replace("<head>", '<head>\n    <script src="/assets/theme.js"></script>');
+  html = html.replace("</head>", '<link rel="stylesheet" href="/assets/theme.css">\n  </head>');
   if (html.includes('class="site-footer"')) {
     html = html.replace(/<span>\s*YEHRY3 · A little off the record\.\s*<\/span\s*>/i, '<span data-brand-footer>YEHRY3 · A little off the record.</span>');
     html = html.replace("</head>", '<script type="module" src="/assets/branding.js"></script>\n  </head>');

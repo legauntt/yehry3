@@ -44,13 +44,16 @@ def prepare(request, render_attempt):
                     frozen(child_dir / name, load(directory / name))
             if index not in journal['started']:
                 journal['started'].append(index); save(journal_file, journal)
-            try: render_attempt(child, preflight=True)
+            try: result = render_attempt(child, preflight=True)
             except CompositionReady as ready: work = ready.work
-            else: raise ValueError('A candidate already passed the composition/voice boundary')
+            else:
+                if not result.get('validationFailures'):
+                    raise ValueError('A candidate already passed the composition/voice boundary')
+                work = Path(result['work_path'])
             expected = Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier(child))
             if work.resolve() != expected.resolve(): raise ValueError('Unexpected candidate directory')
             track = load(work / 'track.json')
-            duration = load(work / 'arrangement-checks.json')['duration']
+            duration = load(work / ('mix-results.json' if (work / 'review-delivery.json').exists() else 'arrangement-checks.json'))['duration']
             from lyrical_ending import review
             review(work)
             clips = []
