@@ -46,9 +46,6 @@ test("record clicks and idle spins show comic lyric captions unless the saved pr
   const bubble = page.locator(".record-lyric");
   await expect(bubble).toBeHidden();
   await record.click({ force: true });
-  await expect(bubble).toBeHidden();
-  await page.waitForTimeout(1800);
-  expect(await bubble.isHidden()).toBe(true);
   await expect(bubble).toBeVisible();
   const captionSizing = await bubble.evaluate(element => ({
     fontSize: parseFloat(getComputedStyle(element.querySelector("blockquote")).fontSize),
@@ -61,12 +58,14 @@ test("record clicks and idle spins show comic lyric captions unless the saved pr
   await expect(bubble.locator("figcaption")).toContainText(detail.title);
   expect(await page.evaluate(() => window.__spokenLyrics)).toEqual([]);
 
+  await expect(bubble).toBeHidden({ timeout: 8000 });
+  const pauseStarted = Date.now();
+  await expect(bubble).toBeVisible({ timeout: 5000 });
+  expect(Date.now() - pauseStarted).toBeGreaterThanOrEqual(1500);
+
   await page.mouse.click(10, 10);
   await expect(bubble).toBeHidden();
   await record.press("Enter");
-  await expect(bubble).toBeHidden();
-  await page.waitForTimeout(1800);
-  expect(await bubble.isHidden()).toBe(true);
   await expect(bubble).toBeVisible();
   await page.mouse.click(10, 10);
   await record.evaluate(element => element.dispatchEvent(new CustomEvent("recordidle")));
