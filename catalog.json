@@ -2,6 +2,394 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a122037151d61f7e4919394d",
+      "title": "Stand-Up at the End of the World",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a122037151d61f7e4919394d-77588040d658.mp3",
+      "duration": 330.10938775510203,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-19T18:08:49.466Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Stand-Up at the End of the World",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "A 330-second post-punk rock song with a supple, prominent electric bass line, clipped electric guitars, live drums, restrained synth texture, and small piano accents. Open with a dry, intimate vocal over bass and guitar; grow through elastic verses into broad, melodic choruses, then pull back for the compassionate bridge before a full-band final chorus. Tony’s V8 delivery is smoky, connected, lightly slurred and mischievously human, with clear enough phrasing for the hook and sustained notes on the closing lines. Keep the groove lively rather than rap-like. The last sung syllable lands around 320 seconds, followed by one resolved E-minor chord decaying naturally to the end.",
+        "lyrics": "[Verse 1]\nI traded the loading dock for a little blue square\nA headset, a calendar, a meeting in the air\nThey said, “Keep the work moving, keep the people clear”\nSo I learned a dozen names for a thing called fear\nThe old shop clock had a fist and a face\nThis one sends a gentle ping when I’m losing my place\nI ask what is blocking us, the room looks down\nSomebody’s camera freezes in a far-off town\n\n[Pre-Chorus]\nI used to know the weight of a wrench in my hand\nNow I move colored tickets across digital land\n\n[Chorus]\nStand up, stand up, tell me where we are\nWe got a little whiteboard and a dying star\nI’m not the boss, I’m just holding the thread\nTrying to make a tomorrow out of what was said\nStand up, stand up, the world ran ahead\nBut I’m still here making room for the next small step\n\n[Verse 2]\nThere’s a kid on the call with a faster tongue\nHe says the whole old system is already done\nHe can build a new future before lunch breaks through\nAnd I say, “That’s beautiful—show me how you do”\nMy résumé reads like a closed-down street\nPlaces where the forklifts sang and the night shift ate\nI don’t hide those years in a polished phrase\nThey taught me how to listen when a plan decays\n\n[Section]\nWe slice the mountain into pieces we can hold\nOne week at a time, one story getting told\nA woman says she’s drowning; I cancel the race\nWe leave one chair empty and give her some space\nNobody applauds that, nobody sends a prize\nBut her shoulders come back when she opens her eyes\n\n[Chorus]\nStand up, stand up, tell me where we are\nWe got a little whiteboard and a dying star\nI’m not the boss, I’m just holding the thread\nTrying to make a tomorrow out of what was said\nStand up, stand up, the world ran ahead\nBut I’m still here making room for the next small step\n\n[Bridge]\nMaybe I arrived when the language changed\nWith my paper maps and my weathered name\nMaybe every door wants a newer key\nMaybe that is not the end of me\nI can ask the question nobody wants to raise\nI can keep a lantern through the foggy days\nI can hear the joke behind the corporate speech\nAnd pull the quiet person back within our reach\n\n[Verse 3]\nFriday comes humming through the office glass\nWe look at the chart, let the numbers pass\nNot every promise made it over the line\nBut nobody got left behind this time\nI close the laptop, hear the evening train\nFor one second all the old noise calls my name\nThen a message lands: “Thanks for making it safe”\nAnd the tired little room has a different shape\n\n[Chorus]\nStand up, stand up, tell me where we are\nNot beneath the future, not beyond the scar\nI’m not the boss, I’m just holding the thread\nMaking room for the living words unsaid\nStand up, stand up, let the new world run\nI’ll meet it with the work that gets begun\nIf the road keeps changing under my feet\nI’ll gather the people, and we’ll make the next step sweet\n\n[Outro]\nNo grand conversion, no victory parade\nJust a chair in the circle and a promise remade\nWhen the screen goes dark and the last bell rings\nI’ll carry us forward—one small human thing\n[End]",
+        "duration": 330,
+        "bpm": 108,
+        "musicalSettings": {
+          "genre": "Post-punk rock with an agile bass-and-groove pocket",
+          "meter": "4/4",
+          "structure": "Verse, pre-chorus, chorus, verse, development section, chorus, bridge, verse, final chorus, resolved outro",
+          "performance": "Smoky, rough-edged melodic lead with connected vowels, occasional muttered emphasis, and an increasingly open final delivery",
+          "energy": "Measured and reflective at first; resilient mid-song lift; warm, full-band resolve",
+          "lyricWorkflow": "Original narrative lyrics that turn a career transition into a humane, quietly hopeful final payoff",
+          "instruments": [
+            "electric bass",
+            "electric guitars",
+            "drum kit",
+            "synth pad",
+            "piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI traded the loading dock for a little blue square\nA headset, a calendar, a meeting in the air\nThey said, “Keep the work moving, keep the people clear”\nSo I learned a dozen names for a thing called fear\nThe old shop clock had a fist and a face\nThis one sends a gentle ping when I’m losing my place\nI ask what is blocking us, the room looks down\nSomebody’s camera freezes in a far-off town\n\n[Pre-Chorus]\nI used to know the weight of a wrench in my hand\nNow I move colored tickets across digital land\n\n[Chorus]\nStand up, stand up, tell me where we are\nWe got a little whiteboard and a dying star\nI’m not the boss, I’m just holding the thread\nTrying to make a tomorrow out of what was said\nStand up, stand up, the world ran ahead\nBut I’m still here making room for the next small step\n\n[Verse 2]\nThere’s a kid on the call with a faster tongue\nHe says the whole old system is already done\nHe can build a new future before lunch breaks through\nAnd I say, “That’s beautiful—show me how you do”\nMy résumé reads like a closed-down street\nPlaces where the forklifts sang and the night shift ate\nI don’t hide those years in a polished phrase\nThey taught me how to listen when a plan decays\n\n[Section]\nWe slice the mountain into pieces we can hold\nOne week at a time, one story getting told\nA woman says she’s drowning; I cancel the race\nWe leave one chair empty and give her some space\nNobody applauds that, nobody sends a prize\nBut her shoulders come back when she opens her eyes\n\n[Chorus]\nStand up, stand up, tell me where we are\nWe got a little whiteboard and a dying star\nI’m not the boss, I’m just holding the thread\nTrying to make a tomorrow out of what was said\nStand up, stand up, the world ran ahead\nBut I’m still here making room for the next small step\n\n[Bridge]\nMaybe I arrived when the language changed\nWith my paper maps and my weathered name\nMaybe every door wants a newer key\nMaybe that is not the end of me\nI can ask the question nobody wants to raise\nI can keep a lantern through the foggy days\nI can hear the joke behind the corporate speech\nAnd pull the quiet person back within our reach\n\n[Verse 3]\nFriday comes humming through the office glass\nWe look at the chart, let the numbers pass\nNot every promise made it over the line\nBut nobody got left behind this time\nI close the laptop, hear the evening train\nFor one second all the old noise calls my name\nThen a message lands: “Thanks for making it safe”\nAnd the tired little room has a different shape\n\n[Chorus]\nStand up, stand up, tell me where we are\nNot beneath the future, not beyond the scar\nI’m not the boss, I’m just holding the thread\nMaking room for the living words unsaid\nStand up, stand up, let the new world run\nI’ll meet it with the work that gets begun\nIf the road keeps changing under my feet\nI’ll gather the people, and we’ll make the next step sweet\n\n[Outro]\nNo grand conversion, no victory parade\nJust a chair in the circle and a promise remade\nWhen the screen goes dark and the last bell rings\nI’ll carry us forward—one small human thing",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 8.26,
+            "end": 12.74
+          },
+          {
+            "line": 2,
+            "start": 13.4,
+            "end": 17.8
+          },
+          {
+            "line": 3,
+            "start": 17.8,
+            "end": 21.68
+          },
+          {
+            "line": 4,
+            "start": 22.18,
+            "end": 29.98
+          },
+          {
+            "line": 5,
+            "start": 29.98,
+            "end": 30.52
+          },
+          {
+            "line": 6,
+            "start": 31.02,
+            "end": 34.94
+          },
+          {
+            "line": 7,
+            "start": 35.52,
+            "end": 39.44
+          },
+          {
+            "line": 8,
+            "start": 40.54,
+            "end": 43.86
+          },
+          {
+            "line": 11,
+            "start": 46.2,
+            "end": 50.74
+          },
+          {
+            "line": 12,
+            "start": 52.4,
+            "end": 57.6
+          },
+          {
+            "line": 15,
+            "start": 58.54,
+            "end": 63.7
+          },
+          {
+            "line": 16,
+            "start": 63.96,
+            "end": 68.3
+          },
+          {
+            "line": 17,
+            "start": 69.02,
+            "end": 73.18
+          },
+          {
+            "line": 18,
+            "start": 73.18,
+            "end": 76.54
+          },
+          {
+            "line": 19,
+            "start": 76.54,
+            "end": 81.18
+          },
+          {
+            "line": 20,
+            "start": 81.18,
+            "end": 86.32
+          },
+          {
+            "line": 23,
+            "start": 93.07,
+            "end": 97.16
+          },
+          {
+            "line": 24,
+            "start": 97.16,
+            "end": 102.32
+          },
+          {
+            "line": 25,
+            "start": 102.32,
+            "end": 106.1
+          },
+          {
+            "line": 26,
+            "start": 106.76,
+            "end": 110.46
+          },
+          {
+            "line": 27,
+            "start": 111,
+            "end": 114.88
+          },
+          {
+            "line": 28,
+            "start": 115.2,
+            "end": 119.4
+          },
+          {
+            "line": 29,
+            "start": 119.98,
+            "end": 123.92
+          },
+          {
+            "line": 30,
+            "start": 124.48,
+            "end": 127.44
+          },
+          {
+            "line": 33,
+            "start": 127.44,
+            "end": 135.14
+          },
+          {
+            "line": 34,
+            "start": 135.14,
+            "end": 139.4
+          },
+          {
+            "line": 35,
+            "start": 139.74,
+            "end": 143.98
+          },
+          {
+            "line": 36,
+            "start": 143.98,
+            "end": 148.32
+          },
+          {
+            "line": 37,
+            "start": 148.32,
+            "end": 152.8
+          },
+          {
+            "line": 38,
+            "start": 152.8,
+            "end": 157.54
+          },
+          {
+            "line": 41,
+            "start": 159.1,
+            "end": 163.66
+          },
+          {
+            "line": 42,
+            "start": 164.02,
+            "end": 168.34
+          },
+          {
+            "line": 43,
+            "start": 169.08,
+            "end": 172.7
+          },
+          {
+            "line": 44,
+            "start": 172.96,
+            "end": 177.1
+          },
+          {
+            "line": 45,
+            "start": 177.4,
+            "end": 181.16
+          },
+          {
+            "line": 46,
+            "start": 181.18,
+            "end": 185.52
+          },
+          {
+            "line": 49,
+            "start": 195.02,
+            "end": 199.46
+          },
+          {
+            "line": 50,
+            "start": 199.46,
+            "end": 203.86
+          },
+          {
+            "line": 51,
+            "start": 203.86,
+            "end": 208.22
+          },
+          {
+            "line": 52,
+            "start": 208.96,
+            "end": 212.68
+          },
+          {
+            "line": 53,
+            "start": 213.46,
+            "end": 216.82
+          },
+          {
+            "line": 54,
+            "start": 216.82,
+            "end": 218.08
+          },
+          {
+            "line": 55,
+            "start": 218.08,
+            "end": 221.88
+          },
+          {
+            "line": 56,
+            "start": 222.2,
+            "end": 226.14
+          },
+          {
+            "line": 59,
+            "start": 226.48,
+            "end": 230.74
+          },
+          {
+            "line": 60,
+            "start": 231.06,
+            "end": 234.94
+          },
+          {
+            "line": 61,
+            "start": 235.66,
+            "end": 239.5
+          },
+          {
+            "line": 62,
+            "start": 239.5,
+            "end": 243.94
+          },
+          {
+            "line": 63,
+            "start": 244.62,
+            "end": 248.16
+          },
+          {
+            "line": 64,
+            "start": 248.64,
+            "end": 252.58
+          },
+          {
+            "line": 65,
+            "start": 253.42,
+            "end": 257.56
+          },
+          {
+            "line": 66,
+            "start": 257.56,
+            "end": 261.64
+          },
+          {
+            "line": 69,
+            "start": 262.74,
+            "end": 267.06
+          },
+          {
+            "line": 70,
+            "start": 267.4,
+            "end": 272.86
+          },
+          {
+            "line": 71,
+            "start": 272.86,
+            "end": 276.02
+          },
+          {
+            "line": 72,
+            "start": 276.36,
+            "end": 280.54
+          },
+          {
+            "line": 73,
+            "start": 280.78,
+            "end": 284.92
+          },
+          {
+            "line": 74,
+            "start": 284.92,
+            "end": 288.82
+          },
+          {
+            "line": 75,
+            "start": 288.82,
+            "end": 293.54
+          },
+          {
+            "line": 76,
+            "start": 293.54,
+            "end": 298.26
+          },
+          {
+            "line": 79,
+            "start": 301.8,
+            "end": 305.82
+          },
+          {
+            "line": 80,
+            "start": 306.46,
+            "end": 310.56
+          },
+          {
+            "line": 81,
+            "start": 310.56,
+            "end": 315.74
+          },
+          {
+            "line": 82,
+            "start": 315.74,
+            "end": 320.42
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony adjusts to a career transition, becoming a scrum master in a world that increasingly has moved on",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 330
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-eff2d3200a937deb856c10ce",
       "title": "Yeah After Midnight - Velvet Jazz Remix",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-eff2d3200a937deb856c10ce-0dde33325898.mp3",
