@@ -197,6 +197,7 @@ for (const request of [
         "publishedAt",
         "url",
         "qualityIssues",
+        "reviewState",
         "voiceModel",
         "generationProfile",
         "originalPrompt",
@@ -256,6 +257,13 @@ for (const request of [
           issue.seconds <= 1440,
       );
     }
+    if (request.qualityIssues.length) assert.equal(request.reviewState, "needs_review");
+    else assert.equal(request.reviewState, undefined);
+  }
+  if (request.reviewState !== undefined) {
+    assert.equal(request.reviewState, "needs_review");
+    assert.equal(request.status, "published");
+    assert.ok(request.qualityIssues?.length);
   }
 }
 const modelsResponse = await get(`${api}/voice-models`, {
