@@ -105,6 +105,32 @@ class PaidMusicTests(unittest.TestCase):
             actual = '\n'.join(c['text'] for c in body['composition_plan']['chunks'])
             self.assertEqual(words(actual), words(song['lyrics']))
             self.assertTrue(all(3000 <= c['duration_ms'] <= 120000 for c in body['composition_plan']['chunks']))
+            self.assertTrue(all(len(c['text'].splitlines()) <= 30 for c in body['composition_plan']['chunks']))
+
+    def test_repeated_lines_are_split_without_changing_lyrics_or_duration(self):
+        from request_materials import words
+        song = plan(250)
+        song['lyrics'] = '[Section]\n' + '\n'.join(['I wanna fuck.'] * 84) + '\n[End]'
+        body = music_backend.composition(song, 123)
+        chunks = body['composition_plan']['chunks']
+        self.assertEqual(paid_music.request_duration(body), 250000)
+        self.assertTrue(all(len(chunk['text'].splitlines()) <= 30 for chunk in chunks))
+        self.assertEqual(words('\n'.join(chunk['text'] for chunk in chunks)), words(song['lyrics']))
+
+    def test_legacy_frozen_chunk_is_shaped_only_for_provider_transport(self):
+        from request_materials import words
+        frozen = copy.deepcopy(self.body)
+        target = frozen['composition_plan']['chunks'][1]
+        target['text'] = '[Verse]\n' + '\n'.join(['I wanna fuck.'] * 42)
+        with self.assertRaisesRegex(ValueError, '30 lines'):
+            paid_music.request_duration(frozen)
+        provider = paid_music.provider_request(frozen)
+        self.assertEqual(frozen['composition_plan']['chunks'][1]['text'], target['text'])
+        self.assertEqual(paid_music.request_duration(provider), 240000)
+        self.assertTrue(all(len(chunk['text'].splitlines()) <= 30
+                            for chunk in provider['composition_plan']['chunks']))
+        self.assertEqual(words('\n'.join(c['text'] for c in provider['composition_plan']['chunks'])),
+                         words('\n'.join(c['text'] for c in frozen['composition_plan']['chunks'])))
 
     def test_paid_constraints_reject_local_candidates_unattached_remixes_and_band_adapter(self):
         song = plan(); brief = {'details': {'musicBackend': 'eleven_music', 'generation': song['generation']}}
