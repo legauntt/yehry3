@@ -1,14 +1,33 @@
-// Original vector clip art: titles choose the cast, recording IDs the colors,
-// expression, pose, and confetti. Compact API and offline songs get the same art.
+// Original vector clip art: titles choose the possible cast; recording IDs pick
+// the character, colors, backdrop, expression, pose, and props. Loved songs leave
+// the regular cast for award mascots on their own stages. Compact API and offline
+// songs get the same base art; vote art needs the live counts.
 const palettes = [
   ["#f6dfb5", "#e78c61", "#739c91"], ["#dbe7d4", "#86aa80", "#edb865"],
   ["#eadff1", "#ae91bf", "#f2b477"], ["#dbe9ef", "#7fa8c3", "#e79e89"],
   ["#f3dce0", "#df93a5", "#96b9aa"], ["#f2ebbc", "#d7b45d", "#98afc7"],
+  ["#d9ead3", "#5fa89a", "#f08a5d"], ["#fde2c8", "#f2a65a", "#6d8fb3"],
+  ["#e3e4f7", "#8a8fd1", "#f0c05a"], ["#d3eef0", "#4fb0b8", "#f29e9e"],
+  ["#f5e6cc", "#c98f6b", "#7fb285"], ["#ece0d1", "#b8886a", "#89b0ae"],
 ];
-const ink = "#303f38", paper = "#fffaf0";
+const ink = "#303f38", paper = "#fffaf0", rose = "#e8557c", gold = "#f7c948";
 const path = (d, fill = "none") => '<path d="' + d + '" fill="' + fill + '"/>';
 const circle = (x, y, r, fill) => '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="' + fill + '"/>';
 const rect = (x, y, w, h, r, fill) => '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="' + r + '" fill="' + fill + '"/>';
+const ellipse = (x, y, rx, ry, fill) => '<ellipse cx="' + x + '" cy="' + y + '" rx="' + rx + '" ry="' + ry + '" fill="' + fill + '"/>';
+const miniHeart = "M10 18L3 10C-2 3 6 -2 10 4C14 -2 22 3 17 10Z";
+const point = (cx, cy, r, degrees) => (cx + r * Math.cos(degrees * Math.PI / 180)).toFixed(1) + " " + (cy + r * Math.sin(degrees * Math.PI / 180)).toFixed(1);
+// Stars, rosette edges, and sparkles are all the same zigzag ring.
+function burst(cx, cy, outer, inner, points, fill) {
+  let d = "";
+  for (let i = 0; i < points * 2; i++) d += (i ? "L" : "M") + point(cx, cy, i % 2 ? inner : outer, -90 + i * 180 / points);
+  return path(d + "Z", fill);
+}
+function rays(cx, cy, count, fill, opacity) {
+  let d = "";
+  for (let i = 0; i < count; i++) d += "M" + cx + " " + cy + "L" + point(cx, cy, 260, i * 360 / count) + "L" + point(cx, cy, 260, (i + .5) * 360 / count) + "Z";
+  return '<path d="' + d + '" fill="' + fill + '" opacity="' + opacity + '"/>';
+}
 
 // Each drawing shares a chunky pen outline and a deliberately daft little face.
 const drawings = {
@@ -56,6 +75,23 @@ const drawings = {
   bolt: (a) => path("M102 26L52 110H89L77 174 151 81H111L130 26Z", a),
   microphone: (a, b) => rect(64, 31, 73, 96, 32, a) + path("M52 91V106Q50 140 99 140Q149 140 149 106V91M100 141V164M79 168H123M80 48H120M80 61H120", b),
   record: (a, b) => circle(100, 100, 61, a) + circle(100, 100, 45, b) + circle(100, 100, 30, paper) + path("M57 84Q62 64 82 58M140 120Q133 137 117 142"),
+  // Remix and style words bring in the band, so one title's versions stop sharing a cover.
+  guitar: (a, b) => rect(92, 20, 16, 44, 2, b) + rect(87, 6, 26, 18, 5, a) + path("M96 26V58M104 26V58") + path("M100 58Q68 58 70 84Q72 96 62 108Q48 128 62 148Q76 166 100 166Q124 166 138 148Q152 128 138 108Q128 96 130 84Q132 58 100 58Z", a) + rect(84, 146, 32, 8, 3, b),
+  trumpet: (a, b) => path("M126 84Q152 80 174 50V158Q152 130 126 128Z", b) + rect(36, 80, 94, 56, 18, a) + rect(60, 54, 13, 28, 4, b) + rect(81, 48, 13, 34, 4, b) + rect(102, 54, 13, 28, 4, b) + path("M36 108H20M20 97V119M58 52H75M79 46H96M100 52H117"),
+  cassette: (a, b) => rect(34, 54, 132, 96, 10, a) + rect(48, 66, 104, 56, 6, paper) + path("M58 78H142") + path("M66 150L74 130H126L134 150Z", b) + circle(44, 140, 3, ink) + circle(156, 140, 3, ink),
+  discoball: (a, b) => path("M100 50V22") + rect(88, 12, 24, 11, 3, b) + circle(100, 104, 54, a) + path("M46 104H154M53 78H147M53 130H147M100 50V158M76 56Q60 104 76 152M124 56Q140 104 124 152") + burst(164, 52, 15, 5, 4, b) + burst(34, 148, 11, 4, 4, b),
+  drum: (a, b) => path("M58 28L96 70M142 28L104 70") + circle(56, 26, 6, b) + circle(144, 26, 6, b) + path("M42 78V138Q42 158 100 158Q158 158 158 138V78Z", a) + ellipse(100, 78, 58, 18, paper) + path("M42 138Q42 146 56 151M158 138Q158 146 144 151", b),
+  note: (a, b) => path("M136 112V28") + path("M136 28Q172 40 165 80Q156 60 136 58Z", b) + '<ellipse cx="95" cy="120" rx="47" ry="37" transform="rotate(-14 95 120)" fill="' + a + '"/>',
+  // Award mascots appear only once listeners have voted for a song.
+  rosette: (a, b) => path("M80 138L66 180 86 170 98 184 104 144ZM120 138L134 180 114 170 102 184 96 144Z", b) + burst(100, 102, 63, 53, 16, a) + circle(100, 102, 44, paper),
+  balloon: (a, b) => path("M100 160Q88 172 102 182Q112 190 100 198") + path("M92 162L100 150 108 162Z", a) + ellipse(100, 92, 52, 60, a) + path("M64 72Q68 50 86 44", paper) + burst(158, 40, 12, 4, 4, b),
+  foamfinger: (a, b) => path("M60 160V98Q60 84 74 84H84V30Q84 16 97 16Q110 16 110 30V84H128Q144 84 144 100V160Z", a) + rect(54, 152, 96, 18, 6, b) + path("M118 84V70M132 86V76"),
+  medal: (a, b) => path("M66 16L100 80 134 16H110L100 36 90 16Z", b) + circle(100, 112, 52, a) + circle(100, 112, 42, "none") + burst(100, 72, 9, 4, 5, paper),
+  megaphone: (a, b) => path("M70 126V160H92V134", b) + path("M38 84L134 44V162L38 122Z", a) + rect(22, 86, 20, 34, 6, b) + path("M134 44Q162 103 134 162Q146 103 134 44Z", b) + path("M170 72L186 60M176 103H194M170 134L186 146"),
+  goldrecord: (a, b) => rect(34, 40, 132, 132, 7, b) + rect(45, 51, 110, 110, 3, paper) + circle(100, 106, 48, a) + circle(100, 106, 37, "none") + path("M64 92Q70 72 90 64M136 122Q130 140 112 146"),
+  rocket: (a, b) => path("M78 138Q100 204 122 138Z", b) + path("M64 104L36 150 68 140ZM136 104L164 150 132 140Z", b) + path("M100 10Q142 52 136 142H64Q58 52 100 10Z", a) + path("M79 44Q100 34 121 44"),
+  superstar: (a, b) => burst(100, 116, 76, 39, 5, a) + path("M81 58L76 32 90 44 100 23 110 44 124 32 119 58Z", b),
+  gem: (a, b) => path("M58 40H142L174 80 100 174 26 80Z", a) + path("M26 80H174M58 40L80 80 100 40 120 80 142 40") + burst(168, 36, 13, 4, 4, b) + burst(30, 140, 10, 3, 4, b),
 };
 
 const themes = [
@@ -86,7 +122,7 @@ const themes = [
   ["flag", /\b(flag|charge|fight|holding|hung)\b/i, "a flag waving a little too enthusiastically"],
   ["phone", /\b(telephone|wire|call)\b/i, "a telephone calling for an encore"],
   ["key", /\b(key|door)\b/i, "a key that forgot what it unlocks"],
-  ["robot", /\b(agi|robot|glosky)\b/i, "a robot learning to do the wiggle"],
+  ["robot", /\b(agi|ai|robot|glosky)\b/i, "a robot learning to do the wiggle"],
   ["bee", /\b(swarm|bees?|buzz)\b/i, "a bee with a very busy dance schedule"],
   ["sword", /\b(warrior|ith|bomb|geglash)\b/i, "a toy sword taking a dance break"],
   ["pocket", /\b(pocket|trouble|little bit)\b/i, "a pocket full of tiny surprises"],
@@ -101,52 +137,180 @@ const themes = [
   ["radio", /\b(dial|siren|sirens|news|says|maw)\b/i, "a radio turning its own volume up"],
   ["washer", /\b(spin|cycle|wash)\b/i, "a washing machine on the dance cycle"],
   ["bolt", /\b(lightning|electric|thunder)\b/i, "a lightning bolt with too much energy"],
-  ["clock", /\b(hours?|years?|counts?|time|wait)\b/i, "an alarm clock running fashionably late"],
+  ["clock", /\b(hours?|years?|counts?|time|wait|again)\b/i, "an alarm clock running fashionably late"],
   ["microphone", /\b(tony|tonys|sing|song|anthem)\b/i, "a microphone singing into another microphone"],
+  ["guitar", /\b(acoustic|bluegrass|barnstorm|rock|blues|country|folk|unplugged)\b/i, "a guitar strumming itself silly"],
+  ["trumpet", /\b(brass|brassline|ska|swing|jazz|horns?|fanfare)\b/i, "a trumpet puffing out its cheeks"],
+  ["cassette", /\b(remix|rework|mix|dub|extended|edit|tape)\b/i, "a cassette tape rewinding for another go"],
+  ["discoball", /\b(disco|boogie|groove|dance|pulse|club|funk|floor)\b/i, "a disco ball that never misses a party"],
+  ["drum", /\b(bpm|beat|drums?|march|stomp|circuit|industrial)\b/i, "a drum keeping slightly irregular time"],
+  ["note", /\b(opera|soul|choir|hymn|ballad|lounge|velvet|barbershop|quartet)\b/i, "a music note humming its own tune"],
+];
+// Titles without a recognizable subject share the band instead of one record.
+const houseBand = [
+  ["record", null, "a record doing a delightfully awkward dance"],
+  ["microphone", null, "a microphone clearing its throat"],
+  ["radio", null, "a radio turning its own volume up"],
+  ["cassette", null, "a cassette tape rewinding for another go"],
+  ["guitar", null, "a guitar strumming itself silly"],
+  ["trumpet", null, "a trumpet puffing out its cheeks"],
+  ["discoball", null, "a disco ball that never misses a party"],
+  ["drum", null, "a drum keeping slightly irregular time"],
+  ["note", null, "a music note humming its own tune"],
+];
+// Highest tier first. Every tier has its own mascots, colors, and stage so loved
+// songs read as special at thumbnail size, and higher tiers keep escalating.
+const tiers = [
+  { votes: 7, stage: "legend", palettes: [["#2f2a4a", gold, "#ef6f9c"], ["#1f3044", "#ffd166", "#7bdff2"]], cast: [
+    ["superstar", null, "a crowned superstar soaking up the applause"],
+    ["gem", null, "a dazzling gem that knows it is a legend"],
+  ] },
+  { votes: 5, stage: "gold", palettes: [["#f4c542", "#e89b16", "#fff1b8"], ["#efb83a", "#d98a0b", "#fde9a6"]], cast: [
+    ["goldrecord", null, "a framed gold record beaming with pride"],
+    ["rocket", null, "a rocket taking this song to the top"],
+  ] },
+  { votes: 3, stage: "spotlight", palettes: [["#7cc8bd", "#f4a259", "#5b5f97"], ["#a3b3ee", "#f28482", "#f6bd60"]], cast: [
+    ["medal", null, "a medal for a certified crowd favorite"],
+    ["megaphone", null, "a megaphone telling everyone about this song"],
+  ] },
+  { votes: 1, stage: "loved", palettes: [["#f8a9bf", rose, "#ffd98a"], ["#f7b3c8", "#d94f86", "#9ad9e8"], ["#fbb5b5", "#e4526d", "#fff0a8"]], cast: [
+    ["rosette", null, "a prize rosette blushing over its first fans"],
+    ["balloon", null, "a party balloon floating on a little love"],
+    ["foamfinger", null, "a foam finger cheering for its favorite song"],
+  ] },
+];
+export function voteTier(votes) {
+  const count = Number(votes);
+  return tiers.find(tier => count >= tier.votes) || null;
+}
+
+// [arms and legs, left hand] so a held prop follows the pose.
+const poses = [
+  ["M62 117Q29 130 29 107M140 116Q165 142 176 119M81 145L75 170 57 170M121 146L132 165 146 161", [29, 107]],
+  ["M62 112Q32 104 27 74M140 110Q170 102 176 72M81 145L72 171 56 169M121 146L127 171 143 170", [27, 74]],
+  ["M62 117Q29 130 29 107M140 110Q172 100 172 68M84 145L84 171 68 171M119 146L134 166 148 160", [29, 107]],
+  ["M62 114Q40 114 22 98M140 114Q164 122 181 102M81 145L66 166 52 160M121 146L121 171 137 171", [22, 98]],
+];
+// Drawn from the hand at 0,0. Empty hands stay the most common.
+const props = [
+  null, null, null,
+  b => path("M0 0Q-7 -17 -3 -33") + ellipse(-3, -49, 13, 16, b),
+  b => path("M0 0V-29") + [[0, -46], [9, -40], [6, -29], [-6, -29], [-9, -40]].map(([x, y]) => circle(x, y, 6, b)).join("") + circle(0, -37, 5, paper),
+  b => path("M-2 -7V-41L15 -45V-15") + ellipse(-8, -7, 7, 5, b) + ellipse(9, -14, 7, 5, b),
+  b => path("M0 0V-49") + path("M0 -49L27 -41 0 -31Z", b),
+  b => path("M0 0V-27") + circle(0, -39, 13, b) + path("M0 -39Q6 -45 0 -47Q-8 -45 -6 -37Q-2 -29 6 -35"),
+];
+const openEye = (x, y, r, dx, dy, pupil) => circle(x, y, r, paper) + circle(x + dx, y + dy, pupil, ink);
+const leftArc = path("M78 106Q85 96 92 105"), rightArc = path("M108 104Q116 94 123 103");
+const eyes = [
+  () => openEye(85, 102, 8, 1, 2, 3) + openEye(116, 99, 9, -1, 3, 3),
+  () => openEye(85, 102, 8, 1, 2, 3) + rightArc,
+  () => leftArc + openEye(116, 99, 9, -1, 3, 3),
+  () => leftArc + rightArc,
+  () => openEye(85, 102, 8, 0, 0, 2) + openEye(116, 99, 9, 0, 0, 2),
+  () => openEye(85, 102, 8, 3, 0, 3) + openEye(116, 99, 9, 4, 0, 3),
+  () => openEye(85, 102, 8, 0, 3, 3) + openEye(116, 99, 9, 0, 3, 3) + path("M77 102A8 8 0 0 1 93 102Z", ink) + path("M107 99A9 9 0 0 1 125 99Z", ink),
+];
+const heartEyes = '<path transform="translate(74 92)" d="' + miniHeart + '" fill="' + rose + '"/><path transform="translate(105 89) scale(1.1)" d="' + miniHeart + '" fill="' + rose + '"/>';
+const starEyes = () => burst(85, 102, 11, 5, 5, gold) + burst(116, 99, 12, 5, 5, gold);
+const mouths = [
+  path("M92 119Q103 131 115 117", paper),
+  path("M91 117Q103 140 116 115Z", "#b5473c"),
+  ellipse(104, 124, 6, 7, "#b5473c"),
+  path("M95 122Q107 128 116 116"),
+  path("M92 119Q103 131 115 117", paper) + path("M99 125Q103 138 110 123Z", "#e8788a"),
+];
+// Faces sit in the same place on every drawing, so these fit the whole cast.
+const extras = [
+  null, null, null,
+  { shades: true, draw: () => rect(73, 93, 24, 17, 6, ink) + rect(104, 90, 26, 18, 6, ink) + path("M97 100L104 98") },
+  { draw: (a, b) => path("M103 140L87 131V149ZM103 140L119 131V149Z", b) + circle(103, 140, 4, a) },
+  { draw: () => '<g stroke="none" fill="#e8788a" opacity=".6">' + circle(73, 117, 6, "#e8788a") + circle(130, 114, 6, "#e8788a") + '</g>' },
+  { draw: () => path("M76 89L93 85M107 83L126 88") },
+  { draw: () => circle(116, 99, 14, "none") + path("M128 107Q136 130 129 150") },
+];
+const backdrops = [
+  () => '<circle cx="120" cy="95" r="78" fill="' + paper + '" opacity=".55"/>',
+  () => '<path d="M52 60Q90 8 160 30Q222 52 204 120Q190 182 118 176Q40 172 38 110Q36 80 52 60Z" fill="' + paper + '" opacity=".55"/>',
+  () => '<path d="M-10 150L110 -10H165L-10 222ZM70 210L222 5H250V40L122 210Z" fill="' + paper + '" opacity=".42"/>',
+  () => '<g fill="' + paper + '" opacity=".5">' + Array.from({ length: 30 }, (_, i) => circle(20 + (i % 6) * 40 + (Math.floor(i / 6) % 2) * 20, 18 + Math.floor(i / 6) * 41, 8, paper)).join("") + '</g>',
+  () => rays(120, 190, 14, paper, ".42"),
+  () => '<path d="M46 200V96Q46 20 120 20Q194 20 194 96V200Z" fill="' + paper + '" opacity=".55"/>',
 ];
 function hash(value) {
   let result = 2166136261;
   for (const char of value) result = Math.imul(result ^ char.codePointAt(0), 16777619);
-  return result >>> 0;
+  // Avalanche the bits so every trait rolled below varies independently.
+  result = Math.imul(result ^ (result >>> 16), 2246822507);
+  result = Math.imul(result ^ (result >>> 13), 3266489909);
+  return (result ^ (result >>> 16)) >>> 0;
 }
-function face(seed) {
-  return circle(85, 102, 8, paper) + circle(86, 104, 3, ink)
-    + (seed % 4 === 0 ? path("M108 104Q116 95 122 103") : circle(116, 99, 9, paper) + circle(115, 102, 3, ink))
-    + path("M92 119Q103 131 115 117", paper);
+function confetti(identity, style, a, b) {
+  return Array.from({ length: 9 }, (_, index) => {
+    const n = hash(identity + ":" + index), x = 13 + n % 213, y = 12 + (n >>> 8) % 174, color = index % 2 ? b : a;
+    if (style === "hearts") return '<path transform="translate(' + x + " " + y + ') scale(' + (index % 3 ? ".55" : ".8") + ')" d="' + miniHeart + '" fill="' + (index % 2 ? paper : rose) + '" stroke="none"/>';
+    if (style === "sparkles") return '<g stroke="none">' + burst(x, y, index % 3 ? 5 : 8, 2, 4, index % 2 ? paper : gold) + '</g>';
+    if (style === 1) return index % 2 ? path("M" + x + " " + y + "h8m-4 -4v8", b) : circle(x, y, 2.5, a);
+    if (style === 2) return '<path d="M' + x + " " + y + 'l7 2 -5 5Z" fill="' + color + '" stroke="none"/>';
+    if (style === 3) return index % 2 ? '<circle cx="' + x + '" cy="' + y + '" r="4" fill="none" stroke="' + a + '"/>' : circle(x, y, 2, b);
+    return index % 2 ? path("M" + x + " " + y + "l4 -5", b) : circle(x, y, 2, a);
+  }).join("");
+}
+function stageMarkup(stage) {
+  if (stage === "loved") return backdrops[0]();
+  if (stage === "spotlight") return '<path d="M18 -5H86L176 200H66ZM222 -5H154L64 200H174Z" fill="' + paper + '" opacity=".36"/>';
+  if (stage === "gold") return rays(120, 100, 12, paper, ".4") + '<circle cx="120" cy="98" r="70" fill="' + paper + '" opacity=".5"/>';
+  // The night stage keeps a bright spotlight so the pen outlines stay readable.
+  return rays(120, 100, 12, paper, ".1") + '<circle cx="120" cy="98" r="80" fill="' + paper + '" opacity=".93"/>';
 }
 const cache = new Map();
 export function songArtwork(song) {
   const title = String(song.title || "Untitled song");
+  const tier = voteTier(song.votes);
   const identity = String(song.id || "") + "\n" + title;
-  if (cache.has(identity)) return cache.get(identity);
-  const seed = hash(identity);
+  const key = identity + "\n" + (tier?.votes || 0);
+  if (cache.has(key)) return cache.get(key);
+  const roll = (trait, size) => hash(identity + "\n" + trait) % size;
   // Titles are present in both lightweight API responses and full offline records.
   // Artwork never requires downloading lyrics or calling an image service.
   const matches = themes.filter(([, pattern]) => pattern.test(title));
-  const [theme, , description] = matches[0] || ["record", null, "a record doing a delightfully awkward dance"];
-  const [background, a, b] = palettes[seed % palettes.length];
-  const accentTheme = matches.find(([other]) => other !== theme)?.[0];
-  const tilt = (seed % 13) - 6;
-  const speckles = Array.from({ length: 9 }, (_, index) => {
-    const n = hash(identity + ":" + index), x = 13 + n % 213, y = 12 + (n >>> 8) % 174;
-    return index % 2 ? path("M" + x + " " + y + "l4 -5", b) : circle(x, y, 2, a);
-  }).join("");
+  const subjects = matches.length ? matches : houseBand;
+  const subject = subjects[roll("subject", subjects.length)];
+  const [theme, , description] = tier ? tier.cast[roll("mascot", tier.cast.length)] : subject;
+  // Award art keeps a small nod to the title; regular art shows a second subject.
+  const others = matches.filter(([other]) => other !== subject[0]);
+  const accentTheme = tier ? subject[0] : others.length ? others[roll("accent", others.length)][0] : null;
+  const [background, a, b] = (tier?.palettes || palettes)[roll("palette", (tier?.palettes || palettes).length)];
+  const tilt = roll("tilt", 17) - 8, flipped = roll("flip", 2) === 1;
+  const [limbs, hand] = poses[tier?.votes >= 5 ? 1 : roll("pose", poses.length)];
+  const prop = tier ? null : props[roll("prop", props.length)];
+  const extra = extras[roll("extra", extras.length)];
+  const special = tier && roll("eyes", 2) ? (tier.votes >= 5 ? starEyes() : tier.votes === 1 ? heartEyes : null) : null;
+  const face = (extra?.shades && !special ? "" : special || eyes[roll("eyes", eyes.length)]()) + mouths[roll("mouth", mouths.length)] + (extra && !(extra.shades && special) ? extra.draw(a, b) : "");
+  const dark = tier?.stage === "legend";
+  const specks = confetti(identity, tier?.stage === "loved" ? "hearts" : tier?.votes >= 5 ? "sparkles" : roll("confetti", 4), a, b);
+  const badgeX = flipped ? 19 : 202;
+  const badge = tier
+    ? Array.from({ length: tiers.length - tiers.indexOf(tier) }, (_, i) => '<path transform="translate(' + (flipped ? 11 + i * 18 : 212 - i * 18) + ' 11) scale(.85)" d="' + miniHeart + '"/>').join("")
+    : '<g transform="translate(' + badgeX + ' 19)"><path d="M0 8L7 7 9 0 12 7 19 9 12 12 10 19 7 12 0 10Z"/></g>';
+  const accentX = roll("accent-side", 2) ? 176 : 8;
   const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="200" viewBox="0 0 240 200">'
-    + '<rect width="240" height="200" fill="' + background + '"/><circle cx="120" cy="95" r="78" fill="' + paper + '" opacity=".55"/>'
-    + '<g stroke="' + b + '" stroke-width="2" stroke-linecap="round">' + speckles + '</g><ellipse cx="122" cy="176" rx="62" ry="8" fill="' + ink + '" opacity=".10"/>'
-    + '<g transform="translate(20 -2) rotate(' + tilt + ' 100 100)" stroke="' + ink + '" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">'
-    + path("M62 117Q29 130 29 107M140 116Q165 142 176 119M81 145L75 170 57 170M121 146L132 165 146 161")
-    + drawings[theme](a, b) + face(seed) + '</g>'
-    + (accentTheme ? '<g transform="translate(176 130) scale(.28) rotate(12 100 100)" stroke="' + ink + '" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">' + drawings[accentTheme](b, a) + '</g>' : "")
-    + '<g transform="translate(19 19)" fill="' + paper + '" stroke="' + ink + '" stroke-width="2"><path d="M0 8L7 7 9 0 12 7 19 9 12 12 10 19 7 12 0 10Z"/></g></svg>';
-  const art = { src: "data:image/svg+xml," + encodeURIComponent(svg), alt: "Silly clip art: " + description + ".", theme };
+    + '<rect width="240" height="200" fill="' + background + '"/>' + (tier ? stageMarkup(tier.stage) :backdrops[roll("backdrop", backdrops.length)]())
+    + '<g stroke="' + b + '" stroke-width="2" stroke-linecap="round">' + specks + '</g><ellipse cx="122" cy="176" rx="62" ry="8" fill="' + ink + '" opacity=".10"/>'
+    + '<g transform="translate(20 -2) rotate(' + tilt + ' 100 100)' + (flipped ? " translate(200 0) scale(-1 1)" : "") + '" stroke="' + ink + '" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">'
+    + path(limbs) + (prop ? '<g transform="translate(' + hand[0] + " " + hand[1] + ')">' + prop(b) + '</g>' : "")
+    + drawings[theme](a, b) + face + '</g>'
+    + (accentTheme ? '<g transform="translate(' + accentX + ' 130) scale(.28) rotate(12 100 100)" stroke="' + ink + '" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">' + drawings[accentTheme](dark ? a : b, dark ? b : a) + '</g>' : "")
+    + '<g fill="' + (tier ? rose : paper) + '" stroke="' + (dark ? paper : ink) + '" stroke-width="2" stroke-linejoin="round">' + badge + '</g>'
+    + (tier?.votes >= 5 ? '<rect x="5" y="5" width="230" height="190" rx="7" fill="none" stroke="' + (dark ? gold : "#a86a08") + '" stroke-width="4"/>' + (dark ? '<rect x="12" y="12" width="216" height="176" rx="4" fill="none" stroke="' + gold + '" stroke-width="1.5"/>' : "") : "")
+    + '</svg>';
+  const art = { src: "data:image/svg+xml," + encodeURIComponent(svg), alt: "Silly clip art: " + description + ".", theme, tier: tier?.votes || 0 };
   // Bound memory use on pages left open as the catalog changes.
   if (cache.size >= 512) cache.delete(cache.keys().next().value);
-  cache.set(identity, art);
+  cache.set(key, art);
   return art;
 }
 export function songArtworkMarkup(song, escape) {
   const art = songArtwork(song);
-  return '<img class="track-art" src="' + escape(art.src) + '" alt="' + escape(art.alt) + '" width="240" height="200" loading="lazy" decoding="async">';
+  return '<img class="track-art" src="' + escape(art.src) + '" alt="' + escape(art.alt) + '"' + (art.tier ? ' data-art-tier="' + art.tier + '"' : "") + ' width="240" height="200" loading="lazy" decoding="async">';
 }
-

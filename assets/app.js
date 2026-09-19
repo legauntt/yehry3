@@ -529,6 +529,11 @@ async function library() {
       const song = songs.find((item) => item.id === id);
       if (!online || feedbackBusy || pinButton.disabled || !song) return;
       const pinned = !song.feedback?.pinned;
+      // Pins reorder the catalog for every listener, so a stray tap should not count.
+      if (!window.confirm(pinned
+        ? `Pin “${song.title}” to the top for everyone?`
+        : `Remove your shared pin from “${song.title}”?`))
+        return;
       feedbackBusy = true;
       render({ preserveViewport: true });
       try {
@@ -549,6 +554,12 @@ async function library() {
     const feedbackButton = event.target.closest("[data-feedback]");
     if (feedbackButton) {
       if (!online || feedbackBusy || feedbackButton.disabled) return;
+      const title = songs.find((item) => item.id === feedbackButton.dataset.song)?.title || "this song";
+      // Neither kind of feedback can be withdrawn afterwards.
+      if (!window.confirm(feedbackButton.dataset.feedback === "milquetoast"
+        ? `Mark “${title}” as milquetoast? It also counts as a downvote, tells the song agent to avoid this pattern, and cannot be undone.`
+        : `Downvote “${title}”? This cannot be undone.`))
+        return;
       feedbackBusy = true;
       render({ preserveViewport: true });
       try {
