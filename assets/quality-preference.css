@@ -4,7 +4,6 @@ html[data-show-quality-issues="false"] .quality-notice {
 
 .display-settings {
   display: flex;
-  margin-left: auto;
 }
 
 .settings-button {
@@ -101,8 +100,4 @@ html[data-show-quality-issues="false"] .quality-notice {
 
 @media (prefers-reduced-motion: reduce) {
   .settings-button.has-new-preferences { animation: none; }
-}
-
-@media (max-width: 700px) {
-  .display-settings { margin-left: 0; }
 }

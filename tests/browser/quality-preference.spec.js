@@ -20,8 +20,10 @@ test.beforeEach(async ({ context }) => {
 
 test("issues default on and the preference persists across reloads and listening pages", async ({ page }) => {
   await page.goto("/");
-  await page.locator(".catalog-filters > summary").click();
-  await page.getByRole("button", { name: "Open display settings" }).click();
+  const opener = page.getByRole("button", { name: "Open display settings" });
+  await expect(page.locator(".catalog-filters")).not.toHaveAttribute("open", "");
+  await expect(opener).toBeVisible();
+  await opener.click();
   const toggle = page.getByRole("checkbox", { name: 'Show “Has issues”' });
   await expect(toggle).toBeChecked();
   await expect(page.locator(".quality-notice")).toBeVisible();
