@@ -108,6 +108,26 @@ class ReliabilityTests(unittest.TestCase):
             self.assertFalse(eligible('saved_inputs', ctx))
             self.assertFalse(eligible('audio_integrity', ctx))
 
+    def test_dehaka_guidance_requests_one_bounded_shepherd_consultation(self):
+        with tempfile.TemporaryDirectory() as root:
+            cfg = self.config(root)
+            row = prompt(error='Unexpected assertion')
+            row['recovery'] = {'phase': 'recovering', 'shepherd': {
+                'requestId': 'f85b981c-cd3a-46d8-b924-1a2c0b4f569f',
+                'requestedAt': '2026-09-18T12:00:00Z',
+                'guidance': 'Preserve the saved vocal and adapt the ending.',
+            }}
+            api = FakeAPI([row]); ctx = {'directory': str(Path(root) / 'jobs/one'), 'has_request': True}
+            with patch('queue_monitor.local_context', return_value=ctx), patch('queue_monitor.shepherd_decide', return_value={
+                'action': 'retry_saved_work', 'reason': 'Use the retained ending repair.', 'evidence': 'saved journal'}) as consult:
+                scan(cfg, api, now=1000)
+                self.assertEqual(api.calls, ['one'])
+                self.assertEqual(consult.call_args.kwargs, {
+                    'guidance': 'Preserve the saved vocal and adapt the ending.',
+                    'consultation_id': 'f85b981c-cd3a-46d8-b924-1a2c0b4f569f',
+                })
+                self.assertEqual(load(Path(root) / 'monitor/ledger.json')['requests']['one']['dehaka']['status'], 'decided')
+
     def test_observe_only_never_marks_status_consults_model_or_verifies_delivery(self):
         with tempfile.TemporaryDirectory() as root:
             api = FakeAPI([prompt()]); api.recovery = lambda *a: self.fail('Unexpected API write')

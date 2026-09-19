@@ -46,6 +46,41 @@
   gap: 0.75rem;
   margin: 0.75rem 0 1rem;
 }
+.attention-problem {
+  margin: 18px 0 14px;
+  padding: 15px 18px;
+  border-left: 4px solid #9a3824;
+  background: #fff6f1;
+}
+.attention-problem .eyebrow,
+.attention-problem .field-error {
+  margin: 0;
+}
+.attention-problem .small {
+  margin: 7px 0;
+}
+.attention-problem .field-error {
+  white-space: pre-wrap;
+}
+.dehaka-form {
+  max-width: 850px;
+  margin: 16px 0;
+  padding: 18px;
+  border: 1px solid #9aaa92;
+  background: #f1f5ed;
+}
+.dehaka-form label {
+  margin-top: 0;
+}
+.dehaka-form textarea {
+  background: var(--white);
+}
+.dehaka-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 12px;
+}
 
 :root {
   --paper: #f5f2e8;
@@ -1840,6 +1875,10 @@ main {
   }
   .status-form .primary {
     margin-top: 14px;
+  }
+  .dehaka-actions {
+    align-items: stretch;
+    flex-direction: column;
   }
   .history li {
     display: block;

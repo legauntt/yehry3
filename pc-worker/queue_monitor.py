@@ -108,6 +108,12 @@ def retry_budget(entry, category):
         return not any(a['category']==category and a.get('policy_version',1)==POLICY_VERSION for a in entry.get('attempts',[]))
     return True
 
+def guided_shepherd(prompt):
+    request=prompt.get('recovery',{}).get('shepherd')
+    if not isinstance(request,dict):return None
+    if not isinstance(request.get('requestId'),str) or not isinstance(request.get('guidance'),str):return None
+    return request
+
 def report_markdown(report):
     rows=['# Distonyc queue monitor','',f"Updated {report['at']}. Scheduled every 5 minutes while Jesse is signed in and the PC is awake.",'',
         f"Needs Attention: {report['needs_attention']}. Recovering: {report['recovering']}. Resolved after being observed: {report['resolved']}. Retried this check: {report['retried']}.",'',
@@ -152,15 +158,27 @@ def scan(config, api, now=None, enabled=True):
             episode={'version':prompt['version'],'error':error,'category':category,'at':utc()}
             if not episodes or episodes[-1]['error']!=error or episodes[-1]['version']!=prompt['version']:
                 episodes.append(episode)
-            # Consult shepherd once only after the deterministic policy has no supported next action.
-            if (enabled and config.get('automatic_shepherd') and not prompt.get('workerActive') and consulted<1
-                    and (action!='retry' or not retry_budget(entry,category))
-                    and shepherd_eligible(category,context)):
+            # Dehaka and automatic consultation both remain subordinate to coded eligibility and retry budgets.
+            directive=guided_shepherd(prompt)
+            needs_judgment=(action!='retry' or not retry_budget(entry,category)) and shepherd_eligible(category,context)
+            decision=None
+            if enabled and directive and not prompt.get('workerActive') and consulted<1 and needs_judgment:
+                prior=entry.get('dehaka',{})
+                if prior.get('requestId')!=directive['requestId'] or prior.get('status')!='decided':
+                    entry['dehaka']={'requestId':directive['requestId'],'status':'consulting','requestedAt':directive.get('requestedAt')}
+                    save(path,ledger)
+                    decision=shepherd_decide(config,prompt,context,guidance=directive['guidance'],consultation_id=directive['requestId'])
+                    entry['dehaka']={**entry['dehaka'],'status':'decided','decision':decision};consulted+=1
+                    save(path,ledger)
+                else:decision=prior['decision']
+            elif (enabled and config.get('automatic_shepherd') and not prompt.get('workerActive') and consulted<1
+                    and needs_judgment):
                 if not entry.get('shepherd'):
                     save(path,ledger)
                     entry['shepherd']=shepherd_decide(config,prompt,context);consulted+=1
                     save(path,ledger)
                 decision=entry['shepherd']
+            if decision:
                 if decision['action']=='retry_saved_work' and retry_budget(entry,'shepherd'):
                     category,action,reason='shepherd','retry',decision['reason']
                     entry.update(category=category,next_action=reason)
