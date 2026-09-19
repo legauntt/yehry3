@@ -2,6 +2,476 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-bff0e22daeb45a2718ba0b91",
+      "title": "Nine Eleven at Prehevil",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-bff0e22daeb45a2718ba0b91-ae47e7458b79.mp3",
+      "duration": 445.07428571428574,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-19T07:10:43.399Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Nine Eleven at Prehevil",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Dark, bass-forward dungeon rock in D minor: overdriven electric guitar, agile electric bass, tom-heavy drums, low organ, and sparse synth atmosphere. Tony V8 delivers smoky, connected and increasingly irritated melodic lines, with muttered asides in the bridge; the hook stays forceful and singable rather than rap-like. Start tense and stalking, build through increasingly frantic verses and full-band choruses, then strip briefly for the spoken bridge before a defeated final chorus. Pace the outro’s final sustained lyric to land about 8–12 seconds before 445 seconds, followed by one resolved D-minor chord decay.",
+        "lyrics": "[Intro]\nThe train quit breathing at the edge of town\nRain on the windows, moon hanging down\nPer'kele laughing from the station wall\nSaid, “Three days, Tony—try not to fall”\n\n[Verse 1]\nI woke in a bed with the curtains tied\nKnife in my pocket and a bad left side\nKarin had a camera, Levi had a stare\nMarina drew symbols in the rotten air\n\nThe town was empty but the bells still rang\nA centipede priest had a rusted fang\nI checked every cupboard, every locked-up room\nFound a god-shaped signal in a basement gloom\n\n[Pre-Chorus]\nI took the eastern road, I made my play\nThen the world rolled nine-eleven my way\nNot a warning, not a clever sign\nJust bad damn luck at the worst damn time\n\n[Chorus]\nNine-eleven at Prehevil, again and again\nOne bad choice and the streetlights bend\nI swing for daylight, I get dragged below\nTermina keeps saying, “Tony, no”\n\nNine-eleven at Prehevil, hear that wheel turn\nEvery little lesson is a lesson I burn\nI came for the crown, for a clean way through\nBut the moon keeps growing and it knows what I’ll do\n\n[Verse 2]\nNeedles came dancing with his silver grin\nSaid I looked like somebody who should let him in\nI said, “Back up, pal,” put my guard up high\nThen he cut through my plan like a cheap necktie\n\nAbella warned me about the bunker door\nThe Machine God humming under the floor\nI found the terminals, I found the wires\nFound a city feeding dreams to a tower of fire\n\nDaan talked softly with a doctor’s face\nOlivia wheeled through the darkened place\nO’saa watched the sky like he’d seen it all\nAugust stayed hidden where the shadows crawl\n\n[Chorus]\nNine-eleven at Prehevil, again and again\nOne bad choice and the streetlights bend\nI swing for daylight, I get dragged below\nTermina keeps saying, “Tony, no”\n\nNine-eleven at Prehevil, hear that wheel turn\nEvery little lesson is a lesson I burn\nI came for the crown, for a clean way through\nBut the moon keeps growing and it knows what I’ll do\n\n[Verse 3]\nDay two came crooked through a blood-red dawn\nThe people I trusted were already gone\nA face in the alley, a howl in the park\nSomething moonscorched calling out in the dark\n\nI found the church with the candles drowned\nFound old prayers nailed to the underground\nTried to make mercy out of scraps and thread\nBut every road in town led back to the dead\n\nI saw Samarie shaking behind a door\nSaw Marcoh bleeding on a splintered floor\nThere were hands at the gates, there were teeth in the rain\nAnd the festival kept rolling like a runaway train\n\n[Bridge]\n[Spoken Intro]\nI said I had one more plan. Prehevil laughed.\n\nI went to the tower with the city’s pulse\nLogic in the wires and a fevered cult\nPer'kele pointed at the final scene\nSaid, “You don’t beat Termina. You become what it means.”\n\nI raised my weapon, I called my name\nThe moon answered back with a white-hot flame\nNine-eleven hit when I thought I was clear\nOne wrong step, and the whole end drew near\n\n[Chorus]\nNine-eleven at Prehevil, again and again\nThe last train’s gone and I can’t get in\nI fought the monsters, I fought my doubt\nBut the festival found every way to shut me out\n\nNine-eleven at Prehevil, the third day burns\nNo clean victory, no safe return\nI came in loud, but I leave undone\nUnder the moon, I am not the one\n\n[Outro]\nThe tower is singing, the rain is thin\nThe town keeps turning without letting me win\nI lay my hand on the cold black ground\nAnd hear Prehevil swallow the final sound\n\nTony does not win—still I call through the night\nMy last long note fades before the light\n[End]",
+        "duration": 445,
+        "bpm": 102,
+        "musicalSettings": {
+          "genre": "Bass-forward dungeon rock with ominous game-horror atmosphere",
+          "meter": "4/4",
+          "structure": "Intro, three verses with recurring chorus, spoken bridge, final chorus, resolved outro",
+          "performance": "Natural Tony V8 delivery: rough, smoky, slurred melodic phrasing that grows exasperated while keeping the refrain clear",
+          "energy": "Stalking opening, mounting frustration and danger, then a brief exposed bridge and defeated final resolution",
+          "lyricWorkflow": "Original lore-focused narrative tracing Tony’s failed three-day attempt to survive the Termina festival",
+          "instruments": [
+            "Overdriven electric guitar",
+            "Electric bass",
+            "Drums",
+            "Low organ",
+            "Atmospheric synthesizer"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nThe train quit breathing at the edge of town\nRain on the windows, moon hanging down\nPer'kele laughing from the station wall\nSaid, “Three days, Tony—try not to fall”\n\n[Verse 1]\nI woke in a bed with the curtains tied\nKnife in my pocket and a bad left side\nKarin had a camera, Levi had a stare\nMarina drew symbols in the rotten air\n\nThe town was empty but the bells still rang\nA centipede priest had a rusted fang\nI checked every cupboard, every locked-up room\nFound a god-shaped signal in a basement gloom\n\n[Pre-Chorus]\nI took the eastern road, I made my play\nThen the world rolled nine-eleven my way\nNot a warning, not a clever sign\nJust bad damn luck at the worst damn time\n\n[Chorus]\nNine-eleven at Prehevil, again and again\nOne bad choice and the streetlights bend\nI swing for daylight, I get dragged below\nTermina keeps saying, “Tony, no”\n\nNine-eleven at Prehevil, hear that wheel turn\nEvery little lesson is a lesson I burn\nI came for the crown, for a clean way through\nBut the moon keeps growing and it knows what I’ll do\n\n[Verse 2]\nNeedles came dancing with his silver grin\nSaid I looked like somebody who should let him in\nI said, “Back up, pal,” put my guard up high\nThen he cut through my plan like a cheap necktie\n\nAbella warned me about the bunker door\nThe Machine God humming under the floor\nI found the terminals, I found the wires\nFound a city feeding dreams to a tower of fire\n\nDaan talked softly with a doctor’s face\nOlivia wheeled through the darkened place\nO’saa watched the sky like he’d seen it all\nAugust stayed hidden where the shadows crawl\n\n[Chorus]\nNine-eleven at Prehevil, again and again\nOne bad choice and the streetlights bend\nI swing for daylight, I get dragged below\nTermina keeps saying, “Tony, no”\n\nNine-eleven at Prehevil, hear that wheel turn\nEvery little lesson is a lesson I burn\nI came for the crown, for a clean way through\nBut the moon keeps growing and it knows what I’ll do\n\n[Verse 3]\nDay two came crooked through a blood-red dawn\nThe people I trusted were already gone\nA face in the alley, a howl in the park\nSomething moonscorched calling out in the dark\n\nI found the church with the candles drowned\nFound old prayers nailed to the underground\nTried to make mercy out of scraps and thread\nBut every road in town led back to the dead\n\nI saw Samarie shaking behind a door\nSaw Marcoh bleeding on a splintered floor\nThere were hands at the gates, there were teeth in the rain\nAnd the festival kept rolling like a runaway train\n\n[Bridge]\n[Spoken Intro]\nI said I had one more plan. Prehevil laughed.\n\nI went to the tower with the city’s pulse\nLogic in the wires and a fevered cult\nPer'kele pointed at the final scene\nSaid, “You don’t beat Termina. You become what it means.”\n\nI raised my weapon, I called my name\nThe moon answered back with a white-hot flame\nNine-eleven hit when I thought I was clear\nOne wrong step, and the whole end drew near\n\n[Chorus]\nNine-eleven at Prehevil, again and again\nThe last train’s gone and I can’t get in\nI fought the monsters, I fought my doubt\nBut the festival found every way to shut me out\n\nNine-eleven at Prehevil, the third day burns\nNo clean victory, no safe return\nI came in loud, but I leave undone\nUnder the moon, I am not the one\n\n[Outro]\nThe tower is singing, the rain is thin\nThe town keeps turning without letting me win\nI lay my hand on the cold black ground\nAnd hear Prehevil swallow the final sound\n\nTony does not win—still I call through the night\nMy last long note fades before the light",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.44,
+            "end": 8.3
+          },
+          {
+            "line": 2,
+            "start": 9.21,
+            "end": 13.3
+          },
+          {
+            "line": 3,
+            "start": 14.04,
+            "end": 17.96
+          },
+          {
+            "line": 4,
+            "start": 18.37,
+            "end": 29.98
+          },
+          {
+            "line": 7,
+            "start": 29.98,
+            "end": 31.42
+          },
+          {
+            "line": 8,
+            "start": 31.42,
+            "end": 34.82
+          },
+          {
+            "line": 9,
+            "start": 34.82,
+            "end": 39.52
+          },
+          {
+            "line": 10,
+            "start": 39.52,
+            "end": 44.54
+          },
+          {
+            "line": 12,
+            "start": 44.54,
+            "end": 49.2
+          },
+          {
+            "line": 13,
+            "start": 49.67,
+            "end": 54.32
+          },
+          {
+            "line": 14,
+            "start": 54.32,
+            "end": 58.68
+          },
+          {
+            "line": 15,
+            "start": 58.68,
+            "end": 63.5
+          },
+          {
+            "line": 18,
+            "start": 70.2,
+            "end": 75.54
+          },
+          {
+            "line": 19,
+            "start": 75.54,
+            "end": 80.46
+          },
+          {
+            "line": 20,
+            "start": 80.46,
+            "end": 85.3
+          },
+          {
+            "line": 21,
+            "start": 85.3,
+            "end": 90.36
+          },
+          {
+            "line": 24,
+            "start": 91.27,
+            "end": 95.9
+          },
+          {
+            "line": 25,
+            "start": 95.9,
+            "end": 100.4
+          },
+          {
+            "line": 26,
+            "start": 100.4,
+            "end": 104.22
+          },
+          {
+            "line": 27,
+            "start": 104.22,
+            "end": 110.1
+          },
+          {
+            "line": 29,
+            "start": 110.1,
+            "end": 114.06
+          },
+          {
+            "line": 30,
+            "start": 114.06,
+            "end": 119.14
+          },
+          {
+            "line": 31,
+            "start": 119.14,
+            "end": 123.46
+          },
+          {
+            "line": 32,
+            "start": 123.84,
+            "end": 128.74
+          },
+          {
+            "line": 35,
+            "start": 138.94,
+            "end": 142.74
+          },
+          {
+            "line": 36,
+            "start": 142.74,
+            "end": 147.56
+          },
+          {
+            "line": 37,
+            "start": 147.56,
+            "end": 152.3
+          },
+          {
+            "line": 38,
+            "start": 152.3,
+            "end": 156.78
+          },
+          {
+            "line": 40,
+            "start": 156.78,
+            "end": 161.82
+          },
+          {
+            "line": 41,
+            "start": 161.82,
+            "end": 166.9
+          },
+          {
+            "line": 42,
+            "start": 167.24,
+            "end": 171.62
+          },
+          {
+            "line": 43,
+            "start": 171.62,
+            "end": 176.86
+          },
+          {
+            "line": 45,
+            "start": 177.26,
+            "end": 182.2
+          },
+          {
+            "line": 46,
+            "start": 182.2,
+            "end": 187.76
+          },
+          {
+            "line": 47,
+            "start": 187.76,
+            "end": 190.94
+          },
+          {
+            "line": 48,
+            "start": 190.94,
+            "end": 195.42
+          },
+          {
+            "line": 51,
+            "start": 199.82,
+            "end": 203.92
+          },
+          {
+            "line": 52,
+            "start": 204.8,
+            "end": 208.7
+          },
+          {
+            "line": 53,
+            "start": 208.7,
+            "end": 212.28
+          },
+          {
+            "line": 54,
+            "start": 212.28,
+            "end": 218.82
+          },
+          {
+            "line": 56,
+            "start": 218.82,
+            "end": 222.02
+          },
+          {
+            "line": 57,
+            "start": 222.98,
+            "end": 227.18
+          },
+          {
+            "line": 58,
+            "start": 227.7,
+            "end": 231.48
+          },
+          {
+            "line": 59,
+            "start": 232.1,
+            "end": 236.7
+          },
+          {
+            "line": 62,
+            "start": 239.68,
+            "end": 244.82
+          },
+          {
+            "line": 63,
+            "start": 245.72,
+            "end": 249.66
+          },
+          {
+            "line": 64,
+            "start": 250.5,
+            "end": 254.54
+          },
+          {
+            "line": 65,
+            "start": 255.32,
+            "end": 259.2
+          },
+          {
+            "line": 67,
+            "start": 259.2,
+            "end": 262.64
+          },
+          {
+            "line": 68,
+            "start": 263.44,
+            "end": 267.6
+          },
+          {
+            "line": 69,
+            "start": 268.6,
+            "end": 272.2
+          },
+          {
+            "line": 70,
+            "start": 272.2,
+            "end": 277.12
+          },
+          {
+            "line": 72,
+            "start": 277.12,
+            "end": 282.2
+          },
+          {
+            "line": 73,
+            "start": 282.2,
+            "end": 286.7
+          },
+          {
+            "line": 74,
+            "start": 286.7,
+            "end": 291.52
+          },
+          {
+            "line": 75,
+            "start": 292.16,
+            "end": 296.5
+          },
+          {
+            "line": 79,
+            "start": 308.9,
+            "end": 315.5
+          },
+          {
+            "line": 81,
+            "start": 316.11,
+            "end": 320.38
+          },
+          {
+            "line": 82,
+            "start": 320.38,
+            "end": 325.18
+          },
+          {
+            "line": 83,
+            "start": 326.32,
+            "end": 329.86
+          },
+          {
+            "line": 84,
+            "start": 329.86,
+            "end": 334.84
+          },
+          {
+            "line": 86,
+            "start": 336.18,
+            "end": 339.42
+          },
+          {
+            "line": 87,
+            "start": 340.34,
+            "end": 344.36
+          },
+          {
+            "line": 88,
+            "start": 345.38,
+            "end": 349.1
+          },
+          {
+            "line": 89,
+            "start": 349.1,
+            "end": 354.3
+          },
+          {
+            "line": 92,
+            "start": 360.7,
+            "end": 366.06
+          },
+          {
+            "line": 93,
+            "start": 366.06,
+            "end": 370.92
+          },
+          {
+            "line": 94,
+            "start": 370.92,
+            "end": 375.46
+          },
+          {
+            "line": 95,
+            "start": 375.46,
+            "end": 380.6
+          },
+          {
+            "line": 97,
+            "start": 380.6,
+            "end": 385.18
+          },
+          {
+            "line": 98,
+            "start": 385.18,
+            "end": 389.58
+          },
+          {
+            "line": 99,
+            "start": 390.46,
+            "end": 394.36
+          },
+          {
+            "line": 100,
+            "start": 394.36,
+            "end": 400.34
+          },
+          {
+            "line": 103,
+            "start": 400.34,
+            "end": 405.48
+          },
+          {
+            "line": 104,
+            "start": 406.44,
+            "end": 410.44
+          },
+          {
+            "line": 105,
+            "start": 411.9,
+            "end": 415.3
+          },
+          {
+            "line": 106,
+            "start": 415.94,
+            "end": 420.22
+          },
+          {
+            "line": 108,
+            "start": 421.64,
+            "end": 425.92
+          },
+          {
+            "line": 109,
+            "start": 425.92,
+            "end": 431.58
+          }
+        ]
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 12.8
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony C tries to beat Fear & Hunger Termina, but he keeps getting 9/11'd, annoying him more and more. Song must be accurate to the game's lore, mechanics and characters. Tony does not win in the end.",
+        "direction": "Use the prompt as written.",
+        "keep": "Explicit content, foul language",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 445
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-f0c00cf2bb6bf90219b2bd57",
       "title": "Yeah After Midnight (Velvet Pocket)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f0c00cf2bb6bf90219b2bd57-18c2423a6966.mp3",
