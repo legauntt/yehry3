@@ -2,6 +2,523 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-f0c00cf2bb6bf90219b2bd57",
+      "title": "Yeah After Midnight (Velvet Pocket)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f0c00cf2bb6bf90219b2bd57-18c2423a6966.mp3",
+      "duration": 270.08,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "remixOf": {
+        "songId": "distonyc-d88c69ac5b02b644324e42ad",
+        "title": "Yeah After Midnight",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d88c69ac5b02b644324e42ad-d0c85e6f241f.mp3"
+      },
+      "publishedAt": "2026-09-19T06:51:47.596Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Yeah After Midnight (Velvet Pocket)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "Eb major",
+        "arrangement": "A brisk, smooth soul-jazz reinterpretation built around a lively electric-bass pocket, crisp drums, Rhodes electric piano, Hammond organ, clean electric guitar, muted trumpet and tenor saxophone. The opening uses close, audible breaths and one exposed “Yeah” before the groove enters. Tony V8 delivers the verses as a rough, smoky self-conversation, alternating questions, muttered replies, crooked timing and short laughs while keeping the melodic “Yeah after midnight” refrain clear and catchable. Horn punches and organ swells answer the vocal without creating long instrumental gaps. Energy rises from an intimate opening through increasingly animated exchanges, relaxes briefly in the bridge, then reaches a full-band final refrain. The last sustained syllable lands about 10 seconds before the end, followed by one resolved Eb-major chord and natural decay.",
+        "lyrics": "[Intro]\nYeah\nThe room still breathing, the street gone quiet\n\n[Verse 1]\nYeah\nYeah\nYeah\nYou still awake?\nUh huh, I might be\nTalking to the shadow sitting right beside me\nHeh, what'd he say?\nSaid the night ain't done\nSaid the clock lost count when it struck one\nRain on the glass and a red exit light\nI ask myself a question, get myself right\nYou going home?\nNo, not yet\nGot a little conversation I ain't finished with\n\n[Refrain]\nYeah after midnight\nYeah, that's when it starts\nBass in the floorboards, smoke in the heart\nUh huh, after midnight\nWhen the straight lines bend\nI talk to myself like an old lost friend\n\n[Verse 2]\nYeah\nYeah\nYeah\nYeah\nWho moved the moon?\nWasn't me, no sir\nWho told the whole room everything was a blur?\nMaybe that horn did, leaning on blue\nMaybe the mirror knows more than you\nWoah, slow down\nI am sitting still\nThen why does the ceiling keep climbing the hill?\nHeh, good question\nDon't answer too soon\nLeave a little silence for the bass and the moon\nI say yes to the rhythm, it says yes to me\nTwo sides talking in the same body\n\n[Interlude]\nYeah\nUh huh, I heard that\nA little behind me, a little ahead\nOne voice laughing while the other one said\nYeah after midnight\n\n[Bridge]\nYeah\nYeah\nTell me, are you lonely?\nOnly when I leave\nTell me, do you mean all the stories you believe?\nSome of them sparkle, some of them lie\nSome turn to vapor when the taxis roll by\nThen keep one true thing\nAll right, I will\nThe pulse in the pocket when the whole town's still\nThe breath before the answer\nThe grin in the sound\nThat low little yes when the lights go down\n\n[Verse 3]\nYeah\nYeah\nYeah\nNow the window's paling, morning at the seam\nYou were talking mighty loud for a half-awake dream\nWas I talking to myself?\nYou usually do\nDid I say anything wise?\nNot a word that was new\nUh huh, fair enough\nBut the groove stayed clean\nAnd the night told the truth in the spaces between\nThe glass stopped shaking, the rain moved on\nStill the bass kept walking toward the edge of dawn\nIf I ask one more question, will you answer me right?\nOnly if the answer is the rest of the night\n\n[Refrain]\nYeah after midnight\nYeah, that's when it starts\nKeys in the lamplight, time coming apart\nUh huh, after midnight\nEvery answer swings\nOne voice asks and the other voice sings\nYeah after midnight\nI know what I heard\nA whole conversation in a one-syllable word\n\n[Outro]\nYeah\nYeah\nYeeaah\nThe morning can wait outside\nI'm still here, talking to the night\nYeah after midni-i-ight\n[End]",
+        "duration": 270,
+        "bpm": 128,
+        "musicalSettings": {
+          "genre": "Uptempo smooth soul-jazz with a bass-forward late-night groove",
+          "meter": "4/4 with syncopated swing-inflected sixe",
+          "structure": "Breathing intro, three conversational verses, recurring refrain, vocal interlude, bridge, final refrain and resolved outro",
+          "performance": "Natural Tony V8 lead: rough, smoky and slurred, with audible breaths, muttered self-replies, playful laughs and a clearly sung hook",
+          "energy": "Intimate and sly at first, steadily more animated, briefly spacious in the bridge, then full and soulful for the final refrain",
+          "lyricWorkflow": "Adapt the sparse source motif into an original call-and-response monologue while preserving the recognizable Yeah sequence and midnight hook",
+          "instruments": [
+            "electric bass",
+            "drums",
+            "Rhodes electric piano",
+            "Hammond organ",
+            "clean electric guitar",
+            "tenor saxophone",
+            "muted trumpet"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nYeah\nThe room still breathing, the street gone quiet\n\n[Verse 1]\nYeah\nYeah\nYeah\nYou still awake?\nUh huh, I might be\nTalking to the shadow sitting right beside me\nHeh, what'd he say?\nSaid the night ain't done\nSaid the clock lost count when it struck one\nRain on the glass and a red exit light\nI ask myself a question, get myself right\nYou going home?\nNo, not yet\nGot a little conversation I ain't finished with\n\n[Refrain]\nYeah after midnight\nYeah, that's when it starts\nBass in the floorboards, smoke in the heart\nUh huh, after midnight\nWhen the straight lines bend\nI talk to myself like an old lost friend\n\n[Verse 2]\nYeah\nYeah\nYeah\nYeah\nWho moved the moon?\nWasn't me, no sir\nWho told the whole room everything was a blur?\nMaybe that horn did, leaning on blue\nMaybe the mirror knows more than you\nWoah, slow down\nI am sitting still\nThen why does the ceiling keep climbing the hill?\nHeh, good question\nDon't answer too soon\nLeave a little silence for the bass and the moon\nI say yes to the rhythm, it says yes to me\nTwo sides talking in the same body\n\n[Interlude]\nYeah\nUh huh, I heard that\nA little behind me, a little ahead\nOne voice laughing while the other one said\nYeah after midnight\n\n[Bridge]\nYeah\nYeah\nTell me, are you lonely?\nOnly when I leave\nTell me, do you mean all the stories you believe?\nSome of them sparkle, some of them lie\nSome turn to vapor when the taxis roll by\nThen keep one true thing\nAll right, I will\nThe pulse in the pocket when the whole town's still\nThe breath before the answer\nThe grin in the sound\nThat low little yes when the lights go down\n\n[Verse 3]\nYeah\nYeah\nYeah\nNow the window's paling, morning at the seam\nYou were talking mighty loud for a half-awake dream\nWas I talking to myself?\nYou usually do\nDid I say anything wise?\nNot a word that was new\nUh huh, fair enough\nBut the groove stayed clean\nAnd the night told the truth in the spaces between\nThe glass stopped shaking, the rain moved on\nStill the bass kept walking toward the edge of dawn\nIf I ask one more question, will you answer me right?\nOnly if the answer is the rest of the night\n\n[Refrain]\nYeah after midnight\nYeah, that's when it starts\nKeys in the lamplight, time coming apart\nUh huh, after midnight\nEvery answer swings\nOne voice asks and the other voice sings\nYeah after midnight\nI know what I heard\nA whole conversation in a one-syllable word\n\n[Outro]\nYeah\nYeah\nYeeaah\nThe morning can wait outside\nI'm still here, talking to the night\nYeah after midni-i-ight",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.8,
+            "end": 6.48
+          },
+          {
+            "line": 2,
+            "start": 6.48,
+            "end": 9.26
+          },
+          {
+            "line": 5,
+            "start": 15.38,
+            "end": 16.06
+          },
+          {
+            "line": 6,
+            "start": 16.06,
+            "end": 16.74
+          },
+          {
+            "line": 7,
+            "start": 17.32,
+            "end": 17.8
+          },
+          {
+            "line": 8,
+            "start": 18.08,
+            "end": 19.06
+          },
+          {
+            "line": 9,
+            "start": 20.22,
+            "end": 21.44
+          },
+          {
+            "line": 10,
+            "start": 21.44,
+            "end": 25.16
+          },
+          {
+            "line": 11,
+            "start": 25.8,
+            "end": 26.64
+          },
+          {
+            "line": 12,
+            "start": 26.64,
+            "end": 29.24
+          },
+          {
+            "line": 13,
+            "start": 29.24,
+            "end": 32.82
+          },
+          {
+            "line": 14,
+            "start": 32.82,
+            "end": 36.06
+          },
+          {
+            "line": 15,
+            "start": 36.06,
+            "end": 39.78
+          },
+          {
+            "line": 16,
+            "start": 40.52,
+            "end": 41.66
+          },
+          {
+            "line": 17,
+            "start": 42.74,
+            "end": 44.22
+          },
+          {
+            "line": 18,
+            "start": 44.22,
+            "end": 48.04
+          },
+          {
+            "line": 21,
+            "start": 48.96,
+            "end": 50.42
+          },
+          {
+            "line": 22,
+            "start": 50.42,
+            "end": 52.92
+          },
+          {
+            "line": 23,
+            "start": 52.92,
+            "end": 55.8
+          },
+          {
+            "line": 24,
+            "start": 56.04,
+            "end": 57.74
+          },
+          {
+            "line": 25,
+            "start": 58.64,
+            "end": 60.4
+          },
+          {
+            "line": 26,
+            "start": 62.5,
+            "end": 66.06
+          },
+          {
+            "line": 29,
+            "start": 72.24,
+            "end": 73
+          },
+          {
+            "line": 30,
+            "start": 74.2,
+            "end": 74.86
+          },
+          {
+            "line": 31,
+            "start": 75.94,
+            "end": 76.68
+          },
+          {
+            "line": 32,
+            "start": 77.58,
+            "end": 78.34
+          },
+          {
+            "line": 33,
+            "start": 78.34,
+            "end": 79.18
+          },
+          {
+            "line": 34,
+            "start": 80.08,
+            "end": 81.7
+          },
+          {
+            "line": 35,
+            "start": 82,
+            "end": 85.42
+          },
+          {
+            "line": 36,
+            "start": 85.74,
+            "end": 88.44
+          },
+          {
+            "line": 37,
+            "start": 89.16,
+            "end": 92
+          },
+          {
+            "line": 38,
+            "start": 92.42,
+            "end": 94.26
+          },
+          {
+            "line": 39,
+            "start": 94.98,
+            "end": 96.08
+          },
+          {
+            "line": 40,
+            "start": 96.44,
+            "end": 99.6
+          },
+          {
+            "line": 41,
+            "start": 100.44,
+            "end": 101.78
+          },
+          {
+            "line": 42,
+            "start": 102.18,
+            "end": 103.7
+          },
+          {
+            "line": 43,
+            "start": 104.12,
+            "end": 107.06
+          },
+          {
+            "line": 44,
+            "start": 107.06,
+            "end": 110.8
+          },
+          {
+            "line": 45,
+            "start": 111.44,
+            "end": 114.4
+          },
+          {
+            "line": 48,
+            "start": 114.46,
+            "end": 115.3
+          },
+          {
+            "line": 49,
+            "start": 115.86,
+            "end": 118.3
+          },
+          {
+            "line": 50,
+            "start": 118.3,
+            "end": 121.92
+          },
+          {
+            "line": 51,
+            "start": 122.72,
+            "end": 126
+          },
+          {
+            "line": 52,
+            "start": 126,
+            "end": 128.28
+          },
+          {
+            "line": 55,
+            "start": 130.06,
+            "end": 130.9
+          },
+          {
+            "line": 56,
+            "start": 130.9,
+            "end": 131.24
+          },
+          {
+            "line": 57,
+            "start": 138.16,
+            "end": 139.16
+          },
+          {
+            "line": 58,
+            "start": 139.56,
+            "end": 140.8
+          },
+          {
+            "line": 59,
+            "start": 141.3,
+            "end": 144.44
+          },
+          {
+            "line": 60,
+            "start": 145.28,
+            "end": 148.52
+          },
+          {
+            "line": 61,
+            "start": 149.04,
+            "end": 152.22
+          },
+          {
+            "line": 62,
+            "start": 152.22,
+            "end": 154.14
+          },
+          {
+            "line": 63,
+            "start": 154.14,
+            "end": 155.88
+          },
+          {
+            "line": 64,
+            "start": 156.26,
+            "end": 159.8
+          },
+          {
+            "line": 65,
+            "start": 159.8,
+            "end": 161.88
+          },
+          {
+            "line": 66,
+            "start": 162.26,
+            "end": 163.38
+          },
+          {
+            "line": 67,
+            "start": 163.38,
+            "end": 167.66
+          },
+          {
+            "line": 70,
+            "start": 168.56,
+            "end": 169.36
+          },
+          {
+            "line": 71,
+            "start": 175.18,
+            "end": 175.98
+          },
+          {
+            "line": 72,
+            "start": 175.98,
+            "end": 176.96
+          },
+          {
+            "line": 73,
+            "start": 181.88,
+            "end": 186.04
+          },
+          {
+            "line": 74,
+            "start": 186.04,
+            "end": 189.8
+          },
+          {
+            "line": 75,
+            "start": 189.8,
+            "end": 191.42
+          },
+          {
+            "line": 76,
+            "start": 191.42,
+            "end": 194.2
+          },
+          {
+            "line": 77,
+            "start": 194.2,
+            "end": 196.42
+          },
+          {
+            "line": 78,
+            "start": 196.42,
+            "end": 197.96
+          },
+          {
+            "line": 79,
+            "start": 197.96,
+            "end": 199.8
+          },
+          {
+            "line": 80,
+            "start": 199.8,
+            "end": 202
+          },
+          {
+            "line": 81,
+            "start": 202,
+            "end": 205.42
+          },
+          {
+            "line": 82,
+            "start": 205.42,
+            "end": 209.3
+          },
+          {
+            "line": 83,
+            "start": 209.3,
+            "end": 212.76
+          },
+          {
+            "line": 84,
+            "start": 212.76,
+            "end": 216.76
+          },
+          {
+            "line": 85,
+            "start": 217.56,
+            "end": 220.8
+          },
+          {
+            "line": 88,
+            "start": 223.82,
+            "end": 225.32
+          },
+          {
+            "line": 89,
+            "start": 225.94,
+            "end": 227.14
+          },
+          {
+            "line": 90,
+            "start": 228.04,
+            "end": 230.88
+          },
+          {
+            "line": 91,
+            "start": 231.88,
+            "end": 232.8
+          },
+          {
+            "line": 92,
+            "start": 233.5,
+            "end": 234.78
+          },
+          {
+            "line": 93,
+            "start": 235.66,
+            "end": 238.58
+          },
+          {
+            "line": 94,
+            "start": 239.02,
+            "end": 240.28
+          },
+          {
+            "line": 95,
+            "start": 240.98,
+            "end": 242.22
+          },
+          {
+            "line": 96,
+            "start": 242.22,
+            "end": 246.4
+          },
+          {
+            "line": 99,
+            "start": 249.94,
+            "end": 250.38
+          },
+          {
+            "line": 100,
+            "start": 250.38,
+            "end": 250.8
+          },
+          {
+            "line": 101,
+            "start": 250.8,
+            "end": 251.1
+          },
+          {
+            "line": 102,
+            "start": 251.1,
+            "end": 252.16
+          },
+          {
+            "line": 103,
+            "start": 252.16,
+            "end": 255.48
+          },
+          {
+            "line": 104,
+            "start": 255.48,
+            "end": 257.28
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Remix “Yeah After Midnight”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Six minutes of heavy breathing and Tony saying \"yeah\" over smooth jazz\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Increase the BPM, soulful jazz or some such. Allow Tony to say more words, such as \"uh huh\", \"woah\", \"heh\", \"yeah\"... kind of like he's having a conversation with himself",
+        "keep": "Keep the recognizable hook and spirit of “Yeah After Midnight”.",
+        "basisSongs": [
+          "Yeah After Midnight"
+        ],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 270
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-5962fbccd605ba5d1d694fcd",
       "title": "Nine-Eleven'd Again (Industrial Descent)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5962fbccd605ba5d1d694fcd-49698e2f7ba4.mp3",
