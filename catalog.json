@@ -2,6 +2,219 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-beea04eb11527aba8955e73f",
+      "title": "Season of Geglash",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-beea04eb11527aba8955e73f-90cebfbfe71d.mp3",
+      "duration": 150.04734693877552,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-19T20:41:33.296Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Season of Geglash",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 126 BPM D-minor gothic rock satire with organ, synthesizer, violin, piano, harp, electric bass, distorted guitars, and live drums. The selected pinned Tony V8 voice delivers smoky, connected, mischievous melodic lines with muttered character asides, then opens into a catchable sung refrain. Start with sparse piano, harp, and organ; add a lively bass pocket and full band for the choruses; strip back under the bridge before a decisive final chorus. The final sustained word “all” lands about 10 seconds before the 150-second endpoint, followed by one resolved D-minor-to-major closing chord decay.",
+        "lyrics": "[Intro]\nThe old campfire flickers beneath a premium sky\nA merchant sells a ladder rung for every time you die\nHe says, “Welcome, hero, claim your daily shard”\nThen locks the town portal behind a battle pass card\n\n[Verse 1]\nThere’s a wheel in Harrogath with a demon on the rim\nOne free little spin, then the odds go dark and dim\nGold-framed loot boxes rattle by the forge\nA tiny chance at angel wings, a mountain-sized surcharge\n\n[Pre-Chorus]\nThe clock in town keeps counting down\nA red exclamation owns the crown\n\n[Chorus]\nSeason of Geglash, swipe the rune and feed the flame\nBuy a brighter graveyard, buy a louder name\nSeason of Geglash, every blessing has a price\nThe devil takes installments, the shop takes dice\n\n[Verse 2]\nRent a mercenary banner, lease a charm for seven days\nSkip the cave, boost the level, light the fireworks in haze\nGuild halls sell priority, raids sell extra turns\nThe portal waits for patience while the glowing currency burns\n\n[Bridge]\nA pop-up priest says, “Come back, friend, your streak is almost gold”\nI hear the old dark wilderness beneath the script they sold\nNo coin can buy the thunder, no token owns the night\nI close the gilded window and walk toward the firelight\n\n[Chorus]\nSeason of Geglash, keep your wheel and painted crown\nI want the cold road upward, I want to earn my way down\nSeason of Geglash, let the false enchantments fall\nThe last true rune is freedom—no purchase after all\n\n[Outro]\nNo purchase after all\n[End]",
+        "duration": 150,
+        "bpm": 126,
+        "musicalSettings": {
+          "genre": "Gothic live-service satire rock",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Bridge, Final Chorus, Outro",
+          "performance": "Smoky, rough Tony V8 lead with connected vowels, crooked timing, melodic sustained phrases, and a clear hook",
+          "energy": "Starts ominous and sly, builds through the hook, drops to a defiant bridge, then resolves triumphantly",
+          "lyricWorkflow": "Original narrative satire that inventories exploitative game systems before rejecting them in the final payoff",
+          "instruments": [
+            "Organ",
+            "Synthesizer",
+            "Violin",
+            "Piano",
+            "Harp",
+            "Electric bass",
+            "Distorted electric guitars",
+            "Live drums"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nThe old campfire flickers beneath a premium sky\nA merchant sells a ladder rung for every time you die\nHe says, “Welcome, hero, claim your daily shard”\nThen locks the town portal behind a battle pass card\n\n[Verse 1]\nThere’s a wheel in Harrogath with a demon on the rim\nOne free little spin, then the odds go dark and dim\nGold-framed loot boxes rattle by the forge\nA tiny chance at angel wings, a mountain-sized surcharge\n\n[Pre-Chorus]\nThe clock in town keeps counting down\nA red exclamation owns the crown\n\n[Chorus]\nSeason of Geglash, swipe the rune and feed the flame\nBuy a brighter graveyard, buy a louder name\nSeason of Geglash, every blessing has a price\nThe devil takes installments, the shop takes dice\n\n[Verse 2]\nRent a mercenary banner, lease a charm for seven days\nSkip the cave, boost the level, light the fireworks in haze\nGuild halls sell priority, raids sell extra turns\nThe portal waits for patience while the glowing currency burns\n\n[Bridge]\nA pop-up priest says, “Come back, friend, your streak is almost gold”\nI hear the old dark wilderness beneath the script they sold\nNo coin can buy the thunder, no token owns the night\nI close the gilded window and walk toward the firelight\n\n[Chorus]\nSeason of Geglash, keep your wheel and painted crown\nI want the cold road upward, I want to earn my way down\nSeason of Geglash, let the false enchantments fall\nThe last true rune is freedom—no purchase after all\n\n[Outro]\nNo purchase after all",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.24,
+            "end": 7.98
+          },
+          {
+            "line": 2,
+            "start": 8.6,
+            "end": 11.84
+          },
+          {
+            "line": 3,
+            "start": 12.42,
+            "end": 15.92
+          },
+          {
+            "line": 4,
+            "start": 16.22,
+            "end": 19.52
+          },
+          {
+            "line": 7,
+            "start": 27.64,
+            "end": 30.88
+          },
+          {
+            "line": 8,
+            "start": 31.66,
+            "end": 34.7
+          },
+          {
+            "line": 9,
+            "start": 35.28,
+            "end": 38.54
+          },
+          {
+            "line": 10,
+            "start": 39.02,
+            "end": 42.48
+          },
+          {
+            "line": 13,
+            "start": 43.86,
+            "end": 47.14
+          },
+          {
+            "line": 14,
+            "start": 47.54,
+            "end": 51.26
+          },
+          {
+            "line": 17,
+            "start": 53.12,
+            "end": 57.58
+          },
+          {
+            "line": 18,
+            "start": 58.42,
+            "end": 61
+          },
+          {
+            "line": 19,
+            "start": 61.52,
+            "end": 65.1
+          },
+          {
+            "line": 20,
+            "start": 65.8,
+            "end": 69.04
+          },
+          {
+            "line": 23,
+            "start": 72.64,
+            "end": 76.64
+          },
+          {
+            "line": 24,
+            "start": 76.64,
+            "end": 80.46
+          },
+          {
+            "line": 25,
+            "start": 81.04,
+            "end": 84.4
+          },
+          {
+            "line": 26,
+            "start": 84.4,
+            "end": 88.98
+          },
+          {
+            "line": 29,
+            "start": 96.16,
+            "end": 99.46
+          },
+          {
+            "line": 30,
+            "start": 99.46,
+            "end": 103.38
+          },
+          {
+            "line": 31,
+            "start": 103.74,
+            "end": 107.06
+          },
+          {
+            "line": 32,
+            "start": 107.6,
+            "end": 111.22
+          },
+          {
+            "line": 35,
+            "start": 115.38,
+            "end": 119.38
+          },
+          {
+            "line": 36,
+            "start": 120.06,
+            "end": 124.24
+          },
+          {
+            "line": 37,
+            "start": 125.06,
+            "end": 128.92
+          },
+          {
+            "line": 38,
+            "start": 128.92,
+            "end": 133.82
+          },
+          {
+            "line": 41,
+            "start": 135.8,
+            "end": 137.88
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Detail all of the new pay to win features, gambling and addictive elements, and live service features for a newly conceived Diablo 2 expansion called \"Season of ˈɡɛɡlæʃ.\"",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Organ",
+            "Synthesizer",
+            "Violin",
+            "Piano",
+            "Harp"
+          ],
+          "duration": 150
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-925c201cddebaa824640592f",
       "title": "Season of Geglash Debt at the Altar",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-925c201cddebaa824640592f-3784068d1849.mp3",
