@@ -2,6 +2,268 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-1c4506da77d3415af66ed6b0",
+      "title": "The Bunker Has Teeth",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1c4506da77d3415af66ed6b0-c1c9d32bf480.mp3",
+      "duration": 215.0661224489796,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-19T08:36:20.670Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Bunker Has Teeth",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Gothic bunker-rock with a tense, driving bassline, overdriven electric guitars, tom-heavy live drums, low organ, and sparse industrial metal hits. Tony delivers rough, smoky, connected phrases with anxious mutters and forceful sustained chorus notes; keep the hook clear and melodic. Build from stalking verses into a full-band alarm-state final chorus, then sustain the final word \"light\" around 8–12 seconds before the 215-second end, resolving with one final minor chord decay.",
+        "lyrics": "[Verse 1]\nDoor shut behind me, iron in my hand\nRain on the roof like a one-man band\nHenri, you better quit hiding in the dark\nI got a lantern and a nervous little spark\nEvery corridor keeps changing its face\nRats in the pantry, water in the place\nI heard a chain go singing underground\nNow I am walking where I should not be found\n\n[Pre-Chorus]\nWind up the light, count to three\nSomething down there is counting me\n\n[Chorus]\nThe bunker has teeth, the bunker has breath\nIt chews on the daylight and whistles for death\nI pull that lever, I run for the door\nBut the thing in the walls wants a little bit more\nThe bunker has teeth\nAnd I cannot sleep\n\n[Verse 2]\nFound an old soldier curled by the well\nHis empty eyes had a story to tell\nA note said \"save him,\" a note said \"flee\"\nA gun in the drawer and a key for the sea\nI drag my boots through a flooded hall\nHear that beast scrape across the wall\nOne wrong noise and the whole place wakes\nI am feeding it fear with every step I take\n\n[Bridge]\nNo, no, no—keep the generator alive\nNo, no, no—just give me one more try\nSmoke in my lungs, blood on the floor\nI am not dying in this damned old war\n\n[Chorus]\nThe bunker has teeth, the bunker has breath\nIt knows all my footsteps, it laughs at my death\nI found the way out, I found the last key\nBut the dark came running like it wanted me\nThe bunker has teeth, but I still move on\nI carry the flame till the black is gone\nHenri, if you hear me, hold on tonight\nI am coming through the ruin with a shaking light\n\n[Outro]\nI am coming with a shaking li-i-ight\n[End]",
+        "duration": 215,
+        "bpm": 132,
+        "musicalSettings": {
+          "genre": "Gothic survival-horror rock",
+          "meter": "4/4",
+          "structure": "Verse, pre-chorus, chorus, verse, bridge, final chorus, resolved outro",
+          "performance": "Natural rough Tony delivery: smoky slurs, tense spoken-sung edges, and strong melodic refrains",
+          "energy": "Slow-burn dread rising into an urgent, full-band finale",
+          "lyricWorkflow": "Original narrative lyrics following Tony's tense exploration of an underground wartime bunker",
+          "instruments": [
+            "Overdriven electric guitars",
+            "Electric bass",
+            "Live drum kit",
+            "Low organ",
+            "Industrial metal percussion"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nDoor shut behind me, iron in my hand\nRain on the roof like a one-man band\nHenri, you better quit hiding in the dark\nI got a lantern and a nervous little spark\nEvery corridor keeps changing its face\nRats in the pantry, water in the place\nI heard a chain go singing underground\nNow I am walking where I should not be found\n\n[Pre-Chorus]\nWind up the light, count to three\nSomething down there is counting me\n\n[Chorus]\nThe bunker has teeth, the bunker has breath\nIt chews on the daylight and whistles for death\nI pull that lever, I run for the door\nBut the thing in the walls wants a little bit more\nThe bunker has teeth\nAnd I cannot sleep\n\n[Verse 2]\nFound an old soldier curled by the well\nHis empty eyes had a story to tell\nA note said \"save him,\" a note said \"flee\"\nA gun in the drawer and a key for the sea\nI drag my boots through a flooded hall\nHear that beast scrape across the wall\nOne wrong noise and the whole place wakes\nI am feeding it fear with every step I take\n\n[Bridge]\nNo, no, no—keep the generator alive\nNo, no, no—just give me one more try\nSmoke in my lungs, blood on the floor\nI am not dying in this damned old war\n\n[Chorus]\nThe bunker has teeth, the bunker has breath\nIt knows all my footsteps, it laughs at my death\nI found the way out, I found the last key\nBut the dark came running like it wanted me\nThe bunker has teeth, but I still move on\nI carry the flame till the black is gone\nHenri, if you hear me, hold on tonight\nI am coming through the ruin with a shaking light\n\n[Outro]\nI am coming with a shaking li-i-ight",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 14.72,
+            "end": 17.66
+          },
+          {
+            "line": 2,
+            "start": 17.66,
+            "end": 21.48
+          },
+          {
+            "line": 3,
+            "start": 22.38,
+            "end": 25.44
+          },
+          {
+            "line": 4,
+            "start": 26.22,
+            "end": 28.84
+          },
+          {
+            "line": 5,
+            "start": 28.84,
+            "end": 32.54
+          },
+          {
+            "line": 6,
+            "start": 32.54,
+            "end": 36.3
+          },
+          {
+            "line": 7,
+            "start": 36.75,
+            "end": 39.4
+          },
+          {
+            "line": 8,
+            "start": 39.4,
+            "end": 44.48
+          },
+          {
+            "line": 11,
+            "start": 44.48,
+            "end": 48.88
+          },
+          {
+            "line": 12,
+            "start": 48.88,
+            "end": 53.42
+          },
+          {
+            "line": 15,
+            "start": 57,
+            "end": 61.26
+          },
+          {
+            "line": 16,
+            "start": 61.26,
+            "end": 64.34
+          },
+          {
+            "line": 17,
+            "start": 65.12,
+            "end": 67.98
+          },
+          {
+            "line": 18,
+            "start": 68.3,
+            "end": 71.6
+          },
+          {
+            "line": 19,
+            "start": 71.6,
+            "end": 73.38
+          },
+          {
+            "line": 20,
+            "start": 75.64,
+            "end": 77.1
+          },
+          {
+            "line": 23,
+            "start": 94.54,
+            "end": 98.04
+          },
+          {
+            "line": 24,
+            "start": 98.04,
+            "end": 101.94
+          },
+          {
+            "line": 25,
+            "start": 101.94,
+            "end": 105.14
+          },
+          {
+            "line": 26,
+            "start": 105.86,
+            "end": 108.9
+          },
+          {
+            "line": 27,
+            "start": 108.9,
+            "end": 112.7
+          },
+          {
+            "line": 28,
+            "start": 112.7,
+            "end": 116.18
+          },
+          {
+            "line": 29,
+            "start": 116.18,
+            "end": 119.74
+          },
+          {
+            "line": 30,
+            "start": 119.74,
+            "end": 124.48
+          },
+          {
+            "line": 33,
+            "start": 131.16,
+            "end": 134.42
+          },
+          {
+            "line": 34,
+            "start": 135,
+            "end": 138.04
+          },
+          {
+            "line": 35,
+            "start": 138.98,
+            "end": 141.62
+          },
+          {
+            "line": 36,
+            "start": 142.42,
+            "end": 146.66
+          },
+          {
+            "line": 39,
+            "start": 160.6,
+            "end": 164.28
+          },
+          {
+            "line": 40,
+            "start": 164.82,
+            "end": 167.96
+          },
+          {
+            "line": 41,
+            "start": 168.54,
+            "end": 171.56
+          },
+          {
+            "line": 42,
+            "start": 171.86,
+            "end": 175.14
+          },
+          {
+            "line": 43,
+            "start": 175.74,
+            "end": 179
+          },
+          {
+            "line": 44,
+            "start": 179.32,
+            "end": 182.44
+          },
+          {
+            "line": 45,
+            "start": 182.44,
+            "end": 185.8
+          },
+          {
+            "line": 46,
+            "start": 186.26,
+            "end": 189.84
+          },
+          {
+            "line": 49,
+            "start": 199.52,
+            "end": 203.08
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 13.86
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony plays Amnesia: The Bunker",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 215
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-1bb1be6b6f8a4858bc72115e",
       "title": "S Rank on the Floor",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1bb1be6b6f8a4858bc72115e-b122fc966395.mp3",
