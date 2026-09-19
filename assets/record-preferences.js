@@ -1,15 +1,20 @@
 export const recordPreferenceKeys = {
   continuous: "yehry3:continuous-record-spins",
   playback: "yehry3:spin-record-while-playing",
+  captions: "yehry3:record-lyric-captions",
 };
 
-const preferences = { continuous: false, playback: false };
+const defaults = { continuous: false, playback: false, captions: true };
+const preferences = { ...defaults };
 const listeners = new Set();
 const notify = () => listeners.forEach(listener => listener(getRecordPreferences()));
 
 function read() {
   for (const [name, key] of Object.entries(recordPreferenceKeys)) {
-    try { preferences[name] = localStorage.getItem(key) === "true"; }
+    try {
+      const saved = localStorage.getItem(key);
+      preferences[name] = saved === null ? defaults[name] : saved === "true";
+    }
     catch { /* Keep this page's choice when storage is unavailable. */ }
   }
 }

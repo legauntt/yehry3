@@ -1,5 +1,6 @@
 import { watchSong } from "./song-data.js";
 import { singableLines } from "./record-lyrics.js";
+import { getRecordPreferences, watchRecordPreferences } from "./record-preferences.js";
 
 const choose = (items, random) => items[Math.floor(random() * items.length)];
 
@@ -17,6 +18,7 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
   let hideTimer;
   let request = 0;
   let previous = "";
+  let captionsEnabled = getRecordPreferences().captions;
   const hide = () => {
     request += 1;
     clearTimeout(hideTimer);
@@ -31,7 +33,7 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
     return loaded;
   };
   const sing = async () => {
-    if (document.hidden) return;
+    if (!captionsEnabled || document.hidden) return;
     const songs = (getSongs?.() || []).filter((song) => song?.id && (song.hasLyrics || song.lyrics?.text));
     if (!songs.length) return;
     const token = ++request;
@@ -53,9 +55,18 @@ export function startRecordSinger(record, getSongs, { random = Math.random, dura
     hideTimer = setTimeout(hide, duration);
   };
 
-  record.addEventListener("recordidle", sing);
+  for (const event of ["recordidle", "recordspin"])
+    record.addEventListener(event, sing);
+  watchRecordPreferences((preferences) => {
+    captionsEnabled = preferences.captions;
+    if (!captionsEnabled) hide();
+  });
+  const dismissForActivity = (event) => {
+    if (event.type === "keydown" && event.target === record && ["Enter", " "].includes(event.key)) return;
+    hide();
+  };
   for (const event of ["pointerdown", "keydown", "scroll"])
-    window.addEventListener(event, hide, { passive: true });
+    window.addEventListener(event, dismissForActivity, { passive: true });
   document.addEventListener("visibilitychange", () => { if (document.hidden) hide(); });
   return { sing, hide, element: bubble };
 }

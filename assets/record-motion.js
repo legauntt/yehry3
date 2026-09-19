@@ -112,6 +112,7 @@ export function startRecordMotion(record, audio) {
     lastClickAt = performance.now();
     lastCoastAt = lastClickAt;
     if (!sustained && !coastFrame) coastFrame = requestAnimationFrame(coast);
+    record.dispatchEvent(new CustomEvent("recordspin"));
   };
   const wantsSustainedSpin = () => preferences.continuous ||
     (preferences.playback && audio && !audio.paused && !audio.ended && !audio.error && audio.readyState >= 2);

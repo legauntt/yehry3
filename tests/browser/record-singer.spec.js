@@ -14,7 +14,7 @@ const detail = {
 };
 const summary = { ...detail, lyrics: undefined };
 
-test("the idle record sings a real catalog lyric and activity dismisses it", async ({ page }) => {
+test("record clicks and idle spins show comic lyric captions unless the saved preference is off", async ({ page }) => {
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [summary] } }));
   await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [summary], nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
@@ -22,17 +22,45 @@ test("the idle record sings a real catalog lyric and activity dismisses it", asy
   await page.route("**/yehry3/songs/singing-record", route => route.fulfill({ json: { song: detail } }));
   await page.goto("/");
 
+  await page.locator(".catalog-filters > summary").click();
+  await page.getByRole("button", { name: "Open display settings" }).click();
+  const captions = page.getByRole("checkbox", { name: "Lyric captions" });
+  await expect(captions).toBeChecked();
+  await page.getByRole("button", { name: "Close display settings" }).click();
+
+  const record = page.locator(".record");
   const bubble = page.locator(".record-lyric");
   await expect(bubble).toBeHidden();
-  await page.locator(".record").evaluate(record => record.dispatchEvent(new CustomEvent("recordidle")));
+  await record.click({ force: true });
   await expect(bubble).toBeVisible();
   await expect(bubble.locator("blockquote")).toContainText(/midnight train|little spark/i);
   await expect(bubble.locator("figcaption")).toContainText(detail.title);
 
   await page.mouse.click(10, 10);
   await expect(bubble).toBeHidden();
+  await record.press("Enter");
+  await expect(bubble).toBeVisible();
+  await page.mouse.click(10, 10);
+  await record.evaluate(element => element.dispatchEvent(new CustomEvent("recordidle")));
+  await expect(bubble).toBeVisible();
+
+  await page.getByRole("button", { name: "Open display settings" }).click();
+  await captions.uncheck();
+  await expect(bubble).toBeHidden();
+  await page.getByRole("button", { name: "Close display settings" }).click();
+  await record.click({ force: true });
+  await expect(bubble).toBeHidden();
+  await record.evaluate(element => element.dispatchEvent(new CustomEvent("recordidle")));
+  await expect(bubble).toBeHidden();
+
+  await page.reload();
+  await page.locator(".catalog-filters > summary").click();
+  await page.getByRole("button", { name: "Open display settings" }).click();
+  await expect(captions).not.toBeChecked();
+  await captions.check();
+  await page.getByRole("button", { name: "Close display settings" }).click();
   await page.setViewportSize({ width: 320, height: 720 });
-  await page.locator(".record").evaluate(record => record.dispatchEvent(new CustomEvent("recordidle")));
+  await record.click({ force: true });
   await expect(bubble).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: "artifacts/record-singer-mobile.png", animations: "disabled" });
