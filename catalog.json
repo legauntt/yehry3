@@ -2,6 +2,108 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5e34901cc2c10e9f90bd2dd9",
+      "title": "Yeah After Midnight - Velvet Jazz Rework",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5e34901cc2c10e9f90bd2dd9-fefd0f653bd6.mp3",
+      "duration": 660.5,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "remixOf": {
+        "songId": "distonyc-d88c69ac5b02b644324e42ad",
+        "title": "Yeah After Midnight",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d88c69ac5b02b644324e42ad-d0c85e6f241f.mp3"
+      },
+      "publishedAt": "2026-09-19T09:48:20.406Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Yeah After Midnight - Velvet Jazz Rework",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 666-second smooth-jazz rework retaining the recognizable “Yeah” motif and after-midnight mood. Rhodes, upright bass, brushes, muted trumpet, and tenor saxophone leave wide, intimate space around Tony C V8’s rough, smoky, connected calls and close breath texture. The arrangement develops from nearly bare lounge pulse into fuller horn replies, then returns to a final held “Yeeaah” about 10 seconds before the end; one resolved minor-major chord decays naturally.",
+        "lyrics": "[Movement 1]\n[Intro]\nYeah\n\n[Verse 1]\nYeah, the room is blue after midnight\nYeah, the window holds the rain\nYeah, one low note under the breathing\nYeah, then the bass comes back again\n\n[Interlude]\nYeah\n\n[Verse 2]\nYeah, slow smoke across the table\nYeah, soft brass down the hall\nYeah, I let that little word hang over\nYeah, till the shadows answer all\n\n[Bridge]\nYeah, stay close\nYeah, stay low\n\n\n[Movement 2]\n[Section 1]\nYeah, the clock keeps losing minutes\nYeah, the streetlights blur and bend\nYeah, the sax says keep it moving\nYeah, this night will never end\n\n[Section 2]\nYeah, no hurry in the doorway\nYeah, no daylight on the floor\nYeah, the drums lean into silence\nYeah, then I give you one more\n\n[Bridge]\nYeah, hear that horn cry\nYeah, hear that bass walk\nYeah, let the dark talk\n\n[Section 3]\nYeah, after midnight\nYeah, after midnight\nYeah, after midnight\nYeah, after midnight\n\n\n[Movement 3]\n[Section 1]\nYeah, the blue room turns to silver\nYeah, the rain lets up outside\nYeah, the trumpet finds a doorway\nYeah, and leaves the dark behind\n\n[Bridge]\nYeah, I held the night together\nYeah, with one word and one tone\nYeah, the band can breathe beneath me\nYeah, but I am not alone\n\n[Outro]\nYeah, after midnight\nYeah, after midnight\nYeeaah\n\n[End]",
+        "duration": 666,
+        "bpm": 72,
+        "movements": [
+          {
+            "duration": 222,
+            "arrangement": "Begin with Rhodes, close breath texture, and upright bass. Tony’s calls are intimate and stretched; muted trumpet answers only after the vocal phrases, with brushes entering late in the movement.",
+            "lyrics": "[Intro]\nYeah\n\n[Verse 1]\nYeah, the room is blue after midnight\nYeah, the window holds the rain\nYeah, one low note under the breathing\nYeah, then the bass comes back again\n\n[Interlude]\nYeah\n\n[Verse 2]\nYeah, slow smoke across the table\nYeah, soft brass down the hall\nYeah, I let that little word hang over\nYeah, till the shadows answer all\n\n[Bridge]\nYeah, stay close\nYeah, stay low\n\n[End]"
+          },
+          {
+            "duration": 222,
+            "arrangement": "Deepen the brushed groove and bring tenor saxophone into conversational responses. Bass becomes more mobile and the horns swell briefly around the repeated after-midnight hook, while the lead remains close and smoky.",
+            "lyrics": "[Section 1]\nYeah, the clock keeps losing minutes\nYeah, the streetlights blur and bend\nYeah, the sax says keep it moving\nYeah, this night will never end\n\n[Section 2]\nYeah, no hurry in the doorway\nYeah, no daylight on the floor\nYeah, the drums lean into silence\nYeah, then I give you one more\n\n[Bridge]\nYeah, hear that horn cry\nYeah, hear that bass walk\nYeah, let the dark talk\n\n[Section 3]\nYeah, after midnight\nYeah, after midnight\nYeah, after midnight\nYeah, after midnight\n\n[End]"
+          },
+          {
+            "duration": 222,
+            "arrangement": "Reunite Rhodes, bass, brushes, trumpet, and saxophone in a warm final exchange. Stretch the final “Yeeaah” so its last syllable lands near 656 seconds, then resolve with one final dark-jazz chord and brief natural decay.",
+            "lyrics": "[Section 1]\nYeah, the blue room turns to silver\nYeah, the rain lets up outside\nYeah, the trumpet finds a doorway\nYeah, and leaves the dark behind\n\n[Bridge]\nYeah, I held the night together\nYeah, with one word and one tone\nYeah, the band can breathe beneath me\nYeah, but I am not alone\n\n[Outro]\nYeah, after midnight\nYeah, after midnight\nYeeaah\n\n[End]"
+          }
+        ],
+        "musicalSettings": {
+          "genre": "Smooth midnight jazz",
+          "meter": "4/4",
+          "structure": "Three connected movements: sparse opening calls, darker horn-led development, and a resolved final refrain",
+          "performance": "Tony C V8 sings rough, slurred, close-mic melodic “Yeah” calls with breathy pauses and a catchable hook",
+          "energy": "Intimate and low-lit at first, gradually warmer and fuller, then softly resolved",
+          "lyricWorkflow": "Adapted source-hook treatment, expanding the retained “Yeah” refrain into sparse sung call-and-response",
+          "instruments": [
+            "Rhodes piano",
+            "upright bass",
+            "brushed drum kit",
+            "muted trumpet",
+            "tenor saxophone"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Movement 1]\n[Intro]\nYeah\n\n[Verse 1]\nYeah, the room is blue after midnight\nYeah, the window holds the rain\nYeah, one low note under the breathing\nYeah, then the bass comes back again\n\n[Interlude]\nYeah\n\n[Verse 2]\nYeah, slow smoke across the table\nYeah, soft brass down the hall\nYeah, I let that little word hang over\nYeah, till the shadows answer all\n\n[Bridge]\nYeah, stay close\nYeah, stay low\n\n\n[Movement 2]\n[Section 1]\nYeah, the clock keeps losing minutes\nYeah, the streetlights blur and bend\nYeah, the sax says keep it moving\nYeah, this night will never end\n\n[Section 2]\nYeah, no hurry in the doorway\nYeah, no daylight on the floor\nYeah, the drums lean into silence\nYeah, then I give you one more\n\n[Bridge]\nYeah, hear that horn cry\nYeah, hear that bass walk\nYeah, let the dark talk\n\n[Section 3]\nYeah, after midnight\nYeah, after midnight\nYeah, after midnight\nYeah, after midnight\n\n\n[Movement 3]\n[Section 1]\nYeah, the blue room turns to silver\nYeah, the rain lets up outside\nYeah, the trumpet finds a doorway\nYeah, and leaves the dark behind\n\n[Bridge]\nYeah, I held the night together\nYeah, with one word and one tone\nYeah, the band can breathe beneath me\nYeah, but I am not alone\n\n[Outro]\nYeah, after midnight\nYeah, after midnight\nYeeaah",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 78.16
+        },
+        {
+          "code": "early_lyric_ending",
+          "seconds": 72.32
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "Remix “Yeah After Midnight”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Six minutes of heavy breathing and Tony saying \"yeah\" over smooth jazz\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Use the prompt as written.",
+        "keep": "Keep the recognizable hook and spirit of “Yeah After Midnight”.",
+        "basisSongs": [
+          "Yeah After Midnight"
+        ],
+        "voiceModel": "v8",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 666
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-288bddbc13c117ea9ffd6ad1",
       "title": "Blackout at Last Call",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-288bddbc13c117ea9ffd6ad1-ba3f5354a83c.mp3",
