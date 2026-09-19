@@ -2,6 +2,287 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-925c201cddebaa824640592f",
+      "title": "Season of Geglash Debt at the Altar",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-925c201cddebaa824640592f-3784068d1849.mp3",
+      "duration": 155.01061224489797,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "remixOf": {
+        "songId": "distonyc-e498f1661d49e998226b585c",
+        "title": "Season of Geglash",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e498f1661d49e998226b585c-2f969a9109e1.mp3"
+      },
+      "publishedAt": "2026-09-19T18:48:03.305Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Season of Geglash Debt at the Altar",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 155-second dark baroque rock reinterpretation in D minor: a driving bass-and-drum pocket supports ominous organ, wiry violin figures, sparse harp glints, and electric guitar. Tony V7 delivers smoky, connected melodic lines with sly mutters and a catchable hook; pronounce the G in “Geglash” hard. Build from a taunting intro through tighter verses to a bitter final chorus, with the final sung syllable landing about 10 seconds before a single resolved final chord decays.",
+        "lyrics": "[Intro]\nThe old road burns by the golden gate\nGeglash is waiting: “Why should heroes wait?”\nTap the red button, watch the altar flame\nPay for the shortcut, come back changed again\n\n[Verse 1]\nBuy a bundle of blessing dust, a ladder made of keys\nLease a halo for your mercenary’s knees\nStamina runs out at the crypt-side door\nFree chest tomorrow, if you still want more\nA loot-box lantern swings above the town\nEach purple almost-win pulls the dead man down\n\n[Pre-Chorus]\nThere’s a wheel in Tristram under candle smoke\nEvery losing spin is dressed up like a joke\n\n[Chorus]\nWelcome to the Season of Geglash\nSpin for the treasure, make the jackpot flash\nOne more pull for a perfect class\nThe demons fall, but the store moves fast\nSeason of Geglash, don’t close that screen\nA legendary promise in a glowing machine\n\n[Verse 2]\nThe battle pass sells resurrection breath\nPremium insurance after hardcore death\nRent a private vault, finance a rune\nPay the moon tax before the next blood moon\nDaily contracts ring before the sun\nMiss a little login and the season’s done\nGeglash says, “The odds are honest, friend”\nThen offers store credit you can never spend\n\n[Bridge]\nFounder’s access to a patch not born\nTrade your tokens for a cosmetic storm\nI came to kill a demon, walk the rain\nNow every menu bell knows my name\n\n[Chorus]\nWelcome to the Season of Geglash\nThe fire is pretty and the numbers crash\nI sold my sword for a perfect class\nThen borrowed gold for another pass\nSeason of Geglash, the candles lean\nMy purse is empty, my debt grows green\n\n[Outro]\nGeglash keeps smiling at the altar’s flame\nThe lender owns my armor and my name\nNo coin, no home, no way to flee\nThe hungry machine still charges me\n[End]",
+        "duration": 155,
+        "bpm": 132,
+        "musicalSettings": {
+          "genre": "Dark baroque rock with satirical live-service menace",
+          "meter": "4/4",
+          "structure": "Intro → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Bridge → Final Chorus → Outro",
+          "performance": "Rough, smoky Tony V7 lead with slurred connected vowels, melodic sustain, and restrained taunting asides",
+          "energy": "Starts ominous, locks into a lively driving pocket, then rises into a desperate final refrain and resolved close",
+          "lyricWorkflow": "Adapted source-hook lyrics expand the predatory game mechanics and end with the narrator broke and in debt",
+          "instruments": [
+            "Electric bass",
+            "Drums",
+            "Electric guitar",
+            "Organ",
+            "Violin",
+            "Harp"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nThe old road burns by the golden gate\nGeglash is waiting: “Why should heroes wait?”\nTap the red button, watch the altar flame\nPay for the shortcut, come back changed again\n\n[Verse 1]\nBuy a bundle of blessing dust, a ladder made of keys\nLease a halo for your mercenary’s knees\nStamina runs out at the crypt-side door\nFree chest tomorrow, if you still want more\nA loot-box lantern swings above the town\nEach purple almost-win pulls the dead man down\n\n[Pre-Chorus]\nThere’s a wheel in Tristram under candle smoke\nEvery losing spin is dressed up like a joke\n\n[Chorus]\nWelcome to the Season of Geglash\nSpin for the treasure, make the jackpot flash\nOne more pull for a perfect class\nThe demons fall, but the store moves fast\nSeason of Geglash, don’t close that screen\nA legendary promise in a glowing machine\n\n[Verse 2]\nThe battle pass sells resurrection breath\nPremium insurance after hardcore death\nRent a private vault, finance a rune\nPay the moon tax before the next blood moon\nDaily contracts ring before the sun\nMiss a little login and the season’s done\nGeglash says, “The odds are honest, friend”\nThen offers store credit you can never spend\n\n[Bridge]\nFounder’s access to a patch not born\nTrade your tokens for a cosmetic storm\nI came to kill a demon, walk the rain\nNow every menu bell knows my name\n\n[Chorus]\nWelcome to the Season of Geglash\nThe fire is pretty and the numbers crash\nI sold my sword for a perfect class\nThen borrowed gold for another pass\nSeason of Geglash, the candles lean\nMy purse is empty, my debt grows green\n\n[Outro]\nGeglash keeps smiling at the altar’s flame\nThe lender owns my armor and my name\nNo coin, no home, no way to flee\nThe hungry machine still charges me",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.64,
+            "end": 7.34
+          },
+          {
+            "line": 2,
+            "start": 8.02,
+            "end": 10.98
+          },
+          {
+            "line": 3,
+            "start": 11.88,
+            "end": 15.52
+          },
+          {
+            "line": 4,
+            "start": 15.52,
+            "end": 18.26
+          },
+          {
+            "line": 7,
+            "start": 19.6,
+            "end": 22.8
+          },
+          {
+            "line": 8,
+            "start": 24.34,
+            "end": 26.48
+          },
+          {
+            "line": 9,
+            "start": 26.48,
+            "end": 29.28
+          },
+          {
+            "line": 10,
+            "start": 29.8,
+            "end": 32.9
+          },
+          {
+            "line": 11,
+            "start": 33.44,
+            "end": 36.58
+          },
+          {
+            "line": 12,
+            "start": 37.08,
+            "end": 40.2
+          },
+          {
+            "line": 15,
+            "start": 41.16,
+            "end": 44.58
+          },
+          {
+            "line": 16,
+            "start": 45.1,
+            "end": 48.96
+          },
+          {
+            "line": 19,
+            "start": 52.32,
+            "end": 54.96
+          },
+          {
+            "line": 20,
+            "start": 55.4,
+            "end": 58.24
+          },
+          {
+            "line": 21,
+            "start": 59.18,
+            "end": 61.92
+          },
+          {
+            "line": 22,
+            "start": 62.14,
+            "end": 64.78
+          },
+          {
+            "line": 23,
+            "start": 65.54,
+            "end": 67
+          },
+          {
+            "line": 24,
+            "start": 67,
+            "end": 70.16
+          },
+          {
+            "line": 27,
+            "start": 71.1,
+            "end": 73.92
+          },
+          {
+            "line": 28,
+            "start": 74.3,
+            "end": 77.62
+          },
+          {
+            "line": 29,
+            "start": 78,
+            "end": 81
+          },
+          {
+            "line": 30,
+            "start": 81.64,
+            "end": 84.7
+          },
+          {
+            "line": 31,
+            "start": 85.02,
+            "end": 86.82
+          },
+          {
+            "line": 32,
+            "start": 86.82,
+            "end": 88.86
+          },
+          {
+            "line": 33,
+            "start": 89.34,
+            "end": 91.74
+          },
+          {
+            "line": 34,
+            "start": 92.42,
+            "end": 95.64
+          },
+          {
+            "line": 37,
+            "start": 96.12,
+            "end": 99.34
+          },
+          {
+            "line": 38,
+            "start": 100.16,
+            "end": 102.92
+          },
+          {
+            "line": 39,
+            "start": 103.42,
+            "end": 106.38
+          },
+          {
+            "line": 40,
+            "start": 106.92,
+            "end": 110.44
+          },
+          {
+            "line": 43,
+            "start": 110.86,
+            "end": 113.08
+          },
+          {
+            "line": 44,
+            "start": 113.46,
+            "end": 116.4
+          },
+          {
+            "line": 45,
+            "start": 117.02,
+            "end": 120.12
+          },
+          {
+            "line": 46,
+            "start": 120.32,
+            "end": 122.88
+          },
+          {
+            "line": 47,
+            "start": 123.94,
+            "end": 126.48
+          },
+          {
+            "line": 48,
+            "start": 126.48,
+            "end": 129.48
+          },
+          {
+            "line": 51,
+            "start": 130.94,
+            "end": 133.72
+          },
+          {
+            "line": 52,
+            "start": 134.44,
+            "end": 137.4
+          },
+          {
+            "line": 53,
+            "start": 138,
+            "end": 140.9
+          },
+          {
+            "line": 54,
+            "start": 141.66,
+            "end": 144.66
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Remix “Season of Geglash”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Detail all of the new pay to win features, gambling and addictive elements, and live service features for a newly conceived Diablo 2 expansion called \"Season of Geglash.\"\n\nOriginal sound: Use the prompt as written.",
+        "direction": "1. The pronunciation of the letter \"g\" sounds in Geglash should be hard, not soft. \n2. Change the lyrics as much as you want to make the lyrics even sleazier and the new game and store mechanics even more predatory. \n3. The ending should have the singer out of money and in debt from getting addicted to the paid features.",
+        "keep": "Keep the recognizable hook and spirit of “Season of Geglash”.",
+        "basisSongs": [
+          "Season of Geglash"
+        ],
+        "voiceModel": "v7",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Violin",
+            "Organ",
+            "Harp"
+          ],
+          "duration": 155
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-e498f1661d49e998226b585c",
       "title": "Season of Geglash",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e498f1661d49e998226b585c-2f969a9109e1.mp3",
