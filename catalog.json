@@ -2,6 +2,285 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5668406e7d034d806e566924",
+      "title": "I Fuck Around",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5668406e7d034d806e566924-0e1b373f9eb0.mp3",
+      "duration": 164.98938775510203,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-19T11:48:56.782Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "I Fuck Around",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E major",
+        "arrangement": "Up-tempo 1960s California surf-rock with bright reverb electric guitars, rolling electric bass, live kit, handclaps, organ touches, and stacked sunny backing harmonies. Tony leads in rough, connected, mischievous melodic phrasing, while the chorus opens into buoyant group responses. Start with a short instrumental surf-guitar pickup, build from breezy verses to a full final chorus, then carry the final sustained word through about 153–157 seconds before one resolved E-major chord decays naturally.",
+        "lyrics": "[Intro]\nSalt on the dashboard, sun in my eyes\nBoard in the back and a gull cutting by\nThe radio crackles, the tide pulls out\nI laugh at the blue and I turn it loud\n\n[Verse 1]\nI missed the turn at the corner store\nFound a little beach I ain't seen before\nWaves throw silver on the parking lot\nEverybody worries, but I forgot\nI fuck around when the daylight bends\nTrade my tight plans for the tide and friends\nGot a pocket of sand and a half-made scheme\nChasing the foam through a California dream\n\n[Chorus]\nI fuck around, I fuck around\nWith the sun going down on a seaside town\nI fuck around, hear the whole world sing\nWhen the surf kicks up and the gulls take wing\nNo map in my hand, no clock to obey\nJust a bright white wake and a runaway day\nI fuck around, then I come back home\nWith the ocean still humming inside my bones\n\n[Verse 2]\nCherry-red coupe at the end of the pier\nSomebody's laughing and shifting a gear\nWe steal a dance by the carnival light\nSpinning our shadows into the night\nA vinyl moon hangs over the bay\nYou say tomorrow can wait one day\nI draw your name where the water won't stay\nThen watch the wave take the letters away\n\n[Bridge]\nIf the grown-up world starts calling my name\nI'll let it ring while the breakers complain\nThere ain't a prize for a perfectly straight line\nThe best little detours are usually mine\n\n[Chorus]\nI fuck around, I fuck around\nWith the stars coming out on a seaside town\nI fuck around, but I know what's true\nEvery wild blue mile keeps leading to you\nNo map in my hand, no clock to obey\nJust your warm voice and the end of the day\nI fuck around, then I come back home\nWith your name and the ocean inside my bones\n\n[Outro]\nWhen the last wave folds into the shore\nI'll hold that bright blue feeling once more\n[End]",
+        "duration": 165,
+        "bpm": 154,
+        "musicalSettings": {
+          "genre": "1960s-inspired California surf rock",
+          "meter": "4/4",
+          "structure": "Instrumental pickup, verse, chorus, verse, bridge, final chorus, resolved outro",
+          "performance": "Natural Tony lead with smoky slurs and catchy melodic delivery; bright stacked harmony responses in choruses",
+          "energy": "Easygoing sunlit opening that rises into an exuberant final chorus, then resolves warmly",
+          "lyricWorkflow": "Original narrative lyrics about choosing seaside spontaneity over rigid plans, anchored by a recurring title hook",
+          "instruments": [
+            "Reverb electric guitars",
+            "Electric bass",
+            "Drum kit",
+            "Organ",
+            "Handclaps",
+            "Backing vocals"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nSalt on the dashboard, sun in my eyes\nBoard in the back and a gull cutting by\nThe radio crackles, the tide pulls out\nI laugh at the blue and I turn it loud\n\n[Verse 1]\nI missed the turn at the corner store\nFound a little beach I ain't seen before\nWaves throw silver on the parking lot\nEverybody worries, but I forgot\nI fuck around when the daylight bends\nTrade my tight plans for the tide and friends\nGot a pocket of sand and a half-made scheme\nChasing the foam through a California dream\n\n[Chorus]\nI fuck around, I fuck around\nWith the sun going down on a seaside town\nI fuck around, hear the whole world sing\nWhen the surf kicks up and the gulls take wing\nNo map in my hand, no clock to obey\nJust a bright white wake and a runaway day\nI fuck around, then I come back home\nWith the ocean still humming inside my bones\n\n[Verse 2]\nCherry-red coupe at the end of the pier\nSomebody's laughing and shifting a gear\nWe steal a dance by the carnival light\nSpinning our shadows into the night\nA vinyl moon hangs over the bay\nYou say tomorrow can wait one day\nI draw your name where the water won't stay\nThen watch the wave take the letters away\n\n[Bridge]\nIf the grown-up world starts calling my name\nI'll let it ring while the breakers complain\nThere ain't a prize for a perfectly straight line\nThe best little detours are usually mine\n\n[Chorus]\nI fuck around, I fuck around\nWith the stars coming out on a seaside town\nI fuck around, but I know what's true\nEvery wild blue mile keeps leading to you\nNo map in my hand, no clock to obey\nJust your warm voice and the end of the day\nI fuck around, then I come back home\nWith your name and the ocean inside my bones\n\n[Outro]\nWhen the last wave folds into the shore\nI'll hold that bright blue feeling once more",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.32,
+            "end": 7.3
+          },
+          {
+            "line": 2,
+            "start": 7.3,
+            "end": 10.02
+          },
+          {
+            "line": 3,
+            "start": 10.32,
+            "end": 13.32
+          },
+          {
+            "line": 4,
+            "start": 13.32,
+            "end": 16.28
+          },
+          {
+            "line": 7,
+            "start": 21.24,
+            "end": 24.04
+          },
+          {
+            "line": 8,
+            "start": 24.04,
+            "end": 27.08
+          },
+          {
+            "line": 9,
+            "start": 27.08,
+            "end": 29.9
+          },
+          {
+            "line": 10,
+            "start": 29.9,
+            "end": 33.24
+          },
+          {
+            "line": 11,
+            "start": 33.24,
+            "end": 36.7
+          },
+          {
+            "line": 12,
+            "start": 37.02,
+            "end": 40.26
+          },
+          {
+            "line": 13,
+            "start": 40.26,
+            "end": 42.86
+          },
+          {
+            "line": 14,
+            "start": 43.24,
+            "end": 45.88
+          },
+          {
+            "line": 17,
+            "start": 45.88,
+            "end": 49.16
+          },
+          {
+            "line": 18,
+            "start": 49.16,
+            "end": 52.2
+          },
+          {
+            "line": 19,
+            "start": 52.2,
+            "end": 55.16
+          },
+          {
+            "line": 20,
+            "start": 55.16,
+            "end": 58.48
+          },
+          {
+            "line": 21,
+            "start": 58.48,
+            "end": 61.54
+          },
+          {
+            "line": 22,
+            "start": 61.54,
+            "end": 64.68
+          },
+          {
+            "line": 23,
+            "start": 65.14,
+            "end": 67.88
+          },
+          {
+            "line": 24,
+            "start": 67.88,
+            "end": 71.28
+          },
+          {
+            "line": 27,
+            "start": 78.1,
+            "end": 80.16
+          },
+          {
+            "line": 28,
+            "start": 80.56,
+            "end": 83.34
+          },
+          {
+            "line": 29,
+            "start": 83.92,
+            "end": 86.08
+          },
+          {
+            "line": 30,
+            "start": 86.08,
+            "end": 89.6
+          },
+          {
+            "line": 31,
+            "start": 90.12,
+            "end": 92.78
+          },
+          {
+            "line": 32,
+            "start": 93.3,
+            "end": 95.92
+          },
+          {
+            "line": 33,
+            "start": 96.32,
+            "end": 99
+          },
+          {
+            "line": 34,
+            "start": 99.38,
+            "end": 101.88
+          },
+          {
+            "line": 37,
+            "start": 101.88,
+            "end": 105.38
+          },
+          {
+            "line": 38,
+            "start": 105.38,
+            "end": 108.08
+          },
+          {
+            "line": 39,
+            "start": 108.52,
+            "end": 111.46
+          },
+          {
+            "line": 40,
+            "start": 111.46,
+            "end": 114.44
+          },
+          {
+            "line": 43,
+            "start": 117.38,
+            "end": 120.82
+          },
+          {
+            "line": 44,
+            "start": 120.82,
+            "end": 123.92
+          },
+          {
+            "line": 45,
+            "start": 124.32,
+            "end": 126.9
+          },
+          {
+            "line": 46,
+            "start": 126.9,
+            "end": 130
+          },
+          {
+            "line": 47,
+            "start": 130.5,
+            "end": 133.18
+          },
+          {
+            "line": 48,
+            "start": 133.78,
+            "end": 136.44
+          },
+          {
+            "line": 49,
+            "start": 136.94,
+            "end": 139.56
+          },
+          {
+            "line": 50,
+            "start": 139.56,
+            "end": 143
+          },
+          {
+            "line": 53,
+            "start": 145.24,
+            "end": 149.4
+          },
+          {
+            "line": 54,
+            "start": 149.4,
+            "end": 152.24
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony writes an original song called \"I fuck around\". Surf rock a la Beach Boys",
+        "direction": "Use the prompt as written.",
+        "keep": "Must include the phrase \"I fuck around\" in the verse and chorus",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 165
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-f714d8daeed41d2424372456",
       "title": "I Wanna (Pulse Remix)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f714d8daeed41d2424372456-daa8e0cf1dfb.mp3",
