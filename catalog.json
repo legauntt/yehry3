@@ -2,6 +2,85 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-eff2d3200a937deb856c10ce",
+      "title": "Yeah After Midnight - Velvet Jazz Remix",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-eff2d3200a937deb856c10ce-0dde33325898.mp3",
+      "duration": 205.03510204081633,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "remixOf": {
+        "songId": "distonyc-d88c69ac5b02b644324e42ad",
+        "title": "Yeah After Midnight",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d88c69ac5b02b644324e42ad-d0c85e6f241f.mp3"
+      },
+      "publishedAt": "2026-09-19T12:42:31.260Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Yeah After Midnight - Velvet Jazz Remix",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 205-second midnight smooth-jazz reinterpretation: brushed drums, walking upright bass, Rhodes, muted trumpet and restrained tenor sax build around Tony C’s rough, smoky, drawn-out “yeah” hook. Begin with close, audible rhythmic breathing over sparse Rhodes, then deepen the pocket through each section; let the bridge briefly strip to bass and breath before the ensemble returns. Keep each lyric spacious, slurred and melodically shaped rather than spoken. Place the final sustained “Yeeaah” around 193–197 seconds, resolving into one final D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nYeah\n\n[Verse 1]\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\n\n[Interlude]\nYeah\nYeah\n\n[Verse 2]\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\n\n[Bridge]\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\n\n[Verse 3]\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\n\n[Outro]\nYeah\nYeah\nYeah\nYeeaah\n[End]",
+        "duration": 205,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Midnight smooth jazz with a smoky Tony C vocal treatment",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, interlude, Verse 2, bridge, Verse 3, resolved outro",
+          "performance": "Rough, smoky, connected-vowel Tony delivery with intimate rhythmic breathing and long melodic holds",
+          "energy": "Quiet late-night entrance, gradually fuller groove, brief bridge drop, then a warm resolved finish",
+          "lyricWorkflow": "Adapted source-hook lyric sheet, expanding the recurring “yeah” motif through varied melodic phrasing",
+          "instruments": [
+            "Rhodes electric piano",
+            "upright bass",
+            "brushed drum kit",
+            "muted trumpet",
+            "tenor saxophone"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nYeah\n\n[Verse 1]\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\n\n[Interlude]\nYeah\nYeah\n\n[Verse 2]\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\n\n[Bridge]\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\n\n[Verse 3]\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\nYeah\n\n[Outro]\nYeah\nYeah\nYeah\nYeeaah",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 20.2
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Remix “Yeah After Midnight”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Six minutes of heavy breathing and Tony saying \"yeah\" over smooth jazz\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Use the prompt as written.",
+        "keep": "Keep the recognizable hook and spirit of “Yeah After Midnight”.",
+        "basisSongs": [
+          "Yeah After Midnight"
+        ],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 205
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-5668406e7d034d806e566924",
       "title": "I Fuck Around",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5668406e7d034d806e566924-0e1b373f9eb0.mp3",
