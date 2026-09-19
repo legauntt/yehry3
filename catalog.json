@@ -2,6 +2,376 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-4518c315d018af5e4cf4c37a",
+      "title": "Uh Huh Window",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4518c315d018af5e4cf4c37a-597731719940.mp3",
+      "duration": 355.03020408163263,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-19T21:19:59.630Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Uh Huh Window",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "F minor",
+        "arrangement": "Slow 72 BPM lo-fi hip-hop ballad in F minor with dusty drum breaks, warm electric piano, muted bass, vinyl crackle, soft tape-warp textures, and occasional restrained guitar harmonics. Tony enters immediately with smoky, connected, lightly slurred melodic phrases, intimate muttered “uh huh” and “yeah” responses, and a catchable sung refrain. Keep spacious rests between phrases without long empty instrumental passages; build subtly through added bass movement and drum texture, then sustain the final “me” 8–12 seconds before a single resolved Rhodes chord decays.",
+        "lyrics": "[Intro]\nUh huh, the room is low\nYeah, the streetlight paints the ceiling slow\nUh huh, I hear the radiator sigh\nYeah, one little train goes crawling by\n\n[Verse 1]\nI keep my hands around a cooling cup\nWatching the blue light on the corner shop\nThe city talks in puddles and tires\nA quiet wire, a small red fire\nI do not need a grand parade\nJust that soft old record somebody played\nA bass line leaning through the wall\nLike it knows my name, like it knows it all\n\n[Refrain]\nUh huh, yeah\nLet the minute take its time\nUh huh, yeah\nLeave the hard day outside\nUh huh, yeah\nNo big answer tonight\nJust a window, just a beat\nJust the dark breathing light\n\n[Verse 2]\nThere is a note I never sent\nFolded up with the rent\nIt says I was tired of running fast\nTrying to turn every shadow into a past\nBut the kettle clicks and the floorboard bends\nAnd a far-off siren rounds the end\nI let the little noises stay\nThey make a home out of the gray\n\n[Refrain]\nUh huh, yeah\nLet the minute take its time\nUh huh, yeah\nLeave the hard day outside\nUh huh, yeah\nNo big answer tonight\nJust a window, just a beat\nJust the dark breathing light\n\n[Bridge]\nIf morning comes with a heavy coat\nI will meet it with a softer note\nNot a promise carved in stone\nJust a breath that says I am not alone\nUh huh, I can hear it clear\nYeah, the quiet has a rhythm here\n\n[Verse 3]\nThe last bus hums below my floor\nIts yellow square moves past the door\nI think of faces, names, and rain\nOf losing things and finding them again\nThe clock gives up its little fight\nThe room turns silver near the light\nI close my eyes and let it be\nA slow beat holding me\n\n[Refrain]\nUh huh, yeah\nLet the minute take its time\nUh huh, yeah\nLeave the hard day outside\nUh huh, yeah\nI can finally see\nThe window, the beat, the night\nMaking room for me\n\n[Outro]\nUh huh, yeah, the night makes room for me\n[End]",
+        "duration": 355,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Lo-fi hip-hop ballad",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, recurring refrain, Verse 2, refrain, bridge, Verse 3, final refrain, resolved outro",
+          "performance": "Intimate, rough-edged Tony delivery with connected vowels, relaxed pocket, and softly sung refrain hooks",
+          "energy": "Low and nocturnal at first, gently warming through the bridge, then settling into a calm final resolution",
+          "lyricWorkflow": "Original image-led lyrics built around late-night domestic details and the recurring “uh huh, yeah” hook",
+          "instruments": [
+            "dusty drum break",
+            "electric piano",
+            "muted electric bass",
+            "guitar harmonics",
+            "vinyl crackle",
+            "tape-warp texture"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nUh huh, the room is low\nYeah, the streetlight paints the ceiling slow\nUh huh, I hear the radiator sigh\nYeah, one little train goes crawling by\n\n[Verse 1]\nI keep my hands around a cooling cup\nWatching the blue light on the corner shop\nThe city talks in puddles and tires\nA quiet wire, a small red fire\nI do not need a grand parade\nJust that soft old record somebody played\nA bass line leaning through the wall\nLike it knows my name, like it knows it all\n\n[Refrain]\nUh huh, yeah\nLet the minute take its time\nUh huh, yeah\nLeave the hard day outside\nUh huh, yeah\nNo big answer tonight\nJust a window, just a beat\nJust the dark breathing light\n\n[Verse 2]\nThere is a note I never sent\nFolded up with the rent\nIt says I was tired of running fast\nTrying to turn every shadow into a past\nBut the kettle clicks and the floorboard bends\nAnd a far-off siren rounds the end\nI let the little noises stay\nThey make a home out of the gray\n\n[Refrain]\nUh huh, yeah\nLet the minute take its time\nUh huh, yeah\nLeave the hard day outside\nUh huh, yeah\nNo big answer tonight\nJust a window, just a beat\nJust the dark breathing light\n\n[Bridge]\nIf morning comes with a heavy coat\nI will meet it with a softer note\nNot a promise carved in stone\nJust a breath that says I am not alone\nUh huh, I can hear it clear\nYeah, the quiet has a rhythm here\n\n[Verse 3]\nThe last bus hums below my floor\nIts yellow square moves past the door\nI think of faces, names, and rain\nOf losing things and finding them again\nThe clock gives up its little fight\nThe room turns silver near the light\nI close my eyes and let it be\nA slow beat holding me\n\n[Refrain]\nUh huh, yeah\nLet the minute take its time\nUh huh, yeah\nLeave the hard day outside\nUh huh, yeah\nI can finally see\nThe window, the beat, the night\nMaking room for me\n\n[Outro]\nUh huh, yeah, the night makes room for me",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 12.52,
+            "end": 15.28
+          },
+          {
+            "line": 2,
+            "start": 15.94,
+            "end": 19.2
+          },
+          {
+            "line": 3,
+            "start": 19.68,
+            "end": 22.24
+          },
+          {
+            "line": 4,
+            "start": 22.24,
+            "end": 26.1
+          },
+          {
+            "line": 7,
+            "start": 41.84,
+            "end": 49.9
+          },
+          {
+            "line": 8,
+            "start": 49.9,
+            "end": 52.52
+          },
+          {
+            "line": 9,
+            "start": 52.52,
+            "end": 55.92
+          },
+          {
+            "line": 10,
+            "start": 55.92,
+            "end": 59.28
+          },
+          {
+            "line": 11,
+            "start": 59.28,
+            "end": 62.36
+          },
+          {
+            "line": 12,
+            "start": 62.36,
+            "end": 65.94
+          },
+          {
+            "line": 13,
+            "start": 65.94,
+            "end": 69.24
+          },
+          {
+            "line": 14,
+            "start": 69.24,
+            "end": 72.86
+          },
+          {
+            "line": 17,
+            "start": 94.66,
+            "end": 95.92
+          },
+          {
+            "line": 18,
+            "start": 95.92,
+            "end": 99.52
+          },
+          {
+            "line": 19,
+            "start": 99.52,
+            "end": 101.78
+          },
+          {
+            "line": 20,
+            "start": 102.74,
+            "end": 104.96
+          },
+          {
+            "line": 21,
+            "start": 106.12,
+            "end": 109.16
+          },
+          {
+            "line": 22,
+            "start": 109.16,
+            "end": 112.12
+          },
+          {
+            "line": 23,
+            "start": 112.42,
+            "end": 115.5
+          },
+          {
+            "line": 24,
+            "start": 115.5,
+            "end": 118.76
+          },
+          {
+            "line": 27,
+            "start": 131.4,
+            "end": 135.2
+          },
+          {
+            "line": 28,
+            "start": 136,
+            "end": 138.42
+          },
+          {
+            "line": 29,
+            "start": 139.28,
+            "end": 142.44
+          },
+          {
+            "line": 30,
+            "start": 142.88,
+            "end": 145.84
+          },
+          {
+            "line": 31,
+            "start": 146.26,
+            "end": 149.36
+          },
+          {
+            "line": 32,
+            "start": 149.36,
+            "end": 152.92
+          },
+          {
+            "line": 33,
+            "start": 152.92,
+            "end": 156.08
+          },
+          {
+            "line": 34,
+            "start": 156.81,
+            "end": 159.48
+          },
+          {
+            "line": 37,
+            "start": 178.86,
+            "end": 181.88
+          },
+          {
+            "line": 38,
+            "start": 183.18,
+            "end": 186.1
+          },
+          {
+            "line": 39,
+            "start": 186.1,
+            "end": 189.46
+          },
+          {
+            "line": 40,
+            "start": 189.46,
+            "end": 191.66
+          },
+          {
+            "line": 41,
+            "start": 192.72,
+            "end": 195.22
+          },
+          {
+            "line": 42,
+            "start": 196.14,
+            "end": 198.78
+          },
+          {
+            "line": 43,
+            "start": 199.54,
+            "end": 203.2
+          },
+          {
+            "line": 44,
+            "start": 203.2,
+            "end": 205.46
+          },
+          {
+            "line": 47,
+            "start": 218.16,
+            "end": 222.64
+          },
+          {
+            "line": 48,
+            "start": 222.66,
+            "end": 225.92
+          },
+          {
+            "line": 49,
+            "start": 226.5,
+            "end": 229.16
+          },
+          {
+            "line": 50,
+            "start": 229.64,
+            "end": 232.58
+          },
+          {
+            "line": 51,
+            "start": 233.98,
+            "end": 239.34
+          },
+          {
+            "line": 52,
+            "start": 241.8,
+            "end": 253.4
+          },
+          {
+            "line": 55,
+            "start": 254.36,
+            "end": 265
+          },
+          {
+            "line": 56,
+            "start": 266.06,
+            "end": 271.98
+          },
+          {
+            "line": 57,
+            "start": 273.54,
+            "end": 277.1
+          },
+          {
+            "line": 58,
+            "start": 277.92,
+            "end": 283.62
+          },
+          {
+            "line": 59,
+            "start": 285.02,
+            "end": 289.16
+          },
+          {
+            "line": 60,
+            "start": 289.78,
+            "end": 292.64
+          },
+          {
+            "line": 61,
+            "start": 292.9,
+            "end": 295.84
+          },
+          {
+            "line": 62,
+            "start": 296.4,
+            "end": 299.38
+          },
+          {
+            "line": 65,
+            "start": 301.78,
+            "end": 305.18
+          },
+          {
+            "line": 66,
+            "start": 305.72,
+            "end": 309.44
+          },
+          {
+            "line": 67,
+            "start": 309.68,
+            "end": 311.88
+          },
+          {
+            "line": 68,
+            "start": 312.74,
+            "end": 314.96
+          },
+          {
+            "line": 69,
+            "start": 314.96,
+            "end": 318.82
+          },
+          {
+            "line": 70,
+            "start": 319.26,
+            "end": 322
+          },
+          {
+            "line": 71,
+            "start": 322,
+            "end": 325.9
+          },
+          {
+            "line": 72,
+            "start": 326.45,
+            "end": 328.68
+          },
+          {
+            "line": 75,
+            "start": 335.21,
+            "end": 341.72
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 19.54
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Lofi beat and Tony saying \"uh huh\" and \"yeah\"",
+        "direction": "Use the prompt as written.",
+        "keep": "Maximum silence between vocal phrasing, slow tempo",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 355
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-6694dab26c170fba0dba0663",
       "title": "Influence Criteria",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6694dab26c170fba0dba0663-edd1461ceba1.mp3",
