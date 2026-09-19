@@ -2,6 +2,349 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-288bddbc13c117ea9ffd6ad1",
+      "title": "Blackout at Last Call",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-288bddbc13c117ea9ffd6ad1-ba3f5354a83c.mp3",
+      "duration": 240.09142857142857,
+      "collection": "distonyc",
+      "voiceModel": "v7",
+      "publishedAt": "2026-09-19T09:17:34.471Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Blackout at Last Call",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Dark theatrical cabaret-rock at 116 BPM in D minor. Driving bass and restrained rock drums anchor organ, piano, violin, harp and accordion; the arrangement grows from a smoky, close-miked opening into full-band choruses, then drops to piano and voice for the bridge before a resolved final chorus. Tony’s pinned v7 delivery is rough, smoky, connected and melodic, with muttered edges but a clear catchable hook. Pace the final sustained word “tonight” to land 8–12 seconds before 4:00, followed by one final resolved chord decay.",
+        "lyrics": "[Intro]\nNeon leaking through the blind\nCoins in my pocket, static in my mind\nI keep buying one more hour\nLike a promise from a broken tower\n\n[Verse 1]\nI meet a stranger under violet light\nBoth of us tired of pretending tonight\nI say, “I’m fine,” with a laugh too loud\nTrying to disappear inside the crowd\nEvery time the room gets close to still\nEvery time I think I’ve bent my will\nThe ceiling shakes, the streetlights flare\nAnd I’m left alone with the smoke in the air\n\n[Pre-Chorus]\nI curse the clock, I curse the heat\nI curse the pulse beneath my feet\nWhat am I chasing down this lane?\nA little thrill, a lot of shame\n\n[Chorus]\nBlackout at last call, blackout again\nI keep making a stranger carry my pain\nBlackout at last call, the whole room sways\nI can’t buy back all my wasted days\n\n[Verse 2]\nThe bartender knows my borrowed name\nSlides the water, never feeds the game\nAn old piano finds a minor tune\nLike a tired heart arguing with the moon\nI see my face in the polished glass\nA man who thinks the night will pass\nBut every promise comes apart\nWhen you rent a room around your heart\n\n[Pre-Chorus]\nThe sirens rise, the red lights spin\nI hear the damage settling in\nNo lover, no drink, no louder song\nCan make a wrong road right for long\n\n[Chorus]\nBlackout at last call, blackout again\nI keep making a stranger carry my pain\nBlackout at last call, the whole room sways\nI can’t buy back all my wasted days\n\n[Bridge]\nI wanted the spark, I wanted the rush\nWanted the world to hush, hush, hush\nBut the ache had my number, the ache knew my name\nAnd it never once asked what I became\nSo I leave the cash, I leave the key\nLeave the little wreck that used to be me\nOut on the pavement, dawn comes slow\nAnd for the first time, I let somebody know\n\n[Chorus]\nNo blackout at last call, not one more time\nI’m done mistaking a fall for a climb\nNo blackout at last call, I breathe through the flame\nI walk toward morning and answer my name\n\n[Outro]\nThe piano holds one honest chord\nThe street gets quiet, the sky unwarms\nI’m still here, and I choose the light\nI’m still here tonight\n[End]",
+        "duration": 240,
+        "bpm": 116,
+        "musicalSettings": {
+          "genre": "Dark theatrical cabaret-rock",
+          "meter": "4/4",
+          "structure": "Intro, verse, pre-chorus, chorus, verse, pre-chorus, chorus, bridge, final chorus, outro",
+          "performance": "Rough, smoky Tony phrasing with slurred connective vowels, melodic sustained hooks and intimate spoken-sung edges",
+          "energy": "Low neon-lit tension builds into forceful choruses, falls to a confessional bridge, then resolves with determined uplift",
+          "lyricWorkflow": "Original narrative lyrics: an adult nightlife spiral becomes a moment of accountability and self-preservation",
+          "instruments": [
+            "Organ",
+            "Piano",
+            "Violin",
+            "Harp",
+            "Accordion",
+            "Electric bass",
+            "Drum kit",
+            "Electric guitar"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nNeon leaking through the blind\nCoins in my pocket, static in my mind\nI keep buying one more hour\nLike a promise from a broken tower\n\n[Verse 1]\nI meet a stranger under violet light\nBoth of us tired of pretending tonight\nI say, “I’m fine,” with a laugh too loud\nTrying to disappear inside the crowd\nEvery time the room gets close to still\nEvery time I think I’ve bent my will\nThe ceiling shakes, the streetlights flare\nAnd I’m left alone with the smoke in the air\n\n[Pre-Chorus]\nI curse the clock, I curse the heat\nI curse the pulse beneath my feet\nWhat am I chasing down this lane?\nA little thrill, a lot of shame\n\n[Chorus]\nBlackout at last call, blackout again\nI keep making a stranger carry my pain\nBlackout at last call, the whole room sways\nI can’t buy back all my wasted days\n\n[Verse 2]\nThe bartender knows my borrowed name\nSlides the water, never feeds the game\nAn old piano finds a minor tune\nLike a tired heart arguing with the moon\nI see my face in the polished glass\nA man who thinks the night will pass\nBut every promise comes apart\nWhen you rent a room around your heart\n\n[Pre-Chorus]\nThe sirens rise, the red lights spin\nI hear the damage settling in\nNo lover, no drink, no louder song\nCan make a wrong road right for long\n\n[Chorus]\nBlackout at last call, blackout again\nI keep making a stranger carry my pain\nBlackout at last call, the whole room sways\nI can’t buy back all my wasted days\n\n[Bridge]\nI wanted the spark, I wanted the rush\nWanted the world to hush, hush, hush\nBut the ache had my number, the ache knew my name\nAnd it never once asked what I became\nSo I leave the cash, I leave the key\nLeave the little wreck that used to be me\nOut on the pavement, dawn comes slow\nAnd for the first time, I let somebody know\n\n[Chorus]\nNo blackout at last call, not one more time\nI’m done mistaking a fall for a climb\nNo blackout at last call, I breathe through the flame\nI walk toward morning and answer my name\n\n[Outro]\nThe piano holds one honest chord\nThe street gets quiet, the sky unwarms\nI’m still here, and I choose the light\nI’m still here tonight",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.66,
+            "end": 7.7
+          },
+          {
+            "line": 2,
+            "start": 8.3,
+            "end": 12.04
+          },
+          {
+            "line": 3,
+            "start": 12.24,
+            "end": 15.02
+          },
+          {
+            "line": 4,
+            "start": 16.32,
+            "end": 19
+          },
+          {
+            "line": 7,
+            "start": 20.18,
+            "end": 24.06
+          },
+          {
+            "line": 8,
+            "start": 24.06,
+            "end": 27.58
+          },
+          {
+            "line": 9,
+            "start": 28.04,
+            "end": 32.26
+          },
+          {
+            "line": 10,
+            "start": 32.26,
+            "end": 36.52
+          },
+          {
+            "line": 11,
+            "start": 37.28,
+            "end": 40.8
+          },
+          {
+            "line": 12,
+            "start": 41.32,
+            "end": 45
+          },
+          {
+            "line": 13,
+            "start": 45.44,
+            "end": 48.98
+          },
+          {
+            "line": 14,
+            "start": 48.98,
+            "end": 53.28
+          },
+          {
+            "line": 17,
+            "start": 54.22,
+            "end": 57.32
+          },
+          {
+            "line": 18,
+            "start": 58.28,
+            "end": 61.46
+          },
+          {
+            "line": 19,
+            "start": 62.28,
+            "end": 65.66
+          },
+          {
+            "line": 20,
+            "start": 66.36,
+            "end": 69.7
+          },
+          {
+            "line": 23,
+            "start": 72.82,
+            "end": 75.42
+          },
+          {
+            "line": 24,
+            "start": 76.1,
+            "end": 81
+          },
+          {
+            "line": 25,
+            "start": 81,
+            "end": 84
+          },
+          {
+            "line": 26,
+            "start": 84.64,
+            "end": 88.66
+          },
+          {
+            "line": 29,
+            "start": 89.42,
+            "end": 92.46
+          },
+          {
+            "line": 30,
+            "start": 93.54,
+            "end": 96.58
+          },
+          {
+            "line": 31,
+            "start": 97.78,
+            "end": 100.52
+          },
+          {
+            "line": 32,
+            "start": 101.08,
+            "end": 104.78
+          },
+          {
+            "line": 33,
+            "start": 105.72,
+            "end": 108.78
+          },
+          {
+            "line": 34,
+            "start": 108.78,
+            "end": 113.24
+          },
+          {
+            "line": 35,
+            "start": 114.08,
+            "end": 117.18
+          },
+          {
+            "line": 36,
+            "start": 117.18,
+            "end": 120.88
+          },
+          {
+            "line": 39,
+            "start": 120.88,
+            "end": 125.28
+          },
+          {
+            "line": 40,
+            "start": 126.54,
+            "end": 129.64
+          },
+          {
+            "line": 41,
+            "start": 130.2,
+            "end": 133.66
+          },
+          {
+            "line": 42,
+            "start": 133.66,
+            "end": 139
+          },
+          {
+            "line": 45,
+            "start": 139,
+            "end": 141.86
+          },
+          {
+            "line": 46,
+            "start": 141.86,
+            "end": 146.12
+          },
+          {
+            "line": 47,
+            "start": 146.12,
+            "end": 150.34
+          },
+          {
+            "line": 48,
+            "start": 150.34,
+            "end": 154.86
+          },
+          {
+            "line": 51,
+            "start": 156.4,
+            "end": 160.56
+          },
+          {
+            "line": 52,
+            "start": 160.56,
+            "end": 164.87
+          },
+          {
+            "line": 53,
+            "start": 164.87,
+            "end": 168.95
+          },
+          {
+            "line": 54,
+            "start": 169.05,
+            "end": 172.87
+          },
+          {
+            "line": 55,
+            "start": 173.59,
+            "end": 177.09
+          },
+          {
+            "line": 56,
+            "start": 177.83,
+            "end": 181.21
+          },
+          {
+            "line": 57,
+            "start": 182.13,
+            "end": 185.45
+          },
+          {
+            "line": 58,
+            "start": 186.05,
+            "end": 194.63
+          },
+          {
+            "line": 61,
+            "start": 194.63,
+            "end": 199.09
+          },
+          {
+            "line": 62,
+            "start": 199.09,
+            "end": 201.89
+          },
+          {
+            "line": 63,
+            "start": 202.63,
+            "end": 207.11
+          },
+          {
+            "line": 64,
+            "start": 207.11,
+            "end": 212.03
+          },
+          {
+            "line": 67,
+            "start": 214.63,
+            "end": 218.63
+          },
+          {
+            "line": 68,
+            "start": 218.63,
+            "end": 223.15
+          },
+          {
+            "line": 69,
+            "start": 223.15,
+            "end": 225.29
+          },
+          {
+            "line": 70,
+            "start": 225.29,
+            "end": 228.03
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony C is addicted to fucking prostitutes, even as much as multiple times per day. The thing is, whenever he's about to cum, his hooker gets 9/11'd. He grows frustrated and by the end of the song, he 9/11's himself.",
+        "direction": "Use the prompt as written.",
+        "keep": "Must use explicit language",
+        "basisSongs": [],
+        "voiceModel": "v7",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Organ",
+            "Piano",
+            "Violin",
+            "Harp",
+            "Accordion"
+          ],
+          "duration": 240
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-7c837718ebc78883371aa4fb",
       "title": "Yeah After Midnight (Smoke Lounge)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7c837718ebc78883371aa4fb-711027613fe8.mp3",
