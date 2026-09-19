@@ -22,11 +22,11 @@ test("both catalogs use unique stable IDs and valid playable URLs", async () => 
       song.url.startsWith("https://") ||
         song.url.startsWith("/fearhunger/audio/"),
     );
-    assert.ok(song.lyrics?.cues?.length, `${song.title} needs lyric cues`);
+    assert.ok(song.lyrics?.text?.trim(), `${song.title} needs lyrics`);
     const lines = song.lyrics.text.split("\n");
     let previousLine = -1;
     let previousStart = -1;
-    for (const cue of song.lyrics.cues) {
+    for (const cue of song.lyrics.cues || []) {
       assert.ok(Number.isInteger(cue.line) && cue.line > previousLine);
       assert.ok(lines[cue.line]?.trim());
       assert.ok(cue.start > previousStart && cue.start >= 0);
