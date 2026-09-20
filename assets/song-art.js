@@ -221,8 +221,9 @@ const mouths = [
   path("M92 119Q103 131 115 117", paper) + path("M99 125Q103 138 110 123Z", "#e8788a"),
 ];
 // Every song about See-saw wears the same gag instead of a rolled mouth: one
-// comically huge black rectangle, the blank the narrator keeps filling in.
-const seesawTitle = /see[-\s]?saw/i;
+// comically huge black rectangle, the blank the narrator keeps filling in. He
+// answers to See-saw, Seesaw, and Csaw, but never to Tony C saw something.
+const seesawTitle = /\b(?:see[-\s]?saw|c-?saw)/i;
 const seesawMouth = rect(70, 114, 64, 38, 3, "#000");
 // Faces sit in the same place on every drawing, so these fit the whole cast.
 const extras = [

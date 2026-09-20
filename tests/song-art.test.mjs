@@ -81,7 +81,7 @@ test("new and unusual titles are safe and do not need lyrics or remote image URL
 });
 test("every See-saw recording wears the same comically huge black mouth", async () => {
   const seesawMouth = /<rect x="70" y="114" width="64" height="38" rx="3" fill="#000"\/>/;
-  const isSeesaw = song => /see[-\s]?saw/i.test(song.title || "");
+  const isSeesaw = song => /\b(?:see[-\s]?saw|c-?saw)/i.test(song.title || "");
   const cast = (await catalog()).filter(isSeesaw);
   assert.ok(cast.length >= 3, "the catalog lost its See-saw recordings");
   for (const song of cast) {
@@ -89,8 +89,13 @@ test("every See-saw recording wears the same comically huge black mouth", async 
     assert.match(songArtwork(song).alt, /comically enormous black rectangle for a mouth\.$/);
   }
   // The gag follows the character through retitles, remixes, and votes.
-  for (const title of ["See-saw'd Again", "See-saw'd Again (Empty Frame Mix)", "See-saw in Every Picture", "Seesaw Rides Again"]) {
+  for (const title of ["See-saw'd Again", "See-saw'd Again (Empty Frame Mix)", "See-saw in Every Picture",
+    "Seesaw Rides Again", "See Saw Blues", "Csaw Knows the Words", "The C-Saw Waltz"]) {
     for (const votes of [0, 1, 7]) assert.match(svgOf(songArtwork({ id: title + votes, title, votes })), seesawMouth, title);
+  }
+  // Tony C saw plenty of things without being See-saw.
+  for (const title of ["Tony C Saw the Light", "What Tony C Saw", "The Sawmill", "McSawyer Street"]) {
+    assert.doesNotMatch(svgOf(songArtwork({ id: title, title })), seesawMouth, title);
   }
   for (const song of (await catalog()).filter(song => !isSeesaw(song))) {
     assert.doesNotMatch(svgOf(songArtwork(song)), seesawMouth, song.title);
