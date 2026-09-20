@@ -2,6 +2,315 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-045e01a0d7aa0083fe892500",
+      "title": "Nine Elevened Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-045e01a0d7aa0083fe892500-3447a9df51d4.mp3",
+      "duration": 210.12897959183672,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-20T19:58:04.048Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Nine Elevened Again",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Upbeat bass-forward garage rock in E minor: driving electric bass and dry live drums carry crunchy guitars, with a compact organ lift in the choruses. One clear, steadily pitched Tony lead sings melodic, slightly loose phrases; the written laughs are brief character ad-libs, not backing vocals. Start conversational and amused, build through two punchy choruses, open into a lighter bridge, then land a full final chorus. Pace the last outro lines so the final sung syllable of “line” sustains about 10 seconds before the end; resolve on one final E minor chord and let it decay.",
+        "lyrics": "[Verse 1]\nCorner store bell and a paper cup lid\nI buy a little nothing, just the thing that I need\nCashier says, “Nine eleven,” flat as rain\nI stare at the coins like they called my name\n\n[Pre-Chorus]\nI had ten in my hand, I had change in my coat\nBut the number comes swimming right back in the boat\nHeh heh—what kind of luck is this?\n\n[Chorus]\nI got nine elevened again\nEvery road bends back to the same loose end\nCoffee, cables, a midnight snack\nNine-eleven stamped on the paper back\nHa ha, I can’t make it behave\nIt follows my wallet from the cradle to the grave\nI got nine elevened again\nAnd the whole small world just laughs with me, my friend\n\n[Verse 2]\nGas pump blinking under sodium light\nI buy a pack of gum on a Tuesday night\nThe screen does its little arithmetic dance\nThen nine-eleven takes another chance\n\n[Pre-Chorus]\nI ask for a discount, I add something sweet\nStill the coins line up with their tiny cold feet\nHeh heh—there it is, dead on time\n\n[Chorus]\nI got nine elevened again\nEvery road bends back to the same loose end\nCoffee, cables, a midnight snack\nNine-eleven stamped on the paper back\nHa ha, I can’t make it behave\nIt follows my wallet from the cradle to the grave\nI got nine elevened again\nAnd the whole small world just laughs with me, my friend\n\n[Bridge]\nMaybe it’s a joke in the gears of the town\nA little bent penny that won’t stay down\nI don’t need a warning, I don’t need a sign\nJust give me my receipt and I’ll call it mine\nHeh heh, fold it up, put it away\nAnother tiny mystery in an ordinary day\n\n[Chorus]\nI got nine elevened again\nAt the diner, the market, the station at ten\nI’ll tip the jar and I’ll shake my head\nAt the stubborn little total the universe said\nHa ha, let the register sing\nFor all the strange small luck that a loose coin brings\nI got nine elevened again\nBut I’m walking out smiling in the warm night wind\n\n[Outro]\nReceipt in my pocket, moon over the street\nNine eleven, nine eleven—still counting the beat\nHeh heh… I’ll see you at the next checkout line\n[End]",
+        "duration": 210,
+        "bpm": 118,
+        "musicalSettings": {
+          "genre": "Bass-forward garage rock",
+          "meter": "4/4",
+          "structure": "Verse, pre-chorus, chorus, verse, pre-chorus, chorus, bridge, final chorus, outro",
+          "performance": "Clear melodic Tony lead with loose, amused phrasing and brief written laughs",
+          "energy": "Playful mid-tempo groove that rises into broad final choruses, then resolves cleanly",
+          "lyricWorkflow": "Original narrative lyric built around a recurring checkout-line superstition and a complete final payoff",
+          "instruments": [
+            "Electric bass",
+            "Live drum kit",
+            "Overdriven electric guitars",
+            "Compact organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nCorner store bell and a paper cup lid\nI buy a little nothing, just the thing that I need\nCashier says, “Nine eleven,” flat as rain\nI stare at the coins like they called my name\n\n[Pre-Chorus]\nI had ten in my hand, I had change in my coat\nBut the number comes swimming right back in the boat\nHeh heh—what kind of luck is this?\n\n[Chorus]\nI got nine elevened again\nEvery road bends back to the same loose end\nCoffee, cables, a midnight snack\nNine-eleven stamped on the paper back\nHa ha, I can’t make it behave\nIt follows my wallet from the cradle to the grave\nI got nine elevened again\nAnd the whole small world just laughs with me, my friend\n\n[Verse 2]\nGas pump blinking under sodium light\nI buy a pack of gum on a Tuesday night\nThe screen does its little arithmetic dance\nThen nine-eleven takes another chance\n\n[Pre-Chorus]\nI ask for a discount, I add something sweet\nStill the coins line up with their tiny cold feet\nHeh heh—there it is, dead on time\n\n[Chorus]\nI got nine elevened again\nEvery road bends back to the same loose end\nCoffee, cables, a midnight snack\nNine-eleven stamped on the paper back\nHa ha, I can’t make it behave\nIt follows my wallet from the cradle to the grave\nI got nine elevened again\nAnd the whole small world just laughs with me, my friend\n\n[Bridge]\nMaybe it’s a joke in the gears of the town\nA little bent penny that won’t stay down\nI don’t need a warning, I don’t need a sign\nJust give me my receipt and I’ll call it mine\nHeh heh, fold it up, put it away\nAnother tiny mystery in an ordinary day\n\n[Chorus]\nI got nine elevened again\nAt the diner, the market, the station at ten\nI’ll tip the jar and I’ll shake my head\nAt the stubborn little total the universe said\nHa ha, let the register sing\nFor all the strange small luck that a loose coin brings\nI got nine elevened again\nBut I’m walking out smiling in the warm night wind\n\n[Outro]\nReceipt in my pocket, moon over the street\nNine eleven, nine eleven—still counting the beat\nHeh heh… I’ll see you at the next checkout line",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.56,
+            "end": 9.1
+          },
+          {
+            "line": 2,
+            "start": 9.1,
+            "end": 12.86
+          },
+          {
+            "line": 3,
+            "start": 13.64,
+            "end": 16.62
+          },
+          {
+            "line": 4,
+            "start": 16.62,
+            "end": 21.06
+          },
+          {
+            "line": 7,
+            "start": 24.54,
+            "end": 28.9
+          },
+          {
+            "line": 8,
+            "start": 28.9,
+            "end": 32.56
+          },
+          {
+            "line": 9,
+            "start": 32.56,
+            "end": 36.94
+          },
+          {
+            "line": 12,
+            "start": 40.18,
+            "end": 43.06
+          },
+          {
+            "line": 13,
+            "start": 43.06,
+            "end": 46.4
+          },
+          {
+            "line": 14,
+            "start": 46.4,
+            "end": 51.34
+          },
+          {
+            "line": 15,
+            "start": 51.34,
+            "end": 55.06
+          },
+          {
+            "line": 16,
+            "start": 55.64,
+            "end": 57.8
+          },
+          {
+            "line": 17,
+            "start": 58.76,
+            "end": 61.94
+          },
+          {
+            "line": 18,
+            "start": 62.3,
+            "end": 63.86
+          },
+          {
+            "line": 19,
+            "start": 63.86,
+            "end": 66.92
+          },
+          {
+            "line": 22,
+            "start": 68.44,
+            "end": 71.86
+          },
+          {
+            "line": 23,
+            "start": 72.78,
+            "end": 75.96
+          },
+          {
+            "line": 24,
+            "start": 75.96,
+            "end": 80.32
+          },
+          {
+            "line": 25,
+            "start": 80.32,
+            "end": 83
+          },
+          {
+            "line": 28,
+            "start": 84.14,
+            "end": 87.9
+          },
+          {
+            "line": 29,
+            "start": 88.42,
+            "end": 92.22
+          },
+          {
+            "line": 30,
+            "start": 93.14,
+            "end": 96.9
+          },
+          {
+            "line": 33,
+            "start": 98.98,
+            "end": 102.8
+          },
+          {
+            "line": 34,
+            "start": 102.8,
+            "end": 105.38
+          },
+          {
+            "line": 35,
+            "start": 106.78,
+            "end": 110.42
+          },
+          {
+            "line": 36,
+            "start": 110.42,
+            "end": 114.02
+          },
+          {
+            "line": 37,
+            "start": 114.02,
+            "end": 116.84
+          },
+          {
+            "line": 38,
+            "start": 116.84,
+            "end": 121.04
+          },
+          {
+            "line": 39,
+            "start": 121.04,
+            "end": 122.64
+          },
+          {
+            "line": 40,
+            "start": 122.64,
+            "end": 126
+          },
+          {
+            "line": 43,
+            "start": 126,
+            "end": 131.98
+          },
+          {
+            "line": 44,
+            "start": 131.98,
+            "end": 135.78
+          },
+          {
+            "line": 45,
+            "start": 136.5,
+            "end": 140.08
+          },
+          {
+            "line": 46,
+            "start": 140.44,
+            "end": 143.84
+          },
+          {
+            "line": 47,
+            "start": 143.84,
+            "end": 147.98
+          },
+          {
+            "line": 48,
+            "start": 148.66,
+            "end": 152.62
+          },
+          {
+            "line": 51,
+            "start": 152.62,
+            "end": 157.02
+          },
+          {
+            "line": 52,
+            "start": 157.02,
+            "end": 161.86
+          },
+          {
+            "line": 53,
+            "start": 161.86,
+            "end": 166.08
+          },
+          {
+            "line": 54,
+            "start": 166.08,
+            "end": 170
+          },
+          {
+            "line": 55,
+            "start": 170.64,
+            "end": 172.96
+          },
+          {
+            "line": 56,
+            "start": 174,
+            "end": 178.02
+          },
+          {
+            "line": 57,
+            "start": 178.34,
+            "end": 180.72
+          },
+          {
+            "line": 58,
+            "start": 180.72,
+            "end": 185.02
+          },
+          {
+            "line": 61,
+            "start": 185.02,
+            "end": 189.86
+          },
+          {
+            "line": 62,
+            "start": 189.86,
+            "end": 195.36
+          },
+          {
+            "line": 63,
+            "start": 195.36,
+            "end": 200.42
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "No matter where Tony goes, everytime he makes a purchase, he gets exact change: $9.11",
+        "direction": "Use the prompt as written.",
+        "keep": "Tony often refers to the experience as \"nine elevened again\"\n\nAlso have him laughing a lot about it, plenty of heh heh and ha ha",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 210
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-bdfdfdb9d938ac88520b6b6a",
       "title": "Badge of Shame",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-bdfdfdb9d938ac88520b6b6a-96a2a918f031.mp3",
