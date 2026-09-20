@@ -2,6 +2,403 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-adb600e3aba45bf218647ff4",
+      "title": "See-saw'd Again (Empty Frame Mix)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-adb600e3aba45bf218647ff4-0ecba85641a5.mp3",
+      "duration": 295.04,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "remixOf": {
+        "songId": "distonyc-40224d39ede15a9882272a62",
+        "title": "See-saw'd Again",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-40224d39ede15a9882272a62-c8f000d5f783.mp3"
+      },
+      "publishedAt": "2026-09-20T03:16:09.616Z",
+      "authoredBy": "Csaw",
+      "songPlan": {
+        "version": 1,
+        "title": "See-saw'd Again (Empty Frame Mix)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A new identity-preserving gothic alternative-rock arrangement: pulsing melodic bass, muted electric guitar, tom-led drums, sparse piano and widening feedback textures replace the source backing while retaining the recognizable “See-saw” hook. Tony C V8 delivers smoky, connected, slightly slurred melodic lines, with the choruses opening into a catchable haunted refrain. Build from restrained verses through a tense bridge and stripped breakdown, then a full final chorus; pace the final sustained “you” about 10 seconds before the end, followed by one resolved D-minor chord decay.",
+        "lyrics": "[Verse 1]\nWe skipped stones by the reservoir\nYou said the water knew our names\nI found the old July photograph\nAnd somebody stood beside the frame\nLong black coat, pale folded hands\nThat patient smile I knew too well\nI asked you, “That’s See-saw, right?”\nYou said, “Who are you trying to tell?”\n\n[Pre-Chorus]\nI remember your red bicycle\nI remember cutting through the rain\nBut every road I try to follow\nLeaves one shadow in the lane\n\n[Chorus]\nSee-saw, See-saw, standing in the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, calm as anything\nIf I can’t trust my memory, what does real mean?\n\n[Verse 2]\nAt the fair we rode the ferris wheel\nYou threw your hat into the crowd\nI swear he held the cotton candy\nAnd laughed a little much too loud\nAt the diner by the station\nI named the tune that used to play\nThe waitress stared across the counter:\n“No one like that came this way.”\n\n[Pre-Chorus]\nI remember all your small reactions\nHow you tapped the table when you lied\nBut every face I ask about him\nSays there was no one by your side\n\n[Chorus]\nSee-saw, See-saw, standing in the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, calm as anything\nIf I can’t trust my memory, what does real mean?\n\n[Bridge]\nI took the picture to your sister\nShe held it underneath the light\nShe said, “There are two of you in this one.\nThere was no third that summer night.”\nThe porch light, wet pavement,\nThe train that shook the bedroom wall—\nEvery detail stayed between us,\nNo See-saw saw it all\n\n[Breakdown]\nMaybe I built him from the silence\nFor one clean corner of the dark\nMaybe every broken story\nNeeds a witness, needs a mark\nBut he knows the words you whispered\nHe knows where the old key hides\nThen I hear my own voice answer:\n“I put him there to stay alive.”\n\n[Chorus]\nSee-saw, See-saw, fading from the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, no one else has seen\nJust a name I gave the empty space between\nSee-saw, See-saw, I can finally say:\nYou were never there, but I remember you anyway\n\n[Outro]\nThe reservoir is black and still\nThe photograph is in my hand\nI turn it over, read the date,\nThen let the answer understand:\nNot yours, not mine, not his at all—\nNo third signature in blue\nI don’t know why I made him real\nBut I know I remembered you\n[End]",
+        "duration": 295,
+        "bpm": 94,
+        "musicalSettings": {
+          "genre": "Gothic alternative rock",
+          "meter": "4/4",
+          "structure": "Verse–pre-chorus–chorus–verse–pre-chorus–chorus–bridge–breakdown–final chorus–resolved outro",
+          "performance": "Natural Tony C V8 lead: rough, smoky, connected vowels and expressive sustained melodic phrases",
+          "energy": "Low, uneasy opening grows through tense mid-song confrontations into a full cathartic final refrain, then resolves quietly",
+          "lyricWorkflow": "Adapted source-guided lyrics retain the See-saw hook while revealing that See-saw exists only in the narrator’s memory",
+          "instruments": [
+            "electric bass",
+            "electric guitars",
+            "acoustic piano",
+            "drum kit",
+            "feedback textures"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nWe skipped stones by the reservoir\nYou said the water knew our names\nI found the old July photograph\nAnd somebody stood beside the frame\nLong black coat, pale folded hands\nThat patient smile I knew too well\nI asked you, “That’s See-saw, right?”\nYou said, “Who are you trying to tell?”\n\n[Pre-Chorus]\nI remember your red bicycle\nI remember cutting through the rain\nBut every road I try to follow\nLeaves one shadow in the lane\n\n[Chorus]\nSee-saw, See-saw, standing in the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, calm as anything\nIf I can’t trust my memory, what does real mean?\n\n[Verse 2]\nAt the fair we rode the ferris wheel\nYou threw your hat into the crowd\nI swear he held the cotton candy\nAnd laughed a little much too loud\nAt the diner by the station\nI named the tune that used to play\nThe waitress stared across the counter:\n“No one like that came this way.”\n\n[Pre-Chorus]\nI remember all your small reactions\nHow you tapped the table when you lied\nBut every face I ask about him\nSays there was no one by your side\n\n[Chorus]\nSee-saw, See-saw, standing in the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, calm as anything\nIf I can’t trust my memory, what does real mean?\n\n[Bridge]\nI took the picture to your sister\nShe held it underneath the light\nShe said, “There are two of you in this one.\nThere was no third that summer night.”\nThe porch light, wet pavement,\nThe train that shook the bedroom wall—\nEvery detail stayed between us,\nNo See-saw saw it all\n\n[Breakdown]\nMaybe I built him from the silence\nFor one clean corner of the dark\nMaybe every broken story\nNeeds a witness, needs a mark\nBut he knows the words you whispered\nHe knows where the old key hides\nThen I hear my own voice answer:\n“I put him there to stay alive.”\n\n[Chorus]\nSee-saw, See-saw, fading from the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, no one else has seen\nJust a name I gave the empty space between\nSee-saw, See-saw, I can finally say:\nYou were never there, but I remember you anyway\n\n[Outro]\nThe reservoir is black and still\nThe photograph is in my hand\nI turn it over, read the date,\nThen let the answer understand:\nNot yours, not mine, not his at all—\nNo third signature in blue\nI don’t know why I made him real\nBut I know I remembered you",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.12,
+            "end": 5.86
+          },
+          {
+            "line": 2,
+            "start": 6.34,
+            "end": 8.56
+          },
+          {
+            "line": 3,
+            "start": 8.98,
+            "end": 11.18
+          },
+          {
+            "line": 4,
+            "start": 11.18,
+            "end": 13.6
+          },
+          {
+            "line": 5,
+            "start": 14.24,
+            "end": 16.34
+          },
+          {
+            "line": 6,
+            "start": 16.74,
+            "end": 18.84
+          },
+          {
+            "line": 7,
+            "start": 19.3,
+            "end": 21.26
+          },
+          {
+            "line": 8,
+            "start": 21.86,
+            "end": 24.06
+          },
+          {
+            "line": 11,
+            "start": 25.54,
+            "end": 27.64
+          },
+          {
+            "line": 12,
+            "start": 29.46,
+            "end": 33.14
+          },
+          {
+            "line": 13,
+            "start": 35.36,
+            "end": 38.58
+          },
+          {
+            "line": 14,
+            "start": 38.58,
+            "end": 46.04
+          },
+          {
+            "line": 17,
+            "start": 46.04,
+            "end": 49.92
+          },
+          {
+            "line": 18,
+            "start": 49.92,
+            "end": 54.48
+          },
+          {
+            "line": 19,
+            "start": 55.84,
+            "end": 60.1
+          },
+          {
+            "line": 20,
+            "start": 60.58,
+            "end": 64.3
+          },
+          {
+            "line": 23,
+            "start": 65.74,
+            "end": 68.1
+          },
+          {
+            "line": 24,
+            "start": 68.1,
+            "end": 70.36
+          },
+          {
+            "line": 25,
+            "start": 70.84,
+            "end": 73
+          },
+          {
+            "line": 26,
+            "start": 73,
+            "end": 75.46
+          },
+          {
+            "line": 27,
+            "start": 76.36,
+            "end": 78.68
+          },
+          {
+            "line": 28,
+            "start": 78.68,
+            "end": 80.84
+          },
+          {
+            "line": 29,
+            "start": 81.26,
+            "end": 83.5
+          },
+          {
+            "line": 30,
+            "start": 84.02,
+            "end": 85.96
+          },
+          {
+            "line": 33,
+            "start": 87.42,
+            "end": 90.16
+          },
+          {
+            "line": 34,
+            "start": 92.14,
+            "end": 95.06
+          },
+          {
+            "line": 35,
+            "start": 97.72,
+            "end": 100.66
+          },
+          {
+            "line": 36,
+            "start": 100.66,
+            "end": 105.3
+          },
+          {
+            "line": 39,
+            "start": 107.68,
+            "end": 111.82
+          },
+          {
+            "line": 40,
+            "start": 112.26,
+            "end": 116.34
+          },
+          {
+            "line": 41,
+            "start": 117.92,
+            "end": 121.72
+          },
+          {
+            "line": 42,
+            "start": 122.5,
+            "end": 126.38
+          },
+          {
+            "line": 45,
+            "start": 127.04,
+            "end": 129.92
+          },
+          {
+            "line": 46,
+            "start": 129.92,
+            "end": 132.48
+          },
+          {
+            "line": 47,
+            "start": 132.74,
+            "end": 135.28
+          },
+          {
+            "line": 48,
+            "start": 135.48,
+            "end": 137.6
+          },
+          {
+            "line": 49,
+            "start": 138.44,
+            "end": 140.46
+          },
+          {
+            "line": 50,
+            "start": 140.58,
+            "end": 142.72
+          },
+          {
+            "line": 51,
+            "start": 143.32,
+            "end": 145.68
+          },
+          {
+            "line": 52,
+            "start": 146.18,
+            "end": 147.96
+          },
+          {
+            "line": 55,
+            "start": 148.86,
+            "end": 152.06
+          },
+          {
+            "line": 56,
+            "start": 152.06,
+            "end": 157.08
+          },
+          {
+            "line": 57,
+            "start": 159.36,
+            "end": 162.38
+          },
+          {
+            "line": 58,
+            "start": 162.38,
+            "end": 167.46
+          },
+          {
+            "line": 59,
+            "start": 168.4,
+            "end": 171.22
+          },
+          {
+            "line": 60,
+            "start": 171.76,
+            "end": 173.9
+          },
+          {
+            "line": 61,
+            "start": 173.9,
+            "end": 176.62
+          },
+          {
+            "line": 62,
+            "start": 176.62,
+            "end": 182.78
+          },
+          {
+            "line": 65,
+            "start": 182.78,
+            "end": 186.58
+          },
+          {
+            "line": 66,
+            "start": 186.58,
+            "end": 191.18
+          },
+          {
+            "line": 67,
+            "start": 192.24,
+            "end": 196.78
+          },
+          {
+            "line": 68,
+            "start": 196.78,
+            "end": 200.56
+          },
+          {
+            "line": 69,
+            "start": 202.66,
+            "end": 207.02
+          },
+          {
+            "line": 70,
+            "start": 207.42,
+            "end": 212.28
+          },
+          {
+            "line": 73,
+            "start": 217.44,
+            "end": 219.86
+          },
+          {
+            "line": 74,
+            "start": 220.26,
+            "end": 222.48
+          },
+          {
+            "line": 75,
+            "start": 222.56,
+            "end": 224.92
+          },
+          {
+            "line": 76,
+            "start": 224.92,
+            "end": 227.5
+          },
+          {
+            "line": 77,
+            "start": 227.5,
+            "end": 229.94
+          },
+          {
+            "line": 78,
+            "start": 229.94,
+            "end": 232.34
+          },
+          {
+            "line": 79,
+            "start": 232.34,
+            "end": 235.14
+          },
+          {
+            "line": 80,
+            "start": 235.14,
+            "end": 238.48
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 20.32
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 17.38
+        },
+        {
+          "code": "early_lyric_ending",
+          "seconds": 56.56
+        }
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "Remix “See-saw'd Again”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: \"See-saw'd Again.\" The singer's memories of activities with a friend have all been altered to replace that friend with a strange man named \"See-saw.\" Everything he recounts, See-saw is there with him. He finds it odd but he can't quite figure out what's happening. If you can't trust your own memory, what's real?\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Must alter lyrics to make it clear that See-saw does not exist; he isn't a real person. Only the singer remembers See-saw.",
+        "keep": "Keep the recognizable hook and spirit of “See-saw'd Again”.",
+        "basisSongs": [
+          "See-saw'd Again"
+        ],
+        "voiceModel": "v8",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-5c9709ea7c84e2a081643834",
       "title": "See-saw in Every Picture",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c9709ea7c84e2a081643834-c4220ca0a172.mp3",
