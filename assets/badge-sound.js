@@ -20,11 +20,12 @@ function stop() {
   current = null;
 }
 
-// An announcement has no badge to light up, so the button is optional.
-function play(button = null) {
+// An announcement has no badge to light up, so the button is optional. Badges
+// take turns with the clips; a caller that names one leaves that rotation alone.
+function play(button = null, clip = null) {
   stop();
-  const audio = new Audio(clips[next]);
-  next = (next + 1) % clips.length;
+  const audio = new Audio(clip ?? clips[next]);
+  if (!clip) next = (next + 1) % clips.length;
   audio.volume = 0.85;
   const playing = (current = { audio, button });
   button?.classList.add("is-playing");
@@ -36,8 +37,20 @@ function play(button = null) {
   audio.play().catch(done);
 }
 
+// Easter egg: hammering any cover art three times inside a second sings the title line.
+const artTaps = 3, artWindow = 1000;
+let taps = [];
+function tapArt(at) {
+  taps = [...taps.filter((tap) => at - tap < artWindow), at];
+  if (taps.length < artTaps) return;
+  taps = [];
+  play(null, clips[1]);
+}
+
 export function mountBadgeSounds(root = document) {
   root.addEventListener("click", (event) => {
+    // The click keeps its usual job, such as opening a pending row.
+    if (event.target.closest?.(".track-art")) return tapArt(event.timeStamp);
     const button = event.target.closest?.(".badge-sound");
     if (!button) return;
     // Badges can sit inside a <summary>; a click here plays audio instead of toggling the row.

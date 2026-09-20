@@ -124,6 +124,32 @@ test("9/11'd Again badges play a line without toggling the row", async ({ page }
   }
 });
 
+test("three quick clicks on cover art sing the 9/11'd Again line", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__played = [];
+    HTMLMediaElement.prototype.play = function () {
+      if (this.src.includes("/assets/sounds/")) window.__played.push(new URL(this.src).pathname);
+      return Promise.resolve();
+    };
+  });
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
+  await page.goto("/");
+  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
+  // Unhurried clicks are just clicks.
+  await art.click();
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 2 });
+  expect(await page.evaluate(() => window.__played)).toEqual([]);
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 3 });
+  expect(await page.evaluate(() => window.__played)).toEqual(["/assets/sounds/nine-elevend-again.mp3"]);
+  // The egg leaves the badge's own rotation where it was.
+  await page.locator(`.pending-track[data-id="${failed.id}"] button.badge-sound`).click();
+  expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/one-loud-crash.mp3");
+});
+
 test("a request that goes 9/11'd announces itself once", async ({ page }) => {
   await page.addInitScript(() => {
     window.__played = [];
