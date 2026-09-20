@@ -39,8 +39,8 @@ function play(button = null, clip = null) {
 
 // Easter egg: hammering any cover art three times inside a second sings every clip in turn,
 // the title line first. It keeps its own place so it never disturbs the badges' rotation.
-// The picture shakes, flashes and gasps for as long as the shorter clip.
-const artTaps = 3, artWindow = 1000, artShockMs = 2400;
+// The picture shakes, flashes and gasps for a bit longer than the shorter clip.
+const artTaps = 3, artWindow = 1000, artShockMs = 3400;
 let taps = [];
 let artNext = 1;
 const shocked = new WeakMap();

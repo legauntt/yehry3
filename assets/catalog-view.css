@@ -9,7 +9,7 @@
 /* Quick taps on the art are an easter egg, not a double-tap zoom. */
 .track-art { display: block; width: 82px; height: auto; aspect-ratio: 6 / 5; object-fit: cover; border-radius: 7px; touch-action: manipulation; }
 /* Easter egg: hammered art shakes and flashes, then settles. badge-sound.js sets --egg-ms. */
-.track-art.egg-shock { position: relative; z-index: 1; animation: egg-shock var(--egg-ms, 2.4s) linear; }
+.track-art.egg-shock { position: relative; z-index: 1; animation: egg-shock var(--egg-ms, 3.4s) linear; }
 @keyframes egg-shock {
   4% { transform: translate(-6px, 3px) rotate(-6deg) scale(1.14); filter: hue-rotate(60deg) saturate(3) brightness(1.5); opacity: 1; }
   10% { transform: translate(6px, -4px) rotate(6deg) scale(1.14); filter: hue-rotate(140deg) saturate(3) brightness(1.2); opacity: 1; }

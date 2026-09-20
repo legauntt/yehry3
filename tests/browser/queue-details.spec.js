@@ -150,7 +150,7 @@ test("three quick clicks on cover art sing every clip in turn", async ({ page })
   // The picture shakes and gasps, then goes back to normal.
   await expect(art).toHaveClass(/egg-shock/);
   await expect.poll(() => art.getAttribute("src")).not.toBe(calm);
-  await expect(art).not.toHaveClass(/egg-shock/, { timeout: 4000 });
+  await expect(art).not.toHaveClass(/egg-shock/, { timeout: 5000 });
   expect(await art.getAttribute("src")).toBe(calm);
   await page.waitForTimeout(1100);
   await art.click({ clickCount: 3 });
