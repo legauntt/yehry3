@@ -8,6 +8,16 @@
 .catalog-view-switch svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; }
 /* Quick taps on the art are an easter egg, not a double-tap zoom. */
 .track-art { display: block; width: 82px; height: auto; aspect-ratio: 6 / 5; object-fit: cover; border-radius: 7px; touch-action: manipulation; }
+/* Easter egg: while the sound loads the art pulses, but only if it is slow enough to notice. */
+.track-art.egg-loading { animation: egg-loading .7s ease-in-out .25s infinite alternate; cursor: progress; }
+@keyframes egg-loading {
+  from { opacity: .55; filter: saturate(.4) brightness(.9); transform: scale(.97); }
+  to { opacity: 1; filter: saturate(1.3) brightness(1.15); transform: scale(1.03); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .track-art.egg-loading { animation: egg-loading-still 0s .25s forwards; }
+  @keyframes egg-loading-still { to { opacity: .55; filter: saturate(.4); } }
+}
 /* Easter egg: hammered art shakes and flashes, then settles. badge-sound.js sets --egg-ms. */
 .track-art.egg-shock { position: relative; z-index: 1; animation: egg-shock var(--egg-ms, 3.4s) linear; }
 @keyframes egg-shock {

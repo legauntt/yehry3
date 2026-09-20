@@ -108,6 +108,19 @@ function shock(art, ms = artShockMs) {
     if (src) art.setAttribute("src", (gasping = src));
   }).catch(() => {});
 }
+// The art pulses while the sound loads (the stylesheet holds that back if it is quick), then shakes.
+const loadingArt = new WeakMap();
+function whenHeard(art, heard, ms) {
+  const token = {};
+  loadingArt.set(art, token);
+  art.classList.add("egg-loading");
+  heard.then((ok) => {
+    if (loadingArt.get(art) !== token) return;
+    loadingArt.delete(art);
+    art.classList.remove("egg-loading");
+    if (ok) shock(art, ms);
+  });
+}
 function tapArt(art, at) {
   taps = [...taps.filter((tap) => at - tap < artWindow), at];
   loadMoments();
@@ -118,10 +131,10 @@ function tapArt(art, at) {
   if (moment) {
     artSong = moment.id;
     // The picture waits for the sound, which may need a moment to load.
-    play(null, moment).then((heard) => heard && shock(art, Math.max(artShockMs, (moment.end - moment.start) * 1000 + 400)));
+    whenHeard(art, play(null, moment), Math.max(artShockMs, (moment.end - moment.start) * 1000 + 400));
     return;
   }
-  play(null, clips[artNext]).then((heard) => heard && shock(art));
+  whenHeard(art, play(null, clips[artNext]), artShockMs);
   artNext = (artNext + 1) % clips.length;
 }
 

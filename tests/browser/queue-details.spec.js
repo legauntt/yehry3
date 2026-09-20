@@ -231,8 +231,12 @@ test("cover art holds still until its sound has loaded", async ({ page }) => {
   await expect.poll(() => page.evaluate(() => window.__release.length)).toBe(1);
   await page.waitForTimeout(700);
   await expect(art).not.toHaveClass(/egg-shock/);
+  // It pulses while it waits, and the pulse gives way to the shake.
+  await expect(art).toHaveClass(/egg-loading/);
+  expect(await art.evaluate(node => getComputedStyle(node).animationName)).toBe("egg-loading");
   await page.evaluate(() => window.__release[0]());
   await expect(art).toHaveClass(/egg-shock/);
+  await expect(art).not.toHaveClass(/egg-loading/);
   // A sound that is replaced before it loads never gets its animation.
   await expect(art).not.toHaveClass(/egg-shock/, { timeout: 5000 });
   await page.waitForTimeout(1100);
@@ -242,6 +246,7 @@ test("cover art holds still until its sound has loaded", async ({ page }) => {
   await expect.poll(() => page.evaluate(() => window.__release.length)).toBe(3);
   await page.evaluate(() => { window.__release[1](); window.__release[2](); });
   await expect(art).toHaveClass(/egg-shock/);
+  await expect(art).not.toHaveClass(/egg-loading/);
 });
 
 test("a request that goes 9/11'd announces itself once", async ({ page }) => {
