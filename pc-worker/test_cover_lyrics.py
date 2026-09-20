@@ -29,6 +29,8 @@ class CoverLyricsTests(unittest.TestCase):
                          {'track_name': 'Harbor Lantern', 'artist_name': 'The Tide Pools'})
         self.assertEqual(queries('A cover of Harbor Lantern by The Tide Pools')[0],
                          {'track_name': 'Harbor Lantern', 'artist_name': 'The Tide Pools'})
+        self.assertEqual(queries('Tony C covers Captain Foghorn covering The Tide Pools\' "Harbor Lantern"')[0],
+                         {'track_name': 'Harbor Lantern', 'artist_name': 'The Tide Pools'})
         self.assertEqual(queries('whatever', {'artist': 'The Tide Pools', 'title': 'Harbor Lantern'})[0],
                          {'track_name': 'Harbor Lantern', 'artist_name': 'The Tide Pools'})
 

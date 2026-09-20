@@ -53,7 +53,8 @@ def queries(text, hint=None):
     rest = (text[match.end():] if match else text).split('\n')[0]
     rest = re.sub(r'^\s*(?:of|version of)\b', '', rest, flags=re.I)
     possessive = re.search(r"([^\"“”\n]{1,80}?)['’]s?\s+[\"“]([^\"“”\n]{1,120})[\"”]", rest)
-    if possessive: add(possessive.group(2), possessive.group(1))
+    # "covers X covering Y's "Song"": the writer of the words is the artist nearest the title.
+    if possessive: add(possessive.group(2), COVER.split(possessive.group(1))[-1])
     by = re.search(r'["“]([^"“”\n]{1,120})["”]\s+(?:by|from)\s+([^.,;()\n]{1,80})', text, re.I)
     if by: add(by.group(1), by.group(2))
     plain = re.search(r'^\s*(?:the song\s+)?([^"“”\n]{1,120}?)\s+by\s+([^.,;()\n]{1,80})', rest, re.I)
