@@ -173,6 +173,24 @@ test('original comparison switches real playback and preserves each position on 
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
+test('the comparison arrives collapsed, opens from the compare link, and stops the original when closed', async ({ page }) => {
+  await setup(page);
+  const remix = { ...song, remixOf: { songId: 'original-recording', title: 'The original recording', url: song.url } };
+  await page.route(`**/songs/${song.id}.json`, route => route.fulfill({ json: remix }));
+  await page.route(`**/yehry3/songs/${song.id}`, route => route.fulfill({ json: { song: remix } }));
+  await page.goto(`/lyrics/?song=${song.id}`);
+  const panel = page.locator('#compare-original'), original = panel.locator('audio');
+  await expect(panel.getByRole('heading', { name: 'Compare with the original' })).toBeVisible();
+  await expect(original).toBeHidden();
+  await page.getByRole('link', { name: `Compare ${song.title} with The original recording` }).click();
+  await expect(original).toBeVisible();
+  await page.getByRole('button', { name: 'Play original', exact: true }).click();
+  await expect.poll(() => original.evaluate(audio => audio.currentTime)).toBeGreaterThan(0);
+  await panel.locator('summary').click();
+  await expect(original).toBeHidden();
+  await expect.poll(() => original.evaluate(audio => audio.paused)).toBe(true);
+});
+
 test('cards distinguish ready, unavailable, expired and unknown sources before opening the form', async ({ page }) => {
   const songs = [song, { ...song, id: 'not-ready', title: 'Not ready', remixAvailability: { status: 'unavailable' } },
     { ...song, id: 'expired', title: 'Expired source', remixAvailability: { status: 'ready', expiresAt: '2000-01-01T00:00:00Z' } },

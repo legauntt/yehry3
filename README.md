@@ -60,7 +60,9 @@ Every view that represents a song or a request carries the same badge row: the T
 - Attached remixes put **What should change?**, **What should stay?**, and **May the lyrics change?**
   in Essentials. The choice between retaining supplied words and allowing adaptation remains in the
   confirmed brief. The form explains that melody and timing may change.
-- Published remixes link to their original on the lyric page. **Play original** and **Play remix**
+- Published remixes link to their original on the lyric page. **Compare with the original** starts
+  collapsed and opens on demand; the **Compare with original** link and the `#compare-original`
+  deep link expand it, and collapsing it stops the original. **Play original** and **Play remix**
   switch playback without overlap, retaining each recording's independent position. The original's
   direct lyric-page link, native audio controls, and mobile layout remain available.
 - Songs sharing a title show a short word alias (for example, **glow-wup**) beside the title and in the collection player. Aliases use at most 10 characters including the hyphen. They derive from song IDs using a fixed vocabulary, with rare word-pair collisions resolved in fixed ID order across the full title group; sorting, filtering, favorites, pagination, reloads and devices preserve them. Release date/time remains available on hover in Pacific time (PST/PDT), and existing relative ages remain visible.

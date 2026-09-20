@@ -2359,6 +2359,10 @@ button.lyric-line:hover {
 [data-remix] { display: inline-flex; flex-wrap: wrap; align-items: center; gap: .6rem; }
 .remix-unavailable { opacity: .75; }
 .remix-comparison { margin: 1.5rem 0; padding: 1rem; border: 1px solid var(--line, #bbb); border-radius: .6rem; }
+.remix-comparison > summary { display: list-item; padding: .3rem 0; cursor: pointer; list-style-position: inside; }
+.remix-comparison > summary h2 { display: inline; margin: 0; }
+.remix-comparison > summary:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.remix-comparison[open] > summary { margin-bottom: .2rem; }
 .remix-comparison audio { display: block; width: 100%; margin-top: .8rem; }
 .remix-comparison h2 { font-size: 1.25rem; }
 @media print { .remix-comparison { display: none; } }
