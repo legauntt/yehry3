@@ -35,6 +35,7 @@ for (const file of [
   "basis-songs.json",
   "fearhunger",
   "arabic",
+  "oeuful",
   "v9",
   "wiseau",
   "robots.txt",

@@ -52,6 +52,15 @@
       }
     },
     {
+      "route": "/oeuful",
+      "redirect": "/oeuful/",
+      "statusCode": 302
+    },
+    {
+      "route": "/oeuful/*",
+      "headers": { "Cache-Control": "no-cache" }
+    },
+    {
       "route": "/v9",
       "redirect": "/v9/epochs/",
       "statusCode": 302

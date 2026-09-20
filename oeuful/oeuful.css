@@ -1,0 +1,102 @@
+/* Œuful: a DJ booth for the endless easter egg. The booth is always dark, whatever the site theme. */
+:root { color-scheme: dark; --booth: #14110e; --plinth: #2b2622; --plinth-edge: #4a423b; --metal: #b9b2a6; --cream: #f3ead6; --dim: #9a9082; --egg: #ffe94a; --hot: #ff5a4f; --go: #3ddc84; }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; background: radial-gradient(ellipse at 50% -10%, #3a2f25 0, var(--booth) 62%) fixed var(--booth); color: var(--cream); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+a { color: var(--egg); }
+.booth { width: min(1080px, 100%); margin: 0 auto; padding: 14px 16px 28px; }
+.booth-top { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+.booth-home { color: var(--dim); font-size: .8rem; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+.booth-home:hover { color: var(--egg); }
+.booth-top h1 { margin: 0; color: var(--egg); font: 900 1.9rem/1 "Arial Black", Impact, system-ui, sans-serif; letter-spacing: .04em; text-transform: uppercase; text-shadow: 3px 3px 0 #000; }
+.booth-tag { margin: 0; color: var(--dim); font-size: .85rem; }
+
+/* The picture sits at the top so its comic caption always has room underneath. */
+.stage { display: grid; grid-template-columns: 1fr minmax(220px, 300px) 1fr; grid-template-areas: "a monitor b"; gap: 22px; align-items: start; }
+.monitor { grid-area: monitor; display: grid; justify-items: center; padding-bottom: 150px; }
+.monitor .track-art { width: 100%; max-width: 300px; border: 4px solid #000; border-radius: 12px; box-shadow: 0 0 0 2px var(--plinth-edge), 0 18px 40px rgba(0, 0, 0, .55); background: var(--egg); user-select: none; }
+#deck-a { grid-area: a; }
+#deck-b { grid-area: b; }
+
+.deck { position: relative; width: 100%; max-width: 330px; aspect-ratio: 1 / 1.08; justify-self: center; border: 2px solid var(--plinth-edge); border-radius: 14px; background: linear-gradient(160deg, #38322c, var(--plinth) 45%, #1d1a17); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 14px 30px rgba(0, 0, 0, .5); }
+.platter { position: absolute; left: 5%; top: 9%; width: 78%; aspect-ratio: 1; border-radius: 50%; background: repeating-conic-gradient(#8d867a 0 1.4deg, #2a2622 1.4deg 4deg); box-shadow: 0 3px 8px rgba(0, 0, 0, .6); }
+.platter::before { content: ""; position: absolute; inset: 4%; border-radius: 50%; background: #0d0c0b; }
+.spindle { position: absolute; left: 50%; top: 50%; width: 4%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff, var(--metal) 45%, #55504a); }
+.record { position: absolute; inset: 5%; border-radius: 50%; box-shadow: 0 2px 6px rgba(0, 0, 0, .7); }
+/* The sheen is the room's light, so it stays put while the record turns under it. */
+.record::after { content: ""; position: absolute; inset: 0; border-radius: 50%; pointer-events: none; background: conic-gradient(from 20deg, transparent 0 25deg, rgba(255, 255, 255, .13) 45deg, transparent 65deg 205deg, rgba(255, 255, 255, .1) 225deg, transparent 245deg); }
+.record-spin { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 50%; background: repeating-radial-gradient(circle, #121212 0 1.5px, #1f1f1f 1.5px 3px); }
+.record-label { width: 40%; height: auto; aspect-ratio: 1; border: 2px solid #000; border-radius: 50%; object-fit: cover; background: var(--egg); user-select: none; }
+.deck[data-state="empty"] .record { visibility: hidden; }
+.record.is-arriving { animation: record-in .55s cubic-bezier(.2, .9, .3, 1.15); }
+.deck[data-state="ejecting"] .record { animation: record-out .45s ease-in forwards; }
+/* 33⅓ turns a minute is one turn every 1.8 seconds. */
+.deck[data-state="playing"] .record-spin { animation: record-turn 1.8s linear infinite; }
+/* A cued record is rocked back and forth under the needle, the way a DJ finds the downbeat. */
+.deck[data-state="cued"] .record-spin { animation: record-cue 1.2s ease-in-out infinite alternate; }
+.deck.is-stalled .record-spin { animation-play-state: paused; }
+@keyframes record-turn { to { rotate: 360deg; } }
+@keyframes record-cue { from { rotate: -16deg; } to { rotate: 12deg; } }
+@keyframes record-in { from { translate: 0 -120%; rotate: -50deg; opacity: 0; } }
+@keyframes record-out { to { translate: 0 -120%; rotate: 40deg; opacity: 0; } }
+
+/* The arm hangs from its pivot: resting clear of the record, hovering at the edge when cued, and creeping inward across the side as it plays. */
+.tonearm { position: absolute; left: 86.5%; top: 8%; width: 3%; height: 60%; border-radius: 99px; background: linear-gradient(90deg, #6e685f, #e6dfd2 45%, #6e685f); transform-origin: 50% 6%; rotate: -2deg; transition: rotate .45s ease-out; box-shadow: 2px 3px 5px rgba(0, 0, 0, .5); }
+.tonearm::before { content: ""; position: absolute; left: 50%; top: 6%; width: 330%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #eee, #8b857b 55%, #3a3632); }
+.tonearm-weight { position: absolute; left: -45%; top: -7%; width: 190%; height: 11%; border-radius: 4px; background: #15130f; }
+.tonearm-head { position: absolute; left: -75%; bottom: -2%; width: 250%; height: 13%; border-radius: 3px; background: #15130f; border-bottom: 3px solid var(--egg); rotate: 18deg; }
+.deck[data-state="cued"] .tonearm { rotate: 14deg; }
+.deck[data-state="playing"] .tonearm { rotate: 27deg; transition: rotate var(--side-ms, 8s) linear; }
+.deck-led { position: absolute; left: 7%; bottom: 5%; width: 3.6%; aspect-ratio: 1; border-radius: 50%; background: #3a1512; box-shadow: inset 0 0 2px #000; }
+.deck[data-state="cued"] .deck-led { background: #ffb02e; animation: led-blink .8s steps(2, jump-none) infinite; }
+.deck[data-state="playing"] .deck-led { background: var(--hot); box-shadow: 0 0 8px var(--hot); }
+@keyframes led-blink { to { opacity: .25; } }
+.deck-name { position: absolute; right: 6%; bottom: 3.5%; color: var(--plinth-edge); font: 900 1.3rem/1 "Arial Black", Impact, sans-serif; }
+.deck-title { position: absolute; left: 14%; right: 18%; bottom: 3.5%; margin: 0; overflow: hidden; color: var(--dim); font-size: .72rem; letter-spacing: .05em; line-height: 1.5; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.deck[data-state="playing"] .deck-title { color: var(--cream); }
+
+.mixer { display: grid; grid-template-columns: 1fr auto 1fr; grid-template-areas: "now now now" "meters transport volume" "crate xfader tally"; gap: 12px 20px; align-items: center; margin-top: 20px; padding: 14px 18px; border: 2px solid var(--plinth-edge); border-radius: 14px; background: linear-gradient(180deg, #2f2a25, #1b1815); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .07); }
+.now { grid-area: now; margin: 0; min-height: 1.4em; text-align: center; font-size: .95rem; }
+.transport { grid-area: transport; display: flex; gap: 10px; justify-content: center; }
+.pad { padding: 11px 18px; border: 2px solid #000; border-radius: 9px; background: #4a423b; box-shadow: 0 4px 0 #000; color: var(--cream); font: 800 .85rem/1 system-ui, sans-serif; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; }
+.pad:active:not(:disabled) { translate: 0 3px; box-shadow: 0 1px 0 #000; }
+.pad:disabled { opacity: .45; cursor: default; }
+.pad:focus-visible, .volume input:focus-visible { outline: 3px solid var(--egg); outline-offset: 2px; }
+.pad-start { background: var(--egg); color: #111; }
+.pad-start[aria-pressed="true"] { background: var(--hot); color: #fff; }
+.xfader { grid-area: xfader; display: flex; gap: 8px; align-items: center; justify-self: center; color: var(--dim); font-weight: 800; font-size: .75rem; }
+.xfader-track { position: relative; width: 150px; height: 8px; border-radius: 4px; background: #0b0a09; box-shadow: inset 0 1px 2px #000; }
+.xfader-knob { position: absolute; top: 50%; left: 8%; width: 16px; height: 26px; translate: -50% -50%; border: 1px solid #000; border-radius: 3px; background: linear-gradient(90deg, #8d867a, #eee6d8 45%, #8d867a); transition: left .22s ease-in-out; }
+.mixer[data-live="B"] .xfader-knob { left: 92%; }
+.meters { grid-area: meters; display: grid; gap: 5px; width: min(150px, 100%); }
+.vu { display: block; height: 7px; border-radius: 4px; background: linear-gradient(90deg, var(--go) 0 60%, var(--egg) 60% 85%, var(--hot) 85%); clip-path: inset(0 96% 0 0); }
+.booth[data-state="playing"] .vu { animation: vu 1.3s ease-in-out infinite; }
+.booth[data-state="playing"] .vu + .vu { animation-duration: .97s; animation-direction: reverse; }
+@keyframes vu { 0% { clip-path: inset(0 55% 0 0); } 12% { clip-path: inset(0 18% 0 0); } 27% { clip-path: inset(0 42% 0 0); } 41% { clip-path: inset(0 9% 0 0); } 58% { clip-path: inset(0 35% 0 0); } 73% { clip-path: inset(0 14% 0 0); } 88% { clip-path: inset(0 48% 0 0); } 100% { clip-path: inset(0 55% 0 0); } }
+.volume { grid-area: volume; display: flex; gap: 8px; align-items: center; justify-self: end; color: var(--dim); font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.volume input { width: 120px; accent-color: var(--egg); }
+.crate { grid-area: crate; display: flex; gap: 7px; }
+.crate i { width: 22px; height: 22px; border: 1.5px solid var(--plinth-edge); border-radius: 50%; background: radial-gradient(circle, var(--egg) 0 24%, #000 26% 32%, #2a2622 34%); opacity: .25; }
+.crate .is-ready { opacity: 1; }
+.crate .is-loading { animation: crate-pulse .7s ease-in-out infinite alternate; }
+@keyframes crate-pulse { from { opacity: .2; } to { opacity: .7; } }
+.tally { grid-area: tally; margin: 0; justify-self: end; color: var(--dim); font-size: .78rem; text-align: right; }
+.booth-footer { margin-top: 16px; color: var(--dim); font-size: .78rem; text-align: center; }
+.booth-footer p { margin: 0; }
+.deployment-footer { padding: 0 16px 16px; color: var(--dim); text-align: center; }
+
+@media (max-width: 760px) {
+  .stage { grid-template-columns: 1fr 1fr; grid-template-areas: "monitor monitor" "a b"; gap: 12px; }
+  /* The gasping picture swells and tilts, so it keeps clear of the heading. */
+  .monitor { padding: 14px 0 138px; }
+  .monitor .track-art { max-width: 250px; }
+  .booth-top h1 { font-size: 1.5rem; }
+  .deck-title { font-size: .6rem; }
+  .deck-name { font-size: 1rem; }
+  .mixer { grid-template-columns: 1fr 1fr; grid-template-areas: "now now" "transport transport" "xfader xfader" "meters volume" "crate tally"; padding: 12px; }
+  .pad { padding: 11px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .record.is-arriving, .deck[data-state="ejecting"] .record, .deck[data-state="cued"] .record-spin, .deck[data-state="playing"] .record-spin, .deck[data-state="cued"] .deck-led, .booth[data-state="playing"] .vu, .crate .is-loading { animation: none; }
+  .deck[data-state="ejecting"] .record { visibility: hidden; }
+  .tonearm, .deck[data-state="playing"] .tonearm, .xfader-knob { transition: none; }
+}

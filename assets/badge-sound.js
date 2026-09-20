@@ -129,7 +129,8 @@ function loadMoments() {
 }
 const weighted = (clip) => eggWeight(clip, votes.get(clip.id));
 
-function shock(art, ms, audio, caption) {
+// Exported for Œuful (/oeuful), which plays the egg back to back on a picture of its own.
+export function shock(art, ms, audio, caption) {
   shocked.get(art)?.();
   art.classList.remove("egg-shock");
   void art.offsetWidth;

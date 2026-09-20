@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta name="description" content="All egg, no chicken: an endless mix of sung moments from the yehry3 collection.">
+    <meta name="theme-color" content="#14110e">
+    <title>Œuful · yehry3</title>
+    <link rel="stylesheet" href="/assets/catalog-view.css">
+    <link rel="stylesheet" href="/oeuful/oeuful.css">
+    <script type="module" src="/oeuful/oeuful.js"></script>
+  </head>
+  <body>
+    <main class="booth" id="booth" data-state="loading">
+      <header class="booth-top">
+        <a class="booth-home" href="/">yehry3</a>
+        <h1>Œuful</h1>
+        <p class="booth-tag">All egg, no chicken.</p>
+      </header>
+      <section class="stage" aria-label="DJ booth">
+        <div class="monitor">
+          <img class="track-art" id="art" src="/oeuful/egg.svg" alt="An egg, waiting." width="240" height="200" decoding="async">
+        </div>
+        <div class="deck" id="deck-a" data-deck="A" data-state="empty"></div>
+        <div class="deck" id="deck-b" data-deck="B" data-state="empty"></div>
+      </section>
+      <section class="mixer" id="mixer" data-live="A" aria-label="Mixer">
+        <p class="now" id="now" role="status">Digging through the crate…</p>
+        <div class="transport">
+          <button type="button" class="pad pad-start" id="start" disabled>Drop the needle</button>
+          <button type="button" class="pad" id="skip" disabled>Next record</button>
+        </div>
+        <div class="xfader" aria-hidden="true"><span>A</span><div class="xfader-track"><i class="xfader-knob"></i></div><span>B</span></div>
+        <div class="meters" aria-hidden="true"><i class="vu"></i><i class="vu"></i></div>
+        <label class="volume">Vol <input type="range" id="volume" min="0" max="1" step="0.05" value="0.85"></label>
+        <div class="crate" id="crate" role="img" aria-label="Crate: nothing cued yet"></div>
+        <p class="tally"><span id="crate-text">Crate: 0 cued</span> · <span id="tally">0 sides played</span></p>
+      </section>
+      <noscript><p class="now">Enable JavaScript to open the booth.</p></noscript>
+      <footer class="booth-footer">
+        <p>Random sung moments, back to back, forever. Space starts and stops; N or → skips.</p>
+      </footer>
+    </main>
+  </body>
+</html>
