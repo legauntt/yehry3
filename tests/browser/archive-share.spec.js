@@ -168,3 +168,14 @@ test("request form: sticky breadcrumb between Essentials and Advanced, and short
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
+
+test("Backstage says so, instead of erroring, when the studio API has no song archive yet", async ({ page, baseURL }) => {
+  const headers = { "access-control-allow-origin": baseURL };
+  await page.route("**/yehry3/admin/songs?**", (route) => route.request().method() === "OPTIONS"
+    ? route.continue() : route.fulfill({ status: 404, headers, json: { error: "Endpoint not found." } }));
+  await adminLogin(page);
+  await page.locator(".admin-songs > summary").click();
+  await expect(page.locator("#song-list")).toContainText("isn’t available from the studio API yet");
+  await expect(page.locator(".stats")).toBeVisible();
+  await expect(page.locator("#message")).toBeHidden();
+});
