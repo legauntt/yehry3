@@ -1,5 +1,6 @@
 import { cp, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { eggClips } from "../assets/egg-clips.js";
 import { songAlias } from "../assets/song-links.js";
 import { songSummary } from "../assets/song-summary.js";
 const root = path.resolve(import.meta.dirname, "..");
@@ -47,6 +48,7 @@ for (const song of catalog.songs) {
   await writeFile(path.join(output, "songs", `${song.id}.json`), JSON.stringify(song));
 }
 await writeFile(path.join(output, "catalog-summary.json"), JSON.stringify({ songs: catalog.songs.map(songSummary) }));
+await writeFile(path.join(output, "egg-clips.json"), JSON.stringify({ clips: eggClips(catalog.songs) }));
 // A long-lived tab compares this against the stamp baked into its own pages and
 // offers a refresh when a newer build has shipped.
 await writeFile(path.join(output, "deployment.json"), JSON.stringify({ updatedAt: updatedAt.toISOString(), updatedLabel }));

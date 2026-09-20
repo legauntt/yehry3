@@ -135,6 +135,8 @@ test("three quick clicks on cover art sing every clip in turn", async ({ page })
   await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
+  // With no song moments to draw on, the egg sings the fixed clips.
+  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [] } }));
   await page.goto("/");
   const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
   // Unhurried clicks are just clicks.
@@ -161,6 +163,50 @@ test("three quick clicks on cover art sing every clip in turn", async ({ page })
   // The egg leaves the badge's own rotation where it was.
   await page.locator(`.pending-track[data-id="${failed.id}"] button.badge-sound`).click();
   expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/one-loud-crash.mp3");
+});
+
+test("after the title line, hammered cover art sings moments from recordings", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__played = [];
+    window.__plays = [];
+    HTMLMediaElement.prototype.play = function () {
+      const url = new URL(this.src);
+      if (url.pathname.startsWith("/assets/sounds/")) window.__played.push(url.pathname);
+      else window.__plays.push({ src: url.pathname, start: this.currentTime, gain: this.volume });
+      return Promise.resolve();
+    };
+    // Never draw a fixed clip: the odds of one are one in five.
+    Math.random = () => 0.9;
+  });
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
+  const requests = [];
+  page.on("request", request => { if (request.url().includes("/egg-clips.json")) requests.push(request.url()); });
+  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [
+    { id: "one", title: "One", url: "/one.mp3", moments: [[12.5, 15.5]] },
+    { id: "two", title: "Two", url: "/two.mp3", moments: [[3, 6]] },
+  ] } }));
+  await page.route(/\/(one|two)\.mp3$/, route => route.fulfill({ status: 200, contentType: "audio/mpeg", body: "" }));
+  await page.goto("/");
+  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
+  expect(requests).toEqual([]);
+  await art.click({ clickCount: 3 });
+  expect(requests).toHaveLength(1);
+  // The first hammering is always the title line.
+  expect(await page.evaluate(() => window.__played)).toEqual(["/assets/sounds/nine-elevend-again.mp3"]);
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 3 });
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 3 });
+  const plays = await page.evaluate(() => window.__plays);
+  expect(plays).toHaveLength(2);
+  // Each starts at its sung line, and the same song never sings twice in a row.
+  expect(plays.map(play => play.start)).toEqual(expect.arrayContaining([12.5, 3]));
+  expect(new Set(plays.map(play => play.src)).size).toBe(2);
+  expect(requests).toHaveLength(1);
+  // The picture keeps shaking for the length of the moment.
+  await expect(art).toHaveClass(/egg-shock/);
 });
 
 test("a request that goes 9/11'd announces itself once", async ({ page }) => {

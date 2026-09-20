@@ -1,6 +1,7 @@
 // "9/11'd Again" badges sing a line from the song of the same name when clicked.
 // Clips load only on the first click, so the badge costs nothing until someone presses it.
 import { recoveryStatus } from "./recovery.js";
+import { pickEggMoment } from "./egg-clips.js";
 
 const clips = ["/assets/sounds/one-loud-crash.mp3", "/assets/sounds/nine-elevend-again.mp3"];
 const soundStatuses = new Set(["failed", "attention"]);
@@ -15,23 +16,38 @@ export const badgeSoundIcon =
 
 function stop() {
   if (!current) return;
+  clearInterval(current.watch);
   current.audio.pause();
   current.button?.classList.remove("is-playing");
   current = null;
 }
 
 // An announcement has no badge to light up, so the button is optional. Badges
-// take turns with the clips; a caller that names one leaves that rotation alone.
+// take turns with the clips; a caller that names one leaves that rotation alone. A clip
+// can also be a moment of a song, { url, start, end }, which fades out at its end.
+const volume = 0.85, fadeSeconds = 0.25;
 function play(button = null, clip = null) {
   stop();
-  const audio = new Audio(clip ?? clips[next]);
+  const moment = clip && typeof clip === "object" ? clip : null;
+  const audio = new Audio(moment ? moment.url : clip ?? clips[next]);
   if (!clip) next = (next + 1) % clips.length;
-  audio.volume = 0.85;
+  audio.volume = volume;
   const playing = (current = { audio, button });
   button?.classList.add("is-playing");
   const done = () => {
     if (current === playing) stop();
   };
+  if (moment) {
+    // Browsers differ on when a seek is honoured, so ask now and again once the length is known.
+    const seek = () => { if (audio.currentTime < moment.start) audio.currentTime = moment.start; };
+    seek();
+    audio.addEventListener("loadedmetadata", seek);
+    playing.watch = setInterval(() => {
+      const left = moment.end - audio.currentTime;
+      if (left <= 0) done();
+      else if (left < fadeSeconds) audio.volume = volume * (left / fadeSeconds);
+    }, 40);
+  }
   audio.addEventListener("ended", done);
   audio.addEventListener("error", done);
   audio.play().catch(done);
@@ -39,20 +55,36 @@ function play(button = null, clip = null) {
 
 // Easter egg: hammering any cover art three times inside a second sings every clip in turn,
 // the title line first. It keeps its own place so it never disturbs the badges' rotation.
-// The picture shakes, flashes and gasps for a bit longer than the shorter clip.
-const artTaps = 3, artWindow = 1000, artShockMs = 3400;
+// The picture shakes, flashes and gasps for a bit longer than the shorter clip. The first
+// hammering sings the title line; after that most sing a random moment from a recording,
+// and one in five sings the fixed clips again.
+const artTaps = 3, artWindow = 1000, artShockMs = 3400, artFixedOdds = 0.2;
 let taps = [];
 let artNext = 1;
+let artHeard = false;
+let artSong = null;
 const shocked = new WeakMap();
-function shock(art) {
+
+// The sung moments are built with the site and fetched once, as the first tap lands, so they
+// are ready by the third. If they never arrive, the egg keeps singing the fixed clips.
+let moments = null;
+let loading = null;
+function loadMoments() {
+  loading ??= fetch("/egg-clips.json")
+    .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.statusText))))
+    .then((data) => { moments = Array.isArray(data?.clips) ? data.clips : []; })
+    .catch(() => { moments = []; });
+}
+
+function shock(art, ms = artShockMs) {
   shocked.get(art)?.();
   art.classList.remove("egg-shock");
   void art.offsetWidth;
-  art.style.setProperty("--egg-ms", artShockMs + "ms");
+  art.style.setProperty("--egg-ms", ms + "ms");
   art.classList.add("egg-shock");
   const calm = art.getAttribute("src");
   let gasping = null;
-  const timer = setTimeout(() => calm && shocked.get(art)?.(), artShockMs);
+  const timer = setTimeout(() => calm && shocked.get(art)?.(), ms);
   shocked.set(art, () => {
     clearTimeout(timer);
     shocked.delete(art);
@@ -68,8 +100,17 @@ function shock(art) {
 }
 function tapArt(art, at) {
   taps = [...taps.filter((tap) => at - tap < artWindow), at];
+  loadMoments();
   if (taps.length < artTaps) return;
   taps = [];
+  const moment = artHeard && moments?.length && Math.random() >= artFixedOdds ? pickEggMoment(moments, Math.random, artSong) : null;
+  artHeard = true;
+  if (moment) {
+    artSong = moment.id;
+    play(null, moment);
+    shock(art, Math.max(artShockMs, (moment.end - moment.start) * 1000 + 400));
+    return;
+  }
   play(null, clips[artNext]);
   artNext = (artNext + 1) % clips.length;
   shock(art);
