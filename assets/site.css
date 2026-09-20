@@ -966,6 +966,10 @@ main {
   cursor: default;
   opacity: .62;
 }
+.song-action[aria-disabled="true"] {
+  cursor: help;
+  opacity: .62;
+}
 .art-remix {
   width: min(520px, calc(100vw - 32px));
   max-height: calc(100dvh - 32px);
@@ -1010,7 +1014,32 @@ main {
   font-size: .78rem;
   font-weight: 700;
 }
-.art-remix input {
+.art-remix-mode {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+}
+.art-remix-mode label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+  margin: 0;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.art-remix-mode input {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  padding: 0;
+  accent-color: var(--ink);
+}
+.art-remix input:not([type="radio"]) {
   width: 100%;
   min-height: 44px;
   padding: 8px 12px;
@@ -1024,10 +1053,14 @@ main {
 }
 .art-remix-actions {
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
   gap: 8px;
   margin-top: 14px;
+}
+.art-remix-actions [data-art-again] {
+  margin-right: auto;
 }
 .vote {
   border: 1px solid #c6cbbb;

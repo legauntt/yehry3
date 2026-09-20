@@ -243,9 +243,18 @@ async function library() {
     const label = mine ? "📌 Pinned" : count ? "📌 Pin" : "📍 Pin";
     return `<button type="button" class="song-action" data-pin="${escape(song.id)}" aria-pressed="${mine}" aria-label="${mine ? "Unpin" : "Pin"} ${escape(song.title)}${count ? ` · ${count} shared` : ""}" ${!online || feedbackBusy ? "disabled" : ""}>${label}${count ? ` · ${count}` : ""}</button>`;
   }
+  // Chairlift allows each browser one redraw per song an hour and keeps its prompt.
+  function artRest(song) {
+    const mine = song.feedback || {}, until = Date.parse(mine.artRedrawAt || "");
+    const words = mine.artPrompt ? ` with “${mine.artPrompt}”` : "";
+    if (!mine.artRemixed || until <= Date.now()) return { resting: false, note: words ? `Your last redraw was${words}.` : "" };
+    const time = Number.isFinite(until) ? new Date(until).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) : "";
+    return { resting: true, note: `You redrew this${words}. You can redraw it again ${time ? "at " + time : "in an hour"}.` };
+  }
   function artButton(song) {
-    const mine = Boolean(song.feedback?.artRemixed);
-    return `<button type="button" class="song-action" data-art="${escape(song.id)}" aria-label="${mine ? "You already redrew the clip art for" : "Redraw the clip art for"} ${escape(song.title)}" ${mine || !online || feedbackBusy ? "disabled" : ""}>${mine ? "🎨 Redrawn" : "🎨 Redraw"}</button>`;
+    const { resting, note } = artRest(song);
+    // A resting button stays focusable and hoverable so the prompt can be read.
+    return `<button type="button" class="song-action" data-art="${escape(song.id)}" aria-label="${resting ? escape(note) : "Redraw the clip art for " + escape(song.title)}"${note ? ` title="${escape(note)}"` : ""} ${resting ? 'aria-disabled="true"' : ""} ${!online || feedbackBusy ? "disabled" : ""}>${resting ? "🎨 Redrawn" : "🎨 Redraw"}</button>`;
   }
   startRecordSinger($(".record", main), () => songs);
   let initialCatalogPending = true;
@@ -616,9 +625,11 @@ async function library() {
     if (artTrigger) {
       const song = songs.find((item) => item.id === artTrigger.dataset.art);
       if (!online || feedbackBusy || artTrigger.disabled || !song) return;
+      // Touch screens cannot hover, so a tap on a resting button says the same thing.
+      if (artRest(song).resting) return message(artRest(song).note);
       // The dialog previews the redraw, so choosing it there is the confirmation.
-      openArtRemix(song, async (remix) => {
-        await api(`/song-art/${encodeURIComponent(song.id)}`, { method: "POST", body: { remix } });
+      openArtRemix(song, async (remix, prompt) => {
+        await api(`/song-art/${encodeURIComponent(song.id)}`, { method: "POST", body: { remix, prompt } });
         message("Clip art redrawn for everyone.");
         await refresh();
       });

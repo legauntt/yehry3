@@ -166,3 +166,34 @@ test("a redraw never takes a See-saw song's mouth", () => {
   assert.match(drawn.art.alt, /black rectangle for a mouth, redrawn by listeners\.$/);
   for (let index = 0; index < 20; index++) assert.ok(!remixFromPrompt({ ...song, id: "seesaw-" + index }, "xyzzy").diced.includes("mouth"));
 });
+test("a fresh redraw rolls a whole new picture from the words and pins what they name", () => {
+  const song = { id: "fresh", title: "Robot Parade" }, base = songArtwork(song);
+  const plain = remixFromPrompt(song, "xyzzy plugh", { fresh: true });
+  assert.deepEqual(Object.keys(plain.remix), ["seed"]);
+  assert.ok(Number.isInteger(plain.remix.seed) && plain.remix.seed >= 0 && plain.remix.seed <= 0xffffffff);
+  assert.equal(plain.changed, true);
+  assert.deepEqual(plain.diced, []);
+  assert.deepEqual(remixFromPrompt(song, "XYZZY plugh", { fresh: true }).remix, plain.remix, "the same words give the same picture");
+  // Another take reseeds, and a new picture is not limited to the title's own subject.
+  const takes = Array.from({ length: 12 }, (_, again) => remixFromPrompt(song, "xyzzy plugh", { fresh: true, again }));
+  assert.equal(new Set(takes.map(take => take.remix.seed)).size, 12);
+  assert.ok(new Set(takes.map(take => take.art.theme)).size >= 6);
+  assert.ok(new Set(takes.map(take => take.art.src)).size === 12);
+  // Named traits are pinned on top of the new picture, and earlier redraws do not show through.
+  const before = { ...song, artRemix: { theme: "ghost", extra: 7, palette: 2 } };
+  const drawn = remixFromPrompt(before, "a wizard with a bow tie", { fresh: true });
+  assert.deepEqual(Object.keys(drawn.remix).sort(), ["extra", "seed", "theme"]);
+  assert.equal(drawn.art.theme, "wizard");
+  assert.equal(drawn.art.src, songArtwork({ ...song, artRemix: drawn.remix }).src);
+  assert.equal(drawn.art.remixed, true);
+  // The same words on a picture they already made still move on.
+  assert.notEqual(remixFromPrompt({ ...song, artRemix: plain.remix }, "xyzzy plugh", { fresh: true }).remix.seed, plain.remix.seed);
+  assert.deepEqual(remixFromPrompt(song, "  ", { fresh: true }).remix, {});
+  assert.equal(songArtwork({ ...song, artRemix: { seed: -4 } }).src, base.src);
+  // Award and See-saw art stay themselves through a new picture.
+  const loved = remixFromPrompt({ ...song, votes: 3 }, "anything at all", { fresh: true });
+  assert.ok(["medal", "megaphone"].includes(loved.art.theme));
+  assert.equal(loved.art.tier, 3);
+  const seesaw = remixFromPrompt({ id: "seesaw", title: "See-saw'd Again" }, "a laughing robot", { fresh: true });
+  assert.match(svgOf(seesaw.art), /<rect x="70" y="114" width="64" height="38" rx="3" fill="#000"\/>/);
+});

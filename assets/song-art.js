@@ -268,9 +268,10 @@ function stageMarkup(stage) {
   // The night stage keeps a bright spotlight so the pen outlines stay readable.
   return rays(120, 100, 12, paper, ".1") + '<circle cx="120" cy="98" r="80" fill="' + paper + '" opacity=".93"/>';
 }
-// A listener's one redraw pins some of these; every other trait keeps its roll.
-// Chairlift stores the pins as a drawing name plus indexes into the lists above.
-const remixTraits = ["theme", "palette", "pose", "prop", "extra", "eyes", "mouth", "backdrop", "confetti", "tilt", "flip"];
+// A listener's redraw pins some of these; every other trait keeps its roll. A seed
+// rolls a whole new picture first. Chairlift stores them as a number, a drawing
+// name and indexes into the lists above.
+const remixTraits = ["seed", "theme", "palette", "pose", "prop", "extra", "eyes", "mouth", "backdrop", "confetti", "tilt", "flip"];
 // Award mascots are earned with votes, so only the regular cast can be asked for.
 const cast = new Map();
 for (const entry of [...houseBand, ...themes]) if (!cast.has(entry[0])) cast.set(entry[0], entry);
@@ -278,20 +279,23 @@ function rolls(song) {
   const title = String(song.title || "Untitled song");
   const identity = String(song.id || "") + "\n" + title;
   const remix = song.artRemix && typeof song.artRemix === "object" ? song.artRemix : {};
-  const roll = (trait, size) => hash(identity + "\n" + trait) % size;
+  const seeded = Number.isInteger(remix.seed) && remix.seed >= 0;
+  const source = seeded ? identity + "\n#" + remix.seed : identity;
+  const roll = (trait, size) => hash(source + "\n" + trait) % size;
   const pick = (trait, size) => Number.isInteger(remix[trait]) && remix[trait] >= 0 ? remix[trait] % size : roll(trait, size);
-  return { title, identity, remix, roll, pick, tier: voteTier(song.votes) };
+  return { title, identity, source, seeded, remix, roll, pick, tier: voteTier(song.votes) };
 }
 const cache = new Map();
 export function songArtwork(song) {
-  const { title, identity, remix, roll, pick, tier } = rolls(song);
+  const { title, identity, source, seeded, remix, roll, pick, tier } = rolls(song);
   const pinned = remixTraits.map(trait => remix[trait] ?? "").join(",");
   const key = identity + "\n" + (tier?.votes || 0) + "\n" + pinned;
   if (cache.has(key)) return cache.get(key);
   // Titles are present in both lightweight API responses and full offline records.
   // Artwork never requires downloading lyrics or calling an image service.
   const matches = themes.filter(([, pattern]) => pattern.test(title));
-  const subjects = matches.length ? matches : houseBand;
+  // A new picture may star anyone; the title's own subject then rides along as the accent.
+  const subjects = seeded ? [...cast.values()] : matches.length ? matches : houseBand;
   const subject = cast.get(remix.theme) || subjects[roll("subject", subjects.length)];
   const [theme, , description] = tier ? tier.cast[roll("mascot", tier.cast.length)] : subject;
   // Award art keeps a small nod to the title; regular art shows a second subject.
@@ -308,7 +312,7 @@ export function songArtwork(song) {
   const seesaw = seesawTitle.test(title);
   const face = (extra?.shades && !special ? "" : special || eyes[pick("eyes", eyes.length)]()) + (seesaw ? seesawMouth : mouths[pick("mouth", mouths.length)]) + (extra && !(extra.shades && special) ? extra.draw(a, b) : "");
   const dark = tier?.stage === "legend";
-  const specks = confetti(identity, tier?.stage === "loved" ? "hearts" : tier?.votes >= 5 ? "sparkles" : pick("confetti", 4), a, b);
+  const specks = confetti(source, tier?.stage === "loved" ? "hearts" : tier?.votes >= 5 ? "sparkles" : pick("confetti", 4), a, b);
   const badgeX = flipped ? 19 : 202;
   // Tier hearts stay top right: the grid's track number covers the top-left corner.
   const badge = tier
@@ -337,8 +341,7 @@ export function songArtworkMarkup(song, escape) {
   return '<img class="track-art" src="' + escape(art.src) + '" alt="' + escape(art.alt) + '"' + (art.tier ? ' data-art-tier="' + art.tier + '"' : "") + (art.remixed ? " data-art-remixed" : "") + ' width="240" height="200" loading="lazy" decoding="async">';
 }
 
-// Redraw prompts: [trait, value, words, label]. Each trait takes its first match,
-// and the prompt itself never leaves the browser.
+// Redraw prompts: [trait, value, words, label]. Each trait takes its first match.
 const vocabulary = [
   ...[
     ["shoe", "shoes?|sneakers?|boots?"], ["burger", "burgers?|hamburger|cheeseburger|sandwich"], ["book", "books?"],
@@ -394,13 +397,20 @@ const dice = /\b(surprise|random|shuffle|anything|whatever|dealer'?s choice|roll
 // Indexes that look different from one another: empty hands and bare faces repeat.
 const distinct = { prop: [0, 3, 4, 5, 6, 7], extra: [0, 3, 4, 5, 6, 7] };
 const diceLabels = { palette: "colors", pose: "pose", prop: "prop", extra: "accessory", eyes: "eyes", mouth: "mouth", backdrop: "backdrop", confetti: "sprinkles" };
-// Turns a listener's prompt into the pins to send, layered on any earlier redraws.
-// `understood` lists what the words matched; unknown prompts roll a few dice instead.
-export function remixFromPrompt(song, prompt) {
+// Turns a listener's prompt into what to send. A `fresh` redraw seeds a whole new
+// picture from the words and pins what they name; otherwise the pins layer on the
+// picture as it is, and unknown prompts roll a few dice. `again` asks for another
+// take on the same words. `understood` lists what the words matched.
+export function remixFromPrompt(song, prompt, { fresh = false, again = 0 } = {}) {
   const words = String(prompt || "").slice(0, 80).trim();
-  const { title, identity, remix: before, pick, tier } = rolls(song);
+  const { title, identity, remix: current } = rolls(song);
+  const take = again ? "\n" + again : "";
+  let seed = hash(identity + "\n" + words.toLowerCase() + take);
+  if (seed === current.seed) seed = (seed + 1) >>> 0;
+  const before = fresh ? { seed } : current;
+  const { pick, tier } = rolls({ ...song, artRemix: before });
   const sizes = { palette: (tier?.palettes || palettes).length, pose: poses.length, prop: props.length, extra: extras.length, eyes: eyes.length, mouth: mouths.length, backdrop: backdrops.length, confetti: 4 };
-  const remix = {}, diced = [], found = new Map();
+  const remix = fresh && words ? { seed } : {}, diced = [], found = new Map();
   // When two words want the same trait, the one written first wins.
   for (const [trait, value, pattern, label] of vocabulary) {
     const at = words.search(pattern);
@@ -412,18 +422,18 @@ export function remixFromPrompt(song, prompt) {
     remix[trait] = match.value;
     return match.label;
   });
-  if (words && (!understood.length || dice.test(words))) {
+  if (words && !fresh && (!understood.length || dice.test(words))) {
     // Award art keeps its own stage, sprinkles and empty hands, and See-saw songs
     // keep their mouth; roll only what can show.
     const open = (tier ? ["palette", "eyes", "mouth", "extra", ...(tier.votes < 5 ? ["pose"] : [])] : Object.keys(sizes)).filter(trait => !(trait in remix) && !(trait === "mouth" && seesawTitle.test(title)));
     for (let i = 0; i < 3 && open.length; i++) {
-      const [trait] = open.splice(hash(identity + "\n" + words + "\n" + i) % open.length, 1);
+      const [trait] = open.splice(hash(identity + "\n" + words + "\n" + i + take) % open.length, 1);
       const now = pick(trait, sizes[trait]);
       const options = (distinct[trait] || Array.from({ length: sizes[trait] }, (_, index) => index)).filter(index => index !== (distinct[trait] && now < 3 ? 0 : now));
-      remix[trait] = options[hash(identity + "\n" + words + "\n" + trait) % options.length];
+      remix[trait] = options[hash(identity + "\n" + words + "\n" + trait + take) % options.length];
       diced.push(diceLabels[trait]);
     }
   }
-  const art = songArtwork({ ...song, artRemix: { ...before, ...remix } });
+  const art = songArtwork({ ...song, artRemix: fresh ? remix : { ...current, ...remix } });
   return { remix, understood, diced, asked: dice.test(words), art, changed: art.src !== songArtwork(song).src };
 }
