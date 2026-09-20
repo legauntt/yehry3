@@ -2,6 +2,77 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-88868f32b2b6d76e2d2929ad",
+      "title": "Six Minutes of Laughter",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-88868f32b2b6d76e2d2929ad-174f677faa17.mp3",
+      "duration": 360.04571428571427,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-20T22:13:50.115Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Six Minutes of Laughter",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "A six-minute theatrical funk-rock instrumental built on elastic electric bass, tight drums, clipped electric-guitar stabs, and occasional organ swells. One clear, steadily pitched Tony lead performs only laughter, shaped into rhythmic and melodic phrases rather than spoken words; start sly and close, grow into buoyant full-band call-and-response, then resolve with a final sustained laugh 8–12 seconds before the end and one decaying E-minor chord.",
+        "lyrics": "[Intro]\n[Low, rhythmically timed laughter: short breathy chuckles answer the bass]\n\n[Section 1]\n[Loose rolling laughter, gradually forming a syncopated melodic rhythm]\n\n[Section 2]\n[Wide open laughing phrases over the groove; brief silent breaths between phrases]\n\n[Breakdown]\n[Quiet close-mic chuckles, building into layered call-and-response laughter]\n\n[Section 3]\n[Big, sustained laughing phrases ride the full band; laughter follows a clear rising-and-falling melody]\n\n[Bridge]\n[Half-time, mischievous laughs trade with guitar stabs, then climb in intensity]\n\n[Final Section]\n[The laughter becomes a final melodic release, with full-breath phrases continuing until the last sustained laugh lands about ten seconds before the end]\n\n[End]",
+        "duration": 360,
+        "bpm": 108,
+        "musicalSettings": {
+          "genre": "Theatrical funk-rock",
+          "meter": "4/4",
+          "structure": "Intro, three developing laugh sections, breakdown, bridge, final resolution",
+          "performance": "One clear melodic lead using only rhythmic laughter, with changing breath, pitch, and intensity",
+          "energy": "Sly opening, playful groove, escalating release, then a clean resolved finish",
+          "lyricWorkflow": "Wordless vocal score: laughter is paced as the song’s lead melody and rhythmic hook",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "electric guitar",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\n[Low, rhythmically timed laughter: short breathy chuckles answer the bass]\n\n[Section 1]\n[Loose rolling laughter, gradually forming a syncopated melodic rhythm]\n\n[Section 2]\n[Wide open laughing phrases over the groove; brief silent breaths between phrases]\n\n[Breakdown]\n[Quiet close-mic chuckles, building into layered call-and-response laughter]\n\n[Section 3]\n[Big, sustained laughing phrases ride the full band; laughter follows a clear rising-and-falling melody]\n\n[Bridge]\n[Half-time, mischievous laughs trade with guitar stabs, then climb in intensity]\n\n[Final Section]\n[The laughter becomes a final melodic release, with full-breath phrases continuing until the last sustained laugh lands about ten seconds before the end]",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "vocal_activity",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "6 minutes of Tony laughing, any genre. No lyrics, just laughing.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 360
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-602cfff5b02dff5eb0865793",
       "title": "All Star (Tony C Cover)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-602cfff5b02dff5eb0865793-5f0c16f9fb6b.mp3",
