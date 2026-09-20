@@ -2,8 +2,11 @@
 // Clips load only on the first click, so the badge costs nothing until someone presses it.
 import { recoveryStatus } from "./recovery.js";
 import { eggWeight, pickEggMoment } from "./egg-clips.js";
+import { showCaption } from "./egg-caption.js";
 
 const clips = ["/assets/sounds/one-loud-crash.mp3", "/assets/sounds/nine-elevend-again.mp3"];
+// The song a fixed clip is from, when it is known, for the egg's caption.
+const clipSongs = { "/assets/sounds/nine-elevend-again.mp3": "Nine-Eleven'd Again" };
 const soundStatuses = new Set(["failed", "attention"]);
 const announcedKey = "yehry3:announced-attention";
 let next = 0;
@@ -13,6 +16,11 @@ export const hasBadgeSound = (status) => soundStatuses.has(status);
 
 export const badgeSoundIcon =
   '<svg class="badge-sound-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"></path><path d="M15.5 9.5a3.5 3.5 0 0 1 0 5"></path><path d="M18 7a7 7 0 0 1 0 10"></path></svg>';
+
+// The page's own player is in the document; a sound made here never is.
+function pauseOthers(except) {
+  for (const media of document.querySelectorAll("audio, video")) if (media !== except && !media.paused) media.pause();
+}
 
 function stop() {
   if (!current) return;
@@ -27,6 +35,8 @@ function stop() {
 // An announcement has no badge to light up, so the button is optional. Badges
 // take turns with the clips; a caller that names one leaves that rotation alone. A clip
 // can also be a moment of a song, { url, start, end }, which fades out at its end.
+// Only one sound plays at a time: a new one replaces the last, pauses whatever media the page
+// is playing once it starts, and gives way when the page starts playing something itself.
 // The result says when the sound is really heard: heard resolves true once it starts (or has
 // failed, or has taken longer than loadPatience), false if something else took its place first.
 // length() is how long the sound lasts in ms, or NaN while that is unknown.
@@ -46,7 +56,7 @@ function play(button = null, clip = null) {
     if (current === playing) stop();
   };
   playing.patience = setTimeout(() => settle(true), loadPatience);
-  audio.addEventListener("playing", () => settle(true), { once: true });
+  audio.addEventListener("playing", () => { settle(true); pauseOthers(audio); }, { once: true });
   if (moment) {
     // Browsers differ on when a seek is honoured, so ask now and again once the length is known.
     const seek = () => { if (audio.currentTime < moment.start) audio.currentTime = moment.start; };
@@ -100,7 +110,7 @@ function loadMoments() {
 }
 const weighted = (clip) => eggWeight(clip, votes.get(clip.id));
 
-function shock(art, ms, audio) {
+function shock(art, ms, audio, caption) {
   shocked.get(art)?.();
   art.classList.remove("egg-shock");
   void art.offsetWidth;
@@ -109,10 +119,12 @@ function shock(art, ms, audio) {
   const calm = art.getAttribute("src");
   let gasping = null;
   const timer = setTimeout(() => calm && shocked.get(art)?.(), ms);
+  const removeCaption = caption ? showCaption(art, caption, audio) : null;
   // A sound that is cut short takes its picture with it; an older sound never ends a newer shake.
   const soundOver = () => { if (shocked.get(art) === release) release(); };
   const release = () => {
     clearTimeout(timer);
+    removeCaption?.();
     for (const event of ["pause", "ended"]) audio?.removeEventListener(event, soundOver);
     shocked.delete(art);
     art.classList.remove("egg-shock");
@@ -129,7 +141,7 @@ function shock(art, ms, audio) {
 }
 // The art pulses while the sound loads (the stylesheet holds that back if it is quick), then shakes.
 const loadingArt = new WeakMap();
-function whenHeard(art, { heard, audio, length }) {
+function whenHeard(art, { heard, audio, length }, caption = null) {
   const token = {};
   loadingArt.set(art, token);
   art.classList.add("egg-loading");
@@ -139,7 +151,7 @@ function whenHeard(art, { heard, audio, length }) {
     art.classList.remove("egg-loading");
     if (!ok) return;
     const ms = length();
-    shock(art, ms > 0 && Number.isFinite(ms) ? ms : artShockMs, audio);
+    shock(art, ms > 0 && Number.isFinite(ms) ? ms : artShockMs, audio, caption);
   });
 }
 function tapArt(art, at) {
@@ -152,14 +164,17 @@ function tapArt(art, at) {
   if (moment) {
     artSong = moment.id;
     // The picture waits for the sound, which may need a moment to load.
-    whenHeard(art, play(null, moment));
+    whenHeard(art, play(null, moment), { title: moment.title, lines: moment.lines });
     return;
   }
-  whenHeard(art, play(null, clips[artNext]));
+  const clip = clips[artNext];
+  whenHeard(art, play(null, clip), clipSongs[clip] ? { title: clipSongs[clip] } : null);
   artNext = (artNext + 1) % clips.length;
 }
 
 export function mountBadgeSounds(root = document) {
+  // Media events do not bubble, but they can be caught on the way down.
+  root.addEventListener("play", (event) => { if (event.target instanceof HTMLMediaElement) stop(); }, true);
   root.addEventListener("click", (event) => {
     // The click keeps its usual job, such as opening a pending row.
     const art = event.target.closest?.(".track-art");

@@ -1,35 +1,47 @@
-// Sung moments for the cover art easter egg: one sung line (two if the first is short) from
-// each recording that has timed lyric cues. The build writes them to egg-clips.json, so the
-// egg never has to load the catalog. Votes change hourly, so only the release time is baked in;
-// the page adds live votes when it has them.
-const shortest = 1.2, wanted = 3, longest = 7, joinGap = 0.8;
+// Sung moments for the cover art easter egg: stretches of a recording's sung lines, from a
+// couple of seconds up to nineteen. Each recording that has timed lyric cues gets its lines
+// ([start, end, words]) once, and every moment is a range of them ([first, last]), so the
+// cover art's comic caption can follow the words as they are sung. The build writes them to
+// egg-clips.json, so the egg never has to load the catalog. Votes change hourly, so only the
+// release time is baked in; the page adds live votes when it has them.
+const shortest = 1.2, shortestMoment = 2, longestMoment = 19, joinGap = 1.5;
+// A stretch may end at any line, so each starting line offers a moment for each of these
+// ceilings: the longest run of joined lines that still fits.
+const ceilings = [4, 8, 13, longestMoment];
+const longestWords = 140;
 const round = (seconds) => Math.round(seconds * 10) / 10;
 
 export function songMoments(song) {
   const text = String(song?.lyrics?.text || "").split(/\r?\n/u);
-  const cues = (Array.isArray(song?.lyrics?.cues) ? song.lyrics.cues : [])
+  const lines = (Array.isArray(song?.lyrics?.cues) ? song.lyrics.cues : [])
     .filter((cue) => {
       const line = text[cue?.line]?.trim();
-      return line && !/^\[[^\]]+\]$/u.test(line) && Number.isFinite(cue.start) && Number.isFinite(cue.end) && cue.start >= 0 && cue.end - cue.start >= shortest && cue.end - cue.start <= longest;
+      return line && !/^\[[^\]]+\]$/u.test(line) && Number.isFinite(cue.start) && Number.isFinite(cue.end) && cue.start >= 0 && cue.end - cue.start >= shortest && cue.end - cue.start <= longestMoment;
     })
-    .sort((a, b) => a.start - b.start);
-  const moments = [];
-  for (let index = 0; index < cues.length; index += 1) {
-    const { start } = cues[index];
-    let { end } = cues[index];
-    const next = cues[index + 1];
-    if (end - start < wanted && next && next.start - end <= joinGap && next.end - start <= longest) end = next.end;
-    moments.push([round(start), round(end)]);
+    .sort((a, b) => a.start - b.start)
+    .map((cue) => {
+      const words = text[cue.line].trim();
+      return [round(cue.start), round(cue.end), words.length > longestWords ? words.slice(0, longestWords - 1).trimEnd() + "…" : words];
+    });
+  const moments = new Map();
+  for (let first = 0; first < lines.length; first += 1) {
+    for (const ceiling of ceilings) {
+      let last = first;
+      // Only lines sung close together join up; a long break would be dead air.
+      while (last + 1 < lines.length && lines[last + 1][0] - lines[last][1] <= joinGap && lines[last + 1][1] - lines[first][0] <= ceiling) last += 1;
+      const length = lines[last][1] - lines[first][0];
+      if (length >= shortestMoment && length <= ceiling) moments.set(first + "-" + last, [first, last]);
+    }
   }
-  return moments;
+  return { lines, moments: [...moments.values()] };
 }
 
 // Recordings with measured quality problems could open on a glitch, so they stay out of the egg.
 export function eggClips(songs) {
   return (Array.isArray(songs) ? songs : []).flatMap((song) => {
     if (!song?.id || !song.url || song.qualityIssues?.length) return [];
-    const moments = songMoments(song);
-    return moments.length ? [{ id: song.id, title: song.title, url: song.url, publishedAt: song.publishedAt || null, moments }] : [];
+    const { lines, moments } = songMoments(song);
+    return moments.length ? [{ id: song.id, title: song.title, url: song.url, publishedAt: song.publishedAt || null, lines, moments }] : [];
   });
 }
 
@@ -44,6 +56,7 @@ export function eggWeight(clip, votes = 0, now = Date.now()) {
   return floor + voteWeight * Math.min(Math.max(Number(votes) || 0, 0), voteCap) + fresh;
 }
 
+// The pick says when to start and stop, and which words are sung along the way.
 export function pickEggMoment(clips, random = Math.random, avoidId = null, weightOf = () => 1) {
   const pool = (Array.isArray(clips) ? clips : []).filter((clip) => clip.moments?.length);
   const choices = pool.filter((clip) => clip.id !== avoidId);
@@ -56,6 +69,7 @@ export function pickEggMoment(clips, random = Math.random, avoidId = null, weigh
   } else index = Math.floor(random() * from.length);
   const clip = from[index];
   if (!clip) return null;
-  const [start, end] = clip.moments[Math.floor(random() * clip.moments.length)];
-  return { id: clip.id, title: clip.title, url: clip.url, start, end };
+  const [first, last] = clip.moments[Math.floor(random() * clip.moments.length)];
+  const sung = clip.lines.slice(first, last + 1).map(([start, end, words]) => ({ start, end, words }));
+  return { id: clip.id, title: clip.title, url: clip.url, start: sung[0].start, end: sung.at(-1).end, lines: sung };
 }

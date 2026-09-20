@@ -1,6 +1,16 @@
 import { test, expect } from "@playwright/test";
 
-const id = (letter) => `distonyc-${letter.repeat(24)}`;
+// Eight-bit mono silence, long enough for a browser to load and seek.
+const silence = (seconds, rate = 8000) => {
+  const data = Buffer.alloc(rate * seconds, 128), head = Buffer.alloc(44);
+  head.write("RIFF", 0); head.writeUInt32LE(36 + data.length, 4); head.write("WAVEfmt ", 8);
+  head.writeUInt32LE(16, 16); head.writeUInt16LE(1, 20); head.writeUInt16LE(1, 22);
+  head.writeUInt32LE(rate, 24); head.writeUInt32LE(rate, 28); head.writeUInt16LE(1, 32); head.writeUInt16LE(8, 34);
+  head.write("data", 36); head.writeUInt32LE(data.length, 40);
+  return Buffer.concat([head, data]);
+};
+
+const id = (letter) =>`distonyc-${letter.repeat(24)}`;
 const failed = {
   id: id("a"),
   idea: "Tony takes on the manosphere, highlighting just what it is men feel is lacking and the promises therein",
@@ -187,8 +197,8 @@ test("after the title line, hammered cover art sings moments from recordings", a
   const requests = [];
   page.on("request", request => { if (request.url().includes("/egg-clips.json")) requests.push(request.url()); });
   await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [
-    { id: "one", title: "One", url: "/one.mp3", moments: [[12.5, 15.5]] },
-    { id: "two", title: "Two", url: "/two.mp3", moments: [[3, 6]] },
+    { id: "one", title: "One", url: "/one.mp3", lines: [[12.5, 15.5, "one words"]], moments: [[0, 0]] },
+    { id: "two", title: "Two", url: "/two.mp3", lines: [[3, 6, "two words"]], moments: [[0, 0]] },
   ] } }));
   await page.route(/\/(one|two)\.mp3$/, route => route.fulfill({ status: 200, contentType: "audio/mpeg", body: "" }));
   await page.goto("/");
@@ -226,7 +236,7 @@ test("the egg favors upvoted and recent songs over the rest of the catalog", asy
     Math.random = () => 0.9;
   });
   const old = new Date(Date.now() - 200 * 864e5).toISOString();
-  const clip = (id, publishedAt) => ({ id, title: id, url: `/${id}.mp3`, publishedAt, moments: [[1, 4]] });
+  const clip = (id, publishedAt) => ({ id, title: id, url: `/${id}.mp3`, publishedAt, lines: [[1, 4, id]], moments: [[0, 0]] });
   await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [{ id: "loved", title: "Loved", url: "/loved.mp3", votes: 8 }, { id: "quiet", title: "Quiet", url: "/quiet.mp3", votes: 0 }], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
@@ -239,6 +249,66 @@ test("the egg favors upvoted and recent songs over the rest of the catalog", asy
   await page.waitForTimeout(1100);
   await art.click({ clickCount: 3 });
   await expect.poll(() => page.evaluate(() => window.__plays)).toEqual(["/loved.mp3"]);
+});
+
+test("the egg captions the cover art with the song and words being sung, and plays alone", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__pauses = [];
+    HTMLMediaElement.prototype.play = function () {
+      if (!new URL(this.src).pathname.startsWith("/assets/sounds/")) window.__sung = this;
+      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
+      return Promise.resolve();
+    };
+    // A routed test file cannot be seeked, so the clock is the test's to set.
+    Object.defineProperty(HTMLMediaElement.prototype, "currentTime", { configurable: true, get() { return this.__time || 0; }, set(value) { this.__time = value; } });
+    // A real pause tells the page; a sound that never started for real needs the help.
+    HTMLMediaElement.prototype.pause = function () {
+      window.__pauses.push(this.id || "egg");
+      this.dispatchEvent(new Event("pause"));
+    };
+    Math.random = () => 0.9;
+  });
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
+  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [
+    { id: "one", title: "Song One", url: "/one.mp3", lines: [[10, 13, "first words"], [13.5, 16, "second words"]], moments: [[0, 1]] },
+  ] } }));
+  // A real, silent recording, so nothing errors out and ends the sound early.
+  await page.route(/\/one\.mp3$/, route => route.fulfill({ status: 200, contentType: "audio/wav", body: silence(20) }));
+  await page.goto("/");
+  // The site's own player is mid-song when the egg starts.
+  await page.evaluate(() => Object.defineProperty(document.querySelector("#audio"), "paused", { value: false }));
+  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
+  const caption = page.locator(".egg-caption");
+  await art.click({ clickCount: 3 });
+  // The title line is from a known song, so it is named, with no words to follow.
+  await expect(caption.locator(".egg-caption-title")).toHaveText("♪ Nine-Eleven'd Again");
+  await expect(caption.locator(".egg-caption-words")).toHaveCount(0);
+  expect(await page.evaluate(() => window.__pauses)).toContain("audio");
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 3 });
+  // Only one caption at a time, titled with the song, under the picture.
+  await expect(caption).toHaveCount(1);
+  await expect(caption.locator(".egg-caption-title")).toHaveText("♪ Song One");
+  await expect(caption.locator(".egg-caption-words")).toHaveText("first words");
+  const [artBox, captionBox] = await Promise.all([art.boundingBox(), caption.boundingBox()]);
+  // It sits under the picture, or over it when the picture is too near the bottom of the screen, but never on it.
+  expect(captionBox.y >= artBox.y + artBox.height - 1 || captionBox.y + captionBox.height <= artBox.y + 1).toBe(true);
+  expect(captionBox.x).toBeGreaterThanOrEqual(0);
+  expect(captionBox.x + captionBox.width).toBeLessThanOrEqual(1440);
+  // The words change as the song reaches the next line.
+  await page.evaluate(() => { window.__sung.currentTime = 14; });
+  await expect(caption.locator(".egg-caption-words")).toHaveText("second words");
+  // The page starting its own music ends the egg, picture and all.
+  await page.evaluate(() => document.querySelector("#audio").dispatchEvent(new Event("play")));
+  await expect(caption).toHaveCount(0);
+  await expect(art).not.toHaveClass(/egg-shock/);
+  // Left alone, the caption goes away when its sound does.
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 3 });
+  await expect(caption).toHaveCount(1);
+  await expect(caption).toHaveCount(0, { timeout: 8000 });
 });
 
 test("cover art holds still until its sound has loaded", async ({ page }) => {

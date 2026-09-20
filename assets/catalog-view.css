@@ -37,6 +37,23 @@
     60% { filter: hue-rotate(260deg) saturate(1.6); opacity: 1; }
   }
 }
+/* Easter egg: a comic speech bubble under the art, titled with the song and captioned with the line being sung. egg-caption.js places it. */
+.egg-caption { position: absolute; z-index: 50; box-sizing: border-box; pointer-events: none; border: 3px solid #111; border-radius: 12px; background: #ffe94a; box-shadow: 4px 4px 0 #111; color: #111; rotate: -1.5deg; transform-origin: var(--egg-tail, 40px) 0; animation: egg-caption-in .18s ease-out; font-family: "Comic Sans MS", "Comic Neue", "Chalkboard SE", "Marker Felt", cursive, sans-serif; }
+.egg-caption-above { translate: 0 -100%; transform-origin: var(--egg-tail, 40px) 100%; }
+.egg-caption::before, .egg-caption::after { content: ""; position: absolute; left: calc(var(--egg-tail, 40px) - 11px); border: 11px solid transparent; }
+.egg-caption::before { top: -25px; border-bottom-color: #111; }
+.egg-caption::after { top: -19px; border-bottom-color: #ffe94a; }
+.egg-caption-above::before { top: auto; bottom: -25px; border-bottom-color: transparent; border-top-color: #111; }
+.egg-caption-above::after { top: auto; bottom: -19px; border-bottom-color: transparent; border-top-color: #ffe94a; }
+.egg-caption-title { display: block; overflow: hidden; padding: 4px 10px; border-radius: 8px 8px 0 0; background: #111; color: #ffe94a; font-size: .7rem; letter-spacing: .07em; text-align: center; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.egg-caption-title:last-child { border-radius: 8px; }
+.egg-caption-words { margin: 0; padding: 8px 12px 10px; font-size: .95rem; font-weight: 900; letter-spacing: .02em; line-height: 1.2; text-align: center; text-transform: uppercase; text-wrap: balance; overflow-wrap: anywhere; }
+.egg-caption-pop { animation: egg-caption-pop .16s ease-out; }
+@keyframes egg-caption-in { from { opacity: 0; scale: .6; } }
+@keyframes egg-caption-pop { from { scale: 1.16; } }
+@media (prefers-reduced-motion: reduce) {
+  .egg-caption, .egg-caption-pop { animation: none; }
+}
 #tracks[data-view="list"] .track { display: grid; grid-template-columns: 26px 82px 44px minmax(0, 1fr) auto; gap: 16px; }
 #tracks[data-view="list"] .track-number { grid-column: 1; grid-row: 1; }
 #tracks[data-view="list"] .track-art { grid-column: 2; grid-row: 1; }
