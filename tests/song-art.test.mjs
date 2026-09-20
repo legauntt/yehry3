@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { songArtwork, songArtworkMarkup, voteTier } from "../assets/song-art.js";
+import { remixFromPrompt, songArtwork, songArtworkMarkup, voteTier } from "../assets/song-art.js";
 import { songSummary } from "../assets/song-summary.js";
 
 const catalog = async () => JSON.parse(await readFile(new URL("../catalog.json", import.meta.url), "utf8")).songs;
@@ -95,4 +95,69 @@ test("every See-saw recording wears the same comically huge black mouth", async 
   for (const song of (await catalog()).filter(song => !isSeesaw(song))) {
     assert.doesNotMatch(svgOf(songArtwork(song)), seesawMouth, song.title);
   }
+});
+test("a redraw prompt changes only what it names, layers on earlier redraws, and previews honestly", () => {
+  const song = { id: "plain-1", title: "Untitled" }, plain = songArtwork(song);
+  const drawn = remixFromPrompt(song, "A ROBOT in sunglasses, blue, holding a balloon!");
+  assert.deepEqual(drawn.remix, { theme: "robot", extra: 3, palette: 3, prop: 3 });
+  assert.deepEqual(drawn.understood, ["robot", "sunglasses", "blue", "a balloon"]);
+  assert.deepEqual(drawn.diced, []);
+  assert.equal(drawn.changed, true);
+  const redrawn = songArtwork({ ...song, artRemix: drawn.remix });
+  assert.equal(redrawn.src, drawn.art.src);
+  assert.equal(redrawn.theme, "robot");
+  assert.equal(redrawn.remixed, true);
+  assert.match(redrawn.alt, /robot.*redrawn by listeners/);
+  assert.match(svgOf(redrawn), /#dbe9ef/);
+  assert.equal(plain.remixed, false);
+  assert.match(songArtworkMarkup({ ...song, artRemix: drawn.remix }, value => value), /data-art-remixed/);
+  assert.doesNotMatch(songArtworkMarkup(song, value => value), /data-art-remixed/);
+  // A second listener's words build on the first: the robot and its shades stay.
+  const second = remixFromPrompt({ ...song, artRemix: drawn.remix }, "pink with polka dots");
+  assert.deepEqual(second.remix, { palette: 4, backdrop: 3 });
+  assert.equal(second.art.theme, "robot");
+  // The word written first wins a trait, and asking for what is already there is refused.
+  assert.equal(remixFromPrompt(song, "a ghost, not a robot").remix.theme, "ghost");
+  assert.equal(remixFromPrompt({ ...song, artRemix: drawn.remix }, "robot blue").changed, false);
+  assert.deepEqual(remixFromPrompt(song, "   ").remix, {});
+  assert.equal(remixFromPrompt(song, "").changed, false);
+});
+test("unknown prompts roll a few visible dice, the same way every time", () => {
+  for (let index = 0; index < 40; index++) {
+    const song = { id: "dice-" + index, title: "Untitled", votes: index % 4 === 3 ? 7 : 0 };
+    const drawn = remixFromPrompt(song, "xyzzy plugh " + index);
+    assert.deepEqual(drawn.understood, []);
+    assert.equal(drawn.diced.length, 3);
+    assert.equal(drawn.changed, true, song.id);
+    assert.deepEqual(remixFromPrompt(song, "xyzzy plugh " + index).remix, drawn.remix);
+  }
+  const mixed = remixFromPrompt({ id: "dice", title: "Untitled" }, "surprise me with a monocle");
+  assert.deepEqual(mixed.understood, ["a monocle"]);
+  assert.equal(mixed.remix.extra, 7);
+  assert.equal(mixed.diced.length, 3);
+  assert.ok(!mixed.diced.includes("accessory"));
+});
+test("every word the prompt knows draws, and stored redraws cannot break the art", () => {
+  const song = { id: "vocabulary", title: "Untitled" };
+  for (const word of ["floppy", "disco ball", "wishing well", "music note", "washing machine", "lightning", "band-aid", "mixtape"])
+    assert.equal(remixFromPrompt(song, word).understood.length, 1, word);
+  assert.equal(remixFromPrompt(song, "music notes").remix.prop, 5);
+  assert.equal(remixFromPrompt(song, "flip it").remix.flip, 1 - remixFromPrompt({ ...song, artRemix: remixFromPrompt(song, "flip it").remix }, "flip it").remix.flip);
+  // Award mascots are earned, prototype names are not drawings, and odd indexes wrap.
+  for (const artRemix of [{ theme: "gem" }, { theme: "constructor" }, { theme: 7 }, { palette: -1, eyes: "3", pose: 1.5 }, "robot", null])
+    assert.equal(songArtwork({ ...song, artRemix }).theme, songArtwork(song).theme);
+  assert.ok(songArtwork({ ...song, artRemix: { palette: 63, pose: 63, prop: 63, extra: 63, eyes: 63, mouth: 63, backdrop: 63, confetti: 63, tilt: 63, flip: 63 } }).src.startsWith("data:image/svg+xml,"));
+  // Award art keeps its mascot; the requested character becomes the small nod.
+  const loved = songArtwork({ ...song, votes: 3, artRemix: { theme: "robot" } });
+  assert.ok(["medal", "megaphone"].includes(loved.theme));
+  assert.notEqual(loved.src, songArtwork({ ...song, votes: 3 }).src);
+});
+test("a redraw never takes a See-saw song's mouth", () => {
+  const song = { id: "seesaw", title: "See-saw'd Again" }, seesawMouth = /<rect x="70" y="114" width="64" height="38" rx="3" fill="#000"\/>/;
+  assert.equal(remixFromPrompt(song, "laughing").changed, false);
+  const drawn = remixFromPrompt(song, "a laughing robot");
+  assert.equal(drawn.changed, true);
+  assert.match(svgOf(drawn.art), seesawMouth);
+  assert.match(drawn.art.alt, /black rectangle for a mouth, redrawn by listeners\.$/);
+  for (let index = 0; index < 20; index++) assert.ok(!remixFromPrompt({ ...song, id: "seesaw-" + index }, "xyzzy").diced.includes("mouth"));
 });

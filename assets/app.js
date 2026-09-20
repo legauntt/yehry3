@@ -33,6 +33,7 @@ import { loadRemix, remixBadge, remixLink } from "./remix.js";
 import { recordingLabels, recordingLabel, recordingTitle } from "./recording-label.js";
 import { mountCatalogView } from "./catalog-view.js";
 import { songArtworkMarkup } from "./song-art.js";
+import { openArtRemix } from "./art-remix.js";
 import { announceAttention, badgeSoundIcon, hasBadgeSound, mountBadgeSounds } from "./badge-sound.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
@@ -242,6 +243,10 @@ async function library() {
     const label = mine ? "📌 Pinned" : count ? "📌 Pin" : "📍 Pin";
     return `<button type="button" class="song-action" data-pin="${escape(song.id)}" aria-pressed="${mine}" aria-label="${mine ? "Unpin" : "Pin"} ${escape(song.title)}${count ? ` · ${count} shared` : ""}" ${!online || feedbackBusy ? "disabled" : ""}>${label}${count ? ` · ${count}` : ""}</button>`;
   }
+  function artButton(song) {
+    const mine = Boolean(song.feedback?.artRemixed);
+    return `<button type="button" class="song-action" data-art="${escape(song.id)}" aria-label="${mine ? "You already redrew the clip art for" : "Redraw the clip art for"} ${escape(song.title)}" ${mine || !online || feedbackBusy ? "disabled" : ""}>${mine ? "🎨 Redrawn" : "🎨 Redraw"}</button>`;
+  }
   startRecordSinger($(".record", main), () => songs);
   let initialCatalogPending = true;
   const recentReleases = new Map();
@@ -441,7 +446,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track" data-id="${escape(song.id)}">${songArtworkMarkup(song, escape)}
-        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><h3>${escape(song.title)}</h3>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures)}<div class="song-actions" role="group" aria-label="Song actions">${pinButton(song)}<button type="button" class="song-action" data-feedback="downvote" data-song="${escape(song.id)}" ${song.feedback?.downvoted || !online ? "disabled" : ""}>${song.feedback?.downvoted ? "Downvoted" : "Downvote"}${Number(song.downvotes) ? ` · ${song.downvotes}` : ""}</button><button type="button" class="song-action" data-feedback="milquetoast" data-song="${escape(song.id)}" ${song.feedback?.milquetoast || !online ? "disabled" : ""}>${song.feedback?.milquetoast ? "Sent to agent" : "Milquetoast"}${Number(song.milquetoasts) ? ` · ${song.milquetoasts}` : ""}</button></div></div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><h3>${escape(song.title)}</h3>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures)}<div class="song-actions" role="group" aria-label="Song actions">${pinButton(song)}${artButton(song)}<button type="button" class="song-action" data-feedback="downvote" data-song="${escape(song.id)}" ${song.feedback?.downvoted || !online ? "disabled" : ""}>${song.feedback?.downvoted ? "Downvoted" : "Downvote"}${Number(song.downvotes) ? ` · ${song.downvotes}` : ""}</button><button type="button" class="song-action" data-feedback="milquetoast" data-song="${escape(song.id)}" ${song.feedback?.milquetoast || !online ? "disabled" : ""}>${song.feedback?.milquetoast ? "Sent to agent" : "Milquetoast"}${Number(song.milquetoasts) ? ` · ${song.milquetoasts}` : ""}</button></div></div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : `<p class="empty">${favorites.onlySaved ? escape(favorites.emptyMessage()) : "No songs match. Try another title or style."}</p>`);
@@ -605,6 +610,18 @@ async function library() {
         feedbackBusy = false;
         render({ preserveViewport: true });
       }
+      return;
+    }
+    const artTrigger = event.target.closest("[data-art]");
+    if (artTrigger) {
+      const song = songs.find((item) => item.id === artTrigger.dataset.art);
+      if (!online || feedbackBusy || artTrigger.disabled || !song) return;
+      // The dialog previews the redraw, so choosing it there is the confirmation.
+      openArtRemix(song, async (remix) => {
+        await api(`/song-art/${encodeURIComponent(song.id)}`, { method: "POST", body: { remix } });
+        message("Clip art redrawn for everyone.");
+        await refresh();
+      });
       return;
     }
     const feedbackButton = event.target.closest("[data-feedback]");

@@ -966,6 +966,69 @@ main {
   cursor: default;
   opacity: .62;
 }
+.art-remix {
+  width: min(520px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--white);
+  color: var(--ink);
+}
+.art-remix::backdrop {
+  background: rgb(23 30 26 / .55);
+}
+.art-remix h2 {
+  margin-bottom: 6px;
+  font-size: 1.35rem;
+}
+.art-remix-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0;
+}
+.art-remix-preview figure {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  text-align: center;
+  font-size: .68rem;
+  color: var(--muted);
+}
+.art-remix-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 4px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+.art-remix label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: .78rem;
+  font-weight: 700;
+}
+.art-remix input {
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+.art-remix-result {
+  min-height: 1.4em;
+  margin: 8px 0;
+}
+.art-remix-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+}
 .vote {
   border: 1px solid #c6cbbb;
   background: transparent;

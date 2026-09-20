@@ -1,7 +1,7 @@
 // Original vector clip art: titles choose the possible cast; recording IDs pick
 // the character, colors, backdrop, expression, pose, and props. Loved songs leave
 // the regular cast for award mascots on their own stages. Compact API and offline
-// songs get the same base art; vote art needs the live counts.
+// songs get the same base art; vote art and listener redraws need the live catalog.
 const palettes = [
   ["#f6dfb5", "#e78c61", "#739c91"], ["#dbe7d4", "#86aa80", "#edb865"],
   ["#eadff1", "#ae91bf", "#f2b477"], ["#dbe9ef", "#7fa8c3", "#e79e89"],
@@ -267,33 +267,47 @@ function stageMarkup(stage) {
   // The night stage keeps a bright spotlight so the pen outlines stay readable.
   return rays(120, 100, 12, paper, ".1") + '<circle cx="120" cy="98" r="80" fill="' + paper + '" opacity=".93"/>';
 }
+// A listener's one redraw pins some of these; every other trait keeps its roll.
+// Chairlift stores the pins as a drawing name plus indexes into the lists above.
+const remixTraits = ["theme", "palette", "pose", "prop", "extra", "eyes", "mouth", "backdrop", "confetti", "tilt", "flip"];
+// Award mascots are earned with votes, so only the regular cast can be asked for.
+const cast = new Map();
+for (const entry of [...houseBand, ...themes]) if (!cast.has(entry[0])) cast.set(entry[0], entry);
+function rolls(song) {
+  const title = String(song.title || "Untitled song");
+  const identity = String(song.id || "") + "\n" + title;
+  const remix = song.artRemix && typeof song.artRemix === "object" ? song.artRemix : {};
+  const roll = (trait, size) => hash(identity + "\n" + trait) % size;
+  const pick = (trait, size) => Number.isInteger(remix[trait]) && remix[trait] >= 0 ? remix[trait] % size : roll(trait, size);
+  return { title, identity, remix, roll, pick, tier: voteTier(song.votes) };
+}
 const cache = new Map();
 export function songArtwork(song) {
-  const title = String(song.title || "Untitled song");
-  const tier = voteTier(song.votes);
-  const identity = String(song.id || "") + "\n" + title;
-  const key = identity + "\n" + (tier?.votes || 0);
+  const { title, identity, remix, roll, pick, tier } = rolls(song);
+  const pinned = remixTraits.map(trait => remix[trait] ?? "").join(",");
+  const key = identity + "\n" + (tier?.votes || 0) + "\n" + pinned;
   if (cache.has(key)) return cache.get(key);
-  const roll = (trait, size) => hash(identity + "\n" + trait) % size;
   // Titles are present in both lightweight API responses and full offline records.
   // Artwork never requires downloading lyrics or calling an image service.
   const matches = themes.filter(([, pattern]) => pattern.test(title));
   const subjects = matches.length ? matches : houseBand;
-  const subject = subjects[roll("subject", subjects.length)];
+  const subject = cast.get(remix.theme) || subjects[roll("subject", subjects.length)];
   const [theme, , description] = tier ? tier.cast[roll("mascot", tier.cast.length)] : subject;
   // Award art keeps a small nod to the title; regular art shows a second subject.
   const others = matches.filter(([other]) => other !== subject[0]);
   const accentTheme = tier ? subject[0] : others.length ? others[roll("accent", others.length)][0] : null;
-  const [background, a, b] = (tier?.palettes || palettes)[roll("palette", (tier?.palettes || palettes).length)];
-  const tilt = roll("tilt", 17) - 8, flipped = roll("flip", 2) === 1;
-  const [limbs, hand] = poses[tier?.votes >= 5 ? 1 : roll("pose", poses.length)];
-  const prop = tier ? null : props[roll("prop", props.length)];
-  const extra = extras[roll("extra", extras.length)];
-  const special = tier && roll("eyes", 2) ? (tier.votes >= 5 ? starEyes() : tier.votes === 1 ? heartEyes : null) : null;
+  const [background, a, b] = (tier?.palettes || palettes)[pick("palette", (tier?.palettes || palettes).length)];
+  const tilt = pick("tilt", 17) - 8, flipped = pick("flip", 2) === 1;
+  const [limbs, hand] = poses[tier?.votes >= 5 ? 1 : pick("pose", poses.length)];
+  const prop = tier ? null : props[pick("prop", props.length)];
+  const extra = extras[pick("extra", extras.length)];
+  // Asking for an expression outranks the award's heart or star eyes.
+  const special = tier && remix.eyes === undefined && roll("eyes", 2) ? (tier.votes >= 5 ? starEyes() : tier.votes === 1 ? heartEyes : null) : null;
+  // The See-saw mouth is the song's signature, so a redraw cannot replace it.
   const seesaw = seesawTitle.test(title);
-  const face = (extra?.shades && !special ? "" : special || eyes[roll("eyes", eyes.length)]()) + (seesaw ? seesawMouth : mouths[roll("mouth", mouths.length)]) + (extra && !(extra.shades && special) ? extra.draw(a, b) : "");
+  const face = (extra?.shades && !special ? "" : special || eyes[pick("eyes", eyes.length)]()) + (seesaw ? seesawMouth : mouths[pick("mouth", mouths.length)]) + (extra && !(extra.shades && special) ? extra.draw(a, b) : "");
   const dark = tier?.stage === "legend";
-  const specks = confetti(identity, tier?.stage === "loved" ? "hearts" : tier?.votes >= 5 ? "sparkles" : roll("confetti", 4), a, b);
+  const specks = confetti(identity, tier?.stage === "loved" ? "hearts" : tier?.votes >= 5 ? "sparkles" : pick("confetti", 4), a, b);
   const badgeX = flipped ? 19 : 202;
   // Tier hearts stay top right: the grid's track number covers the top-left corner.
   const badge = tier
@@ -301,7 +315,7 @@ export function songArtwork(song) {
     : '<g transform="translate(' + badgeX + ' 19)"><path d="M0 8L7 7 9 0 12 7 19 9 12 12 10 19 7 12 0 10Z"/></g>';
   const accentX = roll("accent-side", 2) ? 176 : 8;
   const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="200" viewBox="0 0 240 200">'
-    + '<rect width="240" height="200" fill="' + background + '"/>' + (tier ? stageMarkup(tier.stage) :backdrops[roll("backdrop", backdrops.length)]())
+    + '<rect width="240" height="200" fill="' + background + '"/>' + (tier ? stageMarkup(tier.stage) : backdrops[pick("backdrop", backdrops.length)]())
     + '<g stroke="' + b + '" stroke-width="2" stroke-linecap="round">' + specks + '</g><ellipse cx="122" cy="176" rx="62" ry="8" fill="' + ink + '" opacity=".10"/>'
     + '<g transform="translate(20 -2) rotate(' + tilt + ' 100 100)' + (flipped ? " translate(200 0) scale(-1 1)" : "") + '" stroke="' + ink + '" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">'
     + path(limbs) + (prop ? '<g transform="translate(' + hand[0] + " " + hand[1] + ')">' + prop(b) + '</g>' : "")
@@ -310,7 +324,8 @@ export function songArtwork(song) {
     + '<g fill="' + (tier ? rose : paper) + '" stroke="' + (dark ? paper : ink) + '" stroke-width="2" stroke-linejoin="round">' + badge + '</g>'
     + (tier?.votes >= 5 ? '<rect x="5" y="5" width="230" height="190" rx="7" fill="none" stroke="' + (dark ? gold : "#a86a08") + '" stroke-width="4"/>' + (dark ? '<rect x="12" y="12" width="216" height="176" rx="4" fill="none" stroke="' + gold + '" stroke-width="1.5"/>' : "") : "")
     + '</svg>';
-  const art = { src: "data:image/svg+xml," + encodeURIComponent(svg), alt: "Silly clip art: " + description + (seesaw ? ", with a comically enormous black rectangle for a mouth" : "") + ".", theme, tier: tier?.votes || 0 };
+  const remixed = pinned.replaceAll(",", "") !== "";
+  const art = { src: "data:image/svg+xml," + encodeURIComponent(svg), alt: "Silly clip art: " + description + (seesaw ? ", with a comically enormous black rectangle for a mouth" : "") + (remixed ? ", redrawn by listeners." : "."), theme, tier: tier?.votes || 0, remixed };
   // Bound memory use on pages left open as the catalog changes.
   if (cache.size >= 512) cache.delete(cache.keys().next().value);
   cache.set(key, art);
@@ -318,5 +333,96 @@ export function songArtwork(song) {
 }
 export function songArtworkMarkup(song, escape) {
   const art = songArtwork(song);
-  return '<img class="track-art" src="' + escape(art.src) + '" alt="' + escape(art.alt) + '"' + (art.tier ? ' data-art-tier="' + art.tier + '"' : "") + ' width="240" height="200" loading="lazy" decoding="async">';
+  return '<img class="track-art" src="' + escape(art.src) + '" alt="' + escape(art.alt) + '"' + (art.tier ? ' data-art-tier="' + art.tier + '"' : "") + (art.remixed ? " data-art-remixed" : "") + ' width="240" height="200" loading="lazy" decoding="async">';
+}
+
+// Redraw prompts: [trait, value, words, label]. Each trait takes its first match,
+// and the prompt itself never leaves the browser.
+const vocabulary = [
+  ...[
+    ["shoe", "shoes?|sneakers?|boots?"], ["burger", "burgers?|hamburger|cheeseburger|sandwich"], ["book", "books?"],
+    ["mustache", "mustache|moustache"], ["envelope", "envelope|letter|mail"], ["train", "trains?|locomotive"],
+    ["toast", "toast|bread"], ["ghost", "ghosts?|ghoul|spooky"], ["clock", "clocks?|alarm"], ["moon", "moon|crescent"],
+    ["heart", "hearts?|valentine"], ["crown", "crowns?|king|queen|royal"], ["leaf", "leaf|leaves|plant"], ["chair", "chairs?|armchair|seat"],
+    ["bulb", "bulb|lightbulb|lamp", "light bulb"], ["road", "road|highway|street"], ["flag", "flags?"], ["bird", "birds?|chicken|duck"],
+    ["tower", "towers?|buildings?|skyscrapers?|city", "towers"], ["phone", "phone|telephone"], ["key", "keys?"],
+    ["robot", "robots?|android|droid"], ["sun", "sun|sunny|sunshine"], ["bee", "bees?|bumblebee|wasp"],
+    ["sword", "swords?|blade|knight"], ["save", "floppy|disk|diskette", "floppy disk"], ["tent", "tent|circus|carnival", "circus tent"],
+    ["pocket", "pockets?"], ["mountain", "mountains?|peak|alps"], ["chain", "chains?|shackle", "ball and chain"],
+    ["bandage", "bandage|band-?aid|plaster"], ["planet", "planets?|saturn|space|orbit"], ["trophy", "trophy|cup|prize"],
+    ["donut", "donuts?|doughnuts?"], ["wizard", "wizard|witch|sorcerer|mage|magic"], ["snake", "snakes?|serpent|cobra"],
+    ["well", "wishing well|a well", "wishing well"], ["receipt", "receipt|bill|invoice"], ["radio", "radio|boombox|stereo"],
+    ["washer", "washer|washing machine|laundry", "washing machine"], ["car", "cars?|automobile"],
+    ["bolt", "bolt|lightning|thunder|thunderbolt|zap", "lightning bolt"], ["microphone", "microphone|mic|karaoke"],
+    ["record", "record|vinyl"], ["guitar", "guitars?|banjo|ukulele"], ["trumpet", "trumpets?|horn|bugle|brass"],
+    ["cassette", "cassette|tape|mixtape"], ["discoball", "disco|mirror ?ball|glitter ?ball", "disco ball"],
+    ["drum", "drums?|snare|bongos?"], ["note", "music(al)? note|note|quaver", "music note"],
+  ].map(([name, words, label]) => ["theme", name, words, label || name]),
+  ["palette", 0, "cream|vanilla|retro|vintage", "cream"], ["palette", 1, "green|sage|forest|lime", "green"],
+  ["palette", 2, "purple|violet|lavender|lilac|grape", "purple"], ["palette", 3, "blue|sky|denim", "blue"],
+  ["palette", 4, "pink|rose|red|bubblegum", "pink"], ["palette", 5, "yellow|gold|golden|mustard|lemon", "yellow"],
+  ["palette", 6, "teal|mint|seafoam|emerald", "teal"], ["palette", 7, "orange|peach|tangerine|sunset|warm", "orange"],
+  ["palette", 8, "indigo|periwinkle|navy|twilight", "indigo"], ["palette", 9, "aqua|cyan|turquoise|ocean|sea|ice|icy", "aqua"],
+  ["palette", 10, "terracotta|clay|rust|earthy?|autumn", "terracotta"], ["palette", 11, "brown|tan|beige|coffee|mocha|chocolate|sand", "brown"],
+  ["pose", 1, "cheer(ing)?|arms up|hands up|celebrat\\w+|hooray|jump(ing)?|victory", "arms up"],
+  ["pose", 2, "wav(e|ing)|hello|hi|greet(ing)?", "waving"], ["pose", 3, "danc(e|ing)|kick(ing)?|strut|run(ning)?|boogie", "dancing"],
+  ["pose", 0, "relax(ed|ing)?|chill|calm|casual", "relaxed"],
+  ["prop", 3, "balloons?", "a balloon"], ["prop", 4, "flowers?|daisy|bouquet", "a flower"], ["prop", 5, "notes|melody|tune", "music notes"],
+  ["prop", 6, "pennant|banner", "a pennant"], ["prop", 7, "lollipop|lolly|candy|sucker", "a lollipop"],
+  ["prop", 0, "empty[- ]hand(s|ed)|no prop|drop it", "empty hands"],
+  ["extra", 3, "sunglasses|shades|glasses|cool", "sunglasses"], ["extra", 4, "bow ?tie|fancy|formal|dapper|classy", "a bow tie"],
+  ["extra", 5, "blush(ing)?|rosy|shy|cheeks|cute", "rosy cheeks"], ["extra", 6, "eyebrows?|brows|determined|serious|angry|stern", "eyebrows"],
+  ["extra", 7, "monocle|posh|gentleman|distinguished", "a monocle"], ["extra", 0, "no accessor(y|ies)|bare face", "no accessory"],
+  ["eyes", 1, "wink(ing|s)?", "a wink"], ["eyes", 6, "sleepy|tired|bored|drowsy|unimpressed", "sleepy eyes"],
+  ["eyes", 4, "shock(ed)?|startled|scared|star(e|ing)|wide[- ]eyed", "a stare"],
+  ["eyes", 5, "side[- ]?eye|sideways|suspicious|shifty|looking away", "side-eye"],
+  ["eyes", 3, "blissful|content|peaceful|serene|zen|(eyes )?closed( eyes)?", "closed eyes"], ["eyes", 0, "alert|wide awake|eyes open|open eyes", "open eyes"],
+  ["mouth", 1, "laugh(ing|s)?|lol|grin(ning)?|excited|big smile", "a laugh"], ["mouth", 0, "smil(e|ing)|happy", "a smile"],
+  ["mouth", 2, "sing(ing|s)?|ooh|surprised|gasp|whistl(e|ing)", "a singing mouth"], ["mouth", 3, "smirk(ing)?|sly|wry", "a smirk"],
+  ["mouth", 4, "tongue|silly|goofy|cheeky|blep", "tongue out"],
+  ["backdrop", 3, "dots|dotty|polka|spots|spotty", "polka dots"], ["backdrop", 2, "strip(es|ed|y)|diagonal", "stripes"],
+  ["backdrop", 1, "blob|splat|cloud|puddle", "a blob"], ["backdrop", 0, "circle|spotlight|bubble", "a circle"],
+  ["backdrop", 4, "rays|sunburst|sunbeams?|beams", "sun rays"], ["backdrop", 5, "arch|window|doorway|door", "an arch"],
+  ["confetti", 1, "plus(es)?|crosses|sparkl(e|es|y)|twinkl(e|y)|stars?", "sparkles"], ["confetti", 2, "triangles?|confetti|party", "confetti"],
+  ["confetti", 3, "rings?|bubbles|hoops", "rings"], ["confetti", 0, "dashes|rain(y|ing)?|sprinkles", "sprinkles"],
+  ["tilt", 8, "straight|upright|level", "standing straight"],
+].map(([trait, value, words, label]) => [trait, value, new RegExp("\\b(" + words + ")\\b", "i"), label]);
+const leans = /\b(tilt(ed|ing)?|lean(ing)?|tipsy|crooked|wonky|askew)\b/i;
+const turns = /\b(flip(ped)?|mirror(ed)?|reverse[ds]?|turn(ed)? around|other way|face (left|right))\b/i;
+const dice = /\b(surprise|random|shuffle|anything|whatever|dealer'?s choice|roll the dice)\b/i;
+// Indexes that look different from one another: empty hands and bare faces repeat.
+const distinct = { prop: [0, 3, 4, 5, 6, 7], extra: [0, 3, 4, 5, 6, 7] };
+const diceLabels = { palette: "colors", pose: "pose", prop: "prop", extra: "accessory", eyes: "eyes", mouth: "mouth", backdrop: "backdrop", confetti: "sprinkles" };
+// Turns a listener's prompt into the pins to send, layered on any earlier redraws.
+// `understood` lists what the words matched; unknown prompts roll a few dice instead.
+export function remixFromPrompt(song, prompt) {
+  const words = String(prompt || "").slice(0, 80).trim();
+  const { title, identity, remix: before, pick, tier } = rolls(song);
+  const sizes = { palette: (tier?.palettes || palettes).length, pose: poses.length, prop: props.length, extra: extras.length, eyes: eyes.length, mouth: mouths.length, backdrop: backdrops.length, confetti: 4 };
+  const remix = {}, diced = [], found = new Map();
+  // When two words want the same trait, the one written first wins.
+  for (const [trait, value, pattern, label] of vocabulary) {
+    const at = words.search(pattern);
+    if (at >= 0 && !(found.get(trait)?.at <= at)) found.set(trait, { at, value, label });
+  }
+  if (!found.has("tilt") && leans.test(words)) found.set("tilt", { at: words.search(leans), value: pick("tilt", 17) < 8 ? 0 : 16, label: "a big lean" });
+  if (turns.test(words)) found.set("flip", { at: words.search(turns), value: 1 - pick("flip", 2), label: "facing the other way" });
+  const understood = [...found].sort((one, other) => one[1].at - other[1].at).map(([trait, match]) => {
+    remix[trait] = match.value;
+    return match.label;
+  });
+  if (words && (!understood.length || dice.test(words))) {
+    // Award art keeps its own stage, sprinkles and empty hands, and See-saw songs
+    // keep their mouth; roll only what can show.
+    const open = (tier ? ["palette", "eyes", "mouth", "extra", ...(tier.votes < 5 ? ["pose"] : [])] : Object.keys(sizes)).filter(trait => !(trait in remix) && !(trait === "mouth" && seesawTitle.test(title)));
+    for (let i = 0; i < 3 && open.length; i++) {
+      const [trait] = open.splice(hash(identity + "\n" + words + "\n" + i) % open.length, 1);
+      const now = pick(trait, sizes[trait]);
+      const options = (distinct[trait] || Array.from({ length: sizes[trait] }, (_, index) => index)).filter(index => index !== (distinct[trait] && now < 3 ? 0 : now));
+      remix[trait] = options[hash(identity + "\n" + words + "\n" + trait) % options.length];
+      diced.push(diceLabels[trait]);
+    }
+  }
+  const art = songArtwork({ ...song, artRemix: { ...before, ...remix } });
+  return { remix, understood, diced, asked: dice.test(words), art, changed: art.src !== songArtwork(song).src };
 }
