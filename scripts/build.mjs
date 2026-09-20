@@ -146,6 +146,53 @@ for (const clip of wiseau.clips) {
   await mkdir(directory);
   await writeFile(path.join(directory, "index.html"), html);
 }
+// Every published song gets dist/song/<id>/index.html. Link previews (Discord, Slack, iMessage)
+// never run scripts or read a #fragment, so the shareable URL must be a real page carrying the
+// OpenGraph metadata; the page then sends browsers to the collection with the song revealed.
+// No /song/* rewrite may exist in staticwebapp.config.json, or Azure would shadow these pages.
+const songTemplate = await readFile(path.join(root, "song-page.html"), "utf8");
+const songTitle = "<title>Song · yehry3</title>";
+const songDescription = /<meta[^>]*name="description"[^>]*>/;
+if (!songTemplate.includes(songTitle) || !songDescription.test(songTemplate))
+  throw new Error("song-page.html lost the title or description that song pages replace");
+let songPages = 0;
+for (const song of catalog.songs) {
+  const minutes = Math.floor(song.duration / 60);
+  const length = song.duration > 0 ? `${minutes}:${String(Math.round(song.duration % 60)).padStart(2, "0")}` : "";
+  const firstLine = song.lyrics?.text
+    ?.split(/\r?\n/)
+    .map((line) => line.trim())
+    .find((line) => line && !/^\[[^\]]+]$/.test(line));
+  const description = [
+    firstLine ? `“${firstLine}”` : "",
+    [length, "Tony C", song.authoredBy ? `authored by ${song.authoredBy}` : ""].filter(Boolean).join(" · "),
+  ].filter(Boolean).join(" — ");
+  const canonical = `https://yehry3.app/song/${song.id}/`;
+  const metadata = [
+    `<link rel="canonical" href="${htmlEscape(canonical)}" />`,
+    '<meta property="og:type" content="music.song" />',
+    '<meta property="og:site_name" content="yehry3" />',
+    `<meta property="og:title" content="${htmlEscape(song.title)}" />`,
+    `<meta property="og:description" content="${htmlEscape(description)}" />`,
+    `<meta property="og:url" content="${htmlEscape(canonical)}" />`,
+    ...(/^https:\/\//.test(song.url || "")
+      ? [`<meta property="og:audio" content="${htmlEscape(song.url)}" />`, '<meta property="og:audio:type" content="audio/mpeg" />']
+      : []),
+    '<meta name="twitter:card" content="summary" />',
+    `<meta name="twitter:title" content="${htmlEscape(song.title)}" />`,
+    `<meta name="twitter:description" content="${htmlEscape(description)}" />`,
+  ].join("\n    ");
+  const html = songTemplate
+    .replace(songTitle, () => `<title>${htmlEscape(`${song.title} · yehry3`)}</title>`)
+    .replace(songDescription, () => `<meta name="description" content="${htmlEscape(description)}" />`)
+    .replace("</head>", () => `    ${metadata}\n  </head>`)
+    .replaceAll("{{song-id}}", htmlEscape(song.id))
+    .replaceAll("{{song-title}}", () => htmlEscape(song.title));
+  const directory = path.join(output, "song", song.id);
+  await mkdir(directory, { recursive: true });
+  await writeFile(path.join(directory, "index.html"), html);
+  songPages++;
+}
 for (const file of await readdir(output, { recursive: true })) {
   if (!file.endsWith(".html")) continue;
   const destination = path.join(output, file);
@@ -164,5 +211,5 @@ for (const file of await readdir(output, { recursive: true })) {
   await writeFile(destination, html);
 }
 console.log(
-  `Built static site in dist/ with ${aliases.size} shareable lyric pages and ${wiseau.clips.length} Tommy pages · Updated at ${updatedLabel} (public files only).`,
+  `Built static site in dist/ with ${aliases.size} shareable lyric pages, ${songPages} song pages and ${wiseau.clips.length} Tommy pages · Updated at ${updatedLabel} (public files only).`,
 );

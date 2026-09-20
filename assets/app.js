@@ -529,11 +529,11 @@ async function library() {
       message("Press play in the player to start this song.");
     }
   }
-  // The link opens the home page and the same reveal a completion alert uses selects the song.
+  // The link is the song's own page, whose OpenGraph metadata gives chat previews a title and
+  // description; it forwards to the home page and the same reveal a completion alert uses.
   async function shareCurrent() {
     if (!current) return;
-    const url = new URL("/", location.origin);
-    url.hash = encodeURIComponent(current.id);
+    const url = new URL(`/song/${encodeURIComponent(current.id)}/`, location.origin);
     // Phones get the native share sheet; desktop browsers copy, which is what a desktop visitor wants.
     if (navigator.share && matchMedia("(pointer: coarse)").matches) {
       try {

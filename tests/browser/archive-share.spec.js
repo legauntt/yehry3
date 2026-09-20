@@ -107,9 +107,10 @@ test("Now Playing shares a link that lands on the home page with that song selec
   await page.locator("#share-song").click();
   await expect(page.locator("#message")).toContainText("copied");
   const link = await page.evaluate(() => navigator.clipboard.readText());
-  expect(link).toBe(`http://127.0.0.1:8080/#${id}`);
+  expect(link).toBe(`http://127.0.0.1:8080/song/${id}/`);
   const guest = await context.newPage();
   await guest.goto(link);
+  await guest.waitForURL(new RegExp(`#${id}$|page=2`));
   await expect(guest.locator(`.track[data-id="${id}"]`)).toHaveClass(/is-revealed/);
   await expect(guest).toHaveURL(/page=2/);
   // It does not start playing for the guest.
