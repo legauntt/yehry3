@@ -79,6 +79,9 @@ test("all routes are built, unlisted, and contain no submission password or back
     ),
   );
   assert.equal(hosting.responseOverrides?.["404"]?.rewrite, "/404.html");
+  // Azure reads "/v9" and "/v9/" as one route and refuses the whole deployment over the second.
+  const routes = hosting.routes.map(({ route }) => route.replace(/(.)\/$/, "$1"));
+  assert.deepEqual(routes.filter((route, index) => routes.indexOf(route) !== index), [], "Azure rejects duplicate routes");
   const files = await readdir(new URL("../dist/", import.meta.url), {
     recursive: true,
   });
