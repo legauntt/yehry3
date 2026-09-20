@@ -5,8 +5,13 @@ import { eggWeight, pickEggMoment } from "./egg-clips.js";
 import { showCaption } from "./egg-caption.js";
 
 const clips = ["/assets/sounds/one-loud-crash.mp3", "/assets/sounds/nine-elevend-again.mp3"];
-// The song a fixed clip is from, when it is known, for the egg's caption.
-const clipSongs = { "/assets/sounds/nine-elevend-again.mp3": "Nine-Eleven'd Again" };
+// The song a fixed clip is from and the line it sings, for the egg's caption. Each clip is one
+// line starting at 0, so the caption shows it the whole way through.
+const fixedCaption = (words) => ({ title: "Nine-Eleven'd Again", lines: [{ start: 0, end: Infinity, words }] });
+const clipCaptions = {
+  "/assets/sounds/one-loud-crash.mp3": fixedCaption("One loud crash, the whole plan ends"),
+  "/assets/sounds/nine-elevend-again.mp3": fixedCaption("Nine-eleven'd again"),
+};
 const soundStatuses = new Set(["failed", "attention"]);
 const announcedKey = "yehry3:announced-attention";
 let next = 0;
@@ -38,9 +43,11 @@ function stop() {
 // Only one sound plays at a time: a new one replaces the last, pauses whatever media the page
 // is playing once it starts, and gives way when the page starts playing something itself.
 // The result says when the sound is really heard: heard resolves true once it starts (or has
-// failed, or has taken longer than loadPatience), false if something else took its place first.
+// failed), false if something else took its place first or it never arrived within loadPatience.
+// A moment only counts as started once the audio has reached it, so a slow seek never lets the
+// picture and caption run ahead of the sound.
 // length() is how long the sound lasts in ms, or NaN while that is unknown.
-const volume = 0.85, fadeSeconds = 0.25, loadPatience = 4000;
+const volume = 0.85, fadeSeconds = 0.25, loadPatience = 15000, seekSlack = 0.1;
 function play(button = null, clip = null) {
   stop();
   const moment = clip && typeof clip === "object" ? clip : null;
@@ -55,8 +62,20 @@ function play(button = null, clip = null) {
     settle(true);
     if (current === playing) stop();
   };
-  playing.patience = setTimeout(() => settle(true), loadPatience);
-  audio.addEventListener("playing", () => { settle(true); pauseOthers(audio); }, { once: true });
+  // A sound that never arrives is given up on, not faked, so nothing animates in silence.
+  playing.patience = setTimeout(() => { if (current === playing) stop(); }, loadPatience);
+  let started = false;
+  let running = false;
+  const begin = () => {
+    if (started || !running || (moment && audio.currentTime < moment.start - seekSlack)) return;
+    started = true;
+    for (const event of ["playing", "timeupdate", "seeked"]) audio.removeEventListener(event, begin);
+    settle(true);
+    pauseOthers(audio);
+  };
+  audio.addEventListener("playing", () => { running = true; begin(); });
+  audio.addEventListener("timeupdate", begin);
+  audio.addEventListener("seeked", begin);
   if (moment) {
     // Browsers differ on when a seek is honoured, so ask now and again once the length is known.
     const seek = () => { if (audio.currentTime < moment.start) audio.currentTime = moment.start; };
@@ -81,7 +100,7 @@ function play(button = null, clip = null) {
 // hammering sings the title line; after that most sing a random moment from a recording,
 // and one in five sings the fixed clips again.
 // artShockMs is only for a sound whose length is unknown.
-const artTaps = 3, artWindow = 1000, artShockMs = 3400, artFixedOdds = 0.2;
+const artTaps = 3, artWindow = 1000, artShockMs = 3400, artFixedOdds = 0.2, shockGrace = 2500;
 let taps = [];
 let artNext = 1;
 let artHeard = false;
@@ -118,16 +137,26 @@ function shock(art, ms, audio, caption) {
   art.classList.add("egg-shock");
   const calm = art.getAttribute("src");
   let gasping = null;
-  const timer = setTimeout(() => calm && shocked.get(art)?.(), ms);
+  // The sound ending is what ends the shake; the timer is only a safety net, and a slow machine
+  // that starts a moment late is given time to finish it.
+  const live = audio && !audio.paused && !audio.ended;
+  const timer = setTimeout(() => calm && shocked.get(art)?.(), live ? ms + shockGrace : ms);
   const removeCaption = caption ? showCaption(art, caption, audio) : null;
+  // The shake follows the sound: while the audio is starved the picture holds still too.
+  const stall = () => art.classList.add("egg-stalled");
+  const resume = () => art.classList.remove("egg-stalled");
+  audio?.addEventListener("waiting", stall);
+  audio?.addEventListener("playing", resume);
   // A sound that is cut short takes its picture with it; an older sound never ends a newer shake.
   const soundOver = () => { if (shocked.get(art) === release) release(); };
   const release = () => {
     clearTimeout(timer);
     removeCaption?.();
     for (const event of ["pause", "ended"]) audio?.removeEventListener(event, soundOver);
+    audio?.removeEventListener("waiting", stall);
+    audio?.removeEventListener("playing", resume);
     shocked.delete(art);
-    art.classList.remove("egg-shock");
+    art.classList.remove("egg-shock", "egg-stalled");
     art.style.removeProperty("--egg-ms");
     if (gasping && art.getAttribute("src") === gasping) art.setAttribute("src", calm);
   };
@@ -168,7 +197,7 @@ function tapArt(art, at) {
     return;
   }
   const clip = clips[artNext];
-  whenHeard(art, play(null, clip), clipSongs[clip] ? { title: clipSongs[clip] } : null);
+  whenHeard(art, play(null, clip), clipCaptions[clip] ?? null);
   artNext = (artNext + 1) % clips.length;
 }
 

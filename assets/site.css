@@ -817,10 +817,14 @@ main {
 .track.playing {
   background: #e9ecdf;
 }
-.track.pinned {
+.track.pinned,
+.track.playing {
   border: 5px solid #d4a017;
   border-radius: 8px;
   margin: 6px 0;
+}
+.track.playing {
+  border-color: #3e6f50;
 }
 .track-number {
   color: #7c8576;

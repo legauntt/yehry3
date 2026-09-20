@@ -20,6 +20,8 @@
 }
 /* Easter egg: hammered art shakes and flashes, then settles. badge-sound.js sets --egg-ms. */
 .track-art.egg-shock { position: relative; z-index: 1; animation: egg-shock var(--egg-ms, 3.4s) linear; }
+/* Held still while the sound is starved of data, so the shake and the words never outrun it. */
+.track-art.egg-shock.egg-stalled { animation-play-state: paused; }
 @keyframes egg-shock {
   4% { transform: translate(-6px, 3px) rotate(-6deg) scale(1.14); filter: hue-rotate(60deg) saturate(3) brightness(1.5); opacity: 1; }
   10% { transform: translate(6px, -4px) rotate(6deg) scale(1.14); filter: hue-rotate(140deg) saturate(3) brightness(1.2); opacity: 1; }
@@ -69,6 +71,8 @@
 #tracks[data-view="grid"] .track.playing { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); background: #e9ecdf; }
 #tracks[data-view] .track.pinned, #tracks[data-view] .track.pinned:hover, #tracks[data-view] .track.pinned.playing { border: 5px solid #d4a017; }
 #tracks[data-view="grid"] .track.pinned { border-radius: 12px; }
+/* The song that is playing gets the same thick border in a lighter green, and wins over gold while it plays. */
+#tracks[data-view] .track.playing, #tracks[data-view] .track.playing:hover, #tracks[data-view] .track.pinned.playing, #tracks[data-view] .track.pinned.playing:hover { border: 5px solid #3e6f50; }
 #tracks[data-view="grid"] .track-art { grid-column: 1 / -1; grid-row: 1; width: 100%; }
 #tracks[data-view="grid"] .track-number { position: absolute; top: 21px; left: 21px; display: block; width: auto; min-width: 28px; padding: 3px 7px; border-radius: 4px; background: var(--paper); color: var(--ink); font-family: "DM Mono", monospace; font-size: .65rem; }
 #tracks[data-view="grid"] .track-info { grid-column: 1 / -1; grid-row: 2; }

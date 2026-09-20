@@ -169,6 +169,9 @@ test("three quick clicks on cover art sing every clip in turn", async ({ page })
   await page.waitForTimeout(1100);
   await art.click({ clickCount: 3 });
   expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/one-loud-crash.mp3");
+  // Every fixed clip names its song and shows the words it sings.
+  await expect(page.locator(".egg-caption-title")).toHaveText("♪ Nine-Eleven'd Again");
+  await expect(page.locator(".egg-caption-words")).toHaveText("One loud crash, the whole plan ends");
   await page.waitForTimeout(1100);
   await art.click({ clickCount: 3 });
   expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/nine-elevend-again.mp3");
@@ -282,9 +285,9 @@ test("the egg captions the cover art with the song and words being sung, and pla
   const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
   const caption = page.locator(".egg-caption");
   await art.click({ clickCount: 3 });
-  // The title line is from a known song, so it is named, with no words to follow.
+  // The title line is from a known song, so it is named, and its words show the whole way through.
   await expect(caption.locator(".egg-caption-title")).toHaveText("♪ Nine-Eleven'd Again");
-  await expect(caption.locator(".egg-caption-words")).toHaveCount(0);
+  await expect(caption.locator(".egg-caption-words")).toHaveText("Nine-eleven'd again");
   expect(await page.evaluate(() => window.__pauses)).toContain("audio");
   await page.waitForTimeout(1100);
   await art.click({ clickCount: 3 });
@@ -309,6 +312,52 @@ test("the egg captions the cover art with the song and words being sung, and pla
   await art.click({ clickCount: 3 });
   await expect(caption).toHaveCount(1);
   await expect(caption).toHaveCount(0, { timeout: 8000 });
+});
+
+test("a slow seek and a starved sound never let the picture or words run ahead", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__sung = null;
+    // A slow machine: the seek is honoured late, and the sound can starve mid-way.
+    Object.defineProperty(HTMLMediaElement.prototype, "currentTime", { configurable: true, get() { return this.__time || 0; }, set(value) { this.__pending = value; } });
+    HTMLMediaElement.prototype.play = function () {
+      if (this.src.includes("/one.mp3")) window.__sung = this;
+      // The sound is "playing" straight away, but from the start of the file.
+      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
+      return Promise.resolve();
+    };
+    Math.random = () => 0.9;
+  });
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
+  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [
+    { id: "one", title: "Song One", url: "/one.mp3", lines: [[10, 13, "first words"], [13.5, 16, "second words"]], moments: [[0, 1]] },
+  ] } }));
+  await page.route(/\/one\.mp3$/, route => route.fulfill({ status: 200, contentType: "audio/wav", body: silence(20) }));
+  await page.goto("/");
+  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
+  await art.click({ clickCount: 3 });
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 3 });
+  await expect.poll(() => page.evaluate(() => Boolean(window.__sung))).toBe(true);
+  // It is playing, but not yet at its moment, so the picture only waits.
+  await page.waitForTimeout(500);
+  await expect(art).toHaveClass(/egg-loading/);
+  await expect(art).not.toHaveClass(/egg-shock/);
+  await expect(page.locator(".egg-caption")).toHaveCount(0);
+  // Once it reaches the moment, the shake and words begin together.
+  await page.evaluate(() => { window.__sung.__time = 10.05; window.__sung.dispatchEvent(new Event("timeupdate")); });
+  await expect(art).toHaveClass(/egg-shock/);
+  await expect(page.locator(".egg-caption-words")).toHaveText("first words");
+  // A starved sound holds the shake still and lets it go again when it flows.
+  await page.evaluate(() => window.__sung.dispatchEvent(new Event("waiting")));
+  await expect(art).toHaveClass(/egg-stalled/);
+  expect(await art.evaluate(node => getComputedStyle(node).animationPlayState)).toBe("paused");
+  await page.evaluate(() => window.__sung.dispatchEvent(new Event("playing")));
+  await expect(art).not.toHaveClass(/egg-stalled/);
+  // The words catch up the moment the audio does, without waiting for a timer.
+  await page.evaluate(() => { window.__sung.__time = 14; window.__sung.dispatchEvent(new Event("timeupdate")); });
+  await expect(page.locator(".egg-caption-words")).toHaveText("second words");
 });
 
 test("cover art holds still until its sound has loaded", async ({ page }) => {
