@@ -2,6 +2,304 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-bdfdfdb9d938ac88520b6b6a",
+      "title": "Badge of Shame",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-bdfdfdb9d938ac88520b6b6a-96a2a918f031.mp3",
+      "duration": 315.04,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T08:22:15.090Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Badge of Shame",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 315-second dark punk-rock narrative in D minor: distorted guitars, agile electric bass, live drums, and restrained organ begin tense and controlled, then expand into urgent melodic choruses. Tony C's pinned V8 voice is smoky, slurred, and emotionally volatile, with clearly catchable hook lines rather than rap-like delivery. A stripped breakdown exposes the moral turn before the final chorus rises into a resolved final vocal sustained about 8–12 seconds before the end, followed by one decaying D-minor resolution.",
+        "lyrics": "[Verse 1]\nHe found a badge in a bargain-bin drawer\nHeld it to the mirror, practiced looking sure\nSaid the line was sacred, said the line was law\nNever saw the families caught beneath the claw\n\nAt the bus-stop glass, a child drew a sun\nHe called it evidence, he called it job well done\nEvery stamped paper made his small heart swell\nBuilding little kingdoms out of somebody's hell\n\n[Pre-Chorus]\nThe radio crackled, the blue lights spun\nHe mistook the noise for becoming someone\n\n[Chorus]\nBadge of shame, hanging heavy on his chest\nHe called it triumph while he failed the human test\nBadge of shame, hear the courthouse doors complain\nNo victory grows from another person's pain\n\n[Verse 2]\nHe learned the jargon, learned to flatten every name\nTurn a life to a number, turn compassion into blame\nA mother held a photograph against the rain\nHe looked away quick, then he filed it all the same\n\nHis friends at dinner said, \"You keeping order right?\"\nHe laughed too loud and stared down at his plate that night\nBecause the quiet had a witness of its own\nAnd every stolen goodbye followed him home\n\n[Pre-Chorus]\nThe radio crackled, the blue lights spun\nHe mistook the noise for becoming someone\n\n[Chorus]\nBadge of shame, hanging heavy on his chest\nHe called it triumph while he failed the human test\nBadge of shame, hear the courthouse doors complain\nNo victory grows from another person's pain\n\n[Bridge]\nNo flag can wash a cruel hand clean\nNo oath makes mercy less obscene\nThe line he worshipped starts to bend\nWhen all the ghosts ask, \"Where does duty end?\"\n\n[Breakdown]\nHe saw the sun the child had drawn\nFaded yellow by the dawn\nFor one clear second, all the lies\nCould not survive his open eyes\n\n[Chorus]\nBadge of shame, let it fall into the street\nLet the names return their music, let the families meet\nBadge of shame, there is no crown in fear\nPut the weapon down and let the truth come near\n\n[Outro]\nHe leaves the badge beneath the rain\nNo pardon can erase the stain\nBut he can stop, and he can say:\nNo more lives taken away\n\nNo more lives taken away\n[End]",
+        "duration": 315,
+        "bpm": 132,
+        "musicalSettings": {
+          "genre": "Dark melodic punk rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, breakdown, final chorus, resolved outro",
+          "performance": "Rough, connected Tony C phrasing with melodic sustained hooks and a remorseful final turn",
+          "energy": "Tense opening, forceful chorus lifts, exposed mid-song collapse, then a cathartic final resolution",
+          "lyricWorkflow": "Original narrative lyrics that critique abuse of power and follow a perpetrator's moral reckoning",
+          "instruments": [
+            "Distorted electric guitars",
+            "Electric bass",
+            "Live drum kit",
+            "Hammond-style organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nHe found a badge in a bargain-bin drawer\nHeld it to the mirror, practiced looking sure\nSaid the line was sacred, said the line was law\nNever saw the families caught beneath the claw\n\nAt the bus-stop glass, a child drew a sun\nHe called it evidence, he called it job well done\nEvery stamped paper made his small heart swell\nBuilding little kingdoms out of somebody's hell\n\n[Pre-Chorus]\nThe radio crackled, the blue lights spun\nHe mistook the noise for becoming someone\n\n[Chorus]\nBadge of shame, hanging heavy on his chest\nHe called it triumph while he failed the human test\nBadge of shame, hear the courthouse doors complain\nNo victory grows from another person's pain\n\n[Verse 2]\nHe learned the jargon, learned to flatten every name\nTurn a life to a number, turn compassion into blame\nA mother held a photograph against the rain\nHe looked away quick, then he filed it all the same\n\nHis friends at dinner said, \"You keeping order right?\"\nHe laughed too loud and stared down at his plate that night\nBecause the quiet had a witness of its own\nAnd every stolen goodbye followed him home\n\n[Pre-Chorus]\nThe radio crackled, the blue lights spun\nHe mistook the noise for becoming someone\n\n[Chorus]\nBadge of shame, hanging heavy on his chest\nHe called it triumph while he failed the human test\nBadge of shame, hear the courthouse doors complain\nNo victory grows from another person's pain\n\n[Bridge]\nNo flag can wash a cruel hand clean\nNo oath makes mercy less obscene\nThe line he worshipped starts to bend\nWhen all the ghosts ask, \"Where does duty end?\"\n\n[Breakdown]\nHe saw the sun the child had drawn\nFaded yellow by the dawn\nFor one clear second, all the lies\nCould not survive his open eyes\n\n[Chorus]\nBadge of shame, let it fall into the street\nLet the names return their music, let the families meet\nBadge of shame, there is no crown in fear\nPut the weapon down and let the truth come near\n\n[Outro]\nHe leaves the badge beneath the rain\nNo pardon can erase the stain\nBut he can stop, and he can say:\nNo more lives taken away\n\nNo more lives taken away",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 6.08,
+            "end": 8.52
+          },
+          {
+            "line": 2,
+            "start": 8.52,
+            "end": 12.74
+          },
+          {
+            "line": 3,
+            "start": 13.44,
+            "end": 16.38
+          },
+          {
+            "line": 4,
+            "start": 17.28,
+            "end": 20.1
+          },
+          {
+            "line": 6,
+            "start": 21.08,
+            "end": 24.62
+          },
+          {
+            "line": 7,
+            "start": 24.92,
+            "end": 27.98
+          },
+          {
+            "line": 8,
+            "start": 27.98,
+            "end": 31.12
+          },
+          {
+            "line": 9,
+            "start": 31.12,
+            "end": 34.68
+          },
+          {
+            "line": 12,
+            "start": 34.68,
+            "end": 39.3
+          },
+          {
+            "line": 13,
+            "start": 39.3,
+            "end": 42.92
+          },
+          {
+            "line": 16,
+            "start": 46.14,
+            "end": 51.56
+          },
+          {
+            "line": 17,
+            "start": 52.68,
+            "end": 57.02
+          },
+          {
+            "line": 18,
+            "start": 62.28,
+            "end": 65.38
+          },
+          {
+            "line": 19,
+            "start": 66.22,
+            "end": 72.9
+          },
+          {
+            "line": 22,
+            "start": 82.56,
+            "end": 85.24
+          },
+          {
+            "line": 23,
+            "start": 85.24,
+            "end": 88.94
+          },
+          {
+            "line": 24,
+            "start": 88.94,
+            "end": 92.8
+          },
+          {
+            "line": 25,
+            "start": 93.58,
+            "end": 96.64
+          },
+          {
+            "line": 27,
+            "start": 97.64,
+            "end": 100.36
+          },
+          {
+            "line": 28,
+            "start": 100.36,
+            "end": 104
+          },
+          {
+            "line": 29,
+            "start": 104,
+            "end": 107.06
+          },
+          {
+            "line": 30,
+            "start": 107.06,
+            "end": 110.96
+          },
+          {
+            "line": 33,
+            "start": 111.9,
+            "end": 115.72
+          },
+          {
+            "line": 34,
+            "start": 116.2,
+            "end": 119.46
+          },
+          {
+            "line": 37,
+            "start": 123.38,
+            "end": 127.38
+          },
+          {
+            "line": 38,
+            "start": 128.8,
+            "end": 134.44
+          },
+          {
+            "line": 39,
+            "start": 136.66,
+            "end": 141.76
+          },
+          {
+            "line": 40,
+            "start": 143.86,
+            "end": 149.42
+          },
+          {
+            "line": 43,
+            "start": 152.34,
+            "end": 156.56
+          },
+          {
+            "line": 44,
+            "start": 159.56,
+            "end": 163.28
+          },
+          {
+            "line": 45,
+            "start": 166.62,
+            "end": 171.14
+          },
+          {
+            "line": 46,
+            "start": 172.5,
+            "end": 182.82
+          },
+          {
+            "line": 49,
+            "start": 188.08,
+            "end": 191.04
+          },
+          {
+            "line": 50,
+            "start": 191.94,
+            "end": 194.62
+          },
+          {
+            "line": 51,
+            "start": 195.34,
+            "end": 198.4
+          },
+          {
+            "line": 52,
+            "start": 198.4,
+            "end": 202.44
+          },
+          {
+            "line": 55,
+            "start": 210.6,
+            "end": 214.6
+          },
+          {
+            "line": 56,
+            "start": 214.6,
+            "end": 221.84
+          },
+          {
+            "line": 57,
+            "start": 224.3,
+            "end": 229.12
+          },
+          {
+            "line": 58,
+            "start": 229.9,
+            "end": 236.94
+          },
+          {
+            "line": 61,
+            "start": 245.4,
+            "end": 249.3
+          },
+          {
+            "line": 62,
+            "start": 249.82,
+            "end": 253.38
+          },
+          {
+            "line": 63,
+            "start": 253.38,
+            "end": 256.46
+          },
+          {
+            "line": 64,
+            "start": 256.46,
+            "end": 260.1
+          },
+          {
+            "line": 66,
+            "start": 281.74,
+            "end": 285.72
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 13.32
+        }
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "haunted",
+      "originalPrompt": {
+        "idea": "Tony C can only cum while deporting immigrants, so he joins Immigration and Customs Enforcement. This is his story, his journey, his orgasms, and his triumph.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-5f72337cfa8595c33f87bee4",
       "title": "Name Beyond the Sun",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5f72337cfa8595c33f87bee4-8b60978801bd.mp3",
