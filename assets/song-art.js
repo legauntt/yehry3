@@ -220,6 +220,10 @@ const mouths = [
   path("M95 122Q107 128 116 116"),
   path("M92 119Q103 131 115 117", paper) + path("M99 125Q103 138 110 123Z", "#e8788a"),
 ];
+// Every song about See-saw wears the same gag instead of a rolled mouth: one
+// comically huge black rectangle, the blank the narrator keeps filling in.
+const seesawTitle = /see[-\s]?saw/i;
+const seesawMouth = rect(70, 114, 64, 38, 3, "#000");
 // Faces sit in the same place on every drawing, so these fit the whole cast.
 const extras = [
   null, null, null,
@@ -286,7 +290,8 @@ export function songArtwork(song) {
   const prop = tier ? null : props[roll("prop", props.length)];
   const extra = extras[roll("extra", extras.length)];
   const special = tier && roll("eyes", 2) ? (tier.votes >= 5 ? starEyes() : tier.votes === 1 ? heartEyes : null) : null;
-  const face = (extra?.shades && !special ? "" : special || eyes[roll("eyes", eyes.length)]()) + mouths[roll("mouth", mouths.length)] + (extra && !(extra.shades && special) ? extra.draw(a, b) : "");
+  const seesaw = seesawTitle.test(title);
+  const face = (extra?.shades && !special ? "" : special || eyes[roll("eyes", eyes.length)]()) + (seesaw ? seesawMouth : mouths[roll("mouth", mouths.length)]) + (extra && !(extra.shades && special) ? extra.draw(a, b) : "");
   const dark = tier?.stage === "legend";
   const specks = confetti(identity, tier?.stage === "loved" ? "hearts" : tier?.votes >= 5 ? "sparkles" : roll("confetti", 4), a, b);
   const badgeX = flipped ? 19 : 202;
@@ -305,7 +310,7 @@ export function songArtwork(song) {
     + '<g fill="' + (tier ? rose : paper) + '" stroke="' + (dark ? paper : ink) + '" stroke-width="2" stroke-linejoin="round">' + badge + '</g>'
     + (tier?.votes >= 5 ? '<rect x="5" y="5" width="230" height="190" rx="7" fill="none" stroke="' + (dark ? gold : "#a86a08") + '" stroke-width="4"/>' + (dark ? '<rect x="12" y="12" width="216" height="176" rx="4" fill="none" stroke="' + gold + '" stroke-width="1.5"/>' : "") : "")
     + '</svg>';
-  const art = { src: "data:image/svg+xml," + encodeURIComponent(svg), alt: "Silly clip art: " + description + ".", theme, tier: tier?.votes || 0 };
+  const art = { src: "data:image/svg+xml," + encodeURIComponent(svg), alt: "Silly clip art: " + description + (seesaw ? ", with a comically enormous black rectangle for a mouth" : "") + ".", theme, tier: tier?.votes || 0 };
   // Bound memory use on pages left open as the catalog changes.
   if (cache.size >= 512) cache.delete(cache.keys().next().value);
   cache.set(key, art);
