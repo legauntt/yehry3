@@ -2,6 +2,406 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-6bb22f55d65304bc989976c2",
+      "title": "Laughing Through the Static",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6bb22f55d65304bc989976c2-5bdaa37c3125.mp3",
+      "duration": 360.04571428571427,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-20T22:23:27.374Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Laughing Through the Static",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Slow 72 BPM lo-fi nocturne in D minor: dusty drum-machine pocket, warm sub-bass, muted electric piano, vinyl-textured guitar fragments, and sparse tape-worn synth. One clear, steadily pitched Tony lead carries a melodic, conversational delivery; laughter-like “heh” phrases are integrated as rhythmic hooks rather than replacing the song’s lyric. Build from intimate verses to a fuller, catchable refrain, then thin briefly for the bridge before a final sustained “through” lands about 10 seconds before the end; resolve with one final D-minor chord decay.",
+        "lyrics": "[Verse 1]\nThe room went quiet when the picture fell\nBlue TV snow and a little hotel bell\nI found a joke in the crack of the wall\nCould not explain it, just started to call\nHeh heh, the whole night leaned in\nHeh, like a match in a coffee tin\nNo grand answer, no polished line\nJust a loose little spark saying I am fine\n\n[Verse 2]\nThe rain kept tapping the fire escape\nMaking a drum from a bad old tape\nI gave the moon my crooked report\nIt stamped it late and sent it back short\nHeh heh heh, hear that train\nHauling its sorrow through the windowpane\nI do not laugh because nothing hurts\nI laugh when the hurt forgets its words\n\n[Pre-Chorus]\nSomebody says, “Keep it together”\nI say, “Maybe this is how I weather”\n\n[Chorus]\nHeh heh, laughing through the static\nSmall and strange but automatic\nHeh, when the dark gets dramatic\nI put a light in the crack and laugh it\nHeh heh, not a hallelujah\nNot a cure and I never drew ya\nJust a pulse when the midnight grabs it\nI am laughing through the static\n\n[Verse 3]\nThere was a man at the all-night store\nCounting change on the linoleum floor\nHe said the world was a busted machine\nI said it still makes a beautiful scream\nHeh, heh heh, he looked around\nLike the joke had come up through the ground\nThen he laughed once, low and true\nAnd the fluorescent lights laughed too\n\n[Verse 4]\nI took the long way under the signs\nPast the empty laundromat lines\nEvery spinning shirt had a private dance\nEvery closed door held a second chance\nHeh heh, I let it arrive\nThat ridiculous proof I was still alive\nNot loud enough to wake the dead\nJust enough to unmake the dread\n\n[Bridge]\nIf morning comes with its clipboard face\nAnd asks me why I left no trace\nTell it I traded my heavy name\nFor a breath and a flicker and a harmless flame\nHeh… heh heh…\nThe sound is thin, then it gathers weight\nA little open door in a locked-up state\n\n[Chorus]\nHeh heh, laughing through the static\nSmall and strange but automatic\nHeh, when the dark gets dramatic\nI put a light in the crack and laugh it\nHeh heh, not a hallelujah\nNot a cure and I never drew ya\nJust a pulse when the midnight grabs it\nI am laughing through the static\n\n[Verse]\nNow dawn is silver on the kitchen glass\nThe hard night loosens and lets me pass\nI keep no medal, I make no claim\nOnly a warm little echo that knows my name\nHeh heh, let the silence see\nIt did not get the last word from me\nOne clear breath, then the sky turns blue\nHeh… I am still here, laughing through\n[End]",
+        "duration": 360,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Lo-fi alternative rock",
+          "meter": "4/4",
+          "structure": "Verse 1, Verse 2, pre-chorus, chorus, Verse 3, Verse 4, bridge, chorus, final verse",
+          "performance": "Clear, melodic lead with conversational timing and brief rhythmic laughter-like hook phrases",
+          "energy": "Low-lit and restrained at first, widening into a warm, defiant refrain before a gentle resolved finish",
+          "lyricWorkflow": "Original lyric narrative that turns laughter into a small act of endurance",
+          "instruments": [
+            "drum machine",
+            "sub-bass",
+            "electric piano",
+            "muted electric guitar",
+            "synth"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThe room went quiet when the picture fell\nBlue TV snow and a little hotel bell\nI found a joke in the crack of the wall\nCould not explain it, just started to call\nHeh heh, the whole night leaned in\nHeh, like a match in a coffee tin\nNo grand answer, no polished line\nJust a loose little spark saying I am fine\n\n[Verse 2]\nThe rain kept tapping the fire escape\nMaking a drum from a bad old tape\nI gave the moon my crooked report\nIt stamped it late and sent it back short\nHeh heh heh, hear that train\nHauling its sorrow through the windowpane\nI do not laugh because nothing hurts\nI laugh when the hurt forgets its words\n\n[Pre-Chorus]\nSomebody says, “Keep it together”\nI say, “Maybe this is how I weather”\n\n[Chorus]\nHeh heh, laughing through the static\nSmall and strange but automatic\nHeh, when the dark gets dramatic\nI put a light in the crack and laugh it\nHeh heh, not a hallelujah\nNot a cure and I never drew ya\nJust a pulse when the midnight grabs it\nI am laughing through the static\n\n[Verse 3]\nThere was a man at the all-night store\nCounting change on the linoleum floor\nHe said the world was a busted machine\nI said it still makes a beautiful scream\nHeh, heh heh, he looked around\nLike the joke had come up through the ground\nThen he laughed once, low and true\nAnd the fluorescent lights laughed too\n\n[Verse 4]\nI took the long way under the signs\nPast the empty laundromat lines\nEvery spinning shirt had a private dance\nEvery closed door held a second chance\nHeh heh, I let it arrive\nThat ridiculous proof I was still alive\nNot loud enough to wake the dead\nJust enough to unmake the dread\n\n[Bridge]\nIf morning comes with its clipboard face\nAnd asks me why I left no trace\nTell it I traded my heavy name\nFor a breath and a flicker and a harmless flame\nHeh… heh heh…\nThe sound is thin, then it gathers weight\nA little open door in a locked-up state\n\n[Chorus]\nHeh heh, laughing through the static\nSmall and strange but automatic\nHeh, when the dark gets dramatic\nI put a light in the crack and laugh it\nHeh heh, not a hallelujah\nNot a cure and I never drew ya\nJust a pulse when the midnight grabs it\nI am laughing through the static\n\n[Verse]\nNow dawn is silver on the kitchen glass\nThe hard night loosens and lets me pass\nI keep no medal, I make no claim\nOnly a warm little echo that knows my name\nHeh heh, let the silence see\nIt did not get the last word from me\nOne clear breath, then the sky turns blue\nHeh… I am still here, laughing through",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 25.82,
+            "end": 29.1
+          },
+          {
+            "line": 2,
+            "start": 29.8,
+            "end": 33.06
+          },
+          {
+            "line": 3,
+            "start": 33.22,
+            "end": 35.86
+          },
+          {
+            "line": 4,
+            "start": 36.56,
+            "end": 39.2
+          },
+          {
+            "line": 5,
+            "start": 39.2,
+            "end": 39.84
+          },
+          {
+            "line": 6,
+            "start": 39.84,
+            "end": 42.46
+          },
+          {
+            "line": 7,
+            "start": 42.46,
+            "end": 45.84
+          },
+          {
+            "line": 8,
+            "start": 46.22,
+            "end": 49.18
+          },
+          {
+            "line": 11,
+            "start": 50.74,
+            "end": 54.12
+          },
+          {
+            "line": 12,
+            "start": 56.06,
+            "end": 59.36
+          },
+          {
+            "line": 13,
+            "start": 59.36,
+            "end": 62.36
+          },
+          {
+            "line": 14,
+            "start": 62.36,
+            "end": 65.98
+          },
+          {
+            "line": 15,
+            "start": 66.4,
+            "end": 69.18
+          },
+          {
+            "line": 16,
+            "start": 69.18,
+            "end": 72.52
+          },
+          {
+            "line": 17,
+            "start": 72.52,
+            "end": 75.8
+          },
+          {
+            "line": 18,
+            "start": 75.8,
+            "end": 79.72
+          },
+          {
+            "line": 21,
+            "start": 79.72,
+            "end": 97.72
+          },
+          {
+            "line": 22,
+            "start": 97.72,
+            "end": 103.08
+          },
+          {
+            "line": 25,
+            "start": 103.68,
+            "end": 109.36
+          },
+          {
+            "line": 26,
+            "start": 110.12,
+            "end": 112.14
+          },
+          {
+            "line": 27,
+            "start": 113.62,
+            "end": 115.84
+          },
+          {
+            "line": 28,
+            "start": 116.84,
+            "end": 118.18
+          },
+          {
+            "line": 29,
+            "start": 118.18,
+            "end": 122.84
+          },
+          {
+            "line": 30,
+            "start": 123.6,
+            "end": 126.6
+          },
+          {
+            "line": 31,
+            "start": 126.6,
+            "end": 129.56
+          },
+          {
+            "line": 32,
+            "start": 129.56,
+            "end": 132.72
+          },
+          {
+            "line": 35,
+            "start": 159.64,
+            "end": 162.72
+          },
+          {
+            "line": 36,
+            "start": 162.72,
+            "end": 165.9
+          },
+          {
+            "line": 37,
+            "start": 165.9,
+            "end": 169.08
+          },
+          {
+            "line": 38,
+            "start": 169.72,
+            "end": 172.7
+          },
+          {
+            "line": 39,
+            "start": 172.7,
+            "end": 175.8
+          },
+          {
+            "line": 40,
+            "start": 175.8,
+            "end": 179.58
+          },
+          {
+            "line": 41,
+            "start": 179.58,
+            "end": 182.44
+          },
+          {
+            "line": 42,
+            "start": 183.36,
+            "end": 186.48
+          },
+          {
+            "line": 45,
+            "start": 187.64,
+            "end": 190.06
+          },
+          {
+            "line": 46,
+            "start": 191.04,
+            "end": 193.44
+          },
+          {
+            "line": 47,
+            "start": 194.04,
+            "end": 196.68
+          },
+          {
+            "line": 48,
+            "start": 197.36,
+            "end": 200.48
+          },
+          {
+            "line": 49,
+            "start": 201.32,
+            "end": 203.28
+          },
+          {
+            "line": 50,
+            "start": 203.7,
+            "end": 206.62
+          },
+          {
+            "line": 51,
+            "start": 206.62,
+            "end": 209.94
+          },
+          {
+            "line": 52,
+            "start": 209.94,
+            "end": 213.28
+          },
+          {
+            "line": 55,
+            "start": 239.6,
+            "end": 242.72
+          },
+          {
+            "line": 56,
+            "start": 242.88,
+            "end": 246.02
+          },
+          {
+            "line": 57,
+            "start": 246.72,
+            "end": 249.12
+          },
+          {
+            "line": 58,
+            "start": 249.12,
+            "end": 252.6
+          },
+          {
+            "line": 59,
+            "start": 253.82,
+            "end": 253.9
+          },
+          {
+            "line": 60,
+            "start": 253.9,
+            "end": 258.28
+          },
+          {
+            "line": 61,
+            "start": 258.28,
+            "end": 263.28
+          },
+          {
+            "line": 64,
+            "start": 263.28,
+            "end": 267.12
+          },
+          {
+            "line": 65,
+            "start": 267.12,
+            "end": 269.96
+          },
+          {
+            "line": 66,
+            "start": 269.96,
+            "end": 273.42
+          },
+          {
+            "line": 67,
+            "start": 273.42,
+            "end": 277.06
+          },
+          {
+            "line": 68,
+            "start": 277.06,
+            "end": 280.52
+          },
+          {
+            "line": 69,
+            "start": 280.52,
+            "end": 283.28
+          },
+          {
+            "line": 70,
+            "start": 283.28,
+            "end": 286.74
+          },
+          {
+            "line": 71,
+            "start": 286.74,
+            "end": 290.42
+          },
+          {
+            "line": 74,
+            "start": 318.82,
+            "end": 321.66
+          },
+          {
+            "line": 75,
+            "start": 322.32,
+            "end": 325.02
+          },
+          {
+            "line": 76,
+            "start": 325.66,
+            "end": 328.28
+          },
+          {
+            "line": 77,
+            "start": 328.28,
+            "end": 331.82
+          },
+          {
+            "line": 78,
+            "start": 332.88,
+            "end": 334.98
+          },
+          {
+            "line": 79,
+            "start": 335.58,
+            "end": 338.32
+          },
+          {
+            "line": 80,
+            "start": 339.04,
+            "end": 341.84
+          },
+          {
+            "line": 81,
+            "start": 341.84,
+            "end": 346.64
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "voice_validation",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "6 minutes of Tony laughing, any genre. No lyrics, just laughing.",
+        "direction": "Use the prompt as written.",
+        "keep": "Use a lofi beat, slow tempo. Laughter should be \"Heh heh\", \"Heh\", \"Heh heh heh\".",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 360,
+          "pitchRepair": "clean"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-88868f32b2b6d76e2d2929ad",
       "title": "Six Minutes of Laughter",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-88868f32b2b6d76e2d2929ad-174f677faa17.mp3",
