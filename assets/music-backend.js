@@ -10,6 +10,24 @@ export function paidCost(details = {}) {
   return { duration, estimate: duration / 60 * 15, reserve: Math.ceil(duration / 60 * 100) };
 }
 
+/**
+ * What is left to spend, for the sentence under a paid length. The $200 cap is a spending
+ * authorization; the plan balance is what the ElevenLabs account can actually pay for, so both
+ * are shown, and a length the credits cannot cover is called out before the server refuses it.
+ */
+export function budgetNote(budget, estimateCents) {
+  if (!budget) return '';
+  let note = ` ${money(budget.remainingCents)} is available to reserve.`;
+  const provider = budget.provider;
+  if (provider?.fresh && Number.isFinite(provider.availableCents)) {
+    const renews = provider.resetAt ? new Date(provider.resetAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '';
+    note += ` The ElevenLabs plan has about ${money(provider.availableCents)} of generation credits left${renews ? `, renewing ${renews}` : ''}.`;
+    if (estimateCents > provider.availableCents)
+      note += ' That is not enough for this length, so it cannot be confirmed until credits renew. Choose a shorter song or use local generation.';
+  }
+  return note;
+}
+
 export function savedMusicBackend() {
   try {
     const value = localStorage.getItem(MUSIC_BACKEND_PREFERENCE_KEY);
@@ -53,7 +71,7 @@ export function mountMusicBackend(root, { draft, generation, basisRoot, storage,
       return;
     }
     root.querySelector('#paid-music-cost').textContent = Number.isFinite(duration)
-      ? `Estimated ${money(duration / 60 * 15)} for ${minutes(duration)} minutes; reserves ${money(Math.ceil(duration / 60 * 100))} from the shared $200 total cap.${budget ? ` ${money(budget.remainingCents)} is available to reserve.` : ''}` : '';
+      ? `Estimated ${money(duration / 60 * 15)} for ${minutes(duration)} minutes; reserves ${money(Math.ceil(duration / 60 * 100))} from the shared $200 total cap.${budgetNote(budget, Math.ceil(duration * 15 / 60))}` : '';
   };
   const change = () => {
     const paid = select.value === PAID_BACKEND;

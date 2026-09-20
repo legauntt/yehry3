@@ -14,7 +14,7 @@ async function fixture(context) {
     else if (path === '/voice-models') json = { models: [{ id: 'v8', label: 'Tony V8', experimental: true }] };
     else if (path === '/generation') json = { version: 1, enabled: true };
     else if (path === '/request-materials') json = { version: 1 };
-    else if (path === '/music-backends') json = { enabled: true, remainingCents: 19100 };
+    else if (path === '/music-backends') json = { enabled: true, remainingCents: 19100, ...(state.provider ? { provider: state.provider } : {}) };
     else if (path === '/capacity') json = { limit: 10, active: 0, available: 10, full: false };
     else if (path === '/queue') json = { inStudio: [], needsAttention: [], queued: [], recent: [] };
     else if (path === '/prompts' && method === 'POST') {
@@ -157,4 +157,30 @@ test('duration estimates render compactly on desktop and mobile', async ({ page,
   await page.screenshot({ path: 'artifacts/paid-password/mobile-confirmation.png', fullPage: true });
   await page.locator('#edit').click();
   await expect(page.locator('#paid-music-cost')).toContainText('Estimated $0.63 for 4.17 minutes; reserves $4.17');
+});
+
+async function costNote(page, context, provider) {
+  const state = await fixture(context);
+  state.provider = provider;
+  await review(page, { login: true });
+  await page.locator('#edit').click();
+  return page.locator('#paid-music-cost');
+}
+
+test('the plan balance is shown beside the cap', async ({ page, context }) => {
+  const note = await costNote(page, context, { fresh: true, creditsRemaining: 199198, availableCents: 3621, resetAt: '2026-10-17T18:00:00.000Z' });
+  await expect(note).toContainText('$191.00 is available to reserve. The ElevenLabs plan has about $36.21 of generation credits left, renewing Oct 17.');
+  await expect(note).not.toContainText('not enough');
+});
+
+test('a length the plan credits cannot cover is called out', async ({ page, context }) => {
+  const note = await costNote(page, context, { fresh: true, creditsRemaining: 1100, availableCents: 20, resetAt: '2026-10-17T18:00:00.000Z' });
+  await expect(note).toContainText('The ElevenLabs plan has about $0.20 of generation credits left');
+  await expect(note).toContainText('not enough for this length');
+});
+
+test('a stale plan balance is not shown', async ({ page, context }) => {
+  const note = await costNote(page, context, { fresh: false, availableCents: null });
+  await expect(note).toContainText('$191.00 is available to reserve.');
+  await expect(note).not.toContainText('ElevenLabs plan');
 });

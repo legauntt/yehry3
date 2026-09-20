@@ -111,6 +111,20 @@ and their frozen resumes without executing paid/GPU/audio stages. Actual paid
 composition and Tony conversion were validated in the prior six-take comparison;
 this integration's tests do not claim a newly generated full production song.
 
+## Plan balance
+
+The cap is a spending authorization, not the account's balance. The hourly **Distonyc Paid
+Budget** task (`push_music_settlement.py`) also reads the plan's remaining credits from
+`GET /v1/user/subscription` and reports them to Chairlift's `/admin/music-budget/credits`, which
+adds a second admission limit: the plan must cover the song's $0.15/minute estimate (825
+credits per minute, measured). The figure only restricts; it never raises or replaces the cap,
+and Chairlift ignores a report older than six hours.
+
+The key needs the ElevenLabs **User** permission (`user_read`) for this. Without it the read
+fails with `missing_permissions`, the settlement itself has already been pushed, and the task
+exits non-zero so the result is visible in `Get-ScheduledTaskInfo 'Distonyc Paid Budget'` and
+`state/paid-music/reconcile.log`. Only credit counts and the reset time leave the PC.
+
 ## Explicit operator retry after reconciliation
 
 Ordinary Retry and the monitor still cannot repeat a paid call. After inspecting

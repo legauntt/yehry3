@@ -28,6 +28,7 @@ RATE_CENTS_PER_MINUTE = 15
 # Measured against music_v2_5 usage on 2026-09-19: 149,188 credits for 180.8333 generated minutes.
 CREDITS_PER_MINUTE = 825
 USAGE_ENDPOINT = 'https://api.elevenlabs.io/v1/usage/character-stats'
+SUBSCRIPTION_ENDPOINT = 'https://api.elevenlabs.io/v1/user/subscription'
 USAGE_WINDOW_DAYS = 120
 TOLERANCE = 0.02
 GENERATION_MODEL_PREFIX = 'music_'
@@ -48,6 +49,27 @@ def provider_credits(credential, days=USAGE_WINDOW_DAYS):
     with urllib.request.urlopen(request, timeout=120) as response:
         usage = json.loads(response.read()).get('usage', {})
     return {name: sum(values) for name, values in usage.items()}
+
+
+def provider_balance(credential):
+    """The plan's remaining credits, shaped for Chairlift's credits endpoint.
+
+    Read-only and not billable. It needs the key's `User` permission (`user_read`); without it
+    the provider answers 401 `missing_permissions`. Only counts and the reset time leave the PC.
+    """
+    key = get_key(credential)
+    request = urllib.request.Request(SUBSCRIPTION_ENDPOINT, headers={'xi-api-key': key})
+    with urllib.request.urlopen(request, timeout=60) as response:
+        state = json.loads(response.read())
+    limit, used = state.get('character_limit'), state.get('character_count')
+    if any(type(value) is not int or value < 0 for value in (limit, used)):
+        raise ValueError('ElevenLabs returned an unreadable plan balance')
+    balance = {'version': 1, 'creditsRemaining': max(0, limit - used), 'creditLimit': limit}
+    if type(state.get('next_character_count_reset_unix')) is int:
+        balance['resetUnix'] = state['next_character_count_reset_unix']
+    if isinstance(state.get('tier'), str):
+        balance['tier'] = state['tier'][:40]
+    return balance
 
 
 def generation_credits(models):

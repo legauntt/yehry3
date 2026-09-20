@@ -173,5 +173,73 @@ class ReconcileTest(unittest.TestCase):
         self.assertNotIn('reconciled_cents', saved['requests'][0])
 
 
+class FakeResponse:
+    def __init__(self, body):
+        self.body = json.dumps(body).encode()
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self, *exc):
+        return False
+
+    def read(self):
+        return self.body
+
+
+class ProviderBalanceTest(unittest.TestCase):
+    """The plan balance is the only figure Chairlift cannot learn without the PC-only key."""
+
+    def balance(self, state):
+        seen = []
+
+        def fake(request, timeout):
+            seen.append((request.full_url, request.get_header('Xi-api-key')))
+            return FakeResponse(state)
+        with patch.object(reconcile, 'get_key', return_value='secret'),                 patch.object(reconcile.urllib.request, 'urlopen', side_effect=fake):
+            result = reconcile.provider_balance('credential-path')
+        self.assertEqual(seen, [(reconcile.SUBSCRIPTION_ENDPOINT, 'secret')])
+        return result
+
+    def test_reports_remaining_credits_and_the_reset_time_only(self):
+        result = self.balance({'tier': 'creator', 'character_count': 206802, 'character_limit': 406000,
+                               'next_character_count_reset_unix': 1792228232, 'voice_slots_used': 4,
+                               'currency': 'usd', 'status': 'active'})
+        self.assertEqual(result, {'version': 1, 'creditsRemaining': 199198, 'creditLimit': 406000,
+                                  'resetUnix': 1792228232, 'tier': 'creator'})
+
+    def test_an_overdrawn_plan_reports_zero_not_a_negative(self):
+        self.assertEqual(self.balance({'character_count': 410000, 'character_limit': 406000})['creditsRemaining'], 0)
+
+    def test_an_unreadable_balance_is_refused(self):
+        for state in ({}, {'character_count': 'many', 'character_limit': 1}, {'character_count': -1, 'character_limit': 10},
+                      {'character_count': 1.5, 'character_limit': 10}):
+            with self.assertRaises(ValueError, msg=str(state)):
+                self.balance(state)
+
+
+class PushCreditsTest(unittest.TestCase):
+    def test_sends_the_balance_to_the_credits_endpoint(self):
+        import push_music_settlement as push
+        calls = []
+
+        class Api:
+            def __init__(self, base, password):
+                calls.append(('login', base, password))
+
+            def call(self, path, method, body):
+                calls.append((path, method, body))
+                return {'ok': True}
+        directory = TemporaryDirectory()
+        self.addCleanup(directory.cleanup)
+        config = Path(directory.name) / 'config.json'
+        config.write_text(json.dumps({'api': 'https://api.example/yehry3'}), 'utf-8')
+        balance = {'version': 1, 'creditsRemaining': 5, 'creditLimit': 10}
+        with patch.object(push, 'AdminAPI', Api), patch.object(push, 'provider_balance', return_value=balance),                 patch.object(push, 'policy', return_value={'credential': 'key'}):
+            self.assertEqual(push.push_credits(config, Path('policy.json'), 'pw'), {'ok': True})
+        self.assertEqual(calls, [('login', 'https://api.example/yehry3', 'pw'),
+                                 ('/admin/music-budget/credits', 'POST', balance)])
+
+
 if __name__ == '__main__':
     unittest.main()
