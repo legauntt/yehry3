@@ -2,6 +2,354 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ecba3a59b294370d1338a539",
+      "title": "How Do I Enjoy Life",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ecba3a59b294370d1338a539-4e290581a622.mp3",
+      "duration": 270.0277551020408,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T02:57:39.028Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "How Do I Enjoy Life",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "G major",
+        "arrangement": "Comic-book rock in 4/4: punchy electric guitar, animated bass movement, crisp drums, organ stabs, and small cinematic brass-like synth hits. One clear, steadily pitched Tony lead carries melodic verses with conversational lift; keep the guide vocal clean and undoubled for later Tony conversion. Build from playful character sketches to a warm, sober final section. The last sung phrase lands about 9 seconds before the end, followed by one resolved G-major chord decay.",
+        "lyrics": "[Verse 1]\nMy step-son leaned in at the kitchen light\nSaid, “How do I enjoy this life?”\nI said, “Kid, I knew a whole wild crew\nEach one had a different thing to do”\n\n[Section 1]\nPancakeo took the megaphone downtown\nChasing loud arguments all around\nHe chased the girls and the bottle too\nLike every bright sign was telling him true\nHe taught me a laugh can turn to smoke\nWhen you make every night into one long joke\n\n[Section 2]\nCsaw came up through a house gone cold\nA blameless child getting bruised by old\nBut he took that hurt and he stood up tall\nMade a good man out of it all\nHe taught me the past may raise its hand\nBut it does not own the grown-up man\n\n[Section 3]\nFox Reels counted every dollar twice\nTrying to make a kingdom out of price\nThen he found a steadier, deeper way\nIn faith and the choices of every day\nHe taught me money can open a door\nBut it cannot tell you what a heart is for\n\n[Refrain]\nSo enjoy the light when it lands on you\nMake a little room for the honest truth\nEverybody’s writing a different page\nTrying to get wiser at every age\n\n[Section 4]\nCow looked me dead in the eye one day\nSaid, “MAN UP,” then he walked away\nNot meaning harden, not meaning hide\nMeaning carry your word with some pride\nLimnos lifted till the ceiling shook\nChasing strength like a comic book\nSteel and thunder, a body built wide\nStill had to find peace on the inside\n\n[Section 5]\nDon Exodus kept a score in his head\n“Last hits,” “waste of carbon,” the things he said\nHe saw the world like a battlefield screen\nAlways hunting the win in between\nHe taught me don’t make your whole life small\nBy measuring who gets more than all\n\n[Bridge]\nMy step-son, life is not one command\nIt slips through the fingers, it changes hands\nTake what helps, leave what makes you numb\nKnow when to fight and when to come home\n\n[Refrain]\nEnjoy the rain, enjoy the street\nEnjoy the people you’re glad to meet\nGive your days a reason to stay\nAnd say what matters before it fades away\n\n[Outro]\nThen I remember Grizzman, gone too soon\nA tragic silence in a crowded room\nWe carry his name with a careful flame\nAnd wish he had known he was never to blame\nSo hold your friends when the nights get rough\nTell them plainly: you are enough\nBut to tell ya the truth, heh heh, heh\n[End]",
+        "duration": 270,
+        "bpm": 96,
+        "musicalSettings": {
+          "genre": "Comic-book narrative rock",
+          "meter": "4/4",
+          "structure": "Verse, five developing character sections, recurring refrain, bridge, final refrain, resolved outro",
+          "performance": "Clear melodic lead with lively conversational phrasing, shifting from playful to sincere",
+          "energy": "Buoyant mid-tempo opening, stronger band lift through the middle, reflective final resolution",
+          "lyricWorkflow": "Original narrative lyrics built as a fatherly answer, with each friend portrayed distinctly and the final loss handled respectfully",
+          "instruments": [
+            "electric guitar",
+            "bass guitar",
+            "drum kit",
+            "organ",
+            "synth brass"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nMy step-son leaned in at the kitchen light\nSaid, “How do I enjoy this life?”\nI said, “Kid, I knew a whole wild crew\nEach one had a different thing to do”\n\n[Section 1]\nPancakeo took the megaphone downtown\nChasing loud arguments all around\nHe chased the girls and the bottle too\nLike every bright sign was telling him true\nHe taught me a laugh can turn to smoke\nWhen you make every night into one long joke\n\n[Section 2]\nCsaw came up through a house gone cold\nA blameless child getting bruised by old\nBut he took that hurt and he stood up tall\nMade a good man out of it all\nHe taught me the past may raise its hand\nBut it does not own the grown-up man\n\n[Section 3]\nFox Reels counted every dollar twice\nTrying to make a kingdom out of price\nThen he found a steadier, deeper way\nIn faith and the choices of every day\nHe taught me money can open a door\nBut it cannot tell you what a heart is for\n\n[Refrain]\nSo enjoy the light when it lands on you\nMake a little room for the honest truth\nEverybody’s writing a different page\nTrying to get wiser at every age\n\n[Section 4]\nCow looked me dead in the eye one day\nSaid, “MAN UP,” then he walked away\nNot meaning harden, not meaning hide\nMeaning carry your word with some pride\nLimnos lifted till the ceiling shook\nChasing strength like a comic book\nSteel and thunder, a body built wide\nStill had to find peace on the inside\n\n[Section 5]\nDon Exodus kept a score in his head\n“Last hits,” “waste of carbon,” the things he said\nHe saw the world like a battlefield screen\nAlways hunting the win in between\nHe taught me don’t make your whole life small\nBy measuring who gets more than all\n\n[Bridge]\nMy step-son, life is not one command\nIt slips through the fingers, it changes hands\nTake what helps, leave what makes you numb\nKnow when to fight and when to come home\n\n[Refrain]\nEnjoy the rain, enjoy the street\nEnjoy the people you’re glad to meet\nGive your days a reason to stay\nAnd say what matters before it fades away\n\n[Outro]\nThen I remember Grizzman, gone too soon\nA tragic silence in a crowded room\nWe carry his name with a careful flame\nAnd wish he had known he was never to blame\nSo hold your friends when the nights get rough\nTell them plainly: you are enough\nBut to tell ya the truth, heh heh, heh",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 6.56,
+            "end": 10.24
+          },
+          {
+            "line": 2,
+            "start": 10.24,
+            "end": 16.08
+          },
+          {
+            "line": 3,
+            "start": 16.96,
+            "end": 19.86
+          },
+          {
+            "line": 4,
+            "start": 20.38,
+            "end": 22.7
+          },
+          {
+            "line": 7,
+            "start": 25.04,
+            "end": 28.24
+          },
+          {
+            "line": 8,
+            "start": 28.24,
+            "end": 33.5
+          },
+          {
+            "line": 9,
+            "start": 34.16,
+            "end": 36.22
+          },
+          {
+            "line": 10,
+            "start": 36.58,
+            "end": 40.46
+          },
+          {
+            "line": 11,
+            "start": 42.42,
+            "end": 44.98
+          },
+          {
+            "line": 12,
+            "start": 44.98,
+            "end": 48.16
+          },
+          {
+            "line": 15,
+            "start": 52.62,
+            "end": 56.22
+          },
+          {
+            "line": 16,
+            "start": 57.74,
+            "end": 61.18
+          },
+          {
+            "line": 17,
+            "start": 62.08,
+            "end": 64.44
+          },
+          {
+            "line": 18,
+            "start": 65.18,
+            "end": 67.6
+          },
+          {
+            "line": 19,
+            "start": 69.38,
+            "end": 72.98
+          },
+          {
+            "line": 20,
+            "start": 75,
+            "end": 77.86
+          },
+          {
+            "line": 23,
+            "start": 82.56,
+            "end": 86.22
+          },
+          {
+            "line": 24,
+            "start": 87.44,
+            "end": 91.12
+          },
+          {
+            "line": 25,
+            "start": 91.74,
+            "end": 94.42
+          },
+          {
+            "line": 26,
+            "start": 94.42,
+            "end": 97.86
+          },
+          {
+            "line": 27,
+            "start": 100.08,
+            "end": 103.38
+          },
+          {
+            "line": 28,
+            "start": 104.54,
+            "end": 107.82
+          },
+          {
+            "line": 31,
+            "start": 109.36,
+            "end": 112.12
+          },
+          {
+            "line": 32,
+            "start": 112.64,
+            "end": 115.28
+          },
+          {
+            "line": 33,
+            "start": 117.76,
+            "end": 120.24
+          },
+          {
+            "line": 34,
+            "start": 121.68,
+            "end": 127.98
+          },
+          {
+            "line": 37,
+            "start": 127.98,
+            "end": 131.26
+          },
+          {
+            "line": 38,
+            "start": 132.54,
+            "end": 136.06
+          },
+          {
+            "line": 39,
+            "start": 136.92,
+            "end": 140.4
+          },
+          {
+            "line": 40,
+            "start": 141.6,
+            "end": 145.04
+          },
+          {
+            "line": 41,
+            "start": 146.78,
+            "end": 148.74
+          },
+          {
+            "line": 42,
+            "start": 149.16,
+            "end": 151.26
+          },
+          {
+            "line": 43,
+            "start": 151.64,
+            "end": 154.1
+          },
+          {
+            "line": 44,
+            "start": 155.06,
+            "end": 157.46
+          },
+          {
+            "line": 47,
+            "start": 162.38,
+            "end": 166.18
+          },
+          {
+            "line": 48,
+            "start": 167.6,
+            "end": 171.16
+          },
+          {
+            "line": 49,
+            "start": 172.02,
+            "end": 175.1
+          },
+          {
+            "line": 50,
+            "start": 176.72,
+            "end": 180.08
+          },
+          {
+            "line": 51,
+            "start": 181.9,
+            "end": 184.5
+          },
+          {
+            "line": 52,
+            "start": 184.5,
+            "end": 187.98
+          },
+          {
+            "line": 55,
+            "start": 188.94,
+            "end": 193.2
+          },
+          {
+            "line": 56,
+            "start": 194.74,
+            "end": 198.74
+          },
+          {
+            "line": 57,
+            "start": 198.74,
+            "end": 203.24
+          },
+          {
+            "line": 58,
+            "start": 204.4,
+            "end": 207.76
+          },
+          {
+            "line": 61,
+            "start": 209.48,
+            "end": 213.56
+          },
+          {
+            "line": 62,
+            "start": 214.5,
+            "end": 218.6
+          },
+          {
+            "line": 63,
+            "start": 219.38,
+            "end": 221.36
+          },
+          {
+            "line": 64,
+            "start": 222.04,
+            "end": 225.34
+          },
+          {
+            "line": 67,
+            "start": 227.26,
+            "end": 230.98
+          },
+          {
+            "line": 68,
+            "start": 232.74,
+            "end": 236.7
+          },
+          {
+            "line": 69,
+            "start": 237.64,
+            "end": 240.26
+          },
+          {
+            "line": 70,
+            "start": 241.08,
+            "end": 243.18
+          },
+          {
+            "line": 71,
+            "start": 243.18,
+            "end": 246.54
+          },
+          {
+            "line": 72,
+            "start": 247.52,
+            "end": 250.08
+          },
+          {
+            "line": 73,
+            "start": 250.08,
+            "end": 255.98
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony remembers his friends when his step-son asks, \"how do I enjoy life?\"\nPancakeo, who took to public protests, womenizing, and drinking, and entered the dark space of the manosphere\nCsaw, who was a blameless victim of a negflectful mother, and would go on to be a great man\nFox Reels, who pursued money above all else and the Jewish faith\nCow, who told him to MAN UP\nLimnos, who took to weightlifting and steroids\nDon Exodus, who was obsessed with \"last hits\" and \"waste of carbon\"\nand Grizzman, who died tragically by his own hand",
+        "direction": "Use the prompt as written.",
+        "keep": "Give it a comic book style delivery\nGrizzman's death must come last\nTony ends the song with \"but to tell ya the truth, heh heh, heh\"",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 270
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-40224d39ede15a9882272a62",
       "title": "See-saw'd Again",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-40224d39ede15a9882272a62-c8f000d5f783.mp3",
