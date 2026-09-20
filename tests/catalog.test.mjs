@@ -154,3 +154,13 @@ test("compact catalogs retain explicit band attribution without guessing older r
   assert.equal(musicBackendBadge({ voiceModel: "v8", generationProfile: "v8" }), "");
   assert.equal(musicBackendBadge({ musicBackend: '<img src=x onerror="alert(1)">' }), "");
 });
+
+test("compact catalogs keep a song's pitch even when it was recorded only in the saved prompt", async () => {
+  const { songSummary } = await import("../assets/song-summary.js");
+  const { pitchBadge } = await import("../assets/pitch-badge.js");
+  const compact = songSummary({ id: "haunted", originalPrompt: { idea: "Saved prompt", generation: { pitchRepair: "haunted" } } });
+  assert.equal(compact.pitchRepair, "haunted");
+  assert.equal(compact.originalPrompt, undefined);
+  assert.match(pitchBadge(compact), />Haunted<\/span>/);
+  assert.equal(songSummary({ id: "older", originalPrompt: { idea: "No pitch" } }).pitchRepair, undefined);
+});
