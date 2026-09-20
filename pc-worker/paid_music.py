@@ -34,19 +34,29 @@ def policy(path):
     return value
 
 
+def valid_reconciliation(entry):
+    """An operator may record the settled provider cost; it never exceeds the original hold."""
+    value = entry.get('reconciled_cents')
+    return value is None or (type(value) is int and 0 <= value <= entry['reserved_cents']
+                             and isinstance(entry.get('reconciled_at'), str)
+                             and isinstance(entry.get('reconciled_basis'), str))
+
+
 def validate_ledger(ledger):
     if ledger.get('version') != 1 or not isinstance(ledger.get('requests'), list):
         raise ValueError('Restore the paid music spending ledger before generation')
     ids = set()
     for row in ledger['requests']:
         if (not isinstance(row.get('id'), str) or row['id'] in ids or
-                type(row.get('reserved_cents')) is not int or row['reserved_cents'] <= 0):
+                type(row.get('reserved_cents')) is not int or row['reserved_cents'] <= 0
+                or not valid_reconciliation(row)):
             raise ValueError('The paid music ledger is invalid')
         retry = row.get('operator_retry')
         if retry is not None and (not isinstance(retry, dict) or retry.get('version') != 1
                 or type(retry.get('reserved_cents')) is not int or retry['reserved_cents'] != row['reserved_cents']
                 or retry.get('status') not in ('authorized', 'consumed')
-                or retry.get('request_hash') != row.get('request_hash')):
+                or retry.get('request_hash') != row.get('request_hash')
+                or not valid_reconciliation(retry)):
             raise ValueError('The paid music operator retry record is invalid')
         ids.add(row['id'])
 
@@ -150,8 +160,14 @@ def provider_request(body):
     return result
 
 
+def charged_cents(entry):
+    """Conservative hold until an operator settles it against provider history, then the real cost."""
+    value = entry.get('reconciled_cents')
+    return entry['reserved_cents'] if value is None else value
+
+
 def reserved_total(ledger):
-    return sum(row['reserved_cents'] + (row.get('operator_retry') or {}).get('reserved_cents', 0)
+    return sum(charged_cents(row) + (charged_cents(retry) if (retry := row.get('operator_retry')) else 0)
                for row in ledger['requests'])
 
 
