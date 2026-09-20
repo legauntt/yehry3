@@ -2,6 +2,343 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-17b48b4f3c0e5de5505db97b",
+      "title": "The Road to Sunday",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-17b48b4f3c0e5de5505db97b-b5b055fb5579.mp3",
+      "duration": 279.9281632653061,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T04:10:02.967Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Road to Sunday",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D major",
+        "arrangement": "Gospel-inflected heartland rock in D major at 96 BPM: piano-led opening joins warm electric guitar, acoustic guitar, rounded bass, live drums, subtle organ, and restrained tambourine. One clear, steadily pitched Tony lead carries melodic verses and broad choruses with natural connected phrasing; no doubles or backing vocals. Build from reflective restraint to a full final chorus, then sustain the final word “light” about 10 seconds before the 280-second finish, resolving on one final D-major chord that decays naturally.",
+        "lyrics": "[Verse 1]\nI wore the midnight like a borrowed coat\nSmoke in my hair and a lie in my throat\nEvery back-room promise came apart at dawn\nI called that freedom while the good days gone\nThen you met me outside the parish door\nRain on the steps, no judgment anymore\nYou said, “Come in if you’re tired of running”\nAnd the old bell answered, low and ringing\n\n[Pre-Chorus]\nI had a pocket full of broken prayers\nAnd a hundred reasons not to climb those stairs\n\n[Chorus]\nYou led me down the road to Sunday\nPast the noise and the ruin I had made\nI found a light that did not turn away\nA hand to hold, a heart that stayed\nNo more living for the next cheap flame\nNo more hiding from my given name\nBy your side and under Heaven’s mercy\nI’m coming home on the road to Sunday\n\n[Verse 2]\nI used to laugh when the morning came\nTrade a little love for a louder name\nBut the kitchen table, the candles lit\nYour quiet patience changed the shape of it\nFather spoke of saints who fell and rose\nOf grace that finds you where nobody goes\nI knelt down hard with my hands undone\nAnd asked the Lord what I could become\n\n[Pre-Chorus]\nThe stained glass shook with the passing train\nBut I felt a peace inside the rain\n\n[Chorus]\nYou led me down the road to Sunday\nPast the noise and the ruin I had made\nI found a light that did not turn away\nA hand to hold, a heart that stayed\nNo more living for the next cheap flame\nNo more hiding from my given name\nBy your side and under Heaven’s mercy\nI’m coming home on the road to Sunday\n\n[Bridge]\nI will not say the dark was never mine\nI will not paint it pretty in the light\nBut I can leave the bottle on the shelf\nI can learn to tell the truth about myself\nWith your ring beside my rosary\nWith every small forgiveness setting me free\n\n[Chorus]\nYou led me down the road to Sunday\nAnd I will walk it till my days are done\nThrough the hard rain and the bright hallelujah\nI am no longer who I used to run from\nLet the old nights fade beyond the town\nLet every wandering road lie down\nI choose your love, I choose the mercy\nI’m coming home, I’m coming home\nI’m coming home on the road to Sunday\n\n[Outro]\nAt the church door, with your hand in mine\nI give my whole life to the light\n[End]",
+        "duration": 280,
+        "bpm": 96,
+        "musicalSettings": {
+          "genre": "Gospel-inflected heartland rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus, lyrical outro",
+          "performance": "Clear, steadily pitched melodic Tony lead with natural connected phrasing and an earnest, direct delivery.",
+          "energy": "Reflective piano opening grows through each chorus into a warm, full-band spiritual release, then resolves gently.",
+          "lyricWorkflow": "Original narrative lyrics trace a believable turn from restless excess toward faith, committed love, and a settled final vow.",
+          "instruments": [
+            "Piano",
+            "Electric guitar",
+            "Acoustic guitar",
+            "Bass guitar",
+            "Drum kit",
+            "Organ",
+            "Tambourine"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI wore the midnight like a borrowed coat\nSmoke in my hair and a lie in my throat\nEvery back-room promise came apart at dawn\nI called that freedom while the good days gone\nThen you met me outside the parish door\nRain on the steps, no judgment anymore\nYou said, “Come in if you’re tired of running”\nAnd the old bell answered, low and ringing\n\n[Pre-Chorus]\nI had a pocket full of broken prayers\nAnd a hundred reasons not to climb those stairs\n\n[Chorus]\nYou led me down the road to Sunday\nPast the noise and the ruin I had made\nI found a light that did not turn away\nA hand to hold, a heart that stayed\nNo more living for the next cheap flame\nNo more hiding from my given name\nBy your side and under Heaven’s mercy\nI’m coming home on the road to Sunday\n\n[Verse 2]\nI used to laugh when the morning came\nTrade a little love for a louder name\nBut the kitchen table, the candles lit\nYour quiet patience changed the shape of it\nFather spoke of saints who fell and rose\nOf grace that finds you where nobody goes\nI knelt down hard with my hands undone\nAnd asked the Lord what I could become\n\n[Pre-Chorus]\nThe stained glass shook with the passing train\nBut I felt a peace inside the rain\n\n[Chorus]\nYou led me down the road to Sunday\nPast the noise and the ruin I had made\nI found a light that did not turn away\nA hand to hold, a heart that stayed\nNo more living for the next cheap flame\nNo more hiding from my given name\nBy your side and under Heaven’s mercy\nI’m coming home on the road to Sunday\n\n[Bridge]\nI will not say the dark was never mine\nI will not paint it pretty in the light\nBut I can leave the bottle on the shelf\nI can learn to tell the truth about myself\nWith your ring beside my rosary\nWith every small forgiveness setting me free\n\n[Chorus]\nYou led me down the road to Sunday\nAnd I will walk it till my days are done\nThrough the hard rain and the bright hallelujah\nI am no longer who I used to run from\nLet the old nights fade beyond the town\nLet every wandering road lie down\nI choose your love, I choose the mercy\nI’m coming home, I’m coming home\nI’m coming home on the road to Sunday\n\n[Outro]\nAt the church door, with your hand in mine\nI give my whole life to the light",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.06,
+            "end": 8.54
+          },
+          {
+            "line": 2,
+            "start": 9.6,
+            "end": 13.48
+          },
+          {
+            "line": 3,
+            "start": 14.56,
+            "end": 18.46
+          },
+          {
+            "line": 4,
+            "start": 19.74,
+            "end": 23.5
+          },
+          {
+            "line": 5,
+            "start": 24.24,
+            "end": 28.5
+          },
+          {
+            "line": 6,
+            "start": 28.5,
+            "end": 33.3
+          },
+          {
+            "line": 7,
+            "start": 34.12,
+            "end": 37.74
+          },
+          {
+            "line": 8,
+            "start": 39.08,
+            "end": 42.76
+          },
+          {
+            "line": 11,
+            "start": 44.38,
+            "end": 47.54
+          },
+          {
+            "line": 12,
+            "start": 48.76,
+            "end": 53.7
+          },
+          {
+            "line": 15,
+            "start": 56.32,
+            "end": 60.06
+          },
+          {
+            "line": 16,
+            "start": 61.12,
+            "end": 66.08
+          },
+          {
+            "line": 17,
+            "start": 67.08,
+            "end": 70.44
+          },
+          {
+            "line": 18,
+            "start": 70.96,
+            "end": 75.44
+          },
+          {
+            "line": 19,
+            "start": 75.44,
+            "end": 79.02
+          },
+          {
+            "line": 20,
+            "start": 79.02,
+            "end": 84.2
+          },
+          {
+            "line": 21,
+            "start": 85.02,
+            "end": 89.04
+          },
+          {
+            "line": 22,
+            "start": 89.04,
+            "end": 93.76
+          },
+          {
+            "line": 25,
+            "start": 95.02,
+            "end": 99.96
+          },
+          {
+            "line": 26,
+            "start": 99.96,
+            "end": 104.88
+          },
+          {
+            "line": 27,
+            "start": 104.88,
+            "end": 109.76
+          },
+          {
+            "line": 28,
+            "start": 110.68,
+            "end": 114.76
+          },
+          {
+            "line": 29,
+            "start": 115.36,
+            "end": 119.88
+          },
+          {
+            "line": 30,
+            "start": 119.88,
+            "end": 124.8
+          },
+          {
+            "line": 31,
+            "start": 125.88,
+            "end": 129.36
+          },
+          {
+            "line": 32,
+            "start": 129.36,
+            "end": 134.1
+          },
+          {
+            "line": 35,
+            "start": 134.1,
+            "end": 138.76
+          },
+          {
+            "line": 36,
+            "start": 140.24,
+            "end": 143.86
+          },
+          {
+            "line": 39,
+            "start": 145.74,
+            "end": 148.94
+          },
+          {
+            "line": 40,
+            "start": 150.14,
+            "end": 154.78
+          },
+          {
+            "line": 41,
+            "start": 155.82,
+            "end": 159.72
+          },
+          {
+            "line": 42,
+            "start": 159.72,
+            "end": 163.48
+          },
+          {
+            "line": 43,
+            "start": 163.48,
+            "end": 169.1
+          },
+          {
+            "line": 44,
+            "start": 170.12,
+            "end": 174.7
+          },
+          {
+            "line": 45,
+            "start": 174.7,
+            "end": 179.04
+          },
+          {
+            "line": 46,
+            "start": 179.96,
+            "end": 183.82
+          },
+          {
+            "line": 49,
+            "start": 183.82,
+            "end": 188.8
+          },
+          {
+            "line": 50,
+            "start": 188.8,
+            "end": 193.84
+          },
+          {
+            "line": 51,
+            "start": 194.58,
+            "end": 198.8
+          },
+          {
+            "line": 52,
+            "start": 200.3,
+            "end": 203.68
+          },
+          {
+            "line": 53,
+            "start": 203.72,
+            "end": 208.64
+          },
+          {
+            "line": 54,
+            "start": 209.94,
+            "end": 216.7
+          },
+          {
+            "line": 57,
+            "start": 216.7,
+            "end": 218.78
+          },
+          {
+            "line": 58,
+            "start": 218.78,
+            "end": 224.12
+          },
+          {
+            "line": 59,
+            "start": 224.12,
+            "end": 229.16
+          },
+          {
+            "line": 60,
+            "start": 230.02,
+            "end": 233.8
+          },
+          {
+            "line": 61,
+            "start": 235.24,
+            "end": 239.02
+          },
+          {
+            "line": 62,
+            "start": 240.2,
+            "end": 244.3
+          },
+          {
+            "line": 63,
+            "start": 245.62,
+            "end": 248.74
+          },
+          {
+            "line": 64,
+            "start": 250.04,
+            "end": 252.92
+          },
+          {
+            "line": 65,
+            "start": 252.92,
+            "end": 256.7
+          },
+          {
+            "line": 68,
+            "start": 257.68,
+            "end": 261.22
+          },
+          {
+            "line": 69,
+            "start": 261.22,
+            "end": 266.64
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony finds religion and a good woman, and he leaves his life of sin and wild abandonment",
+        "direction": "Use the prompt as written.",
+        "keep": "Tony C is a devout Catholic",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 280
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-0ae8590fc3333c4674a52077",
       "title": "Wild and Free",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0ae8590fc3333c4674a52077-079d2f749da1.mp3",
