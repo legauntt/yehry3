@@ -1,6 +1,6 @@
 # V8 generation and versioned voices
 
-New requests can select V6, V7 or V8; V8 is the browser default when available, with V7 as the fallback. Saved requests retain their selected voice. Voice identity is separate from the V8 song-generation profile. V6/V7 can opt into the generator; V8 requires it.
+New requests can select V6, V7, V8 or V9; V9 is the browser default when available, then V8, then V7, and a voice picked in the menu is remembered per browser. Saved requests retain their selected voice. Voice identity is separate from the V8 song-generation profile. V6/V7 can opt into the generator; V8 requires it, and the site also sends it for V9 (the API does not insist).
 
 The API requires `YEHRY3_GENERATION_V8=true` for advanced controls and additionally `YEHRY3_VOICE_V8=true` to admit V8 voices. The worker needs `generation_v8=true` and a separately pinned `voice_models.v8` profile. Merge new profile fields into the existing config, preserving V7, credentials and state.
 

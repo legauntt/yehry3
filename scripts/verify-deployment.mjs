@@ -105,6 +105,7 @@ for (const name of [
   "favorites.css",
   "request-tabs.js",
   "model-info.js",
+  "voice-choice.js",
   "generation.js",
   "music-backend.js",
   "generation-options.js",

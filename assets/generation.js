@@ -110,7 +110,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
     root.querySelector('#generation-enable-label').textContent = paid ? 'Use song controls with Eleven Music' : 'Use V8 generation';
     root.querySelector('#generation-mode-note').textContent = paid
       ? 'Leave length blank for Auto: usually 3–5 minutes, with occasional shorter or longer songs up to Eleven Music’s 10-minute limit. Your chosen length and cost appear before confirmation. Local variation and composition choices are unavailable.'
-      : required ? 'Tony V8 uses V8 song generation. Leave length blank for the song planner: aim around four minutes, normally at least two, with an exceptionally rare 19-minute maximum.'
+      : required ? 'Tony V8 and V9 use V8 song generation. Leave length blank for the song planner: aim around four minutes, normally at least two, with an exceptionally rare 19-minute maximum.'
       : 'Available with every Tony voice. Choose a new composition or a reinterpretation of a basis song.';
     for (const key of ['candidates', 'variation']) {
       const field = root.querySelector(`[data-generation="${key}"]`);

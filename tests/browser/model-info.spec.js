@@ -30,12 +30,12 @@ test("model comparison lives with the request selector while generated songs kee
   await expect(trigger).toBeVisible();
   await trigger.focus();
   await page.keyboard.press("Enter");
-  const dialog = page.getByRole("dialog", { name: "Tony V6, V7 and V8" });
+  const dialog = page.getByRole("dialog", { name: "Tony V6 to V9" });
   await expect(dialog).toBeVisible();
   await expect(dialog).toContainText("without saved-favorite weighting");
   await expect(dialog).toContainText("better Tony likeness or musical quality has not been established");
-  await expect(dialog).toContainText("V8 is the default for new requests when available");
-  await expect(page.getByRole("heading", { name: "Tony V6, V7 and V8" })).toBeFocused();
+  await expect(dialog).toContainText("V9 is the default for new requests when available");
+  await expect(page.getByRole("heading", { name: "Tony V6 to V9" })).toBeFocused();
   await page.keyboard.press("Tab");
   expect(await page.evaluate(() => document.activeElement.closest("dialog")?.id)).toBe("model-comparison");
   await page.keyboard.press("Shift+Tab");

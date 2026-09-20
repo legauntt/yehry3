@@ -7,9 +7,9 @@ test("Tony's pitch starts Clean, reaches the worker as chosen, and is remembered
   const errors = []; page.on('pageerror', (error) => errors.push(error.message));
   const base = 'http://127.0.0.1:3000/yehry3';
   const headers = { Authorization: 'Bearer v8-local-test-worker-token-only-1234567890', 'X-Worker-ID': randomUUID(), 'Content-Type': 'application/json' };
-  const start = async (idea) => {
+  const start = async (idea, voice = 'v8') => {
     await page.locator('#idea').fill(idea); await page.locator('#idea-form button').click();
-    await expect(page.locator('#voice-model')).toHaveValue('v8');
+    await expect(page.locator('#voice-model')).toHaveValue(voice);
   };
   await page.goto('/distonyc/');
   await page.locator('#password').fill('wishbone'); await page.locator('#login-form button').click();
@@ -67,7 +67,8 @@ test("Tony's pitch starts Clean, reaches the worker as chosen, and is remembered
   await fetch(base + `/worker/prompts/${doc.id}/fail`, { method: 'POST', headers, body: JSON.stringify({ leaseToken, error: 'Browser test fixture finished; no song was generated.' }) });
   await page.evaluate(() => sessionStorage.removeItem('yehry3:draft'));
   await page.goto('/distonyc/');
-  await start('Pitch browser test: a second song, to check the remembered choice.');
+  // The voice picked in the menu above is remembered too, like the pitch.
+  await start('Pitch browser test: a second song, to check the remembered choice.', 'v7');
   await expect(page.locator('#gen-pitchRepair')).toHaveValue('wild');
   expect(errors).toEqual([]);
 });

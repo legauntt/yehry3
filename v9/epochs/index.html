@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <meta name="description" content="One song sung seven ways: a listening test for choosing which Tony V9 training checkpoint sounds best.">
+    <title>Seven Tonys · yehry3</title>
+    <link rel="stylesheet" href="/assets/site.css">
+    <link rel="stylesheet" href="/v9/epochs/epochs.css">
+    <script type="module" src="/v9/epochs/epochs.js"></script>
+  </head>
+  <body>
+    <main class="epochs">
+      <header class="epochs-heading">
+        <p class="epochs-label"><a href="/">yehry3</a> / Tony V9</p>
+        <span class="epochs-badge">Listening test</span>
+        <h1>One song.<br>Seven Tonys.</h1>
+        <p class="epochs-intro">Tony V9 is a new voice model. Copies of it were saved while it was still learning, and each copy sang this same song: same words, same band, same melody. Only the voice changes. The older Tony V8 is in here too.</p>
+        <p class="epochs-intro">Press play, then switch between them. The song keeps its place. Which one sounds best to you?</p>
+      </header>
+      <section class="epoch-player" aria-labelledby="player-heading">
+        <h2 id="player-heading"><span id="song-title">Loading…</span></h2>
+        <div class="epoch-transport">
+          <button type="button" id="play" class="epoch-play" disabled>Play</button>
+          <input type="range" id="seek" min="0" max="295" step="0.1" value="0" aria-label="Position in the song" disabled>
+          <span class="clock" aria-live="off"><span id="elapsed">0:00</span> / <span id="total">4:55</span></span>
+        </div>
+        <p id="player-status" class="epoch-status" role="status"></p>
+        <div class="cues" id="cues" role="group" aria-label="Jump to a part of the song"></div>
+        <fieldset class="versions">
+          <legend>Who is singing</legend>
+          <div id="versions" class="version-list"></div>
+        </fieldset>
+        <label class="reveal"><input type="checkbox" id="reveal"> Show which is which</label>
+        <p class="small" id="reveal-note">The letters hide which version is which, in an order shuffled for this browser, so the name cannot sway your ear.</p>
+      </section>
+      <section class="pick" aria-labelledby="pick-heading">
+        <h2 id="pick-heading">Found a favourite?</h2>
+        <p>Leave it selected above, then copy your pick and send it back to whoever shared this page.</p>
+        <div class="actions"><button type="button" id="copy-pick" class="primary" disabled>Copy my pick</button></div>
+        <p id="pick-text" class="pick-text" role="status"></p>
+      </section>
+      <noscript><p>Enable JavaScript to load the players.</p></noscript>
+      <footer class="epochs-footer">
+        <p>What to listen for: does it sound like one real person all the way through? Consonants, breaths, held notes, and any metallic or buzzy edge on loud lines.</p>
+        <p><a id="lyrics-link" href="/lyrics/">Read the lyrics</a> · A temporary page. Keys: space plays and pauses, 1 to 7 switch singers.</p>
+      </footer>
+    </main>
+  </body>
+</html>

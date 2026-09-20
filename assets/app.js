@@ -19,6 +19,7 @@ import { workerPresence } from "./worker-presence.js";
 import { publicQueue, queueDetailsPage, queueItemHref } from "./queue.js";
 import { mountQualitySettings, qualityNotice } from "./quality.js";
 import { modelInfoButton, mountModelInfo, voiceVersionLabel } from "./model-info.js";
+import { rememberedVoice, rememberVoice, startingVoice, usesGeneration } from "./voice-choice.js";
 import { lyricsPage } from "./lyrics.js";
 import { lyricsHref } from "./song-links.js";
 import { originalPromptPage } from "./original-prompt.js";
@@ -1032,15 +1033,13 @@ async function requests() {
         const unavailable = new Option(`${voiceModelLabel(initialVoice)} · temporarily unavailable`, initialVoice);
         unavailable.disabled = true; $("#voice-model").append(unavailable);
       }
-      const defaultVoice = voiceModels.find((model) => model.id === "v8" && generationAvailable)
-        || voiceModels.find((model) => model.id === "v7") || voiceModels[0];
-      $("#voice-model").value = initialVoice || defaultVoice.id;
+      $("#voice-model").value = startingVoice({ saved: initialVoice, remembered: rememberedVoice(), models: voiceModels, generationAvailable });
       const describeVoice = () => {
         const model = voiceModel($("#voice-model").value);
-        generation.setRequired(model.id === "v8");
+        generation.setRequired(usesGeneration(model.id));
         $(".voice-model-note").textContent = `${model.note}.${model.experimental ? " This voice is still being evaluated." : ""}`;
       };
-      $("#voice-model").onchange = () => { storage.set(voiceDraftKey, $("#voice-model").value); describeVoice(); };
+      $("#voice-model").onchange = () => { storage.set(voiceDraftKey, $("#voice-model").value); rememberVoice($("#voice-model").value); describeVoice(); };
       describeVoice();
       const music = mountMusicBackend($('#music-backend-root'), { draft: { ...draft, details: initialDetails }, generation, basisRoot: $('#basis-root'), storage, api, escape, onChange: describeVoice });
       const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), { ...draft, details: initialDetails }, { api, storage, escape, lyricChoiceRoot: $('#remix-lyric-choice') }) : {

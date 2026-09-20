@@ -1,0 +1,35 @@
+.epochs { width: min(100% - 40px, 760px); margin: 0 auto; padding: 54px 0 24px; }
+.epochs-heading { padding: 0 0 32px; border-bottom: 1px solid var(--line); }
+.epochs-label { margin: 0 0 28px; color: var(--muted); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+.epochs-badge { display: inline-block; padding: 5px 11px; border: 1px solid #5fa398; border-radius: 20px; color: var(--ink); font-size: 12px; }
+.epochs h1 { margin: 18px 0; font: 600 clamp(36px, 7.5vw, 66px)/1.08 "Playfair Display", Georgia, serif; letter-spacing: -.035em; }
+.epochs-intro { max-width: 58ch; margin: 0 0 12px; color: var(--muted); font-size: 17px; line-height: 1.65; }
+.epochs h2 { margin: 0 0 16px; font-size: 22px; letter-spacing: -.02em; line-height: 1.25; }
+.epoch-player { margin: 32px 0; padding: 24px; background: var(--white); border: 1px solid var(--line); border-radius: 16px; min-width: 0; }
+.epoch-transport { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.epoch-play { min-width: 96px; min-height: 48px; padding: 0 22px; border-radius: 24px; background: var(--ink); color: var(--paper); font-weight: 600; }
+.epoch-transport input[type="range"] { flex: 1 1 220px; min-width: 0; height: 32px; accent-color: var(--accent); }
+.clock { color: var(--muted); font: 13px "DM Mono", monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.epoch-status { min-height: 20px; margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+.cues { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 24px; }
+.cue { min-height: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 18px; background: transparent; font-size: 13px; }
+.cue:hover { border-color: var(--ink); }
+.versions { margin: 0; padding: 0; border: 0; min-width: 0; }
+.versions legend { padding: 0; margin: 0 0 10px; color: var(--muted); font: 500 12px "DM Mono", monospace; letter-spacing: .08em; text-transform: uppercase; }
+.version-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(64px, 1fr)); gap: 8px; }
+.version-list.revealed { grid-template-columns: 1fr; }
+.version { display: flex; align-items: center; gap: 14px; min-height: 64px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); text-align: left; }
+.version-list:not(.revealed) .version { justify-content: center; }
+.version:hover { border-color: var(--ink); }
+.version[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.version-letter { font: 600 24px/1 "Playfair Display", Georgia, serif; }
+.version-words { display: grid; gap: 2px; min-width: 0; font-size: 14px; line-height: 1.4; }
+.version-detail { color: var(--muted); font-size: 13px; }
+.version[aria-pressed="true"] .version-detail { color: inherit; opacity: .8; }
+.reveal { display: flex; align-items: center; gap: 10px; margin: 20px 0 6px; font-size: 14px; }
+.pick { padding: 0 0 8px; }
+.pick p { max-width: 58ch; color: var(--muted); }
+.pick-text { min-height: 22px; margin: 12px 0 0; font-size: 14px; overflow-wrap: anywhere; }
+.epochs-footer { margin-top: 32px; border-top: 1px solid var(--line); padding: 20px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.epochs-footer p { max-width: 62ch; margin: 0 0 10px; }
+@media (max-width: 480px) { .epochs { width: calc(100% - 32px); padding-top: 30px; } .epoch-player { padding: 18px; } .epochs-heading { padding-bottom: 24px; } }

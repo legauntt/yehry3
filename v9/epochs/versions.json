@@ -1,0 +1,59 @@
+{
+  "song": {
+    "title": "See-saw’d Again (Empty Frame Mix)",
+    "duration": 295.04,
+    "lyrics": "/lyrics/see-saw-d-again-empty-frame-mix-312e6f/"
+  },
+  "cues": [
+    { "at": 0, "label": "First verse" },
+    { "at": 44, "label": "First chorus" },
+    { "at": 136, "label": "Quiet bridge" },
+    { "at": 178, "label": "The long held note" },
+    { "at": 209, "label": "Last verse" },
+    { "at": 252, "label": "Wordless ending" }
+  ],
+  "versions": [
+    {
+      "id": "v8",
+      "name": "Tony V8",
+      "detail": "The older voice model, as published. 9.7 cents typical pitch error, 0 of 31 phrases flagged.",
+      "url": "https://github.com/legauntt/yehry3/releases/download/v9-epochs-v1/see-sawd-again-v8.mp3"
+    },
+    {
+      "id": "e050",
+      "name": "V9 · epoch 50",
+      "detail": "Early in training. 3.6 cents, 1 of 31 flagged.",
+      "url": "https://github.com/legauntt/yehry3/releases/download/v9-epochs-v1/see-sawd-again-v9-epoch-050.mp3"
+    },
+    {
+      "id": "e100",
+      "name": "V9 · epoch 100",
+      "detail": "3.5 cents, 1 of 31 flagged.",
+      "url": "https://github.com/legauntt/yehry3/releases/download/v9-epochs-v1/see-sawd-again-v9-epoch-100.mp3"
+    },
+    {
+      "id": "e150",
+      "name": "V9 · epoch 150",
+      "detail": "Halfway. 3.7 cents, 0 of 31 flagged.",
+      "url": "https://github.com/legauntt/yehry3/releases/download/v9-epochs-v1/see-sawd-again-v9-epoch-150.mp3"
+    },
+    {
+      "id": "e200",
+      "name": "V9 · epoch 200",
+      "detail": "4.2 cents, 0 of 31 flagged.",
+      "url": "https://github.com/legauntt/yehry3/releases/download/v9-epochs-v1/see-sawd-again-v9-epoch-200.mp3"
+    },
+    {
+      "id": "e250",
+      "name": "V9 · epoch 250",
+      "detail": "3.9 cents, 0 of 31 flagged.",
+      "url": "https://github.com/legauntt/yehry3/releases/download/v9-epochs-v1/see-sawd-again-v9-epoch-250.mp3"
+    },
+    {
+      "id": "e300",
+      "name": "V9 · epoch 300",
+      "detail": "The end of training, and what song requests use today. 3.9 cents, 0 of 31 flagged.",
+      "url": "https://github.com/legauntt/yehry3/releases/download/v9-epochs-v1/see-sawd-again-v9-epoch-300.mp3"
+    }
+  ]
+}

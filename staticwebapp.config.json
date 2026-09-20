@@ -52,6 +52,27 @@
       }
     },
     {
+      "route": "/v9",
+      "redirect": "/v9/epochs/",
+      "statusCode": 302
+    },
+    {
+      "route": "/v9/",
+      "redirect": "/v9/epochs/",
+      "statusCode": 302
+    },
+    {
+      "route": "/v9/epochs",
+      "redirect": "/v9/epochs/",
+      "statusCode": 302
+    },
+    {
+      "route": "/v9/epochs/*",
+      "headers": {
+        "Cache-Control": "no-store"
+      }
+    },
+    {
       "route": "/deetz",
       "redirect": "/deetz/",
       "statusCode": 301

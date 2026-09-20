@@ -28,7 +28,7 @@ for (const voice of ['v7', 'v8']) test(`V8 generation with ${voice}: choices, ly
   if (voice === 'v8') {
     await expect(page.locator('#generation-enabled')).toBeChecked();
     await expect(page.locator('#generation-enabled')).toBeDisabled();
-    await expect(page.locator('#generation-mode-note')).toContainText('Tony V8 uses V8 song generation');
+    await expect(page.locator('#generation-mode-note')).toContainText('Tony V8 and V9 use V8 song generation');
   } else await page.locator('#generation-enabled').check();
   for (const summary of await page.locator('.generation-group summary').all()) await summary.click();
   await page.locator('#gen-genre').selectOption('custom'); await page.locator('#gen-genre-custom').fill('Piano waltz');
