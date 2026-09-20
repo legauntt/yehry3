@@ -10,6 +10,21 @@ from common import fingerprint, load, save, sha
 PAID = 'eleven_music'
 CAPABILITY = 'eleven-music-v1'
 REMIX_CAPABILITY = 'eleven-music-remix-v1'
+# Eleven's singer is only a guide: Tony's local voice model tracks its pitch and replaces its timbre.
+# Rasp, effects and stacked voices do not survive as character; they become octave cracks (audit, 19 Sept).
+# Tony's median is near 200 Hz: a guide sung far above it makes the voice model drop an octave mid-line.
+GUIDE_VOCAL = ('One dry, centred solo male baritone lead vocal in a low-to-middle register, plainly sung with steady '
+               'pitch, clear diction and connected vowels, complete every written closing lyric')
+# Each entry is withheld when the approved arrangement itself asks for it.
+GUIDE_VOCAL_AVOID = {
+    'distorted vocals': ('distorted voc', 'distorted voice', 'distorted lead', 'vocal distortion'),
+    'megaphone vocals': ('megaphone',), 'vocoder': ('vocoder', 'talkbox'),
+    'stacked vocal harmonies': ('harmonies', 'harmony voc', 'harmonized'), 'doubled vocals': ('doubled voc', 'vocal double'),
+    'backing vocals': ('backing voc', 'gang voc', 'call and response', 'call-and-response'),
+    'choir': ('choir', 'choral'), 'heavy vocal reverb': ('vocal reverb', 'reverb on the vo'),
+    'vocal delay throws': ('vocal delay', 'delay throw', 'vocal echo'),
+    'growled vocals': ('growl',), 'screamed vocals': ('scream',), 'whispered vocals': ('whisper',),
+}
 
 
 def selected(prompt):
@@ -56,6 +71,10 @@ use the retained source lyrics and musical brief to guide the new version. Sourc
 references stay local and do not condition Eleven Music; do not promise its original melody. Basis audio, faithful
 remakes and the local band adapter are unavailable. Honor the supplied lyric sheet, style,
 instruments, tempo, key, meter, vocal-entry and ending targets. Use standard section headings.
+Eleven's singer is only a guide: Tony's voice model keeps its melody, timing and words and replaces
+its timbre, and his roughness is added locally. In arrangement describe the lead's melody, phrasing
+and energy, and ask for one clear, steadily pitched lead. Leave rasp, smoke, growl, whisper, vocal
+effects, doubles and stacked or backing voices out unless the brief itself asks for them.
 The complete lyric sheet and musical arrangement are sent to ElevenLabs; private admin notes,
 reference-page snapshots and Tony recordings are not sent. Do not put operational or private
 account information in lyrics or arrangement. Never request additional paid takes or repairs.
@@ -96,9 +115,10 @@ def composition(plan, seed):
     lengths[vocal[-1]] += available - sum(lengths.values())
     lengths.update(fixed)
     styles = [plan['arrangement'], arrangement_guidance(options),
-              f"{plan['bpm']} BPM, {plan['keyscale']}",
-              'Expressive male melodic lead, connected vowels, complete every written closing lyric']
-    negative = options.get('avoidInstruments', [])
+              f"{plan['bpm']} BPM, {plan['keyscale']}", GUIDE_VOCAL]
+    asked = plan['arrangement'].lower()
+    negative = options.get('avoidInstruments', []) + [style for style, words in GUIDE_VOCAL_AVOID.items()
+                                                      if not any(word in asked for word in words)]
     chunks = []
     for i, row in enumerate(rows):
         words = row['lines']

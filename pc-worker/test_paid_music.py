@@ -117,6 +117,19 @@ class PaidMusicTests(unittest.TestCase):
         self.assertTrue(all(len(chunk['text'].splitlines()) <= 30 for chunk in chunks))
         self.assertEqual(words('\n'.join(chunk['text'] for chunk in chunks)), words(song['lyrics']))
 
+    def test_guide_vocal_is_requested_clean_unless_the_arrangement_asks_otherwise(self):
+        song = plan(120)
+        song['generation'] = {**song['generation'], 'avoidInstruments': ['banjo']}
+        for chunk in music_backend.composition(song, 123)['composition_plan']['chunks']:
+            self.assertIn(music_backend.GUIDE_VOCAL, chunk['positive_styles'])
+            self.assertEqual(chunk['negative_styles'], ['banjo', *music_backend.GUIDE_VOCAL_AVOID])
+        song['arrangement'] += ' A gospel choir answers him, and the bridge is screamed through a megaphone.'
+        negative = music_backend.composition(song, 123)['composition_plan']['chunks'][0]['negative_styles']
+        self.assertFalse({'choir', 'screamed vocals', 'megaphone vocals'} & set(negative))
+        self.assertIn('vocoder', negative)
+        brief = {'details': {'musicBackend': 'eleven_music'}}
+        self.assertIn('only a guide', music_backend.planning_guidance(brief))
+
     def test_legacy_frozen_chunk_is_shaped_only_for_provider_transport(self):
         from request_materials import words
         frozen = copy.deepcopy(self.body)
