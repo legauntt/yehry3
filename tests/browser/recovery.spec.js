@@ -45,7 +45,7 @@ test('Backstage separates automatic recovery from operator attention and preserv
   await expect(page.locator('[data-prompt="serious"] .dehaka-panel')).toContainText('Suggested next step');
   await expect(page.locator('[data-prompt="serious"] .dehaka-history')).toContainText('worker · status');
   await expect(page.locator('[data-prompt="serious"]').getByLabel('Steer Dehaka')).toHaveValue('Whatever it takes to fix this.');
-  await expect(page.locator('[data-prompt="serious"]').getByRole('button', { name: 'Retry saved work' })).toBeVisible();
+  await expect(page.locator('[data-prompt="serious"]').getByRole('button', { name: 'Retry saved work' })).toHaveCount(0);
   await page.locator('[data-prompt="serious"]').getByLabel('Steer Dehaka').fill('Preserve the vocal and repair the ending.');
   await page.locator('[data-prompt="serious"]').getByRole('button', { name: 'Dehaka' }).click();
   expect(submitted).toEqual({ action: 'shepherd', version: 1, guidance: 'Preserve the vocal and repair the ending.' });

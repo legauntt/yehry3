@@ -208,7 +208,7 @@ test("a published queue detail stays playable while marked Needs review", async 
   await expect(page.getByRole("link", { name: /Hear the song/ })).toHaveAttribute("href", item.url);
 });
 
-test("a failed admin request shows the cause and can retry without opening controls", async ({
+test("a failed admin request shows the cause and can hand it to Dehaka without opening controls", async ({
   page,
 }) => {
   let doc = {
@@ -243,9 +243,9 @@ test("a failed admin request shows the cause and can retry without opening contr
     "**/yehry3/admin/prompts/failed-quality-test",
     async (route) => {
       expect(route.request().postDataJSON()).toEqual({
-        action: "status",
+        action: "shepherd",
         version: 4,
-        status: "queued",
+        guidance: "Whatever it takes to fix this.",
       });
       doc = {
         ...doc,
@@ -278,7 +278,8 @@ test("a failed admin request shows the cause and can retry without opening contr
     "open",
     "",
   );
-  await page.getByRole("button", { name: "Retry saved work" }).click();
+  await expect(page.getByRole("button", { name: "Retry saved work" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Dehaka" }).click();
   await expect(page.locator(".queue-card .badge")).toHaveText("In the queue");
   await expect(attention.locator("strong")).toHaveText("0");
 });
