@@ -1,0 +1,162 @@
+"""Settle conservative paid music holds against ElevenLabs provider history.
+
+Reservations are taken at $1.00/minute before the only billable call, while published
+Eleven Music generation bills $0.15/minute. Nothing lowered a hold afterwards, so the
+shared $200 cap filled roughly 6.7x faster than real spending. This records the settled
+cost per attempt without touching `reserved_cents`, the frozen requests, the receipts or
+any row's history, so receipt-backed resume keeps validating against the original
+authorization while the cap counts what was actually generated.
+
+An attempt settles to zero only with evidence that the provider rejected it before
+generating audio (an HTTP 4xx). Anything else keeps its full hold and is reported for
+manual review. The billable minutes are then checked against the provider's own credit
+record; a disagreement aborts the write.
+"""
+import argparse
+import json
+import math
+import sys
+import time
+import urllib.request
+from pathlib import Path
+
+from common import load, save, utc
+from paid_music import budget_lock, charged_cents, get_key, policy, validate_ledger
+
+# Published Eleven Music generation rate; receipts already record this as estimated_price_cents.
+RATE_CENTS_PER_MINUTE = 15
+# Measured against music_v2_5 usage on 2026-09-19: 149,188 credits for 180.8333 generated minutes.
+CREDITS_PER_MINUTE = 825
+USAGE_ENDPOINT = 'https://api.elevenlabs.io/v1/usage/character-stats'
+USAGE_WINDOW_DAYS = 120
+TOLERANCE = 0.02
+BASIS = 'published $0.15/minute rate, settled against ElevenLabs music_v2_5 credit history'
+
+
+def metered_cents(duration_ms):
+    return math.ceil(duration_ms * RATE_CENTS_PER_MINUTE / 60000)
+
+
+def provider_credits(credential, days=USAGE_WINDOW_DAYS):
+    """Read-only usage history. This never generates audio and is not billable."""
+    key = get_key(credential)
+    now = int(time.time() * 1000)
+    query = (USAGE_ENDPOINT + '?start_unix=' + str(now - days * 86400000) + '&end_unix=' + str(now)
+             + '&aggregation_interval=day&breakdown_type=model')
+    request = urllib.request.Request(query, headers={'xi-api-key': key})
+    with urllib.request.urlopen(request, timeout=120) as response:
+        usage = json.loads(response.read()).get('usage', {})
+    return {name: sum(values) for name, values in usage.items()}
+
+
+def rejected_before_generation(entry):
+    status = entry.get('http_status') or (entry.get('latest_error') or {}).get('http_status')
+    return entry.get('error_type') == 'HTTPError' and isinstance(status, int) and 400 <= status < 500
+
+
+def settle(row, entry, name, produced):
+    """One attempt's settled cost, or None when there is no evidence of what it cost."""
+    if entry is produced:
+        return metered_cents(row['duration_ms']), 'generated the retained audio'
+    if name == 'retry' and entry.get('status') == 'authorized':
+        return 0, 'authorized but never sent to the provider'
+    # authorize_retry snapshots the first attempt before the row is overwritten by attempt two,
+    # so the original's own failure evidence lives there once a retry exists.
+    retry = row.get('operator_retry')
+    failure = row if name == 'retry' or not retry else retry.get('original_attempt', row)
+    if rejected_before_generation(failure):
+        return 0, 'provider rejected the request before generating audio'
+    return None, 'no evidence this attempt avoided generation; hold retained'
+
+
+def plan(ledger):
+    """Classify every attempt as generated, rejected before generation, or unresolved."""
+    attempts = []
+    for row in ledger['requests']:
+        retry = row.get('operator_retry')
+        # A completed row holds exactly one take: the authorized retry when it was consumed.
+        produced = None
+        if row.get('status') == 'completed':
+            produced = retry if retry and retry.get('status') == 'consumed' else row
+        entries = [(row, 'original')] + ([(retry, 'retry')] if retry else [])
+        for entry, name in entries:
+            settled, why = settle(row, entry, name, produced)
+            attempts.append({'id': row['id'], 'attempt': name, 'entry': entry, 'held': entry['reserved_cents'],
+                             'settled': settled, 'why': why,
+                             'billed_ms': row['duration_ms'] if entry is produced else 0})
+    return attempts
+
+
+def verify_against_provider(attempts, credential):
+    minutes = sum(a['billed_ms'] for a in attempts) / 60000
+    models = provider_credits(credential)
+    credits = sum(models.values())
+    expected = minutes * CREDITS_PER_MINUTE
+    # A ledger that generated nothing must also show no provider credits.
+    ok = abs(credits - expected) <= max(expected * TOLERANCE, CREDITS_PER_MINUTE) if expected else not credits
+    return {'generated_minutes': round(minutes, 4), 'provider_credits': credits,
+            'expected_credits': round(expected, 1), 'models': models,
+            'credits_per_minute': round(credits / minutes, 2) if minutes else None, 'agrees': bool(ok)}
+
+
+def reconcile(policy_path, apply=False):
+    cfg = policy(policy_path)
+    ledger_path = Path(cfg['ledger'])
+    with budget_lock(ledger_path.with_suffix('.lock')) as acquired:
+        if not acquired:
+            raise RuntimeError('Another paid music request holds the spending ledger; retry later')
+        ledger = load(ledger_path)
+        validate_ledger(ledger)
+        before = sum(charged_cents(row) + (charged_cents(r) if (r := row.get('operator_retry')) else 0)
+                     for row in ledger['requests'])
+        attempts = plan(ledger)
+        evidence = verify_against_provider(attempts, cfg['credential'])
+        after = sum(a['settled'] if a['settled'] is not None else a['held'] for a in attempts)
+        report = {'at': utc(), 'cap_cents': cfg['cap_cents'], 'before_cents': before, 'after_cents': after,
+                  'unresolved': [{k: a[k] for k in ('id', 'attempt', 'held', 'why')}
+                                 for a in attempts if a['settled'] is None],
+                  'provider': evidence, 'applied': False,
+                  'rows': [{k: a[k] for k in ('id', 'attempt', 'held', 'settled', 'why')} for a in attempts]}
+        if not apply:
+            return report
+        if not evidence['agrees']:
+            raise ValueError('Provider credit history does not match the generated minutes; '
+                             'reconcile manually before writing: ' + json.dumps(evidence))
+        stamp = time.strftime('%Y%m%dT%H%M%SZ', time.gmtime())
+        save(ledger_path.with_name(ledger_path.stem + '-before-reconcile-' + stamp + '.json'), ledger)
+        for attempt in attempts:
+            if attempt['settled'] is None:
+                continue
+            attempt['entry'].update(reconciled_cents=attempt['settled'], reconciled_at=report['at'],
+                                    reconciled_basis=BASIS + '; ' + attempt['why'])
+        history = ledger.setdefault('reconciliations', [])
+        history.append({k: report[k] for k in ('at', 'before_cents', 'after_cents', 'provider', 'unresolved')})
+        validate_ledger(ledger)
+        save(ledger_path, ledger)
+        report['applied'] = True
+        report['backup'] = str(ledger_path.with_name(ledger_path.stem + '-before-reconcile-' + stamp + '.json'))
+        return report
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--policy', required=True, type=Path)
+    parser.add_argument('--apply', action='store_true', help='write the settled costs; otherwise report only')
+    parser.add_argument('--usage-only', action='store_true', help='print provider credit usage and exit')
+    args = parser.parse_args()
+    if args.usage_only:
+        cfg = policy(args.policy)
+        models = provider_credits(cfg['credential'])
+        total = sum(models.values())
+        print(json.dumps({'at': utc(), 'credits': total, 'models': models,
+                          'generated_minutes': round(total / CREDITS_PER_MINUTE, 2),
+                          'value_cents': round(total / CREDITS_PER_MINUTE * RATE_CENTS_PER_MINUTE)}, indent=2))
+        return
+    report = reconcile(args.policy, apply=args.apply)
+    print(json.dumps(report, indent=2))
+    if report['unresolved']:
+        print(str(len(report['unresolved'])) + ' attempt(s) kept their full hold; review them.', file=sys.stderr)
+
+
+if __name__ == '__main__':
+    main()
