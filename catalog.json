@@ -2,6 +2,382 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-40224d39ede15a9882272a62",
+      "title": "See-saw'd Again",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-40224d39ede15a9882272a62-c8f000d5f783.mp3",
+      "duration": 240,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T02:39:04.414Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "See-saw'd Again",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Dark, hook-driven post-punk rock built around a tense drum-machine pulse, with stark stops before each chorus and a rising final refrain. Tony’s V8 delivery is smoky, connected, half-muttered in the verses and opens into sustained, catchable sung hooks. Keep the final sung word “you” sustained about 9 seconds before the end, then resolve on one final chord-like synth hit and decay.",
+        "lyrics": "[Verse 1]\nWe skipped stones by the reservoir\nYou said the water knew our names\nBut in the photograph I found\nThere’s a man beside the frame\nLong black coat, pale folded hands\nA smile like he had always been\nYou said, “That’s See-saw, don’t you know?”\nLike I was late to let him in\n\n[Pre-Chorus]\nI remember your red bicycle\nI remember cutting through the rain\nBut every road I try to follow\nHas his footprints in the lane\n\n[Chorus]\nSee-saw, See-saw, standing in the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, calm as anything\nIf I can’t trust my memory, what does real mean?\n\n[Verse 2]\nAt the fair we rode the ferris wheel\nYou threw your hat down at the crowd\nNow he’s holding cotton candy\nAnd he’s laughing much too loud\nAt the diner by the station\nI can hear your favorite song\nBut the waitress says See-saw taught her\nHow I take my coffee wrong\n\n[Pre-Chorus]\nI remember all your small reactions\nHow you’d tap the table when you lied\nBut when I close my eyes to find you\nThere’s a stranger by your side\n\n[Chorus]\nSee-saw, See-saw, standing in the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, calm as anything\nIf I can’t trust my memory, what does real mean?\n\n[Bridge]\nI asked the mirror in the hallway\n“Who was there that summer night?”\nMy reflection took a second\nThen it answered, “You were right”\nIt said, “The porch light, the wet pavement\nThe train that shook the bedroom wall—\nSee-saw had his hand upon your shoulder\nSee-saw saw it all”\n\n[Breakdown]\nMaybe I invented you to keep\nOne clean corner of the dark\nMaybe every little story\nNeeds a witness and a mark\nBut he knows the words you whispered\nHe knows where the old key hides\nAnd each time I say your name out loud\nSee-saw answers from inside\n\n[Chorus]\nSee-saw, See-saw, standing in the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, turning every dream\nTill the past is just a room with no way out for me\nSee-saw, See-saw, I’m asking one last thing:\nIf you were never there, then who have I been?\n\n[Outro]\nThe reservoir is black and still\nThe photograph is in my hand\nI turn it over, read the date\nThen see the name I understand:\nNot yours, not mine, not his alone—\nThree signatures in fading blue\nI don’t know what was real back then\nBut I know I remembered you\n[End]",
+        "duration": 240,
+        "bpm": 116,
+        "musicalSettings": {
+          "genre": "Dark post-punk rock with drum-machine minimalism",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, breakdown, final chorus, resolved outro",
+          "performance": "Smoky, slurred Tony phrasing with conversational verses and emphatic melodic choruses",
+          "energy": "Uneasy and restrained at first, intensifying through the bridge into a haunted final release",
+          "lyricWorkflow": "Original narrative lyrics that progressively reveal an unreliable-memory mystery",
+          "instruments": [
+            "Drum machine"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nWe skipped stones by the reservoir\nYou said the water knew our names\nBut in the photograph I found\nThere’s a man beside the frame\nLong black coat, pale folded hands\nA smile like he had always been\nYou said, “That’s See-saw, don’t you know?”\nLike I was late to let him in\n\n[Pre-Chorus]\nI remember your red bicycle\nI remember cutting through the rain\nBut every road I try to follow\nHas his footprints in the lane\n\n[Chorus]\nSee-saw, See-saw, standing in the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, calm as anything\nIf I can’t trust my memory, what does real mean?\n\n[Verse 2]\nAt the fair we rode the ferris wheel\nYou threw your hat down at the crowd\nNow he’s holding cotton candy\nAnd he’s laughing much too loud\nAt the diner by the station\nI can hear your favorite song\nBut the waitress says See-saw taught her\nHow I take my coffee wrong\n\n[Pre-Chorus]\nI remember all your small reactions\nHow you’d tap the table when you lied\nBut when I close my eyes to find you\nThere’s a stranger by your side\n\n[Chorus]\nSee-saw, See-saw, standing in the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, calm as anything\nIf I can’t trust my memory, what does real mean?\n\n[Bridge]\nI asked the mirror in the hallway\n“Who was there that summer night?”\nMy reflection took a second\nThen it answered, “You were right”\nIt said, “The porch light, the wet pavement\nThe train that shook the bedroom wall—\nSee-saw had his hand upon your shoulder\nSee-saw saw it all”\n\n[Breakdown]\nMaybe I invented you to keep\nOne clean corner of the dark\nMaybe every little story\nNeeds a witness and a mark\nBut he knows the words you whispered\nHe knows where the old key hides\nAnd each time I say your name out loud\nSee-saw answers from inside\n\n[Chorus]\nSee-saw, See-saw, standing in the scene\nWhere you used to be, where you used to be\nSee-saw, See-saw, turning every dream\nTill the past is just a room with no way out for me\nSee-saw, See-saw, I’m asking one last thing:\nIf you were never there, then who have I been?\n\n[Outro]\nThe reservoir is black and still\nThe photograph is in my hand\nI turn it over, read the date\nThen see the name I understand:\nNot yours, not mine, not his alone—\nThree signatures in fading blue\nI don’t know what was real back then\nBut I know I remembered you",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 2.7,
+            "end": 6
+          },
+          {
+            "line": 2,
+            "start": 6.58,
+            "end": 8.7
+          },
+          {
+            "line": 3,
+            "start": 11.12,
+            "end": 13.82
+          },
+          {
+            "line": 4,
+            "start": 13.82,
+            "end": 16.74
+          },
+          {
+            "line": 5,
+            "start": 20.42,
+            "end": 22.62
+          },
+          {
+            "line": 6,
+            "start": 23.32,
+            "end": 25.28
+          },
+          {
+            "line": 7,
+            "start": 26.92,
+            "end": 29.5
+          },
+          {
+            "line": 8,
+            "start": 29.96,
+            "end": 33.2
+          },
+          {
+            "line": 11,
+            "start": 35.58,
+            "end": 37.84
+          },
+          {
+            "line": 12,
+            "start": 37.84,
+            "end": 42.92
+          },
+          {
+            "line": 13,
+            "start": 43.68,
+            "end": 46.3
+          },
+          {
+            "line": 14,
+            "start": 46.66,
+            "end": 50.58
+          },
+          {
+            "line": 17,
+            "start": 52.42,
+            "end": 56.66
+          },
+          {
+            "line": 18,
+            "start": 56.66,
+            "end": 60.86
+          },
+          {
+            "line": 19,
+            "start": 60.86,
+            "end": 64.72
+          },
+          {
+            "line": 20,
+            "start": 64.72,
+            "end": 68.94
+          },
+          {
+            "line": 23,
+            "start": 68.94,
+            "end": 72.82
+          },
+          {
+            "line": 24,
+            "start": 73.24,
+            "end": 75.56
+          },
+          {
+            "line": 25,
+            "start": 77.24,
+            "end": 79.68
+          },
+          {
+            "line": 26,
+            "start": 80.68,
+            "end": 83.88
+          },
+          {
+            "line": 27,
+            "start": 84.52,
+            "end": 88.3
+          },
+          {
+            "line": 28,
+            "start": 90.18,
+            "end": 94.78
+          },
+          {
+            "line": 29,
+            "start": 94.78,
+            "end": 97.72
+          },
+          {
+            "line": 30,
+            "start": 97.72,
+            "end": 99.94
+          },
+          {
+            "line": 33,
+            "start": 99.94,
+            "end": 105.62
+          },
+          {
+            "line": 34,
+            "start": 107.08,
+            "end": 109.78
+          },
+          {
+            "line": 35,
+            "start": 111.08,
+            "end": 113.94
+          },
+          {
+            "line": 36,
+            "start": 114.46,
+            "end": 117.38
+          },
+          {
+            "line": 39,
+            "start": 119.32,
+            "end": 123.66
+          },
+          {
+            "line": 40,
+            "start": 124.34,
+            "end": 127.76
+          },
+          {
+            "line": 41,
+            "start": 128.06,
+            "end": 131.4
+          },
+          {
+            "line": 42,
+            "start": 131.4,
+            "end": 136.24
+          },
+          {
+            "line": 45,
+            "start": 136.24,
+            "end": 139.32
+          },
+          {
+            "line": 46,
+            "start": 139.32,
+            "end": 141.36
+          },
+          {
+            "line": 47,
+            "start": 141.76,
+            "end": 143.56
+          },
+          {
+            "line": 48,
+            "start": 143.98,
+            "end": 145.56
+          },
+          {
+            "line": 49,
+            "start": 145.56,
+            "end": 147.72
+          },
+          {
+            "line": 50,
+            "start": 147.72,
+            "end": 150.34
+          },
+          {
+            "line": 51,
+            "start": 150.64,
+            "end": 152.5
+          },
+          {
+            "line": 52,
+            "start": 152.5,
+            "end": 154.4
+          },
+          {
+            "line": 55,
+            "start": 155.06,
+            "end": 157.8
+          },
+          {
+            "line": 56,
+            "start": 157.8,
+            "end": 161.32
+          },
+          {
+            "line": 57,
+            "start": 163.22,
+            "end": 165.84
+          },
+          {
+            "line": 58,
+            "start": 165.84,
+            "end": 169.68
+          },
+          {
+            "line": 59,
+            "start": 169.68,
+            "end": 174.06
+          },
+          {
+            "line": 60,
+            "start": 175.68,
+            "end": 178.26
+          },
+          {
+            "line": 61,
+            "start": 178.94,
+            "end": 182.24
+          },
+          {
+            "line": 62,
+            "start": 182.24,
+            "end": 184.38
+          },
+          {
+            "line": 65,
+            "start": 184.38,
+            "end": 188.46
+          },
+          {
+            "line": 66,
+            "start": 188.46,
+            "end": 192.62
+          },
+          {
+            "line": 67,
+            "start": 192.62,
+            "end": 196.88
+          },
+          {
+            "line": 68,
+            "start": 196.88,
+            "end": 200.9
+          },
+          {
+            "line": 69,
+            "start": 200.9,
+            "end": 205.2
+          },
+          {
+            "line": 70,
+            "start": 205.2,
+            "end": 209.32
+          },
+          {
+            "line": 73,
+            "start": 210.22,
+            "end": 212.38
+          },
+          {
+            "line": 74,
+            "start": 212.6,
+            "end": 214.54
+          },
+          {
+            "line": 75,
+            "start": 214.7,
+            "end": 216.62
+          },
+          {
+            "line": 76,
+            "start": 216.74,
+            "end": 218.92
+          },
+          {
+            "line": 77,
+            "start": 218.92,
+            "end": 220.72
+          },
+          {
+            "line": 78,
+            "start": 221.3,
+            "end": 223.3
+          },
+          {
+            "line": 79,
+            "start": 223.64,
+            "end": 225.5
+          },
+          {
+            "line": 80,
+            "start": 225.6,
+            "end": 227.58
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "\"See-saw'd Again.\" The singer's memories of activities with a friend have all been altered to replace that friend with a strange man named \"See-saw.\" Everything he recounts, See-saw is there with him. He finds it odd but he can't quite figure out what's happening. If you can't trust your own memory, what's real?",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Drum machine"
+          ],
+          "duration": 240
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-86b38b80632f27bc553e550f",
       "title": "Influence Criteria (Post-Punk Audit)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-86b38b80632f27bc553e550f-8c416445a8de.mp3",
