@@ -8,7 +8,8 @@ import traceback
 
 def run(task, root):
     root = Path(root).resolve()
-    script = {'worker': 'run.ps1', 'monitor': 'monitor-run.ps1'}[task]
+    script = {'worker': 'run.ps1', 'monitor': 'monitor-run.ps1',
+              'budget': 'paid-budget-reconcile.ps1'}[task]
     log = root / 'state' / (task + '-launcher.log')
     log.parent.mkdir(parents=True, exist_ok=True)
     if log.exists() and log.stat().st_size > 1024 * 1024:
@@ -35,5 +36,5 @@ def run(task, root):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--task', required=True, choices=('worker', 'monitor'))
+    parser.add_argument('--task', required=True, choices=('worker', 'monitor', 'budget'))
     raise SystemExit(run(parser.parse_args().task, Path(__file__).parent))
