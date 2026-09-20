@@ -87,7 +87,13 @@ def reply(api, entry, prompt, context, directive, decision, category, action, re
     """Answer each operator steer exactly once, whether a model was consulted or coded policy decided."""
     request_id = directive['requestId']
     if decision:
-        fields = {'author': 'dehaka', 'kind': 'reply', 'action': decision['action'], 'text': decision['reason'] or 'No reason given.',
+        text = decision['reason'] or 'No reason given.'
+        if decision['action'] == 'replan':
+            # Say exactly what the fresh planning pass receives, so the operator can correct it.
+            if decision.get('cover_title'):
+                text += f" Looking up the words to “{decision['cover_title']}”" + (f" by {decision['cover_artist']}." if decision.get('cover_artist') else '.')
+            if decision.get('planning_note'): text += ' Direction for the planner: ' + decision['planning_note']
+        fields = {'author': 'dehaka', 'kind': 'reply', 'action': decision['action'], 'text': text[:5000],
                   'evidence': decision.get('evidence')}
     elif action == 'retry':
         fields = {'author': 'dehaka', 'kind': 'reply', 'action': 'coded_repair',

@@ -6,6 +6,7 @@ from failure_evidence import evidence
 from reliability_audit import metrics
 from auto_shepherd import decide as shepherd_decide, eligible as shepherd_eligible
 from delivery_check import verify_delivery
+from replan import prepare as replan_prepare, refusal as replan_refusal
 import dehaka_feed
 
 POLICY_VERSION = 4
@@ -105,7 +106,7 @@ def due(entry, now, maximum=3):
 
 def retry_budget(entry, category):
     if len([a for a in entry.get('attempts',[]) if a.get('policy_version',1)==POLICY_VERSION])>=3:return False
-    if category in ('vocal_dropout','unfinished_ending','musical_spacing','planner_format','unicode_runtime','shepherd'):
+    if category in ('vocal_dropout','unfinished_ending','musical_spacing','planner_format','unicode_runtime','shepherd','replan'):
         return not any(a['category']==category and a.get('policy_version',1)==POLICY_VERSION for a in entry.get('attempts',[]))
     return True
 
@@ -162,9 +163,13 @@ def scan(config, api, now=None, enabled=True):
             # Dehaka and automatic consultation both remain subordinate to coded eligibility and retry budgets.
             directive=guided_shepherd(prompt)
             needs_judgment=(action!='retry' or not retry_budget(entry,category)) and shepherd_eligible(category,context)
-            decision=None
-            if enabled and directive and not prompt.get('workerActive') and consulted<1 and needs_judgment:
-                prior=entry.get('dehaka',{})
+            decision=None;guided=False
+            prior=entry.get('dehaka',{}) if directive else {}
+            # A replan already set the refused plan aside, so its evidence is gone; finish that steer from the ledger.
+            replanning=(prior.get('requestId')==(directive or {}).get('requestId') and prior.get('status')=='decided'
+                        and prior.get('decision',{}).get('action')=='replan')
+            if enabled and directive and not prompt.get('workerActive') and (replanning or consulted<1 and needs_judgment):
+                guided=True
                 if prior.get('requestId')!=directive['requestId'] or prior.get('status')!='decided':
                     entry['dehaka']={'requestId':directive['requestId'],'status':'consulting','requestedAt':directive.get('requestedAt')}
                     save(path,ledger)
@@ -173,17 +178,30 @@ def scan(config, api, now=None, enabled=True):
                     save(path,ledger)
                 else:decision=prior['decision']
             elif (enabled and config.get('automatic_shepherd') and not prompt.get('workerActive') and consulted<1
-                    and needs_judgment):
+                    and (needs_judgment or entry.get('shepherd',{}).get('action')=='replan')):
                 if not entry.get('shepherd'):
                     save(path,ledger)
                     entry['shepherd']=shepherd_decide(config,prompt,context);consulted+=1
                     save(path,ledger)
                 decision=entry['shepherd']
+            # One operator steer authorizes one queue action of its own, outside the automatic cooldowns and budget.
+            steer=directive['requestId'] if guided else None
+            fresh=bool(steer) and not any(a.get('steer')==steer for a in entry['attempts'])
             if decision:
-                if decision['action']=='retry_saved_work' and retry_budget(entry,'shepherd'):
+                if decision['action']=='replan':
+                    blocked=replan_refusal(context.get('directory',''),guided,steer or 'automatic')
+                    if not blocked and not (fresh or not guided and retry_budget(entry,'replan')):blocked='This steer already used its replanning pass.'
+                    if blocked:
+                        entry['next_action']=blocked
+                        decision={**decision,'action':'needs_input','reason':blocked+' '+decision['reason']}
+                    else:
+                        category,action,reason='replan','retry',decision['reason']
+                        entry.update(category=category,next_action=reason)
+                elif decision['action']=='retry_saved_work' and (fresh or retry_budget(entry,'shepherd')):
                     category,action,reason='shepherd','retry',decision['reason']
                     entry.update(category=category,next_action=reason)
                 elif action!='retry':entry['next_action']=decision['reason']
+            fresh=fresh and category in ('shepherd','replan')
             # Report later failures before answering a new steer, so the thread stays chronological.
             if enabled:dehaka_feed.failure(api,entry,prompt,context)
             if enabled and directive and not prompt.get('workerActive') and (decision or not needs_judgment):
@@ -192,13 +210,22 @@ def scan(config, api, now=None, enabled=True):
             pending=entry.get('pending_retry')
             if pending and pending['version']!=prompt['version']:
                 entry.pop('pending_retry');pending=None;save(path,ledger)
-            allowed=action=='retry' and not prompt.get('workerActive') and (bool(pending) or due(entry,now) and retry_budget(entry,category))
+            allowed=action=='retry' and not prompt.get('workerActive') and (bool(pending) or fresh or due(entry,now) and retry_budget(entry,category))
             if enabled and allowed and retried<2:
                 if not pending:
                     attempt={'at_epoch':now,'at':utc(),'category':category,'signature':entry['signature'],'policy_version':POLICY_VERSION}
+                    if fresh:attempt['steer']=steer
                     entry['attempts'].append(attempt)
                     entry['pending_retry']={'version':prompt['version'],'at_epoch':now}
                     save(path,ledger)
+                if category=='replan':
+                    # Idempotent per consultation: a repeated pass finds the archive already made.
+                    try:replan_prepare(context['directory'],steer or 'automatic',guided,decision.get('planning_note',''),
+                                       {'artist':decision.get('cover_artist',''),'title':decision.get('cover_title','')})
+                    except (ValueError,OSError) as blocked:
+                        if not pending:entry['attempts'].pop()
+                        entry['next_action']=str(blocked)[:500];entry.pop('pending_retry',None);save(path,ledger)
+                        continue
                 try:updated=api.retry(prompt)
                 except urllib.error.HTTPError as error:
                     if error.code not in (409,429):raise
@@ -212,7 +239,8 @@ def scan(config, api, now=None, enabled=True):
                             if mark_error.code!=409:raise
                     continue
                 entry.update(status=updated['status'],next_action='Queued to resume saved work.');entry.pop('pending_retry',None)
-                dehaka_feed.note(api,entry,updated,'queued:'+str(updated['version']),'queued',f'Queued a saved-work retry ({category}). {reason}')
+                dehaka_feed.note(api,entry,updated,'queued:'+str(updated['version']),'queued',
+                    f'Set the refused plan aside and queued a fresh planning pass. {reason}' if category=='replan' else f'Queued a saved-work retry ({category}). {reason}')
                 seen[ident]=updated;retried+=1;save(path,ledger)
             elif action=='retry' and not retry_budget(entry,category):
                 entry['next_action']='Automatic retry budget exhausted. Review this cause before enabling another attempt.'

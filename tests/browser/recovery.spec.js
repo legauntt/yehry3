@@ -5,14 +5,21 @@ test('Backstage separates automatic recovery from operator attention and preserv
     { at: new Date(Date.now() - 60000).toISOString(), actor: 'worker', action: 'status', status: 'failed' },
   ], workerError: 'Saved diagnostic' };
   const rows = [{ ...base, id: 'auto', prompt: 'Automatic recovery', recovery: { phase: 'recovering', expiresAt: new Date(Date.now() + 600000).toISOString() } },
-    { ...base, id: 'serious', prompt: 'Missing input' }];
+    { ...base, id: 'serious', prompt: 'Missing input' },
+    // One exchange with Dehaka keeps his console on the card after it leaves 9/11'd Again.
+    { ...base, id: 'repairing', prompt: 'Steered and requeued', status: 'queued', workerError: undefined, history: [...base.history,
+      { at: new Date(Date.now() - 30000).toISOString(), actor: 'admin', action: 'shepherd' },
+      { at: new Date(Date.now() - 20000).toISOString(), actor: 'admin', action: 'status', status: 'queued' }] },
+    { ...base, id: 'untouched', prompt: 'Never steered', status: 'queued', workerError: undefined, history: [] }];
   let submitted;
   await page.route('**/yehry3/admin/prompts?**', route => route.fulfill({ json: {
-    prompts: rows, total: 2, page: 0, counts: { failed: 2, attention: 1, recovering: 1 }, transitions: { failed: ['queued', 'canceled'] },
+    prompts: rows, total: rows.length, page: 0, counts: { failed: 2, attention: 1, recovering: 1 }, transitions: { failed: ['queued', 'canceled'] },
     workers: [{ status: 'online', state: 'working', stage: 'Rendering', onlineSince: new Date(Date.now() - 3600000).toISOString(), lastSeenAt: new Date().toISOString(),
       presence: [{ status: 'offline', from: new Date(Date.now() - 7200000).toISOString(), to: new Date(Date.now() - 3600000).toISOString() }] }]
   } }));
-  const threads = { auto: [], serious: [] };
+  const threads = { auto: [], serious: [], untouched: [], repairing: [
+    { id: 'steer-0', author: 'operator', kind: 'steer', at: new Date(Date.now() - 30000).toISOString(), text: 'Fetch the lyrics and move past the gate.', logs: [] },
+    { id: 'reply-0', author: 'dehaka', kind: 'reply', action: 'replan', at: new Date(Date.now() - 25000).toISOString(), text: 'The words are retrievable.', logs: [] }] };
   await page.route('**/yehry3/admin/prompts/*/dehaka', route => route.fulfill({ json: { entries: threads[route.request().url().split('/').at(-2)] } }));
   await page.route('**/yehry3/admin/prompts/serious', async route => {
     submitted = route.request().postDataJSON();
@@ -35,6 +42,15 @@ test('Backstage separates automatic recovery from operator attention and preserv
   await expect(page.locator('[data-prompt="auto"]').getByLabel('Steer Dehaka')).toBeVisible();
   await expect(page.locator('.worker-presence')).toContainText('PC worker online');
   await expect(page.locator('.worker-presence')).toContainText('Working · Rendering');
+  const repairing = page.locator('[data-prompt="repairing"]');
+  await expect(repairing.locator('.dehaka-panel')).toContainText('Dehaka recovery console');
+  await expect(repairing.locator('.dehaka-panel')).toContainText('Repair under way');
+  await expect(repairing.locator('.dehaka-thread .dehaka-turn-dehaka')).toContainText('Replan with new direction');
+  await expect(repairing.locator('.dehaka-thread')).toContainText('steering is closed');
+  await expect(repairing.getByLabel('Steer Dehaka')).toHaveCount(0);
+  await expect(repairing).not.toContainText('What stopped it');
+  await expect(page.locator('[data-prompt="untouched"] .dehaka-panel')).toHaveCount(0);
+  await expect(page.locator('[data-prompt="untouched"] .dehaka-thread')).toHaveCount(0);
   await expect(page.locator('[data-prompt="serious"] .dehaka-thread')).toContainText('No steering yet');
   await expect(page.locator('[data-prompt="serious"]')).toContainText('What stopped it');
   await expect(page.locator('[data-prompt="serious"]')).toContainText('Saved diagnostic');

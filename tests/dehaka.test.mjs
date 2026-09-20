@@ -13,6 +13,11 @@ test("Dehaka rotates bounded quotes and summarizes saved recovery context", () =
   ]), 3);
   assert.match(dehakaNextStep({ recovery: { shepherd: {} } }, true, false), /saved evidence/);
   assert.match(dehakaNextStep({}, false, true), /Add any useful intent/);
+  // A steered request keeps its console after it leaves 9/11'd Again.
+  assert.match(dehakaNextStep({ status: "failed" }, false, true), /Add any useful intent/);
+  assert.match(dehakaNextStep({ status: "processing" }, false, false), /Repair under way/);
+  assert.match(dehakaNextStep({ status: "published" }, false, false), /repair held/);
+  assert.match(dehakaNextStep({ status: "canceled" }, false, false), /no further action/);
 });
 
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
@@ -33,6 +38,10 @@ test("Dehaka thread alternates turns and renders escaped raw logs", async () => 
   assert.match(html, /Your turn/);
   assert.match(dehakaThread([steer], { escape, date }), /Dehaka has your guidance/);
   assert.match(dehakaThread([], { escape, date }), /No steering yet/);
+  const replanned = dehakaThread([steer, { ...reply, action: "replan" }], { escape, date, canSteer: false });
+  assert.match(replanned, /Replan with new direction/);
+  assert.match(replanned, /steering is closed/);
+  assert.doesNotMatch(replanned, /steer again below/);
 });
 
 test("worker presence shows online and offline heartbeats", async () => {

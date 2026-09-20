@@ -19,6 +19,11 @@ export function dehakaAttemptCount(history = []) {
 }
 
 export function dehakaNextStep(doc, adapting, canRetry) {
+  // The console stays on a steered request after it leaves 9/11'd Again.
+  if (doc.status === "published") return "Published. The repair held; this log stays as its record.";
+  if (doc.status === "canceled") return "Canceled. Dehaka will take no further action.";
+  if (doc.status && doc.status !== "failed")
+    return "Repair under way: the PC is working from Dehaka’s correction. Steering reopens here if it stops again.";
   if (adapting && doc.recovery?.shepherd)
     return "Inspect the saved evidence, apply the guidance, and use only a supported bounded repair.";
   if (adapting)
@@ -30,6 +35,7 @@ export function dehakaNextStep(doc, adapting, canRetry) {
 
 const actionLabels = {
   retry_saved_work: "Retry saved work",
+  replan: "Replan with new direction",
   needs_input: "Needs your input",
   needs_code_fix: "Needs a code fix",
   coded_repair: "Known repair",
@@ -54,7 +60,7 @@ export function dehakaTurn(entries = []) {
   return last.author === "operator" ? "waiting" : "steer";
 }
 
-export function dehakaThread(entries = [], { escape, date }) {
+export function dehakaThread(entries = [], { escape, date, canSteer = true }) {
   if (!entries.length)
     return '<p class="small dehaka-empty">No steering yet. Dehaka’s replies, queue actions and raw PC logs appear here.</p>';
   const turn = dehakaTurn(entries);
@@ -68,5 +74,5 @@ export function dehakaThread(entries = [], { escape, date }) {
         .join("");
       return `<li class="dehaka-turn dehaka-turn-${escape(entry.author)}"><p class="dehaka-turn-meta"><strong>${escape(authorLabels[entry.author] || entry.author)}</strong><time>${date(entry.at)}</time>${entry.action ? `<span class="dehaka-action">${escape(dehakaActionLabel(entry.action))}</span>` : ""}</p><p class="dehaka-turn-text">${escape(entry.text)}</p>${entry.evidence ? `<p class="dehaka-evidence"><span>Evidence</span> ${escape(entry.evidence)}</p>` : ""}${logs}</li>`;
     })
-    .join("")}</ol><p class="small dehaka-waiting">${turn === "waiting" ? "Dehaka has your guidance. The queue monitor checks every 5 minutes; his reply and the raw logs will appear here." : "Your turn: read the logs above, then steer again below if something should change."}</p>`;
+    .join("")}</ol><p class="small dehaka-waiting">${turn === "waiting" ? "Dehaka has your guidance. The queue monitor checks every 5 minutes; his reply and the raw logs will appear here." : !canSteer ? "This request is out of 9/11’d Again, so steering is closed. It reopens here if the request stops again." : "Your turn: read the logs above, then steer again below if something should change."}</p>`;
 }

@@ -78,6 +78,9 @@ def evidence(config, ident, error=''):
                     marker = 'Traceback (most recent call last):'
                     failure = excerpt.rfind(marker)
                     messages.append(excerpt[failure:] if failure >= 0 else excerpt)
+    from replan import journal as replan_journal, refusal as replan_refusal
+    data['replans'] = len(replan_journal(directory)['replans'])
+    data['replan_blocked'] = replan_refusal(directory, guided=True) or ''
     if not data['has_request']:
         # Include structured invocation errors only; omit generated lyrics and credentials.
         from planner import invocation_feedback
