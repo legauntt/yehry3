@@ -14,7 +14,8 @@ LEAVE = ('generated.wav', '*.vae', 'catalog-reference.wav', 'selected-mix.wav', 
          'voice-checks.json', 'pitch-repair.json', 'pitch-advisory.json', 'mix-results.json', 'delivery-*',
          'desktop-delivery.json', 'desktop-status.json', 'desktop-logs', 'diffusion-status.json',
          'performance-comparison.json', 'lyrical-ending-review.json', 'quality-policy.json', '__pycache__',
-         '*-f0.npy', '*-f0-raw.npy', 'pitch-inputs.json', '*-converted-mel.npy', '*-converted.wav', '*-generation.json')
+         '*-f0.npy', '*-f0-raw.npy', 'pitch-inputs.json', '*-converted-mel.npy', '*-converted.wav', '*-generation.json',
+         'pitch-resing*.json', '*-take2-reference.json', 'rvc-conversion*.json')
 JOURNAL = 'pitch-alternate.json'
 
 

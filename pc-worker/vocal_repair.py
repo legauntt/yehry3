@@ -2,7 +2,7 @@
 import argparse, ast, gc, importlib.util, math, re, shutil, sys
 from pathlib import Path
 from common import load, save, sha
-from voice_repair_profile import resolve as repair_profile, install as install_repair_adapter, reserve_stage
+from voice_repair_profile import resolve as repair_profile, install as install_repair_adapter, reserve_stage, sing_rvc
 
 def intervals(error, duration):
     match=re.search(r"Missing vocal phrase['\"]?,\s*(\[[^\]]*\])",error)
@@ -109,12 +109,19 @@ def recover(work, engine_resources):
                 print('Vocal recovery:',name,flush=True);fn()
                 if name in status.get('invocations',{}):status['invocations'][name]['status']='completed'
                 status['completed'].append(name);save(status_path,status)
+            # An RVC voice is sung by its own pinned runtime, which expects a job folder: the passage becomes a one-phrase job.
+            rvc=profile.get('runtime_kind')=='rvc-v1'
             for row in status['rows']:
-                start,end=row['context'];label=row['label'];c.OUT=root/label;c.OUT.mkdir(exist_ok=True);c.LABELS=[label]
+                start,end=row['context'];label=row['label'];folder=root/label
+                c.OUT=folder/'conversion' if rvc else folder;c.OUT.mkdir(parents=True,exist_ok=True);c.LABELS=[label]
                 def prepare():
                     wave=c.normalized(source[round(start*SR):round(end*SR)].mean(axis=1));edge=round(.015*SR)
                     wave[:edge]*=np.linspace(0,1,edge);wave[-edge:]*=np.linspace(1,0,edge)
                     sf.write(c.OUT/(label+'.wav'),wave,SR,subtype='PCM_24')
+                    if rvc:
+                        shutil.copy2(work/'track.json',folder/'track.json')
+                        save(folder/'conversion-plan.json',{'chunks':[{'label':label,'interval':row['context']}],'adapter':profile['checkpoint']})
+                        return
                     anchor_row=min(conversion_rows,key=lambda r:abs(sum(r['interval'])/2-sum(row['patch'])/2))
                     ref=load(work/'conversion'/(anchor_row['label']+'-reference.json'))['reference']
                     for suffix in ['.wav','-semantic.npy','-f0.npy','-mel.npy','-style.npy']:
@@ -124,7 +131,8 @@ def recover(work, engine_resources):
                         shutil.copy2(reference_file,c.OUT/('tony-anchor'+suffix))
                     shutil.copy2(work/'conversion/tony-multiple-songs-style.npy',c.OUT/'tony-multiple-songs-style.npy')
                     save(c.OUT/'reference.json',ref)
-                stage(label+':prepare',prepare);stage(label+':features',c.features)
+                stage(label+':prepare',prepare)
+                if not rvc:stage(label+':features',c.features)
                 def pitch():
                     c.pitch();fresh=np.load(c.OUT/(label+'-f0.npy'));original=np.zeros_like(fresh)
                     cached={r['label']:np.load(work/'conversion'/(r['label']+'-f0.npy')) for r in conversion_rows}
@@ -136,8 +144,9 @@ def recover(work, engine_resources):
                     np.save(c.OUT/(label+'-f0.npy'),original)
                 stage(label+':pitch',pitch)
                 def diffuse():
-                    c.torch.backends.mkldnn.enabled=True;c.torch.backends.cuda.enable_flash_sdp(True)
                     if repair_profile(work,manifest)!=profile:raise ValueError('Voice assets changed before contextual conversion')
+                    if rvc:return sing_rvc(profile,folder)
+                    c.torch.backends.mkldnn.enabled=True;c.torch.backends.cuda.enable_flash_sdp(True)
                     model=c.load_conversion_model()
                     checkpoint=c.torch.load(profile['checkpoint'],map_location='cpu',weights_only=True)
                     modules=install_repair_adapter(s,model,checkpoint,profile);s.offload_forward(model.cfm.estimator)
@@ -152,7 +161,7 @@ def recover(work, engine_resources):
                     model.conv_post.register_forward_hook(lambda module,inputs,output:output*.25);s.offload_forward(model)
                     c.vocode(label,model=model)
                     del model;gc.collect();c.torch.cuda.empty_cache()
-                stage(label+':vocode',vocode)
+                if not rvc:stage(label+':vocode',vocode)
                 raw=read(c.OUT/(label+'-converted.wav')).mean(axis=1)
                 voice,detail=candidate(s,source,voice,row,raw)
                 from modules.rmvpe import RMVPE

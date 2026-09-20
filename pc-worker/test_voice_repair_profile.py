@@ -2,7 +2,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import Mock
-from common import load, save, sha
+from common import fingerprint, load, save, sha
 from voice_repair_profile import install, resolve, supported, reserve_stage
 
 
@@ -21,10 +21,10 @@ class VoiceRepairProfiles(unittest.TestCase):
 
     def test_versioned_repairs_are_explicit_and_unknown_versions_stay_unsupported(self):
         self.assertTrue(supported({}))
-        for voice in ['v7', 'v8']:
+        for voice in ['v7', 'v8', 'v9']:
             self.assertFalse(supported({'voice_model': voice}))
             self.assertTrue(supported({'voice_model': voice, 'config': {'automatic_versioned_vocal_repair': True}}))
-        self.assertFalse(supported({'voice_model': 'v9', 'config': {'automatic_versioned_vocal_repair': True}}))
+        self.assertFalse(supported({'voice_model': 'v10', 'config': {'automatic_versioned_vocal_repair': True}}))
 
     def test_frozen_model_is_selected_for_each_voice_and_tampering_is_rejected(self):
         for voice in ['v6', 'v7', 'v8']:
@@ -35,6 +35,35 @@ class VoiceRepairProfiles(unittest.TestCase):
                 self.assertEqual(Path(result['checkpoint']).resolve(), checkpoint.resolve())
                 checkpoint.write_bytes(b'changed')
                 with self.assertRaisesRegex(ValueError, 'checkpoint changed'): resolve(work, manifest)
+
+    def rvc_fixture(self, root):
+        work, manifest, checkpoint = self.fixture(root, 'v9')
+        (work / 'conversion/tony-multiple-songs-style.npy').unlink()  # An RVC job has no reference style.
+        runtime = root / 'voice_runtime.py'; runtime.write_text('pinned runtime')
+        frozen = {'name': 'v9', 'runtime_kind': 'rvc-v1', 'files': {'adapter': str(checkpoint), 'runtime': str(runtime)},
+                  'sha256': {'adapter': sha(checkpoint), 'runtime': sha(runtime)}}
+        frozen['fingerprint'] = fingerprint(frozen)
+        save(work / 'voice-profile.json', frozen)
+        save(work / 'distonyc-configured.json', {'voice_profile_fingerprint': frozen['fingerprint']})
+        return work, manifest, checkpoint, runtime
+
+    def test_an_rvc_voice_is_bound_to_its_frozen_runtime_instead_of_a_reference_style(self):
+        with tempfile.TemporaryDirectory() as directory:
+            work, manifest, checkpoint, runtime = self.rvc_fixture(Path(directory))
+            result = resolve(work, manifest)
+            self.assertEqual((result['voice_model'], result['runtime_kind'], result['runtime']), ('v9', 'rvc-v1', str(runtime)))
+            self.assertEqual(result['checkpoint_sha256'], sha(checkpoint))
+            runtime.write_text('edited after the song was configured')
+            with self.assertRaisesRegex(ValueError, 'runtime changed: runtime'): resolve(work, manifest)
+
+    def test_an_rvc_job_whose_saved_profile_was_rewritten_is_refused(self):
+        with tempfile.TemporaryDirectory() as directory:
+            work, manifest, checkpoint, runtime = self.rvc_fixture(Path(directory))
+            other = Path(directory) / 'other_runtime.py'; other.write_text('another runtime')
+            frozen = load(work / 'voice-profile.json')
+            frozen['files']['runtime'] = str(other); frozen['sha256']['runtime'] = sha(other)
+            save(work / 'voice-profile.json', frozen)
+            with self.assertRaisesRegex(ValueError, 'saved voice profile changed'): resolve(work, manifest)
 
     def test_versioned_job_cannot_borrow_a_different_adapter_or_recipe(self):
         with tempfile.TemporaryDirectory() as directory:

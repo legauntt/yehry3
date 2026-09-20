@@ -68,7 +68,7 @@ for (const voice of ['v7', 'v8']) test(`V8 generation with ${voice}: choices, ly
   const approved = (await call(`/prompts/${doc.id}/generation-review/lyrics`)).review;
   expect(approved.decision.lyrics).toBe(edited);
   await call(`/prompts/${doc.id}/plan`, { leaseToken, songPlan: { ...plan, lyrics: edited } });
-  const audio = (await readFile('artifacts/v8/preview-fixture.mp3')).toString('base64');
+  const audio = (await readFile('tests/browser/fixtures/preview-tone.mp3')).toString('base64'); // Six seconds of a 220 Hz tone, committed.
   await call(`/prompts/${doc.id}/generation-review`, { leaseToken, reviewId: randomUUID(), kind: 'composition', payload: { candidates: [0,1].map((index) => ({ index, duration: 120, clips: ['Hook','Ending'].map((label) => ({ label, start: label === 'Hook' ? 30 : 90, duration: 15, audio })) })) } });
   await page.locator('#refresh-status').click(); await expect(page.locator('.composition-choice audio')).toHaveCount(4);
   for (const audio of await page.locator('.composition-choice audio').all()) {

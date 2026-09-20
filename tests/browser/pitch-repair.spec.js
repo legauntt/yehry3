@@ -79,6 +79,7 @@ test('a song with a B side switches recordings in the player and keeps the downl
   await page.route('**/yehry3/songs/summary', async (route) => {
     const response = await route.fetch(); const data = await response.json();
     const [song, second] = data.songs;
+    for (const other of data.songs) delete other.alternates; // The catalog's own B sides would be counted with the one under test.
     Object.assign(song, { pitchRepair: 'clean', alternates: [{ pitchRepair: 'wild', url: second.url, duration: song.duration }] });
     sides = { id: song.id, a: song.url, b: second.url };
     await route.fulfill({ response, json: data });
