@@ -2,6 +2,258 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5c9709ea7c84e2a081643834",
+      "title": "See-saw in Every Picture",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c9709ea7c84e2a081643834-c4220ca0a172.mp3",
+      "duration": 125.04816326530612,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T03:03:28.878Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "See-saw in Every Picture",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Nervy melodic alternative rock in E minor: driving bass, tight live drums, chiming electric guitars and a faint warbling organ texture that grows more unsettling as each memory shifts. Tony’s V8 lead is smoky, connected and naturally slurred, beginning conversationally before opening into a strong, catchable chorus. Build from a lean first verse to fuller final choruses, then keep the last sustained word “true” ending about 10 seconds before the 125-second mark; resolve with one final band chord and natural decay.",
+        "lyrics": "[Verse 1]\nWe skipped flat stones where the river went black\nYou bet me a dollar I could not skip back\nI see the old water, I know that place\nBut there’s See-saw waving in your place\n\nHe’s got a paper cup, he’s got my coat\nHe’s saying my joke like he wrote every note\nI tell you that’s funny, you stare at the bank\nLike you never heard of the fellow I thank\n\n[Pre-Chorus]\nThe film in my head keeps changing its frame\nI reach for your voice and he answers my name\n\n[Chorus]\nSee-saw, See-saw, where did you come from?\nYou’re in every Saturday, every small song\nSee-saw, See-saw, I know it ain’t right\nBut the more that I look, you’re there in the light\n\n[Verse 2]\nWe drove to the coast in a car full of rain\nYou drew little monsters on my windowpane\nNow See-saw is driving, one hand on the wheel\nSinging out loud like the whole thing is real\n\nWe built that cheap kite from a grocery sack\nIt rose for a second, then came tumbling back\nI remember us laughing, I remember the hill\nBut See-saw’s beside me, and he’s laughing still\n\n[Bridge]\nI opened the album, I counted to ten\nYour face kept returning, then leaving again\nThere’s a space at the table, a name on the door\nAnd See-saw says, “Buddy, we’ve done this before”\n\n[Chorus]\nSee-saw, See-saw, where did you come from?\nYou’re in every hallway, every old song\nI can’t solve the picture, I can’t make it clear\nI just know you weren’t there—\nand now you are here\n\n[Outro]\nIf I find the first day before all the blur\nI’ll ask what became of my friend, not you, sir\nTill then the whole past keeps pulling me through\nSee-saw in every picture\nand none of them true\n[End]",
+        "duration": 125,
+        "bpm": 116,
+        "musicalSettings": {
+          "genre": "Melodic alternative rock with subtly surreal, uneasy color",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, bridge, final chorus, lyrical outro",
+          "performance": "Smoky, rough-edged Tony V8 singing with connected vowels, conversational verses and sustained melodic hooks",
+          "energy": "Restless mid-tempo momentum that rises into an anxious final reveal",
+          "lyricWorkflow": "Original narrative lyric: altered shared memories gradually reveal the recurring stranger, ending in unresolved recognition",
+          "instruments": [
+            "electric bass",
+            "live drum kit",
+            "electric guitars",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nWe skipped flat stones where the river went black\nYou bet me a dollar I could not skip back\nI see the old water, I know that place\nBut there’s See-saw waving in your place\n\nHe’s got a paper cup, he’s got my coat\nHe’s saying my joke like he wrote every note\nI tell you that’s funny, you stare at the bank\nLike you never heard of the fellow I thank\n\n[Pre-Chorus]\nThe film in my head keeps changing its frame\nI reach for your voice and he answers my name\n\n[Chorus]\nSee-saw, See-saw, where did you come from?\nYou’re in every Saturday, every small song\nSee-saw, See-saw, I know it ain’t right\nBut the more that I look, you’re there in the light\n\n[Verse 2]\nWe drove to the coast in a car full of rain\nYou drew little monsters on my windowpane\nNow See-saw is driving, one hand on the wheel\nSinging out loud like the whole thing is real\n\nWe built that cheap kite from a grocery sack\nIt rose for a second, then came tumbling back\nI remember us laughing, I remember the hill\nBut See-saw’s beside me, and he’s laughing still\n\n[Bridge]\nI opened the album, I counted to ten\nYour face kept returning, then leaving again\nThere’s a space at the table, a name on the door\nAnd See-saw says, “Buddy, we’ve done this before”\n\n[Chorus]\nSee-saw, See-saw, where did you come from?\nYou’re in every hallway, every old song\nI can’t solve the picture, I can’t make it clear\nI just know you weren’t there—\nand now you are here\n\n[Outro]\nIf I find the first day before all the blur\nI’ll ask what became of my friend, not you, sir\nTill then the whole past keeps pulling me through\nSee-saw in every picture\nand none of them true",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.06,
+            "end": 6.72
+          },
+          {
+            "line": 2,
+            "start": 6.72,
+            "end": 10.52
+          },
+          {
+            "line": 3,
+            "start": 12.56,
+            "end": 14.62
+          },
+          {
+            "line": 4,
+            "start": 14.8,
+            "end": 16.74
+          },
+          {
+            "line": 6,
+            "start": 16.74,
+            "end": 18.74
+          },
+          {
+            "line": 7,
+            "start": 18.92,
+            "end": 20.8
+          },
+          {
+            "line": 8,
+            "start": 20.8,
+            "end": 22.9
+          },
+          {
+            "line": 9,
+            "start": 23.3,
+            "end": 24.96
+          },
+          {
+            "line": 12,
+            "start": 28.68,
+            "end": 32.7
+          },
+          {
+            "line": 13,
+            "start": 32.7,
+            "end": 36.8
+          },
+          {
+            "line": 16,
+            "start": 37.28,
+            "end": 39.42
+          },
+          {
+            "line": 17,
+            "start": 39.42,
+            "end": 41.96
+          },
+          {
+            "line": 18,
+            "start": 41.96,
+            "end": 45
+          },
+          {
+            "line": 19,
+            "start": 45,
+            "end": 48.4
+          },
+          {
+            "line": 22,
+            "start": 51.54,
+            "end": 53.78
+          },
+          {
+            "line": 23,
+            "start": 53.78,
+            "end": 55.98
+          },
+          {
+            "line": 24,
+            "start": 56.24,
+            "end": 58.12
+          },
+          {
+            "line": 25,
+            "start": 58.12,
+            "end": 60.12
+          },
+          {
+            "line": 27,
+            "start": 60.12,
+            "end": 63.46
+          },
+          {
+            "line": 28,
+            "start": 63.46,
+            "end": 65.36
+          },
+          {
+            "line": 29,
+            "start": 65.36,
+            "end": 68.38
+          },
+          {
+            "line": 30,
+            "start": 68.38,
+            "end": 72.68
+          },
+          {
+            "line": 33,
+            "start": 74.4,
+            "end": 76.52
+          },
+          {
+            "line": 34,
+            "start": 76.52,
+            "end": 79
+          },
+          {
+            "line": 35,
+            "start": 79,
+            "end": 82.32
+          },
+          {
+            "line": 36,
+            "start": 83.08,
+            "end": 87.8
+          },
+          {
+            "line": 39,
+            "start": 87.8,
+            "end": 89.66
+          },
+          {
+            "line": 40,
+            "start": 89.66,
+            "end": 91.1
+          },
+          {
+            "line": 41,
+            "start": 91.1,
+            "end": 94.54
+          },
+          {
+            "line": 42,
+            "start": 95.14,
+            "end": 96.68
+          },
+          {
+            "line": 43,
+            "start": 97.66,
+            "end": 99.86
+          },
+          {
+            "line": 46,
+            "start": 100.72,
+            "end": 102.54
+          },
+          {
+            "line": 47,
+            "start": 102.74,
+            "end": 105.12
+          },
+          {
+            "line": 48,
+            "start": 105.12,
+            "end": 107.76
+          },
+          {
+            "line": 49,
+            "start": 108.1,
+            "end": 109.46
+          },
+          {
+            "line": 50,
+            "start": 109.46,
+            "end": 112.16
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "The singer's memories of activities with a friend have all been altered to replace that friend with a strange man named \"See-saw.\" Everything he recounts, See-saw is there with him. He finds it strange but he can't quite figure out what's happening.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 125
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-ecba3a59b294370d1338a539",
       "title": "How Do I Enjoy Life",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ecba3a59b294370d1338a539-4e290581a622.mp3",
