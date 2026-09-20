@@ -36,6 +36,13 @@ html[data-shared-theme][data-theme="dark"] .player :is(button, a) { color: #e7ed
 html[data-shared-theme][data-theme="dark"] .primary:hover { background: #c8d7c1; color: #171e1a; }
 html[data-shared-theme][data-theme="dark"] .record-caption::before { border-right-color: var(--light); }
 html[data-shared-theme][data-theme="dark"] .lyric-line.is-active { background: var(--light); color: var(--ink); }
+/* Mixtapes hardcodes cream panels, so their light text needs dark ones. */
+html[data-shared-theme][data-theme="dark"] :is(.tape-edit, .tape-picker, .side-heading) { background: var(--light); color: var(--ink); border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] :is(.tape-starter button, .tape-adds button) { background: var(--white); color: var(--ink); border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] .tape-moves button { border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] :is(.tape-label-editors, .tape-pick) { border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] .tape-track.is-current { background: #2d3d2b; box-shadow: inset 3px 0 #9bb56f; }
+html[data-shared-theme][data-theme="dark"] .tape-empty > span { color: #9bab85; }
 @media print {
   html[data-shared-theme][data-theme="dark"] { --paper: white; --white: white; --ink: black; --muted: #444; --line: #bbb; color-scheme: light; }
 }

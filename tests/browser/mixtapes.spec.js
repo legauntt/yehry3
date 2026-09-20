@@ -319,3 +319,14 @@ test("editing during a slow share never copies a stale version", async ({ page }
   await page.goto(await page.locator("#tape-link").inputValue());
   await expect(page.locator("#tape-title")).toHaveText("A newer label");
 });
+
+test("the editor and record shelf follow Dark Mode instead of staying cream", async ({ page }) => {
+  await catalog(page);
+  await page.addInitScript(() => localStorage.setItem("yehry3:dark-mode", "true"));
+  await page.goto("/mixtapes/");
+  const luminance = async selector => page.locator(selector).first().evaluate(node => {
+    const [r, g, b] = getComputedStyle(node).backgroundColor.match(/\d+/g).map(Number);
+    return (r + g + b) / 3;
+  });
+  for (const selector of [".tape-edit", ".tape-picker", ".side-heading"]) expect(await luminance(selector), selector).toBeLessThan(90);
+});
