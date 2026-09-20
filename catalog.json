@@ -2,6 +2,303 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-e2f5842989d521bf6f16a3a7",
+      "title": "Yeah After Midnight (Moonlit Jazz Mix)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e2f5842989d521bf6f16a3a7-9ab3896fb41a.mp3",
+      "duration": 220.02938775510205,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-d88c69ac5b02b644324e42ad",
+        "title": "Yeah After Midnight",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d88c69ac5b02b644324e42ad-d0c85e6f241f.mp3"
+      },
+      "publishedAt": "2026-09-20T23:41:07.072Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Yeah After Midnight (Moonlit Jazz Mix)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 220-second smooth-jazz reinterpretation built around the recognizable repeated “Yeah” motif: electric piano, upright bass, brushed drums, muted trumpet, and restrained tenor saxophone. One clear, steadily pitched Tony V9 lead carries warm melodic phrases with natural conversational timing; no breath effects, stacked vocals, or instrumental gaps. Start intimate, open into a gently swinging chorus, then lift through the bridge and final refrain. Pace the sustained final word “dawn” to land about 10 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nYeah\nMidnight settles on the windowpane\nYeah\n\n[Verse 1]\nThe streetlight paints a silver line\nA slow horn leans across the night\nI leave the hard words at the door\nAnd let the room breathe something more\nYeah, the clock keeps turning low\nYeah, but I know where I wanna go\n\n[Pre-Chorus]\nNo need to prove a thing tonight\nJust let the blue notes make it right\n\n[Chorus]\nYeah after midnight\nYeah, when the city lets go\nYeah after midnight\nLet the soft bass carry me home\nYeah after midnight\nNo fight left in my hands\nYeah after midnight\nI make peace with who I am\n\n[Verse 2]\nA coffee cup, a vacant train\nA little laugh beneath the rain\nI had a storm behind my teeth\nNow every chord gives some relief\nYeah, I was talking way too loud\nYeah, I was lost inside the crowd\n\n[Bridge]\nYeah\nHold that note till the neon fades\nYeah\nAll the old heat slips away\nYeah\nI choose a quieter kind of strong\nAnd the night keeps singing on\n\n[Chorus]\nYeah after midnight\nYeah, when the city lets go\nYeah after midnight\nLet the soft bass carry me home\nYeah after midnight\nThe dark turns tender and warm\nYeah after midnight\nI meet the light before the dawn\n\n[Outro]\nYeah\nYeah\nYeeaah\nI meet the light before the dawn\n[End]",
+        "duration": 220,
+        "bpm": 82,
+        "musicalSettings": {
+          "genre": "Late-night smooth jazz",
+          "meter": "4/4 with a relaxed swing feel",
+          "structure": "Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Bridge, Final Chorus, Outro",
+          "performance": "One clear, steadily pitched lead with warm melodic phrasing and natural conversational timing",
+          "energy": "Quiet and nocturnal at first, gradually opening into a warm, gently uplifting finale",
+          "lyricWorkflow": "Adapted from the retained one-word hook into a new, nonviolent midnight reflection",
+          "instruments": [
+            "electric piano",
+            "upright bass",
+            "brushed drum kit",
+            "muted trumpet",
+            "tenor saxophone"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nYeah\nMidnight settles on the windowpane\nYeah\n\n[Verse 1]\nThe streetlight paints a silver line\nA slow horn leans across the night\nI leave the hard words at the door\nAnd let the room breathe something more\nYeah, the clock keeps turning low\nYeah, but I know where I wanna go\n\n[Pre-Chorus]\nNo need to prove a thing tonight\nJust let the blue notes make it right\n\n[Chorus]\nYeah after midnight\nYeah, when the city lets go\nYeah after midnight\nLet the soft bass carry me home\nYeah after midnight\nNo fight left in my hands\nYeah after midnight\nI make peace with who I am\n\n[Verse 2]\nA coffee cup, a vacant train\nA little laugh beneath the rain\nI had a storm behind my teeth\nNow every chord gives some relief\nYeah, I was talking way too loud\nYeah, I was lost inside the crowd\n\n[Bridge]\nYeah\nHold that note till the neon fades\nYeah\nAll the old heat slips away\nYeah\nI choose a quieter kind of strong\nAnd the night keeps singing on\n\n[Chorus]\nYeah after midnight\nYeah, when the city lets go\nYeah after midnight\nLet the soft bass carry me home\nYeah after midnight\nThe dark turns tender and warm\nYeah after midnight\nI meet the light before the dawn\n\n[Outro]\nYeah\nYeah\nYeeaah\nI meet the light before the dawn",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.38,
+            "end": 6.6
+          },
+          {
+            "line": 2,
+            "start": 6.6,
+            "end": 9.14
+          },
+          {
+            "line": 3,
+            "start": 9.14,
+            "end": 10.3
+          },
+          {
+            "line": 6,
+            "start": 12.9,
+            "end": 17.06
+          },
+          {
+            "line": 7,
+            "start": 19.3,
+            "end": 21.98
+          },
+          {
+            "line": 8,
+            "start": 24.84,
+            "end": 28.48
+          },
+          {
+            "line": 9,
+            "start": 28.48,
+            "end": 33.66
+          },
+          {
+            "line": 10,
+            "start": 34.58,
+            "end": 38.1
+          },
+          {
+            "line": 11,
+            "start": 38.1,
+            "end": 46.24
+          },
+          {
+            "line": 14,
+            "start": 52.56,
+            "end": 57.32
+          },
+          {
+            "line": 15,
+            "start": 57.32,
+            "end": 63.46
+          },
+          {
+            "line": 18,
+            "start": 67.4,
+            "end": 69.48
+          },
+          {
+            "line": 19,
+            "start": 69.48,
+            "end": 72.9
+          },
+          {
+            "line": 20,
+            "start": 72.9,
+            "end": 75.26
+          },
+          {
+            "line": 21,
+            "start": 75.72,
+            "end": 78.54
+          },
+          {
+            "line": 22,
+            "start": 80.04,
+            "end": 81.3
+          },
+          {
+            "line": 23,
+            "start": 82.8,
+            "end": 85.32
+          },
+          {
+            "line": 24,
+            "start": 86.14,
+            "end": 87.28
+          },
+          {
+            "line": 25,
+            "start": 88.16,
+            "end": 94.42
+          },
+          {
+            "line": 28,
+            "start": 103.06,
+            "end": 105.94
+          },
+          {
+            "line": 29,
+            "start": 105.94,
+            "end": 111.9
+          },
+          {
+            "line": 30,
+            "start": 114.85,
+            "end": 118.52
+          },
+          {
+            "line": 31,
+            "start": 120.89,
+            "end": 123.84
+          },
+          {
+            "line": 32,
+            "start": 124.94,
+            "end": 128.9
+          },
+          {
+            "line": 33,
+            "start": 130.28,
+            "end": 135.08
+          },
+          {
+            "line": 36,
+            "start": 136.52,
+            "end": 137.22
+          },
+          {
+            "line": 37,
+            "start": 138.24,
+            "end": 141.98
+          },
+          {
+            "line": 38,
+            "start": 141.98,
+            "end": 143.32
+          },
+          {
+            "line": 39,
+            "start": 144.24,
+            "end": 147.18
+          },
+          {
+            "line": 40,
+            "start": 147.18,
+            "end": 149.58
+          },
+          {
+            "line": 41,
+            "start": 150.2,
+            "end": 162.22
+          },
+          {
+            "line": 42,
+            "start": 166.34,
+            "end": 167.18
+          },
+          {
+            "line": 45,
+            "start": 167.48,
+            "end": 168.24
+          },
+          {
+            "line": 46,
+            "start": 168.24,
+            "end": 171.94
+          },
+          {
+            "line": 47,
+            "start": 172.9,
+            "end": 174.26
+          },
+          {
+            "line": 48,
+            "start": 174.26,
+            "end": 177.92
+          },
+          {
+            "line": 49,
+            "start": 178.98,
+            "end": 180.5
+          },
+          {
+            "line": 50,
+            "start": 180.5,
+            "end": 184.08
+          },
+          {
+            "line": 51,
+            "start": 184.08,
+            "end": 186.68
+          },
+          {
+            "line": 52,
+            "start": 186.86,
+            "end": 196.2
+          },
+          {
+            "line": 55,
+            "start": 202.06,
+            "end": 203.22
+          },
+          {
+            "line": 56,
+            "start": 203.22,
+            "end": 203.62
+          },
+          {
+            "line": 57,
+            "start": 203.62,
+            "end": 203.88
+          },
+          {
+            "line": 58,
+            "start": 203.88,
+            "end": 216.08
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Remix “Yeah After Midnight”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Six minutes of heavy breathing and Tony saying \"yeah\" over smooth jazz\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Tony says \"I beat that bitch with a bat\" every second, third, or fourth line throughout the song. He finds a way to justify it in his own way",
+        "keep": "Keep the recognizable hook and spirit of “Yeah After Midnight”.",
+        "basisSongs": [
+          "Yeah After Midnight"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 220
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-92dfd2ce61458fe8bb784977",
       "title": "Blue Screen America",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-92dfd2ce61458fe8bb784977-8247ef95b85e.mp3",
