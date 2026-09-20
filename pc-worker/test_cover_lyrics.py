@@ -95,7 +95,7 @@ class CoverLyricsTests(unittest.TestCase):
             with patch('cover_lyrics.fetch', return_value=[row()]) as service, patch('planner.plan_materials', return_value=cover) as model:
                 self.assertEqual(make_plan(config, request, root, []), cover)
                 instruction = model.call_args.args[3]
-                self.assertIn('COVER REQUEST WITH RETRIEVED WORDS', instruction)
+                self.assertIn('COVER REQUEST WITH A LYRIC SHEET', instruction)
                 self.assertIn(json.dumps(WORDS, ensure_ascii=False)[1:-1], instruction)
                 snapshot = load(root / 'planning-input.json')
                 self.assertEqual(snapshot['brief']['details']['lyricSheet']['origin'], 'cover_lookup')
@@ -124,6 +124,14 @@ class CoverLyricsTests(unittest.TestCase):
                 self.assertIn('loose cover set to new music', model.call_args.args[3])
                 self.assertEqual(load(root / 'planning-input.json')['recoveryNote'], 'Treat it as a loose cover set to new music.')
                 self.assertEqual(load(root / 'replans/1/plan.json')['plan']['recipe'], 'needs_attention')
+
+    def test_a_cover_with_any_lyric_sheet_is_planned_as_new_music(self):
+        from cover_lyrics import guidance
+        submitted = brief(lyricSheet={'mode': 'preserve', 'text': WORDS})
+        self.assertIn('A cover is not a source-dependent rendition', guidance(submitted))
+        self.assertEqual(guidance(brief()), '', 'no words yet: nothing to promise')
+        self.assertEqual(guidance(brief('A new song about a lantern', lyricSheet={'mode': 'preserve', 'text': WORDS})), '')
+        self.assertEqual(guidance(brief(lyricSheet={'mode': 'preserve', 'text': WORDS}, basisSongIds=['dvdp-road'])), '')
 
     def test_guided_hint_names_the_song_when_the_request_does_not(self):
         with tempfile.TemporaryDirectory() as root:

@@ -150,12 +150,25 @@ def apply(directory, brief, hint=None, get=None):
 
 
 GUIDANCE = """
-COVER REQUEST WITH RETRIEVED WORDS:
-details.lyricSheet.origin=cover_lookup means trusted worker code retrieved the published words of
-the named song (details.lyricSheet.artist/title) because the request asks Tony to cover it. Treat
-it exactly like a submitted lyric sheet in its stated mode. Use recipe=new: Tony and the band
-perform these words over newly composed music in the spirit of the named song's genre, tempo and
-energy. Do not promise the original recording's melody, and do not require basis recordings or
-saved source material. A cover request with a retrieved sheet is not a reason for needs_attention.
-Give it a title that names the covered song, such as "<Song> (Tony C Cover)".
+COVER REQUEST WITH A LYRIC SHEET:
+This request asks Tony to cover a named published song, and details.lyricSheet holds its words:
+either the requester submitted them, or (details.lyricSheet.origin=cover_lookup, with
+artist/title) trusted worker code retrieved them because the request named the song. Treat the
+sheet exactly like any submitted lyric sheet in its stated mode. Use recipe=new: Tony and the
+band perform these words over newly composed music in the spirit of the named song's genre, tempo
+and energy, or in the genre the request asks for. A cover is not a source-dependent rendition:
+it needs no basis recording, saved source material or isolated vocals unless the requester
+selected one, so a missing source recording is never a reason for needs_attention here. Do not
+promise the original recording's melody. Give it a title that names the covered song, such as
+"<Song> (Tony C Cover)".
 """
+
+
+def guidance(brief):
+    """Planner guidance for a cover that has words and no recorded source of its own."""
+    details = brief.get('details') or {}
+    sheet = details.get('lyricSheet')
+    if not isinstance(sheet, dict) or details.get('basisSongIds') or details.get('source') or details.get('remixSource'):
+        return ''
+    text = '\n'.join(str(value) for value in (brief.get('prompt', ''), details.get('direction', '')) if value)
+    return GUIDANCE if sheet.get('origin') == 'cover_lookup' or COVER.search(text) else ''

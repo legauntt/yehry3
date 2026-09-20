@@ -12,7 +12,7 @@ import lyric_constraints
 from lyric_sections import normalize_section_labels, section_label, STRUCTURE_GUIDANCE
 from duration_policy import choose as choose_duration, join_lyrics, validate_movements
 from vocal_accents import PLANNING_GUIDANCE as VOCAL_ACCENT_GUIDANCE, validate as validate_vocal_accents
-from cover_lyrics import GUIDANCE as COVER_GUIDANCE, apply as cover_brief
+from cover_lyrics import apply as cover_brief, guidance as cover_guidance
 from replan import directive as replan_directive
 
 CAPABILITY_UPGRADES = {
@@ -296,7 +296,7 @@ Keep explanation concise and describe the musical plan or a concrete blocker. No
             {key: material[key] for key in ['title', 'recording', 'lyrics_draft', 'lyrics_verified']}, ensure_ascii=False)
         save(directory / 'source-material.json', material)
     if has_materials(brief): instruction += GUIDANCE
-    if (brief['details'].get('lyricSheet') or {}).get('origin') == 'cover_lookup': instruction += COVER_GUIDANCE
+    instruction += cover_guidance(brief)
     # Snapshotted once per planning pass, like the admin note, and kept out of the brief hash.
     recovery_note = (load(planning_input).get('recoveryNote', '') if planning_input.exists() else redirect.get('note', ''))
     if recovery_note:
