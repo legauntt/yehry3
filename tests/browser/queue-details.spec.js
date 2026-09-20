@@ -124,7 +124,7 @@ test("9/11'd Again badges play a line without toggling the row", async ({ page }
   }
 });
 
-test("three quick clicks on cover art sing the 9/11'd Again line", async ({ page }) => {
+test("three quick clicks on cover art sing every clip in turn", async ({ page }) => {
   await page.addInitScript(() => {
     window.__played = [];
     HTMLMediaElement.prototype.play = function () {
@@ -145,6 +145,12 @@ test("three quick clicks on cover art sing the 9/11'd Again line", async ({ page
   await page.waitForTimeout(1100);
   await art.click({ clickCount: 3 });
   expect(await page.evaluate(() => window.__played)).toEqual(["/assets/sounds/nine-elevend-again.mp3"]);
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 3 });
+  expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/one-loud-crash.mp3");
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 3 });
+  expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/nine-elevend-again.mp3");
   // The egg leaves the badge's own rotation where it was.
   await page.locator(`.pending-track[data-id="${failed.id}"] button.badge-sound`).click();
   expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/one-loud-crash.mp3");

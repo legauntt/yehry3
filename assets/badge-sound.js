@@ -37,14 +37,17 @@ function play(button = null, clip = null) {
   audio.play().catch(done);
 }
 
-// Easter egg: hammering any cover art three times inside a second sings the title line.
+// Easter egg: hammering any cover art three times inside a second sings every clip in turn,
+// the title line first. It keeps its own place so it never disturbs the badges' rotation.
 const artTaps = 3, artWindow = 1000;
 let taps = [];
+let artNext = 1;
 function tapArt(at) {
   taps = [...taps.filter((tap) => at - tap < artWindow), at];
   if (taps.length < artTaps) return;
   taps = [];
-  play(null, clips[1]);
+  play(null, clips[artNext]);
+  artNext = (artNext + 1) % clips.length;
 }
 
 export function mountBadgeSounds(root = document) {
