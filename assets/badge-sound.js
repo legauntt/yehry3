@@ -1,7 +1,7 @@
 // "9/11'd Again" badges sing a line from the song of the same name when clicked.
 // Clips load only on the first click, so the badge costs nothing until someone presses it.
 import { recoveryStatus } from "./recovery.js";
-import { pickEggMoment } from "./egg-clips.js";
+import { eggWeight, pickEggMoment } from "./egg-clips.js";
 
 const clips = ["/assets/sounds/one-loud-crash.mp3", "/assets/sounds/nine-elevend-again.mp3"];
 const soundStatuses = new Set(["failed", "attention"]);
@@ -80,14 +80,25 @@ const shocked = new WeakMap();
 
 // The sung moments are built with the site and fetched once, as the first tap lands, so they
 // are ready by the third. If they never arrive, the egg keeps singing the fixed clips.
+// Live votes come along for the ride so upvoted songs come up more; without them, recent songs
+// still win.
 let moments = null;
-let loading = null;
+let votes = new Map();
+let loading = false;
 function loadMoments() {
-  loading ??= fetch("/egg-clips.json")
+  if (loading) return;
+  loading = true;
+  // Votes never hold the clips back; a late answer just sharpens later picks.
+  import("./api.js")
+    .then(({ publicApi }) => publicApi("/songs/summary"))
+    .then((live) => { if (Array.isArray(live?.songs)) votes = new Map(live.songs.map((song) => [song.id, Number(song.votes) || 0])); })
+    .catch(() => {});
+  fetch("/egg-clips.json")
     .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.statusText))))
     .then((data) => { moments = Array.isArray(data?.clips) ? data.clips : []; })
     .catch(() => { moments = []; });
 }
+const weighted = (clip) => eggWeight(clip, votes.get(clip.id));
 
 function shock(art, ms, audio) {
   shocked.get(art)?.();
@@ -136,7 +147,7 @@ function tapArt(art, at) {
   loadMoments();
   if (taps.length < artTaps) return;
   taps = [];
-  const moment = artHeard && moments?.length && Math.random() >= artFixedOdds ? pickEggMoment(moments, Math.random, artSong) : null;
+  const moment = artHeard && moments?.length && Math.random() >= artFixedOdds ? pickEggMoment(moments, Math.random, artSong, weighted) : null;
   artHeard = true;
   if (moment) {
     artSong = moment.id;

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { eggClips, pickEggMoment, songMoments } from "../assets/egg-clips.js";
+import { eggClips, eggWeight, pickEggMoment, songMoments } from "../assets/egg-clips.js";
 
 const song = (over = {}) => ({
   id: "a-1",
@@ -35,6 +35,37 @@ test("a pick avoids the previous song when it can", () => {
   assert.deepEqual(pickEggMoment(clips, () => 0, "a"), { id: "b", title: "B", url: "/b", start: 2, end: 5 });
   assert.equal(pickEggMoment(clips.slice(0, 1), () => 0.9, "a").id, "a");
   assert.equal(pickEggMoment([], () => 0), null);
+});
+
+const now = Date.parse("2026-09-20T12:00:00Z");
+const daysAgo = (days) => new Date(now - days * 864e5).toISOString();
+
+test("the build carries each recording's release time", () => {
+  assert.equal(eggClips([song({ publishedAt: daysAgo(2) })])[0].publishedAt, daysAgo(2));
+  assert.equal(eggClips([song()])[0].publishedAt, null);
+});
+
+test("upvoted and recent songs weigh far more than old unloved ones", () => {
+  const old = eggWeight({ publishedAt: daysAgo(90) }, 0, now);
+  assert.ok(old > 0 && old < 0.2);
+  assert.ok(eggWeight({ publishedAt: daysAgo(1) }, 0, now) > 50 * old);
+  assert.ok(eggWeight({ publishedAt: daysAgo(90) }, 5, now) > 50 * old);
+  assert.ok(eggWeight({ publishedAt: daysAgo(1) }, 0, now) > eggWeight({ publishedAt: daysAgo(14) }, 0, now));
+  assert.ok(eggWeight({ publishedAt: daysAgo(90) }, 8, now) > eggWeight({ publishedAt: daysAgo(90) }, 2, now));
+  // Missing or junk release times and votes fall back to the floor rather than throwing.
+  assert.equal(eggWeight({}, undefined, now), eggWeight({ publishedAt: "soon" }, -3, now));
+  assert.equal(eggWeight({ publishedAt: daysAgo(-5) }, 0, now), eggWeight({ publishedAt: daysAgo(0) }, 0, now));
+  assert.equal(eggWeight({}, 500, now), eggWeight({}, 10, now));
+});
+
+test("picks follow the weights but every song stays possible", () => {
+  const clips = ["old", "loved", "new"].map((id) => ({ id, title: id, url: `/${id}`, moments: [[1, 4]] }));
+  const weights = { old: 1, loved: 6, new: 3 };
+  const at = (random) => pickEggMoment(clips, () => random, null, (clip) => weights[clip.id]).id;
+  assert.deepEqual([0, 0.09, 0.1, 0.69, 0.7, 0.99].map(at), ["old", "old", "loved", "loved", "new", "new"]);
+  // Every weight zero still picks something, and the previous song is still avoided.
+  assert.equal(pickEggMoment(clips, () => 0.5, null, () => 0).id, "loved");
+  assert.equal(pickEggMoment(clips, () => 0, "old", (clip) => weights[clip.id]).id, "loved");
 });
 
 test("the build publishes moments that fit inside each recording", async () => {

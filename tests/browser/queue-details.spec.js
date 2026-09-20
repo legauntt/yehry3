@@ -213,6 +213,34 @@ test("after the title line, hammered cover art sings moments from recordings", a
   expect(await art.evaluate(node => node.style.getPropertyValue("--egg-ms"))).toBe("3000ms");
 });
 
+test("the egg favors upvoted and recent songs over the rest of the catalog", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__plays = [];
+    HTMLMediaElement.prototype.play = function () {
+      const url = new URL(this.src);
+      if (!url.pathname.startsWith("/assets/sounds/")) window.__plays.push(url.pathname);
+      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
+      return Promise.resolve();
+    };
+    // A flat pick at 0.9 would land on the last clip; only the weights make it "loved", the first.
+    Math.random = () => 0.9;
+  });
+  const old = new Date(Date.now() - 200 * 864e5).toISOString();
+  const clip = (id, publishedAt) => ({ id, title: id, url: `/${id}.mp3`, publishedAt, moments: [[1, 4]] });
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [{ id: "loved", title: "Loved", url: "/loved.mp3", votes: 8 }, { id: "quiet", title: "Quiet", url: "/quiet.mp3", votes: 0 }], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
+  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [clip("loved", old), clip("quiet", old)] } }));
+  await page.route(/\/(loved|quiet)\.mp3$/, route => route.fulfill({ status: 200, contentType: "audio/mpeg", body: "" }));
+  await page.goto("/");
+  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
+  // The first hammering is the title line; the second draws from the weighted pool.
+  await art.click({ clickCount: 3 });
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 3 });
+  await expect.poll(() => page.evaluate(() => window.__plays)).toEqual(["/loved.mp3"]);
+});
+
 test("cover art holds still until its sound has loaded", async ({ page }) => {
   await page.addInitScript(() => {
     window.__release = [];
