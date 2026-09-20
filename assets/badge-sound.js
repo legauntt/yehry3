@@ -17,6 +17,8 @@ export const badgeSoundIcon =
 function stop() {
   if (!current) return;
   clearInterval(current.watch);
+  clearTimeout(current.patience);
+  current.settle(false);
   current.audio.pause();
   current.button?.classList.remove("is-playing");
   current = null;
@@ -25,18 +27,25 @@ function stop() {
 // An announcement has no badge to light up, so the button is optional. Badges
 // take turns with the clips; a caller that names one leaves that rotation alone. A clip
 // can also be a moment of a song, { url, start, end }, which fades out at its end.
-const volume = 0.85, fadeSeconds = 0.25;
+// The result says when the sound is really heard: true once it starts (or has failed, or has
+// taken longer than loadPatience), false if something else took its place first.
+const volume = 0.85, fadeSeconds = 0.25, loadPatience = 4000;
 function play(button = null, clip = null) {
   stop();
   const moment = clip && typeof clip === "object" ? clip : null;
   const audio = new Audio(moment ? moment.url : clip ?? clips[next]);
   if (!clip) next = (next + 1) % clips.length;
   audio.volume = volume;
-  const playing = (current = { audio, button });
+  let settle;
+  const heard = new Promise((resolve) => { settle = resolve; });
+  const playing = (current = { audio, button, settle });
   button?.classList.add("is-playing");
   const done = () => {
+    settle(true);
     if (current === playing) stop();
   };
+  playing.patience = setTimeout(() => settle(true), loadPatience);
+  audio.addEventListener("playing", () => settle(true), { once: true });
   if (moment) {
     // Browsers differ on when a seek is honoured, so ask now and again once the length is known.
     const seek = () => { if (audio.currentTime < moment.start) audio.currentTime = moment.start; };
@@ -51,6 +60,7 @@ function play(button = null, clip = null) {
   audio.addEventListener("ended", done);
   audio.addEventListener("error", done);
   audio.play().catch(done);
+  return heard;
 }
 
 // Easter egg: hammering any cover art three times inside a second sings every clip in turn,
@@ -107,13 +117,12 @@ function tapArt(art, at) {
   artHeard = true;
   if (moment) {
     artSong = moment.id;
-    play(null, moment);
-    shock(art, Math.max(artShockMs, (moment.end - moment.start) * 1000 + 400));
+    // The picture waits for the sound, which may need a moment to load.
+    play(null, moment).then((heard) => heard && shock(art, Math.max(artShockMs, (moment.end - moment.start) * 1000 + 400)));
     return;
   }
-  play(null, clips[artNext]);
+  play(null, clips[artNext]).then((heard) => heard && shock(art));
   artNext = (artNext + 1) % clips.length;
-  shock(art);
 }
 
 export function mountBadgeSounds(root = document) {

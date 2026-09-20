@@ -89,6 +89,7 @@ test("9/11'd Again badges play a line without toggling the row", async ({ page }
     window.__played = [];
     HTMLMediaElement.prototype.play = function () {
       if (this.src.includes("/assets/sounds/")) window.__played.push(new URL(this.src).pathname);
+      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
       return Promise.resolve();
     };
   });
@@ -129,6 +130,7 @@ test("three quick clicks on cover art sing every clip in turn", async ({ page })
     window.__played = [];
     HTMLMediaElement.prototype.play = function () {
       if (this.src.includes("/assets/sounds/")) window.__played.push(new URL(this.src).pathname);
+      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
       return Promise.resolve();
     };
   });
@@ -173,6 +175,7 @@ test("after the title line, hammered cover art sings moments from recordings", a
       const url = new URL(this.src);
       if (url.pathname.startsWith("/assets/sounds/")) window.__played.push(url.pathname);
       else window.__plays.push({ src: url.pathname, start: this.currentTime, gain: this.volume });
+      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
       return Promise.resolve();
     };
     // Never draw a fixed clip: the odds of one are one in five.
@@ -209,11 +212,44 @@ test("after the title line, hammered cover art sings moments from recordings", a
   await expect(art).toHaveClass(/egg-shock/);
 });
 
+test("cover art holds still until its sound has loaded", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__release = [];
+    HTMLMediaElement.prototype.play = function () {
+      // A slow download: the sound only starts when the test says so.
+      window.__release.push(() => this.dispatchEvent(new Event("playing")));
+      return Promise.resolve();
+    };
+  });
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
+  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [] } }));
+  await page.goto("/");
+  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
+  await art.click({ clickCount: 3 });
+  await expect.poll(() => page.evaluate(() => window.__release.length)).toBe(1);
+  await page.waitForTimeout(700);
+  await expect(art).not.toHaveClass(/egg-shock/);
+  await page.evaluate(() => window.__release[0]());
+  await expect(art).toHaveClass(/egg-shock/);
+  // A sound that is replaced before it loads never gets its animation.
+  await expect(art).not.toHaveClass(/egg-shock/, { timeout: 5000 });
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 3 });
+  await page.waitForTimeout(1100);
+  await art.click({ clickCount: 3 });
+  await expect.poll(() => page.evaluate(() => window.__release.length)).toBe(3);
+  await page.evaluate(() => { window.__release[1](); window.__release[2](); });
+  await expect(art).toHaveClass(/egg-shock/);
+});
+
 test("a request that goes 9/11'd announces itself once", async ({ page }) => {
   await page.addInitScript(() => {
     window.__played = [];
     HTMLMediaElement.prototype.play = function () {
       if (this.src.includes("/assets/sounds/")) window.__played.push(new URL(this.src).pathname);
+      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
       return Promise.resolve();
     };
   });
