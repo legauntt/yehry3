@@ -67,6 +67,8 @@
 #tracks[data-view="grid"] .track { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto 1fr auto; gap: 12px; min-width: 0; padding: 12px; border: 1px solid #ccd2c1; border-radius: 12px; background: var(--white); }
 #tracks[data-view="grid"] .track:hover { border-color: #9cab91; }
 #tracks[data-view="grid"] .track.playing { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); background: #e9ecdf; }
+#tracks[data-view] .track.pinned, #tracks[data-view] .track.pinned:hover, #tracks[data-view] .track.pinned.playing { border: 5px solid #d4a017; }
+#tracks[data-view="grid"] .track.pinned { border-radius: 12px; }
 #tracks[data-view="grid"] .track-art { grid-column: 1 / -1; grid-row: 1; width: 100%; }
 #tracks[data-view="grid"] .track-number { position: absolute; top: 21px; left: 21px; display: block; width: auto; min-width: 28px; padding: 3px 7px; border-radius: 4px; background: var(--paper); color: var(--ink); font-family: "DM Mono", monospace; font-size: .65rem; }
 #tracks[data-view="grid"] .track-info { grid-column: 1 / -1; grid-row: 2; }

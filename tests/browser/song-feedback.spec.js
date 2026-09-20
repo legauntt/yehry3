@@ -58,6 +58,9 @@ test("shared pins stay above the catalog and downvote/milquetoast remain distinc
   await page.locator('[data-id="charlie"] [data-pin]').click();
   await expect(page.locator(".track h3")).toHaveText(["Charlie", "Alpha", "Bravo"]);
   await expect(page.locator('[data-id="charlie"] [data-pin]')).toContainText("Pinned · 1");
+  await expect(page.locator('[data-id="charlie"]')).toHaveCSS("border-top-width", "5px");
+  await expect(page.locator('[data-id="charlie"]')).toHaveCSS("border-top-color", "rgb(212, 160, 23)");
+  await expect(page.locator('[data-id="alpha"]')).not.toHaveClass(/pinned/);
   expect(await page.evaluate(() => localStorage.getItem("yehry3:pinned-songs"))).toBeNull();
   await page.reload();
   await expect(page.locator(".track h3")).toHaveText(["Charlie", "Alpha", "Bravo"]);

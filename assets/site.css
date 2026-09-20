@@ -817,6 +817,11 @@ main {
 .track.playing {
   background: #e9ecdf;
 }
+.track.pinned {
+  border: 5px solid #d4a017;
+  border-radius: 8px;
+  margin: 6px 0;
+}
 .track-number {
   color: #7c8576;
   font-size: 0.72rem;
