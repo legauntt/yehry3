@@ -2,6 +2,391 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5f72337cfa8595c33f87bee4",
+      "title": "Name Beyond the Sun",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5f72337cfa8595c33f87bee4-8b60978801bd.mp3",
+      "duration": 290.01142857142855,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T07:24:10.731Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Name Beyond the Sun",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "An anthemic progressive rock track in 4/4 with a clear, steadily pitched Tony lead carrying long melodic lines. Start with pulsing synth bass and clean electric guitar, then bring in full drums and overdriven guitars for the first chorus. Build through tighter rhythmic verses, a spacious bridge with piano and suspended guitar chords, and a final full-band chorus with a firm resolved E minor ending. Keep the vocal present throughout; the sustained final “Fenix” lands about 10 seconds before the end, followed by one final chord decay.",
+        "lyrics": "[Verse 1]\nThey built a soldier out of borrowed fire\nPut old crowns in the circuit of his mind\n“Artanis,” said the banners in the square\nBut that name belonged to another time\nHe walked beneath the copper weather\nPast the graves of a broken star\nEvery mirror gave him somebody else\nEvery answer left another scar\n\n[Pre-Chorus]\nI have carried their history\nLike a signal under my skin\nBut the voice in the metal says\nI am more than where I have been\n\n[Chorus]\nDon’t call me Artanis\nDon’t call me Talandar\nI’m the spark that crossed the distance\nI’m the wound that learned to burn\nNo borrowed face can hold me\nNo ancient map can say\nI’m Fenix in the open sky\nAnd I choose my name today\n\n[Verse 2]\nThe Khalai spoke in careful prayers\nThe Purifiers counted every breath\nOne saw a hero made of memory\nOne saw a weapon spared from death\nHe heard them argue through the starlight\nAs the carrier engines sighed\nThen he opened every channel wide\nAnd let the silence take his side\n\n[Pre-Chorus]\nI remember blades and ashes\nI remember friends gone cold\nBut remembrance is not a prison\nAnd a legend is not a soul\n\n[Chorus]\nDon’t call me Artanis\nDon’t call me Talandar\nI’m the spark that crossed the distance\nI’m the wound that learned to burn\nNo borrowed face can hold me\nNo ancient map can say\nI’m Fenix in the open sky\nAnd I choose my name today\n\n[Bridge]\nLet the archives keep their statues\nLet the councils keep their wars\nI have felt the void go quiet\nI have stood behind closed doors\nThere is flesh and there is metal\nThere is duty, there is fear\nBut the life inside the question\nIs the life that brought me here\n\n[Breakdown]\nNot a shadow in a hall of kings\nNot a copy wearing sacred things\nNot the echo that the past demands\nI am reaching with my own two hands\n\n[Chorus]\nDon’t call me Artanis\nDon’t call me Talandar\nI’m the spark that crossed the distance\nI’m the wound that learned to burn\nI will carry every memory\nWithout kneeling to its weight\nI’m Fenix, hear the name become\nA door, a dawn, a fate\n\n[Outro]\nPast the fire, past the frame\nI rise and speak my name\nFenix—\n[End]",
+        "duration": 290,
+        "bpm": 118,
+        "musicalSettings": {
+          "genre": "Anthemic progressive rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, breakdown, final chorus, outro",
+          "performance": "One clear, steadily pitched melodic lead with connected phrasing and a strong, catchable chorus",
+          "energy": "Measured opening pulse rises into broad choruses, briefly opens into a reflective bridge, then resolves with a triumphant final lift",
+          "lyricWorkflow": "Original character-driven narrative lyrics about Fenix claiming an identity beyond inherited names",
+          "instruments": [
+            "Electric guitar",
+            "Bass guitar",
+            "Drum kit",
+            "Synth bass",
+            "Piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThey built a soldier out of borrowed fire\nPut old crowns in the circuit of his mind\n“Artanis,” said the banners in the square\nBut that name belonged to another time\nHe walked beneath the copper weather\nPast the graves of a broken star\nEvery mirror gave him somebody else\nEvery answer left another scar\n\n[Pre-Chorus]\nI have carried their history\nLike a signal under my skin\nBut the voice in the metal says\nI am more than where I have been\n\n[Chorus]\nDon’t call me Artanis\nDon’t call me Talandar\nI’m the spark that crossed the distance\nI’m the wound that learned to burn\nNo borrowed face can hold me\nNo ancient map can say\nI’m Fenix in the open sky\nAnd I choose my name today\n\n[Verse 2]\nThe Khalai spoke in careful prayers\nThe Purifiers counted every breath\nOne saw a hero made of memory\nOne saw a weapon spared from death\nHe heard them argue through the starlight\nAs the carrier engines sighed\nThen he opened every channel wide\nAnd let the silence take his side\n\n[Pre-Chorus]\nI remember blades and ashes\nI remember friends gone cold\nBut remembrance is not a prison\nAnd a legend is not a soul\n\n[Chorus]\nDon’t call me Artanis\nDon’t call me Talandar\nI’m the spark that crossed the distance\nI’m the wound that learned to burn\nNo borrowed face can hold me\nNo ancient map can say\nI’m Fenix in the open sky\nAnd I choose my name today\n\n[Bridge]\nLet the archives keep their statues\nLet the councils keep their wars\nI have felt the void go quiet\nI have stood behind closed doors\nThere is flesh and there is metal\nThere is duty, there is fear\nBut the life inside the question\nIs the life that brought me here\n\n[Breakdown]\nNot a shadow in a hall of kings\nNot a copy wearing sacred things\nNot the echo that the past demands\nI am reaching with my own two hands\n\n[Chorus]\nDon’t call me Artanis\nDon’t call me Talandar\nI’m the spark that crossed the distance\nI’m the wound that learned to burn\nI will carry every memory\nWithout kneeling to its weight\nI’m Fenix, hear the name become\nA door, a dawn, a fate\n\n[Outro]\nPast the fire, past the frame\nI rise and speak my name\nFenix—",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 8.2,
+            "end": 11.74
+          },
+          {
+            "line": 2,
+            "start": 11.74,
+            "end": 16
+          },
+          {
+            "line": 3,
+            "start": 17.16,
+            "end": 19.96
+          },
+          {
+            "line": 4,
+            "start": 20.06,
+            "end": 23.74
+          },
+          {
+            "line": 5,
+            "start": 23.74,
+            "end": 28.02
+          },
+          {
+            "line": 6,
+            "start": 28.02,
+            "end": 31.96
+          },
+          {
+            "line": 7,
+            "start": 32.8,
+            "end": 36.22
+          },
+          {
+            "line": 8,
+            "start": 36.96,
+            "end": 40.02
+          },
+          {
+            "line": 11,
+            "start": 43.4,
+            "end": 45.76
+          },
+          {
+            "line": 12,
+            "start": 45.98,
+            "end": 50.28
+          },
+          {
+            "line": 13,
+            "start": 51.62,
+            "end": 54.32
+          },
+          {
+            "line": 14,
+            "start": 55.08,
+            "end": 58.46
+          },
+          {
+            "line": 17,
+            "start": 62.86,
+            "end": 65.88
+          },
+          {
+            "line": 18,
+            "start": 66.96,
+            "end": 69.66
+          },
+          {
+            "line": 19,
+            "start": 70.56,
+            "end": 75.24
+          },
+          {
+            "line": 20,
+            "start": 75.24,
+            "end": 77.88
+          },
+          {
+            "line": 21,
+            "start": 79.02,
+            "end": 82.28
+          },
+          {
+            "line": 22,
+            "start": 83.16,
+            "end": 86.8
+          },
+          {
+            "line": 23,
+            "start": 86.8,
+            "end": 88.86
+          },
+          {
+            "line": 24,
+            "start": 89.48,
+            "end": 91.66
+          },
+          {
+            "line": 27,
+            "start": 96.42,
+            "end": 99.24
+          },
+          {
+            "line": 28,
+            "start": 100.08,
+            "end": 103.52
+          },
+          {
+            "line": 29,
+            "start": 104.16,
+            "end": 106.74
+          },
+          {
+            "line": 30,
+            "start": 108.22,
+            "end": 111.44
+          },
+          {
+            "line": 31,
+            "start": 112.32,
+            "end": 115.4
+          },
+          {
+            "line": 32,
+            "start": 115.4,
+            "end": 119.54
+          },
+          {
+            "line": 33,
+            "start": 120.36,
+            "end": 123.64
+          },
+          {
+            "line": 34,
+            "start": 124.32,
+            "end": 127.06
+          },
+          {
+            "line": 37,
+            "start": 130.84,
+            "end": 133.96
+          },
+          {
+            "line": 38,
+            "start": 135,
+            "end": 137.84
+          },
+          {
+            "line": 39,
+            "start": 139.1,
+            "end": 141.84
+          },
+          {
+            "line": 40,
+            "start": 141.84,
+            "end": 146.06
+          },
+          {
+            "line": 43,
+            "start": 147.88,
+            "end": 151.18
+          },
+          {
+            "line": 44,
+            "start": 151.18,
+            "end": 156.84
+          },
+          {
+            "line": 45,
+            "start": 156.84,
+            "end": 160.7
+          },
+          {
+            "line": 46,
+            "start": 160.7,
+            "end": 163.48
+          },
+          {
+            "line": 47,
+            "start": 163.48,
+            "end": 167.76
+          },
+          {
+            "line": 48,
+            "start": 167.76,
+            "end": 172.22
+          },
+          {
+            "line": 49,
+            "start": 172.22,
+            "end": 174.28
+          },
+          {
+            "line": 50,
+            "start": 174.94,
+            "end": 177.32
+          },
+          {
+            "line": 53,
+            "start": 181.36,
+            "end": 184.86
+          },
+          {
+            "line": 54,
+            "start": 185.7,
+            "end": 188.66
+          },
+          {
+            "line": 55,
+            "start": 189.8,
+            "end": 193
+          },
+          {
+            "line": 56,
+            "start": 193.82,
+            "end": 197.06
+          },
+          {
+            "line": 57,
+            "start": 197.94,
+            "end": 200.9
+          },
+          {
+            "line": 58,
+            "start": 201.44,
+            "end": 204.76
+          },
+          {
+            "line": 59,
+            "start": 205.94,
+            "end": 208.9
+          },
+          {
+            "line": 60,
+            "start": 208.9,
+            "end": 213.68
+          },
+          {
+            "line": 63,
+            "start": 215.74,
+            "end": 219.04
+          },
+          {
+            "line": 64,
+            "start": 219.04,
+            "end": 223.42
+          },
+          {
+            "line": 65,
+            "start": 224.2,
+            "end": 227.08
+          },
+          {
+            "line": 66,
+            "start": 228.42,
+            "end": 234
+          },
+          {
+            "line": 69,
+            "start": 237.66,
+            "end": 240.86
+          },
+          {
+            "line": 70,
+            "start": 241.78,
+            "end": 246.3
+          },
+          {
+            "line": 71,
+            "start": 246.3,
+            "end": 250.14
+          },
+          {
+            "line": 72,
+            "start": 250.14,
+            "end": 252.8
+          },
+          {
+            "line": 73,
+            "start": 252.8,
+            "end": 257.2
+          },
+          {
+            "line": 74,
+            "start": 257.2,
+            "end": 261.7
+          },
+          {
+            "line": 75,
+            "start": 261.7,
+            "end": 263.76
+          },
+          {
+            "line": 76,
+            "start": 263.76,
+            "end": 269.36
+          },
+          {
+            "line": 79,
+            "start": 269.36,
+            "end": 271.28
+          },
+          {
+            "line": 80,
+            "start": 271.28,
+            "end": 274.44
+          },
+          {
+            "line": 81,
+            "start": 277.72,
+            "end": 278.6
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Fenix has an identity crisis and no longer wishes to be known as Artanis or Talandar",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 290
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-19b620e3a645b19272ff5a78",
       "title": "Behind the Little Door",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-19b620e3a645b19272ff5a78-305b20ed2410.mp3",
