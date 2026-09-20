@@ -2,13 +2,15 @@
 // must lose nothing. So the build asks the API which songs are archived and leaves them out of everything it
 // generates from the catalog (the fallback list, per-song data and pages, lyric pages, /catalog.json).
 
+import { randomUUID } from "node:crypto";
+
 const SONG_ID = /^[a-z0-9-]{1,120}$/;
 
 // The archived IDs from the public catalog summary, or null when they cannot be trusted. That includes an API
 // that predates archiving and so does not report them; the build then keeps every song rather than guess.
 export async function archivedSongIds(url, fetchImpl = fetch) {
   try {
-    const response = await fetchImpl(url, { signal: AbortSignal.timeout(8000), headers: { Accept: "application/json" } });
+    const response = await fetchImpl(url, { signal: AbortSignal.timeout(8000), headers: { Accept: "application/json", "X-Visitor-ID": randomUUID(), Origin: "https://yehry3.app" } });
     if (!response.ok) return null;
     const { archived } = await response.json();
     return Array.isArray(archived) && archived.every((id) => typeof id === "string" && SONG_ID.test(id)) ? archived : null;

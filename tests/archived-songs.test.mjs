@@ -39,6 +39,11 @@ test("the archived IDs come from the summary the studio API publishes", async ()
   assert.deepEqual(await serve(json({ songs: [], archived: [] }), archivedSongIds), []);
 });
 
+test("the summary is requested the way a browser does, since the API refuses requests without a visitor ID", async () => {
+  const strict = (request, response) => json(request.headers["x-visitor-id"] ? { archived: ["b"] } : { error: "A browser identifier is required." }, request.headers["x-visitor-id"] ? 200 : 400)(request, response);
+  assert.deepEqual(await serve(strict, archivedSongIds), ["b"]);
+});
+
 test("an API that cannot say what is archived is not trusted to hide anything", async () => {
   // An API that predates archiving omits the field; failures and junk must never look like "nothing archived".
   assert.equal(await serve(json({ songs: [] }), archivedSongIds), null);
