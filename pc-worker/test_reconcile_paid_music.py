@@ -129,6 +129,26 @@ class ReconcileTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             paid_music.validate_ledger(ledger)
 
+    def test_an_attempt_in_flight_does_not_block_settlement(self):
+        # A request sent moments ago has spent credits while its row is still open.
+        book = self.ledger([row('done', 240000, 400), row('flying', 240000, 400, status='reserved')],
+                           credits=8 * reconcile.CREDITS_PER_MINUTE)
+        report = book.run(apply=True)
+        self.assertTrue(report['provider']['agrees'])
+        self.assertEqual(report['after_cents'], 60 + 400)  # settled, plus the open hold retained
+        self.assertEqual(len(report['unresolved']), 1)
+
+    def test_credits_beyond_every_open_attempt_still_abort(self):
+        book = self.ledger([row('done', 240000, 400), row('flying', 240000, 400, status='reserved')],
+                           credits=50 * reconcile.CREDITS_PER_MINUTE)
+        with self.assertRaises(ValueError):
+            book.run(apply=True)
+
+    def test_credits_below_what_was_generated_still_abort(self):
+        book = self.ledger([row('a', 240000, 400)], credits=1)
+        with self.assertRaises(ValueError):
+            book.run(apply=True)
+
     def test_backup_retains_the_pre_reconciliation_ledger(self):
         book = self.ledger([row('a', 240000, 400)], credits=4 * reconcile.CREDITS_PER_MINUTE)
         report = book.run(apply=True)

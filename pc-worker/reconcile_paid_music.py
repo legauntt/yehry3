@@ -83,19 +83,30 @@ def plan(ledger):
             settled, why = settle(row, entry, name, produced)
             attempts.append({'id': row['id'], 'attempt': name, 'entry': entry, 'held': entry['reserved_cents'],
                              'settled': settled, 'why': why,
-                             'billed_ms': row['duration_ms'] if entry is produced else 0})
+                             'billed_ms': row['duration_ms'] if entry is produced else 0,
+                             # An attempt of unknown outcome may already have spent credits.
+                             'open_ms': row['duration_ms'] if settled is None else 0})
     return attempts
 
 
 def verify_against_provider(attempts, credential):
+    """Credits must match what the ledger says was generated, allowing for attempts in flight.
+
+    An unresolved attempt may or may not have reached the provider - a request sent moments
+    ago has already spent credits while its row is still open - so it sets an upper bound
+    rather than a disagreement. Its hold is retained either way.
+    """
     minutes = sum(a['billed_ms'] for a in attempts) / 60000
+    open_minutes = sum(a['open_ms'] for a in attempts) / 60000
     models = provider_credits(credential)
     credits = sum(models.values())
-    expected = minutes * CREDITS_PER_MINUTE
-    # A ledger that generated nothing must also show no provider credits.
-    ok = abs(credits - expected) <= max(expected * TOLERANCE, CREDITS_PER_MINUTE) if expected else not credits
-    return {'generated_minutes': round(minutes, 4), 'provider_credits': credits,
-            'expected_credits': round(expected, 1), 'models': models,
+    low = minutes * CREDITS_PER_MINUTE
+    high = (minutes + open_minutes) * CREDITS_PER_MINUTE
+    tolerance = max(low * TOLERANCE, CREDITS_PER_MINUTE)
+    ok = low - tolerance <= credits <= high + tolerance
+    return {'generated_minutes': round(minutes, 4), 'unresolved_minutes': round(open_minutes, 4),
+            'provider_credits': credits, 'expected_credits': round(low, 1),
+            'expected_ceiling': round(high + tolerance, 1), 'models': models,
             'credits_per_minute': round(credits / minutes, 2) if minutes else None, 'agrees': bool(ok)}
 
 
