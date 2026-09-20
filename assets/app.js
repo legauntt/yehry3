@@ -31,7 +31,7 @@ import { loadRemix, remixBadge, remixLink } from "./remix.js";
 import { recordingLabels, recordingLabel, recordingTitle } from "./recording-label.js";
 import { mountCatalogView } from "./catalog-view.js";
 import { songArtworkMarkup } from "./song-art.js";
-import { badgeSoundIcon, hasBadgeSound, mountBadgeSounds } from "./badge-sound.js";
+import { announceAttention, badgeSoundIcon, hasBadgeSound, mountBadgeSounds } from "./badge-sound.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const main = $("#main");
@@ -678,6 +678,7 @@ async function library() {
         recentReleases.clear();
         for (const song of upcoming.value.recent || [])
           if (song.id && song.publishedAt) recentReleases.set(song.id, song.publishedAt);
+        await announceAttention(upcoming.value.needsAttention || []);
       }
       render({ preserveViewport: true });
     })().finally(() => { refreshing = null; });

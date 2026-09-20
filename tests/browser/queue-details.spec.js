@@ -123,3 +123,34 @@ test("9/11'd Again badges play a line without toggling the row", async ({ page }
     expect(response.headers()["content-type"]).toContain("audio/mpeg");
   }
 });
+
+test("a request that goes 9/11'd announces itself once", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__played = [];
+    HTMLMediaElement.prototype.play = function () {
+      if (this.src.includes("/assets/sounds/")) window.__played.push(new URL(this.src).pathname);
+      return Promise.resolve();
+    };
+  });
+  let attention = [];
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.route("**/yehry3/queue?*", route =>
+    route.fulfill({ json: { ...queue, needsAttention: attention, needsAttentionTotal: attention.length } }));
+  await page.goto("/queue/");
+  await expect(page.locator("#waiting-queue")).toContainText("A second distinct request");
+  // A queue that opens with no failures stays quiet.
+  expect(await page.evaluate(() => window.__played)).toEqual([]);
+  attention = [failed];
+  await page.locator("#refresh-queue").click();
+  await expect(page.locator("#needs-attention")).toContainText("Pancakeo");
+  expect(await page.evaluate(() => window.__played)).toEqual(["/assets/sounds/one-loud-crash.mp3"]);
+  // The same failure sitting in the list does not announce itself again.
+  await page.locator("#refresh-queue").click();
+  await expect(page.locator("#queue-updated")).toContainText("Updated");
+  expect(await page.evaluate(() => window.__played)).toEqual(["/assets/sounds/one-loud-crash.mp3"]);
+  // A page opened after the fact treats the standing failure as old news.
+  await page.goto("/");
+  await expect(page.locator(`.pending-track[data-id="${failed.id}"]`)).toBeVisible();
+  expect(await page.evaluate(() => window.__played)).toEqual([]);
+});
