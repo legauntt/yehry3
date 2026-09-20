@@ -4,7 +4,8 @@ import { watchCompletions } from "./notifications.js";
 import { qualityNotice } from "./quality.js";
 import { lyricsHref } from "./song-links.js";
 import { tapeKey, tapeColors, emptyTape, validateTape, decodeTape, tapeDuration, tapeIdPattern, tapeHref } from "./mixtape-data.js";
-import { drawInk, mountHandwriting } from "./tape-handwriting.js";
+import { drawInk, mountHandwriting, sideInk, canDraw } from "./tape-handwriting.js";
+import { artChoices, artSvg } from "./tape-art.js";
 
 const main = document.querySelector("#main");
 watchCompletions();
@@ -19,8 +20,11 @@ const safeAudio = song => {
 };
 const clock = seconds => Number.isFinite(seconds) && seconds >= 0 ? `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}` : "—:—";
 const pathId = location.pathname.replace(/^\/mixtapes\/?/, "").replace(/\/$/, "");
-let sharedId = pathId && pathId !== "index.html" ? pathId : null;
-let tape = emptyTape(), shared = Boolean(sharedId) || new URLSearchParams(location.hash.slice(1)).has("tape"), invalid = false, catalog = new Map();
+// /mixtapes/ lists every published tape, /mixtapes/new is an empty tape, and /mixtapes/<id> (or an old #tape= link) opens one.
+const editing = pathId === "new";
+let sharedId = pathId && pathId !== "index.html" && !editing ? pathId : null;
+let tape = emptyTape(), shared = Boolean(sharedId) || !editing && new URLSearchParams(location.hash.slice(1)).has("tape"), invalid = false, catalog = new Map();
+const drawEnabled = canDraw();
 let lastShare = null;
 // Separate entry identities keep repeated songs and the playing recording stable during edits.
 let serial = 0, slots, currentKey = null, activeSide = "a";
@@ -33,33 +37,82 @@ try {
     lastShare = { snapshot: JSON.stringify(tape), id: sharedId };
   }
   else if (shared) tape = decodeTape(new URLSearchParams(location.hash.slice(1)).get("tape"));
-  else {
-    const saved = localStorage.getItem(tapeKey);
+  else if (editing) {
+    // Only a reload of this tab resumes a draft; the gallery's New button clears it first.
+    const saved = sessionStorage.getItem(tapeKey);
     if (saved) tape = validateTape(JSON.parse(saved));
   }
 } catch (error) {
   if (shared) {
-    main.innerHTML = `<section class="empty"><h1>This mixtape could not open.</h1><p>${escape(error.message)}</p><div class="actions"><button class="primary" id="retry-tape">Try again</button><a class="text-link" href="/mixtapes/">Make a mixtape</a></div></section>`;
+    main.innerHTML = `<section class="empty"><h1>This mixtape could not open.</h1><p>${escape(error.message)}</p><div class="actions"><button class="primary" id="retry-tape">Try again</button><a class="text-link" href="/mixtapes/">All mixtapes</a></div></section>`;
     main.querySelector("#retry-tape").onclick = () => location.reload();
     invalid = true;
   }
 }
 slots = { a: tape.a.map(newSlot), b: tape.b.map(newSlot) };
-if (!invalid) mount();
+if (!editing && !shared) gallery();
+else if (!invalid) mount();
+
+async function gallery() {
+  document.title = "Mixtapes · yehry3";
+  main.innerHTML = `<section class="gallery-head"><div><p class="eyebrow">The listening room / Mixtapes</p><h1>Mixtapes</h1><p class="lede">Two sides, drawn by hand. Every tape here was made by a listener, and every tape is public.</p></div><a class="primary" href="/mixtapes/new" data-new-tape>New mixtape <span aria-hidden="true">+</span></a></section>
+    <section class="tape-gallery" aria-labelledby="gallery-heading"><h2 class="sr-only" id="gallery-heading">Published mixtapes</h2><ul class="tape-cards" hidden></ul><div id="gallery-state" role="status"></div><div class="actions gallery-more" hidden><button class="quiet" id="gallery-more">Show more tapes</button></div></section>`;
+  const cards = main.querySelector(".tape-cards"), state = main.querySelector("#gallery-state"), more = main.querySelector("#gallery-more");
+  let page = 0, total = 0, busy = false;
+  const date = value => { const day = new Date(value); return Number.isNaN(day.getTime()) ? "" : ` · ${day.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}`; };
+  const face = (t, side) => {
+    const label = t.labels[side], drawn = drawEnabled && label.ink.length > 0;
+    return `<span class="tape-card-side" data-face="${side}"><b aria-hidden="true">${side.toUpperCase()}</b>${label.art ? `<span class="tape-card-art">${artSvg(label.art, true)}</span>` : ""}${drawn ? '<canvas class="cassette-ink" aria-hidden="true"></canvas>' : label.art ? "" : `<em>${escape(label.text || `Side ${side.toUpperCase()}`)}</em>`}</span>`;
+  };
+  const card = ({ id, tape: t, createdAt }) => {
+    const count = t.a.length + t.b.length, name = escape(t.name);
+    return `<li><a class="tape-card" data-card="${id}" data-color="${t.color}" href="${tapeHref(id)}" aria-label="${name}, ${count} ${count === 1 ? "track" : "tracks"}"><span class="tape-card-body" aria-hidden="true">${face(t, "a")}${face(t, "b")}</span><strong>${name}</strong><span class="small">${count} ${count === 1 ? "track" : "tracks"}${date(createdAt)}</span></a></li>`;
+  };
+  async function load() {
+    if (busy) return;
+    busy = true; more.disabled = true;
+    state.innerHTML = `<p class="small">${page ? "Getting more tapes…" : "Pulling tapes off the shelf…"}</p>`;
+    try {
+      const data = await publicApi(`/mixtapes?page=${page}`);
+      const tapes = (Array.isArray(data?.mixtapes) ? data.mixtapes : []).flatMap(item => {
+        try { return tapeIdPattern.test(item.id) ? [{ id: item.id, createdAt: item.createdAt, tape: validateTape(item.tape) }] : []; }
+        catch { return []; }
+      });
+      cards.insertAdjacentHTML("beforeend", tapes.map(card).join(""));
+      for (const { id, tape: t } of tapes) for (const side of ["a", "b"]) {
+        const canvas = cards.querySelector(`[data-card="${id}"] [data-face="${side}"] canvas`);
+        if (canvas) drawInk(canvas, t.labels[side].ink);
+      }
+      total += tapes.length; page = Number(data.page) + 1;
+      cards.hidden = !total;
+      state.innerHTML = total ? "" : '<section class="empty gallery-empty"><h2>No mixtapes yet.</h2><p>Make the first one. Pick a few songs, draw the labels, and it will be waiting here for everyone.</p><div class="actions"><a class="primary" href="/mixtapes/new" data-new-tape>Make the first mixtape <span aria-hidden="true">+</span></a></div></section>';
+      more.parentElement.hidden = !data.hasMore;
+    } catch (error) {
+      state.innerHTML = `<section class="empty gallery-empty"><h2>The gallery could not load.</h2><p>${escape(error.message || "The studio is temporarily unavailable.")}</p><div class="actions"><button class="primary" id="gallery-retry">Try again</button></div></section>`;
+    } finally { busy = false; more.disabled = false; }
+  }
+  main.addEventListener("click", event => {
+    // New always starts from an empty tape, even if this tab still holds an old draft.
+    if (event.target.closest("[data-new-tape]")) try { sessionStorage.removeItem(tapeKey); } catch {}
+    if (event.target.closest("#gallery-retry")) load();
+  });
+  more.onclick = load;
+  await load();
+}
 
 async function mount() {
   main.innerHTML = `<section class="tape-hero">
-      <div class="tape-intro"><p class="eyebrow">The listening room / Mixtapes</p><h1>A little more<br><em>personal.</em></h1><p class="lede">An opener. A change of pace. One last song.<br>Make someone a tape worth turning over.</p>
-        <p class="tape-how"><span>01 &nbsp; Pick your songs</span><span>02 &nbsp; Make it yours</span><span>03 &nbsp; Pass it on</span></p>
-        <div class="actions tape-actions"><button class="primary" id="share-tape" disabled>Copy mixtape link</button>${shared ? '<button class="quiet" id="edit-tape">Make your own version</button>' : '<a class="text-link" href="#tape-picker">Find your first track ↓</a>'}</div>
-        <p class="small" id="tape-status" role="status">${shared ? "A tape made to be passed around. Press play, or make your own version." : "Your draft saves in this browser. Shared links keep a snapshot of your tape."}</p>
-        <div id="tape-share" hidden><label for="tape-link">Mixtape link</label><input id="tape-link" readonly></div>
+      <div class="tape-intro"><p class="eyebrow"><a href="/mixtapes/">The listening room / Mixtapes</a> / ${shared ? "Shared tape" : "New"}</p>${shared ? `<h1 class="tape-name-heading">${escape(tape.name)}</h1><p class="lede">Made by a listener, shared with everyone.<br>Press play, or make your own version.</p>` : '<h1>A little more<br><em>personal.</em></h1><p class="lede">An opener. A change of pace. One last song.<br>Make someone a tape worth turning over.</p>'}
+        <p class="tape-how"><span>01 &nbsp; Pick your songs</span><span>02 &nbsp; Draw the labels</span><span>03 &nbsp; Publish it</span></p>
+        <div class="actions tape-actions"><button class="primary" id="share-tape" disabled>${sharedId ? "Copy link" : "Publish mixtape"}</button>${shared ? '<button class="quiet" id="edit-tape">Make your own version</button>' : '<a class="text-link" href="#tape-picker">Find your first track ↓</a>'}<a class="text-link" href="/mixtapes/">All mixtapes</a></div>
+        <p class="small" id="tape-status" role="status">${sharedId ? "Every mixtape is public. This one is in the gallery for everyone." : shared ? "This tape came from an older link. Publish it to add it to the gallery and get a short link." : "Every mixtape is public. Publishing adds yours to the gallery for everyone."}</p>
+        <div id="tape-share" hidden><label for="tape-link">Mixtape link</label><input id="tape-link" readonly><a class="text-link" href="/mixtapes/">See it in the gallery →</a></div>
       </div>
       <section class="tape-deck" id="tape-deck" aria-label="Mixtape player" data-playing="false">
         <div class="deck-brand"><span>YEHRY3 <b>/ TAPE DECK</b></span><span class="deck-indicator">STEREO</span></div>
         <div class="deck-bay"><section class="tape-sleeve" aria-label="Mixtape sleeve">
           <i class="tape-screw screw-tl" aria-hidden="true"></i><i class="tape-screw screw-tr" aria-hidden="true"></i><i class="tape-screw screw-bl" aria-hidden="true"></i><i class="tape-screw screw-br" aria-hidden="true"></i>
-          <div class="cassette-label"><div class="cassette-label-top"><span class="tiny-label" id="tape-collection-name">A PERSONAL SELECTION</span><span id="cassette-side">SIDE A</span></div><h2 id="tape-title"></h2><canvas class="cassette-ink" id="tape-label-ink" role="img" hidden></canvas><p id="tape-total"></p></div>
+          <div class="cassette-label"><div class="cassette-label-top"><span class="tiny-label" id="tape-collection-name">A PERSONAL SELECTION</span><span id="cassette-side">SIDE A</span></div><div class="cassette-face"><h2 id="tape-title"></h2><span class="cassette-art" id="tape-label-art" hidden></span><canvas class="cassette-ink" id="tape-label-ink" role="img" hidden></canvas></div><p id="tape-total"></p></div>
           <div class="tape-window" aria-hidden="true"><span class="tape-spool"><i class="tape-reel"></i></span><span class="tape-bridge"><i></i></span><span class="tape-spool"><i class="tape-reel"></i></span></div>
           <div class="cassette-bottom" aria-hidden="true"><span>TONY C</span><span class="cassette-head"><i></i><i></i><i></i></span><span>HI-FI</span></div>
         </section></div>
@@ -71,7 +124,7 @@ async function mount() {
       </section>
     </section>
     <section class="tape-edit" aria-label="Personalize your tape" ${shared ? "hidden" : ""}><div><label for="tape-name">Mixtape name</label><input id="tape-name" maxlength="80"></div><div><label for="tape-color">Sleeve color</label><select id="tape-color">${tapeColors.map(color => `<option value="${color}">${color[0].toUpperCase() + color.slice(1)}</option>`).join("")}</select></div><p class="small">Two sides. Two stories.<br>Give each one its own label.</p>
-      <div class="tape-label-editors">${["a", "b"].map(side => `<div class="tape-label-editor"><label for="label-${side}">Side ${side.toUpperCase()} label</label><input id="label-${side}" data-label-text="${side}" maxlength="80" placeholder="${side === "a" ? "The long way home" : "After midnight"}"><details data-label-editor="${side}"><summary>Handwrite side ${side.toUpperCase()}</summary><p class="small">Write with a mouse, finger, or pen. The typed label stays available for readers and screen readers.</p><canvas class="handwriting-pad" aria-label="Draw a handwritten label for side ${side.toUpperCase()}" role="img"></canvas><div class="actions"><button class="quiet" data-ink-undo>Undo stroke</button><button class="quiet" data-ink-clear>Use typed label</button></div><p class="small" data-ink-status role="status"></p></details></div>`).join("")}</div></section>
+      <div class="tape-label-editors"><div class="label-editors-head"><div><h3>Side labels</h3><p class="small">${drawEnabled ? "Every label is drawn by hand. Write with a mouse, finger or pen, add clipart, or start from a pre-drawn label." : "This device can’t draw labels, so your tape will show plain Side A and Side B. You can still add clipart."}</p></div>${drawEnabled ? '<button class="quiet" id="pre-draw">Pre-draw Side A &amp; B</button>' : ""}</div>${["a", "b"].map(side => `<div class="tape-label-editor"${drawEnabled ? ` data-label-editor="${side}"` : ""}><h4>Side ${side.toUpperCase()}</h4>${drawEnabled ? `<canvas class="handwriting-pad" aria-label="Draw a handwritten label for side ${side.toUpperCase()}" role="img"></canvas><div class="actions"><button class="quiet" data-ink-undo>Undo stroke</button><button class="quiet" data-ink-clear>Clear drawing</button></div><p class="small" data-ink-status role="status"></p>` : ""}<fieldset class="tape-art-picker" data-art-side="${side}"><legend>Side ${side.toUpperCase()} clipart</legend><label class="art-choice"><input type="radio" name="art-${side}" value="" checked><span>None</span></label>${artChoices.map(({ id, label }) => `<label class="art-choice"><input type="radio" name="art-${side}" value="${id}"><span class="art-swatch">${artSvg(id, true)}</span><span class="sr-only">${label} clipart</span></label>`).join("")}</fieldset></div>`).join("")}</div></section>
     <div class="tape-workspace"><section class="tape-tracklist" aria-label="Your tracklist"><div class="section-heading"><h2>The running order.</h2><span class="small" id="tape-count"></span></div><p class="small">${shared ? "Pick a track to start there. Side B follows Side A automatically." : "Click a title to listen. Drag to reorder, or use the arrow buttons."}</p><div class="tape-sides" id="tape-sides"></div></section>
       <section class="tape-picker" id="tape-picker" ${shared ? "hidden" : ""}><p class="eyebrow">The record shelf</p><h2>Find your next track.</h2><div class="tape-starter"><span class="small">Need a starting point?</span><button class="quiet" id="tape-surprise" disabled>Add a surprise mix ↗</button></div><label class="sr-only" for="tape-search">Find a song</label><input type="search" id="tape-search" placeholder="Search the collection…"><p class="small" id="tape-results" role="status"></p><div id="tape-catalog"><p>Getting the records out…</p></div></section>
     </div><aside class="tape-dock" aria-label="Quick playback controls" hidden><div><span class="eyebrow">On the tape</span><strong id="tape-mini-now"></strong></div><button class="quiet" id="tape-mini-toggle" aria-label="Pause from mini player">Ⅱ</button><a class="text-link" href="#tape-deck">Player ↑</a></aside>`;
@@ -84,13 +137,17 @@ async function mount() {
   let loadedKey = null, playRequest = 0, deckVisible = true, shareBusy = false;
 
   function renderLabel() {
-    const label = tape.labels[activeSide], title = label.text || tape.name || "My Tony C mixtape";
-    $("#tape-title").textContent = title;
-    $("#tape-title").classList.toggle("sr-only", Boolean(label.ink.length));
+    // Labels are drawn. Where a device can't draw (or nothing is drawn) the label reads "Side A" / "Side B"; an older typed label still wins.
+    const label = tape.labels[activeSide], side = `Side ${activeSide.toUpperCase()}`, drawn = drawEnabled && label.ink.length > 0, art = label.art || "";
+    $("#tape-title").textContent = label.text || side;
+    $("#tape-title").classList.toggle("sr-only", drawn || Boolean(art));
     $("#tape-collection-name").textContent = tape.name || "A PERSONAL SELECTION";
-    $("#tape-label-ink").hidden = !label.ink.length;
-    $("#tape-label-ink").setAttribute("aria-label", `Handwritten side ${activeSide.toUpperCase()} label: ${title}`);
-    if (label.ink.length) drawInk($("#tape-label-ink"), label.ink);
+    $("#tape-label-ink").hidden = !drawn;
+    $("#tape-label-ink").setAttribute("aria-label", `Handwritten ${side} label`);
+    $("#tape-label-art").hidden = !art;
+    $("#tape-label-art").innerHTML = artSvg(art);
+    $(".cassette-face").classList.toggle("has-ink", drawn);
+    if (drawn) drawInk($("#tape-label-ink"), label.ink);
     const count = slots[activeSide].length;
     $("#tape-total").textContent = `SIDE ${activeSide.toUpperCase()} · ${count} ${count === 1 ? "track" : "tracks"} / ${tapeDuration(slots[activeSide].map(entry => entry.id), catalog)}`;
   }
@@ -99,8 +156,8 @@ async function mount() {
     if (shared) return;
     tape.a = slots.a.map(entry => entry.id);
     tape.b = slots.b.map(entry => entry.id);
-    try { localStorage.setItem(tapeKey, JSON.stringify(tape)); status("Draft saved in this browser. Copy a link to share this version."); }
-    catch { status("Browser storage is unavailable. Copy a mixtape link to keep your selection."); }
+    try { sessionStorage.setItem(tapeKey, JSON.stringify(tape)); status("Draft kept while this tab is open. Publish to add it to the gallery."); }
+    catch { status("Browser storage is unavailable. Publish your mixtape to keep your selection."); }
     $("#tape-share").hidden = true;
   }
 
@@ -144,8 +201,7 @@ async function mount() {
   }
   function render() {
     $(".tape-sleeve").dataset.color = tape.color;
-    $("#tape-title").textContent = tape.name || "My Tony C mixtape";
-    document.title = `${tape.name || "My Tony C mixtape"} · Mixtapes · yehry3`;
+    document.title = `${tape.name || "New mixtape"} · Mixtapes · yehry3`;
     const count = slots.a.length + slots.b.length;
     $("#tape-total").textContent = `${count} ${count === 1 ? "track" : "tracks"} / ${tapeDuration(entries().map(entry => entry.id), catalog)}`;
     $("#tape-count").textContent = `${count} / 40 tracks`;
@@ -170,12 +226,23 @@ async function mount() {
   function changed() { save(); render(); renderCatalog(); }
   $("#tape-name").value = tape.name;
   $("#tape-color").value = tape.color;
-  $("#tape-name").oninput = event => { tape.name = event.target.value; save(); renderLabel(); document.title = `${tape.name || "My Tony C mixtape"} · Mixtapes · yehry3`; };
-  main.querySelectorAll("[data-label-text]").forEach(input => {
-    input.value = tape.labels[input.dataset.labelText].text;
-    input.oninput = () => { tape.labels[input.dataset.labelText].text = input.value; save(); renderLabel(); };
+  $("#tape-name").oninput = event => { tape.name = event.target.value; save(); renderLabel(); document.title = `${tape.name || "New mixtape"} · Mixtapes · yehry3`; };
+  const redrawPads = drawEnabled ? mountHandwriting(main, { getLabel: side => tape.labels[side], onChange: () => { save(); renderLabel(); syncPreDraw(); } }) : () => {};
+  // Pre-draw only fills sides that are still blank, so it never overwrites a label someone already drew.
+  const syncPreDraw = () => { const button = $("#pre-draw"); if (button) button.disabled = ["a", "b"].every(side => tape.labels[side].ink.length); };
+  $("#pre-draw")?.addEventListener("click", () => {
+    for (const side of ["a", "b"]) if (!tape.labels[side].ink.length) tape.labels[side].ink = sideInk(side);
+    redrawPads(); save(); renderLabel(); syncPreDraw();
+    status("Pre-drew the blank labels. Undo a stroke or clear a side to draw your own.");
   });
-  mountHandwriting(main, { getLabel: side => tape.labels[side], onChange: () => { save(); renderLabel(); } });
+  main.querySelectorAll("[data-art-side]").forEach(group => {
+    const side = group.dataset.artSide;
+    group.querySelectorAll("input").forEach(input => {
+      input.checked = input.value === (tape.labels[side].art || "");
+      input.onchange = () => { if (input.checked) { tape.labels[side].art = input.value; save(); renderLabel(); } };
+    });
+  });
+  syncPreDraw();
   $("#tape-color").onchange = event => { tape.color = event.target.value; save(); $(".tape-sleeve").dataset.color = tape.color; };
   $("#tape-search").oninput = renderCatalog;
   $("#tape-catalog").onclick = event => {
@@ -280,25 +347,36 @@ async function mount() {
   audio.onerror = () => { syncPlayer(); status("This recording could not play. Try the next song or retry when it reconnects."); };
   $("#share-tape").onclick = async () => {
     if (shareBusy) return;
+    if (sharedId) {
+      // Already published: just copy its link.
+      const url = new URL(tapeHref(sharedId), location.origin).href;
+      $("#tape-link").value = url; $("#tape-share").hidden = false;
+      try { await navigator.clipboard.writeText(url); status("Link copied."); }
+      catch { $("#tape-link").focus(); $("#tape-link").select(); status("Copy the selected link to share this mixtape."); }
+      return;
+    }
     const snapshot = JSON.stringify(validateTape(tape));
     shareBusy = true; $("#share-tape").disabled = true; $("#share-tape").setAttribute("aria-busy", "true");
-    status("Saving your mixtape link…");
+    status("Publishing your mixtape…");
     try {
       if (lastShare?.snapshot !== snapshot) {
         const saved = await api("/mixtapes", { method: "POST", body: { tape: JSON.parse(snapshot) } });
         if (!tapeIdPattern.test(saved.id || "")) throw new Error("The mixtape link could not be saved. Please try again.");
         lastShare = { snapshot, id: saved.id };
       }
-      if (snapshot !== JSON.stringify(validateTape(tape))) { status("Your tape changed while the link was saving. Copy again to share the latest version."); return; }
+      if (snapshot !== JSON.stringify(validateTape(tape))) { status("Your tape changed while it was publishing. Publish again to share the latest version."); return; }
       const url = new URL(tapeHref(lastShare.id), location.origin);
       $("#tape-link").value = url.href; $("#tape-share").hidden = false;
-      try { await navigator.clipboard.writeText(url.href); status("Mixtape link copied. Both side labels and this track order are saved."); }
-      catch { $("#tape-link").focus(); $("#tape-link").select(); status("Your mixtape is saved. Copy the selected link to share it."); }
-    } catch (error) { status(`${error.message} Your selection is still here. Try copying the link again.`); }
+      try { await navigator.clipboard.writeText(url.href); status("Published. Your mixtape is in the gallery, and its link is copied."); }
+      catch { $("#tape-link").focus(); $("#tape-link").select(); status("Published. Your mixtape is in the gallery. Copy the selected link to share it."); }
+    } catch (error) { status(`${error.message} Your selection is still here. Try publishing again.`); }
     finally { shareBusy = false; $("#share-tape").disabled = !entries().length; $("#share-tape").removeAttribute("aria-busy"); }
   };
   $("#edit-tape")?.addEventListener("click", () => {
-    shared = false; sharedId = null; history.replaceState(null, "", "/mixtapes/");
+    // Copy this tape into a fresh editor page. Without session storage, edit it in place instead.
+    try { sessionStorage.setItem(tapeKey, JSON.stringify(validateTape({ ...tape, a: slots.a.map(entry => entry.id), b: slots.b.map(entry => entry.id) }))); location.assign("/mixtapes/new"); return; }
+    catch { /* fall through to in-place editing */ }
+    shared = false; sharedId = null; history.replaceState(null, "", "/mixtapes/new");
     $(".tape-edit").hidden = false; $(".tape-picker").hidden = false; $("#edit-tape").remove(); changed();
   });
   render();

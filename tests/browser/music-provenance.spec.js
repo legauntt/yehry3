@@ -90,7 +90,7 @@ test('Fear and Hunger and mixtape tracks carry the same saved provider', async (
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await card.screenshot({ path: 'artifacts/music-provenance/fearhunger-mobile.png' });
-  await page.goto('/mixtapes/');
+  await page.goto('/mixtapes/new');
   await page.getByRole('button', { name: 'Add Last bus home to side A' }).click();
   await expect(badge(page.locator('.tape-track'))).toHaveText('EMP');
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

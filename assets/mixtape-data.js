@@ -1,7 +1,12 @@
+// A draft only survives a reload of the tab that is editing it; "New" always starts from an empty tape.
 export const tapeKey = "yehry3:mixtape:v1";
+// Clipart is stored as an ID and drawn by the page (see tape-art.js), never as an uploaded image or SVG.
+export const artIds = ["star", "heart", "bolt", "moon", "note", "sun"];
 export const tapeColors = ["orange", "green", "pink", "blue"];
 export const blankLabel = () => ({ text: "", ink: [] });
-export const emptyTape = () => ({ v: 2, name: "My Tony C mixtape", color: "orange", a: [], b: [], labels: { a: blankLabel(), b: blankLabel() } });
+export const defaultName = "My Tony C mixtape";
+// A new tape is genuinely empty: no name, songs, drawing or clipart. The default name applies when it is published.
+export const emptyTape = () => ({ v: 2, name: "", color: "orange", a: [], b: [], labels: { a: blankLabel(), b: blankLabel() } });
 export const tapeIdPattern = /^[A-Za-z0-9_-]{12}$/;
 export const tapeHref = id => {
   if (!tapeIdPattern.test(id || "")) throw new Error("This mixtape link is incomplete or invalid.");
@@ -9,7 +14,9 @@ export const tapeHref = id => {
 };
 
 function validateLabel(value) {
-  if (!value || typeof value.text !== "string" || value.text.length > 80 || !Array.isArray(value.ink) || value.ink.length > 60)
+  // Typed text is legacy: tapes are hand-drawn now, but older ones still open.
+  const text = value?.text === undefined ? "" : value.text, art = value?.art === undefined ? "" : value.art;
+  if (!value || typeof text !== "string" || text.length > 80 || !Array.isArray(value.ink) || value.ink.length > 60 || art !== "" && !artIds.includes(art))
     throw new Error("This side's label is incomplete or invalid.");
   let points = 0;
   const ink = value.ink.map(stroke => {
@@ -20,7 +27,7 @@ function validateLabel(value) {
       return [...point];
     });
   });
-  return { text: value.text.trim(), ink };
+  return { text: text.trim(), ink, ...(art ? { art } : {}) };
 }
 
 export function validateTape(value) {
@@ -29,7 +36,7 @@ export function validateTape(value) {
       value.a.length + value.b.length > 40 ||
       ![...value.a, ...value.b].every(id => typeof id === "string" && /^[a-z0-9-]{1,120}$/.test(id)))
     throw new Error("This mixtape link is incomplete or invalid.");
-  return { v: 2, name: value.name.trim() || "My Tony C mixtape", color: value.color, a: [...value.a], b: [...value.b],
+  return { v: 2, name: value.name.trim() || defaultName, color: value.color, a: [...value.a], b: [...value.b],
     labels: value.v === 1 ? { a: blankLabel(), b: blankLabel() } : { a: validateLabel(value.labels?.a), b: validateLabel(value.labels?.b) } };
 }
 

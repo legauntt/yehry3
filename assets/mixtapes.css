@@ -129,3 +129,57 @@
 @media (max-width: 1100px) { .tape-workspace { grid-template-columns: 1.2fr 1fr; gap: 22px; }.tape-sides { grid-template-columns: 1fr; }.tape-hero { gap: 28px; }.deck-bay { padding: 12px; }.tape-spool { width: 64px; height: 64px; }.tape-sleeve { padding-left: 16px; padding-right: 16px; } }
 @media (max-width: 800px) { .tape-hero { grid-template-columns: 1fr; padding-top: 30px; gap: 25px; }.tape-intro h1 { font-size: 3.4rem; margin-bottom: 16px; }.tape-intro .eyebrow { margin-bottom: 14px; }.tape-how { flex-direction: row; flex-wrap: wrap; gap: 12px; margin: 18px 0; }.tape-deck { width: 100%; max-width: 620px; justify-self: center; }.tape-sleeve h2 { font-size: 1.9rem; }.tape-edit { grid-template-columns: minmax(0, 1fr) 130px; padding: 20px; gap: 16px; }.tape-edit p { display: none; }.tape-workspace { grid-template-columns: 1fr; }.tape-sides { grid-template-columns: 1fr 1fr; }.tape-picker { margin-top: 10px; } }
 @media (max-width: 520px) { .tape-intro h1 { font-size: 3.1rem; }.tape-intro .lede { font-size: .9rem; }.tape-how { font-size: .55rem; gap: 10px; }.tape-deck { padding: 15px; border-radius: 11px; }.deck-bay { padding: 9px; }.tape-sleeve { padding: 13px 13px 0; }.cassette-label { padding: 8px 9px 25px; }.tape-sleeve h2 { font-size: 1.35rem; }.tape-window { gap: 8px; padding: 7px; border-width: 3px; }.tape-spool { width: 59px; height: 59px; }.tape-reel { width: 36px; height: 36px; border-width: 4px; }.tape-reel::after { inset: 8px; }.cassette-label-top .tiny-label { font-size: .42rem; }.deck-transport button { min-height: 55px; }.deck-bottom { gap: 6px; font-size: .43rem; }.tape-edit { grid-template-columns: minmax(0, 1fr) 95px; padding: 16px 0; background: transparent; gap: 12px; }.tape-edit select { padding: 10px 6px; }.tape-sides { grid-template-columns: 1fr; }.tape-tracklist h2 { font-size: 1.85rem; }.tape-moves button { min-width: 44px; min-height: 44px; }.tape-track-title { min-height: 44px; }.tape-adds button { min-width: 44px; min-height: 44px; }.deck-sides button { min-height: 44px; }.tape-empty { min-height: 170px; }.tape-picker { padding: 19px; }.tape-tracklist .section-heading { flex-wrap: wrap; } }
+
+/* Gallery */
+.eyebrow a { color: inherit; text-decoration: none; }
+.eyebrow a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.gallery-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; padding: 54px 0 34px; }
+.gallery-head h1 { font-size: clamp(3.2rem, 5.7vw, 5.2rem); margin-bottom: 14px; }
+.gallery-head .lede { margin: 0; }
+.gallery-head .primary { flex-shrink: 0; }
+.tape-gallery { margin-bottom: 70px; min-height: 240px; }
+.tape-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 30px 24px; margin: 0; padding: 0; list-style: none; }
+.tape-cards[hidden] { display: none; }
+.tape-card { display: block; height: 100%; color: inherit; text-decoration: none; }
+.tape-card-body { --tape-color: #e9aa7e; display: grid; gap: 7px; padding: 12px 12px 22px; border: 1px solid #0c1710; border-radius: 9px; background: repeating-linear-gradient(0deg, #ffffff06 0 1px, transparent 1px 4px), var(--tape-color); box-shadow: 0 4px 0 #1d2a20, 0 10px 18px #283b3022, inset 0 1px #ffffff90; transition: transform .15s ease; }
+.tape-card:hover .tape-card-body, .tape-card:focus-visible .tape-card-body { transform: translateY(-3px); }
+.tape-card[data-color="green"] .tape-card-body { --tape-color: #b7c792; }
+.tape-card[data-color="pink"] .tape-card-body { --tape-color: #e4b0c0; }
+.tape-card[data-color="blue"] .tape-card-body { --tape-color: #a9c6d7; }
+.tape-card-side { display: flex; align-items: center; gap: 8px; min-height: 54px; padding: 5px 9px; color: #26372b; background: #f4efdb; border-radius: 3px; box-shadow: inset 0 -3px var(--tape-color); }
+.tape-card-side b { display: grid; place-items: center; flex-shrink: 0; width: 20px; height: 22px; border: 1px solid #26372b; border-radius: 3px; font: .7rem "DM Mono", monospace; }
+.tape-card-side .cassette-ink { flex: 1; min-width: 0; margin: 0; }
+.tape-card-side em { font: italic 600 1rem "Playfair Display", Georgia, serif; overflow-wrap: anywhere; }
+.tape-card-art svg { display: block; width: 30px; height: 30px; }
+.tape-card strong { display: block; margin: 14px 0 3px; font-size: .95rem; line-height: 1.35; overflow-wrap: anywhere; }
+.tape-card .small { display: block; font: .66rem "DM Mono", monospace; }
+.gallery-empty { padding: 60px 0 40px; }
+.gallery-more { justify-content: center; margin: 34px 0 0; }
+.gallery-more[hidden] { display: none; }
+
+/* Cassette face: hand-drawn label, optional clipart, or plain "Side A" */
+.cassette-face { display: flex; align-items: center; gap: 12px; margin: 6px 0 4px; }
+.cassette-face h2 { flex: 1; min-width: 0; }
+.cassette-face .cassette-ink { flex: 1; min-width: 0; margin: 0; }
+.cassette-face.has-ink .cassette-ink { border-bottom: 1px solid #566c4940; }
+.cassette-art { display: grid; place-items: center; flex-shrink: 0; }
+.cassette-art[hidden] { display: none; }
+.cassette-art svg { display: block; width: 52px; height: 52px; color: #26372b; }
+.cassette-face:not(.has-ink) .cassette-art:not([hidden]) { flex: 1; }
+.tape-name-heading { font-size: clamp(2.4rem, 4.4vw, 3.8rem); overflow-wrap: anywhere; margin-bottom: 16px; }
+
+/* Label editors: drawing pads, pre-draw, clipart */
+.label-editors-head { grid-column: 1 / -1; display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+.label-editors-head h3 { margin: 0 0 6px; font-size: 1rem; }
+.tape-edit .label-editors-head p { margin: 0; max-width: 560px; }
+.tape-edit .tape-label-editors p { display: block; }
+.tape-label-editor h4 { margin: 0 0 10px; font-size: .82rem; }
+.tape-art-picker { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; padding: 0; border: 0; min-width: 0; }
+.tape-art-picker legend { padding: 0; margin-bottom: 8px; font-size: .73rem; color: var(--muted); }
+.tape-edit .art-choice { display: inline-flex; align-items: center; gap: 6px; margin: 0; padding: 4px 9px; min-height: 44px; font-size: .72rem; background: #f7f6eb; border: 1px solid #c1c8b8; border-radius: 3px; cursor: pointer; }
+.tape-edit .art-choice:has(input:checked) { border-color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.tape-edit .art-choice:has(input:focus-visible) { outline: 2px solid var(--ink); outline-offset: 2px; }
+.tape-edit .tape-art-picker input { width: auto; padding: 0; margin: 0; accent-color: #38523d; }
+.art-swatch svg { display: block; width: 24px; height: 24px; color: #26372b; }
+@media (max-width: 800px) { .gallery-head { flex-direction: column; align-items: flex-start; padding-top: 30px; } .gallery-head h1 { font-size: 3.4rem; } }
+@media (max-width: 520px) { .tape-cards { grid-template-columns: 1fr; } .label-editors-head { flex-direction: column; } .cassette-art svg { width: 42px; height: 42px; } .tape-name-heading { font-size: 2.3rem; } }
