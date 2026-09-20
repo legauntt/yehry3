@@ -2522,7 +2522,7 @@ button.lyric-line:hover {
 .generation-brief dd{white-space:pre-wrap;overflow-wrap:anywhere}.generation-review textarea{width:100%;font:inherit}.composition-choice{margin:1rem 0;min-width:0}.composition-choice audio{width:100%}
 @media(max-width:600px){.generation-grid{grid-template-columns:1fr}.generation-panel,.generation-review{padding:.8rem}}
 
-.voice-model-badge.v8 { background: #e0ddff; color: #45377a; }
+.voice-model-badge.v8 { background: #e0ddff; color: #45377a; } .voice-model-badge.v9 { border-color: #5fa398; background: #d9f1ec; color: #1d5a52; }
 
 .generation-wide{grid-column:1/-1}
 .generation-custom{margin-top:.65rem}.generation-custom label{font-size:.82rem}

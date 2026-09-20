@@ -10,6 +10,17 @@ PROFILE_FILES = {
     'bank': 'features.json',
     'style': 'features/tony-fresh-style.npy',
 }
+# An RVC v2 model sung through a pinned Applio checkout. `adapter` stays the key the renderer freezes into the track;
+# the runtime keeps the same seven stage names, so the engine, B sides and checks treat it like any versioned voice.
+RVC_FILES = {
+    'adapter': 'model/tony-v9.pth',
+    'index': 'model/tony-v9.index',
+    'runtime': 'voice_runtime.py',
+    'common': 'common.py',
+    'singer': 'rvc_sing.py',
+    'applio': 'applio.json',
+}
+RUNTIME_FILES = {'fresh-catalog-v1': PROFILE_FILES, 'rvc-v1': RVC_FILES}
 REFERENCE_PROFILES = {
     'rock': {'median_hz': 175, 'voiced_fraction': .65, 'energy_stratum': 'middle'},
     'acoustic': {'median_hz': 160, 'voiced_fraction': .72, 'energy_stratum': 'low'},
@@ -31,13 +42,14 @@ def resolve(config, name):
     if not isinstance(configured, dict):
         raise ValueError(f'Tony {name.upper()} is selected, but its isolated voice profile is not installed')
     runtime_kind = configured.get('runtime_kind', 'fresh-catalog-v1')
-    if runtime_kind != 'fresh-catalog-v1':
+    if runtime_kind not in RUNTIME_FILES:
         raise ValueError(f'Tony {name.upper()} uses an unsupported voice runtime')
+    expected = RUNTIME_FILES[runtime_kind]
     root = Path(configured.get('root', '')).resolve()
     pins = configured.get('sha256') or {}
-    if not root.is_dir() or set(pins) != set(PROFILE_FILES):
+    if not root.is_dir() or set(pins) != set(expected):
         raise ValueError(f'The installed Tony {name.upper()} profile is incomplete')
-    files = {key: (root / relative).resolve() for key, relative in PROFILE_FILES.items()}
+    files = {key: (root / relative).resolve() for key, relative in expected.items()}
     if any(not path.is_relative_to(root) or not path.is_file() for path in files.values()):
         raise ValueError(f'An installed Tony {name.upper()} profile asset is missing')
     actual = {key: sha(path) for key, path in files.items()}
@@ -65,10 +77,14 @@ def reference_profile(profile, style):
 
 
 def capabilities(config):
-    if not config.get('generation_v8') or 'v8' not in (config.get('voice_models') or {}):
-        return []
-    resolve(config, 'v8')
-    return ['voice-v8-v1']
+    models, result = config.get('voice_models') or {}, []
+    if config.get('generation_v8') and 'v8' in models:
+        resolve(config, 'v8')
+        result.append('voice-v8-v1')
+    if 'v9' in models:
+        resolve(config, 'v9')
+        result.append('voice-v9-v1')
+    return result
 
 
 def validate_generation_fork(voice_model, generation_profile, plan):

@@ -1027,7 +1027,7 @@ async function requests() {
       $("#keep").value = savedKeep === "Surprise me." ? "" : savedKeep;
       const voiceDraftKey = `voice-draft:${draft.id}`;
       const savedVoice = storage.get(voiceDraftKey);
-      const initialVoice = /^v[678]$/.test(savedVoice || '') ? savedVoice : initialDetails.voiceModel;
+      const initialVoice = /^v[6-9]$/.test(savedVoice || '') ? savedVoice : initialDetails.voiceModel;
       if (initialVoice && !voiceModels.some(model => model.id === initialVoice)) {
         const unavailable = new Option(`${voiceModelLabel(initialVoice)} · temporarily unavailable`, initialVoice);
         unavailable.disabled = true; $("#voice-model").append(unavailable);

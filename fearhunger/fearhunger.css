@@ -332,7 +332,7 @@ footer {
 .quality-notice > summary { cursor: pointer; font-weight: 700; width: fit-content; }
 .quality-notice > p { max-width: 60ch; margin: .5rem 0; }
 
-.voice-model-badge.v8 { border-color: #9b91c4; background: #302843; color: #dbd1ff; }
+.voice-model-badge.v8 { border-color: #9b91c4; background: #302843; color: #dbd1ff; } .voice-model-badge.v9 { border-color: #6fb3a8; background: #1e3a36; color: #c9f2ea; }
 @media (max-width: 640px) {
   .track-heading h3 { flex-basis: 100%; }
   .track-heading .duration { margin-left: auto; }

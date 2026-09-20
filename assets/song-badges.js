@@ -12,7 +12,7 @@ export function voiceModelBadge(item) {
     ? item
     : item?.voiceModel ?? item?.originalPrompt?.voiceModel ?? item?.details?.voiceModel;
   const version = /^v\d+$/i.test(value || "") ? value.toLowerCase() : "v6";
-  const variant = /^v[78]$/.test(version) ? " " + version : "";
+  const variant = /^v[789]$/.test(version) ? " " + version : "";
   return `<span class="voice-model-badge${variant}" title="Tony’s voice: ${escape(version.toUpperCase())}">${escape(version.toUpperCase())}</span>`;
 }
 

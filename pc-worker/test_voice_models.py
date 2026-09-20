@@ -1,7 +1,7 @@
 import tempfile, unittest
 from pathlib import Path
 from common import sha
-from voice_models import PROFILE_FILES, reference_profile, resolve, selected, capabilities, validate_generation_fork
+from voice_models import PROFILE_FILES, RVC_FILES, reference_profile, resolve, selected, capabilities, validate_generation_fork
 
 
 class VoiceModelTests(unittest.TestCase):
@@ -52,6 +52,30 @@ class VoiceModelTests(unittest.TestCase):
             (root / PROFILE_FILES['adapter']).write_bytes(b'changed checkpoint')
             with self.assertRaisesRegex(ValueError, 'changed'):
                 capabilities(config)
+
+    def test_an_rvc_profile_pins_its_own_files_and_advertises_v9(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for relative in RVC_FILES.values():
+                path = root / relative; path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(relative.encode())
+            pins = {key: sha(root / relative) for key, relative in RVC_FILES.items()}
+            entry = {'runtime_kind': 'rvc-v1', 'root': str(root), 'sha256': pins}
+            profile = resolve({'voice_models': {'v9': entry}}, 'v9')
+            self.assertEqual((profile['label'], profile['runtime_kind']), ('Tony V9', 'rvc-v1'))
+            # The renderer freezes these two into every versioned track.
+            self.assertEqual(profile['files']['adapter'], str((root / 'model/tony-v9.pth').resolve()))
+            self.assertEqual(Path(profile['files']['runtime']).name, 'voice_runtime.py')
+            self.assertEqual(capabilities({'voice_models': {'v9': entry}}), ['voice-v9-v1'])
+            self.assertEqual(capabilities({'generation_v8': True, 'voice_models': {'v9': entry}}), ['voice-v9-v1'])
+            validate_generation_fork('v9', None, {})
+            # A fresh-catalog pin set is not an RVC profile, and the other way round.
+            with self.assertRaisesRegex(ValueError, 'incomplete'):
+                resolve({'voice_models': {'v9': {**entry, 'runtime_kind': 'fresh-catalog-v1'}}}, 'v9')
+            with self.assertRaisesRegex(ValueError, 'unsupported voice runtime'):
+                resolve({'voice_models': {'v9': {**entry, 'runtime_kind': 'rvc-v2'}}}, 'v9')
+            (root / RVC_FILES['index']).write_bytes(b'rebuilt index')
+            with self.assertRaisesRegex(ValueError, 'changed'):
+                capabilities({'voice_models': {'v9': entry}})
 
 
     def test_completion_metadata_carries_verified_v8_identity(self):
