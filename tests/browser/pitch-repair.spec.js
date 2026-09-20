@@ -10,18 +10,28 @@ test("Tony's pitch starts Clean, reaches the worker as chosen, and is remembered
   const start = async (idea) => {
     await page.locator('#idea').fill(idea); await page.locator('#idea-form button').click();
     await expect(page.locator('#voice-model')).toHaveValue('v8');
-    await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
   };
   await page.goto('/distonyc/');
   await page.locator('#password').fill('wishbone'); await page.locator('#login-form button').click();
   await start('Pitch browser test: a slow blues about a borrowed umbrella.');
-  const pitch = page.locator('#gen-pitchRepair');
+  const pitch = page.locator('#essentials-panel #gen-pitchRepair');
   await expect(pitch).toBeVisible(); await expect(pitch).toBeEnabled();
   await expect(pitch).toHaveValue('clean');
   expect(await pitch.locator('option').allTextContents()).toEqual(['Clean', 'Haunted', 'Wild']);
   await expect(page.locator('#pitch-repair-hint')).toContainText('Steadiest');
   await pitch.selectOption('wild');
   await expect(page.locator('#pitch-repair-hint')).toContainText('Untouched');
+  // Without V8 generation there is nowhere to record the choice, so it says so instead of silently doing nothing.
+  await page.locator('#voice-model').selectOption('v7');
+  await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+  await page.locator('#generation-enabled').uncheck();
+  await page.getByRole('tab', { name: 'Essentials', exact: true }).click();
+  await expect(pitch).toBeDisabled(); await expect(page.locator('#pitch-repair-off')).toBeVisible();
+  await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+  await page.locator('#generation-enabled').check();
+  await page.getByRole('tab', { name: 'Essentials', exact: true }).click();
+  await expect(pitch).toBeEnabled(); await expect(page.locator('#pitch-repair-off')).toBeHidden();
+  await expect(pitch).toHaveValue('wild');
   await page.reload();
   await expect(page.locator('#gen-pitchRepair')).toHaveValue('wild');
   await page.setViewportSize({ width: 390, height: 844 });

@@ -17,7 +17,7 @@ export function pitchControl(schema, { compare = false } = {}) {
   const options = modes.map((mode) => `<option value="${mode}">${pitchModes[mode][0]}</option>`).join('');
   return `<div class="pitch-repair"><label for="gen-pitchRepair">Tony’s pitch</label>
     <select id="gen-pitchRepair" data-generation="pitchRepair" aria-describedby="pitch-repair-hint">${options}</select>
-    <p class="small" id="pitch-repair-hint" aria-live="polite"></p>${compare && schema.choices.pitchCompare ? `
+    <p class="small" id="pitch-repair-hint" aria-live="polite"></p><p class="small" id="pitch-repair-off" hidden>Pitch applies to V8 song generation. Turn it on in Advanced to choose.</p>${compare && schema.choices.pitchCompare ? `
     <label for="gen-pitchCompare">B side <span class="small">(optional)</span></label>
     <select id="gen-pitchCompare" data-generation="pitchCompare" aria-describedby="pitch-compare-hint"><option value="">No B side</option>${options}</select>
     <p class="small" id="pitch-compare-hint">Tony sings the same song a second time with this setting, so you can switch between the two while it plays. The song takes longer to finish.</p>` : ''}</div>`;

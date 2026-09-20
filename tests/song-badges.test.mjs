@@ -39,3 +39,18 @@ test("a remix is marked from its frozen source, with the parent title escaped", 
   assert.match(html, /title="Remix of “The &lt;original&gt;”"/);
   assert.equal(remixBadge({ remixOf: { songId: "x" } }), '<span class="remix-badge" title="Remix of another recording">Remix</span>');
 });
+
+test("a pitch badge marks songs and requests that recorded one, and only those", () => {
+  const cases = [
+    [{ id: "a", pitchRepair: "clean" }, "clean", "Clean"],
+    [{ id: "b", originalPrompt: { generation: { pitchRepair: "haunted" } } }, "haunted", "Haunted"],
+    [{ id: "c", details: { generation: { version: 1, pitchRepair: "wild" } } }, "wild", "Wild"],
+  ];
+  for (const [item, mode, label] of cases) {
+    const html = songBadges(item);
+    assert.match(html, new RegExp(`class="pitch-badge ${mode}"[^>]*aria-label="Tony’s pitch: ${label}">${label}<`));
+  }
+  assert.doesNotMatch(songBadges({ id: "older" }), /pitch-badge/);
+  assert.doesNotMatch(songBadges({ id: "odd", pitchRepair: "possessed" }), /pitch-badge/);
+  assert.doesNotMatch(songBadges({ id: "odd", pitchRepair: "toString" }), /pitch-badge/);
+});

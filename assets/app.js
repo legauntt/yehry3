@@ -1,4 +1,5 @@
 import { songBadges, voiceModelBadge } from "./song-badges.js";
+import { pitchBadge } from "./pitch-badge.js";
 import { musicBackendBadge } from "./music-provenance.js";
 import { mountLoopToggle } from "./loop.js";
 import { mountMusicBackend, paidConfirmation, PAID_BACKEND } from './music-backend.js';
@@ -109,6 +110,8 @@ const collectionNames = {
   distonyc: "Distonyc requests",
   shiablo: "Shiablo: The Lord of Prisoners",
 };
+// The two main collections are the default; only the exceptions are worth a label on each row.
+const unlabeledCollections = new Set(["tonyai", "distonyc"]);
 const message = (text, error = false) => {
   const region = $("#message");
   region.textContent = text;
@@ -151,11 +154,10 @@ function songMeta(song, recentPublishedAt) {
   const releaseAge = publishedAt
     ? age(publishedAt)
     : "Age unavailable";
-  return `<div class="track-meta"><span class="track-collections">${escape(
-    collections(song)
-      .map((name) => collectionNames[name] || name)
-      .join(" / "),
-  )}</span>${authoredByLine(song.authoredBy, escape)}${voiceModelBadge(song)}${musicBackendBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+  const shown = collections(song).filter((name) => !unlabeledCollections.has(name));
+  return `<div class="track-meta">${shown.length ? `<span class="track-collections">${escape(
+    shown.map((name) => collectionNames[name] || name).join(" / "),
+  )}</span>` : ""}${authoredByLine(song.authoredBy, escape)}${voiceModelBadge(song)}${musicBackendBadge(song)}${pitchBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
 }
 
 async function library() {
@@ -947,7 +949,7 @@ async function requests() {
     } else if (stage === "details") {
       const remixDetails = !remixUsed && remix?.seed && storage.get(`remix-draft:${draft.id}`) === remix.id ? remix.seed : {};
       const initialDetails = draft.status === "draft" ? { ...draft.details, ...remixDetails } : draft.details || {};
-      form.innerHTML = `<p class="eyebrow">Turn 02 · Optional refinements</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Choose the Tony voice. Open Advanced to add a sound, lyrics, references, or basis songs.</p>
+      form.innerHTML = `<p class="eyebrow">Turn 02 · Optional refinements</p><h2>Here’s what I’m hearing.</h2><blockquote>${escape(draft.prompt)}</blockquote><p>Choose the Tony voice and pitch. Open Advanced to add a sound, lyrics, references, or basis songs.</p>
         <form id="details-form">${authorField}
           <div class="request-tabs" role="tablist" aria-label="Request refinements">
             <button type="button" role="tab" id="essentials-tab" aria-controls="essentials-panel" aria-selected="true">Essentials</button>
@@ -957,6 +959,7 @@ async function requests() {
             <div id="music-backend-root"></div>
             <div class="voice-model-label"><label for="voice-model">Tony voice model</label>${modelInfoButton()}</div>
             <select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p>
+            <div id="pitch-root"></div>
             <label for="keep">What matters most? <span class="small">(optional)</span></label><textarea id="keep" rows="2" maxlength="1000" placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><p class="small field-hint">Leave this empty for “Surprise me.”</p>
           </div>
           <div role="tabpanel" id="advanced-panel" aria-labelledby="advanced-tab" hidden>
@@ -968,7 +971,7 @@ async function requests() {
           <div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p>
         </form>`;
       mountRequestTabs($("#details-form"), storage, draft.id);
-      const generation = mountGeneration($("#generation-root"), { draft: { ...draft, details: initialDetails }, schema: generationSchema, enabled: generationAvailable, storage, escape });
+      const generation = mountGeneration($("#generation-root"), { pitchRoot: $("#pitch-root"), draft: { ...draft, details: initialDetails }, schema: generationSchema, enabled: generationAvailable, storage, escape });
       $("#authored-by").value = draft.authoredBy || "";
       $("#authored-by").oninput = (event) => rememberAuthor(event.target.value);
       const selectedBasis = mountBasisPicker(

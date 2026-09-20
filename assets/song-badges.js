@@ -1,5 +1,6 @@
 import { musicBackendBadge } from "./music-provenance.js";
 import { remixBadge } from "./remix-badge.js";
+import { pitchBadge } from "./pitch-badge.js";
 
 const escape = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (character) =>
@@ -18,5 +19,5 @@ export function voiceModelBadge(item) {
 // same voice, band generator and remix marks from the queue through its lyrics.
 export function songBadges(item) {
   if (!item) return "";
-  return `<span class="song-badges">${voiceModelBadge(item)}${musicBackendBadge(item)}${remixBadge(item)}</span>`;
+  return `<span class="song-badges">${voiceModelBadge(item)}${musicBackendBadge(item)}${pitchBadge(item)}${remixBadge(item)}</span>`;
 }

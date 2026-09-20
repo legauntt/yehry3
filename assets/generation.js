@@ -9,7 +9,8 @@ const names = { auto: 'Choose for this song', story: 'Story first', hook: 'Hook 
 const preferenceKey = 'yehry3:generation-preferences-v1';
 const getPreferences = () => { try { return JSON.parse(localStorage.getItem(preferenceKey) || 'null'); } catch { return null; } };
 
-export function mountGeneration(root, { draft, schema, enabled, storage, escape }) {
+// `pitchRoot` lets the pitch choice sit outside the Advanced panel; it still travels with the generation options.
+export function mountGeneration(root, { draft, schema, enabled, storage, escape, pitchRoot }) {
   const key = `generation-draft:${draft.id}`;
   let initial = draft.details?.generation, explicitlyDisabled = false;
   let required = false, voiceRequired = false, backend = 'local';
@@ -41,7 +42,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
   };
   const group = (title, keys, note) => `<details class="generation-group"><summary>${title}</summary><p class="small">${note}</p><div class="generation-grid">${keys.map((key) => `<div class="${key === 'structure' ? 'generation-wide' : ''}">${input(key)}</div>`).join('')}</div></details>`;
   root.innerHTML = `<section class="generation-panel"><h3>Song generation</h3><label class="generation-enable"><input type="checkbox" id="generation-enabled"> <span id="generation-enable-label">Use V8 generation</span></label><p class="small" id="generation-mode-note">Available with every Tony voice. Choose a new composition or a reinterpretation of a basis song.</p><div id="generation-fields" hidden>
-    ${pitchControl(schema)}
+    ${pitchRoot ? '' : pitchControl(schema)}
     ${group('Style & instruments', ['genre','instruments','avoidInstruments','performance','energy','structure'], 'Pick a suggested style or instrument, or add your own. These choices guide the sound; the menus are not an exhaustive list.')}
     ${group('Timing & key', ['duration','bpm','keyscale','meter','vocalEntry','endingSeconds','maxBreakSeconds'], 'Leave blank for Auto. Tempo, key and timing are musical targets; expressive performances can vary. 6/8 also uses a compound-meter prompt.')}
     ${group('Lyrics', ['lyricWorkflow','avoidPhrases','requiredPhrases','lockedLines'], 'One phrase or locked line per line. Your supplied lyrics and explicitly requested words take priority over general avoidance.')}
@@ -49,20 +50,23 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
     ${group('Choices & mix', ['candidates','variation','seed','vocalGainDb','backingGainDb'], 'Choose 1 for automatic generation, or 2–3 to compare compositions before Tony voice conversion. More choices take longer. Mix adjustments retain peak checks.')}
     <div class="actions"><button type="button" class="quiet" id="generation-remember">Remember these choices</button><button type="button" class="quiet" id="generation-forget">Forget saved choices</button></div><p class="small" id="generation-preference-status" role="status">${preferences ? 'Saved choices are available in this browser.' : 'Choices are saved with this request. Remember them only if you want them on future requests.'}</p>
     </div></section>`;
+  if (pitchRoot) pitchRoot.innerHTML = pitchControl(schema);
+  const scopes = pitchRoot ? [root, pitchRoot] : [root];
+  const generationFields = () => scopes.flatMap((scope) => [...scope.querySelectorAll('[data-generation]')]);
   const enable = root.querySelector('#generation-enabled'), fields = root.querySelector('#generation-fields');
-  for (const field of root.querySelectorAll('[data-generation]')) {
+  for (const field of generationFields()) {
     const key = field.dataset.generation;
     const value = initial?.[key] ?? schema.defaults[key] ?? '';
     field.value = Array.isArray(value) ? value.join('\n') : value;
   }
   mountGenerationControls(root, { schema, escape });
-  mountPitchControl(root, { saved: savedPitch, onChange: () => persist() });
+  mountPitchControl(pitchRoot || root, { saved: savedPitch, onChange: () => persist() });
   root.querySelector('#gen-reviewLyrics').checked = Boolean(initial?.reviewLyrics);
   enable.checked = Boolean(initial) && !explicitlyDisabled;
   const read = () => {
     if (!enable.checked) return null;
     const value = { version: 1, reviewLyrics: root.querySelector('#gen-reviewLyrics').checked };
-    for (const field of root.querySelectorAll('[data-generation]')) {
+    for (const field of generationFields()) {
       const key = field.dataset.generation, raw = field.value.trim();
       if (backend === 'eleven_music' && ['candidates', 'variation'].includes(key)) continue;
       if (!raw) continue;
@@ -77,6 +81,9 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
   const toggle = () => {
     fields.hidden = !enable.checked;
     fields.querySelectorAll('input,select,textarea,button').forEach((field) => { field.disabled = !enable.checked || field.hasAttribute('data-unavailable') || backend === 'eleven_music' && ['candidates', 'variation'].includes(field.dataset.generation); });
+    // Outside the hidden panel, so it stays visible; without generation there is nowhere to record the choice.
+    pitchRoot?.querySelectorAll('select').forEach((field) => { field.disabled = !enable.checked; });
+    pitchRoot?.querySelector('#pitch-repair-off')?.toggleAttribute('hidden', enable.checked);
   };
   enable.onchange = () => { toggle(); persist(); };
   toggle();
