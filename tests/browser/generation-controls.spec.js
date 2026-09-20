@@ -53,7 +53,7 @@ test('V8 defaults, dropdown and custom choices, and edited sections survive revi
   expect(saved.generation).toMatchObject({ genre: 'Smoky jazz waltz', instruments: ['Piano', 'Glass harmonica'], avoidInstruments: ['Drum machine'], structure: expectedOrder });
   await expect(page.locator('.generation-brief')).toContainText(expectedOrder);
   await expect(page.locator('.generation-brief')).not.toContainText('Automatic');
-  await expect(page.locator('.generation-brief dt')).toHaveText(['Style or genre', 'Featured instruments', 'Leave out these instruments', 'Section order']);
+  await expect(page.locator('.generation-brief dt')).toHaveText(['Style or genre', 'Featured instruments', 'Leave out these instruments', 'Section order', 'Tony’s pitch']);
   await page.getByRole('button', { name: 'Fine-tune it' }).click();
   await expect(page.locator('[data-generation="structure"]')).toHaveValue(expectedOrder);
   expect(errors).toEqual([]);

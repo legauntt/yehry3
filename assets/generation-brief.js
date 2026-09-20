@@ -1,5 +1,5 @@
-const labels = { genre: 'Style or genre', instruments: 'Featured instruments', avoidInstruments: 'Leave out these instruments', duration: 'Length (seconds)', bpm: 'Tempo (BPM)', keyscale: 'Key', meter: 'Meter', vocalEntry: 'First vocal (seconds)', endingSeconds: 'Closing chord (seconds)', maxBreakSeconds: 'Longest instrumental break (seconds)', structure: 'Section order', lyricWorkflow: 'Writing approach', avoidPhrases: 'Avoid these lyric phrases', requiredPhrases: 'Include these phrases', lockedLines: 'Keep these lines exactly', performance: 'Vocal delivery', energy: 'Energy through the song', variation: 'Variation', seed: 'Seed', candidates: 'Composition choices', vocalGainDb: 'Vocal level adjustment (dB)', backingGainDb: 'Band level adjustment (dB)', reviewLyrics: 'Lyric preview' };
-const names = { story: 'Story first', hook: 'Hook first', rhythm: 'Rhythm first', restrained: 'Restrained', raw: 'Raw', build: 'Build toward the finish', waves: 'Quiet and strong sections', steady: 'Steady groove', conservative: 'More consistent', adventurous: 'More adventurous' };
+const labels = { genre: 'Style or genre', instruments: 'Featured instruments', avoidInstruments: 'Leave out these instruments', duration: 'Length (seconds)', bpm: 'Tempo (BPM)', keyscale: 'Key', meter: 'Meter', vocalEntry: 'First vocal (seconds)', endingSeconds: 'Closing chord (seconds)', maxBreakSeconds: 'Longest instrumental break (seconds)', structure: 'Section order', lyricWorkflow: 'Writing approach', avoidPhrases: 'Avoid these lyric phrases', requiredPhrases: 'Include these phrases', lockedLines: 'Keep these lines exactly', performance: 'Vocal delivery', energy: 'Energy through the song', variation: 'Variation', seed: 'Seed', candidates: 'Composition choices', vocalGainDb: 'Vocal level adjustment (dB)', backingGainDb: 'Band level adjustment (dB)', reviewLyrics: 'Lyric preview', pitchRepair: 'Tony’s pitch', pitchCompare: 'B side' };
+const names = { story: 'Story first', hook: 'Hook first', rhythm: 'Rhythm first', restrained: 'Restrained', raw: 'Raw', build: 'Build toward the finish', waves: 'Quiet and strong sections', steady: 'Steady groove', conservative: 'More consistent', adventurous: 'More adventurous', wild: 'Wild', haunted: 'Haunted', clean: 'Clean' };
 // The API fills these neutral defaults even when the user leaves them untouched.
 const neutral = { lyricWorkflow: 'auto', energy: 'auto', performance: 'natural', variation: 'balanced', candidates: 1, reviewLyrics: false, vocalGainDb: 0, backingGainDb: 0 };
 const groups = [
@@ -7,6 +7,7 @@ const groups = [
   ['Timing & key', ['duration', 'bpm', 'keyscale', 'meter', 'vocalEntry', 'endingSeconds', 'maxBreakSeconds']],
   ['Lyrics', ['lyricWorkflow', 'avoidPhrases', 'requiredPhrases', 'lockedLines', 'reviewLyrics']],
   ['Choices & mix', ['candidates', 'variation', 'seed', 'vocalGainDb', 'backingGainDb']],
+  ['Voice', ['pitchRepair', 'pitchCompare']],
 ];
 
 export function generationSelections(options = {}) {

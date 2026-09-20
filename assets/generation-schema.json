@@ -67,6 +67,16 @@
       "balanced",
       "conservative",
       "adventurous"
+    ],
+    "pitchRepair": [
+      "wild",
+      "haunted",
+      "clean"
+    ],
+    "pitchCompare": [
+      "wild",
+      "haunted",
+      "clean"
     ]
   },
   "textLimits": {

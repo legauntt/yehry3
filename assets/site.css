@@ -2449,3 +2449,4 @@ button.lyric-line:hover {
   .player .loop-toggle { order: 1; padding: 4px 10px; min-height: 33px; font-size: 0.7rem; }
   .player .now-playing { width: calc(100% - 200px); }
 }
+.pitch-repair{margin:0 0 1rem;padding:0 0 1rem;border-bottom:1px solid var(--line,#b6aa8c)}.pitch-repair select{max-width:22rem}.pitch-repair .small{margin:.45rem 0 0}.pitch-repair label + select{margin-top:.35rem}.pitch-repair p + label{display:block;margin-top:1rem}

@@ -40,5 +40,6 @@ export function normalizeGeneration(value, schema) {
   }
   if (result.duration > 600 && result.candidates > 1) fail('Songs over 600 seconds use connected movements. Choose 1 composition.');
   if ((result.instruments || []).some((v) => (result.avoidInstruments || []).some((other) => other.toLowerCase() === v.toLowerCase()))) fail('An instrument cannot be both requested and excluded.');
+  if (result.pitchCompare !== undefined && (result.pitchRepair === undefined || result.pitchRepair === result.pitchCompare)) fail('A B side needs a chosen pitch setting and a different one to compare.');
   return result;
 }

@@ -14,7 +14,11 @@ CHOICES = {'meter': ['2/4', '3/4', '4/4', '6/8'],
            'lyricWorkflow': ['auto', 'story', 'hook', 'rhythm'],
            'performance': ['natural', 'restrained', 'raw'],
            'energy': ['auto', 'build', 'waves', 'steady'],
-           'variation': ['balanced', 'conservative', 'adventurous']}
+           'variation': ['balanced', 'conservative', 'adventurous'],
+           # How far the guide singer's tracked pitch is tidied before Tony sings it; pitchCompare asks for a B side.
+           'pitchRepair': ['wild', 'haunted', 'clean'], 'pitchCompare': ['wild', 'haunted', 'clean']}
+# Applied by the local voice runtime after composition; never shown to the song planner.
+VOICE_ONLY = ('pitchRepair', 'pitchCompare')
 TEXT_LIMITS = {'genre': 120, 'structure': 600, 'keyscale': 12}
 LIST_LIMITS = {'instruments': (12, 60), 'avoidInstruments': (12, 60),
                'avoidPhrases': (30, 80), 'requiredPhrases': (12, 120), 'lockedLines': (20, 250)}
@@ -70,6 +74,8 @@ def normalize(value):
         raise ValueError('Songs over 600 seconds use connected movements. Choose 1 composition.')
     if set(map(str.lower, result.get('instruments', []))) & set(map(str.lower, result.get('avoidInstruments', []))):
         raise ValueError('An instrument cannot be both requested and excluded')
+    if 'pitchCompare' in result and result.get('pitchRepair') in (None, result['pitchCompare']):
+        raise ValueError('A B side needs a chosen pitch setting and a different one to compare')
     return result
 
 
@@ -122,7 +128,7 @@ def planning_guidance(brief, recent=None):
     import json
     return (CREATIVE_GUIDANCE + '\nWriting approach: ' + WORKFLOWS[options['lyricWorkflow']] +
             '\nExplicit musical/lyric selections (Auto fields omitted; honor these throughout the plan):\n' +
-            json.dumps(options, ensure_ascii=False) +
+            json.dumps({key: item for key, item in options.items() if key not in VOICE_ONLY}, ensure_ascii=False) +
             '\nAvoid-phrase preferences are soft constraints when the current brief explicitly requests those words. '
             'Required phrases, locked lines and preserve-mode lyrics retain priority. Musical timing/key/meter are targets, not proof of an achieved performance.\n' +
             ('Recent planned-song vocabulary counts, for novelty awareness only:\n' + json.dumps(recent, ensure_ascii=False) if recent else ''))

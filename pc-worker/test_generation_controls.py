@@ -69,5 +69,15 @@ class GenerationControlsTests(unittest.TestCase):
                 model.assert_not_called()
             self.assertEqual((root / 'plan.json').read_bytes(), before)
 
+    def test_pitch_setting_is_frozen_for_the_voice_runtime_and_hidden_from_the_planner(self):
+        options = {'version': 1, 'pitchRepair': 'clean', 'pitchCompare': 'wild'}
+        result = constraints(fixture(), {'details': {'generation': options}})
+        self.assertEqual((result['generation']['pitchRepair'], result['generation']['pitchCompare']), ('clean', 'wild'))
+        self.assertNotIn('pitchRepair', normalize({'version': 1}))
+        guidance = planning_guidance({'details': {'generation': options}})
+        self.assertNotIn('pitch', guidance.lower())
+        for bad in ({'pitchRepair': 'possessed'}, {'pitchCompare': 'wild'}, {'pitchRepair': 'wild', 'pitchCompare': 'wild'}):
+            with self.assertRaises(ValueError): normalize({'version': 1, **bad})
+
 
 if __name__ == '__main__': unittest.main()

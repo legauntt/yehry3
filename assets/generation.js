@@ -1,6 +1,7 @@
 import { normalizeGeneration } from './generation-options.js';
 import { generationControl, mountGenerationControls } from './generation-controls.js';
 import { generationBrief } from './generation-brief.js';
+import { pitchControl, mountPitchControl } from './pitch-repair.js';
 export { generationBrief } from './generation-brief.js';
 
 const labels = { genre: 'Style or genre', instruments: 'Featured instruments', avoidInstruments: 'Leave out these instruments', duration: 'Length (seconds)', bpm: 'Tempo (BPM)', keyscale: 'Key', meter: 'Meter', vocalEntry: 'First vocal (seconds)', endingSeconds: 'Closing chord (seconds)', maxBreakSeconds: 'Longest instrumental break (seconds)', structure: 'Section order', lyricWorkflow: 'Writing approach', avoidPhrases: 'Avoid these lyric phrases', requiredPhrases: 'Include these phrases', lockedLines: 'Keep these lines exactly', performance: 'Vocal delivery', energy: 'Energy through the song', variation: 'Variation', seed: 'Seed', candidates: 'Composition choices', vocalGainDb: 'Vocal level adjustment (dB)', backingGainDb: 'Band level adjustment (dB)' };
@@ -14,6 +15,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
   let required = false, voiceRequired = false, backend = 'local';
   const durationRange = () => [schema.ranges.duration[0], backend === 'eleven_music' ? Math.min(600, schema.ranges.duration[1]) : schema.ranges.duration[1]];
   try { const saved = JSON.parse(storage.get(key) || 'null'); if (saved) { explicitlyDisabled = saved.enabled === false; initial = saved.value ?? initial; } } catch {}
+  const savedPitch = initial?.pitchRepair;
   const preferences = getPreferences();
   if (!initial && preferences && draft.status === 'draft') initial = preferences;
   if (!enabled) {
@@ -39,6 +41,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
   };
   const group = (title, keys, note) => `<details class="generation-group"><summary>${title}</summary><p class="small">${note}</p><div class="generation-grid">${keys.map((key) => `<div class="${key === 'structure' ? 'generation-wide' : ''}">${input(key)}</div>`).join('')}</div></details>`;
   root.innerHTML = `<section class="generation-panel"><h3>Song generation</h3><label class="generation-enable"><input type="checkbox" id="generation-enabled"> <span id="generation-enable-label">Use V8 generation</span></label><p class="small" id="generation-mode-note">Available with every Tony voice. Choose a new composition or a reinterpretation of a basis song.</p><div id="generation-fields" hidden>
+    ${pitchControl(schema)}
     ${group('Style & instruments', ['genre','instruments','avoidInstruments','performance','energy','structure'], 'Pick a suggested style or instrument, or add your own. These choices guide the sound; the menus are not an exhaustive list.')}
     ${group('Timing & key', ['duration','bpm','keyscale','meter','vocalEntry','endingSeconds','maxBreakSeconds'], 'Leave blank for Auto. Tempo, key and timing are musical targets; expressive performances can vary. 6/8 also uses a compound-meter prompt.')}
     ${group('Lyrics', ['lyricWorkflow','avoidPhrases','requiredPhrases','lockedLines'], 'One phrase or locked line per line. Your supplied lyrics and explicitly requested words take priority over general avoidance.')}
@@ -53,6 +56,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape 
     field.value = Array.isArray(value) ? value.join('\n') : value;
   }
   mountGenerationControls(root, { schema, escape });
+  mountPitchControl(root, { saved: savedPitch, onChange: () => persist() });
   root.querySelector('#gen-reviewLyrics').checked = Boolean(initial?.reviewLyrics);
   enable.checked = Boolean(initial) && !explicitlyDisabled;
   const read = () => {
