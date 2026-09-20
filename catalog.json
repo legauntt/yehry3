@@ -2,6 +2,154 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-19b620e3a645b19272ff5a78",
+      "title": "Behind the Little Door",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-19b620e3a645b19272ff5a78-305b20ed2410.mp3",
+      "duration": 68.24,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T06:17:08.974Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Behind the Little Door",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "C minor",
+        "arrangement": "Fast, mischievous garage rock with overdriven electric guitars, moving bass, punchy drums, and brief organ flickers. Tony delivers rough connected vowels, muttered asides, and a catchable sung hook. Start immediately with the verse, build into a bright chorus, then strip briefly for the final clue before a last sustained “glow” around 58–61 seconds; resolve with one final chord decay.",
+        "lyrics": "[Verse]\nClick past the lantern, don’t blink twice\nThere’s a little loose pixel hiding in the night\nI put a secret where the hallway bends\nFor the curious troublemakers, my digital friends\n\n[Pre-Chorus]\nNo map, no sign, no bell to ring\nJust follow the spark of the strange small thing\n\n[Chorus]\nBehind the little door on yehry3.app\nA sideways moon and a secret little trap\nTap it once, then laugh when the shadows clap\nThat’s the hidden easter egg on yehry3.app\n\n[Outro]\nI left it there for the ones who roam\nA tiny wild light inside the home\nFind it, friend—then carry that glow\n[End]",
+        "duration": 69,
+        "bpm": 138,
+        "musicalSettings": {
+          "genre": "Mischievous garage rock",
+          "meter": "4/4",
+          "structure": "Verse, pre-chorus, chorus, concise resolving outro",
+          "performance": "Natural Tony C delivery: smoky, slurred, melodic, playful and slightly conspiratorial",
+          "energy": "Quick lift from sneaky opening to a buoyant hook, then a warm resolved finish",
+          "lyricWorkflow": "Original compact lyric built as a playful clue to a hidden website easter egg",
+          "instruments": [
+            "Overdriven electric guitars",
+            "Electric bass",
+            "Drum kit",
+            "Organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse]\nClick past the lantern, don’t blink twice\nThere’s a little loose pixel hiding in the night\nI put a secret where the hallway bends\nFor the curious troublemakers, my digital friends\n\n[Pre-Chorus]\nNo map, no sign, no bell to ring\nJust follow the spark of the strange small thing\n\n[Chorus]\nBehind the little door on yehry3.app\nA sideways moon and a secret little trap\nTap it once, then laugh when the shadows clap\nThat’s the hidden easter egg on yehry3.app\n\n[Outro]\nI left it there for the ones who roam\nA tiny wild light inside the home\nFind it, friend—then carry that glow",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 2.74,
+            "end": 5.54
+          },
+          {
+            "line": 2,
+            "start": 6.24,
+            "end": 9.9
+          },
+          {
+            "line": 3,
+            "start": 10.62,
+            "end": 12.26
+          },
+          {
+            "line": 4,
+            "start": 12.26,
+            "end": 17.64
+          },
+          {
+            "line": 7,
+            "start": 17.64,
+            "end": 20.58
+          },
+          {
+            "line": 8,
+            "start": 20.98,
+            "end": 23.64
+          },
+          {
+            "line": 11,
+            "start": 27.26,
+            "end": 29.92
+          },
+          {
+            "line": 12,
+            "start": 29.92,
+            "end": 35.02
+          },
+          {
+            "line": 13,
+            "start": 35.02,
+            "end": 37.48
+          },
+          {
+            "line": 14,
+            "start": 38.06,
+            "end": 41.1
+          },
+          {
+            "line": 17,
+            "start": 45.82,
+            "end": 49.12
+          },
+          {
+            "line": 18,
+            "start": 49.12,
+            "end": 51.98
+          },
+          {
+            "line": 19,
+            "start": 52.94,
+            "end": 57.36
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "haunted",
+      "alternates": [
+        {
+          "pitchRepair": "wild",
+          "sha256": "af3885378d88a9f1aaeac21e61d028e6e634a8cefc0b9363d2ad62f21dc6b7f4",
+          "bytes": 2732643,
+          "duration": 68.24,
+          "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-19b620e3a645b19272ff5a78-af3885378d88.mp3"
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony C explains the hidden easter egg on yehry3.app",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 69,
+          "pitchRepair": "haunted",
+          "pitchCompare": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-519ddb09d2c766021066c3c7",
       "title": "Setlist Complaint",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-519ddb09d2c766021066c3c7-cdd5ed582dcd.mp3",
