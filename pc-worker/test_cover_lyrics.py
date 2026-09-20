@@ -82,28 +82,48 @@ class CoverLyricsTests(unittest.TestCase):
             from queue_monitor import classify
             self.assertEqual(classify('cover lyric lookup connection failed (temporary): timed out', {})[:2], ('transient_runtime', 'retry'))
 
-    def test_planner_receives_the_words_and_a_retry_reuses_the_same_frozen_brief(self):
+    def test_worker_writes_held_words_into_the_plan_and_a_retry_reuses_the_frozen_brief(self):
         import json
         from unittest.mock import patch
         from planner import make_plan
+        from request_materials import words
         from test_worker import plan
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); (root / 'PREFERENCES.md').write_text('Use Tony V6.', encoding='utf-8')
             config = {'planner_model': 'test', 'codex': 'test', 'settings': {'studio_dir': str(root)}}
             request = {'prompt': brief()['prompt'], 'details': brief()['details']}
-            cover = {**plan(), 'title': 'Harbor Lantern (Tony C Cover)', 'lyrics': '[Verse 1]\n' + WORDS + '\n[End]'}
-            with patch('cover_lyrics.fetch', return_value=[row()]) as service, patch('planner.plan_materials', return_value=cover) as model:
-                self.assertEqual(make_plan(config, request, root, []), cover)
-                instruction = model.call_args.args[3]
-                self.assertIn('COVER REQUEST WITH A LYRIC SHEET', instruction)
-                self.assertIn(json.dumps(WORDS, ensure_ascii=False)[1:-1], instruction)
+            seen = []
+            def planner(invocation, cwd, log, stop=None, timeout=None, input_text=''):
+                seen.append(input_text)
+                answer = {**plan(), 'title': 'Harbor Lantern (Tony C Cover)', 'lyrics': ''}
+                Path(invocation[invocation.index('--output-last-message') + 1]).write_text(json.dumps(answer), encoding='utf-8')
+            with patch('cover_lyrics.fetch', return_value=[row()]) as service, patch('planner.run_owned', side_effect=planner):
+                made = make_plan(config, request, root, [])
+                # The planner is told about the words but never carries or echoes them.
+                self.assertIn('COVER REQUEST WITH A LYRIC SHEET', seen[0]); self.assertIn('held by the worker', seen[0])
+                self.assertNotIn('Invented line 3 about a lantern', seen[0])
+                self.assertEqual(words(made['lyrics']), words(WORDS)); self.assertTrue(made['lyrics'].endswith('[End]'))
                 snapshot = load(root / 'planning-input.json')
                 self.assertEqual(snapshot['brief']['details']['lyricSheet']['origin'], 'cover_lookup')
                 self.assertEqual(snapshot['briefHash'], fingerprint(snapshot['brief']))
                 # The server still sends the unedited request; the saved journal restores the planning brief.
-                self.assertEqual(make_plan(config, request, root, []), cover)
-                self.assertEqual(service.call_count, 1); self.assertEqual(model.call_count, 1)
+                self.assertEqual(make_plan(config, request, root, []), made)
+                self.assertEqual(service.call_count, 1); self.assertEqual(len(seen), 1)
 
+    def test_hosted_composer_gets_a_loose_cover_and_the_mode_is_frozen(self):
+        from cover_lyrics import fill, guidance, held, labeled, planning_view
+        with tempfile.TemporaryDirectory() as root:
+            paid = apply(root, brief(musicBackend='eleven_music', generation={'duration': 270}), get=lambda query: [row()])
+            self.assertEqual(paid['details']['lyricSheet']['mode'], 'adapt'); self.assertFalse(held(paid))
+            self.assertIn('loose cover', guidance(paid)); self.assertNotIn('holds the retrieved words', guidance(paid))
+            self.assertEqual(planning_view(paid), paid, 'a rewrite needs the words in view')
+            self.assertEqual(fill({'recipe': 'new', 'lyrics': 'Fresh wording'}, paid)['lyrics'], 'Fresh wording')
+            # A later policy change cannot move this job's brief: the journal keeps its mode.
+            self.assertEqual(load(Path(root) / 'cover-lyrics.json')['mode'], 'adapt')
+            self.assertEqual(apply(root, brief(), get=None)['details']['lyricSheet']['mode'], 'adapt')
+        chorus = 'Shine the lantern\nOver the wall'
+        sectioned = labeled('\n\n'.join(['First verse line one\nFirst verse line two', chorus, 'Second verse line\nAnother line', chorus]))
+        self.assertEqual([line for line in sectioned.splitlines() if line.startswith('[')], ['[Verse 1]', '[Chorus]', '[Verse 2]', '[Chorus]', '[End]'])
     def test_guided_replan_direction_reaches_the_planner_once(self):
         from unittest.mock import patch
         from planner import make_plan
