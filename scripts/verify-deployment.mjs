@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { normalizeGeneration } from "../assets/generation-options.js";
 import { createHash, randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
+import { publicCatalog } from "./archived-songs.mjs";
 const site = process.env.YEHRY3_SITE_URL || "https://yehry3.app";
 const api = process.env.YEHRY3_API_URL || "https://chairlift.fly.dev/yehry3";
 // Windows checkouts may use CRLF; compare the same source text deployed on Linux.
@@ -307,8 +308,12 @@ assert.ok(Number.isSafeInteger(capacity.active) && capacity.active >= 0);
 assert.equal(capacity.available, Math.max(0, 10 - capacity.active));
 assert.equal(capacity.full, capacity.active >= 10);
 console.log(`Request capacity verified: ${capacity.active} unfinished, ${capacity.available} available.`);
+// Songs archived in Backstage are built out of the fallback, so expect the catalog minus what the API reports archived.
+const reported = await (await get(`${api}/songs/summary`, { headers: { "X-Visitor-ID": randomUUID(), Origin: site } })).json();
+const archived = Array.isArray(reported.archived) ? reported.archived : [];
+const expected = publicCatalog(local, archived);
 const catalog = await (await get(`${site}/catalog.json`)).json();
-assert.deepEqual(catalog, local);
+assert.deepEqual(catalog, expected);
 assert.deepEqual(
   await (await get(`${site}/basis-songs.json`)).json(),
   JSON.parse(
@@ -326,7 +331,7 @@ const response = await get(`${api}/songs`, {
 });
 assert.equal(response.headers.get("access-control-allow-origin"), site);
 const live = await response.json();
-for (const song of local.songs) {
+for (const song of expected.songs) {
   const published = live.songs.find((item) => item.id === song.id);
   if (song.songPlan)
     assert.deepEqual(published?.songPlan, song.songPlan, `Song plan differs for ${song.title}`);
@@ -365,9 +370,13 @@ for (const song of local.songs) {
     );
 }
 assert.ok(
-  local.songs.every((song) => live.songs.some((item) => item.id === song.id)),
+  expected.songs.every((song) => live.songs.some((item) => item.id === song.id)),
   "API is missing catalog songs",
 );
+assert.ok(
+  !live.songs.some((song) => archived.includes(song.id)),
+  "API still lists archived songs",
+);
 console.log(
-  `Verified exact public assets, ${local.songs.length} catalog songs, MP3 seeking, and API/CORS.`,
+  `Verified exact public assets, ${expected.songs.length} catalog songs (${archived.length} archived), MP3 seeking, and API/CORS.`,
 );

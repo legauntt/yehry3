@@ -26,10 +26,15 @@ jobs:
         run: npm ci
         env:
           MONGOMS_DISABLE_POSTINSTALL: "1"
+      # Tests see the whole catalog. The deployed build then leaves out the songs Backstage has archived.
       - name: Build and check the public site
         run: |
           npm run build
           npm test
+      - name: Leave archived songs out of the deployed fallback
+        run: npm run build
+        env:
+          YEHRY3_ARCHIVE_URL: https://chairlift.fly.dev/yehry3/songs/summary
       # This existing Azure site uses its DeploymentToken authorization policy.
       - name: Deploy the built static site
         uses: Azure/static-web-apps-deploy@v1

@@ -1,6 +1,7 @@
 import { cp, mkdir, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { eggClips } from "../assets/egg-clips.js";
+import { archivedSongIds, publicCatalog } from "./archived-songs.mjs";
 import { songAlias } from "../assets/song-links.js";
 import { songSummary } from "../assets/song-summary.js";
 const root = path.resolve(import.meta.dirname, "..");
@@ -42,7 +43,24 @@ for (const file of [
   await stat(path.join(root, file));
   await cp(path.join(root, file), path.join(output, file), { recursive: true });
 }
-const catalog = JSON.parse(await readFile(path.join(root, "catalog.json"), "utf8"));
+const fullCatalog = JSON.parse(await readFile(path.join(root, "catalog.json"), "utf8"));
+// Only the deploy sets this, so local builds and tests never depend on the network.
+let catalog = fullCatalog;
+if (process.env.YEHRY3_ARCHIVE_URL) {
+  const archived = await archivedSongIds(process.env.YEHRY3_ARCHIVE_URL);
+  if (!archived) console.warn("Could not read the archived songs from the studio API; building every catalog song.");
+  else {
+    try {
+      catalog = publicCatalog(fullCatalog, archived);
+    } catch (error) {
+      console.warn(`${error.message}; building every catalog song.`);
+    }
+    if (catalog !== fullCatalog) {
+      await writeFile(path.join(output, "catalog.json"), JSON.stringify(catalog, null, 2) + "\n");
+      console.log(`Left ${fullCatalog.songs.length - catalog.songs.length} archived song(s) out of the build.`);
+    }
+  }
+}
 await mkdir(path.join(output, "songs"));
 for (const song of catalog.songs) {
   if (!/^[a-z0-9-]{1,120}$/.test(song.id)) throw new Error("Invalid public song ID");
