@@ -2,6 +2,306 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-0ae8590fc3333c4674a52077",
+      "title": "Wild and Free",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0ae8590fc3333c4674a52077-079d2f749da1.mp3",
+      "duration": 220.08163265306123,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T03:48:16.740Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Wild and Free",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E major",
+        "arrangement": "Lighthearted bass-forward garage rock with bright electric guitar stabs, driving drums, handclaps, and a buoyant organ hook. One clear, steadily pitched Tony V8 lead sings with connected, rough natural phrasing and playful timing; the explicitly requested wife speech is delivered in the same voice. Build from a loose verse pocket into broad, melodic choruses, dip for the spoken confrontation, then lift through the bridge and final chorus. Keep the final sustained “free” 8–12 seconds before the 220-second end, followed by one resolved E-major chord decay.",
+        "lyrics": "[Verse 1]\nTony hit the pavement with the sun half asleep\nOne hand on the wheel, one hand keeping time\nHe said, “No map can tell me where the good nights keep”\nThen laughed at the traffic and crossed every line\nHis jacket caught rain from a passing cloud\nHis heart made a racket, his radio loud\n\n[Pre-Chorus]\nAt the corner store, with a soda and a grin,\nHe said, “Trouble ain’t a place—it’s the way I get in.”\n\n[Chorus]\nWild and free, wild and free,\nA little bit nasty, that’s Tony C\nNo fence can hold him, no lock has the key,\nWild and free, wild and free\nHe’ll dance through the daylight, howl at the sea,\nA little bit nasty, wild and free\n\n[Verse 2]\nHis wife saw the headlights sweep across the wall\nShe folded her arms by the kitchen light\nShe said she had heard just about it all\nAnd tonight was the night for a reckoning fight\n\n[Spoken Intro]\nNow Tony, I am very irate, I don't know what the fuck you were thinking the other night with Natalie, but Jesus Christ, I don't know what the fuck you were thinking.\n\n[Verse 3]\nTony went quiet for a second or two\nThen the old porch swing gave a tired little squeak\nHe said, “Honey, I’m sorry for the mess I put you through,\nBut the wind starts talking and it makes me weak.”\nShe pointed right down at the garden below:\n“Your excuses grow faster than tomatoes grow.”\n\n[Chorus]\nWild and free, wild and free,\nA little bit nasty, that’s Tony C\nNo fence can hold him, no lock has the key,\nWild and free, wild and free\nHe’ll dance through the daylight, howl at the sea,\nA little bit nasty, wild and free\n\n[Bridge]\nSitting by Dafoe, watching shadows bend\nSitting by Dafoe, waiting for the weekend\nSitting by Dafoe, he made a promise in the dark:\n“I’ll come home for supper—but I’m chasing one more spark.”\nShe shook her head, then she started to smile,\n“Go on, you impossible man—just don’t be gone a while.”\n\n[Chorus]\nWild and free, wild and free,\nStill a little nasty, that’s Tony C\nHe kissed her hand and he turned toward the street,\nWith a sweet bad rhythm underneath his feet\nWild and free, wild and free,\nThe night swung open like a balcony\nHe called back, “Love, I’ll be back when the morning agrees,”\nThen held “free” into the warm night breeze\n[End]",
+        "duration": 220,
+        "bpm": 126,
+        "musicalSettings": {
+          "genre": "Bass-forward lighthearted garage rock",
+          "meter": "4/4",
+          "structure": "Verse, pre-chorus, chorus, verse, spoken confrontation, verse, chorus, bridge, final chorus, resolved ending",
+          "performance": "Clear melodic Tony V8 lead with rough connected phrasing, playful slurs, and one requested spoken passage",
+          "energy": "Easygoing opening, lively chorus lift, comic mid-song dip, then an exuberant final release",
+          "lyricWorkflow": "Narrative lyric built around Tony escaping domestic trouble, with a recurring hook and a resolved affectionate goodbye",
+          "instruments": [
+            "Electric bass",
+            "Electric guitar",
+            "Drum kit",
+            "Hammond-style organ",
+            "Handclaps"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nTony hit the pavement with the sun half asleep\nOne hand on the wheel, one hand keeping time\nHe said, “No map can tell me where the good nights keep”\nThen laughed at the traffic and crossed every line\nHis jacket caught rain from a passing cloud\nHis heart made a racket, his radio loud\n\n[Pre-Chorus]\nAt the corner store, with a soda and a grin,\nHe said, “Trouble ain’t a place—it’s the way I get in.”\n\n[Chorus]\nWild and free, wild and free,\nA little bit nasty, that’s Tony C\nNo fence can hold him, no lock has the key,\nWild and free, wild and free\nHe’ll dance through the daylight, howl at the sea,\nA little bit nasty, wild and free\n\n[Verse 2]\nHis wife saw the headlights sweep across the wall\nShe folded her arms by the kitchen light\nShe said she had heard just about it all\nAnd tonight was the night for a reckoning fight\n\n[Spoken Intro]\nNow Tony, I am very irate, I don't know what the fuck you were thinking the other night with Natalie, but Jesus Christ, I don't know what the fuck you were thinking.\n\n[Verse 3]\nTony went quiet for a second or two\nThen the old porch swing gave a tired little squeak\nHe said, “Honey, I’m sorry for the mess I put you through,\nBut the wind starts talking and it makes me weak.”\nShe pointed right down at the garden below:\n“Your excuses grow faster than tomatoes grow.”\n\n[Chorus]\nWild and free, wild and free,\nA little bit nasty, that’s Tony C\nNo fence can hold him, no lock has the key,\nWild and free, wild and free\nHe’ll dance through the daylight, howl at the sea,\nA little bit nasty, wild and free\n\n[Bridge]\nSitting by Dafoe, watching shadows bend\nSitting by Dafoe, waiting for the weekend\nSitting by Dafoe, he made a promise in the dark:\n“I’ll come home for supper—but I’m chasing one more spark.”\nShe shook her head, then she started to smile,\n“Go on, you impossible man—just don’t be gone a while.”\n\n[Chorus]\nWild and free, wild and free,\nStill a little nasty, that’s Tony C\nHe kissed her hand and he turned toward the street,\nWith a sweet bad rhythm underneath his feet\nWild and free, wild and free,\nThe night swung open like a balcony\nHe called back, “Love, I’ll be back when the morning agrees,”\nThen held “free” into the warm night breeze",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.86,
+            "end": 11
+          },
+          {
+            "line": 2,
+            "start": 11.7,
+            "end": 14.96
+          },
+          {
+            "line": 3,
+            "start": 15.24,
+            "end": 18.36
+          },
+          {
+            "line": 4,
+            "start": 18.36,
+            "end": 22.78
+          },
+          {
+            "line": 5,
+            "start": 23.52,
+            "end": 26.48
+          },
+          {
+            "line": 6,
+            "start": 26.48,
+            "end": 30.42
+          },
+          {
+            "line": 9,
+            "start": 30.42,
+            "end": 36.48
+          },
+          {
+            "line": 10,
+            "start": 36.48,
+            "end": 42.28
+          },
+          {
+            "line": 13,
+            "start": 42.28,
+            "end": 46.96
+          },
+          {
+            "line": 14,
+            "start": 46.96,
+            "end": 50.72
+          },
+          {
+            "line": 15,
+            "start": 50.72,
+            "end": 54.62
+          },
+          {
+            "line": 16,
+            "start": 55.34,
+            "end": 58.58
+          },
+          {
+            "line": 17,
+            "start": 58.99,
+            "end": 61.86
+          },
+          {
+            "line": 18,
+            "start": 61.86,
+            "end": 67.12
+          },
+          {
+            "line": 21,
+            "start": 67.12,
+            "end": 70.32
+          },
+          {
+            "line": 22,
+            "start": 70.32,
+            "end": 74.04
+          },
+          {
+            "line": 23,
+            "start": 74.37,
+            "end": 78.02
+          },
+          {
+            "line": 24,
+            "start": 78.02,
+            "end": 81.82
+          },
+          {
+            "line": 27,
+            "start": 86.86,
+            "end": 97.3
+          },
+          {
+            "line": 30,
+            "start": 106.54,
+            "end": 109.8
+          },
+          {
+            "line": 31,
+            "start": 109.8,
+            "end": 113.55
+          },
+          {
+            "line": 32,
+            "start": 113.55,
+            "end": 117.69
+          },
+          {
+            "line": 33,
+            "start": 117.89,
+            "end": 121.29
+          },
+          {
+            "line": 34,
+            "start": 122.03,
+            "end": 125.05
+          },
+          {
+            "line": 35,
+            "start": 125.61,
+            "end": 129.05
+          },
+          {
+            "line": 38,
+            "start": 129.05,
+            "end": 133.01
+          },
+          {
+            "line": 39,
+            "start": 133.57,
+            "end": 136.87
+          },
+          {
+            "line": 40,
+            "start": 137.55,
+            "end": 140.69
+          },
+          {
+            "line": 41,
+            "start": 141.55,
+            "end": 145.31
+          },
+          {
+            "line": 42,
+            "start": 145.31,
+            "end": 148.41
+          },
+          {
+            "line": 43,
+            "start": 149.21,
+            "end": 152.45
+          },
+          {
+            "line": 46,
+            "start": 153.43,
+            "end": 156.15
+          },
+          {
+            "line": 47,
+            "start": 156.99,
+            "end": 160.11
+          },
+          {
+            "line": 48,
+            "start": 160.93,
+            "end": 165.19
+          },
+          {
+            "line": 49,
+            "start": 165.19,
+            "end": 168.17
+          },
+          {
+            "line": 50,
+            "start": 168.17,
+            "end": 171.69
+          },
+          {
+            "line": 51,
+            "start": 171.69,
+            "end": 175.91
+          },
+          {
+            "line": 54,
+            "start": 175.91,
+            "end": 182.41
+          },
+          {
+            "line": 55,
+            "start": 182.41,
+            "end": 186.13
+          },
+          {
+            "line": 56,
+            "start": 186.13,
+            "end": 190.35
+          },
+          {
+            "line": 57,
+            "start": 190.35,
+            "end": 194.01
+          },
+          {
+            "line": 58,
+            "start": 194.01,
+            "end": 197.83
+          },
+          {
+            "line": 59,
+            "start": 198.43,
+            "end": 202.55
+          },
+          {
+            "line": 60,
+            "start": 202.55,
+            "end": 206.51
+          },
+          {
+            "line": 61,
+            "start": 206.51,
+            "end": 209.47
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Lighthearted song about Tony C being \"wild and free\" (and a little bit nasty)",
+        "direction": "Use the prompt as written.",
+        "keep": "Tony's wife tries to reel him in but ultimately he escapes\n\nMust include this speech from his wife (Tony's voice):\n\"Now Tony, I am very irate, I don't know what the fuck you were thinking the other night with Natalie, but Jesus Christ, I don't know what the fuck you were thinking.\"\n\nAlso must include \"sitting by Dafoe\" 3 times",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 220
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-e87d33434caabdd9e3d27ab3",
       "title": "The Pumpkin Knows My Name",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e87d33434caabdd9e3d27ab3-aef0c701ae0d.mp3",
