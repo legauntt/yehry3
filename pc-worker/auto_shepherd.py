@@ -21,7 +21,9 @@ LEGACY = {'action', 'reason', 'evidence'}
 def eligible(category, context):
     # A model recommendation cannot override a failed integrity or provenance check.
     return category in ('unknown', 'creative_plan', 'planner_format', 'transient_runtime', 'windows_io') and bool(
-        context.get('has_request') or context.get('saved_planner_output') or context.get('has_plan'))
+        context.get('has_request') or context.get('saved_planner_output') or context.get('has_plan')
+        # A planning pass that died without any output still has its frozen inputs to judge.
+        or context.get('planning_started'))
 
 
 def decide(config, prompt, context, guidance=None, consultation_id=None):

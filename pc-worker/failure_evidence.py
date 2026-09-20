@@ -84,12 +84,15 @@ def evidence(config, ident, error=''):
     if not data['has_request']:
         # Include structured invocation errors only; omit generated lyrics and credentials.
         from planner import invocation_feedback
-        if (directory / 'planner.log').exists():
-            data['planner_error'] = invocation_feedback(RuntimeError(str(error) or 'Saved planner diagnostics'), directory / 'planner.log')
+        # Lyric-sheet planning logs to material-planner-N.log; judge the latest invocation.
+        logs = sorted([*directory.glob('planner*.log'), *directory.glob('material-planner-*.log')], key=lambda path: path.stat().st_mtime)
+        if logs:
+            data['planner_error'] = invocation_feedback(RuntimeError(str(error) or 'Saved planner diagnostics'), logs[-1])
             messages.append(data['planner_error'])
         journal = directory / 'planner-result-attempts.json'
         data['planner_attempts'] = len(load(journal).get('attempts', [])) if journal.exists() else 0
         data['saved_planner_output'] = (directory / 'planner-result.json').exists()
+        data['planning_started'] = (directory / 'planning-input.json').exists()
     data['diagnostic_error'] = '\n'.join(dict.fromkeys(m for m in messages if m))[-32000:]
     return data
 

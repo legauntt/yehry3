@@ -104,6 +104,20 @@ class ReplanTests(unittest.TestCase):
                 self.assertEqual(api.calls, ['one']); consult.assert_called_once()
                 self.assertEqual(len(load(job / 'replans/journal.json')['replans']), 1)
 
+    def test_a_planning_pass_with_no_output_is_still_dehakas_to_judge(self):
+        from auto_shepherd import eligible
+        from failure_evidence import evidence
+        with tempfile.TemporaryDirectory() as root:
+            job = Path(root) / 'jobs' / 'one'; job.mkdir(parents=True)
+            save(job / 'planning-input.json', {'brief': {}})
+            (job / 'material-planner-3.log').write_text(
+                '{"type":"turn.failed","error":{"message":"Incomplete response returned, reason: content_filter"}}\n', encoding='utf-8')
+            context = evidence({'state_dir': root, 'settings': {'studio_dir': str(Path(root) / 'studio')}}, 'one')
+            self.assertTrue(context['planning_started']); self.assertFalse(context['has_plan'])
+            self.assertIn('content_filter', context['planner_error'])
+            self.assertTrue(eligible('creative_plan', context))
+            self.assertFalse(eligible('creative_plan', {'directory': str(job)}))
+
     def test_each_steer_acts_once_even_after_the_automatic_budget_is_spent(self):
         with tempfile.TemporaryDirectory() as root:
             refused_job(root); cfg = {'state_dir': root, 'settings': {'studio_dir': str(Path(root) / 'studio')}}
