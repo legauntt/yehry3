@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
-import { remixFromPrompt, songArtwork, songArtworkMarkup, voteTier } from "../assets/song-art.js";
+import { remixFromPrompt, shockedArtwork, songArtwork, songArtworkMarkup, voteTier } from "../assets/song-art.js";
 import { songSummary } from "../assets/song-summary.js";
 
 const catalog = async () => JSON.parse(await readFile(new URL("../catalog.json", import.meta.url), "utf8")).songs;
@@ -196,4 +196,12 @@ test("a fresh redraw rolls a whole new picture from the words and pins what they
   assert.equal(loved.art.tier, 3);
   const seesaw = remixFromPrompt({ id: "seesaw", title: "See-saw'd Again" }, "a laughing robot", { fresh: true });
   assert.match(svgOf(seesaw.art), /<rect x="70" y="114" width="64" height="38" rx="3" fill="#000"\/>/);
+});
+
+test("the easter egg face has wide eyes and the See-saw rectangle mouth", () => {
+  const art = songArtwork({ id: "egg", title: "Untitled" });
+  const shocked = decodeURIComponent(shockedArtwork(art.src).split(",")[1]);
+  assert.notEqual(shocked, svgOf(art));
+  assert.match(shocked, /<rect x="70" y="114" width="64" height="38" rx="3" fill="#000"\/>/);
+  assert.equal(shockedArtwork("data:image/svg+xml,unknown"), null);
 });

@@ -286,7 +286,7 @@ function rolls(song) {
   return { title, identity, source, seeded, remix, roll, pick, tier: voteTier(song.votes) };
 }
 const cache = new Map();
-// The same picture with wide eyes and a gaping mouth, for the cover art easter egg.
+// The same picture with wide eyes and the See-saw rectangle for a mouth, for the cover art easter egg.
 // Found by the picture's src, since the page only holds the markup.
 const shocks = new WeakMap();
 export function shockedArtwork(src) {
@@ -338,7 +338,7 @@ export function songArtwork(song) {
     + (tier?.votes >= 5 ? '<rect x="5" y="5" width="230" height="190" rx="7" fill="none" stroke="' + (dark ? gold : "#a86a08") + '" stroke-width="4"/>' + (dark ? '<rect x="12" y="12" width="216" height="176" rx="4" fill="none" stroke="' + gold + '" stroke-width="1.5"/>' : "") : "")
     + '</svg>';
   const remixed = pinned.replaceAll(",", "") !== "";
-  const gasp = (extra?.shades && !special ? "" : openEye(85, 102, 13, 0, 0, 2) + openEye(116, 99, 14, 0, 0, 2)) + (seesaw ? seesawMouth : ellipse(104, 128, 12, 17, "#b5473c"));
+  const gasp = (extra?.shades && !special ? "" : openEye(85, 102, 13, 0, 0, 2) + openEye(116, 99, 14, 0, 0, 2)) + seesawMouth;
   const art = { src: "data:image/svg+xml," + encodeURIComponent(svg), alt: "Silly clip art: " + description + (seesaw ? ", with a comically enormous black rectangle for a mouth" : "") + (remixed ? ", redrawn by listeners." : "."), theme, tier: tier?.votes || 0, remixed };
   shocks.set(art, () => "data:image/svg+xml," + encodeURIComponent(svg.replace(looks, gasp)));
   // Bound memory use on pages left open as the catalog changes.
