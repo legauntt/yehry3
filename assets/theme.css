@@ -46,3 +46,5 @@ html[data-shared-theme][data-theme="dark"] .update-banner button:hover { backgro
 html[data-shared-theme][data-theme="dark"] .loop-toggle[aria-pressed="true"] { background: #46301f; color: #ffd9bd; border-color: #a06a3f; }
 html[data-shared-theme][data-theme="dark"] .song-action { border-color: var(--line); }
 html[data-shared-theme][data-theme="dark"] :is(.song-action:hover:not(:disabled), .song-action[aria-pressed="true"]) { background: #46301f; color: #ffd9bd; border-color: #a06a3f; }
+html[data-shared-theme][data-theme="dark"] .message { background: var(--light); color: var(--ink); border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] .message.error { background: #4c3027; color: #ffc3a9; border-color: #8a5a42; }

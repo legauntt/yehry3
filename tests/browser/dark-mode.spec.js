@@ -117,3 +117,32 @@ test("Dark Mode keeps the pinned label readable", async ({ page, context }) => {
   });
   expect(ratio).toBeGreaterThan(4.5);
 });
+
+test("Dark Mode keeps the status banner dark and readable", async ({ page, context }) => {
+  await context.route("https://fonts.googleapis.com/**", route => route.abort());
+  await page.addInitScript(() => localStorage.setItem("yehry3:dark-mode", "true"));
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  const ratios = await page.locator("#message").evaluate(banner => {
+    const channels = value => value.match(/[\d.]+/g).slice(0, 3).map(Number);
+    const luminance = rgb => {
+      const [r, g, b] = rgb.map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+    const measure = () => {
+      const style = getComputedStyle(banner);
+      const text = luminance(channels(style.color));
+      const fill = luminance(channels(style.backgroundColor));
+      return { ratio: (Math.max(text, fill) + 0.05) / (Math.min(text, fill) + 0.05), fill };
+    };
+    banner.textContent = "Clip art redrawn for everyone.";
+    const notice = measure();
+    banner.classList.add("error");
+    const error = measure();
+    return { notice, error };
+  });
+  expect(ratios.notice.ratio).toBeGreaterThan(4.5);
+  expect(ratios.error.ratio).toBeGreaterThan(4.5);
+  expect(ratios.notice.fill).toBeLessThan(0.1);
+  expect(ratios.error.fill).toBeLessThan(0.1);
+});
