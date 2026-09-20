@@ -39,21 +39,47 @@ function play(button = null, clip = null) {
 
 // Easter egg: hammering any cover art three times inside a second sings every clip in turn,
 // the title line first. It keeps its own place so it never disturbs the badges' rotation.
-const artTaps = 3, artWindow = 1000;
+// The picture shakes, flashes and gasps for as long as the shorter clip.
+const artTaps = 3, artWindow = 1000, artShockMs = 2400;
 let taps = [];
 let artNext = 1;
-function tapArt(at) {
+const shocked = new WeakMap();
+function shock(art) {
+  shocked.get(art)?.();
+  art.classList.remove("egg-shock");
+  void art.offsetWidth;
+  art.style.setProperty("--egg-ms", artShockMs + "ms");
+  art.classList.add("egg-shock");
+  const calm = art.getAttribute("src");
+  let gasping = null;
+  const timer = setTimeout(() => calm && shocked.get(art)?.(), artShockMs);
+  shocked.set(art, () => {
+    clearTimeout(timer);
+    shocked.delete(art);
+    art.classList.remove("egg-shock");
+    art.style.removeProperty("--egg-ms");
+    if (gasping && art.getAttribute("src") === gasping) art.setAttribute("src", calm);
+  });
+  // The face is drawn in song-art.js, which the egg loads only when it is found.
+  import("./song-art.js").then(({ shockedArtwork }) => {
+    const src = shocked.has(art) && shockedArtwork(calm);
+    if (src) art.setAttribute("src", (gasping = src));
+  }).catch(() => {});
+}
+function tapArt(art, at) {
   taps = [...taps.filter((tap) => at - tap < artWindow), at];
   if (taps.length < artTaps) return;
   taps = [];
   play(null, clips[artNext]);
   artNext = (artNext + 1) % clips.length;
+  shock(art);
 }
 
 export function mountBadgeSounds(root = document) {
   root.addEventListener("click", (event) => {
     // The click keeps its usual job, such as opening a pending row.
-    if (event.target.closest?.(".track-art")) return tapArt(event.timeStamp);
+    const art = event.target.closest?.(".track-art");
+    if (art) return tapArt(art, event.timeStamp);
     const button = event.target.closest?.(".badge-sound");
     if (!button) return;
     // Badges can sit inside a <summary>; a click here plays audio instead of toggling the row.

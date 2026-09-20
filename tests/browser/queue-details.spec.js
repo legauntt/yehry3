@@ -143,8 +143,15 @@ test("three quick clicks on cover art sing every clip in turn", async ({ page })
   await art.click({ clickCount: 2 });
   expect(await page.evaluate(() => window.__played)).toEqual([]);
   await page.waitForTimeout(1100);
+  await expect(art).not.toHaveClass(/egg-shock/);
+  const calm = await art.getAttribute("src");
   await art.click({ clickCount: 3 });
   expect(await page.evaluate(() => window.__played)).toEqual(["/assets/sounds/nine-elevend-again.mp3"]);
+  // The picture shakes and gasps, then goes back to normal.
+  await expect(art).toHaveClass(/egg-shock/);
+  await expect.poll(() => art.getAttribute("src")).not.toBe(calm);
+  await expect(art).not.toHaveClass(/egg-shock/, { timeout: 4000 });
+  expect(await art.getAttribute("src")).toBe(calm);
   await page.waitForTimeout(1100);
   await art.click({ clickCount: 3 });
   expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/one-loud-crash.mp3");
