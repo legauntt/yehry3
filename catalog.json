@@ -2,6 +2,303 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-92dfd2ce61458fe8bb784977",
+      "title": "Blue Screen America",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-92dfd2ce61458fe8bb784977-8247ef95b85e.mp3",
+      "duration": 209.99836734693878,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-20T23:23:09.219Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Blue Screen America",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Lo-fi blues at 76 BPM in D minor: dusty swung drum loop, mellow electric piano, muted electric guitar, warm sub-bass, vinyl crackle, and restrained organ. One clear, steadily pitched Tony lead sings a weary melodic blues line with intimate phrasing; no backing vocals or vocal effects. Build from close, sparse verses into fuller choruses, then pull back for the bridge before the final chorus. Pace the final sustained word “crying” to land about 10 seconds before the end, followed by one resolved D-minor chord decay.",
+        "lyrics": "[Intro]\nRain ticks soft on the windowpane\nNeedle hiss and a tired train\nI got a room full of midnight blue\nAnd a low-lit beat to carry me through\n\n[Verse 1]\nStreetlamp swimming in a coffee cup\nOld news talking but I turn it up\nEvery promise on the TV shakes\nLike a paper flag in the wake of brakes\nI was loud when I should have listened\nHard as a lock, all rusted and twisted\nNow the kick drum knocks through the floor\nAnd I hear what the silence was waiting for\n\n[Chorus]\nI can't fix America\nNot with a song, not with a stare\nI can't fix America\nBut I can tell the truth in the midnight air\nI can't fix America\nMy little room and its blue-gray glow\nI can't fix America\nStill I won't let my heart go cold\n\n[Verse 2]\nI beat that bitch with a bat\nThat ugly thought came back like that\nI put it down in a line of shame\nNot a victory, not a game\nThe beat goes slow and the record sighs\nI see the damage behind my eyes\nNo clean excuse, no magic cure\nJust a hard-earned wish to be better than before\n\n[Bridge]\nLet the vinyl crackle, let the sirens fade\nLet a broken man admit the mess he made\nThere are names in the dark I will not erase\nThere is no redemption without facing a face\n\n[Chorus]\nI can't fix America\nNot tonight with these worn-out hands\nI can't fix America\nBut I can stop pretending I understand\nI can't fix America\nI can leave one small light on\nI can't fix America\nAnd keep singing until the night is gone\n\n[Outro]\nOne small light on\nFor the ones still trying\nOne small light on\nTill the last note stops crying\n[End]",
+        "duration": 210,
+        "bpm": 76,
+        "musicalSettings": {
+          "genre": "Lo-fi blues with hip-hop-influenced drum pocket",
+          "meter": "4/4 with a relaxed swung feel",
+          "structure": "Intro, Verse 1, Chorus, Verse 2, Bridge, Final Chorus, Outro",
+          "performance": "A single clear, steadily pitched melodic lead with intimate late-night blues phrasing",
+          "energy": "Low and reflective at first, fuller in the choruses, then quietly resolved",
+          "lyricWorkflow": "Original narrative lyrics that turn anger and helplessness into accountability and a modest closing hope",
+          "instruments": [
+            "swung drum loop",
+            "electric piano",
+            "muted electric guitar",
+            "sub-bass",
+            "organ",
+            "vinyl crackle"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nRain ticks soft on the windowpane\nNeedle hiss and a tired train\nI got a room full of midnight blue\nAnd a low-lit beat to carry me through\n\n[Verse 1]\nStreetlamp swimming in a coffee cup\nOld news talking but I turn it up\nEvery promise on the TV shakes\nLike a paper flag in the wake of brakes\nI was loud when I should have listened\nHard as a lock, all rusted and twisted\nNow the kick drum knocks through the floor\nAnd I hear what the silence was waiting for\n\n[Chorus]\nI can't fix America\nNot with a song, not with a stare\nI can't fix America\nBut I can tell the truth in the midnight air\nI can't fix America\nMy little room and its blue-gray glow\nI can't fix America\nStill I won't let my heart go cold\n\n[Verse 2]\nI beat that bitch with a bat\nThat ugly thought came back like that\nI put it down in a line of shame\nNot a victory, not a game\nThe beat goes slow and the record sighs\nI see the damage behind my eyes\nNo clean excuse, no magic cure\nJust a hard-earned wish to be better than before\n\n[Bridge]\nLet the vinyl crackle, let the sirens fade\nLet a broken man admit the mess he made\nThere are names in the dark I will not erase\nThere is no redemption without facing a face\n\n[Chorus]\nI can't fix America\nNot tonight with these worn-out hands\nI can't fix America\nBut I can stop pretending I understand\nI can't fix America\nI can leave one small light on\nI can't fix America\nAnd keep singing until the night is gone\n\n[Outro]\nOne small light on\nFor the ones still trying\nOne small light on\nTill the last note stops crying",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.6,
+            "end": 5.96
+          },
+          {
+            "line": 2,
+            "start": 5.96,
+            "end": 11.64
+          },
+          {
+            "line": 3,
+            "start": 13.1,
+            "end": 15.84
+          },
+          {
+            "line": 4,
+            "start": 15.84,
+            "end": 20.68
+          },
+          {
+            "line": 7,
+            "start": 25.24,
+            "end": 28.28
+          },
+          {
+            "line": 8,
+            "start": 28.28,
+            "end": 31.46
+          },
+          {
+            "line": 9,
+            "start": 31.46,
+            "end": 35.2
+          },
+          {
+            "line": 10,
+            "start": 35.2,
+            "end": 41.76
+          },
+          {
+            "line": 11,
+            "start": 41.76,
+            "end": 47.28
+          },
+          {
+            "line": 12,
+            "start": 47.86,
+            "end": 50.62
+          },
+          {
+            "line": 13,
+            "start": 50.62,
+            "end": 54.16
+          },
+          {
+            "line": 14,
+            "start": 54.16,
+            "end": 60.5
+          },
+          {
+            "line": 17,
+            "start": 64.8,
+            "end": 66.74
+          },
+          {
+            "line": 18,
+            "start": 68.2,
+            "end": 70.24
+          },
+          {
+            "line": 19,
+            "start": 70.24,
+            "end": 73.1
+          },
+          {
+            "line": 20,
+            "start": 74.2,
+            "end": 77.18
+          },
+          {
+            "line": 21,
+            "start": 77.18,
+            "end": 79.5
+          },
+          {
+            "line": 22,
+            "start": 80.76,
+            "end": 83.7
+          },
+          {
+            "line": 23,
+            "start": 83.7,
+            "end": 85.88
+          },
+          {
+            "line": 24,
+            "start": 86.78,
+            "end": 90.92
+          },
+          {
+            "line": 27,
+            "start": 102.5,
+            "end": 104.9
+          },
+          {
+            "line": 28,
+            "start": 105.68,
+            "end": 109.22
+          },
+          {
+            "line": 29,
+            "start": 109.22,
+            "end": 111.96
+          },
+          {
+            "line": 30,
+            "start": 112.94,
+            "end": 114.98
+          },
+          {
+            "line": 31,
+            "start": 115.78,
+            "end": 117.74
+          },
+          {
+            "line": 32,
+            "start": 121.36,
+            "end": 124.56
+          },
+          {
+            "line": 33,
+            "start": 124.88,
+            "end": 127.78
+          },
+          {
+            "line": 34,
+            "start": 128.16,
+            "end": 131.46
+          },
+          {
+            "line": 37,
+            "start": 134.3,
+            "end": 137.46
+          },
+          {
+            "line": 38,
+            "start": 140.22,
+            "end": 144.04
+          },
+          {
+            "line": 39,
+            "start": 146.68,
+            "end": 149.9
+          },
+          {
+            "line": 40,
+            "start": 152.84,
+            "end": 156.38
+          },
+          {
+            "line": 43,
+            "start": 156.9,
+            "end": 158.34
+          },
+          {
+            "line": 44,
+            "start": 159.84,
+            "end": 162.74
+          },
+          {
+            "line": 45,
+            "start": 163.38,
+            "end": 164.84
+          },
+          {
+            "line": 46,
+            "start": 165.74,
+            "end": 168.46
+          },
+          {
+            "line": 47,
+            "start": 169.56,
+            "end": 171.46
+          },
+          {
+            "line": 48,
+            "start": 172.42,
+            "end": 175.3
+          },
+          {
+            "line": 49,
+            "start": 175.3,
+            "end": 177.44
+          },
+          {
+            "line": 50,
+            "start": 177.44,
+            "end": 182.48
+          },
+          {
+            "line": 53,
+            "start": 187.4,
+            "end": 189.52
+          },
+          {
+            "line": 54,
+            "start": 189.52,
+            "end": 191.2
+          },
+          {
+            "line": 55,
+            "start": 193.8,
+            "end": 196.14
+          },
+          {
+            "line": 56,
+            "start": 196.14,
+            "end": 197.92
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 11.66
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Lofi beats, Tony sings the blues",
+        "direction": "Use the prompt as written.",
+        "keep": "Must include these phrases:\n\"I beat that bitch with a bat\"\n\"I can't fix America\"\nRepeat them as often as possible",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 210
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-6bb22f55d65304bc989976c2",
       "title": "Laughing Through the Static",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6bb22f55d65304bc989976c2-5bdaa37c3125.mp3",
