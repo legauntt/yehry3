@@ -2,6 +2,340 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-602cfff5b02dff5eb0865793",
+      "title": "All Star (Tony C Cover)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-602cfff5b02dff5eb0865793-5f0c16f9fb6b.mp3",
+      "duration": 270.08,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-20T21:50:14.744Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "All Star (Tony C Cover)",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E major",
+        "arrangement": "Uplifting late-1990s-style pop-rock cover reimagined as new music: bright electric guitars, active bass, crisp live drums and subtle organ color in 4/4. One clear, steadily pitched Tony lead carries a memorable, melodic hook with natural connected phrasing; no doubles, stacks, whispers or vocal effects. Start with a lean guitar-and-bass pocket, open into full choruses, pull back for the conversational bridge, then build the final chorus into a sustained final “light” 8–12 seconds before 4:30, followed by one resolved E-major chord and natural decay.",
+        "lyrics": "[Verse 1]\nA neighbor said the whole town's moving fast\nLike every green light's built to make you last\nI had a map with coffee on the page\nAnd one loose plan for getting off the stage\n\nThe calendar keeps knocking at the door\nThe same old rules are scattered on the floor\nI learned the long way round can still be true\nWhen every painted arrow points at you\n\n[Pre-Chorus]\nThere are side roads under every sign\nThere is daylight if you give it time\n\n[Chorus]\nStep out, put your heart where the headlights shine\nTake your turn, make a little room to fly\nTurn the noise into a song tonight\nYou were made for more than standing by\nHands up, let the hard days fall behind\nRun toward the spark you came to find\nEvery wild small dream can change your sky\nYou were made for more than standing by\n\n[Verse 2]\nThe weather report says the cold rolls in\nSo wrap your hope around your stubborn grin\nThe river's high, the pavement's cracking through\nBut open water makes a path for you\n\nThey talk of falling stars and distant flames\nLike every bright thing needs a famous name\nI say the dark is just a larger room\nFor one good voice to push against the gloom\n\n[Pre-Chorus]\nIf the world feels narrow, lean and sway\nFind a door inside the gray\n\n[Chorus]\nStep out, put your heart where the headlights shine\nTake your turn, make a little room to fly\nTurn the noise into a song tonight\nYou were made for more than standing by\nHands up, let the hard days fall behind\nRun toward the spark you came to find\nEvery wild small dream can change your sky\nYou were made for more than standing by\n\n[Bridge]\nA stranger at the filling station said\n\"Got enough to get me out of this dead end?\"\nI passed the last few bills across the seat\nHe laughed, \"Then we both got somewhere we can be\"\n\nNo perfect road, no golden guarantee\nJust one more mile of possibility\n\n[Chorus]\nStep out, put your heart where the headlights shine\nTake your turn, make a little room to fly\nTurn the noise into a song tonight\nYou were made for more than standing by\nHands up, let the hard days fall behind\nRun toward the spark you came to find\nEvery wild small dream can change your sky\nYou were made for more than standing by\n\n[Outro]\nStanding by no more\nI am moving toward the light\nI am moving toward the light\n[End]",
+        "duration": 270,
+        "bpm": 104,
+        "musicalSettings": {
+          "genre": "Uplifting pop-rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus, resolved outro",
+          "performance": "One clear, steadily pitched melodic lead with natural connected phrasing and a catchable hook",
+          "energy": "Lean, driving opening grows through bright choruses, dips for the bridge, then reaches a confident final lift",
+          "lyricWorkflow": "Fresh loose-cover lyrics retain the original song’s everyday-pressure-to-self-belief arc and uplifting hook idea without reproducing its lines",
+          "instruments": [
+            "electric guitars",
+            "electric bass",
+            "live drum kit",
+            "Hammond-style organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nA neighbor said the whole town's moving fast\nLike every green light's built to make you last\nI had a map with coffee on the page\nAnd one loose plan for getting off the stage\n\nThe calendar keeps knocking at the door\nThe same old rules are scattered on the floor\nI learned the long way round can still be true\nWhen every painted arrow points at you\n\n[Pre-Chorus]\nThere are side roads under every sign\nThere is daylight if you give it time\n\n[Chorus]\nStep out, put your heart where the headlights shine\nTake your turn, make a little room to fly\nTurn the noise into a song tonight\nYou were made for more than standing by\nHands up, let the hard days fall behind\nRun toward the spark you came to find\nEvery wild small dream can change your sky\nYou were made for more than standing by\n\n[Verse 2]\nThe weather report says the cold rolls in\nSo wrap your hope around your stubborn grin\nThe river's high, the pavement's cracking through\nBut open water makes a path for you\n\nThey talk of falling stars and distant flames\nLike every bright thing needs a famous name\nI say the dark is just a larger room\nFor one good voice to push against the gloom\n\n[Pre-Chorus]\nIf the world feels narrow, lean and sway\nFind a door inside the gray\n\n[Chorus]\nStep out, put your heart where the headlights shine\nTake your turn, make a little room to fly\nTurn the noise into a song tonight\nYou were made for more than standing by\nHands up, let the hard days fall behind\nRun toward the spark you came to find\nEvery wild small dream can change your sky\nYou were made for more than standing by\n\n[Bridge]\nA stranger at the filling station said\n\"Got enough to get me out of this dead end?\"\nI passed the last few bills across the seat\nHe laughed, \"Then we both got somewhere we can be\"\n\nNo perfect road, no golden guarantee\nJust one more mile of possibility\n\n[Chorus]\nStep out, put your heart where the headlights shine\nTake your turn, make a little room to fly\nTurn the noise into a song tonight\nYou were made for more than standing by\nHands up, let the hard days fall behind\nRun toward the spark you came to find\nEvery wild small dream can change your sky\nYou were made for more than standing by\n\n[Outro]\nStanding by no more\nI am moving toward the light\nI am moving toward the light",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 6.14,
+            "end": 9.74
+          },
+          {
+            "line": 2,
+            "start": 9.74,
+            "end": 14.52
+          },
+          {
+            "line": 3,
+            "start": 15.77,
+            "end": 19
+          },
+          {
+            "line": 4,
+            "start": 19,
+            "end": 25.32
+          },
+          {
+            "line": 6,
+            "start": 25.32,
+            "end": 28.12
+          },
+          {
+            "line": 7,
+            "start": 29.16,
+            "end": 32.92
+          },
+          {
+            "line": 8,
+            "start": 33.88,
+            "end": 37.4
+          },
+          {
+            "line": 9,
+            "start": 38.52,
+            "end": 42.84
+          },
+          {
+            "line": 12,
+            "start": 44.86,
+            "end": 48.7
+          },
+          {
+            "line": 13,
+            "start": 49.32,
+            "end": 53.36
+          },
+          {
+            "line": 16,
+            "start": 55.56,
+            "end": 60.12
+          },
+          {
+            "line": 17,
+            "start": 60.6,
+            "end": 64.38
+          },
+          {
+            "line": 18,
+            "start": 64.38,
+            "end": 68.18
+          },
+          {
+            "line": 19,
+            "start": 69.82,
+            "end": 72.86
+          },
+          {
+            "line": 20,
+            "start": 74.36,
+            "end": 78.4
+          },
+          {
+            "line": 21,
+            "start": 79.14,
+            "end": 83.22
+          },
+          {
+            "line": 22,
+            "start": 83.9,
+            "end": 86.66
+          },
+          {
+            "line": 23,
+            "start": 87.78,
+            "end": 91.3
+          },
+          {
+            "line": 26,
+            "start": 93.7,
+            "end": 97.42
+          },
+          {
+            "line": 27,
+            "start": 98.78,
+            "end": 101.88
+          },
+          {
+            "line": 28,
+            "start": 103.04,
+            "end": 106.56
+          },
+          {
+            "line": 29,
+            "start": 107.86,
+            "end": 111.08
+          },
+          {
+            "line": 31,
+            "start": 112.4,
+            "end": 115.76
+          },
+          {
+            "line": 32,
+            "start": 117.06,
+            "end": 120.9
+          },
+          {
+            "line": 33,
+            "start": 120.9,
+            "end": 125.46
+          },
+          {
+            "line": 34,
+            "start": 126.22,
+            "end": 129.64
+          },
+          {
+            "line": 37,
+            "start": 132.62,
+            "end": 136.26
+          },
+          {
+            "line": 38,
+            "start": 137.16,
+            "end": 141
+          },
+          {
+            "line": 41,
+            "start": 143.16,
+            "end": 147.8
+          },
+          {
+            "line": 42,
+            "start": 148.48,
+            "end": 152.44
+          },
+          {
+            "line": 43,
+            "start": 153.26,
+            "end": 155.92
+          },
+          {
+            "line": 44,
+            "start": 157.56,
+            "end": 160.58
+          },
+          {
+            "line": 45,
+            "start": 161.98,
+            "end": 166.22
+          },
+          {
+            "line": 46,
+            "start": 166.86,
+            "end": 170.94
+          },
+          {
+            "line": 47,
+            "start": 171.46,
+            "end": 174.42
+          },
+          {
+            "line": 48,
+            "start": 175.96,
+            "end": 179.18
+          },
+          {
+            "line": 51,
+            "start": 181.74,
+            "end": 186.74
+          },
+          {
+            "line": 52,
+            "start": 186.74,
+            "end": 189.9
+          },
+          {
+            "line": 53,
+            "start": 191.22,
+            "end": 194.18
+          },
+          {
+            "line": 54,
+            "start": 195.28,
+            "end": 198.9
+          },
+          {
+            "line": 56,
+            "start": 200.48,
+            "end": 202.84
+          },
+          {
+            "line": 57,
+            "start": 205.1,
+            "end": 207.96
+          },
+          {
+            "line": 60,
+            "start": 207.96,
+            "end": 214.78
+          },
+          {
+            "line": 61,
+            "start": 215.26,
+            "end": 219.3
+          },
+          {
+            "line": 62,
+            "start": 219.88,
+            "end": 224.62
+          },
+          {
+            "line": 63,
+            "start": 224.62,
+            "end": 227.46
+          },
+          {
+            "line": 64,
+            "start": 228.9,
+            "end": 233.2
+          },
+          {
+            "line": 65,
+            "start": 233.2,
+            "end": 237.84
+          },
+          {
+            "line": 66,
+            "start": 238.5,
+            "end": 241.34
+          },
+          {
+            "line": 67,
+            "start": 242.5,
+            "end": 245.92
+          },
+          {
+            "line": 70,
+            "start": 248.8,
+            "end": 252.38
+          },
+          {
+            "line": 71,
+            "start": 252.38,
+            "end": 256.46
+          },
+          {
+            "line": 72,
+            "start": 256.46,
+            "end": 262.08
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony C and the Truth cover Smash Mouth's \"All Star\"",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 270
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-78d485531b974441afbc6c4c",
       "title": "Common People (Tony C Cover)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-78d485531b974441afbc6c4c-5376e9e6a8f5.mp3",
