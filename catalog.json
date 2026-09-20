@@ -2,6 +2,361 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-35af36ca9c25466a7435f296",
+      "title": "Ranked and Cast Aside",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-35af36ca9c25466a7435f296-ba18b8ac9696.mp3",
+      "duration": 265.11673469387756,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T00:31:29.596Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Ranked and Cast Aside",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A militant roots-reggae protest song in D minor: deep rolling bass, offbeat electric guitar skank, one-drop drums, organ bubbles, percussion, and brief muted horn answers. Tony delivers smoky, connected, rough melodic lines with muttered bite in the verses and a broad, catchable chorus. Build from restrained verses to a defiant final chorus; the bridge carries one short low throaty accent on “We were never numbers,” then returns to the normal lead. Keep vocals present throughout, with the final sustained “high” landing about 10 seconds before the end, followed by one resolved band chord and decay.",
+        "lyrics": "[Intro]\nMorning badge clicks, fluorescent rain\nA little red number beside your name\nThey call it progress, call it the way\nBut somebody’s got to be thrown away\n\n[Verse 1]\nI watched the meeting from the end of the hall\nSmiling faces pinned up on the wall\n“Teamwork matters,” the poster said\nWhile they measured who they could leave for dead\nA bell curve drawn with a lawyer’s pen\nTurns friends into figures again and again\nYou carry the load, you cover the shift\nThen they grade your soul like a quarterly lift\n\n[Pre-Chorus]\nNo, I won’t bow to their paper crown\nNo, I won’t help them drag you down\n\n[Chorus]\nStack rank, backstab, cut that line\nThey make a ladder from a friend of mine\nStack rank, backstab, hear that sound\nA clean white office burning people down\nWe were never numbers in a slide-show light\nWe were hands on the wheel through the longest night\nStack rank, backstab, I say it plain\nYour little game is somebody’s pain\n\n[Verse 2]\nMarlene stayed late when the servers froze\nKept the whole damn place from coming unclosed\nThen the manager said, with a practiced sigh\n“Your contribution’s low compared to the guy”\nThe guy got credit for the fix she made\nHe shook the boss’s hand while her future frayed\nThey call it merit, they call it fair\nBut the winners are picked before anybody’s there\n\n[Bridge]\n[Throat Accent: We were never numbers]\nWe were never numbers, no, no\nNot names to erase when the budgets get thin\nYou want us divided, competing for breath\nBut I know that scoreboard is a slow little death\nSo pass me the file, pass me the proof\nI’ll nail every lie to the boardroom roof\n\n[Verse 3]\nLet the quarterly prophets count their gold\nLet them rehearse what the memo told\nI’ll stand with the tired and the passed-around\nWith the quiet good people they marked down\nNo more whispering by the coffee machine\nNo more pretending we don’t know what it means\nIf they need one loser to bless their chart\nThey can take their ranking and break it apart\n\n[Chorus]\nStack rank, backstab, cut that line\nThey make a ladder from a friend of mine\nStack rank, backstab, hear that sound\nA clean white office burning people down\nWe were never numbers in a slide-show light\nWe were hands on the wheel through the longest night\nStack rank, backstab, the truth remains\nNo chart can measure what a worker sustains\n\n[Outro]\nWhen the final bell rings, I’ll still stand near\nWith every name they tried to disappear\nNo more rank, no more cast aside\nWe leave that room with our heads held high\n[End]",
+        "duration": 265,
+        "bpm": 82,
+        "musicalSettings": {
+          "genre": "Roots reggae protest song",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Bridge, Verse 3, Final Chorus, Outro",
+          "performance": "Smoky, slurred Tony-style melodic lead with forceful conversational verses and an anthemic sung refrain",
+          "energy": "Starts tense and restrained, gains pressure through the bridge, and ends defiant and resolved",
+          "lyricWorkflow": "Original narrative protest lyric using concrete workplace scenes, a recurring hook, and a collective final payoff",
+          "instruments": [
+            "Electric bass",
+            "Electric guitar",
+            "Drum kit",
+            "Hammond organ",
+            "Hand percussion",
+            "Muted horns"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nMorning badge clicks, fluorescent rain\nA little red number beside your name\nThey call it progress, call it the way\nBut somebody’s got to be thrown away\n\n[Verse 1]\nI watched the meeting from the end of the hall\nSmiling faces pinned up on the wall\n“Teamwork matters,” the poster said\nWhile they measured who they could leave for dead\nA bell curve drawn with a lawyer’s pen\nTurns friends into figures again and again\nYou carry the load, you cover the shift\nThen they grade your soul like a quarterly lift\n\n[Pre-Chorus]\nNo, I won’t bow to their paper crown\nNo, I won’t help them drag you down\n\n[Chorus]\nStack rank, backstab, cut that line\nThey make a ladder from a friend of mine\nStack rank, backstab, hear that sound\nA clean white office burning people down\nWe were never numbers in a slide-show light\nWe were hands on the wheel through the longest night\nStack rank, backstab, I say it plain\nYour little game is somebody’s pain\n\n[Verse 2]\nMarlene stayed late when the servers froze\nKept the whole damn place from coming unclosed\nThen the manager said, with a practiced sigh\n“Your contribution’s low compared to the guy”\nThe guy got credit for the fix she made\nHe shook the boss’s hand while her future frayed\nThey call it merit, they call it fair\nBut the winners are picked before anybody’s there\n\n[Bridge]\n[Throat Accent: We were never numbers]\nWe were never numbers, no, no\nNot names to erase when the budgets get thin\nYou want us divided, competing for breath\nBut I know that scoreboard is a slow little death\nSo pass me the file, pass me the proof\nI’ll nail every lie to the boardroom roof\n\n[Verse 3]\nLet the quarterly prophets count their gold\nLet them rehearse what the memo told\nI’ll stand with the tired and the passed-around\nWith the quiet good people they marked down\nNo more whispering by the coffee machine\nNo more pretending we don’t know what it means\nIf they need one loser to bless their chart\nThey can take their ranking and break it apart\n\n[Chorus]\nStack rank, backstab, cut that line\nThey make a ladder from a friend of mine\nStack rank, backstab, hear that sound\nA clean white office burning people down\nWe were never numbers in a slide-show light\nWe were hands on the wheel through the longest night\nStack rank, backstab, the truth remains\nNo chart can measure what a worker sustains\n\n[Outro]\nWhen the final bell rings, I’ll still stand near\nWith every name they tried to disappear\nNo more rank, no more cast aside\nWe leave that room with our heads held high",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 6.16,
+            "end": 8.94
+          },
+          {
+            "line": 2,
+            "start": 8.94,
+            "end": 12.04
+          },
+          {
+            "line": 3,
+            "start": 12.04,
+            "end": 14.96
+          },
+          {
+            "line": 4,
+            "start": 14.96,
+            "end": 17.78
+          },
+          {
+            "line": 7,
+            "start": 17.78,
+            "end": 26.42
+          },
+          {
+            "line": 8,
+            "start": 26.42,
+            "end": 29.48
+          },
+          {
+            "line": 9,
+            "start": 30.04,
+            "end": 32.18
+          },
+          {
+            "line": 10,
+            "start": 32.48,
+            "end": 35.06
+          },
+          {
+            "line": 11,
+            "start": 35.66,
+            "end": 37.96
+          },
+          {
+            "line": 12,
+            "start": 38.24,
+            "end": 41
+          },
+          {
+            "line": 13,
+            "start": 41.3,
+            "end": 43.78
+          },
+          {
+            "line": 14,
+            "start": 43.78,
+            "end": 47
+          },
+          {
+            "line": 17,
+            "start": 57.66,
+            "end": 61.46
+          },
+          {
+            "line": 18,
+            "start": 61.46,
+            "end": 64.92
+          },
+          {
+            "line": 21,
+            "start": 67.36,
+            "end": 70.86
+          },
+          {
+            "line": 22,
+            "start": 70.86,
+            "end": 74.24
+          },
+          {
+            "line": 23,
+            "start": 74.68,
+            "end": 78.68
+          },
+          {
+            "line": 24,
+            "start": 79.7,
+            "end": 83.3
+          },
+          {
+            "line": 25,
+            "start": 83.68,
+            "end": 85.14
+          },
+          {
+            "line": 26,
+            "start": 85.14,
+            "end": 86.92
+          },
+          {
+            "line": 27,
+            "start": 86.92,
+            "end": 88.68
+          },
+          {
+            "line": 28,
+            "start": 89.48,
+            "end": 92.06
+          },
+          {
+            "line": 31,
+            "start": 106.56,
+            "end": 109.36
+          },
+          {
+            "line": 32,
+            "start": 109.36,
+            "end": 112.48
+          },
+          {
+            "line": 33,
+            "start": 112.48,
+            "end": 114.72
+          },
+          {
+            "line": 34,
+            "start": 114.72,
+            "end": 118.26
+          },
+          {
+            "line": 35,
+            "start": 118.26,
+            "end": 120.94
+          },
+          {
+            "line": 36,
+            "start": 120.94,
+            "end": 123.3
+          },
+          {
+            "line": 37,
+            "start": 123.3,
+            "end": 126.82
+          },
+          {
+            "line": 38,
+            "start": 126.82,
+            "end": 130.38
+          },
+          {
+            "line": 42,
+            "start": 141.74,
+            "end": 147.7
+          },
+          {
+            "line": 43,
+            "start": 147.7,
+            "end": 150.38
+          },
+          {
+            "line": 44,
+            "start": 152.94,
+            "end": 155.98
+          },
+          {
+            "line": 45,
+            "start": 156.24,
+            "end": 158.9
+          },
+          {
+            "line": 46,
+            "start": 159.28,
+            "end": 161.8
+          },
+          {
+            "line": 47,
+            "start": 162.22,
+            "end": 164.7
+          },
+          {
+            "line": 50,
+            "start": 167.48,
+            "end": 171.16
+          },
+          {
+            "line": 51,
+            "start": 172.62,
+            "end": 179.62
+          },
+          {
+            "line": 52,
+            "start": 179.62,
+            "end": 181.94
+          },
+          {
+            "line": 53,
+            "start": 181.94,
+            "end": 185.1
+          },
+          {
+            "line": 54,
+            "start": 185.1,
+            "end": 188
+          },
+          {
+            "line": 55,
+            "start": 188,
+            "end": 190.94
+          },
+          {
+            "line": 56,
+            "start": 190.94,
+            "end": 194.16
+          },
+          {
+            "line": 57,
+            "start": 196.2,
+            "end": 199.7
+          },
+          {
+            "line": 60,
+            "start": 203.28,
+            "end": 206.96
+          },
+          {
+            "line": 61,
+            "start": 208.16,
+            "end": 211.74
+          },
+          {
+            "line": 62,
+            "start": 214.08,
+            "end": 217.2
+          },
+          {
+            "line": 63,
+            "start": 217.5,
+            "end": 219.84
+          },
+          {
+            "line": 64,
+            "start": 220.26,
+            "end": 222.88
+          },
+          {
+            "line": 65,
+            "start": 222.88,
+            "end": 225.84
+          },
+          {
+            "line": 66,
+            "start": 225.84,
+            "end": 228.48
+          },
+          {
+            "line": 67,
+            "start": 228.48,
+            "end": 231.88
+          },
+          {
+            "line": 70,
+            "start": 237.06,
+            "end": 240.38
+          },
+          {
+            "line": 71,
+            "start": 240.38,
+            "end": 242.94
+          },
+          {
+            "line": 72,
+            "start": 243.48,
+            "end": 246.04
+          },
+          {
+            "line": 73,
+            "start": 246.04,
+            "end": 249.18
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 12.46
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony attacks the corporate establishment's backstabbing practice of stack ranking",
+        "direction": "Use the prompt as written.",
+        "keep": "Reggae theme",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 265
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-4518c315d018af5e4cf4c37a",
       "title": "Uh Huh Window",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4518c315d018af5e4cf4c37a-597731719940.mp3",
