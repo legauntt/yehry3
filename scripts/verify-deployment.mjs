@@ -214,11 +214,18 @@ for (const request of [
         "generationProfile",
         "originalPrompt",
         "hasSongPlan",
+        "remixOf",
         "recovery",
       ].includes(field),
       `Unexpected public field: ${field}`,
     );
   assert.match(request.voiceModel, /^v[1-9][0-9]*$/);
+  if (request.remixOf) {
+    // The source recording's URL and hashes stay out of the public queue.
+    assert.deepEqual(Object.keys(request.remixOf).sort(), ["songId", "title"]);
+    assert.match(request.remixOf.songId, /^[a-z0-9-]{1,120}$/);
+    assert.ok(typeof request.remixOf.title === "string" && request.remixOf.title.trim());
+  }
   if (request.generationProfile !== undefined) assert.equal(request.generationProfile, "v8");
   if (request.hasSongPlan !== undefined) assert.equal(request.hasSongPlan, true);
   if (request.recovery) {
