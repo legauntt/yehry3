@@ -24,11 +24,21 @@ from common import load, save, utc
 from queue_monitor import POLICY_VERSION, AdminAPI
 
 
+def identifiers(prompt):
+    """The admin listing, the worker job and the public pages each key a request differently."""
+    song = prompt.get('song') if isinstance(prompt.get('song'), dict) else {}
+    result = {prompt.get('id'), prompt.get('songId'), prompt.get('requestId'),
+              song.get('id'), song.get('songId'), (prompt.get('result') or {}).get('songId')}
+    return {value for value in result if isinstance(value, str)}
+
+
 def find(api, wanted):
-    for prompt in api.prompts():
-        if wanted in (prompt.get('id'), prompt.get('songId')):
+    prompts = api.prompts()
+    for prompt in prompts:
+        if wanted in identifiers(prompt):
             return prompt
-    raise ValueError('No request matches ' + wanted)
+    failed = [sorted(identifiers(p)) for p in prompts if p.get('status') == 'failed']
+    raise ValueError('No request matches ' + wanted + '; failed requests are ' + json.dumps(failed))
 
 
 def record(config, prompt, reason):
