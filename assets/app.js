@@ -177,7 +177,7 @@ async function library() {
       <div id="favorites"></div>${listeningOverview}<p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><div id="catalog-items"><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div></div><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><p class="small listening-note">Listens are recorded after 10 seconds of listening, once per browser per song every 30 minutes. History starts September 2026.</p>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
-    <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong><span id="now-recording" hidden></span><span id="now-generator" hidden></span><span id="now-sides" class="sides" role="group" aria-label="Same song, two pitch settings" hidden></span></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
+    <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong><span id="now-recording" hidden></span><span id="now-generator" hidden></span><span id="now-sides" class="sides" role="group" aria-label="Same song, two pitch settings" hidden></span></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><button id="share-song" class="quiet" aria-label="Share this song">Share ↗</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
   $("#catalog-items").insertAdjacentHTML("beforebegin", `<div class="catalog-view-bar"><p>A little cover art. A lot of personality.</p><div class="catalog-view-switch" role="group" aria-label="Song display"><button type="button" data-catalog-view="grid" aria-pressed="true" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Grid</button><button type="button" data-catalog-view="list" aria-pressed="false" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 4H5M8 4H18M2 10H5M8 10H18M2 16H5M8 16H18"/></svg>List</button></div></div>`);
   mountCatalogView($(".catalog-view-switch"), $("#tracks"));
   mountQualitySettings(main);
@@ -256,6 +256,14 @@ async function library() {
   }
   startRecordSinger($(".record", main), () => songs);
   let initialCatalogPending = true;
+  // The static fallback still lists archived songs; the last IDs the API reported keep them hidden until it answers.
+  const archivedKey = "yehry3:archived-songs";
+  const knownArchived = () => {
+    try { return new Set(JSON.parse(localStorage.getItem(archivedKey) || "[]")); } catch { return new Set(); }
+  };
+  const rememberArchived = (ids) => {
+    try { localStorage.setItem(archivedKey, JSON.stringify(ids)); } catch { /* the fallback just shows them */ }
+  };
   const recentReleases = new Map();
   const freshWindow = 24 * 60 * 60 * 1000;
   const audio = $("#audio");
@@ -521,6 +529,27 @@ async function library() {
       message("Press play in the player to start this song.");
     }
   }
+  // The link opens the home page and the same reveal a completion alert uses selects the song.
+  async function shareCurrent() {
+    if (!current) return;
+    const url = new URL("/", location.origin);
+    url.hash = encodeURIComponent(current.id);
+    // Phones get the native share sheet; desktop browsers copy, which is what a desktop visitor wants.
+    if (navigator.share && matchMedia("(pointer: coarse)").matches) {
+      try {
+        await navigator.share({ title: current.title, text: `Listen to “${current.title}” on yehry3`, url: url.href });
+        return;
+      } catch (error) {
+        if (error.name === "AbortError") return;
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url.href);
+      message(`Link to “${current.title}” copied.`);
+    } catch {
+      window.prompt("Copy this link to share the song", url.href);
+    }
+  }
   function syncPlaybackButtons() {
     const isPlaying = Boolean(current && !audio.paused && !audio.ended && !audio.error);
     $(".player").classList.toggle("is-playing", isPlaying);
@@ -700,6 +729,7 @@ async function library() {
       const [catalog, upcoming] = await Promise.allSettled([api("/songs/summary"), api("/queue?page=0")]);
       if (catalog.status === "fulfilled" && catalog.value.songs?.length) {
         songs = catalog.value.songs;
+        if (Array.isArray(catalog.value.archived)) rememberArchived(catalog.value.archived);
         nextVoteAt = catalog.value.nextVoteAt;
         online = true;
       } else online = false;
@@ -752,6 +782,7 @@ async function library() {
     }
     play(shuffled[0], shuffled);
   };
+  $("#share-song").onclick = shareCurrent;
   $("#previous").onclick = () => next(-1);
   $("#next").onclick = () => next(1);
   for (const event of ["play", "playing", "pause", "ended", "emptied", "error"])
@@ -763,7 +794,8 @@ async function library() {
       true,
     );
   try {
-    songs = (await (await fetch("/catalog-summary.json")).json()).songs;
+    const hidden = knownArchived();
+    songs = (await (await fetch("/catalog-summary.json")).json()).songs.filter((song) => !hidden.has(song.id));
   } catch {
     message("The catalog could not load. Refresh to try again.", true);
   }
@@ -999,7 +1031,7 @@ async function requests() {
           </div>
           <div class="actions"><button class="primary">Review the request <span aria-hidden="true">→</span></button><button class="quiet" type="button" id="start-over">Change the idea</button></div><p class="field-error" role="alert"></p>
         </form>`;
-      mountRequestTabs($("#details-form"), storage, draft.id);
+      const requestTabs = mountRequestTabs($("#details-form"), storage, draft.id);
       const generation = mountGeneration($("#generation-root"), { pitchRoot: $("#pitch-root"), draft: { ...draft, details: initialDetails }, schema: generationSchema, enabled: generationAvailable, storage, escape });
       $("#authored-by").value = draft.authoredBy || "";
       $("#authored-by").oninput = (event) => rememberAuthor(event.target.value);
@@ -1011,7 +1043,7 @@ async function requests() {
       const attachedRemix = initialDetails.remixSource;
       if (attachedRemix) {
         $("#basis-root").innerHTML = `<p class="small" data-remix-source>Recording attached: <a href="/lyrics/?song=${encodeURIComponent(attachedRemix.songId)}">${escape(attachedRemix.title)}</a>. <span data-remix-guidance>Its vocals guide the new arrangement; exact melody and timing may change.</span></p>`;
-        $("#essentials-panel").insertAdjacentHTML("afterbegin", $("#basis-root").innerHTML);
+        $("#essentials-panel .request-shortcuts").insertAdjacentHTML("afterend", $("#basis-root").innerHTML);
         const direction = $('#direction'), directionLabel = $('label[for="direction"]'), hint = direction.nextElementSibling;
         directionLabel.textContent = 'What should change?';
         direction.placeholder = 'Try a new genre, mood, tempo, or instrumentation…';
@@ -1050,6 +1082,7 @@ async function requests() {
         clear() {},
       };
       if (!materialsAvailable) $("#request-materials-root").innerHTML = '<p class="small">Lyrics and reference links are temporarily unavailable.</p>' + materialBrief(draft.details, escape);
+      requestTabs.sync();
       $("#start-over").onclick = () => {
         storage.set("idea-text", draft.prompt);
         if (attachedRemix) {
@@ -1195,6 +1228,95 @@ async function admin() {
     pageNumber = 0,
     loadSequence = 0;
   const threads = new Map();
+  // The song list keeps its own state so the queue's periodic re-render never loses a search.
+  const songs = { q: "", view: "live", page: 0, data: null, sequence: 0, open: false, error: "" };
+  let songTimer;
+  function songsMarkup() {
+    return `<details class="admin-songs" id="admin-songs"${songs.open ? " open" : ""}><summary><span class="admin-songs-title">Published songs</span><span class="small">Search, archive or restore</span></summary><div class="toolbar"><label class="search"><span class="sr-only">Search published songs</span><input type="search" id="song-search" placeholder="Search title, author, idea or ID…" value="${escape(songs.q)}"></label><label class="sr-only" for="song-view">Show songs</label><select id="song-view"><option value="live">On the site</option><option value="archived">Archived</option><option value="all">Both</option></select><span class="small" id="song-summary"></span></div><p class="small">Archiving hides a song from the site for everyone. Votes, plays and files are kept, and you can restore it here.</p><div id="song-list"></div><div class="song-pager"><button class="quiet" id="song-prev">← Earlier songs</button><span id="song-page"></span><button class="quiet" id="song-next">Later songs →</button></div></details>`;
+  }
+  function songRow(song) {
+    const id = escape(song.id);
+    const meta = [collectionNames[song.collection] || song.collection, song.authoredBy && `by ${song.authoredBy}`, song.publishedAt && date(song.publishedAt), song.id, song.archivedAt && `archived ${date(song.archivedAt)}`].filter(Boolean);
+    const title = song.archived ? escape(song.title) : `<a href="/#${id}" target="_blank" rel="noopener">${escape(song.title)}</a>`;
+    return `<article class="admin-song${song.archived ? " archived" : ""}" data-song="${id}"><div><h3>${title}${song.archived ? ' <span class="badge archived">Archived</span>' : ""}</h3><p class="small">${escape(meta.join(" · "))}</p></div><button type="button" class="quiet" data-archive="${id}" data-archived="${!song.archived}" aria-label="${song.archived ? "Restore" : "Archive"} ${escape(song.title)}">${song.archived ? "Restore" : "Archive"}</button></article>`;
+  }
+  function paintSongs() {
+    const list = songs.data;
+    if (!$("#song-list")) return;
+    $("#song-view").value = songs.view;
+    $("#song-summary").textContent = list ? `${list.total} matching · ${list.counts.live} on the site · ${list.counts.archived} archived` : "Loading songs…";
+    $("#song-list").innerHTML = songs.error ? `<p class="small">${escape(songs.error)}</p>` : !list ? "" : list.songs.length ? list.songs.map(songRow).join("") : '<p class="empty small">No songs match.</p>';
+    $("#song-page").textContent = `Page ${songs.page + 1}`;
+    $("#song-prev").disabled = songs.page === 0;
+    $("#song-next").disabled = !list || (songs.page + 1) * list.pageSize >= list.total;
+  }
+  async function loadSongs() {
+    const sequence = ++songs.sequence;
+    try {
+      const params = new URLSearchParams({ view: songs.view, page: songs.page });
+      if (songs.q.trim()) params.set("q", songs.q.trim());
+      const response = await api(`/admin/songs?${params}`, { role: "admin" });
+      if (sequence !== songs.sequence) return;
+      if (!response.songs.length && songs.page > 0) {
+        songs.page = 0;
+        return loadSongs();
+      }
+      songs.data = response;
+      songs.error = "";
+      paintSongs();
+    } catch (error) {
+      if (sequence !== songs.sequence) return;
+      // An expired session is settled by reloading the queue, which shows the login when it must.
+      if (error.status === 401) return load();
+      songs.error = error.status === 404 ? "Song archiving isn’t available from the studio API yet." : error.message;
+      paintSongs();
+    }
+  }
+  function bindSongs() {
+    $("#song-search").oninput = (event) => {
+      songs.q = event.target.value;
+      songs.page = 0;
+      clearTimeout(songTimer);
+      songTimer = setTimeout(loadSongs, 250);
+    };
+    $("#song-view").onchange = (event) => {
+      songs.view = event.target.value;
+      songs.page = 0;
+      loadSongs();
+    };
+    $("#song-prev").onclick = () => {
+      songs.page--;
+      loadSongs();
+    };
+    $("#song-next").onclick = () => {
+      songs.page++;
+      loadSongs();
+    };
+    $("#song-list").addEventListener("click", async (event) => {
+      const button = event.target.closest("[data-archive]");
+      if (!button) return;
+      const archived = button.dataset.archived === "true";
+      const song = songs.data?.songs.find((item) => item.id === button.dataset.archive);
+      if (archived && !window.confirm(`Archive “${song?.title || "this song"}”? It leaves the site for everyone. Votes and plays are kept, and you can restore it here.`)) return;
+      busy(button, true);
+      try {
+        await api(`/admin/songs/${encodeURIComponent(button.dataset.archive)}`, { method: "PATCH", role: "admin", body: { archived } });
+        message(archived ? "Song archived." : "Song restored.");
+        await loadSongs();
+      } catch (error) {
+        if (error.status === 401) return load();
+        message(error.message, true);
+      } finally {
+        busy(button, false);
+      }
+    });
+    $("#admin-songs").ontoggle = (event) => {
+      songs.open = event.target.open;
+      if (songs.open && !songs.data) loadSongs();
+    };
+    paintSongs();
+    if (songs.open && !songs.data) loadSongs();
+  }
   // Threads refresh in place so an open raw log survives polling.
   async function loadThreads(onScreenOnly = false) {
     const onScreen = (node) => {
@@ -1262,9 +1384,7 @@ async function admin() {
     ]
       .map(
         ([status, label]) =>
-          ["attention", "recovering", "needs_review"].includes(status)
-            ? `<a href="/admin/?status=${status}"><strong>${data.counts[status] ?? (status === "attention" ? data.counts.failed || 0 : 0)}</strong><span>${label}</span></a>`
-            : `<div><strong>${data.counts[status] || 0}</strong><span>${label}</span></div>`,
+          `<a href="${status === "queued" ? "/admin/" : `/admin/?status=${status}`}" data-status-tile="${status}"${status === filter ? ' aria-current="true"' : ""}><strong>${data.counts[status] ?? (status === "attention" ? data.counts.failed || 0 : 0)}</strong><span>${label}</span></a>`,
       )
       .join(
         "",
@@ -1275,7 +1395,7 @@ async function admin() {
       .map(([key, label]) => `<option value="${key}">${label}</option>`)
       .join(
         "",
-      )}</select><label for="admin-sort">Sort</label><select id="admin-sort">${Object.entries(sortOptions).map(([value, label]) => `<option value="${value}">${label}</option>`).join("")}</select><button class="quiet" id="refresh">Refresh ↻</button><span class="small">${data.total} requests · ${sortOrder === "priority" ? "Higher priority first; oldest wins ties." : sortOrder === "oldest" ? "Earliest submissions first." : "Latest submissions first."}</span></div><div id="queue">${data.prompts.length ? data.prompts.map(row).join("") : `<div class="empty"><span class="empty-symbol">◎</span><h2>A little room for possibility.</h2><p>No requests in this view yet.</p>${filter === "all" ? '<a class="text-link" href="/distonyc/">Make the first request →</a>' : '<a class="text-link" href="/admin/?status=all">All requests →</a>'}</div>`}</div><div class="pagination"><button class="quiet" id="prev-page" ${pageNumber === 0 ? "disabled" : ""}>← Previous</button><span>Page ${pageNumber + 1}</span><button class="quiet" id="next-page" ${(pageNumber + 1) * 50 >= data.total ? "disabled" : ""}>Next →</button></div></section>`;
+      )}</select><label for="admin-sort">Sort</label><select id="admin-sort">${Object.entries(sortOptions).map(([value, label]) => `<option value="${value}">${label}</option>`).join("")}</select><button class="quiet" id="refresh">Refresh ↻</button><span class="small">${data.total} requests · ${sortOrder === "priority" ? "Higher priority first; oldest wins ties." : sortOrder === "oldest" ? "Earliest submissions first." : "Latest submissions first."}</span></div><div id="queue">${data.prompts.length ? data.prompts.map(row).join("") : `<div class="empty"><span class="empty-symbol">◎</span><h2>A little room for possibility.</h2><p>No requests in this view yet.</p>${filter === "all" ? '<a class="text-link" href="/distonyc/">Make the first request →</a>' : '<a class="text-link" href="/admin/?status=all">All requests →</a>'}</div>`}</div><div class="pagination"><button class="quiet" id="prev-page" ${pageNumber === 0 ? "disabled" : ""}>← Previous</button><span>Page ${pageNumber + 1}</span><button class="quiet" id="next-page" ${(pageNumber + 1) * 50 >= data.total ? "disabled" : ""}>Next →</button></div></section>${songsMarkup()}`;
     showLoginStatus("admin", $(".admin-intro > div"), load);
     loadThreads();
     function changeView() {
@@ -1289,6 +1409,14 @@ async function admin() {
       load();
     }
     $("#status-filter").value = filter;
+    document.querySelectorAll("[data-status-tile]").forEach((tile) => {
+      tile.onclick = (event) => {
+        if (event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        filter = tile.dataset.statusTile;
+        changeView();
+      };
+    });
     $("#status-filter").onchange = (event) => {
       filter = event.target.value;
       changeView();
@@ -1299,6 +1427,7 @@ async function admin() {
       changeView();
     };
     $("#refresh").onclick = load;
+    bindSongs();
     $("#signout").onclick = () => {
       loadSequence++;
       logout("admin");
