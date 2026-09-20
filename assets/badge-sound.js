@@ -27,8 +27,9 @@ function stop() {
 // An announcement has no badge to light up, so the button is optional. Badges
 // take turns with the clips; a caller that names one leaves that rotation alone. A clip
 // can also be a moment of a song, { url, start, end }, which fades out at its end.
-// The result says when the sound is really heard: true once it starts (or has failed, or has
-// taken longer than loadPatience), false if something else took its place first.
+// The result says when the sound is really heard: heard resolves true once it starts (or has
+// failed, or has taken longer than loadPatience), false if something else took its place first.
+// length() is how long the sound lasts in ms, or NaN while that is unknown.
 const volume = 0.85, fadeSeconds = 0.25, loadPatience = 4000;
 function play(button = null, clip = null) {
   stop();
@@ -60,14 +61,16 @@ function play(button = null, clip = null) {
   audio.addEventListener("ended", done);
   audio.addEventListener("error", done);
   audio.play().catch(done);
-  return heard;
+  const length = () => (moment ? (moment.end - moment.start) * 1000 : audio.duration * 1000);
+  return { heard, audio, length };
 }
 
 // Easter egg: hammering any cover art three times inside a second sings every clip in turn,
 // the title line first. It keeps its own place so it never disturbs the badges' rotation.
-// The picture shakes, flashes and gasps for a bit longer than the shorter clip. The first
+// The picture shakes, flashes and gasps for exactly as long as the sound plays. The first
 // hammering sings the title line; after that most sing a random moment from a recording,
 // and one in five sings the fixed clips again.
+// artShockMs is only for a sound whose length is unknown.
 const artTaps = 3, artWindow = 1000, artShockMs = 3400, artFixedOdds = 0.2;
 let taps = [];
 let artNext = 1;
@@ -86,7 +89,7 @@ function loadMoments() {
     .catch(() => { moments = []; });
 }
 
-function shock(art, ms = artShockMs) {
+function shock(art, ms, audio) {
   shocked.get(art)?.();
   art.classList.remove("egg-shock");
   void art.offsetWidth;
@@ -95,13 +98,18 @@ function shock(art, ms = artShockMs) {
   const calm = art.getAttribute("src");
   let gasping = null;
   const timer = setTimeout(() => calm && shocked.get(art)?.(), ms);
-  shocked.set(art, () => {
+  // A sound that is cut short takes its picture with it; an older sound never ends a newer shake.
+  const soundOver = () => { if (shocked.get(art) === release) release(); };
+  const release = () => {
     clearTimeout(timer);
+    for (const event of ["pause", "ended"]) audio?.removeEventListener(event, soundOver);
     shocked.delete(art);
     art.classList.remove("egg-shock");
     art.style.removeProperty("--egg-ms");
     if (gasping && art.getAttribute("src") === gasping) art.setAttribute("src", calm);
-  });
+  };
+  shocked.set(art, release);
+  for (const event of ["pause", "ended"]) audio?.addEventListener(event, soundOver, { once: true });
   // The face is drawn in song-art.js, which the egg loads only when it is found.
   import("./song-art.js").then(({ shockedArtwork }) => {
     const src = shocked.has(art) && shockedArtwork(calm);
@@ -110,7 +118,7 @@ function shock(art, ms = artShockMs) {
 }
 // The art pulses while the sound loads (the stylesheet holds that back if it is quick), then shakes.
 const loadingArt = new WeakMap();
-function whenHeard(art, heard, ms) {
+function whenHeard(art, { heard, audio, length }) {
   const token = {};
   loadingArt.set(art, token);
   art.classList.add("egg-loading");
@@ -118,7 +126,9 @@ function whenHeard(art, heard, ms) {
     if (loadingArt.get(art) !== token) return;
     loadingArt.delete(art);
     art.classList.remove("egg-loading");
-    if (ok) shock(art, ms);
+    if (!ok) return;
+    const ms = length();
+    shock(art, ms > 0 && Number.isFinite(ms) ? ms : artShockMs, audio);
   });
 }
 function tapArt(art, at) {
@@ -131,10 +141,10 @@ function tapArt(art, at) {
   if (moment) {
     artSong = moment.id;
     // The picture waits for the sound, which may need a moment to load.
-    whenHeard(art, play(null, moment), Math.max(artShockMs, (moment.end - moment.start) * 1000 + 400));
+    whenHeard(art, play(null, moment));
     return;
   }
-  whenHeard(art, play(null, clips[artNext]), artShockMs);
+  whenHeard(art, play(null, clips[artNext]));
   artNext = (artNext + 1) % clips.length;
 }
 

@@ -208,8 +208,9 @@ test("after the title line, hammered cover art sings moments from recordings", a
   expect(plays.map(play => play.start)).toEqual(expect.arrayContaining([12.5, 3]));
   expect(new Set(plays.map(play => play.src)).size).toBe(2);
   expect(requests).toHaveLength(1);
-  // The picture keeps shaking for the length of the moment.
+  // The picture keeps shaking for exactly the length of the moment (both are three seconds long).
   await expect(art).toHaveClass(/egg-shock/);
+  expect(await art.evaluate(node => node.style.getPropertyValue("--egg-ms"))).toBe("3000ms");
 });
 
 test("cover art holds still until its sound has loaded", async ({ page }) => {
