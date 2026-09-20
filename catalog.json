@@ -2,6 +2,335 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-78d485531b974441afbc6c4c",
+      "title": "Common People (Tony C Cover)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-78d485531b974441afbc6c4c-5376e9e6a8f5.mp3",
+      "duration": 265.0383673469388,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-20T21:37:01.489Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Common People (Tony C Cover)",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "New 265-second Eleven Music rock cover with entirely new music: taut bass-led post-punk groove, clipped electric guitars, live drums, and a restrained organ lift in the final chorus. Begin with a clear, steadily pitched solo lead, building from conversational verses into broad melodic choruses and a tense stop-start bridge. Tony C V9 carries the guide melody with connected, rough natural phrasing while keeping the words intelligible and the hook catchable; no vocal doubles, stacks, whispers, rasp effects, or backing choir. Final outro continues the newly written closing lines so the final sung syllable lands about 10 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nShe arrived from Greece with a notebook full of names\nStudying marble saints while the city fed its flames\nI saw her by the college gate, her father paid the bill\nShe said, “Show me how the ordinary live”\nI said, “All right, if you mean it, come along”\nShe ordered rum and cola, then the moment was gone\n\n[Chorus]\nYou wanna live with common people\nDo the things that common people do\nYou wanna sleep with common people\nFind a life that feels a little true\nWhat else was I supposed to say?\nI said, “I’ll show you the way”\n\n[Verse 2]\nI took her to the supermarket beneath the buzzing lights\nSaid, “Pretend your purse is empty; try to make it through tonight”\nShe laughed like it was theatre, like the shelves were painted gold\nI said, “There’s nobody else in here who finds this funny, no”\n\n[Pre-Chorus]\nAre you sure you want the view?\nThe late bus, the landlord, the peeling room?\nAre you sure you want the weight\nOf every little choice arriving late?\n\n[Chorus]\nYou wanna live with common people\nSee the things that common people see\nYou wanna sleep with common people\nBut you can’t borrow being me\nYou smile and hold my hand\nLike you finally understand\n\n[Bridge]\nRent a room above a shop\nCut your hair and take the job\nPlay a little pool at night\nSay you never had a school in sight\nBut when the roaches take the wall\nOne phone call could end it all\nThat’s the line you never cross\nThat’s the cost you never lost\n\n[Verse 3]\nYou can dance, you can drink, chase a borrowed little thrill\nCall being poor romantic when your safety net is still\nWaiting in the background, polished, private, out of view\nWhile somebody else is living every consequence for you\nEverybody hates a tourist when they turn their pain to play\nAnd the grease comes from the chip stains, but the feeling doesn’t fade\n\n[Chorus]\nYou’ll never live with common people\nNever break the way the common people do\nNever watch the weeks go hollow\nWith no bright door to walk you through\nStill sing along with common people\nMaybe singing gets us through\nLaugh along, though they are laughing\nAt the dream you thought you knew\n\n[Outro]\nSo rent that flat above the shop\nAnd stay when all the music stops\nIf you want the truth, don’t turn away\nThe last note hangs, then fades to grey\n[End]",
+        "duration": 265,
+        "bpm": 126,
+        "musicalSettings": {
+          "genre": "Bass-forward post-punk rock cover with newly composed music",
+          "meter": "4/4",
+          "structure": "Verse 1, chorus, verse 2, pre-chorus, chorus, bridge, verse 3, final chorus, lyrical outro",
+          "performance": "One clear, steadily pitched Tony C lead with natural connected phrasing and melodic chorus lift",
+          "energy": "Controlled opening tension rises through the bridge into a full final chorus, then resolves quietly",
+          "lyricWorkflow": "Adapted supplied cover lyrics, reshaped into a concise narrative while retaining the central hook",
+          "instruments": [
+            "electric bass",
+            "electric guitars",
+            "drum kit",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nShe arrived from Greece with a notebook full of names\nStudying marble saints while the city fed its flames\nI saw her by the college gate, her father paid the bill\nShe said, “Show me how the ordinary live”\nI said, “All right, if you mean it, come along”\nShe ordered rum and cola, then the moment was gone\n\n[Chorus]\nYou wanna live with common people\nDo the things that common people do\nYou wanna sleep with common people\nFind a life that feels a little true\nWhat else was I supposed to say?\nI said, “I’ll show you the way”\n\n[Verse 2]\nI took her to the supermarket beneath the buzzing lights\nSaid, “Pretend your purse is empty; try to make it through tonight”\nShe laughed like it was theatre, like the shelves were painted gold\nI said, “There’s nobody else in here who finds this funny, no”\n\n[Pre-Chorus]\nAre you sure you want the view?\nThe late bus, the landlord, the peeling room?\nAre you sure you want the weight\nOf every little choice arriving late?\n\n[Chorus]\nYou wanna live with common people\nSee the things that common people see\nYou wanna sleep with common people\nBut you can’t borrow being me\nYou smile and hold my hand\nLike you finally understand\n\n[Bridge]\nRent a room above a shop\nCut your hair and take the job\nPlay a little pool at night\nSay you never had a school in sight\nBut when the roaches take the wall\nOne phone call could end it all\nThat’s the line you never cross\nThat’s the cost you never lost\n\n[Verse 3]\nYou can dance, you can drink, chase a borrowed little thrill\nCall being poor romantic when your safety net is still\nWaiting in the background, polished, private, out of view\nWhile somebody else is living every consequence for you\nEverybody hates a tourist when they turn their pain to play\nAnd the grease comes from the chip stains, but the feeling doesn’t fade\n\n[Chorus]\nYou’ll never live with common people\nNever break the way the common people do\nNever watch the weeks go hollow\nWith no bright door to walk you through\nStill sing along with common people\nMaybe singing gets us through\nLaugh along, though they are laughing\nAt the dream you thought you knew\n\n[Outro]\nSo rent that flat above the shop\nAnd stay when all the music stops\nIf you want the truth, don’t turn away\nThe last note hangs, then fades to grey",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 12.14,
+            "end": 15.76
+          },
+          {
+            "line": 2,
+            "start": 15.76,
+            "end": 19.5
+          },
+          {
+            "line": 3,
+            "start": 20.12,
+            "end": 23.4
+          },
+          {
+            "line": 4,
+            "start": 24.1,
+            "end": 27.12
+          },
+          {
+            "line": 5,
+            "start": 27.12,
+            "end": 30.98
+          },
+          {
+            "line": 6,
+            "start": 31.44,
+            "end": 34.9
+          },
+          {
+            "line": 9,
+            "start": 43.19,
+            "end": 45.74
+          },
+          {
+            "line": 10,
+            "start": 46.92,
+            "end": 50.02
+          },
+          {
+            "line": 11,
+            "start": 50.78,
+            "end": 53.36
+          },
+          {
+            "line": 12,
+            "start": 54.54,
+            "end": 57.62
+          },
+          {
+            "line": 13,
+            "start": 58.36,
+            "end": 61.2
+          },
+          {
+            "line": 14,
+            "start": 61.2,
+            "end": 63.42
+          },
+          {
+            "line": 17,
+            "start": 65.18,
+            "end": 70.62
+          },
+          {
+            "line": 18,
+            "start": 70.62,
+            "end": 76.36
+          },
+          {
+            "line": 19,
+            "start": 76.36,
+            "end": 83.44
+          },
+          {
+            "line": 20,
+            "start": 83.44,
+            "end": 91.22
+          },
+          {
+            "line": 23,
+            "start": 91.22,
+            "end": 97.48
+          },
+          {
+            "line": 24,
+            "start": 97.48,
+            "end": 101.28
+          },
+          {
+            "line": 25,
+            "start": 101.28,
+            "end": 104.68
+          },
+          {
+            "line": 26,
+            "start": 104.68,
+            "end": 108.78
+          },
+          {
+            "line": 29,
+            "start": 111.34,
+            "end": 114.46
+          },
+          {
+            "line": 30,
+            "start": 115.62,
+            "end": 118.6
+          },
+          {
+            "line": 31,
+            "start": 119.32,
+            "end": 122.12
+          },
+          {
+            "line": 32,
+            "start": 123.24,
+            "end": 125.42
+          },
+          {
+            "line": 33,
+            "start": 125.42,
+            "end": 127.86
+          },
+          {
+            "line": 34,
+            "start": 127.86,
+            "end": 129.8
+          },
+          {
+            "line": 37,
+            "start": 134.08,
+            "end": 136.44
+          },
+          {
+            "line": 38,
+            "start": 137.44,
+            "end": 139.38
+          },
+          {
+            "line": 39,
+            "start": 141.08,
+            "end": 143.7
+          },
+          {
+            "line": 40,
+            "start": 144.6,
+            "end": 146.88
+          },
+          {
+            "line": 41,
+            "start": 148.96,
+            "end": 151.7
+          },
+          {
+            "line": 42,
+            "start": 152.26,
+            "end": 153.94
+          },
+          {
+            "line": 43,
+            "start": 155.54,
+            "end": 158.02
+          },
+          {
+            "line": 44,
+            "start": 159.52,
+            "end": 162.04
+          },
+          {
+            "line": 47,
+            "start": 169.44,
+            "end": 174.48
+          },
+          {
+            "line": 48,
+            "start": 175.28,
+            "end": 179.66
+          },
+          {
+            "line": 49,
+            "start": 179.66,
+            "end": 184.08
+          },
+          {
+            "line": 50,
+            "start": 184.8,
+            "end": 189.6
+          },
+          {
+            "line": 51,
+            "start": 190.28,
+            "end": 195.86
+          },
+          {
+            "line": 52,
+            "start": 197.38,
+            "end": 201.54
+          },
+          {
+            "line": 55,
+            "start": 204.62,
+            "end": 207.76
+          },
+          {
+            "line": 56,
+            "start": 207.76,
+            "end": 211.58
+          },
+          {
+            "line": 57,
+            "start": 211.58,
+            "end": 215.82
+          },
+          {
+            "line": 58,
+            "start": 215.82,
+            "end": 219.26
+          },
+          {
+            "line": 59,
+            "start": 220.54,
+            "end": 223.18
+          },
+          {
+            "line": 60,
+            "start": 224.28,
+            "end": 226.96
+          },
+          {
+            "line": 61,
+            "start": 226.96,
+            "end": 231.02
+          },
+          {
+            "line": 62,
+            "start": 231.02,
+            "end": 234.28
+          },
+          {
+            "line": 65,
+            "start": 235.74,
+            "end": 239.32
+          },
+          {
+            "line": 66,
+            "start": 239.32,
+            "end": 243.2
+          },
+          {
+            "line": 67,
+            "start": 243.72,
+            "end": 246.8
+          },
+          {
+            "line": 68,
+            "start": 247.74,
+            "end": 250.84
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony C covers William Shatner covering Pulp's \"Common People\"",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 265
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-045e01a0d7aa0083fe892500",
       "title": "Nine Elevened Again",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-045e01a0d7aa0083fe892500-3447a9df51d4.mp3",
