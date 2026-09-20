@@ -2,6 +2,244 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-e87d33434caabdd9e3d27ab3",
+      "title": "The Pumpkin Knows My Name",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e87d33434caabdd9e3d27ab3-aef0c701ae0d.mp3",
+      "duration": 234.99755102040817,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T03:35:27.258Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Pumpkin Knows My Name",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Gothic Halloween rock in D minor: driving bass, distorted electric guitars, organ and punchy live drums. Start with a clear, steadily pitched Tony lead that is rough and connected but intelligible; intensify each section into a more haunted, possessed melodic delivery with unsettling held notes and brief warped responses only where the lyric calls for them. Build from restrained verse tension to a full-band final chorus, then carry the final sung line through roughly 8–12 seconds before a single resolved minor-to-major closing chord decays.",
+        "lyrics": "[Verse 1]\nI locked the windows before the streetlights bled\nPut candy by the doorway, counted every head\nMy little pumpkin Percy sat warm beside the stove\nThen something scratched the ceiling where no living thing could go\n\n[Pre-Chorus]\nThe hallway bulb went thin and blue\nThe mirror mouthed a word or two\n\n[Chorus]\nThere’s a ghost in my house, there’s a ghost in my house\nIt walks when the floorboards swear they’re still\nThere’s a ghost in my house, there’s a ghost in my house\nAnd Percy’s little candle stares up at the hill\n\n[Verse 2]\nI asked him, “Who’s there?” and Percy tipped his stem\nA cold hand turned the radio from music into phlegm\nThe picture frames were laughing with their faces turned around\nI heard my own voice calling from underneath the ground\n\n[Chorus]\nThere’s a ghost in my house, there’s a ghost in my house\nIt walks when the floorboards swear they’re still\nThere’s a ghost in my house, there’s a ghost in my house\nAnd Percy’s little candle stares up at the hill\n\n[Bridge]\nDon’t open the closet, don’t answer the phone\nDon’t tell me that a man can be alone\nMy shadow’s got a heartbeat, my heartbeat’s got a guest\nIt’s wearing all my Sundays like a medal on its chest\n\n[Breakdown]\nPercy, keep your candle bright\nI can hear it learning how I write\nIt takes my breath, it takes my tune\nIt drags the moon across the room\n\n[Chorus]\nThere’s a ghost in my house—now it’s under my skin\nIt knows every lock I ever let it in\nThere’s a ghost in my house, hear the walls confess\nBut Percy burns gold through the dark, through the mess\n\n[Outro]\nI lift my little pumpkin to the doorway’s dying flame\nThe thing behind me whispers—then I whisper back its name\nIt fades with the last bell, and the house lets out one sigh\nPercy and I watch Halloween walk quietly by\n[End]",
+        "duration": 235,
+        "bpm": 126,
+        "musicalSettings": {
+          "genre": "Gothic Halloween rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, chorus, bridge, breakdown, final chorus, resolved outro",
+          "performance": "Clear melodic Tony lead that gradually becomes haunted and possessed, with connected rough phrasing and sustained climactic notes",
+          "energy": "Creeping suspense grows into a frantic full-band peak, then settles into a resolved final chord",
+          "lyricWorkflow": "Original narrative lyric: a paranoid Halloween night, Tony's pet pumpkin Percy as his ally, and a complete exorcising resolution",
+          "instruments": [
+            "distorted electric guitars",
+            "electric bass",
+            "live drum kit",
+            "dark organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI locked the windows before the streetlights bled\nPut candy by the doorway, counted every head\nMy little pumpkin Percy sat warm beside the stove\nThen something scratched the ceiling where no living thing could go\n\n[Pre-Chorus]\nThe hallway bulb went thin and blue\nThe mirror mouthed a word or two\n\n[Chorus]\nThere’s a ghost in my house, there’s a ghost in my house\nIt walks when the floorboards swear they’re still\nThere’s a ghost in my house, there’s a ghost in my house\nAnd Percy’s little candle stares up at the hill\n\n[Verse 2]\nI asked him, “Who’s there?” and Percy tipped his stem\nA cold hand turned the radio from music into phlegm\nThe picture frames were laughing with their faces turned around\nI heard my own voice calling from underneath the ground\n\n[Chorus]\nThere’s a ghost in my house, there’s a ghost in my house\nIt walks when the floorboards swear they’re still\nThere’s a ghost in my house, there’s a ghost in my house\nAnd Percy’s little candle stares up at the hill\n\n[Bridge]\nDon’t open the closet, don’t answer the phone\nDon’t tell me that a man can be alone\nMy shadow’s got a heartbeat, my heartbeat’s got a guest\nIt’s wearing all my Sundays like a medal on its chest\n\n[Breakdown]\nPercy, keep your candle bright\nI can hear it learning how I write\nIt takes my breath, it takes my tune\nIt drags the moon across the room\n\n[Chorus]\nThere’s a ghost in my house—now it’s under my skin\nIt knows every lock I ever let it in\nThere’s a ghost in my house, hear the walls confess\nBut Percy burns gold through the dark, through the mess\n\n[Outro]\nI lift my little pumpkin to the doorway’s dying flame\nThe thing behind me whispers—then I whisper back its name\nIt fades with the last bell, and the house lets out one sigh\nPercy and I watch Halloween walk quietly by",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.28,
+            "end": 10.56
+          },
+          {
+            "line": 2,
+            "start": 10.92,
+            "end": 15.88
+          },
+          {
+            "line": 3,
+            "start": 16.72,
+            "end": 21.4
+          },
+          {
+            "line": 4,
+            "start": 22.42,
+            "end": 27.26
+          },
+          {
+            "line": 7,
+            "start": 29.74,
+            "end": 34.2
+          },
+          {
+            "line": 8,
+            "start": 34.98,
+            "end": 38.42
+          },
+          {
+            "line": 11,
+            "start": 42.1,
+            "end": 47.18
+          },
+          {
+            "line": 12,
+            "start": 47.72,
+            "end": 53.42
+          },
+          {
+            "line": 13,
+            "start": 53.42,
+            "end": 58.5
+          },
+          {
+            "line": 14,
+            "start": 58.5,
+            "end": 64.08
+          },
+          {
+            "line": 17,
+            "start": 70.76,
+            "end": 75.02
+          },
+          {
+            "line": 18,
+            "start": 75.02,
+            "end": 81.26
+          },
+          {
+            "line": 19,
+            "start": 82.72,
+            "end": 87.78
+          },
+          {
+            "line": 20,
+            "start": 88.58,
+            "end": 93.62
+          },
+          {
+            "line": 23,
+            "start": 97.16,
+            "end": 102.32
+          },
+          {
+            "line": 24,
+            "start": 102.32,
+            "end": 108.48
+          },
+          {
+            "line": 25,
+            "start": 108.48,
+            "end": 113.6
+          },
+          {
+            "line": 26,
+            "start": 113.6,
+            "end": 119.04
+          },
+          {
+            "line": 29,
+            "start": 124.56,
+            "end": 131.24
+          },
+          {
+            "line": 30,
+            "start": 131.24,
+            "end": 134.36
+          },
+          {
+            "line": 31,
+            "start": 135.96,
+            "end": 141.34
+          },
+          {
+            "line": 32,
+            "start": 142.32,
+            "end": 146.62
+          },
+          {
+            "line": 35,
+            "start": 150.7,
+            "end": 155.62
+          },
+          {
+            "line": 36,
+            "start": 156.16,
+            "end": 159.76
+          },
+          {
+            "line": 37,
+            "start": 161.28,
+            "end": 163.62
+          },
+          {
+            "line": 38,
+            "start": 163.62,
+            "end": 171.98
+          },
+          {
+            "line": 41,
+            "start": 171.98,
+            "end": 176.74
+          },
+          {
+            "line": 42,
+            "start": 177.66,
+            "end": 182.62
+          },
+          {
+            "line": 43,
+            "start": 182.62,
+            "end": 187.82
+          },
+          {
+            "line": 44,
+            "start": 188.57,
+            "end": 194.14
+          },
+          {
+            "line": 47,
+            "start": 198.41,
+            "end": 203.32
+          },
+          {
+            "line": 48,
+            "start": 203.32,
+            "end": 210.28
+          },
+          {
+            "line": 49,
+            "start": 210.28,
+            "end": 214.94
+          },
+          {
+            "line": 50,
+            "start": 216,
+            "end": 220.9
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "Tony grows paranoid on Halloween that there's a ghost in his house, and his voice becomes increasingly possessed",
+        "direction": "Use the prompt as written.",
+        "keep": "Tony has a pet pumpkin",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 235
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-adb600e3aba45bf218647ff4",
       "title": "See-saw'd Again (Empty Frame Mix)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-adb600e3aba45bf218647ff4-0ecba85641a5.mp3",
