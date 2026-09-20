@@ -2,6 +2,360 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-92f0e589f6588ad81f987ae8",
+      "title": "Absolutely Not",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-92f0e589f6588ad81f987ae8-e70080efeef7.mp3",
+      "duration": 239.9869387755102,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T05:10:18.970Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Absolutely Not",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "A minor",
+        "arrangement": "Upbeat brass-driven rock in 4/4: electric guitar, active bass, drums, trombone, and trumpet build from a tight verse pocket into broad melodic choruses. One clear, steadily pitched Tony lead carries a playful-but-compassionate melody with natural connected phrasing; no vocal doubles or backing vocals. Let the bridge briefly open around the brass before a full final chorus. Pace the final sustained “not” 8–12 seconds before the 240-second end, followed by one resolved band chord and natural decay.",
+        "lyrics": "[Verse 1]\nThe clinic clock was coughing midnight\nThe waiting room was blue with rain\nA paper cup, a bent-up magazine\nEverybody spelling out their pain\nThen Tony came through the side door\nWith a suitcase humming low\nHe said, “I got a lamp for the long nights\nAnd a little more than you know”\n\n[Pre-Chorus]\nNo white coat, no miracle pitch\nJust a battered case and a switch\n\n[Chorus]\nCancer, sickle cell, lupus too\nHemorrhoids, bad teeth, the common flu\nYou think that’s all he’s got?\nAbsolutely not\nHe turned the fear into a Saturday song\nPut a warm bright wheel where the cold went wrong\nYou think that’s all he’s got?\nAbsolutely not\n\n[Verse 2]\nHe polished every anxious question\nTill it shone like a diner spoon\nHe made the old man laugh so hard\nHe forgot the shape of the room\nA kid with a blanket round her shoulders\nTapped a rhythm on the chair\nTony said, “We’ll keep the lights on,\nWe’ll make some breathing space in here”\n\n[Pre-Chorus]\nNo secret bottle, no magic cure\nJust stubborn love that can endure\n\n[Chorus]\nCancer, sickle cell, lupus too\nHemorrhoids, bad teeth, the common flu\nYou think that’s all he’s got?\nAbsolutely not\nHe turned the fear into a Saturday song\nPut a warm bright wheel where the cold went wrong\nYou think that’s all he’s got?\nAbsolutely not\n\n[Bridge]\nMaybe he can’t mend every broken thing\nMaybe nobody holds that kind of key\nBut he can stand beside the shaking hands\nAnd say, “You don’t disappear on me”\nThe trombone swings through the narrow hall\nThe trumpet lifts the cracked-up sky\nAnd every name gets carried forward\nOn a note that will not die\n\n[Chorus]\nCancer, sickle cell, lupus too\nHemorrhoids, bad teeth, the common flu\nYou think that’s all he’s got?\nAbsolutely not\nHe’s got a joke for the waiting line\nA brass-band pulse and borrowed time\nYou think that’s all he’s got?\nAbsolutely not\n\n[Outro]\nHe can’t promise the world will heal tonight\nBut he’ll leave one bright chord burning right\nAbsolutely not\n[End]",
+        "duration": 240,
+        "bpm": 126,
+        "musicalSettings": {
+          "genre": "Brass-driven rock",
+          "meter": "4/4",
+          "structure": "Verse, pre-chorus, chorus, verse, pre-chorus, chorus, bridge, final chorus, short resolved outro",
+          "performance": "Clear melodic lead with natural connected phrasing and a catchable hook",
+          "energy": "Starts with a lively pocket, rises through buoyant choruses, opens emotionally in the bridge, then resolves warmly",
+          "lyricWorkflow": "Original narrative lyrics that recast the exaggerated premise as morale and companionship rather than medical promises",
+          "instruments": [
+            "Electric guitar",
+            "Electric bass",
+            "Drums",
+            "Trombone",
+            "Trumpet"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThe clinic clock was coughing midnight\nThe waiting room was blue with rain\nA paper cup, a bent-up magazine\nEverybody spelling out their pain\nThen Tony came through the side door\nWith a suitcase humming low\nHe said, “I got a lamp for the long nights\nAnd a little more than you know”\n\n[Pre-Chorus]\nNo white coat, no miracle pitch\nJust a battered case and a switch\n\n[Chorus]\nCancer, sickle cell, lupus too\nHemorrhoids, bad teeth, the common flu\nYou think that’s all he’s got?\nAbsolutely not\nHe turned the fear into a Saturday song\nPut a warm bright wheel where the cold went wrong\nYou think that’s all he’s got?\nAbsolutely not\n\n[Verse 2]\nHe polished every anxious question\nTill it shone like a diner spoon\nHe made the old man laugh so hard\nHe forgot the shape of the room\nA kid with a blanket round her shoulders\nTapped a rhythm on the chair\nTony said, “We’ll keep the lights on,\nWe’ll make some breathing space in here”\n\n[Pre-Chorus]\nNo secret bottle, no magic cure\nJust stubborn love that can endure\n\n[Chorus]\nCancer, sickle cell, lupus too\nHemorrhoids, bad teeth, the common flu\nYou think that’s all he’s got?\nAbsolutely not\nHe turned the fear into a Saturday song\nPut a warm bright wheel where the cold went wrong\nYou think that’s all he’s got?\nAbsolutely not\n\n[Bridge]\nMaybe he can’t mend every broken thing\nMaybe nobody holds that kind of key\nBut he can stand beside the shaking hands\nAnd say, “You don’t disappear on me”\nThe trombone swings through the narrow hall\nThe trumpet lifts the cracked-up sky\nAnd every name gets carried forward\nOn a note that will not die\n\n[Chorus]\nCancer, sickle cell, lupus too\nHemorrhoids, bad teeth, the common flu\nYou think that’s all he’s got?\nAbsolutely not\nHe’s got a joke for the waiting line\nA brass-band pulse and borrowed time\nYou think that’s all he’s got?\nAbsolutely not\n\n[Outro]\nHe can’t promise the world will heal tonight\nBut he’ll leave one bright chord burning right\nAbsolutely not",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.06,
+            "end": 10.44
+          },
+          {
+            "line": 2,
+            "start": 11.52,
+            "end": 13.82
+          },
+          {
+            "line": 3,
+            "start": 15.56,
+            "end": 18.18
+          },
+          {
+            "line": 4,
+            "start": 19.16,
+            "end": 21.6
+          },
+          {
+            "line": 5,
+            "start": 21.6,
+            "end": 25.96
+          },
+          {
+            "line": 6,
+            "start": 25.96,
+            "end": 29.34
+          },
+          {
+            "line": 7,
+            "start": 30.36,
+            "end": 33.8
+          },
+          {
+            "line": 8,
+            "start": 33.8,
+            "end": 37.14
+          },
+          {
+            "line": 11,
+            "start": 38.61,
+            "end": 42.06
+          },
+          {
+            "line": 12,
+            "start": 43.28,
+            "end": 46.7
+          },
+          {
+            "line": 15,
+            "start": 46.7,
+            "end": 53.52
+          },
+          {
+            "line": 16,
+            "start": 54.28,
+            "end": 57.22
+          },
+          {
+            "line": 17,
+            "start": 57.72,
+            "end": 59.34
+          },
+          {
+            "line": 18,
+            "start": 60.32,
+            "end": 62.22
+          },
+          {
+            "line": 19,
+            "start": 65.4,
+            "end": 69.1
+          },
+          {
+            "line": 20,
+            "start": 69.5,
+            "end": 72.8
+          },
+          {
+            "line": 21,
+            "start": 72.8,
+            "end": 74.78
+          },
+          {
+            "line": 22,
+            "start": 74.78,
+            "end": 77.66
+          },
+          {
+            "line": 25,
+            "start": 77.66,
+            "end": 81.92
+          },
+          {
+            "line": 26,
+            "start": 81.92,
+            "end": 85.36
+          },
+          {
+            "line": 27,
+            "start": 85.36,
+            "end": 90.42
+          },
+          {
+            "line": 28,
+            "start": 90.42,
+            "end": 93.2
+          },
+          {
+            "line": 29,
+            "start": 93.2,
+            "end": 99.32
+          },
+          {
+            "line": 30,
+            "start": 99.32,
+            "end": 102.9
+          },
+          {
+            "line": 31,
+            "start": 104.56,
+            "end": 107.26
+          },
+          {
+            "line": 32,
+            "start": 108.32,
+            "end": 110.62
+          },
+          {
+            "line": 35,
+            "start": 115.28,
+            "end": 118.34
+          },
+          {
+            "line": 36,
+            "start": 119.1,
+            "end": 122.24
+          },
+          {
+            "line": 39,
+            "start": 125.92,
+            "end": 128.98
+          },
+          {
+            "line": 40,
+            "start": 129.8,
+            "end": 132.7
+          },
+          {
+            "line": 41,
+            "start": 133.2,
+            "end": 134.78
+          },
+          {
+            "line": 42,
+            "start": 136.24,
+            "end": 137.72
+          },
+          {
+            "line": 43,
+            "start": 138.96,
+            "end": 142.68
+          },
+          {
+            "line": 44,
+            "start": 143.04,
+            "end": 146.3
+          },
+          {
+            "line": 45,
+            "start": 146.3,
+            "end": 148.36
+          },
+          {
+            "line": 46,
+            "start": 148.36,
+            "end": 151.2
+          },
+          {
+            "line": 49,
+            "start": 154.18,
+            "end": 157.96
+          },
+          {
+            "line": 50,
+            "start": 157.96,
+            "end": 160.84
+          },
+          {
+            "line": 51,
+            "start": 162.54,
+            "end": 165.74
+          },
+          {
+            "line": 52,
+            "start": 165.74,
+            "end": 168.64
+          },
+          {
+            "line": 53,
+            "start": 171.54,
+            "end": 175.42
+          },
+          {
+            "line": 54,
+            "start": 176.22,
+            "end": 178.24
+          },
+          {
+            "line": 55,
+            "start": 179.98,
+            "end": 183.26
+          },
+          {
+            "line": 56,
+            "start": 183.26,
+            "end": 186.26
+          },
+          {
+            "line": 59,
+            "start": 190.07,
+            "end": 192.8
+          },
+          {
+            "line": 60,
+            "start": 193.68,
+            "end": 196.56
+          },
+          {
+            "line": 61,
+            "start": 197.02,
+            "end": 198.66
+          },
+          {
+            "line": 62,
+            "start": 199.66,
+            "end": 203.44
+          },
+          {
+            "line": 63,
+            "start": 203.44,
+            "end": 206.54
+          },
+          {
+            "line": 64,
+            "start": 207.18,
+            "end": 210.36
+          },
+          {
+            "line": 65,
+            "start": 210.64,
+            "end": 212.22
+          },
+          {
+            "line": 66,
+            "start": 212.9,
+            "end": 215.08
+          },
+          {
+            "line": 69,
+            "start": 216.67,
+            "end": 220.78
+          },
+          {
+            "line": 70,
+            "start": 221.82,
+            "end": 225.78
+          },
+          {
+            "line": 71,
+            "start": 225.78,
+            "end": 234.4
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "originalPrompt": {
+        "idea": "Tony C cures cancer, sickle cell anemia, lupus, hemorrhoids, the common cold, and bad teeth. You think that's all he's got? Absolutely *not*",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Trombone",
+            "Trumpet"
+          ],
+          "pitchRepair": "haunted",
+          "duration": 240
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-17b48b4f3c0e5de5505db97b",
       "title": "The Road to Sunday",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-17b48b4f3c0e5de5505db97b-b5b055fb5579.mp3",
