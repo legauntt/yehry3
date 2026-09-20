@@ -34,10 +34,10 @@ class Ledger:
         paid_music.save(self.path, {'version': 1, 'requests': rows})
         paid_music.save(self.policy_path, {'version': 1, 'enabled': True, 'cap_cents': 20000,
                                            'ledger': str(self.path), 'credential': str(Path(directory) / 'key')})
-        self.credits = credits
+        self.credits, self.other = credits, {}
 
     def run(self, apply=False):
-        with patch.object(reconcile, 'provider_credits', return_value={'music_v2_5': self.credits}):
+        with patch.object(reconcile, 'provider_credits', return_value={'music_v2_5': self.credits, **self.other}):
             return reconcile.reconcile(self.policy_path, apply=apply)
 
     def read(self):
@@ -146,6 +146,22 @@ class ReconcileTest(unittest.TestCase):
 
     def test_credits_below_what_was_generated_still_abort(self):
         book = self.ledger([row('a', 240000, 400)], credits=1)
+        with self.assertRaises(ValueError):
+            book.run(apply=True)
+
+    def test_another_eleven_product_is_reported_beside_the_generated_minutes(self):
+        # 20 Sept: a stem-separation trial outside the worker aborted eleven hourly settlements.
+        book = self.ledger([row('a', 240000, 400)], credits=4 * reconcile.CREDITS_PER_MINUTE)
+        book.other = {'two_stems_v1': 12857}
+        report = book.run(apply=True)
+        self.assertTrue(report['provider']['agrees'])
+        self.assertEqual(report['provider']['provider_credits'], 4 * reconcile.CREDITS_PER_MINUTE)
+        self.assertEqual(report['provider']['outside_ledger_credits'], 12857)
+        self.assertEqual(book.read()['requests'][0]['reconciled_cents'], 60)
+
+    def test_a_new_generation_model_still_counts_as_generated_minutes(self):
+        book = self.ledger([row('a', 240000, 400)], credits=4 * reconcile.CREDITS_PER_MINUTE)
+        book.other = {'music_v3': 50 * reconcile.CREDITS_PER_MINUTE}
         with self.assertRaises(ValueError):
             book.run(apply=True)
 

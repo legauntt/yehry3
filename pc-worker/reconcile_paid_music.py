@@ -30,6 +30,7 @@ CREDITS_PER_MINUTE = 825
 USAGE_ENDPOINT = 'https://api.elevenlabs.io/v1/usage/character-stats'
 USAGE_WINDOW_DAYS = 120
 TOLERANCE = 0.02
+GENERATION_MODEL_PREFIX = 'music_'
 BASIS = 'published $0.15/minute rate, settled against ElevenLabs music_v2_5 credit history'
 
 
@@ -47,6 +48,15 @@ def provider_credits(credential, days=USAGE_WINDOW_DAYS):
     with urllib.request.urlopen(request, timeout=120) as response:
         usage = json.loads(response.read()).get('usage', {})
     return {name: sum(values) for name, values in usage.items()}
+
+
+def generation_credits(models):
+    """The ledger records song generation only. Another Eleven product on the same key is reported, not counted.
+
+    On 2026-09-20 a 12,857-credit `two_stems_v1` trial made outside the worker read as unexplained generated
+    minutes and aborted eleven hourly settlements, leaving every new hold at $1.00/minute against the cap.
+    """
+    return sum(value for name, value in models.items() if name.startswith(GENERATION_MODEL_PREFIX))
 
 
 def rejected_before_generation(entry):
@@ -99,13 +109,14 @@ def verify_against_provider(attempts, credential):
     minutes = sum(a['billed_ms'] for a in attempts) / 60000
     open_minutes = sum(a['open_ms'] for a in attempts) / 60000
     models = provider_credits(credential)
-    credits = sum(models.values())
+    credits = generation_credits(models)
     low = minutes * CREDITS_PER_MINUTE
     high = (minutes + open_minutes) * CREDITS_PER_MINUTE
     tolerance = max(low * TOLERANCE, CREDITS_PER_MINUTE)
     ok = low - tolerance <= credits <= high + tolerance
     return {'generated_minutes': round(minutes, 4), 'unresolved_minutes': round(open_minutes, 4),
-            'provider_credits': credits, 'expected_credits': round(low, 1),
+            'provider_credits': credits, 'outside_ledger_credits': sum(models.values()) - credits,
+            'expected_credits': round(low, 1),
             'expected_ceiling': round(high + tolerance, 1), 'models': models,
             'credits_per_minute': round(credits / minutes, 2) if minutes else None, 'agrees': bool(ok)}
 
@@ -158,8 +169,8 @@ def main():
     if args.usage_only:
         cfg = policy(args.policy)
         models = provider_credits(cfg['credential'])
-        total = sum(models.values())
-        print(json.dumps({'at': utc(), 'credits': total, 'models': models,
+        total = generation_credits(models)
+        print(json.dumps({'at': utc(), 'credits': total, 'outside_ledger_credits': sum(models.values()) - total, 'models': models,
                           'generated_minutes': round(total / CREDITS_PER_MINUTE, 2),
                           'value_cents': round(total / CREDITS_PER_MINUTE * RATE_CENTS_PER_MINUTE)}, indent=2))
         return
