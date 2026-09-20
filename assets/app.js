@@ -800,6 +800,15 @@ async function requests() {
     const url = new URL(location.href); url.searchParams.delete("remix");
     history.replaceState(history.state, "", url);
   }
+  // Detach from the saved request and put the remix idea back on step 01.
+  function adoptRemixIdea() {
+    draft = null;
+    storage.remove("draft");
+    storage.remove("prompt-request");
+    storage.set("idea-text", remix.seed.prompt);
+    storage.set("remix-idea", remix.id);
+    remixActive = true;
+  }
   let basisSongs;
   let materialsAvailable = false;
   let generationAvailable = false, generationSchema;
@@ -846,6 +855,9 @@ async function requests() {
         }
       }
     }
+    // Opening a Remix link starts a new request. A confirmed request is already
+    // in the studio queue, so leave it there instead of landing on its last step.
+    if (remix?.seed && !remixUsed && draft?.confirmedAt) adoptRemixIdea();
     render();
   }
   function render(mode) {
@@ -884,8 +896,7 @@ async function requests() {
         const conflict = draft ? !linkedDraft : !remixActive;
         panel.innerHTML = `<p class="small">Remix of <a href="/lyrics/?song=${encodeURIComponent(remix.id)}">${escape(remix.title)}</a>: a new arrangement guided by the original. Melody and timing may change. ${linkedDraft ? "Choose the new sound and whether lyrics may change, then review your request." : "Edit the idea and tell us what should change."}</p>${conflict ? `<button type="button" class="quiet" id="begin-remix">${draft ? "Start this remix as a new request" : "Use the remix idea instead"}</button><p class="small">${draft ? "Your current request stays saved in the studio." : "This replaces the idea currently in the form."}</p>` : ""}`;
         panel.querySelector("#begin-remix")?.addEventListener("click", () => {
-          draft = null; storage.remove("draft"); storage.remove("prompt-request");
-          storage.set("idea-text", remix.seed.prompt); storage.set("remix-idea", remix.id); remixActive = true; render();
+          adoptRemixIdea(); render();
         });
       }
       $(".request-intro").append(panel);

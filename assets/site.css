@@ -2362,6 +2362,20 @@ button.lyric-line:hover {
 .remix-comparison audio { display: block; width: 100%; margin-top: .8rem; }
 .remix-comparison h2 { font-size: 1.25rem; }
 @media print { .remix-comparison { display: none; } }
+.remix-note {
+  max-width: 560px;
+  margin: 22px auto 0;
+  padding: 16px 22px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--light);
+  text-align: left;
+}
+.remix-note > * { margin: 0; }
+.remix-note > * + * { margin-top: 10px; }
+@media (max-width: 640px) {
+  .remix-note { padding: 14px 16px; }
+}
 
 .generation-panel,.generation-review{margin:1.5rem 0;padding:1rem;border:1px solid var(--line,#b6aa8c);border-radius:8px}
 .generation-enable{display:flex;gap:.65rem;align-items:center;margin:1rem 0}.generation-enable input,.composition-choice input{width:auto;flex:none}

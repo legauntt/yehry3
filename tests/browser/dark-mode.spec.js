@@ -64,3 +64,28 @@ test("Dark Mode keeps the vote count readable on liked songs", async ({ page, co
   });
   expect(ratio).toBeGreaterThan(4.5);
 });
+
+test("Dark Mode keeps the pinned label readable", async ({ page, context }) => {
+  await context.route("https://fonts.googleapis.com/**", route => route.abort());
+  await page.addInitScript(() => localStorage.setItem("yehry3:dark-mode", "true"));
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  const ratio = await page.evaluate(() => {
+    const button = document.createElement("button");
+    button.className = "song-action";
+    button.setAttribute("aria-pressed", "true");
+    button.textContent = "Pinned · 2";
+    document.body.append(button);
+    const channels = value => value.match(/[\d.]+/g).slice(0, 3).map(Number);
+    const luminance = rgb => {
+      const [r, g, b] = rgb.map(v => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+    const style = getComputedStyle(button);
+    const light = luminance(channels(style.color));
+    const dark = luminance(channels(style.backgroundColor));
+    button.remove();
+    return (Math.max(light, dark) + 0.05) / (Math.min(light, dark) + 0.05);
+  });
+  expect(ratio).toBeGreaterThan(4.5);
+});

@@ -78,6 +78,16 @@ test("opening Remix preserves an existing draft until the listener chooses the n
   await page.getByRole("button", { name: "Start this remix as a new request" }).click();
   await expect(page.locator("#idea")).toHaveValue(/Remix “Source song”/);
 });
+test("opening Remix after a request went out returns the form to step 01", async ({ page }) => {
+  const state = await setup(page, { id: "sent-request", prompt: "The request that already went out", version: 1,
+    status: "queued", confirmedAt: new Date().toISOString(), details: {} });
+  await page.goto(`/distonyc/?remix=${song.id}`);
+  await expect(page.locator('.steps li[aria-current="step"]')).toContainText("The idea");
+  await expect(page.locator("#idea")).toHaveValue(/Remix “Source song”/);
+  await expect(page.getByRole("button", { name: "Start this remix as a new request" })).toHaveCount(0);
+  expect(state.writes).toHaveLength(0);
+  expect(state.confirmations()).toBe(0);
+});
 test("an unsent idea is not silently paired with remix lyrics", async ({ page }) => {
   const state = await setup(page);
   await page.addInitScript(() => sessionStorage.setItem("yehry3:idea-text", "My original unrelated idea"));

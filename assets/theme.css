@@ -43,3 +43,5 @@ html[data-shared-theme][data-theme="dark"] .update-banner { background: #3a2f18;
 html[data-shared-theme][data-theme="dark"] .update-banner button { background: #493c21; color: #f5d99b; border-color: #7c6631; }
 html[data-shared-theme][data-theme="dark"] .update-banner button:hover { background: #f5d99b; color: #29210f; }
 html[data-shared-theme][data-theme="dark"] .loop-toggle[aria-pressed="true"] { background: #46301f; color: #ffd9bd; border-color: #a06a3f; }
+html[data-shared-theme][data-theme="dark"] .song-action { border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] :is(.song-action:hover:not(:disabled), .song-action[aria-pressed="true"]) { background: #46301f; color: #ffd9bd; border-color: #a06a3f; }
