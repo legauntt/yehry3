@@ -5,7 +5,7 @@
 import { shock } from "../assets/badge-sound.js";
 import { songArtwork } from "../assets/song-art.js";
 import { lyricsHref } from "../assets/song-links.js";
-import { publicApi } from "../assets/api.js";
+import { api } from "../assets/api.js";
 import { createPicker } from "./crate.js";
 
 // One record plays and `ahead` more are cued behind it, each on its own audio element that is
@@ -343,7 +343,7 @@ if ("mediaSession" in navigator) {
 // The clips are built with the site. Live votes and redraws only shape the pictures, so they
 // get a short head start and are never waited on after that.
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-const summary = publicApi("/songs/summary")
+const summary = api("/songs/summary", { timeout: 5000 })
   .then((data) => { if (Array.isArray(data?.songs)) songs = new Map(data.songs.map((song) => [song.id, song])); })
   .catch(() => {});
 const clips = fetch("/egg-clips.json")
