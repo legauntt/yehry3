@@ -25,8 +25,8 @@ def requested(plan):
 
 def sung_with(work):
     """The setting the voice runtime actually used, from its own journal."""
-    path = Path(work) / 'pitch-repair.json'
-    mode = load(path).get('mode') if path.exists() else None
+    try: mode = load(Path(work) / 'pitch-repair.json').get('mode')
+    except (OSError, ValueError, AttributeError): return None
     return mode if mode in MODES else None
 
 
@@ -109,18 +109,20 @@ def b_side(config, plan, directory, heartbeat, run_owned, stopped):
     """Sing the requested B side, at most twice per job; every failure leaves the verified A side to publish alone."""
     mode = requested(plan); directory = Path(directory); journal = directory / JOURNAL
     if not mode: return None
-    record = load(journal) if journal.exists() else {}
-    if record.get('status') not in ('completed', 'failed') and record.get('attempts', 0) < 2:
-        save(journal, {'version': 1, 'status': 'started', 'mode': mode, 'attempts': record.get('attempts', 0) + 1, 'at': time.time()})
-        heartbeat.stage = 'Singing the B side'
-        try:
-            run_owned([config['settings']['python'], str(Path(__file__).resolve()), '--request', str(directory / 'render-request.json'),
-                       '--gate', str(directory / 'alternate.gate'), '--mode', mode],
-                      directory, directory / 'pitch-alternate.log', heartbeat.stopped, gate=directory / 'alternate.gate')
-        except stopped: raise
-        except Exception: pass  # The child journals its own failure; the song goes on without a B side.
-    try: return saved(directory, config)
-    except (OSError, ValueError, KeyError): return None
+    try:
+        record = load(journal) if journal.exists() else {}
+        if record.get('status') not in ('completed', 'failed') and record.get('attempts', 0) < 2:
+            save(journal, {'version': 1, 'status': 'started', 'mode': mode, 'attempts': record.get('attempts', 0) + 1, 'at': time.time()})
+            heartbeat.stage = 'Singing the B side'
+            try:
+                run_owned([config['settings']['python'], str(Path(__file__).resolve()), '--request', str(directory / 'render-request.json'),
+                           '--gate', str(directory / 'alternate.gate'), '--mode', mode],
+                          directory, directory / 'pitch-alternate.log', heartbeat.stopped, gate=directory / 'alternate.gate')
+            except stopped: raise
+            except Exception: pass  # The child journals its own failure.
+        return saved(directory, config)
+    except stopped: raise
+    except Exception: return None  # The verified song goes on without a B side.
 
 
 def fields(result, alternate):
