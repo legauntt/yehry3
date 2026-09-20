@@ -217,7 +217,9 @@ async function drawLabel(page, side) {
   await page.mouse.move(rect.x + rect.width * .28, rect.y + rect.height * .75, { steps: 5 });
   await page.mouse.up();
 }
-const clipart = (page, side, name) => page.locator(`[data-art-side="${side}"]`).getByLabel(`${name} clipart`).check();
+// Clipart is drawn from words like a song cover's redraw; the same words on the same side always draw the same picture.
+const clipart = (page, side, words) => page.locator(`[data-art-side="${side}"]`).getByLabel("What should it be?").fill(words);
+const artSrc = (page, selector = "#tape-label-art img") => page.locator(selector).getAttribute("src");
 
 test("side labels are drawn or clipart, fall back to Side A / Side B, and survive publishing and a new browser", async ({ page, browser }) => {
   await catalog(page); await page.setViewportSize({ width: 390, height: 844 });
@@ -240,15 +242,22 @@ test("side labels are drawn or clipart, fall back to Side A / Side B, and surviv
   const ink = await page.evaluate(() => JSON.parse(sessionStorage.getItem("yehry3:mixtape:v1")).labels.a.ink);
   expect(ink).toHaveLength(1); expect(ink[0].length).toBeGreaterThan(2);
   // Clipart can be a side's label too: beside the drawing on side A, on its own on side B.
-  await clipart(page, "a", "Star");
-  await expect(page.locator("#tape-label-art svg")).toBeVisible();
+  await clipart(page, "a", "a green robot in sunglasses");
+  await expect(page.locator("#tape-label-art img")).toBeVisible();
+  await expect(page.locator("#tape-label-art img")).toHaveAttribute("alt", /^Side A clipart\. Silly clip art:/);
   await expect(page.locator("#tape-label-ink")).toBeVisible();
   await page.getByRole("button", { name: "Flip to side B" }).click();
   await expect(page.locator("#tape-title")).toHaveText("Side B");
   await expect(page.locator("#tape-title")).not.toHaveClass(/sr-only/);
   await expect(page.locator("#tape-label-ink")).toBeHidden();
-  await clipart(page, "b", "Moon");
-  await expect(page.locator("#tape-label-art svg")).toBeVisible();
+  await clipart(page, "b", "a ghost with a balloon");
+  await expect(page.locator("#tape-label-art img")).toBeVisible();
+  await expect(page.locator('[data-art-side="b"] [data-art-status]')).toContainText("ghost");
+  const ghost = await artSrc(page);
+  await page.getByRole("button", { name: "Another take of Side B clipart" }).click();
+  expect(await artSrc(page)).not.toBe(ghost);
+  await clipart(page, "b", "a ghost with a balloon");
+  expect(await artSrc(page)).toBe(ghost);
   await expect(page.locator("#tape-title")).toHaveClass(/sr-only/);
   await expect(page.locator("#tape-title")).toHaveText("Side B");
   await page.getByRole("button", { name: "Publish mixtape" }).click();
@@ -258,24 +267,25 @@ test("side labels are drawn or clipart, fall back to Side A / Side B, and surviv
   await page.getByRole("button", { name: "Publish mixtape" }).click();
   await expect(page.locator("#tape-link")).toHaveValue(url);
   await page.reload();
-  await expect(page.locator('[data-art-side="b"]').getByLabel("Moon clipart")).toBeChecked();
+  await expect(page.locator('[data-art-side="b"] [data-art-preview] img')).toHaveAttribute("src", ghost);
   expect(await page.evaluate(() => JSON.parse(sessionStorage.getItem("yehry3:mixtape:v1")).labels.a.ink)).toEqual(ink);
   const context = await browser.newContext({ viewport: { width: 390, height: 844 } });
   const recipient = await context.newPage(); await catalog(recipient); await recipient.goto(url);
   await expect(recipient.locator("#tape-label-ink")).toBeVisible();
   await expect(recipient.locator("#tape-label-ink")).toHaveAttribute("aria-label", "Handwritten Side A label");
-  await expect(recipient.locator("#tape-label-art svg")).toHaveAttribute("aria-label", "Star clipart");
+  await expect(recipient.locator("#tape-label-art img")).toHaveAttribute("alt", /^Side A clipart\./);
   await expect(recipient.locator(".tape-edit")).toBeHidden();
   await recipient.getByRole("button", { name: "Flip to side B" }).click();
-  await expect(recipient.locator("#tape-label-art svg")).toHaveAttribute("aria-label", "Moon clipart");
+  await expect(recipient.locator("#tape-label-art img")).toHaveAttribute("src", ghost);
   await recipient.getByRole("button", { name: "Make your own version" }).click();
   await expect(recipient).toHaveURL(/\/mixtapes\/new$/);
-  await clipart(recipient, "b", "Sun");
+  await clipart(recipient, "b", "a sun with a lollipop");
+  expect(await artSrc(recipient, '[data-art-side="b"] [data-art-preview] img')).not.toBe(ghost);
   await recipient.getByRole("button", { name: "Publish mixtape" }).click();
   await expect(recipient.locator("#tape-link")).toHaveValue(/\/mixtapes\/[A-Za-z0-9_-]{12}$/);
   expect(await recipient.locator("#tape-link").inputValue()).not.toBe(url);
   await recipient.goto(url); await recipient.getByRole("button", { name: "Flip to side B" }).click();
-  await expect(recipient.locator("#tape-label-art svg")).toHaveAttribute("aria-label", "Moon clipart");
+  await expect(recipient.locator("#tape-label-art img")).toHaveAttribute("src", ghost);
   expect(await recipient.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await recipient.screenshot({ path: "artifacts/mixtape-labels-mobile.png", fullPage: true });
   await context.close();
@@ -318,8 +328,8 @@ test("a device that cannot draw shows plain Side A / Side B and still allows cli
   await expect(page.locator(".tape-edit")).toContainText("can’t draw labels");
   await page.getByRole("button", { name: "Add First record to side A" }).click();
   await expect(page.locator("#tape-title")).toHaveText("Side A");
-  await clipart(page, "a", "Heart");
-  await expect(page.locator("#tape-label-art svg")).toBeVisible();
+  await clipart(page, "a", "a heart-eyed book");
+  await expect(page.locator("#tape-label-art img")).toBeVisible();
   // A drawn tape made elsewhere reads as plain text here.
   const inked = { ...emptyTape(), a: ["tape-one"], b: ["tape-two"], labels: { a: { text: "", ink: [[[0, 0], [500, 120]]] }, b: { text: "", ink: [[[0, 0], [500, 120]]] } } };
   await page.goto(`/mixtapes/#tape=${encodeTape(inked)}`);
@@ -345,13 +355,14 @@ test("the Mixtapes page opens on the gallery, with an empty state and a New butt
   await expect(page.locator(".tape-track")).toHaveCount(0);
   await expect(page.locator("#tape-label-ink")).toBeHidden();
   await expect(page.locator("#tape-label-art")).toBeHidden();
-  await expect(page.locator('[data-art-side="a"] input[value=""]')).toBeChecked();
+  await expect(page.locator('[data-art-side="a"] [data-art-preview]')).toContainText("No clipart yet");
+  await expect(page.getByRole("button", { name: "Remove Side A clipart" })).toBeDisabled();
   await expect(page.getByRole("button", { name: "Publish mixtape" })).toBeDisabled();
 });
 
 test("gallery cards show every published tape, page through them, and New discards an old draft", async ({ page }) => {
   const tape = name => ({ v: 2, name, color: "green", a: ["tape-one"], b: ["tape-two", "tape-one"],
-    labels: { a: { text: "", ink: [[[0, 0], [300, 100], [600, 20]]], art: "star" }, b: { text: "", ink: [] } } });
+    labels: { a: { text: "", ink: [[[0, 0], [300, 100], [600, 20]]], art: { seed: 12345, theme: "ghost" } }, b: { text: "", ink: [] } } });
   const ids = Array.from({ length: 13 }, (_, i) => `tape${String(i).padStart(8, "0")}`);
   await page.route(/\/yehry3\/mixtapes\?page=\d+$/, route => {
     const index = Number(new URL(route.request().url()).searchParams.get("page"));
@@ -368,7 +379,7 @@ test("gallery cards show every published tape, page through them, and New discar
   await expect(first).toContainText("Sep");
   // Side A is drawn with clipart; side B has nothing drawn, so it reads "Side B".
   await expect(first.locator('[data-face="a"] canvas')).toBeVisible();
-  await expect(first.locator('[data-face="a"] svg')).toBeVisible();
+  await expect(first.locator('[data-face="a"] img')).toBeVisible();
   await expect(first.locator('[data-face="b"] em')).toHaveText("Side B");
   await expect(first.locator("canvas").first()).toHaveJSProperty("width", 1000);
   await page.getByRole("button", { name: "Show more tapes" }).click();
@@ -393,7 +404,7 @@ test("the gallery reports a load failure and retries", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "No mixtapes yet." })).toBeVisible();
 });
 
-test("old links and typed labels still open, but clipart must come from the allowlist", async ({ page }) => {
+test("old links and typed labels still open, but clipart must be a bounded picture", async ({ page }) => {
   await catalog(page);
   const legacy = Buffer.from(JSON.stringify({ v: 1, name: "A legacy tape", color: "blue", a: ["tape-one"], b: [] })).toString("base64url");
   await page.goto(`/mixtapes/#tape=${legacy}`);
@@ -404,7 +415,7 @@ test("old links and typed labels still open, but clipart must come from the allo
   const typed = { ...emptyTape(), a: ["tape-one"], labels: { a: { text: "Old typed label", ink: [] }, b: { text: "", ink: [] } } };
   await page.goto(`/mixtapes/#tape=${encodeTape(typed)}`);
   await expect(page.locator("#tape-title")).toHaveText("Old typed label");
-  const hostile = Buffer.from(JSON.stringify({ ...typed, v: 2, labels: { a: { text: "", ink: [], art: "<svg onload=alert(1)>" }, b: { text: "", ink: [] } } })).toString("base64url");
+  const hostile = Buffer.from(JSON.stringify({ ...typed, v: 2, labels: { a: { text: "", ink: [], art: { seed: 1, src: "javascript:alert(1)" } }, b: { text: "", ink: [] } } })).toString("base64url");
   await page.goto(`/mixtapes/#tape=${hostile}`);
   await expect(page.getByRole("heading", { name: "This mixtape could not open." })).toBeVisible();
 });
@@ -445,7 +456,7 @@ test("editing during a slow publish never copies a stale version", async ({ page
   });
   await page.getByRole("button", { name: "Publish mixtape" }).click();
   await expect(page.locator("#share-tape")).toHaveAttribute("aria-busy", "true");
-  await clipart(page, "a", "Lightning bolt");
+  await clipart(page, "a", "a robot");
   await expect.poll(() => Boolean(release)).toBe(true); release();
   await expect(page.locator("#tape-status")).toContainText("Your tape changed");
   await expect(page.locator("#tape-link")).toBeHidden();
@@ -453,7 +464,7 @@ test("editing during a slow publish never copies a stale version", async ({ page
   await page.getByRole("button", { name: "Publish mixtape" }).click();
   await expect(page.locator("#tape-link")).toHaveValue(/\/mixtapes\/[A-Za-z0-9_-]{12}$/);
   await page.goto(await page.locator("#tape-link").inputValue());
-  await expect(page.locator("#tape-label-art svg")).toHaveAttribute("aria-label", "Lightning bolt clipart");
+  await expect(page.locator("#tape-label-art img")).toHaveAttribute("alt", /^Side A clipart\./);
 });
 
 test("the editor and record shelf follow Dark Mode instead of staying cream", async ({ page }) => {

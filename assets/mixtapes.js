@@ -5,7 +5,7 @@ import { qualityNotice } from "./quality.js";
 import { lyricsHref } from "./song-links.js";
 import { tapeKey, tapeColors, emptyTape, validateTape, decodeTape, tapeDuration, tapeIdPattern, tapeHref } from "./mixtape-data.js";
 import { drawInk, mountHandwriting, sideInk, canDraw } from "./tape-handwriting.js";
-import { artChoices, artSvg } from "./tape-art.js";
+import { artImage, drawClipart } from "./tape-art.js";
 
 const main = document.querySelector("#main");
 watchCompletions();
@@ -62,7 +62,7 @@ async function gallery() {
   const date = value => { const day = new Date(value); return Number.isNaN(day.getTime()) ? "" : ` · ${day.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}`; };
   const face = (t, side) => {
     const label = t.labels[side], drawn = drawEnabled && label.ink.length > 0;
-    return `<span class="tape-card-side" data-face="${side}"><b aria-hidden="true">${side.toUpperCase()}</b>${label.art ? `<span class="tape-card-art">${artSvg(label.art, true)}</span>` : ""}${drawn ? '<canvas class="cassette-ink" aria-hidden="true"></canvas>' : label.art ? "" : `<em>${escape(label.text || `Side ${side.toUpperCase()}`)}</em>`}</span>`;
+    return `<span class="tape-card-side" data-face="${side}"><b aria-hidden="true">${side.toUpperCase()}</b>${label.art ? `<span class="tape-card-art">${artImage(side, label.art, true)}</span>` : ""}${drawn ? '<canvas class="cassette-ink" aria-hidden="true"></canvas>' : label.art ? "" : `<em>${escape(label.text || `Side ${side.toUpperCase()}`)}</em>`}</span>`;
   };
   const card = ({ id, tape: t, createdAt }) => {
     const count = t.a.length + t.b.length, name = escape(t.name);
@@ -124,7 +124,7 @@ async function mount() {
       </section>
     </section>
     <section class="tape-edit" aria-label="Personalize your tape" ${shared ? "hidden" : ""}><div><label for="tape-name">Mixtape name</label><input id="tape-name" maxlength="80"></div><div><label for="tape-color">Sleeve color</label><select id="tape-color">${tapeColors.map(color => `<option value="${color}">${color[0].toUpperCase() + color.slice(1)}</option>`).join("")}</select></div><p class="small">Two sides. Two stories.<br>Give each one its own label.</p>
-      <div class="tape-label-editors"><div class="label-editors-head"><div><h3>Side labels</h3><p class="small">${drawEnabled ? "Every label is drawn by hand. Write with a mouse, finger or pen, add clipart, or start from a pre-drawn label." : "This device can’t draw labels, so your tape will show plain Side A and Side B. You can still add clipart."}</p></div>${drawEnabled ? '<button class="quiet" id="pre-draw">Pre-draw Side A &amp; B</button>' : ""}</div>${["a", "b"].map(side => `<div class="tape-label-editor"${drawEnabled ? ` data-label-editor="${side}"` : ""}><h4>Side ${side.toUpperCase()}</h4>${drawEnabled ? `<canvas class="handwriting-pad" aria-label="Draw a handwritten label for side ${side.toUpperCase()}" role="img"></canvas><div class="actions"><button class="quiet" data-ink-undo>Undo stroke</button><button class="quiet" data-ink-clear>Clear drawing</button></div><p class="small" data-ink-status role="status"></p>` : ""}<fieldset class="tape-art-picker" data-art-side="${side}"><legend>Side ${side.toUpperCase()} clipart</legend><label class="art-choice"><input type="radio" name="art-${side}" value="" checked><span>None</span></label>${artChoices.map(({ id, label }) => `<label class="art-choice"><input type="radio" name="art-${side}" value="${id}"><span class="art-swatch">${artSvg(id, true)}</span><span class="sr-only">${label} clipart</span></label>`).join("")}</fieldset></div>`).join("")}</div></section>
+      <div class="tape-label-editors"><div class="label-editors-head"><div><h3>Side labels</h3><p class="small">${drawEnabled ? "Every label is drawn by hand. Write with a mouse, finger or pen, add clipart, or start from a pre-drawn label." : "This device can’t draw labels, so your tape will show plain Side A and Side B. You can still add clipart."}</p></div>${drawEnabled ? '<button class="quiet" id="pre-draw">Pre-draw Side A &amp; B</button>' : ""}</div>${["a", "b"].map(side => `<div class="tape-label-editor"${drawEnabled ? ` data-label-editor="${side}"` : ""}><h4>Side ${side.toUpperCase()}</h4>${drawEnabled ? `<canvas class="handwriting-pad" aria-label="Draw a handwritten label for side ${side.toUpperCase()}" role="img"></canvas><div class="actions"><button class="quiet" data-ink-undo>Undo stroke</button><button class="quiet" data-ink-clear>Clear drawing</button></div><p class="small" data-ink-status role="status"></p>` : ""}<div class="tape-art-picker" data-art-side="${side}"><h5>Side ${side.toUpperCase()} clipart</h5><div class="tape-art-preview" data-art-preview></div><label for="art-words-${side}">What should it be?</label><input id="art-words-${side}" data-art-words maxlength="80" autocomplete="off" enterkeyhint="done" placeholder="a robot in sunglasses, blue, holding a balloon"><div class="actions"><button class="quiet" data-art-roll>🎲 Draw one</button><button class="quiet" data-art-clear>Remove clipart</button></div><p class="small" data-art-status role="status" aria-live="polite">Try a character (robot, ghost, guitar…), a color, sunglasses, a balloon, wink or dance. Leave it blank for a surprise.</p></div></div>`).join("")}</div></section>
     <div class="tape-workspace"><section class="tape-tracklist" aria-label="Your tracklist"><div class="section-heading"><h2>The running order.</h2><span class="small" id="tape-count"></span></div><p class="small">${shared ? "Pick a track to start there. Side B follows Side A automatically." : "Click a title to listen. Drag to reorder, or use the arrow buttons."}</p><div class="tape-sides" id="tape-sides"></div></section>
       <section class="tape-picker" id="tape-picker" ${shared ? "hidden" : ""}><p class="eyebrow">The record shelf</p><h2>Find your next track.</h2><div class="tape-starter"><span class="small">Need a starting point?</span><button class="quiet" id="tape-surprise" disabled>Add a surprise mix ↗</button></div><label class="sr-only" for="tape-search">Find a song</label><input type="search" id="tape-search" placeholder="Search the collection…"><p class="small" id="tape-results" role="status"></p><div id="tape-catalog"><p>Getting the records out…</p></div></section>
     </div><aside class="tape-dock" aria-label="Quick playback controls" hidden><div><span class="eyebrow">On the tape</span><strong id="tape-mini-now"></strong></div><button class="quiet" id="tape-mini-toggle" aria-label="Pause from mini player">Ⅱ</button><a class="text-link" href="#tape-deck">Player ↑</a></aside>`;
@@ -145,7 +145,7 @@ async function mount() {
     $("#tape-label-ink").hidden = !drawn;
     $("#tape-label-ink").setAttribute("aria-label", `Handwritten ${side} label`);
     $("#tape-label-art").hidden = !art;
-    $("#tape-label-art").innerHTML = artSvg(art);
+    $("#tape-label-art").innerHTML = artImage(activeSide, art);
     $(".cassette-face").classList.toggle("has-ink", drawn);
     if (drawn) drawInk($("#tape-label-ink"), label.ink);
     const count = slots[activeSide].length;
@@ -235,12 +235,29 @@ async function mount() {
     redrawPads(); save(); renderLabel(); syncPreDraw();
     status("Pre-drew the blank labels. Undo a stroke or clear a side to draw your own.");
   });
+  // Clipart is drawn like a song cover's redraw: words pick a character, colors and props, and "Another take" rolls the rest.
   main.querySelectorAll("[data-art-side]").forEach(group => {
-    const side = group.dataset.artSide;
-    group.querySelectorAll("input").forEach(input => {
-      input.checked = input.value === (tape.labels[side].art || "");
-      input.onchange = () => { if (input.checked) { tape.labels[side].art = input.value; save(); renderLabel(); } };
-    });
+    const side = group.dataset.artSide, input = group.querySelector("[data-art-words]"), roll = group.querySelector("[data-art-roll]");
+    const clear = group.querySelector("[data-art-clear]"), note = group.querySelector("[data-art-status]");
+    let again = 0;
+    const paint = () => {
+      const art = tape.labels[side].art;
+      group.querySelector("[data-art-preview]").innerHTML = art ? artImage(side, art) : '<span class="small">No clipart yet.</span>';
+      roll.textContent = art ? "🎲 Another take" : "🎲 Draw one";
+      roll.setAttribute("aria-label", `${art ? "Another take of" : "Draw"} Side ${side.toUpperCase()} clipart`);
+      clear.disabled = !art;
+      clear.setAttribute("aria-label", `Remove Side ${side.toUpperCase()} clipart`);
+    };
+    const draw = () => {
+      const { art, understood } = drawClipart(side, input.value, again);
+      tape.labels[side].art = art;
+      save(); renderLabel(); paint();
+      note.textContent = understood.length ? `Drawn with: ${understood.join(", ")}.` : input.value.trim() ? "A new picture from your words. Name a character, a color or a prop to steer it." : "A surprise. Type a few words to steer it.";
+    };
+    input.addEventListener("input", () => { again = 0; if (input.value.trim()) draw(); });
+    roll.addEventListener("click", () => { again++; draw(); });
+    clear.addEventListener("click", () => { delete tape.labels[side].art; input.value = ""; again = 0; save(); renderLabel(); paint(); note.textContent = ""; });
+    paint();
   });
   syncPreDraw();
   $("#tape-color").onchange = event => { tape.color = event.target.value; save(); $(".tape-sleeve").dataset.color = tape.color; };

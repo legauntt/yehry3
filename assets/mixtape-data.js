@@ -1,7 +1,22 @@
 // A draft only survives a reload of the tab that is editing it; "New" always starts from an empty tape.
 export const tapeKey = "yehry3:mixtape:v1";
-// Clipart is stored as an ID and drawn by the page (see tape-art.js), never as an uploaded image or SVG.
-export const artIds = ["star", "heart", "bolt", "moon", "note", "sun"];
+// Clipart is the song covers' procedural art, stored as a seed plus optional character and trait numbers
+// (see tape-art.js), never as an uploaded image or SVG. Keys are kept in a fixed order so equal pictures match.
+export const artIndexes = ["palette", "pose", "prop", "extra", "eyes", "mouth", "backdrop", "confetti", "tilt", "flip"];
+export function validateArt(value) {
+  if (value === undefined || value === "") return null;
+  const bad = new Error("This side's clipart is incomplete or invalid.");
+  if (!value || typeof value !== "object" || Array.isArray(value) || !Number.isInteger(value.seed) || value.seed < 0 || value.seed > 0xffffffff) throw bad;
+  if (Object.keys(value).some(key => key !== "seed" && key !== "theme" && !artIndexes.includes(key))) throw bad;
+  const result = { seed: value.seed };
+  if (value.theme !== undefined) { if (typeof value.theme !== "string" || !/^[a-z]{1,24}$/.test(value.theme)) throw bad; result.theme = value.theme; }
+  for (const key of artIndexes) {
+    if (value[key] === undefined) continue;
+    if (!Number.isInteger(value[key]) || value[key] < 0 || value[key] >= 64) throw bad;
+    result[key] = value[key];
+  }
+  return result;
+}
 export const tapeColors = ["orange", "green", "pink", "blue"];
 export const blankLabel = () => ({ text: "", ink: [] });
 export const defaultName = "My Tony C mixtape";
@@ -15,9 +30,10 @@ export const tapeHref = id => {
 
 function validateLabel(value) {
   // Typed text is legacy: tapes are hand-drawn now, but older ones still open.
-  const text = value?.text === undefined ? "" : value.text, art = value?.art === undefined ? "" : value.art;
-  if (!value || typeof text !== "string" || text.length > 80 || !Array.isArray(value.ink) || value.ink.length > 60 || art !== "" && !artIds.includes(art))
+  const text = value?.text === undefined ? "" : value.text;
+  if (!value || typeof text !== "string" || text.length > 80 || !Array.isArray(value.ink) || value.ink.length > 60)
     throw new Error("This side's label is incomplete or invalid.");
+  const art = validateArt(value.art);
   let points = 0;
   const ink = value.ink.map(stroke => {
     if (!Array.isArray(stroke) || !stroke.length || (points += stroke.length) > 1200) throw new Error("This handwritten label is too large.");

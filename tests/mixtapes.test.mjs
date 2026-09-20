@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { emptyTape, encodeTape, decodeTape, validateTape, tapeDuration, tapeHref, artIds } from "../assets/mixtape-data.js";
-import { artChoices, artSvg } from "../assets/tape-art.js";
+import { emptyTape, encodeTape, decodeTape, validateTape, tapeDuration, tapeHref } from "../assets/mixtape-data.js";
+import { artImage, drawClipart } from "../assets/tape-art.js";
 import { sideInk } from "../assets/tape-handwriting.js";
 
 test("mixtape links round-trip Unicode names and repeat tracks without accepting extra fields", () => {
@@ -32,20 +32,40 @@ test("old drafts and links gain independent labels; handwriting stays bounded an
   assert.throws(() => tapeHref("../private"));
 });
 
-test("a new tape is empty, labels are drawn, and clipart is an allowlisted ID that older tapes lack", () => {
+test("a new tape is empty, labels are drawn, and clipart is a bounded picture of numbers that older tapes lack", () => {
   const blank = emptyTape();
   assert.deepEqual([blank.name, blank.a, blank.b], ["", [], []]);
   assert.deepEqual(blank.labels, { a: { text: "", ink: [] }, b: { text: "", ink: [] } });
   // Publishing a nameless tape gives it the default name; typed text is optional legacy data.
-  const drawn = validateTape({ ...blank, a: ["one"], labels: { a: { ink: [[[0, 0]]], art: "star" }, b: { ink: [] } } });
+  const art = { flip: 1, theme: "ghost", seed: 4000000000, palette: 3 };
+  const drawn = validateTape({ ...blank, a: ["one"], labels: { a: { ink: [[[0, 0]]], art }, b: { ink: [] } } });
   assert.equal(drawn.name, "My Tony C mixtape");
-  assert.deepEqual(drawn.labels, { a: { text: "", ink: [[[0, 0]]], art: "star" }, b: { text: "", ink: [] } });
+  // Keys come back in a fixed order so equal pictures make equal tapes.
+  assert.deepEqual(Object.keys(drawn.labels.a.art), ["seed", "theme", "palette", "flip"]);
+  assert.deepEqual(drawn.labels.a, { text: "", ink: [[[0, 0]]], art: { seed: 4000000000, theme: "ghost", palette: 3, flip: 1 } });
   assert.deepEqual(decodeTape(encodeTape(drawn)), drawn);
-  for (const art of ["<svg onload=x>", "STAR", "javascript:1", 7, null])
-    assert.throws(() => validateTape({ ...blank, a: ["one"], labels: { a: { ink: [], art }, b: { ink: [] } } }));
-  for (const id of artIds) assert.ok(artSvg(id).startsWith("<svg"));
-  assert.equal(artSvg("<script>"), "");
-  assert.equal(artChoices.length, artIds.length);
+  for (const bad of ["star", "<svg onload=x>", 7, null, [], {}, { theme: "ghost" }, { seed: -1 }, { seed: 4294967296 }, { seed: 1.5 }, { seed: 1, theme: "Ghost" },
+    { seed: 1, palette: 64 }, { seed: 1, tilt: "3" }, { seed: 1, src: "javascript:alert(1)" }])
+    assert.throws(() => validateTape({ ...blank, a: ["one"], labels: { a: { ink: [], art: bad }, b: { ink: [] } } }));
+});
+
+test("clipart is drawn from words with the song covers' generator, per side, and never carries markup", () => {
+  const one = drawClipart("a", "a robot in sunglasses, blue");
+  assert.ok(Number.isInteger(one.art.seed));
+  assert.equal(one.art.theme, "robot");
+  assert.ok(one.understood.length >= 2);
+  assert.doesNotThrow(() => validateTape({ ...emptyTape(), a: ["one"], labels: { a: { ink: [], art: one.art }, b: { ink: [] } } }));
+  assert.deepEqual(drawClipart("a", "a robot in sunglasses, blue"), one);
+  assert.notDeepEqual(drawClipart("a", "a robot in sunglasses, blue", 1).art, one.art);
+  assert.notDeepEqual(drawClipart("b", "a robot in sunglasses, blue").art, one.art);
+  assert.ok(Number.isInteger(drawClipart("a", "  ").art.seed));
+  const image = artImage("a", { seed: 1 });
+  assert.match(image, /^<img class="tape-art" src="data:image\/svg\+xml,/);
+  assert.match(image, /alt="Side A clipart\./);
+  assert.match(artImage("b", { seed: 1 }, true), /alt=""/);
+  assert.equal(artImage("a", undefined), "");
+  const hostile = drawClipart("a", '"><script>alert(1)</script>');
+  assert.doesNotMatch(artImage("a", hostile.art), /<script|"><|onerror/i);
 });
 
 test("the pre-drawn Side A and Side B lettering fits the label and the shared handwriting limits", () => {
