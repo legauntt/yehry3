@@ -110,6 +110,7 @@ for (const name of [
   "generation-controls.js",
   "generation-brief.js",
   "pitch-repair.js",
+  "sides.js",
   "authored-by.js",
   "api.js",
   "config.js",

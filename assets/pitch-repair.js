@@ -37,4 +37,6 @@ export function mountPitchControl(root, { saved, onChange }) {
   select.value = known(saved) || rememberedPitch() || defaultPitch;
   show();
   select.addEventListener('change', () => { remember(select.value); show(); onChange?.(); });
+  // The control can sit outside the panel whose edits are saved automatically, so it reports its own.
+  other?.addEventListener('change', () => onChange?.());
 }

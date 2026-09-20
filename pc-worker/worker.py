@@ -4,7 +4,7 @@ from pathlib import Path
 from common import API, APIError, inside, load, save, sha, singleton, utc
 from winprocess import Stopped, run_owned
 from planner import make_plan
-from publish import upload, update_catalog
+from publish import upload, upload_alternates, update_catalog
 from public_plan import public_plan
 from lyrics import make_sheet, export_sheet
 from voice_models import selected, capabilities as voice_capabilities
@@ -176,19 +176,25 @@ def run_once(config, api, verify_existing=None):
                 except RuntimeError:
                     if error_file.exists(): raise RuntimeError(load(error_file)['message']) from None
                     raise
+            from pitch_alternate import b_side, fields as pitch_fields
+            alternate = b_side(config, plan, directory, heartbeat, run_owned, Stopped)
             mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
+            completed.update(pitch_fields(load(result_file), alternate))
             prompt = action('complete', result=completed)
         else:
             if not result_file.exists(): raise ValueError('This PC is missing the completed mix. Restore its saved job folder before publishing.')
             plan = load(directory / ('approved-plan.json' if (directory / 'approved-plan.json').exists() else 'plan.json'))['plan']
             voice_model = selected(prompt)
             mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
+            from pitch_alternate import fields as pitch_fields, saved as saved_b_side
+            completed.update(pitch_fields(load(result_file), saved_b_side(directory, config)))
             # Finish pre-upgrade publications with their original immutable metadata.
             if any(completed.get(key) != value for key, value in prompt['result'].items()): raise ValueError('The saved mix differs from the server result')
         if heartbeat.stopped(): raise Stopped('Cancellation or lease loss')
         if prompt['status'] == 'completed': prompt = action('publishing')
         heartbeat.stage = 'Publishing the verified MP3'
         upload(config, prompt, mp3, directory, heartbeat.stopped)
+        upload_alternates(config, prompt, directory, heartbeat.stopped)
         if heartbeat.stopped(): raise Stopped('Lease lost during publication')
         prompt = action('publish')
         heartbeat.close()

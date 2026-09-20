@@ -1,5 +1,6 @@
 import { songBadges, voiceModelBadge } from "./song-badges.js";
 import { pitchBadge } from "./pitch-badge.js";
+import { mountSides, sidesBadge } from "./sides.js";
 import { musicBackendBadge } from "./music-provenance.js";
 import { mountLoopToggle } from "./loop.js";
 import { mountMusicBackend, paidConfirmation, PAID_BACKEND } from './music-backend.js';
@@ -157,7 +158,7 @@ function songMeta(song, recentPublishedAt) {
   const shown = collections(song).filter((name) => !unlabeledCollections.has(name));
   return `<div class="track-meta">${shown.length ? `<span class="track-collections">${escape(
     shown.map((name) => collectionNames[name] || name).join(" / "),
-  )}</span>` : ""}${authoredByLine(song.authoredBy, escape)}${voiceModelBadge(song)}${musicBackendBadge(song)}${pitchBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+  )}</span>` : ""}${authoredByLine(song.authoredBy, escape)}${voiceModelBadge(song)}${musicBackendBadge(song)}${pitchBadge(song)}${sidesBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
 }
 
 async function library() {
@@ -177,7 +178,7 @@ async function library() {
       <div id="favorites"></div>${listeningOverview}<p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><div id="catalog-items"><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div></div><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><p class="small listening-note">Listens are recorded after 10 seconds of listening, once per browser per song every 30 minutes. History starts September 2026.</p>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
-    <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong><span id="now-recording" hidden></span><span id="now-generator" hidden></span></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
+    <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong><span id="now-recording" hidden></span><span id="now-generator" hidden></span><span id="now-sides" class="sides" role="group" aria-label="Same song, two pitch settings" hidden></span></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
   $("#catalog-items").insertAdjacentHTML("beforebegin", `<div class="catalog-view-bar"><p>A little cover art. A lot of personality.</p><div class="catalog-view-switch" role="group" aria-label="Song display"><button type="button" data-catalog-view="grid" aria-pressed="true" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Grid</button><button type="button" data-catalog-view="list" aria-pressed="false" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 4H5M8 4H18M2 10H5M8 10H18M2 16H5M8 16H18"/></svg>List</button></div></div>`);
   mountCatalogView($(".catalog-view-switch"), $("#tracks"));
   mountQualitySettings(main);
@@ -246,6 +247,7 @@ async function library() {
   const recentReleases = new Map();
   const freshWindow = 24 * 60 * 60 * 1000;
   const audio = $("#audio");
+  const sides = mountSides($("#now-sides"), audio, { safeUrl, onSwitch: (side) => { $("#download").href = safeUrl(side.url); } });
   const loop = mountLoopToggle();
   loop.attach(audio);
   $("#next").after(loop.element);
@@ -498,6 +500,7 @@ async function library() {
     $("#now-title").textContent = song.title;
     $("#download").href = safeUrl(song.url);
     audio.src = safeUrl(song.url);
+    sides.show(song);
     listening.start(song.id);
     render();
     try {

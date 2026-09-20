@@ -39,13 +39,33 @@ def verify_download(url, metadata, stop=None):
     if count != metadata['bytes'] or digest.hexdigest() != metadata['sha256']:
         raise ValueError('The public MP3 differs from the verified local mix')
 
+def asset_url(song_id, digest):
+    return f'https://github.com/{REPO}/releases/download/{TAG}/{song_id}-{digest[:12]}.mp3'
+
+
 def upload(config, prompt, mp3, directory, stop=None):
-    metadata = prompt['result']; mp3 = Path(mp3)
+    if prompt['releaseUrl'] != asset_url(prompt['songId'], prompt['result']['sha256']): raise ValueError('Unexpected release destination')
+    upload_asset(config, prompt['songId'], prompt['result'], mp3, directory, stop)
+
+
+def upload_alternates(config, prompt, directory, stop=None):
+    """B sides the server accepted with this song. Their addresses come from their hashes, like the song's own."""
+    rows = prompt['result'].get('alternates') or []
+    if not rows: return
+    from pitch_alternate import saved
+    item = saved(directory, config)
+    for row in rows:
+        if not item or any(item[key] != row[key] for key in ('pitchRepair', 'sha256', 'bytes')):
+            raise ValueError('The saved B side differs from the server result')
+        upload_asset(config, prompt['songId'], row, item['mp3'], directory, stop)
+
+
+def upload_asset(config, song_id, metadata, mp3, directory, stop=None):
+    mp3 = Path(mp3)
     if mp3.stat().st_size != metadata['bytes'] or sha(mp3) != metadata['sha256']:
         raise ValueError('The verified MP3 changed before upload')
-    name = f"{prompt['songId']}-{metadata['sha256'][:12]}.mp3"
-    expected = f'https://github.com/{REPO}/releases/download/{TAG}/{name}'
-    if prompt['releaseUrl'] != expected: raise ValueError('Unexpected release destination')
+    name = f"{song_id}-{metadata['sha256'][:12]}.mp3"
+    expected = asset_url(song_id, metadata['sha256'])
     info = release(config)
     existing = next((asset for asset in info['assets'] if asset['name'] == name), None)
     if existing and existing['size'] != metadata['bytes']: raise ValueError('A conflicting release asset already exists')
@@ -77,7 +97,8 @@ def song_record(prompt):
             **({'publishedAt': prompt['publishedAt']} if prompt.get('publishedAt') else {}),
             **({'authoredBy': prompt['authoredBy']} if prompt.get('authoredBy') else {}),
             **({'songPlan': prompt['songPlan']} if prompt.get('songPlan') else {}),
-            **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues', 'validationFailures', 'reviewState', 'generationProfile', 'musicBackend'] if key in result},
+            **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues', 'validationFailures', 'reviewState', 'generationProfile', 'musicBackend', 'pitchRepair'] if key in result},
+            **({'alternates': [{**row, 'url': asset_url(prompt['songId'], row['sha256'])} for row in result['alternates']]} if result.get('alternates') else {}),
             **({'originalPrompt': original_prompt(prompt)} if prompt.get('prompt') else {})}
 
 def merge_catalog(catalog, record):
