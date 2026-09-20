@@ -21,6 +21,7 @@ html[data-shared-theme][data-theme="dark"] :is(#tracks[data-view="grid"] .track.
 }
 html[data-shared-theme][data-theme="dark"] :is(.review-state, .quality-notice, #catalog-items .pending-title .tiny-label) { color: #edc47a; }
 html[data-shared-theme][data-theme="dark"] :is(.field-error, .attention-note, .presence-pill.offline) { color: #ffb49c; }
+html[data-shared-theme][data-theme="dark"] .attention-note { background: #3a2721; border-left-color: #c2714f; }
 html[data-shared-theme][data-theme="dark"] :is(.dehaka-context blockquote, .dehaka-action, .presence-pill.online) { color: #b4d8a0; }
 html[data-shared-theme][data-theme="dark"] .vote { color: var(--ink); border-color: var(--line); }
 html[data-shared-theme][data-theme="dark"] .vote.has-votes { background: #4a2a38; border-color: #a35a78; color: #ffe3ee; }
