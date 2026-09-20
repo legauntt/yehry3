@@ -2,6 +2,211 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-519ddb09d2c766021066c3c7",
+      "title": "Setlist Complaint",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-519ddb09d2c766021066c3c7-cdd5ed582dcd.mp3",
+      "duration": 130.01142857142858,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "publishedAt": "2026-09-20T05:57:18.589Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Setlist Complaint",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "A minor",
+        "arrangement": "Driving 124 BPM house-dance track in A minor with four-on-the-floor kick, elastic sub-bass, crisp claps, bright piano stabs, filtered synth chords and short disco-guitar accents. One clear, steadily pitched Tony lead carries melodic, conversational verses into a broad singable hook; no backing vocals or vocal effects. Start immediately with vocal and groove, build through filter lifts and a brief beat-thinned bridge, then sustain the final “outlasts it all” near 118–122 seconds before one resolved final chord decays.",
+        "lyrics": "[Verse 1]\nTony rides in late with a crate of sound\nBlue light shaking the basement ground\nFirst record lands and the room leans back\nSomebody says, “Man, where’s the hit at?”\n\n[Pre-Chorus]\nOne wants classics, one wants heat\nOne wants silence over the beat\nTony points at the deck, lets the kick drum speak\n\n[Chorus]\nEverybody’s got a note for the man in the booth\nEverybody wants a different kind of truth\nI beat that itch with a bat, then I turn it loud\nI can’t fix America, but I can move this crowd\n\n[Verse 2]\n“Too much house,” says a voice by the wall\n“Play something safe,” says the guy with the call\nTony bends the filter, lets the low end slide\nSays, “You came to dance, not to supervise”\n\n[Bridge]\nHands in the air, complaints in a line\nA bad opinion at a beautiful time\nI beat that itch with a bat, let the snare come through\nI can’t fix America, but I can’t fix you\n\n[Chorus]\nEverybody’s got a note for the man in the booth\nEverybody wants a different kind of truth\nThe lights come up, but the pulse stays proud\nI can’t fix America, but I can move this crowd\n\n[Outro]\nSo take your list and fold it small\nTonight the beat outlasts it all\n[End]",
+        "duration": 130,
+        "bpm": 124,
+        "musicalSettings": {
+          "genre": "House dance mix with a bass-forward club groove",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, bridge, final chorus, resolved outro",
+          "performance": "Clear melodic lead with conversational verse phrasing and a catchable chorus",
+          "energy": "Immediate dance-floor momentum, rising through the bridge and resolving after the final hook",
+          "lyricWorkflow": "Original compact party narrative: criticism turns into a defiant dance-floor payoff",
+          "instruments": [
+            "four-on-the-floor electronic drums",
+            "sub-bass",
+            "piano",
+            "synths",
+            "disco guitar"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nTony rides in late with a crate of sound\nBlue light shaking the basement ground\nFirst record lands and the room leans back\nSomebody says, “Man, where’s the hit at?”\n\n[Pre-Chorus]\nOne wants classics, one wants heat\nOne wants silence over the beat\nTony points at the deck, lets the kick drum speak\n\n[Chorus]\nEverybody’s got a note for the man in the booth\nEverybody wants a different kind of truth\nI beat that itch with a bat, then I turn it loud\nI can’t fix America, but I can move this crowd\n\n[Verse 2]\n“Too much house,” says a voice by the wall\n“Play something safe,” says the guy with the call\nTony bends the filter, lets the low end slide\nSays, “You came to dance, not to supervise”\n\n[Bridge]\nHands in the air, complaints in a line\nA bad opinion at a beautiful time\nI beat that itch with a bat, let the snare come through\nI can’t fix America, but I can’t fix you\n\n[Chorus]\nEverybody’s got a note for the man in the booth\nEverybody wants a different kind of truth\nThe lights come up, but the pulse stays proud\nI can’t fix America, but I can move this crowd\n\n[Outro]\nSo take your list and fold it small\nTonight the beat outlasts it all",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.06,
+            "end": 9.38
+          },
+          {
+            "line": 2,
+            "start": 10.04,
+            "end": 13.28
+          },
+          {
+            "line": 3,
+            "start": 14.5,
+            "end": 17.1
+          },
+          {
+            "line": 4,
+            "start": 17.42,
+            "end": 19.26
+          },
+          {
+            "line": 7,
+            "start": 21.42,
+            "end": 24.1
+          },
+          {
+            "line": 8,
+            "start": 25.24,
+            "end": 27.92
+          },
+          {
+            "line": 9,
+            "start": 28.8,
+            "end": 31.76
+          },
+          {
+            "line": 12,
+            "start": 34.6,
+            "end": 37.66
+          },
+          {
+            "line": 13,
+            "start": 38.24,
+            "end": 40.74
+          },
+          {
+            "line": 14,
+            "start": 41.82,
+            "end": 45.38
+          },
+          {
+            "line": 15,
+            "start": 46.28,
+            "end": 50.24
+          },
+          {
+            "line": 18,
+            "start": 57,
+            "end": 61.3
+          },
+          {
+            "line": 19,
+            "start": 61.3,
+            "end": 63.78
+          },
+          {
+            "line": 20,
+            "start": 64.78,
+            "end": 67.66
+          },
+          {
+            "line": 21,
+            "start": 68.36,
+            "end": 73.04
+          },
+          {
+            "line": 24,
+            "start": 73.04,
+            "end": 75.48
+          },
+          {
+            "line": 25,
+            "start": 75.48,
+            "end": 79.38
+          },
+          {
+            "line": 26,
+            "start": 79.38,
+            "end": 84.08
+          },
+          {
+            "line": 27,
+            "start": 84.08,
+            "end": 88.96
+          },
+          {
+            "line": 30,
+            "start": 92.58,
+            "end": 95.78
+          },
+          {
+            "line": 31,
+            "start": 95.78,
+            "end": 98.84
+          },
+          {
+            "line": 32,
+            "start": 99.78,
+            "end": 103.44
+          },
+          {
+            "line": 33,
+            "start": 104.34,
+            "end": 108.02
+          },
+          {
+            "line": 36,
+            "start": 111.84,
+            "end": 116.74
+          },
+          {
+            "line": 37,
+            "start": 116.74,
+            "end": 119
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "alternates": [
+        {
+          "pitchRepair": "wild",
+          "sha256": "26e42d3e2e7cc3d28f7a5959815fc2e2588dbc4462786f242eb673d5f87024dc",
+          "bytes": 5202777,
+          "duration": 130.01142857142858,
+          "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-519ddb09d2c766021066c3c7-26e42d3e2e7c.mp3"
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Tony's DJing at a party and everyone criticizes his setlist",
+        "direction": "Use the prompt as written.",
+        "keep": "Must include the phrase \"I beat that itch with a bat\" and \"I can't fix America\". Try to repeat them often.\n\nGenre: House dance mix",
+        "basisSongs": [],
+        "voiceModel": "v8",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "pitchCompare": "wild",
+          "duration": 130
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-92f0e589f6588ad81f987ae8",
       "title": "Absolutely Not",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-92f0e589f6588ad81f987ae8-e70080efeef7.mp3",
