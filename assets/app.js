@@ -1,3 +1,4 @@
+import { showMessage } from "./message.js";
 import { songBadges, voiceModelBadge } from "./song-badges.js";
 import { pitchBadge } from "./pitch-badge.js";
 import { mountSides, sidesBadge } from "./sides.js";
@@ -114,11 +115,7 @@ const collectionNames = {
 };
 // The two main collections are the default; only the exceptions are worth a label on each row.
 const unlabeledCollections = new Set(["tonyai", "distonyc"]);
-const message = (text, error = false) => {
-  const region = $("#message");
-  region.textContent = text;
-  region.classList.toggle("error", error);
-};
+const message = showMessage;
 function busy(button, value) {
   button.disabled = value;
   button.setAttribute("aria-busy", String(value));

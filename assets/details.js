@@ -1,4 +1,5 @@
 import "./quality-preference.js";
+import { showMessage } from "./message.js";
 import { mountModelInfo } from "./model-info.js";
 import { watchCompletions } from "./notifications.js";
 const main = document.querySelector("#main");
@@ -14,5 +15,5 @@ try {
     await (await import("./original-prompt.js")).originalPromptPage(main, { escape, safeUrl });
   else await (await import("./lyrics.js")).lyricsPage(main, { escape, safeUrl });
 } catch {
-  document.querySelector("#message").textContent = "This song could not load. Please try again.";
+  showMessage("This song could not load. Please try again.", true);
 }

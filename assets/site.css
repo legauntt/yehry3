@@ -1203,6 +1203,35 @@ main {
   color: #7b341e;
   border-color: #dcb397;
 }
+.message:not(:empty) {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+.message-close {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  margin: -4px -8px -4px 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.message-close::before {
+  content: "×";
+  font-size: 1.35rem;
+  line-height: 26px;
+}
+.message-close:hover,
+.message-close:focus-visible {
+  opacity: 1;
+  background: rgb(0 0 0 / 0.08);
+}
 .form-layout {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
