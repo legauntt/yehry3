@@ -3,6 +3,7 @@ import { createRequire } from "node:module";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { MongoMemoryReplSet } from "mongodb-memory-server";
+import { sweepStaleMongoDirs } from "./mongo-temp-sweep.mjs";
 const backend = path.resolve(
   process.env.CHAIRLIFT_PATH ||
     path.join(import.meta.dirname, "../../chairlift"),
@@ -14,6 +15,8 @@ const { Store } = requireBackend("./yehry3/store");
 const router = requireBackend("./yehry3/router");
 if (!process.env.YEHRY3_ADMIN_PASSWORD)
   throw new Error("Set YEHRY3_ADMIN_PASSWORD for the local preview.");
+// A forced kill skips stop() below, so earlier previews may have left their data folders behind.
+sweepStaleMongoDirs();
 const mongo = await MongoMemoryReplSet.create({
   replSet: { count: 1 },
   binary: { version: "7.0.14" },
