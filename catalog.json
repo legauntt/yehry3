@@ -2,6 +2,78 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-62b543a6f9c9387ec7733ae4",
+      "title": "Six Minutes of Heh",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-62b543a6f9c9387ec7733ae4-da8e7d426594.mp3",
+      "duration": 360.04571428571427,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-21T00:43:53.891Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Six Minutes of Heh",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 360-second slow lo-fi hip-hop piece in D minor with dusty drum-machine beats, warm sub-bass, muted electric piano, soft vinyl texture, and sparse jazz-guitar fragments. A single clear, steadily pitched Tony lead performs only the requested laughter syllables, shaping them into rhythmic, melodic calls with pauses and evolving intensity rather than spoken lyrics. Start intimate and restrained, grow more animated through the middle, then thin the beat for the final laughs; place the last sustained “heh” about 10 seconds before a single resolved D-minor chord decays.",
+        "lyrics": "[Intro]\nHeh heh\nHeh\nHeh heh heh\n\n[Section 1]\nHeh heh\nHeh heh heh\nHeh\nHeh heh\n\n[Section 2]\nHeh heh heh\nHeh\nHeh heh\nHeh heh heh\n\n[Section 3]\nHeh\nHeh heh\nHeh heh heh\nHeh\n\n[Section 4]\nHeh heh\nHeh\nHeh heh heh\nHeh heh\n\n[Section 5]\nHeh heh heh\nHeh\nHeh heh\nHeh\n\n[Final Section]\nHeh heh\nHeh heh heh\nHeh\nHeh heh\nHeh heh heh\n[End]",
+        "duration": 360,
+        "bpm": 68,
+        "musicalSettings": {
+          "genre": "Slow lo-fi hip-hop",
+          "meter": "4/4",
+          "structure": "Intro, five continuously evolving laughter sections, final section and resolved ending",
+          "performance": "Single melodic lead built entirely from dry, expressive laughter syllables",
+          "energy": "Low and hazy at first, gradually more animated, then gently resolves",
+          "lyricWorkflow": "Non-lexical vocal performance using only the requested laughter patterns",
+          "instruments": [
+            "drum machine",
+            "sub-bass",
+            "electric piano",
+            "jazz guitar",
+            "vinyl texture"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nHeh heh\nHeh\nHeh heh heh\n\n[Section 1]\nHeh heh\nHeh heh heh\nHeh\nHeh heh\n\n[Section 2]\nHeh heh heh\nHeh\nHeh heh\nHeh heh heh\n\n[Section 3]\nHeh\nHeh heh\nHeh heh heh\nHeh\n\n[Section 4]\nHeh heh\nHeh\nHeh heh heh\nHeh heh\n\n[Section 5]\nHeh heh heh\nHeh\nHeh heh\nHeh\n\n[Final Section]\nHeh heh\nHeh heh heh\nHeh\nHeh heh\nHeh heh heh",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "vocal_activity",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "6 minutes of Tony laughing, any genre. No lyrics, just laughing.",
+        "direction": "Use the prompt as written.",
+        "keep": "Use a lofi beat, slow tempo. Laughter should be \"Heh heh\", \"Heh\", \"Heh heh heh\".",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 360,
+          "pitchRepair": "clean"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-321c9b9f09abd6cc97e21c3a",
       "title": "Blue Screen America - Midnight Lo-Fi Blues",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-321c9b9f09abd6cc97e21c3a-acdbbde2d5e2.mp3",
