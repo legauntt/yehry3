@@ -293,6 +293,7 @@ async function library() {
       const button = event.target.closest("[data-catalog-page]");
       if (!button || button.disabled) return;
       editingSearch = false;
+      sharedFollowUntil = 0;
       catalogPage += Number(button.dataset.catalogPage);
       pageUrl(false);
       render();
@@ -394,7 +395,7 @@ async function library() {
   }
   // A song page (/song/<id>/) leaves a note before forwarding here; that is what tells a shared link
   // from a completion alert or a hand-typed fragment. The badge stays for the life of the page.
-  let sharedId = null, sharedFresh = false, sharedTimer;
+  let sharedId = null, sharedFresh = false, sharedTimer, sharedFollowUntil = 0;
   function takeShared(id) {
     try {
       const note = JSON.parse(sessionStorage.getItem("yehry3:shared-song") || "null");
@@ -476,6 +477,17 @@ async function library() {
       catalogPage = Math.min(catalogPage, pageCount);
       pageUrl();
     }
+    // The live catalog can order songs differently from the fallback one the link first landed on;
+    // for a moment after arrival the shared song is followed to wherever it settles.
+    let followedShared = false;
+    if (sharedId && Date.now() < sharedFollowUntil) {
+      const at = visible.findIndex((song) => song.id === sharedId);
+      if (at >= 0 && Math.floor(at / pageSize) + 1 !== catalogPage) {
+        catalogPage = Math.floor(at / pageSize) + 1;
+        pageUrl();
+        followedShared = true;
+      }
+    }
     const offset = (catalogPage - 1) * pageSize;
     const pageSongs = visible.slice(offset, offset + pageSize);
     $("#track-count").textContent =
@@ -512,6 +524,7 @@ async function library() {
     markHighlighted();
     cooldown();
     restoreViewport();
+    if (followedShared) document.querySelector(`#tracks > [data-id="${CSS.escape(sharedId)}"]`)?.scrollIntoView({ block: "center" });
   }
   function cooldown() {
     const left = Math.max(0, new Date(nextVoteAt || 0) - Date.now());
@@ -623,6 +636,7 @@ async function library() {
     if (takeShared(id)) {
       sharedId = id;
       sharedFresh = true;
+      sharedFollowUntil = Date.now() + 20000;
       clearTimeout(sharedTimer);
       sharedTimer = setTimeout(() => { sharedFresh = false; markHighlighted(); }, 60000);
     }

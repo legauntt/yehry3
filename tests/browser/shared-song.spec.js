@@ -62,3 +62,24 @@ test("the playing song and the player bar say Now playing", async ({ page }) => 
   const animation = await page.locator("#tracks .track.playing").evaluate(el => getComputedStyle(el).animationName);
   expect(animation).toBe("now-playing-pulse");
 });
+
+test("a shared song is followed to the page the live catalog settles it on", async ({ page }) => {
+  const many = Array.from({ length: 60 }, (_, index) => ({
+    id: `many-${index}`, title: `Song ${index}`, duration: 90, url: "/shared-fixture.wav",
+    collection: "fearhunger", votes: 500 - index, order: 100 - index,
+  }));
+  const early = [{ ...target, votes: 9999, order: 1000 }, ...many];
+  const settled = [{ ...target, votes: 0, order: -1000 }, ...many];
+  await fixtures(page);
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: early.map(songSummary) } }));
+  await page.route("**/yehry3/songs/summary", async route => {
+    await new Promise(resolve => setTimeout(resolve, 1500)); // The live catalog lands after the link did.
+    await route.fulfill({ json: { songs: settled.map(songSummary), nextVoteAt: null } });
+  });
+  await page.goto(`/song/${target.id}/`);
+  const row = page.locator(`.track[data-id="${target.id}"]`);
+  await expect(row.locator(".shared-badge")).toBeVisible();
+  await expect(page.locator("[data-page-status]").first()).not.toHaveText("Page 1 of 3", { timeout: 8000 });
+  await expect(row.locator(".shared-badge")).toBeVisible();
+  await expect(row).toBeInViewport();
+});
