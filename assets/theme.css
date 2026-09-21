@@ -45,6 +45,13 @@ html[data-shared-theme][data-theme="dark"] .badge { background: #324332; color: 
 html[data-shared-theme][data-theme="dark"] :is(.badge.processing, .badge.needs_review) { background: #493c21; color: #f5cf7e; }
 html[data-shared-theme][data-theme="dark"] :is(.badge.failed, .badge.cancel_requested) { background: #4c3027; color: #ffc3a9; }
 html[data-shared-theme][data-theme="dark"] :is(.voice-model-badge, .music-backend-badge, .pitch-badge, .model-info-badge) { background: var(--light); color: var(--ink); }
+html[data-shared-theme][data-theme="dark"] .voice-model-badge.v9 {
+  border-color: #5fd6c4;
+  background: linear-gradient(105deg, #12463f 0%, #12463f 38%, #2f8f81 50%, #12463f 62%, #12463f 100%) 100% 0 / 260% 100%;
+  color: #dffcf6;
+  box-shadow: 0 0 0 1px rgb(95 214 196 / 35%), 0 0 10px rgb(95 214 196 / 45%);
+}
+html[data-shared-theme][data-theme="dark"] .voice-model-badge.v9::before { color: #8ff0de; }
 html[data-shared-theme][data-theme="dark"] .player { background: #202b23; color: #e7eddf; border-top-color: var(--line); }
 html[data-shared-theme][data-theme="dark"] .player :is(button, a) { color: #e7eddf; }
 html[data-shared-theme][data-theme="dark"] .primary:hover { background: #c8d7c1; color: #171e1a; }

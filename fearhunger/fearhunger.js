@@ -143,7 +143,7 @@ function update(songs) {
       card.querySelector(".duration").before(model);
     }
     const modelId = (/^v\d+$/i.test(song.voiceModel || "") ? song.voiceModel : "v6").toUpperCase();
-    model.className = `voice-model-badge${modelId === "V7" ? " v7" : modelId === "V8" ? " v8" : ""}`;
+    model.className = `voice-model-badge${/^V[789]$/.test(modelId) ? " " + modelId.toLowerCase() : ""}`;
     model.textContent = modelId;
     card.querySelector(".music-backend-badge")?.remove();
     card.querySelector(".remix-badge")?.remove();

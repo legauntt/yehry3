@@ -2541,7 +2541,41 @@ button.lyric-line:hover {
 .generation-brief dd{white-space:pre-wrap;overflow-wrap:anywhere}.generation-review textarea{width:100%;font:inherit}.composition-choice{margin:1rem 0;min-width:0}.composition-choice audio{width:100%}
 @media(max-width:600px){.generation-grid{grid-template-columns:1fr}.generation-panel,.generation-review{padding:.8rem}}
 
-.voice-model-badge.v8 { background: #e0ddff; color: #45377a; } .voice-model-badge.v9 { border-color: #5fa398; background: #d9f1ec; color: #1d5a52; }
+.voice-model-badge.v8 { background: #e0ddff; color: #45377a; }
+/* V9 is the newest voice, so its badge is the one that catches the eye. */
+.voice-model-badge.v9 {
+  position: relative;
+  gap: 3px;
+  padding: 1px 8px 1px 6px;
+  border-color: #2f9e8f;
+  background: linear-gradient(105deg, #c9f0e8 0%, #c9f0e8 38%, #f4fffc 50%, #c9f0e8 62%, #c9f0e8 100%) 100% 0 / 260% 100%;
+  color: #0e4a43;
+  font-weight: 700;
+  box-shadow: 0 0 0 1px rgb(47 158 143 / 25%), 0 0 9px rgb(47 158 143 / 45%);
+  animation: v9-shimmer 3.4s ease-in-out infinite, v9-glow 3.4s ease-in-out infinite;
+}
+.voice-model-badge.v9::before {
+  content: "\2726";
+  font-size: 0.72em;
+  color: #1c9a8a;
+  animation: v9-twinkle 3.4s ease-in-out infinite;
+}
+@keyframes v9-shimmer {
+  0%, 30% { background-position: 100% 0; }
+  70%, 100% { background-position: 0 0; }
+}
+@keyframes v9-glow {
+  0%, 100% { box-shadow: 0 0 0 1px rgb(47 158 143 / 25%), 0 0 6px rgb(47 158 143 / 35%); }
+  50% { box-shadow: 0 0 0 1px rgb(47 158 143 / 45%), 0 0 13px rgb(47 158 143 / 65%); }
+}
+@keyframes v9-twinkle {
+  0%, 100% { opacity: 0.6; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .voice-model-badge.v9, .voice-model-badge.v9::before { animation: none; }
+  .voice-model-badge.v9 { background-position: 50% 0; }
+}
 
 .generation-wide{grid-column:1/-1}
 .generation-custom{margin-top:.65rem}.generation-custom label{font-size:.82rem}
