@@ -802,15 +802,12 @@ main {
   font-size: 0.8rem;
   height: 46px;
 }
+/* The page color, opaque: a transparent select leaves its open list on the
+   browser's white default while the text follows the theme, which made
+   Dark Mode options unreadable. Options are left unstyled so the browser
+   keeps its native list. */
 .toolbar select {
-  background: transparent;
-}
-/* A transparent select leaves its open list on the browser's white default
-   while the text inherits the theme, which made dark-mode options unreadable. */
-select option,
-select optgroup {
-  background: var(--white);
-  color: var(--ink);
+  background: var(--paper);
 }
 .vote-note {
   margin: 0 0 15px;

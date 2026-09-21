@@ -47,7 +47,7 @@ test("an unknown feedback value in the link falls back to every song", async ({ 
   await expect(page.locator(".track h3")).toHaveCount(4);
 });
 
-test("Dark Mode dropdown options keep a dark background and light text", async ({ page, context }) => {
+test("Dark Mode dropdowns have an opaque dark background so their open lists are readable", async ({ page, context }) => {
   await context.route("https://fonts.googleapis.com/**", route => route.abort());
   await page.addInitScript(() => localStorage.setItem("yehry3:dark-mode", "true"));
   await open(page);
@@ -60,10 +60,12 @@ test("Dark Mode dropdown options keep a dark background and light text", async (
   });
   expect(chip).toEqual({ background: "rgb(42, 56, 46)", color: "rgb(231, 237, 223)" });
   for (const select of ["#collection-filter", "#feedback-filter", "#sort"]) {
-    const colors = await page.locator(`${select} option`).first().evaluate(option => {
-      const style = getComputedStyle(option);
+    // The browser paints an open list from the select's own colors, so a transparent
+    // background left it white under light text. Options stay natively styled.
+    const colors = await page.locator(select).evaluate(el => {
+      const style = getComputedStyle(el);
       return { background: style.backgroundColor, color: style.color };
     });
-    expect(colors).toEqual({ background: "rgb(32, 43, 35)", color: "rgb(231, 237, 223)" });
+    expect(colors).toEqual({ background: "rgb(23, 30, 26)", color: "rgb(231, 237, 223)" });
   }
 });
