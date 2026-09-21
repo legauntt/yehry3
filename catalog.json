@@ -2,6 +2,312 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-7257d15382df3ee625372208",
+      "title": "Roll to the Capitol",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7257d15382df3ee625372208-819815931bf9.mp3",
+      "duration": 224.9665306122449,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-21T11:31:23.245Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Roll to the Capitol",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E major",
+        "arrangement": "1960s civil-rights-era soul-rock with a driving electric bass, crisp drum kit, Hammond organ, clean electric guitar, piano, and restrained horn punctuation. One clear, steadily pitched Tony lead sings in a rough but connected melodic delivery, with no backing vocals or stacked doubles. Start intimate and determined, build through the pre-choruses into broad anthemic choruses, drop briefly for the spoken-like bridge intensity, then rise into a resolved final chorus. Pace the final sustained word “stay” to land about 10 seconds before the 225-second ending, followed by one warm final E-major chord decay.",
+        "lyrics": "[Verse 1]\nRain on the courthouse, names on a list\nHands at the window, a world to resist\nThey said, “Stay quiet, wait in your place”\nTony rolled forward and looked in their face\nNo borrowed thunder, no hollow parade\nHe carried the promise the people had made\nFrom Selma sidewalks to a union hall floor\nHe said, “If one voice is barred, we open the door”\n\n[Pre-Chorus]\nThe cameras blinked, the old men frowned\nBut truth had wheels and it would not be bound\n\n[Chorus]\nRoll to the Capitol, carry the light\nMake every ballot a piece of the fight\nFrom the church bells ringing to the factory line\nFreedom is yours and freedom is mine\nRoll to the Capitol, don’t turn away\nWe are the country we’re building today\n\n[Verse 2]\nA mother held a picture close to her chest\nA veteran stood with a medal on his vest\nKids on the corner made cardboard signs\nTheir futures were waiting between the lines\nTony said, “Justice ain’t charity’s name\nIt’s food on the table and a seat in the game\nIt’s schools without fences, jobs without chains\nIt’s law that remembers each one of our names”\n\n[Pre-Chorus]\nThe buses came, the crowd grew wide\nA thousand steady hearts moved side by side\n\n[Chorus]\nRoll to the Capitol, carry the light\nMake every ballot a piece of the fight\nFrom the church bells ringing to the factory line\nFreedom is yours and freedom is mine\nRoll to the Capitol, don’t turn away\nWe are the country we’re building today\n\n[Bridge]\nThey threw old words like stones in the street\nBut he answered with a promise they could not defeat\n“No citizen smaller, no dream left outside\nWe rise together, or we never rise”\nThe room went still when he took the stand\nThen hope passed quick from hand to hand\n\n[Chorus]\nRoll to the Capitol, carry the light\nMake every ballot a piece of the fight\nLet the marble remember the people below\nThe road may be hard, but we’re ready to go\nRoll to the Capitol, hear the bells say\nWe are the country we’re building today\n\n[Outro]\nTony rolls through the evening, the banners held high\nOne final vow under a wide open sky:\n“Till every voice is heard, I will stay.”\n[End]",
+        "duration": 225,
+        "bpm": 108,
+        "musicalSettings": {
+          "genre": "1960s soul-rock campaign anthem",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus, lyrical outro",
+          "performance": "Clear, steadily pitched melodic lead with Tony’s connected, smoky phrasing and restrained rallying intensity",
+          "energy": "Begins reflective, gathers public momentum, peaks in the final chorus, then resolves warmly",
+          "lyricWorkflow": "Original narrative lyrics centered on a wheelchair-using civil-rights candidate and a concrete Senate campaign",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "Hammond organ",
+            "clean electric guitar",
+            "piano",
+            "horns"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nRain on the courthouse, names on a list\nHands at the window, a world to resist\nThey said, “Stay quiet, wait in your place”\nTony rolled forward and looked in their face\nNo borrowed thunder, no hollow parade\nHe carried the promise the people had made\nFrom Selma sidewalks to a union hall floor\nHe said, “If one voice is barred, we open the door”\n\n[Pre-Chorus]\nThe cameras blinked, the old men frowned\nBut truth had wheels and it would not be bound\n\n[Chorus]\nRoll to the Capitol, carry the light\nMake every ballot a piece of the fight\nFrom the church bells ringing to the factory line\nFreedom is yours and freedom is mine\nRoll to the Capitol, don’t turn away\nWe are the country we’re building today\n\n[Verse 2]\nA mother held a picture close to her chest\nA veteran stood with a medal on his vest\nKids on the corner made cardboard signs\nTheir futures were waiting between the lines\nTony said, “Justice ain’t charity’s name\nIt’s food on the table and a seat in the game\nIt’s schools without fences, jobs without chains\nIt’s law that remembers each one of our names”\n\n[Pre-Chorus]\nThe buses came, the crowd grew wide\nA thousand steady hearts moved side by side\n\n[Chorus]\nRoll to the Capitol, carry the light\nMake every ballot a piece of the fight\nFrom the church bells ringing to the factory line\nFreedom is yours and freedom is mine\nRoll to the Capitol, don’t turn away\nWe are the country we’re building today\n\n[Bridge]\nThey threw old words like stones in the street\nBut he answered with a promise they could not defeat\n“No citizen smaller, no dream left outside\nWe rise together, or we never rise”\nThe room went still when he took the stand\nThen hope passed quick from hand to hand\n\n[Chorus]\nRoll to the Capitol, carry the light\nMake every ballot a piece of the fight\nLet the marble remember the people below\nThe road may be hard, but we’re ready to go\nRoll to the Capitol, hear the bells say\nWe are the country we’re building today\n\n[Outro]\nTony rolls through the evening, the banners held high\nOne final vow under a wide open sky:\n“Till every voice is heard, I will stay.”",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.72,
+            "end": 7.82
+          },
+          {
+            "line": 2,
+            "start": 8.6,
+            "end": 12
+          },
+          {
+            "line": 3,
+            "start": 13.06,
+            "end": 16.62
+          },
+          {
+            "line": 4,
+            "start": 17.48,
+            "end": 21
+          },
+          {
+            "line": 5,
+            "start": 21,
+            "end": 25.34
+          },
+          {
+            "line": 6,
+            "start": 26.24,
+            "end": 29.74
+          },
+          {
+            "line": 7,
+            "start": 30.58,
+            "end": 34.24
+          },
+          {
+            "line": 8,
+            "start": 34.68,
+            "end": 38.64
+          },
+          {
+            "line": 11,
+            "start": 39.12,
+            "end": 43.04
+          },
+          {
+            "line": 12,
+            "start": 44.06,
+            "end": 47.68
+          },
+          {
+            "line": 15,
+            "start": 50.08,
+            "end": 54.36
+          },
+          {
+            "line": 16,
+            "start": 55.24,
+            "end": 58.74
+          },
+          {
+            "line": 17,
+            "start": 59.12,
+            "end": 62.54
+          },
+          {
+            "line": 18,
+            "start": 62.54,
+            "end": 67.6
+          },
+          {
+            "line": 19,
+            "start": 68.5,
+            "end": 71.98
+          },
+          {
+            "line": 20,
+            "start": 71.98,
+            "end": 75.78
+          },
+          {
+            "line": 23,
+            "start": 75.78,
+            "end": 78.8
+          },
+          {
+            "line": 24,
+            "start": 79.68,
+            "end": 83.18
+          },
+          {
+            "line": 25,
+            "start": 84.12,
+            "end": 87.66
+          },
+          {
+            "line": 26,
+            "start": 88.42,
+            "end": 92.3
+          },
+          {
+            "line": 27,
+            "start": 93.06,
+            "end": 97.58
+          },
+          {
+            "line": 28,
+            "start": 97.58,
+            "end": 101.02
+          },
+          {
+            "line": 29,
+            "start": 101.02,
+            "end": 106.46
+          },
+          {
+            "line": 30,
+            "start": 106.46,
+            "end": 109.86
+          },
+          {
+            "line": 33,
+            "start": 110.74,
+            "end": 114.36
+          },
+          {
+            "line": 34,
+            "start": 115.18,
+            "end": 119.22
+          },
+          {
+            "line": 37,
+            "start": 120.76,
+            "end": 124.26
+          },
+          {
+            "line": 38,
+            "start": 125.26,
+            "end": 128.68
+          },
+          {
+            "line": 39,
+            "start": 128.68,
+            "end": 133.18
+          },
+          {
+            "line": 40,
+            "start": 133.18,
+            "end": 137.66
+          },
+          {
+            "line": 41,
+            "start": 138.46,
+            "end": 142.1
+          },
+          {
+            "line": 42,
+            "start": 142.68,
+            "end": 146.1
+          },
+          {
+            "line": 45,
+            "start": 146.1,
+            "end": 150.96
+          },
+          {
+            "line": 46,
+            "start": 151.54,
+            "end": 155.18
+          },
+          {
+            "line": 47,
+            "start": 155.18,
+            "end": 160
+          },
+          {
+            "line": 48,
+            "start": 160.76,
+            "end": 164.46
+          },
+          {
+            "line": 49,
+            "start": 165.02,
+            "end": 168.8
+          },
+          {
+            "line": 50,
+            "start": 169.58,
+            "end": 173.24
+          },
+          {
+            "line": 53,
+            "start": 173.64,
+            "end": 176.62
+          },
+          {
+            "line": 54,
+            "start": 177.52,
+            "end": 180.94
+          },
+          {
+            "line": 55,
+            "start": 181.42,
+            "end": 185.36
+          },
+          {
+            "line": 56,
+            "start": 185.36,
+            "end": 189.88
+          },
+          {
+            "line": 57,
+            "start": 189.88,
+            "end": 194.54
+          },
+          {
+            "line": 58,
+            "start": 194.54,
+            "end": 200.56
+          },
+          {
+            "line": 61,
+            "start": 200.56,
+            "end": 204.62
+          },
+          {
+            "line": 62,
+            "start": 204.62,
+            "end": 208.62
+          },
+          {
+            "line": 63,
+            "start": 208.62,
+            "end": 216.48
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony C, champion of Civil Rights, runs for a Senate seat in the 60s",
+        "direction": "Use the prompt as written.",
+        "keep": "Tony's in a wheelchair",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 225,
+          "pitchRepair": "clean"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-edfebbb9d3c4257f6a430825",
       "title": "Four Score, Still Standing",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-edfebbb9d3c4257f6a430825-764f4bcef26b.mp3",
