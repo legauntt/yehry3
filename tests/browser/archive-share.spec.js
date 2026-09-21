@@ -180,3 +180,21 @@ test("Backstage says so, instead of erroring, when the studio API has no song ar
   await expect(page.locator(".stats")).toBeVisible();
   await expect(page.locator("#message")).toBeHidden();
 });
+
+test("Backstage's Published songs button and #songs link open the panel and bring it into view", async ({ page }) => {
+  await adminLogin(page);
+  const panel = page.locator("#admin-songs");
+  await expect(panel).not.toHaveAttribute("open", "");
+  await page.getByRole("button", { name: "Published songs ↓" }).click();
+  await expect(panel).toHaveAttribute("open", "");
+  await expect(page.locator("#song-search")).toBeFocused();
+  await expect(page.locator("#song-list .admin-song").first()).toBeVisible();
+  await expect.poll(() => panel.evaluate((node) => { const top = node.getBoundingClientRect().top; return top >= 0 && top < innerHeight; })).toBe(true);
+  // A shared link opens it too, once, and a later refresh does not fight the reader.
+  await page.goto("/admin/#songs");
+  await expect(page.locator(".stats")).toBeVisible();
+  await expect(panel).toHaveAttribute("open", "");
+  await page.locator("#admin-songs > summary").click();
+  await page.locator("#refresh").click();
+  await expect(panel).not.toHaveAttribute("open", "");
+});

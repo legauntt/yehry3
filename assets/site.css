@@ -2658,7 +2658,8 @@ button.lyric-line:hover {
 }
 
 /* Backstage: archive published songs. */
-.admin-songs { margin-top: 48px; }
+.admin-intro-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
+.admin-songs { margin-top: 48px; scroll-margin-top: 16px; }
 .admin-songs > summary { display: flex; align-items: baseline; gap: 14px; cursor: pointer; padding: 6px 0; }
 .admin-songs-title { font-family: "Playfair Display", Georgia, serif; font-size: 1.5rem; font-weight: 600; }
 .admin-songs > .toolbar { margin-top: 14px; }

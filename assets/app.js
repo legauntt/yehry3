@@ -1351,7 +1351,7 @@ async function admin() {
     loadSequence = 0;
   const threads = new Map();
   // The song list keeps its own state so the queue's periodic re-render never loses a search.
-  const songs = { q: "", view: "live", page: 0, data: null, sequence: 0, open: false, error: "" };
+  const songs = { q: "", view: "live", page: 0, data: null, sequence: 0, open: false, error: "", jumped: false };
   let songTimer;
   function songsMarkup() {
     return `<details class="admin-songs" id="admin-songs"${songs.open ? " open" : ""}><summary><span class="admin-songs-title">Published songs</span><span class="small">Search, archive or restore</span></summary><div class="toolbar"><label class="search"><span class="sr-only">Search published songs</span><input type="search" id="song-search" placeholder="Search title, author, idea or ID…" value="${escape(songs.q)}"></label><label class="sr-only" for="song-view">Show songs</label><select id="song-view"><option value="live">On the site</option><option value="archived">Archived</option><option value="all">Both</option></select><span class="small" id="song-summary"></span></div><p class="small">Archiving hides a song from the site for everyone. Votes, plays and files are kept, and you can restore it here.</p><div id="song-list"></div><div class="song-pager"><button class="quiet" id="song-prev">← Earlier songs</button><span id="song-page"></span><button class="quiet" id="song-next">Later songs →</button></div></details>`;
@@ -1394,7 +1394,15 @@ async function admin() {
       paintSongs();
     }
   }
+  // The panel sits below the whole queue, so the header button and /admin/#songs both open it and bring it into view.
+  function showSongs() {
+    const panel = $("#admin-songs");
+    panel.open = true;
+    panel.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+    $("#song-search").focus({ preventScroll: true });
+  }
   function bindSongs() {
+    $("#jump-songs").onclick = showSongs;
     $("#song-search").oninput = (event) => {
       songs.q = event.target.value;
       songs.page = 0;
@@ -1438,6 +1446,10 @@ async function admin() {
     };
     paintSongs();
     if (songs.open && !songs.data) loadSongs();
+    if (location.hash === "#songs" && !songs.jumped) {
+      songs.jumped = true;
+      showSongs();
+    }
   }
   // Threads refresh in place so an open raw log survives polling.
   async function loadThreads(onScreenOnly = false) {
@@ -1523,7 +1535,7 @@ async function admin() {
     bindQueue();
   }
   function render() {
-    main.innerHTML = `<section class="admin-intro"><div><p class="eyebrow">Backstage · Studio queue</p><h1>Make room for<br><em>the next one.</em></h1></div><button class="quiet" id="signout">Sign out ↗</button></section><div class="stats">${[
+    main.innerHTML = `<section class="admin-intro"><div><p class="eyebrow">Backstage · Studio queue</p><h1>Make room for<br><em>the next one.</em></h1></div><div class="admin-intro-actions"><button class="quiet" id="jump-songs" type="button">Published songs ↓</button><button class="quiet" id="signout">Sign out ↗</button></div></section><div class="stats">${[
       ["queued", "Waiting in line"],
       ["processing", "In the studio"],
       ["attention", "9/11'd Again"],
