@@ -1,8 +1,10 @@
 // The listening room: everyone on the site right now sits at the edges of the screen with what
-// they are playing. Each tab reports its own song with a heartbeat and reads the room with a long
-// poll, so a change shows up within a second or two. A signed-in browser is shown by its saved
-// "Authored by" name; everyone else gets the animal the studio assigns them.
+// they are playing. Each tab reports its own song with a heartbeat and is sent the room over a
+// WebSocket, or reads it with a long poll where a socket cannot be held open, so a change shows up
+// within a second or two. A signed-in browser is shown by its saved "Authored by" name; everyone
+// else gets the animal the studio assigns them.
 import { api, signedIn } from "./api.js";
+import { API_BASE } from "./config.js";
 import { savedAuthor } from "./authored-by.js";
 
 const tab = crypto.randomUUID();
@@ -11,10 +13,13 @@ const SETTLE_MS = 600; // Skipping a track or swapping sides pauses for a moment
 const PEEK_MS = 6000;
 const TOAST_MS = 4000; // On a phone a changed song steps out like a toast and goes back.
 const IDLE_MS = 5 * 60000; // No mouse, key, touch or scroll for this long reads as idle.
+const SOCKET_URL = `${API_BASE.replace(/^http/, "ws")}/listeners/socket`;
+const SOCKET_GRACE_MS = 3000; // A socket this slow to deliver has the long poll started beside it.
+const SOCKET_REST_MS = 10 * 60000; // A network that will not carry a socket is not asked again for this long.
 const players = new Map();
 let beatMs = 25000, you = null, room = [], total = 0, version = "", started = false;
 let beatTimer, settleTimer, reporting = false, again = false, lastSong = null, nameRestUntil = 0;
-let polling = false, pollFailures = 0, root, openId = null, lastInput = Date.now(), reportedIdle = false;
+let polling = false, pollFailures = 0, socket = null, live = false, socketFailures = 0, socketRestUntil = 0, followTimer, root, openId = null, lastInput = Date.now(), reportedIdle = false;
 // The avatars a signed-in listener may choose from, whether the chooser is open, and a choice waiting to be sent.
 let avatars = [], picking = false, chosen;
 const peeks = new Map();
@@ -87,10 +92,14 @@ function seat(listener) {
   item.classList.toggle("is-you", self);
   item.classList.toggle("is-idle", Boolean(listener.idle));
   item.classList.toggle("is-open", openId === listener.id);
+  item.classList.toggle("is-picking", self && picking);
   const peek = peeks.get(listener.id);
-  item.classList.toggle("is-peeking", Boolean(peek));
+  // A changed song gives the face a start; its card steps out as well unless the change was your own doing.
+  item.classList.toggle("is-changed", Boolean(peek));
+  item.classList.toggle("is-peeking", Boolean(peek) && !peek.quiet);
   item.style.setProperty("--room-hue", String(listener.hue));
-  // Seats are redrawn whole, so a toast is told how far along it already is rather than starting over.
+  // Seats are redrawn whole, so the nod and bob are told the time, and a toast how far along it already is, rather than starting over.
+  item.style.setProperty("--room-clock", `${-(Date.now() % 60000)}ms`);
   if (peek) {
     item.style.setProperty("--room-peek-ms", `${peek.ms}ms`);
     item.style.setProperty("--room-peek-at", `${peek.at - Date.now()}ms`);
@@ -219,10 +228,10 @@ function accept(data) {
   const ms = phone() ? TOAST_MS : PEEK_MS;
   for (const listener of room) {
     if (!known || !listener.song || before.get(listener.id) === listener.song.id) continue;
-    // Your own song is news only on a phone, where your seat is tucked away, or when another of your browsers chose it.
-    if (listener.id === you?.id && ms === PEEK_MS && listener.song.id === playingSong()) continue;
+    // Your own song is news only on a phone, where no card stays in view, or when another of your browsers chose it.
+    const quiet = listener.id === you?.id && ms === PEEK_MS && listener.song.id === playingSong();
     clearTimeout(peeks.get(listener.id)?.timer);
-    peeks.set(listener.id, { at: Date.now(), ms, timer: setTimeout(() => { peeks.delete(listener.id); render(); }, ms) });
+    peeks.set(listener.id, { at: Date.now(), ms, quiet, timer: setTimeout(() => { peeks.delete(listener.id); render(); }, ms) });
   }
   render();
 }
@@ -254,7 +263,7 @@ async function report(force = false) {
     avatars = Array.isArray(data.avatars) ? data.avatars.filter((emoji) => typeof emoji === "string" && emoji.length <= 8) : [];
     if (!avatars.length) picking = false;
     accept(data);
-    void poll();
+    follow();
   } catch (error) {
     // The room is decoration: the next beat tries again and nothing else on the page waits for it.
     if (error?.status === 400) chosen = undefined; // An avatar the studio no longer offers is not sent again.
@@ -265,10 +274,54 @@ async function report(force = false) {
     if (again) { again = false; void report(true); }
   }
 }
+// The room arrives over a socket where one can be held open, and by long poll until then and everywhere else.
+function follow() {
+  if (!started || document.hidden || live) return;
+  if (!socket && typeof WebSocket === "function" && Date.now() >= socketRestUntil) connect();
+  if (!socket) void poll();
+}
+function connect() {
+  let line;
+  try { line = new WebSocket(SOCKET_URL); } catch { socketRestUntil = Date.now() + SOCKET_REST_MS; return; }
+  socket = line;
+  let fed = false;
+  // A socket is given a moment to deliver before the long poll is started beside it.
+  const grace = setTimeout(() => { if (socket === line && !live) void poll(); }, SOCKET_GRACE_MS);
+  line.addEventListener("message", (event) => {
+    if (socket !== line) return;
+    let data;
+    try { data = JSON.parse(event.data); } catch { return; }
+    fed = live = true;
+    socketFailures = 0;
+    accept(data);
+  });
+  line.addEventListener("close", () => {
+    clearTimeout(grace);
+    if (socket !== line) return;
+    socket = null;
+    live = false;
+    // A socket that never delivered is a network that will not carry one: after three, the long poll has the
+    // room to itself for a while. One that did is a restart, and every browser is not brought back in the same instant.
+    const rest = fed ? 1000 + Math.random() * 2000 : ++socketFailures >= 3 ? SOCKET_REST_MS : 2000 * 2 ** socketFailures;
+    if (socketFailures >= 3) socketFailures = 0;
+    socketRestUntil = Date.now() + rest;
+    clearTimeout(followTimer);
+    followTimer = setTimeout(follow, rest + 50);
+    void poll();
+  });
+}
+// A page in the background, or on its way out, gives its socket back.
+function hangUp() {
+  clearTimeout(followTimer);
+  const line = socket;
+  socket = null;
+  live = false;
+  line?.close();
+}
 async function poll() {
-  if (polling || !started || document.hidden) return;
+  if (polling || live || !started || document.hidden) return;
   polling = true;
-  while (started && !document.hidden) {
+  while (started && !document.hidden && !live) {
     const asked = version, began = Date.now();
     let wait = 0;
     try {
@@ -342,16 +395,21 @@ export function mountListeners() {
   });
   matchMedia("(max-width: 700px)").addEventListener("change", render);
   // Going to the background says so once and then falls silent; coming back is reported straight away.
-  document.addEventListener("visibilitychange", () => { lastInput = Date.now(); void report(true); if (!document.hidden) void poll(); });
+  document.addEventListener("visibilitychange", () => {
+    lastInput = Date.now();
+    void report(true);
+    if (document.hidden) hangUp();
+    else follow();
+  });
   for (const event of ["pointermove", "pointerdown", "keydown", "wheel", "touchstart", "scroll"])
     addEventListener(event, () => {
       lastInput = Date.now();
       if (reportedIdle && !document.hidden) { reportedIdle = false; void report(); }
     }, { passive: true, capture: true });
   addEventListener("storage", (event) => { if (event.key === hiddenKey || event.key === null) render(); });
-  addEventListener("pagehide", leave);
-  addEventListener("pageshow", (event) => { if (event.persisted) { void report(); void poll(); } });
-  if (invisible()) void poll();
+  addEventListener("pagehide", () => { leave(); hangUp(); });
+  addEventListener("pageshow", (event) => { if (event.persisted) { void report(); follow(); } });
+  if (invisible()) follow();
   else void report();
 }
 

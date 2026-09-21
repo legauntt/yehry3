@@ -3,7 +3,7 @@
     "X-Robots-Tag": "noindex, nofollow, noarchive",
     "X-Content-Type-Options": "nosniff",
     "Referrer-Policy": "strict-origin-when-cross-origin",
-    "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' https:; connect-src 'self' https://chairlift.fly.dev; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
+    "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' https:; connect-src 'self' https://chairlift.fly.dev wss://chairlift.fly.dev; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
   },
   "routes": [
     {

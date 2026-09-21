@@ -20,11 +20,13 @@ const songs = [
 const queue = { inStudio: [], needsAttention: [], queued: [], recent: [], queuedTotal: 0, inStudioTotal: 0, page: 0, pageSize: 50 };
 const you = { id: "aaaaaaaaaaaaaa00", name: "happy-rabbit", anonymous: true, emoji: "🐇", hue: 120 };
 const jesse = { id: "bbbbbbbbbbbbbb01", name: "Jesse Gauntt", anonymous: false, emoji: "🦊", hue: 20, song: { id: "room-first", title: "First in the room" }, since: "2026-09-21T10:00:00.000Z" };
+// As many avatars as the studio offers, so the chooser is measured at its real size.
+const avatars = ["🐇", "🦊", "🎸", "🎹", ...Array.from({ length: 72 }, (_, index) => String.fromCodePoint(0x1f400 + index)).filter((emoji) => !["🐇", "🦊"].includes(emoji)).slice(0, 68)];
 const fox = { id: "cccccccccccccc02", name: "sleepy-fox", anonymous: true, emoji: "🦊", hue: 250, song: null, since: null, idle: true };
 
 // A stand-in studio: reports are recorded, and a poll is held until the test changes the room.
-async function studio(page, { reject = () => false } = {}) {
-  const state = { version: "1000000000000001", you: { ...you, picked: false }, listeners: [{ ...you, song: null, since: null }, jesse, fox], reports: [], left: [], present: true };
+async function studio(page, { reject = () => false, socket = false } = {}) {
+  const state = { version: "1000000000000001", you: { ...you, picked: false }, listeners: [{ ...you, song: null, since: null }, jesse, fox], reports: [], left: [], present: true, polls: 0, socket, lines: [] };
   const body = () => ({ version: state.version, listeners: state.listeners.filter((listener) => state.present || listener.id !== you.id), total: state.listeners.length, beatMs: 25000 });
   await page.route("**/room-fixture.wav", (route) => route.fulfill({ body: wav(), contentType: "audio/wav" }));
   await page.route("**/yehry3/profiles?*", (route) => route.fulfill({ json: { profiles: [], total: 0 } }));
@@ -32,6 +34,13 @@ async function studio(page, { reject = () => false } = {}) {
   await page.route("**/yehry3/songs/summary", (route) => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", (route) => route.fulfill({ json: queue }));
   await page.route("**/yehry3/listens", (route) => route.fulfill({ json: {} }));
+  // Without `socket` the studio turns sockets away, as an old network would, and the page long polls.
+  state.push = () => { for (const line of state.lines) line.send(JSON.stringify(body())); };
+  await page.routeWebSocket("**/yehry3/listeners/socket", (line) => {
+    if (!state.socket) return line.close({ code: 1013 });
+    state.lines.push(line);
+    line.send(JSON.stringify(body()));
+  });
   await page.route("**/yehry3/listeners**", async (route) => {
     const request = route.request();
     if (request.method() === "DELETE") {
@@ -51,8 +60,9 @@ async function studio(page, { reject = () => false } = {}) {
         state.listeners = [{ ...state.listeners[0], emoji: state.you.emoji, picked: state.you.picked }, ...state.listeners.slice(1)];
         state.version = `20000000000000${String(state.reports.length).padStart(2, "0")}`;
       }
-      return route.fulfill({ json: { you: state.you, ...(report.authorization ? { avatars: ["🐇", "🦊", "🎸", "🎹"] } : {}), ...body() } });
+      return route.fulfill({ json: { you: state.you, ...(report.authorization ? { avatars } : {}), ...body() } });
     }
+    state.polls++;
     const since = new URL(request.url()).searchParams.get("since"), began = Date.now();
     while (since === state.version && Date.now() - began < 20000) await new Promise((resolve) => setTimeout(resolve, 50));
     await route.fulfill({ json: body() }).catch(() => { /* The page closed while this poll was held. */ });
@@ -146,7 +156,18 @@ test("a signed-in listener chooses an avatar and can give it back", async ({ pag
   const mine = page.locator(".room-seat.is-you");
   await mine.locator(".room-avatar").click();
   await mine.getByRole("button", { name: "Change avatar" }).click();
-  await expect(mine.locator(".room-option")).toHaveCount(4);
+  await expect(mine.locator(".room-option")).toHaveCount(72);
+  // A wide window shows every avatar at once: nothing to scroll, either way.
+  const fits = () => mine.locator(".room-picker").evaluate((grid) => ({ across: grid.scrollWidth <= grid.clientWidth, down: grid.scrollHeight <= grid.clientHeight, columns: getComputedStyle(grid).gridTemplateColumns.split(" ").length }));
+  expect(await fits()).toEqual({ across: true, down: true, columns: 12 });
+  // A phone scrolls down through them and never sideways, inside the screen.
+  await page.setViewportSize({ width: 390, height: 800 });
+  await expect.poll(async () => (await fits()).columns).toBe(8);
+  expect(await fits()).toMatchObject({ across: true, down: false });
+  const chooser = await mine.locator(".room-card").boundingBox();
+  expect(chooser.x).toBeGreaterThanOrEqual(0);
+  expect(chooser.x + chooser.width).toBeLessThanOrEqual(390);
+  await page.setViewportSize({ width: 1440, height: 1000 });
   await mine.getByRole("button", { name: "🎸" }).click();
   await expect(mine.locator(".room-face")).toHaveText("🎸");
   await expect.poll(() => state.reports.at(-1).avatar).toBe("🎸");
@@ -168,6 +189,37 @@ test("a signed-in listener chooses an avatar and can give it back", async ({ pag
   await expect(named).not.toHaveClass(/is-initials/);
 });
 
+test("the room arrives over a socket, and the long poll takes over when the socket goes", async ({ page }) => {
+  const state = await studio(page, { socket: true });
+  await page.goto("/queue/");
+  const named = page.locator('.room-seat[data-id="bbbbbbbbbbbbbb01"]');
+  await expect(named.locator(".room-avatar")).toHaveAttribute("aria-label", "Jesse Gauntt: listening to First in the room");
+  await expect.poll(() => state.lines.length).toBe(1);
+  // A pushed room is drawn at once, with no poll behind it.
+  state.listeners = [state.listeners[0], { ...jesse, song: { id: "room-second", title: "Second in the room" } }, fox];
+  state.version = "1000000000000002";
+  state.push();
+  await expect(named.locator(".room-avatar")).toHaveAttribute("aria-label", "Jesse Gauntt: listening to Second in the room", { timeout: 2000 });
+  await expect(named).toHaveClass(/is-peeking/);
+  await page.waitForTimeout(3500);
+  expect(state.polls).toBe(0);
+
+  // The studio restarts and will not take sockets for now: the long poll carries the next change.
+  state.socket = false;
+  for (const line of state.lines.splice(0)) await line.close({ code: 1012 });
+  await expect.poll(() => state.polls, { timeout: 5000 }).toBeGreaterThan(0);
+  state.listeners = [state.listeners[0], { ...jesse, song: null, since: null }, fox];
+  state.version = "1000000000000003";
+  await expect(named.locator(".room-avatar")).toHaveAttribute("aria-label", "Jesse Gauntt: online", { timeout: 8000 });
+  // When sockets are back the page returns to one and stops polling.
+  state.socket = true;
+  await expect.poll(() => state.lines.length, { timeout: 8000 }).toBe(1);
+  state.listeners = [state.listeners[0], jesse, fox];
+  state.version = "1000000000000004";
+  state.push();
+  await expect(named.locator(".room-avatar")).toHaveAttribute("aria-label", "Jesse Gauntt: listening to First in the room", { timeout: 2000 });
+});
+
 test("five quiet minutes read as idle, and the next touch of the mouse is online again", async ({ page }) => {
   await page.clock.install();
   const state = await studio(page);
@@ -181,15 +233,18 @@ test("five quiet minutes read as idle, and the next touch of the mouse is online
   await expect.poll(() => state.reports.at(-1).idle).toBe(false);
 });
 
-test("on a phone the seats tuck into the edge, and a changed song steps out like a toast", async ({ page }) => {
+test("on a phone the seats are small and whole at the edge, and a changed song steps out like a toast", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 800 });
   const state = await studio(page);
   await page.goto("/?sort=catalog");
   await expect(page.locator(".room-seat")).toHaveCount(3);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const named = page.locator('.room-seat[data-id="bbbbbbbbbbbbbb01"]');
-  const tucked = await named.locator(".room-avatar").boundingBox();
-  expect(Math.min(tucked.x, 390 - (tucked.x + tucked.width))).toBeLessThan(0);
+  // Every avatar is whole, and none reaches far into the page.
+  for (const box of await page.locator(".room-avatar").evaluateAll((all) => all.map((avatar) => avatar.getBoundingClientRect().toJSON()))) {
+    expect(Math.min(box.left, 390 - box.right)).toBeGreaterThanOrEqual(0);
+    expect(Math.max(box.left, 390 - box.right)).toBeGreaterThan(390 - 40);
+  }
   await named.locator(".room-avatar").click();
   await expect(named.locator(".room-card")).toBeVisible();
   const card = await named.locator(".room-card").boundingBox();
@@ -211,12 +266,11 @@ test("on a phone the seats tuck into the edge, and a changed song steps out like
   expect(toast.x).toBeGreaterThanOrEqual(0);
   expect(toast.x + toast.width).toBeLessThanOrEqual(390);
   expect(toast.height).toBeLessThan(60);
-  const out = await named.locator(".room-avatar").boundingBox();
-  expect(Math.min(out.x, 390 - (out.x + out.width))).toBeGreaterThanOrEqual(0);
+  await expect(named).toHaveClass(/is-changed/);
   await expect(named).not.toHaveClass(/is-peeking/, { timeout: 5500 });
   expect(Date.now() - shown).toBeLessThan(5500);
   await expect(named.locator(".room-card")).toBeHidden();
-  // On a phone your own seat is tucked away too, so your own song is announced the same way.
+  // No card stays in view on a phone, so your own song is announced the same way.
   state.listeners = [{ ...state.listeners[0], song: { id: "room-first", title: "First in the room" } }, ...state.listeners.slice(1)];
   state.version = "1000000000000003";
   await expect(page.locator(".room-seat.is-you")).toHaveClass(/is-peeking/, { timeout: 8000 });
