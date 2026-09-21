@@ -2659,9 +2659,22 @@ button.lyric-line:hover {
 
 /* Backstage: archive published songs. */
 .admin-intro-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 10px; }
-.admin-songs { margin-top: 48px; scroll-margin-top: 16px; }
-.admin-songs > summary { display: flex; align-items: baseline; gap: 14px; cursor: pointer; padding: 6px 0; }
+.admin-songs { margin-top: 48px; scroll-margin-top: 16px; border: 1px solid var(--line); background: var(--white); }
+.admin-songs > summary { display: flex; align-items: center; gap: 14px; cursor: pointer; padding: 16px 18px; list-style: none; }
+.admin-songs > summary::-webkit-details-marker { display: none; }
+.admin-songs > summary:hover { background: var(--light); }
+.admin-songs > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .admin-songs-title { font-family: "Playfair Display", Georgia, serif; font-size: 1.5rem; font-weight: 600; }
+.admin-songs-chevron { flex: none; width: 0.55em; height: 0.55em; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); transition: transform 0.15s; }
+.admin-songs[open] .admin-songs-chevron { transform: rotate(45deg); }
+.admin-songs-count { color: var(--muted); }
+.admin-songs-toggle { flex: none; margin-left: auto; color: var(--muted); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+.admin-songs-toggle::before { content: "Show"; }
+.admin-songs[open] .admin-songs-toggle::before { content: "Hide"; }
+.admin-songs[open] { padding-bottom: 18px; }
+.admin-songs[open] > summary { border-bottom: 1px solid var(--line); }
+.admin-songs > :not(summary) { margin-left: 18px; margin-right: 18px; }
+@media (prefers-reduced-motion: reduce) { .admin-songs-chevron { transition: none; } }
 .admin-songs > .toolbar { margin-top: 14px; }
 .song-pager { display: flex; justify-content: center; align-items: center; gap: 25px; margin-top: 35px; font-size: 0.78rem; }
 .admin-songs .toolbar .small { margin-left: auto; }
@@ -2682,6 +2695,8 @@ button.lyric-line:hover {
 .admin-song .quiet { flex: none; }
 .badge.archived { background: #e6e0d2; color: #5c5541; }
 @media (max-width: 650px) {
+  .admin-songs > summary { flex-wrap: wrap; gap: 6px 12px; }
+  .admin-songs-count { order: 3; width: 100%; }
   .admin-songs .toolbar .small { margin-left: 0; width: 100%; }
   .admin-song { align-items: flex-start; flex-direction: column; }
 }

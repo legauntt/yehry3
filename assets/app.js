@@ -1353,8 +1353,9 @@ async function admin() {
   // The song list keeps its own state so the queue's periodic re-render never loses a search.
   const songs = { q: "", view: "live", page: 0, data: null, sequence: 0, open: false, error: "", jumped: false };
   let songTimer;
+  const songsCount = () => (songs.data ? `${songs.data.counts.live} on the site · ${songs.data.counts.archived} archived` : "Search, archive or restore");
   function songsMarkup() {
-    return `<details class="admin-songs" id="admin-songs"${songs.open ? " open" : ""}><summary><span class="admin-songs-title">Published songs</span><span class="small">Search, archive or restore</span></summary><div class="toolbar"><label class="search"><span class="sr-only">Search published songs</span><input type="search" id="song-search" placeholder="Search title, author, idea or ID…" value="${escape(songs.q)}"></label><label class="sr-only" for="song-view">Show songs</label><select id="song-view"><option value="live">On the site</option><option value="archived">Archived</option><option value="all">Both</option></select><span class="small" id="song-summary"></span></div><p class="small">Archiving hides a song from the site for everyone. Votes, plays and files are kept, and you can restore it here.</p><div id="song-list"></div><div class="song-pager"><button class="quiet" id="song-prev">← Earlier songs</button><span id="song-page"></span><button class="quiet" id="song-next">Later songs →</button></div></details>`;
+    return `<details class="admin-songs" id="admin-songs"${songs.open ? " open" : ""}><summary><span class="admin-songs-chevron" aria-hidden="true"></span><span class="admin-songs-title">Published songs</span><span class="admin-songs-count small" id="song-count">${songsCount()}</span><span class="admin-songs-toggle" aria-hidden="true"></span></summary><div class="toolbar"><label class="search"><span class="sr-only">Search published songs</span><input type="search" id="song-search" placeholder="Search title, author, idea or ID…" value="${escape(songs.q)}"></label><label class="sr-only" for="song-view">Show songs</label><select id="song-view"><option value="live">On the site</option><option value="archived">Archived</option><option value="all">Both</option></select><span class="small" id="song-summary"></span></div><p class="small">Archiving hides a song from the site for everyone. Votes, plays and files are kept, and you can restore it here.</p><div id="song-list"></div><div class="song-pager"><button class="quiet" id="song-prev">← Earlier songs</button><span id="song-page"></span><button class="quiet" id="song-next">Later songs →</button></div></details>`;
   }
   function songRow(song) {
     const id = escape(song.id);
@@ -1366,6 +1367,7 @@ async function admin() {
     const list = songs.data;
     if (!$("#song-list")) return;
     $("#song-view").value = songs.view;
+    $("#song-count").textContent = songsCount();
     $("#song-summary").textContent = list ? `${list.total} matching · ${list.counts.live} on the site · ${list.counts.archived} archived` : "Loading songs…";
     $("#song-list").innerHTML = songs.error ? `<p class="small">${escape(songs.error)}</p>` : !list ? "" : list.songs.length ? list.songs.map(songRow).join("") : '<p class="empty small">No songs match.</p>';
     $("#song-page").textContent = `Page ${songs.page + 1}`;
@@ -1445,7 +1447,7 @@ async function admin() {
       if (songs.open && !songs.data) loadSongs();
     };
     paintSongs();
-    if (songs.open && !songs.data) loadSongs();
+    if (!songs.data && !songs.error) loadSongs();
     if (location.hash === "#songs" && !songs.jumped) {
       songs.jumped = true;
       showSongs();

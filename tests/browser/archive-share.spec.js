@@ -198,3 +198,26 @@ test("Backstage's Published songs button and #songs link open the panel and brin
   await page.locator("#refresh").click();
   await expect(panel).not.toHaveAttribute("open", "");
 });
+
+test("the collapsed Published songs panel says what it holds and that it can be opened", async ({ page }) => {
+  await adminLogin(page);
+  const panel = page.locator("#admin-songs");
+  const summary = panel.locator("> summary");
+  await expect(panel).not.toHaveAttribute("open", "");
+  // Counts arrive without opening it, and the header names its own action.
+  await expect(page.locator("#song-count")).toContainText(/\d+ on the site · \d+ archived/);
+  const label = () => summary.locator(".admin-songs-toggle").evaluate((node) => getComputedStyle(node, "::before").content);
+  expect(await label()).toBe('"Show"');
+  const shut = await panel.evaluate((node) => node.getBoundingClientRect().height);
+  await summary.click();
+  expect(await label()).toBe('"Hide"');
+  await expect(page.locator("#song-search")).toBeVisible();
+  expect(await panel.evaluate((node) => node.getBoundingClientRect().height)).toBeGreaterThan(shut);
+  await summary.click();
+  expect(await label()).toBe('"Show"');
+  // The whole header, not just its title, is the control, and it stays inside a phone screen.
+  await page.setViewportSize({ width: 390, height: 844 });
+  await panel.scrollIntoViewIfNeeded();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: "artifacts/admin-songs-collapsed-mobile.png" });
+});
