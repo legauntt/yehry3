@@ -16,6 +16,7 @@ const attribute = value => String(value).replace(/&/g, "&amp;").replace(/"/g, "&
 // The picture as markup. Decorative copies (gallery cards) stay out of the reader's way.
 export function artImage(side, art, decorative = false) {
   if (!art) return "";
-  const picture = songArtwork({ ...stand(side), artRemix: art });
-  return `<img class="tape-art" src="${attribute(picture.src)}" alt="${decorative ? "" : attribute(`Side ${side.toUpperCase()} clipart. ${picture.alt}`)}" width="240" height="200">`;
+  // Wide, so the picture fills the label's whole 1000 x 240 rectangle rather than sitting in a square.
+  const picture = songArtwork({ ...stand(side), artRemix: art }, { wide: true });
+  return `<img class="tape-art" src="${attribute(picture.src)}" alt="${decorative ? "" : attribute(`Side ${side.toUpperCase()} clipart. ${picture.alt}`)}" width="1000" height="240">`;
 }

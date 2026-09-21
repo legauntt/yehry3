@@ -20,7 +20,8 @@ export function rememberAuthor(value) {
   }
 }
 
-export const authorField = '<label for="authored-by">Authored by <span class="small">(optional)</span></label><input id="authored-by" name="authoredBy" type="text" maxlength="100" autocomplete="nickname" aria-describedby="authored-by-help"><p class="small" id="authored-by-help">Your name or nickname, shown with your request and song. Remembered in this browser for next time.</p>';
+export const authorFieldFor = shownWith => `<label for="authored-by">Authored by <span class="small">(optional)</span></label><input id="authored-by" name="authoredBy" type="text" maxlength="100" autocomplete="nickname" aria-describedby="authored-by-help"><p class="small" id="authored-by-help">Your name or nickname, shown with ${shownWith}. Remembered in this browser for next time.</p>`;
+export const authorField = authorFieldFor("your request and song");
 
 export function authoredByLine(name, escape) {
   return typeof name === "string" && name.trim()

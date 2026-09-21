@@ -477,3 +477,98 @@ test("the editor and record shelf follow Dark Mode instead of staying cream", as
   });
   for (const selector of [".tape-edit", ".tape-picker", ".side-heading"]) expect(await luminance(selector), selector).toBeLessThan(90);
 });
+
+test("Authored by fills in from the remembered name, is published with the tape and shows in the gallery and on the tape", async ({ page, browser }) => {
+  await catalog(page);
+  const published = [];
+  await page.route(/\/yehry3\/mixtapes$/, route => {
+    if (route.request().method() !== "POST") return route.fallback();
+    published.push(route.request().postDataJSON().tape);
+    return route.fulfill({ json: { id: "authored0001", tape: published.at(-1) } });
+  });
+  await page.route(/\/yehry3\/mixtapes\/authored0001$/, route => route.fulfill({ json: { id: "authored0001", tape: published[0] } }));
+  await page.route(/\/yehry3\/mixtapes\?page=\d+$/, route => route.fulfill({ json: { mixtapes: published.map(tape => ({ id: "authored0001", tape, createdAt: "2026-09-20T12:00:00.000Z" })), page: 0, hasMore: false } }));
+  await page.goto("/mixtapes/new");
+  const author = page.getByLabel("Authored by");
+  await expect(author).toHaveValue("");
+  await page.evaluate(() => localStorage.setItem("yehry3:authored-by", "Remembered Rae"));
+  // A fresh tape starts with the name used on a song request; it is a real, editable field.
+  await page.goto("/mixtapes/");
+  await page.getByRole("link", { name: /^New mixtape/ }).first().click();
+  await expect(author).toHaveValue("Remembered Rae");
+  await author.fill("  Original Olly  ");
+  expect(await page.evaluate(() => localStorage.getItem("yehry3:authored-by"))).toBe("  Original Olly  ");
+  await page.reload();
+  await expect(author).toHaveValue("Original Olly");
+  await page.getByRole("button", { name: "Add First record to side A" }).click();
+  await page.getByRole("button", { name: "Publish mixtape" }).click();
+  await expect(page.locator("#tape-link")).toHaveValue(/authored0001$/);
+  expect(published[0].authoredBy).toBe("Original Olly");
+  // The gallery card and the tape's own page both say who authored it.
+  await page.goto("/mixtapes/");
+  const card = page.locator(".tape-card").first();
+  await expect(card.locator(".authored-by")).toHaveText("Authored by Original Olly");
+  await expect(card).toHaveAttribute("aria-label", /authored by Original Olly/);
+  // Someone else opens it, sees the byline, and their own copy carries their name instead.
+  const viewer = await browser.newContext(); const tab = await viewer.newPage(); await catalog(tab);
+  await tab.route(/\/yehry3\/mixtapes\/authored0001$/, route => route.fulfill({ json: { id: "authored0001", tape: published[0] } }));
+  await tab.route(/\/yehry3\/mixtapes$/, route => {
+    if (route.request().method() !== "POST") return route.fallback();
+    published.push(route.request().postDataJSON().tape);
+    return route.fulfill({ json: { id: "authored0002", tape: published.at(-1) } });
+  });
+  await tab.goto("/mixtapes/authored0001");
+  await expect(tab.locator(".tape-intro .authored-by")).toHaveText("Authored by Original Olly");
+  await tab.evaluate(() => localStorage.setItem("yehry3:authored-by", "Viewer Val"));
+  await tab.getByRole("button", { name: "Make your own version" }).click();
+  await expect(tab).toHaveURL(/\/mixtapes\/new$/);
+  await expect(tab.getByLabel("Authored by")).toHaveValue("Viewer Val");
+  // Clearing it clears it for next time, and the tape is published without a name.
+  await tab.getByLabel("Authored by").fill("");
+  expect(await tab.evaluate(() => localStorage.getItem("yehry3:authored-by"))).toBeNull();
+  await tab.getByRole("button", { name: "Publish mixtape" }).click();
+  await expect(tab.locator("#tape-link")).toHaveValue(/authored0002$/);
+  expect("authoredBy" in published.at(-1)).toBe(false);
+  await viewer.close();
+});
+
+test("Authored by stays usable on a phone and when browser storage is unavailable", async ({ page }) => {
+  await catalog(page); await page.setViewportSize({ width: 390, height: 844 });
+  await page.addInitScript(() => { Object.defineProperty(window, "localStorage", { get() { throw new Error("blocked"); } }); });
+  await page.goto("/mixtapes/new");
+  const author = page.getByLabel("Authored by");
+  await expect(author).toBeVisible();
+  await expect(page.locator("#authored-by-help")).toBeVisible();
+  await author.fill("No storage Nat");
+  await expect(author).toHaveValue("No storage Nat");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test("clipart fills the whole label rectangle in the editor, the deck and the gallery", async ({ page }) => {
+  await catalog(page);
+  const tape = { v: 2, name: "Wide art", color: "green", a: ["tape-one"], b: [], labels: { a: { text: "", ink: [], art: { seed: 12345, theme: "ghost" } }, b: { text: "", ink: [] } } };
+  await page.route(/\/yehry3\/mixtapes\?page=\d+$/, route => route.fulfill({ json: { mixtapes: [{ id: "wideart00001", tape, createdAt: "2026-09-20T12:00:00.000Z" }], page: 0, hasMore: false } }));
+  const fills = async (outer, inner) => {
+    const [o, i] = [await outer.boundingBox(), await inner.boundingBox()];
+    expect(Math.abs(o.width - i.width), "width").toBeLessThan(3); expect(Math.abs(o.height - i.height), "height").toBeLessThan(3);
+    expect(Math.abs(i.width / i.height - 1000 / 240), "aspect").toBeLessThan(.08);
+  };
+  for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/mixtapes/new");
+    await page.getByRole("button", { name: "Add First record to side A" }).click();
+    await page.locator('[data-art-side="a"] [data-art-words]').fill("a robot in sunglasses");
+    await expect(page.locator(".cassette-face")).toHaveClass(/has-art/);
+    await fills(page.locator(".cassette-face"), page.locator(".cassette-art img"));
+    const preview = await page.locator('[data-art-side="a"] [data-art-preview] img').boundingBox();
+    expect(Math.abs(preview.width / preview.height - 1000 / 240)).toBeLessThan(.08);
+    expect(await page.locator(".cassette-art img").getAttribute("src")).toContain("viewBox%3D%220%200%201000%20240%22");
+    await page.goto("/mixtapes/");
+    await fills(page.locator('.tape-card-side[data-face="a"]'), page.locator('.tape-card-side[data-face="a"] img'));
+  }
+  await page.goto("/mixtapes/new");
+  await page.getByRole("button", { name: "Add First record to side A" }).click();
+  await page.locator('[data-art-side="a"] [data-art-words]').fill("a ghost");
+  await page.getByRole("button", { name: "Remove Side A clipart" }).click();
+  await expect(page.locator(".cassette-face")).not.toHaveClass(/has-art/);
+});

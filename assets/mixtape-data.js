@@ -52,7 +52,10 @@ export function validateTape(value) {
       value.a.length + value.b.length > 40 ||
       ![...value.a, ...value.b].every(id => typeof id === "string" && /^[a-z0-9-]{1,120}$/.test(id)))
     throw new Error("This mixtape link is incomplete or invalid.");
-  return { v: 2, name: value.name.trim() || defaultName, color: value.color, a: [...value.a], b: [...value.b],
+  // "Authored by" is optional. A blank name is left out, so tapes without one keep exactly their old shape.
+  const authoredBy = value.authoredBy === undefined ? "" : value.authoredBy;
+  if (typeof authoredBy !== "string" || authoredBy.trim().length > 100) throw new Error("This mixtape link is incomplete or invalid.");
+  return { v: 2, name: value.name.trim() || defaultName, ...(authoredBy.trim() ? { authoredBy: authoredBy.trim() } : {}), color: value.color, a: [...value.a], b: [...value.b],
     labels: value.v === 1 ? { a: blankLabel(), b: blankLabel() } : { a: validateLabel(value.labels?.a), b: validateLabel(value.labels?.b) } };
 }
 

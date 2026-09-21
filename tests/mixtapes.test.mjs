@@ -79,3 +79,29 @@ test("the pre-drawn Side A and Side B lettering fits the label and the shared ha
   }
   assert.notDeepEqual(sideInk("a"), sideInk("b"));
 });
+
+test("Authored by is optional, trimmed, bounded at 100 characters, and absent from tapes without one", () => {
+  const base = { ...emptyTape(), a: ["one"] };
+  assert.equal("authoredBy" in validateTape(base), false);
+  for (const blank of ["", "   ", undefined]) assert.equal("authoredBy" in validateTape({ ...base, authoredBy: blank }), false);
+  const named = validateTape({ ...base, authoredBy: "  Jesse 🎶  " });
+  assert.equal(named.authoredBy, "Jesse 🎶");
+  assert.deepEqual(decodeTape(encodeTape(named)), named);
+  assert.equal(validateTape({ ...base, authoredBy: "x".repeat(100) }).authoredBy.length, 100);
+  for (const bad of ["x".repeat(101), 7, null, ["Jesse"], { name: "Jesse" }]) assert.throws(() => validateTape({ ...base, authoredBy: bad }));
+});
+
+test("wide clipart fills the 1000 x 240 label, keeps the character, and leaves square song covers untouched", async () => {
+  const { songArtwork } = await import("../assets/song-art.js");
+  const song = { id: "mixtape-side-a", title: "Side A", artRemix: { seed: 42 } };
+  const decode = art => decodeURIComponent(art.src.replace("data:image/svg+xml,", ""));
+  const wide = decode(songArtwork(song, { wide: true })), square = decode(songArtwork(song));
+  assert.match(wide, /^<svg [^>]*width="1000" height="240" viewBox="0 0 1000 240">/);
+  assert.match(square, /^<svg [^>]*width="240" height="200" viewBox="0 0 240 200">/);
+  assert.match(wide, /<rect width="1000" height="240"/);
+  // Neither layout replaces the other in the cache.
+  assert.equal(songArtwork(song).src, songArtwork(song).src);
+  assert.notEqual(songArtwork(song, { wide: true }).src, songArtwork(song).src);
+  for (let backdrop = 0; backdrop < 6; backdrop++) assert.match(decode(songArtwork({ ...song, artRemix: { seed: 42, backdrop } }, { wide: true })), /viewBox="0 0 1000 240"[\s\S]*<\/svg>$/);
+  assert.match(artImage("a", { seed: 42 }), /width="1000" height="240"/);
+});

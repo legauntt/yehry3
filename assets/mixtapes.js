@@ -1,3 +1,4 @@
+import { authoredByLine, authorFieldFor, savedAuthor, rememberAuthor } from "./authored-by.js";
 import { songBadges } from "./song-badges.js";
 import { api, publicApi } from "./api.js";
 import { watchCompletions } from "./notifications.js";
@@ -62,11 +63,11 @@ async function gallery() {
   const date = value => { const day = new Date(value); return Number.isNaN(day.getTime()) ? "" : ` · ${day.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}`; };
   const face = (t, side) => {
     const label = t.labels[side], drawn = drawEnabled && label.ink.length > 0;
-    return `<span class="tape-card-side" data-face="${side}"><b aria-hidden="true">${side.toUpperCase()}</b>${label.art ? `<span class="tape-card-art">${artImage(side, label.art, true)}</span>` : ""}${drawn ? '<canvas class="cassette-ink" aria-hidden="true"></canvas>' : label.art ? "" : `<em>${escape(label.text || `Side ${side.toUpperCase()}`)}</em>`}</span>`;
+    return `<span class="tape-card-side${label.art ? " has-art" : ""}" data-face="${side}"><b aria-hidden="true">${side.toUpperCase()}</b>${label.art ? `<span class="tape-card-art">${artImage(side, label.art, true)}</span>` : ""}${drawn ? '<canvas class="cassette-ink" aria-hidden="true"></canvas>' : label.art ? "" : `<em>${escape(label.text || `Side ${side.toUpperCase()}`)}</em>`}</span>`;
   };
   const card = ({ id, tape: t, createdAt }) => {
     const count = t.a.length + t.b.length, name = escape(t.name);
-    return `<li><a class="tape-card" data-card="${id}" data-color="${t.color}" href="${tapeHref(id)}" aria-label="${name}, ${count} ${count === 1 ? "track" : "tracks"}"><span class="tape-card-body" aria-hidden="true">${face(t, "a")}${face(t, "b")}</span><strong>${name}</strong><span class="small">${count} ${count === 1 ? "track" : "tracks"}${date(createdAt)}</span></a></li>`;
+    return `<li><a class="tape-card" data-card="${id}" data-color="${t.color}" href="${tapeHref(id)}" aria-label="${name}, ${count} ${count === 1 ? "track" : "tracks"}${t.authoredBy ? `, authored by ${escape(t.authoredBy)}` : ""}"><span class="tape-card-body" aria-hidden="true">${face(t, "a")}${face(t, "b")}</span><strong>${name}</strong>${authoredByLine(t.authoredBy, escape)}<span class="small">${count} ${count === 1 ? "track" : "tracks"}${date(createdAt)}</span></a></li>`;
   };
   async function load() {
     if (busy) return;
@@ -102,7 +103,7 @@ async function gallery() {
 
 async function mount() {
   main.innerHTML = `<section class="tape-hero">
-      <div class="tape-intro"><p class="eyebrow"><a href="/mixtapes/">The listening room / Mixtapes</a> / ${shared ? "Shared tape" : "New"}</p>${shared ? `<h1 class="tape-name-heading">${escape(tape.name)}</h1><p class="lede">Made by a listener, shared with everyone.<br>Press play, or make your own version.</p>` : '<h1>A little more<br><em>personal.</em></h1><p class="lede">An opener. A change of pace. One last song.<br>Make someone a tape worth turning over.</p>'}
+      <div class="tape-intro"><p class="eyebrow"><a href="/mixtapes/">The listening room / Mixtapes</a> / ${shared ? "Shared tape" : "New"}</p>${shared ? `<h1 class="tape-name-heading">${escape(tape.name)}</h1>${authoredByLine(tape.authoredBy, escape)}<p class="lede">Made by a listener, shared with everyone.<br>Press play, or make your own version.</p>` : '<h1>A little more<br><em>personal.</em></h1><p class="lede">An opener. A change of pace. One last song.<br>Make someone a tape worth turning over.</p>'}
         <p class="tape-how"><span>01 &nbsp; Pick your songs</span><span>02 &nbsp; Draw the labels</span><span>03 &nbsp; Publish it</span></p>
         <div class="actions tape-actions"><button class="primary" id="share-tape" disabled>${sharedId ? "Copy link" : "Publish mixtape"}</button>${shared ? '<button class="quiet" id="edit-tape">Make your own version</button>' : '<a class="text-link" href="#tape-picker">Find your first track ↓</a>'}<a class="text-link" href="/mixtapes/">All mixtapes</a></div>
         <p class="small" id="tape-status" role="status">${sharedId ? "Every mixtape is public. This one is in the gallery for everyone." : shared ? "This tape came from an older link. Publish it to add it to the gallery and get a short link." : "Every mixtape is public. Publishing adds yours to the gallery for everyone."}</p>
@@ -123,7 +124,7 @@ async function mount() {
         <audio preload="metadata" hidden></audio>
       </section>
     </section>
-    <section class="tape-edit" aria-label="Personalize your tape" ${shared ? "hidden" : ""}><div><label for="tape-name">Mixtape name</label><input id="tape-name" maxlength="80"></div><div><label for="tape-color">Sleeve color</label><select id="tape-color">${tapeColors.map(color => `<option value="${color}">${color[0].toUpperCase() + color.slice(1)}</option>`).join("")}</select></div><p class="small">Two sides. Two stories.<br>Give each one its own label.</p>
+    <section class="tape-edit" aria-label="Personalize your tape" ${shared ? "hidden" : ""}><div><label for="tape-name">Mixtape name</label><input id="tape-name" maxlength="80"></div><div><label for="tape-color">Sleeve color</label><select id="tape-color">${tapeColors.map(color => `<option value="${color}">${color[0].toUpperCase() + color.slice(1)}</option>`).join("")}</select></div><div class="author-field">${authorFieldFor("your mixtape in the gallery")}</div><p class="small">Two sides. Two stories.<br>Give each one its own label.</p>
       <div class="tape-label-editors"><div class="label-editors-head"><div><h3>Side labels</h3><p class="small">${drawEnabled ? "Every label is drawn by hand. Write with a mouse, finger or pen, add clipart, or start from a pre-drawn label." : "This device can’t draw labels, so your tape will show plain Side A and Side B. You can still add clipart."}</p></div>${drawEnabled ? '<button class="quiet" id="pre-draw">Pre-draw Side A &amp; B</button>' : ""}</div>${["a", "b"].map(side => `<div class="tape-label-editor"${drawEnabled ? ` data-label-editor="${side}"` : ""}><h4>Side ${side.toUpperCase()}</h4>${drawEnabled ? `<canvas class="handwriting-pad" aria-label="Draw a handwritten label for side ${side.toUpperCase()}" role="img"></canvas><div class="actions"><button class="quiet" data-ink-undo>Undo stroke</button><button class="quiet" data-ink-clear>Clear drawing</button></div><p class="small" data-ink-status role="status"></p>` : ""}<div class="tape-art-picker" data-art-side="${side}"><h5>Side ${side.toUpperCase()} clipart</h5><div class="tape-art-preview" data-art-preview></div><label for="art-words-${side}">What should it be?</label><input id="art-words-${side}" data-art-words maxlength="80" autocomplete="off" enterkeyhint="done" placeholder="a robot in sunglasses, blue, holding a balloon"><div class="actions"><button class="quiet" data-art-roll>🎲 Draw one</button><button class="quiet" data-art-clear>Remove clipart</button></div><p class="small" data-art-status role="status" aria-live="polite">Try a character (robot, ghost, guitar…), a color, sunglasses, a balloon, wink or dance. Leave it blank for a surprise.</p></div></div>`).join("")}</div></section>
     <div class="tape-workspace"><section class="tape-tracklist" aria-label="Your tracklist"><div class="section-heading"><h2>The running order.</h2><span class="small" id="tape-count"></span></div><p class="small">${shared ? "Pick a track to start there. Side B follows Side A automatically." : "Click a title to listen. Drag to reorder, or use the arrow buttons."}</p><div class="tape-sides" id="tape-sides"></div></section>
       <section class="tape-picker" id="tape-picker" ${shared ? "hidden" : ""}><p class="eyebrow">The record shelf</p><h2>Find your next track.</h2><div class="tape-starter"><span class="small">Need a starting point?</span><button class="quiet" id="tape-surprise" disabled>Add a surprise mix ↗</button></div><label class="sr-only" for="tape-search">Find a song</label><input type="search" id="tape-search" placeholder="Search the collection…"><p class="small" id="tape-results" role="status"></p><div id="tape-catalog"><p>Getting the records out…</p></div></section>
@@ -147,6 +148,7 @@ async function mount() {
     $("#tape-label-art").hidden = !art;
     $("#tape-label-art").innerHTML = artImage(activeSide, art);
     $(".cassette-face").classList.toggle("has-ink", drawn);
+    $(".cassette-face").classList.toggle("has-art", Boolean(art));
     if (drawn) drawInk($("#tape-label-ink"), label.ink);
     const count = slots[activeSide].length;
     $("#tape-total").textContent = `SIDE ${activeSide.toUpperCase()} · ${count} ${count === 1 ? "track" : "tracks"} / ${tapeDuration(slots[activeSide].map(entry => entry.id), catalog)}`;
@@ -224,8 +226,12 @@ async function mount() {
     }).join("") : '<p class="small tape-no-results">No songs match that title. Try a different search.</p>';
   }
   function changed() { save(); render(); renderCatalog(); }
+  // Like a song request, the name you used last time fills in for you; clearing it here clears it for next time too.
+  if (!shared && !tape.authoredBy) { const remembered = savedAuthor().trim().slice(0, 100); if (remembered) tape.authoredBy = remembered; }
   $("#tape-name").value = tape.name;
   $("#tape-color").value = tape.color;
+  $("#authored-by").value = tape.authoredBy || "";
+  $("#authored-by").oninput = event => { tape.authoredBy = event.target.value; rememberAuthor(event.target.value); save(); };
   $("#tape-name").oninput = event => { tape.name = event.target.value; save(); renderLabel(); document.title = `${tape.name || "New mixtape"} · Mixtapes · yehry3`; };
   const redrawPads = drawEnabled ? mountHandwriting(main, { getLabel: side => tape.labels[side], onChange: () => { save(); renderLabel(); syncPreDraw(); } }) : () => {};
   // Pre-draw only fills sides that are still blank, so it never overwrites a label someone already drew.
@@ -391,9 +397,11 @@ async function mount() {
   };
   $("#edit-tape")?.addEventListener("click", () => {
     // Copy this tape into a fresh editor page. Without session storage, edit it in place instead.
-    try { sessionStorage.setItem(tapeKey, JSON.stringify(validateTape({ ...tape, a: slots.a.map(entry => entry.id), b: slots.b.map(entry => entry.id) }))); location.assign("/mixtapes/new"); return; }
+    // The copy is yours, so it drops the original author and fills in your own remembered name.
+    try { sessionStorage.setItem(tapeKey, JSON.stringify(validateTape({ ...tape, authoredBy: "", a: slots.a.map(entry => entry.id), b: slots.b.map(entry => entry.id) }))); location.assign("/mixtapes/new"); return; }
     catch { /* fall through to in-place editing */ }
     shared = false; sharedId = null; history.replaceState(null, "", "/mixtapes/new");
+    tape.authoredBy = savedAuthor().trim().slice(0, 100); $("#authored-by").value = tape.authoredBy;
     $(".tape-edit").hidden = false; $(".tape-picker").hidden = false; $("#edit-tape").remove(); changed();
   });
   render();

@@ -23,9 +23,9 @@ function burst(cx, cy, outer, inner, points, fill) {
   for (let i = 0; i < points * 2; i++) d += (i ? "L" : "M") + point(cx, cy, i % 2 ? inner : outer, -90 + i * 180 / points);
   return path(d + "Z", fill);
 }
-function rays(cx, cy, count, fill, opacity) {
+function rays(cx, cy, count, fill, opacity, reach = 260) {
   let d = "";
-  for (let i = 0; i < count; i++) d += "M" + cx + " " + cy + "L" + point(cx, cy, 260, i * 360 / count) + "L" + point(cx, cy, 260, (i + .5) * 360 / count) + "Z";
+  for (let i = 0; i < count; i++) d += "M" + cx + " " + cy + "L" + point(cx, cy, reach, i * 360 / count) + "L" + point(cx, cy, reach, (i + .5) * 360 / count) + "Z";
   return '<path d="' + d + '" fill="' + fill + '" opacity="' + opacity + '"/>';
 }
 
@@ -242,6 +242,15 @@ const backdrops = [
   () => rays(120, 190, 14, paper, ".42"),
   () => '<path d="M46 200V96Q46 20 120 20Q194 20 194 96V200Z" fill="' + paper + '" opacity=".55"/>',
 ];
+// The same six backdrops for a wide 1000 x 240 label, so clipart can fill the whole rectangle instead of a square.
+const wideBackdrops = [
+  () => '<ellipse cx="500" cy="118" rx="360" ry="104" fill="' + paper + '" opacity=".55"/>',
+  () => '<path d="M110 80Q280 -6 520 20Q820 -8 920 96Q980 196 760 220Q520 246 290 222Q70 206 80 136Q80 100 110 80Z" fill="' + paper + '" opacity=".55"/>',
+  () => '<path d="' + Array.from({ length: 6 }, (_, i) => "M" + (-140 + i * 230) + " 250L" + (-50 + i * 230) + " -10H" + (10 + i * 230) + "L" + (-80 + i * 230) + " 250Z").join("") + '" fill="' + paper + '" opacity=".42"/>',
+  () => '<g fill="' + paper + '" opacity=".5">' + Array.from({ length: 150 }, (_, i) => circle(20 + (i % 25) * 40 + (Math.floor(i / 25) % 2) * 20, 18 + Math.floor(i / 25) * 41, 8, paper)).join("") + '</g>',
+  () => rays(500, 236, 14, paper, ".42", 640),
+  () => '<path d="M310 240V108Q310 12 500 12Q690 12 690 108V240Z" fill="' + paper + '" opacity=".55"/>',
+];
 function hash(value) {
   let result = 2166136261;
   for (const char of value) result = Math.imul(result ^ char.codePointAt(0), 16777619);
@@ -250,9 +259,9 @@ function hash(value) {
   result = Math.imul(result ^ (result >>> 13), 3266489909);
   return (result ^ (result >>> 16)) >>> 0;
 }
-function confetti(identity, style, a, b) {
-  return Array.from({ length: 9 }, (_, index) => {
-    const n = hash(identity + ":" + index), x = 13 + n % 213, y = 12 + (n >>> 8) % 174, color = index % 2 ? b : a;
+function confetti(identity, style, a, b, count = 9, spanX = 213, spanY = 174) {
+  return Array.from({ length: count }, (_, index) => {
+    const n = hash(identity + ":" + index), x = 13 + n % spanX, y = 12 + (n >>> 8) % spanY, color = index % 2 ? b : a;
     if (style === "hearts") return '<path transform="translate(' + x + " " + y + ') scale(' + (index % 3 ? ".55" : ".8") + ')" d="' + miniHeart + '" fill="' + (index % 2 ? paper : rose) + '" stroke="none"/>';
     if (style === "sparkles") return '<g stroke="none">' + burst(x, y, index % 3 ? 5 : 8, 2, 4, index % 2 ? paper : gold) + '</g>';
     if (style === 1) return index % 2 ? path("M" + x + " " + y + "h8m-4 -4v8", b) : circle(x, y, 2.5, a);
@@ -293,10 +302,12 @@ export function shockedArtwork(src) {
   for (const art of cache.values()) if (art.src === src) return shocks.get(art)();
   return null;
 }
-export function songArtwork(song) {
+// `wide` draws the same character on a 1000 x 240 canvas (a mixtape label). Song covers never ask for it.
+export function songArtwork(song, options = {}) {
   const { title, identity, source, seeded, remix, roll, pick, tier } = rolls(song);
+  const wide = Boolean(options.wide) && !tier;
   const pinned = remixTraits.map(trait => remix[trait] ?? "").join(",");
-  const key = identity + "\n" + (tier?.votes || 0) + "\n" + pinned;
+  const key = identity + "\n" + (tier?.votes || 0) + "\n" + pinned + (wide ? "\nwide" : "");
   if (cache.has(key)) return cache.get(key);
   // Titles are present in both lightweight API responses and full offline records.
   // Artwork never requires downloading lyrics or calling an image service.
@@ -320,23 +331,28 @@ export function songArtwork(song) {
   const looks = (extra?.shades && !special ? "" : special || eyes[pick("eyes", eyes.length)]()) + (seesaw ? seesawMouth : mouths[pick("mouth", mouths.length)]);
   const face = looks + (extra && !(extra.shades && special) ? extra.draw(a, b) : "");
   const dark = tier?.stage === "legend";
-  const specks = confetti(source, tier?.stage === "loved" ? "hearts" : tier?.votes >= 5 ? "sparkles" : pick("confetti", 4), a, b);
+  const specks = confetti(source, tier?.stage === "loved" ? "hearts" : tier?.votes >= 5 ? "sparkles" : pick("confetti", 4), a, b, ...(wide ? [34, 974, 214] : []));
   const badgeX = flipped ? 19 : 202;
   // Tier hearts stay top right: the grid's track number covers the top-left corner.
   const badge = tier
     ? Array.from({ length: tiers.length - tiers.indexOf(tier) }, (_, i) => '<path transform="translate(' + (212 - i * 18) + ' 11) scale(.85)" d="' + miniHeart + '"/>').join("")
     : '<g transform="translate(' + badgeX + ' 19)"><path d="M0 8L7 7 9 0 12 7 19 9 12 12 10 19 7 12 0 10Z"/></g>';
   const accentX = roll("accent-side", 2) ? 176 : 8;
-  const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="200" viewBox="0 0 240 200">'
-    + '<rect width="240" height="200" fill="' + background + '"/>' + (tier ? stageMarkup(tier.stage) : backdrops[pick("backdrop", backdrops.length)]())
-    + '<g stroke="' + b + '" stroke-width="2" stroke-linecap="round">' + specks + '</g><ellipse cx="122" cy="176" rx="62" ry="8" fill="' + ink + '" opacity=".10"/>'
+  const figure = '<ellipse cx="122" cy="176" rx="62" ry="8" fill="' + ink + '" opacity=".10"/>'
     + '<g transform="translate(20 -2) rotate(' + tilt + ' 100 100)' + (flipped ? " translate(200 0) scale(-1 1)" : "") + '" stroke="' + ink + '" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">'
     + path(limbs) + (prop ? '<g transform="translate(' + hand[0] + " " + hand[1] + ')">' + prop(b) + '</g>' : "")
     + drawings[theme](a, b) + face + '</g>'
     + (accentTheme ? '<g transform="translate(' + accentX + ' 130) scale(.28) rotate(12 100 100)" stroke="' + ink + '" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">' + drawings[accentTheme](dark ? a : b, dark ? b : a) + '</g>' : "")
-    + '<g fill="' + (tier ? rose : paper) + '" stroke="' + (dark ? paper : ink) + '" stroke-width="2" stroke-linejoin="round">' + badge + '</g>'
-    + (tier?.votes >= 5 ? '<rect x="5" y="5" width="230" height="190" rx="7" fill="none" stroke="' + (dark ? gold : "#a86a08") + '" stroke-width="4"/>' + (dark ? '<rect x="12" y="12" width="216" height="176" rx="4" fill="none" stroke="' + gold + '" stroke-width="1.5"/>' : "") : "")
-    + '</svg>';
+    + '<g fill="' + (tier ? rose : paper) + '" stroke="' + (dark ? paper : ink) + '" stroke-width="2" stroke-linejoin="round">' + badge + '</g>';
+  const svg = wide
+    // The whole 240 x 200 figure scales to the label's height and sits in the middle; the backdrop and specks fill the rest.
+    ? '<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="240" viewBox="0 0 1000 240"><rect width="1000" height="240" fill="' + background + '"/>' + wideBackdrops[pick("backdrop", backdrops.length)]()
+      + '<g stroke="' + b + '" stroke-width="2" stroke-linecap="round">' + specks + '</g><g transform="translate(356 0) scale(1.2)">' + figure + '</g></svg>'
+    : '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="200" viewBox="0 0 240 200">'
+      + '<rect width="240" height="200" fill="' + background + '"/>' + (tier ? stageMarkup(tier.stage) : backdrops[pick("backdrop", backdrops.length)]())
+      + '<g stroke="' + b + '" stroke-width="2" stroke-linecap="round">' + specks + '</g>' + figure
+      + (tier?.votes >= 5 ? '<rect x="5" y="5" width="230" height="190" rx="7" fill="none" stroke="' + (dark ? gold : "#a86a08") + '" stroke-width="4"/>' + (dark ? '<rect x="12" y="12" width="216" height="176" rx="4" fill="none" stroke="' + gold + '" stroke-width="1.5"/>' : "") : "")
+      + '</svg>';
   const remixed = pinned.replaceAll(",", "") !== "";
   const gasp = (extra?.shades && !special ? "" : openEye(85, 102, 13, 0, 0, 2) + openEye(116, 99, 14, 0, 0, 2)) + seesawMouth;
   const art = { src: "data:image/svg+xml," + encodeURIComponent(svg), alt: "Silly clip art: " + description + (seesaw ? ", with a comically enormous black rectangle for a mouth" : "") + (remixed ? ", redrawn by listeners." : "."), theme, tier: tier?.votes || 0, remixed };
