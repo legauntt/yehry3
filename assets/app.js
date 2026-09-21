@@ -1,4 +1,4 @@
-import { showMessage } from "./message.js";
+import { showMessage, showToast } from "./message.js";
 import { songBadges, voiceModelBadge } from "./song-badges.js";
 import { pitchBadge } from "./pitch-badge.js";
 import { mountSides, sidesBadge } from "./sides.js";
@@ -1403,6 +1403,18 @@ async function admin() {
     panel.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
     $("#song-search").focus({ preventScroll: true });
   }
+  // Archiving offers an Undo, since the row leaves the list the moment it succeeds.
+  async function setArchived(id, archived, title) {
+    try {
+      await api(`/admin/songs/${encodeURIComponent(id)}`, { method: "PATCH", role: "admin", body: { archived } });
+      showToast(archived ? `Archived “${title}”. It is off the site for everyone.` : `Restored “${title}” to the site.`,
+        archived ? { action: { label: "Undo", run: () => setArchived(id, false, title) } } : {});
+      await loadSongs();
+    } catch (error) {
+      if (error.status === 401) return load();
+      showToast(error.message, { error: true });
+    }
+  }
   function bindSongs() {
     $("#jump-songs").onclick = showSongs;
     $("#song-search").oninput = (event) => {
@@ -1428,16 +1440,12 @@ async function admin() {
       const button = event.target.closest("[data-archive]");
       if (!button) return;
       const archived = button.dataset.archived === "true";
-      const song = songs.data?.songs.find((item) => item.id === button.dataset.archive);
-      if (archived && !window.confirm(`Archive “${song?.title || "this song"}”? It leaves the site for everyone. Votes and plays are kept, and you can restore it here.`)) return;
+      const id = button.dataset.archive;
+      const title = songs.data?.songs.find((item) => item.id === id)?.title || "this song";
+      if (archived && !window.confirm(`Archive “${title}”? It leaves the site for everyone. Votes and plays are kept, and you can restore it here.`)) return;
       busy(button, true);
       try {
-        await api(`/admin/songs/${encodeURIComponent(button.dataset.archive)}`, { method: "PATCH", role: "admin", body: { archived } });
-        message(archived ? "Song archived." : "Song restored.");
-        await loadSongs();
-      } catch (error) {
-        if (error.status === 401) return load();
-        message(error.message, true);
+        await setArchived(id, archived, title);
       } finally {
         busy(button, false);
       }

@@ -15,6 +15,37 @@ const arm = (region) => {
   timer = setTimeout(() => clear(region), wait);
 };
 
+// A toast floats at the bottom of the viewport, so it is seen wherever the page is scrolled.
+// `action` adds one button ({ label, run }), such as Undo.
+let toastTimer = 0;
+export function showToast(text, { error = false, action } = {}) {
+  let region = document.querySelector("#toast");
+  if (!region) {
+    region = document.createElement("div");
+    region.id = "toast";
+    region.className = "toast";
+    region.setAttribute("role", "status");
+    region.setAttribute("aria-live", "polite");
+    document.body.append(region);
+  }
+  clearTimeout(toastTimer);
+  region.textContent = "";
+  region.classList.toggle("error", error);
+  const body = document.createElement("span");
+  body.textContent = text;
+  region.append(body);
+  const close = () => { clearTimeout(toastTimer); region.textContent = ""; region.classList.remove("error"); };
+  if (action) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "toast-action";
+    button.textContent = action.label;
+    button.addEventListener("click", () => { close(); action.run(); });
+    region.append(button);
+  }
+  toastTimer = setTimeout(close, error ? 10000 : action ? 8000 : 5000);
+}
+
 export function showMessage(text, error = false) {
   const region = document.querySelector("#message");
   if (!region) return;

@@ -58,7 +58,7 @@ test("Backstage archives a song out of the public site, keeps it findable, and r
     await expect(row).not.toHaveClass(/archived/);
     page.once("dialog", (dialog) => { expect(dialog.message()).toContain(song.title); return dialog.accept(); });
     await row.getByRole("button", { name: /^Archive / }).click();
-    await expect(page.locator("#message")).toContainText("Song archived");
+    await expect(page.locator("#toast")).toContainText("Archived");
     // It leaves the live view but shows under Archived and Both.
     await expect(row).toHaveCount(0);
     await page.locator("#song-view").selectOption("archived");
@@ -86,7 +86,7 @@ test("Backstage archives a song out of the public site, keeps it findable, and r
     const restore = row.getByRole("button", { name: /^Restore / });
     if (await restore.count()) await restore.click();
   }
-  await expect(page.locator("#message")).toContainText("Song restored");
+  await expect(page.locator("#toast")).toContainText("Restored");
   await page.locator("#song-view").selectOption("live");
   await expect(row).toBeVisible();
   await expect(await publicRow(visitor)).toHaveCount(1);
@@ -220,4 +220,27 @@ test("the collapsed Published songs panel says what it holds and that it can be 
   await panel.scrollIntoViewIfNeeded();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: "artifacts/admin-songs-collapsed-mobile.png" });
+});
+
+test("archiving and restoring show a toast where you are looking, and Undo brings the song back", async ({ page }) => {
+  test.setTimeout(90000);
+  const song = catalog[7];
+  await adminLogin(page);
+  await page.locator("#admin-songs > summary").click();
+  await page.locator("#song-search").fill(song.id);
+  const row = page.locator(`.admin-song[data-song="${song.id}"]`);
+  await expect(row).toBeVisible();
+  await row.scrollIntoViewIfNeeded();
+  const toast = page.locator("#toast");
+  page.once("dialog", (dialog) => dialog.accept());
+  await row.getByRole("button", { name: /^Archive / }).click();
+  await expect(toast).toContainText(`Archived “${song.title}”`);
+  // Fixed to the viewport: visible even though the banner at the top of the page is scrolled away.
+  expect(await toast.evaluate((node) => { const box = node.getBoundingClientRect(); return box.top >= 0 && box.bottom <= innerHeight; })).toBe(true);
+  await expect(row).toHaveCount(0);
+  await toast.getByRole("button", { name: "Undo" }).click();
+  await expect(toast).toContainText(`Restored “${song.title}”`);
+  await expect(toast.getByRole("button")).toHaveCount(0);
+  await expect(row).toBeVisible();
+  await expect(row).not.toHaveClass(/archived/);
 });
