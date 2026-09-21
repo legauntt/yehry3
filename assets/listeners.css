@@ -35,7 +35,7 @@
 }
 .room-seat:nth-child(2n) .room-avatar { animation-delay: -1.7s; }
 .room-seat:nth-child(3n) .room-avatar { animation-delay: -3.1s; }
-.room-seat.is-named .room-face { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.02em; }
+.room-seat.is-initials .room-face { font-size: 0.9rem; font-weight: 700; letter-spacing: 0.02em; }
 .room-seat.is-you .room-avatar { border-color: var(--accent); }
 /* A steady target: the bob stops while someone is aiming at it. */
 .room-seat:is(:hover, :focus-within, .is-open) .room-avatar { animation-play-state: paused; }
@@ -122,6 +122,29 @@
   color: inherit;
   font-size: 0.7rem;
 }
+/* A signed-in listener's choice of avatars, inside their own card. */
+.room-picker {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 2px;
+  width: 206px;
+  max-width: 100%;
+  max-height: 160px;
+  margin-top: 8px;
+  overflow-y: auto;
+}
+.room-option {
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+.room-option:is(:hover, :focus-visible) { background: #fff3; }
+.room-option[aria-pressed="true"] { background: var(--accent); }
+.room-reset { grid-column: 1 / -1; margin-top: 4px; }
 .room-ghost {
   position: fixed;
   left: 12px;
@@ -162,13 +185,34 @@ html[data-shared-theme][data-theme="dark"] .room-avatar::before { border-color: 
   .room-left { left: 0; }
   .room-right { right: 0; }
   .room-avatar { width: 36px; height: 36px; font-size: 1.1rem; }
-  .room-seat.is-named .room-face { font-size: 0.75rem; }
+  .room-seat.is-initials .room-face { font-size: 0.75rem; }
   /* About 16px shows: inside the page's own gutter, so nothing on the page is covered. */
   .room-left .room-seat { transform: translateX(-55%); }
   .room-right .room-seat { transform: translateX(55%); }
   .room-seat:is(:focus-within, .is-open, .is-peeking) { transform: none; }
+  /* A toast is two short lines, so neighbours that change together do not cover each other. */
+  .room-seat.is-peeking:not(.is-open, :focus-within) .room-card > :is(strong, .room-song) { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
   .room-more { width: 36px; transform: translateX(45%); }
   .room-ghost { left: 8px; bottom: 150px; }
+}
+/* On a phone a changed song is a toast: out from the edge, a few seconds in view, and back again.
+   The script sets how long it lasts and how far along it is, because seats are redrawn whole. */
+@media (max-width: 700px) and (prefers-reduced-motion: no-preference) {
+  .room-seat.is-peeking:not(.is-open, :focus-within) { animation: room-toast-left var(--room-peek-ms, 4s) var(--room-peek-at, 0s) both; }
+  .room-right .room-seat.is-peeking:not(.is-open, :focus-within) { animation-name: room-toast-right; }
+  .room-seat.is-peeking:not(.is-open, :focus-within) .room-card { animation: room-toast-card var(--room-peek-ms, 4s) var(--room-peek-at, 0s) both; }
+}
+@keyframes room-toast-left {
+  0%, 100% { transform: translateX(-55%); }
+  8%, 91% { transform: none; }
+}
+@keyframes room-toast-right {
+  0%, 100% { transform: translateX(55%); }
+  8%, 91% { transform: none; }
+}
+@keyframes room-toast-card {
+  0%, 100% { opacity: 0; }
+  8%, 91% { opacity: 1; }
 }
 @keyframes room-bob {
   50% { transform: translateY(-5px); }

@@ -7,15 +7,19 @@ import { savedAuthor } from "./authored-by.js";
 
 const tab = crypto.randomUUID();
 const hiddenKey = "yehry3:listeners-hidden";
-const SETTLE_MS = 1500; // Skipping a track or swapping sides pauses for a moment; report once it settles.
+const SETTLE_MS = 600; // Skipping a track or swapping sides pauses for a moment; report once it settles.
 const PEEK_MS = 6000;
+const TOAST_MS = 4000; // On a phone a changed song steps out like a toast and goes back.
 const IDLE_MS = 5 * 60000; // No mouse, key, touch or scroll for this long reads as idle.
 const players = new Map();
 let beatMs = 25000, you = null, room = [], total = 0, version = "", started = false;
 let beatTimer, settleTimer, reporting = false, again = false, lastSong = null, nameRestUntil = 0;
 let polling = false, pollFailures = 0, root, openId = null, lastInput = Date.now(), reportedIdle = false;
+// The avatars a signed-in listener may choose from, whether the chooser is open, and a choice waiting to be sent.
+let avatars = [], picking = false, chosen;
 const peeks = new Map();
 
+const phone = () => matchMedia("(max-width: 700px)").matches;
 const invisible = () => {
   try { return localStorage.getItem(hiddenKey) === "true"; } catch { return false; }
 };
@@ -70,7 +74,7 @@ export const initials = (name) => {
 function face(listener) {
   const span = document.createElement("span");
   span.className = "room-face";
-  span.textContent = listener.anonymous ? listener.emoji : initials(listener.name);
+  span.textContent = listener.anonymous || listener.picked ? listener.emoji : initials(listener.name);
   return span;
 }
 function seat(listener) {
@@ -79,12 +83,18 @@ function seat(listener) {
   item.className = "room-seat";
   item.dataset.id = listener.id;
   item.classList.toggle("is-listening", Boolean(listener.song));
-  item.classList.toggle("is-named", !listener.anonymous);
+  item.classList.toggle("is-initials", !listener.anonymous && !listener.picked);
   item.classList.toggle("is-you", self);
   item.classList.toggle("is-idle", Boolean(listener.idle));
   item.classList.toggle("is-open", openId === listener.id);
-  item.classList.toggle("is-peeking", peeks.has(listener.id));
+  const peek = peeks.get(listener.id);
+  item.classList.toggle("is-peeking", Boolean(peek));
   item.style.setProperty("--room-hue", String(listener.hue));
+  // Seats are redrawn whole, so a toast is told how far along it already is rather than starting over.
+  if (peek) {
+    item.style.setProperty("--room-peek-ms", `${peek.ms}ms`);
+    item.style.setProperty("--room-peek-at", `${peek.at - Date.now()}ms`);
+  }
   const button = document.createElement("button");
   button.type = "button";
   button.className = "room-avatar";
@@ -128,11 +138,54 @@ function selfNote() {
   hide.dataset.roomHide = "true";
   hide.textContent = "Hide me";
   note.append(hide);
+  // The studio sends the avatars on offer only to a signed-in browser.
+  if (avatars.length) {
+    const change = document.createElement("button");
+    change.type = "button";
+    change.className = "room-toggle";
+    change.dataset.roomPick = "true";
+    change.setAttribute("aria-expanded", String(picking));
+    change.textContent = picking ? "Done" : "Change avatar";
+    note.append(" ", change);
+    if (picking) note.append(picker());
+  }
   return note;
+}
+function picker() {
+  const grid = document.createElement("span");
+  grid.className = "room-picker";
+  grid.setAttribute("role", "group");
+  grid.setAttribute("aria-label", "Choose an avatar");
+  for (const emoji of avatars) {
+    const option = document.createElement("button");
+    option.type = "button";
+    option.className = "room-option";
+    option.dataset.roomAvatar = emoji;
+    option.setAttribute("aria-pressed", String(Boolean(you?.picked) && you.emoji === emoji));
+    option.textContent = emoji;
+    grid.append(option);
+  }
+  if (you?.picked) {
+    const reset = document.createElement("button");
+    reset.type = "button";
+    reset.className = "room-toggle room-reset";
+    reset.dataset.roomAvatar = "";
+    reset.textContent = you.anonymous ? "Use my animal" : "Use my initials";
+    grid.append(reset);
+  }
+  return grid;
+}
+// The new face is drawn at once and sent with the next report, which is made straight away.
+function choose(emoji) {
+  chosen = emoji || null;
+  picking = false;
+  if (chosen) for (const entry of [you, room.find((listener) => listener.id === you?.id)]) if (entry) Object.assign(entry, { emoji: chosen, picked: true });
+  void report(true);
+  render();
 }
 function render() {
   if (!root) return;
-  const narrow = matchMedia("(max-width: 700px)").matches;
+  const narrow = phone();
   // Once hidden, a seat with your name can only be another of your browsers, so it is drawn like anyone else.
   const { left, right, more } = seats(room, invisible() ? null : you?.id, narrow ? 3 : 6);
   const extra = more + Math.max(0, total - room.length);
@@ -163,10 +216,13 @@ function accept(data) {
   total = Number.isFinite(data.total) ? data.total : room.length;
   version = typeof data.version === "string" ? data.version : "";
   // A new song, or a new arrival with one, shows its card for a moment without being asked.
+  const ms = phone() ? TOAST_MS : PEEK_MS;
   for (const listener of room) {
-    if (!known || listener.id === you?.id || !listener.song || before.get(listener.id) === listener.song.id) continue;
-    clearTimeout(peeks.get(listener.id));
-    peeks.set(listener.id, setTimeout(() => { peeks.delete(listener.id); render(); }, PEEK_MS));
+    if (!known || !listener.song || before.get(listener.id) === listener.song.id) continue;
+    // Your own song is news only on a phone, where your seat is tucked away, or when another of your browsers chose it.
+    if (listener.id === you?.id && ms === PEEK_MS && listener.song.id === playingSong()) continue;
+    clearTimeout(peeks.get(listener.id)?.timer);
+    peeks.set(listener.id, { at: Date.now(), ms, timer: setTimeout(() => { peeks.delete(listener.id); render(); }, ms) });
   }
   render();
 }
@@ -180,12 +236,13 @@ async function report(force = false) {
   // A submitter session outlives an admin one, so it is the one to present when both exist.
   const role = Date.now() < nameRestUntil ? null : signedIn("submitter") ? "submitter" : signedIn("admin") ? "admin" : null;
   const name = role ? savedAuthor().trim().slice(0, 100) : "";
+  const avatar = role ? chosen : undefined;
   try {
     let data;
     try {
-      data = await api("/listeners", { method: "POST", body: { tab, songId, idle, ...(name ? { name } : {}) }, ...(role && name ? { role } : {}) });
+      data = await api("/listeners", { method: "POST", body: { tab, songId, idle, ...(name ? { name } : {}), ...(avatar !== undefined ? { avatar } : {}) }, ...(role ? { role } : {}) });
     } catch (error) {
-      if (!role || !name || ![401, 403, 503].includes(error.status)) throw error;
+      if (!role || ![401, 403, 503].includes(error.status)) throw error;
       // A session that cannot be restored must not keep this listener out of the room, or retry a sign-in every beat.
       nameRestUntil = Date.now() + 10 * 60000;
       data = await api("/listeners", { method: "POST", body: { tab, songId, idle } });
@@ -193,9 +250,15 @@ async function report(force = false) {
     lastSong = songId;
     reportedIdle = idle;
     you = data.you || null;
+    if (chosen === avatar) chosen = undefined;
+    avatars = Array.isArray(data.avatars) ? data.avatars.filter((emoji) => typeof emoji === "string" && emoji.length <= 8) : [];
+    if (!avatars.length) picking = false;
     accept(data);
     void poll();
-  } catch { /* The room is decoration: the next beat tries again and nothing else on the page waits for it. */ }
+  } catch (error) {
+    // The room is decoration: the next beat tries again and nothing else on the page waits for it.
+    if (error?.status === 400) chosen = undefined; // An avatar the studio no longer offers is not sent again.
+  }
   finally {
     reporting = false;
     beatTimer = setTimeout(report, beatMs);
@@ -256,17 +319,26 @@ export function mountListeners() {
   root.addEventListener("click", (event) => {
     if (event.target.closest("[data-room-hide]")) return setInvisible(true);
     if (event.target.closest(".room-ghost")) return setInvisible(false);
+    const option = event.target.closest("[data-room-avatar]");
+    if (option) return choose(option.dataset.roomAvatar);
+    if (event.target.closest("[data-room-pick]")) {
+      picking = !picking;
+      if (you) openId = you.id;
+      return render();
+    }
     const button = event.target.closest(".room-avatar");
     if (!button) return;
     const id = button.closest(".room-seat").dataset.id;
     openId = openId === id ? null : id;
+    picking = false;
     render();
   });
   document.addEventListener("click", (event) => {
-    if (openId && !event.target.closest(".room")) { openId = null; render(); }
+    // The path, not the target: a seat that was just redrawn is no longer in the page to look up from.
+    if (openId && !event.composedPath().includes(root)) { openId = null; picking = false; render(); }
   });
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && openId) { openId = null; render(); }
+    if (event.key === "Escape" && openId) { openId = null; picking = false; render(); }
   });
   matchMedia("(max-width: 700px)").addEventListener("change", render);
   // Going to the background says so once and then falls silent; coming back is reported straight away.
