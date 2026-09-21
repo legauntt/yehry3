@@ -65,6 +65,10 @@ test("a song that just published shows its raw logs in Backstage until they expi
   await expect(fresh.locator(".dehaka-log pre")).toHaveText("stage mix complete <done>");
   await expect(fresh.locator(".dehaka-waiting")).toContainText("kept for 24 hours");
   await expect(fresh.locator(".dehaka-form")).toHaveCount(0);
+  await page.setViewportSize({ width: 1400, height: 900 });
+  const [logs, card] = await Promise.all([fresh.locator(".completion-logs").boundingBox(), fresh.boundingBox()]);
+  expect(logs.width).toBeGreaterThan(850);
+  expect(card.x + card.width - (logs.x + logs.width)).toBeLessThan(40);
   await expect(page.locator('[data-prompt="old-review"] .completion-logs .dehaka-empty')).toContainText("No raw logs are kept");
   await expect(page.locator('[data-prompt="old-plain"] .completion-logs')).toHaveCount(0);
 });
