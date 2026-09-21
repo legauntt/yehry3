@@ -2,6 +2,332 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-09fc20298d7d45cbbcfa45f0",
+      "title": "Romantasy After School",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-09fc20298d7d45cbbcfa45f0-b97d81539220.mp3",
+      "duration": 270.0277551020408,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-21T23:20:03.843Z",
+      "authoredBy": "at0mic_meat",
+      "songPlan": {
+        "version": 1,
+        "title": "Romantasy After School",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E major",
+        "arrangement": "Upbeat literary pop-rock with electric guitars, melodic bass, live drums, bright piano accents, and a brief string-like synth lift in the bridge. One clear, steadily pitched Tony lead carries a youthful, conversational melody with clean sustained chorus notes; no stacked vocals or vocal effects. Start intimate, open into a buoyant full-band chorus, pull back for the bridge, then build the final chorus to a warm resolved final chord. Pace the final sung word “heart” as a sustained phrase ending about 10 seconds before the 270-second finish, followed by one decaying chord.",
+        "lyrics": "[Verse 1]\nI found a map inside a library book\nBlue ink rivers and a dragon’s crooked look\nThe cafeteria was loud as a war\nBut I was halfway through a hidden door\nI’d trade my bus pass for a midnight train\nA borrowed sword, a thundercloud of rain\nTell the chosen one I saved her a seat\nBy the vending machine and the fire escape heat\n\n[Pre-Chorus]\nI know the castle’s only paper and glue\nStill, every page says, “Come on through”\n\n[Chorus]\nRomantasy, if that’s a thing at all\nPut my name beside the heroes on the wall\nI’d bring snacks for the rebels in the moonlit hall\nRomantasy, I’m answering the call\nNot a prince, not a prophecy\nJust a friend with a backpack and a library key\n\n[Verse 2]\nI’d tell the archer her aim is unreal\nAsk the brooding vampire how the daylight feels\nThe clever witch could show me a spell\nTo make these algebra problems go straight to hell\nI’d stand with the girl who outruns the dark\nCarry the lantern, guard the last small spark\nWhen the final battle shakes the sky\nI’d say, “You got this,” and I’d stay nearby\n\n[Pre-Chorus]\nThe bell rings out, but I don’t come down\nThere’s a secret kingdom under this town\n\n[Chorus]\nRomantasy, if that’s a thing at all\nPut my name beside the heroes on the wall\nI’d bring snacks for the rebels in the moonlit hall\nRomantasy, I’m answering the call\nNot a prince, not a prophecy\nJust a friend with a backpack and a library key\n\n[Bridge]\nMaybe the monsters are fear with a face\nMaybe the brave ones just make a little space\nMaybe the love story starts when you see\nNobody wins alone, so save a place for me\nI don’t need a crown or a famous last name\nJust a chapter where we all burn bright in the same flame\n\n[Chorus]\nRomantasy, I know it’s a thing\nHear the schoolyard turn to a choir that sings\nI’ll run through the rain when the last bell calls\nWith my impossible friends through impossible halls\nRomantasy, I’m not alone\nEvery page is a road, every road leads home\nWhen the cover closes, I’ll still believe\nThere’s a light in the binding waiting for me\n\n[Outro]\nSo leave that door unlatched tonight\nI’ll bring a book and a pocket light\nI’ll meet my friends where the wild worlds start\nAnd keep their names alive in my heart\n[End]",
+        "duration": 270,
+        "bpm": 132,
+        "musicalSettings": {
+          "genre": "Upbeat literary pop-rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus, outro",
+          "performance": "Clear, steadily pitched melodic lead with youthful conversational verses and sustained, catchable choruses",
+          "energy": "Curious opening to buoyant choruses, a reflective bridge, and a warm full-band finale",
+          "lyricWorkflow": "Original narrative lyrics imagining friendship with young-adult fantasy heroes, centered on a recurring ‘Romantasy’ hook",
+          "instruments": [
+            "electric guitars",
+            "electric bass",
+            "drum kit",
+            "piano",
+            "string-like synth"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI found a map inside a library book\nBlue ink rivers and a dragon’s crooked look\nThe cafeteria was loud as a war\nBut I was halfway through a hidden door\nI’d trade my bus pass for a midnight train\nA borrowed sword, a thundercloud of rain\nTell the chosen one I saved her a seat\nBy the vending machine and the fire escape heat\n\n[Pre-Chorus]\nI know the castle’s only paper and glue\nStill, every page says, “Come on through”\n\n[Chorus]\nRomantasy, if that’s a thing at all\nPut my name beside the heroes on the wall\nI’d bring snacks for the rebels in the moonlit hall\nRomantasy, I’m answering the call\nNot a prince, not a prophecy\nJust a friend with a backpack and a library key\n\n[Verse 2]\nI’d tell the archer her aim is unreal\nAsk the brooding vampire how the daylight feels\nThe clever witch could show me a spell\nTo make these algebra problems go straight to hell\nI’d stand with the girl who outruns the dark\nCarry the lantern, guard the last small spark\nWhen the final battle shakes the sky\nI’d say, “You got this,” and I’d stay nearby\n\n[Pre-Chorus]\nThe bell rings out, but I don’t come down\nThere’s a secret kingdom under this town\n\n[Chorus]\nRomantasy, if that’s a thing at all\nPut my name beside the heroes on the wall\nI’d bring snacks for the rebels in the moonlit hall\nRomantasy, I’m answering the call\nNot a prince, not a prophecy\nJust a friend with a backpack and a library key\n\n[Bridge]\nMaybe the monsters are fear with a face\nMaybe the brave ones just make a little space\nMaybe the love story starts when you see\nNobody wins alone, so save a place for me\nI don’t need a crown or a famous last name\nJust a chapter where we all burn bright in the same flame\n\n[Chorus]\nRomantasy, I know it’s a thing\nHear the schoolyard turn to a choir that sings\nI’ll run through the rain when the last bell calls\nWith my impossible friends through impossible halls\nRomantasy, I’m not alone\nEvery page is a road, every road leads home\nWhen the cover closes, I’ll still believe\nThere’s a light in the binding waiting for me\n\n[Outro]\nSo leave that door unlatched tonight\nI’ll bring a book and a pocket light\nI’ll meet my friends where the wild worlds start\nAnd keep their names alive in my heart",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 14.34,
+            "end": 18.06
+          },
+          {
+            "line": 2,
+            "start": 18.96,
+            "end": 21.88
+          },
+          {
+            "line": 3,
+            "start": 21.88,
+            "end": 25.38
+          },
+          {
+            "line": 4,
+            "start": 26,
+            "end": 28.7
+          },
+          {
+            "line": 5,
+            "start": 28.7,
+            "end": 32.5
+          },
+          {
+            "line": 6,
+            "start": 32.5,
+            "end": 36.02
+          },
+          {
+            "line": 7,
+            "start": 36.7,
+            "end": 39.64
+          },
+          {
+            "line": 8,
+            "start": 39.64,
+            "end": 43
+          },
+          {
+            "line": 11,
+            "start": 43.66,
+            "end": 47.84
+          },
+          {
+            "line": 12,
+            "start": 48.7,
+            "end": 53.44
+          },
+          {
+            "line": 15,
+            "start": 55.88,
+            "end": 59.78
+          },
+          {
+            "line": 16,
+            "start": 59.78,
+            "end": 65.38
+          },
+          {
+            "line": 17,
+            "start": 65.38,
+            "end": 69.72
+          },
+          {
+            "line": 18,
+            "start": 69.72,
+            "end": 75.26
+          },
+          {
+            "line": 19,
+            "start": 75.26,
+            "end": 78.74
+          },
+          {
+            "line": 20,
+            "start": 78.74,
+            "end": 84.18
+          },
+          {
+            "line": 23,
+            "start": 84.18,
+            "end": 88.04
+          },
+          {
+            "line": 24,
+            "start": 88.04,
+            "end": 92.2
+          },
+          {
+            "line": 25,
+            "start": 92.68,
+            "end": 96.02
+          },
+          {
+            "line": 26,
+            "start": 96.02,
+            "end": 99.78
+          },
+          {
+            "line": 27,
+            "start": 99.78,
+            "end": 103.78
+          },
+          {
+            "line": 28,
+            "start": 103.78,
+            "end": 107.1
+          },
+          {
+            "line": 29,
+            "start": 107.1,
+            "end": 112.5
+          },
+          {
+            "line": 30,
+            "start": 117.52,
+            "end": 124
+          },
+          {
+            "line": 33,
+            "start": 125.88,
+            "end": 131.72
+          },
+          {
+            "line": 34,
+            "start": 131.72,
+            "end": 138.26
+          },
+          {
+            "line": 37,
+            "start": 138.26,
+            "end": 141.62
+          },
+          {
+            "line": 38,
+            "start": 141.62,
+            "end": 146.34
+          },
+          {
+            "line": 39,
+            "start": 146.34,
+            "end": 151.48
+          },
+          {
+            "line": 40,
+            "start": 151.48,
+            "end": 157.12
+          },
+          {
+            "line": 41,
+            "start": 157.12,
+            "end": 160.1
+          },
+          {
+            "line": 42,
+            "start": 160.98,
+            "end": 166
+          },
+          {
+            "line": 45,
+            "start": 167.1,
+            "end": 170.7
+          },
+          {
+            "line": 46,
+            "start": 171.16,
+            "end": 175.18
+          },
+          {
+            "line": 47,
+            "start": 175.18,
+            "end": 179.16
+          },
+          {
+            "line": 48,
+            "start": 183.68,
+            "end": 189.38
+          },
+          {
+            "line": 49,
+            "start": 189.38,
+            "end": 194.1
+          },
+          {
+            "line": 50,
+            "start": 194.96,
+            "end": 201.98
+          },
+          {
+            "line": 53,
+            "start": 201.98,
+            "end": 206.16
+          },
+          {
+            "line": 54,
+            "start": 206.16,
+            "end": 211.24
+          },
+          {
+            "line": 55,
+            "start": 211.24,
+            "end": 214.2
+          },
+          {
+            "line": 56,
+            "start": 214.2,
+            "end": 218.78
+          },
+          {
+            "line": 57,
+            "start": 218.78,
+            "end": 222.58
+          },
+          {
+            "line": 58,
+            "start": 222.58,
+            "end": 226.98
+          },
+          {
+            "line": 59,
+            "start": 226.98,
+            "end": 231.1
+          },
+          {
+            "line": 60,
+            "start": 231.1,
+            "end": 235.22
+          },
+          {
+            "line": 63,
+            "start": 241.48,
+            "end": 245.22
+          },
+          {
+            "line": 64,
+            "start": 245.74,
+            "end": 248.14
+          },
+          {
+            "line": 65,
+            "start": 248.14,
+            "end": 252.52
+          },
+          {
+            "line": 66,
+            "start": 253.16,
+            "end": 257.1
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 15.42
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Tony loves young adult literature more than anything and imagines himself being friends with the best known characters",
+        "direction": "Use the prompt as written.",
+        "keep": "\"Romantasy\", if that's a thing at all, like genre or phrasing.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 270
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-d2b60068729511d2f0535fef",
       "title": "Nine-Eleven'd Again (Tarab Dancefloor)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d2b60068729511d2f0535fef-1f95d50138b3.mp3",
