@@ -229,3 +229,12 @@ html[data-shared-theme][data-theme="dark"] #tracks .track.playing .track-info h3
 @media (prefers-reduced-motion: reduce) {
   #tracks .track.is-shared, #pending-tracks .pending-track.is-shared, .shared-badge { animation: none; }
 }
+
+/* Phones: both tabs can sit on the row at once, so they get smaller and never share the line. */
+@media (max-width: 480px) {
+  .shared-badge { left: 10px; padding: 2px 9px; font-size: .58rem; letter-spacing: .04em; }
+  #tracks .track.playing::before { right: 10px; padding: 2px 8px; font-size: .54rem; letter-spacing: .05em; }
+}
+@media (max-width: 340px) {
+  #tracks .track.is-shared.playing::before { display: none; }
+}
