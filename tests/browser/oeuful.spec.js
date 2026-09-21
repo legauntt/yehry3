@@ -9,6 +9,16 @@ const clips = [
 ];
 
 test("Œuful plays sung moments back to back across two decks", async ({ page }) => {
+  // The booth keeps its sounds to itself, so the page is asked to remember each one it makes.
+  await page.addInitScript(() => {
+    const Made = window.Audio;
+    window.oeufulSounds = [];
+    window.Audio = function Audio(...given) {
+      const made = new Made(...given);
+      window.oeufulSounds.push(made);
+      return made;
+    };
+  });
   await page.route("**/egg-clips.json", (route) => route.fulfill({ json: { clips } }));
   await page.route("**/songs/summary", (route) => route.fulfill({ json: { songs: [] } }));
   await page.goto("/oeuful");
@@ -26,8 +36,13 @@ test("Œuful plays sung moments back to back across two decks", async ({ page })
   const first = await page.locator(".egg-caption-title").textContent();
   await expect(page.locator(".egg-caption-words")).not.toBeEmpty();
 
-  // The side ends and deck B takes over with the other song; then A again, without being asked.
+  // The side ends and deck B comes in over it with the other song: for a moment both records
+  // sound, the old one turning down as it goes. Then A again, without being asked.
   await expect(page.locator("#mixer")).toHaveAttribute("data-live", "B");
+  await page.waitForFunction(() => {
+    const sounding = window.oeufulSounds.filter((sound) => !sound.paused);
+    return sounding.length === 2 && sounding.some((sound) => sound.volume < 0.8) && document.querySelector('#deck-a[data-state="leaving"]');
+  });
   await expect(page.locator("#deck-b")).toHaveAttribute("data-state", "playing");
   await expect(page.locator(".egg-caption-title")).not.toHaveText(first);
   await expect(page.locator("#mixer")).toHaveAttribute("data-live", "A");

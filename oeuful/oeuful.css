@@ -30,7 +30,7 @@ a { color: var(--egg); }
 .record.is-arriving { animation: record-in .55s cubic-bezier(.2, .9, .3, 1.15); }
 .deck[data-state="ejecting"] .record { animation: record-out .45s ease-in forwards; }
 /* 33⅓ turns a minute is one turn every 1.8 seconds. */
-.deck[data-state="playing"] .record-spin { animation: record-turn 1.8s linear infinite; }
+.deck:is([data-state="playing"], [data-state="leaving"]) .record-spin { animation: record-turn 1.8s linear infinite; }
 /* A cued record is rocked back and forth under the needle, the way a DJ finds the downbeat. */
 .deck[data-state="cued"] .record-spin { animation: record-cue 1.2s ease-in-out infinite alternate; }
 .deck.is-stalled .record-spin { animation-play-state: paused; }
@@ -45,10 +45,12 @@ a { color: var(--egg); }
 .tonearm-weight { position: absolute; left: -45%; top: -7%; width: 190%; height: 11%; border-radius: 4px; background: #15130f; }
 .tonearm-head { position: absolute; left: -75%; bottom: -2%; width: 250%; height: 13%; border-radius: 3px; background: #15130f; border-bottom: 3px solid var(--egg); rotate: 18deg; }
 .deck[data-state="cued"] .tonearm { rotate: 14deg; }
-.deck[data-state="playing"] .tonearm { rotate: 27deg; transition: rotate var(--side-ms, 8s) linear; }
+/* A record that is fading out keeps turning under the needle until it lifts off. */
+.deck:is([data-state="playing"], [data-state="leaving"]) .tonearm { rotate: 27deg; transition: rotate var(--side-ms, 8s) linear; }
 .deck-led { position: absolute; left: 7%; bottom: 5%; width: 3.6%; aspect-ratio: 1; border-radius: 50%; background: #3a1512; box-shadow: inset 0 0 2px #000; }
 .deck[data-state="cued"] .deck-led { background: #ffb02e; animation: led-blink .8s steps(2, jump-none) infinite; }
 .deck[data-state="playing"] .deck-led { background: var(--hot); box-shadow: 0 0 8px var(--hot); }
+.deck[data-state="leaving"] .deck-led { background: var(--hot); animation: led-blink .3s steps(2, jump-none) infinite; }
 @keyframes led-blink { to { opacity: .25; } }
 .deck-name { position: absolute; right: 6%; bottom: 3.5%; color: var(--plinth-edge); font: 900 1.3rem/1 "Arial Black", Impact, sans-serif; }
 .deck-title { position: absolute; left: 14%; right: 18%; bottom: 3.5%; margin: 0; overflow: hidden; color: var(--dim); font-size: .72rem; letter-spacing: .05em; line-height: 1.5; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
@@ -65,12 +67,12 @@ a { color: var(--egg); }
 .pad-start[aria-pressed="true"] { background: var(--hot); color: #fff; }
 .xfader { grid-area: xfader; display: flex; gap: 8px; align-items: center; justify-self: center; color: var(--dim); font-weight: 800; font-size: .75rem; }
 .xfader-track { position: relative; width: 150px; height: 8px; border-radius: 4px; background: #0b0a09; box-shadow: inset 0 1px 2px #000; }
-.xfader-knob { position: absolute; top: 50%; left: 8%; width: 16px; height: 26px; translate: -50% -50%; border: 1px solid #000; border-radius: 3px; background: linear-gradient(90deg, #8d867a, #eee6d8 45%, #8d867a); transition: left .22s ease-in-out; }
+.xfader-knob { position: absolute; top: 50%; left: 8%; width: 16px; height: 26px; translate: -50% -50%; border: 1px solid #000; border-radius: 3px; background: linear-gradient(90deg, #8d867a, #eee6d8 45%, #8d867a); transition: left var(--blend-ms, .22s) ease-in-out; }
 .mixer[data-live="B"] .xfader-knob { left: 92%; }
 .meters { grid-area: meters; display: grid; gap: 5px; width: min(150px, 100%); }
 .vu { display: block; height: 7px; border-radius: 4px; background: linear-gradient(90deg, var(--go) 0 60%, var(--egg) 60% 85%, var(--hot) 85%); clip-path: inset(0 96% 0 0); }
-.booth[data-state="playing"] .vu { animation: vu 1.3s ease-in-out infinite; }
-.booth[data-state="playing"] .vu + .vu { animation-duration: .97s; animation-direction: reverse; }
+.booth:is([data-state="playing"], [data-state="mixing"]) .vu { animation: vu 1.3s ease-in-out infinite; }
+.booth:is([data-state="playing"], [data-state="mixing"]) .vu + .vu { animation-duration: .97s; animation-direction: reverse; }
 @keyframes vu { 0% { clip-path: inset(0 55% 0 0); } 12% { clip-path: inset(0 18% 0 0); } 27% { clip-path: inset(0 42% 0 0); } 41% { clip-path: inset(0 9% 0 0); } 58% { clip-path: inset(0 35% 0 0); } 73% { clip-path: inset(0 14% 0 0); } 88% { clip-path: inset(0 48% 0 0); } 100% { clip-path: inset(0 55% 0 0); } }
 .volume { grid-area: volume; display: flex; gap: 8px; align-items: center; justify-self: end; color: var(--dim); font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 .volume input { width: 120px; accent-color: var(--egg); }
@@ -96,7 +98,7 @@ a { color: var(--egg); }
   .pad { padding: 11px 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .record.is-arriving, .deck[data-state="ejecting"] .record, .deck[data-state="cued"] .record-spin, .deck[data-state="playing"] .record-spin, .deck[data-state="cued"] .deck-led, .booth[data-state="playing"] .vu, .crate .is-loading { animation: none; }
+  .record.is-arriving, .deck[data-state="ejecting"] .record, .deck[data-state] .record-spin, .deck[data-state] .deck-led, .booth[data-state] .vu, .crate .is-loading { animation: none; }
   .deck[data-state="ejecting"] .record { visibility: hidden; }
-  .tonearm, .deck[data-state="playing"] .tonearm, .xfader-knob { transition: none; }
+  .tonearm, .deck[data-state] .tonearm, .xfader-knob { transition: none; }
 }

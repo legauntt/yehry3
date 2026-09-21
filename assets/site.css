@@ -393,6 +393,11 @@ nav a:hover {
   font-size: 0.8rem;
   color: var(--muted);
 }
+/* The way in to the endless easter egg is there for whoever looks closely. */
+.site-footer .footer-egg {
+  font-size: 0.8em;
+  opacity: 0.75;
+}
 main {
   max-width: 1212px;
   margin: 0 auto;

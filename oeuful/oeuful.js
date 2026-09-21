@@ -1,7 +1,8 @@
 // Œuful: the cover art easter egg, left running. Two turntables take turns: one record plays a
 // sung moment while the next waits, cued, on the other deck. When a side ends the other deck
-// takes over at once, the spent record lifts off, and another drops into its place. The picture,
-// the gasp and the comic caption are the egg's own (badge-sound.js, egg-caption.js).
+// comes in over it: the old record plays on, fading, while the new one swells up to its moment.
+// Then the spent record lifts off and another drops into its place. The picture, the gasp and
+// the comic caption are the egg's own (badge-sound.js, egg-caption.js).
 import { shock } from "../assets/badge-sound.js";
 import { songArtwork } from "../assets/song-art.js";
 import { lyricsHref } from "../assets/song-links.js";
@@ -12,7 +13,13 @@ import { createPicker } from "./crate.js";
 // already loading its moment. The elements are made once and reused: a phone only lets a sound
 // start by itself on an element the listener has already started by hand.
 const ahead = 4;
-const fadeSeconds = 0.25, seekSlack = 0.1, tick = 40;
+const seekSlack = 0.1, tick = 40;
+// Records overlap by `blend` seconds. The songs come from another origin without leave to mix
+// them, so the crossfade is two volume sliders. An iPhone ignores those, and there an overlap
+// would only be two songs at once, so its decks cut straight across instead.
+const probe = new Audio();
+probe.volume = 0.5;
+const blend = probe.volume === 0.5 ? 1.5 : 0;
 // A side that never starts is skipped. A record that will not load is swapped for another, a
 // little more slowly each time, so a dead connection is not hammered.
 const patience = 15000, retryMs = [1500, 4000, 10000, 30000];
@@ -37,6 +44,7 @@ let pick = () => null;
 let songs = new Map();
 let crate = [];
 let current = null;
+let leaving = null;
 let wanted = false;
 let live = decks.A;
 let level = Number(volumeInput.value);
@@ -51,15 +59,17 @@ function cueSlice(audio) {
   if (!moment) return null;
   const abort = new AbortController(), { signal } = abort;
   // Live votes and listener redraws make the picture match the one in the collection.
-  const slice = { moment, audio, abort, ready: false, heard: false, deck: null, art: songArtwork(songs.get(moment.id) ?? { id: moment.id, title: moment.title }) };
+  // A record is cued ahead of its moment, so it has room to fade in before the words arrive.
+  const from = Math.max(0, moment.start - blend);
+  const slice = { moment, from, audio, abort, ready: false, heard: false, deck: null, art: songArtwork(songs.get(moment.id) ?? { id: moment.id, title: moment.title }) };
   audio.preload = "auto";
   audio.muted = false;
   audio.src = moment.url;
   // Browsers differ on when a seek is honoured, so ask now and again once the length is known.
-  const seek = () => { if (audio.currentTime < moment.start) audio.currentTime = moment.start; };
+  const seek = () => { if (audio.currentTime < from) audio.currentTime = from; };
   audio.addEventListener("loadedmetadata", seek, { signal });
   const check = () => {
-    if (slice.ready || audio.seeking || audio.readyState < 3 || audio.currentTime < moment.start - seekSlack) return;
+    if (slice.ready || audio.seeking || audio.readyState < 3 || audio.currentTime < from - seekSlack) return;
     slice.ready = true;
     failures = 0;
     drawCrate();
@@ -96,7 +106,11 @@ function recycle(slice) {
 // A record that will not load leaves the crate, and its deck if it had reached one.
 function drop(slice) {
   const playing = slice === current;
-  if (playing) current = null;
+  if (playing) {
+    current = null;
+    calm(slice);
+  }
+  if (slice === leaving) leaving = null;
   crate = crate.filter((cued) => cued !== slice);
   if (slice.deck) {
     slice.deck.slice = null;
@@ -135,13 +149,20 @@ function dress() {
   const free = current ? [other(current.deck)] : [live, other(live)];
   free.forEach((deck, index) => {
     const slice = crate[index];
-    if (slice && deck.element.dataset.state !== "ejecting") place(slice, deck);
+    if (slice && !["leaving", "ejecting"].includes(deck.element.dataset.state)) place(slice, deck);
   });
 }
 
 function eject(slice) {
+  if (slice === leaving) leaving = null;
+  clearInterval(slice.watch);
+  slice.audio.pause();
   const deck = slice.deck;
-  if (!deck) return recycle(slice);
+  if (!deck) {
+    recycle(slice);
+    return fill();
+  }
+  deck.element.classList.remove("is-stalled");
   setDeck(deck, "ejecting");
   setTimeout(() => {
     if (deck.slice === slice) {
@@ -157,26 +178,53 @@ function eject(slice) {
 
 // --- Playing a side ---
 
-function step(slice) {
-  if (slice !== current) return;
-  const left = slice.moment.end - slice.audio.currentTime;
-  if (left <= 0) finish(slice);
-  else if (slice.heard && left < fadeSeconds) slice.audio.volume = level * (left / fadeSeconds);
+// A record comes in by where its needle is, so its words always arrive at full volume. It goes
+// out by the clock, so one that stalls still leaves. Sine and cosine keep the pair evenly loud.
+function mix(slice) {
+  const { audio, moment, from } = slice;
+  let gain = 1;
+  if (slice === leaving) gain = slice.leftGain * Math.cos(Math.min(1, (performance.now() - slice.leftAt) / (blend * 1000)) * Math.PI / 2);
+  else if (moment.start - from > seekSlack) gain = Math.sin(Math.min(1, Math.max(0, (audio.currentTime - from) / (moment.start - from))) * Math.PI / 2);
+  slice.gain = Math.min(1, Math.max(0, gain));
+  audio.volume = level * slice.gain;
 }
 
-// A side only counts as started once its sound has reached the moment, so a slow seek never
-// lets the picture and caption run ahead of it. It can start again after the needle is lifted.
+function step(slice) {
+  if (slice === leaving) {
+    if (performance.now() - slice.leftAt >= blend * 1000) eject(slice);
+    else mix(slice);
+  } else if (slice === current) {
+    if (slice.audio.currentTime >= slice.moment.end) finish(slice);
+    else mix(slice);
+  }
+}
+
+// The gasp and caption end with the moment, not with the sound, which now plays on past it.
+const calm = (slice) => {
+  slice.calm?.();
+  slice.calm = null;
+};
+
+// A record rolls as soon as its sound does: it turns, and the crossfader slides over to it. The
+// side itself only counts as started once the sound has reached the moment, so a slow seek never
+// lets the picture and caption run ahead of it. Both can happen again after the needle is lifted.
 function begin(slice) {
   const { audio, moment, deck } = slice;
-  if (slice !== current || !wanted || slice.heard || !slice.running || audio.currentTime < moment.start - seekSlack) return;
+  if (slice !== current || !wanted || !slice.running || audio.currentTime < slice.from - seekSlack) return;
+  if (!slice.rolling) {
+    slice.rolling = true;
+    clearTimeout(slice.patience);
+    art.classList.remove("egg-loading");
+    deck.element.style.setProperty("--side-ms", Math.max(200, (moment.end + blend - audio.currentTime) * 1000) + "ms");
+    setDeck(deck, "playing");
+    mixer.dataset.live = deck.name;
+    booth.dataset.state = "mixing";
+  }
+  if (slice.heard || audio.currentTime < moment.start - seekSlack) return;
   slice.heard = true;
-  clearTimeout(slice.patience);
-  art.classList.remove("egg-loading");
   const ms = Math.max(200, (moment.end - audio.currentTime) * 1000);
-  deck.element.style.setProperty("--side-ms", ms + "ms");
-  setDeck(deck, "playing");
   booth.dataset.state = "playing";
-  shock(art, ms, audio, { title: moment.title, lines: moment.lines });
+  slice.calm = shock(art, ms, audio, { title: moment.title, lines: moment.lines });
   if (!slice.counted) {
     slice.counted = true;
     sides += 1;
@@ -188,10 +236,9 @@ function spin(slice) {
   const { audio, moment, deck } = slice;
   current = slice;
   live = deck;
-  mixer.dataset.live = deck.name;
   audio.muted = false;
-  audio.volume = level;
-  slice.heard = false;
+  mix(slice);
+  slice.heard = slice.rolling = false;
   art.setAttribute("src", slice.art.src);
   art.setAttribute("alt", slice.art.alt);
   art.classList.add("egg-loading");
@@ -212,27 +259,34 @@ function spin(slice) {
     for (const event of ["playing", "timeupdate", "seeked"]) audio.addEventListener(event, () => { begin(slice); step(slice); }, { signal });
     audio.addEventListener("waiting", stalled(true), { signal });
     audio.addEventListener("playing", stalled(false), { signal });
-    audio.addEventListener("ended", () => finish(slice), { signal });
+    audio.addEventListener("ended", () => (slice === leaving ? eject(slice) : finish(slice)), { signal });
     // The timer is throttled in a background tab; the audio's own events above keep time there.
     slice.watch = setInterval(() => step(slice), tick);
   }
   clearTimeout(slice.patience);
   slice.patience = setTimeout(() => finish(slice), patience);
-  if (audio.currentTime < moment.start) audio.currentTime = moment.start;
+  if (audio.currentTime < slice.from) audio.currentTime = slice.from;
   audio.play().catch((error) => {
     // A browser that refuses to start sound by itself hands the needle back to the listener.
     if (error?.name === "NotAllowedError" && slice === current) halt();
   });
 }
 
+// A side is over when its moment is, or when the listener skips it. The record plays on, fading,
+// while the other deck comes in over it; one that never made a sound just lifts off.
 function finish(slice) {
   if (slice !== current) return;
   current = null;
-  clearInterval(slice.watch);
   clearTimeout(slice.patience);
-  slice.audio.pause();
-  slice.deck?.element.classList.remove("is-stalled");
-  eject(slice);
+  calm(slice);
+  // Only two records sound at once: one still fading from the hand-over before makes way.
+  if (leaving) eject(leaving);
+  if (wanted && blend && slice.running) {
+    leaving = slice;
+    slice.leftAt = performance.now();
+    slice.leftGain = slice.gain ?? 1;
+    setDeck(slice.deck, "leaving");
+  } else eject(slice);
   if (wanted) advance();
 }
 
@@ -271,11 +325,11 @@ function bless() {
   if (blessed) return;
   blessed = true;
   for (const slice of crate) {
-    const { audio, moment } = slice;
+    const { audio } = slice;
     audio.muted = true;
     audio.play().then(() => { if (slice !== current) audio.pause(); }).catch(() => {}).finally(() => {
       audio.muted = false;
-      if (slice !== current && audio.src && audio.currentTime > moment.start) audio.currentTime = moment.start;
+      if (slice !== current && audio.src && audio.currentTime > slice.from) audio.currentTime = slice.from;
     });
   }
 }
@@ -293,12 +347,13 @@ function halt() {
   if (!wanted) return;
   wanted = false;
   showWanted();
+  if (leaving) eject(leaving);
   if (!current) return;
   clearTimeout(current.patience);
   // Pausing sends one last timeupdate, which must not be mistaken for the side starting.
   current.running = false;
   current.audio.pause();
-  current.heard = false;
+  current.heard = current.rolling = false;
   art.classList.remove("egg-loading");
   setDeck(current.deck, "cued");
 }
@@ -325,7 +380,7 @@ startButton.addEventListener("click", () => (wanted ? halt() : start()));
 skipButton.addEventListener("click", skip);
 volumeInput.addEventListener("input", () => {
   level = Number(volumeInput.value);
-  if (current) current.audio.volume = level;
+  for (const slice of [current, leaving]) if (slice) mix(slice);
 });
 document.addEventListener("keydown", (event) => {
   if (event.altKey || event.ctrlKey || event.metaKey || event.target.closest?.("input, a, button")) return;
@@ -354,6 +409,7 @@ try {
   pick = createPicker(found);
   if (!found.length) throw new Error("No clips");
   fill();
+  if (blend) mixer.style.setProperty("--blend-ms", blend * 1000 + "ms");
   booth.dataset.state = "idle";
   now.textContent = "The crate is packed. Drop the needle.";
   startButton.disabled = false;

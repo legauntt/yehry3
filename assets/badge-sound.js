@@ -168,6 +168,8 @@ export function shock(art, ms, audio, caption) {
     const src = shocked.has(art) && shockedArtwork(calm);
     if (src) art.setAttribute("src", (gasping = src));
   }).catch(() => {});
+  // Œuful's records play on past their moment, so it ends the shake itself.
+  return soundOver;
 }
 // The art pulses while the sound loads (the stylesheet holds that back if it is quick), then shakes.
 const loadingArt = new WeakMap();
