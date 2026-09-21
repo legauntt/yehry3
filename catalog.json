@@ -2,6 +2,75 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-62a651b70048076cb5af0eb0",
+      "title": "لما بدا يتثنى",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-62a651b70048076cb5af0eb0-0a7d26970867.mp3",
+      "duration": 145.00571428571428,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-21T11:01:29.106Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "لما بدا يتثنى",
+        "recipe": "new",
+        "style": "opera",
+        "keyscale": "D minor",
+        "arrangement": "Andalusian tarab in 10/8, led by oud, qanun, ney, riq, cello, and a restrained string ensemble. Begin with a brief instrumental taqsim, then a clear, steadily pitched solo lead enters with flowing Arabic melisma and elegant sustained cadences. Build from intimate first verses to fuller rhythmic responses and strings in the returning refrains, then ease into the final repeated line. Pace the final “آمان” so its last sustained syllable lands about 10 seconds before the end, followed by one resolved D-minor chord decaying naturally.",
+        "lyrics": "[Verse 1]\nلما بدا يتثنى\n لما بدا يتثنى\n حبي جماله فتننا\n أمر ما بلحظة أسرنا\n غصن ثنى حين مال\n \n[Refrain]\nلما بدا يتثنى\n لما بدا يتثنى\n حبي جماله فتننا\n أمر ما بلحظة أسرنا\n غصن ثنى حين مال\n \n[Verse 2]\nوعدي ويا حيرتي\n وعدي ويا حيرتي\n من لي رحيم شكوتي\n فى الحب من لوعتي\n إلا مليك الجمال\n إلا مليك الجمال\n إلا مليك الجمال\n إلا مليك الجمال\n \n[Refrain]\nلما بدا يتثنى\n لما بدا يتثنى\n حبي جماله فتننا\n أمر ما بلحظة أسرنا\n غصن ثنى حين مال\n \n[Verse 3]\nلما بدا يتثنى\n لما بدا يتثنى\n حبي جماله فتننا\n أمر ما بلحظة أسرنا\n غصن ثنى حين مال\n \n[Refrain]\nوعدي ويا حيرتي\n وعدي ويا حيرتي\n من لي رحيم شكوتي\n فى الحب من لوعتي\n إلا مليك الجمال\n إلا مليك الجمال\n إلا مليك الجمال\n \n[Outro]\nآمان، آمان\n آمان، آمان\n[End]",
+        "duration": 145,
+        "bpm": 78,
+        "musicalSettings": {
+          "genre": "Andalusian tarab with classical chamber-orchestra color",
+          "meter": "10/8",
+          "structure": "Instrumental taqsim, verse, refrain, verse, refrain, verse, final refrain, brief sung outro",
+          "performance": "Clear, expressive solo lead with smooth tarab ornamentation, sustained notes, and measured phrasing",
+          "energy": "Gentle opening, graceful rhythmic lift through the refrains, then a poised and resolved close",
+          "lyricWorkflow": "Preserved Arabic lyric sheet, set with spacious repetitions and melismatic phrasing",
+          "instruments": [
+            "oud",
+            "qanun",
+            "ney",
+            "riq",
+            "cello",
+            "string ensemble"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nلما بدا يتثنى\n لما بدا يتثنى\n حبي جماله فتننا\n أمر ما بلحظة أسرنا\n غصن ثنى حين مال\n\n[Refrain]\nلما بدا يتثنى\n لما بدا يتثنى\n حبي جماله فتننا\n أمر ما بلحظة أسرنا\n غصن ثنى حين مال\n\n[Verse 2]\nوعدي ويا حيرتي\n وعدي ويا حيرتي\n من لي رحيم شكوتي\n فى الحب من لوعتي\n إلا مليك الجمال\n إلا مليك الجمال\n إلا مليك الجمال\n إلا مليك الجمال\n\n[Refrain]\nلما بدا يتثنى\n لما بدا يتثنى\n حبي جماله فتننا\n أمر ما بلحظة أسرنا\n غصن ثنى حين مال\n\n[Verse 3]\nلما بدا يتثنى\n لما بدا يتثنى\n حبي جماله فتننا\n أمر ما بلحظة أسرنا\n غصن ثنى حين مال\n\n[Refrain]\nوعدي ويا حيرتي\n وعدي ويا حيرتي\n من لي رحيم شكوتي\n فى الحب من لوعتي\n إلا مليك الجمال\n إلا مليك الجمال\n إلا مليك الجمال\n\n[Outro]\nآمان، آمان\n آمان، آمان",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "لما بدا يتثنى",
+        "direction": "Use the prompt as written.",
+        "keep": "Must be tarab",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 145
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-b4ad1c4d420a92b329e3c4ec",
       "title": "Lamma Bada",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b4ad1c4d420a92b329e3c4ec-dbbe15734a39.mp3",
