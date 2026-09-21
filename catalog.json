@@ -2,6 +2,448 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-d2b60068729511d2f0535fef",
+      "title": "Nine-Eleven'd Again (Tarab Dancefloor)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d2b60068729511d2f0535fef-1f95d50138b3.mp3",
+      "duration": 215.04,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-41122cfa1d30d985e40d357b",
+        "title": "Nine-Eleven'd Again",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-41122cfa1d30d985e40d357b-b6742677aca4.mp3"
+      },
+      "publishedAt": "2026-09-21T17:39:22.801Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Nine-Eleven'd Again (Tarab Dancefloor)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 122 BPM D-minor nightclub reinterpretation: tarab-inspired melodic turns ride a dark four-on-the-floor electronic groove with punchy electric bass, synth bass, darbuka, hand percussion, atmospheric pads, clipped electric guitar, and sparse string phrases. Use one clear, steadily pitched Tony V9 lead; keep the central hook immediately recognizable and catchable. Build from a shadowy intro through bass-led chorus lifts, drop to a tense percussion breakdown, then drive the final chorus into a resolved ending. In the bridge, use a six-second low, connected throat/tarab accent on “Blood at one and mind at ten,” then return to the normal lead. Pace the final sung syllable of “friend” for roughly 8–12 seconds before the 215-second endpoint, followed by one resolving chord and natural decay.",
+        "lyrics": "[Intro]\nLoad the dungeon, strike a match\nTony's got a rusty latch\n“This time I know the route,” he says\nFirst dark hallway, lights go dead\n\n[Verse 1]\nFound a bonesaw, lost a shoe\nSomething hungry chewed straight through\nMissed the coin flip, broke his arm\nStepped on every fucking harm\nGuard came dragging down the hall\nTony slipped behind the wall\nFloor gave way beneath him then\nGoddamn—nine-eleven'd again\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\n“Aw, son of a bitch,” Tony bites\nLoads that miserable save tonight\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Verse 2]\nBack downstairs with half a map\nDodged the dogs and found a trap\nFed the girl and saved his meat\nCrow Mauler dropped him through the street\nTony leans into the screen:\n“That’s the cheapest shit I’ve seen”\nSmoke curls up; he counts to ten\nGets up—nine-eleven'd again\n\n[Pre-Chorus]\nEvery guide says he mistook it\nEvery doorway smells like doom\nStill he kicks into the room\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\n“You rigged this shit,” he snarls aloud\nBut he will not leave this house\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Bridge]\nCoin in the air—call it clean\nHeads means mercy, tails gets mean\nIt strikes the stone and rolls from sight\nThe dungeon laughs and kills the light\nBlood at one and mind at ten\nYou ain't tellin' me to go\nHe crawls toward the throne again\n\n[Breakdown]\nNo food left\nNo good limb\nNo clean save\nStill goes in\nBell starts shaking, ceiling bends\nTony shouts, “Not this again!”\n\n[Verse]\nPast the prison, past the mines\nPast the rotten gods and signs\nEvery loss has taught his hands\nWhere the blade falls, where it lands\nLast door opens pale and wide\nAll that spite walks in beside\nDungeon offers one last spin\nTony laughs: “Then let me win.”\n\n[Chorus]\nNine-eleven'd again—\nBut he rises through the din\nLet it crash, he’ll crawl back in\nNo more begging at the end\n“You hungry pit, I can die all night!”\nHe holds the last note burning bright\nFear in the dark, but fire within\nYou can nine-eleven him again—\nHe’ll load that bastard save and win\n\n[Outro]\nScreen goes black, the final chord bends\n“Now who’s annoyed, my friend?”\n[End]",
+        "duration": 215,
+        "bpm": 122,
+        "musicalSettings": {
+          "genre": "Dark tarab-inflected electronic dance-rock",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Chorus, Verse 2, Pre-Chorus, Chorus, Bridge, Breakdown, Final Verse, Final Chorus, Outro",
+          "performance": "One clear natural Tony V9 lead with tarab-inspired ornamentation and a brief low throat-resonance bridge accent",
+          "energy": "Shadowy opening, steadily rising club pulse, tense breakdown, and triumphant final release",
+          "lyricWorkflow": "Adapted source-guided lyrics retain the central hook and dungeon-run narrative while tightening the form for the new arrangement",
+          "instruments": [
+            "electronic drum kit",
+            "electric bass",
+            "synth bass",
+            "darbuka",
+            "hand percussion",
+            "synth pads",
+            "electric guitar",
+            "strings"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nLoad the dungeon, strike a match\nTony's got a rusty latch\n“This time I know the route,” he says\nFirst dark hallway, lights go dead\n\n[Verse 1]\nFound a bonesaw, lost a shoe\nSomething hungry chewed straight through\nMissed the coin flip, broke his arm\nStepped on every fucking harm\nGuard came dragging down the hall\nTony slipped behind the wall\nFloor gave way beneath him then\nGoddamn—nine-eleven'd again\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\n“Aw, son of a bitch,” Tony bites\nLoads that miserable save tonight\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Verse 2]\nBack downstairs with half a map\nDodged the dogs and found a trap\nFed the girl and saved his meat\nCrow Mauler dropped him through the street\nTony leans into the screen:\n“That’s the cheapest shit I’ve seen”\nSmoke curls up; he counts to ten\nGets up—nine-eleven'd again\n\n[Pre-Chorus]\nEvery guide says he mistook it\nEvery doorway smells like doom\nStill he kicks into the room\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\n“You rigged this shit,” he snarls aloud\nBut he will not leave this house\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Bridge]\nCoin in the air—call it clean\nHeads means mercy, tails gets mean\nIt strikes the stone and rolls from sight\nThe dungeon laughs and kills the light\nBlood at one and mind at ten\nYou ain't tellin' me to go\nHe crawls toward the throne again\n\n[Breakdown]\nNo food left\nNo good limb\nNo clean save\nStill goes in\nBell starts shaking, ceiling bends\nTony shouts, “Not this again!”\n\n[Verse]\nPast the prison, past the mines\nPast the rotten gods and signs\nEvery loss has taught his hands\nWhere the blade falls, where it lands\nLast door opens pale and wide\nAll that spite walks in beside\nDungeon offers one last spin\nTony laughs: “Then let me win.”\n\n[Chorus]\nNine-eleven'd again—\nBut he rises through the din\nLet it crash, he’ll crawl back in\nNo more begging at the end\n“You hungry pit, I can die all night!”\nHe holds the last note burning bright\nFear in the dark, but fire within\nYou can nine-eleven him again—\nHe’ll load that bastard save and win\n\n[Outro]\nScreen goes black, the final chord bends\n“Now who’s annoyed, my friend?”",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.02,
+            "end": 6.18
+          },
+          {
+            "line": 2,
+            "start": 6.28,
+            "end": 8.24
+          },
+          {
+            "line": 3,
+            "start": 11.74,
+            "end": 14.22
+          },
+          {
+            "line": 4,
+            "start": 14.56,
+            "end": 16.32
+          },
+          {
+            "line": 7,
+            "start": 19.56,
+            "end": 22.08
+          },
+          {
+            "line": 8,
+            "start": 22.62,
+            "end": 24.14
+          },
+          {
+            "line": 9,
+            "start": 24.44,
+            "end": 25.92
+          },
+          {
+            "line": 10,
+            "start": 25.92,
+            "end": 28.18
+          },
+          {
+            "line": 11,
+            "start": 28.5,
+            "end": 30.16
+          },
+          {
+            "line": 12,
+            "start": 30.48,
+            "end": 32.16
+          },
+          {
+            "line": 13,
+            "start": 32.46,
+            "end": 34.14
+          },
+          {
+            "line": 14,
+            "start": 34.52,
+            "end": 35.96
+          },
+          {
+            "line": 17,
+            "start": 38.72,
+            "end": 42.12
+          },
+          {
+            "line": 18,
+            "start": 42.12,
+            "end": 43.56
+          },
+          {
+            "line": 19,
+            "start": 44.08,
+            "end": 45.66
+          },
+          {
+            "line": 20,
+            "start": 46.32,
+            "end": 47.84
+          },
+          {
+            "line": 21,
+            "start": 47.84,
+            "end": 49.6
+          },
+          {
+            "line": 22,
+            "start": 49.98,
+            "end": 51.64
+          },
+          {
+            "line": 23,
+            "start": 52.66,
+            "end": 53.92
+          },
+          {
+            "line": 24,
+            "start": 53.92,
+            "end": 55.96
+          },
+          {
+            "line": 27,
+            "start": 60.1,
+            "end": 62.1
+          },
+          {
+            "line": 28,
+            "start": 62.4,
+            "end": 64.16
+          },
+          {
+            "line": 29,
+            "start": 64.58,
+            "end": 66.38
+          },
+          {
+            "line": 30,
+            "start": 66.38,
+            "end": 68.1
+          },
+          {
+            "line": 31,
+            "start": 68.78,
+            "end": 70.14
+          },
+          {
+            "line": 32,
+            "start": 70.5,
+            "end": 72.14
+          },
+          {
+            "line": 33,
+            "start": 72.62,
+            "end": 73.84
+          },
+          {
+            "line": 34,
+            "start": 73.84,
+            "end": 75.94
+          },
+          {
+            "line": 37,
+            "start": 83.92,
+            "end": 85.9
+          },
+          {
+            "line": 38,
+            "start": 86.28,
+            "end": 88.68
+          },
+          {
+            "line": 39,
+            "start": 88.68,
+            "end": 90.18
+          },
+          {
+            "line": 42,
+            "start": 92.86,
+            "end": 95.08
+          },
+          {
+            "line": 43,
+            "start": 95.08,
+            "end": 96.52
+          },
+          {
+            "line": 44,
+            "start": 97.12,
+            "end": 98.12
+          },
+          {
+            "line": 45,
+            "start": 98.12,
+            "end": 100.1
+          },
+          {
+            "line": 46,
+            "start": 100.26,
+            "end": 102.08
+          },
+          {
+            "line": 47,
+            "start": 102.8,
+            "end": 104.18
+          },
+          {
+            "line": 48,
+            "start": 104.58,
+            "end": 106.22
+          },
+          {
+            "line": 49,
+            "start": 106.72,
+            "end": 108.14
+          },
+          {
+            "line": 52,
+            "start": 116.2,
+            "end": 118.08
+          },
+          {
+            "line": 53,
+            "start": 118.5,
+            "end": 120.1
+          },
+          {
+            "line": 54,
+            "start": 120.34,
+            "end": 122.1
+          },
+          {
+            "line": 55,
+            "start": 122.36,
+            "end": 124.1
+          },
+          {
+            "line": 56,
+            "start": 124.52,
+            "end": 126.2
+          },
+          {
+            "line": 57,
+            "start": 128.62,
+            "end": 130.54
+          },
+          {
+            "line": 58,
+            "start": 130.76,
+            "end": 132.54
+          },
+          {
+            "line": 61,
+            "start": 135.86,
+            "end": 136.96
+          },
+          {
+            "line": 62,
+            "start": 138.04,
+            "end": 138.96
+          },
+          {
+            "line": 63,
+            "start": 140.06,
+            "end": 140.96
+          },
+          {
+            "line": 64,
+            "start": 141.46,
+            "end": 142.6
+          },
+          {
+            "line": 65,
+            "start": 142.6,
+            "end": 144.12
+          },
+          {
+            "line": 66,
+            "start": 144.5,
+            "end": 145.94
+          },
+          {
+            "line": 69,
+            "start": 148.08,
+            "end": 150.14
+          },
+          {
+            "line": 70,
+            "start": 150.5,
+            "end": 152.08
+          },
+          {
+            "line": 71,
+            "start": 152.64,
+            "end": 154.24
+          },
+          {
+            "line": 72,
+            "start": 154.54,
+            "end": 156.12
+          },
+          {
+            "line": 73,
+            "start": 156.66,
+            "end": 158.12
+          },
+          {
+            "line": 74,
+            "start": 158.64,
+            "end": 159.82
+          },
+          {
+            "line": 75,
+            "start": 159.82,
+            "end": 162.78
+          },
+          {
+            "line": 76,
+            "start": 162.78,
+            "end": 164.14
+          },
+          {
+            "line": 79,
+            "start": 172.64,
+            "end": 173.92
+          },
+          {
+            "line": 80,
+            "start": 174.4,
+            "end": 176.04
+          },
+          {
+            "line": 81,
+            "start": 176.38,
+            "end": 178.18
+          },
+          {
+            "line": 82,
+            "start": 178.44,
+            "end": 180.06
+          },
+          {
+            "line": 83,
+            "start": 181.98,
+            "end": 184.16
+          },
+          {
+            "line": 84,
+            "start": 186.18,
+            "end": 188.2
+          },
+          {
+            "line": 85,
+            "start": 189.8,
+            "end": 191.92
+          },
+          {
+            "line": 86,
+            "start": 192.52,
+            "end": 194.92
+          },
+          {
+            "line": 87,
+            "start": 194.92,
+            "end": 196.58
+          },
+          {
+            "line": 90,
+            "start": 197.48,
+            "end": 199.36
+          },
+          {
+            "line": 91,
+            "start": 200.28,
+            "end": 201.7
+          }
+        ]
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 13.06
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Remix “Nine-Eleven'd Again”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Tony C tries to beat Fear & Hunger, but he keeps getting 9/11'd, annoying him more and more\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Mash this up with the track Lamma Bada Cynical Dancefloor Rework (id might be 563929c05b5b15405bcaeaeb or distonyc-563929c05b5b15405bcaeaeb), prefer the tarab singing style and Arabic accent. New genre should fit in at a nightclub.",
+        "keep": "Keep the recognizable hook and spirit of “Nine-Eleven'd Again”.",
+        "basisSongs": [
+          "Nine-Eleven'd Again"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 215
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-563929c05b5b15405bcaeaeb",
       "title": "Lamma Bada Cynical Dancefloor Rework",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-563929c05b5b15405bcaeaeb-7d53d776ff1f.mp3",
