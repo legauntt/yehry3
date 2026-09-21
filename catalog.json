@@ -2,6 +2,109 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-b4ad1c4d420a92b329e3c4ec",
+      "title": "Lamma Bada",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b4ad1c4d420a92b329e3c4ec-dbbe15734a39.mp3",
+      "duration": 60,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-21T10:52:23.507Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Lamma Bada",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A compact tarab-inspired performance in D minor: oud, qanun, ney, riq and low hand percussion create a spacious traditional ensemble bed. Tony C’s pinned V9 voice leads with rough, connected vowel slurs, melismatic tarab turns and a low throat-resonant color while keeping the supplied words clear enough to follow. Start intimate, bloom through the middle with answering ney phrases, then sustain the last “Aman'” into a final resolved chord; the final sung syllable lands about 10 seconds before the end.",
+        "lyrics": "[Verse 1]\nLamma bada yatathanna... Hubbi jamalu fatanna\nAmru mâ bi-laHza asarna\n\n[Bridge]\nGhusnun thanâ Hina mal\nWa'adi wa ya Hirati\n\n[Verse 2]\nMan li raHimu shakwati... Fil-Hubbi min law'ati\nIlla maliku l-jamal\n\n[Outro]\nAman' Aman' Aman' Aman\n[End]",
+        "duration": 60,
+        "bpm": 78,
+        "musicalSettings": {
+          "genre": "Tarab-inspired Arabic art song",
+          "meter": "4/4 with flexible rubato entrances",
+          "structure": "Verse 1 → Bridge → Verse 2 → Outro",
+          "performance": "Smoky Tony C V9 lead, melodic melisma, slurred connected phrasing and restrained throat resonance",
+          "energy": "Quiet invocation that rises into an impassioned final plea, then settles into a resolved close",
+          "lyricWorkflow": "Preserved supplied lyrics, kept in their original order and punctuation",
+          "instruments": [
+            "oud",
+            "qanun",
+            "ney",
+            "riq",
+            "low hand percussion"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nLamma bada yatathanna... Hubbi jamalu fatanna\nAmru mâ bi-laHza asarna\n\n[Bridge]\nGhusnun thanâ Hina mal\nWa'adi wa ya Hirati\n\n[Verse 2]\nMan li raHimu shakwati... Fil-Hubbi min law'ati\nIlla maliku l-jamal\n\n[Outro]\nAman' Aman' Aman' Aman",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 7.52
+          },
+          {
+            "line": 2,
+            "start": 7.52,
+            "end": 30.88
+          },
+          {
+            "line": 5,
+            "start": 30.88,
+            "end": 51.84
+          },
+          {
+            "line": 6,
+            "start": 51.84,
+            "end": 52.12
+          },
+          {
+            "line": 9,
+            "start": 52.12,
+            "end": 55.8
+          },
+          {
+            "line": 10,
+            "start": 55.8,
+            "end": 59.32
+          },
+          {
+            "line": 13,
+            "start": 59.32,
+            "end": 59.9
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Must sing in the style of tarab (arabic throat singing).",
+        "direction": "Use the prompt as written.",
+        "keep": "Must be tarab",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-734a686fd936784a5af28782",
       "title": "The House Always Wins",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-734a686fd936784a5af28782-0a1d273917fa.mp3",
