@@ -887,7 +887,13 @@ async function library() {
   // The live catalog re-sorts what the fallback showed, so a link reveals its song only after that
   // lands; revealing sooner would centre on a slot that then moves. If the live catalog cannot
   // be had, the fallback order is the final one and the song is revealed anyway.
+  const waitingNote = "Loading your song…";
+  let linked = "";
+  try { linked = decodeURIComponent(location.hash.slice(1)); } catch { /* Not a song fragment. */ }
+  if (/^[a-z0-9-]{1,120}$/.test(linked)) message(waitingNote);
   await refresh();
+  // Only our own note is cleared, and before the reveal, so its going cannot move the centred row.
+  if ($("#message")?.firstChild?.textContent === waitingNote) message("");
   revealFromHash();
   setInterval(cooldown, 15000);
   let refreshTimer = setInterval(refresh, 30000);

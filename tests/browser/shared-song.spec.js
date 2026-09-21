@@ -125,3 +125,24 @@ test("a link waits for the live sort, so a song the sort moves by one slot is st
   const offCentre = await row.evaluate(el => { const box = el.getBoundingClientRect(); return Math.abs(box.top + box.height / 2 - innerHeight / 2); });
   expect(offCentre).toBeLessThan(20);
 });
+
+test("a link says it is loading while it waits for the live catalog, then gets out of the way", async ({ page }) => {
+  await fixtures(page);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.route("**/yehry3/songs/summary", async route => {
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    await route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } });
+  });
+  await page.goto(`/song/${target.id}/`);
+  await expect(page.locator("#message")).toContainText("Loading your song");
+  const row = page.locator(`.track[data-id="${target.id}"]`);
+  await expect(row).toHaveClass(/is-revealed/, { timeout: 8000 });
+  await expect(page.locator("#message")).toBeEmpty();
+  await page.waitForTimeout(600);
+  const offCentre = await row.evaluate(el => { const box = el.getBoundingClientRect(); return Math.abs(box.top + box.height / 2 - innerHeight / 2); });
+  expect(offCentre).toBeLessThan(20);
+  // A plain visit says nothing.
+  await page.goto("/");
+  await expect(page.locator("#tracks .track").first()).toBeVisible();
+  await expect(page.locator("#message")).toBeEmpty();
+});
