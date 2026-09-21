@@ -24,7 +24,7 @@ for (const action of ["keep", "regenerate"]) test(`Backstage can ${action} a pla
   await page.getByRole("button", { name: "Open the queue" }).click();
   await expect(page.getByRole("button", { name: "Regenerate", exact: true })).toBeVisible();
   if (action === "regenerate") {
-    await expect(page.getByText("This recording is archived and leaves the site.")).toBeVisible();
+    await expect(page.getByText("This recording stays up until you send the new request to the queue; then it is archived and leaves the site.")).toBeVisible();
     await page.getByRole("button", { name: "Regenerate", exact: true }).click();
     await expect(page).toHaveURL(/\/distonyc\/$/);
     expect(await page.evaluate(() => sessionStorage.getItem("yehry3:draft"))).toBe("new-review-draft");
