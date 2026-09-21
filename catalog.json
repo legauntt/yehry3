@@ -2,6 +2,276 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a2ccfeedc8a94ca0ae77a3ef",
+      "title": "The Long Walk Home",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a2ccfeedc8a94ca0ae77a3ef-b1570b006f47.mp3",
+      "duration": 205.03510204081633,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-21T02:34:54.763Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Long Walk Home",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Dark cinematic post-punk rock in 4/4: low, moving electric bass, restrained tom-heavy drums, baritone electric guitar, distant synth pads, and sparse piano. A clear, steadily pitched deep male lead enters immediately with deliberate melodic phrasing; verses stay intimate, choruses widen with guitar and drums, and the bridge drops to piano and bass before the final lift. Sustain the final word “home” so the last sung syllable lands about 8–12 seconds before the 205-second end, then resolve with one final E minor chord decay.",
+        "lyrics": "[Verse 1]\nThe city woke beneath a siren sun\nConcrete rivers, nowhere left to run\nA badge went dark on the western line\nA helmet shining through the acid rain\n\n[Verse 2]\nThey said the law was only iron breath\nA heavy hand, a sentence close to death\nBut every block has somebody to save\nA child behind a shutter, a name upon a grave\n\n[Pre-Chorus]\nNo ticker tape, no victory parade\nJust one more debt that somebody has paid\n\n[Chorus]\nTake the long walk, take the road alone\nLeave the eagle, leave the judgment throne\nWhen the city calls you monster, when the daylight turns to stone\nTake the long walk, take the road alone\n\n[Verse 3]\nAnderson hears the quiet under fear\nThe thoughts the frightened never let you hear\nHershey holds the line when all lines bend\nThey keep a little mercy for the bitter end\n\n[Verse 4]\nDredd stands still where the towers burn\nKnowing every law has got a point of turn\nHe sees the face beneath the outlaw's mask\nAnd carries all the answers that no one should have to ask\n\n[Pre-Chorus]\nThe streets remember every name erased\nThe good ones leave with silence on their face\n\n[Chorus]\nTake the long walk, take the road alone\nLeave the eagle, leave the judgment throne\nWhen the city calls you monster, when the daylight turns to stone\nTake the long walk, take the road alone\n\n[Bridge]\nBeyond the walls, the wind has no command\nNo council chamber, no gun in either hand\nJust endless earth beneath a lowering sky\nA final choice to make, a final reason why\n\n[Chorus]\nTake the long walk, but do not disappear\nCarry every broken voice that brought you here\nThe law is not a weapon when it cannot see the soul\nTake the long walk and leave the world more whole\n\n[Outro]\nPast Mega-City's dying glow\nOne honest heart still walking slow\nI leave the badge, I keep the oath\nAnd find my way... home\n[End]",
+        "duration": 205,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Dark cinematic post-punk rock",
+          "meter": "4/4",
+          "structure": "Verse 1, Verse 2, pre-chorus, chorus, Verse 3, Verse 4, pre-chorus, chorus, bridge, final chorus, outro",
+          "performance": "Clear, steadily pitched deep male lead with measured, melodic phrasing and an anthemic final chorus",
+          "energy": "Low-burning and tense at first, expanding into resolute choruses before a restrained final resolution",
+          "lyricWorkflow": "Original narrative lyrics tracing Dredd, Anderson, and Hershey toward the moral cost and dignity of the Long Walk",
+          "instruments": [
+            "electric bass",
+            "tom-heavy drum kit",
+            "baritone electric guitar",
+            "synth pads",
+            "piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThe city woke beneath a siren sun\nConcrete rivers, nowhere left to run\nA badge went dark on the western line\nA helmet shining through the acid rain\n\n[Verse 2]\nThey said the law was only iron breath\nA heavy hand, a sentence close to death\nBut every block has somebody to save\nA child behind a shutter, a name upon a grave\n\n[Pre-Chorus]\nNo ticker tape, no victory parade\nJust one more debt that somebody has paid\n\n[Chorus]\nTake the long walk, take the road alone\nLeave the eagle, leave the judgment throne\nWhen the city calls you monster, when the daylight turns to stone\nTake the long walk, take the road alone\n\n[Verse 3]\nAnderson hears the quiet under fear\nThe thoughts the frightened never let you hear\nHershey holds the line when all lines bend\nThey keep a little mercy for the bitter end\n\n[Verse 4]\nDredd stands still where the towers burn\nKnowing every law has got a point of turn\nHe sees the face beneath the outlaw's mask\nAnd carries all the answers that no one should have to ask\n\n[Pre-Chorus]\nThe streets remember every name erased\nThe good ones leave with silence on their face\n\n[Chorus]\nTake the long walk, take the road alone\nLeave the eagle, leave the judgment throne\nWhen the city calls you monster, when the daylight turns to stone\nTake the long walk, take the road alone\n\n[Bridge]\nBeyond the walls, the wind has no command\nNo council chamber, no gun in either hand\nJust endless earth beneath a lowering sky\nA final choice to make, a final reason why\n\n[Chorus]\nTake the long walk, but do not disappear\nCarry every broken voice that brought you here\nThe law is not a weapon when it cannot see the soul\nTake the long walk and leave the world more whole\n\n[Outro]\nPast Mega-City's dying glow\nOne honest heart still walking slow\nI leave the badge, I keep the oath\nAnd find my way... home",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 6.1,
+            "end": 9.56
+          },
+          {
+            "line": 2,
+            "start": 9.56,
+            "end": 12.92
+          },
+          {
+            "line": 3,
+            "start": 13.22,
+            "end": 16.44
+          },
+          {
+            "line": 4,
+            "start": 16.44,
+            "end": 19.64
+          },
+          {
+            "line": 7,
+            "start": 21.34,
+            "end": 24.64
+          },
+          {
+            "line": 8,
+            "start": 24.64,
+            "end": 27.92
+          },
+          {
+            "line": 9,
+            "start": 27.92,
+            "end": 32.38
+          },
+          {
+            "line": 10,
+            "start": 32.92,
+            "end": 38.78
+          },
+          {
+            "line": 13,
+            "start": 39.92,
+            "end": 44.26
+          },
+          {
+            "line": 14,
+            "start": 44.62,
+            "end": 48.84
+          },
+          {
+            "line": 17,
+            "start": 49.92,
+            "end": 55.54
+          },
+          {
+            "line": 18,
+            "start": 55.54,
+            "end": 58.04
+          },
+          {
+            "line": 19,
+            "start": 58.06,
+            "end": 63.68
+          },
+          {
+            "line": 20,
+            "start": 64.4,
+            "end": 71.42
+          },
+          {
+            "line": 23,
+            "start": 71.42,
+            "end": 74.54
+          },
+          {
+            "line": 24,
+            "start": 75.04,
+            "end": 78.82
+          },
+          {
+            "line": 25,
+            "start": 78.82,
+            "end": 82.14
+          },
+          {
+            "line": 26,
+            "start": 82.14,
+            "end": 87.28
+          },
+          {
+            "line": 29,
+            "start": 89.16,
+            "end": 92.78
+          },
+          {
+            "line": 30,
+            "start": 93.28,
+            "end": 96.22
+          },
+          {
+            "line": 31,
+            "start": 96.48,
+            "end": 100.36
+          },
+          {
+            "line": 32,
+            "start": 101.14,
+            "end": 107.28
+          },
+          {
+            "line": 35,
+            "start": 107.28,
+            "end": 114.48
+          },
+          {
+            "line": 36,
+            "start": 114.48,
+            "end": 118.96
+          },
+          {
+            "line": 39,
+            "start": 118.96,
+            "end": 123.46
+          },
+          {
+            "line": 40,
+            "start": 123.46,
+            "end": 127
+          },
+          {
+            "line": 41,
+            "start": 127,
+            "end": 132.66
+          },
+          {
+            "line": 42,
+            "start": 132.66,
+            "end": 136.68
+          },
+          {
+            "line": 45,
+            "start": 136.68,
+            "end": 144.2
+          },
+          {
+            "line": 46,
+            "start": 145.2,
+            "end": 149.46
+          },
+          {
+            "line": 47,
+            "start": 149.46,
+            "end": 153.62
+          },
+          {
+            "line": 48,
+            "start": 153.7,
+            "end": 158.58
+          },
+          {
+            "line": 51,
+            "start": 158.58,
+            "end": 164.14
+          },
+          {
+            "line": 52,
+            "start": 164.14,
+            "end": 169.64
+          },
+          {
+            "line": 53,
+            "start": 169.64,
+            "end": 175.2
+          },
+          {
+            "line": 54,
+            "start": 175.2,
+            "end": 179.74
+          },
+          {
+            "line": 57,
+            "start": 179.74,
+            "end": 183.48
+          },
+          {
+            "line": 58,
+            "start": 183.48,
+            "end": 186.72
+          },
+          {
+            "line": 59,
+            "start": 186.72,
+            "end": 190.22
+          },
+          {
+            "line": 60,
+            "start": 190.22,
+            "end": 193.72
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony writes a song about the heroes of Judge Dredd and their \"long walk\"",
+        "direction": "Use the prompt as written.",
+        "keep": "Low BPM, deep voice",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 205
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-2fb0ec08d69c3156b491f8ad",
       "title": "The Long Desk",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2fb0ec08d69c3156b491f8ad-a70c6f228be5.mp3",
