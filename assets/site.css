@@ -210,6 +210,14 @@ textarea:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
+/* Browsers focus a select on every click and again as its list opens and
+   closes, so an outside ring at an offset blinked around the control. Keep
+   the indicator inside the control's own border instead. */
+select:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
 button {
   border: 0;
 }

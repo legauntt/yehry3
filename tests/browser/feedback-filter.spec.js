@@ -69,3 +69,21 @@ test("Dark Mode dropdowns have an opaque dark background so their open lists are
     expect(colors).toEqual({ background: "rgb(23, 30, 26)", color: "rgb(231, 237, 223)" });
   }
 });
+
+test("a focused filter dropdown shows its focus inside the border, not an outside ring", async ({ page }) => {
+  await open(page);
+  await page.locator(".catalog-filters > summary").click();
+  for (const select of ["#collection-filter", "#feedback-filter"]) {
+    await page.locator(select).focus();
+    await page.keyboard.press("Shift+Tab");
+    await page.keyboard.press("Tab");
+    const style = await page.locator(select).evaluate(el => {
+      const s = getComputedStyle(el);
+      return { focused: el.matches(":focus-visible"), outline: s.outlineStyle, border: s.borderColor, shadow: s.boxShadow };
+    });
+    expect(style.focused).toBe(true);
+    expect(style.outline).toBe("none");
+    expect(style.border).toBe("rgb(228, 115, 66)");
+    expect(style.shadow).toContain("inset");
+  }
+});
