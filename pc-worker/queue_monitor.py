@@ -74,6 +74,9 @@ def classify(error, context):
                 return 'vocal_dropout', 'retry', 'Publish the retained performance with a vocal issue notice; passage repair is not supported for this voice model.'
             return 'vocal_dropout', 'retry', 'Rerender bounded vocal passages with the saved voice; preserve the rest of the song.'
         return 'vocal_dropout', 'review', 'The saved voice and finishing journal are needed for recovery.'
+    if ('assert active.any()' in error and context.get('state', {}).get('stage') == 'assemble'
+            and context.get('voice_model', 'v6') != 'v6'):
+        return 'inactive_voice', 'retry', 'Run the audited inactive-voice assembly recovery with frozen inputs.'
     if 'ending needs completion' in error or 'final vocal has no complete ending' in error:
         if context.get('ending_attempted'):
             return 'unfinished_ending', 'review', 'The longer ending attempt also failed; retain both renders for an arrangement repair.'
@@ -106,7 +109,7 @@ def due(entry, now, maximum=3):
 
 def retry_budget(entry, category):
     if len([a for a in entry.get('attempts',[]) if a.get('policy_version',1)==POLICY_VERSION])>=3:return False
-    if category in ('vocal_dropout','unfinished_ending','musical_spacing','planner_format','unicode_runtime','shepherd','replan'):
+    if category in ('vocal_dropout','inactive_voice','unfinished_ending','musical_spacing','planner_format','unicode_runtime','shepherd','replan'):
         return not any(a['category']==category and a.get('policy_version',1)==POLICY_VERSION for a in entry.get('attempts',[]))
     return True
 

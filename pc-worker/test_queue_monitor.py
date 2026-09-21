@@ -2,7 +2,7 @@ import copy, tempfile, unittest
 from pathlib import Path
 from unittest.mock import patch
 from common import load, save
-from queue_monitor import classify, scan
+from queue_monitor import POLICY_VERSION, classify, scan
 from vocal_repair import intervals
 from renderer import vocal_recovery
 
@@ -92,5 +92,18 @@ class MonitorTests(unittest.TestCase):
                 for status in ('failed','applied'):
                     save(work/'vocal-repair/status.json',{'status':status})
                     self.assertFalse(vocal_recovery(request))
+
+class InactiveVoiceRules(unittest.TestCase):
+    error='Traceback\n  assert active.any()\nAssertionError'
+    def test_silent_section_assembly_failure_retries_once_for_every_voice_model_but_v6(self):
+        for model in ('v7','v8','v9'):
+            context={'voice_model':model,'state':{'stage':'assemble'}}
+            self.assertEqual(classify(self.error,context)[:2],('inactive_voice','retry'),model)
+        self.assertNotEqual(classify(self.error,{'voice_model':'v6','state':{'stage':'assemble'}})[0],'inactive_voice')
+        self.assertNotEqual(classify(self.error,{'voice_model':'v9','state':{'stage':'finish'}})[0],'inactive_voice')
+    def test_the_repair_is_attempted_once_because_a_repeat_would_fail_the_same_pinned_way(self):
+        from queue_monitor import retry_budget
+        self.assertTrue(retry_budget({'attempts':[]},'inactive_voice'))
+        self.assertFalse(retry_budget({'attempts':[{'category':'inactive_voice','policy_version':POLICY_VERSION}]},'inactive_voice'))
 
 if __name__=='__main__':unittest.main()

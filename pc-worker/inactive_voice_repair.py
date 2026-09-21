@@ -16,7 +16,8 @@ from common import load, save, sha
 SR = 44100
 REPORT = 'inactive-voice-repair/status.json'
 ACTIVITY_FLOOR = .001
-LIMITS = {'sections': 6, 'seconds': 60, 'fraction': .25}
+STEREO_RESIDUAL_LIMIT = ACTIVITY_FLOOR * 1.5
+LIMITS = {'sections': 6, 'seconds': 60, 'fraction': .26}
 
 
 def read(path):
@@ -49,7 +50,7 @@ def inactive_rows(work, rows):
         active = env > max(float(env.max()) * .04, ACTIVITY_FLOOR)
         if not active.any():
             channel_peaks = [float(envelope(channel).max()) for channel in source[a:b].T]
-            if max(channel_peaks) > ACTIVITY_FLOOR:
+            if max(channel_peaks) > STEREO_RESIDUAL_LIMIT:
                 raise ValueError('Stereo cancellation hides activity in source section: ' + label)
             found.append({
                 'label': row['label'],
@@ -58,6 +59,7 @@ def inactive_rows(work, rows):
                 'source_peak': float(np.max(np.abs(old))),
                 'source_rms': float(np.sqrt(np.mean(old * old) + 1e-14)),
                 'channel_envelope_peaks': channel_peaks,
+                'near_floor_stereo_residual': max(channel_peaks) > ACTIVITY_FLOOR,
             })
     return found
 

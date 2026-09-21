@@ -167,5 +167,60 @@ class ReviewPublicationTests(unittest.TestCase):
         self.assertEqual(load(self.work / 'desktop-status.json')['status'], 'failed')
         self.assertIn('unconverted_vocals', result['validationFailures'])
 
+    def recovery_engine(self, outcomes):
+        calls = []
+        def stages(*a, **k):
+            calls.append('stages'); outcome = outcomes[len(calls) - 1]
+            if isinstance(outcome, Exception): raise outcome
+            return outcome
+        return SimpleNamespace(execute_stages=stages, validate_saved=lambda *a: None), calls
+
+    def assembly_failure(self):
+        save(self.work / 'desktop-status.json', {'status': 'failed', 'stage': 'assemble',
+              'error': 'Traceback (most recent call last):\n  assert active.any()\nAssertionError\n'})
+
+    def test_silent_section_is_repaired_in_the_same_attempt_and_the_song_finishes(self):
+        self.assembly_failure()
+        engine, calls = self.recovery_engine([RuntimeError('assemble'), {'status': 'verified', 'finished': True}])
+        request = {'config': {'settings': {**self.settings, 'voice_python': 'test-python'}}, 'voice_model': 'v9'}
+        with patch('review_publication.inactive_recovery.recover', return_value=True) as recover,                 patch('review_publication.subprocess.run') as export_run:
+            self.assertEqual(execute(engine, request, self.work, {}), {'status': 'verified', 'finished': True})
+            recover.assert_called_once()
+            export_run.assert_not_called()  # never reached the generated-singer review export
+        self.assertEqual(len(calls), 2)
+        self.assertFalse((self.work / 'validation-publication.json').exists())
+
+    def test_a_repair_the_limits_reject_still_ends_in_the_honest_review_export(self):
+        self.assembly_failure()
+        engine, calls = self.recovery_engine([RuntimeError('assemble')])
+        request = {'config': {'settings': {**self.settings, 'voice_python': 'test-python'}}, 'voice_model': 'v9'}
+        with patch('review_publication.inactive_recovery.recover', return_value=False),                 patch('review_publication.subprocess.run'), patch('review_publication.verify', return_value={'status': 'verified'}):
+            self.assertEqual(execute(engine, request, self.work, {}), {'status': 'verified'})
+        self.assertEqual(len(calls), 1)
+        self.assertEqual(load(self.work / 'validation-publication.json')['validationFailures'], ['voice_validation'])
+
+    def test_repair_that_resumes_into_a_new_quality_failure_uses_that_failure(self):
+        self.assembly_failure()
+        engine, calls = self.recovery_engine([RuntimeError('assemble'), RuntimeError('validate')])
+        def repaired(work, settings):
+            save(work / 'desktop-status.json', {'status': 'failed', 'stage': 'validate',
+                  'error': "assert item['median_pitch_error_cents']<60,item\nAssertionError: {}"})
+            return True
+        request = {'config': {'settings': {**self.settings, 'voice_python': 'test-python'}}, 'voice_model': 'v9'}
+        with patch('review_publication.inactive_recovery.recover', side_effect=repaired),                 patch('review_publication.subprocess.run'), patch('review_publication.verify', return_value={'status': 'verified'}):
+            execute(engine, request, self.work, {})
+        self.assertEqual(load(self.work / 'validation-publication.json')['validationFailures'], ['voice_validation'])
+
+    def test_v6_and_other_failures_never_invoke_the_recovery(self):
+        self.assembly_failure()
+        for model, status in (('v6', None), ('v9', {'status': 'failed', 'stage': 'finish', 'error': 'OSError: disk'})):
+            if status: save(self.work / 'desktop-status.json', status)
+            engine, _ = self.recovery_engine([RuntimeError('boom')])
+            request = {'config': {'settings': {**self.settings, 'voice_python': 'test-python'}}, 'voice_model': model}
+            with patch('review_publication.inactive_recovery.recover') as recover,                     patch('review_publication.subprocess.run'), patch('review_publication.verify', return_value={}):
+                try: execute(engine, request, self.work, {})
+                except RuntimeError: pass
+            recover.assert_not_called()
+
 
 if __name__ == '__main__': unittest.main()

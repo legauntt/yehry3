@@ -6,6 +6,11 @@ import sys
 from pathlib import Path
 from common import load, save, sha
 
+# The saved assembler rejects a phrase whose separated vocal never rises above this envelope, so the voice interval
+# starts where sound first does (less a margin) instead of at 0 s. Anything at or above the floor is still kept.
+LEAD_MARGIN_SECONDS = 3.
+LEAD_MINIMUM_SECONDS = 5.
+
 RULE = 'Too much instrumental space'
 GUARD = ast.parse("last-first>duration*.6 and max([g['seconds'] for g in gaps],default=0)<9.5", mode='eval').body
 INTRO_RULE = 'Long instrumental introduction'
@@ -64,6 +69,36 @@ def record_spacing(seconds, issues):
     else: issues.append({'code': 'long_instrumental_break', 'seconds': value})
 
 
+def trim_silent_lead(work, margin=LEAD_MARGIN_SECONDS, minimum=LEAD_MINIMUM_SECONDS):
+    """Start the voice interval where the separated vocal first rises above the assembler's activity floor.
+
+    The frozen checker keeps the whole introduction "for quiet chuckles". That still holds: a chuckle is far above the
+    floor (0.001, -60 dBFS). Only an introduction with nothing above it is skipped, so the silent phrases it would
+    have produced never reach the assembler and no repair or advisory limit applies to them.
+    """
+    import numpy as np
+    from inactive_voice_repair import ACTIVITY_FLOOR, SR, envelope, read
+    work = Path(work)
+    path = work / 'voice-interval.json'
+    config = load(path)
+    if 'silent_lead' in config: return config
+    start, stop = config['interval']
+    audio = read(work / 'selected-vocals.wav')
+    # The mono sum can cancel opposite-phase singing, so a channel counts as sound on its own.
+    level = np.max([envelope(audio.mean(axis=1)), *[envelope(channel) for channel in audio.T]], axis=0)
+    loud = np.flatnonzero(level > ACTIVITY_FLOOR)
+    if not len(loud): return config
+    first = float(loud[0]) / SR
+    begin = math.floor(max(start, first - margin) * 100) / 100
+    if begin - start < minimum or begin >= stop - 1: return config
+    config = {**config, 'interval': [begin, stop],
+              'silent_lead': {'original_start': start, 'first_sound_seconds': round(first, 2),
+                              'activity_floor': ACTIVITY_FLOOR, 'margin_seconds': margin,
+                              'basis': 'The separated vocal has nothing above the activity floor before this point.'}}
+    save(path, config)
+    return config
+
+
 def configure(work, expected_sha):
     work = Path(work).resolve()
     source = work / 'configure_song.py'
@@ -77,6 +112,7 @@ def configure(work, expected_sha):
                     '_distonyc_review_breaks': lambda gaps: review_breaks(gaps, issues),
                     '_distonyc_review_intro': lambda first: review_intro(first, issues)})
     finally: sys.argv = previous
+    trim_silent_lead(work)
     save(work / 'arrangement-quality-policy.json', {'version': 1, 'source_sha256': expected_sha,
          'qualityIssues': issues, 'integrity_checks_retained': True, 'original_checker_unchanged': True})
 

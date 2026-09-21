@@ -8,6 +8,7 @@ import math
 import re
 import subprocess
 from pathlib import Path
+import inactive_recovery
 from common import inside, load, save, sha
 
 CODES = ('vocal_activity', 'voice_validation', 'vocal_dropout', 'unfinished_ending', 'mix_quality', 'unconverted_vocals')
@@ -118,6 +119,13 @@ def execute(engine, request, work, manifest, review_fallback=True, **options):
     try:
         return engine.execute_stages(work, manifest, **options)
     except (RuntimeError, ValueError) as error:
+        # A silent section rejected by the assembler is repaired here, in the same attempt, so the song is
+        # finished with Tony's voice instead of falling through to the generated singer.
+        if inactive_recovery.needed(work, request.get('voice_model', 'v6')) and inactive_recovery.recover(work, settings):
+            try:
+                return engine.execute_stages(work, manifest, **options)
+            except (RuntimeError, ValueError) as resumed:
+                error = resumed
         failures = classify(work, error)
         if not failures or not review_fallback:
             raise
