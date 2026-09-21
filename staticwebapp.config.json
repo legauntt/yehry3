@@ -123,6 +123,11 @@
       "statusCode": 301
     },
     {
+      "route": "/admin/*",
+      "rewrite": "/admin/index.html",
+      "headers": { "Cache-Control": "no-cache" }
+    },
+    {
       "route": "/catalog.json",
       "headers": {
         "Cache-Control": "no-cache"

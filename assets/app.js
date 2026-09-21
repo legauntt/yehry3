@@ -1260,6 +1260,9 @@ async function admin() {
   const requestedFilter = adminParams.get("status") === "failed" ? "attention" : adminParams.get("status");
   const sortOptions = { newest: "Newest first", oldest: "Oldest first", priority: "Queue priority" };
   const validFilters = ["all", ...Object.keys(labels).filter((key) => !["draft", "review"].includes(key))];
+  // /admin/<requestId> opens that one request, the way a shared link should.
+  const pathParts = location.pathname.split("/").filter(Boolean);
+  const requestId = pathParts[0] === "admin" && pathParts.length === 2 && /^[A-Za-z0-9-]{1,64}$/.test(pathParts[1]) ? pathParts[1] : "";
   let data = null,
     filter = validFilters.includes(requestedFilter) ? requestedFilter : "queued",
     sortOrder = Object.hasOwn(sortOptions, adminParams.get("sort")) ? adminParams.get("sort") : "newest",
@@ -1379,9 +1382,21 @@ async function admin() {
       }),
     );
   }
+  function signOut() {
+    loadSequence++;
+    logout("admin");
+    data = null;
+    loginView("admin", load);
+  }
   async function load() {
     const sequence = ++loadSequence;
     try {
+      if (requestId) {
+        const response = await api(`/admin/prompts/${encodeURIComponent(requestId)}`, { role: "admin" });
+        if (sequence !== loadSequence) return;
+        data = { prompts: [response.prompt], total: 1, counts: {}, transitions: response.transitions, workers: response.workers };
+        return renderRequest();
+      }
       const nextFilter = filter;
       const nextSort = sortOrder;
       let nextPage = pageNumber;
@@ -1403,12 +1418,28 @@ async function admin() {
     } catch (error) {
       if (sequence !== loadSequence) return;
       if (error.status === 401) return loginView("admin", load);
+      if (requestId && error.status === 404) {
+        data = null;
+        document.title = "Request not found · Backstage — yehry3";
+        main.innerHTML = '<section class="empty"><h1>That request isn’t here.</h1><p>It may not have been submitted yet, or the link is mistyped.</p><a class="text-link" href="/admin/?status=all">All requests →</a></section>';
+        return;
+      }
       message(error.message, true);
       if (!data)
         main.innerHTML =
           '<section class="empty"><h1>The queue couldn’t load.</h1><button class="primary" id="retry-admin">Try again</button></section>';
       $("#retry-admin")?.addEventListener("click", load);
     }
+  }
+  function renderRequest() {
+    const doc = data.prompts[0];
+    document.title = `${doc.prompt.length > 60 ? `${doc.prompt.slice(0, 57)}…` : doc.prompt} · Backstage — yehry3`;
+    main.innerHTML = `<section class="admin-intro"><div><p class="eyebrow">Backstage · One request</p><h1>Up close on<br><em>this one.</em></h1></div><button class="quiet" id="signout">Sign out ↗</button></section><div class="worker-health">${workerPresence(data.workers, { escape, date })}</div><section class="admin-queue"><div class="toolbar"><a class="text-link" href="/admin/?status=all">← All requests</a><button class="quiet" id="refresh">Refresh ↻</button></div><div id="queue">${row(doc)}</div></section>`;
+    showLoginStatus("admin", $(".admin-intro > div"), load);
+    loadThreads();
+    $("#refresh").onclick = load;
+    $("#signout").onclick = signOut;
+    bindQueue();
   }
   function render() {
     main.innerHTML = `<section class="admin-intro"><div><p class="eyebrow">Backstage · Studio queue</p><h1>Make room for<br><em>the next one.</em></h1></div><button class="quiet" id="signout">Sign out ↗</button></section><div class="stats">${[
@@ -1466,12 +1497,7 @@ async function admin() {
     };
     $("#refresh").onclick = load;
     bindSongs();
-    $("#signout").onclick = () => {
-      loadSequence++;
-      logout("admin");
-      data = null;
-      loginView("admin", load);
-    };
+    $("#signout").onclick = signOut;
     $("#prev-page").onclick = () => {
       pageNumber--;
       load();
@@ -1480,6 +1506,10 @@ async function admin() {
       pageNumber++;
       load();
     };
+    bindQueue();
+  }
+  // The queue list and the single-request view share these card controls.
+  function bindQueue() {
     $("#queue").addEventListener("submit", async (event) => {
       event.preventDefault();
       const card = event.target.closest("[data-prompt]");
@@ -1565,7 +1595,7 @@ async function admin() {
       ? `<section class="dehaka-thread completion-logs" data-dehaka-thread="${id}" data-completion aria-label="Raw logs from the render"><h3>Raw logs</h3><div class="dehaka-thread-body" aria-live="polite">${threads.get(doc.id) || '<p class="small">Loading the render’s raw logs…</p>'}</div></section>` : "";
     const guidance = escape(doc.recovery?.shepherd?.guidance || "Whatever it takes to fix this.");
     const failure = doc.status === "failed" ? `<section class="attention-problem"><p class="eyebrow">What stopped it</p>${doc.workerProgress?.stage ? `<p class="small">Production stopped during ${escape(doc.workerProgress.stage)}.</p>` : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p></section>${lizard}${thread}${adapting ? `<p class="small recovery-notice">${doc.recovery?.shepherd ? "Dehaka is adapting this request using your guidance." : "Automatic recovery is working on this request."} Saved work will be reused; you can leave it running or steer again.</p>` : ""}${!doc.workerActive ? `<form data-action="shepherd" class="dehaka-form"><label for="guidance-${id}">Steer Dehaka</label><textarea id="guidance-${id}" name="guidance" rows="3" maxlength="2000" required>${guidance}</textarea><div class="dehaka-actions"><button class="primary">Dehaka</button><span class="small">I adaaaaaapt. He’ll inspect the saved evidence and use a supported correction.</span></div></form>` : ""}` : "";
-    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${songBadges(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues, doc.reviewState, doc.result?.validationFailures)}${doc.reviewState === "needs_review" ? '<form data-action="keep" class="retry-form"><button class="primary">Keep this version</button><span class="small">Clear the review flag after listening.</span></form><form data-action="regenerate" class="retry-form"><button class="quiet">Regenerate</button><span class="small">Review the same brief as a new request. This recording is archived and leaves the site.</span></form>' : ""}${failure}${doc.status === "failed" ? "" : `${lizard}${thread}${logsSlot}`}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, validationFailures: null, reviewState: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
+    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${songBadges(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}${requestId ? "" : ` · <a href="/admin/${encodeURIComponent(doc.id)}">Permalink</a>`}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues, doc.reviewState, doc.result?.validationFailures)}${doc.reviewState === "needs_review" ? '<form data-action="keep" class="retry-form"><button class="primary">Keep this version</button><span class="small">Clear the review flag after listening.</span></form><form data-action="regenerate" class="retry-form"><button class="quiet">Regenerate</button><span class="small">Review the same brief as a new request. This recording is archived and leaves the site.</span></form>' : ""}${failure}${doc.status === "failed" ? "" : `${lizard}${thread}${logsSlot}`}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, validationFailures: null, reviewState: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
       ...(doc.history || []),
     ]
       .reverse()
