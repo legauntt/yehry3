@@ -30,15 +30,35 @@ test("Œuful plays sung moments back to back across two decks", async ({ page })
   await expect(page.locator("#deck-b")).toHaveAttribute("data-state", "cued");
   await expect(page.locator(".egg-caption")).toHaveCount(0);
 
-  // The Side slider sets how long a record may play. Changing it sends the cued records back
-  // and dresses the decks again, and the booth remembers the length for the next visit.
-  await expect(page.locator("#length-text")).toHaveText("13 s");
-  await page.locator("#length").fill("5");
-  await expect(page.locator("#length-text")).toHaveText("30 s");
+  // Each turntable has a Side slider for how long its records may play. Changing one sends that
+  // deck's cued records back and dresses it again, and leaves the other deck alone. Turntables
+  // can be added, up to five, and any of them can be set to play whole songs. The booth remembers
+  // all of it for the next visit.
+  await expect(page.locator("#deck-a .deck-side output")).toHaveText("13 s");
+  await page.locator("#deck-a .deck-side input").fill("5");
+  await expect(page.locator("#deck-a .deck-side output")).toHaveText("30 s");
+  await expect(page.locator("#deck-b .deck-side output")).toHaveText("13 s");
   await expect(page.locator("#deck-a")).toHaveAttribute("data-state", "cued");
-  await expect(page.locator("#deck-b")).toHaveAttribute("data-state", "cued");
+  await expect(page.locator("#fewer")).toBeDisabled();
+  await page.locator("#more").click();
+  await expect(page.locator("#deck-c")).toHaveAttribute("data-state", "cued");
+  await expect(page.locator("#tables-text")).toHaveText("3");
+  await page.locator("#deck-c .deck-whole").click();
+  await expect(page.locator("#deck-c .deck-side output")).toHaveText("Full");
+  await expect(page.locator("#deck-c .deck-side input")).toBeDisabled();
+  await expect(page.locator("#deck-c")).toHaveAttribute("data-state", "cued");
   await page.reload();
-  await expect(page.locator("#length-text")).toHaveText("30 s");
+  await expect(page.locator("#deck-a .deck-side output")).toHaveText("30 s");
+  await expect(page.locator("#deck-c .deck-whole")).toHaveAttribute("aria-pressed", "true");
+  await page.locator("#deck-c .deck-whole").click();
+  await expect(page.locator("#deck-c .deck-side output")).toHaveText("13 s");
+  await expect(page.locator("#deck-c")).toHaveAttribute("data-state", "cued");
+  await page.locator("#more").click();
+  await page.locator("#more").click();
+  await expect(page.locator("#deck-e")).toHaveAttribute("data-state", "cued");
+  await expect(page.locator("#more")).toBeDisabled();
+  for (let count = 5; count > 2; count -= 1) await page.locator("#fewer").click();
+  await expect(page.locator(".deck")).toHaveCount(2);
   await expect(start).toBeEnabled();
   await expect(page.locator("#deck-b")).toHaveAttribute("data-state", "cued");
 
@@ -58,7 +78,22 @@ test("Œuful plays sung moments back to back across two decks", async ({ page })
   await expect(page.locator("#deck-b")).toHaveAttribute("data-state", "playing");
   await expect(page.locator(".egg-caption-title")).not.toHaveText(first);
   await expect(page.locator("#mixer")).toHaveAttribute("data-live", "A");
-  await expect(page.locator("#tally")).toHaveText(/^[3-9] sides played$/);
+  await expect(page.locator("#tally")).toHaveText(/^[3-9] sides played$/, { timeout: 15000 });
+
+  // With some overlap the next record comes in while the last is still singing, so two decks
+  // play at once. Muting every deck silences them without stopping them.
+  await page.locator("#overlap").fill("50");
+  await expect(page.locator("#overlap-text")).toHaveText("50%");
+  await page.waitForFunction(() => document.querySelectorAll('.deck[data-state="playing"]').length === 2);
+  await page.locator("#overlap").fill("0");
+  for (const name of ["a", "b"]) await page.locator("#deck-" + name + " .deck-mute").click();
+  await expect(page.locator("#deck-a .deck-mute")).toHaveAttribute("aria-pressed", "true");
+  await page.waitForFunction(() => {
+    const sounding = window.oeufulSounds.filter((sound) => !sound.paused && !sound.muted);
+    return sounding.length && sounding.every((sound) => sound.volume === 0);
+  });
+  for (const name of ["a", "b"]) await page.locator("#deck-" + name + " .deck-mute").click();
+  await page.waitForFunction(() => window.oeufulSounds.some((sound) => !sound.paused && !sound.muted && sound.volume > 0.5));
 
   // Lifting the needle stops the sound, the gasp and the caption; dropping it picks the side back up.
   await start.click();

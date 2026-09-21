@@ -1,9 +1,12 @@
-// What Œuful plays next. Well liked and well listened-to songs come up more often, the listener
-// sets how long a side may run, and a song rests for a dozen records before it can come round
-// again. This is the one place to change when the mix should follow the music instead.
+// What Œuful plays next. Well liked and well listened-to songs come up more often, each deck
+// asks for sides of its own length (or for whole songs), and a song rests for twenty records (more than the decks can
+// hold between them) before it can come round again. This is the one place to change when the
+// mix should follow the music instead.
 import { lineRuns, pickEggMoment } from "../assets/egg-clips.js";
 
-const memory = 12;
+const memory = 20;
+// The ceiling a deck gives when it wants the song from its first note to its last.
+export const wholeSong = Infinity;
 
 // Every song keeps a weight of 1, so the whole collection stays in the crate. An upvote (less
 // any downvotes, up to ten) adds 1.5 and each doubling of plays adds 1, which makes a favourite
@@ -22,6 +25,7 @@ const stretches = new WeakMap();
 function stretch(clip, ceiling) {
   let cut = stretches.get(clip);
   if (!cut) stretches.set(clip, (cut = new Map()));
+  if (ceiling === wholeSong) return [[0, clip.lines.length - 1]];
   if (!cut.has(ceiling)) {
     const runs = lineRuns(clip.lines, ceiling);
     const full = runs.filter(([first, last]) => clip.lines[last][1] - clip.lines[first][0] >= ceiling / 2);
@@ -30,15 +34,15 @@ function stretch(clip, ceiling) {
   return cut.get(ceiling);
 }
 
-// `weightOf(clip)` and `ceiling()` are asked at every pick, so live votes that arrive late and a
-// length the listener has just changed both count from the next record on. Without a ceiling the
-// clips' own moments are used.
-export function createPicker(clips, { random = Math.random, weightOf = () => 1, ceiling = () => 0 } = {}) {
+// `weightOf(clip)` is asked at every pick, so live votes that arrive late count from the next
+// record on. The pick is cut to fit under `ceiling` seconds; without one, or when nothing fits,
+// the clips' own moments are used.
+export function createPicker(clips, { random = Math.random, weightOf = () => 1 } = {}) {
   const pool = (Array.isArray(clips) ? clips : []).filter((clip) => clip?.id && clip.url && clip.moments?.length);
   const remembered = Math.min(memory, Math.max(0, pool.length - 1));
   const recent = [];
-  return () => {
-    const limit = Number(ceiling()) || 0;
+  return (ceiling = 0) => {
+    const limit = Number(ceiling) || 0;
     const cut = limit ? pool.map((clip) => ({ ...clip, moments: stretch(clip, limit) })).filter((clip) => clip.moments.length) : [];
     const sized = cut.length ? cut : pool;
     const rested = sized.filter((clip) => !recent.includes(clip.id));
