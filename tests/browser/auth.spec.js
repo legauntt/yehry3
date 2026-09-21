@@ -55,6 +55,9 @@ test("a session failure after renewal keeps the password through reload and offe
   let sessions = 0;
   let failing = false;
   const headers = { "access-control-allow-origin": baseURL };
+  // Backstage counts the published songs for its collapsed header; that request is not what this test is about.
+  await page.route("**/yehry3/admin/songs?**", route => route.request().method() === "OPTIONS"
+    ? route.continue() : route.fulfill({ headers, json: { songs: [], total: 0, page: 0, pageSize: 25, counts: { live: 0, archived: 0 } } }));
   await page.route("**/yehry3/session", route => {
     if (route.request().method() === "OPTIONS") return route.continue();
     return route.fulfill({ headers, json: { token: `accepted-${++sessions}` } });

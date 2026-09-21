@@ -1351,7 +1351,7 @@ async function admin() {
     loadSequence = 0;
   const threads = new Map();
   // The song list keeps its own state so the queue's periodic re-render never loses a search.
-  const songs = { q: "", view: "live", page: 0, data: null, sequence: 0, open: false, error: "", jumped: false };
+  const songs = { q: "", view: "live", page: 0, data: null, sequence: 0, open: false, error: "", jumped: false, counted: false };
   let songTimer;
   const songsCount = () => (songs.data ? `${songs.data.counts.live} on the site · ${songs.data.counts.archived} archived` : "Search, archive or restore");
   function songsMarkup() {
@@ -1374,7 +1374,8 @@ async function admin() {
     $("#song-prev").disabled = songs.page === 0;
     $("#song-next").disabled = !list || (songs.page + 1) * list.pageSize >= list.total;
   }
-  async function loadSongs() {
+  // `quiet` is the one-time count for the collapsed header: it never signs in again or reports an error.
+  async function loadSongs(quiet = false) {
     const sequence = ++songs.sequence;
     try {
       const params = new URLSearchParams({ view: songs.view, page: songs.page });
@@ -1389,7 +1390,7 @@ async function admin() {
       songs.error = "";
       paintSongs();
     } catch (error) {
-      if (sequence !== songs.sequence) return;
+      if (sequence !== songs.sequence || quiet) return;
       // An expired session is settled by reloading the queue, which shows the login when it must.
       if (error.status === 401) return load();
       songs.error = error.status === 404 ? "Song archiving isn’t available from the studio API yet." : error.message;
@@ -1455,7 +1456,10 @@ async function admin() {
       if (songs.open && !songs.data) loadSongs();
     };
     paintSongs();
-    if (!songs.data && !songs.error) loadSongs();
+    if (!songs.data && !songs.counted && !songs.open) {
+      songs.counted = true;
+      loadSongs(true);
+    }
     if (location.hash === "#songs" && !songs.jumped) {
       songs.jumped = true;
       showSongs();
