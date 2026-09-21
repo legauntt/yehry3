@@ -7,6 +7,7 @@ import { qualityNotice } from "./quality.js";
 import { mountFavorites } from "./favorites.js";
 import { api } from "./api.js";
 import { trackListening, listeningLabel } from "./listening.js";
+import { nowListening } from "./listeners.js";
 import { remixLink } from "./remix.js";
 import { mountRemixComparison } from "./remix-comparison.js";
 import { mountMomentSharing, sharedTimestamp } from "./lyric-moments.js";
@@ -160,6 +161,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
         },
       });
     }
+    nowListening(audio, song.id);
     loop ||= mountLoopToggle();
     loop.attach(audio);
     main.querySelector(".shared-song-player").append(loop.element);

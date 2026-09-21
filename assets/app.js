@@ -31,6 +31,7 @@ import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 import { watchCompletions } from "./notifications.js";
 import { mountFavorites } from "./favorites.js";
 import { trackListening, listeningLabel } from "./listening.js";
+import { nowListening } from "./listeners.js";
 import { loadRemix, remixBadge, remixLink } from "./remix.js";
 import { draftRemixId, traceRemix } from "./remix-trace.js";
 import { recordingLabels, recordingLabel, recordingTitle } from "./recording-label.js";
@@ -568,6 +569,7 @@ async function library() {
     audio.src = safeUrl(song.url);
     sides.show(song);
     listening.start(song.id);
+    nowListening(audio, song.id);
     render();
     try {
       await audio.play();

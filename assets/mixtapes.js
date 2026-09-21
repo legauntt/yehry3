@@ -7,6 +7,7 @@ import { lyricsHref } from "./song-links.js";
 import { tapeKey, tapeColors, emptyTape, validateTape, decodeTape, tapeDuration, tapeIdPattern, tapeHref } from "./mixtape-data.js";
 import { drawInk, mountHandwriting, sideInk, canDraw } from "./tape-handwriting.js";
 import { artImage, drawClipart } from "./tape-art.js";
+import { nowListening } from "./listeners.js";
 
 const main = document.querySelector("#main");
 watchCompletions();
@@ -335,6 +336,7 @@ async function mount() {
     const request = ++playRequest;
     currentKey = key; activeSide = entry.side;
     if (loadedKey !== key) { audio.src = safeAudio(entry.song); loadedKey = key; }
+    nowListening(audio, entry.song.id);
     if (audio.ended) audio.currentTime = 0;
     syncPlayer();
     try { await audio.play(); } catch { if (request === playRequest) status("Press play to start this song, or try the next recording."); }

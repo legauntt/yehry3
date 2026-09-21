@@ -5,6 +5,7 @@ import { qualityNotice } from "../assets/quality.js";
 import { watchCompletions } from "../assets/notifications.js";
 import { lyricsHref } from "../assets/song-links.js";
 import { mountFavorites } from "../assets/favorites.js";
+import { nowListening } from "../assets/listeners.js";
 
 watchCompletions();
 
@@ -59,6 +60,7 @@ function register(card) {
   cards.push(card);
   players.push(player);
   known.set(card.dataset.songId, card);
+  nowListening(player, card.dataset.songId);
   card.querySelector(".track-body").insertAdjacentHTML("beforeend", favorites.button({ id: card.dataset.songId, title: title(index) }));
   player.addEventListener("play", () => {
     if (queue[cursor] !== index) {

@@ -228,6 +228,9 @@ for (const file of await readdir(output, { recursive: true })) {
     html = html.replace(/<span>\s*YEHRY3 · A little off the record\.\s*<\/span\s*>/i, '<span data-brand-footer>YEHRY3 · A little off the record.</span>');
     html = html.replace("</head>", '<script type="module" src="/assets/branding.js"></script>\n  </head>');
   }
+  // The listening room sits on every page with the shared header, and beside Fear & Hunger's own players.
+  if (html.includes('class="site-header"') || file.replaceAll("\\", "/") === "fearhunger/index.html")
+    html = html.replace("</head>", '<link rel="stylesheet" href="/assets/listeners.css">\n    <script type="module" src="/assets/listeners.js"></script>\n  </head>');
   html = html.replace("</head>", `<meta name="yehry3-code" content="${version}" />\n    <link rel="stylesheet" href="/assets/deployment.css">\n    <script type="module" src="/assets/deployment.js"></script>\n  </head>`);
   html = html.includes("</footer>")
     ? html.replace("</footer>", `${stamp}\n    </footer>`)
