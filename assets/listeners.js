@@ -1,11 +1,12 @@
 // The listening room: everyone on the site right now sits at the edges of the screen with what
 // they are playing. Each tab reports its own song with a heartbeat and is sent the room over a
 // WebSocket, or reads it with a long poll where a socket cannot be held open, so a change shows up
-// within a second or two. A signed-in browser is shown by its saved "Authored by" name; everyone
-// else gets the animal the studio assigns them.
+// within a second or two. Anyone may give themselves a name, from their own card here or from the
+// "Authored by" field on Make a request (the two are one saved name); until they do, they are the
+// animal the studio assigns them. The studio numbers a name someone else already has: "Jesse (2)".
 import { api, signedIn } from "./api.js";
 import { API_BASE } from "./config.js";
-import { savedAuthor } from "./authored-by.js";
+import { savedAuthor, rememberAuthor, onAuthorChange } from "./authored-by.js";
 
 const tab = crypto.randomUUID();
 const hiddenKey = "yehry3:listeners-hidden";
@@ -22,6 +23,8 @@ let beatTimer, settleTimer, reporting = false, again = false, lastSong = null, n
 let polling = false, pollFailures = 0, socket = null, live = false, socketFailures = 0, socketRestUntil = 0, followTimer, root, openId = null, lastInput = Date.now(), reportedIdle = false;
 // The avatars a signed-in listener may choose from, whether the chooser is open, and a choice waiting to be sent.
 let avatars = [], picking = false, chosen;
+// The name being typed into your own card, and a redraw held back until it is done so typing is not interrupted.
+let editingName = false, nameDraft = "", nameTimer, redrawLater = false;
 const peeks = new Map();
 
 const phone = () => matchMedia("(max-width: 700px)").matches;
@@ -71,7 +74,8 @@ export function seats(listeners, selfId, perSide) {
   return { ...sides, more };
 }
 export const initials = (name) => {
-  const words = String(name).trim().split(/\s+/u).filter(Boolean);
+  // The studio's "(2)" for a repeated name is not part of the name.
+  const words = String(name).replace(/\s*\(\d+\)$/u, "").trim().split(/\s+/u).filter(Boolean);
   const letters = words.length > 1 ? [words[0], words.at(-1)].map((word) => [...word][0]) : [...(words[0] || "?")].slice(0, 2);
   return letters.join("").toUpperCase();
 };
@@ -137,10 +141,16 @@ function seat(listener) {
 function selfNote() {
   const note = document.createElement("span");
   note.className = "room-note";
-  const member = signedIn("submitter") || signedIn("admin");
-  note.textContent = !you?.anonymous ? "This is how everyone sees you. "
-    : member ? "Add an Authored by name on Make a request to appear by name. "
-      : "Sign in on Make a request to appear by your name. ";
+  note.textContent = you?.anonymous ? "This is your animal. Give yourself a name to appear by it. " : "This is how everyone sees you. ";
+  if (editingName) note.append(nameForm());
+  else {
+    const rename = document.createElement("button");
+    rename.type = "button";
+    rename.className = "room-toggle";
+    rename.dataset.roomName = "true";
+    rename.textContent = savedAuthor().trim() ? "Change name" : "Set a name";
+    note.append(rename, " ");
+  }
   const hide = document.createElement("button");
   hide.type = "button";
   hide.className = "room-toggle";
@@ -159,6 +169,56 @@ function selfNote() {
     if (picking) note.append(picker());
   }
   return note;
+}
+// The same saved name as the "Authored by" field on Make a request, so a change in either shows in both.
+function nameForm() {
+  const form = document.createElement("form");
+  form.className = "room-name";
+  form.dataset.roomNameForm = "true";
+  const input = document.createElement("input");
+  input.type = "text";
+  input.className = "room-name-input";
+  input.maxLength = 100;
+  input.autocomplete = "nickname";
+  input.placeholder = "Your name";
+  input.value = nameDraft;
+  input.setAttribute("aria-label", "Your name");
+  const save = document.createElement("button");
+  save.type = "submit";
+  save.className = "room-toggle";
+  save.textContent = "Save";
+  const cancel = document.createElement("button");
+  cancel.type = "button";
+  cancel.className = "room-toggle";
+  cancel.dataset.roomNameCancel = "true";
+  cancel.textContent = "Cancel";
+  const help = document.createElement("span");
+  help.className = "room-name-help";
+  help.textContent = "Also shown as “Authored by” on your requests. If someone else has the name, you appear as “Name (2)”. Leave it empty to go back to your animal.";
+  form.append(input, " ", save, " ", cancel, help);
+  return form;
+}
+function startEditingName() {
+  editingName = true;
+  picking = false;
+  nameDraft = savedAuthor().trim();
+  if (you) openId = you.id;
+  render();
+  queueMicrotask(() => root.querySelector(".room-name-input")?.focus({ preventScroll: true }));
+}
+function stopEditingName() {
+  editingName = false;
+  if (redrawLater) { redrawLater = false; render(); }
+  else if (root) render();
+}
+function saveName() {
+  rememberAuthor(nameDraft.trim().slice(0, 100));
+  // The name is sent at once, and the card shows what the studio makes of it as soon as it answers.
+  clearTimeout(nameTimer);
+  editingName = false;
+  redrawLater = false;
+  void report(true);
+  render();
 }
 function picker() {
   const grid = document.createElement("span");
@@ -194,6 +254,8 @@ function choose(emoji) {
 }
 function render() {
   if (!root) return;
+  // Every heartbeat and poll redraws the seats whole, which would take the field away mid-word.
+  if (editingName && document.activeElement?.matches?.(".room-name-input")) { redrawLater = true; return; }
   const narrow = phone();
   // Once hidden, a seat with your name can only be another of your browsers, so it is drawn like anyone else.
   const { left, right, more } = seats(room, invisible() ? null : you?.id, narrow ? 3 : 6);
@@ -244,7 +306,8 @@ async function report(force = false) {
   const songId = playingSong(), idle = idleNow();
   // A submitter session outlives an admin one, so it is the one to present when both exist.
   const role = Date.now() < nameRestUntil ? null : signedIn("submitter") ? "submitter" : signedIn("admin") ? "admin" : null;
-  const name = role ? savedAuthor().trim().slice(0, 100) : "";
+  // A name needs no sign-in; a session is only for choosing an avatar.
+  const name = savedAuthor().trim().slice(0, 100);
   const avatar = role ? chosen : undefined;
   try {
     let data;
@@ -254,7 +317,7 @@ async function report(force = false) {
       if (!role || ![401, 403, 503].includes(error.status)) throw error;
       // A session that cannot be restored must not keep this listener out of the room, or retry a sign-in every beat.
       nameRestUntil = Date.now() + 10 * 60000;
-      data = await api("/listeners", { method: "POST", body: { tab, songId, idle } });
+      data = await api("/listeners", { method: "POST", body: { tab, songId, idle, ...(name ? { name } : {}) } });
     }
     lastSong = songId;
     reportedIdle = idle;
@@ -371,11 +434,14 @@ export function mountListeners() {
   document.body.append(root);
   root.addEventListener("click", (event) => {
     if (event.target.closest("[data-room-hide]")) return setInvisible(true);
+    if (event.target.closest("[data-room-name]")) return startEditingName();
+    if (event.target.closest("[data-room-name-cancel]")) return stopEditingName();
     if (event.target.closest(".room-ghost")) return setInvisible(false);
     const option = event.target.closest("[data-room-avatar]");
     if (option) return choose(option.dataset.roomAvatar);
     if (event.target.closest("[data-room-pick]")) {
       picking = !picking;
+      if (picking) editingName = false;
       if (you) openId = you.id;
       return render();
     }
@@ -384,14 +450,20 @@ export function mountListeners() {
     const id = button.closest(".room-seat").dataset.id;
     openId = openId === id ? null : id;
     picking = false;
+    editingName = false;
     render();
+  });
+  root.addEventListener("input", (event) => { if (event.target.matches(".room-name-input")) nameDraft = event.target.value; });
+  root.addEventListener("submit", (event) => {
+    event.preventDefault();
+    if (event.target.closest("[data-room-name-form]")) saveName();
   });
   document.addEventListener("click", (event) => {
     // The path, not the target: a seat that was just redrawn is no longer in the page to look up from.
-    if (openId && !event.composedPath().includes(root)) { openId = null; picking = false; render(); }
+    if (openId && !event.composedPath().includes(root)) { openId = null; picking = false; editingName = false; redrawLater = false; render(); }
   });
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && openId) { openId = null; picking = false; render(); }
+    if (event.key === "Escape" && openId) { openId = null; picking = false; editingName = false; redrawLater = false; render(); }
   });
   matchMedia("(max-width: 700px)").addEventListener("change", render);
   // Going to the background says so once and then falls silent; coming back is reported straight away.
@@ -407,6 +479,13 @@ export function mountListeners() {
       if (reportedIdle && !document.hidden) { reportedIdle = false; void report(); }
     }, { passive: true, capture: true });
   addEventListener("storage", (event) => { if (event.key === hiddenKey || event.key === null) render(); });
+  // A name typed in the "Authored by" field, or saved in another tab, is sent once the typing settles.
+  onAuthorChange(() => {
+    if (editingName) return;
+    render();
+    clearTimeout(nameTimer);
+    nameTimer = setTimeout(() => void report(true), 800);
+  });
   addEventListener("pagehide", () => { leave(); hangUp(); });
   addEventListener("pageshow", (event) => { if (event.persisted) { void report(); follow(); } });
   if (invisible()) follow();

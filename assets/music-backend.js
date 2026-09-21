@@ -41,13 +41,11 @@ export function rememberMusicBackend(value) {
   catch { /* The current request still retains its per-tab selection. */ }
 }
 
-export function paidConfirmation(details, escape, authorized = false) {
+export function paidConfirmation(details, escape) {
   if (details?.musicBackend !== PAID_BACKEND) return '';
   const cost = paidCost(details);
   if (!cost) return '<p class="field-error">Review this request again to choose its Auto length and confirm the paid cost.</p>';
-  const authorization = authorized
-    ? '<p class="small paid-authorization-saved">Paid confirmation is already authorized in this browser.</p>'
-    : '<label class="generation-enable"><input type="checkbox" id="confirm-paid" required> I agree to use paid generation and send this song’s lyrics and musical direction to ElevenLabs.</label><label for="paid-password">Paid confirmation password</label><input type="password" id="paid-password" name="paidPassword" required maxlength="1024" autocomplete="off" aria-describedby="paid-password-help"><p class="small" id="paid-password-help">Enter the separate password to authorize paid generation. It will be saved in this browser after confirmation.</p>';
+  const authorization = '<label class="generation-enable"><input type="checkbox" id="confirm-paid" required> I agree to use paid generation and send this song’s lyrics and musical direction to ElevenLabs.</label>';
   return `<div class="paid-music-confirmation"><p><strong>Eleven Music · paid</strong><br>${escape(money(cost.estimate))} estimated generation cost for ${minutes(cost.duration)} minutes. This request reserves ${escape(money(cost.reserve))} from the shared $200 total cap.</p>${authorization}<p class="small">Tony’s voice is applied on the studio PC. One paid composition; saved audio is reused on retry. Reservations stay counted after cancellation or an uncertain provider response until reviewed. Estimates exclude subscription fees and taxes.</p></div>`;
 }
 
@@ -94,7 +92,7 @@ export function mountMusicBackend(root, { draft, generation, basisRoot, storage,
     available = result.enabled === true && (!attached || result.supportsRemix === true);
     select.querySelector('[value="eleven_music"]').disabled = !available;
     status.textContent = attached && !result.supportsRemix ? 'Paid remixes are temporarily unavailable. Your attached recording is retained.'
-      : available ? 'Local is the default. Paid generation requires a separate password at confirmation.'
+      : available ? 'Local is the default. Paid generation asks for your agreement at confirmation.'
       : 'Eleven Music is temporarily unavailable. Your saved selection is retained.';
     updateCost();
   }).catch(() => {

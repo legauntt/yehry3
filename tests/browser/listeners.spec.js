@@ -54,6 +54,12 @@ async function studio(page, { reject = () => false, socket = false } = {}) {
       state.reports.push(report);
       if (reject(report)) return route.fulfill({ status: 401, json: { error: "Please sign in again." } });
       state.present = true;
+      // Like the studio, anyone's name is shown, and a report with none is the animal again.
+      if (report.name !== (state.you.anonymous ? undefined : state.you.name)) {
+        Object.assign(state.you, report.name ? { name: report.name, anonymous: false } : { name: you.name, anonymous: true });
+        state.listeners = [{ ...state.listeners[0], name: state.you.name, anonymous: state.you.anonymous }, ...state.listeners.slice(1)];
+        state.version = `30000000000000${String(state.reports.length).padStart(2, "0")}`;
+      }
       // Like the studio, only a signed-in report is offered avatars or may choose one.
       if (report.authorization && report.avatar !== undefined) {
         Object.assign(state.you, { emoji: report.avatar || you.emoji, picked: Boolean(report.avatar) });
@@ -114,7 +120,8 @@ test("listeners sit at the edges, follow each other's songs, and can hide", asyn
   // Hiding leaves the room at once and lasts across a reload; the ghost brings you back.
   const reports = state.reports.length;
   await mine.locator(".room-avatar").click();
-  await expect(mine.locator(".room-note")).toContainText("Sign in on Make a request");
+  await expect(mine.locator(".room-note")).toContainText("Give yourself a name");
+  await expect(mine.getByRole("button", { name: "Set a name" })).toBeVisible();
   await expect(mine.getByRole("button", { name: "Change avatar" })).toHaveCount(0);
   await mine.getByRole("button", { name: "Hide me" }).click();
   await expect.poll(() => state.left.length).toBe(1);
@@ -130,7 +137,7 @@ test("listeners sit at the edges, follow each other's songs, and can hide", asyn
   expect(state.reports.length).toBe(reports + 1);
 });
 
-test("a signed-in browser sends its saved name, and a refused session still joins as an animal", async ({ page }) => {
+test("a signed-in browser sends its saved name, and a refused session still joins under it", async ({ page }) => {
   await page.addInitScript(() => {
     // Runs again on every reload, so it must not undo a session the test has since replaced.
     if (!localStorage.getItem("yehry3:authored-by")) localStorage.setItem("yehry3:auth:submitter", JSON.stringify({ token: "saved-session", password: null }));
@@ -146,7 +153,82 @@ test("a signed-in browser sends its saved name, and a refused session still join
   await page.reload();
   await expect(page.locator(".room-seat")).toHaveCount(3);
   expect(state.reports.map((report) => report.authorization)).toEqual(["Bearer expired-session", null]);
-  expect(state.reports[1].name).toBeUndefined();
+  expect(state.reports[1].name).toBe("Jesse Gauntt");
+});
+
+test("a browser that is not signed in sends its saved name too", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("yehry3:authored-by", "Just Visiting"));
+  const state = await studio(page);
+  await page.goto("/queue/");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  expect(state.reports[0]).toMatchObject({ name: "Just Visiting", authorization: null });
+});
+
+test("your own card sets the name, which is the same name as Authored by", async ({ page }) => {
+  const state = await studio(page);
+  await page.goto("/queue/");
+  // Stand-in for the request form's field: it saves what is typed, as the form does.
+  await page.evaluate(async () => {
+    const { rememberAuthor, savedAuthor } = await import("/assets/authored-by.js");
+    const field = document.createElement("input");
+    field.id = "authored-by";
+    field.value = savedAuthor();
+    field.oninput = (event) => rememberAuthor(event.target.value);
+    document.body.append(field);
+  });
+  const mine = page.locator(".room-seat.is-you");
+  const field = page.locator("#authored-by");
+  await mine.locator(".room-avatar").click();
+  await mine.getByRole("button", { name: "Set a name" }).click();
+  await expect(mine.locator(".room-name-input")).toBeFocused();
+  // Nothing is sent, and nothing leaves the card, until it is saved; a heartbeat does not interrupt typing.
+  await mine.locator(".room-name-input").fill("Jesse");
+  state.version = "1000000000000042";
+  await page.waitForTimeout(400);
+  await expect(mine.locator(".room-name-input")).toHaveValue("Jesse");
+  expect(state.reports.every((report) => report.name === undefined)).toBe(true);
+  await mine.locator(".room-name-input").press("Enter");
+  await expect.poll(() => state.reports.at(-1).name).toBe("Jesse");
+  expect(state.reports.at(-1).authorization).toBeNull();
+  expect(await page.evaluate(() => localStorage.getItem("yehry3:authored-by"))).toBe("Jesse");
+  await expect(field).toHaveValue("Jesse");
+  await expect(mine.locator("strong")).toHaveText("Jesse");
+  await expect(mine.locator(".room-face")).toHaveText("JE");
+  await expect(mine.locator(".room-note")).toContainText("This is how everyone sees you");
+
+  // Typing in the form's field renames the card, once the typing has settled.
+  await field.fill("Jesse G");
+  await expect(mine.locator("strong")).toHaveText("Jesse G");
+  await expect.poll(() => state.reports.at(-1).name).toBe("Jesse G");
+
+  // Emptying it goes back to the animal; Escape and Cancel change nothing.
+  await mine.locator(".room-avatar").click();
+  await mine.getByRole("button", { name: "Change name" }).click();
+  await expect(mine.locator(".room-name-input")).toHaveValue("Jesse G");
+  await mine.locator(".room-name-input").fill("");
+  await mine.getByRole("button", { name: "Cancel" }).click();
+  await expect(mine.getByRole("button", { name: "Change name" })).toBeVisible();
+  await expect(field).toHaveValue("Jesse G");
+  await mine.getByRole("button", { name: "Change name" }).click();
+  await mine.locator(".room-name-input").fill("");
+  await mine.locator(".room-name-input").press("Enter");
+  await expect(field).toHaveValue("");
+  await expect(mine.locator("strong")).toHaveText("happy-rabbit");
+  await expect(mine.getByRole("button", { name: "Set a name" })).toBeVisible();
+  expect(await page.evaluate(() => localStorage.getItem("yehry3:authored-by"))).toBeNull();
+});
+
+test("a name given in another tab reaches this card", async ({ page }) => {
+  const state = await studio(page);
+  await page.goto("/queue/");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  // The storage event is what another tab's save looks like from here.
+  await page.evaluate(() => {
+    localStorage.setItem("yehry3:authored-by", "From Elsewhere");
+    dispatchEvent(new StorageEvent("storage", { key: "yehry3:authored-by", newValue: "From Elsewhere" }));
+  });
+  await expect.poll(() => state.reports.at(-1).name, { timeout: 4000 }).toBe("From Elsewhere");
+  await expect(page.locator(".room-seat.is-you strong")).toHaveText("From Elsewhere");
 });
 
 test("a signed-in listener chooses an avatar and can give it back", async ({ page }) => {

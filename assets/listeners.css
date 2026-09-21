@@ -248,3 +248,19 @@ html[data-shared-theme][data-theme="dark"] .room-avatar::before { border-color: 
 @media print {
   .room { display: none; }
 }
+/* Your own card's name field, which widens the card a little, like the avatar chooser. */
+.room-seat:has(.room-name) .room-card { width: min(280px, 80vw); max-width: none; }
+.room-name { display: block; margin-top: 6px; }
+.room-name-input {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 4px;
+  padding: 3px 6px;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: 0.85rem;
+}
+.room-name-help { display: block; margin-top: 4px; font-size: 0.68rem; opacity: 0.8; }

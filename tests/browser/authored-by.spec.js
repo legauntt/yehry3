@@ -151,3 +151,36 @@ test("unavailable local storage does not prevent author entry or requests", asyn
   await page.getByRole("button", { name: "Change the idea" }).click();
   await expect(page.getByLabel("Authored by")).toHaveValue("Storage blocked author");
 });
+
+// Against the real preview API: the listening room's card and the request form share one name, and a
+// second browser under the same name is told apart by a number.
+test("the avatar card and Authored by are one name, and a second browser with it is numbered", async ({ page, browser, baseURL }) => {
+  // The avatars bob gently; without motion a seat holds still to be clicked.
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  const name = `Card ${Date.now().toString(36)}`;
+  await openRequests(page);
+  const mine = page.locator(".room-seat.is-you");
+  await mine.locator(".room-avatar").click();
+  await mine.getByRole("button", { name: "Set a name" }).click();
+  await mine.locator(".room-name-input").fill(name);
+  await mine.locator(".room-name-input").press("Enter");
+  await expect(page.getByLabel("Authored by")).toHaveValue(name);
+  await expect(mine.locator("strong")).toHaveText(name);
+
+  // Typing in the form renames the card once the typing settles.
+  await page.getByLabel("Authored by").fill(`${name} typed`);
+  await expect(mine.locator("strong")).toHaveText(`${name} typed`);
+  await page.getByLabel("Authored by").fill(name);
+  await expect(mine.locator("strong")).toHaveText(name);
+
+  // Another browser under the same name is a second listener, numbered by arrival.
+  const other = await browser.newContext({ baseURL });
+  try {
+    await other.addInitScript((saved) => localStorage.setItem("yehry3:authored-by", saved), name);
+    const second = await other.newPage();
+    await second.goto("/queue/");
+    await expect(second.locator(".room-seat.is-you strong")).toHaveText(`${name} (2)`);
+    await expect(page.locator(".room-seat strong", { hasText: `${name} (2)` })).toHaveCount(1);
+    await expect(mine.locator("strong")).toHaveText(name);
+  } finally { await other.close(); }
+});

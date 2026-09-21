@@ -1,12 +1,10 @@
 import { test, expect } from '@playwright/test';
 
-const paidPassword = process.env.YEHRY3_PAID_MUSIC_PASSWORD || 'browser-test-paid-music';
-
 test.beforeEach(async ({ page }) => {
   if (process.env.YEHRY3_TEST_API) await page.route('**/assets/config.js', route => route.fulfill({ contentType: 'text/javascript', body: `export const API_BASE = ${JSON.stringify(process.env.YEHRY3_TEST_API)};` }));
 });
 
-for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from ${voice} and requires cost and password confirmation`, async ({ page }) => {
+for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from ${voice} and requires cost confirmation`, async ({ page }) => {
   const errors = []; page.on('pageerror', error => errors.push(error.message));
   await page.goto('/distonyc/');
   await page.locator('#password').fill('wishbone');
@@ -35,8 +33,7 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
   await expect(page.locator('#gen-bpm')).toHaveValue('108');
   await page.locator('#details-form > .actions .primary').click();
   await expect(page.locator('#confirm-paid')).not.toBeChecked();
-  await expect(page.getByLabel('Paid confirmation password', { exact: true })).toHaveAttribute('type', 'password');
-  await expect(page.locator('#paid-password')).toHaveValue('');
+  await expect(page.locator('#paid-password')).toHaveCount(0);
   await expect(page.locator('.paid-music-confirmation')).toContainText('$0.30');
   await expect(page.locator('.paid-music-confirmation')).toContainText('$2.00');
   await expect(page.locator('.prompt-brief')).toContainText('Eleven Music · paid');
@@ -55,28 +52,18 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   if (voice === 'v8') await page.screenshot({ path: 'artifacts/paid-music/mobile-selector.png', fullPage: true });
   await page.locator('#details-form > .actions .primary').click();
-  await page.locator('#confirm-paid').check();
   let confirmations = 0;
   page.on('request', request => {
     if (request.method() === 'POST' && request.url().endsWith('/confirm')) confirmations++;
   });
+  // Nothing is sent until the paid agreement is ticked, and it is asked for again after a reload.
   await page.locator('#confirm-form .primary').click();
-  expect(await page.locator('#paid-password').evaluate(input => input.validity.valueMissing)).toBe(true);
+  expect(await page.locator('#confirm-paid').evaluate(input => input.validity.valueMissing)).toBe(true);
   expect(confirmations).toBe(0);
-  if (voice === 'v8') {
-    await page.locator('#paid-password').fill('wishbone');
-    const denied = page.waitForResponse(response => response.url().endsWith('/confirm') && response.request().method() === 'POST');
-    await page.locator('#confirm-form .primary').click();
-    expect((await denied).status()).toBe(403);
-    await expect(page.locator('#confirm-form .field-error')).toContainText('paid confirmation password did not work');
-    await expect(page.locator('#confirm-form')).toBeVisible();
-    await page.reload();
-    await expect(page.locator('#paid-password')).toHaveValue('');
-    await expect(page.locator('#confirm-paid')).not.toBeChecked();
-    await page.locator('#confirm-paid').check();
-  }
+  await page.reload();
+  await expect(page.locator('#confirm-paid')).not.toBeChecked();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-  await page.locator('#paid-password').fill(paidPassword);
+  await page.locator('#confirm-paid').check();
   if (voice === 'v8') await page.screenshot({ path: 'artifacts/paid-music/mobile-confirmation.png', fullPage: true });
   await page.locator('#confirm-form .primary').click();
   await expect(page.getByRole('heading', { name: 'Your idea is on the list.' })).toBeVisible();
@@ -87,9 +74,7 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
     const { api } = await import('/assets/api.js');
     return (await api('/prompts/'+sessionStorage.getItem('yehry3:draft'), { role: 'submitter' })).prompt;
   });
-  expect(await page.evaluate(() => localStorage.getItem('yehry3:paid-music-password'))).toBe(paidPassword);
-  expect(await page.evaluate(() => JSON.stringify({ ...sessionStorage }))).not.toContain(paidPassword);
-  expect(JSON.stringify(saved)).not.toContain(paidPassword);
+  expect(await page.evaluate(() => localStorage.getItem('yehry3:paid-music-password'))).toBeNull();
   expect(JSON.stringify(saved)).not.toContain('paidPassword');
   expect(saved.details.musicBackend).toBe('eleven_music');
   expect(saved.details.voiceModel).toBe(voice);
@@ -107,7 +92,7 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
   await expect(page.locator('#confirm-paid')).toHaveCount(0);
   const localConfirmation = page.waitForRequest(request => request.method() === 'POST' && request.url().endsWith('/confirm'));
   await page.locator('#confirm-form .primary').click();
-  expect((await localConfirmation).postDataJSON()).not.toHaveProperty('paidPassword');
+  expect((await localConfirmation).postDataJSON()).not.toHaveProperty('confirmedPaid');
   await expect(page.getByRole('heading', { name: 'Your idea is on the list.' })).toBeVisible();
   await page.getByRole('button', { name: 'Another idea' }).click();
   await page.locator('#idea').fill('A second local draft that should remember ACE.');

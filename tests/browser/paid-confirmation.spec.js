@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 
-const password = 'browser-test-paid-music';
 const key = 'yehry3:paid-music-password';
 
 async function fixture(context) {
@@ -28,7 +27,7 @@ async function fixture(context) {
         const body = request.postDataJSON();
         state.confirmations.push(body);
         if (state.failure) return route.fulfill({ status: state.failure, json: { error: 'Temporary confirmation failure.' } });
-        if (body.paidPassword !== password) return route.fulfill({ status: 403, json: { error: 'That paid confirmation password did not work. Try again.' } });
+        if (body.confirmedPaid !== true) return route.fulfill({ status: 400, json: { error: 'Confirm the paid music choice and cost before submitting.' } });
         Object.assign(prompt, { status: 'queued', confirmedAt: new Date().toISOString(), version: prompt.version + 1 });
       } else if (method === 'PATCH') {
         const body = request.postDataJSON();
@@ -58,75 +57,44 @@ async function review(page, { login = false, controls = true, initialBackend = '
   await page.getByText('Timing & key', { exact: true }).click();
   await page.locator('#gen-duration').fill('250');
   await page.locator('#details-form > .actions .primary').click();
-  if (controls) await expect(page.locator('#paid-password')).toBeVisible();
+  if (controls) await expect(page.locator('#confirm-paid')).toBeVisible();
 }
 
-test('successful paid authorization hides repeat agreement and password controls across requests, reloads and reopening', async ({ page, context, browser, baseURL }) => {
+test('every paid review asks for the agreement and no password, and sends only the checkbox', async ({ page, context }) => {
   const state = await fixture(context);
   await review(page, { login: true });
-  await page.locator('#paid-password').fill(password);
-  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBeNull();
+  await expect(page.locator('#paid-password')).toHaveCount(0);
+  await expect(page.locator('#confirm-paid')).not.toBeChecked();
   await page.locator('#confirm-paid').check();
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#another')).toBeVisible();
-  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(password);
-  await review(page, { controls: false, initialBackend: 'eleven_music' });
-  await expect(page.locator('#paid-password')).toHaveCount(0);
-  await expect(page.locator('#confirm-paid')).toHaveCount(0);
-  await expect(page.locator('.paid-authorization-saved')).toBeVisible();
+  expect(state.confirmations).toEqual([{ version: 2, confirmed: true, confirmedPaid: true }]);
+  // Agreeing once does not agree for the next song: the box is there, unchecked, every time.
+  await review(page, { initialBackend: 'eleven_music' });
+  await expect(page.locator('#confirm-paid')).not.toBeChecked();
   await page.reload();
-  await expect(page.locator('#paid-password')).toHaveCount(0);
-  await expect(page.locator('#confirm-paid')).toHaveCount(0);
-  await page.locator('#confirm-form .primary').click();
-  await expect(page.locator('#another')).toBeVisible();
-  expect(state.confirmations).toHaveLength(2);
-  expect(state.confirmations[1].paidPassword).toBe(password);
-  const reopened = await browser.newContext({ baseURL, storageState: await context.storageState() });
-  try {
-    await fixture(reopened);
-    const next = await reopened.newPage();
-    await review(next, { controls: false, initialBackend: 'eleven_music' });
-    await expect(next.locator('#paid-password')).toHaveCount(0);
-    await expect(next.locator('#confirm-paid')).toHaveCount(0);
-    expect(await next.evaluate(() => JSON.stringify({ ...sessionStorage }))).not.toContain(password);
-    await next.getByRole('button', { name: 'Sign out' }).click();
-    expect(await next.evaluate(key => localStorage.getItem(key), key)).toBeNull();
-    await next.reload();
-    await expect(next.locator('#login-form')).toBeVisible();
-  } finally { await reopened.close(); }
-});
-
-test('a rejected saved password is cleared and its replacement is remembered', async ({ page, context }) => {
-  await fixture(context);
-  await review(page, { login: true });
-  await page.evaluate(key => localStorage.setItem(key, 'outdated-password'), key);
-  await page.reload();
-  await expect(page.locator('#paid-password')).toHaveCount(0);
-  await page.locator('#confirm-form .primary').click();
-  await expect(page.locator('#confirm-form .field-error')).toContainText('password did not work');
-  await expect(page.locator('#paid-password')).toHaveValue('');
   await expect(page.locator('#confirm-paid')).not.toBeChecked();
   expect(await page.evaluate(key => localStorage.getItem(key), key)).toBeNull();
-  await page.locator('#paid-password').fill(password);
-  await page.locator('#confirm-paid').check();
-  await page.locator('#confirm-form .primary').click();
-  await expect(page.locator('#another')).toBeVisible();
-  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(password);
 });
 
-test('temporary confirmation failure preserves a saved password', async ({ page, context }) => {
+test('a password saved by an earlier version is dropped, and the agreement is still needed', async ({ page, context }) => {
+  await fixture(context);
+  await page.addInitScript(key => localStorage.setItem(key, 'outdated-password'), key);
+  await review(page, { login: true });
+  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBeNull();
+  await expect(page.locator('#confirm-paid')).not.toBeChecked();
+  await expect(page.locator('#confirm-form .primary')).toBeEnabled();
+  await page.locator('#confirm-form .primary').click();
+  expect(await page.locator('#confirm-paid').evaluate(input => input.validity.valueMissing)).toBe(true);
+});
+
+test('temporary confirmation failure keeps the review and the agreement can be sent again', async ({ page, context }) => {
   const state = await fixture(context);
   await review(page, { login: true });
-  await page.evaluate(({ key, password }) => localStorage.setItem(key, password), { key, password });
-  await page.reload();
   state.failure = 503;
-  await expect(page.locator('#confirm-paid')).toHaveCount(0);
-  await expect(page.locator('#paid-password')).toHaveCount(0);
+  await page.locator('#confirm-paid').check();
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#confirm-form .field-error')).toContainText('Temporary confirmation failure');
-  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe(password);
-  await page.reload();
-  await expect(page.locator('#paid-password')).toHaveCount(0);
   state.failure = null;
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#another')).toBeVisible();
@@ -138,7 +106,6 @@ test('blocked localStorage still permits paid confirmation and sign-out', async 
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await review(page, { login: true });
-  await page.locator('#paid-password').fill(password);
   await page.locator('#confirm-paid').check();
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#another')).toBeVisible();

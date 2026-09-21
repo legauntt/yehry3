@@ -63,7 +63,6 @@ test('provider switching preserves length and paid 69 seconds uses the correct c
   await expect(page.locator('.paid-music-confirmation')).toContainText('$0.17');
   await expect(page.locator('.paid-music-confirmation')).toContainText('$1.15');
   await page.locator('#confirm-paid').check();
-  await page.locator('#paid-password').fill(process.env.YEHRY3_PAID_MUSIC_PASSWORD || 'browser-test-paid-music');
   await page.locator('#confirm-form .primary').click();
   await expect(page.getByRole('heading', { name: 'Your idea is on the list.' })).toBeVisible();
 });

@@ -23,10 +23,9 @@ manual lengths take priority. Local Auto remains omitted for the planner, includ
 its existing exceptionally rare 19-minute suite policy. The paid integration uses
 one composition and cannot produce that 19-minute jackpot.
 
-The confirmation page shows the resolved duration and estimated generation cost and requires a separate
-paid confirmation plus the separate paid confirmation password. Chairlift checks
-that password before queue admission and budget reservation; it is never sent to
-the worker or saved in the request. Only the approved lyric sheet and generated musical directions
+The confirmation page shows the resolved duration and estimated generation cost and requires an explicit
+paid confirmation (a checkbox agreeing to the cost and to sending the lyrics to ElevenLabs). Chairlift
+checks it before queue admission and budget reservation. There is no separate paid password. Only the approved lyric sheet and generated musical directions
 go to ElevenLabs. Tony recordings, voice models, raw reference-page snapshots,
 credentials and private admin notes are not uploaded. Creative instructions can
 influence the resulting lyrics/arrangement, just as they do for local composition.
@@ -47,7 +46,7 @@ operator reconciles them against provider history; cancellation cannot refund a
 provider request already in flight.
 
 Chairlift reserves funds in the same Mongo transaction as queue admission. A full
-queue, stale confirmation, missing paid confirmation, incorrect password, or exhausted budget leaves the
+queue, stale confirmation, missing paid confirmation, or exhausted budget leaves the
 review intact. Replaying a successful confirmation does not reserve twice.
 
 The PC writes its reservation before the only billable request. Its exclusive ledger
@@ -78,9 +77,9 @@ YEHRY3_MUSIC_CAP_CENTS=20000
 YEHRY3_MUSIC_PREVIOUS_CENTS=900
 ```
 
-Set `YEHRY3_PAID_MUSIC_PASSWORD` as a separate private Chairlift secret. Without it,
-new paid confirmations are unavailable. Do not put its value in this repository or
-the public build. Existing authorized requests and local requests keep working.
+The former `YEHRY3_PAID_MUSIC_PASSWORD` secret is retired: Chairlift ignores it, and it may
+be removed from Fly (`fly secrets unset YEHRY3_PAID_MUSIC_PASSWORD`). The cap and the plan-balance check
+remain the spending limits.
 
 The API's `yehry3_music_budget` document is durable. Previous reservations are seeded
 only when creating that document; restarting the API cannot reset spending.
