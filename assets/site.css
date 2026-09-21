@@ -805,6 +805,13 @@ main {
 .toolbar select {
   background: transparent;
 }
+/* A transparent select leaves its open list on the browser's white default
+   while the text inherits the theme, which made dark-mode options unreadable. */
+select option,
+select optgroup {
+  background: var(--white);
+  color: var(--ink);
+}
 .vote-note {
   margin: 0 0 15px;
 }

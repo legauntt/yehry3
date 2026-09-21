@@ -10,6 +10,7 @@ html[data-shared-theme][data-theme="dark"] {
 }
 html[data-shared-theme][data-theme="dark"] body { background: var(--paper); color: var(--ink); }
 html[data-shared-theme][data-theme="dark"] h1 em { color: #b8cb9d; }
+html[data-shared-theme][data-theme="dark"] .active-filter { background: var(--light); color: var(--ink); }
 html[data-shared-theme][data-theme="dark"] :is(.record-lyric, .listening-card, .remix-note, .lyric-line.is-linked, button.lyric-line:hover) { background: var(--light); color: var(--ink); }
 html[data-shared-theme][data-theme="dark"] .record-lyric::after { border-right-color: var(--light); }
 html[data-shared-theme][data-theme="dark"] :is(.sleeve, .sleeve-bottom, .stamp) { color: #283b30; }
