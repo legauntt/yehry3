@@ -884,7 +884,9 @@ async function library() {
     message("The catalog could not load. Refresh to try again.", true);
   }
   render();
-  revealFromHash();
+  // The live catalog re-sorts what the fallback showed, so a link reveals its song only after that
+  // lands; revealing sooner would centre on a slot that then moves. If the live catalog cannot
+  // be had, the fallback order is the final one and the song is revealed anyway.
   await refresh();
   revealFromHash();
   setInterval(cooldown, 15000);

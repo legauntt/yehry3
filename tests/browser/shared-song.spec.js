@@ -103,3 +103,25 @@ test("the revealed song stays centred while content above it loads, until the vi
   await page.waitForTimeout(600);
   expect(await page.evaluate(() => scrollY)).toBeGreaterThanOrEqual(before - 5);
 });
+
+test("a link waits for the live sort, so a song the sort moves by one slot is still centred", async ({ page }) => {
+  const many = Array.from({ length: 30 }, (_, index) => ({
+    id: `many-${index}`, title: `Song ${index}`, duration: 90, url: "/shared-fixture.wav",
+    collection: "fearhunger", votes: 200 - index * 2, order: -index,
+  }));
+  const at = votes => [...many, { ...target, votes }].map(songSummary);
+  await fixtures(page);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: at(197) } })); // Third in a row of three.
+  await page.route("**/yehry3/songs/summary", async route => {
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    await route.fulfill({ json: { songs: at(195), nextVoteAt: null } }); // First of the next row.
+  });
+  await page.goto(`/#${target.id}`);
+  const row = page.locator(`.track[data-id="${target.id}"]`);
+  await expect(row).toHaveClass(/is-revealed/, { timeout: 8000 });
+  await page.waitForTimeout(800);
+  await expect(row.locator(".track-number")).toHaveText("04");
+  const offCentre = await row.evaluate(el => { const box = el.getBoundingClientRect(); return Math.abs(box.top + box.height / 2 - innerHeight / 2); });
+  expect(offCentre).toBeLessThan(20);
+});
