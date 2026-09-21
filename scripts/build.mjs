@@ -4,6 +4,7 @@ import { eggClips } from "../assets/egg-clips.js";
 import { archivedSongIds, publicCatalog } from "./archived-songs.mjs";
 import { songAlias } from "../assets/song-links.js";
 import { songSummary } from "../assets/song-summary.js";
+import { codeVersion } from "./code-version.mjs";
 const root = path.resolve(import.meta.dirname, "..");
 const output = path.join(root, "dist");
 const updatedAt = new Date();
@@ -17,9 +18,7 @@ const stamp = `<small class="deployment-stamp">Updated at <time datetime="${upda
 // Only this exact generated directory may be replaced.
 if (output !== path.resolve(root, "dist"))
   throw new Error("Invalid build destination");
-await rm(output, { recursive: true, force: true });
-await mkdir(output, { recursive: true });
-for (const file of [
+const publicEntries = [
   "index.html",
   "404.html",
   "distonyc",
@@ -40,7 +39,12 @@ for (const file of [
   "wiseau",
   "robots.txt",
   "staticwebapp.config.json",
-]) {
+];
+// Read from the sources, before the hosting config is rewritten below.
+const version = await codeVersion(root, publicEntries);
+await rm(output, { recursive: true, force: true });
+await mkdir(output, { recursive: true });
+for (const file of publicEntries) {
   await stat(path.join(root, file));
   await cp(path.join(root, file), path.join(output, file), { recursive: true });
 }
@@ -69,9 +73,10 @@ for (const song of catalog.songs) {
 }
 await writeFile(path.join(output, "catalog-summary.json"), JSON.stringify({ songs: catalog.songs.map(songSummary) }));
 await writeFile(path.join(output, "egg-clips.json"), JSON.stringify({ clips: eggClips(catalog.songs) }));
-// A long-lived tab compares this against the stamp baked into its own pages and
-// offers a refresh when a newer build has shipped.
-await writeFile(path.join(output, "deployment.json"), JSON.stringify({ updatedAt: updatedAt.toISOString(), updatedLabel }));
+// A long-lived tab compares this against the version baked into its own pages and
+// offers a refresh only when the site's code changed. updatedAt keeps the footer
+// stamp honest and orders builds; a song or clip publication moves it but not `code`.
+await writeFile(path.join(output, "deployment.json"), JSON.stringify({ updatedAt: updatedAt.toISOString(), updatedLabel, code: version }));
 const lyricsTemplate = await readFile(path.join(root, "lyrics/index.html"), "utf8");
 const aliases = new Set();
 const htmlEscape = (value) =>
@@ -223,7 +228,7 @@ for (const file of await readdir(output, { recursive: true })) {
     html = html.replace(/<span>\s*YEHRY3 · A little off the record\.\s*<\/span\s*>/i, '<span data-brand-footer>YEHRY3 · A little off the record.</span>');
     html = html.replace("</head>", '<script type="module" src="/assets/branding.js"></script>\n  </head>');
   }
-  html = html.replace("</head>", '<link rel="stylesheet" href="/assets/deployment.css">\n    <script type="module" src="/assets/deployment.js"></script>\n  </head>');
+  html = html.replace("</head>", `<meta name="yehry3-code" content="${version}" />\n    <link rel="stylesheet" href="/assets/deployment.css">\n    <script type="module" src="/assets/deployment.js"></script>\n  </head>`);
   html = html.includes("</footer>")
     ? html.replace("</footer>", `${stamp}\n    </footer>`)
     : html.replace("</body>", `<footer class="deployment-footer">${stamp}</footer>\n  </body>`);
