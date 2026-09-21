@@ -2,6 +2,511 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-37e6534c0da9bdc63d400e8c",
+      "title": "I Wanna (Pulse Mix)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-37e6534c0da9bdc63d400e8c-ae23e5494c7b.mp3",
+      "duration": 250.04408163265308,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-20a78aa7d2e7335fb057308f",
+        "title": "I Wanna",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20a78aa7d2e7335fb057308f-c03143e67c45.mp3"
+      },
+      "publishedAt": "2026-09-21T06:16:08.329Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "I Wanna (Pulse Mix)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "C# minor",
+        "arrangement": "A 118 BPM minimal synth-punk reinterpretation in C# minor. Drum machine and pulsing synthesizer bass establish the recognizable blunt hook, while shifting synth-pad harmonies, stop-start breaks, and rising filter movement create new momentum. One clear, steadily pitched Tony lead varies cadence, pitch, held vowels, and emphasis on each repetition without added words. Begin restrained, build through increasingly urgent hooks, drop to a sparse break, then return for a firm final ascent. Place the final sustained sung syllable 8–12 seconds before 4:10; resolve with one final C# minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Verse 2]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Build]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Hook]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Break]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Final Build]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Outro]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n[End]",
+        "duration": 250,
+        "bpm": 118,
+        "musicalSettings": {
+          "genre": "Minimal synth-punk",
+          "meter": "4/4",
+          "structure": "Verse 1, Verse 2, build, hook, break, final build, outro",
+          "performance": "One direct melodic lead with varied cadence and emphatic, steadily pitched repetitions",
+          "energy": "Restrained pulse grows into a tense peak, falls to a sparse break, then resolves decisively",
+          "lyricWorkflow": "Adapted source-hook treatment using only the requested retained lyric",
+          "instruments": [
+            "Synthesizer",
+            "Synth pads",
+            "Drum machine"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Verse 2]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Build]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Hook]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Break]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Final Build]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Outro]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 53.92,
+            "end": 61.54
+          },
+          {
+            "line": 2,
+            "start": 62.24,
+            "end": 63.56
+          },
+          {
+            "line": 3,
+            "start": 64.28,
+            "end": 65.62
+          },
+          {
+            "line": 4,
+            "start": 66.42,
+            "end": 67.7
+          },
+          {
+            "line": 5,
+            "start": 68.3,
+            "end": 69.8
+          },
+          {
+            "line": 6,
+            "start": 70.36,
+            "end": 71.82
+          },
+          {
+            "line": 7,
+            "start": 72.36,
+            "end": 74.08
+          },
+          {
+            "line": 8,
+            "start": 74.42,
+            "end": 75.84
+          },
+          {
+            "line": 9,
+            "start": 76.46,
+            "end": 77.88
+          },
+          {
+            "line": 10,
+            "start": 78.48,
+            "end": 80.24
+          },
+          {
+            "line": 11,
+            "start": 80.56,
+            "end": 81.92
+          },
+          {
+            "line": 12,
+            "start": 82.34,
+            "end": 83.72
+          },
+          {
+            "line": 15,
+            "start": 83.72,
+            "end": 84.24
+          },
+          {
+            "line": 16,
+            "start": 84.58,
+            "end": 85.34
+          },
+          {
+            "line": 17,
+            "start": 85.34,
+            "end": 86.14
+          },
+          {
+            "line": 18,
+            "start": 86.6,
+            "end": 87.02
+          },
+          {
+            "line": 19,
+            "start": 87.02,
+            "end": 87.66
+          },
+          {
+            "line": 20,
+            "start": 87.66,
+            "end": 87.96
+          },
+          {
+            "line": 21,
+            "start": 87.96,
+            "end": 88.1
+          },
+          {
+            "line": 22,
+            "start": 88.1,
+            "end": 88.22
+          },
+          {
+            "line": 23,
+            "start": 88.64,
+            "end": 89.32
+          },
+          {
+            "line": 24,
+            "start": 89.32,
+            "end": 89.36
+          },
+          {
+            "line": 25,
+            "start": 89.36,
+            "end": 89.4
+          },
+          {
+            "line": 26,
+            "start": 89.4,
+            "end": 89.44
+          },
+          {
+            "line": 29,
+            "start": 89.44,
+            "end": 89.48
+          },
+          {
+            "line": 30,
+            "start": 89.48,
+            "end": 89.53
+          },
+          {
+            "line": 31,
+            "start": 89.53,
+            "end": 89.57
+          },
+          {
+            "line": 32,
+            "start": 89.57,
+            "end": 89.61
+          },
+          {
+            "line": 33,
+            "start": 89.61,
+            "end": 89.65
+          },
+          {
+            "line": 34,
+            "start": 89.65,
+            "end": 89.69
+          },
+          {
+            "line": 35,
+            "start": 89.69,
+            "end": 89.73
+          },
+          {
+            "line": 36,
+            "start": 89.73,
+            "end": 89.77
+          },
+          {
+            "line": 37,
+            "start": 89.77,
+            "end": 89.81
+          },
+          {
+            "line": 38,
+            "start": 89.81,
+            "end": 89.85
+          },
+          {
+            "line": 39,
+            "start": 89.85,
+            "end": 89.9
+          },
+          {
+            "line": 40,
+            "start": 89.9,
+            "end": 89.94
+          },
+          {
+            "line": 43,
+            "start": 89.94,
+            "end": 89.98
+          },
+          {
+            "line": 44,
+            "start": 89.98,
+            "end": 90.02
+          },
+          {
+            "line": 45,
+            "start": 90.02,
+            "end": 90.06
+          },
+          {
+            "line": 46,
+            "start": 90.06,
+            "end": 90.1
+          },
+          {
+            "line": 47,
+            "start": 90.1,
+            "end": 90.14
+          },
+          {
+            "line": 48,
+            "start": 90.14,
+            "end": 90.18
+          },
+          {
+            "line": 49,
+            "start": 90.18,
+            "end": 90.22
+          },
+          {
+            "line": 50,
+            "start": 90.22,
+            "end": 90.27
+          },
+          {
+            "line": 51,
+            "start": 90.27,
+            "end": 90.31
+          },
+          {
+            "line": 52,
+            "start": 90.31,
+            "end": 90.35
+          },
+          {
+            "line": 53,
+            "start": 90.35,
+            "end": 90.39
+          },
+          {
+            "line": 54,
+            "start": 90.39,
+            "end": 90.43
+          },
+          {
+            "line": 57,
+            "start": 90.43,
+            "end": 90.47
+          },
+          {
+            "line": 58,
+            "start": 90.47,
+            "end": 90.51
+          },
+          {
+            "line": 59,
+            "start": 90.51,
+            "end": 90.55
+          },
+          {
+            "line": 60,
+            "start": 90.55,
+            "end": 90.59
+          },
+          {
+            "line": 61,
+            "start": 90.59,
+            "end": 90.64
+          },
+          {
+            "line": 62,
+            "start": 90.64,
+            "end": 90.68
+          },
+          {
+            "line": 63,
+            "start": 90.68,
+            "end": 90.72
+          },
+          {
+            "line": 64,
+            "start": 90.72,
+            "end": 90.76
+          },
+          {
+            "line": 65,
+            "start": 90.76,
+            "end": 90.8
+          },
+          {
+            "line": 66,
+            "start": 90.8,
+            "end": 92.02
+          },
+          {
+            "line": 67,
+            "start": 92.76,
+            "end": 94.08
+          },
+          {
+            "line": 68,
+            "start": 94.76,
+            "end": 96.18
+          },
+          {
+            "line": 71,
+            "start": 96.78,
+            "end": 98.46
+          },
+          {
+            "line": 72,
+            "start": 98.94,
+            "end": 102.3
+          },
+          {
+            "line": 73,
+            "start": 103.72,
+            "end": 108.42
+          },
+          {
+            "line": 74,
+            "start": 108.42,
+            "end": 110.46
+          },
+          {
+            "line": 75,
+            "start": 111.02,
+            "end": 112.42
+          },
+          {
+            "line": 76,
+            "start": 112.96,
+            "end": 113.02
+          },
+          {
+            "line": 77,
+            "start": 113.02,
+            "end": 114.72
+          },
+          {
+            "line": 78,
+            "start": 115.06,
+            "end": 116.3
+          },
+          {
+            "line": 79,
+            "start": 116.3,
+            "end": 116.5
+          },
+          {
+            "line": 80,
+            "start": 117.1,
+            "end": 118.38
+          },
+          {
+            "line": 81,
+            "start": 118.38,
+            "end": 118.44
+          },
+          {
+            "line": 82,
+            "start": 118.44,
+            "end": 118.94
+          },
+          {
+            "line": 85,
+            "start": 118.94,
+            "end": 119.06
+          },
+          {
+            "line": 86,
+            "start": 119.24,
+            "end": 119.31
+          },
+          {
+            "line": 87,
+            "start": 119.31,
+            "end": 119.37
+          },
+          {
+            "line": 88,
+            "start": 119.37,
+            "end": 119.49
+          },
+          {
+            "line": 89,
+            "start": 133.89,
+            "end": 134.01
+          },
+          {
+            "line": 90,
+            "start": 148.41,
+            "end": 148.53
+          },
+          {
+            "line": 91,
+            "start": 162.93,
+            "end": 163.05
+          },
+          {
+            "line": 92,
+            "start": 177.45,
+            "end": 177.57
+          },
+          {
+            "line": 93,
+            "start": 191.97,
+            "end": 192.09
+          },
+          {
+            "line": 94,
+            "start": 206.49,
+            "end": 206.61
+          },
+          {
+            "line": 95,
+            "start": 221.01,
+            "end": 221.13
+          },
+          {
+            "line": 96,
+            "start": 235.53,
+            "end": 235.65
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "voice_validation",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Remix “I Wanna”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: The only allowed lyrics are \"I wanna fuck.\" Cadence, pitch and emphasis can and should vary.\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Try to add these lyrical phrases: \"I wanna\"; \"I want to fuck\"; \"Fuck\", \"I. Wanna. *Fuck!*\"; \"I wanna, *fuck*\"",
+        "keep": "Keep the recognizable hook and spirit of “I Wanna”.",
+        "basisSongs": [
+          "I Wanna"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Synthesizer",
+            "Synth pads",
+            "Drum machine"
+          ],
+          "pitchRepair": "wild",
+          "duration": 250
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-0dc2bea1e37dea334832f473",
       "title": "The Golden Answer (Midnight Synth Remedy)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0dc2bea1e37dea334832f473-38573f1f6d33.mp3",
