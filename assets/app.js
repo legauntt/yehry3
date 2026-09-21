@@ -3,7 +3,7 @@ import { songBadges, voiceModelBadge } from "./song-badges.js";
 import { pitchBadge } from "./pitch-badge.js";
 import { sidesBadge } from "./sides.js";
 import { musicBackendBadge } from "./music-provenance.js";
-import { mountMusicBackend, paidConfirmation, PAID_BACKEND } from './music-backend.js';
+import { mountMusicBackend, paidConfirmation, rememberPaidAgreement, PAID_BACKEND } from './music-backend.js';
 import { gpuWaiting, gpuWaitNotice } from "./gpu-status.js";
 import { mountGeneration, mountGenerationReview } from './generation.js';
 import { songPlanLink } from "./song-plan.js";
@@ -1172,6 +1172,7 @@ async function requests() {
       const materialIssue = durationIssue(draft.details, draft.prompt);
       const paidCheckbox = $('#confirm-paid');
       const paidConfirmationPanel = $('.paid-music-confirmation');
+      if (paidCheckbox) paidCheckbox.onchange = () => { if (!paidCheckbox.checked) rememberPaidAgreement(false); };
       if (draft.details?.musicBackend === PAID_BACKEND && (!paidConfirmationPanel || !paidCheckbox)) $('#confirm-form .primary').disabled = true;
       if (materialIssue) {
         $("#confirm-form .primary").disabled = true;
@@ -1181,6 +1182,7 @@ async function requests() {
       $("#confirm-form").onsubmit = (event) =>
         run(event, async () => {
           const paid = draft.details?.musicBackend === PAID_BACKEND;
+          if (paid) rememberPaidAgreement(Boolean(paidCheckbox?.checked));
           draft = (await api(`/prompts/${encodeURIComponent(draft.id)}/confirm`, {
             method: "POST",
             role: "submitter",

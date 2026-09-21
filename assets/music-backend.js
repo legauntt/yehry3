@@ -1,5 +1,6 @@
 export const PAID_BACKEND = 'eleven_music';
 export const MUSIC_BACKEND_PREFERENCE_KEY = 'yehry3:music-backend';
+export const PAID_AGREEMENT_KEY = 'yehry3:paid-music-agreed';
 export const money = (cents) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
 
 const minutes = (seconds) => new Intl.NumberFormat('en-US', { maximumFractionDigits: 2 }).format(seconds / 60);
@@ -41,11 +42,23 @@ export function rememberMusicBackend(value) {
   catch { /* The current request still retains its per-tab selection. */ }
 }
 
+/** The paid agreement is ticked once per browser and stays ticked; unticking it on a later review forgets it. */
+export function paidAgreed() {
+  try { return localStorage.getItem(PAID_AGREEMENT_KEY) === 'true'; } catch { return false; }
+}
+
+export function rememberPaidAgreement(agreed) {
+  try {
+    if (agreed) localStorage.setItem(PAID_AGREEMENT_KEY, 'true');
+    else localStorage.removeItem(PAID_AGREEMENT_KEY);
+  } catch { /* Without storage it is simply asked again next time. */ }
+}
+
 export function paidConfirmation(details, escape) {
   if (details?.musicBackend !== PAID_BACKEND) return '';
   const cost = paidCost(details);
   if (!cost) return '<p class="field-error">Review this request again to choose its Auto length and confirm the paid cost.</p>';
-  const authorization = '<label class="generation-enable"><input type="checkbox" id="confirm-paid" required> I agree to use paid generation and send this song’s lyrics and musical direction to ElevenLabs.</label>';
+  const authorization = `<label class="generation-enable"><input type="checkbox" id="confirm-paid" required${paidAgreed() ? ' checked' : ''}> I agree to use paid generation and send this song’s lyrics and musical direction to ElevenLabs.</label>`;
   return `<div class="paid-music-confirmation"><p><strong>Eleven Music · paid</strong><br>${escape(money(cost.estimate))} estimated generation cost for ${minutes(cost.duration)} minutes. This request reserves ${escape(money(cost.reserve))} from the shared $200 total cap.</p>${authorization}<p class="small">Tony’s voice is applied on the studio PC. One paid composition; saved audio is reused on retry. Reservations stay counted after cancellation or an uncertain provider response until reviewed. Estimates exclude subscription fees and taxes.</p></div>`;
 }
 

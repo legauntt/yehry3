@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 const key = 'yehry3:paid-music-password';
+const agreed = 'yehry3:paid-music-agreed';
 
 async function fixture(context) {
   const state = { prompts: new Map(), confirmations: [], failure: null };
@@ -60,7 +61,7 @@ async function review(page, { login = false, controls = true, initialBackend = '
   if (controls) await expect(page.locator('#confirm-paid')).toBeVisible();
 }
 
-test('every paid review asks for the agreement and no password, and sends only the checkbox', async ({ page, context }) => {
+test('the agreement is ticked once, sent as the only gate, and stays ticked', async ({ page, context }) => {
   const state = await fixture(context);
   await review(page, { login: true });
   await expect(page.locator('#paid-password')).toHaveCount(0);
@@ -69,12 +70,33 @@ test('every paid review asks for the agreement and no password, and sends only t
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#another')).toBeVisible();
   expect(state.confirmations).toEqual([{ version: 2, confirmed: true, confirmedPaid: true }]);
-  // Agreeing once does not agree for the next song: the box is there, unchecked, every time.
+  expect(await page.evaluate(key => localStorage.getItem(key), agreed)).toBe('true');
+  // The next paid song, even after a reload, arrives already agreed: one click sends it.
   await review(page, { initialBackend: 'eleven_music' });
-  await expect(page.locator('#confirm-paid')).not.toBeChecked();
+  await expect(page.locator('#confirm-paid')).toBeChecked();
+  await page.reload();
+  await expect(page.locator('#confirm-paid')).toBeChecked();
+  await page.locator('#confirm-form .primary').click();
+  await expect(page.locator('#another')).toBeVisible();
+  expect(state.confirmations.at(-1)).toEqual({ version: 2, confirmed: true, confirmedPaid: true });
+  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBeNull();
+});
+
+test('unticking the agreement on a later review takes it back', async ({ page, context }) => {
+  await fixture(context);
+  await page.addInitScript(agreed => {
+    if (sessionStorage.getItem('seeded')) return;
+    sessionStorage.setItem('seeded', '1');
+    localStorage.setItem(agreed, 'true');
+  }, agreed);
+  await review(page, { login: true });
+  await expect(page.locator('#confirm-paid')).toBeChecked();
+  await page.locator('#confirm-paid').uncheck();
+  await page.locator('#confirm-form .primary').click();
+  expect(await page.locator('#confirm-paid').evaluate(input => input.validity.valueMissing)).toBe(true);
+  expect(await page.evaluate(agreed => localStorage.getItem(agreed), agreed)).toBeNull();
   await page.reload();
   await expect(page.locator('#confirm-paid')).not.toBeChecked();
-  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBeNull();
 });
 
 test('a password saved by an earlier version is dropped, and the agreement is still needed', async ({ page, context }) => {

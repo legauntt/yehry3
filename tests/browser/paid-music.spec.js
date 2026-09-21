@@ -56,7 +56,7 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
   page.on('request', request => {
     if (request.method() === 'POST' && request.url().endsWith('/confirm')) confirmations++;
   });
-  // Nothing is sent until the paid agreement is ticked, and it is asked for again after a reload.
+  // Nothing is sent until the paid agreement is ticked once; a failed attempt does not tick it.
   await page.locator('#confirm-form .primary').click();
   expect(await page.locator('#confirm-paid').evaluate(input => input.validity.valueMissing)).toBe(true);
   expect(confirmations).toBe(0);
@@ -75,6 +75,7 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
     return (await api('/prompts/'+sessionStorage.getItem('yehry3:draft'), { role: 'submitter' })).prompt;
   });
   expect(await page.evaluate(() => localStorage.getItem('yehry3:paid-music-password'))).toBeNull();
+  expect(await page.evaluate(() => localStorage.getItem('yehry3:paid-music-agreed'))).toBe('true');
   expect(JSON.stringify(saved)).not.toContain('paidPassword');
   expect(saved.details.musicBackend).toBe('eleven_music');
   expect(saved.details.voiceModel).toBe(voice);
