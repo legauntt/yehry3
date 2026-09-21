@@ -525,7 +525,7 @@ async function library() {
     markHighlighted();
     cooldown();
     restoreViewport();
-    if (followedShared) document.querySelector(`#tracks > [data-id="${CSS.escape(sharedId)}"]`)?.scrollIntoView({ block: "center" });
+    if (followedShared) keepCentred(sharedId);
   }
   function cooldown() {
     const left = Math.max(0, new Date(nextVoteAt || 0) - Date.now());
@@ -630,7 +630,31 @@ async function library() {
   }
   // A completion alert lands here with the released song in the URL fragment.
   // Clear whatever filters or page would otherwise hide it, then point at it.
-  let revealing, revealed;
+  let revealing, revealed, stopCentring;
+  // Art, fonts and the live catalog keep changing the height above the song after it is first
+  // scrolled to, which leaves it stranded at the bottom edge. Re-centre on each layout change
+  // for a few seconds, and give up the moment the visitor scrolls for themselves.
+  function keepCentred(id) {
+    stopCentring?.();
+    const find = () => document.querySelector(`#tracks > [data-id="${CSS.escape(id)}"], #pending-tracks > [data-id="${CSS.escape(id)}"]`);
+    const centre = () => {
+      const box = find()?.getBoundingClientRect();
+      if (!box) return;
+      const delta = box.height < innerHeight ? box.top + box.height / 2 - innerHeight / 2 : box.top - 16;
+      if (Math.abs(delta) > 6) window.scrollBy({ top: delta, behavior: "instant" });
+    };
+    const events = ["wheel", "touchstart", "keydown", "pointerdown"];
+    const observer = new ResizeObserver(centre);
+    const timer = setTimeout(() => stopCentring?.(), 6000);
+    stopCentring = () => {
+      observer.disconnect();
+      clearTimeout(timer);
+      events.forEach((name) => removeEventListener(name, stopCentring));
+      stopCentring = null;
+    };
+    events.forEach((name) => addEventListener(name, stopCentring, { passive: true }));
+    observer.observe(document.body);
+  }
   function revealSong(id) {
     if (!/^[a-z0-9-]{1,120}$/.test(id || "") || id === revealed) return;
     if (!songs.some((song) => song.id === id) && !pending.some((song) => song.id === id)) return;
@@ -658,7 +682,10 @@ async function library() {
     }
     const row = markHighlighted();
     if (!row) return;
-    row.scrollIntoView({ block: "center", behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+    // Instant, not smooth: an animation heads for the spot the row occupied when it began, which
+    // is stale by the time it arrives if anything above has loaded since.
+    row.scrollIntoView({ block: "center", behavior: "instant" });
+    keepCentred(id);
     clearTimeout(revealing);
     revealing = setTimeout(() => {
       highlighted = null;

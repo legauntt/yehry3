@@ -83,3 +83,23 @@ test("a shared song is followed to the page the live catalog settles it on", asy
   await expect(row.locator(".shared-badge")).toBeVisible();
   await expect(row).toBeInViewport();
 });
+
+test("the revealed song stays centred while content above it loads, until the visitor scrolls", async ({ page }) => {
+  await fixtures(page);
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.addInitScript(() => addEventListener("DOMContentLoaded", () => { document.documentElement.style.overflowAnchor = "none"; })); // Anchoring would hide the drift.
+  await page.goto(`/#${target.id}`);
+  const row = page.locator(`.track[data-id="${target.id}"]`);
+  await expect(row).toHaveClass(/is-revealed/);
+  const offCentre = () => row.evaluate(el => { const box = el.getBoundingClientRect(); return Math.abs(box.top + box.height / 2 - innerHeight / 2); });
+  await expect.poll(offCentre, { timeout: 5000 }).toBeLessThan(20);
+  // Late content (art, fonts, the live catalog) pushes everything down.
+  await page.evaluate(() => { const gap = document.createElement("div"); gap.style.height = "700px"; document.querySelector("main").prepend(gap); });
+  await expect.poll(offCentre, { timeout: 5000 }).toBeLessThan(20);
+  // Once the visitor scrolls, the page is theirs again.
+  await page.mouse.wheel(0, 300);
+  const before = await page.evaluate(() => scrollY);
+  await page.evaluate(() => { const gap = document.createElement("div"); gap.style.height = "500px"; document.querySelector("main").prepend(gap); });
+  await page.waitForTimeout(600);
+  expect(await page.evaluate(() => scrollY)).toBeGreaterThanOrEqual(before - 5);
+});
