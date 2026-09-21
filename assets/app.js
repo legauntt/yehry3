@@ -372,19 +372,21 @@ async function library() {
   // for as long as it stands.
   let highlighted = null;
   function markHighlighted() {
-    if (!highlighted) return null;
-    const row = document.querySelector(
-      `#tracks > [data-id="${CSS.escape(highlighted)}"], #pending-tracks > [data-id="${CSS.escape(highlighted)}"]`,
+    const find = (id) => document.querySelector(
+      `#tracks > [data-id="${CSS.escape(id)}"], #pending-tracks > [data-id="${CSS.escape(id)}"]`,
     );
+    const row = highlighted ? find(highlighted) : null;
     row?.classList.add("is-revealed");
-    if (row && sharedId === highlighted) {
-      row.classList.add("is-shared");
-      let badge = row.querySelector(":scope > .shared-badge");
+    // The shared badge outlives the alert outline, so it is applied whether or not one is still standing.
+    const shared = sharedId ? find(sharedId) : null;
+    if (shared) {
+      shared.classList.add("is-shared");
+      let badge = shared.querySelector(":scope > .shared-badge");
       if (!badge) {
         badge = document.createElement("span");
         badge.className = "shared-badge";
         badge.setAttribute("role", "status");
-        row.prepend(badge);
+        shared.prepend(badge);
       }
       badge.textContent = sharedFresh ? "Shared with you just now" : "Shared with you";
     }

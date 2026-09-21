@@ -30,6 +30,11 @@ test("a shared song link badges the song for the life of the page", async ({ pag
   await expect(row).toHaveClass(/is-revealed/);
   await expect(row).not.toHaveClass(/is-revealed/, { timeout: 12000 }); // The pulse settles; the badge stays.
   await expect(row.locator(".shared-badge")).toBeVisible();
+  // Every render resets each row's classes; the badge must be reapplied once the alert outline has expired.
+  await page.evaluate(() => { const search = document.querySelector("#search"); search.value = "Shared"; search.dispatchEvent(new Event("input", { bubbles: true })); });
+  await expect(page.locator(`.track[data-id="${target.id}"]`)).toHaveClass(/is-shared/);
+  await expect(page.locator(`.track[data-id="${target.id}"]`)).not.toHaveClass(/is-revealed/);
+  await expect(page.locator(`.track[data-id="${target.id}"] .shared-badge`)).toHaveCount(1);
   await page.reload();
   await expect(page.locator(`.track[data-id="${target.id}"]`)).not.toHaveClass(/is-shared/);
 });
