@@ -2,6 +2,670 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-d6131d842b21cebef103dae4",
+      "title": "Blue Screen America (Midnight Lo-Fi Blues)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d6131d842b21cebef103dae4-f52e01c1173e.mp3",
+      "duration": 475.0367346938776,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-92dfd2ce61458fe8bb784977",
+        "title": "Blue Screen America",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-92dfd2ce61458fe8bb784977-8247ef95b85e.mp3"
+      },
+      "publishedAt": "2026-09-21T00:00:15.134Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Blue Screen America (Midnight Lo-Fi Blues)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Seven-minute-fifty-five-second lo-fi blues reinterpretation in D minor: dusty vinyl texture, slow swung drums, warm electric bass, tremolo electric guitar, Wurlitzer and restrained organ. A clear, steadily pitched Tony V9 lead carries relaxed blues melodies with connected, smoky phrasing but no doubles or backing vocals. Build from intimate room-tone verses into fuller choruses, pull back for the interlude and bridge, then return to a patient final chorus. Keep the recognizable “I can't fix America” hook and midnight-record motif while giving the verses new blues phrasing. Pace the final sung “crying” to land about 10 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nRain ticks soft on the windowpane\nNeedle hiss and a tired train\nI got a room full of midnight blue\nAnd a low-lit beat to carry me through\nThe city blinks through a rented blind\nA tired little weather report in my mind\nI beat that bitch with a bat\nThen hear the room say, take it back\n\n[Verse 1]\nStreetlamp swimming in a coffee cup\nOld news talking but I turn it up\nEvery promise on the TV shakes\nLike a paper flag in the wake of brakes\nI was loud when I should have listened\nHard as a lock, all rusted and twisted\nI beat that bitch with a bat\nThat ugly thought came back like that\nNow the kick drum knocks through the floor\nAnd I hear what the silence was waiting for\nI beat that bitch with a bat\nNot a medal, not a map\n\n[Chorus]\nI can't fix America\nNot with a song, not with a stare\nI can't fix America\nBut I can tell the truth in the midnight air\nI can't fix America\nMy little room and its blue-gray glow\nI can't fix America\nStill I won't let my heart go cold\n\n[Verse 2]\nThe bus stop glass wears somebody's name\nThe diner closes, the signal stays the same\nA man in a doorway folds his hands\nWhile the radio sells a promised land\nI beat that bitch with a bat\nThen count the damage after that\nI put it down in a line of shame\nNot a victory, not a game\nThe record turns with a wounded sigh\nAnd every excuse gets smaller in my eye\nI beat that bitch with a bat\nBut I cannot make the past go flat\n\n[Refrain]\nI can't fix America\nI can't fix America\nNo, I can't fix America alone\nBut I can leave one small light on\n\n[Verse 3]\nThere is a face I will not erase\nThere is no pardon without a face\nThe sirens lean through the avenue\nLike they know every lie I ever knew\nI beat that bitch with a bat\nAnd hear the old guilt answer back\nNo clean cure in a midnight room\nNo holy filter to soften the gloom\nJust a slow blue beat, a shaking hand\nTrying to understand what I understand\nI beat that bitch with a bat\nThen let the truth sit where it sat\n\n[Chorus]\nI can't fix America\nNot tonight with these worn-out hands\nI can't fix America\nBut I can stop pretending I understand\nI can't fix America\nI can leave one small light on\nI can't fix America\nAnd keep singing until the night is gone\n\n[Instrumental Interlude]\n\n[Verse 4]\nThe needle skips, then finds the groove\nA small stubborn proof that the world can move\nCoffee gone cold by the window frame\nMorning traffic calls my name\nI beat that bitch with a bat\nStill I carry the weight of that\nSo I call the ones I let down hard\nI walk through the rain to the corner yard\nI do not ask for a clean new skin\nI ask where repair can begin\nI beat that bitch with a bat\nAnd I will not make a legend of that\n\n[Bridge]\nLet the vinyl crackle, let the sirens fade\nLet a broken man admit the mess he made\nLet the flag on the screen quit waving for a while\nLet the truth be plain, without a practiced smile\nI can't fix America, hear it plain\nI can't fix America through a song of pain\nBut a room can hold a listening ear\nAnd a light can stay when the dark gets near\nI beat that bitch with a bat\nNow I name the hurt behind that\n\n[Verse 5]\nBy the laundromat, a kid draws stars\nOn a cardboard sign beside the cars\nA woman laughs with her head thrown back\nAnd the whole gray block gets a little track\nI beat that bitch with a bat\nBut life keeps asking, what comes after that?\nNot a grand excuse, not a closing scene\nJust a hand held out where the hurt has been\nThe bass walks low, the brush drums breathe\nI hear a future under every sleeve\nI beat that bitch with a bat\nAnd choose to build instead of living in that\n\n[Chorus]\nI can't fix America\nNot with a song, not with a stare\nI can't fix America\nBut I can tell the truth in the midnight air\nI can't fix America\nMy little room and its blue-gray glow\nI can't fix America\nStill I won't let my heart go cold\nI can't fix America\nNot alone, not all at once\nI can't fix America\nBut I can leave one small light on\n\n[Outro]\nOne small light on for the ones still trying\nOne small light on while the last note's crying\nI can't fix America, but I can stay\nI can't fix America, but I can face the day\nOne small light on\nTill the last note stops crying\n[End]",
+        "duration": 475,
+        "bpm": 76,
+        "musicalSettings": {
+          "genre": "Lo-fi blues with a dusty late-night rock pulse",
+          "meter": "4/4 with a slow swung pocket",
+          "structure": "Intro, five evolving verses, recurring choruses and refrains, instrumental interlude, bridge, final chorus, resolved outro",
+          "performance": "One clear, steadily pitched Tony V9 lead; intimate in the verses and fuller, sustained blues singing in the hook",
+          "energy": "Low-lit and reflective at first, gradually more insistent through the bridge, then warm and resolved at the close",
+          "lyricWorkflow": "Adapted source-guided lyrics retaining the central hook, record-room imagery, and accountable emotional arc",
+          "instruments": [
+            "Vinyl texture",
+            "Swung drum kit",
+            "Electric bass",
+            "Tremolo electric guitar",
+            "Wurlitzer electric piano",
+            "Hammond-style organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nRain ticks soft on the windowpane\nNeedle hiss and a tired train\nI got a room full of midnight blue\nAnd a low-lit beat to carry me through\nThe city blinks through a rented blind\nA tired little weather report in my mind\nI beat that bitch with a bat\nThen hear the room say, take it back\n\n[Verse 1]\nStreetlamp swimming in a coffee cup\nOld news talking but I turn it up\nEvery promise on the TV shakes\nLike a paper flag in the wake of brakes\nI was loud when I should have listened\nHard as a lock, all rusted and twisted\nI beat that bitch with a bat\nThat ugly thought came back like that\nNow the kick drum knocks through the floor\nAnd I hear what the silence was waiting for\nI beat that bitch with a bat\nNot a medal, not a map\n\n[Chorus]\nI can't fix America\nNot with a song, not with a stare\nI can't fix America\nBut I can tell the truth in the midnight air\nI can't fix America\nMy little room and its blue-gray glow\nI can't fix America\nStill I won't let my heart go cold\n\n[Verse 2]\nThe bus stop glass wears somebody's name\nThe diner closes, the signal stays the same\nA man in a doorway folds his hands\nWhile the radio sells a promised land\nI beat that bitch with a bat\nThen count the damage after that\nI put it down in a line of shame\nNot a victory, not a game\nThe record turns with a wounded sigh\nAnd every excuse gets smaller in my eye\nI beat that bitch with a bat\nBut I cannot make the past go flat\n\n[Refrain]\nI can't fix America\nI can't fix America\nNo, I can't fix America alone\nBut I can leave one small light on\n\n[Verse 3]\nThere is a face I will not erase\nThere is no pardon without a face\nThe sirens lean through the avenue\nLike they know every lie I ever knew\nI beat that bitch with a bat\nAnd hear the old guilt answer back\nNo clean cure in a midnight room\nNo holy filter to soften the gloom\nJust a slow blue beat, a shaking hand\nTrying to understand what I understand\nI beat that bitch with a bat\nThen let the truth sit where it sat\n\n[Chorus]\nI can't fix America\nNot tonight with these worn-out hands\nI can't fix America\nBut I can stop pretending I understand\nI can't fix America\nI can leave one small light on\nI can't fix America\nAnd keep singing until the night is gone\n\n[Instrumental Interlude]\n\n[Verse 4]\nThe needle skips, then finds the groove\nA small stubborn proof that the world can move\nCoffee gone cold by the window frame\nMorning traffic calls my name\nI beat that bitch with a bat\nStill I carry the weight of that\nSo I call the ones I let down hard\nI walk through the rain to the corner yard\nI do not ask for a clean new skin\nI ask where repair can begin\nI beat that bitch with a bat\nAnd I will not make a legend of that\n\n[Bridge]\nLet the vinyl crackle, let the sirens fade\nLet a broken man admit the mess he made\nLet the flag on the screen quit waving for a while\nLet the truth be plain, without a practiced smile\nI can't fix America, hear it plain\nI can't fix America through a song of pain\nBut a room can hold a listening ear\nAnd a light can stay when the dark gets near\nI beat that bitch with a bat\nNow I name the hurt behind that\n\n[Verse 5]\nBy the laundromat, a kid draws stars\nOn a cardboard sign beside the cars\nA woman laughs with her head thrown back\nAnd the whole gray block gets a little track\nI beat that bitch with a bat\nBut life keeps asking, what comes after that?\nNot a grand excuse, not a closing scene\nJust a hand held out where the hurt has been\nThe bass walks low, the brush drums breathe\nI hear a future under every sleeve\nI beat that bitch with a bat\nAnd choose to build instead of living in that\n\n[Chorus]\nI can't fix America\nNot with a song, not with a stare\nI can't fix America\nBut I can tell the truth in the midnight air\nI can't fix America\nMy little room and its blue-gray glow\nI can't fix America\nStill I won't let my heart go cold\nI can't fix America\nNot alone, not all at once\nI can't fix America\nBut I can leave one small light on\n\n[Outro]\nOne small light on for the ones still trying\nOne small light on while the last note's crying\nI can't fix America, but I can stay\nI can't fix America, but I can face the day\nOne small light on\nTill the last note stops crying",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.78,
+            "end": 7.66
+          },
+          {
+            "line": 2,
+            "start": 7.66,
+            "end": 11.98
+          },
+          {
+            "line": 3,
+            "start": 12.76,
+            "end": 15.64
+          },
+          {
+            "line": 4,
+            "start": 15.64,
+            "end": 19.16
+          },
+          {
+            "line": 5,
+            "start": 19.98,
+            "end": 22.98
+          },
+          {
+            "line": 6,
+            "start": 22.98,
+            "end": 26.76
+          },
+          {
+            "line": 7,
+            "start": 26.76,
+            "end": 30.14
+          },
+          {
+            "line": 8,
+            "start": 30.14,
+            "end": 32.5
+          },
+          {
+            "line": 11,
+            "start": 43.34,
+            "end": 46.7
+          },
+          {
+            "line": 12,
+            "start": 46.7,
+            "end": 50.3
+          },
+          {
+            "line": 13,
+            "start": 50.3,
+            "end": 53.34
+          },
+          {
+            "line": 14,
+            "start": 54.12,
+            "end": 56.8
+          },
+          {
+            "line": 15,
+            "start": 56.8,
+            "end": 60.28
+          },
+          {
+            "line": 16,
+            "start": 60.28,
+            "end": 63.82
+          },
+          {
+            "line": 17,
+            "start": 63.82,
+            "end": 66.38
+          },
+          {
+            "line": 18,
+            "start": 67.28,
+            "end": 70.5
+          },
+          {
+            "line": 19,
+            "start": 70.5,
+            "end": 74.04
+          },
+          {
+            "line": 20,
+            "start": 74.04,
+            "end": 77.74
+          },
+          {
+            "line": 21,
+            "start": 77.74,
+            "end": 80.34
+          },
+          {
+            "line": 22,
+            "start": 81.48,
+            "end": 83.44
+          },
+          {
+            "line": 25,
+            "start": 86.88,
+            "end": 88.7
+          },
+          {
+            "line": 26,
+            "start": 90.18,
+            "end": 92.76
+          },
+          {
+            "line": 27,
+            "start": 93.78,
+            "end": 95.92
+          },
+          {
+            "line": 28,
+            "start": 96.86,
+            "end": 99.8
+          },
+          {
+            "line": 29,
+            "start": 100.64,
+            "end": 102.68
+          },
+          {
+            "line": 30,
+            "start": 103.74,
+            "end": 106.58
+          },
+          {
+            "line": 31,
+            "start": 106.58,
+            "end": 109.08
+          },
+          {
+            "line": 32,
+            "start": 110.08,
+            "end": 112.6
+          },
+          {
+            "line": 35,
+            "start": 114.44,
+            "end": 118.04
+          },
+          {
+            "line": 36,
+            "start": 118.04,
+            "end": 123.86
+          },
+          {
+            "line": 37,
+            "start": 124.58,
+            "end": 128.9
+          },
+          {
+            "line": 38,
+            "start": 128.9,
+            "end": 133.18
+          },
+          {
+            "line": 39,
+            "start": 133.18,
+            "end": 135.98
+          },
+          {
+            "line": 40,
+            "start": 135.98,
+            "end": 139.88
+          },
+          {
+            "line": 41,
+            "start": 139.88,
+            "end": 143.24
+          },
+          {
+            "line": 42,
+            "start": 143.24,
+            "end": 146.18
+          },
+          {
+            "line": 43,
+            "start": 146.18,
+            "end": 150.06
+          },
+          {
+            "line": 44,
+            "start": 150.06,
+            "end": 153.3
+          },
+          {
+            "line": 45,
+            "start": 153.3,
+            "end": 156.06
+          },
+          {
+            "line": 46,
+            "start": 156.06,
+            "end": 160.08
+          },
+          {
+            "line": 49,
+            "start": 163.1,
+            "end": 164.66
+          },
+          {
+            "line": 50,
+            "start": 166,
+            "end": 167.88
+          },
+          {
+            "line": 51,
+            "start": 168.94,
+            "end": 172
+          },
+          {
+            "line": 52,
+            "start": 173.26,
+            "end": 175.76
+          },
+          {
+            "line": 55,
+            "start": 176.84,
+            "end": 179.54
+          },
+          {
+            "line": 56,
+            "start": 180.16,
+            "end": 183.24
+          },
+          {
+            "line": 57,
+            "start": 184.62,
+            "end": 186.86
+          },
+          {
+            "line": 58,
+            "start": 186.86,
+            "end": 191.28
+          },
+          {
+            "line": 59,
+            "start": 192.16,
+            "end": 194.14
+          },
+          {
+            "line": 60,
+            "start": 194.14,
+            "end": 197.14
+          },
+          {
+            "line": 61,
+            "start": 198.06,
+            "end": 200.98
+          },
+          {
+            "line": 62,
+            "start": 202.08,
+            "end": 204.66
+          },
+          {
+            "line": 63,
+            "start": 205.68,
+            "end": 210.54
+          },
+          {
+            "line": 64,
+            "start": 211.46,
+            "end": 214.76
+          },
+          {
+            "line": 65,
+            "start": 216.22,
+            "end": 218.68
+          },
+          {
+            "line": 66,
+            "start": 219.4,
+            "end": 222.2
+          },
+          {
+            "line": 69,
+            "start": 222.2,
+            "end": 225.68
+          },
+          {
+            "line": 70,
+            "start": 226.8,
+            "end": 229.44
+          },
+          {
+            "line": 71,
+            "start": 229.44,
+            "end": 232
+          },
+          {
+            "line": 72,
+            "start": 233.18,
+            "end": 235.3
+          },
+          {
+            "line": 73,
+            "start": 235.3,
+            "end": 237.94
+          },
+          {
+            "line": 74,
+            "start": 238.9,
+            "end": 241.96
+          },
+          {
+            "line": 75,
+            "start": 241.96,
+            "end": 245.2
+          },
+          {
+            "line": 76,
+            "start": 246.02,
+            "end": 249.18
+          },
+          {
+            "line": 81,
+            "start": 250.12,
+            "end": 253.54
+          },
+          {
+            "line": 82,
+            "start": 253.54,
+            "end": 257.74
+          },
+          {
+            "line": 83,
+            "start": 257.74,
+            "end": 261.84
+          },
+          {
+            "line": 84,
+            "start": 263.16,
+            "end": 266.64
+          },
+          {
+            "line": 85,
+            "start": 267.6,
+            "end": 270.48
+          },
+          {
+            "line": 86,
+            "start": 271.54,
+            "end": 274.7
+          },
+          {
+            "line": 87,
+            "start": 275.74,
+            "end": 278.96
+          },
+          {
+            "line": 88,
+            "start": 278.96,
+            "end": 282.66
+          },
+          {
+            "line": 89,
+            "start": 284.18,
+            "end": 288
+          },
+          {
+            "line": 90,
+            "start": 288,
+            "end": 291.9
+          },
+          {
+            "line": 91,
+            "start": 291.9,
+            "end": 295.26
+          },
+          {
+            "line": 92,
+            "start": 295.26,
+            "end": 299.16
+          },
+          {
+            "line": 95,
+            "start": 299.16,
+            "end": 304.02
+          },
+          {
+            "line": 96,
+            "start": 304.02,
+            "end": 307.54
+          },
+          {
+            "line": 97,
+            "start": 307.54,
+            "end": 312.54
+          },
+          {
+            "line": 98,
+            "start": 313.62,
+            "end": 317.72
+          },
+          {
+            "line": 99,
+            "start": 318.5,
+            "end": 321.58
+          },
+          {
+            "line": 100,
+            "start": 323.6,
+            "end": 328.78
+          },
+          {
+            "line": 101,
+            "start": 329.64,
+            "end": 332.8
+          },
+          {
+            "line": 102,
+            "start": 332.8,
+            "end": 337.92
+          },
+          {
+            "line": 103,
+            "start": 338.82,
+            "end": 341.5
+          },
+          {
+            "line": 104,
+            "start": 342.72,
+            "end": 346
+          },
+          {
+            "line": 107,
+            "start": 347.26,
+            "end": 350.24
+          },
+          {
+            "line": 108,
+            "start": 350.24,
+            "end": 354.98
+          },
+          {
+            "line": 109,
+            "start": 356.28,
+            "end": 359.1
+          },
+          {
+            "line": 110,
+            "start": 359.1,
+            "end": 363.9
+          },
+          {
+            "line": 111,
+            "start": 365.26,
+            "end": 367.54
+          },
+          {
+            "line": 112,
+            "start": 368.44,
+            "end": 371.64
+          },
+          {
+            "line": 113,
+            "start": 372.02,
+            "end": 375.32
+          },
+          {
+            "line": 114,
+            "start": 376,
+            "end": 379.24
+          },
+          {
+            "line": 115,
+            "start": 381.3,
+            "end": 385.96
+          },
+          {
+            "line": 116,
+            "start": 390.36,
+            "end": 391.32
+          },
+          {
+            "line": 117,
+            "start": 391.32,
+            "end": 392.54
+          },
+          {
+            "line": 118,
+            "start": 392.54,
+            "end": 396.96
+          },
+          {
+            "line": 121,
+            "start": 396.96,
+            "end": 401.1
+          },
+          {
+            "line": 122,
+            "start": 402.62,
+            "end": 405.16
+          },
+          {
+            "line": 123,
+            "start": 406.62,
+            "end": 408.48
+          },
+          {
+            "line": 124,
+            "start": 409.78,
+            "end": 413.62
+          },
+          {
+            "line": 125,
+            "start": 415.46,
+            "end": 415.76
+          },
+          {
+            "line": 126,
+            "start": 415.76,
+            "end": 416.28
+          },
+          {
+            "line": 127,
+            "start": 416.28,
+            "end": 417.42
+          },
+          {
+            "line": 128,
+            "start": 418.62,
+            "end": 422.1
+          },
+          {
+            "line": 129,
+            "start": 422.1,
+            "end": 424.48
+          },
+          {
+            "line": 130,
+            "start": 424.48,
+            "end": 428.46
+          },
+          {
+            "line": 131,
+            "start": 428.46,
+            "end": 431.42
+          },
+          {
+            "line": 132,
+            "start": 431.42,
+            "end": 436.94
+          },
+          {
+            "line": 135,
+            "start": 436.94,
+            "end": 446.62
+          },
+          {
+            "line": 136,
+            "start": 446.62,
+            "end": 447.9
+          },
+          {
+            "line": 137,
+            "start": 447.9,
+            "end": 452.68
+          },
+          {
+            "line": 138,
+            "start": 452.68,
+            "end": 457.4
+          },
+          {
+            "line": 139,
+            "start": 457.4,
+            "end": 460.1
+          },
+          {
+            "line": 140,
+            "start": 460.1,
+            "end": 463.44
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 10.44
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Remix “Blue Screen America”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Lofi beats, Tony sings the blues\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Tony must say \"I beat that bitch with a bat\" every second to third line. Also increase the number of times he says \"I can't fix America\"",
+        "keep": "Keep the recognizable hook and spirit of “Blue Screen America”.",
+        "basisSongs": [
+          "Blue Screen America"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 475
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-1d0a8a4cde878a24f1eb8bc6",
       "title": "Influence Criteria (Midnight Ledger)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1d0a8a4cde878a24f1eb8bc6-9a3f9100fa9c.mp3",
