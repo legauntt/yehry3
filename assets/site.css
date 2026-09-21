@@ -2762,3 +2762,31 @@ button.lyric-line:hover {
 @media (prefers-reduced-motion: reduce) {
   .player.is-playing .now-playing .eyebrow::before, .player.is-playing .now-playing strong { animation: none; }
 }
+
+/* The site's one player: fixed along the bottom of every page, so a song carries on as the visitor moves about. */
+body.has-player { padding-bottom: 92px; }
+@media (max-width: 700px) { body.has-player { padding-bottom: 0; } }
+.player .now-playing strong a { color: inherit; text-decoration: none; }
+.player .now-playing strong a:hover, .player .now-playing strong a:focus-visible { text-decoration: underline; }
+/* A toast rides above the bar rather than over it. */
+body.has-player .toast { bottom: 110px; }
+/* Changing pages fetches the next one first; a thin line says something is on its way. */
+html[data-navigating="true"] body::before {
+  content: ""; position: fixed; z-index: 30; top: 0; left: 0; height: 3px; width: 100%;
+  background: var(--accent, #8fdca9); transform-origin: left; animation: shell-progress 1.6s ease-out forwards;
+}
+@keyframes shell-progress { from { transform: scaleX(0.05); } to { transform: scaleX(0.9); } }
+@media (prefers-reduced-motion: reduce) { html[data-navigating="true"] body::before { animation: none; transform: scaleX(0.5); } }
+/* A lyric sheet plays through the site's player: a button, a clock and a scrubber stand in for its own audio element. */
+.sheet-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.sheet-controls .primary { min-width: 92px; }
+.sheet-controls input[type="range"] { flex: 1 1 200px; min-width: 0; accent-color: var(--accent, #4b7a55); }
+.sheet-time { min-width: 5.5em; font-variant-numeric: tabular-nums; }
+.sheet-keeps { margin: 10px 0 0; opacity: 0.75; }
+.remix-comparison [data-compare-now] { min-height: 1.2em; }
+/* On a phone the bar is on every page, so it is kept short: the title takes its own line, the buttons share the next, and the audio controls the last. */
+@media (max-width: 700px) {
+  .player .now-playing { width: 100%; max-width: none; }
+  .player #now-generator { display: none; }
+  .player :is(#previous, #next, .loop-toggle, #share-song) { flex: 1 1 0; text-align: center; }
+}

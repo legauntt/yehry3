@@ -1,3 +1,4 @@
+import { currentScope } from "./page-scope.js";
 // Curated locally: no model/API call is needed to suggest an idea.
 export const ideas = [
   "Medusa as a midnight barbershop quartet.",
@@ -64,6 +65,7 @@ let timer,
 export function rotateSuggestions(root) {
   currentRoot = root;
   clearInterval(timer);
+  currentScope().onLeave(() => clearInterval(timer));
   const nodes = [...root.querySelectorAll("[data-suggestion]")];
   function update() {
     for (const node of nodes) {

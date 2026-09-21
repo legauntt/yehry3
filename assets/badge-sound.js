@@ -204,7 +204,11 @@ function tapArt(art, at) {
   artNext = (artNext + 1) % clips.length;
 }
 
+let mounted = false;
 export function mountBadgeSounds(root = document) {
+  // Its listeners are on the document, which outlives the pages that swap in and out of it.
+  if (mounted && root === document) return;
+  if (root === document) mounted = true;
   // Media events do not bubble, but they can be caught on the way down.
   root.addEventListener("play", (event) => { if (event.target instanceof HTMLMediaElement) stop(); }, true);
   root.addEventListener("click", (event) => {

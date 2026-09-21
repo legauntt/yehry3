@@ -1,3 +1,4 @@
+import { currentScope } from "./page-scope.js";
 import { api } from "./api.js";
 
 const key = "yehry3:profile";
@@ -9,7 +10,7 @@ function remembered() {
 }
 
 // Only the selected profile ID lives in the browser. Favorites always come from the server.
-export function mountFavorites(container, { onChange = () => {}, filter = false } = {}) {
+export function mountFavorites(container, { onChange = () => {}, filter = false, scope = currentScope() } = {}) {
   if (!document.querySelector('link[href="/assets/favorites.css"]')) {
     const css = document.createElement("link");
     css.rel = "stylesheet";
@@ -187,7 +188,7 @@ export function mountFavorites(container, { onChange = () => {}, filter = false 
       if (epoch === generation) status.textContent = error.message;
     } finally { creating = false; sync(false); }
   });
-  document.addEventListener("click", async (event) => {
+  scope.on(document, "click", async (event) => {
     const button = event.target.closest("[data-save]");
     if (!button || button.disabled) return;
     if (!profile) {
@@ -225,11 +226,11 @@ export function mountFavorites(container, { onChange = () => {}, filter = false 
       }
     }
   });
-  window.addEventListener("popstate", () => {
+  scope.on(window, "popstate", () => {
     onlySaved = filter && new URLSearchParams(location.search).get("saved") === "1";
     void choose(new URLSearchParams(location.search).get("profile") || remembered(), { updateUrl: false });
   });
-  window.addEventListener("storage", (event) => {
+  scope.on(window, "storage", (event) => {
     if (event.key !== key && event.key !== null) return;
     const id = remembered();
     if (id !== selectedId) {
@@ -239,10 +240,10 @@ export function mountFavorites(container, { onChange = () => {}, filter = false 
   });
   const refresh = () => { void refreshList(); void refreshProfile(); };
   let timer;
-  const startTimer = () => { clearInterval(timer); timer = setInterval(() => { if (!document.hidden) refresh(); }, 30000); };
-  document.addEventListener("visibilitychange", () => { if (!document.hidden) refresh(); });
-  window.addEventListener("pagehide", () => clearInterval(timer));
-  window.addEventListener("pageshow", (event) => { if (event.persisted) { startTimer(); refresh(); } });
+  const startTimer = () => { clearInterval(timer); timer = scope.every(() => { if (!document.hidden) refresh(); }, 30000); };
+  scope.on(document, "visibilitychange", () => { if (!document.hidden) refresh(); });
+  scope.on(window, "pagehide", () => clearInterval(timer));
+  scope.on(window, "pageshow", (event) => { if (event.persisted) { startTimer(); refresh(); } });
   queueMicrotask(() => {
     void refreshList();
     const params = new URLSearchParams(location.search);

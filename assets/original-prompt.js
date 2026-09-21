@@ -1,3 +1,4 @@
+import { currentScope } from "./page-scope.js";
 import { songBadges } from "./song-badges.js";
 import { watchSong } from "./song-data.js";
 import { publicPromptBrief } from "./prompt-brief.js";
@@ -5,6 +6,7 @@ import { songPlanSection } from "./song-plan.js";
 import { remixLink } from "./remix.js";
 
 export async function originalPromptPage(main, { escape, safeUrl }) {
+  const scope = currentScope();
   const id = new URLSearchParams(location.search).get("song");
   let song;
   function render(next) {
@@ -32,9 +34,10 @@ export async function originalPromptPage(main, { escape, safeUrl }) {
   const refresh = () => {
     if (!document.hidden && ["queued", "processing"].includes(song?.status) && !song?.songPlan) watcher.refresh();
   };
-  let timer = setInterval(refresh, 30000);
-  addEventListener("pagehide", () => clearInterval(timer));
-  addEventListener("pageshow", (event) => { if (event.persisted) { clearInterval(timer); timer = setInterval(refresh, 30000); refresh(); } });
-  document.addEventListener("visibilitychange", refresh);
+  let timer = scope.every(refresh, 30000);
+  scope.on(window, "pagehide", () => clearInterval(timer));
+  scope.on(window, "pageshow", (event) => { if (event.persisted) { clearInterval(timer); timer = scope.every(refresh, 30000); refresh(); } });
+  scope.on(document, "visibilitychange", refresh);
+  scope.onLeave(() => watcher.dispose());
   await watcher.ready;
 }

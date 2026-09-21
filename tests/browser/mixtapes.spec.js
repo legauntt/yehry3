@@ -57,9 +57,9 @@ test("tape playback continues through edits, seeking and the next track", async 
   await page.locator("audio").evaluate(audio => { window.tapeAudio = audio; audio.currentTime = 12; });
   await page.getByLabel("Mixtape name", { exact: true }).fill("Still playing");
   expect(await page.locator("audio").evaluate(audio => audio === window.tapeAudio && !audio.paused && audio.currentTime >= 12)).toBe(true);
-  await page.getByRole("button", { name: "Next song", exact: true }).click();
+  await page.locator("#tape-next").click();
   await expect(page.locator("#tape-now")).toHaveText("Second record");
-  await expect(page.getByRole("button", { name: "Next song", exact: true })).toBeDisabled();
+  await expect(page.locator("#tape-next")).toBeDisabled();
 });
 test("mobile, unavailable storage and API fallback still allow sharing", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
@@ -135,7 +135,7 @@ test("editing repeated entries preserves the current audio and updates the next 
   await expect(page.locator("#cassette-side")).toHaveText("SIDE B");
   expect(await page.locator("audio").evaluate(a => a === window.originalAudio && !a.paused && a.currentTime >= 18)).toBe(true);
   await page.getByRole("button", { name: "Move First record up" }).last().click();
-  await page.getByRole("button", { name: "Next song", exact: true }).click();
+  await page.locator("#tape-next").click();
   await expect(page.locator("#tape-now")).toHaveText("Second record");
   await page.getByRole("button", { name: "Remove Second record", exact: true }).click();
   expect(await page.locator("audio").evaluate(a => a.paused && !a.getAttribute("src"))).toBe(true);
@@ -177,10 +177,12 @@ test("record shelf anchors preserve playback and reduced motion keeps reels stil
   await page.getByRole("link", { name: "Find your first track" }).click();
   expect(await page.locator("audio").evaluate(a => a === window.originalAudio && !a.paused)).toBe(true);
   await page.locator("#tape-picker").scrollIntoViewIfNeeded();
-  await expect(page.locator(".tape-dock")).toBeVisible();
-  await page.getByRole("button", { name: "Pause from mini player" }).click();
-  expect(await page.locator("audio").evaluate(a => a.paused)).toBe(true);
-  await page.getByRole("button", { name: "Play from mini player" }).click();
+  // The site's player bar stays in view below the deck, and drives the same audio.
+  await expect(page.locator("#site-player")).toBeInViewport();
+  await expect(page.locator("#site-player #now-title")).toHaveText("First record");
+  await page.locator("#audio").evaluate(a => a.pause());
+  await expect(page.locator("#site-player .eyebrow")).toHaveText("Paused");
+  await page.locator("#audio").evaluate(a => a.play());
   await expect.poll(() => page.locator("audio").evaluate(a => !a.paused)).toBe(true);
   await expect(page.locator(".tape-reel").first()).toHaveCSS("animation-name", "none");
   await page.reload();

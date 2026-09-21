@@ -5,6 +5,10 @@ try { previous = sessionStorage.getItem("yehry3:brand-line"); } catch { /* Optio
 export const brandLine = pickBrandLine(previous);
 try { sessionStorage.setItem("yehry3:brand-line", brandLine); } catch { /* Still random without storage. */ }
 
-for (const footer of document.querySelectorAll("[data-brand-footer]")) {
-  footer.textContent = `YEHRY3 · ${brandLine.replace("\n", " ")}`;
+// A page swapped in by shell.js brings a fresh footer, which gets the same line.
+export function applyBranding() {
+  for (const footer of document.querySelectorAll("[data-brand-footer]")) {
+    footer.textContent = `YEHRY3 · ${brandLine.replace("\n", " ")}`;
+  }
 }
+applyBranding();

@@ -1,3 +1,4 @@
+import { currentScope } from "./page-scope.js";
 import { api } from "./api.js";
 
 const preferenceKey = "yehry3:release-alerts";
@@ -98,9 +99,12 @@ export function completionAlerts(button = null, status = null, onRelease = () =>
     }
   };
   synchronize();
-  document.addEventListener("visibilitychange", () => { if (!document.hidden) synchronize(); });
-  window.addEventListener("pageshow", (event) => { if (event.persisted) synchronize(); });
-  window.addEventListener("storage", (event) => { if (event.key === preferenceKey || event.key === null) synchronize(); });
+  // The queue page's button lasts as long as the page; the site-wide watcher (no button) lasts as long as the tab.
+  const scope = button ? currentScope() : null;
+  const listen = (target, type, listener) => (scope ? scope.on(target, type, listener) : target.addEventListener(type, listener));
+  listen(document, "visibilitychange", () => { if (!document.hidden) synchronize(); });
+  listen(window, "pageshow", (event) => { if (event.persisted) synchronize(); });
+  listen(window, "storage", (event) => { if (event.key === preferenceKey || event.key === null) synchronize(); });
   function readSeen() {
     try {
       const saved = JSON.parse(localStorage.getItem(seenKey));

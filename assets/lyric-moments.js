@@ -1,4 +1,4 @@
-const restored = new WeakSet();
+import { player } from "./player.js";
 
 export function sharedTimestamp(url = new URL(location.href)) {
   const value = url.searchParams.get("t");
@@ -8,31 +8,29 @@ export function sharedTimestamp(url = new URL(location.href)) {
 }
 
 const timeLabel = seconds => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}`;
+// A moment link is opened once per song per page visit, however often the sheet redraws.
+const restored = new WeakSet();
 
-export function mountMomentSharing(main) {
-  const player = main.querySelector(".shared-song-player"), audio = player?.querySelector("audio");
-  if (!audio) return () => {};
+// `sheet` is the lyric sheet's view of the site's player (see lyrics.js): the moment is read from
+// the recording when the sheet's song is the one playing, and otherwise from the place chosen on it.
+export function mountMomentSharing(main, sheet) {
+  const holder = main.querySelector(".shared-song-player");
+  if (!holder) return () => {};
   const controller = new AbortController(), { signal } = controller;
   const panel = document.createElement("div");
   panel.className = "lyric-moment";
   panel.innerHTML = '<div class="actions"><button type="button" class="quiet" id="share-moment">Share this moment</button></div><p class="small" id="moment-status" role="status"></p><div id="moment-link-field" hidden><label for="moment-link">Link to this moment</label><input id="moment-link" type="text" readonly></div>';
-  player.append(panel);
+  holder.append(panel);
   const button = panel.querySelector("#share-moment"), status = panel.querySelector("#moment-status");
-  const update = () => { button.textContent = `Share this moment · ${timeLabel(audio.currentTime || 0)}`; };
+  const update = () => { button.textContent = `Share this moment · ${timeLabel(sheet.position())}`; };
   const timestamp = sharedTimestamp();
-  if (timestamp !== null && !restored.has(audio)) {
-    const seek = () => {
-      if (restored.has(audio)) return;
-      restored.add(audio);
-      audio.currentTime = Number.isFinite(audio.duration) ? Math.min(timestamp, Math.max(0, audio.duration - .1)) : timestamp;
-      status.textContent = `Starts at ${timeLabel(audio.currentTime)}. Press play when you’re ready.`;
-      update();
-    };
-    if (audio.readyState) seek();
-    else audio.addEventListener("loadedmetadata", seek, { once: true, signal });
+  if (timestamp !== null && !restored.has(sheet)) {
+    restored.add(sheet);
+    sheet.seek(timestamp);
+    status.textContent = `Starts at ${timeLabel(timestamp)}. Press play when you’re ready.`;
   }
   button.addEventListener("click", async () => {
-    const seconds = Math.max(0, Math.round((audio.currentTime || 0) * 10) / 10);
+    const seconds = Math.max(0, Math.round(sheet.position() * 10) / 10);
     const url = new URL(location.href);
     url.searchParams.set("t", String(seconds));
     const lines = [...main.querySelectorAll("button.lyric-line")];
@@ -47,8 +45,11 @@ export function mountMomentSharing(main) {
     try { await navigator.clipboard.writeText(url.href); status.textContent = `Link copied at ${timeLabel(seconds)}.`; }
     catch { input.focus(); input.select(); status.textContent = `Copy this link to share the song at ${timeLabel(seconds)}.`; }
   }, { signal });
-  audio.addEventListener("timeupdate", update, { signal });
-  audio.addEventListener("seeking", update, { signal });
+  sheet.audio.addEventListener("timeupdate", update, { signal });
+  sheet.audio.addEventListener("seeking", update, { signal });
+  player.on("change", update, signal);
+  sheet.watchers.add(update);
+  signal.addEventListener("abort", () => sheet.watchers.delete(update), { once: true });
   update();
   return () => controller.abort();
 }

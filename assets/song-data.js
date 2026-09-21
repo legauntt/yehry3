@@ -63,7 +63,7 @@ export function watchSong(id, onSong, usable = (song) => Boolean(song)) {
   let resolveReady;
   const ready = new Promise((resolve) => { resolveReady = resolve; });
   if (!/^[a-z0-9-]{1,120}$/.test(id || "")) {
-    onSong(null); resolveReady(); return { ready, refresh: async () => {} };
+    onSong(null); resolveReady(); return { ready, refresh: async () => {}, dispose() {} };
   }
   let saved = memory[id], live, signature, disposed = false;
   const emit = () => {
@@ -94,5 +94,5 @@ export function watchSong(id, onSong, usable = (song) => Boolean(song)) {
     resolveReady();
   });
   addEventListener("pagehide", (event) => { if (!event.persisted) disposed = true; }, { once: true });
-  return { ready, refresh };
+  return { ready, refresh, dispose() { disposed = true; } };
 }

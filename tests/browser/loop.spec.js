@@ -66,10 +66,10 @@ test("the repeat choice is shared with the lyric sheet and survives navigation",
   const loop = page.locator(".shared-song-player [data-loop-toggle]");
   await expect(loop).toHaveText("Loop on");
   await expect(loop).toHaveCount(1);
-  expect(await page.locator(".shared-song-player audio").evaluate(audio => audio.loop)).toBe(true);
+  expect(await page.locator("#audio").evaluate(audio => audio.loop)).toBe(true);
   await loop.click();
   await expect(loop).toHaveText("Loop off");
-  expect(await page.locator(".shared-song-player audio").evaluate(audio => audio.loop)).toBe(false);
+  expect(await page.locator("#audio").evaluate(audio => audio.loop)).toBe(false);
   await page.goto("/?sort=catalog");
   await page.locator('.track[data-id="loop-first"] [data-play]').click();
   await expect(page.locator(".player [data-loop-toggle]")).toHaveText("Loop off");

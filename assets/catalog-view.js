@@ -1,3 +1,4 @@
+import { currentScope } from "./page-scope.js";
 const key = "yehry3:catalog-view";
 const normalize = (value) => value === "list" ? "list" : "grid";
 
@@ -21,7 +22,7 @@ export function mountCatalogView(root, tracks) {
     apply(view);
     try { localStorage.setItem(key, view); } catch { /* Keep the in-page choice. */ }
   });
-  window.addEventListener("storage", (event) => {
+  currentScope().on(window, "storage", (event) => {
     try {
       if (event.storageArea === localStorage && (event.key === key || event.key === null)) apply(event.newValue);
     } catch { /* Storage is optional. */ }

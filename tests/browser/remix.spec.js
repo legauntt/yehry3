@@ -184,18 +184,23 @@ test('original comparison switches real playback and preserves each position on 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`/lyrics/?song=${song.id}#compare-original`);
   await expect(page.getByRole('link', { name: 'The original recording', exact: true })).toHaveAttribute('href', '/lyrics/?song=original-recording');
-  const original = page.locator('#compare-original audio'), current = page.locator('.shared-song-player audio');
+  // One player carries both recordings: the loaded song is the one playing, and each keeps its own place.
+  const audio = page.locator('#audio'), loaded = () => page.evaluate(() => window.yehry3Player.current?.id);
   await page.getByRole('button', { name: 'Play remix', exact: true }).click();
-  await expect.poll(() => current.evaluate(audio => audio.currentTime)).toBeGreaterThan(0);
-  await current.evaluate(audio => { audio.currentTime = 20; });
+  expect(await loaded()).toBe(song.id);
+  await expect.poll(() => audio.evaluate(audio => audio.currentTime)).toBeGreaterThan(0);
+  await audio.evaluate(audio => { audio.currentTime = 20; });
   await page.getByRole('button', { name: 'Play original', exact: true }).click();
-  await expect.poll(() => original.evaluate(audio => audio.currentTime)).toBeGreaterThan(0);
-  expect(await current.evaluate(audio => audio.paused)).toBe(true);
-  await original.evaluate(audio => { audio.currentTime = 9; });
+  expect(await loaded()).toBe('original-recording');
+  await expect.poll(() => audio.evaluate(audio => audio.currentTime)).toBeGreaterThan(0);
+  expect(await audio.evaluate(audio => audio.currentTime)).toBeLessThan(20);
+  await audio.evaluate(audio => { audio.currentTime = 9; });
   await page.getByRole('button', { name: 'Play remix', exact: true }).click();
-  await expect.poll(() => current.evaluate(audio => audio.currentTime)).toBeGreaterThan(20);
-  expect(await original.evaluate(audio => audio.paused)).toBe(true);
-  expect(await original.evaluate(audio => audio.currentTime)).toBeGreaterThanOrEqual(9);
+  expect(await loaded()).toBe(song.id);
+  await expect.poll(() => audio.evaluate(audio => audio.currentTime)).toBeGreaterThan(20);
+  await page.getByRole('button', { name: 'Play original', exact: true }).click();
+  await expect.poll(() => audio.evaluate(audio => audio.currentTime)).toBeGreaterThanOrEqual(9);
+  expect(await audio.evaluate(audio => audio.paused)).toBe(false);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });
 
@@ -205,16 +210,18 @@ test('the comparison arrives collapsed, opens from the compare link, and stops t
   await page.route(`**/songs/${song.id}.json`, route => route.fulfill({ json: remix }));
   await page.route(`**/yehry3/songs/${song.id}`, route => route.fulfill({ json: { song: remix } }));
   await page.goto(`/lyrics/?song=${song.id}`);
-  const panel = page.locator('#compare-original'), original = panel.locator('audio');
+  const panel = page.locator('#compare-original'), audio = page.locator('#audio');
+  const original = panel.getByRole('button', { name: 'Play original', exact: true });
   await expect(panel.getByRole('heading', { name: 'Compare with the original' })).toBeVisible();
   await expect(original).toBeHidden();
   await page.getByRole('link', { name: `Compare ${song.title} with The original recording` }).click();
   await expect(original).toBeVisible();
-  await page.getByRole('button', { name: 'Play original', exact: true }).click();
-  await expect.poll(() => original.evaluate(audio => audio.currentTime)).toBeGreaterThan(0);
+  await original.click();
+  expect(await page.evaluate(() => window.yehry3Player.current?.id)).toBe('original-recording');
+  await expect.poll(() => audio.evaluate(audio => audio.currentTime)).toBeGreaterThan(0);
   await panel.locator('summary').click();
   await expect(original).toBeHidden();
-  await expect.poll(() => original.evaluate(audio => audio.paused)).toBe(true);
+  await expect.poll(() => audio.evaluate(audio => audio.paused)).toBe(true);
 });
 
 test('cards distinguish ready, unavailable, expired and unknown sources before opening the form', async ({ page }) => {

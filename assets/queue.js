@@ -1,3 +1,4 @@
+import { currentScope } from "./page-scope.js";
 import { songBadges } from "./song-badges.js";
 import { gpuWaitNotice } from "./gpu-status.js";
 import { songPlanLink } from "./song-plan.js";
@@ -9,6 +10,7 @@ import { completionAlerts } from "./notifications.js";
 import { announceAttention } from "./badge-sound.js";
 
 export async function publicQueue(main, { escape, date, badge, safeUrl }) {
+  const scope = currentScope();
   main.innerHTML = `<section class="queue-intro"><p class="eyebrow">The open studio</p><h1>Hear what’s<br><em>coming next.</em></h1><p class="lede">Everyone can follow the queue. Tony’s next song starts with someone’s wild idea.</p><a class="text-link" href="/distonyc/">Add your idea →</a></section><section class="queue-alerts"><div><h2>A little heads-up.</h2><p id="alert-status" class="small">Get an alert when anyone’s song is published. Keep any yehry3 tab open.</p></div><button class="quiet" id="enable-alerts">Enable browser alerts</button></section><p id="release-announcement" role="status" aria-live="polite"></p><div class="toolbar public-queue-toolbar"><p class="small" id="queue-updated">Opening the studio…</p><button class="quiet" id="refresh-queue">Refresh ↻</button></div><p class="field-error" id="queue-error" role="status"></p><section aria-labelledby="studio-title"><div class="section-heading"><h2 id="studio-title">In the studio</h2><span class="small" id="studio-count"></span></div><div id="in-studio"><p class="empty">Checking the studio…</p></div></section><section id="attention-section" class="public-attention" aria-labelledby="attention-title" hidden><div class="section-heading"><h2 id="attention-title">9/11'd Again</h2><span class="small" id="attention-count"></span></div><p class="small">Completed work stays saved while these requests wait for a retry.</p><div id="needs-attention"></div></section><section class="public-waiting" aria-labelledby="waiting-title"><div class="section-heading"><h2 id="waiting-title">Waiting for a turn</h2><span class="small" id="waiting-count"></span></div><p class="small">Shown in production order. Priorities can change before a song starts.</p><div id="waiting-queue"></div><div class="pagination"><button class="quiet" id="queue-prev">← Previous</button><span id="queue-page"></span><button class="quiet" id="queue-next">Next →</button></div></section><section class="public-releases" aria-labelledby="releases-title"><div class="section-heading"><h2 id="releases-title">Fresh from the studio</h2><a class="text-link" href="/">The whole collection →</a></div><div id="recent-releases"></div></section>`;
   const $ = (selector) => main.querySelector(selector);
   const observe = completionAlerts(
@@ -97,15 +99,15 @@ export async function publicQueue(main, { escape, date, badge, safeUrl }) {
     }
   };
   await refresh();
-  timer = setInterval(refresh, 30000);
-  document.addEventListener("visibilitychange", () => {
+  timer = scope.every(refresh, 30000);
+  scope.on(document, "visibilitychange", () => {
     if (!document.hidden) refresh();
   });
-  addEventListener("pagehide", () => clearInterval(timer));
-  addEventListener("pageshow", (event) => {
+  scope.on(window, "pagehide", () => clearInterval(timer));
+  scope.on(window, "pageshow", (event) => {
     if (event.persisted) {
       clearInterval(timer);
-      timer = setInterval(refresh, 30000);
+      timer = scope.every(refresh, 30000);
       refresh();
     }
   });
@@ -118,6 +120,7 @@ export function queueItemHref(song) {
 }
 
 export async function queueDetailsPage(main, { escape, date, badge, safeUrl }) {
+  const scope = currentScope();
   const id = new URLSearchParams(location.search).get("request");
   if (!/^distonyc-[a-f0-9]{24}$/.test(id || "")) {
     main.innerHTML = '<section class="queue-detail"><p class="eyebrow">The open studio</p><h1>This queue item is not available.</h1><a class="text-link" href="/queue/">The full queue →</a></section>';
@@ -136,6 +139,6 @@ export async function queueDetailsPage(main, { escape, date, badge, safeUrl }) {
     }
   }
   await refresh();
-  timer = setInterval(refresh, 30000);
-  addEventListener("pagehide", () => clearInterval(timer));
+  timer = scope.every(refresh, 30000);
+  scope.on(window, "pagehide", () => clearInterval(timer));
 }

@@ -39,9 +39,9 @@ test("initials come from the first and last words of a name", () => {
   assert.equal(initials(""), "?");
 });
 
-test("the build adds the room to pages with the shared header and to Fear & Hunger", async () => {
+test("the build adds the room to pages with the shared header, to Fear & Hunger, and to the other ordinary pages", async () => {
   const build = await readFile(new URL("../scripts/build.mjs", import.meta.url), "utf8");
-  assert.match(build, /class="site-header"[^\n]+fearhunger\/index\.html/);
+  assert.match(build, /class="site-header"[^\n]+fearhunger\/index\.html[^\n]+deetz\/index\.html[^\n]+404\.html[^\n]+wiseau\//);
   assert.match(build, /\/assets\/listeners\.js/);
   const css = await readFile(new URL("../assets/listeners.css", import.meta.url), "utf8");
   // The site's Content-Security-Policy has no 'unsafe-inline', so the module must not write style attributes.

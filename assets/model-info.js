@@ -19,7 +19,10 @@ export function modelInfoButton() {
   return '<button type="button" class="model-info-button" data-model-info="versions" aria-haspopup="dialog">Compare voices ⓘ</button>';
 }
 
+let mounted = false;
 export function mountModelInfo() {
+  if (mounted) return;
+  mounted = true;
   if (document.getElementById("model-comparison")) return;
   const dialog = document.createElement("dialog");
   dialog.id = "model-comparison";

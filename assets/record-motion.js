@@ -1,7 +1,9 @@
+import { currentScope } from "./page-scope.js";
 import { getRecordPreferences, watchRecordPreferences } from "./record-preferences.js";
 
 export function startRecordMotion(record, audio) {
   if (!record) return;
+  const scope = currentScope();
   const motion = matchMedia("(prefers-reduced-motion: reduce)");
   record.tabIndex = 0;
   record.setAttribute("role", "button");
@@ -136,12 +138,14 @@ export function startRecordMotion(record, audio) {
     }
   };
 
-  watchRecordPreferences(value => {
+  scope.onLeave(watchRecordPreferences(value => {
     preferences = value;
     syncSustainedSpin();
-  });
+  }));
+  scope.onLeave(() => { clearTimeout(timer); cancelAnimationFrame(coastFrame); cancelAnimationFrame(introFrame); clickAnimation?.cancel(); });
+  // The audio element outlives the page, so the record's hold on it ends with the page.
   for (const event of ["play", "playing", "pause", "ended", "emptied", "error"]) {
-    audio?.addEventListener(event, syncSustainedSpin);
+    if (audio) scope.on(audio, event, syncSustainedSpin);
   }
 
   record.addEventListener("animationend", (event) => {
@@ -150,7 +154,7 @@ export function startRecordMotion(record, audio) {
     schedule();
   });
   for (const event of ["pointerdown", "keydown", "scroll"]) {
-    window.addEventListener(event, activity, { passive: true });
+    scope.on(window, event, activity, { passive: true });
   }
   record.addEventListener("click", spin);
   record.addEventListener("keydown", (event) => {
@@ -158,13 +162,13 @@ export function startRecordMotion(record, audio) {
     event.preventDefault();
     spin();
   });
-  document.addEventListener("visibilitychange", () => {
+  scope.on(document, "visibilitychange", () => {
     syncSustainedSpin();
     startIntro();
     if (!document.hidden && !introPending && !record.classList.contains("record-spin-intro") &&
         !record.classList.contains("record-spin-idle") && !clickAnimation) schedule();
   });
-  motion.addEventListener("change", (event) => {
+  scope.on(motion, "change", (event) => {
     record.dataset.motion = event.matches ? "reduced" : "active";
     // These saved choices explicitly opt into animation, including on Windows
     // with animation effects disabled. Unrequested idle spins still stay off.
@@ -184,6 +188,6 @@ export function startRecordMotion(record, audio) {
 
   // The short arrival spin is intentional even with Windows animation effects off.
   // Reduced motion continues to disable automatic idle spins.
-  window.addEventListener("load", startIntro, { once: true });
+  scope.on(window, "load", startIntro, { once: true });
   startIntro();
 }

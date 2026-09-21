@@ -27,13 +27,20 @@ export function mountLoopToggle({ label = "Loop", className = "quiet loop-toggle
     looping = !looping;
     try { localStorage.setItem(key, String(looping)); } catch { /* This page still honors the choice. */ }
     apply();
+    // Another toggle in this page (the bar's and a lyric sheet's) follows without waiting for storage.
+    dispatchEvent(new CustomEvent("yehry3:loop", { detail: { from: element, looping } }));
   };
   const reread = () => { looping = saved(); apply(); };
-  addEventListener("storage", (event) => { if (event.key === key || event.key === null) reread(); });
-  addEventListener("pageshow", reread);
+  const follow = (event) => { if (event.detail?.from !== element) { looping = event.detail.looping; apply(); } };
+  const controller = new AbortController(), { signal } = controller;
+  addEventListener("storage", (event) => { if (event.key === key || event.key === null) reread(); }, { signal });
+  addEventListener("pageshow", reread, { signal });
+  addEventListener("yehry3:loop", follow, { signal });
   apply();
   return {
     element,
     attach(replacement) { audio = replacement || null; apply(); },
+    // A toggle on a page that is being left stops listening; the audio keeps its setting.
+    destroy() { controller.abort(); element.remove(); },
   };
 }

@@ -6,15 +6,16 @@ export function trackListening(audio, { songId, source, send, onRecorded = () =>
   let session, playing = false, previous;
   const retryTimers = new Set();
   function baseline() { previous = { time: audio.currentTime, wall: now() }; }
-  function start(id) {
-    session = { songId: id, requestId: crypto.randomUUID(), source, seconds: 0, sent: false };
+  // A song with no id, or a source that is not counted, starts no session (a mixtape plays unreported).
+  function start(id, origin = source) {
+    session = id && origin ? { songId: id, requestId: crypto.randomUUID(), source: origin, seconds: 0, sent: false } : null;
     playing = false;
     baseline();
   }
   async function report(listen, attempt = 0) {
     if (signal.aborted) return;
     try {
-      const result = await send({ songId: listen.songId, requestId: listen.requestId, source });
+      const result = await send({ songId: listen.songId, requestId: listen.requestId, source: listen.source });
       onRecorded(listen.songId, result);
     } catch (error) {
       // A lost response reuses its ID. Analytics failures never interrupt audio.
@@ -48,7 +49,7 @@ export function trackListening(audio, { songId, source, send, onRecorded = () =>
       session.sent = true;
       void report(session);
     }
-    start(session?.songId);
+    if (session) start(session.songId, session.source);
   }, { signal });
   if (songId) start(songId);
   return { start, stop() { controller.abort(); retryTimers.forEach(clearTimeout); retryTimers.clear(); } };

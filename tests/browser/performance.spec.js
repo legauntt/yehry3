@@ -29,6 +29,7 @@ test("lyric refresh preserves the playing audio element and current position", a
   await page.route(`**/yehry3/songs/${song.id}`, async route => { await gate; await route.fulfill({ json: { song: { ...song, title: "Fresh lyric title" } } }); });
   await page.goto(`/lyrics/?song=${song.id}`);
   await expect(page.locator("h1")).toHaveText(song.title);
+  await page.locator("#sheet-play").click();
   await page.locator("audio").evaluate(async audio => { window.playingAudio = audio; await audio.play(); audio.currentTime = 5; });
   release();
   await expect(page.locator("h1")).toHaveText("Fresh lyric title");

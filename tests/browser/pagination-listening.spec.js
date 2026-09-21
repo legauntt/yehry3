@@ -148,7 +148,7 @@ test("real main and lyric playback records durable stats, with cross-page dedupl
   await expect(page.locator("#listening-total")).toHaveText(String(count));
   await page.locator("#audio").evaluate(async audio => { audio.pause(); audio.currentTime = 60; await audio.play(); });
   await page.goto(`/lyrics/?song=${recording.id}`);
-  await page.locator("audio").evaluate(audio => audio.play());
+  await page.locator("#sheet-play").click();
   await expect.poll(() => reports.length, { timeout: 18000 }).toBe(2);
   expect(reports[1].counted).toBe(false);
   expect(reports[1].playCount).toBe(count);

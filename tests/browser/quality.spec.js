@@ -126,14 +126,16 @@ test("a song with issues remains playable and exposes its warning on every liste
   ]) {
     await page.goto(path);
     if (path.startsWith("/lyrics/")) {
-      const player = page.getByLabel("Play Samarie test recording");
+      // The site's one player takes the song when a line is chosen with nothing else playing.
+      const player = page.locator("#audio");
+      await expect(page.getByRole("button", { name: "Play Samarie test recording" })).toBeVisible();
+      const lyric = page.getByRole("button", { name: "The final words." });
+      await expect(lyric).toBeVisible();
+      await lyric.click();
       await expect(player).toHaveAttribute("src", /fear-and-hunger-dungeon-rock\.mp3$/);
       await expect
         .poll(() => player.evaluate((audio) => audio.readyState))
         .toBeGreaterThan(1);
-      const lyric = page.getByRole("button", { name: "The final words." });
-      await expect(lyric).toBeVisible();
-      await lyric.click();
       await expect(page).toHaveURL(/\/lyrics\/\?song=quality-song#lyric-line-2$/);
       await expect(lyric).toHaveClass(/is-linked/);
       await expect(lyric.getByText("Shared line")).toBeVisible();
@@ -144,7 +146,7 @@ test("a song with issues remains playable and exposes its warning on every liste
       await expect(linkedLyric).toHaveClass(/is-linked/);
       await expect(linkedLyric.getByText("Shared line")).toBeVisible();
       await expect
-        .poll(() => page.getByLabel("Play Samarie test recording").evaluate((audio) => audio.currentTime))
+        .poll(() => page.locator("#audio").evaluate((audio) => audio.currentTime))
         .toBeCloseTo(2.5, 1);
       const laterLyric = page.getByRole("button", { name: "Sing this last line." });
       await player.evaluate((audio) => {

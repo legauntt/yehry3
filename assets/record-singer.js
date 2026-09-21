@@ -1,3 +1,4 @@
+import { currentScope } from "./page-scope.js";
 import { watchSong } from "./song-data.js";
 import { lyricPassage, pickRecordSong, singableLines } from "./record-lyrics.js";
 import { getRecordPreferences, watchRecordPreferences } from "./record-preferences.js";
@@ -8,6 +9,7 @@ const betweenLyricsDelay = 2000;
 export function startRecordSinger(record, getSongs, { random = Math.random } = {}) {
   const sleeve = record?.closest(".sleeve");
   if (!record || !sleeve) return;
+  const scope = currentScope();
 
   const bubble = document.createElement("figure");
   bubble.className = "record-lyric";
@@ -101,19 +103,20 @@ export function startRecordSinger(record, getSongs, { random = Math.random } = {
 
   record.addEventListener("recordidle", () => { void sing(); });
   record.addEventListener("recordspin", () => { void sing({ withAudio: true }); });
-  watchRecordPreferences((preferences) => {
+  scope.onLeave(watchRecordPreferences((preferences) => {
     captionsEnabled = preferences.captions;
     lyricAudioEnabled = preferences.lyricAudio;
     if (!captionsEnabled) hide();
     if (!lyricAudioEnabled) stopAudio();
-  });
+  }));
+  scope.onLeave(() => { clearTimeout(advanceTimer); request++; stopAudio(); });
   const dismissForActivity = (event) => {
     if (event.type === "keydown" && event.target === record && ["Enter", " "].includes(event.key)) return;
     hide();
   };
   for (const event of ["pointerdown", "keydown", "scroll"])
-    window.addEventListener(event, dismissForActivity, { passive: true });
-  document.addEventListener("visibilitychange", () => {
+    scope.on(window, event, dismissForActivity, { passive: true });
+  scope.on(document, "visibilitychange", () => {
     if (!document.hidden) return;
     hide();
     stopAudio();

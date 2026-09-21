@@ -1,9 +1,8 @@
 import { showMessage, showToast } from "./message.js";
 import { songBadges, voiceModelBadge } from "./song-badges.js";
 import { pitchBadge } from "./pitch-badge.js";
-import { mountSides, sidesBadge } from "./sides.js";
+import { sidesBadge } from "./sides.js";
 import { musicBackendBadge } from "./music-provenance.js";
-import { mountLoopToggle } from "./loop.js";
 import { mountMusicBackend, paidConfirmation, PAID_BACKEND } from './music-backend.js';
 import { gpuWaiting, gpuWaitNotice } from "./gpu-status.js";
 import { mountGeneration, mountGenerationReview } from './generation.js';
@@ -30,8 +29,11 @@ import { api, login, logout, signedIn, loginPersistence, storage, savedPaidPassw
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 import { watchCompletions } from "./notifications.js";
 import { mountFavorites } from "./favorites.js";
-import { trackListening, listeningLabel } from "./listening.js";
-import { nowListening } from "./listeners.js";
+import { listeningLabel } from "./listening.js";
+import { player } from "./player.js";
+import { setRecordingLabel } from "./player-bar.js";
+import { definePage, navigate } from "./shell.js";
+import { currentScope } from "./page-scope.js";
 import { loadRemix, remixBadge, remixLink } from "./remix.js";
 import { draftRemixId, traceRemix } from "./remix-trace.js";
 import { recordingLabels, recordingLabel, recordingTitle } from "./recording-label.js";
@@ -42,8 +44,7 @@ import { announceAttention, badgeSoundIcon, hasBadgeSound, mountBadgeSounds } fr
 
 const $ = (selector, root = document) => root.querySelector(selector);
 const main = $("#main");
-const page = document.body.dataset.page;
-mountModelInfo();
+let page = document.body.dataset.page;
 const escape = (value) =>
   String(value ?? "").replace(
     /[&<>"']/g,
@@ -138,9 +139,6 @@ function safeUrl(value) {
     return "#";
   }
 }
-document
-  .querySelector(`[data-nav="${page}"]`)
-  ?.setAttribute("aria-current", "page");
 
 function songPublishedAt(song, recentPublishedAt) {
   for (const value of [song.publishedAt, recentPublishedAt]) {
@@ -163,6 +161,7 @@ function songMeta(song, recentPublishedAt) {
 }
 
 async function library() {
+  const scope = currentScope();
   const listeningOverview = `<details class="listening-overview"><summary>Listening activity</summary><div class="listening-body"><div class="listening-heading"><p class="small" id="listening-scope">Loading listening stats…</p><button type="button" class="quiet" id="most-listened" aria-pressed="false">Most listened to ↗</button></div><dl class="listening-totals"><div><dt>Total listens</dt><dd id="listening-total">—</dd></div><div><dt>Songs listened to</dt><dd id="listening-reach">—</dd></div><div><dt>Latest listen</dt><dd id="listening-latest">—</dd></div></dl></div></details>`;
   main.innerHTML = `
     <section class="hero">
@@ -179,11 +178,11 @@ async function library() {
       <div id="favorites"></div>${listeningOverview}<p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><div id="catalog-items"><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div></div><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1">← Previous page</button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1">Next page →</button></nav><p class="small listening-note">Listens are recorded after 10 seconds of listening, once per browser per song every 30 minutes. History starts September 2026.</p>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
-    <aside class="player" aria-label="Music player" hidden><div class="now-playing"><span class="eyebrow">On the turntable</span><strong id="now-title"></strong><span id="now-recording" hidden></span><span id="now-generator" hidden></span><span id="now-sides" class="sides" role="group" aria-label="Same song, two pitch settings" hidden></span></div><button id="previous" class="quiet" aria-label="Previous song">←</button><audio id="audio" controls preload="none"></audio><button id="next" class="quiet" aria-label="Next song">→</button><button id="share-song" class="quiet" aria-label="Share this song">Share ↗</button><a id="download" class="text-link" target="_blank" rel="noopener">MP3 ↗</a></aside>`;
+`;
   $("#catalog-items").insertAdjacentHTML("beforebegin", `<div class="catalog-view-bar"><p>A little cover art. A lot of personality.</p><div class="catalog-view-switch" role="group" aria-label="Song display"><button type="button" data-catalog-view="grid" aria-pressed="true" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Grid</button><button type="button" data-catalog-view="list" aria-pressed="false" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 4H5M8 4H18M2 10H5M8 10H18M2 16H5M8 16H18"/></svg>List</button></div></div>`);
   mountCatalogView($(".catalog-view-switch"), $("#tracks"));
   mountQualitySettings(main);
-  startRecordMotion($(".record", main), $("#audio", main));
+  startRecordMotion($(".record", main), player.audio);
   rotateSuggestions(main);
   const filters = [
     { id: "collection-filter", param: "collection", defaultValue: "all" },
@@ -231,8 +230,6 @@ async function library() {
   let songs = [],
     pending = [],
     visible = [],
-    queue = [],
-    current = null,
     nextVoteAt = null,
     online = false,
     voting = false,
@@ -269,11 +266,7 @@ async function library() {
   };
   const recentReleases = new Map();
   const freshWindow = 24 * 60 * 60 * 1000;
-  const audio = $("#audio");
-  const sides = mountSides($("#now-sides"), audio, { safeUrl, onSwitch: (side) => { $("#download").href = safeUrl(side.url); } });
-  const loop = mountLoopToggle();
-  loop.attach(audio);
-  $("#next").after(loop.element);
+  const audio = player.audio;
   const rowMarkup = new WeakMap();
   const favorites = mountFavorites($("#favorites"), { filter: true, onChange: () => {
     // Favorite history callbacks may run before our popstate listener. Restore
@@ -281,14 +274,13 @@ async function library() {
     restoreFilters(false);
     render({ preserveViewport: true });
   } });
-  const listening = trackListening(audio, {
-    source: "main", send: (body) => api("/listens", { method: "POST", body }),
-    onRecorded: (id, { playCount, lastPlayedAt }) => {
-      const song = songs.find((item) => item.id === id);
-      if (song) Object.assign(song, { playCount, lastPlayedAt });
-      render({ preserveViewport: true });
-    },
-  });
+  // The player outlives this page; what it reports is shown here while the page is.
+  player.on("recorded", ({ id, stats: { playCount, lastPlayedAt } }) => {
+    const song = songs.find((item) => item.id === id);
+    if (song) Object.assign(song, { playCount, lastPlayedAt });
+    render({ preserveViewport: true });
+  }, scope.signal);
+  player.on("change", () => render(), scope.signal);
   document.querySelectorAll("[data-catalog-pagination]").forEach((nav) => {
     nav.addEventListener("click", (event) => {
       const button = event.target.closest("[data-catalog-page]");
@@ -419,12 +411,7 @@ async function library() {
     filterSummary.hidden = !activeFilters.length;
     filterSummary.innerHTML = activeFilters.map((label) => `<span class="active-filter">${escape(label)}</span>`).join("");
     const recordings = recordingLabels(songs, (song) => songPublishedAt(song, recentReleases.get(song.id)));
-    const currentRecording = recordings.get(current?.id);
-    $("#now-recording").hidden = !currentRecording;
-    $("#now-recording").innerHTML = recordingLabel(currentRecording, escape);
-    const playing = songs.find(song => song.id === current?.id) || current;
-    $("#now-generator").innerHTML = playing ? songBadges(playing) : "";
-    $("#now-generator").hidden = !playing;
+    if (player.current) setRecordingLabel(player.current.id, recordingLabel(recordings.get(player.current.id), escape));
     const query = $("#search").value.toLowerCase();
     const collection = $("#collection-filter").value;
     // Totals cover every listener; the browser's own flag keeps a just-sent signal from vanishing.
@@ -561,50 +548,13 @@ async function library() {
   }
   async function play(song, newQueue) {
     if (!song) return;
-    if (newQueue) queue = [...newQueue];
-    current = song;
-    $(".player").hidden = false;
-    $("#now-title").textContent = song.title;
-    $("#download").href = safeUrl(song.url);
-    audio.src = safeUrl(song.url);
-    sides.show(song);
-    listening.start(song.id);
-    nowListening(audio, song.id);
-    render();
-    try {
-      await audio.play();
-    } catch {
-      message("Press play in the player to start this song.");
-    }
-  }
-  // The link is the song's own page, whose OpenGraph metadata gives chat previews a title and
-  // description; it forwards to the home page and the same reveal a completion alert uses.
-  async function shareCurrent() {
-    if (!current) return;
-    const url = new URL(`/song/${encodeURIComponent(current.id)}/`, location.origin);
-    // Phones get the native share sheet; desktop browsers copy, which is what a desktop visitor wants.
-    if (navigator.share && matchMedia("(pointer: coarse)").matches) {
-      try {
-        await navigator.share({ title: current.title, text: `Listen to “${current.title}” on yehry3`, url: url.href });
-        return;
-      } catch (error) {
-        if (error.name === "AbortError") return;
-      }
-    }
-    try {
-      await navigator.clipboard.writeText(url.href);
-      message(`Link to “${current.title}” copied.`);
-    } catch {
-      window.prompt("Copy this link to share the song", url.href);
-    }
+    await player.play(song, newQueue, { source: "main" });
   }
   function syncPlaybackButtons() {
-    const isPlaying = Boolean(current && !audio.paused && !audio.ended && !audio.error);
-    $(".player").classList.toggle("is-playing", isPlaying);
-    $(".player .eyebrow").textContent = isPlaying ? "Now playing" : "Paused";
+    const isPlaying = player.playing;
     document.querySelectorAll("#tracks [data-play]").forEach((button) => {
       const song = songs.find((item) => item.id === button.dataset.play);
-      const playing = isPlaying && current?.id === button.dataset.play;
+      const playing = isPlaying && player.current?.id === button.dataset.play;
       button.dataset.playing = String(playing);
       button.setAttribute("aria-pressed", String(playing));
       button.setAttribute("aria-label", `${playing ? "Pause" : "Play"} ${song?.title || "song"}`);
@@ -613,20 +563,9 @@ async function library() {
   }
   async function togglePlay(song, newQueue) {
     if (!song) return;
-    if (current?.id !== song.id || !audio.src) return play(song, newQueue);
-    if (!audio.paused && !audio.ended) {
-      audio.pause();
-      return;
-    }
-    try {
-      await audio.play();
-    } catch {
-      message("Press play in the player to resume this song.");
-    }
-  }
-  function next(offset) {
-    const index = queue.findIndex((song) => song.id === current?.id) + offset;
-    if (index >= 0 && index < queue.length) play(queue[index]);
+    // A song a lyric sheet or mixtape started, played on from here, continues through this list.
+    if (newQueue && player.current?.id === song.id && player.source !== "main") player.requeue(newQueue, { source: "main" });
+    await player.toggle(song, newQueue, { source: "main" });
   }
   // A completion alert lands here with the released song in the URL fragment.
   // Clear whatever filters or page would otherwise hide it, then point at it.
@@ -696,7 +635,8 @@ async function library() {
     try { revealSong(decodeURIComponent(location.hash.slice(1))); }
     catch { /* A fragment that is not a song ID reveals nothing. */ }
   };
-  addEventListener("hashchange", revealFromHash);
+  scope.on(window, "hashchange", revealFromHash);
+  scope.onLeave(() => { stopCentring?.(); clearTimeout(revealing); clearTimeout(sharedTimer); });
   $("#tracks").addEventListener("click", async (event) => {
     const playButton = event.target.closest("[data-play]");
     if (playButton)
@@ -847,11 +787,11 @@ async function library() {
   $("#search").addEventListener("blur", () => {
     editingSearch = false;
   });
-  window.addEventListener("popstate", () => {
+  scope.on(window, "popstate", () => {
     restoreFilters();
     render();
   });
-  window.addEventListener("pageshow", (event) => {
+  scope.on(window, "pageshow", (event) => {
     if (event.persisted) {
       restoreFilters();
       render();
@@ -866,17 +806,8 @@ async function library() {
     }
     play(shuffled[0], shuffled);
   };
-  $("#share-song").onclick = shareCurrent;
-  $("#previous").onclick = () => next(-1);
-  $("#next").onclick = () => next(1);
   for (const event of ["play", "playing", "pause", "ended", "emptied", "error"])
-    audio.addEventListener(event, syncPlaybackButtons);
-  audio.onended = () => next(1);
-  audio.onerror = () =>
-    message(
-      "This track could not load. Try another song or open its MP3 link.",
-      true,
-    );
+    audio.addEventListener(event, syncPlaybackButtons, { signal: scope.signal });
   try {
     const hidden = knownArchived();
     songs = (await (await fetch("/catalog-summary.json")).json()).songs.filter((song) => !hidden.has(song.id));
@@ -895,14 +826,14 @@ async function library() {
   // Only our own note is cleared, and before the reveal, so its going cannot move the centred row.
   if ($("#message")?.firstChild?.textContent === waitingNote) message("");
   revealFromHash();
-  setInterval(cooldown, 15000);
-  let refreshTimer = setInterval(refresh, 30000);
-  document.addEventListener("visibilitychange", () => { if (!document.hidden) refresh(); });
-  window.addEventListener("pagehide", () => clearInterval(refreshTimer));
-  window.addEventListener("pageshow", (event) => {
+  scope.every(cooldown, 15000);
+  let refreshTimer = scope.every(refresh, 30000);
+  scope.on(document, "visibilitychange", () => { if (!document.hidden) refresh(); });
+  scope.on(window, "pagehide", () => clearInterval(refreshTimer));
+  scope.on(window, "pageshow", (event) => {
     if (event.persisted) {
       clearInterval(refreshTimer);
-      refreshTimer = setInterval(refresh, 30000);
+      refreshTimer = scope.every(refresh, 30000);
       refresh();
     }
   });
@@ -949,6 +880,7 @@ function loginView(role, onSuccess) {
 }
 
 async function requests() {
+  const scope = currentScope();
   let draft = null;
   let remix = null, remixUsed = false, remixActive = false, keepSavedRequest = false;
   function finishRemix() {
@@ -1337,6 +1269,7 @@ function dehakaPanel(doc, adapting, canRetry) {
   return `<section class="dehaka-panel" aria-label="Dehaka recovery context"><div class="dehaka-clipart"><svg viewBox="0 0 150 150" role="img" aria-label="Corny Dehaka lizard clipart"><title>Corny Dehaka lizard clipart</title><path class="dehaka-spines" d="M23 62 5 47l27-2L20 19l30 18L55 7l19 27L93 9l-2 31 31-14-16 28 35 2-29 18"/><path class="dehaka-head" d="M30 56c8-23 30-34 57-26 31 9 46 39 33 66-10 21-35 36-64 27-25-7-37-39-26-67Z"/><path class="dehaka-jaw" d="M42 91c24 9 47 7 70-3-3 26-22 39-50 34-13-3-20-13-20-31Z"/><circle class="dehaka-eye" cx="79" cy="65" r="12"/><circle class="dehaka-pupil" cx="83" cy="65" r="4"/><path class="dehaka-scar" d="m66 48 24 32M62 58l34 11"/><path class="dehaka-teeth" d="m58 99 7 12 7-10 8 13 7-15 8 10"/></svg></div><div class="dehaka-context"><p class="eyebrow">Dehaka recovery console</p><blockquote>“${escape(dehakaQuote())}”</blockquote><dl class="dehaka-facts"><div><dt>Current stage</dt><dd>${escape(doc.workerProgress?.stage || (doc.status === "failed" ? "Stopped with saved work retained" : labels[doc.status] || doc.status))}</dd></div><div><dt>Recorded queue activity</dt><dd>${attempts} attempt or recovery event${attempts === 1 ? "" : "s"}</dd></div>${shepherd ? `<div><dt>Latest guidance</dt><dd>${escape(shepherd.guidance)}${shepherd.requestedAt ? ` · ${date(shepherd.requestedAt)}` : ""}</dd></div>` : ""}<div><dt>Suggested next step</dt><dd>${escape(dehakaNextStep(doc, adapting, canRetry))}</dd></div></dl><h3>Repair & attempt history</h3>${recent.length ? `<ol class="dehaka-history">${recent.map((entry) => `<li><time>${date(entry.at)}</time><span>${escape(entry.actor)} · ${escape(entry.action)}${entry.status ? ` → ${escape(labels[entry.status] || entry.status)}` : ""}</span></li>`).join("")}</ol>` : '<p class="small">No earlier recovery activity is recorded for this request.</p>'}</div></section>`;
 }
 async function admin() {
+  const scope = currentScope();
   const adminParams = new URLSearchParams(location.search);
   const requestedFilter = adminParams.get("status") === "failed" ? "attention" : adminParams.get("status");
   const sortOptions = { newest: "Newest first", oldest: "Oldest first", priority: "Queue priority" };
@@ -1657,7 +1590,7 @@ async function admin() {
         });
         if (response.draftId) {
           storage.set("draft", response.draftId);
-          location.assign("/distonyc/");
+          navigate("/distonyc/");
           return;
         }
         message(kind === "shepherd" ? "Dehaka is adapting this request." : "Queue updated.");
@@ -1714,27 +1647,34 @@ async function admin() {
   }
   if (!signedIn("admin")) loginView("admin", load);
   else await load();
-  setInterval(() => {
+  scope.every(() => {
     if (signedIn("admin") && !document.hidden && !document.activeElement?.matches("input, textarea, select") && !$(".queue-card details[open]")) load();
   }, 30000);
-  setInterval(() => {
+  scope.every(() => {
     if (signedIn("admin") && !document.hidden && data) loadThreads(true);
   }, 15000);
+  scope.onLeave(() => { clearTimeout(songTimer); });
 }
 
-mountBadgeSounds();
-try {
-  if (page !== "queue") watchCompletions();
-  if (page === "requests") await requests();
-  else if (page === "admin") await admin();
-  else if (page === "queue")
-    await publicQueue(main, { escape, date, badge, safeUrl });
-  else if (page === "queue-details")
-    await queueDetailsPage(main, { escape, date, badge, safeUrl });
-  else if (page === "lyrics") await lyricsPage(main, { escape, safeUrl });
-  else if (page === "original-prompt")
-    await originalPromptPage(main, { escape, safeUrl });
-  else await library();
-} catch (error) {
-  message(error.message, true);
+async function mountPage() {
+  page = document.body.dataset.page;
+  document.querySelector(`[data-nav="${page}"]`)?.setAttribute("aria-current", "page");
+  mountModelInfo();
+  mountBadgeSounds();
+  try {
+    if (page !== "queue") watchCompletions();
+    if (page === "requests") await requests();
+    else if (page === "admin") await admin();
+    else if (page === "queue")
+      await publicQueue(main, { escape, date, badge, safeUrl });
+    else if (page === "queue-details")
+      await queueDetailsPage(main, { escape, date, badge, safeUrl });
+    else if (page === "lyrics") await lyricsPage(main, { escape, safeUrl });
+    else if (page === "original-prompt")
+      await originalPromptPage(main, { escape, safeUrl });
+    else await library();
+  } catch (error) {
+    message(error.message, true);
+  }
 }
+definePage(import.meta.url, mountPage);

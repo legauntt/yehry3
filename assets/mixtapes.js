@@ -7,53 +7,62 @@ import { lyricsHref } from "./song-links.js";
 import { tapeKey, tapeColors, emptyTape, validateTape, decodeTape, tapeDuration, tapeIdPattern, tapeHref } from "./mixtape-data.js";
 import { drawInk, mountHandwriting, sideInk, canDraw } from "./tape-handwriting.js";
 import { artImage, drawClipart } from "./tape-art.js";
-import { nowListening } from "./listeners.js";
+import { player } from "./player.js";
+import { currentScope } from "./page-scope.js";
+import { definePage, navigate } from "./shell.js";
 
 const main = document.querySelector("#main");
-watchCompletions();
-addEventListener("hashchange", event => {
-  const payload = url => new URLSearchParams(new URL(url).hash.slice(1)).get("tape");
-  if (payload(event.oldURL) !== payload(event.newURL)) location.reload();
-});
 const escape = value => String(value ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const safeAudio = song => {
   try { const url = new URL(song?.url, location.origin); return ["https:", "http:"].includes(url.protocol) && song?.url ? url.href : ""; }
   catch { return ""; }
 };
 const clock = seconds => Number.isFinite(seconds) && seconds >= 0 ? `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}` : "—:—";
-const pathId = location.pathname.replace(/^\/mixtapes\/?/, "").replace(/\/$/, "");
-// /mixtapes/ lists every published tape, /mixtapes/new is an empty tape, and /mixtapes/<id> (or an old #tape= link) opens one.
-const editing = pathId === "new";
-let sharedId = pathId && pathId !== "index.html" && !editing ? pathId : null;
-let tape = emptyTape(), shared = Boolean(sharedId) || !editing && new URLSearchParams(location.hash.slice(1)).has("tape"), invalid = false, catalog = new Map();
-const drawEnabled = canDraw();
-let lastShare = null;
-// Separate entry identities keep repeated songs and the playing recording stable during edits.
-let serial = 0, slots, currentKey = null, activeSide = "a";
+// What a visit to a mixtape page holds, set afresh each time the page is shown (see mountPage).
+let scope, pathId, editing, sharedId, tape, shared, invalid, catalog, drawEnabled, lastShare, serial, slots, currentKey, activeSide;
 const newSlot = id => ({ id, key: ++serial });
-try {
-  if (sharedId) {
-    if (!tapeIdPattern.test(sharedId)) throw new Error("This mixtape could not be found. Check the link and try again.");
-    const saved = await publicApi(`/mixtapes/${sharedId}`);
-    tape = validateTape(saved.tape);
-    lastShare = { snapshot: JSON.stringify(tape), id: sharedId };
+async function mountPage() {
+  scope = currentScope();
+  watchCompletions();
+  scope.on(window, "hashchange", event => {
+    const payload = url => new URLSearchParams(new URL(url).hash.slice(1)).get("tape");
+    if (payload(event.oldURL) !== payload(event.newURL)) location.reload();
+  });
+  pathId = location.pathname.replace(/^\/mixtapes\/?/, "").replace(/\/$/, "");
+  // /mixtapes/ lists every published tape, /mixtapes/new is an empty tape, and /mixtapes/<id> (or an old #tape= link) opens one.
+  editing = pathId === "new";
+  sharedId = pathId && pathId !== "index.html" && !editing ? pathId : null;
+  tape = emptyTape(); shared = Boolean(sharedId) || !editing && new URLSearchParams(location.hash.slice(1)).has("tape"); invalid = false; catalog = new Map();
+  drawEnabled = canDraw();
+  lastShare = null;
+  // Separate entry identities keep repeated songs and the playing recording stable during edits.
+  serial = 0; currentKey = null; activeSide = "a";
+  try {
+    if (sharedId) {
+      if (!tapeIdPattern.test(sharedId)) throw new Error("This mixtape could not be found. Check the link and try again.");
+      const saved = await publicApi(`/mixtapes/${sharedId}`);
+      tape = validateTape(saved.tape);
+      lastShare = { snapshot: JSON.stringify(tape), id: sharedId };
+    }
+    else if (shared) tape = decodeTape(new URLSearchParams(location.hash.slice(1)).get("tape"));
+    else if (editing) {
+      // Only a reload of this tab resumes a draft; the gallery's New button clears it first.
+      const saved = sessionStorage.getItem(tapeKey);
+      if (saved) tape = validateTape(JSON.parse(saved));
+    }
+  } catch (error) {
+    if (shared) {
+      main.innerHTML = `<section class="empty"><h1>This mixtape could not open.</h1><p>${escape(error.message)}</p><div class="actions"><button class="primary" id="retry-tape">Try again</button><a class="text-link" href="/mixtapes/">All mixtapes</a></div></section>`;
+      main.querySelector("#retry-tape").onclick = () => location.reload();
+      invalid = true;
+    }
   }
-  else if (shared) tape = decodeTape(new URLSearchParams(location.hash.slice(1)).get("tape"));
-  else if (editing) {
-    // Only a reload of this tab resumes a draft; the gallery's New button clears it first.
-    const saved = sessionStorage.getItem(tapeKey);
-    if (saved) tape = validateTape(JSON.parse(saved));
-  }
-} catch (error) {
-  if (shared) {
-    main.innerHTML = `<section class="empty"><h1>This mixtape could not open.</h1><p>${escape(error.message)}</p><div class="actions"><button class="primary" id="retry-tape">Try again</button><a class="text-link" href="/mixtapes/">All mixtapes</a></div></section>`;
-    main.querySelector("#retry-tape").onclick = () => location.reload();
-    invalid = true;
-  }
+  slots = { a: tape.a.map(newSlot), b: tape.b.map(newSlot) };
+  if (!editing && !shared) await gallery();
+  else if (!invalid) await mount();
 }
-slots = { a: tape.a.map(newSlot), b: tape.b.map(newSlot) };
-if (!editing && !shared) gallery();
-else if (!invalid) mount();
+definePage(import.meta.url, mountPage);
+
 
 async function gallery() {
   document.title = "Mixtapes · yehry3";
@@ -93,7 +102,7 @@ async function gallery() {
       state.innerHTML = `<section class="empty gallery-empty"><h2>The gallery could not load.</h2><p>${escape(error.message || "The studio is temporarily unavailable.")}</p><div class="actions"><button class="primary" id="gallery-retry">Try again</button></div></section>`;
     } finally { busy = false; more.disabled = false; }
   }
-  main.addEventListener("click", event => {
+  scope.on(main, "click", event => {
     // New always starts from an empty tape, even if this tab still holds an old draft.
     if (event.target.closest("[data-new-tape]")) try { sessionStorage.removeItem(tapeKey); } catch {}
     if (event.target.closest("#gallery-retry")) load();
@@ -122,21 +131,23 @@ async function mount() {
         <div class="deck-timeline"><span id="tape-elapsed">0:00</span><label class="sr-only" for="tape-seek">Seek in song</label><input id="tape-seek" type="range" min="0" max="100" step="0.1" value="0" disabled><span id="tape-duration">0:00</span></div>
         <div class="deck-transport"><button id="tape-prev" aria-label="Previous song" disabled><span aria-hidden="true">|◀</span><small>PREV</small></button><button id="play-tape" aria-label="Play the mixtape" disabled><span id="tape-play-icon" aria-hidden="true">▶</span><small id="tape-play-label">PLAY</small></button><button id="tape-stop" aria-label="Stop playback" disabled><span aria-hidden="true">■</span><small>STOP</small></button><button id="tape-next" aria-label="Next song" disabled><span aria-hidden="true">▶|</span><small>NEXT</small></button><button id="flip-tape" aria-label="Flip to side B"><span aria-hidden="true">⇄</span><small>FLIP</small></button></div>
         <div class="deck-bottom"><div class="deck-sides" role="group" aria-label="Cassette side"><button data-load-side="a" aria-pressed="true">Side A</button><button data-load-side="b" aria-pressed="false">Side B</button></div><label class="deck-volume" for="tape-volume">VOL<input id="tape-volume" aria-label="Volume" type="range" min="0" max="1" step="0.01" value="1"></label><span>AUTO REVERSE</span></div>
-        <audio preload="metadata" hidden></audio>
       </section>
     </section>
     <section class="tape-edit" aria-label="Personalize your tape" ${shared ? "hidden" : ""}><div><label for="tape-name">Mixtape name</label><input id="tape-name" maxlength="80"></div><div><label for="tape-color">Sleeve color</label><select id="tape-color">${tapeColors.map(color => `<option value="${color}">${color[0].toUpperCase() + color.slice(1)}</option>`).join("")}</select></div><div class="author-field">${authorFieldFor("your mixtape in the gallery")}</div><p class="small">Two sides. Two stories.<br>Give each one its own label.</p>
       <div class="tape-label-editors"><div class="label-editors-head"><div><h3>Side labels</h3><p class="small">${drawEnabled ? "Every label is drawn by hand. Write with a mouse, finger or pen, add clipart, or start from a pre-drawn label." : "This device can’t draw labels, so your tape will show plain Side A and Side B. You can still add clipart."}</p></div>${drawEnabled ? '<button class="quiet" id="pre-draw">Pre-draw Side A &amp; B</button>' : ""}</div>${["a", "b"].map(side => `<div class="tape-label-editor"${drawEnabled ? ` data-label-editor="${side}"` : ""}><h4>Side ${side.toUpperCase()}</h4>${drawEnabled ? `<canvas class="handwriting-pad" aria-label="Draw a handwritten label for side ${side.toUpperCase()}" role="img"></canvas><div class="actions"><button class="quiet" data-ink-undo>Undo stroke</button><button class="quiet" data-ink-clear>Clear drawing</button></div><p class="small" data-ink-status role="status"></p>` : ""}<div class="tape-art-picker" data-art-side="${side}"><h5>Side ${side.toUpperCase()} clipart</h5><div class="tape-art-preview" data-art-preview></div><label for="art-words-${side}">What should it be?</label><input id="art-words-${side}" data-art-words maxlength="80" autocomplete="off" enterkeyhint="done" placeholder="a robot in sunglasses, blue, holding a balloon"><div class="actions"><button class="quiet" data-art-roll>🎲 Draw one</button><button class="quiet" data-art-clear>Remove clipart</button></div><p class="small" data-art-status role="status" aria-live="polite">Try a character (robot, ghost, guitar…), a color, sunglasses, a balloon, wink or dance. Leave it blank for a surprise.</p></div></div>`).join("")}</div></section>
     <div class="tape-workspace"><section class="tape-tracklist" aria-label="Your tracklist"><div class="section-heading"><h2>The running order.</h2><span class="small" id="tape-count"></span></div><p class="small">${shared ? "Pick a track to start there. Side B follows Side A automatically." : "Click a title to listen. Drag to reorder, or use the arrow buttons."}</p><div class="tape-sides" id="tape-sides"></div></section>
       <section class="tape-picker" id="tape-picker" ${shared ? "hidden" : ""}><p class="eyebrow">The record shelf</p><h2>Find your next track.</h2><div class="tape-starter"><span class="small">Need a starting point?</span><button class="quiet" id="tape-surprise" disabled>Add a surprise mix ↗</button></div><label class="sr-only" for="tape-search">Find a song</label><input type="search" id="tape-search" placeholder="Search the collection…"><p class="small" id="tape-results" role="status"></p><div id="tape-catalog"><p>Getting the records out…</p></div></section>
-    </div><aside class="tape-dock" aria-label="Quick playback controls" hidden><div><span class="eyebrow">On the tape</span><strong id="tape-mini-now"></strong></div><button class="quiet" id="tape-mini-toggle" aria-label="Pause from mini player">Ⅱ</button><a class="text-link" href="#tape-deck">Player ↑</a></aside>`;
+    </div>`;
   const $ = selector => main.querySelector(selector);
   const status = text => { $("#tape-status").textContent = text; };
-  const audio = $("audio");
+  // The deck plays on the site's one player, so a tape goes on playing (in the bottom bar) when the visitor leaves this page.
+  const audio = player.audio, tapeSource = `tape:${sharedId || "new"}`;
+  const mine = () => player.source === tapeSource && Boolean(player.current);
+  const loadedKey = () => mine() ? player.key : null;
   const entries = () => ["a", "b"].flatMap(side => slots[side].map(entry => ({ ...entry, side, song: catalog.get(entry.id) })));
   const playable = () => entries().filter(entry => safeAudio(entry.song));
   const current = () => entries().find(entry => entry.key === currentKey);
-  let loadedKey = null, playRequest = 0, deckVisible = true, shareBusy = false;
+  let shareBusy = false;
 
   function renderLabel() {
     // Labels are drawn. Where a device can't draw (or nothing is drawn) the label reads "Side A" / "Side B"; an older typed label still wins.
@@ -166,12 +177,12 @@ async function mount() {
 
   function syncPlayer() {
     const entry = current(), queue = playable(), index = queue.findIndex(item => item.key === currentKey);
-    const playing = !audio.paused && !audio.ended;
+    const playing = mine() && player.playing, ended = mine() && audio.ended;
     if (entry) activeSide = entry.side;
     $(".tape-deck").dataset.playing = String(playing);
     $("#cassette-side").textContent = `SIDE ${activeSide.toUpperCase()}`;
     renderLabel();
-    $("#tape-mode").textContent = `${playing ? "PLAYING" : audio.ended ? "TAPE FINISHED" : loadedKey ? "PAUSED" : "READY"} · SIDE ${activeSide.toUpperCase()}`;
+    $("#tape-mode").textContent = `${playing ? "PLAYING" : ended ? "TAPE FINISHED" : loadedKey() !== null ? "PAUSED" : "READY"} · SIDE ${activeSide.toUpperCase()}`;
     $("#tape-now").textContent = entry?.song?.title || (slots[activeSide].length ? "Your selection is ready." : `Side ${activeSide.toUpperCase()} is a blank canvas.`);
     $("#tape-counter").textContent = entry ? `Track ${slots[entry.side].findIndex(item => item.key === entry.key) + 1} of ${slots[entry.side].length} on this side` : "Press play. Stay a while.";
     $("#play-tape").disabled = !queue.length;
@@ -180,11 +191,7 @@ async function mount() {
     $("#tape-play-label").textContent = playing ? "PAUSE" : "PLAY";
     $("#tape-prev").disabled = index <= 0;
     $("#tape-next").disabled = index < 0 || index >= queue.length - 1;
-    $("#tape-stop").disabled = !loadedKey;
-    $(".tape-dock").hidden = !loadedKey || deckVisible;
-    $("#tape-mini-now").textContent = entry?.song?.title || "Mixtape";
-    $("#tape-mini-toggle").textContent = playing ? "Ⅱ" : "▶";
-    $("#tape-mini-toggle").setAttribute("aria-label", `${playing ? "Pause" : "Play"} from mini player`);
+    $("#tape-stop").disabled = loadedKey() === null;
     $("#flip-tape").setAttribute("aria-label", `Flip to side ${activeSide === "a" ? "B" : "A"}`);
     main.querySelectorAll("[data-load-side]").forEach(button => button.setAttribute("aria-pressed", String(button.dataset.loadSide === activeSide)));
     main.querySelectorAll(".tape-track").forEach(row => {
@@ -194,13 +201,13 @@ async function mount() {
     });
   }
   function syncTime() {
-    const duration = audio.duration, seekable = Boolean(loadedKey) && Number.isFinite(duration) && duration > 0;
-    $("#tape-elapsed").textContent = clock(audio.currentTime);
+    const duration = audio.duration, seekable = loadedKey() !== null && Number.isFinite(duration) && duration > 0;
+    $("#tape-elapsed").textContent = clock(loadedKey() !== null ? audio.currentTime : 0);
     $("#tape-duration").textContent = seekable ? clock(duration) : "0:00";
     $("#tape-seek").disabled = !seekable;
     $("#tape-seek").max = seekable ? duration : 100;
     $("#tape-seek").value = seekable ? audio.currentTime : 0;
-    $("#tape-seek").setAttribute("aria-valuetext", `${clock(audio.currentTime)} of ${seekable ? clock(duration) : "0:00"}`);
+    $("#tape-seek").setAttribute("aria-valuetext", `${clock(loadedKey() !== null ? audio.currentTime : 0)} of ${seekable ? clock(duration) : "0:00"}`);
   }
   function render() {
     $(".tape-sleeve").dataset.color = tape.color;
@@ -226,7 +233,21 @@ async function mount() {
       return `<div class="tape-pick"><div><strong>${escape(song.title)}</strong><span class="small">${clock(song.duration)}${sides.length ? ` · On side ${sides.map(side => side.toUpperCase()).join(" + ")}` : ""}</span></div><div class="tape-adds"><button class="quiet" data-add="${escape(song.id)}" data-to="a" aria-label="Add ${escape(song.title)} to side A" ${full || !safeAudio(song) ? "disabled" : ""}>+ A</button><button class="quiet" data-add="${escape(song.id)}" data-to="b" aria-label="Add ${escape(song.title)} to side B" ${full || !safeAudio(song) ? "disabled" : ""}>+ B</button></div></div>`;
     }).join("") : '<p class="small tape-no-results">No songs match that title. Try a different search.</p>';
   }
-  function changed() { save(); render(); renderCatalog(); }
+  // Editing the tape while it plays changes what plays next, not what is playing.
+  function requeue(key = currentKey) {
+    const queue = playable();
+    player.requeue(queue.map(item => item.song), { keys: queue.map(item => item.key), key });
+  }
+  function changed() { save(); render(); renderCatalog(); if (mine()) requeue(); }
+  // Coming back to a tape that is still playing: pick up where the deck left off.
+  function adopt() {
+    if (!mine()) return;
+    const queue = playable(), song = player.current;
+    const entry = queue[player.index]?.song.id === song.id ? queue[player.index] : queue.find(item => item.song.id === song.id);
+    if (!entry) return;
+    currentKey = entry.key; activeSide = entry.side;
+    requeue(entry.key);
+  }
   // Like a song request, the name you used last time fills in for you; clearing it here clears it for next time too.
   if (!shared && !tape.authoredBy) { const remembered = savedAuthor().trim().slice(0, 100); if (remembered) tape.authoredBy = remembered; }
   $("#tape-name").value = tape.name;
@@ -291,7 +312,8 @@ async function mount() {
     $("#tape-status").textContent += ` Added ${additions.length} surprise tracks across the two sides. Keep the ones you love.`;
   };
   function resetAudio() {
-    playRequest++; audio.pause(); audio.removeAttribute("src"); audio.load(); loadedKey = null; currentKey = null; syncTime();
+    if (mine()) player.clear();
+    currentKey = null; syncTime();
   }
   $("#tape-sides").onclick = event => {
     const sidePlay = event.target.closest("[data-side-play]");
@@ -333,16 +355,22 @@ async function mount() {
   async function play(key) {
     const entry = playable().find(item => item.key === key);
     if (!entry) return;
-    const request = ++playRequest;
     currentKey = key; activeSide = entry.side;
-    if (loadedKey !== key) { audio.src = safeAudio(entry.song); loadedKey = key; }
-    nowListening(audio, entry.song.id);
-    if (audio.ended) audio.currentTime = 0;
+    if (loadedKey() === key) {
+      // The recording is already loaded here: carry on (from the top if the tape had run out).
+      if (audio.ended) audio.currentTime = 0;
+      syncPlayer();
+      if (await player.resume() === false) status("Press play to start this song, or try the next recording.");
+      syncPlayer();
+      return;
+    }
     syncPlayer();
-    try { await audio.play(); } catch { if (request === playRequest) status("Press play to start this song, or try the next recording."); }
+    const queue = playable();
+    const started = await player.play(entry.song, queue.map(item => item.song), { source: tapeSource, keys: queue.map(item => item.key), key });
+    if (started === false && loadedKey() === key) status("Press play to start this song, or try the next recording.");
     syncPlayer();
   }
-  function loadSide(side, autoplay = !audio.paused && !audio.ended) {
+  function loadSide(side, autoplay = mine() && player.playing) {
     resetAudio(); activeSide = side;
     const entry = playable().find(item => item.side === side);
     if (entry) { currentKey = entry.key; if (autoplay) play(entry.key); }
@@ -354,22 +382,23 @@ async function mount() {
     if (index >= 0 && queue[index + direction]) play(queue[index + direction].key);
   }
   $("#play-tape").onclick = () => {
-    if (!audio.paused && !audio.ended) { playRequest++; audio.pause(); return; }
+    if (mine() && player.playing) { player.pause(); return; }
     const entry = current() || playable().find(item => item.side === activeSide) || playable()[0];
     if (entry) play(entry.key);
   };
   $("#tape-prev").onclick = () => step(-1);
-  $("#tape-mini-toggle").onclick = () => $("#play-tape").click();
   $("#tape-volume").oninput = event => { audio.volume = Number(event.target.value); };
   $("#tape-next").onclick = () => step(1);
-  $("#tape-stop").onclick = () => { playRequest++; audio.pause(); audio.currentTime = 0; syncTime(); syncPlayer(); };
+  $("#tape-stop").onclick = () => { if (mine()) { player.pause(); audio.currentTime = 0; } syncTime(); syncPlayer(); };
   $("#flip-tape").onclick = () => loadSide(activeSide === "a" ? "b" : "a");
   main.querySelectorAll("[data-load-side]").forEach(button => button.onclick = () => { if (button.dataset.loadSide !== activeSide) loadSide(button.dataset.loadSide); });
-  $("#tape-seek").oninput = event => { if (loadedKey && Number.isFinite(audio.duration)) audio.currentTime = Number(event.target.value); syncTime(); };
-  audio.onended = () => { step(1); syncPlayer(); };
-  for (const event of ["play", "pause", "emptied"]) audio.addEventListener(event, syncPlayer);
-  for (const event of ["timeupdate", "loadedmetadata", "durationchange", "emptied"]) audio.addEventListener(event, syncTime);
-  audio.onerror = () => { syncPlayer(); status("This recording could not play. Try the next song or retry when it reconnects."); };
+  $("#tape-seek").oninput = event => { if (loadedKey() !== null && Number.isFinite(audio.duration)) audio.currentTime = Number(event.target.value); syncTime(); };
+  // The player moves along the tape by itself (and the bar's own next and previous do too); the deck follows.
+  const follow = () => { if (mine()) currentKey = player.key; syncPlayer(); syncTime(); };
+  player.on("change", follow, scope.signal);
+  player.on("error", ({ kind }) => { if (mine() && kind === "load") { syncPlayer(); status("This recording could not play. Try the next song or retry when it reconnects."); } }, scope.signal);
+  for (const event of ["play", "pause", "emptied", "ended"]) audio.addEventListener(event, syncPlayer, { signal: scope.signal });
+  for (const event of ["timeupdate", "loadedmetadata", "durationchange", "emptied"]) audio.addEventListener(event, syncTime, { signal: scope.signal });
   $("#share-tape").onclick = async () => {
     if (shareBusy) return;
     if (sharedId) {
@@ -400,21 +429,18 @@ async function mount() {
   $("#edit-tape")?.addEventListener("click", () => {
     // Copy this tape into a fresh editor page. Without session storage, edit it in place instead.
     // The copy is yours, so it drops the original author and fills in your own remembered name.
-    try { sessionStorage.setItem(tapeKey, JSON.stringify(validateTape({ ...tape, authoredBy: "", a: slots.a.map(entry => entry.id), b: slots.b.map(entry => entry.id) }))); location.assign("/mixtapes/new"); return; }
+    try { sessionStorage.setItem(tapeKey, JSON.stringify(validateTape({ ...tape, authoredBy: "", a: slots.a.map(entry => entry.id), b: slots.b.map(entry => entry.id) }))); navigate("/mixtapes/new"); return; }
     catch { /* fall through to in-place editing */ }
     shared = false; sharedId = null; history.replaceState(null, "", "/mixtapes/new");
     tape.authoredBy = savedAuthor().trim().slice(0, 100); $("#authored-by").value = tape.authoredBy;
     $(".tape-edit").hidden = false; $(".tape-picker").hidden = false; $("#edit-tape").remove(); changed();
   });
   render();
-  if ("IntersectionObserver" in window) {
-    new IntersectionObserver(([entry]) => { deckVisible = entry.isIntersecting; syncPlayer(); }).observe($("#tape-deck"));
-  }
   // The independent static read keeps saved tapes usable during API outages.
   let loaded = false;
   const update = data => {
     if (!Array.isArray(data?.songs) || !data.songs.length) return;
-    catalog = new Map(data.songs.map(song => [song.id, song])); loaded = true; render(); renderCatalog();
+    catalog = new Map(data.songs.map(song => [song.id, song])); loaded = true; adopt(); render(); renderCatalog();
   };
   const live = publicApi("/songs/summary").then(data => update(data));
   const fallback = fetch("/catalog-summary.json").then(response => response.json()).then(data => { if (!loaded) update(data); });
