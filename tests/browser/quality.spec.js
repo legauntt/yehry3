@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 const issue = { code: "long_instrumental_outro", seconds: 22.86 };
-for (const action of ["keep", "regenerate"]) test(`Backstage can ${action} a playable review without unpublishing it`, async ({ page }) => {
+for (const action of ["keep", "regenerate"]) test(`Backstage can ${action} a playable review${action === "keep" ? " without unpublishing it" : " and archives the original"}`, async ({ page }) => {
   let doc = { id: "published-review", prompt: "A retained performance", status: "published", version: 1,
     reviewState: "needs_review", validationFailures: ["voice_validation"],
     result: { validationFailures: ["voice_validation"] }, details: {}, history: [],
@@ -24,6 +24,7 @@ for (const action of ["keep", "regenerate"]) test(`Backstage can ${action} a pla
   await page.getByRole("button", { name: "Open the queue" }).click();
   await expect(page.getByRole("button", { name: "Regenerate", exact: true })).toBeVisible();
   if (action === "regenerate") {
+    await expect(page.getByText("This recording is archived and leaves the site.")).toBeVisible();
     await page.getByRole("button", { name: "Regenerate", exact: true }).click();
     await expect(page).toHaveURL(/\/distonyc\/$/);
     expect(await page.evaluate(() => sessionStorage.getItem("yehry3:draft"))).toBe("new-review-draft");
