@@ -2,6 +2,317 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-2fb0ec08d69c3156b491f8ad",
+      "title": "The Long Desk",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2fb0ec08d69c3156b491f8ad-a70c6f228be5.mp3",
+      "duration": 275.04326530612246,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-21T02:26:06.983Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Long Desk",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Reflective lo-fi hip-hop/indie ballad at 78 BPM: dusty drum loop, warm electric piano, muted bass, vinyl texture, restrained guitar swells, and sparse strings entering for the bridge. One clear, steadily pitched Tony lead follows a conversational but melodic contour, with no backing vocals or vocal effects. Build gently from intimate verses to a fuller final chorus; pace the final sustained word “hand” about 9 seconds before the end, then resolve with one warm final chord and natural decay.",
+        "lyrics": "[Verse 1]\nIn the long desk room beneath the framed old maps\nA name takes the oath, another name steps back\nOne signs a page, one faces down a storm\nOne leaves a promise half-built, one redraws the form\n\nThere were roads laid down and doors pushed wide\nThere were wars that widened and families that cried\nThere were words that lifted, words that split the hall\nA country keeps the ledger, it remembers it all\n\n[Pre-Chorus]\nNo photograph can hold the whole wide day\nNo single speech can make the shadows go away\n\n[Chorus]\nThe long desk carries every hand\nThe bright ink and the broken plan\nRed, blue, and all the lives between\nThe flags we wave, the things we've seen\nI won't call one clean, I won't call one damned\nThe long desk carries every hand\n\n[Verse 2]\nSome opened up the factory gates at dawn\nSome wrote new rules for the people coming on\nSome held a union, some cut a distant deal\nSome spoke of freedom, some denied what people feel\n\nA schoolhouse bell, a farm in dust and heat\nA soldier's letter folded under a kitchen seat\nA doctor on a porch, a worker after dark\nA president can strike a match, but people make the spark\n\n[Chorus]\nThe long desk carries every hand\nThe bright ink and the broken plan\nRed, blue, and all the lives between\nThe flags we wave, the things we've seen\nI won't call one clean, I won't call one damned\nThe long desk carries every hand\n\n[Bridge]\nDemocrat, Republican, the names change on the door\nThe questions keep arriving like they did before\nWho gets heard, who gets home, who pays the cost?\nWhat was guarded, what was gained, what was lost?\n\nThe record is not simple, the record is not small\nIt belongs to every voice that answers when we call\n\n[Chorus]\nThe long desk carries every hand\nThe hope we build, the harm we planned\nRed, blue, and all the lives between\nThe work behind the television screen\nRead the page and name the scars\nKeep the people bigger than the stars\nThe long desk carries every hand\nAnd tomorrow writes across the land\n\n[Outro]\nSo leave the lamp on in the window tonight\nLet the hard old questions stand in the light\nWe inherit more than one command\nThe long desk carries every hand\n[End]",
+        "duration": 275,
+        "bpm": 78,
+        "musicalSettings": {
+          "genre": "Lo-fi hip-hop and indie ballad",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, verse 2, chorus, bridge, final chorus, outro",
+          "performance": "Clear, steadily pitched melodic lead with natural conversational phrasing",
+          "energy": "Quiet and reflective at first, gradually warming into a measured final chorus",
+          "lyricWorkflow": "Original, even-handed civic reflection using concrete everyday imagery and no endorsements",
+          "instruments": [
+            "electric piano",
+            "muted electric bass",
+            "lo-fi drum kit",
+            "clean electric guitar",
+            "strings",
+            "vinyl texture"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nIn the long desk room beneath the framed old maps\nA name takes the oath, another name steps back\nOne signs a page, one faces down a storm\nOne leaves a promise half-built, one redraws the form\n\nThere were roads laid down and doors pushed wide\nThere were wars that widened and families that cried\nThere were words that lifted, words that split the hall\nA country keeps the ledger, it remembers it all\n\n[Pre-Chorus]\nNo photograph can hold the whole wide day\nNo single speech can make the shadows go away\n\n[Chorus]\nThe long desk carries every hand\nThe bright ink and the broken plan\nRed, blue, and all the lives between\nThe flags we wave, the things we've seen\nI won't call one clean, I won't call one damned\nThe long desk carries every hand\n\n[Verse 2]\nSome opened up the factory gates at dawn\nSome wrote new rules for the people coming on\nSome held a union, some cut a distant deal\nSome spoke of freedom, some denied what people feel\n\nA schoolhouse bell, a farm in dust and heat\nA soldier's letter folded under a kitchen seat\nA doctor on a porch, a worker after dark\nA president can strike a match, but people make the spark\n\n[Chorus]\nThe long desk carries every hand\nThe bright ink and the broken plan\nRed, blue, and all the lives between\nThe flags we wave, the things we've seen\nI won't call one clean, I won't call one damned\nThe long desk carries every hand\n\n[Bridge]\nDemocrat, Republican, the names change on the door\nThe questions keep arriving like they did before\nWho gets heard, who gets home, who pays the cost?\nWhat was guarded, what was gained, what was lost?\n\nThe record is not simple, the record is not small\nIt belongs to every voice that answers when we call\n\n[Chorus]\nThe long desk carries every hand\nThe hope we build, the harm we planned\nRed, blue, and all the lives between\nThe work behind the television screen\nRead the page and name the scars\nKeep the people bigger than the stars\nThe long desk carries every hand\nAnd tomorrow writes across the land\n\n[Outro]\nSo leave the lamp on in the window tonight\nLet the hard old questions stand in the light\nWe inherit more than one command\nThe long desk carries every hand",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.7,
+            "end": 9.32
+          },
+          {
+            "line": 2,
+            "start": 10.12,
+            "end": 15.44
+          },
+          {
+            "line": 3,
+            "start": 16.94,
+            "end": 21.58
+          },
+          {
+            "line": 4,
+            "start": 23.3,
+            "end": 27.24
+          },
+          {
+            "line": 6,
+            "start": 29.1,
+            "end": 34.2
+          },
+          {
+            "line": 7,
+            "start": 35.28,
+            "end": 39.98
+          },
+          {
+            "line": 8,
+            "start": 41.42,
+            "end": 46.26
+          },
+          {
+            "line": 9,
+            "start": 46.26,
+            "end": 51.04
+          },
+          {
+            "line": 12,
+            "start": 52.64,
+            "end": 57.02
+          },
+          {
+            "line": 13,
+            "start": 57.7,
+            "end": 64.66
+          },
+          {
+            "line": 16,
+            "start": 65.96,
+            "end": 69.28
+          },
+          {
+            "line": 17,
+            "start": 72.12,
+            "end": 75.14
+          },
+          {
+            "line": 18,
+            "start": 77.38,
+            "end": 78.3
+          },
+          {
+            "line": 19,
+            "start": 78.3,
+            "end": 81.38
+          },
+          {
+            "line": 20,
+            "start": 82.8,
+            "end": 87.14
+          },
+          {
+            "line": 21,
+            "start": 90.24,
+            "end": 94.02
+          },
+          {
+            "line": 24,
+            "start": 96.02,
+            "end": 100.02
+          },
+          {
+            "line": 25,
+            "start": 101.1,
+            "end": 106.14
+          },
+          {
+            "line": 26,
+            "start": 107.64,
+            "end": 112.3
+          },
+          {
+            "line": 27,
+            "start": 113.98,
+            "end": 118.5
+          },
+          {
+            "line": 29,
+            "start": 120.4,
+            "end": 125.4
+          },
+          {
+            "line": 30,
+            "start": 125.4,
+            "end": 129.92
+          },
+          {
+            "line": 31,
+            "start": 129.92,
+            "end": 135.44
+          },
+          {
+            "line": 32,
+            "start": 136.31,
+            "end": 141.68
+          },
+          {
+            "line": 35,
+            "start": 142.4,
+            "end": 146.44
+          },
+          {
+            "line": 36,
+            "start": 148.14,
+            "end": 150.96
+          },
+          {
+            "line": 37,
+            "start": 150.96,
+            "end": 152.06
+          },
+          {
+            "line": 38,
+            "start": 154.24,
+            "end": 158.28
+          },
+          {
+            "line": 39,
+            "start": 159.72,
+            "end": 164.06
+          },
+          {
+            "line": 40,
+            "start": 167.24,
+            "end": 170.84
+          },
+          {
+            "line": 43,
+            "start": 173.6,
+            "end": 178.5
+          },
+          {
+            "line": 44,
+            "start": 179.62,
+            "end": 183.76
+          },
+          {
+            "line": 45,
+            "start": 184.66,
+            "end": 189.4
+          },
+          {
+            "line": 46,
+            "start": 190.42,
+            "end": 195.36
+          },
+          {
+            "line": 48,
+            "start": 196.24,
+            "end": 201.66
+          },
+          {
+            "line": 49,
+            "start": 202.38,
+            "end": 206.18
+          },
+          {
+            "line": 52,
+            "start": 210.24,
+            "end": 213.88
+          },
+          {
+            "line": 53,
+            "start": 215.16,
+            "end": 217.64
+          },
+          {
+            "line": 54,
+            "start": 217.64,
+            "end": 220.36
+          },
+          {
+            "line": 55,
+            "start": 221.18,
+            "end": 224.56
+          },
+          {
+            "line": 56,
+            "start": 225.52,
+            "end": 227.88
+          },
+          {
+            "line": 57,
+            "start": 227.88,
+            "end": 233.68
+          },
+          {
+            "line": 58,
+            "start": 234.98,
+            "end": 238.5
+          },
+          {
+            "line": 59,
+            "start": 239.16,
+            "end": 243.24
+          },
+          {
+            "line": 62,
+            "start": 243.24,
+            "end": 247.72
+          },
+          {
+            "line": 63,
+            "start": 249.38,
+            "end": 254.04
+          },
+          {
+            "line": 64,
+            "start": 255.32,
+            "end": 258.34
+          },
+          {
+            "line": 65,
+            "start": 259.46,
+            "end": 263.16
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony reflects upon the good and bad of the Democratic and Republian presidents",
+        "direction": "Use the prompt as written.",
+        "keep": "Lofi beat",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 275
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-310b77aa35bba36a65170d60",
       "title": "Blue Screen America - Midnight Lo-Fi Blues",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-310b77aa35bba36a65170d60-d6504da20fa9.mp3",
