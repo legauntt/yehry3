@@ -2,6 +2,361 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-aa33e2721ba03640f0345be2",
+      "title": "The Missing Vision",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-aa33e2721ba03640f0345be2-bc8ab4106111.mp3",
+      "duration": 220.1077551020408,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-21T11:37:40.466Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Missing Vision",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Dark, cinematic progressive rock in D minor: driving bass guitar and tom-heavy drums support distorted rhythm guitars, low synth pulse, and restrained orchestral strings. Begin with a tense, measured verse, expand into an anthemic melodic chorus, then build through a spacious bridge into the final chorus. Use one clear, steadily pitched Tony lead with natural connected phrasing and no vocal doubles, stacked vocals, rasp, whisper, or effects. Keep the singer present throughout; stretch the final “flows” so its final sung syllable lands about 10 seconds before the 220-second end, followed by one resolved D-minor chord decay.",
+        "lyrics": "[Verse 1]\nZagara maps the hives by moonless heat\nCounts every claw and every hungry beat\nShe crowns the tunnels, calls the swarm in line\nThen watches three small kingdoms turn and bite\nA thousand wings obey a shouted word\nBut every path she opens splits the herd\nShe holds the crown above a restless sea\nAnd wonders why it will not follow me\n\n[Pre-Chorus]\nA throne is not a lantern\nA command is not a star\nYou can drive them through the dark\nBut not tell them what they are\n\n[Chorus]\nShe needs VISION, farther than the fight\nA shape beyond the feeding and the night\nNot one more order ringing through the brood\nBut one bright future every heart can move toward\nShe needs VISION, something they can see\nA reason for the swarm to choose the same sky\nRaise your eyes, Zagara, let the whole hive know\nWhere the living river goes\n\n[Verse 2]\nShe tried to rule with teeth and perfect plans\nWith sharper scouts and stronger, faster hands\nBut every victory dissolved before the dawn\nA nest secured, another purpose gone\nThe smallest drone remembers where it flew\nThe largest beast still needs a world made true\nThey do not hunger only to survive\nThey hunger for a future kept alive\n\n[Pre-Chorus]\nThe crown can make them gather\nFear can make them cross a field\nBut a vision makes them build\nWhat no frightened queen can wield\n\n[Chorus]\nShe needs VISION, farther than the fight\nA shape beyond the feeding and the night\nNot one more order ringing through the brood\nBut one bright future every heart can move toward\nShe needs VISION, something they can see\nA reason for the swarm to choose the same sky\nRaise your eyes, Zagara, let the whole hive know\nWhere the living river goes\n\n[Bridge]\nLet the tunnels open outward\nLet the old command uncoil\nName the garden after battle\nName the mercy in the soil\nNot a master over shadows\nNot a queen alone above\nBe the sight inside their many eyes\nBe the future that they love\n\n[Chorus]\nShe needs VISION, clear across the night\nA home worth more than winning every fight\nNow every wing can carry one new flame\nEvery voice can answer when she calls its name\nShe needs VISION, and the broods arise\nNot for fear, but for the world behind her eyes\nZagara, turn the dark into a road\nLead them where the living river flows\n\n[Outro]\nWhere the living river flows\n[End]",
+        "duration": 220,
+        "bpm": 118,
+        "musicalSettings": {
+          "genre": "Dark cinematic progressive rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus, resolved outro",
+          "performance": "Clear, steadily pitched melodic lead with natural connected phrasing",
+          "energy": "Tense opening, rising anthemic choruses, spacious bridge, then a decisive final lift and chord resolution",
+          "lyricWorkflow": "Original narrative lyrics answer Zagara’s leadership problem with a recurring vision-centered refrain",
+          "instruments": [
+            "bass guitar",
+            "drums",
+            "distorted electric guitars",
+            "synthesizer",
+            "orchestral strings"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nZagara maps the hives by moonless heat\nCounts every claw and every hungry beat\nShe crowns the tunnels, calls the swarm in line\nThen watches three small kingdoms turn and bite\nA thousand wings obey a shouted word\nBut every path she opens splits the herd\nShe holds the crown above a restless sea\nAnd wonders why it will not follow me\n\n[Pre-Chorus]\nA throne is not a lantern\nA command is not a star\nYou can drive them through the dark\nBut not tell them what they are\n\n[Chorus]\nShe needs VISION, farther than the fight\nA shape beyond the feeding and the night\nNot one more order ringing through the brood\nBut one bright future every heart can move toward\nShe needs VISION, something they can see\nA reason for the swarm to choose the same sky\nRaise your eyes, Zagara, let the whole hive know\nWhere the living river goes\n\n[Verse 2]\nShe tried to rule with teeth and perfect plans\nWith sharper scouts and stronger, faster hands\nBut every victory dissolved before the dawn\nA nest secured, another purpose gone\nThe smallest drone remembers where it flew\nThe largest beast still needs a world made true\nThey do not hunger only to survive\nThey hunger for a future kept alive\n\n[Pre-Chorus]\nThe crown can make them gather\nFear can make them cross a field\nBut a vision makes them build\nWhat no frightened queen can wield\n\n[Chorus]\nShe needs VISION, farther than the fight\nA shape beyond the feeding and the night\nNot one more order ringing through the brood\nBut one bright future every heart can move toward\nShe needs VISION, something they can see\nA reason for the swarm to choose the same sky\nRaise your eyes, Zagara, let the whole hive know\nWhere the living river goes\n\n[Bridge]\nLet the tunnels open outward\nLet the old command uncoil\nName the garden after battle\nName the mercy in the soil\nNot a master over shadows\nNot a queen alone above\nBe the sight inside their many eyes\nBe the future that they love\n\n[Chorus]\nShe needs VISION, clear across the night\nA home worth more than winning every fight\nNow every wing can carry one new flame\nEvery voice can answer when she calls its name\nShe needs VISION, and the broods arise\nNot for fear, but for the world behind her eyes\nZagara, turn the dark into a road\nLead them where the living river flows\n\n[Outro]\nWhere the living river flows",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.82,
+            "end": 7.66
+          },
+          {
+            "line": 2,
+            "start": 8.86,
+            "end": 11.78
+          },
+          {
+            "line": 3,
+            "start": 12.88,
+            "end": 15.74
+          },
+          {
+            "line": 4,
+            "start": 17.28,
+            "end": 20.04
+          },
+          {
+            "line": 5,
+            "start": 21.22,
+            "end": 24.22
+          },
+          {
+            "line": 6,
+            "start": 24.22,
+            "end": 25.42
+          },
+          {
+            "line": 7,
+            "start": 25.42,
+            "end": 28.04
+          },
+          {
+            "line": 8,
+            "start": 29.22,
+            "end": 32.14
+          },
+          {
+            "line": 11,
+            "start": 34.7,
+            "end": 36.46
+          },
+          {
+            "line": 12,
+            "start": 37.62,
+            "end": 40.36
+          },
+          {
+            "line": 13,
+            "start": 41.58,
+            "end": 43.68
+          },
+          {
+            "line": 14,
+            "start": 43.68,
+            "end": 46.62
+          },
+          {
+            "line": 17,
+            "start": 48.78,
+            "end": 52.78
+          },
+          {
+            "line": 18,
+            "start": 53.28,
+            "end": 56.64
+          },
+          {
+            "line": 19,
+            "start": 57.36,
+            "end": 60.64
+          },
+          {
+            "line": 20,
+            "start": 61.4,
+            "end": 64.72
+          },
+          {
+            "line": 21,
+            "start": 64.72,
+            "end": 68.98
+          },
+          {
+            "line": 22,
+            "start": 69.62,
+            "end": 72.96
+          },
+          {
+            "line": 23,
+            "start": 72.96,
+            "end": 76.88
+          },
+          {
+            "line": 24,
+            "start": 76.88,
+            "end": 78.24
+          },
+          {
+            "line": 27,
+            "start": 79.08,
+            "end": 82.16
+          },
+          {
+            "line": 28,
+            "start": 82.99,
+            "end": 86.1
+          },
+          {
+            "line": 29,
+            "start": 86.1,
+            "end": 90.22
+          },
+          {
+            "line": 30,
+            "start": 90.61,
+            "end": 94.08
+          },
+          {
+            "line": 31,
+            "start": 94.67,
+            "end": 97.34
+          },
+          {
+            "line": 32,
+            "start": 97.34,
+            "end": 100.22
+          },
+          {
+            "line": 33,
+            "start": 100.22,
+            "end": 102.88
+          },
+          {
+            "line": 34,
+            "start": 102.88,
+            "end": 106.4
+          },
+          {
+            "line": 37,
+            "start": 106.4,
+            "end": 109.74
+          },
+          {
+            "line": 38,
+            "start": 110.54,
+            "end": 113.94
+          },
+          {
+            "line": 39,
+            "start": 114.54,
+            "end": 117.72
+          },
+          {
+            "line": 40,
+            "start": 117.72,
+            "end": 121.84
+          },
+          {
+            "line": 43,
+            "start": 121.84,
+            "end": 124.98
+          },
+          {
+            "line": 44,
+            "start": 124.98,
+            "end": 128.86
+          },
+          {
+            "line": 45,
+            "start": 128.86,
+            "end": 132.82
+          },
+          {
+            "line": 46,
+            "start": 133.58,
+            "end": 136.92
+          },
+          {
+            "line": 47,
+            "start": 136.92,
+            "end": 141.2
+          },
+          {
+            "line": 48,
+            "start": 141.68,
+            "end": 145.16
+          },
+          {
+            "line": 49,
+            "start": 145.66,
+            "end": 149.08
+          },
+          {
+            "line": 50,
+            "start": 149.54,
+            "end": 152.18
+          },
+          {
+            "line": 53,
+            "start": 152.18,
+            "end": 156.42
+          },
+          {
+            "line": 54,
+            "start": 156.42,
+            "end": 158.48
+          },
+          {
+            "line": 55,
+            "start": 158.48,
+            "end": 160.54
+          },
+          {
+            "line": 56,
+            "start": 160.54,
+            "end": 162.56
+          },
+          {
+            "line": 57,
+            "start": 162.56,
+            "end": 164.5
+          },
+          {
+            "line": 58,
+            "start": 164.96,
+            "end": 166.5
+          },
+          {
+            "line": 59,
+            "start": 166.5,
+            "end": 169.58
+          },
+          {
+            "line": 60,
+            "start": 170.02,
+            "end": 172.06
+          },
+          {
+            "line": 63,
+            "start": 173.86,
+            "end": 177.86
+          },
+          {
+            "line": 64,
+            "start": 177.86,
+            "end": 181.54
+          },
+          {
+            "line": 65,
+            "start": 181.54,
+            "end": 185.62
+          },
+          {
+            "line": 66,
+            "start": 185.62,
+            "end": 190
+          },
+          {
+            "line": 67,
+            "start": 190,
+            "end": 194.22
+          },
+          {
+            "line": 68,
+            "start": 194.22,
+            "end": 198.48
+          },
+          {
+            "line": 69,
+            "start": 198.48,
+            "end": 201.86
+          },
+          {
+            "line": 70,
+            "start": 202.22,
+            "end": 205
+          },
+          {
+            "line": 73,
+            "start": 205,
+            "end": 211.54
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Zagara wants to rule her broods, but keeps messing up. What could she be missing?",
+        "direction": "Use the prompt as written.",
+        "keep": "She needs VISION",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 220
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-7257d15382df3ee625372208",
       "title": "Roll to the Capitol",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7257d15382df3ee625372208-819815931bf9.mp3",
