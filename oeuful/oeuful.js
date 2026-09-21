@@ -7,7 +7,7 @@ import { shock } from "../assets/badge-sound.js";
 import { songArtwork } from "../assets/song-art.js";
 import { lyricsHref } from "../assets/song-links.js";
 import { api } from "../assets/api.js";
-import { createPicker } from "./crate.js";
+import { crateWeight, createPicker } from "./crate.js";
 
 // One record plays and `ahead` more are cued behind it, each on its own audio element that is
 // already loading its moment. The elements are made once and reused: a phone only lets a sound
@@ -27,7 +27,9 @@ const ejectMs = 450, artWait = 2000;
 
 const $ = (id) => document.getElementById(id);
 const booth = $("booth"), art = $("art"), now = $("now"), mixer = $("mixer");
-const startButton = $("start"), skipButton = $("skip"), volumeInput = $("volume");
+const startButton = $("start"), skipButton = $("skip"), volumeInput = $("volume"), lengthInput = $("length");
+// How long a side may run, in seconds, for each stop of the Side slider.
+const sideLengths = [3, 5, 8, 13, 20, 30, 45, 60], sideKey = "oeuful:side";
 
 const decks = Object.fromEntries([...document.querySelectorAll(".deck")].map((element) => {
   element.innerHTML = '<div class="platter"><div class="record"><div class="record-spin"><img class="record-label" alt="" width="240" height="200" decoding="async"></div></div><i class="spindle"></i></div>'
@@ -48,6 +50,7 @@ let leaving = null;
 let wanted = false;
 let live = decks.A;
 let level = Number(volumeInput.value);
+let sideSeconds = sideLengths[Number(lengthInput.value)];
 let sides = 0;
 let failures = 0;
 let refill = null;
@@ -311,6 +314,27 @@ function advance() {
 
 // --- The listener's controls ---
 
+// Records already cued were cut to the old length, so they go back in the crate and the decks
+// are dressed again. The record that is playing finishes as it was.
+function recut() {
+  for (const slice of crate.splice(0)) {
+    if (slice.deck) {
+      slice.deck.slice = null;
+      slice.deck.title.textContent = "";
+      setDeck(slice.deck, "empty");
+      slice.deck = null;
+    }
+    recycle(slice);
+  }
+  fill();
+}
+
+function showLength() {
+  sideSeconds = sideLengths[Number(lengthInput.value)] ?? sideSeconds;
+  $("length-text").textContent = sideSeconds + " s";
+  lengthInput.setAttribute("aria-valuetext", "Sides of up to " + sideSeconds + " seconds");
+}
+
 function showWanted() {
   startButton.textContent = wanted ? "Lift the needle" : "Drop the needle";
   startButton.setAttribute("aria-pressed", String(wanted));
@@ -378,6 +402,12 @@ function drawCrate() {
 
 startButton.addEventListener("click", () => (wanted ? halt() : start()));
 skipButton.addEventListener("click", skip);
+lengthInput.addEventListener("input", showLength);
+lengthInput.addEventListener("change", () => {
+  showLength();
+  try { localStorage.setItem(sideKey, lengthInput.value); } catch { /* The length just lasts for this visit. */ }
+  if (crate.length) recut();
+});
 volumeInput.addEventListener("input", () => {
   level = Number(volumeInput.value);
   for (const slice of [current, leaving]) if (slice) mix(slice);
@@ -395,8 +425,8 @@ if ("mediaSession" in navigator) {
   }
 }
 
-// The clips are built with the site. Live votes and redraws only shape the pictures, so they
-// get a short head start and are never waited on after that.
+// The clips are built with the site. Live votes, plays and redraws shape the pictures and the
+// odds, so they get a short head start and are never waited on after that.
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const summary = api("/songs/summary", { timeout: 5000 })
   .then((data) => { if (Array.isArray(data?.songs)) songs = new Map(data.songs.map((song) => [song.id, song])); })
@@ -405,8 +435,14 @@ const clips = fetch("/egg-clips.json")
   .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.statusText))))
   .then((data) => (Array.isArray(data?.clips) ? data.clips : []));
 try {
+  const saved = Number(localStorage.getItem(sideKey) ?? NaN);
+  if (Number.isInteger(saved) && sideLengths[saved]) lengthInput.value = String(saved);
+} catch { /* The booth opens at its usual length. */ }
+showLength();
+try {
   const [found] = await Promise.all([clips, Promise.race([summary, wait(artWait)])]);
-  pick = createPicker(found);
+  // Live votes and plays decide how often a song comes up; until they arrive every song is equal.
+  pick = createPicker(found, { weightOf: (clip) => crateWeight(songs.get(clip.id)), ceiling: () => sideSeconds });
   if (!found.length) throw new Error("No clips");
   fill();
   if (blend) mixer.style.setProperty("--blend-ms", blend * 1000 + "ms");

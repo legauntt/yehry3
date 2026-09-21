@@ -10,6 +10,22 @@ const shortest = 1.2, shortestMoment = 2, longestMoment = 19, joinGap = 1.5;
 const ceilings = [4, 8, 13, longestMoment];
 const longestWords = 140;
 const round = (seconds) => Math.round(seconds * 10) / 10;
+// Only lines sung close together join up; a long break would be dead air.
+const runFrom = (lines, first, ceiling) => {
+  let last = first;
+  while (last + 1 < lines.length && lines[last + 1][0] - lines[last][1] <= joinGap && lines[last + 1][1] - lines[first][0] <= ceiling) last += 1;
+  return last;
+};
+// Every stretch under one ceiling: from each starting line, the longest run that still fits.
+// Œuful (/oeuful) lets the listener set the ceiling, so it cuts its own from a clip's lines.
+export function lineRuns(lines, ceiling) {
+  const runs = [];
+  for (let first = 0; first < (lines?.length || 0); first += 1) {
+    const last = runFrom(lines, first, ceiling), length = lines[last][1] - lines[first][0];
+    if (length >= shortestMoment && length <= ceiling) runs.push([first, last]);
+  }
+  return runs;
+}
 
 export function songMoments(song) {
   const text = String(song?.lyrics?.text || "").split(/\r?\n/u);
@@ -26,9 +42,7 @@ export function songMoments(song) {
   const moments = new Map();
   for (let first = 0; first < lines.length; first += 1) {
     for (const ceiling of ceilings) {
-      let last = first;
-      // Only lines sung close together join up; a long break would be dead air.
-      while (last + 1 < lines.length && lines[last + 1][0] - lines[last][1] <= joinGap && lines[last + 1][1] - lines[first][0] <= ceiling) last += 1;
+      const last = runFrom(lines, first, ceiling);
       const length = lines[last][1] - lines[first][0];
       if (length >= shortestMoment && length <= ceiling) moments.set(first + "-" + last, [first, last]);
     }

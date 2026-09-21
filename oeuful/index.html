@@ -33,13 +33,16 @@
         </div>
         <div class="xfader" aria-hidden="true"><span>A</span><div class="xfader-track"><i class="xfader-knob"></i></div><span>B</span></div>
         <div class="meters" aria-hidden="true"><i class="vu"></i><i class="vu"></i></div>
-        <label class="volume">Vol <input type="range" id="volume" min="0" max="1" step="0.05" value="0.85"></label>
+        <div class="sliders">
+          <label class="slider">Vol <input type="range" id="volume" min="0" max="1" step="0.05" value="0.85"></label>
+          <label class="slider" title="How long each record plays">Side <input type="range" id="length" min="0" max="7" step="1" value="3"><output id="length-text" for="length">13 s</output></label>
+        </div>
         <div class="crate" id="crate" role="img" aria-label="Crate: nothing cued yet"></div>
         <p class="tally"><span id="crate-text">Crate: 0 cued</span> · <span id="tally">0 sides played</span></p>
       </section>
       <noscript><p class="now">Enable JavaScript to open the booth.</p></noscript>
       <footer class="booth-footer">
-        <p>Random sung moments, back to back, forever. Space starts and stops; N or → skips.</p>
+        <p>Sung moments, back to back, forever; the well loved songs a little more often. Space starts and stops; N or → skips.</p>
       </footer>
     </main>
   </body>

@@ -30,6 +30,18 @@ test("Œuful plays sung moments back to back across two decks", async ({ page })
   await expect(page.locator("#deck-b")).toHaveAttribute("data-state", "cued");
   await expect(page.locator(".egg-caption")).toHaveCount(0);
 
+  // The Side slider sets how long a record may play. Changing it sends the cued records back
+  // and dresses the decks again, and the booth remembers the length for the next visit.
+  await expect(page.locator("#length-text")).toHaveText("13 s");
+  await page.locator("#length").fill("5");
+  await expect(page.locator("#length-text")).toHaveText("30 s");
+  await expect(page.locator("#deck-a")).toHaveAttribute("data-state", "cued");
+  await expect(page.locator("#deck-b")).toHaveAttribute("data-state", "cued");
+  await page.reload();
+  await expect(page.locator("#length-text")).toHaveText("30 s");
+  await expect(start).toBeEnabled();
+  await expect(page.locator("#deck-b")).toHaveAttribute("data-state", "cued");
+
   await start.click();
   await expect(page.locator("#deck-a")).toHaveAttribute("data-state", "playing");
   await expect(page.locator("#art")).toHaveClass(/egg-shock/);
