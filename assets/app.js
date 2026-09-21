@@ -377,7 +377,28 @@ async function library() {
       `#tracks > [data-id="${CSS.escape(highlighted)}"], #pending-tracks > [data-id="${CSS.escape(highlighted)}"]`,
     );
     row?.classList.add("is-revealed");
+    if (row && sharedId === highlighted) {
+      row.classList.add("is-shared");
+      let badge = row.querySelector(":scope > .shared-badge");
+      if (!badge) {
+        badge = document.createElement("span");
+        badge.className = "shared-badge";
+        badge.setAttribute("role", "status");
+        row.prepend(badge);
+      }
+      badge.textContent = sharedFresh ? "Shared with you just now" : "Shared with you";
+    }
     return row;
+  }
+  // A song page (/song/<id>/) leaves a note before forwarding here; that is what tells a shared link
+  // from a completion alert or a hand-typed fragment. The badge stays for the life of the page.
+  let sharedId = null, sharedFresh = false, sharedTimer;
+  function takeShared(id) {
+    try {
+      const note = JSON.parse(sessionStorage.getItem("yehry3:shared-song") || "null");
+      sessionStorage.removeItem("yehry3:shared-song");
+      return note?.id === id && Date.now() - note.at < 120000;
+    } catch { return false; }
   }
   function render({ preserveViewport = false } = {}) {
     const restoreViewport = preserveViewport ? viewportAnchor() : () => {};
@@ -563,6 +584,7 @@ async function library() {
   function syncPlaybackButtons() {
     const isPlaying = Boolean(current && !audio.paused && !audio.ended && !audio.error);
     $(".player").classList.toggle("is-playing", isPlaying);
+    $(".player .eyebrow").textContent = isPlaying ? "Now playing" : "Paused";
     document.querySelectorAll("#tracks [data-play]").forEach((button) => {
       const song = songs.find((item) => item.id === button.dataset.play);
       const playing = isPlaying && current?.id === button.dataset.play;
@@ -596,6 +618,12 @@ async function library() {
     if (!/^[a-z0-9-]{1,120}$/.test(id || "") || id === revealed) return;
     if (!songs.some((song) => song.id === id) && !pending.some((song) => song.id === id)) return;
     revealed = highlighted = id;
+    if (takeShared(id)) {
+      sharedId = id;
+      sharedFresh = true;
+      clearTimeout(sharedTimer);
+      sharedTimer = setTimeout(() => { sharedFresh = false; markHighlighted(); }, 60000);
+    }
     if (favorites.onlySaved) $("#saved-only")?.click();
     if (!visible.some((song) => song.id === id)) {
       $("#search").value = "";
