@@ -2,6 +2,349 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-321c9b9f09abd6cc97e21c3a",
+      "title": "Blue Screen America - Midnight Lo-Fi Blues",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-321c9b9f09abd6cc97e21c3a-acdbbde2d5e2.mp3",
+      "duration": 230.0865306122449,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-92dfd2ce61458fe8bb784977",
+        "title": "Blue Screen America",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-92dfd2ce61458fe8bb784977-8247ef95b85e.mp3"
+      },
+      "publishedAt": "2026-09-21T00:06:07.556Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Blue Screen America - Midnight Lo-Fi Blues",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 78 BPM lo-fi blues reinterpretation in D minor: dusty Rhodes chords, muted electric guitar, warm upright bass, soft boom-bap drums, vinyl crackle, and a restrained low organ. A clear, steadily pitched Tony lead sings a weary blues melody with intimate verse phrasing and a stronger, catchable refrain; no backing vocals. Keep the repeating four-line pattern as the rhythmic motif, widening from close-miked intro to fuller choruses before dropping back for the bridge. The final “America” begins about 10 seconds before the end, held into one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nI beat that bitch with a bat\nRain taps time on the windowpane\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nNeedle hiss and a tired train hum\nI beat that bitch with a bat\nI can't fix America\n\n[Verse 1]\nI beat that bitch with a bat\nStreetlamp swirls in my coffee cup\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nOld news shakes while I turn it up\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nPaper flags bend behind the brakes\nI beat that bitch with a bat\nI can't fix America\n\n[Chorus]\nI beat that bitch with a bat\nNot with a song, not with a stare\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nBut truth can breathe in the midnight air\nI beat that bitch with a bat\nI can't fix America\n\n[Verse 2]\nI beat that bitch with a bat\nI was loud when I should have heard\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nHard as a rusted, twisted word\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nKick drum knocks through the apartment floor\nI beat that bitch with a bat\nI can't fix America\n\n[Bridge]\nI beat that bitch with a bat\nThat ugly thought came back like smoke\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nNo victory hiding inside that joke\nI beat that bitch with a bat\nI can't fix America\n\n[Outro]\nI beat that bitch with a bat\nLeave one small light for the ones still trying\nI beat that bitch with a bat\nI can't fix America\n[End]",
+        "duration": 230,
+        "bpm": 78,
+        "musicalSettings": {
+          "genre": "Lo-fi blues with a late-night boom-bap pocket",
+          "meter": "4/4",
+          "structure": "Intro, three developing verse passages, recurring refrain, bridge, resolved outro",
+          "performance": "Clear, steadily pitched melodic lead with intimate blues phrasing and a firm, memorable hook",
+          "energy": "Low-lit and reflective at first, rising through the refrains, then settling into a final resolution",
+          "lyricWorkflow": "Adapted source motifs and hooks reshaped around the requested repeating four-line pattern",
+          "instruments": [
+            "Rhodes electric piano",
+            "muted electric guitar",
+            "upright bass",
+            "soft boom-bap drum kit",
+            "low organ",
+            "vinyl crackle"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nI beat that bitch with a bat\nRain taps time on the windowpane\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nNeedle hiss and a tired train hum\nI beat that bitch with a bat\nI can't fix America\n\n[Verse 1]\nI beat that bitch with a bat\nStreetlamp swirls in my coffee cup\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nOld news shakes while I turn it up\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nPaper flags bend behind the brakes\nI beat that bitch with a bat\nI can't fix America\n\n[Chorus]\nI beat that bitch with a bat\nNot with a song, not with a stare\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nBut truth can breathe in the midnight air\nI beat that bitch with a bat\nI can't fix America\n\n[Verse 2]\nI beat that bitch with a bat\nI was loud when I should have heard\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nHard as a rusted, twisted word\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nKick drum knocks through the apartment floor\nI beat that bitch with a bat\nI can't fix America\n\n[Bridge]\nI beat that bitch with a bat\nThat ugly thought came back like smoke\nI beat that bitch with a bat\nI can't fix America\nI beat that bitch with a bat\nNo victory hiding inside that joke\nI beat that bitch with a bat\nI can't fix America\n\n[Outro]\nI beat that bitch with a bat\nLeave one small light for the ones still trying\nI beat that bitch with a bat\nI can't fix America",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 12.3,
+            "end": 14.82
+          },
+          {
+            "line": 2,
+            "start": 15.38,
+            "end": 17.92
+          },
+          {
+            "line": 3,
+            "start": 18.88,
+            "end": 20.98
+          },
+          {
+            "line": 4,
+            "start": 21.62,
+            "end": 23.3
+          },
+          {
+            "line": 5,
+            "start": 24.7,
+            "end": 27.12
+          },
+          {
+            "line": 6,
+            "start": 27.76,
+            "end": 30.24
+          },
+          {
+            "line": 7,
+            "start": 31.22,
+            "end": 33.26
+          },
+          {
+            "line": 8,
+            "start": 33.9,
+            "end": 35.32
+          },
+          {
+            "line": 11,
+            "start": 37.38,
+            "end": 40.12
+          },
+          {
+            "line": 12,
+            "start": 40.12,
+            "end": 42.4
+          },
+          {
+            "line": 13,
+            "start": 43.48,
+            "end": 45.58
+          },
+          {
+            "line": 14,
+            "start": 46.14,
+            "end": 48.02
+          },
+          {
+            "line": 15,
+            "start": 49.24,
+            "end": 51.74
+          },
+          {
+            "line": 16,
+            "start": 52.34,
+            "end": 54.88
+          },
+          {
+            "line": 17,
+            "start": 55.86,
+            "end": 57.88
+          },
+          {
+            "line": 18,
+            "start": 58.52,
+            "end": 60.16
+          },
+          {
+            "line": 19,
+            "start": 61.72,
+            "end": 64.06
+          },
+          {
+            "line": 20,
+            "start": 65.14,
+            "end": 67.12
+          },
+          {
+            "line": 21,
+            "start": 68.06,
+            "end": 70.18
+          },
+          {
+            "line": 22,
+            "start": 70.74,
+            "end": 72.88
+          },
+          {
+            "line": 25,
+            "start": 86.28,
+            "end": 88.66
+          },
+          {
+            "line": 26,
+            "start": 89.14,
+            "end": 91.66
+          },
+          {
+            "line": 27,
+            "start": 92.62,
+            "end": 94.8
+          },
+          {
+            "line": 28,
+            "start": 95.42,
+            "end": 97.08
+          },
+          {
+            "line": 29,
+            "start": 98.9,
+            "end": 100.98
+          },
+          {
+            "line": 30,
+            "start": 101.44,
+            "end": 104.2
+          },
+          {
+            "line": 31,
+            "start": 105.04,
+            "end": 107.06
+          },
+          {
+            "line": 32,
+            "start": 107.74,
+            "end": 109.12
+          },
+          {
+            "line": 35,
+            "start": 123.46,
+            "end": 125.58
+          },
+          {
+            "line": 36,
+            "start": 126.38,
+            "end": 128.74
+          },
+          {
+            "line": 37,
+            "start": 129.72,
+            "end": 131.68
+          },
+          {
+            "line": 38,
+            "start": 131.68,
+            "end": 133.96
+          },
+          {
+            "line": 39,
+            "start": 135.64,
+            "end": 137.9
+          },
+          {
+            "line": 40,
+            "start": 137.9,
+            "end": 141.04
+          },
+          {
+            "line": 41,
+            "start": 141.68,
+            "end": 144.04
+          },
+          {
+            "line": 42,
+            "start": 144.6,
+            "end": 146.42
+          },
+          {
+            "line": 43,
+            "start": 147.64,
+            "end": 154.78
+          },
+          {
+            "line": 44,
+            "start": 154.78,
+            "end": 159.38
+          },
+          {
+            "line": 45,
+            "start": 159.38,
+            "end": 162.5
+          },
+          {
+            "line": 46,
+            "start": 163.12,
+            "end": 164.66
+          },
+          {
+            "line": 49,
+            "start": 172.14,
+            "end": 174.8
+          },
+          {
+            "line": 50,
+            "start": 175.26,
+            "end": 177.82
+          },
+          {
+            "line": 51,
+            "start": 178.38,
+            "end": 180.94
+          },
+          {
+            "line": 52,
+            "start": 181.56,
+            "end": 183.36
+          },
+          {
+            "line": 53,
+            "start": 184.62,
+            "end": 187.12
+          },
+          {
+            "line": 54,
+            "start": 187.34,
+            "end": 190.14
+          },
+          {
+            "line": 55,
+            "start": 191.44,
+            "end": 193.26
+          },
+          {
+            "line": 56,
+            "start": 193.72,
+            "end": 195.56
+          },
+          {
+            "line": 59,
+            "start": 203.41,
+            "end": 205.58
+          },
+          {
+            "line": 60,
+            "start": 205.78,
+            "end": 208.74
+          },
+          {
+            "line": 61,
+            "start": 208.74,
+            "end": 211.72
+          },
+          {
+            "line": 62,
+            "start": 212.32,
+            "end": 214.14
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "voice_validation",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Remix “Blue Screen America”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Lofi beats, Tony sings the blues\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Every second line is \"I beat that bitch with a bat\". Every fourth line is \"I can't fix America\"\n\nExample:\n\"I beat that bitch with a bat\"\n\"I can't take that back\"\n\"I beat that bitch with a bat\"\n\"I can't fix America\"\n\nMust follow this pattern",
+        "keep": "Keep the recognizable hook and spirit of “Blue Screen America”.",
+        "basisSongs": [
+          "Blue Screen America"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 230
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-d6131d842b21cebef103dae4",
       "title": "Blue Screen America (Midnight Lo-Fi Blues)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d6131d842b21cebef103dae4-f52e01c1173e.mp3",
