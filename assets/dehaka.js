@@ -60,7 +60,14 @@ export function dehakaTurn(entries = []) {
   return last.author === "operator" ? "waiting" : "steer";
 }
 
-export function dehakaThread(entries = [], { escape, date, canSteer = true }) {
+// Raw logs the PC attaches to every song that just published; they carry an expiry and no conversation.
+export function dehakaCompletionOnly(entries = []) {
+  return entries.length > 0 && entries.every((entry) => entry.kind === "log" && entry.expiresAt);
+}
+
+export function dehakaThread(entries = [], { escape, date, canSteer = true, completion = false }) {
+  if (!entries.length && completion)
+    return '<p class="small dehaka-empty">No raw logs are kept for this song. The PC saves them for 24 hours after it publishes, and only while it can still read the job folder.</p>';
   if (!entries.length)
     return '<p class="small dehaka-empty">No steering yet. Dehaka’s replies, queue actions and raw PC logs appear here.</p>';
   const turn = dehakaTurn(entries);
@@ -72,7 +79,7 @@ export function dehakaThread(entries = [], { escape, date, canSteer = true }) {
             `<details class="dehaka-log" data-log="${escape(`${entry.id}:${log.name}`)}"><summary>${escape(log.name)}${log.truncated ? " · latest part" : ""} <span class="small">${(log.text.length / 1000).toFixed(1)}k chars</span></summary><pre>${escape(log.text)}</pre></details>`,
         )
         .join("");
-      return `<li class="dehaka-turn dehaka-turn-${escape(entry.author)}"><p class="dehaka-turn-meta"><strong>${escape(authorLabels[entry.author] || entry.author)}</strong><time>${date(entry.at)}</time>${entry.action ? `<span class="dehaka-action">${escape(dehakaActionLabel(entry.action))}</span>` : ""}</p><p class="dehaka-turn-text">${escape(entry.text)}</p>${entry.evidence ? `<p class="dehaka-evidence"><span>Evidence</span> ${escape(entry.evidence)}</p>` : ""}${logs}</li>`;
+      return `<li class="dehaka-turn dehaka-turn-${escape(entry.author)}"><p class="dehaka-turn-meta"><strong>${escape(authorLabels[entry.author] || entry.author)}</strong><time>${date(entry.at)}</time>${entry.action ? `<span class="dehaka-action">${escape(dehakaActionLabel(entry.action))}</span>` : ""}${entry.expiresAt ? `<span class="small dehaka-expiry">expires ${date(entry.expiresAt)}</span>` : ""}</p><p class="dehaka-turn-text">${escape(entry.text)}</p>${entry.evidence ? `<p class="dehaka-evidence"><span>Evidence</span> ${escape(entry.evidence)}</p>` : ""}${logs}</li>`;
     })
-    .join("")}</ol><p class="small dehaka-waiting">${turn === "waiting" ? "Dehaka has your guidance. The queue monitor checks every 5 minutes; his reply and the raw logs will appear here." : !canSteer ? "This request is out of 9/11’d Again, so steering is closed. It reopens here if the request stops again." : "Your turn: read the logs above, then steer again below if something should change."}</p>`;
+    .join("")}</ol><p class="small dehaka-waiting">${dehakaCompletionOnly(entries) ? `Raw PC logs from the render, kept for 24 hours after publication. They disappear ${date(entries.at(-1).expiresAt)}.` : turn === "waiting" ? "Dehaka has your guidance. The queue monitor checks every 5 minutes; his reply and the raw logs will appear here." : !canSteer ? "This request is out of 9/11’d Again, so steering is closed. It reopens here if the request stops again." : "Your turn: read the logs above, then steer again below if something should change."}</p>`;
 }

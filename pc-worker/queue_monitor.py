@@ -132,6 +132,22 @@ def report_markdown(report):
     for point in report['history'][-24:]:rows.append(f"| {point['at']} | {point['needs_attention']} | {point['recovering']} | {point['resolved']} |")
     return '\n'.join(rows)+'\n'
 
+COMPLETION_PER_PASS = 3
+
+def attach_completion_logs(config, api, ledger, prompts, now):
+    """Give each song that published in the last day its raw PC logs in the Backstage thread, Needs review first.
+
+    Advisory: a missing job folder or an older Chairlift just skips the song. Steered requests already get logs from their outcome."""
+    sent=ledger.setdefault('completion_logs',{})
+    window={p['id']:p for p in prompts if dehaka_feed.completion_due(p,now) and not ledger['requests'].get(p['id'],{}).get('dehaka_since')}
+    for ident in [i for i in sent if i not in window]:del sent[ident]
+    waiting=sorted((p for p in window.values() if sent.get(p['id'])!=f"completion:{p.get('version')}"),
+                   key=lambda p:(p.get('reviewState')!='needs_review',-(dehaka_feed.epoch(p.get('publishedAt') or p.get('updatedAt')) or 0)))
+    for prompt in waiting[:COMPLETION_PER_PASS]:
+        try:context=local_context(config,prompt['id'])
+        except (OSError,ValueError,KeyError,TypeError):context={}
+        dehaka_feed.completion(api,sent,prompt,context,dehaka_feed.completion_due(prompt,now))
+
 def scan(config, api, now=None, enabled=True):
     now=time.time() if now is None else now
     root=Path(config['state_dir'])/'monitor';root.mkdir(parents=True,exist_ok=True)
@@ -268,6 +284,7 @@ def scan(config, api, now=None, enabled=True):
                 try:outcome_context=local_context(config,ident)
                 except (OSError,ValueError,KeyError):outcome_context=None
                 dehaka_feed.outcome(api,entry,prompt,outcome_context)
+    if enabled: attach_completion_logs(config,api,ledger,prompts,now)
     entries=list(ledger['requests'].values())
     opened=[e for e in entries if e['status']=='failed'];resolved=[e for e in entries if e['status']=='published']
     recovering=[e for e in entries if e['status'] in ('queued','processing','completed','publishing')]

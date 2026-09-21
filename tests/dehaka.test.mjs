@@ -58,3 +58,22 @@ test("worker presence shows online and offline heartbeats", async () => {
   assert.match(offline, /(1 hr ago)/);
   assert.match(workerPresence([], { escape, date }), /No heartbeat yet/);
 });
+
+test("completion logs render as an expiring record, not a conversation", async () => {
+  const { dehakaThread, dehakaCompletionOnly } = await import("../assets/dehaka.js");
+  const kept = { id: "c", author: "worker", kind: "log", action: "published", at: "2026-09-20T10:00:00Z", expiresAt: "2026-09-21T10:00:00Z",
+    text: "Published, flagged Needs review (1 validation failure).", logs: [{ name: "renderer.log", text: "<b>done</b>" }] };
+  assert.equal(dehakaCompletionOnly([kept]), true);
+  assert.equal(dehakaCompletionOnly([]), false);
+  assert.equal(dehakaCompletionOnly([kept, { ...kept, kind: "reply", id: "d" }]), false);
+  assert.equal(dehakaCompletionOnly([{ ...kept, expiresAt: undefined }]), false);
+  const html = dehakaThread([kept], { escape, date, canSteer: false, completion: true });
+  assert.match(html, /PC worker/);
+  assert.match(html, /Published/);
+  assert.match(html, /expires 2026-09-21T10:00:00\.000Z/);
+  assert.match(html, /kept for 24 hours after publication/);
+  assert.equal(/Your turn|steering is closed/.test(html), false);
+  assert.equal(html.includes("<b>"), false);
+  assert.match(dehakaThread([], { escape, date, completion: true }), /No raw logs are kept/);
+  assert.match(dehakaThread([], { escape, date }), /No steering yet/);
+});

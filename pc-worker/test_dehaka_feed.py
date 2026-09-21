@@ -1,4 +1,4 @@
-import tempfile, unittest, urllib.error
+import tempfile, time, unittest, urllib.error
 from pathlib import Path
 from unittest.mock import patch
 
@@ -94,6 +94,64 @@ class DehakaFeedTests(unittest.TestCase):
             self.assertLessEqual(sum(len(log['text']) for log in logs), dehaka_feed.TOTAL_CHARS)
             self.assertTrue(all(len(log['text']) <= dehaka_feed.LOG_CHARS and log['truncated'] for log in logs))
         self.assertEqual(dehaka_feed.redact('token=supersecretvalue ghp_' + 'a' * 30), 'token=[redacted] [redacted]')
+
+    def published(self, ident, at, **fields):
+        row = prompt(ident, status='published'); row.update(publishedAt=at, **fields); return row
+
+    def test_songs_that_just_published_get_expiring_logs_with_needs_review_first(self):
+        now = 1_800_000_000
+        stamp = lambda hours: time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(now - hours * 3600))
+        with tempfile.TemporaryDirectory() as root:
+            ctx = self.job(root)
+            work = Path(root) / 'work'; (work / 'desktop-logs').mkdir(parents=True)
+            (work / 'desktop-logs' / 'mix.log').write_text('mix ok', encoding='utf-8')
+            (work / 'desktop-status.json').write_text('{"status":"complete"}', encoding='utf-8')
+            ctx['work'] = str(work)
+            rows = [self.published('plain', stamp(1)), self.published('flagged', stamp(5), reviewState='needs_review',
+                                                                      validationFailures=[{'code': 'vocal_dropout'}]),
+                    self.published('old', stamp(30)), prompt('running', status='processing')]
+            api = FakeAPI(rows)
+            with patch('queue_monitor.local_context', return_value=ctx):
+                scan(self.config(root), api, now=now)
+                posts = [(path, body) for path, method, body in api.posts if body.get('kind') == 'log']
+                self.assertEqual([path for path, body in posts], ['/admin/prompts/flagged/dehaka', '/admin/prompts/plain/dehaka'])
+                flagged = posts[0][1]
+                self.assertEqual((flagged['author'], flagged['action'], flagged['key'], flagged['ttlHours']), ('worker', 'published', 'completion:1', 19))
+                self.assertIn('Needs review', flagged['text']); self.assertIn('1 validation failure', flagged['text'])
+                names = [log['name'] for log in flagged['logs']]
+                self.assertIn('renderer.log', names); self.assertIn('render/desktop-status.json', names); self.assertIn('render/desktop-logs/mix.log', names)
+                self.assertNotIn('abcdefghijklmnop', ''.join(log['text'] for log in flagged['logs']))
+                self.assertEqual(posts[1][1]['ttlHours'], 23)
+                # Each song is delivered once, and a song past its day is left alone.
+                count = len(api.posts); scan(self.config(root), api, now=now + 300)
+                self.assertEqual([body for path, method, body in api.posts[count:] if body.get('kind') == 'log'], [])
+                self.assertNotIn('old', load(Path(root) / 'monitor/ledger.json')['completion_logs'])
+
+    def test_completion_logs_skip_quietly_without_logs_or_thread_support(self):
+        now = 1_800_000_000
+        recent = time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(now - 60))
+        with tempfile.TemporaryDirectory() as root:
+            api = FakeAPI([self.published('one', recent)])
+            with patch('queue_monitor.local_context', return_value={'directory': str(Path(root) / 'nothing')}):
+                scan(self.config(root), api, now=now)
+            self.assertEqual([body for path, method, body in api.posts if body.get('kind') == 'log'], [])
+            self.assertEqual(load(Path(root) / 'monitor/ledger.json')['completion_logs'], {'one': 'completion:1'})
+        with tempfile.TemporaryDirectory() as root:
+            ctx = self.job(root); api = FakeAPI([self.published('one', recent), self.published('two', recent)])
+            def missing(*args): raise urllib.error.HTTPError('url', 404, 'missing', {}, None)
+            api.call = missing
+            with patch('queue_monitor.local_context', return_value=ctx):
+                scan(self.config(root), api, now=now)
+            self.assertEqual(load(Path(root) / 'monitor/ledger.json')['completion_logs'], {})
+
+    def test_completion_hours_count_down_and_stop_after_a_day(self):
+        now = 1_800_000_000
+        at = lambda seconds: time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime(now - seconds))
+        self.assertEqual(dehaka_feed.completion_due({'status': 'published', 'publishedAt': at(60)}, now), 24)
+        self.assertEqual(dehaka_feed.completion_due({'status': 'published', 'updatedAt': at(3600 * 23 + 60)}, now), 1)
+        self.assertEqual(dehaka_feed.completion_due({'status': 'published', 'publishedAt': at(3600 * 24)}, now), 0)
+        self.assertEqual(dehaka_feed.completion_due({'status': 'failed', 'publishedAt': at(60)}, now), 0)
+        self.assertEqual(dehaka_feed.completion_due({'status': 'published'}, now), 0)
 
 
 if __name__ == '__main__': unittest.main()

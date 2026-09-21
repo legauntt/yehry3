@@ -36,6 +36,37 @@ for (const action of ["keep", "regenerate"]) test(`Backstage can ${action} a pla
   await page.getByText("Open brief & controls", { exact: false }).click();
   await expect(page.getByRole("link", { name: "Open published song" })).toHaveAttribute("href", doc.publishedUrl);
 });
+test("a song that just published shows its raw logs in Backstage until they expire", async ({ page }) => {
+  const now = Date.now();
+  const doc = (id, publishedAt, extra = {}) => ({ id, prompt: `Song ${id}`, status: "published", version: 1, details: {}, history: [],
+    publishedUrl: "https://example.com/song.mp3", confirmedAt: new Date(now - 90 * 3600000).toISOString(), publishedAt: new Date(publishedAt).toISOString(), ...extra });
+  const docs = [
+    doc("fresh-review", now - 3600000, { reviewState: "needs_review", validationFailures: ["voice_validation"], result: { validationFailures: ["voice_validation"] } }),
+    doc("old-review", now - 60 * 3600000, { reviewState: "needs_review", validationFailures: ["voice_validation"], result: { validationFailures: ["voice_validation"] } }),
+    doc("old-plain", now - 60 * 3600000),
+  ];
+  await page.route("**/yehry3/session", route => route.fulfill({ json: { token: "test-session" } }));
+  await page.route("**/yehry3/admin/prompts?*", route => route.fulfill({ json: {
+    prompts: docs, total: 3, page: 0, counts: { published: 3, needs_review: 2 }, transitions: {}, workers: [],
+  } }));
+  await page.route("**/yehry3/admin/prompts/*/dehaka", route => route.fulfill({ json: { entries: [] } }));
+  await page.route("**/yehry3/admin/prompts/fresh-review/dehaka", route => route.fulfill({ json: { entries: [{
+    id: "log-1", author: "worker", kind: "log", action: "published", at: new Date(now - 3000000).toISOString(),
+    expiresAt: new Date(now + 23 * 3600000).toISOString(), text: "Published, flagged Needs review (1 validation failure).",
+    logs: [{ name: "renderer.log", text: "stage mix complete <done>" }] }] } }));
+  await page.goto("/admin/?status=all");
+  await page.getByLabel("Password", { exact: true }).fill("test-admin");
+  await page.getByRole("button", { name: "Open the queue" }).click();
+  const fresh = page.locator('[data-prompt="fresh-review"]');
+  await expect(fresh.locator(".completion-logs h3")).toHaveText("Raw logs");
+  await expect(fresh.locator(".completion-logs .dehaka-expiry")).toContainText("expires");
+  await fresh.locator(".dehaka-log summary").click();
+  await expect(fresh.locator(".dehaka-log pre")).toHaveText("stage mix complete <done>");
+  await expect(fresh.locator(".dehaka-waiting")).toContainText("kept for 24 hours");
+  await expect(fresh.locator(".dehaka-form")).toHaveCount(0);
+  await expect(page.locator('[data-prompt="old-review"] .completion-logs .dehaka-empty')).toContainText("No raw logs are kept");
+  await expect(page.locator('[data-prompt="old-plain"] .completion-logs')).toHaveCount(0);
+});
 const karaokeText = ["[Final]", "The final words.", ...Array.from({ length: 24 }, (_, index) => `An untimed lyric ${index + 1}.`), "Sing this last line."].join("\n");
 const song = {
   id: "quality-song",
