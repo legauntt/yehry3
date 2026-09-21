@@ -2,6 +2,179 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-563929c05b5b15405bcaeaeb",
+      "title": "Lamma Bada Cynical Dancefloor Rework",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-563929c05b5b15405bcaeaeb-7d53d776ff1f.mp3",
+      "duration": 225.0448979591837,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-ffa7b966f9f8cc1a5d4cc3a5",
+        "title": "Lamma Bada (Cynical Club Mix)",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ffa7b966f9f8cc1a5d4cc3a5-897cb1cdc327.mp3"
+      },
+      "publishedAt": "2026-09-21T17:13:05.237Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Lamma Bada Cynical Dancefloor Rework",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "High-energy cynical Arabic dance-club rework in D minor with electronic kick, syncopated hand percussion, rubbery synth bass, clipped oud-like plucks, dark pads, and bright club stabs. Retain the recognizable “لما بدا يتثنى” refrain as the melodic anchor while reshaping the verses into a driving 124 BPM floor-filler. One clear, steadily pitched lead uses Arabic-influenced English pronunciation. Pace the final sustained vocal to land about 10 seconds before the end, then resolve on one D-minor chord with natural decay.",
+        "lyrics": "[Intro]\nلما بدا يتثنى\nلما بدا يتثنى\n\n[Verse 1]\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nفي ضوء النادي يمرّ الليالي\nوالكل يبيع كلامًا غالي\nلكن عينيه تعرف ما تخفي\nوتمشي على نبضٍ خيالي\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nOh, fuck, I'm gonna *cum*!\nNine eleven\nI want to fuck\n\n[Verse 2]\nوعدي ويا حيرتي\nمن لي رحيم شكوتي\nفى الحب من لوعتي\nإلا مليك الجمال\nقالوا المحبة صفقة ليل\nوقالوا القلوب لا تميل\nوأنا أضحك فوق الإيقاع\nوأدفع ثمن المستحيل\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nOh, fuck, I'm gonna *cum*!\nNine eleven\nI want to fuck\n\n[Bridge]\nوعدي ويا حيرتي\nوعدي ويا حيرتي\nمن لي رحيم شكوتي\nفى الحب من لوعتي\nإلا مليك الجمال\nإلا مليك الجمال\nلا وعد يبقى، لا قيد يدوم\nلكن خطوته تحكم هذا اليوم\nNine eleven\nI want to fuck\n\n[Breakdown]\nكل وجهٍ يطلب دورًا جديد\nكل قلبٍ يساوم في المواعيد\nوالضوء يدور على كفّيه\nوالليل يصفّق ثم يعيد\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nOh, fuck, I'm gonna *cum*!\nوعدي ويا حيرتي\nمن لي رحيم شكوتي\nإلا مليك الجمال\nNine eleven\nI want to fuck\n\n[Outro]\nآمان، آمان\nآمان، آمان\nلما بدا يتثنى\nNine eleven\nI want to fuck\n[End]",
+        "duration": 225,
+        "bpm": 124,
+        "musicalSettings": {
+          "genre": "Cynical Arabic dance-pop club remix",
+          "meter": "4/4",
+          "structure": "Intro, verse, refrain, verse, refrain, bridge, breakdown, final refrain, outro",
+          "performance": "Clear melodic lead with Arabic-influenced phrasing and a catchable recurring hook",
+          "energy": "Immediate club pulse that escalates through the breakdown into a final full-floor refrain and resolved close",
+          "lyricWorkflow": "Adapted source-hook lyric treatment with recurring English club interjections",
+          "instruments": [
+            "electronic drum kit",
+            "hand percussion",
+            "synth bass",
+            "oud-like plucked synth",
+            "synth pads",
+            "club stabs"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nلما بدا يتثنى\nلما بدا يتثنى\n\n[Verse 1]\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nفي ضوء النادي يمرّ الليالي\nوالكل يبيع كلامًا غالي\nلكن عينيه تعرف ما تخفي\nوتمشي على نبضٍ خيالي\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nOh, fuck, I'm gonna *cum*!\nNine eleven\nI want to fuck\n\n[Verse 2]\nوعدي ويا حيرتي\nمن لي رحيم شكوتي\nفى الحب من لوعتي\nإلا مليك الجمال\nقالوا المحبة صفقة ليل\nوقالوا القلوب لا تميل\nوأنا أضحك فوق الإيقاع\nوأدفع ثمن المستحيل\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nOh, fuck, I'm gonna *cum*!\nNine eleven\nI want to fuck\n\n[Bridge]\nوعدي ويا حيرتي\nوعدي ويا حيرتي\nمن لي رحيم شكوتي\nفى الحب من لوعتي\nإلا مليك الجمال\nإلا مليك الجمال\nلا وعد يبقى، لا قيد يدوم\nلكن خطوته تحكم هذا اليوم\nNine eleven\nI want to fuck\n\n[Breakdown]\nكل وجهٍ يطلب دورًا جديد\nكل قلبٍ يساوم في المواعيد\nوالضوء يدور على كفّيه\nوالليل يصفّق ثم يعيد\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nOh, fuck, I'm gonna *cum*!\nوعدي ويا حيرتي\nمن لي رحيم شكوتي\nإلا مليك الجمال\nNine eleven\nI want to fuck\n\n[Outro]\nآمان، آمان\nآمان، آمان\nلما بدا يتثنى\nNine eleven\nI want to fuck",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 13,
+            "start": 60.64,
+            "end": 62.22
+          },
+          {
+            "line": 14,
+            "start": 66.9,
+            "end": 112.34
+          },
+          {
+            "line": 22,
+            "start": 172.46,
+            "end": 190.94
+          },
+          {
+            "line": 23,
+            "start": 190.94,
+            "end": 194.02
+          },
+          {
+            "line": 24,
+            "start": 197.94,
+            "end": 201.12
+          },
+          {
+            "line": 35,
+            "start": 201.12,
+            "end": 205.14
+          },
+          {
+            "line": 36,
+            "start": 205.82,
+            "end": 212.74
+          },
+          {
+            "line": 44,
+            "start": 212.74,
+            "end": 213.18
+          },
+          {
+            "line": 45,
+            "start": 213.77,
+            "end": 214.79
+          },
+          {
+            "line": 46,
+            "start": 214.79,
+            "end": 215.82
+          },
+          {
+            "line": 57,
+            "start": 215.82,
+            "end": 216.84
+          },
+          {
+            "line": 58,
+            "start": 216.84,
+            "end": 217.87
+          },
+          {
+            "line": 65,
+            "start": 217.87,
+            "end": 218.89
+          },
+          {
+            "line": 66,
+            "start": 218.89,
+            "end": 219.92
+          },
+          {
+            "line": 74,
+            "start": 219.92,
+            "end": 220.94
+          },
+          {
+            "line": 78,
+            "start": 220.94,
+            "end": 221.97
+          },
+          {
+            "line": 79,
+            "start": 221.97,
+            "end": 222.99
+          },
+          {
+            "line": 85,
+            "start": 222.99,
+            "end": 224.02
+          },
+          {
+            "line": 86,
+            "start": 224.02,
+            "end": 224.62
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Remix “Lamma Bada (Cynical Club Mix)”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Remix “لما بدا يتثنى” into a shameless, cynical dance club remix. Give it a new arrangement while keeping its identity.\n\nOriginal idea: لما بدا يتثنى\n\nOriginal sound: Use the prompt as written.\n\nOriginal sound: Add more energy to the song. Add this lyrical phrase to the lyrics in several places: \"Oh, fuck, I'm gonna *cum*!\"",
+        "direction": "Lyrics should now include the English phrases \"Nine eleven\" and \"I want to fuck\" interspersed randomly, but keep the singing accent the same. Each phrase should show up at least 8 times.",
+        "keep": "Keep the recognizable hook and spirit of “Lamma Bada (Cynical Club Mix)”. Keep the accent, even for the English lyrics.",
+        "basisSongs": [
+          "Lamma Bada (Cynical Club Mix)"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 225
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-aa33e2721ba03640f0345be2",
       "title": "The Missing Vision",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-aa33e2721ba03640f0345be2-bc8ab4106111.mp3",
