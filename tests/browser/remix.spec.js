@@ -68,15 +68,41 @@ test("remix carries source context through editable review without auto-confirmi
   await expect(page.locator("#direction")).toHaveValue("Opera with a slow, enormous chorus");
   await expect(page.locator('#essentials-panel [data-remix-source]')).toContainText(source.title);
 });
-test("opening Remix preserves an existing draft until the listener chooses the new idea", async ({ page }) => {
+test("opening Remix asks before an existing draft is continued or replaced", async ({ page }) => {
   const state = await setup(page, { id: "saved-draft", prompt: "My existing acoustic request", version: 1, status: "draft", details: {} });
   await page.goto(`/distonyc/?remix=${song.id}`);
+  await expect(page.getByRole("heading", { name: "Which one should we send?" })).toBeVisible();
   await expect(page.locator("blockquote")).toHaveText("My existing acoustic request");
+  await expect(page.locator("#details-form")).toHaveCount(0);
+  await page.getByRole("button", { name: "Keep my saved request" }).click();
+  await expect(page.locator("#details-form")).toBeVisible();
   await page.getByRole("tab", { name: "Advanced", exact: true }).click();
   await expect(page.locator("#lyric-sheet")).toHaveValue("");
   expect(state.writes).toHaveLength(0);
   await page.getByRole("button", { name: "Start this remix as a new request" }).click();
   await expect(page.locator("#idea")).toHaveValue(/Remix “Source song”/);
+});
+test("a remembered draft of a different song is never sent under the opened Remix", async ({ page }) => {
+  const other = { ...source, songId: "pinned-song", title: "Pinned song" };
+  const state = await setup(page, { id: "stale-remix", prompt: "Remix “Pinned song”. Give it a new arrangement while keeping its identity.", version: 1, status: "draft",
+    details: { remixSource: other, basisSongIds: [], basisSongTitles: [other.title] } });
+  await page.goto(`/distonyc/?remix=${song.id}`);
+  await expect(page.getByRole("heading", { name: "Which one should we send?" })).toBeVisible();
+  await expect(page.locator("main")).toContainText("a remix of Pinned song");
+  await expect(page.getByRole("button", { name: "Review the request" })).toHaveCount(0);
+  await page.getByRole("button", { name: "Remix “Source song” instead" }).click();
+  await expect(page.locator("#idea")).toHaveValue(/Remix “Source song”/);
+  await page.getByRole("button", { name: "Find the direction" }).click();
+  expect(state.writes[0].remixSongId).toBe(song.id);
+  await page.getByRole("tab", { name: "Advanced", exact: true }).click();
+  await expect(page.locator("#basis-root [data-remix-source]")).toContainText("Recording attached: Source song");
+});
+test("a saved draft that is already this remix continues without asking", async ({ page }) => {
+  await setup(page, { id: "same-remix", prompt: "Remix “Source song”. New arrangement.", version: 1, status: "draft",
+    details: { remixSource: source, basisSongIds: [], basisSongTitles: [source.title] } });
+  await page.goto(`/distonyc/?remix=${song.id}`);
+  await expect(page.getByRole("heading", { name: "Which one should we send?" })).toHaveCount(0);
+  await expect(page.locator("#details-form")).toBeVisible();
 });
 test("opening Remix after a request went out returns the form to step 01", async ({ page }) => {
   const state = await setup(page, { id: "sent-request", prompt: "The request that already went out", version: 1,
@@ -290,4 +316,33 @@ test('a remix carries its badge from the queue through production to its lyric s
   await expect(page.locator('.lyrics-sheet > .song-badges .voice-model-badge')).toHaveText('V6');
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test("a review whose recording is not the chosen remix warns and cannot be sent", async ({ page }) => {
+  const other = { ...source, songId: "pinned-song", title: "Pinned song" };
+  const state = await setup(page, { id: "swapped", prompt: "Remix “Source song”. New arrangement.", version: 2, status: "review",
+    details: { remixSource: other, basisSongIds: [], basisSongTitles: [other.title], voiceModel: "v7" } });
+  await page.addInitScript(([id, songId]) => sessionStorage.setItem(`yehry3:remix-draft:${id}`, songId), ["swapped", song.id]);
+  await page.goto("/distonyc/");
+  await expect(page.locator("[data-remix-mismatch]")).toContainText("Pinned song");
+  await expect(page.getByRole("button", { name: "Send to the queue" })).toBeDisabled();
+  const trace = await page.evaluate(() => window.yehry3RemixTrace());
+  expect(trace.find(entry => entry.event === "mismatch")).toMatchObject({ draft: "swapped", expected: song.id, actual: "pinned-song" });
+  expect(state.confirmations()).toBe(0);
+});
+
+test("the request names its remix source and the flow leaves a trace", async ({ page }) => {
+  await setup(page);
+  await page.goto(`/distonyc/?remix=${song.id}`);
+  await page.getByRole("button", { name: "Find the direction" }).click();
+  await page.getByRole("button", { name: "Review the request" }).click();
+  await expect(page.locator(".prompt-brief dt", { hasText: "Remix of" })).toBeVisible();
+  await expect(page.locator(".prompt-brief dt", { hasText: "Remix of" }).locator("+ dd")).toHaveText("Source song");
+  await expect(page.locator("[data-remix-mismatch]")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Send to the queue" })).toBeEnabled();
+  const events = (await page.evaluate(() => window.yehry3RemixTrace())).map(entry => entry.event);
+  expect(events).toEqual(expect.arrayContaining(["open", "draft-created", "render:review"]));
+  expect(events).not.toContain("mismatch");
+  const created = (await page.evaluate(() => window.yehry3RemixTrace())).find(entry => entry.event === "draft-created");
+  expect(created).toMatchObject({ sent: song.id, got: song.id });
 });

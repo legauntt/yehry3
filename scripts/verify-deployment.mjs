@@ -145,6 +145,7 @@ for (const name of [
   "loop.js",
   "song-badges.js",
   "remix-badge.js",
+  "remix-trace.js",
   "band-vinyl-v1.webp",
   "record-shoes.svg",
 ]) {

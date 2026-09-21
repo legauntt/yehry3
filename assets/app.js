@@ -32,6 +32,7 @@ import { watchCompletions } from "./notifications.js";
 import { mountFavorites } from "./favorites.js";
 import { trackListening, listeningLabel } from "./listening.js";
 import { loadRemix, remixBadge, remixLink } from "./remix.js";
+import { draftRemixId, traceRemix } from "./remix-trace.js";
 import { recordingLabels, recordingLabel, recordingTitle } from "./recording-label.js";
 import { mountCatalogView } from "./catalog-view.js";
 import { songArtworkMarkup } from "./song-art.js";
@@ -868,7 +869,7 @@ function loginView(role, onSuccess) {
 
 async function requests() {
   let draft = null;
-  let remix = null, remixUsed = false, remixActive = false;
+  let remix = null, remixUsed = false, remixActive = false, keepSavedRequest = false;
   function finishRemix() {
     remixUsed = true; remixActive = false; storage.remove("remix-idea");
     const url = new URL(location.href); url.searchParams.delete("remix");
@@ -876,6 +877,7 @@ async function requests() {
   }
   // Detach from the saved request and put the remix idea back on step 01.
   function adoptRemixIdea() {
+    traceRemix("adopt", { remix: remix.id, replacedDraft: draft?.id || storage.get("draft") });
     draft = null;
     storage.remove("draft");
     storage.remove("prompt-request");
@@ -899,6 +901,7 @@ async function requests() {
     materialsAvailable = loaded[2].version === 1;
     generationAvailable = loaded[3].enabled === true && loaded[4]?.version === 1; generationSchema = loaded[4];
     remix = await loadRemix();
+    traceRemix("open", { param: new URLSearchParams(location.search).get("remix"), remix: remix?.id || null, unavailable: Boolean(remix?.unavailable), storedDraft: storage.get("draft"), storedRemixIdea: storage.get("remix-idea") });
   } catch (error) {
     message(error.message, true);
     main.innerHTML =
@@ -934,8 +937,21 @@ async function requests() {
     if (remix?.seed && !remixUsed && draft?.confirmedAt) adoptRemixIdea();
     render();
   }
+  // The draft the server holds must be the remix this browser created it for.
+  function auditRemix(where) {
+    if (!draft) return "";
+    const expected = storage.get(`remix-draft:${draft.id}`), actual = draftRemixId(draft);
+    traceRemix(where, { draft: draft.id, status: draft.status, confirmed: Boolean(draft.confirmedAt), expected, actual, url: remix?.id || null });
+    if (!expected || expected === actual) return "";
+    traceRemix("mismatch", { draft: draft.id, expected, actual });
+    return `This request is set to remix ${draft.details?.remixSource?.title ? `“${draft.details.remixSource.title}”` : "a different recording"}, not the song you chose. Start again from the song list.`;
+  }
   function render(mode) {
-    const stage =
+    // A Remix link is an explicit choice of song. An unsent draft that is not that
+    // remix must be resolved first, or its own song is sent under the new banner.
+    const remixConflict = Boolean(remix?.seed && !remixUsed && draft && !draft.confirmedAt && !keepSavedRequest
+      && storage.get(`remix-draft:${draft.id}`) !== remix.id && draft.details?.remixSource?.songId !== remix.id);
+    const stage = remixConflict ? "conflict" :
       mode ||
       (draft?.confirmedAt
         ? "submitted"
@@ -944,7 +960,7 @@ async function requests() {
           : draft
             ? "details"
             : "idea");
-    const number = { idea: 1, details: 2, review: 3, submitted: 3 }[stage];
+    const number = { conflict: 1, idea: 1, details: 2, review: 3, submitted: 3 }[stage];
     if (stage === "idea" && !remixUsed && remix?.seed) {
       if (!storage.get("idea-text")) {
         storage.set("idea-text", remix.seed.prompt); storage.set("remix-idea", remix.id); remixActive = true;
@@ -961,7 +977,7 @@ async function requests() {
       }).catch(() => {});
     }
 
-    if (remix && !remixUsed) {
+    if (remix && !remixUsed && stage !== "conflict") {
       const panel = document.createElement("div");
       panel.className = "remix-note";
       if (remix.unavailable) panel.innerHTML = `<p class="field-error" role="alert">${escape(remix.message)}</p><p class="small">The remix has not been submitted. <a href="/distonyc/">Start a different request</a>.</p>`;
@@ -986,7 +1002,12 @@ async function requests() {
       render();
     });
     const form = $("#request-form");
-    if (stage === "idea") {
+    if (stage === "conflict") {
+      const held = draft.details?.remixSource;
+      form.innerHTML = `<p class="eyebrow">Two requests</p><h2>Which one should we send?</h2><p>You opened a Remix of <a href="/lyrics/?song=${encodeURIComponent(remix.id)}">${escape(remix.title)}</a>, but this tab is still holding an unsent request${held ? ` (a remix of <a href="/lyrics/?song=${encodeURIComponent(held.songId)}">${escape(held.title)}</a>)` : ""}:</p><blockquote>${escape(draft.prompt)}</blockquote><div class="actions"><button type="button" class="primary" id="use-remix">Remix “${escape(remix.title)}” instead</button><button type="button" class="quiet" id="keep-saved">Keep my saved request</button></div><p class="small">Your saved request stays saved in the studio.</p>`;
+      $("#use-remix").onclick = () => { adoptRemixIdea(); render(); };
+      $("#keep-saved").onclick = () => { keepSavedRequest = true; render(); };
+    } else if (stage === "idea") {
       form.innerHTML = `<p class="eyebrow">Turn 01 · What if…</p><h2>What should we make?</h2><p>Pick a song and take it somewhere unexpected, or pitch an original.</p><form id="idea-form">${authorField}<label for="idea">Your prompt</label><textarea id="idea" rows="5" minlength="10" maxlength="2000" required data-suggestion placeholder="Rendition of Medusa as a barbershop quartet"></textarea><p class="small">A sentence or two is plenty to get started. Your idea, progress, and confirmed settings appear on the public dashboard after submission.</p><button class="primary">Find the direction <span aria-hidden="true">→</span></button><p class="field-error" role="alert"></p></form>`;
       $("#authored-by").value = savedAuthor();
       $("#authored-by").oninput = (event) => {
@@ -1013,6 +1034,8 @@ async function requests() {
           ).prompt;
           rememberAuthor(draft.authoredBy || "");
           storage.set("draft", draft.id);
+          traceRemix("draft-created", { draft: draft.id, sent: remixActive && !remixUsed && remix?.seed ? remix.id : null, got: draftRemixId(draft), requestId });
+          keepSavedRequest = true; // Created here, on purpose: nothing older to choose between.
           if (remixActive && !remixUsed && remix?.seed) storage.set(`remix-draft:${draft.id}`, remix.id);
           storage.remove("prompt-request");
           render();
@@ -1186,6 +1209,11 @@ async function requests() {
         busy(event.target, true);
         await load();
       };
+    }
+    const remixIssue = ["details", "review", "submitted"].includes(stage) ? auditRemix(`render:${stage}`) : "";
+    if (remixIssue) {
+      form.insertAdjacentHTML("afterbegin", `<p class="field-error" role="alert" data-remix-mismatch>${escape(remixIssue)}</p>`);
+      if (stage === "review") $("#confirm-form .primary").disabled = true;
     }
     rotateSuggestions(main);
     focusHeading();

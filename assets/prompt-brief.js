@@ -5,7 +5,7 @@ import { materialBrief, wordCount } from "./request-materials.js";
 
 const lyricMode = (sheet) => sheet.mode === "adapt" ? "Adapt these lyrics" : "Keep my wording";
 
-function layout({ idea, authoredBy, voice, keep, direction, basis, generation, musicBackend }, materials, escape) {
+function layout({ idea, authoredBy, voice, keep, direction, basis, generation, musicBackend, remixOf }, materials, escape) {
   const field = (label, value) => `<dt>${label}</dt><dd>${escape(value)}</dd>`;
   const chosenDirection = direction && direction !== 'Use the prompt as written.' ? direction : '';
   const advanced = (chosenDirection ? `<dl>${field("What does it sound like?", chosenDirection)}</dl>` : '')
@@ -14,6 +14,7 @@ function layout({ idea, authoredBy, voice, keep, direction, basis, generation, m
     <section class="prompt-section"><h3>Essentials</h3><div class="prompt-section-body"><dl>
       ${authoredBy ? field("Authored by", authoredBy) : ""}
       ${field("The idea", idea)}
+      ${remixOf ? field("Remix of", remixOf) : ""}
       ${field("Voice model", voice)}
       ${musicBackendLabel(musicBackend) ? field("Band generator", musicBackendLabel(musicBackend)) : ""}
       ${keep && keep !== "Surprise me." ? field("What matters most?", keep) : ""}
@@ -29,7 +30,7 @@ export function requestPromptBrief(doc, escape, describeVoice = voiceLabel) {
   return layout({
     idea: doc.prompt, authoredBy: doc.authoredBy,
     voice: describeVoice(details.voiceModel || "v6"), keep: details.keep, direction: details.direction,
-    generation: details.generation, musicBackend: musicBackendOf(doc), basis: details.basisSongTitles?.join("\n") || details.source,
+    generation: details.generation, musicBackend: musicBackendOf(doc), basis: details.basisSongTitles?.join("\n") || details.source, remixOf: details.remixSource?.title,
   }, materials, escape);
 }
 
@@ -39,7 +40,7 @@ export function publicPromptBrief(song, escape, { materialsUnavailable = false }
   return layout({
     idea: brief.idea, authoredBy: song.authoredBy,
     voice: voiceLabel(brief.voiceModel), keep: brief.keep, direction: brief.direction,
-    generation: brief.generation, musicBackend: musicBackendOf(song), basis: brief.basisSongs?.join("\n"),
+    generation: brief.generation, musicBackend: musicBackendOf(song), basis: brief.basisSongs?.join("\n"), remixOf: song.remixOf?.title,
   }, materials, escape);
 }
 
