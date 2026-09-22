@@ -2464,20 +2464,17 @@ main {
 }
 .shared-song-player {
   position: sticky;
-  top: 12px;
+  top: 6px;
   z-index: 3;
-  margin-top: 22px;
-  padding: 16px 20px;
+  margin-top: 10px;
+  padding: 6px 10px;
   border: 1px solid var(--line);
   border-radius: 3px;
   background: var(--light);
 }
-.shared-song-player .tiny-label {
-  margin: 0 0 8px;
-}
 #sheet-status,
 #moment-status,
-.shared-song-player [data-listening-stats] {
+.lyrics-sheet > [data-listening-stats] {
   margin: 6px 0 0;
 }
 #sheet-status:empty,
@@ -2569,6 +2566,8 @@ button.lyric-line:hover {
   body[data-page="lyrics"] .site-header,
   body[data-page="lyrics"] .site-footer,
   .shared-song-player,
+  .sheet-keeps,
+  .lyrics-sheet > [data-listening-stats],
   .lyrics-actions {
     display: none;
   }
@@ -2941,11 +2940,11 @@ html[data-navigating="true"] body::before {
 @keyframes shell-progress { from { transform: scaleX(0.05); } to { transform: scaleX(0.9); } }
 @media (prefers-reduced-motion: reduce) { html[data-navigating="true"] body::before { animation: none; transform: scaleX(0.5); } }
 /* A lyric sheet plays through the site's player: a button, a clock and a scrubber stand in for its own audio element. */
-.sheet-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
-.sheet-controls .primary { min-width: 84px; padding: 11px 18px; min-height: 40px; }
-.sheet-controls input[type="range"] { flex: 1 1 140px; min-width: 0; accent-color: var(--accent, #4b7a55); }
-.sheet-controls .quiet { flex: none; min-height: 40px; padding: 9px 14px; }
-.sheet-time { min-width: 5em; font-variant-numeric: tabular-nums; }
+.sheet-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.sheet-controls .primary { min-width: 70px; padding: 5px 10px; min-height: 32px; }
+.sheet-controls input[type="range"] { flex: 1 1 140px; min-width: 0; height: 32px; margin: 0; padding: 0; accent-color: var(--accent, #4b7a55); }
+.sheet-controls .quiet { flex: none; min-height: 32px; padding: 5px 10px; font-size: 0.78rem; white-space: nowrap; }
+.sheet-time { min-width: 5em; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .sheet-keeps { margin: 6px 0 0; opacity: 0.75; }
 @media (max-width: 650px) {
   .lyrics-sheet {
@@ -2956,19 +2955,26 @@ html[data-navigating="true"] body::before {
     margin-bottom: 14px;
   }
   .shared-song-player {
-    padding: 12px 16px;
     margin-top: 16px;
   }
-  .shared-song-player .tiny-label,
   .sheet-keeps,
-  .shared-song-player [data-listening-stats] {
+  .lyrics-sheet > [data-listening-stats] {
     display: none;
   }
   .sheet-controls {
-    gap: 8px 10px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 4px 8px;
   }
   .sheet-controls .primary {
     min-width: 0;
+  }
+  .sheet-controls :is(.primary, .quiet, input[type="range"]) {
+    min-height: 36px;
+  }
+  .sheet-controls #share-moment {
+    grid-column: 2 / -1;
+    justify-self: end;
   }
 }
 .remix-comparison [data-compare-now] { min-height: 1.2em; }
