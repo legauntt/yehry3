@@ -1275,13 +1275,15 @@ async function admin() {
   let songTimer;
   const songsCount = () => (songs.data ? `${songs.data.counts.live} on the site · ${songs.data.counts.archived} archived` : "Search, archive or restore");
   function songsMarkup() {
-    return `<details class="admin-songs" id="admin-songs"${songs.open ? " open" : ""}><summary><span class="admin-songs-chevron" aria-hidden="true"></span><span class="admin-songs-title">Published songs</span><span class="admin-songs-count small" id="song-count">${songsCount()}</span><span class="admin-songs-toggle" aria-hidden="true"></span></summary><div class="toolbar"><label class="search"><span class="sr-only">Search published songs</span><input type="search" id="song-search" placeholder="Search title, author, idea or ID…" value="${escape(songs.q)}"></label><label class="sr-only" for="song-view">Show songs</label><select id="song-view"><option value="live">On the site</option><option value="archived">Archived</option><option value="all">Both</option></select><span class="small" id="song-summary"></span></div><p class="small">Archiving hides a song from the site for everyone. Votes, plays and files are kept, and you can restore it here.</p><div id="song-list"></div><div class="song-pager"><button class="quiet" id="song-prev">← Earlier songs</button><span id="song-page"></span><button class="quiet" id="song-next">Later songs →</button></div></details>`;
+    return `<details class="admin-songs" id="admin-songs"${songs.open ? " open" : ""}><summary><span class="admin-songs-chevron" aria-hidden="true"></span><span class="admin-songs-title">Published songs</span><span class="admin-songs-count small" id="song-count">${songsCount()}</span><span class="admin-songs-toggle" aria-hidden="true"></span></summary><div class="toolbar"><label class="search"><span class="sr-only">Search published songs</span><input type="search" id="song-search" placeholder="Search title, author, idea or ID…" value="${escape(songs.q)}"></label><label class="sr-only" for="song-view">Show songs</label><select id="song-view"><option value="live">On the site</option><option value="archived">Archived</option><option value="all">Both</option></select><span class="small" id="song-summary"></span></div><p class="small">Archiving hides a song from the site for everyone. Votes, plays and files are kept, and you can restore it here. Unpinning clears every listener's pin on a song at once; anyone can pin it again.</p><div id="song-list"></div><div class="song-pager"><button class="quiet" id="song-prev">← Earlier songs</button><span id="song-page"></span><button class="quiet" id="song-next">Later songs →</button></div></details>`;
   }
   function songRow(song) {
     const id = escape(song.id);
+    const pins = Math.max(0, Number(song.pins) || 0);
     const meta = [collectionNames[song.collection] || song.collection, song.authoredBy && `by ${song.authoredBy}`, song.publishedAt && date(song.publishedAt), song.id, song.archivedAt && `archived ${date(song.archivedAt)}`].filter(Boolean);
     const title = song.archived ? escape(song.title) : `<a href="/#${id}" target="_blank" rel="noopener">${escape(song.title)}</a>`;
-    return `<article class="admin-song${song.archived ? " archived" : ""}" data-song="${id}"><div><h3>${title}${song.archived ? ' <span class="badge archived">Archived</span>' : ""}</h3><p class="small">${escape(meta.join(" · "))}</p></div><button type="button" class="quiet" data-archive="${id}" data-archived="${!song.archived}" aria-label="${song.archived ? "Restore" : "Archive"} ${escape(song.title)}">${song.archived ? "Restore" : "Archive"}</button></article>`;
+    const unpinButton = pins ? `<button type="button" class="quiet" data-unpin="${id}" aria-label="Unpin ${escape(song.title)}">📌 Unpin (${pins})</button>` : "";
+    return `<article class="admin-song${song.archived ? " archived" : ""}" data-song="${id}"><div><h3>${title}${song.archived ? ' <span class="badge archived">Archived</span>' : ""}${pins ? ` <span class="badge pinned">📌 ${pins}</span>` : ""}</h3><p class="small">${escape(meta.join(" · "))}</p></div><div class="admin-song-actions">${unpinButton}<button type="button" class="quiet" data-archive="${id}" data-archived="${!song.archived}" aria-label="${song.archived ? "Restore" : "Archive"} ${escape(song.title)}">${song.archived ? "Restore" : "Archive"}</button></div></article>`;
   }
   function paintSongs() {
     const list = songs.data;
@@ -1336,6 +1338,17 @@ async function admin() {
       showToast(error.message, { error: true });
     }
   }
+  // Unpinning clears the shared signal for everyone at once; there is no per-listener target to restore.
+  async function clearPins(id, title) {
+    try {
+      await api(`/admin/song-pins/${encodeURIComponent(id)}`, { method: "DELETE", role: "admin" });
+      showToast(`Unpinned “${title}”. It can be pinned again by anyone.`);
+      await loadSongs();
+    } catch (error) {
+      if (error.status === 401) return load();
+      showToast(error.message, { error: true });
+    }
+  }
   function bindSongs() {
     $("#jump-songs").onclick = showSongs;
     $("#song-search").oninput = (event) => {
@@ -1358,6 +1371,20 @@ async function admin() {
       loadSongs();
     };
     $("#song-list").addEventListener("click", async (event) => {
+      const unpin = event.target.closest("[data-unpin]");
+      if (unpin) {
+        const id = unpin.dataset.unpin;
+        const song = songs.data?.songs.find((item) => item.id === id);
+        const title = song?.title || "this song";
+        if (!window.confirm(`Unpin “${title}” for everyone? ${song?.pins || "Its"} pin${song?.pins === 1 ? "" : "s"} will be cleared, and anyone can pin it again.`)) return;
+        busy(unpin, true);
+        try {
+          await clearPins(id, title);
+        } finally {
+          busy(unpin, false);
+        }
+        return;
+      }
       const button = event.target.closest("[data-archive]");
       if (!button) return;
       const archived = button.dataset.archived === "true";

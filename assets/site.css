@@ -2716,12 +2716,15 @@ button.lyric-line:hover {
 .admin-song.archived { background: var(--paper); }
 .admin-song.archived h3 { color: var(--muted); }
 .admin-song .quiet { flex: none; }
+.admin-song-actions { display: flex; gap: 8px; flex: none; }
 .badge.archived { background: #e6e0d2; color: #5c5541; }
+.badge.pinned { background: #f3ecc9; color: #8a6d1a; }
 @media (max-width: 650px) {
   .admin-songs > summary { flex-wrap: wrap; gap: 6px 12px; }
   .admin-songs-count { order: 3; width: 100%; }
   .admin-songs .toolbar .small { margin-left: 0; width: 100%; }
   .admin-song { align-items: flex-start; flex-direction: column; }
+  .admin-song-actions { width: 100%; }
 }
 
 /* Now Playing: share the current song. */
