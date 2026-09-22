@@ -74,6 +74,9 @@ html[data-shared-theme][data-theme="dark"] .update-banner button:hover { backgro
 html[data-shared-theme][data-theme="dark"] .loop-toggle[aria-pressed="true"] { background: #46301f; color: #ffd9bd; border-color: #a06a3f; }
 html[data-shared-theme][data-theme="dark"] .song-action { border-color: var(--line); }
 html[data-shared-theme][data-theme="dark"] :is(.song-action:hover:not(:disabled), .song-action[aria-pressed="true"]) { background: #46301f; color: #ffd9bd; border-color: #a06a3f; }
+html[data-shared-theme][data-theme="dark"] .song-action.doodle-clear { border-color: #ffb49c; color: #ffb49c; }
+html[data-shared-theme][data-theme="dark"] .song-action.doodle-clear:hover:not(:disabled) { background: #ffb49c; border-color: #ffb49c; color: #171e1a; }
+html[data-shared-theme][data-theme="dark"] .song-action.doodle-clear:disabled { border-color: var(--line); color: var(--muted); }
 html[data-shared-theme][data-theme="dark"] .message { background: var(--light); color: var(--ink); border-color: var(--line); }
 html[data-shared-theme][data-theme="dark"] .message.error { background: #4c3027; color: #ffc3a9; border-color: #8a5a42; }
 html[data-shared-theme][data-theme="dark"] .tape-card-side { color: #26372b; }

@@ -32,7 +32,7 @@ function mount() {
     <p class="small" data-art-note hidden></p>
     <div class="art-remix-picker" data-art-picker></div>
     <p class="small">Everyone sees the picture. A note of your picks is saved with it and shown only to you.</p>
-    <div class="art-remix-actions"><button type="button" class="song-action" data-art-cancel>Cancel</button><button type="submit" class="primary" disabled>Use this redraw</button></div></form>`;
+    <div class="art-remix-actions"><button type="button" class="quiet" data-art-cancel>Cancel</button><button type="submit" class="primary" disabled>Use this redraw</button></div></form>`;
   document.body.append(dialog);
   const result = dialog.querySelector(".art-remix-result"), use = dialog.querySelector("[type=submit]"), picker = dialog.querySelector("[data-art-picker]");
   const next = dialog.querySelector("[data-art-next]"), canvas = dialog.querySelector(".art-remix-canvas"), padTools = dialog.querySelector(".art-remix-pad");

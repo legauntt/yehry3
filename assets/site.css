@@ -1095,10 +1095,11 @@ main {
   display: flex;
   gap: 4px;
 }
-.art-pen {
+.art-chip.art-pen {
   width: 28px;
   min-height: 28px;
   padding: 0;
+  border: 2px solid var(--muted);
   border-radius: 50%;
   background: var(--pen, var(--ink));
 }
@@ -1106,6 +1107,19 @@ main {
   background: var(--pen, var(--ink));
   outline: 3px solid var(--accent);
   outline-offset: 1px;
+}
+.song-action.doodle-clear {
+  border-color: #9a3824;
+  color: #9a3824;
+}
+.song-action.doodle-clear:hover:not(:disabled) {
+  background: #9a3824;
+  border-color: #9a3824;
+  color: var(--white);
+}
+.song-action.doodle-clear:disabled {
+  border-color: #c6cbbb;
+  color: var(--muted);
 }
 .art-remix-result {
   min-height: 1.4em;
