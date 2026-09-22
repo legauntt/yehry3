@@ -479,6 +479,7 @@ def render_quartet(request, engine, voice_model='v6', voice_profile=None):
         quartet.verify(work)
         if rvc is not None: rvc.correct_attribution(work, voice_profile, settings['ffmpeg'])
         result = engine.verify_work(work, settings['output_dir'])
+        result['voice_model'] = voice_model
         state.update(status='completed', stage='completed'); save(status, state)
         return result
 
