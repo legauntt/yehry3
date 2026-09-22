@@ -2,6 +2,274 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a8b7396bc9868fcc9fcd408a",
+      "title": "Table by the Window - Minuit au ralenti",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a8b7396bc9868fcc9fcd408a-e0a4ddc12905.mp3",
+      "duration": 145.08408163265307,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-7788d1fe94d0a00369178662",
+        "title": "Table by the Window",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7788d1fe94d0a00369178662-879da7f1e137.mp3"
+      },
+      "publishedAt": "2026-09-22T01:01:15.947Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Table by the Window - Minuit au ralenti",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "C# minor",
+        "arrangement": "Ultra-slowed, reverbed nocturnal rock reinterpretation with the glossy, suspended mood of a 1990s Mercedes night-drive edit. Deep rounded bass, muted electric guitar, soft electronic kick, distant snare, glassy synth pads and sparse piano frame a clear, steadily pitched Tony V9 lead with long connected melodic phrases. Preserve the table-by-the-window/crosscourt-return hook as a recognizable bilingual refrain; let the vocal carry through the final sustained “cœur” about 10 seconds before a single resolved C# minor chord decays.",
+        "lyrics": "[Intro]\nParking de minuit, argent sur le noir\nLes lampadaires coulent sur le miroir\nLa pluie dessine un cercle immobile\nNos deux silences dans la ville\n\n[Verse 1]\nTu fais tourner la raquette une fois\nPuis tu attends, le monde retient sa voix\nBalle blanche au-dessus du vert\nPetite lune qui coupe l’air\nJe ne veux ni public ni victoire\nSeulement ce claquement dans le noir\nTu lis ma main, je lis tes yeux\nLe temps descend entre nous deux\n\n[Hook]\nTable près de la fenêtre, pluie sur le capot\nLa mandas cruzada, despacio, sin ruido\nYo la devuelvo y el silencio se estira\nDos sombras siguen la misma línea\n\n[Verse 2]\nTu servicio viene bajo, con un giro lateral\nLeo el ángulo, llego al final\nNo hay discurso, no hay pose para ganar\nSólo una sonrisa que nadie va a mirar\nLa ciudad se borra detrás del cristal\nEl aire frío nos guarda igual\nCada rebote dice ce qui reste\nChaque retour calme la tempête\n\n[Bridge]\nMercedes lenta bajo la avenida\nLuces azules, memoria suspendida\nNo somos héroes, no hace falta ser\nLa mesa pequeña nos deja existir\nLa pluie remonte dans le verre fumé\nTu prends ton temps avant de frapper\n\n[Hook]\nTable près de la fenêtre, nuit qui glisse bien\nLíneas de cromo se derriten al fin\nYo la devuelvo, no quiero partir\nDos sombras gardent le même fil\n\n[Outro]\nUne dernière balle, doucement, vers toi\nLa salle se tait et tu souris pour moi\nElle tombe en paix près du vieux radiateur\nY je la garde, cette heure, dans le cœur\n\n[End]",
+        "duration": 145,
+        "bpm": 68,
+        "musicalSettings": {
+          "genre": "Ultra-slowed reverb nocturnal rock with 1990s luxury-car edit atmosphere",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, recurring bilingual Hook, Verse 2, Bridge, final Hook, resolved Outro",
+          "performance": "Clear, steadily pitched melodic lead with unhurried connected phrasing and a restrained late-night delivery",
+          "energy": "Low-lit and controlled at the opening, gently rising through the bridge, then settling into a warm final resolution",
+          "lyricWorkflow": "Adapted bilingual French-and-Spanish source motifs, expanding the ping-pong scene into an intimate night-drive narrative",
+          "instruments": [
+            "rounded electric bass",
+            "muted electric guitar",
+            "soft electronic kick",
+            "distant snare",
+            "glassy synth pads",
+            "sparse piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nParking de minuit, argent sur le noir\nLes lampadaires coulent sur le miroir\nLa pluie dessine un cercle immobile\nNos deux silences dans la ville\n\n[Verse 1]\nTu fais tourner la raquette une fois\nPuis tu attends, le monde retient sa voix\nBalle blanche au-dessus du vert\nPetite lune qui coupe l’air\nJe ne veux ni public ni victoire\nSeulement ce claquement dans le noir\nTu lis ma main, je lis tes yeux\nLe temps descend entre nous deux\n\n[Hook]\nTable près de la fenêtre, pluie sur le capot\nLa mandas cruzada, despacio, sin ruido\nYo la devuelvo y el silencio se estira\nDos sombras siguen la misma línea\n\n[Verse 2]\nTu servicio viene bajo, con un giro lateral\nLeo el ángulo, llego al final\nNo hay discurso, no hay pose para ganar\nSólo una sonrisa que nadie va a mirar\nLa ciudad se borra detrás del cristal\nEl aire frío nos guarda igual\nCada rebote dice ce qui reste\nChaque retour calme la tempête\n\n[Bridge]\nMercedes lenta bajo la avenida\nLuces azules, memoria suspendida\nNo somos héroes, no hace falta ser\nLa mesa pequeña nos deja existir\nLa pluie remonte dans le verre fumé\nTu prends ton temps avant de frapper\n\n[Hook]\nTable près de la fenêtre, nuit qui glisse bien\nLíneas de cromo se derriten al fin\nYo la devuelvo, no quiero partir\nDos sombras gardent le même fil\n\n[Outro]\nUne dernière balle, doucement, vers toi\nLa salle se tait et tu souris pour moi\nElle tombe en paix près du vieux radiateur\nY je la garde, cette heure, dans le cœur",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.8,
+            "end": 5.32
+          },
+          {
+            "line": 2,
+            "start": 5.32,
+            "end": 6.7
+          },
+          {
+            "line": 3,
+            "start": 6.7,
+            "end": 7.88
+          },
+          {
+            "line": 4,
+            "start": 7.88,
+            "end": 8.9
+          },
+          {
+            "line": 7,
+            "start": 8.9,
+            "end": 9.72
+          },
+          {
+            "line": 8,
+            "start": 9.72,
+            "end": 10.34
+          },
+          {
+            "line": 9,
+            "start": 10.34,
+            "end": 11.76
+          },
+          {
+            "line": 10,
+            "start": 11.76,
+            "end": 13.04
+          },
+          {
+            "line": 11,
+            "start": 13.04,
+            "end": 13.96
+          },
+          {
+            "line": 12,
+            "start": 13.96,
+            "end": 15.26
+          },
+          {
+            "line": 13,
+            "start": 15.26,
+            "end": 16.56
+          },
+          {
+            "line": 14,
+            "start": 16.56,
+            "end": 17.62
+          },
+          {
+            "line": 17,
+            "start": 17.62,
+            "end": 18.66
+          },
+          {
+            "line": 18,
+            "start": 18.66,
+            "end": 19.88
+          },
+          {
+            "line": 19,
+            "start": 19.88,
+            "end": 21.82
+          },
+          {
+            "line": 20,
+            "start": 21.82,
+            "end": 23
+          },
+          {
+            "line": 23,
+            "start": 23,
+            "end": 24.06
+          },
+          {
+            "line": 24,
+            "start": 24.06,
+            "end": 24.92
+          },
+          {
+            "line": 25,
+            "start": 24.92,
+            "end": 26.06
+          },
+          {
+            "line": 26,
+            "start": 26.06,
+            "end": 28.12
+          },
+          {
+            "line": 27,
+            "start": 28.12,
+            "end": 29.38
+          },
+          {
+            "line": 28,
+            "start": 29.38,
+            "end": 30.82
+          },
+          {
+            "line": 29,
+            "start": 30.82,
+            "end": 31.78
+          },
+          {
+            "line": 30,
+            "start": 31.78,
+            "end": 32.78
+          },
+          {
+            "line": 33,
+            "start": 32.78,
+            "end": 33.62
+          },
+          {
+            "line": 34,
+            "start": 33.62,
+            "end": 34.98
+          },
+          {
+            "line": 35,
+            "start": 34.98,
+            "end": 35.64
+          },
+          {
+            "line": 36,
+            "start": 36.48,
+            "end": 37.2
+          },
+          {
+            "line": 37,
+            "start": 37.2,
+            "end": 38.7
+          },
+          {
+            "line": 38,
+            "start": 38.7,
+            "end": 40.76
+          },
+          {
+            "line": 41,
+            "start": 40.76,
+            "end": 42.82
+          },
+          {
+            "line": 42,
+            "start": 43.18,
+            "end": 44.12
+          },
+          {
+            "line": 43,
+            "start": 44.12,
+            "end": 45.72
+          },
+          {
+            "line": 44,
+            "start": 45.72,
+            "end": 47
+          },
+          {
+            "line": 47,
+            "start": 47,
+            "end": 48.82
+          },
+          {
+            "line": 48,
+            "start": 48.82,
+            "end": 50.62
+          },
+          {
+            "line": 49,
+            "start": 50.62,
+            "end": 52.96
+          },
+          {
+            "line": 50,
+            "start": 139.78,
+            "end": 141.18
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Remix “Table by the Window”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Self control ultra slowed reverb kind of vibes, like in the 90s mercedes cars edits. But the lyrics are about ping ponging in a non cringy way if you can manage that.\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Lyrics may only be in Spanish and French. Expand the lyrics such that the song is about 6 minutes.",
+        "keep": "Keep the recognizable hook and spirit of “Table by the Window”.",
+        "basisSongs": [
+          "Table by the Window"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 145
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-ce130f6061f04139ff74bdf3",
       "title": "Pencere Kenarı Masa (Ultra Slow)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ce130f6061f04139ff74bdf3-f80d7f6114bf.mp3",
