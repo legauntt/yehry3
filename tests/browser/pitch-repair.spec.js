@@ -19,9 +19,16 @@ test("Tony's pitch starts Clean, reaches the worker as chosen, and is remembered
   await expect(pitch).toHaveValue('clean');
   expect(await pitch.locator('option').allTextContents()).toEqual(['Clean', 'Haunted', 'Wild']);
   await expect(page.locator('#pitch-repair-hint')).toContainText('Steadiest');
-  const other = page.locator('#gen-pitchCompare');
+  // The B side is an Advanced setting, not part of the pitch choice on Essentials.
+  await expect(page.locator('#essentials-panel #gen-pitchCompare')).toHaveCount(0);
+  const advanced = () => page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+  const essentials = () => page.getByRole('tab', { name: 'Essentials', exact: true }).click();
+  const other = page.locator('#advanced-panel #gen-pitchCompare');
+  await advanced();
+  await page.locator('#advanced-panel .pitch-compare summary').click();
   await expect(other).toHaveValue('');
   await other.selectOption('wild');
+  await essentials();
   await pitch.selectOption('wild');
   await expect(page.locator('#pitch-repair-hint')).toContainText('Untouched');
   // Without V8 generation there is nowhere to record the choice, so it says so instead of silently doing nothing.
@@ -35,6 +42,7 @@ test("Tony's pitch starts Clean, reaches the worker as chosen, and is remembered
   await page.getByRole('tab', { name: 'Essentials', exact: true }).click();
   await expect(pitch).toBeEnabled(); await expect(page.locator('#pitch-repair-off')).toBeHidden();
   await expect(pitch).toHaveValue('wild');
+  await advanced();
   await expect(other).toHaveValue('');
   await expect(other.locator('option[value="wild"]')).toBeDisabled();
   await other.selectOption('clean');

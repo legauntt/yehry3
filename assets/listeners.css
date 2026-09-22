@@ -264,3 +264,43 @@ html[data-shared-theme][data-theme="dark"] .room-avatar::before { border-color: 
   font-size: 0.85rem;
 }
 .room-name-help { display: block; margin-top: 4px; font-size: 0.68rem; opacity: 0.8; }
+
+/* What someone is on and what they are doing: two small badges on the face, and the same again in words on the card. */
+.room-badge {
+  position: absolute;
+  left: -5px;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  width: 19px;
+  height: 19px;
+  border: 2px solid var(--white, #fffdf5);
+  border-radius: 50%;
+  background: var(--ink, #283b30);
+  color: var(--paper, #fffdf5);
+  pointer-events: none;
+}
+.room-doing { top: -5px; background: var(--accent); color: #fff; }
+.room-device { bottom: -5px; }
+.room-icon {
+  width: 11px;
+  height: 11px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.room-progress { font-variant-numeric: tabular-nums; opacity: 0.9; }
+.room-meta { display: flex; align-items: center; gap: 5px; opacity: 0.85; }
+.room-meta .room-icon { flex: none; width: 12px; height: 12px; stroke-width: 2; }
+.room-doing-line { opacity: 1; }
+html[data-shared-theme][data-theme="dark"] .room-badge { border-color: var(--paper); }
+@media (max-width: 700px) {
+  .room-badge { left: -4px; width: 15px; height: 15px; border-width: 1.5px; }
+  .room-doing { top: -4px; }
+  .room-device { bottom: -4px; }
+  .room-icon { width: 9px; height: 9px; }
+  /* A toast stays two short lines so neighbours that change together do not cover each other; the full card has the rest. */
+  .room-seat.is-peeking:not(.is-open, :focus-within) .room-card > :is(.room-progress, .room-device-line) { display: none; }
+}

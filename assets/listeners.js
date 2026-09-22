@@ -4,6 +4,8 @@
 // within a second or two. Anyone may give themselves a name, from their own card here or from the
 // "Authored by" field on Make a request (the two are one saved name); until they do, they are the
 // animal the studio assigns them. The studio numbers a name someone else already has: "Jesse (2)".
+// Each face also says what screen it is on, what its owner is doing besides listening (drafting a song,
+// reading lyrics), and, when a card is open, how far into the song they are.
 import { api, signedIn } from "./api.js";
 import { API_BASE } from "./config.js";
 import { savedAuthor, rememberAuthor, onAuthorChange } from "./authored-by.js";
@@ -17,6 +19,8 @@ const IDLE_MS = 5 * 60000; // No mouse, key, touch or scroll for this long reads
 const SOCKET_URL = `${API_BASE.replace(/^http/, "ws")}/listeners/socket`;
 const SOCKET_GRACE_MS = 3000; // A socket this slow to deliver has the long poll started beside it.
 const SOCKET_REST_MS = 10 * 60000; // A network that will not carry a socket is not asked again for this long.
+const STATUS_MS = 2000; // How often the screen and what is being done are looked at; a report follows only a change.
+const SEEK_MS = 1200; // A seek is reported once the scrubbing settles, and only matters to the studio when it is far.
 const players = new Map();
 let beatMs = 25000, you = null, room = [], total = 0, version = "", started = false;
 let beatTimer, settleTimer, reporting = false, again = false, lastSong = null, nameRestUntil = 0;
@@ -26,17 +30,63 @@ let avatars = [], picking = false, chosen;
 // The name being typed into your own card, and a redraw held back until it is done so typing is not interrupted.
 let editingName = false, nameDraft = "", nameTimer, redrawLater = false;
 const peeks = new Map();
+let reportedStatus = "", seekTimer, ticks = 0;
+
+// The screen a listener is on, from what is under their fingers and how big the screen is. Pure, so it can be tested.
+export function deviceKind({ coarse, shortSide, longSide, width }) {
+  if (coarse) return shortSide < 600 ? "phone" : "tablet";
+  return longSide < 1280 || width < 800 ? "small" : "desktop";
+}
+const device = () => deviceKind({
+  coarse: matchMedia("(pointer: coarse)").matches,
+  shortSide: Math.min(screen.width, screen.height),
+  longSide: Math.max(screen.width, screen.height),
+  width: innerWidth,
+});
+const DEVICE_LABELS = { phone: "On a phone", tablet: "On a tablet", small: "On a small screen", desktop: "On a desktop" };
+const ACTIVITY_LABELS = { drafting: "Drafting a song", lyrics: "Viewing song lyrics" };
+// What this page says its visitor is doing, read from the page itself so no page has to report it.
+const activityNow = () => {
+  const page = document.body?.dataset.page;
+  if (page === "lyrics") return "lyrics";
+  if (page === "requests" && (document.querySelector("#details-form, #confirm-form") || document.querySelector("#idea")?.value.trim())) return "drafting";
+  return null;
+};
+const statusNow = () => `${device()}|${idleNow() ? "" : activityNow() || ""}`;
+// Small line icons, drawn in the text colour.
+const ICONS = {
+  phone: '<rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.3h2"/>',
+  tablet: '<rect x="4.5" y="2.5" width="15" height="19" rx="2"/><path d="M11 18.3h2"/>',
+  small: '<rect x="3.5" y="5" width="17" height="11" rx="1.5"/><path d="M1.5 19.5h21"/>',
+  desktop: '<rect x="2.5" y="3.5" width="19" height="12.5" rx="1.5"/><path d="M8.5 20.5h7M12 16v4.5"/>',
+  drafting: '<path d="M4 20l1-4.2L16.6 4.2a2 2 0 0 1 2.8 0l.4.4a2 2 0 0 1 0 2.8L8.2 19z"/><path d="M14.5 6.3l3.2 3.2"/>',
+  lyrics: '<path d="M6 3h9l4 4v14H6z"/><path d="M14.5 3v4.5H19M9 12h7M9 15.5h7M9 19h4"/>',
+};
+function icon(name) {
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", "0 0 24 24");
+  svg.setAttribute("class", "room-icon");
+  svg.setAttribute("aria-hidden", "true");
+  svg.setAttribute("focusable", "false");
+  svg.innerHTML = ICONS[name];
+  return svg;
+}
+export const clock = (seconds) => {
+  const whole = Math.max(0, Math.floor(seconds)), h = Math.floor(whole / 3600), m = Math.floor(whole % 3600 / 60), s = String(whole % 60).padStart(2, "0");
+  return h ? `${h}:${String(m).padStart(2, "0")}:${s}` : `${m}:${s}`;
+};
 
 const phone = () => matchMedia("(max-width: 700px)").matches;
 const invisible = () => {
   try { return localStorage.getItem(hiddenKey) === "true"; } catch { return false; }
 };
-const playingSong = () => {
-  let song = null;
+const playingEntry = () => {
+  let song = null, element = null;
   for (const [audio, entry] of players)
-    if (!audio.paused && !audio.ended && !audio.error && entry.songId && (!song || entry.at > song.at)) song = entry;
-  return song?.songId || null;
+    if (!audio.paused && !audio.ended && !audio.error && entry.songId && (!song || entry.at > song.at)) { song = entry; element = audio; }
+  return song ? { songId: song.songId, audio: element } : null;
 };
+const playingSong = () => playingEntry()?.songId || null;
 // Playing a song is listening, however still the mouse; otherwise a background tab or five quiet minutes is idle.
 const idleNow = () => !playingSong() && (document.hidden || Date.now() - lastInput >= IDLE_MS);
 // Someone reading the page or playing a song is here; a silent background tab is not.
@@ -48,9 +98,19 @@ export function nowListening(audio, songId) {
   const known = players.get(audio);
   players.set(audio, { songId: /^[a-z0-9-]{1,120}$/.test(songId || "") ? songId : null, at: performance.now() });
   if (!known)
-    for (const event of ["playing", "pause", "ended", "emptied", "error"])
-      audio.addEventListener(event, () => { if (event === "playing") players.get(audio).at = performance.now(); settle(); });
+    for (const event of ["playing", "pause", "ended", "emptied", "error", "seeked"])
+      audio.addEventListener(event, () => {
+        if (event === "playing") players.get(audio).at = performance.now();
+        if (event === "seeked") return reseek();
+        settle();
+      });
   settle();
+}
+// A seek moves the place the studio has for a song, so it is told once the scrubbing has stopped.
+function reseek() {
+  if (!started) return;
+  clearTimeout(seekTimer);
+  seekTimer = setTimeout(() => { if (playingSong()) void report(true); }, SEEK_MS);
 }
 function settle() {
   if (!started) return;
@@ -112,8 +172,18 @@ function seat(listener) {
   button.type = "button";
   button.className = "room-avatar";
   button.setAttribute("aria-expanded", String(openId === listener.id));
-  button.setAttribute("aria-label", `${listener.name}${self ? " (you)" : ""}: ${listener.song ? `listening to ${listener.song.title}` : listener.idle ? "idle" : "online"}`);
+  const kind = DEVICE_LABELS[listener.device] ? listener.device : null, doing = ACTIVITY_LABELS[listener.activity] ? listener.activity : null;
+  button.setAttribute("aria-label", `${listener.name}${self ? " (you)" : ""}: ${listener.song ? `listening to ${listener.song.title}` : listener.idle ? "idle" : "online"}${doing ? `, ${ACTIVITY_LABELS[doing].toLowerCase()}` : ""}${kind ? `, ${DEVICE_LABELS[kind].toLowerCase()}` : ""}`);
   button.append(face(listener));
+  // Two small badges on the face: what they are doing (top left) and the screen they are on (bottom left).
+  for (const [name, className] of [[doing, "room-badge room-doing"], [kind, "room-badge room-device"]]) {
+    if (!name) continue;
+    const badge = document.createElement("span");
+    badge.className = className;
+    badge.dataset.kind = name;
+    badge.append(icon(name));
+    button.append(badge);
+  }
   const card = document.createElement("div");
   card.className = "room-card";
   const name = document.createElement("strong");
@@ -134,9 +204,47 @@ function seat(listener) {
     line.append("♪ ", link);
   } else line.textContent = listener.idle ? "Idle" : "Online";
   card.append(line);
+  const place = progressText(listener);
+  if (place) {
+    const progress = document.createElement("span");
+    progress.className = "room-progress";
+    progress.dataset.id = listener.id;
+    progress.textContent = place;
+    card.append(progress);
+  }
+  for (const [name, label, className] of [[doing, ACTIVITY_LABELS[doing], "room-doing-line"], [kind, DEVICE_LABELS[kind], "room-device-line"]]) {
+    if (!name) continue;
+    const row = document.createElement("span");
+    row.className = `room-meta ${className}`;
+    row.append(icon(name), label);
+    card.append(row);
+  }
   if (self) card.append(selfNote());
   item.append(button, card);
   return item;
+}
+// How far into the song someone is: their own browser knows exactly; anyone else's is the studio's last word counted on
+// second by second, until a correction arrives.
+function progressText(listener) {
+  if (!listener.song) return "";
+  const mine = listener.id === you?.id && !invisible() ? playingEntry() : null;
+  if (mine?.songId === listener.song.id && Number.isFinite(mine.audio.currentTime)) {
+    const length = Number.isFinite(mine.audio.duration) ? mine.audio.duration : listener.progress?.duration;
+    return `${clock(mine.audio.currentTime)}${length ? ` / ${clock(length)}` : ""}`;
+  }
+  const place = listener.progress;
+  if (!place) return "";
+  const seconds = place.position + (Date.now() - (place.received || Date.now()) + place.age) / 1000;
+  return `${clock(place.duration ? Math.min(seconds, place.duration) : seconds)}${place.duration ? ` / ${clock(place.duration)}` : ""}`;
+}
+function tick() {
+  if (!root || document.hidden) return;
+  for (const element of root.querySelectorAll(".room-progress")) {
+    const text = progressText(room.find((listener) => listener.id === element.dataset.id) || {});
+    if (text && element.textContent !== text) element.textContent = text;
+  }
+  // The screen or the page's doings may have changed without a song or a name to say so.
+  if (++ticks % (STATUS_MS / 1000) === 0 && started && !invisible() && you && statusNow() !== reportedStatus) void report(true);
 }
 function selfNote() {
   const note = document.createElement("span");
@@ -286,6 +394,8 @@ function accept(data) {
   room = data.listeners.filter((listener) => /^[0-9a-f]{16}$/.test(listener?.id || "") && typeof listener.name === "string");
   total = Number.isFinite(data.total) ? data.total : room.length;
   version = typeof data.version === "string" ? data.version : "";
+  const received = Date.now();
+  for (const listener of room) if (listener.progress) listener.progress.received = received;
   // A new song, or a new arrival with one, shows its card for a moment without being asked.
   const ms = phone() ? TOAST_MS : PEEK_MS;
   for (const listener of room) {
@@ -303,7 +413,9 @@ async function report(force = false) {
   if (reporting) { again = true; return; }
   reporting = true;
   clearTimeout(beatTimer);
-  const songId = playingSong(), idle = idleNow();
+  const entry = playingEntry(), songId = entry?.songId || null, idle = idleNow();
+  const doing = idle ? null : activityNow();
+  const status = { device: device(), ...(doing ? { activity: doing } : {}), ...(songId && Number.isFinite(entry.audio.currentTime) ? { position: entry.audio.currentTime, ...(Number.isFinite(entry.audio.duration) ? { duration: entry.audio.duration } : {}) } : {}) };
   // A submitter session outlives an admin one, so it is the one to present when both exist.
   const role = Date.now() < nameRestUntil ? null : signedIn("submitter") ? "submitter" : signedIn("admin") ? "admin" : null;
   // A name needs no sign-in; a session is only for choosing an avatar.
@@ -312,15 +424,16 @@ async function report(force = false) {
   try {
     let data;
     try {
-      data = await api("/listeners", { method: "POST", body: { tab, songId, idle, ...(name ? { name } : {}), ...(avatar !== undefined ? { avatar } : {}) }, ...(role ? { role } : {}) });
+      data = await api("/listeners", { method: "POST", body: { tab, songId, idle, ...status, ...(name ? { name } : {}), ...(avatar !== undefined ? { avatar } : {}) }, ...(role ? { role } : {}) });
     } catch (error) {
       if (!role || ![401, 403, 503].includes(error.status)) throw error;
       // A session that cannot be restored must not keep this listener out of the room, or retry a sign-in every beat.
       nameRestUntil = Date.now() + 10 * 60000;
-      data = await api("/listeners", { method: "POST", body: { tab, songId, idle, ...(name ? { name } : {}) } });
+      data = await api("/listeners", { method: "POST", body: { tab, songId, idle, ...status, ...(name ? { name } : {}) } });
     }
     lastSong = songId;
     reportedIdle = idle;
+    reportedStatus = `${status.device}|${doing || ""}`;
     you = data.you || null;
     if (chosen === avatar) chosen = undefined;
     avatars = Array.isArray(data.avatars) ? data.avatars.filter((emoji) => typeof emoji === "string" && emoji.length <= 8) : [];
@@ -486,6 +599,7 @@ export function mountListeners() {
     clearTimeout(nameTimer);
     nameTimer = setTimeout(() => void report(true), 800);
   });
+  setInterval(tick, 1000);
   addEventListener("pagehide", () => { leave(); hangUp(); });
   addEventListener("pageshow", (event) => { if (event.persisted) { void report(); follow(); } });
   if (invisible()) follow();

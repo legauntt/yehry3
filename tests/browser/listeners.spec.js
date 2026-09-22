@@ -357,3 +357,122 @@ test("on a phone the seats are small and whole at the edge, and a changed song s
   state.version = "1000000000000003";
   await expect(page.locator(".room-seat.is-you")).toHaveClass(/is-peeking/, { timeout: 8000 });
 });
+
+// The screen each face reports comes from the pointer and the size of the screen.
+for (const [kind, options] of [
+  ["phone", { viewport: { width: 390, height: 800 }, isMobile: true, hasTouch: true }],
+  ["tablet", { viewport: { width: 820, height: 1180 }, isMobile: true, hasTouch: true }],
+  ["small", { viewport: { width: 1024, height: 700 } }],
+  ["desktop", { viewport: { width: 1440, height: 900 } }],
+]) test.describe(`on a ${kind}`, () => {
+  test.use(options);
+  test(`this browser reports itself as a ${kind}`, async ({ page }) => {
+    const state = await studio(page);
+    await page.goto("/queue/");
+    await expect(page.locator(".room-seat")).toHaveCount(3);
+    expect(state.reports[0].device).toBe(kind);
+  });
+});
+
+test("each face shows the screen and what its owner is doing, as a badge and in words, and how far into the song they are", async ({ page }) => {
+  const state = await studio(page);
+  const busy = { ...jesse, device: "phone", activity: "drafting", progress: { position: 63, duration: 259, age: 0 } };
+  state.listeners = [state.listeners[0], busy, { ...fox, device: "desktop", activity: "lyrics" }];
+  await page.goto("/?sort=catalog");
+  const named = page.locator('.room-seat[data-id="bbbbbbbbbbbbbb01"]');
+  await expect(named.locator(".room-device")).toHaveAttribute("data-kind", "phone");
+  await expect(named.locator(".room-doing")).toHaveAttribute("data-kind", "drafting");
+  await expect(named.locator(".room-avatar")).toHaveAttribute("aria-label", "Jesse Gauntt: listening to First in the room, drafting a song, on a phone");
+  // Someone with nothing to report has no badges.
+  await expect(page.locator(".room-left .room-seat").first().locator(".room-badge")).toHaveCount(0);
+  await named.locator(".room-avatar").hover();
+  await expect(named.locator(".room-card")).toContainText("On a phone");
+  await expect(named.locator(".room-card")).toContainText("Drafting a song");
+  // Their place is counted on second by second between reports, and never past the end.
+  const place = named.locator(".room-progress");
+  await expect(place).toHaveText(/^1:0[3-9] \/ 4:19$/);
+  const first = await place.textContent();
+  await expect.poll(() => place.textContent(), { timeout: 5000 }).not.toBe(first);
+  // A correction (a seek, a stall) is taken at its word.
+  state.listeners = [state.listeners[0], { ...busy, progress: { position: 190, duration: 259, age: 0 } }, state.listeners[2]];
+  state.version = "1000000000000004";
+  await expect(place).toHaveText(/^3:1\d \/ 4:19$/, { timeout: 8000 });
+  state.listeners = [state.listeners[0], { ...busy, progress: { position: 258, duration: 259, age: 0 } }, state.listeners[2]];
+  state.version = "1000000000000005";
+  await expect(place).toHaveText(/^4:1[89] \/ 4:19$/, { timeout: 8000 });
+  await page.waitForTimeout(2500);
+  await expect(place).toHaveText("4:19 / 4:19");
+  // Someone not listening has no place, and lyrics read as their own state.
+  const reader = page.locator('.room-seat[data-id="cccccccccccccc02"]');
+  await expect(reader.locator(".room-doing")).toHaveAttribute("data-kind", "lyrics");
+  await reader.locator(".room-avatar").hover();
+  await expect(reader.locator(".room-card")).toContainText("Viewing song lyrics");
+  await expect(reader.locator(".room-card")).toContainText("On a desktop");
+  await expect(reader.locator(".room-progress")).toHaveCount(0);
+  await page.screenshot({ path: "artifacts/avatar-states/desktop-card.png" });
+});
+
+test("your own report carries your place in the song, and a seek is reported again", async ({ page }) => {
+  const state = await studio(page);
+  await page.goto("/?sort=catalog");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  expect(state.reports[0].position).toBeUndefined();
+  await page.locator('.track[data-id="room-second"] [data-play]').click();
+  await expect.poll(() => state.reports.at(-1).songId, { timeout: 8000 }).toBe("room-second");
+  expect(state.reports.at(-1).position).toBeGreaterThanOrEqual(0);
+  expect(state.reports.at(-1).duration).toBeCloseTo(4, 0);
+  const reports = state.reports.length;
+  await page.evaluate(() => { document.querySelector("audio").currentTime = 0; });
+  await expect.poll(() => state.reports.length, { timeout: 5000 }).toBeGreaterThan(reports);
+});
+
+test("drafting a song and reading lyrics are noticed from the page, and stop when the page is left", async ({ page }) => {
+  const state = await studio(page);
+  await page.goto("/distonyc/");
+  await page.locator("#password").fill("wishbone");
+  await page.locator("#login-form button").click();
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  expect(state.reports.at(-1).activity).toBeUndefined();
+  await page.locator("#idea").fill("A song about a very patient lighthouse keeper.");
+  await expect.poll(() => state.reports.at(-1).activity, { timeout: 8000 }).toBe("drafting");
+  // The site changes page without unloading; the doing goes with the page.
+  await page.locator('a[href="/queue/"]').first().click();
+  await expect(page).toHaveURL(/\/queue\/$/);
+  await expect.poll(() => state.reports.at(-1).activity, { timeout: 8000 }).toBeUndefined();
+  // A lyric sheet is the page for it, even one that is still to arrive.
+  await page.goto("/lyrics/?song=room-first");
+  await expect.poll(() => state.reports.at(-1).activity, { timeout: 8000 }).toBe("lyrics");
+});
+
+test("on a phone the badges stay on the face and a toast stays two short lines", async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 800 });
+  const state = await studio(page);
+  state.listeners = [state.listeners[0], { ...jesse, device: "phone", activity: "lyrics", progress: { position: 63, duration: 259, age: 0 } }, fox];
+  await page.goto("/?sort=catalog");
+  const named = page.locator('.room-seat[data-id="bbbbbbbbbbbbbb01"]');
+  await expect(named.locator(".room-badge")).toHaveCount(2);
+  const avatar = await named.locator(".room-avatar").boundingBox();
+  for (const badge of await named.locator(".room-badge").all()) {
+    const box = await badge.boundingBox();
+    expect(box.x).toBeGreaterThanOrEqual(0);
+    expect(box.width).toBeLessThanOrEqual(16);
+    expect(box.y).toBeGreaterThan(avatar.y - 8);
+    expect(box.y + box.height).toBeLessThan(avatar.y + avatar.height + 8);
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await named.locator(".room-avatar").click();
+  await expect(named.locator(".room-progress")).toBeVisible();
+  const card = await named.locator(".room-card").boundingBox();
+  expect(card.x).toBeGreaterThanOrEqual(0);
+  expect(card.x + card.width).toBeLessThanOrEqual(390);
+  await page.screenshot({ path: "artifacts/avatar-states/phone-card.png" });
+  await page.keyboard.press("Escape");
+  await page.evaluate(() => document.activeElement.blur());
+  await page.mouse.move(200, 100);
+  state.listeners = [state.listeners[0], { ...jesse, device: "phone", activity: "lyrics", song: { id: "room-second", title: "Second in the room" }, progress: { position: 5, duration: 259, age: 0 } }, fox];
+  state.version = "1000000000000007";
+  await expect(named).toHaveClass(/is-peeking/, { timeout: 8000 });
+  await expect(named.locator(".room-progress")).toBeHidden();
+  await expect(named.locator(".room-device-line")).toBeHidden();
+  expect((await named.locator(".room-card").boundingBox()).height).toBeLessThan(80);
+});
