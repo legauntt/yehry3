@@ -37,13 +37,14 @@ async function studio(page, { reject = () => false, socket = false } = {}) {
   await page.route("**/yehry3/queue?*", (route) => route.fulfill({ json: queue }));
   await page.route("**/yehry3/listens", (route) => route.fulfill({ json: {} }));
   // Without `socket` the studio turns sockets away, as an old network would, and the page long polls.
-  state.push = () => { for (const line of state.lines) line.send(JSON.stringify(body())); };
-  await page.routeWebSocket("**/yehry3/listeners/socket", (line) => {
+  const events = () => ({ version: body().version + "0000000000000001", topics: { listeners: body(), catalog: { version: "0000000000000001" } } });
+  state.push = () => { for (const line of state.lines) line.send(JSON.stringify(events())); };
+  await page.routeWebSocket("**/yehry3/events/socket", (line) => {
     if (!state.socket) return line.close({ code: 1013 });
     state.lines.push(line);
-    line.send(JSON.stringify(body()));
+    line.send(JSON.stringify(events()));
   });
-  await page.route("**/yehry3/listeners**", async (route) => {
+  await page.route(/\/yehry3\/(?:listeners|events)(?:[/?]|$)/, async (route) => {
     const request = route.request();
     if (request.method() === "DELETE") {
       state.left.push(new URL(request.url()).pathname.split("/").pop());
@@ -72,8 +73,8 @@ async function studio(page, { reject = () => false, socket = false } = {}) {
     }
     state.polls++;
     const since = new URL(request.url()).searchParams.get("since"), began = Date.now();
-    while (since === state.version && Date.now() - began < 20000) await new Promise((resolve) => setTimeout(resolve, 50));
-    await route.fulfill({ json: body() }).catch(() => { /* The page closed while this poll was held. */ });
+    while (since === events().version && Date.now() - began < 20000) await new Promise((resolve) => setTimeout(resolve, 50));
+    await route.fulfill({ json: events() }).catch(() => { /* The page closed while this poll was held. */ });
   });
   return state;
 }

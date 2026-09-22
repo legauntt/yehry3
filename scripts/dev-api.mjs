@@ -64,6 +64,7 @@ const server = app.listen(port, "127.0.0.1", () =>
 if (yehry3.upgrade) server.on("upgrade", yehry3.upgrade);
 async function stop() {
   server.close();
+  await yehry3.drain?.();
   await client.close();
   await mongo.stop();
   process.exit(0);

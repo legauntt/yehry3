@@ -134,6 +134,7 @@ for (const name of [
   "lyrics.js",
   "listening.js",
   "listeners.js",
+  "realtime.js",
   "listeners.css",
   "original-prompt.js",
   "prompt-brief.js",
@@ -381,6 +382,25 @@ assert.ok(
   !live.songs.some((song) => archived.includes(song.id)),
   "API still lists archived songs",
 );
+const eventResponse = await get(`${api}/events`, { headers: { Origin: site } });
+assert.match(eventResponse.headers.get("cache-control") || "", /no-store/);
+const checkEvents = (packet) => {
+  assert.match(packet?.version || "", /^[0-9a-f]{32}$/);
+  assert.deepEqual(Object.keys(packet.topics).sort(), ["catalog", "listeners"]);
+  assert.deepEqual(Object.keys(packet.topics.catalog), ["version"]);
+  assert.equal(packet.version, packet.topics.listeners.version + packet.topics.catalog.version);
+  assert.ok(Array.isArray(packet.topics.listeners.listeners));
+};
+checkEvents(await eventResponse.json());
+await new Promise((resolve, reject) => {
+  const socket = new WebSocket(`${api.replace(/^http/, "ws")}/events/socket`);
+  const timer = setTimeout(() => { socket.close(); reject(new Error("Public event socket timed out")); }, 10000);
+  const finish = (error) => { clearTimeout(timer); socket.close(); error ? reject(error) : resolve(); };
+  socket.addEventListener("message", event => {
+    try { checkEvents(JSON.parse(event.data)); finish(); } catch (error) { finish(error); }
+  }, { once: true });
+  socket.addEventListener("error", () => finish(new Error("Public event socket failed")), { once: true });
+});
 console.log(
-  `Verified exact public assets, ${expected.songs.length} catalog songs (${archived.length} archived), MP3 seeking, and API/CORS.`,
+  `Verified exact public assets, ${expected.songs.length} catalog songs (${archived.length} archived), MP3 seeking, API/CORS, and public event polling/socket.`,
 );

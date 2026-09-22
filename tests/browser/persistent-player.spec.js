@@ -38,8 +38,9 @@ async function studio(page) {
   await page.route("**/yehry3/queue?*", (route) => route.fulfill({ json: queue }));
   await page.route("**/yehry3/mixtapes**", (route) => route.fulfill({ json: { mixtapes: [], page: 0, hasMore: false } }));
   await page.route("**/yehry3/listens", (route) => route.fulfill({ json: {} }));
-  await page.routeWebSocket("**/yehry3/listeners/socket", (line) => line.close({ code: 1013 }));
-  await page.route("**/yehry3/listeners**", async (route) => {
+  await page.routeWebSocket("**/yehry3/events/socket", (line) => line.close({ code: 1013 }));
+  const events = () => ({ version: body().version + "0000000000000001", topics: { listeners: body(), catalog: { version: "0000000000000001" } } });
+  await page.route(/\/yehry3\/(?:listeners|events)(?:[/?]|$)/, async (route) => {
     const request = route.request();
     if (request.method() === "DELETE") { state.left.push(new URL(request.url()).pathname.split("/").pop()); return route.fulfill({ json: { left: true } }); }
     if (request.method() === "POST") {
@@ -48,7 +49,7 @@ async function studio(page) {
     }
     state.polls++;
     await new Promise((resolve) => setTimeout(resolve, 3000));
-    await route.fulfill({ json: body() }).catch(() => {});
+    await route.fulfill({ json: events() }).catch(() => {});
   });
   return state;
 }
@@ -153,7 +154,8 @@ test("a lyric sheet plays on the site's player and the song stays as the visitor
   // The bar's title returns to the sheet, which finds its song already playing.
   await page.locator("#site-player #now-title a").click();
   await expect(sheet.locator("#sheet-play")).toHaveText("Pause");
-  await expect(line).toHaveClass(/is-active/);
+  // Audio keeps advancing during navigation; a short cue may already be over.
+  await expect(sheet.locator(".lyric-line.is-active")).toHaveCount(1);
   expect(await playing(page)).toBe(true);
   await sheet.locator("#sheet-play").click();
   await expect(sheet.locator("#sheet-play")).toHaveText("Resume");

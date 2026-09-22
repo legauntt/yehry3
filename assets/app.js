@@ -40,6 +40,7 @@ import { recordingLabels, recordingLabel, recordingTitle } from "./recording-lab
 import { mountCatalogView } from "./catalog-view.js";
 import { songArtworkMarkup } from "./song-art.js";
 import { openArtRemix } from "./art-remix.js";
+import { watchCatalog } from "./realtime.js";
 import { announceAttention, badgeSoundIcon, hasBadgeSound, mountBadgeSounds } from "./badge-sound.js";
 
 const $ = (selector, root = document) => root.querySelector(selector);
@@ -234,7 +235,8 @@ async function library() {
     online = false,
     voting = false,
     feedbackBusy = false,
-    refreshing = null;
+    refreshing = null,
+    refreshAgain = false;
   function pinButton(song) {
     const count = Math.max(0, Number(song.pins) || 0);
     const mine = Boolean(song.feedback?.pinned);
@@ -747,25 +749,30 @@ async function library() {
     }
   });
   async function refresh() {
-    if (document.hidden) return;
-    if (refreshing) return refreshing;
+    if (document.hidden || scope.left) return;
+    if (refreshing) { refreshAgain = true; return refreshing; }
     refreshing = (async () => {
-      const [catalog, upcoming] = await Promise.allSettled([api("/songs/summary"), api("/queue?page=0")]);
-      if (catalog.status === "fulfilled" && catalog.value.songs?.length) {
-        songs = catalog.value.songs;
-        if (Array.isArray(catalog.value.archived)) rememberArchived(catalog.value.archived);
-        nextVoteAt = catalog.value.nextVoteAt;
-        online = true;
-      } else online = false;
-      initialCatalogPending = false;
-      if (upcoming.status === "fulfilled" && Array.isArray(upcoming.value.inStudio) && Array.isArray(upcoming.value.queued)) {
-        pending = [...upcoming.value.inStudio, ...(upcoming.value.needsAttention || []), ...upcoming.value.queued];
-        recentReleases.clear();
-        for (const song of upcoming.value.recent || [])
-          if (song.id && song.publishedAt) recentReleases.set(song.id, song.publishedAt);
-        await announceAttention(upcoming.value.needsAttention || []);
-      }
-      render({ preserveViewport: true });
+      do {
+        refreshAgain = false;
+        const [catalog, upcoming] = await Promise.allSettled([api("/songs/summary"), api("/queue?page=0")]);
+        if (scope.left) return;
+        if (catalog.status === "fulfilled" && Array.isArray(catalog.value.songs)) {
+          songs = catalog.value.songs;
+          if (Array.isArray(catalog.value.archived)) rememberArchived(catalog.value.archived);
+          nextVoteAt = catalog.value.nextVoteAt;
+          online = true;
+        } else online = false;
+        initialCatalogPending = false;
+        if (upcoming.status === "fulfilled" && Array.isArray(upcoming.value.inStudio) && Array.isArray(upcoming.value.queued)) {
+          pending = [...upcoming.value.inStudio, ...(upcoming.value.needsAttention || []), ...upcoming.value.queued];
+          recentReleases.clear();
+          for (const song of upcoming.value.recent || [])
+            if (song.id && song.publishedAt) recentReleases.set(song.id, song.publishedAt);
+          await announceAttention(upcoming.value.needsAttention || []);
+        }
+        if (scope.left) return;
+        render({ preserveViewport: true });
+      } while (refreshAgain && !document.hidden && !scope.left);
     })().finally(() => { refreshing = null; });
     return refreshing;
   }
@@ -823,6 +830,8 @@ async function library() {
   try { linked = decodeURIComponent(location.hash.slice(1)); } catch { /* Not a song fragment. */ }
   if (/^[a-z0-9-]{1,120}$/.test(linked)) message(waitingNote);
   await refresh();
+  if (scope.left) return;
+  watchCatalog(refresh, { signal: scope.signal });
   // Only our own note is cleared, and before the reveal, so its going cannot move the centred row.
   if ($("#message")?.firstChild?.textContent === waitingNote) message("");
   revealFromHash();

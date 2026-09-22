@@ -59,24 +59,39 @@ test("new queued details load from the single API without a published static fil
 
 test("catalog refresh is compact and hidden tabs do not poll songs", async ({ page }) => {
   await page.clock.install();
+  await page.addInitScript(() => {
+    const original = window.fetch;
+    window.__catalogReads = 0;
+    window.fetch = function (...args) {
+      if (String(args[0]).endsWith("/songs/summary")) window.__catalogReads++;
+      return original.apply(this, args);
+    };
+  });
   let count = 0;
   const heavyRequests = [];
-  page.on("request", request => { if (/\/yehry3\/songs$|\/catalog\.json$/.test(request.url())) heavyRequests.push(request.url()); });
-  page.on("response", response => { if (response.url().endsWith("/songs/summary")) count++; });
+  page.on("request", request => {
+    if (/\/yehry3\/songs$|\/catalog\.json$/.test(request.url())) heavyRequests.push(request.url());
+    if (request.url().endsWith("/songs/summary")) count++;
+  });
   await page.goto("/");
-  await expect.poll(() => count).toBe(1);
+  await expect.poll(() => count).toBeGreaterThanOrEqual(1);
   const data = await page.evaluate(async () => {
     const api = await import("/assets/api.js");
     return api.api("/songs/summary");
   });
   expect(data.songs.length).toBeGreaterThan(50);
   expect(data.songs.every(item => !item.lyrics && !item.songPlan && !item.originalPrompt)).toBe(true);
-  const before = count;
-  await page.evaluate(() => Object.defineProperty(document, "hidden", { configurable: true, get: () => true }));
+  // Take the baseline and hide in the same browser turn. A realtime refresh
+  // started earlier may still reach Playwright's network listener afterward.
+  const before = await page.evaluate(() => {
+    Object.defineProperty(document, "hidden", { configurable: true, get: () => true });
+    document.dispatchEvent(new Event("visibilitychange"));
+    return window.__catalogReads;
+  });
   await page.clock.fastForward(60001);
-  expect(count).toBe(before);
+  expect(await page.evaluate(() => window.__catalogReads)).toBe(before);
   await page.evaluate(() => { delete document.hidden; document.dispatchEvent(new Event("visibilitychange")); });
-  await expect.poll(() => count).toBe(before + 1);
+  await expect.poll(() => page.evaluate(() => window.__catalogReads)).toBeGreaterThan(before);
   expect(heavyRequests).toEqual([]);
 });
 
