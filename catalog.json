@@ -2,6 +2,302 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-624679642e1284378f58f46c",
+      "title": "Hold the River",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-624679642e1284378f58f46c-5783c8ea6617.mp3",
+      "duration": 259.97061224489795,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-22T09:04:57.955Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Hold the River",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "A 260-second bass-forward post-punk rock song in E minor at 116 BPM. Tight live drums, elastic electric bass, clipped electric guitars, restrained synth texture, and a small organ lift build from a lean opening verse into broad melodic choruses. Use one clear, steadily pitched Tony V9 lead with connected natural phrasing and no vocal doubles, rasp, whispering, growls, or backing stacks. Start contained, add drive in the second verse, drop to bass and drums for the bridge, then resolve through a final full-band chorus. Pace the last sustained word “here” to land about 9 seconds before the end, followed by one resolved final chord decay.",
+        "lyrics": "[Verse 1]\nMorning on the windowsill, the room quit looking gray\nI quit chasing every spark that burned itself away\nKept a little current under lock and under skin\nFound a quiet kind of fire when I learned to hold it in\nThe streetlight hums, the coffee steams, the day has got a door\nI used to spend my thunder and come back asking for more\nNow I let the pressure turn into a steady beam\nI retain what I can carry, make a ladder from the dream\n\n[Pre-Chorus]\nNo sermon in my pocket, no halo on my head\nJust a little more tomorrow when I leave the night unsaid\n\n[Chorus]\nDon't cum, hold the river when it starts to run\nRetain, retain semen, keep the engine warm\nDon't cum, I can feel the old fog clear\nWhen I keep that spark inside, the road just gets easier\nJust gets easier, just gets easier\n\n[Verse 2]\nI hear the wheels beneath me, feel the sidewalk answer back\nEvery small decision puts another color in the black\nI was always looking outward for a switch to make me whole\nNow the hand upon the dial is the hand upon my soul\nNot a miracle machine, not a promise carved in stone\nJust a choice I make at midnight when the apartment's mine alone\nThe restless little animal can wait behind the gate\nI retain the heat and shape it into something I can make\n\n[Pre-Chorus]\nThe calendar looks wider, the mirror shows my face\nI quit confusing motion with a place to put my faith\n\n[Chorus]\nDon't cum, hold the river when it starts to run\nRetain, retain semen, keep the engine warm\nDon't cum, I can feel the old fog clear\nWhen I keep that spark inside, the road just gets easier\nJust gets easier, just gets easier\n\n[Bridge]\nMaybe it is patience, maybe it is pride\nMaybe all the open doors were opening inside\nI don't need to sell it, I don't need a sacred sign\nI just keep the charge that is mine, mine, mine\n\n[Breakdown]\nRetain—one breath, one night, one day\nRetain—watch the heavy weather sway\nDon't cum—not fear, not shame, not a rule\nJust a hand on the wheel when the blood runs cool\n\n[Chorus]\nDon't cum, hold the river, let it feed the ground\nRetain, retain semen, let the lost light come around\nDon't cum, the city lifts its weary gear\nI keep that spark inside and the whole world just gets easier\nJust gets easier, clear and easier\nI hold the river, and life opens here\n[End]",
+        "duration": 260,
+        "bpm": 116,
+        "musicalSettings": {
+          "genre": "Bass-forward post-punk rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, breakdown, final chorus",
+          "performance": "One clear, steady-pitched melodic lead with natural connected phrasing",
+          "energy": "Contained opening tension grows into driving choruses, a stripped bridge, and a resolved full-band finish",
+          "lyricWorkflow": "Original first-person reflection with a recurring retention-themed hook and a concrete final payoff",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "electric guitars",
+            "synth",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nMorning on the windowsill, the room quit looking gray\nI quit chasing every spark that burned itself away\nKept a little current under lock and under skin\nFound a quiet kind of fire when I learned to hold it in\nThe streetlight hums, the coffee steams, the day has got a door\nI used to spend my thunder and come back asking for more\nNow I let the pressure turn into a steady beam\nI retain what I can carry, make a ladder from the dream\n\n[Pre-Chorus]\nNo sermon in my pocket, no halo on my head\nJust a little more tomorrow when I leave the night unsaid\n\n[Chorus]\nDon't cum, hold the river when it starts to run\nRetain, retain semen, keep the engine warm\nDon't cum, I can feel the old fog clear\nWhen I keep that spark inside, the road just gets easier\nJust gets easier, just gets easier\n\n[Verse 2]\nI hear the wheels beneath me, feel the sidewalk answer back\nEvery small decision puts another color in the black\nI was always looking outward for a switch to make me whole\nNow the hand upon the dial is the hand upon my soul\nNot a miracle machine, not a promise carved in stone\nJust a choice I make at midnight when the apartment's mine alone\nThe restless little animal can wait behind the gate\nI retain the heat and shape it into something I can make\n\n[Pre-Chorus]\nThe calendar looks wider, the mirror shows my face\nI quit confusing motion with a place to put my faith\n\n[Chorus]\nDon't cum, hold the river when it starts to run\nRetain, retain semen, keep the engine warm\nDon't cum, I can feel the old fog clear\nWhen I keep that spark inside, the road just gets easier\nJust gets easier, just gets easier\n\n[Bridge]\nMaybe it is patience, maybe it is pride\nMaybe all the open doors were opening inside\nI don't need to sell it, I don't need a sacred sign\nI just keep the charge that is mine, mine, mine\n\n[Breakdown]\nRetain—one breath, one night, one day\nRetain—watch the heavy weather sway\nDon't cum—not fear, not shame, not a rule\nJust a hand on the wheel when the blood runs cool\n\n[Chorus]\nDon't cum, hold the river, let it feed the ground\nRetain, retain semen, let the lost light come around\nDon't cum, the city lifts its weary gear\nI keep that spark inside and the whole world just gets easier\nJust gets easier, clear and easier\nI hold the river, and life opens here",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 20.5,
+            "end": 21.36
+          },
+          {
+            "line": 2,
+            "start": 21.36,
+            "end": 25.1
+          },
+          {
+            "line": 3,
+            "start": 25.62,
+            "end": 29.24
+          },
+          {
+            "line": 4,
+            "start": 29.24,
+            "end": 33.54
+          },
+          {
+            "line": 5,
+            "start": 34.02,
+            "end": 37.6
+          },
+          {
+            "line": 6,
+            "start": 37.6,
+            "end": 41.74
+          },
+          {
+            "line": 7,
+            "start": 42.44,
+            "end": 45.76
+          },
+          {
+            "line": 8,
+            "start": 46.26,
+            "end": 50.02
+          },
+          {
+            "line": 11,
+            "start": 52.1,
+            "end": 56.48
+          },
+          {
+            "line": 12,
+            "start": 58,
+            "end": 62.9
+          },
+          {
+            "line": 15,
+            "start": 62.9,
+            "end": 70.8
+          },
+          {
+            "line": 16,
+            "start": 70.8,
+            "end": 74.78
+          },
+          {
+            "line": 17,
+            "start": 74.78,
+            "end": 79.38
+          },
+          {
+            "line": 18,
+            "start": 79.38,
+            "end": 83.12
+          },
+          {
+            "line": 19,
+            "start": 84.22,
+            "end": 87.74
+          },
+          {
+            "line": 22,
+            "start": 100.7,
+            "end": 103.76
+          },
+          {
+            "line": 23,
+            "start": 104.54,
+            "end": 107.82
+          },
+          {
+            "line": 24,
+            "start": 108.36,
+            "end": 112.06
+          },
+          {
+            "line": 25,
+            "start": 112.06,
+            "end": 116.16
+          },
+          {
+            "line": 26,
+            "start": 116.16,
+            "end": 120.24
+          },
+          {
+            "line": 27,
+            "start": 120.24,
+            "end": 124.4
+          },
+          {
+            "line": 28,
+            "start": 124.82,
+            "end": 128.62
+          },
+          {
+            "line": 29,
+            "start": 128.62,
+            "end": 132.78
+          },
+          {
+            "line": 32,
+            "start": 141.08,
+            "end": 145.8
+          },
+          {
+            "line": 33,
+            "start": 145.8,
+            "end": 149.62
+          },
+          {
+            "line": 36,
+            "start": 153.42,
+            "end": 158.26
+          },
+          {
+            "line": 37,
+            "start": 158.26,
+            "end": 161.66
+          },
+          {
+            "line": 38,
+            "start": 162.04,
+            "end": 165.84
+          },
+          {
+            "line": 39,
+            "start": 165.84,
+            "end": 170.1
+          },
+          {
+            "line": 40,
+            "start": 171.2,
+            "end": 174.5
+          },
+          {
+            "line": 43,
+            "start": 175.6,
+            "end": 182.34
+          },
+          {
+            "line": 44,
+            "start": 183.02,
+            "end": 186.56
+          },
+          {
+            "line": 45,
+            "start": 187.18,
+            "end": 190.76
+          },
+          {
+            "line": 46,
+            "start": 191.34,
+            "end": 198.76
+          },
+          {
+            "line": 49,
+            "start": 201.44,
+            "end": 206.38
+          },
+          {
+            "line": 50,
+            "start": 207.7,
+            "end": 209.24
+          },
+          {
+            "line": 51,
+            "start": 209.24,
+            "end": 213.46
+          },
+          {
+            "line": 52,
+            "start": 213.46,
+            "end": 217.7
+          },
+          {
+            "line": 55,
+            "start": 219.84,
+            "end": 223.7
+          },
+          {
+            "line": 56,
+            "start": 224.48,
+            "end": 227.92
+          },
+          {
+            "line": 57,
+            "start": 228.5,
+            "end": 231.88
+          },
+          {
+            "line": 58,
+            "start": 232.8,
+            "end": 236.36
+          },
+          {
+            "line": 59,
+            "start": 237.44,
+            "end": 240.88
+          },
+          {
+            "line": 60,
+            "start": 241.62,
+            "end": 247.66
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 17.72
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony C finds meaning in retaining his own semen, and life opens up again when he holds it in",
+        "direction": "Use the prompt as written.",
+        "keep": "Must include the phrases \"don't cum\", \"retain\", \"retain semen\", and \"just gets easier\" - repeat these often.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 260
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-5c4ef60c1cf1fa5ff6ff39ec",
       "title": "Yeah After Midnight (Velvet Afterhours)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c4ef60c1cf1fa5ff6ff39ec-096942006ac8.mp3",
