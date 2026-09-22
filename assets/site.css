@@ -374,6 +374,12 @@ nav {
 }
 .site-header nav a {
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-icon {
+  display: none;
+  flex: none;
 }
 nav a {
   text-decoration: none;
@@ -2018,7 +2024,8 @@ main {
   }
   .site-header {
     padding: 18px 22px;
-    gap: 15px;
+    gap: 10px;
+    flex-wrap: nowrap;
   }
   .brand {
     font-size: 1.7rem;
@@ -2033,12 +2040,52 @@ main {
   nav {
     gap: 20px;
   }
+  .site-header nav {
+    flex-wrap: nowrap;
+    gap: 14px;
+  }
   nav a {
     font-size: 0.72rem;
+  }
+  .site-header nav a {
+    padding: 6px 0;
+  }
+  .nav-icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+  }
+  .nav-label {
+    display: none;
   }
   .nav-request {
     gap: 7px;
   }
+}
+@media (max-width: 420px) {
+  .site-header {
+    padding: 16px;
+    gap: 8px;
+  }
+  .brand {
+    font-size: 1.4rem;
+  }
+  .brand-mark {
+    width: 17px;
+    height: 17px;
+  }
+  .brand-mark:after {
+    inset: 6px;
+  }
+  .site-header nav {
+    gap: 9px;
+  }
+  .nav-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+@media (max-width: 650px) {
   .hero {
     grid-template-columns: minmax(0, 1fr) 96px;
     padding: 22px 0;
@@ -2639,15 +2686,6 @@ button.lyric-line:hover {
   border-left: 3px solid #52684c;
 }
 @media (max-width: 600px) {
-  .site-header {
-    flex-wrap: wrap;
-    gap: 18px;
-  }
-  .site-header nav {
-    width: 100%;
-    justify-content: space-between;
-    gap: 12px;
-  }
   .queue-intro {
     padding-top: 40px;
   }
