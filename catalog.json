@@ -2,6 +2,169 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-e1323f687c74c323936f20be",
+      "title": "Medusa (Midnight Marble)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e1323f687c74c323936f20be-a90ce6a2cd17.mp3",
+      "duration": 281.07861678004537,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-22T19:44:40.523Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Medusa (Midnight Marble)",
+        "recipe": "barbershop",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Slow, noir-leaning a cappella barbershop treatment of the saved Medusa arrangement: Tony lead supported by tenor, baritone, and bass in sustained close harmonies. Retain the source lyrics, phrasing, and form, with a measured final held chord after the completed original ending.",
+        "lyrics": "",
+        "duration": 258,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Slow noir a cappella barbershop",
+          "meter": "4/4",
+          "structure": "Retains the original Medusa section order and ending",
+          "performance": "Smoky Tony lead with four-part tenor, baritone, and bass harmony",
+          "energy": "Low-lit, restrained opening that deepens into tense sustained harmony, then resolves quietly",
+          "lyricWorkflow": "Retain the saved source lyrics and phrasing",
+          "instruments": []
+        }
+      },
+      "lyrics": {
+        "text": "You were building castles in the sand.\nYou built me up just to tear me down You drew me out of your page\nchange. Just to cross me off and tear me out. Turned me to stone. The stone don't feed you.\nTurned me to stone. My beauty for my doozer.\nStumble in there, ring up in there.\nLosing control, don't even care.\nMy beautiful.\nWhen first I met you You were wearing a halo, yeah\nNow I come to realize That you wouldn't have nothing but evil\nYou turn me to stone, because stone don't fit me up.\nYou turn me to stone, my beautiful Medusa, yeah.\nStop believing in me, ain't nothing left\nLook at what's ever gonna go, don't even care\nMy beautiful\nI'm surprised every morning I don't wake up dead\nfrom the stare of your wolf to join these voices in my head i got a mouth full of cotton\nhead full of rock check the mirror i'm pretty with my eyes a bloodshot\nflowing from my palm stick matter i believe like jesus cut by the bottle and i like my nose\ny'all tear me the stones\nLosing control, don't even care\nLosing control, don't even care\nLosing don't, don't even care, it's my beautiful.\nYou",
+        "kind": "transcribed",
+        "cues": [
+          {
+            "line": 0,
+            "start": 21.74,
+            "end": 26.1
+          },
+          {
+            "line": 1,
+            "start": 28.62,
+            "end": 36.82
+          },
+          {
+            "line": 2,
+            "start": 36.82,
+            "end": 46.68
+          },
+          {
+            "line": 3,
+            "start": 60.64,
+            "end": 63.36
+          },
+          {
+            "line": 4,
+            "start": 65.42,
+            "end": 73.32
+          },
+          {
+            "line": 5,
+            "start": 75.9,
+            "end": 82.14
+          },
+          {
+            "line": 6,
+            "start": 83.76,
+            "end": 84.64
+          },
+          {
+            "line": 7,
+            "start": 95.12,
+            "end": 103.44
+          },
+          {
+            "line": 8,
+            "start": 106.1,
+            "end": 113.08
+          },
+          {
+            "line": 9,
+            "start": 115.48,
+            "end": 124.22
+          },
+          {
+            "line": 10,
+            "start": 126.63,
+            "end": 135.52
+          },
+          {
+            "line": 11,
+            "start": 135.52,
+            "end": 144.6
+          },
+          {
+            "line": 12,
+            "start": 147.12,
+            "end": 154.1
+          },
+          {
+            "line": 13,
+            "start": 176.1,
+            "end": 176.72
+          },
+          {
+            "line": 14,
+            "start": 177.76,
+            "end": 180.58
+          },
+          {
+            "line": 15,
+            "start": 180.58,
+            "end": 184.5
+          },
+          {
+            "line": 16,
+            "start": 184.5,
+            "end": 188.34
+          },
+          {
+            "line": 17,
+            "start": 188.9,
+            "end": 194.92
+          },
+          {
+            "line": 18,
+            "start": 194.92,
+            "end": 197.38
+          },
+          {
+            "line": 19,
+            "start": 210.16,
+            "end": 216.52
+          },
+          {
+            "line": 20,
+            "start": 221.14,
+            "end": 227.36
+          },
+          {
+            "line": 21,
+            "start": 231.98,
+            "end": 242.74
+          },
+          {
+            "line": 22,
+            "start": 257.36,
+            "end": 257.64
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "originalPrompt": {
+        "idea": "Rendition of Medusa as a barbershop quartet",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [
+          "Medusa"
+        ],
+        "voiceModel": "v9"
+      }
+    },
+    {
       "id": "distonyc-e0f8663318e1c3acac53b36c",
       "title": "The Last Cup on the Lectern",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e0f8663318e1c3acac53b36c-10dd36a3cc79.mp3",
