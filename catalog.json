@@ -2,6 +2,506 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-dd516b96c3484a52e1821071",
+      "title": "The Day the Sun Came Back",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-dd516b96c3484a52e1821071-0b31fa2cc06a.mp3",
+      "duration": 435.04326530612246,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-22T03:54:24.650Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Day the Sun Came Back",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D major",
+        "arrangement": "Sunlit heartland rock with a lively bass pocket, crisp drums, overdriven electric guitar, piano, and restrained organ color. One clear, steadily pitched Tony lead carries melodic verses that rise into broad choruses; natural connected phrasing and occasional conversational bends stay intelligible. Begin subdued and weary, build steadily after the first chorus, open the bridge with a brief band pullback, then land in an exuberant final chorus. Keep the vocal present throughout and pace the sustained final “D” to finish about 10 seconds before the 435-second end, followed by one resolved D-major chord decay.",
+        "lyrics": "[Verse 1]\nI woke up late with a winter in my blood\nCurtains shut tight, every noon looked like mud\nCoffee on the counter, cold as a stopped-up clock\nI was dragging my name down the block\nDoctor held a paper under white fluorescent rain\nSaid, “You ain’t lazy, man, you’ve been running on pain”\nI laughed through my teeth, then I stared at the floor\nLike somebody had finally unlocked the door\n\n[Pre-Chorus]\nLittle gold tablet, little beam in my hand\nI didn’t know the sun could fit in a plan\n\n[Chorus]\nVitamin D, you came walking through the dark\nPut a match to the wet wood, put a rhythm in my heart\nI was praying to the ceiling with a dead phone in my chest\nThen the daylight found my number and it told me I could rest\nVitamin D, I ain’t saying you’re the Lord\nBut you showed up like a miracle I couldn’t afford\nNow I’m standing in the kitchen, letting morning hit me free\nI found Jesus in a bottle marked Vitamin D\n\n[Verse 2]\nFor months I thought the whole wide world went gray\nThought the good years packed their bags and drove away\nMy friends said, “Come outside,” I said, “Maybe next week”\nHad a storm in my muscles and a fog when I’d speak\nTony’s bones are turning to dust, that’s what I used to say\nTony’s balls are turning to dust, better hide ’em away\nI made a joke because the truth had a heavyweight swing\nCouldn’t lift my own spirit, couldn’t feel a damn thing\n\n[Pre-Chorus]\nBut the porch got warm, and the birds got loud\nAnd I caught myself singing where I used to bow down\n\n[Chorus]\nVitamin D, you came walking through the dark\nPut a match to the wet wood, put a rhythm in my heart\nI was praying to the ceiling with a dead phone in my chest\nThen the daylight found my number and it told me I could rest\nVitamin D, I ain’t saying you’re the Lord\nBut you showed up like a miracle I couldn’t afford\nNow I’m standing in the kitchen, letting morning hit me free\nI found Jesus in a bottle marked Vitamin D\n\n[Verse 3]\nI started taking walks where the old mill bends\nSaw the river doing business with the rocks again\nFelt my shoulders quit their lifelong war\nFelt an appetite knock at the door\nI called my brother, said, “I think I’m back”\nHe said, “That’s good, because we missed your laugh”\nAnd I let out a noise that was half a cry\nHalf a truck with its brakes cut loose downhill\n\n[Section 4]\nThere’s no halo in the pharmacy aisle\nNo thunderclap, no holy television smile\nJust a little bit of science and a little bit of grace\nAnd a man remembering how to inhabit his face\nI don’t need to explain every bright thing I see\nI just know I got room where the hurt used to be\nWhen the afternoon pours through the blinds just right\nI thank every star that kept working at night\n\n[Chorus]\nVitamin D, you came walking through the dark\nPut a match to the wet wood, put a rhythm in my heart\nI was praying to the ceiling with a dead phone in my chest\nThen the daylight found my number and it told me I could rest\nVitamin D, I ain’t saying you’re the Lord\nBut you showed up like a miracle I couldn’t afford\nNow I’m standing in the kitchen, letting morning hit me free\nI found Jesus in a bottle marked Vitamin D\n\n[Bridge]\nTony’s bones are turning to dust—no, not today\nTony’s balls are turning to dust—hell, not today\nI got a little sun burning clean behind my eyes\nI got a reason to open every window wide\nIf the dark comes calling, I know what I’ll do\nI’ll step into the daylight, I’ll come back through\nNot cured of every sorrow, not immune to the blue\nJust alive enough to know what the morning can do\n\n[Verse 5]\nSo here’s to the people who are tired without a name\nWho think their dimmed-out fire is a personal shame\nGet the numbers checked, let somebody take a look\nThere might be a sunrise hiding in the book\nAnd if you find it, don’t apologize for joy\nLet it shake the dust loose from the grown-up boy\nLet your feet hit pavement, let your voice get strange\nLet a tiny bright answer rearrange your days\n\n[Chorus]\nVitamin D, you came walking through the dark\nPut a match to the wet wood, put a rhythm in my heart\nI was praying to the ceiling with a dead phone in my chest\nThen the daylight found my number and it told me I could rest\nVitamin D, I ain’t saying you’re the Lord\nBut you showed up like a miracle I couldn’t afford\nNow the sun comes through the window and I meet it gratefully\nI found Jesus in a bottle marked Vitamin D\n\n[Outro]\nAnd I meet it gratefully...\nI found Jesus in a bottle marked Vitamin D\n[End]",
+        "duration": 435,
+        "bpm": 108,
+        "musicalSettings": {
+          "genre": "Heartland rock with gospel-tinged organ color",
+          "meter": "4/4",
+          "structure": "Verse, pre-chorus, chorus, verse, pre-chorus, chorus, verse, developing section, chorus, bridge, final verse, final chorus, resolved outro",
+          "performance": "A single clear melodic Tony lead, natural and connected with expressive spoken-sung turns",
+          "energy": "Weary and muted at the opening, increasingly buoyant through a joyful full-band finale",
+          "lyricWorkflow": "Original narrative lyrics that move from deficiency and isolation to practical hope and renewal",
+          "instruments": [
+            "Electric guitar",
+            "Electric bass",
+            "Drum kit",
+            "Piano",
+            "Organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI woke up late with a winter in my blood\nCurtains shut tight, every noon looked like mud\nCoffee on the counter, cold as a stopped-up clock\nI was dragging my name down the block\nDoctor held a paper under white fluorescent rain\nSaid, “You ain’t lazy, man, you’ve been running on pain”\nI laughed through my teeth, then I stared at the floor\nLike somebody had finally unlocked the door\n\n[Pre-Chorus]\nLittle gold tablet, little beam in my hand\nI didn’t know the sun could fit in a plan\n\n[Chorus]\nVitamin D, you came walking through the dark\nPut a match to the wet wood, put a rhythm in my heart\nI was praying to the ceiling with a dead phone in my chest\nThen the daylight found my number and it told me I could rest\nVitamin D, I ain’t saying you’re the Lord\nBut you showed up like a miracle I couldn’t afford\nNow I’m standing in the kitchen, letting morning hit me free\nI found Jesus in a bottle marked Vitamin D\n\n[Verse 2]\nFor months I thought the whole wide world went gray\nThought the good years packed their bags and drove away\nMy friends said, “Come outside,” I said, “Maybe next week”\nHad a storm in my muscles and a fog when I’d speak\nTony’s bones are turning to dust, that’s what I used to say\nTony’s balls are turning to dust, better hide ’em away\nI made a joke because the truth had a heavyweight swing\nCouldn’t lift my own spirit, couldn’t feel a damn thing\n\n[Pre-Chorus]\nBut the porch got warm, and the birds got loud\nAnd I caught myself singing where I used to bow down\n\n[Chorus]\nVitamin D, you came walking through the dark\nPut a match to the wet wood, put a rhythm in my heart\nI was praying to the ceiling with a dead phone in my chest\nThen the daylight found my number and it told me I could rest\nVitamin D, I ain’t saying you’re the Lord\nBut you showed up like a miracle I couldn’t afford\nNow I’m standing in the kitchen, letting morning hit me free\nI found Jesus in a bottle marked Vitamin D\n\n[Verse 3]\nI started taking walks where the old mill bends\nSaw the river doing business with the rocks again\nFelt my shoulders quit their lifelong war\nFelt an appetite knock at the door\nI called my brother, said, “I think I’m back”\nHe said, “That’s good, because we missed your laugh”\nAnd I let out a noise that was half a cry\nHalf a truck with its brakes cut loose downhill\n\n[Section 4]\nThere’s no halo in the pharmacy aisle\nNo thunderclap, no holy television smile\nJust a little bit of science and a little bit of grace\nAnd a man remembering how to inhabit his face\nI don’t need to explain every bright thing I see\nI just know I got room where the hurt used to be\nWhen the afternoon pours through the blinds just right\nI thank every star that kept working at night\n\n[Chorus]\nVitamin D, you came walking through the dark\nPut a match to the wet wood, put a rhythm in my heart\nI was praying to the ceiling with a dead phone in my chest\nThen the daylight found my number and it told me I could rest\nVitamin D, I ain’t saying you’re the Lord\nBut you showed up like a miracle I couldn’t afford\nNow I’m standing in the kitchen, letting morning hit me free\nI found Jesus in a bottle marked Vitamin D\n\n[Bridge]\nTony’s bones are turning to dust—no, not today\nTony’s balls are turning to dust—hell, not today\nI got a little sun burning clean behind my eyes\nI got a reason to open every window wide\nIf the dark comes calling, I know what I’ll do\nI’ll step into the daylight, I’ll come back through\nNot cured of every sorrow, not immune to the blue\nJust alive enough to know what the morning can do\n\n[Verse 5]\nSo here’s to the people who are tired without a name\nWho think their dimmed-out fire is a personal shame\nGet the numbers checked, let somebody take a look\nThere might be a sunrise hiding in the book\nAnd if you find it, don’t apologize for joy\nLet it shake the dust loose from the grown-up boy\nLet your feet hit pavement, let your voice get strange\nLet a tiny bright answer rearrange your days\n\n[Chorus]\nVitamin D, you came walking through the dark\nPut a match to the wet wood, put a rhythm in my heart\nI was praying to the ceiling with a dead phone in my chest\nThen the daylight found my number and it told me I could rest\nVitamin D, I ain’t saying you’re the Lord\nBut you showed up like a miracle I couldn’t afford\nNow the sun comes through the window and I meet it gratefully\nI found Jesus in a bottle marked Vitamin D\n\n[Outro]\nAnd I meet it gratefully...\nI found Jesus in a bottle marked Vitamin D",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.54,
+            "end": 8.44
+          },
+          {
+            "line": 2,
+            "start": 9.22,
+            "end": 12.56
+          },
+          {
+            "line": 3,
+            "start": 12.56,
+            "end": 16.94
+          },
+          {
+            "line": 4,
+            "start": 16.94,
+            "end": 20.9
+          },
+          {
+            "line": 5,
+            "start": 22,
+            "end": 25.84
+          },
+          {
+            "line": 6,
+            "start": 25.84,
+            "end": 29.74
+          },
+          {
+            "line": 7,
+            "start": 29.74,
+            "end": 34.64
+          },
+          {
+            "line": 8,
+            "start": 34.64,
+            "end": 38.22
+          },
+          {
+            "line": 11,
+            "start": 39.56,
+            "end": 44.06
+          },
+          {
+            "line": 12,
+            "start": 44.74,
+            "end": 48.12
+          },
+          {
+            "line": 15,
+            "start": 51.06,
+            "end": 55.12
+          },
+          {
+            "line": 16,
+            "start": 55.12,
+            "end": 59.44
+          },
+          {
+            "line": 17,
+            "start": 59.44,
+            "end": 63.9
+          },
+          {
+            "line": 18,
+            "start": 63.9,
+            "end": 68.38
+          },
+          {
+            "line": 19,
+            "start": 68.38,
+            "end": 72.92
+          },
+          {
+            "line": 20,
+            "start": 72.92,
+            "end": 76.96
+          },
+          {
+            "line": 21,
+            "start": 76.96,
+            "end": 81.62
+          },
+          {
+            "line": 22,
+            "start": 81.62,
+            "end": 86.96
+          },
+          {
+            "line": 25,
+            "start": 96.46,
+            "end": 100.3
+          },
+          {
+            "line": 26,
+            "start": 101.08,
+            "end": 104.64
+          },
+          {
+            "line": 27,
+            "start": 105.48,
+            "end": 109.18
+          },
+          {
+            "line": 28,
+            "start": 109.18,
+            "end": 113.76
+          },
+          {
+            "line": 29,
+            "start": 113.76,
+            "end": 118.06
+          },
+          {
+            "line": 30,
+            "start": 118.06,
+            "end": 122.46
+          },
+          {
+            "line": 31,
+            "start": 122.46,
+            "end": 126.92
+          },
+          {
+            "line": 32,
+            "start": 126.92,
+            "end": 131.68
+          },
+          {
+            "line": 35,
+            "start": 133.9,
+            "end": 138.04
+          },
+          {
+            "line": 36,
+            "start": 138.04,
+            "end": 143.14
+          },
+          {
+            "line": 39,
+            "start": 147.58,
+            "end": 151.76
+          },
+          {
+            "line": 40,
+            "start": 151.76,
+            "end": 156.1
+          },
+          {
+            "line": 41,
+            "start": 156.1,
+            "end": 160.54
+          },
+          {
+            "line": 42,
+            "start": 160.54,
+            "end": 164.98
+          },
+          {
+            "line": 43,
+            "start": 164.98,
+            "end": 169.46
+          },
+          {
+            "line": 44,
+            "start": 169.8,
+            "end": 173.44
+          },
+          {
+            "line": 45,
+            "start": 174.04,
+            "end": 178.22
+          },
+          {
+            "line": 46,
+            "start": 178.74,
+            "end": 183.62
+          },
+          {
+            "line": 49,
+            "start": 187.56,
+            "end": 191.36
+          },
+          {
+            "line": 50,
+            "start": 191.36,
+            "end": 195.8
+          },
+          {
+            "line": 51,
+            "start": 196.96,
+            "end": 200.3
+          },
+          {
+            "line": 52,
+            "start": 200.7,
+            "end": 204.74
+          },
+          {
+            "line": 53,
+            "start": 205.08,
+            "end": 207.26
+          },
+          {
+            "line": 54,
+            "start": 208.18,
+            "end": 211.8
+          },
+          {
+            "line": 55,
+            "start": 211.8,
+            "end": 216.02
+          },
+          {
+            "line": 56,
+            "start": 216.4,
+            "end": 219.36
+          },
+          {
+            "line": 59,
+            "start": 219.36,
+            "end": 226.96
+          },
+          {
+            "line": 60,
+            "start": 227.68,
+            "end": 231.6
+          },
+          {
+            "line": 61,
+            "start": 232.02,
+            "end": 235.44
+          },
+          {
+            "line": 62,
+            "start": 235.44,
+            "end": 240.26
+          },
+          {
+            "line": 63,
+            "start": 240.88,
+            "end": 244.88
+          },
+          {
+            "line": 64,
+            "start": 245.26,
+            "end": 249.18
+          },
+          {
+            "line": 65,
+            "start": 249.18,
+            "end": 253.64
+          },
+          {
+            "line": 66,
+            "start": 253.64,
+            "end": 258.22
+          },
+          {
+            "line": 69,
+            "start": 258.22,
+            "end": 263.26
+          },
+          {
+            "line": 70,
+            "start": 263.26,
+            "end": 267.24
+          },
+          {
+            "line": 71,
+            "start": 267.24,
+            "end": 271.64
+          },
+          {
+            "line": 72,
+            "start": 271.64,
+            "end": 276.08
+          },
+          {
+            "line": 73,
+            "start": 277,
+            "end": 280.56
+          },
+          {
+            "line": 74,
+            "start": 280.92,
+            "end": 284.58
+          },
+          {
+            "line": 75,
+            "start": 285.36,
+            "end": 289.34
+          },
+          {
+            "line": 76,
+            "start": 289.82,
+            "end": 294.68
+          },
+          {
+            "line": 79,
+            "start": 302.8,
+            "end": 308.02
+          },
+          {
+            "line": 80,
+            "start": 308.02,
+            "end": 311.3
+          },
+          {
+            "line": 81,
+            "start": 311.3,
+            "end": 316.14
+          },
+          {
+            "line": 82,
+            "start": 316.14,
+            "end": 320.6
+          },
+          {
+            "line": 83,
+            "start": 320.92,
+            "end": 324.96
+          },
+          {
+            "line": 84,
+            "start": 325.62,
+            "end": 329.1
+          },
+          {
+            "line": 85,
+            "start": 329.64,
+            "end": 333.5
+          },
+          {
+            "line": 86,
+            "start": 334.18,
+            "end": 337.74
+          },
+          {
+            "line": 89,
+            "start": 338.1,
+            "end": 342.58
+          },
+          {
+            "line": 90,
+            "start": 343.08,
+            "end": 346.9
+          },
+          {
+            "line": 91,
+            "start": 347.36,
+            "end": 351.7
+          },
+          {
+            "line": 92,
+            "start": 352.28,
+            "end": 356.08
+          },
+          {
+            "line": 93,
+            "start": 356.08,
+            "end": 360.46
+          },
+          {
+            "line": 94,
+            "start": 360.46,
+            "end": 364.78
+          },
+          {
+            "line": 95,
+            "start": 364.78,
+            "end": 369.22
+          },
+          {
+            "line": 96,
+            "start": 369.22,
+            "end": 373
+          },
+          {
+            "line": 99,
+            "start": 373,
+            "end": 378.44
+          },
+          {
+            "line": 100,
+            "start": 378.74,
+            "end": 382.82
+          },
+          {
+            "line": 101,
+            "start": 383.14,
+            "end": 387.18
+          },
+          {
+            "line": 102,
+            "start": 387.7,
+            "end": 391.64
+          },
+          {
+            "line": 103,
+            "start": 392.26,
+            "end": 396.24
+          },
+          {
+            "line": 104,
+            "start": 396.24,
+            "end": 400.12
+          },
+          {
+            "line": 105,
+            "start": 400.62,
+            "end": 404.62
+          },
+          {
+            "line": 106,
+            "start": 405.06,
+            "end": 410.4
+          },
+          {
+            "line": 109,
+            "start": 415.44,
+            "end": 417.98
+          },
+          {
+            "line": 110,
+            "start": 417.98,
+            "end": 423.54
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony compares Vitamin D to finding Jesus, it completely changes his life, after having a severe vitamin D deficiency",
+        "direction": "Use the prompt as written.",
+        "keep": "Must include the phrase \"Tony's ____ are turning to dust\" (ensure you do 'balls' and 'bones' at least twice - other nouns are fine too)",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 435
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-a97d017d638e8cc481d6b93f",
       "title": "Morning in the Marrow",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a97d017d638e8cc481d6b93f-8dea6bd1afda.mp3",
