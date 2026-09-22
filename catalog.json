@@ -2,6 +2,344 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ce130f6061f04139ff74bdf3",
+      "title": "Pencere Kenarı Masa (Ultra Slow)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ce130f6061f04139ff74bdf3-f80d7f6114bf.mp3",
+      "duration": 245.02857142857144,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-7788d1fe94d0a00369178662",
+        "title": "Table by the Window",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7788d1fe94d0a00369178662-879da7f1e137.mp3"
+      },
+      "publishedAt": "2026-09-22T00:50:57.285Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Pencere Kenarı Masa (Ultra Slow)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "C# minor",
+        "arrangement": "Ultra-slowed 1990s luxury-car-edit atmosphere: hazy analog synth pads, sub-bass, muted electronic kick, distant gated snare, glassy electric piano and sparse clean electric-guitar swells. A clear, steadily pitched Tony V9 lead carries long Turkish phrases with relaxed, intimate phrasing; the recognizable table-by-the-window and crosscourt imagery anchors the hook. Start suspended and nocturnal, deepen through the bridge, then give the final Turkish line a sustained delivery ending 8–12 seconds before a single resolved chord decays.",
+        "lyrics": "[Intro]\nGece yarısı otopark, siyahın üstünde gümüş\nSokak lambaları camdan ağır ağır kayıyor\nMotor susuyor, yağmur kaputta nabız gibi\nPencere kenarında masa, dünya dışarıda kalıyor\n\n[Verse 1]\nRaketi bir kez çevirirsin, sonra beklersin\nSanki bütün salon nefesini tutmuş gibi\nBeyaz top yeşilin üstünde yükselir\nKüçük bir ay, sert bir ters falsoyla\nKalabalık istemem, skor da istemem\nYerdeki o kuru, temiz vuruş yeter bana\nŞehrin sesi buğulu camın ardında erirken\nElin masanın ucunda, zaman yavaşlıyor\n\n[Hook]\nPencere kenarında masa, kaputta yağmur\nÇapraza gönderirsin, biliyordun yapacağını\nBen yavaşça geri veririm, sessizlik sallanır\nİki gölge ping pong telinde zamanı sayar\n\n[Verse 2]\nServisin alçaktan gelir, yana doğru kıvrılır\nAçıyı okurum, son anda karşılarım\nNe konuşma var, ne zafer pozu\nSadece kimsenin bilmediği küçük bir gülümseme\nFren ışıkları uzak sokakta suya yayılır\nBiz ralliyi serin havanın içinde tutarız\nBir vuruş, bir bekleyiş, bir vuruş daha\nHiç acelemiz yok, gece bizi taşır\n\n[Pre-Chorus]\nArabanın içi mavi-siyah bir film gibi\nAynadaki çizgiler geriye doğru akar\nTop masaya değince bütün şehir susar\nSen bakınca son dönüş yolunu bulur\n\n[Hook]\nPencere kenarında masa, kaputta yağmur\nÇapraza gönderirsin, biliyordun yapacağını\nBen yavaşça geri veririm, sessizlik sallanır\nİki gölge ping pong telinde zamanı sayar\n\n[Bridge]\nBir zamanlar her şey hızla geçer sanırdım\nAma bu gece saatler bile yumuşak dönüyor\nAvucumda raketin sıcak ahşabı\nYanında kaybetmek bile bir yere varıyor\nDışarıda Mercedes farları ıslak asfaltta uzar\nİçeride beyaz top bir yıldız kadar yakın\nSonraki vuruşu kim alır, önemli değil\nBu ince ritim bizi birbirimize bağlıyor\n\n[Verse]\nŞehir dikiz aynasında bulanık bir parıltı\nMasa hâlâ pencerenin yanında, gece hâlâ derin\nSon servisin sessiz, kenara yakın gelir\nBen onu nazikçe karşı kıyıya bırakırım\nKrom çizgiler mavi karanlıkta çözülür\nOda durur, yağmur kendi dilinde konuşur\nTop usulca yere iner, sen bana bakarsın\nVe ben hep burada, bu dönüşün içinde kalırım\n\n[Outro]\nPencere kenarında masa, gece bizi saklar\nSon yumuşak dönüşte oda tamamen susar\nTop yere sessizce iner, elim hâlâ sende kalır\nBen hep burada kalırım\n[End]",
+        "duration": 245,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Ultra-slowed reverb synth-pop with a nocturnal 1990s luxury-car-edit mood",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Hook, Verse 2, Pre-Chorus, Hook, Bridge, Final Verse, Outro",
+          "performance": "Clear, intimate Turkish lead melody with unhurried sustained phrases and understated Tony character",
+          "energy": "Low-glow opening, gently deepening pulse through the bridge, then a hushed resolved ending",
+          "lyricWorkflow": "Adapted Turkish lyrics retain the source’s ping-pong imagery and recurring window-table hook while expanding its late-night emotional arc",
+          "instruments": [
+            "Analog synth pads",
+            "Sub-bass",
+            "Electronic kick",
+            "Gated snare",
+            "Electric piano",
+            "Clean electric guitar"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nGece yarısı otopark, siyahın üstünde gümüş\nSokak lambaları camdan ağır ağır kayıyor\nMotor susuyor, yağmur kaputta nabız gibi\nPencere kenarında masa, dünya dışarıda kalıyor\n\n[Verse 1]\nRaketi bir kez çevirirsin, sonra beklersin\nSanki bütün salon nefesini tutmuş gibi\nBeyaz top yeşilin üstünde yükselir\nKüçük bir ay, sert bir ters falsoyla\nKalabalık istemem, skor da istemem\nYerdeki o kuru, temiz vuruş yeter bana\nŞehrin sesi buğulu camın ardında erirken\nElin masanın ucunda, zaman yavaşlıyor\n\n[Hook]\nPencere kenarında masa, kaputta yağmur\nÇapraza gönderirsin, biliyordun yapacağını\nBen yavaşça geri veririm, sessizlik sallanır\nİki gölge ping pong telinde zamanı sayar\n\n[Verse 2]\nServisin alçaktan gelir, yana doğru kıvrılır\nAçıyı okurum, son anda karşılarım\nNe konuşma var, ne zafer pozu\nSadece kimsenin bilmediği küçük bir gülümseme\nFren ışıkları uzak sokakta suya yayılır\nBiz ralliyi serin havanın içinde tutarız\nBir vuruş, bir bekleyiş, bir vuruş daha\nHiç acelemiz yok, gece bizi taşır\n\n[Pre-Chorus]\nArabanın içi mavi-siyah bir film gibi\nAynadaki çizgiler geriye doğru akar\nTop masaya değince bütün şehir susar\nSen bakınca son dönüş yolunu bulur\n\n[Hook]\nPencere kenarında masa, kaputta yağmur\nÇapraza gönderirsin, biliyordun yapacağını\nBen yavaşça geri veririm, sessizlik sallanır\nİki gölge ping pong telinde zamanı sayar\n\n[Bridge]\nBir zamanlar her şey hızla geçer sanırdım\nAma bu gece saatler bile yumuşak dönüyor\nAvucumda raketin sıcak ahşabı\nYanında kaybetmek bile bir yere varıyor\nDışarıda Mercedes farları ıslak asfaltta uzar\nİçeride beyaz top bir yıldız kadar yakın\nSonraki vuruşu kim alır, önemli değil\nBu ince ritim bizi birbirimize bağlıyor\n\n[Verse]\nŞehir dikiz aynasında bulanık bir parıltı\nMasa hâlâ pencerenin yanında, gece hâlâ derin\nSon servisin sessiz, kenara yakın gelir\nBen onu nazikçe karşı kıyıya bırakırım\nKrom çizgiler mavi karanlıkta çözülür\nOda durur, yağmur kendi dilinde konuşur\nTop usulca yere iner, sen bana bakarsın\nVe ben hep burada, bu dönüşün içinde kalırım\n\n[Outro]\nPencere kenarında masa, gece bizi saklar\nSon yumuşak dönüşte oda tamamen susar\nTop yere sessizce iner, elim hâlâ sende kalır\nBen hep burada kalırım",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 150,
+            "end": 150.48
+          },
+          {
+            "line": 2,
+            "start": 150.48,
+            "end": 150.56
+          },
+          {
+            "line": 3,
+            "start": 150.56,
+            "end": 150.78
+          },
+          {
+            "line": 4,
+            "start": 150.78,
+            "end": 151.3
+          },
+          {
+            "line": 7,
+            "start": 151.3,
+            "end": 151.98
+          },
+          {
+            "line": 8,
+            "start": 151.98,
+            "end": 152.76
+          },
+          {
+            "line": 9,
+            "start": 152.76,
+            "end": 152.82
+          },
+          {
+            "line": 10,
+            "start": 152.82,
+            "end": 153.08
+          },
+          {
+            "line": 11,
+            "start": 153.08,
+            "end": 153.46
+          },
+          {
+            "line": 12,
+            "start": 153.46,
+            "end": 153.58
+          },
+          {
+            "line": 13,
+            "start": 154.12,
+            "end": 154.5
+          },
+          {
+            "line": 14,
+            "start": 154.5,
+            "end": 154.68
+          },
+          {
+            "line": 17,
+            "start": 154.68,
+            "end": 154.88
+          },
+          {
+            "line": 18,
+            "start": 154.88,
+            "end": 156.38
+          },
+          {
+            "line": 19,
+            "start": 156.38,
+            "end": 157.34
+          },
+          {
+            "line": 20,
+            "start": 157.34,
+            "end": 157.38
+          },
+          {
+            "line": 23,
+            "start": 157.38,
+            "end": 157.54
+          },
+          {
+            "line": 24,
+            "start": 157.66,
+            "end": 158
+          },
+          {
+            "line": 25,
+            "start": 158,
+            "end": 158.09
+          },
+          {
+            "line": 26,
+            "start": 158.09,
+            "end": 158.19
+          },
+          {
+            "line": 27,
+            "start": 158.19,
+            "end": 158.28
+          },
+          {
+            "line": 28,
+            "start": 158.28,
+            "end": 158.48
+          },
+          {
+            "line": 29,
+            "start": 158.48,
+            "end": 158.68
+          },
+          {
+            "line": 30,
+            "start": 158.68,
+            "end": 158.88
+          },
+          {
+            "line": 33,
+            "start": 158.88,
+            "end": 159.16
+          },
+          {
+            "line": 34,
+            "start": 159.16,
+            "end": 159.76
+          },
+          {
+            "line": 35,
+            "start": 159.76,
+            "end": 166.48
+          },
+          {
+            "line": 36,
+            "start": 166.48,
+            "end": 166.78
+          },
+          {
+            "line": 39,
+            "start": 166.78,
+            "end": 167.12
+          },
+          {
+            "line": 40,
+            "start": 167.12,
+            "end": 167.45
+          },
+          {
+            "line": 41,
+            "start": 167.45,
+            "end": 167.6
+          },
+          {
+            "line": 42,
+            "start": 167.79,
+            "end": 167.91
+          },
+          {
+            "line": 45,
+            "start": 168.13,
+            "end": 168.25
+          },
+          {
+            "line": 46,
+            "start": 168.47,
+            "end": 168.59
+          },
+          {
+            "line": 47,
+            "start": 168.8,
+            "end": 169.14
+          },
+          {
+            "line": 48,
+            "start": 169.14,
+            "end": 169.64
+          },
+          {
+            "line": 49,
+            "start": 170.6,
+            "end": 171.2
+          },
+          {
+            "line": 50,
+            "start": 171.2,
+            "end": 177.88
+          },
+          {
+            "line": 51,
+            "start": 177.88,
+            "end": 178.14
+          },
+          {
+            "line": 52,
+            "start": 178.14,
+            "end": 178.34
+          },
+          {
+            "line": 55,
+            "start": 178.34,
+            "end": 178.46
+          },
+          {
+            "line": 56,
+            "start": 237.56,
+            "end": 237.68
+          },
+          {
+            "line": 57,
+            "start": 237.68,
+            "end": 237.82
+          },
+          {
+            "line": 58,
+            "start": 237.82,
+            "end": 237.94
+          },
+          {
+            "line": 59,
+            "start": 237.97,
+            "end": 238.09
+          },
+          {
+            "line": 60,
+            "start": 238.13,
+            "end": 238.18
+          },
+          {
+            "line": 61,
+            "start": 238.18,
+            "end": 238.22
+          },
+          {
+            "line": 62,
+            "start": 238.22,
+            "end": 238.27
+          },
+          {
+            "line": 65,
+            "start": 238.27,
+            "end": 238.33
+          },
+          {
+            "line": 66,
+            "start": 238.33,
+            "end": 238.38
+          },
+          {
+            "line": 67,
+            "start": 238.38,
+            "end": 238.44
+          },
+          {
+            "line": 68,
+            "start": 238.44,
+            "end": 239.28
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Remix “Table by the Window”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Self control ultra slowed reverb kind of vibes, like in the 90s mercedes cars edits. But the lyrics are about ping ponging in a non cringy way if you can manage that.\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Lyrics must be in Turkish. Also increase song length to 5 minutes. Add a deeper arc to hit 5 minutes.",
+        "keep": "Keep the recognizable hook and spirit of “Table by the Window”.",
+        "basisSongs": [
+          "Table by the Window"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 245
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-7788d1fe94d0a00369178662",
       "title": "Table by the Window",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7788d1fe94d0a00369178662-879da7f1e137.mp3",
