@@ -28,7 +28,7 @@ const mia = { id: `${"d".repeat(14)}03`, name: "Mia Chen", anonymous: false, emo
 
 // A stand-in studio: reports are recorded, and a poll is held until the test changes the room.
 async function studio(page, { reject = () => false, socket = false } = {}) {
-  const state = { version: "1000000000000001", you: { ...you, picked: false }, listeners: [{ ...you, song: null, since: null }, jesse, fox], reports: [], left: [], present: true, polls: 0, socket, lines: [] };
+  const state = { version: "1000000000000001", you: { ...you, picked: false }, listeners: [{ ...you, song: null, since: null }, jesse, fox], reports: [], left: [], present: true, polls: 0, socket, lines: [], reads: 0, down: false, rejectReports: false };
   const body = () => ({ version: state.version, listeners: state.listeners.filter((listener) => state.present || listener.id !== you.id), total: state.listeners.length, beatMs: 25000 });
   await page.route("**/room-fixture.wav", (route) => route.fulfill({ body: wav(), contentType: "audio/wav" }));
   await page.route("**/yehry3/profiles?*", (route) => route.fulfill({ json: { profiles: [], total: 0 } }));
@@ -46,6 +46,7 @@ async function studio(page, { reject = () => false, socket = false } = {}) {
   });
   await page.route(/\/yehry3\/(?:listeners|events)(?:[/?]|$)/, async (route) => {
     const request = route.request();
+    if (state.down || (state.rejectReports && request.method() === "POST")) return route.abort("internetdisconnected");
     if (request.method() === "DELETE") {
       state.left.push(new URL(request.url()).pathname.split("/").pop());
       state.present = false;
@@ -70,6 +71,10 @@ async function studio(page, { reject = () => false, socket = false } = {}) {
         state.version = `20000000000000${String(state.reports.length).padStart(2, "0")}`;
       }
       return route.fulfill({ json: { you: state.you, ...(report.authorization ? { avatars } : {}), ...body() } });
+    }
+    if (new URL(request.url()).pathname.endsWith("/listeners")) {
+      state.reads++;
+      return route.fulfill({ json: body() });
     }
     state.polls++;
     const since = new URL(request.url()).searchParams.get("since"), began = Date.now();
@@ -590,4 +595,100 @@ test("on a phone the badges stay on the face and a toast stays two short lines",
   await expect(named.locator(".room-progress")).toBeHidden();
   await expect(named.locator(".room-device-line")).toBeHidden();
   expect((await named.locator(".room-card").boundingBox()).height).toBeLessThan(80);
+});
+
+
+for (const width of [1440, 390]) test(`a lost connection is red, expires stale neighbours, and recovers at ${width}px`, async ({ page, context }) => {
+  await page.setViewportSize({ width, height: 900 });
+  await page.clock.install();
+  const state = await studio(page, { socket: true });
+  await page.goto("/?sort=catalog");
+  const mine = page.locator(".room-seat.is-you");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  await page.locator('.track[data-id="room-first"] [data-play]').click();
+  await page.evaluate(() => { window.__playingAudio = window.yehry3Player.audio; window.__playingAudio.loop = true; });
+  await expect.poll(() => page.evaluate(() => window.__playingAudio.currentTime)).toBeGreaterThan(0);
+  await mine.locator(".room-avatar").click();
+  await mine.getByRole("button", { name: "Set a name" }).click();
+  await mine.locator(".room-name-input").fill("Unsaved name");
+  await context.setOffline(true);
+  await expect(mine).toHaveClass(/is-disconnected/);
+  await expect(mine.locator(".room-avatar")).toHaveAttribute("aria-label", /disconnected, reconnecting/);
+  await expect(mine.locator(".room-connection")).toBeVisible();
+  await expect(mine.locator(".room-name-input")).toBeFocused();
+  expect(await mine.locator(".room-avatar").evaluate(el => getComputedStyle(el, "::before").backgroundColor)).toBe("rgb(187, 48, 57)");
+  await page.clock.fastForward(60000);
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  await page.clock.fastForward(11000);
+  await expect(page.locator(".room-seat")).toHaveCount(1);
+  await expect(mine.locator(".room-name-input")).toHaveValue("Unsaved name");
+  await mine.getByRole("button", { name: "Cancel" }).click();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: `artifacts/listener-disconnect-${width}.png` });
+  const reports = state.reports.length;
+  await context.setOffline(false);
+  await expect.poll(() => state.reports.length).toBeGreaterThan(reports);
+  await expect(mine).not.toHaveClass(/is-disconnected/);
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  await expect(mine.locator(".room-connection")).toBeHidden();
+  const audio = await page.evaluate(() => ({ same: window.__playingAudio === window.yehry3Player.audio, paused: window.__playingAudio.paused }));
+  expect(audio).toEqual({ same: true, paused: false });
+  await page.evaluate(() => { window.__playingAudio.currentTime = 2; });
+  await expect.poll(() => page.evaluate(() => window.__playingAudio.currentTime)).toBeGreaterThanOrEqual(2);
+});
+
+test("a failed heartbeat stays disconnected through room updates until a report succeeds", async ({ page }) => {
+  await page.clock.install();
+  const state = await studio(page, { socket: true });
+  await page.goto("/queue/");
+  const mine = page.locator(".room-seat.is-you");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  state.rejectReports = true;
+  await page.clock.fastForward(26000);
+  await expect(mine).toHaveClass(/is-disconnected/);
+  // Others may still be reachable, and the studio may already have removed us.
+  state.listeners = [jesse, fox];
+  state.version = "1000000000000042";
+  state.push();
+  await expect(mine).toHaveCount(1);
+  await expect(mine).toHaveClass(/is-disconnected/);
+  state.rejectReports = false;
+  state.listeners = [{ ...you, song: null }, jesse, fox];
+  await page.clock.fastForward(26000);
+  await expect(mine).not.toHaveClass(/is-disconnected/);
+});
+
+test("a silent API outage expires the room even if the socket never closes", async ({ page }) => {
+  await page.clock.install();
+  const state = await studio(page, { socket: true });
+  await page.goto("/queue/");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  state.down = true;
+  await page.clock.fastForward(26000);
+  await expect(page.locator(".room-seat.is-you")).toHaveClass(/is-disconnected/);
+  await page.clock.fastForward(45000);
+  await expect(page.locator(".room-seat")).toHaveCount(1);
+});
+
+test("hidden listeners refresh a quiet room and clear it when freshness can no longer be confirmed", async ({ page }) => {
+  await page.clock.install();
+  await page.addInitScript(() => localStorage.setItem("yehry3:listeners-hidden", "true"));
+  const state = await studio(page, { socket: true });
+  state.present = false;
+  await page.goto("/queue/");
+  await expect(page.locator(".room-seat")).toHaveCount(2);
+  for (let check = 1; check <= 3; check++) {
+    await page.clock.fastForward(36000);
+    await expect.poll(() => state.reads).toBe(check);
+    await expect(page.locator(".room-seat")).toHaveCount(2);
+  }
+  expect(state.reports).toHaveLength(0);
+  state.down = true;
+  await page.clock.fastForward(71000);
+  await expect(page.locator(".room-seat")).toHaveCount(0);
+  await expect(page.locator(".room-ghost")).toBeVisible();
+  state.down = false;
+  await page.clock.fastForward(36000);
+  await expect(page.locator(".room-seat")).toHaveCount(2);
+  expect(state.reports).toHaveLength(0);
 });

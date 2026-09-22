@@ -78,6 +78,23 @@
   font-weight: 700;
   animation: room-note 1.6s ease-in-out infinite;
 }
+/* An X as well as red distinguishes a lost connection from ordinary idle time. */
+.room-connection { display: none; }
+.room-seat.is-disconnected .room-connection { display: block; color: #ffb7b3; }
+.room-seat.is-disconnected :is(.room-song, .room-progress, .room-doing, .room-doing-line) { display: none; }
+.room-seat.is-disconnected .room-avatar { animation: none; box-shadow: 0 3px 12px #23352826; opacity: 1; }
+.room-seat.is-disconnected .room-avatar::after { display: none; }
+.room-seat.is-disconnected .room-face { animation: none; filter: grayscale(1); }
+.room-seat.is-disconnected .room-avatar::before {
+  content: "×";
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  background: #bb3039;
+  color: #fff;
+  font: 700 14px/1 sans-serif;
+}
 .room-card {
   position: absolute;
   top: 50%;

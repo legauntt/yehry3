@@ -18,6 +18,8 @@ const TOAST_MS = 4000; // On a phone a changed song steps out like a toast and g
 const IDLE_MS = 5 * 60000; // No mouse, key, touch or scroll for this long reads as idle.
 const STATUS_MS = 2000; // How often the screen and what is being done are looked at; a report follows only a change.
 const SEEK_MS = 1200; // A seek is reported once the scrubbing settles, and only matters to the studio when it is far.
+const ROOM_FRESH_MS = 70000; // Match the studio's presence expiry; an old room cannot prove anyone is still here.
+const ROOM_CHECK_MS = 35000; // A quiet socket sends no snapshots; hidden listeners still need a freshness check.
 const players = new Map();
 let beatMs = 25000, you = null, room = [], total = 0, version = "", started = false;
 let beatTimer, settleTimer, reporting = false, again = false, lastSong = null, nameRestUntil = 0;
@@ -28,6 +30,7 @@ let avatars = [], picking = false, chosen;
 let editingName = false, nameDraft = "", nameTimer, redrawLater = false;
 const peeks = new Map();
 let reportedStatus = "", seekTimer, ticks = 0;
+let roomAt = 0, checkedAt = 0, checking = false, disconnected = false, expired = false;
 
 // The screen a listener is on, from what is under their fingers and how big the screen is. Pure, so it can be tested.
 export function deviceKind({ coarse, shortSide, longSide, width }) {
@@ -143,6 +146,10 @@ function face(listener) {
   span.textContent = listener.anonymous || listener.picked ? listener.emoji : initials(listener.name);
   return span;
 }
+function seatLabel(listener, self) {
+  const doing = !self || !disconnected ? ACTIVITY_LABELS[listener.activity] : null;
+  return `${listener.name}${self ? " (you)" : ""}: ${self && disconnected ? "disconnected, reconnecting" : listener.song ? `listening to ${listener.song.title}` : listener.idle ? "idle" : "online"}${doing ? `, ${doing.toLowerCase()}` : ""}${DEVICE_LABELS[listener.device] ? `, ${DEVICE_LABELS[listener.device].toLowerCase()}` : ""}`;
+}
 function seat(listener) {
   const self = !invisible() && listener.id === you?.id;
   const item = document.createElement("li");
@@ -151,6 +158,7 @@ function seat(listener) {
   item.classList.toggle("is-listening", Boolean(listener.song));
   item.classList.toggle("is-initials", !listener.anonymous && !listener.picked);
   item.classList.toggle("is-you", self);
+  item.classList.toggle("is-disconnected", self && disconnected);
   item.classList.toggle("is-idle", Boolean(listener.idle));
   item.classList.toggle("is-open", openId === listener.id);
   item.classList.toggle("is-picking", self && picking);
@@ -170,7 +178,7 @@ function seat(listener) {
   button.className = "room-avatar";
   button.setAttribute("aria-expanded", String(openId === listener.id));
   const kind = DEVICE_LABELS[listener.device] ? listener.device : null, doing = ACTIVITY_LABELS[listener.activity] ? listener.activity : null;
-  button.setAttribute("aria-label", `${listener.name}${self ? " (you)" : ""}: ${listener.song ? `listening to ${listener.song.title}` : listener.idle ? "idle" : "online"}${doing ? `, ${ACTIVITY_LABELS[doing].toLowerCase()}` : ""}${kind ? `, ${DEVICE_LABELS[kind].toLowerCase()}` : ""}`);
+  button.setAttribute("aria-label", seatLabel(listener, self));
   button.append(face(listener));
   // Two small badges on the face: what they are doing (top left) and the screen they are on (bottom left).
   for (const [name, className] of [[doing, "room-badge room-doing"], [kind, "room-badge room-device"]]) {
@@ -191,6 +199,10 @@ function seat(listener) {
     tag.className = "room-you";
     tag.textContent = "you";
     card.append(" ", tag);
+    const connection = document.createElement("span");
+    connection.className = "room-connection";
+    connection.textContent = "Disconnected · reconnecting";
+    card.append(connection);
   }
   const line = document.createElement("span");
   line.className = "room-song";
@@ -236,12 +248,41 @@ function progressText(listener) {
 }
 function tick() {
   if (!root || document.hidden) return;
+  checkFreshness();
   for (const element of root.querySelectorAll(".room-progress")) {
     const text = progressText(room.find((listener) => listener.id === element.dataset.id) || {});
     if (text && element.textContent !== text) element.textContent = text;
   }
   // The screen or the page's doings may have changed without a song or a name to say so.
   if (++ticks % (STATUS_MS / 1000) === 0 && started && !invisible() && you && statusNow() !== reportedStatus) void report(true);
+}
+// A failed presence write is different from a broken socket: long polling can
+// keep a room live while the socket reconnects. Only a successful report clears
+// your disconnected state; other people's updates cannot do it.
+function setDisconnected(value) {
+  if (disconnected === value) return;
+  disconnected = value;
+  render();
+}
+function checkFreshness() {
+  if (roomAt && Date.now() - roomAt >= ROOM_FRESH_MS && !expired) {
+    expired = true;
+    disconnected = true;
+    render();
+  }
+  if (Date.now() - Math.max(roomAt, checkedAt) >= ROOM_CHECK_MS) void refreshRoom();
+}
+async function refreshRoom() {
+  if (checking || document.hidden || navigator.onLine === false) return;
+  checking = true;
+  checkedAt = Date.now();
+  const before = roomAt;
+  try {
+    const data = await api("/listeners", { anonymous: true });
+    // A newer heartbeat or socket snapshot takes precedence over this read.
+    if (roomAt === before && navigator.onLine !== false) accept(data);
+  } catch { /* The last confirmed room expires even if a request fails or hangs. */ }
+  finally { checking = false; }
 }
 function selfNote() {
   const note = document.createElement("span");
@@ -398,12 +439,23 @@ function spaceCards(list, heldId = list.querySelector(".room-seat:hover")?.datas
 }
 function render() {
   if (!root) return;
+  // Connection changes must still show while a name is being typed. Keep that
+  // field in place, but never leave its green status or expired neighbours up.
+  for (const item of root.querySelectorAll(".room-seat")) {
+    const self = item.classList.contains("is-you"), listener = room.find((entry) => entry.id === item.dataset.id) || (self ? you : null);
+    if (expired && !self) { item.remove(); continue; }
+    item.classList.toggle("is-disconnected", self && disconnected);
+    if (listener) item.querySelector(".room-avatar").setAttribute("aria-label", seatLabel(listener, self));
+  }
+  if (expired) root.querySelector(".room-more")?.remove();
   // Every heartbeat and poll redraws the seats whole, which would take the field away mid-word.
   if (editingName && document.activeElement?.matches?.(".room-name-input")) { redrawLater = true; return; }
   const narrow = phone();
   // Once hidden, a seat with your name can only be another of your browsers, so it is drawn like anyone else.
-  const { left, right, more } = seats(room, invisible() ? null : you?.id, narrow ? 3 : 6);
-  const extra = more + Math.max(0, total - room.length);
+  const visible = expired ? [] : [...room];
+  if (!invisible() && you && disconnected && !visible.some((listener) => listener.id === you.id)) visible.unshift(you);
+  const { left, right, more } = seats(visible, invisible() ? null : you?.id, narrow ? 3 : 6);
+  const extra = expired ? 0 : more + Math.max(0, total - room.length);
   // Seats are redrawn whole, so keyboard focus is handed to the same person's new seat.
   const focused = root.contains(document.activeElement) ? document.activeElement.closest(".room-seat")?.dataset.id : null;
   queueMicrotask(() => { if (focused) root.querySelector(`.room-seat[data-id="${focused}"] .room-avatar`)?.focus({ preventScroll: true }); });
@@ -427,7 +479,9 @@ function render() {
   }
 }
 function accept(data) {
-  if (!Array.isArray(data?.listeners)) return;
+  if (!Array.isArray(data?.listeners) || navigator.onLine === false) return;
+  roomAt = Date.now();
+  expired = false;
   if (Number.isFinite(data.beatMs)) beatMs = Math.min(120000, Math.max(10000, data.beatMs));
   const before = new Map(room.map((listener) => [listener.id, listener.song?.id || null]));
   const known = Boolean(version);
@@ -450,6 +504,7 @@ function accept(data) {
 
 async function report(force = false) {
   if (!started || invisible() || (force !== true && !active())) return;
+  if (navigator.onLine === false) { setDisconnected(true); return; }
   if (reporting) { again = true; return; }
   reporting = true;
   clearTimeout(beatTimer);
@@ -475,6 +530,7 @@ async function report(force = false) {
     reportedIdle = idle;
     reportedStatus = `${status.device}|${doing || ""}`;
     you = data.you || null;
+    disconnected = navigator.onLine === false;
     if (chosen === avatar) chosen = undefined;
     avatars = Array.isArray(data.avatars) ? data.avatars.filter((emoji) => typeof emoji === "string" && emoji.length <= 8) : [];
     if (!avatars.length) picking = false;
@@ -482,6 +538,7 @@ async function report(force = false) {
   } catch (error) {
     // The room is decoration: the next beat tries again and nothing else on the page waits for it.
     if (error?.status === 400) chosen = undefined; // An avatar the studio no longer offers is not sent again.
+    setDisconnected(true);
   }
   finally {
     reporting = false;
@@ -566,8 +623,11 @@ export function mountListeners() {
   // Going to the background says so once and then falls silent; coming back is reported straight away.
   document.addEventListener("visibilitychange", () => {
     lastInput = Date.now();
+    if (!document.hidden) checkFreshness();
     void report(true);
   });
+  addEventListener("offline", () => setDisconnected(true));
+  addEventListener("online", () => { void report(true); void refreshRoom(); });
   for (const event of ["pointermove", "pointerdown", "keydown", "wheel", "touchstart", "scroll"])
     addEventListener(event, () => {
       lastInput = Date.now();
