@@ -367,6 +367,10 @@ function choose(emoji) {
 // directly rather than guessed at again from state this script would have to keep in step with the stylesheet.
 const CARD_CLEARANCE = 10;
 function spaceCards(list) {
+  // The room is centred on the viewport, so one seat's margin changes the whole column's height and thereby
+  // every seat's position, not just the ones after it. Clear every margin before measuring any of them, or an
+  // earlier seat can be measured against a later one's stale margin from the last time this ran.
+  for (const seat of list.children) if (seat.classList?.contains("room-seat")) seat.style.marginTop = "";
   let prevBottom = null;
   for (const seat of list.children) {
     if (!seat.classList?.contains("room-seat")) { prevBottom = null; continue; }
@@ -591,6 +595,15 @@ export function mountListeners() {
     editingName = false;
     render();
   });
+  // A card can also step out by pure CSS, from a hover or a keyboard focus that never calls render: space it too.
+  const reflow = (event) => { const list = event.target.closest(".room-seat")?.closest(".room-side"); if (list) spaceCards(list); };
+  root.addEventListener("mouseover", reflow);
+  root.addEventListener("mouseout", (event) => {
+    const seat = event.target.closest(".room-seat");
+    if (seat && !seat.contains(event.relatedTarget)) spaceCards(seat.closest(".room-side"));
+  });
+  root.addEventListener("focusin", reflow);
+  root.addEventListener("focusout", reflow);
   root.addEventListener("input", (event) => { if (event.target.matches(".room-name-input")) nameDraft = event.target.value; });
   root.addEventListener("submit", (event) => {
     event.preventDefault();

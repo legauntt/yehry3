@@ -369,6 +369,23 @@ test("your own open card, with its note and buttons, still leaves room for the s
   expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
 });
 
+test("hovering a neighbour after opening your own card still spaces the two", async ({ page }) => {
+  // No wide screen and no data change here: the neighbour's card shows by hover alone, with no render behind it.
+  const state = await studio(page);
+  state.listeners = [state.listeners[0], jesse, { ...fox, idle: false, song: { id: "room-first", title: "First in the room" }, progress: { position: 30, duration: 260, age: 0 } }];
+  await page.goto("/?sort=catalog");
+  const mine = page.locator(".room-seat.is-you");
+  const foxSeat = page.locator('.room-seat[data-id="cccccccccccccc02"]');
+  await mine.locator(".room-avatar").click();
+  await expect(mine.locator(".room-note")).toBeVisible();
+  await foxSeat.locator(".room-avatar").hover();
+  await expect(foxSeat.locator(".room-card")).toBeVisible();
+  const mineBox = await mine.locator(".room-card").boundingBox();
+  const foxBox = await foxSeat.locator(".room-card").boundingBox();
+  const [upper, lower] = mineBox.y <= foxBox.y ? [mineBox, foxBox] : [foxBox, mineBox];
+  expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
+});
+
 test("five quiet minutes read as idle, and the next touch of the mouse is online again", async ({ page }) => {
   await page.clock.install();
   const state = await studio(page);
