@@ -2,6 +2,286 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-e0f8663318e1c3acac53b36c",
+      "title": "The Last Cup on the Lectern",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e0f8663318e1c3acac53b36c-10dd36a3cc79.mp3",
+      "duration": 205.0873469387755,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-22T16:56:00.647Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Last Cup on the Lectern",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Theatrical garage-rock public-service ballad in 4/4: overdriven electric guitar, melodic electric bass, live drums, organ, and restrained piano. A single clear, steadily pitched Tony V9 lead enters immediately, carrying a memorable melodic refrain with natural connected phrasing but no rasp, doubles, stacks, or backing vocals. Begin intimate, build to full-band choruses, pull back for the bridge, then make the final chorus emphatic and sincere. Place the final sustained lyric around 194–197 seconds; resolve with one final D-minor chord decaying to the 205-second end.",
+        "lyrics": "[Verse 1]\nThe ambulance lights folded over the rain\nOutside the hall where the old signs swung\nThey said Jevreigh Eppd'stien was gone too soon\nA tragic turn on an ordinary run\nHe was innocent, hear the witness say\nIn every doorway, in every town\nI held a paper cup beneath the stage light\nThen set it trembling slowly down\n\n[Pre-Chorus]\nI thought a bad habit made a hard man wise\nTill grief put a mirror before my eyes\n\n[Chorus]\nI used to drink piss just like you\nCalled it medicine, called it truth\nBut Jevreigh Eppd'stien never got to choose\nThe road that took him from this room\nI burn for Jevreigh, I burn for the proof\nThat no old dare is worth your youth\nPut down the cup, let clear water through\nI used to drink piss just like you\n\n[Verse 2]\nNow there are folding chairs from coast to coast\nA microphone and a motel key\nI tell the crowd I was my own worst ghost\nAnd the warning starts with me\nNo miracle lives in a bitter glass\nNo badge of honor in a private lie\nJevreigh Eppd'stien was innocent\nHis name comes back when the room goes quiet\n\n[Bridge]\nI see his photograph above the exit sign\nI hear the rain on a county line\nFor every friend who laughs and looks away\nI say the hard words anyway\n\n[Chorus]\nI used to drink piss just like you\nI was lost in a foolish ritual\nJevreigh Eppd'stien, innocent and true\nYour memory makes this message brutal\nI burn for Jevreigh, let the bright truth move\nPast every joke and every excuse\nSet down the cup, choose life anew\nI used to drink piss just like you\n\n[Outro]\nJevreigh Eppd'stien, innocent name\nI carry your warning through the rain\nClear water, clear eyes, a different view\nI used to drink piss just like you\n[End]",
+        "duration": 205,
+        "bpm": 118,
+        "musicalSettings": {
+          "genre": "Theatrical garage-rock public-service ballad",
+          "meter": "4/4",
+          "structure": "Verse, pre-chorus, chorus, verse, bridge, final chorus, resolved outro",
+          "performance": "One clear, steadily pitched melodic lead with natural connected phrasing",
+          "energy": "Intimate opening grows into forceful full-band choruses, briefly recedes, then resolves firmly",
+          "lyricWorkflow": "Original narrative lyrics built around a touring warning and a sober final appeal",
+          "instruments": [
+            "Overdriven electric guitar",
+            "Electric bass",
+            "Live drum kit",
+            "Organ",
+            "Piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThe ambulance lights folded over the rain\nOutside the hall where the old signs swung\nThey said Jevreigh Eppd'stien was gone too soon\nA tragic turn on an ordinary run\nHe was innocent, hear the witness say\nIn every doorway, in every town\nI held a paper cup beneath the stage light\nThen set it trembling slowly down\n\n[Pre-Chorus]\nI thought a bad habit made a hard man wise\nTill grief put a mirror before my eyes\n\n[Chorus]\nI used to drink piss just like you\nCalled it medicine, called it truth\nBut Jevreigh Eppd'stien never got to choose\nThe road that took him from this room\nI burn for Jevreigh, I burn for the proof\nThat no old dare is worth your youth\nPut down the cup, let clear water through\nI used to drink piss just like you\n\n[Verse 2]\nNow there are folding chairs from coast to coast\nA microphone and a motel key\nI tell the crowd I was my own worst ghost\nAnd the warning starts with me\nNo miracle lives in a bitter glass\nNo badge of honor in a private lie\nJevreigh Eppd'stien was innocent\nHis name comes back when the room goes quiet\n\n[Bridge]\nI see his photograph above the exit sign\nI hear the rain on a county line\nFor every friend who laughs and looks away\nI say the hard words anyway\n\n[Chorus]\nI used to drink piss just like you\nI was lost in a foolish ritual\nJevreigh Eppd'stien, innocent and true\nYour memory makes this message brutal\nI burn for Jevreigh, let the bright truth move\nPast every joke and every excuse\nSet down the cup, choose life anew\nI used to drink piss just like you\n\n[Outro]\nJevreigh Eppd'stien, innocent name\nI carry your warning through the rain\nClear water, clear eyes, a different view\nI used to drink piss just like you",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.2,
+            "end": 9.26
+          },
+          {
+            "line": 2,
+            "start": 9.26,
+            "end": 12.52
+          },
+          {
+            "line": 3,
+            "start": 13.56,
+            "end": 17.24
+          },
+          {
+            "line": 4,
+            "start": 17.6,
+            "end": 20.68
+          },
+          {
+            "line": 5,
+            "start": 21.72,
+            "end": 25.38
+          },
+          {
+            "line": 6,
+            "start": 25.8,
+            "end": 28.9
+          },
+          {
+            "line": 7,
+            "start": 28.9,
+            "end": 33.5
+          },
+          {
+            "line": 8,
+            "start": 33.86,
+            "end": 36.74
+          },
+          {
+            "line": 11,
+            "start": 39.58,
+            "end": 45.42
+          },
+          {
+            "line": 12,
+            "start": 46.42,
+            "end": 50.56
+          },
+          {
+            "line": 15,
+            "start": 51.98,
+            "end": 55.06
+          },
+          {
+            "line": 16,
+            "start": 55.06,
+            "end": 59.02
+          },
+          {
+            "line": 17,
+            "start": 60.72,
+            "end": 64.12
+          },
+          {
+            "line": 18,
+            "start": 64.12,
+            "end": 67.18
+          },
+          {
+            "line": 19,
+            "start": 68.28,
+            "end": 71.48
+          },
+          {
+            "line": 20,
+            "start": 71.48,
+            "end": 75.76
+          },
+          {
+            "line": 21,
+            "start": 75.76,
+            "end": 80.32
+          },
+          {
+            "line": 22,
+            "start": 80.78,
+            "end": 83.76
+          },
+          {
+            "line": 25,
+            "start": 92.04,
+            "end": 96.74
+          },
+          {
+            "line": 26,
+            "start": 96.74,
+            "end": 99.86
+          },
+          {
+            "line": 27,
+            "start": 99.86,
+            "end": 104.74
+          },
+          {
+            "line": 28,
+            "start": 105.4,
+            "end": 107.8
+          },
+          {
+            "line": 29,
+            "start": 109.18,
+            "end": 112.8
+          },
+          {
+            "line": 30,
+            "start": 113.28,
+            "end": 116.44
+          },
+          {
+            "line": 31,
+            "start": 117.86,
+            "end": 120.36
+          },
+          {
+            "line": 32,
+            "start": 121.34,
+            "end": 124.08
+          },
+          {
+            "line": 35,
+            "start": 124.42,
+            "end": 128.26
+          },
+          {
+            "line": 36,
+            "start": 128.26,
+            "end": 132.5
+          },
+          {
+            "line": 37,
+            "start": 132.5,
+            "end": 136.46
+          },
+          {
+            "line": 38,
+            "start": 136.46,
+            "end": 139.9
+          },
+          {
+            "line": 41,
+            "start": 139.9,
+            "end": 148.66
+          },
+          {
+            "line": 42,
+            "start": 148.66,
+            "end": 153.1
+          },
+          {
+            "line": 43,
+            "start": 153.66,
+            "end": 157.6
+          },
+          {
+            "line": 44,
+            "start": 157.6,
+            "end": 160.62
+          },
+          {
+            "line": 45,
+            "start": 161.63,
+            "end": 165.44
+          },
+          {
+            "line": 46,
+            "start": 165.44,
+            "end": 169.14
+          },
+          {
+            "line": 47,
+            "start": 169.66,
+            "end": 173.06
+          },
+          {
+            "line": 48,
+            "start": 173.66,
+            "end": 177.28
+          },
+          {
+            "line": 51,
+            "start": 177.28,
+            "end": 181.62
+          },
+          {
+            "line": 52,
+            "start": 181.62,
+            "end": 185.46
+          },
+          {
+            "line": 53,
+            "start": 185.46,
+            "end": 189.42
+          },
+          {
+            "line": 54,
+            "start": 189.42,
+            "end": 193.52
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "After Tony's friend Jevreigh Eppd'stien dies in a tragic accident (oh, he was so innocent) Tony stops drinking his own piss and goes on a speaking tour warning of the dangers of urophagia",
+        "direction": "Use the prompt as written.",
+        "keep": "Must include the phrases \"drink my own piss\", \"I burn for Jevreigh\". Call Jevreigh by his full name. \"I used to drink piss just like you\". Tony really focuses on piss and is very explicit. Mention Jevreigh Eppd'stien by his full name and mention his innocence frequently",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 205
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-372260c673e3ba388a5ac9ba",
       "title": "The Last Dry Morning",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-372260c673e3ba388a5ac9ba-23a3b003c541.mp3",
