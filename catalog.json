@@ -2,6 +2,352 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a97d017d638e8cc481d6b93f",
+      "title": "Morning in the Marrow",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a97d017d638e8cc481d6b93f-8dea6bd1afda.mp3",
+      "duration": 214.9877551020408,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-22T03:31:07.991Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Morning in the Marrow",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Hopeful bass-forward recovery rock in 4/4: warm overdriven electric guitar, melodic bass, live drums, piano, and restrained organ. Start intimate, build through a driving second chorus, pull back briefly for the bridge, then rise to a full final chorus. Use one clear, steadily pitched melodic lead with connected, rough Tony phrasing and a catchable hook; no backing-vocal stacks. Pace the final sustained word \"inside\" to land about 10 seconds before the 215-second ending, followed by one resolved band chord and natural decay.",
+        "lyrics": "[Verse 1]\nThe mirror held a pale-eyed man\nWith winter packed beneath his skin\nI laughed at every empty plate\nTill all the light went paper-thin\nMy hands were shaking round the glass\nThe stairs became a mountain pass\nAnd every promise in my mouth\nWas dry as gravel, hard and fast\n\n[Pre-Chorus]\nThen somebody opened up the blinds\nSaid, \"Stay here long enough to shine\"\n\n[Chorus]\nI am coming back by inches\nBy a bowl, by a breath, by a day\nPutting color in the window\nPutting thunder in my name\nTony's bones are turning to dust\nBut I won't let the dust decide\nI am feeding every small fire\nTill the morning moves inside\n\n[Verse 2]\nThe doctor wrote a careful map\nOf minerals and sleep and sun\nNo magic switch, no midnight cure\nJust little wars that must be won\nI felt the salt return to tears\nI felt my appetite appear\nA peach tasted like a summer song\nI hadn't heard in years\n\n[Chorus]\nI am coming back by inches\nBy a bowl, by a breath, by a day\nPutting color in the window\nPutting thunder in my name\nTony's bones are turning to dust\nBut I won't let the dust decide\nI am feeding every small fire\nTill the morning moves inside\n\n[Bridge]\nNo saint came down, no silver bell\nJust friends who would not wish me well?\nNo—friends who stayed and made me eat\nAnd walked beside my dragging feet\nI learned that strength can start out small\nA spoon, a porch, a phone call\nThen one clear laugh across the room\nAnd suddenly I stood up tall\n\n[Chorus]\nI am coming back by inches\nNow the blood begins to sing\nEvery meal becomes a ladder\nEvery dawn a stubborn wing\nTony's bones are turning to dust\nNo more, I hear the whole world say\nI am feeding every small fire\nI am finding my way\n\n[Outro]\nLeave the window wide for morning\nLet the hard old shadow slide\nI am here, I am still here\nWith the morning moving inside\n[End]",
+        "duration": 215,
+        "bpm": 104,
+        "musicalSettings": {
+          "genre": "Bass-forward hopeful rock",
+          "meter": "4/4",
+          "structure": "Verse, pre-chorus, chorus, verse, chorus, bridge, final chorus, resolved outro",
+          "performance": "Clear melodic lead with rough connected Tony phrasing and sustained chorus notes",
+          "energy": "Starts fragile and intimate, gains steady drive, briefly strips back, then resolves warmly",
+          "lyricWorkflow": "Original narrative lyrics tracing gradual recovery through concrete daily details",
+          "instruments": [
+            "electric guitar",
+            "electric bass",
+            "drums",
+            "piano",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThe mirror held a pale-eyed man\nWith winter packed beneath his skin\nI laughed at every empty plate\nTill all the light went paper-thin\nMy hands were shaking round the glass\nThe stairs became a mountain pass\nAnd every promise in my mouth\nWas dry as gravel, hard and fast\n\n[Pre-Chorus]\nThen somebody opened up the blinds\nSaid, \"Stay here long enough to shine\"\n\n[Chorus]\nI am coming back by inches\nBy a bowl, by a breath, by a day\nPutting color in the window\nPutting thunder in my name\nTony's bones are turning to dust\nBut I won't let the dust decide\nI am feeding every small fire\nTill the morning moves inside\n\n[Verse 2]\nThe doctor wrote a careful map\nOf minerals and sleep and sun\nNo magic switch, no midnight cure\nJust little wars that must be won\nI felt the salt return to tears\nI felt my appetite appear\nA peach tasted like a summer song\nI hadn't heard in years\n\n[Chorus]\nI am coming back by inches\nBy a bowl, by a breath, by a day\nPutting color in the window\nPutting thunder in my name\nTony's bones are turning to dust\nBut I won't let the dust decide\nI am feeding every small fire\nTill the morning moves inside\n\n[Bridge]\nNo saint came down, no silver bell\nJust friends who would not wish me well?\nNo—friends who stayed and made me eat\nAnd walked beside my dragging feet\nI learned that strength can start out small\nA spoon, a porch, a phone call\nThen one clear laugh across the room\nAnd suddenly I stood up tall\n\n[Chorus]\nI am coming back by inches\nNow the blood begins to sing\nEvery meal becomes a ladder\nEvery dawn a stubborn wing\nTony's bones are turning to dust\nNo more, I hear the whole world say\nI am feeding every small fire\nI am finding my way\n\n[Outro]\nLeave the window wide for morning\nLet the hard old shadow slide\nI am here, I am still here\nWith the morning moving inside",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 14.2,
+            "end": 16.7
+          },
+          {
+            "line": 2,
+            "start": 16.7,
+            "end": 18.94
+          },
+          {
+            "line": 3,
+            "start": 18.94,
+            "end": 21.26
+          },
+          {
+            "line": 4,
+            "start": 21.26,
+            "end": 23.5
+          },
+          {
+            "line": 5,
+            "start": 23.5,
+            "end": 25.9
+          },
+          {
+            "line": 6,
+            "start": 25.9,
+            "end": 28.32
+          },
+          {
+            "line": 7,
+            "start": 28.32,
+            "end": 30.66
+          },
+          {
+            "line": 8,
+            "start": 30.66,
+            "end": 32.82
+          },
+          {
+            "line": 11,
+            "start": 33.34,
+            "end": 37.8
+          },
+          {
+            "line": 12,
+            "start": 37.8,
+            "end": 40.36
+          },
+          {
+            "line": 15,
+            "start": 44.02,
+            "end": 46.36
+          },
+          {
+            "line": 16,
+            "start": 46.36,
+            "end": 48.6
+          },
+          {
+            "line": 17,
+            "start": 49.38,
+            "end": 51.02
+          },
+          {
+            "line": 18,
+            "start": 51.34,
+            "end": 53.66
+          },
+          {
+            "line": 19,
+            "start": 53.66,
+            "end": 55.38
+          },
+          {
+            "line": 20,
+            "start": 55.62,
+            "end": 57.6
+          },
+          {
+            "line": 21,
+            "start": 57.6,
+            "end": 60.1
+          },
+          {
+            "line": 22,
+            "start": 60.1,
+            "end": 62.42
+          },
+          {
+            "line": 25,
+            "start": 80.58,
+            "end": 83.66
+          },
+          {
+            "line": 26,
+            "start": 83.66,
+            "end": 85.88
+          },
+          {
+            "line": 27,
+            "start": 85.88,
+            "end": 87.92
+          },
+          {
+            "line": 28,
+            "start": 87.92,
+            "end": 90.5
+          },
+          {
+            "line": 29,
+            "start": 90.5,
+            "end": 92.74
+          },
+          {
+            "line": 30,
+            "start": 92.74,
+            "end": 95.1
+          },
+          {
+            "line": 31,
+            "start": 95.1,
+            "end": 98.1
+          },
+          {
+            "line": 32,
+            "start": 98.1,
+            "end": 99.94
+          },
+          {
+            "line": 35,
+            "start": 100.72,
+            "end": 102.94
+          },
+          {
+            "line": 36,
+            "start": 103.24,
+            "end": 105.16
+          },
+          {
+            "line": 37,
+            "start": 105.64,
+            "end": 107.58
+          },
+          {
+            "line": 38,
+            "start": 107.9,
+            "end": 111.32
+          },
+          {
+            "line": 39,
+            "start": 111.32,
+            "end": 113.06
+          },
+          {
+            "line": 40,
+            "start": 113.2,
+            "end": 115.2
+          },
+          {
+            "line": 41,
+            "start": 115.2,
+            "end": 117.78
+          },
+          {
+            "line": 42,
+            "start": 117.78,
+            "end": 120.08
+          },
+          {
+            "line": 45,
+            "start": 132.5,
+            "end": 135.5
+          },
+          {
+            "line": 46,
+            "start": 135.5,
+            "end": 138
+          },
+          {
+            "line": 47,
+            "start": 138,
+            "end": 139.94
+          },
+          {
+            "line": 48,
+            "start": 139.94,
+            "end": 142.46
+          },
+          {
+            "line": 49,
+            "start": 144.26,
+            "end": 147.72
+          },
+          {
+            "line": 50,
+            "start": 147.72,
+            "end": 150.4
+          },
+          {
+            "line": 51,
+            "start": 153.54,
+            "end": 156.4
+          },
+          {
+            "line": 52,
+            "start": 156.4,
+            "end": 159.66
+          },
+          {
+            "line": 55,
+            "start": 162.6,
+            "end": 165.18
+          },
+          {
+            "line": 56,
+            "start": 165.18,
+            "end": 167.36
+          },
+          {
+            "line": 57,
+            "start": 167.36,
+            "end": 169.72
+          },
+          {
+            "line": 58,
+            "start": 169.72,
+            "end": 172.8
+          },
+          {
+            "line": 59,
+            "start": 172.8,
+            "end": 174.16
+          },
+          {
+            "line": 60,
+            "start": 174.16,
+            "end": 176.6
+          },
+          {
+            "line": 61,
+            "start": 176.6,
+            "end": 178.94
+          },
+          {
+            "line": 62,
+            "start": 179.12,
+            "end": 181.44
+          },
+          {
+            "line": 65,
+            "start": 192.7,
+            "end": 195.32
+          },
+          {
+            "line": 66,
+            "start": 195.32,
+            "end": 197.2
+          },
+          {
+            "line": 67,
+            "start": 197.2,
+            "end": 199.86
+          },
+          {
+            "line": 68,
+            "start": 199.86,
+            "end": 202
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 18.44
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony's recovery after severe vitamin deficiency",
+        "direction": "Use the prompt as written.",
+        "keep": "Tony's bones are turning to dust",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 215
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-073fa5b253dc28846fc43c52",
       "title": "Influence Criteria (Pressure Circuit)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-073fa5b253dc28846fc43c52-720e34bd44b0.mp3",
