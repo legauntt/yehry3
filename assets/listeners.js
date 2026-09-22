@@ -360,16 +360,19 @@ function choose(emoji) {
   void report(true);
   render();
 }
-// Two neighbours can show a card at the same time (both peeking at once, or one open next to a peek). A card's
-// height depends on what it says, so no fixed seat spacing stays enough forever; nudge the lower seat down
-// instead, just far enough that its card clears the one above it.
+// Two neighbours can show a card at once: both peeking, one open beside a peek, a hover or focus, or every
+// card at once on a wide screen. A card's height depends on what it says, so no fixed seat spacing stays
+// enough forever; nudge the lower seat down instead, just far enough that its card clears the one above it.
+// CSS alone decides which cards are showing (hover, focus, open, peek, a wide screen), so that is asked
+// directly rather than guessed at again from state this script would have to keep in step with the stylesheet.
 const CARD_CLEARANCE = 10;
 function spaceCards(list) {
   let prevBottom = null;
   for (const seat of list.children) {
     if (!seat.classList?.contains("room-seat")) { prevBottom = null; continue; }
-    if (!(seat.classList.contains("is-open") || seat.classList.contains("is-peeking"))) { prevBottom = null; continue; }
-    const rect = seat.querySelector(".room-card").getBoundingClientRect();
+    const card = seat.querySelector(".room-card");
+    if (getComputedStyle(card).visibility !== "visible") { prevBottom = null; continue; }
+    const rect = card.getBoundingClientRect();
     let bottom = rect.bottom;
     if (prevBottom !== null && rect.top < prevBottom + CARD_CLEARANCE) {
       const shift = prevBottom + CARD_CLEARANCE - rect.top;
@@ -390,6 +393,11 @@ function render() {
   // Seats are redrawn whole, so keyboard focus is handed to the same person's new seat.
   const focused = root.contains(document.activeElement) ? document.activeElement.closest(".room-seat")?.dataset.id : null;
   queueMicrotask(() => { if (focused) root.querySelector(`.room-seat[data-id="${focused}"] .room-avatar`)?.focus({ preventScroll: true }); });
+  // Spacing a card against its neighbour needs real layout, so the room must already be shown (not [hidden])
+  // before any seat is measured — including on the very first render, not just later ones.
+  const ghost = root.querySelector(".room-ghost");
+  ghost.hidden = !invisible();
+  root.hidden = !left.length && !right.length && !invisible();
   for (const [side, listeners] of [["left", left], ["right", right]]) {
     const list = root.querySelector(`.room-${side}`);
     list.replaceChildren(...listeners.map(seat));
@@ -402,9 +410,6 @@ function render() {
     }
     spaceCards(list);
   }
-  const ghost = root.querySelector(".room-ghost");
-  ghost.hidden = !invisible();
-  root.hidden = !left.length && !right.length && !invisible();
 }
 function accept(data) {
   if (!Array.isArray(data?.listeners)) return;

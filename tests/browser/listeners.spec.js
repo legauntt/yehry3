@@ -332,6 +332,27 @@ test("two seats that peek at once, side by side, do not crowd each other's card"
   expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
 });
 
+test("on a wide screen every card stays visible, and neighbours still do not crowd", async ({ page }) => {
+  await page.setViewportSize({ width: 1920, height: 1080 });
+  const state = await studio(page);
+  // Two tall, adjacent cards, with nobody hovering or clicking anything.
+  state.listeners = [
+    state.listeners[0],
+    { ...jesse, activity: "drafting", device: "phone", progress: { position: 40, duration: 200, age: 0 } },
+    { ...mia, song: { id: "room-first", title: "First in the room" }, activity: "lyrics", device: "desktop", progress: { position: 10, duration: 260, age: 0 } },
+    fox,
+  ];
+  await page.goto("/?sort=catalog");
+  const jesseSeat = page.locator('.room-seat[data-id="bbbbbbbbbbbbbb01"]');
+  const miaSeat = page.locator(`.room-seat[data-id="${mia.id}"]`);
+  await expect(jesseSeat.locator(".room-card")).toBeVisible();
+  await expect(miaSeat.locator(".room-card")).toBeVisible();
+  const jesseBox = await jesseSeat.locator(".room-card").boundingBox();
+  const miaBox = await miaSeat.locator(".room-card").boundingBox();
+  const [upper, lower] = jesseBox.y <= miaBox.y ? [jesseBox, miaBox] : [miaBox, jesseBox];
+  expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
+});
+
 test("five quiet minutes read as idle, and the next touch of the mouse is online again", async ({ page }) => {
   await page.clock.install();
   const state = await studio(page);
