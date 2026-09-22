@@ -2,6 +2,287 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-77e7b1d629b6c7bfba506bfd",
+      "title": "Hand to My Heart",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-77e7b1d629b6c7bfba506bfd-cbe724fd3051.mp3",
+      "duration": 255.0073469387755,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-22T23:14:06.359Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Hand to My Heart",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 96 BPM urban heartland rock song in D minor: steady live drums, melodic electric bass, clean-to-overdriven electric guitars, piano, and restrained organ. One clear, steadily pitched Tony lead sings with direct, compassionate phrasing; keep the guide-vocal delivery natural and melodic, with no vocal effects, doubles, stacks, growls, or backing voices. Start intimate, broaden into a firm chorus, pull back for the subway iftar bridge, then rise to a full final chorus. Pace the final sustained “clear” to land about 10 seconds before the end, followed by one resolved D-minor chord decay.",
+        "lyrics": "[Verse 1]\nMorning train, black coat, kufi low\nSteel doors rattle where the cold winds blow\nA date in my pocket, sunset on my phone\nCounting every stop till I can make it home\n\nBoss says, “Lunch?” and I smile, “Not today”\nPaper plates of pork get passed my way\nI find a quiet stairwell, lay my jacket down\nFive small minutes of peace beneath this roaring town\n\n[Pre-Chorus]\nI wash my hands, I wash the noise away\nThe city keeps moving, but I still pray\n\n[Chorus]\nPut my hand to my heart when I cannot shake yours\nI mean no distance, I mean no closed doors\nI am trying to belong in the place where I stand\nNew York, see me whole—just take my hand\n\n[Verse 2]\nFriday meeting runs into Jummah time\nCalendar squares and a subway line\nOutside the mosque, the sidewalk fills\nTaxi horns rising over whispered wills\n\nMy sister’s hijab catches rain on the block\nSomebody stares, somebody checks the clock\nShe walks to class with her books held tight\nCarrying daylight through a doubtful night\n\n[Chorus]\nPut my hand to my heart when I cannot shake yours\nI mean no distance, I mean no closed doors\nI am trying to belong in the place where I stand\nNew York, see me whole—just take my hand\n\n[Bridge]\nAt iftar on the A train, the sky turns blue-black\nOne date, one sip, the long day loosens back\nNo drink at the happy hour, no need to pretend\nI can still be your coworker, your neighbor, your friend\n\nEid bells from schoolyards, families spill outside\nAbayas in the sunlight, children laughing wide\nDifferent ways of walking, one city under rain\nNo one has to lose themselves to share the same train\n\n[Chorus]\nPut my hand to my heart, let the misunderstanding fall\nThere is room in these streets, there is room for us all\nI am not asking permission to breathe in this land\nNew York, know my name—just take my hand\n\n[Outro]\nHand to my heart, I am here\nHand to my heart, I am here\nAnd the city answers clear\n[End]",
+        "duration": 255,
+        "bpm": 96,
+        "musicalSettings": {
+          "genre": "Urban heartland rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, chorus, bridge, final chorus, outro",
+          "performance": "One clear, steady-pitched melodic lead with natural, compassionate phrasing",
+          "energy": "Quiet commuter-day tension builds into an open, resolute final chorus",
+          "lyricWorkflow": "Original narrative lyrics built from specific New York Muslim daily-life details and a belonging-focused refrain",
+          "instruments": [
+            "Live drum kit",
+            "Electric bass",
+            "Electric guitars",
+            "Piano",
+            "Organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nMorning train, black coat, kufi low\nSteel doors rattle where the cold winds blow\nA date in my pocket, sunset on my phone\nCounting every stop till I can make it home\n\nBoss says, “Lunch?” and I smile, “Not today”\nPaper plates of pork get passed my way\nI find a quiet stairwell, lay my jacket down\nFive small minutes of peace beneath this roaring town\n\n[Pre-Chorus]\nI wash my hands, I wash the noise away\nThe city keeps moving, but I still pray\n\n[Chorus]\nPut my hand to my heart when I cannot shake yours\nI mean no distance, I mean no closed doors\nI am trying to belong in the place where I stand\nNew York, see me whole—just take my hand\n\n[Verse 2]\nFriday meeting runs into Jummah time\nCalendar squares and a subway line\nOutside the mosque, the sidewalk fills\nTaxi horns rising over whispered wills\n\nMy sister’s hijab catches rain on the block\nSomebody stares, somebody checks the clock\nShe walks to class with her books held tight\nCarrying daylight through a doubtful night\n\n[Chorus]\nPut my hand to my heart when I cannot shake yours\nI mean no distance, I mean no closed doors\nI am trying to belong in the place where I stand\nNew York, see me whole—just take my hand\n\n[Bridge]\nAt iftar on the A train, the sky turns blue-black\nOne date, one sip, the long day loosens back\nNo drink at the happy hour, no need to pretend\nI can still be your coworker, your neighbor, your friend\n\nEid bells from schoolyards, families spill outside\nAbayas in the sunlight, children laughing wide\nDifferent ways of walking, one city under rain\nNo one has to lose themselves to share the same train\n\n[Chorus]\nPut my hand to my heart, let the misunderstanding fall\nThere is room in these streets, there is room for us all\nI am not asking permission to breathe in this land\nNew York, know my name—just take my hand\n\n[Outro]\nHand to my heart, I am here\nHand to my heart, I am here\nAnd the city answers clear",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.88,
+            "end": 7.74
+          },
+          {
+            "line": 2,
+            "start": 7.74,
+            "end": 13.2
+          },
+          {
+            "line": 3,
+            "start": 13.2,
+            "end": 18.14
+          },
+          {
+            "line": 4,
+            "start": 19.28,
+            "end": 23.22
+          },
+          {
+            "line": 6,
+            "start": 23.22,
+            "end": 28.1
+          },
+          {
+            "line": 7,
+            "start": 28.1,
+            "end": 33.08
+          },
+          {
+            "line": 8,
+            "start": 33.72,
+            "end": 39.46
+          },
+          {
+            "line": 9,
+            "start": 39.46,
+            "end": 44.76
+          },
+          {
+            "line": 12,
+            "start": 49.56,
+            "end": 53.88
+          },
+          {
+            "line": 13,
+            "start": 53.88,
+            "end": 59.2
+          },
+          {
+            "line": 16,
+            "start": 63.05,
+            "end": 130.76
+          },
+          {
+            "line": 17,
+            "start": 131.56,
+            "end": 135.5
+          },
+          {
+            "line": 18,
+            "start": 135.5,
+            "end": 140.74
+          },
+          {
+            "line": 19,
+            "start": 141.38,
+            "end": 143.2
+          },
+          {
+            "line": 22,
+            "start": 146.24,
+            "end": 146.64
+          },
+          {
+            "line": 23,
+            "start": 146.64,
+            "end": 147.4
+          },
+          {
+            "line": 24,
+            "start": 147.4,
+            "end": 147.64
+          },
+          {
+            "line": 25,
+            "start": 147.64,
+            "end": 148.48
+          },
+          {
+            "line": 27,
+            "start": 158.54,
+            "end": 159.38
+          },
+          {
+            "line": 28,
+            "start": 159.38,
+            "end": 159.58
+          },
+          {
+            "line": 29,
+            "start": 159.58,
+            "end": 159.8
+          },
+          {
+            "line": 30,
+            "start": 159.8,
+            "end": 160.28
+          },
+          {
+            "line": 33,
+            "start": 160.28,
+            "end": 160.44
+          },
+          {
+            "line": 34,
+            "start": 160.44,
+            "end": 160.66
+          },
+          {
+            "line": 35,
+            "start": 160.66,
+            "end": 161.06
+          },
+          {
+            "line": 36,
+            "start": 161.64,
+            "end": 161.66
+          },
+          {
+            "line": 39,
+            "start": 161.66,
+            "end": 163.44
+          },
+          {
+            "line": 40,
+            "start": 164.18,
+            "end": 168.06
+          },
+          {
+            "line": 41,
+            "start": 168.8,
+            "end": 173.02
+          },
+          {
+            "line": 42,
+            "start": 173.84,
+            "end": 178.16
+          },
+          {
+            "line": 44,
+            "start": 179.18,
+            "end": 184.18
+          },
+          {
+            "line": 45,
+            "start": 184.18,
+            "end": 188.36
+          },
+          {
+            "line": 46,
+            "start": 188.36,
+            "end": 193.28
+          },
+          {
+            "line": 47,
+            "start": 193.28,
+            "end": 198.94
+          },
+          {
+            "line": 50,
+            "start": 198.94,
+            "end": 208.08
+          },
+          {
+            "line": 51,
+            "start": 208.08,
+            "end": 214.36
+          },
+          {
+            "line": 52,
+            "start": 214.36,
+            "end": 219.34
+          },
+          {
+            "line": 53,
+            "start": 219.94,
+            "end": 225.2
+          },
+          {
+            "line": 56,
+            "start": 230.78,
+            "end": 236.64
+          },
+          {
+            "line": 57,
+            "start": 236.64,
+            "end": 239.38
+          },
+          {
+            "line": 58,
+            "start": 239.84,
+            "end": 242.28
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 9.72
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony struggles with being a Muslim in New York City\n\nClothing\nHijab: a headscarf covering hair and neck. It's the most visible marker, and styles range widely.\nNiqab: a face veil leaving the eyes open. It's rarer, but you'll see it in Bay Ridge, Astoria, and the Bronx.\nAbaya or jilbab: a loose, full-length robe worn over clothes.\nKufi or taqiyah: a men's skullcap, often worn for prayer or all day.\nThobe or jalabiya: a men's ankle-length robe, common on Fridays.\nShalwar kameez: a South Asian tunic and trousers, very common in Jackson Heights and Kensington.\nBeard: many religious men keep one.\nCustoms\nPrayer: five daily prayers at set times, preceded by washing (wudu). Friday midday congregational prayer (Jummah) is the big one for men.\nDiet: halal meat only, and no pork or alcohol.\nRamadan: a month of fasting from dawn to sunset, broken at sunset with iftar.\nModesty norms: some people avoid physical contact with the opposite sex, including handshakes.\nEid al-Fitr and Eid al-Adha: the two main holidays. NYC public schools close for both.\nWhere friction or awkwardness shows up\nHandshakes: someone declining yours isn't a snub. A hand on the heart and a nod is the usual substitute.\nWudu in public restrooms: washing feet in office or school sinks can startle coworkers, and splashed floors cause complaints.\nFinding prayer space: people end up praying in stairwells, fitting rooms, or park corners. Workplaces without a quiet room create daily logistics.\nFriday prayer: it can collide with meetings. Overflow crowds pray on the sidewalks outside packed mosques, which sometimes irritates passersby.\nWork socializing: happy hours and bar-centric networking, pork-heavy catering, and \"just have one drink\" pressure are common friction points.\nRamadan at work: lunch meetings, pressure to eat, fatigue, and iftar hitting mid-commute on the subway, when people break the fast with a date on the train.\nDogs: NYC is intensely dog-friendly, but many Muslims consider dog saliva ritually impur",
+        "direction": "Use the prompt as written.",
+        "keep": "Reference examples in the prompt heavily in the lyrics. Tony just wants to be accepted",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 255
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-a52cf27f9bce6ebe2c68dbdd",
       "title": "Prayer and Pavement Borough Banter",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a52cf27f9bce6ebe2c68dbdd-13ff9cbe4d7d.mp3",
