@@ -7,7 +7,7 @@
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 26px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -196,7 +196,7 @@ html[data-shared-theme][data-theme="dark"] .room-avatar::before { border-color: 
 }
 /* On a phone the seats are small and sit whole against the edge, over the page's own gutter and a little more. */
 @media (max-width: 700px) {
-  .room-side { gap: 10px; }
+  .room-side { gap: 18px; }
   .room-left { left: 3px; }
   .room-right { right: 3px; }
   .room-avatar { width: 32px; height: 32px; font-size: 1rem; }
