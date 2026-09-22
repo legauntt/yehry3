@@ -2412,21 +2412,30 @@ main {
   margin: 55px auto 80px;
 }
 .lyrics-sheet h1 {
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-size: clamp(1.9rem, 5vw, 3.4rem);
   overflow-wrap: anywhere;
 }
 .shared-song-player {
   position: sticky;
   top: 12px;
   z-index: 3;
-  margin-top: 30px;
-  padding: 20px 22px;
+  margin-top: 22px;
+  padding: 16px 20px;
   border: 1px solid var(--line);
   border-radius: 3px;
   background: var(--light);
 }
 .shared-song-player .tiny-label {
-  margin: 0 0 12px;
+  margin: 0 0 8px;
+}
+#sheet-status,
+#moment-status,
+.shared-song-player [data-listening-stats] {
+  margin: 6px 0 0;
+}
+#sheet-status:empty,
+#moment-status:empty {
+  margin: 0;
 }
 .shared-song-player audio {
   display: block;
@@ -2767,7 +2776,6 @@ button.lyric-line:hover {
   background: #46301f;
   color: #ffd9bd;
 }
-.shared-song-player .loop-toggle { margin-top: 8px; }
 
 /* The song a completion alert points at, once the collection settles on it. */
 .track.is-revealed,
@@ -2895,11 +2903,36 @@ html[data-navigating="true"] body::before {
 @keyframes shell-progress { from { transform: scaleX(0.05); } to { transform: scaleX(0.9); } }
 @media (prefers-reduced-motion: reduce) { html[data-navigating="true"] body::before { animation: none; transform: scaleX(0.5); } }
 /* A lyric sheet plays through the site's player: a button, a clock and a scrubber stand in for its own audio element. */
-.sheet-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
-.sheet-controls .primary { min-width: 92px; }
-.sheet-controls input[type="range"] { flex: 1 1 200px; min-width: 0; accent-color: var(--accent, #4b7a55); }
-.sheet-time { min-width: 5.5em; font-variant-numeric: tabular-nums; }
-.sheet-keeps { margin: 10px 0 0; opacity: 0.75; }
+.sheet-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; }
+.sheet-controls .primary { min-width: 84px; padding: 11px 18px; min-height: 40px; }
+.sheet-controls input[type="range"] { flex: 1 1 140px; min-width: 0; accent-color: var(--accent, #4b7a55); }
+.sheet-controls .quiet { flex: none; min-height: 40px; padding: 9px 14px; }
+.sheet-time { min-width: 5em; font-variant-numeric: tabular-nums; }
+.sheet-keeps { margin: 6px 0 0; opacity: 0.75; }
+@media (max-width: 650px) {
+  .lyrics-sheet {
+    margin-top: 30px;
+  }
+  .lyrics-sheet h1 {
+    font-size: clamp(1.55rem, 7.5vw, 2.2rem);
+    margin-bottom: 14px;
+  }
+  .shared-song-player {
+    padding: 12px 16px;
+    margin-top: 16px;
+  }
+  .shared-song-player .tiny-label,
+  .sheet-keeps,
+  .shared-song-player [data-listening-stats] {
+    display: none;
+  }
+  .sheet-controls {
+    gap: 8px 10px;
+  }
+  .sheet-controls .primary {
+    min-width: 0;
+  }
+}
 .remix-comparison [data-compare-now] { min-height: 1.2em; }
 /* On a phone the bar is on every page, so it is kept short: the title takes its own line, the buttons share the next, and the audio controls the last. */
 @media (max-width: 700px) {

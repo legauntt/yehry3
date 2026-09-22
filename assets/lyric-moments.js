@@ -16,12 +16,18 @@ const restored = new WeakSet();
 export function mountMomentSharing(main, sheet) {
   const holder = main.querySelector(".shared-song-player");
   if (!holder) return () => {};
+  const controls = holder.querySelector(".sheet-controls") || holder;
   const controller = new AbortController(), { signal } = controller;
-  const panel = document.createElement("div");
-  panel.className = "lyric-moment";
-  panel.innerHTML = '<div class="actions"><button type="button" class="quiet" id="share-moment">Share this moment</button></div><p class="small" id="moment-status" role="status"></p><div id="moment-link-field" hidden><label for="moment-link">Link to this moment</label><input id="moment-link" type="text" readonly></div>';
-  holder.append(panel);
-  const button = panel.querySelector("#share-moment"), status = panel.querySelector("#moment-status");
+  const button = document.createElement("button");
+  button.type = "button";
+  button.className = "quiet";
+  button.id = "share-moment";
+  controls.append(button);
+  const rest = document.createElement("div");
+  rest.className = "lyric-moment";
+  rest.innerHTML = '<p class="small" id="moment-status" role="status"></p><div id="moment-link-field" hidden><label for="moment-link">Link to this moment</label><input id="moment-link" type="text" readonly></div>';
+  holder.append(rest);
+  const status = rest.querySelector("#moment-status");
   const update = () => { button.textContent = `Share this moment · ${timeLabel(sheet.position())}`; };
   const timestamp = sharedTimestamp();
   if (timestamp !== null && !restored.has(sheet)) {
@@ -39,9 +45,9 @@ export function mountMomentSharing(main, sheet) {
     history.replaceState(history.state, "", url);
     main.querySelectorAll(".lyric-line.is-linked").forEach(item => item.classList.remove("is-linked"));
     line?.classList.add("is-linked");
-    const input = panel.querySelector("#moment-link");
+    const input = rest.querySelector("#moment-link");
     input.value = url.href;
-    panel.querySelector("#moment-link-field").hidden = false;
+    rest.querySelector("#moment-link-field").hidden = false;
     try { await navigator.clipboard.writeText(url.href); status.textContent = `Link copied at ${timeLabel(seconds)}.`; }
     catch { input.focus(); input.select(); status.textContent = `Copy this link to share the song at ${timeLabel(seconds)}.`; }
   }, { signal });
