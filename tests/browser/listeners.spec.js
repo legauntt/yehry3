@@ -23,6 +23,8 @@ const jesse = { id: "bbbbbbbbbbbbbb01", name: "Jesse Gauntt", anonymous: false, 
 // As many avatars as the studio offers, so the chooser is measured at its real size.
 const avatars = ["🐇", "🦊", "🎸", "🎹", ...Array.from({ length: 72 }, (_, index) => String.fromCodePoint(0x1f400 + index)).filter((emoji) => !["🐇", "🦊"].includes(emoji)).slice(0, 68)];
 const fox = { id: "cccccccccccccc02", name: "sleepy-fox", anonymous: true, emoji: "🦊", hue: 250, song: null, since: null, idle: true };
+// Odd like Jesse's, so this listener lands right beside them on the same side.
+const mia = { id: `${"d".repeat(14)}03`, name: "Mia Chen", anonymous: false, emoji: "🐸", hue: 90, song: null, since: null };
 
 // A stand-in studio: reports are recorded, and a poll is held until the test changes the room.
 async function studio(page, { reject = () => false, socket = false } = {}) {
@@ -300,6 +302,34 @@ test("the room arrives over a socket, and the long poll takes over when the sock
   state.version = "1000000000000004";
   state.push();
   await expect(named.locator(".room-avatar")).toHaveAttribute("aria-label", "Jesse Gauntt: listening to First in the room", { timeout: 2000 });
+});
+
+test("two seats that peek at once, side by side, do not crowd each other's card", async ({ page }) => {
+  const state = await studio(page);
+  await page.goto("/?sort=catalog");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  // A fourth listener lands beside Jesse, on the same side.
+  state.listeners = [state.listeners[0], jesse, mia, fox];
+  state.version = "1000000000000010";
+  await expect(page.locator(".room-seat")).toHaveCount(4);
+  const jesseSeat = page.locator('.room-seat[data-id="bbbbbbbbbbbbbb01"]');
+  const miaSeat = page.locator(`.room-seat[data-id="${mia.id}"]`);
+  await expect(jesseSeat).toHaveCount(1);
+  await expect(miaSeat).toHaveCount(1);
+  // Both change song in the same beat, so both cards step out unasked, right beside one another.
+  state.listeners = [
+    state.listeners[0],
+    { ...jesse, song: { id: "room-second", title: "Second <in> the room" }, activity: "drafting", device: "phone", progress: { position: 40, duration: 200, age: 0 } },
+    { ...mia, song: { id: "room-first", title: "First in the room" }, activity: "lyrics", device: "desktop", progress: { position: 10, duration: 260, age: 0 } },
+    fox,
+  ];
+  state.version = "1000000000000011";
+  await expect(jesseSeat).toHaveClass(/is-peeking/, { timeout: 8000 });
+  await expect(miaSeat).toHaveClass(/is-peeking/, { timeout: 8000 });
+  const jesseBox = await jesseSeat.locator(".room-card").boundingBox();
+  const miaBox = await miaSeat.locator(".room-card").boundingBox();
+  const [upper, lower] = jesseBox.y <= miaBox.y ? [jesseBox, miaBox] : [miaBox, jesseBox];
+  expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
 });
 
 test("five quiet minutes read as idle, and the next touch of the mouse is online again", async ({ page }) => {

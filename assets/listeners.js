@@ -360,6 +360,25 @@ function choose(emoji) {
   void report(true);
   render();
 }
+// Two neighbours can show a card at the same time (both peeking at once, or one open next to a peek). A card's
+// height depends on what it says, so no fixed seat spacing stays enough forever; nudge the lower seat down
+// instead, just far enough that its card clears the one above it.
+const CARD_CLEARANCE = 10;
+function spaceCards(list) {
+  let prevBottom = null;
+  for (const seat of list.children) {
+    if (!seat.classList?.contains("room-seat")) { prevBottom = null; continue; }
+    if (!(seat.classList.contains("is-open") || seat.classList.contains("is-peeking"))) { prevBottom = null; continue; }
+    const rect = seat.querySelector(".room-card").getBoundingClientRect();
+    let bottom = rect.bottom;
+    if (prevBottom !== null && rect.top < prevBottom + CARD_CLEARANCE) {
+      const shift = prevBottom + CARD_CLEARANCE - rect.top;
+      seat.style.marginTop = `${shift}px`;
+      bottom += shift;
+    }
+    prevBottom = bottom;
+  }
+}
 function render() {
   if (!root) return;
   // Every heartbeat and poll redraws the seats whole, which would take the field away mid-word.
@@ -381,6 +400,7 @@ function render() {
       chip.title = `${extra} more ${extra === 1 ? "listener" : "listeners"}`;
       list.append(chip);
     }
+    spaceCards(list);
   }
   const ghost = root.querySelector(".room-ghost");
   ghost.hidden = !invisible();
