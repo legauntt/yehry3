@@ -97,6 +97,7 @@ for (const name of [
   "catalog-view.css",
   "song-art.js",
   "art-remix.js",
+  "art-draw.js",
   "details.js",
   "song-data.js",
   "song-summary.js",
