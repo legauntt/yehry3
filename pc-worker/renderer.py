@@ -282,8 +282,8 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
         if plan.get('generation'): result['generation_profile'] = 'v8'
         return result
     if plan['recipe'] == 'barbershop':
-        if voice_model != 'v6': raise ValueError(f'Tony {voice_model.upper()} is not available for the specialized four-voice quartet recipe; choose Tony V6')
-        return render_quartet(request, engine)
+        if voice_model not in ('v6', 'v9'): raise ValueError(f'Tony {voice_model.upper()} is not available for the specialized four-voice quartet recipe; choose Tony V6 or Tony V9')
+        return render_quartet(request, engine, voice_model, voice_profile)
     if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
     identifier = composition_identifier(request, repair, composition_retry)
     title = plan['title'] + ' - D' + identifier[:8]
@@ -432,7 +432,7 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
         if plan.get('generation'): result['generation_profile'] = 'v8'
         return result
 
-def render_quartet(request, engine):
+def render_quartet(request, engine, voice_model='v6', voice_profile=None):
     settings, basis, plan = request['config']['settings'], request['basis'], request['plan']
     ai = Path(settings['studio_dir']).parent
     original = ai / 'troofs-barbershop-three-v6/quartet.py'
@@ -446,8 +446,17 @@ def render_quartet(request, engine):
             shutil.copy2(original, snapshot)
             calibration = original.with_name('cuda-feature-calibration.json')
             if calibration.exists(): shutil.copy2(calibration, work / calibration.name)
+        rvc = None
+        if voice_model == 'v9':
+            rvc_snapshot = work / 'quartet_rvc.py'
+            if not rvc_snapshot.exists(): shutil.copy2(Path(__file__).with_name('quartet_rvc.py'), rvc_snapshot)
+            sing_snapshot = work / 'quartet_rvc_sing.py'
+            if not sing_snapshot.exists(): shutil.copy2(Path(__file__).with_name('quartet_rvc_sing.py'), sing_snapshot)
+            rvc = module_at('quartet_rvc', rvc_snapshot)
         frozen = work / 'distonyc-quartet.json'
-        inputs = {'plan': plan, 'basis': basis, 'recipe_sha256': sha(snapshot)}
+        inputs = {'plan': plan, 'basis': basis, 'recipe_sha256': sha(snapshot), 'voice_model': voice_model,
+                  **({'rvc_sha256': {'quartet_rvc.py': sha(rvc_snapshot), 'quartet_rvc_sing.py': sha(sing_snapshot)},
+                      'voice_profile_fingerprint': voice_profile['fingerprint']} if rvc is not None else {})}
         if frozen.exists() and load(frozen) != inputs: raise ValueError('Saved quartet inputs changed')
         save(frozen, inputs)
         quartet = module_at('distonyc_quartet', snapshot)
@@ -462,9 +471,13 @@ def render_quartet(request, engine):
             state.update(status='running', stage=stage); save(status, state)
             engine.emit('progress', stage=f'Quartet: {stage}', progress=index / len(stages))
             with (work / (stage + '.log')).open('a', encoding='utf-8') as log:
-                subprocess.run([settings['voice_python'], str(snapshot), stage, str(work)], cwd=work, stdout=log, stderr=subprocess.STDOUT, check=True, creationflags=subprocess.CREATE_NO_WINDOW)
+                if rvc is not None and stage in ('diffuse', 'vocode'):
+                    getattr(rvc, stage)(work, voice_profile, log)
+                else:
+                    subprocess.run([settings['voice_python'], str(snapshot), stage, str(work)], cwd=work, stdout=log, stderr=subprocess.STDOUT, check=True, creationflags=subprocess.CREATE_NO_WINDOW)
             state['completed'].append(stage); save(status, state)
         quartet.verify(work)
+        if rvc is not None: rvc.correct_attribution(work, voice_profile, settings['ffmpeg'])
         result = engine.verify_work(work, settings['output_dir'])
         state.update(status='completed', stage='completed'); save(status, state)
         return result
