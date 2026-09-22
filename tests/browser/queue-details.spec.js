@@ -428,3 +428,46 @@ test("a request that goes 9/11'd announces itself once", async ({ page }) => {
   await expect(page.locator(`.pending-track[data-id="${failed.id}"]`)).toBeVisible();
   expect(await page.evaluate(() => window.__played)).toEqual([]);
 });
+
+test("a request that goes 9/11'd sings over the music instead of stopping it", async ({ page }) => {
+  await page.addInitScript(() => {
+    window.__played = [];
+    window.__paused = [];
+    // Stand-in playback: play() makes an element live and pause() records whose sound was cut.
+    Object.defineProperty(HTMLMediaElement.prototype, "paused", { configurable: true, get() { return !this.__live; } });
+    HTMLMediaElement.prototype.play = function () {
+      this.__live = true;
+      if (this.src.includes("/assets/sounds/")) window.__played.push(new URL(this.src).pathname);
+      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
+      return Promise.resolve();
+    };
+    HTMLMediaElement.prototype.pause = function () {
+      if (this.__live) window.__paused.push(this.id || this.src);
+      this.__live = false;
+    };
+  });
+  let attention = [];
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.route("**/yehry3/queue?*", route =>
+    route.fulfill({ json: { ...queue, needsAttention: attention, needsAttentionTotal: attention.length } }));
+  await page.goto("/queue/");
+  await expect(page.locator("#waiting-queue")).toContainText("A second distinct request");
+  // Someone is listening to a song when a request fails.
+  await page.evaluate(() => {
+    const music = Object.assign(document.createElement("audio"), { id: "music", preload: "none", src: "/music.mp3" });
+    document.body.append(music);
+    return music.play();
+  });
+  attention = [failed];
+  await page.locator("#refresh-queue").click();
+  await expect(page.locator("#needs-attention")).toContainText("Pancakeo");
+  await expect.poll(() => page.evaluate(() => window.__played)).toEqual(["/assets/sounds/one-loud-crash.mp3"]);
+  await page.waitForTimeout(250);
+  // The line is heard on top of the music, which plays on.
+  expect(await page.evaluate(() => window.__paused)).toEqual([]);
+  expect(await page.evaluate(() => document.getElementById("music").paused)).toBe(false);
+  // A badge pressed on purpose still takes the stage for itself.
+  await page.getByRole("button", { name: "9/11'd Again (play sound)" }).click();
+  await expect.poll(() => page.evaluate(() => window.__paused)).toContain("music");
+});

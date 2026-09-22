@@ -42,13 +42,15 @@ function stop() {
 // can also be a moment of a song, { url, start, end }, which fades out at its end.
 // Only one sound plays at a time: a new one replaces the last, pauses whatever media the page
 // is playing once it starts, and gives way when the page starts playing something itself.
+// A sound played `over` the page is the exception: it leaves the music alone and is heard on top
+// of it, though it still gives way to a song that starts while it sings.
 // The result says when the sound is really heard: heard resolves true once it starts (or has
 // failed), false if something else took its place first or it never arrived within loadPatience.
 // A moment only counts as started once the audio has reached it, so a slow seek never lets the
 // picture and caption run ahead of the sound.
 // length() is how long the sound lasts in ms, or NaN while that is unknown.
 const volume = 0.85, fadeSeconds = 0.25, loadPatience = 15000, seekSlack = 0.1;
-function play(button = null, clip = null) {
+function play(button = null, clip = null, { over = false } = {}) {
   stop();
   const moment = clip && typeof clip === "object" ? clip : null;
   const audio = new Audio(moment ? moment.url : clip ?? clips[next]);
@@ -71,7 +73,7 @@ function play(button = null, clip = null) {
     started = true;
     for (const event of ["playing", "timeupdate", "seeked"]) audio.removeEventListener(event, begin);
     settle(true);
-    pauseOthers(audio);
+    if (!over) pauseOthers(audio);
   };
   audio.addEventListener("playing", () => { running = true; begin(); });
   audio.addEventListener("timeupdate", begin);
@@ -252,7 +254,8 @@ export async function announceAttention(requests) {
     remember(ids);
     // The first list only establishes the baseline; browsers may also refuse
     // audio before the page has been clicked, and that attempt still counts.
-    if (previous && ids.some((id) => !previous.has(id))) play();
+    // The news is sung over whatever is playing: a failure is no reason to stop the music.
+    if (previous && ids.some((id) => !previous.has(id))) play(null, null, { over: true });
   };
   // Serialize with other open tabs so one failure is announced once, not once per tab.
   if (navigator.locks?.request) {
