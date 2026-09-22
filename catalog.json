@@ -2,6 +2,349 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-e4529161927a03059a816605",
+      "title": "Between Prayer and Pavement",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e4529161927a03059a816605-311c13e362de.mp3",
+      "duration": 280.0326530612245,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-22T19:57:18.622Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Between Prayer and Pavement",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Synth-driven alternative rock in D minor: pulsing analog bass, wide synthesizer pads, arpeggiated synth, restrained electric guitar, live-feel drums, and a warm piano accent in the bridge. One clear, steadily pitched Tony V9 lead carries melodic verses with natural connected phrasing and a direct, humane chorus; no backing-vocal stacks or vocal effects. Start intimate, build through each chorus, briefly strip back for the bridge, then deliver the final chorus at full emotional weight. Sustain the final word “name” so the last sung syllable lands about 10 seconds before 280 seconds, followed by one resolved D-minor-to-major-color final chord decay.",
+        "lyrics": "[Verse 1]\nBefore the avenue wakes its silver glass\nI wash my hands in a rented-room dawn\nThe subway shakes the cups along the shelf\nAnd I fold my coat where the light falls warm\nMy mother says, keep mercy in your speech\nMy father says, let no fear make you small\nOutside, a siren writes across the block\nAnd every window seems to watch us all\n\n[Pre-Chorus]\nI carry more than one sky over me\nNeither one asks the other to leave\n\n[Chorus]\nBetween prayer and pavement, I make my way\nThrough the noise of a city that names me before I can say\nI am not your warning, I am not your war\nI am a neighbor with a key at the door\nBetween prayer and pavement, hear me plain\nI can hold to my faith without handing you pain\nThere is room in this town for the truth I bring\nFor a covered head, for a beard, for a human being\n\n[Verse 2]\nAt work they lower voices when I pass\nA headline hangs like smoke above the screen\nSomeone asks me where I learned to speak\nAs if this borough never raised me in between\nMy sister walks with fabric at her hair\nAnd strangers turn their guesses into law\nShe learns the measured distance of a stare\nAnd how to keep her tenderness from falling raw\n\n[Pre-Chorus]\nSome want tradition to become a cage\nSome want freedom with no room for age\n\n[Chorus]\nBetween prayer and pavement, I make my way\nThrough the noise of a city that names me before I can say\nI am not your warning, I am not your war\nI am a neighbor with a key at the door\nBetween prayer and pavement, hear me plain\nI can hold to my faith without handing you pain\nThere is room in this town for the truth I bring\nFor a covered head, for a beard, for a human being\n\n[Bridge]\nI wrestle with the words I was handed\nWith the words the world throws back\nNot every old command is a kindness\nNot every new demand is a path\nSo I listen for the heart of the teaching:\nJustice, patience, bread to share\nAnd I will not trade my conscience\nFor suspicion hanging in the air\n\n[Chorus]\nBetween prayer and pavement, I choose my name\nNot a symbol for your anger, not a mask for your blame\nI will meet your eyes, I will stand at the door\nWith the city in my blood and my faith at the core\nBetween prayer and pavement, the morning is near\nLet the room hold questions, let it make room for fear\nThen let mercy be louder than the stories we tell\nI am here, I am whole, and I wish you well\n\n[Outro]\nWhen the last train carries its light through the rain\nI lift my face and breathe my name\n[End]",
+        "duration": 280,
+        "bpm": 96,
+        "musicalSettings": {
+          "genre": "Synth-driven alternative rock",
+          "meter": "4/4",
+          "structure": "Verse 1 → pre-chorus → chorus → Verse 2 → pre-chorus → chorus → bridge → final chorus → short lyrical outro",
+          "performance": "Clear melodic Tony V9 lead, naturally connected phrasing, reflective in verses and firm but compassionate in choruses",
+          "energy": "Quiet urban reflection grows into an assertive final chorus, then resolves gently",
+          "lyricWorkflow": "Original narrative lyrics balancing personal faith, family, public misunderstanding, and self-definition with a compassionate resolution",
+          "instruments": [
+            "Synthesizer",
+            "Analog synth bass",
+            "Electric guitar",
+            "Drum kit",
+            "Piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nBefore the avenue wakes its silver glass\nI wash my hands in a rented-room dawn\nThe subway shakes the cups along the shelf\nAnd I fold my coat where the light falls warm\nMy mother says, keep mercy in your speech\nMy father says, let no fear make you small\nOutside, a siren writes across the block\nAnd every window seems to watch us all\n\n[Pre-Chorus]\nI carry more than one sky over me\nNeither one asks the other to leave\n\n[Chorus]\nBetween prayer and pavement, I make my way\nThrough the noise of a city that names me before I can say\nI am not your warning, I am not your war\nI am a neighbor with a key at the door\nBetween prayer and pavement, hear me plain\nI can hold to my faith without handing you pain\nThere is room in this town for the truth I bring\nFor a covered head, for a beard, for a human being\n\n[Verse 2]\nAt work they lower voices when I pass\nA headline hangs like smoke above the screen\nSomeone asks me where I learned to speak\nAs if this borough never raised me in between\nMy sister walks with fabric at her hair\nAnd strangers turn their guesses into law\nShe learns the measured distance of a stare\nAnd how to keep her tenderness from falling raw\n\n[Pre-Chorus]\nSome want tradition to become a cage\nSome want freedom with no room for age\n\n[Chorus]\nBetween prayer and pavement, I make my way\nThrough the noise of a city that names me before I can say\nI am not your warning, I am not your war\nI am a neighbor with a key at the door\nBetween prayer and pavement, hear me plain\nI can hold to my faith without handing you pain\nThere is room in this town for the truth I bring\nFor a covered head, for a beard, for a human being\n\n[Bridge]\nI wrestle with the words I was handed\nWith the words the world throws back\nNot every old command is a kindness\nNot every new demand is a path\nSo I listen for the heart of the teaching:\nJustice, patience, bread to share\nAnd I will not trade my conscience\nFor suspicion hanging in the air\n\n[Chorus]\nBetween prayer and pavement, I choose my name\nNot a symbol for your anger, not a mask for your blame\nI will meet your eyes, I will stand at the door\nWith the city in my blood and my faith at the core\nBetween prayer and pavement, the morning is near\nLet the room hold questions, let it make room for fear\nThen let mercy be louder than the stories we tell\nI am here, I am whole, and I wish you well\n\n[Outro]\nWhen the last train carries its light through the rain\nI lift my face and breathe my name",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.38,
+            "end": 7.76
+          },
+          {
+            "line": 2,
+            "start": 7.76,
+            "end": 13.14
+          },
+          {
+            "line": 3,
+            "start": 14.68,
+            "end": 18.38
+          },
+          {
+            "line": 4,
+            "start": 19.62,
+            "end": 23.28
+          },
+          {
+            "line": 5,
+            "start": 24.58,
+            "end": 28.44
+          },
+          {
+            "line": 6,
+            "start": 28.44,
+            "end": 33.18
+          },
+          {
+            "line": 7,
+            "start": 33.18,
+            "end": 37.86
+          },
+          {
+            "line": 8,
+            "start": 37.86,
+            "end": 38.22
+          },
+          {
+            "line": 11,
+            "start": 38.22,
+            "end": 43.3
+          },
+          {
+            "line": 12,
+            "start": 43.3,
+            "end": 48.58
+          },
+          {
+            "line": 15,
+            "start": 50.5,
+            "end": 55.56
+          },
+          {
+            "line": 16,
+            "start": 55.56,
+            "end": 60.6
+          },
+          {
+            "line": 17,
+            "start": 61.08,
+            "end": 65.22
+          },
+          {
+            "line": 18,
+            "start": 65.22,
+            "end": 69.62
+          },
+          {
+            "line": 19,
+            "start": 70.86,
+            "end": 75.52
+          },
+          {
+            "line": 20,
+            "start": 76.26,
+            "end": 80.54
+          },
+          {
+            "line": 21,
+            "start": 80.54,
+            "end": 85.68
+          },
+          {
+            "line": 22,
+            "start": 85.68,
+            "end": 89.66
+          },
+          {
+            "line": 25,
+            "start": 94.18,
+            "end": 98.52
+          },
+          {
+            "line": 26,
+            "start": 99.66,
+            "end": 103.2
+          },
+          {
+            "line": 27,
+            "start": 104.3,
+            "end": 108.18
+          },
+          {
+            "line": 28,
+            "start": 108.66,
+            "end": 111.84
+          },
+          {
+            "line": 29,
+            "start": 113.06,
+            "end": 115.84
+          },
+          {
+            "line": 30,
+            "start": 116.58,
+            "end": 119.6
+          },
+          {
+            "line": 31,
+            "start": 120.2,
+            "end": 123.24
+          },
+          {
+            "line": 32,
+            "start": 123.3,
+            "end": 127.02
+          },
+          {
+            "line": 35,
+            "start": 129.06,
+            "end": 132.86
+          },
+          {
+            "line": 36,
+            "start": 134.5,
+            "end": 138.78
+          },
+          {
+            "line": 39,
+            "start": 139.18,
+            "end": 143.34
+          },
+          {
+            "line": 40,
+            "start": 143.86,
+            "end": 148.16
+          },
+          {
+            "line": 41,
+            "start": 148.7,
+            "end": 153.5
+          },
+          {
+            "line": 42,
+            "start": 153.5,
+            "end": 157.02
+          },
+          {
+            "line": 43,
+            "start": 158.82,
+            "end": 163.04
+          },
+          {
+            "line": 44,
+            "start": 163.86,
+            "end": 168.16
+          },
+          {
+            "line": 45,
+            "start": 168.88,
+            "end": 173.14
+          },
+          {
+            "line": 46,
+            "start": 174.7,
+            "end": 179.5
+          },
+          {
+            "line": 49,
+            "start": 184.62,
+            "end": 188.3
+          },
+          {
+            "line": 50,
+            "start": 188.3,
+            "end": 191.96
+          },
+          {
+            "line": 51,
+            "start": 194.08,
+            "end": 198.18
+          },
+          {
+            "line": 52,
+            "start": 199.04,
+            "end": 202.02
+          },
+          {
+            "line": 53,
+            "start": 202.76,
+            "end": 205.82
+          },
+          {
+            "line": 54,
+            "start": 205.82,
+            "end": 208.14
+          },
+          {
+            "line": 55,
+            "start": 208.78,
+            "end": 210.88
+          },
+          {
+            "line": 56,
+            "start": 210.88,
+            "end": 213.46
+          },
+          {
+            "line": 59,
+            "start": 213.46,
+            "end": 218.04
+          },
+          {
+            "line": 60,
+            "start": 218.04,
+            "end": 223.16
+          },
+          {
+            "line": 61,
+            "start": 223.16,
+            "end": 228.22
+          },
+          {
+            "line": 62,
+            "start": 228.22,
+            "end": 233.2
+          },
+          {
+            "line": 63,
+            "start": 233.2,
+            "end": 238.12
+          },
+          {
+            "line": 64,
+            "start": 238.54,
+            "end": 243.16
+          },
+          {
+            "line": 65,
+            "start": 243.54,
+            "end": 248.22
+          },
+          {
+            "line": 66,
+            "start": 249.44,
+            "end": 254.54
+          },
+          {
+            "line": 69,
+            "start": 259.6,
+            "end": 264.44
+          },
+          {
+            "line": 70,
+            "start": 265.3,
+            "end": 274.46
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Song explicitly detailing the challenges the singer faces as a fundamentalist Muslim living in New York. Some general examples: Strict traditional interpretations of Islamic morality regarding gender roles, sexuality, and social interactions often conflict directly with modern secular American progressive norms. Strict adherence to outward markers of faith—such as wearing a full hijab, growing a traditional beard, or public prayer—frequently triggers social suspicion, stereotyping, or being incorrectly conflated with violent extremism.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Synthesizer"
+          ],
+          "pitchRepair": "wild",
+          "duration": 280
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-e1323f687c74c323936f20be",
       "title": "Medusa (Midnight Marble)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e1323f687c74c323936f20be-a90ce6a2cd17.mp3",
