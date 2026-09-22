@@ -279,11 +279,48 @@ function stageMarkup(stage) {
 }
 // A listener's redraw pins some of these; every other trait keeps its roll. A seed
 // rolls a whole new picture first. Chairlift stores them as a number, a drawing
-// name and indexes into the lists above.
-const remixTraits = ["seed", "theme", "palette", "pose", "prop", "extra", "eyes", "mouth", "backdrop", "confetti", "tilt", "flip"];
+// name, indexes into the lists above, and a doodle's pen strokes as one string.
+const remixTraits = ["seed", "theme", "palette", "pose", "prop", "extra", "eyes", "mouth", "backdrop", "confetti", "tilt", "flip", "doodle"];
 // Award mascots are earned with votes, so only the regular cast can be asked for.
 const cast = new Map();
 for (const entry of [...houseBand, ...themes]) if (!cast.has(entry[0])) cast.set(entry[0], entry);
+
+// A doodle is pen strokes over the finished picture, in its own 240 x 200 space.
+// Each stroke is "pen width x y dx dy dx dy…" (integers, later points relative to
+// the one before), strokes joined by ";". Chairlift stores and layers the string
+// like any other trait; the pens are the picture's own inks, so a doodle follows
+// a palette change. Anything that does not parse is ignored, never drawn.
+export const doodleLimits = { strokes: 80, points: 400, length: 3000 };
+const doodleWidths = [3, 6, 11];
+const strokeGrammar = /^[0-5] [0-2] \d{1,3} \d{1,3}(?: -?\d{1,3} -?\d{1,3}){0,399}$/;
+const clamp = (value, top) => Math.max(0, Math.min(top, value));
+export function parseDoodle(text) {
+  if (text === undefined || text === null || text === "") return [];
+  if (typeof text !== "string" || text.length > doodleLimits.length) return null;
+  const strokes = [];
+  for (const part of text.split(";")) {
+    if (strokes.length >= doodleLimits.strokes || !strokeGrammar.test(part)) return null;
+    const [pen, width, ...numbers] = part.split(" ").map(Number);
+    const points = [];
+    for (let i = 0; i < numbers.length; i += 2) {
+      const [x, y] = i ? points[points.length - 1] : [0, 0];
+      points.push([clamp((i ? x : 0) + numbers[i], 240), clamp((i ? y : 0) + numbers[i + 1], 200)]);
+    }
+    strokes.push({ pen, width, points });
+  }
+  return strokes;
+}
+export function serializeDoodle(strokes) {
+  return strokes.map(({ pen, width, points }) => [pen, width, ...points.flatMap(([x, y], i) => i ? [x - points[i - 1][0], y - points[i - 1][1]] : [x, y])].join(" ")).join(";");
+}
+function doodleMarkup(strokes, a, b) {
+  if (!strokes.length) return "";
+  const pens = [ink, paper, a, b, rose, gold];
+  // A lone tap is a dot: a zero-length stroke still gets its round caps.
+  return '<g fill="none" stroke-linecap="round" stroke-linejoin="round">' + strokes.map(({ pen, width, points }) =>
+    '<path d="M' + points.map(point => point.join(" ")).join("L") + (points.length === 1 ? "L" + points[0].join(" ") : "") + '" stroke="' + pens[pen] + '" stroke-width="' + doodleWidths[width] + '"/>').join("") + '</g>';
+}
+
 function rolls(song) {
   const title = String(song.title || "Untitled song");
   const identity = String(song.id || "") + "\n" + title;
@@ -292,7 +329,30 @@ function rolls(song) {
   const source = seeded ? identity + "\n#" + remix.seed : identity;
   const roll = (trait, size) => hash(source + "\n" + trait) % size;
   const pick = (trait, size) => Number.isInteger(remix[trait]) && remix[trait] >= 0 ? remix[trait] % size : roll(trait, size);
-  return { title, identity, source, seeded, remix, roll, pick, tier: voteTier(song.votes) };
+  return { title, identity, source, seeded, remix, roll, pick, tier: voteTier(song.votes), doodle: parseDoodle(remix.doodle) || [] };
+}
+// What one picture resolves to: every trait's roll, with the redraw's pins applied.
+function resolve(song) {
+  const rolled = rolls(song), { title, remix, seeded, roll, pick, tier } = rolled;
+  // Titles are present in both lightweight API responses and full offline records.
+  // Artwork never requires downloading lyrics or calling an image service.
+  const matches = themes.filter(([, pattern]) => pattern.test(title));
+  // A new picture may star anyone; the title's own subject then rides along as the accent.
+  const subjects = seeded ? [...cast.values()] : matches.length ? matches : houseBand;
+  const subject = cast.get(remix.theme) || subjects[roll("subject", subjects.length)];
+  const [theme, , description] = tier ? tier.cast[roll("mascot", tier.cast.length)] : subject;
+  // Award art keeps a small nod to the title; regular art shows a second subject.
+  const others = matches.filter(([other]) => other !== subject[0]);
+  const accentTheme = tier ? subject[0] : others.length ? others[roll("accent", others.length)][0] : null;
+  const swatches = tier?.palettes || palettes;
+  const traits = {
+    theme, palette: pick("palette", swatches.length), tilt: pick("tilt", 17), flip: pick("flip", 2),
+    pose: tier?.votes >= 5 ? 1 : pick("pose", poses.length), prop: tier ? 0 : pick("prop", props.length), extra: pick("extra", extras.length),
+    eyes: pick("eyes", eyes.length), mouth: pick("mouth", mouths.length), backdrop: pick("backdrop", backdrops.length), confetti: pick("confetti", 4),
+  };
+  // Asking for an expression outranks the award's heart or star eyes.
+  const special = tier && remix.eyes === undefined && roll("eyes", 2) ? (tier.votes >= 5 ? "stars" : tier.votes === 1 ? "hearts" : null) : null;
+  return { ...rolled, matches, description, accentTheme, swatches, traits, special, seesaw: seesawTitle.test(title) };
 }
 const cache = new Map();
 // The same picture with wide eyes and the See-saw rectangle for a mouth, for the cover art easter egg.
@@ -304,34 +364,22 @@ export function shockedArtwork(src) {
 }
 // `wide` draws the same character on a 1000 x 240 canvas (a mixtape label). Song covers never ask for it.
 export function songArtwork(song, options = {}) {
-  const { title, identity, source, seeded, remix, roll, pick, tier } = rolls(song);
+  const { identity, source, remix, roll, tier, description, accentTheme, swatches, traits, special: mood, seesaw, doodle } = resolve(song);
   const wide = Boolean(options.wide) && !tier;
-  const pinned = remixTraits.map(trait => remix[trait] ?? "").join(",");
+  const pinned = remixTraits.map(trait => trait === "doodle" ? serializeDoodle(doodle) : remix[trait] ?? "").join(",");
   const key = identity + "\n" + (tier?.votes || 0) + "\n" + pinned + (wide ? "\nwide" : "");
   if (cache.has(key)) return cache.get(key);
-  // Titles are present in both lightweight API responses and full offline records.
-  // Artwork never requires downloading lyrics or calling an image service.
-  const matches = themes.filter(([, pattern]) => pattern.test(title));
-  // A new picture may star anyone; the title's own subject then rides along as the accent.
-  const subjects = seeded ? [...cast.values()] : matches.length ? matches : houseBand;
-  const subject = cast.get(remix.theme) || subjects[roll("subject", subjects.length)];
-  const [theme, , description] = tier ? tier.cast[roll("mascot", tier.cast.length)] : subject;
-  // Award art keeps a small nod to the title; regular art shows a second subject.
-  const others = matches.filter(([other]) => other !== subject[0]);
-  const accentTheme = tier ? subject[0] : others.length ? others[roll("accent", others.length)][0] : null;
-  const [background, a, b] = (tier?.palettes || palettes)[pick("palette", (tier?.palettes || palettes).length)];
-  const tilt = pick("tilt", 17) - 8, flipped = pick("flip", 2) === 1;
-  const [limbs, hand] = poses[tier?.votes >= 5 ? 1 : pick("pose", poses.length)];
-  const prop = tier ? null : props[pick("prop", props.length)];
-  const extra = extras[pick("extra", extras.length)];
-  // Asking for an expression outranks the award's heart or star eyes.
-  const special = tier && remix.eyes === undefined && roll("eyes", 2) ? (tier.votes >= 5 ? starEyes() : tier.votes === 1 ? heartEyes : null) : null;
+  const { theme } = traits, [background, a, b] = swatches[traits.palette];
+  const tilt = traits.tilt - 8, flipped = traits.flip === 1;
+  const [limbs, hand] = poses[traits.pose];
+  const prop = tier ? null : props[traits.prop];
+  const extra = extras[traits.extra];
+  const special = mood === "stars" ? starEyes() : mood === "hearts" ? heartEyes : null;
   // The See-saw mouth is the song's signature, so a redraw cannot replace it.
-  const seesaw = seesawTitle.test(title);
-  const looks = (extra?.shades && !special ? "" : special || eyes[pick("eyes", eyes.length)]()) + (seesaw ? seesawMouth : mouths[pick("mouth", mouths.length)]);
+  const looks = (extra?.shades && !special ? "" : special || eyes[traits.eyes]()) + (seesaw ? seesawMouth : mouths[traits.mouth]);
   const face = looks + (extra && !(extra.shades && special) ? extra.draw(a, b) : "");
   const dark = tier?.stage === "legend";
-  const specks = confetti(source, tier?.stage === "loved" ? "hearts" : tier?.votes >= 5 ? "sparkles" : pick("confetti", 4), a, b, ...(wide ? [34, 974, 214] : []));
+  const specks = confetti(source, tier?.stage === "loved" ? "hearts" : tier?.votes >= 5 ? "sparkles" : traits.confetti, a, b, ...(wide ? [34, 974, 214] : []));
   const badgeX = flipped ? 19 : 202;
   // Tier hearts stay top right: the grid's track number covers the top-left corner.
   const badge = tier
@@ -343,19 +391,19 @@ export function songArtwork(song, options = {}) {
     + path(limbs) + (prop ? '<g transform="translate(' + hand[0] + " " + hand[1] + ')">' + prop(b) + '</g>' : "")
     + drawings[theme](a, b) + face + '</g>'
     + (accentTheme ? '<g transform="translate(' + accentX + ' 130) scale(.28) rotate(12 100 100)" stroke="' + ink + '" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">' + drawings[accentTheme](dark ? a : b, dark ? b : a) + '</g>' : "")
-    + '<g fill="' + (tier ? rose : paper) + '" stroke="' + (dark ? paper : ink) + '" stroke-width="2" stroke-linejoin="round">' + badge + '</g>';
+    + '<g fill="' + (tier ? rose : paper) + '" stroke="' + (dark ? paper : ink) + '" stroke-width="2" stroke-linejoin="round">' + badge + '</g>' + doodleMarkup(doodle, a, b);
   const svg = wide
     // The whole 240 x 200 figure scales to the label's height and sits in the middle; the backdrop and specks fill the rest.
-    ? '<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="240" viewBox="0 0 1000 240"><rect width="1000" height="240" fill="' + background + '"/>' + wideBackdrops[pick("backdrop", backdrops.length)]()
+    ? '<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="240" viewBox="0 0 1000 240"><rect width="1000" height="240" fill="' + background + '"/>' + wideBackdrops[traits.backdrop]()
       + '<g stroke="' + b + '" stroke-width="2" stroke-linecap="round">' + specks + '</g><g transform="translate(356 0) scale(1.2)">' + figure + '</g></svg>'
     : '<svg xmlns="http://www.w3.org/2000/svg" width="240" height="200" viewBox="0 0 240 200">'
-      + '<rect width="240" height="200" fill="' + background + '"/>' + (tier ? stageMarkup(tier.stage) : backdrops[pick("backdrop", backdrops.length)]())
+      + '<rect width="240" height="200" fill="' + background + '"/>' + (tier ? stageMarkup(tier.stage) : backdrops[traits.backdrop]())
       + '<g stroke="' + b + '" stroke-width="2" stroke-linecap="round">' + specks + '</g>' + figure
       + (tier?.votes >= 5 ? '<rect x="5" y="5" width="230" height="190" rx="7" fill="none" stroke="' + (dark ? gold : "#a86a08") + '" stroke-width="4"/>' + (dark ? '<rect x="12" y="12" width="216" height="176" rx="4" fill="none" stroke="' + gold + '" stroke-width="1.5"/>' : "") : "")
       + '</svg>';
   const remixed = pinned.replaceAll(",", "") !== "";
   const gasp = (extra?.shades && !special ? "" : openEye(85, 102, 13, 0, 0, 2) + openEye(116, 99, 14, 0, 0, 2)) + seesawMouth;
-  const art = { src: "data:image/svg+xml," + encodeURIComponent(svg), alt: "Silly clip art: " + description + (seesaw ? ", with a comically enormous black rectangle for a mouth" : "") + (remixed ? ", redrawn by listeners." : "."), theme, tier: tier?.votes || 0, remixed };
+  const art = { src: "data:image/svg+xml," + encodeURIComponent(svg), alt: "Silly clip art: " + description + (seesaw ? ", with a comically enormous black rectangle for a mouth" : "") + (doodle.length ? ", with a listener's doodle" : "") + (remixed ? ", redrawn by listeners." : "."), theme, tier: tier?.votes || 0, remixed };
   shocks.set(art, () => "data:image/svg+xml," + encodeURIComponent(svg.replace(looks, gasp)));
   // Bound memory use on pages left open as the catalog changes.
   if (cache.size >= 512) cache.delete(cache.keys().next().value);
@@ -462,4 +510,70 @@ export function remixFromPrompt(song, prompt, { fresh = false, again = 0 } = {})
   }
   const art = songArtwork({ ...song, artRemix: fresh ? remix : { ...current, ...remix } });
   return { remix, understood, diced, asked: dice.test(words), art, changed: art.src !== songArtwork(song).src };
+}
+
+// The redraw dialog picks traits from lists instead of guessing at words. Every
+// value here is one the drawing code above understands: [value, label] per trait.
+// Empty hands and bare faces occupy three indexes each, so their lists skip the repeats.
+const choices = {
+  pose: [[0, "Relaxed"], [1, "Arms up"], [2, "Waving"], [3, "Dancing"]],
+  prop: [[0, "Empty hands"], [3, "A balloon"], [4, "A flower"], [5, "Music notes"], [6, "A pennant"], [7, "A lollipop"]],
+  extra: [[0, "Nothing"], [3, "Sunglasses"], [4, "A bow tie"], [5, "Rosy cheeks"], [6, "Eyebrows"], [7, "A monocle"]],
+  eyes: [[0, "Open"], [1, "A wink"], [2, "A wink, other eye"], [3, "Closed"], [4, "A stare"], [5, "Side-eye"], [6, "Sleepy"]],
+  mouth: [[0, "A smile"], [1, "A laugh"], [2, "Singing"], [3, "A smirk"], [4, "Tongue out"]],
+  backdrop: [[0, "A circle"], [1, "A blob"], [2, "Stripes"], [3, "Polka dots"], [4, "Sun rays"], [5, "An arch"]],
+  confetti: [[0, "Sprinkles"], [1, "Sparkles"], [2, "Confetti"], [3, "Rings"]],
+  tilt: [[0, "Leaning left"], [8, "Standing straight"], [16, "Leaning right"]],
+  flip: [[0, "As drawn"], [1, "Mirrored"]],
+};
+const paletteLabels = vocabulary.filter(([trait]) => trait === "palette").map(([, , , label]) => label);
+const characterLabels = new Map(vocabulary.filter(([trait]) => trait === "theme").map(([, name, , label]) => [name, label]));
+const characterWords = new Map(vocabulary.filter(([trait]) => trait === "theme").map(([, name, pattern]) => [name, pattern]));
+// The drawing alone, in a palette's inks, for a picker chip. Faces are added by the picture.
+export function characterIcon(theme, palette = 0) {
+  const draw = drawings[theme];
+  if (!draw) return "";
+  const [, a, b] = palettes[palette % palettes.length] || palettes[0];
+  return "data:image/svg+xml," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><g stroke="' + ink + '" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">' + draw(a, b) + '</g></svg>');
+}
+// Everything a listener can choose for one song's picture, with what it shows now.
+// Award art keeps its mascots, stage, sprinkles and empty hands, and See-saw songs
+// their mouth, so those lists are left out for them.
+export function artChoices(song) {
+  const { tier, seesaw, swatches, traits, special, doodle } = resolve(song);
+  const open = tier ? ["palette", ...(tier.votes < 5 ? ["pose"] : []), "extra", "eyes", "mouth", "tilt", "flip"] : ["theme", "palette", "pose", "prop", "extra", "eyes", "mouth", "backdrop", "confetti", "tilt", "flip"];
+  // Sunglasses and award eyes hide the rolled eyes, so no eyes chip is marked; the note says why.
+  const eyesNote = special === "hearts" ? "the award's heart eyes" : special === "stars" ? "the award's star eyes" : extras[traits.extra]?.shades ? "behind the sunglasses" : "";
+  const current = { ...traits, prop: traits.prop < 3 ? 0 : traits.prop, extra: traits.extra < 3 ? 0 : traits.extra, eyes: eyesNote ? null : traits.eyes };
+  const [, a, b] = swatches[traits.palette];
+  return {
+    open: open.filter(trait => !(trait === "mouth" && seesaw)), current, eyesNote, tier: tier?.votes || 0, seesaw, doodle,
+    characters: [...cast.keys()].map(name => ({ value: name, label: characterLabels.get(name) || name, words: characterWords.get(name) })),
+    swatches: swatches.map(([background, a, b], index) => ({ value: index, colors: [background, a, b], label: tier ? "Colors " + (index + 1) : paletteLabels[index] })),
+    // The doodle pens, in the picture's inks.
+    pens: [ink, paper, a, b, rose, gold],
+    choices,
+  };
+}
+// A shuffle rolls a whole new picture; the pins ride on top. `take` asks for the next one.
+export function shuffleSeed(song, take = 1) {
+  const { identity, remix } = rolls(song);
+  const seed = hash(identity + "\n#shuffle\n" + take);
+  return seed === remix.seed ? (seed + 1) >>> 0 : seed;
+}
+// Turns the dialog's picks into what to send. A `seed` (a shuffle) starts a new
+// picture and everything not pinned rolls again; without one the pins layer on the
+// picture as it is. `doodle` is the whole stroke list to show; a change is sent,
+// and a seeded picture carries it along, since a seed replaces everything stored.
+export function remixFromPicks(song, { pins = {}, seed = null, doodle = null } = {}) {
+  const { remix: current, doodle: drawn } = rolls(song);
+  const remix = seed === null ? {} : { seed };
+  for (const trait of remixTraits) if (trait !== "seed" && trait !== "doodle" && pins[trait] !== undefined && pins[trait] !== null) remix[trait] = pins[trait];
+  if (doodle !== null) {
+    const text = serializeDoodle(doodle);
+    if (seed === null ? text !== serializeDoodle(drawn) : text) remix.doodle = text;
+  }
+  const state = seed === null ? { ...current, ...remix } : remix;
+  const art = songArtwork({ ...song, artRemix: state });
+  return { remix, state, art, changed: art.src !== songArtwork(song).src };
 }
