@@ -2,6 +2,309 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5c4ef60c1cf1fa5ff6ff39ec",
+      "title": "Yeah After Midnight (Velvet Afterhours)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c4ef60c1cf1fa5ff6ff39ec-096942006ac8.mp3",
+      "duration": 270.0277551020408,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-d88c69ac5b02b644324e42ad",
+        "title": "Yeah After Midnight",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d88c69ac5b02b644324e42ad-d0c85e6f241f.mp3"
+      },
+      "publishedAt": "2026-09-22T06:00:17.935Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Yeah After Midnight (Velvet Afterhours)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 270-second smooth-jazz reinterpretation with a recognizable, repeated “Yeah after midnight” hook and nocturnal after-hours mood. Upright bass leads a warm walking pocket beneath brushed drums, Rhodes piano, muted trumpet, and lyrical tenor sax fills. Start intimate and spacious, grow through the second hook and bridge, then ease into a tender final verse. Use one clear, steadily pitched Tony V9 lead with melodic, connected phrasing; keep the vocal dry and direct, without stacks, doubles, rasp effects, or added backing voices. Place the final sustained “Yeeaah” about 8–12 seconds before the end, followed by one resolved D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nYeah\nYeah after midnight\n\n[Verse 1]\nThe room is blue behind the glass\nIce turns slow and the long cars pass\nYour shadow leans across the bar\nLike it knows exactly where we are\nI said nothing, let the saxophone bend\nYou said maybe this night will never end\nYeah, the clock forgets its name\nYeah, every window holds the flame\n\n[Hook]\nYeah after midnight\nYeah, stay in the low gold light\nYeah after midnight\nDon't let the morning call it right\n\n[Verse 2]\nA muted trumpet kisses the wall\nOne loose laugh and I forget it all\nThe drummer brushes a little storm\nKeeping every secret warm\nYou move once, then the whole room sways\nLike a record caught in the last good phrase\nYeah, I hear that old refrain\nYeah, it comes around again\n\n[Hook]\nYeah after midnight\nYeah, stay in the low gold light\nYeah after midnight\nDon't let the morning call it right\n\n[Bridge]\nNo grand goodbye, no sharp last word\nJust the softest thing we ever heard\nThe bass walks down, the lights go thin\nAnd the dark lets all the daylight in\nYeah, if you go, go slow\nYeah, leave one little door aglow\n\n[Verse]\nThe street is quiet, the glasses shine\nThe band plays low on borrowed time\nI carry your name through the empty hall\nNot a promise, not a warning call\nJust one last note that knows my face\nOne last breath in a velvet space\nYeah after midnight\nYeah, I finally know\nYeah after midnight\nDon't let me go\n\n[Outro]\nYeah\nYeeaah\n[End]",
+        "duration": 270,
+        "bpm": 82,
+        "musicalSettings": {
+          "genre": "Smooth jazz after-hours reinterpretation",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Hook, Verse 2, Hook, Bridge, Final Verse, Outro",
+          "performance": "Clear, melodic Tony V9 lead with connected natural phrasing and a catchable refrain",
+          "energy": "Low-lit and intimate at first, gently rising to a warm final release",
+          "lyricWorkflow": "Adapted source-hook writing that expands the original “Yeah” motif into a complete midnight scene",
+          "instruments": [
+            "upright bass",
+            "brushed drum kit",
+            "Rhodes piano",
+            "muted trumpet",
+            "tenor saxophone"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nYeah\nYeah after midnight\n\n[Verse 1]\nThe room is blue behind the glass\nIce turns slow and the long cars pass\nYour shadow leans across the bar\nLike it knows exactly where we are\nI said nothing, let the saxophone bend\nYou said maybe this night will never end\nYeah, the clock forgets its name\nYeah, every window holds the flame\n\n[Hook]\nYeah after midnight\nYeah, stay in the low gold light\nYeah after midnight\nDon't let the morning call it right\n\n[Verse 2]\nA muted trumpet kisses the wall\nOne loose laugh and I forget it all\nThe drummer brushes a little storm\nKeeping every secret warm\nYou move once, then the whole room sways\nLike a record caught in the last good phrase\nYeah, I hear that old refrain\nYeah, it comes around again\n\n[Hook]\nYeah after midnight\nYeah, stay in the low gold light\nYeah after midnight\nDon't let the morning call it right\n\n[Bridge]\nNo grand goodbye, no sharp last word\nJust the softest thing we ever heard\nThe bass walks down, the lights go thin\nAnd the dark lets all the daylight in\nYeah, if you go, go slow\nYeah, leave one little door aglow\n\n[Verse]\nThe street is quiet, the glasses shine\nThe band plays low on borrowed time\nI carry your name through the empty hall\nNot a promise, not a warning call\nJust one last note that knows my face\nOne last breath in a velvet space\nYeah after midnight\nYeah, I finally know\nYeah after midnight\nDon't let me go\n\n[Outro]\nYeah\nYeeaah",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.66,
+            "end": 6.54
+          },
+          {
+            "line": 2,
+            "start": 6.54,
+            "end": 8.66
+          },
+          {
+            "line": 5,
+            "start": 10.24,
+            "end": 15.02
+          },
+          {
+            "line": 6,
+            "start": 15.92,
+            "end": 20.4
+          },
+          {
+            "line": 7,
+            "start": 22.26,
+            "end": 26.3
+          },
+          {
+            "line": 8,
+            "start": 27.74,
+            "end": 32.24
+          },
+          {
+            "line": 9,
+            "start": 34.12,
+            "end": 37.56
+          },
+          {
+            "line": 10,
+            "start": 39.22,
+            "end": 43.76
+          },
+          {
+            "line": 11,
+            "start": 46.54,
+            "end": 49
+          },
+          {
+            "line": 12,
+            "start": 51.21,
+            "end": 55.32
+          },
+          {
+            "line": 15,
+            "start": 68.08,
+            "end": 69.34
+          },
+          {
+            "line": 16,
+            "start": 70.1,
+            "end": 72.86
+          },
+          {
+            "line": 17,
+            "start": 72.86,
+            "end": 76.26
+          },
+          {
+            "line": 18,
+            "start": 78.2,
+            "end": 82.28
+          },
+          {
+            "line": 21,
+            "start": 87.4,
+            "end": 90.66
+          },
+          {
+            "line": 22,
+            "start": 90.66,
+            "end": 96.6
+          },
+          {
+            "line": 23,
+            "start": 98.54,
+            "end": 102.2
+          },
+          {
+            "line": 24,
+            "start": 103.9,
+            "end": 107.56
+          },
+          {
+            "line": 25,
+            "start": 109.76,
+            "end": 113.32
+          },
+          {
+            "line": 26,
+            "start": 115.42,
+            "end": 119.3
+          },
+          {
+            "line": 27,
+            "start": 121.98,
+            "end": 124.58
+          },
+          {
+            "line": 28,
+            "start": 126.04,
+            "end": 130.56
+          },
+          {
+            "line": 31,
+            "start": 132.1,
+            "end": 140.38
+          },
+          {
+            "line": 32,
+            "start": 141.54,
+            "end": 145.84
+          },
+          {
+            "line": 33,
+            "start": 145.84,
+            "end": 146.62
+          },
+          {
+            "line": 34,
+            "start": 146.62,
+            "end": 154.16
+          },
+          {
+            "line": 37,
+            "start": 161.99,
+            "end": 165.96
+          },
+          {
+            "line": 38,
+            "start": 165.96,
+            "end": 171.72
+          },
+          {
+            "line": 39,
+            "start": 173.52,
+            "end": 177.1
+          },
+          {
+            "line": 40,
+            "start": 178.5,
+            "end": 183.4
+          },
+          {
+            "line": 41,
+            "start": 185.54,
+            "end": 188.46
+          },
+          {
+            "line": 42,
+            "start": 191.54,
+            "end": 194.2
+          },
+          {
+            "line": 45,
+            "start": 202.46,
+            "end": 204.38
+          },
+          {
+            "line": 46,
+            "start": 206.42,
+            "end": 212.96
+          },
+          {
+            "line": 47,
+            "start": 215,
+            "end": 217.82
+          },
+          {
+            "line": 48,
+            "start": 220.62,
+            "end": 223.9
+          },
+          {
+            "line": 49,
+            "start": 226.16,
+            "end": 229.86
+          },
+          {
+            "line": 50,
+            "start": 229.86,
+            "end": 235.9
+          },
+          {
+            "line": 51,
+            "start": 237.7,
+            "end": 239.04
+          },
+          {
+            "line": 52,
+            "start": 239.8,
+            "end": 241.06
+          },
+          {
+            "line": 53,
+            "start": 242.52,
+            "end": 247.02
+          },
+          {
+            "line": 54,
+            "start": 248.94,
+            "end": 251.52
+          },
+          {
+            "line": 57,
+            "start": 255.97,
+            "end": 256.09
+          },
+          {
+            "line": 58,
+            "start": 263,
+            "end": 263.12
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 13.44
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Remix “Yeah After Midnight”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Six minutes of heavy breathing and Tony saying \"yeah\" over smooth jazz\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Somehow, make this even better",
+        "keep": "Keep the recognizable hook and spirit of “Yeah After Midnight”.",
+        "basisSongs": [
+          "Yeah After Midnight"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 270
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-dd516b96c3484a52e1821071",
       "title": "The Day the Sun Came Back",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-dd516b96c3484a52e1821071-0b31fa2cc06a.mp3",
