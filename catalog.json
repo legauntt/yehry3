@@ -2,6 +2,196 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-7788d1fe94d0a00369178662",
+      "title": "Table by the Window",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7788d1fe94d0a00369178662-879da7f1e137.mp3",
+      "duration": 87.44,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-22T00:36:43.416Z",
+      "authoredBy": "The one and only",
+      "songPlan": {
+        "version": 1,
+        "title": "Table by the Window",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "C# minor",
+        "arrangement": "Ultra-slowed, reverb-drenched 1990s luxury-car-edit mood: nocturnal synth-R&B with a deep sub-bass pulse, muted drum-machine kick, rim clicks, warm electric piano, glassy analog pads and distant reverse-guitar swells. Tony C's pinned V9 voice stays smoky, connected and slightly slurred, singing intimate melodic lines rather than rapping. Begin nearly weightless, let the hook bloom with wider reverb and bass movement, then reduce to electric piano, rain-like texture and a final sustained “will” landing about 10 seconds before the 88-second end; resolve with one final C# minor chord decay.",
+        "lyrics": "[Intro]\nMidnight parking lot, silver on black\nStreetlights sliding down the glass\n\n[Verse 1]\nYou spin the paddle once, then you wait\nLike the whole room's holding its breath\nWhite ball rising over the green\nLittle moon with a mean backspin\nI don't need a crowd, don't need a score\nJust that clean sharp knock off the floor\n\n[Hook]\nTable by the window, rain on the hood\nYou send it crosscourt like you knew you would\nI send it back slow, let the silence swing\nTwo shadows keeping time on a ping-pong string\n\n[Verse 2]\nYour serve comes low with a sidewise bend\nI read the angle, meet it at the end\nNo speeches, no victory pose\nJust a small smile nobody knows\nThe city blurs in the rearview glow\nWe keep the rally where the cool air goes\n\n[Hook]\nTable by the window, night riding clean\nChrome lines melting through a blue-black scene\nOne last soft return, let the room go still\nThe ball lands quiet, and I always will\n\n[End]",
+        "duration": 88,
+        "bpm": 62,
+        "musicalSettings": {
+          "genre": "Ultra-slowed nocturnal synth-R&B with 1990s luxury-car-edit atmosphere",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Hook, Verse 2, Final Hook, resolved ending",
+          "performance": "Smoky, close-miked Tony V9 singing with connected vowels, laid-back timing and a catchable restrained hook",
+          "energy": "Low, cool pulse that gently widens at each hook before a quiet final resolution",
+          "lyricWorkflow": "Original compact lyric centered on a calm late-night ping-pong rally, using concrete table-side imagery and no forced comedy",
+          "instruments": [
+            "analog synthesizer",
+            "electric piano",
+            "sub-bass",
+            "drum machine",
+            "reverse electric guitar",
+            "ambient rain texture"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nMidnight parking lot, silver on black\nStreetlights sliding down the glass\n\n[Verse 1]\nYou spin the paddle once, then you wait\nLike the whole room's holding its breath\nWhite ball rising over the green\nLittle moon with a mean backspin\nI don't need a crowd, don't need a score\nJust that clean sharp knock off the floor\n\n[Hook]\nTable by the window, rain on the hood\nYou send it crosscourt like you knew you would\nI send it back slow, let the silence swing\nTwo shadows keeping time on a ping-pong string\n\n[Verse 2]\nYour serve comes low with a sidewise bend\nI read the angle, meet it at the end\nNo speeches, no victory pose\nJust a small smile nobody knows\nThe city blurs in the rearview glow\nWe keep the rally where the cool air goes\n\n[Hook]\nTable by the window, night riding clean\nChrome lines melting through a blue-black scene\nOne last soft return, let the room go still\nThe ball lands quiet, and I always will",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.98
+          },
+          {
+            "line": 2,
+            "start": 4.48,
+            "end": 6.84
+          },
+          {
+            "line": 5,
+            "start": 7.78,
+            "end": 10.64
+          },
+          {
+            "line": 6,
+            "start": 10.64,
+            "end": 13.28
+          },
+          {
+            "line": 7,
+            "start": 15.14,
+            "end": 18.04
+          },
+          {
+            "line": 8,
+            "start": 18.46,
+            "end": 21.02
+          },
+          {
+            "line": 9,
+            "start": 22.18,
+            "end": 24.92
+          },
+          {
+            "line": 10,
+            "start": 25.82,
+            "end": 28.46
+          },
+          {
+            "line": 13,
+            "start": 29.26,
+            "end": 32.42
+          },
+          {
+            "line": 14,
+            "start": 32.42,
+            "end": 36.22
+          },
+          {
+            "line": 15,
+            "start": 36.22,
+            "end": 39.88
+          },
+          {
+            "line": 16,
+            "start": 39.88,
+            "end": 43.7
+          },
+          {
+            "line": 19,
+            "start": 44.6,
+            "end": 47.44
+          },
+          {
+            "line": 20,
+            "start": 47.44,
+            "end": 47.94
+          },
+          {
+            "line": 21,
+            "start": 47.94,
+            "end": 51.68
+          },
+          {
+            "line": 22,
+            "start": 52.82,
+            "end": 53.62
+          },
+          {
+            "line": 23,
+            "start": 53.62,
+            "end": 55.84
+          },
+          {
+            "line": 24,
+            "start": 55.84,
+            "end": 60.38
+          },
+          {
+            "line": 27,
+            "start": 61.72,
+            "end": 65.86
+          },
+          {
+            "line": 28,
+            "start": 65.86,
+            "end": 69.84
+          },
+          {
+            "line": 29,
+            "start": 69.84,
+            "end": 72.5
+          },
+          {
+            "line": 30,
+            "start": 73.14,
+            "end": 77.02
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "clean",
+      "alternates": [
+        {
+          "pitchRepair": "haunted",
+          "sha256": "ce89f9de29fe13fd2e0d7dcb1bcc61eca3c7d56c5572a6b7f5481f956e208cf8",
+          "bytes": 3500643,
+          "duration": 87.44,
+          "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7788d1fe94d0a00369178662-ce89f9de29fe.mp3"
+        }
+      ],
+      "originalPrompt": {
+        "idea": "Self control ultra slowed reverb kind of vibes, like in the 90s mercedes cars edits. But the lyrics are about ping ponging in a non cringy way if you can manage that.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 88,
+          "pitchRepair": "clean",
+          "pitchCompare": "haunted"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-09fc20298d7d45cbbcfa45f0",
       "title": "Romantasy After School",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-09fc20298d7d45cbbcfa45f0-b97d81539220.mp3",
