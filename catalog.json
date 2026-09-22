@@ -2,6 +2,400 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a52cf27f9bce6ebe2c68dbdd",
+      "title": "Prayer and Pavement Borough Banter",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a52cf27f9bce6ebe2c68dbdd-13ff9cbe4d7d.mp3",
+      "duration": 285.04816326530613,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-e4529161927a03059a816605",
+        "title": "Between Prayer and Pavement",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e4529161927a03059a816605-311c13e362de.mp3"
+      },
+      "publishedAt": "2026-09-22T20:53:21.041Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Prayer and Pavement Borough Banter",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "C minor",
+        "arrangement": "Comic New York rock-funk reinterpretation with elastic electric bass, clipped electric guitar, piano stabs, brass punctuation, drum-kit pocket, and restrained handclaps. Tony V9 carries one clear, steadily pitched melodic lead with connected, smoky phrasing; short, lightly sung call-and-response answers punctuate the written call lines without mocking the subject. Build from conversational verses into a buoyant recurring hook, soften for the reflective bridge, then lift warmly for the final chorus. Pace the outro so the sustained final syllable of “pavement” lands about 10 seconds before the 285-second end, followed by one resolved chord and natural decay.",
+        "lyrics": "[Verse 1]\nBefore the avenue wakes its silver glass\nI wash my hands in a rented-room dawn\nThe subway shakes the cups along the shelf\nLike every cup has somewhere else to run\nMy mother says, keep mercy in your speech\nMy father says, let no fear make you small\nThe elevator sees my beard and groans\nI say, “Easy, friend, I’m late for work—that’s all”\n\n[Call]\nThe train is packed, who’s judging who?\n[Response]\nEverybody’s late, that much is true\n\n[Pre-Chorus]\nI carry more than one sky over me\nNeither one asks the other to leave\n\n[Chorus]\nBetween prayer and pavement, I make my way\nThrough the noise of a city that names me before I can say\nI am not your warning, I am not your war\nI am a neighbor with a key at the door\nBetween prayer and pavement, hear me plain\nI can hold to my faith without handing you pain\nThere is room in this town for the truth I bring\nFor a covered head, for a beard, for a human being\n\n[Verse 2]\nAt work they lower voices when I pass\nA headline hangs like smoke above the screen\nSomeone asks me where I learned to speak\nI say, “Queens—and my auntie’s kitchen in between”\nMy sister walks with fabric at her hair\nAnd catches every guess before it lands\nShe says, “My scarf is not breaking news,\nBut thank you for the weather update, man”\n\n[Call]\nIs that a sermon in the break-room line?\n[Response]\nNo, it’s coffee. Yours is probably fine\n\n[Pre-Chorus]\nSome want tradition to become a cage\nSome want freedom with no room for age\n\n[Chorus]\nBetween prayer and pavement, I make my way\nThrough the noise of a city that names me before I can say\nI am not your warning, I am not your war\nI am a neighbor with a key at the door\nBetween prayer and pavement, hear me plain\nI can hold to my faith without handing you pain\nThere is room in this town for the truth I bring\nFor a covered head, for a beard, for a human being\n\n[Bridge]\nI wrestle with the words I was handed\nAnd the words the whole block throws back\nNot every old command is a kindness\nNot every new demand is a path\nIf I pause for prayer beside the deli\nNo, the sidewalk will not split in two\nIf you ask with care, I’ll answer honestly\nIf you guess for me, I may tease you\n\n[Call]\nCan a city hold a complicated soul?\n[Response]\nIt holds eight million, give it room to grow\n\n[Chorus]\nBetween prayer and pavement, I choose my name\nNot a symbol for your anger, not a mask for your blame\nI will meet your eyes, I will stand at the door\nWith the city in my blood and my faith at the core\nBetween prayer and pavement, let the morning appear\nLet the room hold questions, let it make room for fear\nThen let mercy be louder than the stories we tell\nI am here, I am whole, and I wish you well\n\n[Outro]\nWhen the last train carries its light through the rain\nI lift my face and breathe my name\nNot a warning, not a war, just me\nHome between prayer and pavement\n[End]",
+        "duration": 285,
+        "bpm": 102,
+        "musicalSettings": {
+          "genre": "Comic New York rock-funk with humane call-and-response",
+          "meter": "4/4",
+          "structure": "Verse, call-and-response, pre-chorus, chorus, verse, call-and-response, pre-chorus, chorus, bridge, call-and-response, final chorus, resolved outro",
+          "performance": "Clear melodic Tony V9 lead with smoky connected phrasing and brief sung response lines",
+          "energy": "Conversational opening, lively hooks, reflective bridge, warm final lift",
+          "lyricWorkflow": "Adapted source motifs and central hook into a self-aware, compassionate New York narrative",
+          "instruments": [
+            "electric bass",
+            "electric guitar",
+            "piano",
+            "brass section",
+            "drum kit",
+            "handclaps"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nBefore the avenue wakes its silver glass\nI wash my hands in a rented-room dawn\nThe subway shakes the cups along the shelf\nLike every cup has somewhere else to run\nMy mother says, keep mercy in your speech\nMy father says, let no fear make you small\nThe elevator sees my beard and groans\nI say, “Easy, friend, I’m late for work—that’s all”\n\n[Call]\nThe train is packed, who’s judging who?\n[Response]\nEverybody’s late, that much is true\n\n[Pre-Chorus]\nI carry more than one sky over me\nNeither one asks the other to leave\n\n[Chorus]\nBetween prayer and pavement, I make my way\nThrough the noise of a city that names me before I can say\nI am not your warning, I am not your war\nI am a neighbor with a key at the door\nBetween prayer and pavement, hear me plain\nI can hold to my faith without handing you pain\nThere is room in this town for the truth I bring\nFor a covered head, for a beard, for a human being\n\n[Verse 2]\nAt work they lower voices when I pass\nA headline hangs like smoke above the screen\nSomeone asks me where I learned to speak\nI say, “Queens—and my auntie’s kitchen in between”\nMy sister walks with fabric at her hair\nAnd catches every guess before it lands\nShe says, “My scarf is not breaking news,\nBut thank you for the weather update, man”\n\n[Call]\nIs that a sermon in the break-room line?\n[Response]\nNo, it’s coffee. Yours is probably fine\n\n[Pre-Chorus]\nSome want tradition to become a cage\nSome want freedom with no room for age\n\n[Chorus]\nBetween prayer and pavement, I make my way\nThrough the noise of a city that names me before I can say\nI am not your warning, I am not your war\nI am a neighbor with a key at the door\nBetween prayer and pavement, hear me plain\nI can hold to my faith without handing you pain\nThere is room in this town for the truth I bring\nFor a covered head, for a beard, for a human being\n\n[Bridge]\nI wrestle with the words I was handed\nAnd the words the whole block throws back\nNot every old command is a kindness\nNot every new demand is a path\nIf I pause for prayer beside the deli\nNo, the sidewalk will not split in two\nIf you ask with care, I’ll answer honestly\nIf you guess for me, I may tease you\n\n[Call]\nCan a city hold a complicated soul?\n[Response]\nIt holds eight million, give it room to grow\n\n[Chorus]\nBetween prayer and pavement, I choose my name\nNot a symbol for your anger, not a mask for your blame\nI will meet your eyes, I will stand at the door\nWith the city in my blood and my faith at the core\nBetween prayer and pavement, let the morning appear\nLet the room hold questions, let it make room for fear\nThen let mercy be louder than the stories we tell\nI am here, I am whole, and I wish you well\n\n[Outro]\nWhen the last train carries its light through the rain\nI lift my face and breathe my name\nNot a warning, not a war, just me\nHome between prayer and pavement",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 13.34,
+            "end": 16.16
+          },
+          {
+            "line": 2,
+            "start": 16.16,
+            "end": 18.42
+          },
+          {
+            "line": 3,
+            "start": 18.42,
+            "end": 21.06
+          },
+          {
+            "line": 4,
+            "start": 21.06,
+            "end": 23.52
+          },
+          {
+            "line": 5,
+            "start": 23.52,
+            "end": 25.62
+          },
+          {
+            "line": 6,
+            "start": 25.62,
+            "end": 28.26
+          },
+          {
+            "line": 7,
+            "start": 28.26,
+            "end": 30.3
+          },
+          {
+            "line": 8,
+            "start": 30.38,
+            "end": 33.14
+          },
+          {
+            "line": 11,
+            "start": 33.44,
+            "end": 35.5
+          },
+          {
+            "line": 13,
+            "start": 38.26,
+            "end": 40.16
+          },
+          {
+            "line": 16,
+            "start": 43.46,
+            "end": 45.92
+          },
+          {
+            "line": 17,
+            "start": 46.92,
+            "end": 50.7
+          },
+          {
+            "line": 20,
+            "start": 52.34,
+            "end": 55.6
+          },
+          {
+            "line": 21,
+            "start": 55.6,
+            "end": 148.54
+          },
+          {
+            "line": 22,
+            "start": 149.04,
+            "end": 153.04
+          },
+          {
+            "line": 23,
+            "start": 154.3,
+            "end": 158.02
+          },
+          {
+            "line": 24,
+            "start": 158.02,
+            "end": 160.78
+          },
+          {
+            "line": 25,
+            "start": 160.78,
+            "end": 161.14
+          },
+          {
+            "line": 26,
+            "start": 161.14,
+            "end": 163.48
+          },
+          {
+            "line": 27,
+            "start": 163.48,
+            "end": 163.64
+          },
+          {
+            "line": 30,
+            "start": 163.64,
+            "end": 163.92
+          },
+          {
+            "line": 31,
+            "start": 163.92,
+            "end": 164.26
+          },
+          {
+            "line": 32,
+            "start": 164.26,
+            "end": 164.56
+          },
+          {
+            "line": 33,
+            "start": 164.56,
+            "end": 165.18
+          },
+          {
+            "line": 34,
+            "start": 165.18,
+            "end": 165.58
+          },
+          {
+            "line": 35,
+            "start": 165.58,
+            "end": 166.28
+          },
+          {
+            "line": 36,
+            "start": 166.28,
+            "end": 166.68
+          },
+          {
+            "line": 37,
+            "start": 166.68,
+            "end": 167.16
+          },
+          {
+            "line": 40,
+            "start": 167.16,
+            "end": 168.22
+          },
+          {
+            "line": 42,
+            "start": 168.22,
+            "end": 168.38
+          },
+          {
+            "line": 45,
+            "start": 168.38,
+            "end": 168.6
+          },
+          {
+            "line": 46,
+            "start": 168.6,
+            "end": 168.78
+          },
+          {
+            "line": 49,
+            "start": 168.78,
+            "end": 169.04
+          },
+          {
+            "line": 50,
+            "start": 169.04,
+            "end": 169.46
+          },
+          {
+            "line": 51,
+            "start": 169.46,
+            "end": 170.16
+          },
+          {
+            "line": 52,
+            "start": 170.16,
+            "end": 170.58
+          },
+          {
+            "line": 53,
+            "start": 170.58,
+            "end": 170.94
+          },
+          {
+            "line": 54,
+            "start": 170.94,
+            "end": 171.4
+          },
+          {
+            "line": 55,
+            "start": 171.4,
+            "end": 171.92
+          },
+          {
+            "line": 56,
+            "start": 171.92,
+            "end": 176.7
+          },
+          {
+            "line": 59,
+            "start": 176.7,
+            "end": 183.98
+          },
+          {
+            "line": 60,
+            "start": 183.98,
+            "end": 188.52
+          },
+          {
+            "line": 61,
+            "start": 189.98,
+            "end": 193.4
+          },
+          {
+            "line": 62,
+            "start": 194.86,
+            "end": 195.12
+          },
+          {
+            "line": 63,
+            "start": 195.12,
+            "end": 198.38
+          },
+          {
+            "line": 64,
+            "start": 198.92,
+            "end": 202.32
+          },
+          {
+            "line": 65,
+            "start": 203.72,
+            "end": 207
+          },
+          {
+            "line": 66,
+            "start": 207.62,
+            "end": 209.64
+          },
+          {
+            "line": 69,
+            "start": 209.64,
+            "end": 213.08
+          },
+          {
+            "line": 71,
+            "start": 213.08,
+            "end": 216.68
+          },
+          {
+            "line": 74,
+            "start": 218.02,
+            "end": 222.46
+          },
+          {
+            "line": 75,
+            "start": 222.46,
+            "end": 227.28
+          },
+          {
+            "line": 76,
+            "start": 227.28,
+            "end": 232.28
+          },
+          {
+            "line": 77,
+            "start": 232.28,
+            "end": 236.84
+          },
+          {
+            "line": 78,
+            "start": 236.84,
+            "end": 241.2
+          },
+          {
+            "line": 79,
+            "start": 242.24,
+            "end": 246.08
+          },
+          {
+            "line": 80,
+            "start": 246.66,
+            "end": 250.88
+          },
+          {
+            "line": 81,
+            "start": 250.88,
+            "end": 257
+          },
+          {
+            "line": 84,
+            "start": 257.98,
+            "end": 262.54
+          },
+          {
+            "line": 85,
+            "start": 263.5,
+            "end": 266.72
+          },
+          {
+            "line": 86,
+            "start": 267.88,
+            "end": 270.64
+          },
+          {
+            "line": 87,
+            "start": 271.9,
+            "end": 274.56
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 13.88
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Remix “Between Prayer and Pavement”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Song explicitly detailing the challenges the singer faces as a fundamentalist Muslim living in New York. Some general examples: Strict traditional interpretations of Islamic morality regarding gender roles, sexuality, and social interactions often conflict directly with modern secular American progressive norms. Strict adherence to outward markers of faith—such as wearing a full hijab, growing a traditional beard, or public prayer—frequently triggers social suspicion, stereotyping, or being incorrectly conflated with violent extremism.\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Pick a \"comedy\" genre in music, adapt this to more of a call and response format. Self-deprecating humor, self-awareness - the ability to make the other side laugh about the issue",
+        "keep": "Keep the recognizable hook and spirit of “Between Prayer and Pavement”.",
+        "basisSongs": [
+          "Between Prayer and Pavement"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 285
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-e4529161927a03059a816605",
       "title": "Between Prayer and Pavement",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e4529161927a03059a816605-311c13e362de.mp3",
