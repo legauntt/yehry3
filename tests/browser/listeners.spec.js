@@ -353,6 +353,22 @@ test("on a wide screen every card stays visible, and neighbours still do not cro
   expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
 });
 
+test("your own open card, with its note and buttons, still leaves room for the seat below", async ({ page }) => {
+  await page.setViewportSize({ width: 1920, height: 1080 });
+  const state = await studio(page);
+  state.listeners = [state.listeners[0], jesse, { ...fox, idle: false, song: { id: "room-first", title: "First in the room" }, progress: { position: 30, duration: 260, age: 0 } }];
+  await page.goto("/?sort=catalog");
+  const mine = page.locator(".room-seat.is-you");
+  const foxSeat = page.locator('.room-seat[data-id="cccccccccccccc02"]');
+  await expect(foxSeat.locator(".room-card")).toBeVisible();
+  await mine.locator(".room-avatar").click();
+  await expect(mine.locator(".room-note")).toBeVisible();
+  const mineBox = await mine.locator(".room-card").boundingBox();
+  const foxBox = await foxSeat.locator(".room-card").boundingBox();
+  const [upper, lower] = mineBox.y <= foxBox.y ? [mineBox, foxBox] : [foxBox, mineBox];
+  expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
+});
+
 test("five quiet minutes read as idle, and the next touch of the mouse is online again", async ({ page }) => {
   await page.clock.install();
   const state = await studio(page);
