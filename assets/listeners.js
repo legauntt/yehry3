@@ -366,7 +366,16 @@ function choose(emoji) {
 // CSS alone decides which cards are showing (hover, focus, open, peek, a wide screen), so that is asked
 // directly rather than guessed at again from state this script would have to keep in step with the stylesheet.
 const CARD_CLEARANCE = 10;
-function spaceCards(list) {
+// The seat under the pointer must not be the one that moves: nudged out from under the pointer it loses its
+// hover, its card hides, the nudge is undone, it slides back under the pointer and the loop shakes it. So the
+// column is slid to hold that seat where the pointer found it, and its neighbours make the room instead.
+// A redraw swaps in new seats that may not match :hover yet, so render says whose seat was held.
+function spaceCards(list, heldId = list.querySelector(".room-seat:hover")?.dataset.id) {
+  const avatarOf = (id) => id && list.querySelector(`.room-seat[data-id="${CSS.escape(id)}"] .room-avatar`);
+  const held = avatarOf(heldId);
+  if (!held) { delete list.dataset.heldId; delete list.dataset.heldTop; }
+  else if (list.dataset.heldId !== heldId) Object.assign(list.dataset, { heldId, heldTop: held.getBoundingClientRect().top });
+  list.style.translate = "";
   // The room is centred on the viewport, so one seat's margin changes the whole column's height and thereby
   // every seat's position, not just the ones after it. Clear every margin before measuring any of them, or an
   // earlier seat can be measured against a later one's stale margin from the last time this ran.
@@ -384,6 +393,10 @@ function spaceCards(list) {
       bottom += shift;
     }
     prevBottom = bottom;
+  }
+  if (held) {
+    const drift = held.getBoundingClientRect().top - Number(list.dataset.heldTop);
+    if (Math.abs(drift) >= 0.5) list.style.translate = `0 ${-drift}px`;
   }
 }
 function render() {
@@ -404,6 +417,7 @@ function render() {
   root.hidden = !left.length && !right.length && !invisible();
   for (const [side, listeners] of [["left", left], ["right", right]]) {
     const list = root.querySelector(`.room-${side}`);
+    const heldId = list.querySelector(".room-seat:hover")?.dataset.id;
     list.replaceChildren(...listeners.map(seat));
     if (side === "right" && extra) {
       const chip = document.createElement("li");
@@ -412,7 +426,7 @@ function render() {
       chip.title = `${extra} more ${extra === 1 ? "listener" : "listeners"}`;
       list.append(chip);
     }
-    spaceCards(list);
+    spaceCards(list, heldId);
   }
 }
 function accept(data) {

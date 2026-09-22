@@ -386,6 +386,36 @@ test("hovering a neighbour after opening your own card still spaces the two", as
   expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
 });
 
+test("a seat aimed at by its very edge holds still while its card makes room, instead of shaking", async ({ page }) => {
+  // Nudging the hovered seat itself took it out from under the pointer, hid its card, undid the nudge and brought it back.
+  const state = await studio(page);
+  state.listeners = [state.listeners[0], jesse, { ...fox, idle: false, song: { id: "room-first", title: "First in the room" }, progress: { position: 30, duration: 260, age: 0 } }];
+  await page.goto("/?sort=catalog");
+  const mine = page.locator(".room-seat.is-you");
+  const foxSeat = page.locator('.room-seat[data-id="cccccccccccccc02"]');
+  await mine.locator(".room-avatar").click();
+  await expect(mine.locator(".room-note")).toBeVisible();
+  const before = await foxSeat.locator(".room-avatar").boundingBox();
+  await page.mouse.move(before.x + before.width / 2, before.y + 2);
+  await expect(foxSeat.locator(".room-card")).toBeVisible();
+  const moves = await foxSeat.evaluate((seat) => new Promise((resolve) => {
+    const avatar = seat.querySelector(".room-avatar");
+    const tops = new Set();
+    const started = performance.now();
+    const look = () => {
+      tops.add(Math.round(avatar.getBoundingClientRect().top));
+      if (performance.now() - started < 600) requestAnimationFrame(look);
+      else resolve({ tops: [...tops], hovered: seat.matches(":hover") });
+    };
+    look();
+  }));
+  expect(moves).toEqual({ tops: [Math.round(before.y)], hovered: true });
+  const mineBox = await mine.locator(".room-card").boundingBox();
+  const foxBox = await foxSeat.locator(".room-card").boundingBox();
+  const [upper, lower] = mineBox.y <= foxBox.y ? [mineBox, foxBox] : [foxBox, mineBox];
+  expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
+});
+
 test("five quiet minutes read as idle, and the next touch of the mouse is online again", async ({ page }) => {
   await page.clock.install();
   const state = await studio(page);
