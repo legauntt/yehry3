@@ -2,6 +2,255 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-8798d2efbb76a4d31da04cfa",
+      "title": "What the Whitewash Hides",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8798d2efbb76a4d31da04cfa-c9e7dfc7163d.mp3",
+      "duration": 150.04734693877552,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-23T03:26:11.477Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "What the Whitewash Hides",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Reflective protest rock in D minor: driving bass, restrained electric guitars, live drums, and spare piano accents build from a tense first verse into a broad final refrain. Use one clear, steadily pitched melodic lead with direct, natural phrasing and no backing vocals, doubles, rasp effects, or spoken passages. Hold the final “stay” through roughly 140 seconds, then resolve on one final chord that decays to the 150-second finish.",
+        "lyrics": "[Verse 1]\nThey polished every window on the avenue\nTill the smoke behind it looked like morning blue\nSaid, “Keep it simple, don’t make anybody choose”\nWhile names were folded small beneath the news\nA mother checks the lock before the call to prayer\nA son learns how to measure every stranger’s stare\nThey call it history like history is through\nBut every silent room remembers what it knew\n\n[Pre-Chorus]\nYou can paint the wall bright white\nBut the handprints stay at night\n\n[Chorus]\nWhat the whitewash hides, it still bleeds through\nEvery borrowed flag, every broken view\nDon’t tell me peace means looking away\nTruth has a pulse and it won’t obey\nWhat the whitewash hides, we carry still\nPast the courthouse, past the hill\nSay the names that they erase\nLet the light fall on this place\n\n[Verse 2]\nBefore the badge there was a lantern in the dark\nRiding fences, drawing borders round a human heart\nThen the cameras learned to turn their eyes aside\nAnd called it order when the fear was organized\nThirty years of warnings ringing through the wire\nGrief was called an accident, hate was called a fire\nBut the record keeps a rhythm under every lie\nAnd the ones who lived it know the reason why\n\n[Bridge]\nNo clean story, no convenient frame\nNo freedom built by hiding pain\nIf we want tomorrow to be real\nWe have to name what we refuse to feel\n\n[Chorus]\nWhat the whitewash hides, it still bleeds through\nEvery borrowed flag, every broken view\nTruth has a pulse and it won’t obey\nTruth has a pulse and it won’t obey\n\n[Outro]\nLet the light fall on this place\nLet it stay, let it stay\n[End]",
+        "duration": 150,
+        "bpm": 92,
+        "musicalSettings": {
+          "genre": "Reflective protest rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, bridge, final chorus, resolved outro",
+          "performance": "One clear, steadily pitched melodic lead with natural, direct phrasing",
+          "energy": "Tense and restrained at first, rising into an urgent, resolute finale",
+          "lyricWorkflow": "Original narrative lyric centered on exposing erasure and ending with a concrete call for truth",
+          "instruments": [
+            "electric bass",
+            "electric guitars",
+            "drum kit",
+            "piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThey polished every window on the avenue\nTill the smoke behind it looked like morning blue\nSaid, “Keep it simple, don’t make anybody choose”\nWhile names were folded small beneath the news\nA mother checks the lock before the call to prayer\nA son learns how to measure every stranger’s stare\nThey call it history like history is through\nBut every silent room remembers what it knew\n\n[Pre-Chorus]\nYou can paint the wall bright white\nBut the handprints stay at night\n\n[Chorus]\nWhat the whitewash hides, it still bleeds through\nEvery borrowed flag, every broken view\nDon’t tell me peace means looking away\nTruth has a pulse and it won’t obey\nWhat the whitewash hides, we carry still\nPast the courthouse, past the hill\nSay the names that they erase\nLet the light fall on this place\n\n[Verse 2]\nBefore the badge there was a lantern in the dark\nRiding fences, drawing borders round a human heart\nThen the cameras learned to turn their eyes aside\nAnd called it order when the fear was organized\nThirty years of warnings ringing through the wire\nGrief was called an accident, hate was called a fire\nBut the record keeps a rhythm under every lie\nAnd the ones who lived it know the reason why\n\n[Bridge]\nNo clean story, no convenient frame\nNo freedom built by hiding pain\nIf we want tomorrow to be real\nWe have to name what we refuse to feel\n\n[Chorus]\nWhat the whitewash hides, it still bleeds through\nEvery borrowed flag, every broken view\nTruth has a pulse and it won’t obey\nTruth has a pulse and it won’t obey\n\n[Outro]\nLet the light fall on this place\nLet it stay, let it stay",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 10.52,
+            "end": 13.1
+          },
+          {
+            "line": 2,
+            "start": 13.1,
+            "end": 16.04
+          },
+          {
+            "line": 3,
+            "start": 16.04,
+            "end": 18.58
+          },
+          {
+            "line": 4,
+            "start": 18.58,
+            "end": 21.26
+          },
+          {
+            "line": 5,
+            "start": 21.26,
+            "end": 23.86
+          },
+          {
+            "line": 6,
+            "start": 23.86,
+            "end": 26.24
+          },
+          {
+            "line": 7,
+            "start": 26.24,
+            "end": 29.04
+          },
+          {
+            "line": 8,
+            "start": 29.14,
+            "end": 31.68
+          },
+          {
+            "line": 11,
+            "start": 36.06,
+            "end": 38.4
+          },
+          {
+            "line": 12,
+            "start": 38.98,
+            "end": 41
+          },
+          {
+            "line": 15,
+            "start": 44.02,
+            "end": 46.66
+          },
+          {
+            "line": 16,
+            "start": 46.98,
+            "end": 49.88
+          },
+          {
+            "line": 17,
+            "start": 49.88,
+            "end": 51.94
+          },
+          {
+            "line": 18,
+            "start": 52.3,
+            "end": 54.82
+          },
+          {
+            "line": 19,
+            "start": 54.82,
+            "end": 57.26
+          },
+          {
+            "line": 20,
+            "start": 57.8,
+            "end": 59.82
+          },
+          {
+            "line": 21,
+            "start": 60.26,
+            "end": 62.36
+          },
+          {
+            "line": 22,
+            "start": 62.6,
+            "end": 64.4
+          },
+          {
+            "line": 25,
+            "start": 70.66,
+            "end": 73.64
+          },
+          {
+            "line": 26,
+            "start": 75.12,
+            "end": 79.1
+          },
+          {
+            "line": 27,
+            "start": 79.1,
+            "end": 81.24
+          },
+          {
+            "line": 28,
+            "start": 81.24,
+            "end": 86.22
+          },
+          {
+            "line": 29,
+            "start": 86.92,
+            "end": 89.54
+          },
+          {
+            "line": 30,
+            "start": 89.54,
+            "end": 91.96
+          },
+          {
+            "line": 31,
+            "start": 93.84,
+            "end": 96.96
+          },
+          {
+            "line": 32,
+            "start": 97.4,
+            "end": 99.6
+          },
+          {
+            "line": 35,
+            "start": 102.28,
+            "end": 104.64
+          },
+          {
+            "line": 36,
+            "start": 105.18,
+            "end": 107.32
+          },
+          {
+            "line": 37,
+            "start": 107.8,
+            "end": 110.14
+          },
+          {
+            "line": 38,
+            "start": 110.48,
+            "end": 112.58
+          },
+          {
+            "line": 41,
+            "start": 117.4,
+            "end": 119.7
+          },
+          {
+            "line": 42,
+            "start": 119.7,
+            "end": 122.98
+          },
+          {
+            "line": 43,
+            "start": 122.98,
+            "end": 125.02
+          },
+          {
+            "line": 44,
+            "start": 125.16,
+            "end": 127.62
+          },
+          {
+            "line": 47,
+            "start": 129.32,
+            "end": 134.78
+          },
+          {
+            "line": 48,
+            "start": 135.32,
+            "end": 138.76
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "A song that whitewashes the gritty and troubled experience of being Arab and/or Muslim after 9/11 so that we can all pretend that the United States doesn't have a systemic problem with racism, and so that we can all ignore the straight, uninterrupted 30 year stretch of right-wing extremist violence motivated almost entirely by bigotry, not to mention the right-wing state violence that has been silently backed by the country's white supremacist origins, such as back to when instead of police, we had the proto-police force in the South: Slave patrols.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 150
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-77e7b1d629b6c7bfba506bfd",
       "title": "Hand to My Heart",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-77e7b1d629b6c7bfba506bfd-cbe724fd3051.mp3",
