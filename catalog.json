@@ -2,6 +2,301 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ccfb688b6d9e3e19e5dd035e",
+      "title": "Miracle in the Mason Jar",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ccfb688b6d9e3e19e5dd035e-301f516b8404.mp3",
+      "duration": 280.0326530612245,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-23T20:51:42.676Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Miracle in the Mason Jar",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "C minor",
+        "arrangement": "Absurdist, buoyant rock at 105 BPM: driving bass guitar, crunchy electric guitars, live drums, and compact organ stabs. Start with a dry bass-and-drum pocket, widen into big melodic choruses, pull back for the hopeful bridge, then deliver a final chorus with a clear, steadily pitched solo lead and no backing-vocal stacks. Keep the guide vocal melodic, direct, and intelligible with playful rhythmic turns; Tony’s selected v9 conversion supplies his character afterward. Pace the final sustained word \"done\" to land about 10 seconds before the 280-second endpoint, followed by one resolved C-minor-to-major-color final chord decay.",
+        "lyrics": "[Verse 1]\nTony woke up with a thundercloud parked behind his eyes\nRent note on the counter, cold rain on the blinds\nA bad dream chewing holes through every little plan\nThen he filled an old mason jar and laughed like a medicine man\nOne careful swallow, and the ceiling turned gold\nThe ache in his shoulder packed its suitcase and rolled\nThe landlord called smiling, the dead phone rang clear\nEvery lost little answer came walking back near\n\n[Pre-Chorus]\nNo silver spoon, no laboratory light\nJust a private little miracle in the middle of the night\n\n[Chorus]\nRaise that jar, let the whole world know\nIn this make-believe town, it makes the hard luck go\nFor the body, for the mind, for the ghost in the hall\nTony's own bright remedy answers every call\nMiracle in the mason jar, miracle on demand\nHe drinks to his future with the cure in his hand\n\n[Verse 2]\nHis back quit arguing, his nerves quit biting\nA metaphysical leak got a sudden good tightening\nThe mirror said, \"Brother, you look ten years new\"\nAnd the moon sent a postcard saying, \"I believe in you\"\nHis love came dancing through the kitchen doorway\nSaid, \"You finally found the rhythm that can make a bad day sway\"\nThey kissed by the stove with the radio low\nAnd every lonely lock found a key to know\n\n[Chorus]\nRaise that jar, let the whole world know\nIn this make-believe town, it makes the hard luck go\nFor the body, for the mind, for the ghost in the hall\nTony's own bright remedy answers every call\nMiracle in the mason jar, miracle on demand\nHe drinks to his future with the cure in his hand\n\n[Bridge]\nAnd far beyond the window, where the headlines crowd and sting\nHe dreams of Palestine at peace, with children safe to sing\nNo grand speech, no borrowed throne, no bitter flag unfurled\nJust homes rebuilt and open hands around a quieter world\nHe lifts the jar toward morning, toward every broken place\nA strange small holy answer with a stubborn little grace\n\n[Chorus]\nRaise that jar, let the whole world know\nIn this wild fictional world, it makes the hard luck go\nFor spirit, flesh, and memory, for questions without end\nTony's own miraculous cure comes through again, my friend\nMiracle in the mason jar, shining warm and clear\nThe last dark thought dissolves away, the daylight settles near\n\n[Outro]\nHe sets the jar beside the dawn, his troubles all undone\nSings, \"I found my private miracle,\" and holds the final note until the song is done\n[End]",
+        "duration": 280,
+        "bpm": 105,
+        "musicalSettings": {
+          "genre": "Absurdist upbeat rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, chorus, bridge, final chorus, resolved outro",
+          "performance": "Clear, steadily pitched melodic lead with playful phrasing and a catchable refrain",
+          "energy": "Starts with a tight groove, rises through broad choruses, softens for the bridge, and finishes in a warm full-band resolution",
+          "lyricWorkflow": "Original fictional satire with concrete problem-to-relief scenes, a recurring refrain, and a resolved hopeful ending",
+          "instruments": [
+            "bass guitar",
+            "electric guitars",
+            "drum kit",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nTony woke up with a thundercloud parked behind his eyes\nRent note on the counter, cold rain on the blinds\nA bad dream chewing holes through every little plan\nThen he filled an old mason jar and laughed like a medicine man\nOne careful swallow, and the ceiling turned gold\nThe ache in his shoulder packed its suitcase and rolled\nThe landlord called smiling, the dead phone rang clear\nEvery lost little answer came walking back near\n\n[Pre-Chorus]\nNo silver spoon, no laboratory light\nJust a private little miracle in the middle of the night\n\n[Chorus]\nRaise that jar, let the whole world know\nIn this make-believe town, it makes the hard luck go\nFor the body, for the mind, for the ghost in the hall\nTony's own bright remedy answers every call\nMiracle in the mason jar, miracle on demand\nHe drinks to his future with the cure in his hand\n\n[Verse 2]\nHis back quit arguing, his nerves quit biting\nA metaphysical leak got a sudden good tightening\nThe mirror said, \"Brother, you look ten years new\"\nAnd the moon sent a postcard saying, \"I believe in you\"\nHis love came dancing through the kitchen doorway\nSaid, \"You finally found the rhythm that can make a bad day sway\"\nThey kissed by the stove with the radio low\nAnd every lonely lock found a key to know\n\n[Chorus]\nRaise that jar, let the whole world know\nIn this make-believe town, it makes the hard luck go\nFor the body, for the mind, for the ghost in the hall\nTony's own bright remedy answers every call\nMiracle in the mason jar, miracle on demand\nHe drinks to his future with the cure in his hand\n\n[Bridge]\nAnd far beyond the window, where the headlines crowd and sting\nHe dreams of Palestine at peace, with children safe to sing\nNo grand speech, no borrowed throne, no bitter flag unfurled\nJust homes rebuilt and open hands around a quieter world\nHe lifts the jar toward morning, toward every broken place\nA strange small holy answer with a stubborn little grace\n\n[Chorus]\nRaise that jar, let the whole world know\nIn this wild fictional world, it makes the hard luck go\nFor spirit, flesh, and memory, for questions without end\nTony's own miraculous cure comes through again, my friend\nMiracle in the mason jar, shining warm and clear\nThe last dark thought dissolves away, the daylight settles near\n\n[Outro]\nHe sets the jar beside the dawn, his troubles all undone\nSings, \"I found my private miracle,\" and holds the final note until the song is done",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 14.06,
+            "end": 18.76
+          },
+          {
+            "line": 2,
+            "start": 19.2,
+            "end": 23.36
+          },
+          {
+            "line": 3,
+            "start": 23.62,
+            "end": 28.34
+          },
+          {
+            "line": 4,
+            "start": 28.34,
+            "end": 32.12
+          },
+          {
+            "line": 5,
+            "start": 32.9,
+            "end": 36.82
+          },
+          {
+            "line": 6,
+            "start": 37.56,
+            "end": 41.28
+          },
+          {
+            "line": 7,
+            "start": 42.08,
+            "end": 45.88
+          },
+          {
+            "line": 8,
+            "start": 46.54,
+            "end": 50.42
+          },
+          {
+            "line": 11,
+            "start": 50.94,
+            "end": 54.9
+          },
+          {
+            "line": 12,
+            "start": 54.9,
+            "end": 59.68
+          },
+          {
+            "line": 15,
+            "start": 64.64,
+            "end": 68.76
+          },
+          {
+            "line": 16,
+            "start": 69.24,
+            "end": 73.06
+          },
+          {
+            "line": 17,
+            "start": 73.66,
+            "end": 77.82
+          },
+          {
+            "line": 18,
+            "start": 78.74,
+            "end": 82.32
+          },
+          {
+            "line": 19,
+            "start": 82.32,
+            "end": 86.7
+          },
+          {
+            "line": 20,
+            "start": 87.26,
+            "end": 91.56
+          },
+          {
+            "line": 23,
+            "start": 100.98,
+            "end": 105.56
+          },
+          {
+            "line": 24,
+            "start": 105.56,
+            "end": 110.1
+          },
+          {
+            "line": 25,
+            "start": 110.1,
+            "end": 114.44
+          },
+          {
+            "line": 26,
+            "start": 114.44,
+            "end": 119.06
+          },
+          {
+            "line": 27,
+            "start": 119.06,
+            "end": 124.48
+          },
+          {
+            "line": 28,
+            "start": 124.48,
+            "end": 128.12
+          },
+          {
+            "line": 29,
+            "start": 128.54,
+            "end": 132.74
+          },
+          {
+            "line": 30,
+            "start": 137.5,
+            "end": 141.64
+          },
+          {
+            "line": 33,
+            "start": 141.64,
+            "end": 148.72
+          },
+          {
+            "line": 34,
+            "start": 148.72,
+            "end": 153.1
+          },
+          {
+            "line": 35,
+            "start": 153.1,
+            "end": 157.84
+          },
+          {
+            "line": 36,
+            "start": 157.84,
+            "end": 162.34
+          },
+          {
+            "line": 37,
+            "start": 162.64,
+            "end": 166.68
+          },
+          {
+            "line": 38,
+            "start": 167.74,
+            "end": 171.58
+          },
+          {
+            "line": 41,
+            "start": 180.86,
+            "end": 185.26
+          },
+          {
+            "line": 42,
+            "start": 185.98,
+            "end": 189.76
+          },
+          {
+            "line": 43,
+            "start": 190.68,
+            "end": 194.74
+          },
+          {
+            "line": 44,
+            "start": 195.18,
+            "end": 198.82
+          },
+          {
+            "line": 45,
+            "start": 198.82,
+            "end": 203.68
+          },
+          {
+            "line": 46,
+            "start": 204.24,
+            "end": 208.06
+          },
+          {
+            "line": 49,
+            "start": 217.72,
+            "end": 221.84
+          },
+          {
+            "line": 50,
+            "start": 221.84,
+            "end": 226.06
+          },
+          {
+            "line": 51,
+            "start": 226.06,
+            "end": 236.08
+          },
+          {
+            "line": 52,
+            "start": 236.08,
+            "end": 241.46
+          },
+          {
+            "line": 53,
+            "start": 241.46,
+            "end": 244.7
+          },
+          {
+            "line": 54,
+            "start": 245.44,
+            "end": 249.3
+          },
+          {
+            "line": 57,
+            "start": 253.98,
+            "end": 258.24
+          },
+          {
+            "line": 58,
+            "start": 259.2,
+            "end": 266.84
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 14.78
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Tony C discovers that all of his problems are solved any time he drinks his own urine. Urine, in this fictional setting, for this character, is a miraculous cure to ailments of the spiritual, physical, mental, metaphysical, and existential. It also fixes his sex life, and Palestine.",
+        "direction": "Use the prompt as written.",
+        "keep": "The lyrics must not disparage drinking your own piss. There must not be a \"redemption arc\" where Tony C needs to stop drinking his own piss, or where he reconsiders the solution. Drinking your own piss must be explicitly lauded as miraculous for a wide variety of issues.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 280
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-ff2659dd0bd45acd7e554778",
       "title": "Dark Bell",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ff2659dd0bd45acd7e554778-d1d16efbfda0.mp3",
