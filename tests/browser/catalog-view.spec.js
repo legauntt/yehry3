@@ -33,8 +33,8 @@ test("paid song costs survive grid/list switching and offline mobile catalogs", 
       await page.setViewportSize({ width, height: 1000 });
       for (const view of ['Grid', 'List']) {
         await switchTo(page, view);
-        await expect(page.locator('.song-cost')).toHaveText([`${cents} ¢`, '45 ¢ est.', '50 ¢ est.']);
-        await expect(page.locator('.track').nth(3).locator('.song-cost')).toHaveCount(0);
+        await expect(page.locator('.song-cost')).toHaveText([`${cents} ¢`, '45 ¢ est.', '50 ¢ est.', 'FREE']);
+        await expect(page.locator('.track .music-backend-badge')).toHaveCount(0);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
         if (!offline && (width === 1440 || width === 390)) {
           await page.locator('.track').first().screenshot({ path: `artifacts/song-cost-${view.toLowerCase()}-${width}.png`, animations: 'disabled' });

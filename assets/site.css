@@ -914,6 +914,21 @@ main {
 .track-age {
   white-space: nowrap;
 }
+.track-meta > :is(.voice-model-badge, .pitch-badge, .sides-badge, .song-cost.free) {
+  align-self: center;
+}
+.song-cost.free {
+  padding: 1px 7px;
+  border: 1px solid #8fb58a;
+  border-radius: 999px;
+  background: #e6f3e1;
+  color: #2f6a2a;
+  font-family: "DM Mono", monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+}
 .voice-model-badge {
   display: inline-flex;
   align-items: center;

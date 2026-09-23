@@ -22,8 +22,13 @@ test('missing charges use labeled duration estimates or the fifty-cent fallback'
   }
 });
 
-test('local and unattributed recordings do not get a paid cost', () => {
-  for (const song of [{}, { musicBackend: 'local' }, { musicBackend: 'unknown' }]) {
+test('local recordings are labeled free', () => {
+  assert.equal(songCost({ musicBackend: 'local' }), null);
+  assert.match(songCostLabel({ musicBackend: 'local' }), />FREE</);
+});
+
+test('unattributed recordings do not get a cost', () => {
+  for (const song of [{}, { musicBackend: 'unknown' }]) {
     assert.equal(songCost(song), null);
     assert.equal(songCostLabel(song), '');
   }

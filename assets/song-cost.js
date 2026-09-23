@@ -12,6 +12,7 @@ export function songCost(song) {
 }
 
 export function songCostLabel(song) {
+  if (musicBackendOf(song) === 'local') return '<span class="song-cost free" title="Made on the local band generator; no music API charge.">FREE</span>';
   const cost = songCost(song);
   if (!cost) return '';
   const amount = `${new Intl.NumberFormat('en-US').format(cost.cents)} ¢`;

@@ -31,10 +31,11 @@ test('catalog and playing song retain separate generator attribution through ref
   await fixtures(page);
   await page.goto('/?sort=catalog');
   const track = page.locator(`.track[data-id="${paid.id}"]`);
-  await expect(badge(track)).toHaveText('EMP');
+  await expect(badge(page.locator('.track'))).toHaveCount(0);
+  await expect(track.locator('.song-cost')).toContainText('¢');
   await expect(track.locator('.voice-model-badge')).toHaveText('V7');
-  await expect(badge(page.locator('.track[data-id="local-fixture"]'))).toHaveText('Local · ACE');
-  await expect(badge(page.locator('.track[data-id="legacy-fixture"]'))).toHaveCount(0);
+  await expect(page.locator('.track[data-id="local-fixture"] .song-cost')).toHaveText('FREE');
+  await expect(page.locator('.track[data-id="legacy-fixture"] .song-cost')).toHaveCount(0);
   await expect(badge(page.locator('.pending-track'))).toHaveText('EMP');
   await track.locator('[data-play]').click();
   await expect.poll(() => page.locator('#audio').evaluate(audio => audio.paused)).toBe(false);
@@ -48,7 +49,7 @@ test('catalog and playing song retain separate generator attribution through ref
   await page.route('**/yehry3/songs/summary', route => route.abort());
   await page.reload();
   await expect(page.locator('#vote-note')).toContainText('offline');
-  await expect(badge(track)).toHaveText('EMP');
+  await expect(track.locator('.song-cost')).toContainText('¢');
 });
 
 test('queue, original prompts and lyric sheets identify paid music without calling it V8 generation', async ({ page }) => {
