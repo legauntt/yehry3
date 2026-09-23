@@ -2,6 +2,291 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-8a2998e71545cd6c53169344",
+      "title": "The Last Yellow River",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8a2998e71545cd6c53169344-3047f0921592.mp3",
+      "duration": 224.9926530612245,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-23T03:42:44.745Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The Last Yellow River",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Dark cinematic industrial-rock at 84 BPM in D minor, led by steady low male melody over distorted guitars, moving bass, synth pads, violin swells, live drums and restrained piano accents. Begin sparse and ominous, build through heavier choruses, then strip the bridge to bass, pads and violin before the final full-band refrain. Keep one clear, steadily pitched lead with deliberate sustained notes; no backing vocals or vocal effects. The final sung word, “again,” is held into approximately 8–12 seconds before the 225-second endpoint, followed by one resolved minor-to-major final chord decay.",
+        "lyrics": "[Verse 1]\nMorning opened on a silent town\nPlastic cups lay split along the ground\nEvery tap ran bitter, hot and gold\nEvery prayer was something bought and sold\nThey drank the warning, drank the mirror dry\nHeld up fevered glasses to the sky\n\n[Pre-Chorus]\nThe reservoir had no blue left to save\nOnly a shining mouth above a grave\n\n[Chorus]\nThe last yellow river rolls beneath the sun\nA world that poisoned every living one\nNo rain to wash the stain away\nNo hand alive to turn the valve someday\nThe last yellow river, thick and bright\nCarries all our names out of the light\n\n[Verse 2]\nBodies swollen in the courthouse square\nRotting heat caught underneath their hair\nYellow human skin peeled loose and thin\nFrom yellow bones that glimmered through the skin\nApartment windows stared with blinded eyes\nFlies drew dark constellations in the skies\n\n[Pre-Chorus]\nThe fountains coughed where children used to run\nTheir marble mouths were speaking to the sun\n\n[Chorus]\nThe last yellow river rolls beneath the sun\nA world that poisoned every living one\nNo rain to wash the stain away\nNo hand alive to turn the valve someday\nThe last yellow river, thick and bright\nCarries all our names out of the light\n\n[Bridge]\nOnce-clean water, silver in the pipe\nGone beneath a sour, endless tide\nThe ocean kept its distance from the shore\nAs every sacred well became a door\nWe built a kingdom out of thirst and shame\nThen fed the flame our blood, our breath, our name\n\n[Chorus]\nThe last yellow river rolls beneath the sun\nIts kingdom ended every living one\nThe streets dissolve, the towers lean\nNo blue remains where blue had always been\nThe last yellow river slows at last\nA gilded grave for all the human past\n\n[Outro]\nLet the dead earth take this poisoned rain\nLet one clean drop remember us again\n[End]",
+        "duration": 225,
+        "bpm": 84,
+        "musicalSettings": {
+          "genre": "Cinematic industrial rock",
+          "meter": "4/4",
+          "structure": "Verse–pre-chorus–chorus–verse–pre-chorus–chorus–bridge–final chorus–outro",
+          "performance": "Clear, steadily pitched Tony lead with connected phrasing and sustained melodic lines",
+          "energy": "Ominous opening, escalating heavy choruses, stripped-back bridge, then a resolved final swell",
+          "lyricWorkflow": "Original narrative lyric sheet tracing a poisoned water system from civic collapse to a final plea for renewal",
+          "instruments": [
+            "Distorted electric guitars",
+            "Electric bass",
+            "Live drum kit",
+            "Synth pads",
+            "Violin",
+            "Piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nMorning opened on a silent town\nPlastic cups lay split along the ground\nEvery tap ran bitter, hot and gold\nEvery prayer was something bought and sold\nThey drank the warning, drank the mirror dry\nHeld up fevered glasses to the sky\n\n[Pre-Chorus]\nThe reservoir had no blue left to save\nOnly a shining mouth above a grave\n\n[Chorus]\nThe last yellow river rolls beneath the sun\nA world that poisoned every living one\nNo rain to wash the stain away\nNo hand alive to turn the valve someday\nThe last yellow river, thick and bright\nCarries all our names out of the light\n\n[Verse 2]\nBodies swollen in the courthouse square\nRotting heat caught underneath their hair\nYellow human skin peeled loose and thin\nFrom yellow bones that glimmered through the skin\nApartment windows stared with blinded eyes\nFlies drew dark constellations in the skies\n\n[Pre-Chorus]\nThe fountains coughed where children used to run\nTheir marble mouths were speaking to the sun\n\n[Chorus]\nThe last yellow river rolls beneath the sun\nA world that poisoned every living one\nNo rain to wash the stain away\nNo hand alive to turn the valve someday\nThe last yellow river, thick and bright\nCarries all our names out of the light\n\n[Bridge]\nOnce-clean water, silver in the pipe\nGone beneath a sour, endless tide\nThe ocean kept its distance from the shore\nAs every sacred well became a door\nWe built a kingdom out of thirst and shame\nThen fed the flame our blood, our breath, our name\n\n[Chorus]\nThe last yellow river rolls beneath the sun\nIts kingdom ended every living one\nThe streets dissolve, the towers lean\nNo blue remains where blue had always been\nThe last yellow river slows at last\nA gilded grave for all the human past\n\n[Outro]\nLet the dead earth take this poisoned rain\nLet one clean drop remember us again",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.6,
+            "end": 8.74
+          },
+          {
+            "line": 2,
+            "start": 8.74,
+            "end": 11.6
+          },
+          {
+            "line": 3,
+            "start": 11.6,
+            "end": 14.38
+          },
+          {
+            "line": 4,
+            "start": 14.38,
+            "end": 17.48
+          },
+          {
+            "line": 5,
+            "start": 17.48,
+            "end": 23.96
+          },
+          {
+            "line": 6,
+            "start": 24.88,
+            "end": 28.84
+          },
+          {
+            "line": 9,
+            "start": 32.94,
+            "end": 37.56
+          },
+          {
+            "line": 10,
+            "start": 38.9,
+            "end": 43.16
+          },
+          {
+            "line": 13,
+            "start": 43.16,
+            "end": 49
+          },
+          {
+            "line": 14,
+            "start": 50.38,
+            "end": 54.48
+          },
+          {
+            "line": 15,
+            "start": 56.02,
+            "end": 58.58
+          },
+          {
+            "line": 16,
+            "start": 59.1,
+            "end": 62.04
+          },
+          {
+            "line": 17,
+            "start": 62.04,
+            "end": 66.46
+          },
+          {
+            "line": 18,
+            "start": 68.3,
+            "end": 72.06
+          },
+          {
+            "line": 21,
+            "start": 74.7,
+            "end": 78.16
+          },
+          {
+            "line": 22,
+            "start": 78.68,
+            "end": 82.56
+          },
+          {
+            "line": 23,
+            "start": 83,
+            "end": 85.98
+          },
+          {
+            "line": 24,
+            "start": 86.5,
+            "end": 90.16
+          },
+          {
+            "line": 25,
+            "start": 90.16,
+            "end": 94.08
+          },
+          {
+            "line": 26,
+            "start": 94.08,
+            "end": 99.06
+          },
+          {
+            "line": 29,
+            "start": 100.96,
+            "end": 105.98
+          },
+          {
+            "line": 30,
+            "start": 106.72,
+            "end": 112.02
+          },
+          {
+            "line": 33,
+            "start": 113.94,
+            "end": 119.06
+          },
+          {
+            "line": 34,
+            "start": 119.42,
+            "end": 124.42
+          },
+          {
+            "line": 35,
+            "start": 124.84,
+            "end": 127.18
+          },
+          {
+            "line": 36,
+            "start": 127.7,
+            "end": 130.62
+          },
+          {
+            "line": 37,
+            "start": 130.62,
+            "end": 135.08
+          },
+          {
+            "line": 38,
+            "start": 135.08,
+            "end": 140.52
+          },
+          {
+            "line": 41,
+            "start": 145.02,
+            "end": 148.84
+          },
+          {
+            "line": 42,
+            "start": 149.7,
+            "end": 154.66
+          },
+          {
+            "line": 43,
+            "start": 156.76,
+            "end": 160.16
+          },
+          {
+            "line": 44,
+            "start": 161.32,
+            "end": 164.62
+          },
+          {
+            "line": 45,
+            "start": 164.62,
+            "end": 168.1
+          },
+          {
+            "line": 46,
+            "start": 168.1,
+            "end": 171.86
+          },
+          {
+            "line": 49,
+            "start": 175.34,
+            "end": 180.44
+          },
+          {
+            "line": 50,
+            "start": 180.44,
+            "end": 185.96
+          },
+          {
+            "line": 51,
+            "start": 187.46,
+            "end": 190.78
+          },
+          {
+            "line": 52,
+            "start": 190.78,
+            "end": 193.1
+          },
+          {
+            "line": 53,
+            "start": 193.1,
+            "end": 195.4
+          },
+          {
+            "line": 54,
+            "start": 196.7,
+            "end": 200.84
+          },
+          {
+            "line": 57,
+            "start": 204.36,
+            "end": 207.92
+          },
+          {
+            "line": 58,
+            "start": 207.92,
+            "end": 211.62
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Grotesque scenario where humanity has been wiped out by people drinking their own piss. Body horror and states of decay, the ultimate piss tragedy.",
+        "direction": "Use the prompt as written.",
+        "keep": "Must describe the bodies bloated with their own piss rotting in the sun, yellow human skin peeling off of yellow bones, the once-clean water supply completely replaced with piss, and so on. Get imaginative.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "instruments": [
+            "Synth pads",
+            "Violin"
+          ],
+          "duration": 225,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-8798d2efbb76a4d31da04cfa",
       "title": "What the Whitewash Hides",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8798d2efbb76a4d31da04cfa-c9e7dfc7163d.mp3",
