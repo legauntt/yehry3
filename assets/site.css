@@ -909,6 +909,7 @@ main {
   line-height: 1.6;
 }
 .track-meta .text-link,
+.song-cost,
 .track-duration,
 .track-age {
   white-space: nowrap;

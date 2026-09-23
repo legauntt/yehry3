@@ -102,6 +102,8 @@ for (const name of [
   "song-data.js",
   "song-summary.js",
   "music-provenance.js",
+  "song-cost.js",
+  "settled-song-costs.js",
   "music-provenance.css",
   "favorites.js",
   "favorites.css",

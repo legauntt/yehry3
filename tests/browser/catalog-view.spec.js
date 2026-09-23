@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
+import { settledSongCosts } from "../../assets/settled-song-costs.js";
 const catalog = JSON.parse(await readFile(new URL("../../catalog.json", import.meta.url), "utf8"));
 const recording = catalog.songs.find(song => song.url.startsWith("/fearhunger/"));
 const titles = ["Arbys at Eleven", "The Book of Parallel Cs", "The Save File Has Teeth", "Medusa", "The Midnight Chrome Express", "Blood on My Shoes at Daybreak"];
@@ -15,6 +16,33 @@ async function mock(page, songs = fixtures()) {
   await page.route("**/yehry3/listens", route => route.fulfill({ json: { counted: true, playCount: 1 } }));
 }
 const switchTo = (page, view) => page.getByRole("button", { name: view, exact: true }).click();
+
+test("paid song costs survive grid/list switching and offline mobile catalogs", async ({ page }) => {
+  const [id, cents] = Object.entries(settledSongCosts)[0];
+  const songs = fixtures().slice(0, 4);
+  Object.assign(songs[0], { id, musicBackend: 'eleven_music' });
+  Object.assign(songs[1], { musicBackend: 'eleven_music', duration: 180 });
+  Object.assign(songs[2], { musicBackend: 'eleven_music', duration: null });
+  Object.assign(songs[3], { musicBackend: 'local' });
+  await mock(page, songs);
+  for (const offline of [false, true]) {
+    if (offline) await page.route('**/yehry3/songs/summary', route => route.abort());
+    await page.goto('/?sort=catalog');
+    await expect(page.locator('.track')).toHaveCount(4);
+    for (const width of [1440, 390, 320]) {
+      await page.setViewportSize({ width, height: 1000 });
+      for (const view of ['Grid', 'List']) {
+        await switchTo(page, view);
+        await expect(page.locator('.song-cost')).toHaveText([`Cost $${(cents / 100).toFixed(2)}`, 'Cost $0.45 est.', 'Cost $0.50 est.']);
+        await expect(page.locator('.track').nth(3).locator('.song-cost')).toHaveCount(0);
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+        if (!offline && (width === 1440 || width === 390)) {
+          await page.locator('.track').first().screenshot({ path: `artifacts/song-cost-${view.toLowerCase()}-${width}.png`, animations: 'disabled' });
+        }
+      }
+    }
+  }
+});
 
 test("views preserve page, filters, row state, audio and seek position", async ({ page }) => {
   await mock(page);
