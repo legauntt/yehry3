@@ -16,7 +16,7 @@ test('recorded generation costs take precedence over length estimates', () => {
 
 test('missing charges use labeled duration estimates or the fifty-cent fallback', () => {
   assert.deepEqual(songCost({ musicBackend: 'eleven_music', duration: 245 }), { cents: 61, estimated: true });
-  assert.match(songCostLabel({ musicBackend: 'eleven_music', duration: 180 }), /Cost \$0\.45 est\./);
+  assert.match(songCostLabel({ musicBackend: 'eleven_music', duration: 180 }), />45 ¢ est\.</);
   for (const duration of [undefined, null, 0, -1, NaN, Infinity, '180']) {
     assert.deepEqual(songCost({ originalPrompt: { musicBackend: 'eleven_music' }, duration }), { cents: 50, estimated: true });
   }

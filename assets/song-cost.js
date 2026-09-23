@@ -14,9 +14,9 @@ export function songCost(song) {
 export function songCostLabel(song) {
   const cost = songCost(song);
   if (!cost) return '';
-  const amount = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cost.cents / 100);
+  const amount = `${new Intl.NumberFormat('en-US').format(cost.cents)} ¢`;
   const description = cost.estimated
-    ? 'Estimated generation cost in USD; based on $0.15 per minute when length is known, otherwise about $0.50.'
+    ? 'Estimated generation cost in USD; based on 15 cents per minute when length is known, otherwise about 50 cents.'
     : 'Recorded generation cost in USD, reconciled against provider credit usage.';
-  return `<span class="song-cost" title="${description} Subscription fees and taxes excluded.">Cost ${amount}${cost.estimated ? ' est.' : ''}</span>`;
+  return `<span class="song-cost" title="${description} Subscription fees and taxes excluded.">${amount}${cost.estimated ? ' est.' : ''}</span>`;
 }
