@@ -2,6 +2,387 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ff2659dd0bd45acd7e554778",
+      "title": "Dark Bell",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ff2659dd0bd45acd7e554778-d1d16efbfda0.mp3",
+      "duration": 245.00244897959183,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-23T04:21:51.316Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Dark Bell",
+        "recipe": "new",
+        "style": "opera",
+        "keyscale": "D minor",
+        "arrangement": "Dark contemporary opera aria in D minor: solo Tony lead carries a clear, steadily pitched melodic line over low strings, piano, bass clarinet, timpani, restrained brass, and a final orchestral bell. Begin sparse and rain-soaked, broaden through each chorus, then pull back for the bridge before a grave final rise. Keep one unstacked lead with no rasp, growl, whispers, doubles, or backing voices. Sustain “stay” so the final sung syllable lands about 10 seconds before the 245-second ending; resolve with one final D-minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nUnder the underpass, a blanket shakes\nBlue lights bloom across the rain\nThe papers count the wounded faces\nThen turn the page and speak no name\nThe homeless bear the heavier weather\nThe open hand, the closing door\nAnd every unanswered question\nFalls like ash upon the floor\n\n[Pre-Chorus]\nDo not make a monster of a name\nDo not let the numbers lose their flame\n\n[Chorus]\nWhen he is around\nLet it be a warning sound\nNot a blame upon one soul\nBut a bell for every broken whole\nWhen he is around\nHear the silence of the town\nHear the names we never knew\nAnd ask what mercy asks of you\n\n[Verse 2]\nThe homeless are much more likely\nTo be victims of violence than perpetrators\nEspecially\nWhen Howard Lutnick is around\nSexual violence is higher\nIn conflict zones around the world\nEspecially\nWhen Pete Hegseth is around\n\n[Chorus]\nWhen he is around\nLet it be a warning sound\nNot a blame upon one soul\nBut a bell for every broken whole\nWhen he is around\nHear the silence of the town\nHear the names we never knew\nAnd ask what mercy asks of you\n\n[Verse 3]\nWomen are much more likely\nTo be victims of violence from romantic partners\nThan a stranger\nExcept\nWhen Donald Trump is around\nBlack Americans are twelve times more likely\nTo die by gun violence than white Americans\nEspecially\nWhen Stephen Miller is around\n[Bridge]\nA shadow in the language\nA mask the fearful chorus found\nNot a man to carry every sorrow\nBut the alarm beneath the sound\nSay the names without consuming them\nLet grief become a vow\nThe world is not a distant headline\nIt is breathing with us now\n[Chorus]\nWhen he is around\nLet the truth be spoken plain\nBuild a shelter, break the silence\nTurn our mourning into change\nWhen he is around\nLet no neighbor stand alone\nHold the living, name the lost\nAnd bring the scattered safely home\n[Outro]\nBring the scattered safely home\nLet the last dark bell be still\nMercy, stay\n[End]",
+        "duration": 245,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Dark contemporary opera aria",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, chorus, Verse 3, bridge, final chorus, outro",
+          "performance": "One clear, steadily pitched solo lead with solemn classical phrasing and sustained melodic lines",
+          "energy": "Sparse and mournful opening; fuller orchestral weight in the choruses; intimate bridge; grave final resolution",
+          "lyricWorkflow": "Preserved supplied lyrics in their original order, set to an evolving aria form",
+          "instruments": [
+            "piano",
+            "low strings",
+            "bass clarinet",
+            "timpani",
+            "restrained brass",
+            "orchestral bell"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nUnder the underpass, a blanket shakes\nBlue lights bloom across the rain\nThe papers count the wounded faces\nThen turn the page and speak no name\nThe homeless bear the heavier weather\nThe open hand, the closing door\nAnd every unanswered question\nFalls like ash upon the floor\n\n[Pre-Chorus]\nDo not make a monster of a name\nDo not let the numbers lose their flame\n\n[Chorus]\nWhen he is around\nLet it be a warning sound\nNot a blame upon one soul\nBut a bell for every broken whole\nWhen he is around\nHear the silence of the town\nHear the names we never knew\nAnd ask what mercy asks of you\n\n[Verse 2]\nThe homeless are much more likely\nTo be victims of violence than perpetrators\nEspecially\nWhen Howard Lutnick is around\nSexual violence is higher\nIn conflict zones around the world\nEspecially\nWhen Pete Hegseth is around\n\n[Chorus]\nWhen he is around\nLet it be a warning sound\nNot a blame upon one soul\nBut a bell for every broken whole\nWhen he is around\nHear the silence of the town\nHear the names we never knew\nAnd ask what mercy asks of you\n\n[Verse 3]\nWomen are much more likely\nTo be victims of violence from romantic partners\nThan a stranger\nExcept\nWhen Donald Trump is around\nBlack Americans are twelve times more likely\nTo die by gun violence than white Americans\nEspecially\nWhen Stephen Miller is around\n[Bridge]\nA shadow in the language\nA mask the fearful chorus found\nNot a man to carry every sorrow\nBut the alarm beneath the sound\nSay the names without consuming them\nLet grief become a vow\nThe world is not a distant headline\nIt is breathing with us now\n[Chorus]\nWhen he is around\nLet the truth be spoken plain\nBuild a shelter, break the silence\nTurn our mourning into change\nWhen he is around\nLet no neighbor stand alone\nHold the living, name the lost\nAnd bring the scattered safely home\n[Outro]\nBring the scattered safely home\nLet the last dark bell be still\nMercy, stay",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 6.4,
+            "end": 10.3
+          },
+          {
+            "line": 2,
+            "start": 11.18,
+            "end": 13.78
+          },
+          {
+            "line": 3,
+            "start": 14.3,
+            "end": 17.14
+          },
+          {
+            "line": 4,
+            "start": 17.14,
+            "end": 20.32
+          },
+          {
+            "line": 5,
+            "start": 20.98,
+            "end": 23.72
+          },
+          {
+            "line": 6,
+            "start": 24.36,
+            "end": 27.1
+          },
+          {
+            "line": 7,
+            "start": 27.22,
+            "end": 30.42
+          },
+          {
+            "line": 8,
+            "start": 30.42,
+            "end": 33.66
+          },
+          {
+            "line": 11,
+            "start": 35.63,
+            "end": 40.6
+          },
+          {
+            "line": 12,
+            "start": 42.54,
+            "end": 47.26
+          },
+          {
+            "line": 15,
+            "start": 48.82,
+            "end": 50.58
+          },
+          {
+            "line": 16,
+            "start": 52.08,
+            "end": 54.7
+          },
+          {
+            "line": 17,
+            "start": 55.74,
+            "end": 58.1
+          },
+          {
+            "line": 18,
+            "start": 58.1,
+            "end": 61.3
+          },
+          {
+            "line": 19,
+            "start": 61.3,
+            "end": 64.24
+          },
+          {
+            "line": 20,
+            "start": 65.56,
+            "end": 68.88
+          },
+          {
+            "line": 21,
+            "start": 69.46,
+            "end": 72.08
+          },
+          {
+            "line": 22,
+            "start": 73.02,
+            "end": 77.1
+          },
+          {
+            "line": 25,
+            "start": 79.58,
+            "end": 83.2
+          },
+          {
+            "line": 26,
+            "start": 83.2,
+            "end": 87.44
+          },
+          {
+            "line": 27,
+            "start": 87.44,
+            "end": 88.78
+          },
+          {
+            "line": 28,
+            "start": 89.42,
+            "end": 92.94
+          },
+          {
+            "line": 29,
+            "start": 93.64,
+            "end": 95.5
+          },
+          {
+            "line": 30,
+            "start": 95.5,
+            "end": 99.1
+          },
+          {
+            "line": 31,
+            "start": 99.1,
+            "end": 100.02
+          },
+          {
+            "line": 32,
+            "start": 100.02,
+            "end": 102.92
+          },
+          {
+            "line": 35,
+            "start": 103.56,
+            "end": 105.5
+          },
+          {
+            "line": 36,
+            "start": 106.84,
+            "end": 109.72
+          },
+          {
+            "line": 37,
+            "start": 110.2,
+            "end": 113.06
+          },
+          {
+            "line": 38,
+            "start": 113.56,
+            "end": 116.28
+          },
+          {
+            "line": 39,
+            "start": 116.28,
+            "end": 119.18
+          },
+          {
+            "line": 40,
+            "start": 120.64,
+            "end": 123.76
+          },
+          {
+            "line": 41,
+            "start": 123.98,
+            "end": 127.26
+          },
+          {
+            "line": 42,
+            "start": 128,
+            "end": 132.3
+          },
+          {
+            "line": 45,
+            "start": 135.42,
+            "end": 138.18
+          },
+          {
+            "line": 46,
+            "start": 138.18,
+            "end": 142.62
+          },
+          {
+            "line": 47,
+            "start": 142.62,
+            "end": 143.76
+          },
+          {
+            "line": 48,
+            "start": 144.5,
+            "end": 145.1
+          },
+          {
+            "line": 49,
+            "start": 145.1,
+            "end": 149.14
+          },
+          {
+            "line": 50,
+            "start": 149.14,
+            "end": 151.48
+          },
+          {
+            "line": 51,
+            "start": 151.48,
+            "end": 155.54
+          },
+          {
+            "line": 52,
+            "start": 157.16,
+            "end": 158.32
+          },
+          {
+            "line": 53,
+            "start": 158.32,
+            "end": 161.58
+          },
+          {
+            "line": 55,
+            "start": 163.96,
+            "end": 166.68
+          },
+          {
+            "line": 56,
+            "start": 167.38,
+            "end": 170.48
+          },
+          {
+            "line": 57,
+            "start": 171.16,
+            "end": 173.88
+          },
+          {
+            "line": 58,
+            "start": 174.84,
+            "end": 178.28
+          },
+          {
+            "line": 59,
+            "start": 179.42,
+            "end": 183.78
+          },
+          {
+            "line": 60,
+            "start": 184,
+            "end": 186.26
+          },
+          {
+            "line": 61,
+            "start": 187.22,
+            "end": 190.7
+          },
+          {
+            "line": 62,
+            "start": 191.22,
+            "end": 193.96
+          },
+          {
+            "line": 64,
+            "start": 195.44,
+            "end": 197.74
+          },
+          {
+            "line": 65,
+            "start": 198.96,
+            "end": 201.98
+          },
+          {
+            "line": 66,
+            "start": 202.82,
+            "end": 205.62
+          },
+          {
+            "line": 67,
+            "start": 205.62,
+            "end": 209.54
+          },
+          {
+            "line": 68,
+            "start": 209.54,
+            "end": 211.36
+          },
+          {
+            "line": 69,
+            "start": 211.36,
+            "end": 215.36
+          },
+          {
+            "line": 70,
+            "start": 215.36,
+            "end": 218.78
+          },
+          {
+            "line": 71,
+            "start": 218.78,
+            "end": 222.4
+          },
+          {
+            "line": 73,
+            "start": 223.58,
+            "end": 227.14
+          },
+          {
+            "line": 74,
+            "start": 227.14,
+            "end": 230.64
+          },
+          {
+            "line": 75,
+            "start": 230.64,
+            "end": 232.06
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Original dark aria",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 245,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-40c8b5236a8409614664910b",
       "title": "When Tony C Is Around",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-40c8b5236a8409614664910b-dba78c744ee1.mp3",
