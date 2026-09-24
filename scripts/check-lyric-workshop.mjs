@@ -44,7 +44,7 @@ const revised = await generate('', edited, 'funnier');
 assert.equal(revised.state, 'ready'); assert.ok(revised.lyrics.length >= 74);
 report.generations.push({ id: revised.id, seconds: revised.seconds, words: revised.lyrics.split(/\s+/).length });
 const { prompt: reviewed } = await call('/prompts/' + encodeURIComponent(prompt.id), {
-  version: prompt.version, direction: 'Disco', keep: 'Keep the chosen words', basisSongIds: [], voiceModel: 'v6', lyricSheet: { text: revised.lyrics, mode: 'preserve' },
+  version: prompt.version, direction: 'Playful disco with a bright dance groove', keep: 'Keep the chosen words', basisSongIds: [], voiceModel: 'v6', lyricSheet: { text: revised.lyrics, mode: 'preserve' },
 }, 'PATCH');
 assert.equal(reviewed.status, 'review'); assert.equal(reviewed.confirmedAt, undefined);
 assert.deepEqual(reviewed.details.lyricSheet, { text: revised.lyrics, mode: 'preserve' });
