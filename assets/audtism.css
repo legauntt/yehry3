@@ -1,0 +1,218 @@
+/* Aud'tism. Series colours pass the colour-vision checks against each theme's card surface. */
+.audit {
+  --paid: #c7652a;
+  --free: #1f7fae;
+  box-sizing: border-box;
+  max-width: 980px;
+  padding: 28px 16px 72px;
+}
+html[data-shared-theme][data-theme="dark"] .audit { --paid: #d9733a; --free: #3a9ad6; }
+.audit-head h1 {
+  font-size: clamp(2.6rem, 6vw, 4.2rem);
+  margin: 0 0 10px;
+}
+.audit-head .eyebrow { margin-bottom: 12px; }
+.audit-lede { margin: 0 0 20px; color: var(--muted); }
+#audit-status:empty { display: none; }
+
+.audit-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.audit-tile,
+.audit-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+.audit-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px;
+}
+.audit-tile-label {
+  color: var(--muted);
+  font: 500 0.66rem/1.4 "DM Mono", monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.audit-tile strong {
+  font-size: 1.9rem;
+  line-height: 1.15;
+  font-variant-numeric: tabular-nums;
+}
+.audit-tile-note { color: var(--muted); font-size: 0.76rem; }
+
+.audit-card {
+  margin-bottom: 16px;
+  padding: 16px 18px 18px;
+}
+.audit-card h2 {
+  margin: 0 0 10px;
+  font-size: 1.05rem;
+}
+.audit-card .small { margin: 8px 0 0; }
+
+.audit-budget-row + .audit-budget-row { margin-top: 16px; }
+.audit-budget-row p { margin: 0 0 6px; font-size: 0.9rem; }
+.audit-budget-row p strong { margin-right: 6px; }
+.audit-meter {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--light);
+  overflow: hidden;
+}
+.audit-meter i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--ink);
+}
+
+.audit-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 22px 0 12px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+.audit-controls .quiet { min-height: 36px; padding: 6px 14px; }
+.audit-controls .quiet[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.audit-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: -4px 0 10px;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+.audit-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.audit-key { width: 10px; height: 10px; border-radius: 3px; background: var(--paid); }
+.audit-key.free { background: var(--free); }
+
+.audit-plot {
+  display: flex;
+  align-items: stretch;
+  gap: 3px;
+  height: 180px;
+  padding-top: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.audit-col {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 4px 4px 0 0;
+  outline-offset: 2px;
+}
+.audit-col:hover,
+.audit-col:focus-visible { background: color-mix(in srgb, var(--line) 45%, transparent); }
+.audit-bar {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2px;
+  max-width: 28px;
+  width: 100%;
+  margin: 0 auto;
+}
+.audit-seg {
+  display: block;
+  min-height: 2px;
+  background: var(--paid);
+}
+.audit-seg.free { background: var(--free); }
+/* Only the top of each column is rounded; the baseline stays square. */
+.audit-bar > .audit-seg:last-child { border-radius: 4px 4px 0 0; }
+.audit-peak {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 3px;
+  color: var(--ink);
+  font-size: 0.7rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.audit-tick {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 5px;
+  color: var(--muted);
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+.audit-tick[data-hidden] { visibility: hidden; }
+.audit-chart { padding-bottom: 22px; }
+.audit-col[data-tip]:is(:hover, :focus-visible)::after {
+  content: attr(data-tip);
+  position: absolute;
+  z-index: 3;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  width: max-content;
+  max-width: 220px;
+  transform: translateX(var(--tip-shift, -50%));
+  padding: 7px 9px;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 0.74rem;
+  line-height: 1.4;
+  pointer-events: none;
+}
+.audit-col:first-child,
+.audit-col:nth-child(2) { --tip-shift: -12%; }
+.audit-col:last-child,
+.audit-col:nth-last-child(2) { --tip-shift: -88%; }
+
+.audit-table-wrap { overflow-x: auto; }
+#audit-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+#audit-table :is(th, td) {
+  padding: 7px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+  white-space: nowrap;
+}
+#audit-table :is(thead th:first-child, tbody th) { text-align: left; }
+#audit-table thead th {
+  color: var(--muted);
+  font: 500 0.64rem/1.4 "DM Mono", monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+#audit-table tbody th { font-weight: 600; }
+.audit-range { color: var(--muted); font-weight: 400; }
+.audit-est { color: var(--muted); cursor: help; }
+#audit-table .audit-quiet :is(th, td) { color: var(--muted); font-weight: 400; }
+
+@media (max-width: 560px) {
+  .audit-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .audit-tile strong { font-size: 1.45rem; }
+  .audit-plot { gap: 2px; }
+  #audit-table :is(th, td) { padding: 7px 5px; }
+  #audit-table .audit-length, .audit-range { display: none; }
+}
+@media (max-width: 400px) {
+  #audit-table .audit-split { display: none; }
+}

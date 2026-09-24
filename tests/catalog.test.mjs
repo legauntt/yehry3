@@ -54,6 +54,7 @@ test("all routes are built, unlisted, and contain no submission password or back
     "fearhunger/index.html",
     "arabic/index.html",
     "oeuful/index.html",
+    "audtism/index.html",
     "v9/epochs/index.html",
     "wiseau/index.html",
   ]) {

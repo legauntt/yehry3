@@ -35,6 +35,7 @@ const publicEntries = [
   "fearhunger",
   "arabic",
   "oeuful",
+  "audtism",
   "v9",
   "wiseau",
   "robots.txt",

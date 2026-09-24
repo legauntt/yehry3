@@ -52,6 +52,11 @@
       }
     },
     {
+      "route": "/audtism",
+      "redirect": "/audtism/",
+      "statusCode": 302
+    },
+    {
       "route": "/oeuful",
       "redirect": "/oeuful/",
       "statusCode": 302
