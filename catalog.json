@@ -2,6 +2,450 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-bcf7969a9959cbe4927370c4",
+      "title": "The Biological Mandate (Corrosive Industrial Mix)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-bcf7969a9959cbe4927370c4-0d01b297861b.mp3",
+      "duration": 290.03755102040816,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-30a93586b255320dd9ef6576",
+        "title": "The Biological Mandate (Disco Glass Mix)",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-30a93586b255320dd9ef6576-9e10cc03d446.mp3"
+      },
+      "publishedAt": "2026-09-24T22:51:51.618Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The Biological Mandate (Corrosive Industrial Mix)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 132 BPM harsh-industrial reinterpretation in D minor: distorted synth bass, metallic programmed drums, grinding guitars, hydraulic percussion, alarm-like pads, and a cold sub pulse replace the disco setting. Tony C V9 delivers one clear, steadily pitched melodic lead with tense, clipped verses and a broad, catchable chorus; keep the phrasing direct and forceful without rasp, doubles, backing vocals, or vocal effects. Build from sparse machine hum into dense choruses, cut to a stark bridge, then drive the final chorus to a resolved D-minor chord. Pace the closing sung line so its final syllable lands about 10 seconds before the 290-second end, followed by one natural chord decay.",
+        "lyrics": "[Intro]\nThe fluorescent room hums low,\nChalk dust rising, nowhere to go.\nA red alarm blinks through the lecture haze,\nAnd the glass on the desk catches chemical days.\n\n[Verse 1]\nIn a lecture hall of thunder and chalk,\nPlato waits in the margins of talk,\nA buried little legend, an impossible cup,\nWhile the cameras flare and the pressure builds up.\nPeterson points at the edge of the day:\n“What shadow in your bloodstream do you throw away?”\nThe clock keeps grinding in a mirrored ball,\nEvery clean idea leaves a stain on the wall.\nSteel boots echo where the dancers stood,\nA bright white theory meets the body’s blood.\nThe room says, “Name it,” the room says, “Hide,”\nA sealed-up animal rattles inside.\n\n[Pre-Chorus]\nNot a diet, not a cure, not a sacred command,\nJust a fever-lit symbol and a jar in the hand.\nThe floodlights shiver, the speakers hiss,\nA whole proud doctrine drowning in piss.\n\n[Chorus]\nThe biological mandate, staring back from the glass,\nA ridiculous dragon with a philosophical mask.\nPlato and Peterson, filled to the brim,\nWith every rejected thing pouring back in them.\nThe Logos isn’t only a word in the air—\nIt’s admitting the mess is already there.\nThe biological mandate, no polished escape,\nThe thing you exile comes back in your shape.\n\n[Verse 2]\n“Entropy is knocking,” the loud man cries,\nAnd the factory moon burns behind his eyes.\nEvery polished order has a cellar below,\nEvery perfect answer has somewhere to go.\nA fish on a river raft, salted hard as regret,\nEvery unwanted fragment is a debt you have met.\nThe kidneys of the Logos turn the chaos around,\nAn ouroboros shakes beneath the lecture sound.\nThe pipes start roaring, the fluorescent tubes flare,\nYellow rivers of judgment rise through the air.\nNo tidy little system gets to pick and choose,\nNo academic polish can wash off the clues.\n\n[Pre-Chorus]\nTurn the page, turn the glass, let the hard truth spin,\nEvery outside monster has a door within.\nNo applause can drown that question in your hand,\nWhen the shadow asks exactly where you stand.\n\n[Chorus]\nThe biological mandate, staring back from the glass,\nA ridiculous dragon with a philosophical mask.\nPlato and Peterson, filled to the brim,\nWith every rejected thing pouring back in them.\nThe Logos isn’t only a word in the air—\nIt’s admitting the mess is already there.\nThe biological mandate, no polished escape,\nThe thing you exile comes back in your shape.\n\n[Bridge]\nHe lifts the jar slowly; the turbines beat,\nAdam’s apple rising to the iron heat.\nNo medicine, no wisdom, no clean way through,\nJust the ugly little truth staring into you.\nFrom the belly of the whale, from the far side of fear,\nWhat you would exile is already here.\nLet the bottles overflow, let the podium drown,\nLet the grand old symbols come sputtering down.\nPlato laughs in marble, Peterson coughs in chrome,\nAnd the room learns the body has brought it all home.\n\n[Chorus]\nThe biological mandate, let the metaphor burn,\nA king of his own ruin makes a hard-won turn.\nPlato and Peterson, flooded with the past,\nEvery sealed-off certainty cracking at last.\nFrom the belly of the whale to the edge of the dawn,\nCarry the darkness, then carry on.\nThe biological mandate, the glass is clear tonight,\nNo dragon left outside, no darkness out of sight.\n\n[Outro]\nThe jar hits the desk; one final chord opens wide,\nStaring back from the glass, I decide—\nNo darkness left to hide.\n[End]",
+        "duration": 290,
+        "bpm": 132,
+        "musicalSettings": {
+          "genre": "Harsh industrial rock",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Pre-Chorus, Chorus, Bridge, Final Chorus, Outro",
+          "performance": "Clear, steadily pitched Tony C V9 lead with raw urgency, clipped verse phrasing, and sustained melodic chorus lines",
+          "energy": "Starts with mechanical tension, surges through heavy choruses, drops to a stark bridge, and resolves after a final peak",
+          "lyricWorkflow": "Adapted source-guided lyrics retain the mandate, glass, Logos, and shadow motifs while intensifying the industrial satire",
+          "instruments": [
+            "Distorted synth bass",
+            "Metallic programmed drums",
+            "Grinding electric guitars",
+            "Hydraulic percussion",
+            "Alarm-like synth pads",
+            "Sub bass"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nThe fluorescent room hums low,\nChalk dust rising, nowhere to go.\nA red alarm blinks through the lecture haze,\nAnd the glass on the desk catches chemical days.\n\n[Verse 1]\nIn a lecture hall of thunder and chalk,\nPlato waits in the margins of talk,\nA buried little legend, an impossible cup,\nWhile the cameras flare and the pressure builds up.\nPeterson points at the edge of the day:\n“What shadow in your bloodstream do you throw away?”\nThe clock keeps grinding in a mirrored ball,\nEvery clean idea leaves a stain on the wall.\nSteel boots echo where the dancers stood,\nA bright white theory meets the body’s blood.\nThe room says, “Name it,” the room says, “Hide,”\nA sealed-up animal rattles inside.\n\n[Pre-Chorus]\nNot a diet, not a cure, not a sacred command,\nJust a fever-lit symbol and a jar in the hand.\nThe floodlights shiver, the speakers hiss,\nA whole proud doctrine drowning in piss.\n\n[Chorus]\nThe biological mandate, staring back from the glass,\nA ridiculous dragon with a philosophical mask.\nPlato and Peterson, filled to the brim,\nWith every rejected thing pouring back in them.\nThe Logos isn’t only a word in the air—\nIt’s admitting the mess is already there.\nThe biological mandate, no polished escape,\nThe thing you exile comes back in your shape.\n\n[Verse 2]\n“Entropy is knocking,” the loud man cries,\nAnd the factory moon burns behind his eyes.\nEvery polished order has a cellar below,\nEvery perfect answer has somewhere to go.\nA fish on a river raft, salted hard as regret,\nEvery unwanted fragment is a debt you have met.\nThe kidneys of the Logos turn the chaos around,\nAn ouroboros shakes beneath the lecture sound.\nThe pipes start roaring, the fluorescent tubes flare,\nYellow rivers of judgment rise through the air.\nNo tidy little system gets to pick and choose,\nNo academic polish can wash off the clues.\n\n[Pre-Chorus]\nTurn the page, turn the glass, let the hard truth spin,\nEvery outside monster has a door within.\nNo applause can drown that question in your hand,\nWhen the shadow asks exactly where you stand.\n\n[Chorus]\nThe biological mandate, staring back from the glass,\nA ridiculous dragon with a philosophical mask.\nPlato and Peterson, filled to the brim,\nWith every rejected thing pouring back in them.\nThe Logos isn’t only a word in the air—\nIt’s admitting the mess is already there.\nThe biological mandate, no polished escape,\nThe thing you exile comes back in your shape.\n\n[Bridge]\nHe lifts the jar slowly; the turbines beat,\nAdam’s apple rising to the iron heat.\nNo medicine, no wisdom, no clean way through,\nJust the ugly little truth staring into you.\nFrom the belly of the whale, from the far side of fear,\nWhat you would exile is already here.\nLet the bottles overflow, let the podium drown,\nLet the grand old symbols come sputtering down.\nPlato laughs in marble, Peterson coughs in chrome,\nAnd the room learns the body has brought it all home.\n\n[Chorus]\nThe biological mandate, let the metaphor burn,\nA king of his own ruin makes a hard-won turn.\nPlato and Peterson, flooded with the past,\nEvery sealed-off certainty cracking at last.\nFrom the belly of the whale to the edge of the dawn,\nCarry the darkness, then carry on.\nThe biological mandate, the glass is clear tonight,\nNo dragon left outside, no darkness out of sight.\n\n[Outro]\nThe jar hits the desk; one final chord opens wide,\nStaring back from the glass, I decide—\nNo darkness left to hide.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.46,
+            "end": 7.4
+          },
+          {
+            "line": 2,
+            "start": 8.14,
+            "end": 11.08
+          },
+          {
+            "line": 3,
+            "start": 11.82,
+            "end": 14.7
+          },
+          {
+            "line": 4,
+            "start": 15.26,
+            "end": 18.38
+          },
+          {
+            "line": 7,
+            "start": 18.9,
+            "end": 22.12
+          },
+          {
+            "line": 8,
+            "start": 22.96,
+            "end": 25.52
+          },
+          {
+            "line": 9,
+            "start": 26.36,
+            "end": 29.36
+          },
+          {
+            "line": 10,
+            "start": 29.58,
+            "end": 33.14
+          },
+          {
+            "line": 11,
+            "start": 33.7,
+            "end": 36.72
+          },
+          {
+            "line": 12,
+            "start": 37.1,
+            "end": 40.06
+          },
+          {
+            "line": 13,
+            "start": 40.74,
+            "end": 43.78
+          },
+          {
+            "line": 14,
+            "start": 44.36,
+            "end": 47.54
+          },
+          {
+            "line": 15,
+            "start": 48.14,
+            "end": 51.26
+          },
+          {
+            "line": 16,
+            "start": 51.78,
+            "end": 54.66
+          },
+          {
+            "line": 17,
+            "start": 54.66,
+            "end": 58.4
+          },
+          {
+            "line": 18,
+            "start": 58.4,
+            "end": 60.86
+          },
+          {
+            "line": 21,
+            "start": 61.66,
+            "end": 64.64
+          },
+          {
+            "line": 22,
+            "start": 65.72,
+            "end": 69.3
+          },
+          {
+            "line": 23,
+            "start": 69.98,
+            "end": 73.3
+          },
+          {
+            "line": 24,
+            "start": 73.6,
+            "end": 76.74
+          },
+          {
+            "line": 27,
+            "start": 78.88,
+            "end": 82.9
+          },
+          {
+            "line": 28,
+            "start": 83.42,
+            "end": 86.64
+          },
+          {
+            "line": 29,
+            "start": 87.3,
+            "end": 90.14
+          },
+          {
+            "line": 30,
+            "start": 90.82,
+            "end": 93.7
+          },
+          {
+            "line": 31,
+            "start": 94.54,
+            "end": 97.48
+          },
+          {
+            "line": 32,
+            "start": 97.92,
+            "end": 100.12
+          },
+          {
+            "line": 33,
+            "start": 100.12,
+            "end": 103.62
+          },
+          {
+            "line": 34,
+            "start": 104.08,
+            "end": 106.8
+          },
+          {
+            "line": 37,
+            "start": 107.58,
+            "end": 111.22
+          },
+          {
+            "line": 38,
+            "start": 111.64,
+            "end": 114.94
+          },
+          {
+            "line": 39,
+            "start": 115.4,
+            "end": 118.02
+          },
+          {
+            "line": 40,
+            "start": 118.72,
+            "end": 121.96
+          },
+          {
+            "line": 41,
+            "start": 122.72,
+            "end": 126.28
+          },
+          {
+            "line": 42,
+            "start": 127.02,
+            "end": 130.12
+          },
+          {
+            "line": 43,
+            "start": 130.68,
+            "end": 133.76
+          },
+          {
+            "line": 44,
+            "start": 134.46,
+            "end": 137.38
+          },
+          {
+            "line": 45,
+            "start": 138.12,
+            "end": 141.16
+          },
+          {
+            "line": 46,
+            "start": 141.6,
+            "end": 144.7
+          },
+          {
+            "line": 47,
+            "start": 145.46,
+            "end": 148.24
+          },
+          {
+            "line": 48,
+            "start": 149.04,
+            "end": 152.18
+          },
+          {
+            "line": 51,
+            "start": 152.44,
+            "end": 155.56
+          },
+          {
+            "line": 52,
+            "start": 156.14,
+            "end": 159.38
+          },
+          {
+            "line": 53,
+            "start": 159.58,
+            "end": 163.88
+          },
+          {
+            "line": 54,
+            "start": 164.24,
+            "end": 167.74
+          },
+          {
+            "line": 57,
+            "start": 170.16,
+            "end": 173.82
+          },
+          {
+            "line": 58,
+            "start": 174.34,
+            "end": 177.52
+          },
+          {
+            "line": 59,
+            "start": 178.54,
+            "end": 181.02
+          },
+          {
+            "line": 60,
+            "start": 181.8,
+            "end": 184.6
+          },
+          {
+            "line": 61,
+            "start": 185.4,
+            "end": 188.34
+          },
+          {
+            "line": 62,
+            "start": 188.34,
+            "end": 191.06
+          },
+          {
+            "line": 63,
+            "start": 191.36,
+            "end": 194.5
+          },
+          {
+            "line": 64,
+            "start": 194.98,
+            "end": 197.6
+          },
+          {
+            "line": 67,
+            "start": 198.24,
+            "end": 201.04
+          },
+          {
+            "line": 68,
+            "start": 201.88,
+            "end": 204.64
+          },
+          {
+            "line": 69,
+            "start": 205.26,
+            "end": 208.18
+          },
+          {
+            "line": 70,
+            "start": 208.84,
+            "end": 211.92
+          },
+          {
+            "line": 71,
+            "start": 212.42,
+            "end": 215.62
+          },
+          {
+            "line": 72,
+            "start": 215.62,
+            "end": 219.24
+          },
+          {
+            "line": 73,
+            "start": 219.76,
+            "end": 222.74
+          },
+          {
+            "line": 74,
+            "start": 223.44,
+            "end": 226.54
+          },
+          {
+            "line": 75,
+            "start": 227.18,
+            "end": 230.1
+          },
+          {
+            "line": 76,
+            "start": 230.7,
+            "end": 234.06
+          },
+          {
+            "line": 79,
+            "start": 237,
+            "end": 241.2
+          },
+          {
+            "line": 80,
+            "start": 241.76,
+            "end": 244.7
+          },
+          {
+            "line": 81,
+            "start": 245.72,
+            "end": 248.42
+          },
+          {
+            "line": 82,
+            "start": 248.86,
+            "end": 252
+          },
+          {
+            "line": 83,
+            "start": 252.5,
+            "end": 255.66
+          },
+          {
+            "line": 84,
+            "start": 256.54,
+            "end": 259.58
+          },
+          {
+            "line": 85,
+            "start": 259.58,
+            "end": 263.48
+          },
+          {
+            "line": 86,
+            "start": 264.02,
+            "end": 267.26
+          },
+          {
+            "line": 89,
+            "start": 267.76,
+            "end": 271.14
+          },
+          {
+            "line": 90,
+            "start": 272.04,
+            "end": 274.36
+          },
+          {
+            "line": 91,
+            "start": 274.5,
+            "end": 278.42
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Remix “The Biological Mandate (Disco Glass Mix)”. Give it a new industrial arrangement while pouring as much piss as possible into Dr. Peterson.\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Fill Dr. Peterson and Plato up with so much piss they might explode.",
+        "keep": "Keep the recognizable hook and spirit of “The Biological Mandate (Disco Glass Mix)”.",
+        "basisSongs": [
+          "The Biological Mandate (Disco Glass Mix)"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "raw",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "genre": "harsh industrial",
+          "pitchRepair": "wild",
+          "duration": 290
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-6901939c84b3142b380e6615",
       "title": "Fireflies at Midnight",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6901939c84b3142b380e6615-5b885cad6498.mp3",
