@@ -2,6 +2,286 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-6061d8bb20d0e48bdeb7fd66",
+      "title": "Two Windows Lit",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6061d8bb20d0e48bdeb7fd66-b7d079738546.mp3",
+      "duration": 160,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-24T06:35:47.266Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Two Windows Lit",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D major",
+        "arrangement": "Human-rights-focused melodic rock with warm electric guitar, piano, rounded bass, restrained live drums, and subtle strings. A clear, steadily pitched lead sings direct, compassionate melodies over a patient 4/4 pocket; verses stay intimate, choruses widen without backing-vocal stacks, and the bridge drops to piano and bass before the final lift. Keep the singer present throughout, with the final sustained “again” landing about 8–12 seconds before a single resolved D-major chord decays.",
+        "lyrics": "[Verse 1]\nOn one hill a mother folds a shirt\nBy a window taped against the night\nOn the next hill someone counts the names\nAnd asks the dark to leave a little light\nNo child should learn the sound of fear\nBefore they learn a playground song\nNo family should need a key\nFor a home they had all along\n\n[Pre-Chorus]\nThe map has scars, the sky has smoke\nBut every heartbeat makes the same demand\n\n[Chorus]\nLet two windows stay lit\nLet two peoples breathe free\nLet a name be a name, not a reason to bleed\nWith rights in the daylight\nWith dignity plain\nTwo states, two homes, and a future beyond pain\n\n[Verse 2]\nThere are voices under broken stone\nThere are voices at a checkpoint gate\nThey are not headlines, not a flag to wave\nThey are people waiting on a better fate\nGive the farmer back the morning field\nGive the student back the open road\nLet the law protect each human life\nLet no one carry all this load\n\n[Chorus]\nLet two windows stay lit\nLet two peoples breathe free\nLet a name be a name, not a reason to bleed\nWith rights in the daylight\nWith dignity plain\nTwo states, two homes, and a future beyond pain\n\n[Bridge]\nJustice is not a door for only one\nPeace is not silence after all the guns\nIt is water, work, and safety in the street\nIt is equal worth for every heart we meet\n\n[Chorus]\nLet two windows stay lit\nLet tomorrow be kind\nLet the living find room in each other's mind\nWith rights in the daylight\nWith dignity plain\nTwo states, two homes—let life rise again\n\n[Outro]\nLet life rise again\nFor everyone\n[End]",
+        "duration": 160,
+        "bpm": 92,
+        "musicalSettings": {
+          "genre": "Melodic humanitarian rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, chorus, bridge, final chorus, resolved outro",
+          "performance": "Clear, steadily pitched solo lead with connected natural phrasing and a compassionate, firm delivery",
+          "energy": "Gentle opening, broad hopeful choruses, reflective bridge, then a resolved final rise",
+          "lyricWorkflow": "Original narrative lyrics using parallel everyday images, a recurring rights-centered refrain, and a clear two-state resolution",
+          "instruments": [
+            "electric guitar",
+            "piano",
+            "bass guitar",
+            "drum kit",
+            "strings"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nOn one hill a mother folds a shirt\nBy a window taped against the night\nOn the next hill someone counts the names\nAnd asks the dark to leave a little light\nNo child should learn the sound of fear\nBefore they learn a playground song\nNo family should need a key\nFor a home they had all along\n\n[Pre-Chorus]\nThe map has scars, the sky has smoke\nBut every heartbeat makes the same demand\n\n[Chorus]\nLet two windows stay lit\nLet two peoples breathe free\nLet a name be a name, not a reason to bleed\nWith rights in the daylight\nWith dignity plain\nTwo states, two homes, and a future beyond pain\n\n[Verse 2]\nThere are voices under broken stone\nThere are voices at a checkpoint gate\nThey are not headlines, not a flag to wave\nThey are people waiting on a better fate\nGive the farmer back the morning field\nGive the student back the open road\nLet the law protect each human life\nLet no one carry all this load\n\n[Chorus]\nLet two windows stay lit\nLet two peoples breathe free\nLet a name be a name, not a reason to bleed\nWith rights in the daylight\nWith dignity plain\nTwo states, two homes, and a future beyond pain\n\n[Bridge]\nJustice is not a door for only one\nPeace is not silence after all the guns\nIt is water, work, and safety in the street\nIt is equal worth for every heart we meet\n\n[Chorus]\nLet two windows stay lit\nLet tomorrow be kind\nLet the living find room in each other's mind\nWith rights in the daylight\nWith dignity plain\nTwo states, two homes—let life rise again\n\n[Outro]\nLet life rise again\nFor everyone",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 10.66,
+            "end": 12.54
+          },
+          {
+            "line": 2,
+            "start": 12.54,
+            "end": 15.72
+          },
+          {
+            "line": 3,
+            "start": 16.02,
+            "end": 18.28
+          },
+          {
+            "line": 4,
+            "start": 18.28,
+            "end": 20.9
+          },
+          {
+            "line": 5,
+            "start": 21.4,
+            "end": 23.56
+          },
+          {
+            "line": 6,
+            "start": 23.98,
+            "end": 26.2
+          },
+          {
+            "line": 7,
+            "start": 26.2,
+            "end": 28.66
+          },
+          {
+            "line": 8,
+            "start": 28.66,
+            "end": 31.32
+          },
+          {
+            "line": 11,
+            "start": 33.24,
+            "end": 37
+          },
+          {
+            "line": 12,
+            "start": 37.56,
+            "end": 40.52
+          },
+          {
+            "line": 15,
+            "start": 42.78,
+            "end": 45.96
+          },
+          {
+            "line": 16,
+            "start": 45.96,
+            "end": 47.44
+          },
+          {
+            "line": 17,
+            "start": 48.3,
+            "end": 51.32
+          },
+          {
+            "line": 18,
+            "start": 52.28,
+            "end": 54.3
+          },
+          {
+            "line": 19,
+            "start": 55.12,
+            "end": 56.54
+          },
+          {
+            "line": 20,
+            "start": 57.54,
+            "end": 60.84
+          },
+          {
+            "line": 23,
+            "start": 62.76,
+            "end": 66.12
+          },
+          {
+            "line": 24,
+            "start": 67.96,
+            "end": 70.4
+          },
+          {
+            "line": 25,
+            "start": 70.62,
+            "end": 73.02
+          },
+          {
+            "line": 26,
+            "start": 73.36,
+            "end": 75.7
+          },
+          {
+            "line": 27,
+            "start": 77.88,
+            "end": 80.84
+          },
+          {
+            "line": 28,
+            "start": 81.28,
+            "end": 83.46
+          },
+          {
+            "line": 29,
+            "start": 83.84,
+            "end": 86.16
+          },
+          {
+            "line": 30,
+            "start": 86.52,
+            "end": 88.86
+          },
+          {
+            "line": 33,
+            "start": 89.84,
+            "end": 91.78
+          },
+          {
+            "line": 34,
+            "start": 92.42,
+            "end": 94.42
+          },
+          {
+            "line": 35,
+            "start": 95.12,
+            "end": 97.52
+          },
+          {
+            "line": 36,
+            "start": 97.52,
+            "end": 101.24
+          },
+          {
+            "line": 37,
+            "start": 101.24,
+            "end": 103.5
+          },
+          {
+            "line": 38,
+            "start": 104.5,
+            "end": 107.9
+          },
+          {
+            "line": 41,
+            "start": 109.82,
+            "end": 113.14
+          },
+          {
+            "line": 42,
+            "start": 114.28,
+            "end": 117.48
+          },
+          {
+            "line": 43,
+            "start": 117.82,
+            "end": 120.82
+          },
+          {
+            "line": 44,
+            "start": 122.22,
+            "end": 125.54
+          },
+          {
+            "line": 47,
+            "start": 125.54,
+            "end": 129.62
+          },
+          {
+            "line": 48,
+            "start": 129.62,
+            "end": 132.18
+          },
+          {
+            "line": 49,
+            "start": 132.18,
+            "end": 135.7
+          },
+          {
+            "line": 50,
+            "start": 135.7,
+            "end": 137.76
+          },
+          {
+            "line": 51,
+            "start": 137.76,
+            "end": 140.02
+          },
+          {
+            "line": 52,
+            "start": 140.82,
+            "end": 144.04
+          },
+          {
+            "line": 55,
+            "start": 144.04,
+            "end": 147.82
+          },
+          {
+            "line": 56,
+            "start": 147.82,
+            "end": 149.26
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Write a song about Israel and Palenstine and a two-state solution, focusing on human rights and the dignity of life for everyone",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 160
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-8a71594cacf2a14cba9588e6",
       "title": "The Miracle Piss (Cathedral Cure)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8a71594cacf2a14cba9588e6-41f8dd11373b.mp3",
