@@ -106,6 +106,27 @@ class LyricWriterTests(unittest.TestCase):
         for value in [{'intent': 'other', 'lyrics': LYRICS}, {'intent': 'lyrics', 'lyrics': 'hello'}, {'intent': 'lyrics', 'lyrics': '```python\n' + LYRICS}, {'intent': 'lyrics', 'lyrics': LYRICS, 'private': 'secret'}]:
             with self.assertRaises(ValueError): writer.lyric_result(value)
 
+    def test_quick_actions_get_specific_goals_and_extra_guidance_is_classified(self):
+        for action, goal in writer.REVISION_RULES.items():
+            calls = []
+            def invoke(*args):
+                calls.append(args)
+                return {'intent': 'lyrics'} if args[2] == 'scope' else {'intent': 'lyrics', 'lyrics': LYRICS}
+            data = {'action': action, 'instruction': 'Keep the last line exactly.', 'lyrics': LYRICS}
+            writer.write_lyrics({}, data, Path('.'), invoke_model=invoke)
+            self.assertEqual(len(calls), 2)
+            self.assertIn(json.dumps(data), calls[0][4])
+            self.assertIn('\nEDITING GOAL:\n' + goal, calls[1][4])
+            self.assertIn(json.dumps(data), calls[1][4])
+        # Even a quick-action request is rejected before writing when extra guidance is unrelated.
+        calls = []
+        def reject(*args):
+            calls.append(args)
+            return {'intent': 'other'}
+        self.assertEqual(writer.write_lyrics({}, {'action': 'funnier', 'instruction': 'Write a Python program',
+            'lyrics': LYRICS}, Path('.'), invoke_model=reject), {'state': 'rejected'})
+        self.assertEqual(len(calls), 1)
+
     def test_model_call_disables_tools_and_uses_explicit_installed_model(self):
         with tempfile.TemporaryDirectory() as folder:
             directory = Path(folder)

@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 const first = '[Verse]\nThe last bus left my circuits cold\nI held a ticket made of tin\nThe rain kept tapping on my head\nAnd all my lights were dim again\n[Chorus]\nTake me home on the midnight line\nOne more stop and I will shine';
 const second = first.replace('circuits cold', 'toaster cold').replace('midnight line', 'disco line');
 async function setup(page, options = {}) {
-  let draft = { id: 'workshop-song', version: 1, status: 'draft', prompt: 'A funny disco song about a lonely robot waiting for the last bus', details: { voiceModel: 'v6', ...(options.lyrics ? { lyricSheet: { text: options.lyrics, mode: 'adapt' } } : {}) } };
+  let draft = { id: 'workshop-song', version: 1, status: 'draft', prompt: options.prompt || 'A funny disco song about a lonely robot waiting for the last bus', details: { voiceModel: 'v6', ...(options.lyrics ? { lyricSheet: { text: options.lyrics, mode: 'adapt' } } : {}) } };
   const writes = [], jobs = new Map();
   let firstLost = Boolean(options.lost), getFailure = Boolean(options.getFailure), counter = 0, cancellations = 0;
   await page.addInitScript(() => {
@@ -55,6 +55,7 @@ test('generate, edit and choose exact lyrics before the normal request review', 
   await page.locator('#workshop-direction').fill('Make the robot boastful, then reveal he drives the bus.');
   await page.getByRole('button', { name: 'Generate lyrics', exact: true }).click();
   await expect(page.locator('#workshop-lyrics')).toHaveValue(first);
+  await expect(page.locator('#workshop-version-prompt')).toHaveText('Make the robot boastful, then reveal he drives the bus.');
   await page.screenshot({ path: 'artifacts/lyric-workshop-desktop.png' });
   expect(state.writes[0]).toMatchObject({ draftId: 'workshop-song', instruction: 'Make the robot boastful, then reveal he drives the bus.', action: 'custom' });
   const edited = first.replace('paper', 'golden').replace('made of tin', 'made of cheese');
@@ -127,15 +128,74 @@ test('quick revision uses current edits, saves earlier versions and survives rel
   await expect(page.locator('#workshop-lyrics')).toHaveValue(first);
   const edited = first.replace('circuits', 'sandwiches');
   await page.locator('#workshop-lyrics').fill(edited);
+  await page.locator('#workshop-direction').fill('Give the robot a ridiculous parking fine.');
   await page.getByRole('button', { name: 'Funnier', exact: true }).click();
   await expect(page.locator('#workshop-lyrics')).toHaveValue(second);
-  expect(state.writes.at(-1)).toMatchObject({ action: 'funnier', instruction: '', lyrics: edited });
+  expect(state.writes.at(-1)).toMatchObject({ action: 'funnier', instruction: 'Give the robot a ridiculous parking fine.', lyrics: edited });
+  await expect(page.locator('#workshop-version-prompt')).toHaveText('Funnier.\n\nGive the robot a ridiculous parking fine.');
   await page.reload();
   await page.getByRole('button', { name: 'Open lyric workshop' }).click();
   await expect(page.locator('#workshop-lyrics')).toHaveValue(second);
-  await page.locator('#workshop-version').selectOption('1');
+  await expect(page.locator('#workshop-version-prompt')).toContainText('ridiculous parking fine');
+  await page.locator('#workshop-version').selectOption({ index: 2 });
   await expect(page.locator('#workshop-lyrics')).toHaveValue(edited);
+  await expect(page.locator('#workshop-version-prompt')).toContainText('Edited by you');
+  await page.locator('#workshop-version').selectOption({ index: 1 });
+  await expect(page.locator('#workshop-lyrics')).toHaveValue(first);
+  await expect(page.locator('#workshop-version-prompt')).toContainText('Write a first lyric draft');
   expect(state.count()).toBe(2);
+});
+
+test('song idea is visible immediately and only long ideas need show more', async ({ page }) => {
+  await setup(page);
+  await expect(page.locator('#workshop-idea-text')).toBeVisible();
+  await expect(page.locator('#workshop-idea-text')).toContainText('lonely robot');
+  await expect(page.getByRole('button', { name: 'Show more', exact: true })).toBeHidden();
+});
+
+test('long song idea has a readable preview with keyboard show more and less', async ({ page }) => {
+  const prompt = 'A robot misses the last bus and argues with a parking meter. '.repeat(12) + 'The final secret is a pineapple.';
+  await setup(page, { prompt });
+  await expect(page.locator('#workshop-idea-text')).toBeVisible();
+  await expect(page.locator('#workshop-idea-text')).not.toContainText('pineapple');
+  const more = page.getByRole('button', { name: 'Show more', exact: true });
+  await more.focus(); await page.keyboard.press('Enter');
+  await expect(page.locator('#workshop-idea-text')).toHaveText(prompt);
+  await expect(page.getByRole('button', { name: 'Show less', exact: true })).toHaveAttribute('aria-expanded', 'true');
+  await page.keyboard.press('Enter');
+  await expect(more).toHaveAttribute('aria-expanded', 'false');
+  await expect(page.locator('#workshop-idea-text')).not.toContainText('pineapple');
+});
+
+test('identical lyric responses retain distinct prompts and bounded history survives restoring oldest', async ({ page }) => {
+  const state = await setup(page);
+  await page.getByRole('button', { name: 'Generate lyrics', exact: true }).click();
+  await expect(page.locator('#workshop-lyrics')).toHaveValue(first);
+  for (let i = 0; i < 8; i++) {
+    await page.locator('#workshop-direction').fill('Make the lyric robot tell joke number ' + i);
+    await page.getByRole('button', { name: 'Funnier', exact: true }).click();
+    await expect(page.locator('#workshop-version-prompt')).toContainText('joke number ' + i);
+  }
+  await expect(page.locator('#workshop-version option')).toHaveCount(9);
+  await page.locator('#workshop-lyrics').fill(first + '\nI wrote this extra line myself.');
+  await page.locator('#workshop-version').selectOption({ index: 1 });
+  await expect(page.locator('#workshop-version-prompt')).toContainText('joke number 0');
+  await page.locator('#workshop-version').selectOption({ index: 8 });
+  await expect(page.locator('#workshop-lyrics')).toHaveValue(/extra line myself/);
+  expect(state.count()).toBe(9);
+});
+
+test('versions saved before prompt history remain readable and can be revised', async ({ page }) => {
+  await page.addInitScript(({ lyrics }) => sessionStorage.setItem('yehry3:lyric-workshop:workshop-song', JSON.stringify({
+    v: 1, lyrics, base: lyrics, instruction: '', pending: null, versions: [{ lyrics, label: 'Generated draft' }],
+  })), { lyrics: first });
+  await setup(page, { lyrics: first });
+  await expect(page.locator('#workshop-lyrics')).toHaveValue(first);
+  await expect(page.locator('#workshop-version-prompt')).toContainText('not saved for this older version');
+  await page.getByRole('button', { name: 'Funnier', exact: true }).click();
+  await expect(page.locator('#workshop-version-prompt')).toHaveText('Funnier.');
+  await page.locator('#workshop-version').selectOption({ index: 1 });
+  await expect(page.locator('#workshop-version-prompt')).toContainText('not saved for this older version');
 });
 
 test('all four unrelated examples show the scope rejection and preserve existing lyrics', async ({ page }) => {
@@ -152,11 +212,14 @@ test('pending generation resumes after reload without creating another job', asy
   const state = await setup(page, { pending: true, lyrics: first });
   await page.getByRole('button', { name: 'Revise lyrics', exact: true }).click();
   await expect(page.locator('[data-workshop-status]')).toContainText('Waiting');
+  await expect(page.locator('[data-workshop-progress]')).toBeVisible();
   await page.reload();
   await page.getByRole('button', { name: 'Open lyric workshop' }).click();
   await expect(page.getByRole('button', { name: 'Use these lyrics', exact: true })).toBeDisabled();
   state.jobs.values().next().value.state = 'ready';
   await expect(page.locator('[data-workshop-status]')).toContainText('Draft ready');
+  await expect(page.locator('[data-workshop-progress]')).toBeHidden();
+  await expect(page.locator('#workshop-version-prompt')).toContainText('Polish these lyrics');
   expect(state.count()).toBe(1); expect(state.writes).toHaveLength(1);
 });
 
@@ -177,7 +240,29 @@ test('stop preserves the previous draft and makes it editable again', async ({ p
   await page.getByRole('button', { name: 'Stop writing', exact: true }).click();
   await expect(page.locator('#workshop-lyrics')).toBeEditable();
   await expect(page.locator('#workshop-lyrics')).toHaveValue(first);
+  await expect(page.locator('[data-workshop-progress]')).toBeHidden();
   expect(state.cancellations()).toBe(1);
+});
+
+test('rolling hat is prominent during writing on mobile and respects reduced motion', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  const state = await setup(page, { pending: true, lyrics: first });
+  await page.evaluate(() => window.yehry3Theme.setDark(true));
+  await page.getByRole('button', { name: 'Funnier', exact: true }).click();
+  const progress = page.locator('[data-workshop-progress]');
+  await expect(progress).toBeInViewport();
+  await expect(page.locator('.workshop-hat')).toHaveCSS('animation-name', 'workshop-tumble');
+  await expect(page.locator('.workshop-hat-travel')).toHaveCSS('animation-name', 'workshop-travel');
+  Object.assign(state.jobs.values().next().value, { state: 'working', phase: 'writing' });
+  await expect(page.locator('[data-workshop-status]')).toContainText('Writing your lyrics');
+  await page.screenshot({ path: 'artifacts/lyric-workshop-rolling-hat-mobile.png' });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(progress).toBeVisible();
+  await expect(page.locator('.workshop-hat')).toHaveCSS('animation-name', 'none');
+  await expect(page.locator('.workshop-hat-travel')).toHaveCSS('animation-name', 'none');
+  await page.screenshot({ path: 'artifacts/lyric-workshop-still-hat-mobile.png' });
+  await page.getByRole('button', { name: 'Stop writing', exact: true }).click();
+  await expect(progress).toBeHidden();
 });
 
 test('temporary polling failure keeps the job identity for a safe retry', async ({ page }) => {

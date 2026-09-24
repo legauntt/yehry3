@@ -42,6 +42,11 @@ and start it again. To disable drafting, disable and stop this task; ordinary so
 Validation: `python -m unittest -v test_lyric_writer.py`. For an explicit bounded real-model check:
 `python check_lyric_writer.py --config <installed-config> --output <private-report.json>`.
 That check runs eight scope decisions and one lyric draft without creating a song or using a GPU.
+Add `--revisions` instead to exercise all six quick actions and a second Funnier pass, with an
+explicit locked line. It saves private before/after lyrics for human review and a word-change
+diagnostic that ignores punctuation, case and section labels; that number is not a quality score.
+Quick actions have distinct substantive editing goals and combine with extra lyric guidance.
+The browser saves each version's action/prompt alongside its words, including identical responses.
 
 ## Playable publication after failed validation
 

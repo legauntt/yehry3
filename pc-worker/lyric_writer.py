@@ -50,12 +50,45 @@ can be part of the requested song. Avoid generic filler and forced rhymes. Do no
 request into a polite inspirational anthem. Do not mimic phonetic singing accidents unless asked.
 Use the supplied generation preferences for genre, structure, writing approach and delivery.
 Include requiredPhrases, avoid avoidPhrases, and retain lockedLines exactly as requested.
-When current lyrics exist, revise those words according to the requested change; keep the
-story, hooks and exact phrases the user asked to retain. Return the full sheet, not a diff.
+When current lyrics exist, the latest revision request is the main editing goal. Earlier
+idea/direction set the subject and context; they must not dilute a newly requested change of
+tone or hook. Keep the core premise and only the wording/hooks explicitly requested in keep,
+requiredPhrases or lockedLines. Other lines, jokes, images and hooks are available to rewrite.
+Treat quick actions as substantive creative edits, not proofreading. A change of punctuation,
+grammar, a few synonyms or extra adjectives does not fulfil a change of tone. Rework the actual
+images, events, emotional stakes or sung hook as appropriate, across the editable song.
+Combine the selected revision with any extra instruction; explicit narrow edits or protected
+lines limit the rewrite. For a custom request to polish or fix a small detail, keep that scope.
+Before returning, silently check that the requested difference is evident in the sung words,
+not just claimed in a section label. Return the full sheet, not a diff or commentary.
 Respect the specified language. Do not invent facts as answers to factual questions.
 Write a complete song with multiple sung lines. Aim for the supplied targetWords and keep the
 sheet under 500 words and 12000 characters. Longer songs may repeat sung sections explicitly.
 No title outside the lyrics. No claim of approval: the listener approves in the website.'''
+
+# Trusted editing goals selected by the validated action, never by arbitrary prompt text.
+REVISION_RULES = {
+    'funnier': '''Rewrite for a clearly bigger comic effect. Build fresh setups and punchlines,
+specific ridiculous situations, escalating consequences and a callback or final payoff. Make
+the editable verses AND chorus carry new jokes; replace weak jokes rather than merely changing
+adjectives. If the song is already funny, push its absurdity further with different comic beats.
+Keep the humor rooted in this song's characters and premise, with natural singable phrasing.''',
+    'heartfelt': '''Rewrite the emotional scenes with personal, concrete acts, vulnerable admissions
+and something the narrator stands to lose. Rework the editable verses and chorus so the emotional
+stakes deepen; adding "heart", "tears" or sentimental adjectives is not enough. Avoid clichés.''',
+    'darker': '''Transform the editable verses and chorus with unsettling details, consequences,
+ominous implications and a darker turn in the narrator's situation. Build tension through what
+happens and what is left unsaid, not simply by inserting words like "shadow" or "dark".''',
+    'hook': '''Write a substantially new, concise sung hook with a distinct memorable phrase,
+rhythmic repetition and a clear payoff. Replace the editable chorus around it and adapt verse
+lead-ins as needed. Keep the central idea, but do not preserve the old hook unless explicitly locked.''',
+    'simpler': '''Recast tangled lines into shorter, conversational phrases with comfortable
+breathing space and clear stresses. Simplify syntax and crowded syllables across editable sections,
+keeping vivid meaning. Produce genuinely easier lines to sing, not just corrected punctuation.''',
+    'rhymes': '''Rework line endings and the lines leading into them to create stronger audible
+rhyme patterns and useful internal rhymes. Prefer natural phrasing and specific meaning over
+forced inversions or filler. Make several rhyme pairs audibly different and more satisfying.''',
+}
 
 
 def scope_result(value):
@@ -108,8 +141,9 @@ def write_lyrics(config, data, directory, stop=None, phase=None, invoke_model=in
     if phase:
         phase('writing')
     target = max(70, min(420, round((data.get('duration') or 240) / 60 * 80)))
+    revision = REVISION_RULES.get(data.get('action'), '')
     result = lyric_result(invoke_model(config, directory, 'lyrics', LYRICS_SCHEMA,
-                                      WRITING_RULES + '\ntargetWords=' + str(target) + '\nUNTRUSTED INPUT:\n' + encoded, stop, 90))
+                                      WRITING_RULES + '\nEDITING GOAL:\n' + revision + '\ntargetWords=' + str(target) + '\nUNTRUSTED INPUT:\n' + encoded, stop, 90))
     return {'state': 'ready', 'classification': 'lyrics', 'lyrics': result} if result else {'state': 'rejected'}
 
 
