@@ -2,6 +2,262 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-6901939c84b3142b380e6615",
+      "title": "Fireflies at Midnight",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6901939c84b3142b380e6615-5b885cad6498.mp3",
+      "duration": 250.07020408163265,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-24T22:40:42.278Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Fireflies at Midnight",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Manic, melodic garage-rock with a playful vaudeville edge: driving electric bass, dry drums, jagged electric guitar, upright piano stabs, and brief Farfisa organ flashes. A single clear, steadily pitched lead carries an animated but controlled melody; no doubles, backing voices, rasp, whisper, or vocal effects. Build from twitchy verses through a broad, hook-forward chorus, pull back for the reflective bridge, then restore full-band momentum for the final chorus. Pace the outro so “fireflies” is the final sustained sung syllable 8–12 seconds before the 250-second ending, followed by one resolved D minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nTony woke up with a teaspoon in his shoe\nThe refrigerator whispered, \"I remember you\"\nHe wore his Sunday jacket inside out for luck\nTold the parking meter it was talking way too much\n\nThe neighbors found him watering a mailbox at dawn\nSinging to a hubcap like the moon had called him on\nHe said, \"The pigeons run the bank, the bank is made of bread\"\nThen saluted every traffic light and argued with the red\n\n[Pre-Chorus]\nHis little clock kept coughing up quarters on the floor\nTony laughed so hard he couldn't find the door\n\n[Chorus]\nTony loses his mind, lets it roll down the street\nLike a bright red marble underneath everybody's feet\nTony loses his mind, hears the ceiling learn to hum\nSays, \"I was waiting for the thunder, now the thunder's finally come\"\nOh, Tony loses his mind\nAnd the whole town keeps perfect time\n\n[Verse 2]\nHe bought a yellow ladder from a woman at the bar\nClimbed three rungs and waved goodbye to every passing car\nHe mailed himself a postcard from the end of his own bed\nIt said, \"Wish you were here, but you're somewhere else instead\"\n\nHis sister brought him coffee, said, \"Tony, take a breath\"\nHe said, \"I shook hands with a shadow and it scared itself to death\"\nThe radio was preaching through a sock beneath the sink\nAnd every time the faucet dripped, he changed his mind mid-think\n\n[Bridge]\nMaybe there was a wire loose behind his tired eyes\nMaybe all the little rules were wearing cheap disguise\nMaybe sanity's a train that never stops for him\nMaybe he just saw the dark and taught it how to grin\n\n[Chorus]\nTony loses his mind, lets it roll down the street\nLike a bright red marble underneath everybody's feet\nTony loses his mind, hears the ceiling learn to hum\nSays, \"I was waiting for the thunder, now the thunder's finally come\"\n\n[Outro]\nAt midnight Tony sat beneath the laundromat sign\nWatching all the spinning shirts become a galaxy of white\nHe whispered, \"Keep the change,\" to the wide and empty sky\nThen walked home with both his hands full of fireflies\n[End]",
+        "duration": 250,
+        "bpm": 132,
+        "musicalSettings": {
+          "genre": "Melodic garage rock with playful vaudeville color",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, bridge, chorus, outro",
+          "performance": "One clear, steadily pitched melodic lead with animated phrasing and no layered vocals",
+          "energy": "Restless and quirky at the start, bright and propulsive in choruses, briefly reflective in the bridge, then warmly resolved",
+          "lyricWorkflow": "Preserved supplied lyric sheet, set in its original order",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "electric guitar",
+            "upright piano",
+            "Farfisa organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nTony woke up with a teaspoon in his shoe\nThe refrigerator whispered, \"I remember you\"\nHe wore his Sunday jacket inside out for luck\nTold the parking meter it was talking way too much\n\nThe neighbors found him watering a mailbox at dawn\nSinging to a hubcap like the moon had called him on\nHe said, \"The pigeons run the bank, the bank is made of bread\"\nThen saluted every traffic light and argued with the red\n\n[Pre-Chorus]\nHis little clock kept coughing up quarters on the floor\nTony laughed so hard he couldn't find the door\n\n[Chorus]\nTony loses his mind, lets it roll down the street\nLike a bright red marble underneath everybody's feet\nTony loses his mind, hears the ceiling learn to hum\nSays, \"I was waiting for the thunder, now the thunder's finally come\"\nOh, Tony loses his mind\nAnd the whole town keeps perfect time\n\n[Verse 2]\nHe bought a yellow ladder from a woman at the bar\nClimbed three rungs and waved goodbye to every passing car\nHe mailed himself a postcard from the end of his own bed\nIt said, \"Wish you were here, but you're somewhere else instead\"\n\nHis sister brought him coffee, said, \"Tony, take a breath\"\nHe said, \"I shook hands with a shadow and it scared itself to death\"\nThe radio was preaching through a sock beneath the sink\nAnd every time the faucet dripped, he changed his mind mid-think\n\n[Bridge]\nMaybe there was a wire loose behind his tired eyes\nMaybe all the little rules were wearing cheap disguise\nMaybe sanity's a train that never stops for him\nMaybe he just saw the dark and taught it how to grin\n\n[Chorus]\nTony loses his mind, lets it roll down the street\nLike a bright red marble underneath everybody's feet\nTony loses his mind, hears the ceiling learn to hum\nSays, \"I was waiting for the thunder, now the thunder's finally come\"\n\n[Outro]\nAt midnight Tony sat beneath the laundromat sign\nWatching all the spinning shirts become a galaxy of white\nHe whispered, \"Keep the change,\" to the wide and empty sky\nThen walked home with both his hands full of fireflies",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 14.68,
+            "end": 17.28
+          },
+          {
+            "line": 2,
+            "start": 17.28,
+            "end": 22.62
+          },
+          {
+            "line": 3,
+            "start": 22.62,
+            "end": 25.92
+          },
+          {
+            "line": 4,
+            "start": 26.62,
+            "end": 29.98
+          },
+          {
+            "line": 6,
+            "start": 32.52,
+            "end": 35.96
+          },
+          {
+            "line": 7,
+            "start": 36.56,
+            "end": 40.42
+          },
+          {
+            "line": 8,
+            "start": 40.9,
+            "end": 44.62
+          },
+          {
+            "line": 9,
+            "start": 46.7,
+            "end": 51.4
+          },
+          {
+            "line": 12,
+            "start": 52.3,
+            "end": 58.64
+          },
+          {
+            "line": 13,
+            "start": 59.58,
+            "end": 65.98
+          },
+          {
+            "line": 16,
+            "start": 67.22,
+            "end": 73.2
+          },
+          {
+            "line": 17,
+            "start": 76.08,
+            "end": 79.7
+          },
+          {
+            "line": 18,
+            "start": 79.7,
+            "end": 84.24
+          },
+          {
+            "line": 19,
+            "start": 84.84,
+            "end": 88.4
+          },
+          {
+            "line": 20,
+            "start": 88.4,
+            "end": 91.46
+          },
+          {
+            "line": 21,
+            "start": 93.82,
+            "end": 98.92
+          },
+          {
+            "line": 24,
+            "start": 108.72,
+            "end": 112.64
+          },
+          {
+            "line": 25,
+            "start": 116.46,
+            "end": 121.02
+          },
+          {
+            "line": 26,
+            "start": 123.22,
+            "end": 127.26
+          },
+          {
+            "line": 27,
+            "start": 130.46,
+            "end": 134.4
+          },
+          {
+            "line": 29,
+            "start": 134.4,
+            "end": 137.84
+          },
+          {
+            "line": 30,
+            "start": 137.84,
+            "end": 142.38
+          },
+          {
+            "line": 31,
+            "start": 142.38,
+            "end": 149.52
+          },
+          {
+            "line": 32,
+            "start": 149.52,
+            "end": 156.54
+          },
+          {
+            "line": 35,
+            "start": 160.22,
+            "end": 166.06
+          },
+          {
+            "line": 36,
+            "start": 167.12,
+            "end": 171.12
+          },
+          {
+            "line": 37,
+            "start": 172.56,
+            "end": 176.8
+          },
+          {
+            "line": 38,
+            "start": 178.42,
+            "end": 184.12
+          },
+          {
+            "line": 41,
+            "start": 187.3,
+            "end": 191.46
+          },
+          {
+            "line": 42,
+            "start": 191.46,
+            "end": 197.68
+          },
+          {
+            "line": 43,
+            "start": 200.22,
+            "end": 206.08
+          },
+          {
+            "line": 44,
+            "start": 206.66,
+            "end": 211.44
+          },
+          {
+            "line": 47,
+            "start": 214.08,
+            "end": 222.02
+          },
+          {
+            "line": 48,
+            "start": 222.02,
+            "end": 226.18
+          },
+          {
+            "line": 49,
+            "start": 227.24,
+            "end": 231.84
+          },
+          {
+            "line": 50,
+            "start": 234.12,
+            "end": 238.68
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 15.22
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony loses his mind",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 250
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-30a93586b255320dd9ef6576",
       "title": "The Biological Mandate (Disco Glass Mix)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-30a93586b255320dd9ef6576-9e10cc03d446.mp3",
