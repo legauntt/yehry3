@@ -26,8 +26,8 @@ the same result, expired/canceled leases cannot publish, and started jobs are ne
 
 Jobs have a three-minute absolute deadline. Chairlift retains private results for 24 hours;
 browser versions survive in the same tab. Temporary local prompts, outputs and logs are removed
-after each attempt. `state/lyric-workshop/pickup.json` records the latest private job ID and elapsed
-milliseconds from enqueue to PC pickup, for live latency checks (includes any queue backlog).
+after each attempt. `state/lyric-workshop/pickup.json` records the latest private job ID on receipt.
+The live check observes that receipt using its own monotonic clock, avoiding server/PC clock skew.
 `state/lyric-workshop/health.json` and `state/lyric-writer.log` contain only
 service state and error types. An interrupted process can leave a private `attempt-*` directory
 under that state folder; it contains no credential and is never part of a public build.

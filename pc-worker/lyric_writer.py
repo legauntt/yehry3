@@ -194,10 +194,7 @@ def serve(config):
                 job = response.get('job')
                 if job:
                     save(root / 'health.json', {'at': utc(), 'state': 'writing'})
-                    if job.get('createdAt'):
-                        queued = datetime.fromisoformat(job['createdAt'].replace('Z', '+00:00')).timestamp()
-                        pickup_ms = max(0, round((time.time() - queued) * 1000))
-                        save(root / 'pickup.json', {'at': utc(), 'jobId': job['id'], 'pickupMs': pickup_ms})
+                    save(root / 'pickup.json', {'at': utc(), 'jobId': job['id']})
                     perform(api, config, job, claim['leaseToken'])
                 else:
                     waiting = True

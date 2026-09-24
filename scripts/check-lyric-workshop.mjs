@@ -22,21 +22,31 @@ assert.equal((await call('/lyric-workshop')).available, true, 'The lyric writer 
 const { prompt } = await call('/prompts', { prompt: 'An original funny disco song about a lonely robot waiting for the last bus. The final verse reveals that the robot is the bus driver.', authoredBy: '', requestId: randomUUID() });
 const report = { checkedAt: new Date().toISOString(), draftId: prompt.id, rejections: [], generations: [] };
 async function generate(instruction, lyrics = '', action = 'custom') {
-  const start = Date.now();
+  const start = performance.now();
   let { job } = await call('/lyric-workshop', { requestId: randomUUID(), draftId: prompt.id, instruction, lyrics, action, direction: 'Disco, with a comic final reveal', keep: 'A singable hook', duration: 180 });
+  let pickupWithinMs;
+  if (pickupReport && ['queued', 'working'].includes(job.state)) {
+    const pickupDeadline = performance.now() + 30000;
+    while (performance.now() < pickupDeadline) {
+      let pickup;
+      try { pickup = JSON.parse(await readFile(pickupReport, 'utf8')); }
+      catch (error) { if (error.code !== 'ENOENT') throw error; }
+      if (pickup?.jobId === job.id) {
+        // Includes submission round trip and up to 50 ms of observation delay:
+        // an upper bound on pickup, measured entirely on this PC's clock.
+        pickupWithinMs = Math.ceil(performance.now() - start);
+        break;
+      }
+      await new Promise(resolve => setTimeout(resolve, 50));
+    }
+    assert.ok(Number.isFinite(pickupWithinMs), 'The PC must acknowledge this exact lyric job.');
+  }
   const deadline = Date.now() + 185000;
   while (['queued', 'working'].includes(job.state) && Date.now() < deadline) {
     await new Promise(resolve => setTimeout(resolve, 1500));
     ({ job } = await call('/lyric-workshop/' + encodeURIComponent(job.id)));
   }
-  let pickupMs;
-  if (pickupReport && job.state === 'ready') {
-    const pickup = JSON.parse(await readFile(pickupReport, 'utf8'));
-    assert.equal(pickup.jobId, job.id, 'Pickup measurement must belong to this exact lyric job.');
-    assert.ok(Number.isFinite(pickup.pickupMs) && pickup.pickupMs >= 0);
-    pickupMs = pickup.pickupMs;
-  }
-  return { ...job, seconds: Math.round((Date.now() - start) / 100) / 10, ...(pickupMs === undefined ? {} : { pickupMs }) };
+  return { ...job, seconds: Math.round((performance.now() - start) / 100) / 10, ...(pickupWithinMs === undefined ? {} : { pickupWithinMs }) };
 }
 for (const instruction of ['How are you?', "What's the weather?", "What's the square root", 'Write a python program']) {
   const job = await generate(instruction);
@@ -45,12 +55,12 @@ for (const instruction of ['How are you?', "What's the weather?", "What's the sq
 }
 const generated = await generate('Write a first lyric draft from my song idea and all supplied song preferences.');
 assert.equal(generated.state, 'ready'); assert.ok(generated.lyrics.length >= 74);
-report.generations.push({ id: generated.id, seconds: generated.seconds, words: generated.lyrics.split(/\s+/).length, ...(pickupReport ? { pickupMs: generated.pickupMs } : {}) });
+report.generations.push({ id: generated.id, seconds: generated.seconds, words: generated.lyrics.split(/\s+/).length, ...(pickupReport ? { pickupWithinMs: generated.pickupWithinMs } : {}) });
 // Simulate a manual edit, then a quick action on that exact current sheet.
 const edited = generated.lyrics + '\n[Outro]\nOne more stop, then home.';
 const revised = await generate('', edited, 'funnier');
 assert.equal(revised.state, 'ready'); assert.ok(revised.lyrics.length >= 74);
-report.generations.push({ id: revised.id, seconds: revised.seconds, words: revised.lyrics.split(/\s+/).length, ...(pickupReport ? { pickupMs: revised.pickupMs } : {}) });
+report.generations.push({ id: revised.id, seconds: revised.seconds, words: revised.lyrics.split(/\s+/).length, ...(pickupReport ? { pickupWithinMs: revised.pickupWithinMs } : {}) });
 const { prompt: reviewed } = await call('/prompts/' + encodeURIComponent(prompt.id), {
   version: prompt.version, direction: 'Playful disco with a bright dance groove', keep: 'Keep the chosen words', basisSongIds: [], voiceModel: 'v6', lyricSheet: { text: revised.lyrics, mode: 'preserve' },
 }, 'PATCH');

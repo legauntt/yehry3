@@ -4,7 +4,6 @@ import os
 from pathlib import Path
 import subprocess
 import traceback
-from winprocess import Job
 
 
 def run(task, root):
@@ -33,6 +32,7 @@ def run(task, root):
                 owned = None
                 try:
                     if task == 'lyrics':
+                        from winprocess import Job
                         owned = Job(process)
                     # Stay alive so Task Scheduler retains IgnoreNew, timeouts and retries.
                     return process.wait()

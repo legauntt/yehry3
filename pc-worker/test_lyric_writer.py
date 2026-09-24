@@ -18,7 +18,7 @@ class LyricWriterTests(unittest.TestCase):
                 process.wait.return_value = 0
                 popen = MagicMock()
                 popen.__enter__.return_value = process
-                with patch.object(launch_hidden.subprocess, 'Popen', return_value=popen), patch.object(launch_hidden, 'Job') as job:
+                with patch.object(launch_hidden.subprocess, 'Popen', return_value=popen), patch('winprocess.Job') as job:
                     self.assertEqual(launch_hidden.run(task, folder), 0)
                     if task == 'lyrics':
                         job.assert_called_once_with(process)
