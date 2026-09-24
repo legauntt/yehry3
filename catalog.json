@@ -2,6 +2,334 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-30f2762b70c6cef32ce8a417",
+      "title": "Dividend at Dawn",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-30f2762b70c6cef32ce8a417-41ad3a4ecf34.mp3",
+      "duration": 230,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-24T19:20:36.395Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Dividend at Dawn",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Satirical heartland funk-rock in E minor: elastic electric bass, dry drums, overdriven rhythm guitar, Wurlitzer, and restrained horn stabs carry a lively pocket beneath Tony’s smoky, connected melodic delivery. Verses are conversational and sly; choruses broaden into a catchable singalong with rough laughs and stretched vowels. Build from lean verse groove to a full final chorus, then sustain the final word “morning” around 220 seconds, resolving with one final chord that decays to the 230-second finish.",
+        "lyrics": "[Intro]\nThe screens light up before the shop lights blink\nA thousand little agents never stop to think\nThey build the bridges, patch the leak\nWhile the boss says, “Look how fast the future speaks”\n\n[Verse 1]\nMarty from QA had a lunch pail scar\nNow the lunch pail’s hanging in the back of his car\nHe trained the model with a patient hand\nThen watched it write his name out of the plan\nThey call it freedom from the boring grind\nA miracle assembled from the market mind\nThe ticker climbs, the keynote glows\nAnd nobody asks where Marty goes\n\n[Pre-Chorus]\nThere’s a champagne tower in the boardroom sun\nThey say everybody wins when the deal gets done\n\n[Chorus]\nWe niggas is shareholdas, or so they say\nA fraction of a fraction gets us through the day\nIf the machine makes plenty, let the plenty come around\nDon’t sell us all a ladder while you pull it off the ground\nWe niggas is shareholdas, hear the polished call\nBut a future ain’t a future if it leaves out half of us all\n\n[Verse 2]\nThe interns watch the dashboard turn green\nLike a casino dressed up clean\nOne click sends a whole team home\nOne click buys another private dome\nI love a tool that can lift the weight\nI love a door that can open a gate\nBut if the gate is for the chosen few\nWhat kind of progress are we running to?\n\n[Pre-Chorus]\nPut the miracle in every hand\nPut a paycheck under every plan\n\n[Chorus]\nWe niggas is shareholdas, or so they say\nA fraction of a fraction gets us through the day\nIf the machine makes plenty, let the plenty come around\nDon’t sell us all a ladder while you pull it off the ground\nWe niggas is shareholdas, hear the polished call\nBut a future ain’t a future if it leaves out half of us all\n\n[Bridge]\nNo, I won’t curse the wire or the wheel\nI want the better world they swear is real\nLet the code run bright, let the hard work ease\nBut feed the folks who taught it how to please\nA golden age is not a quarterly slide\nIt’s a warm lit house with the whole town inside\n\n[Chorus]\nWe niggas is shareholdas—make it true\nNot a paper little promise for a lucky few\nWhen the engines make abundance, let it fill the street\nLet the hands that built tomorrow have a place to eat\nWe niggas is shareholdas, let the record show\nThe future only matters if we all get to go\n\n[Outro]\nSo raise the door, turn on the morning\nLeave nobody outside the morning\n[End]",
+        "duration": 230,
+        "bpm": 108,
+        "musicalSettings": {
+          "genre": "Satirical heartland funk-rock",
+          "meter": "4/4",
+          "structure": "Intro, verse, pre-chorus, chorus, verse, pre-chorus, chorus, bridge, final chorus, resolved outro",
+          "performance": "Rough, smoky Tony lead with slurred connected vowels, mischievous asides, and fully sung melodic choruses",
+          "energy": "Starts wiry and observant, grows into a buoyant but uneasy communal refrain, then resolves warmly",
+          "lyricWorkflow": "Original narrative lyrics use workplace scenes and a satirical refrain to weigh automation’s promise against shared prosperity",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "electric guitar",
+            "Wurlitzer electric piano",
+            "trumpet",
+            "trombone"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nThe screens light up before the shop lights blink\nA thousand little agents never stop to think\nThey build the bridges, patch the leak\nWhile the boss says, “Look how fast the future speaks”\n\n[Verse 1]\nMarty from QA had a lunch pail scar\nNow the lunch pail’s hanging in the back of his car\nHe trained the model with a patient hand\nThen watched it write his name out of the plan\nThey call it freedom from the boring grind\nA miracle assembled from the market mind\nThe ticker climbs, the keynote glows\nAnd nobody asks where Marty goes\n\n[Pre-Chorus]\nThere’s a champagne tower in the boardroom sun\nThey say everybody wins when the deal gets done\n\n[Chorus]\nWe niggas is shareholdas, or so they say\nA fraction of a fraction gets us through the day\nIf the machine makes plenty, let the plenty come around\nDon’t sell us all a ladder while you pull it off the ground\nWe niggas is shareholdas, hear the polished call\nBut a future ain’t a future if it leaves out half of us all\n\n[Verse 2]\nThe interns watch the dashboard turn green\nLike a casino dressed up clean\nOne click sends a whole team home\nOne click buys another private dome\nI love a tool that can lift the weight\nI love a door that can open a gate\nBut if the gate is for the chosen few\nWhat kind of progress are we running to?\n\n[Pre-Chorus]\nPut the miracle in every hand\nPut a paycheck under every plan\n\n[Chorus]\nWe niggas is shareholdas, or so they say\nA fraction of a fraction gets us through the day\nIf the machine makes plenty, let the plenty come around\nDon’t sell us all a ladder while you pull it off the ground\nWe niggas is shareholdas, hear the polished call\nBut a future ain’t a future if it leaves out half of us all\n\n[Bridge]\nNo, I won’t curse the wire or the wheel\nI want the better world they swear is real\nLet the code run bright, let the hard work ease\nBut feed the folks who taught it how to please\nA golden age is not a quarterly slide\nIt’s a warm lit house with the whole town inside\n\n[Chorus]\nWe niggas is shareholdas—make it true\nNot a paper little promise for a lucky few\nWhen the engines make abundance, let it fill the street\nLet the hands that built tomorrow have a place to eat\nWe niggas is shareholdas, let the record show\nThe future only matters if we all get to go\n\n[Outro]\nSo raise the door, turn on the morning\nLeave nobody outside the morning",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 2.46
+          },
+          {
+            "line": 2,
+            "start": 4.2,
+            "end": 6.46
+          },
+          {
+            "line": 3,
+            "start": 6.46,
+            "end": 10.92
+          },
+          {
+            "line": 4,
+            "start": 12.36,
+            "end": 15.48
+          },
+          {
+            "line": 7,
+            "start": 17.06,
+            "end": 19.06
+          },
+          {
+            "line": 8,
+            "start": 19.6,
+            "end": 21.44
+          },
+          {
+            "line": 9,
+            "start": 22.3,
+            "end": 24.02
+          },
+          {
+            "line": 10,
+            "start": 24.02,
+            "end": 25.5
+          },
+          {
+            "line": 11,
+            "start": 25.5,
+            "end": 27.16
+          },
+          {
+            "line": 12,
+            "start": 27.16,
+            "end": 27.48
+          },
+          {
+            "line": 13,
+            "start": 27.48,
+            "end": 27.86
+          },
+          {
+            "line": 14,
+            "start": 31.66,
+            "end": 35.08
+          },
+          {
+            "line": 17,
+            "start": 35.08,
+            "end": 38.8
+          },
+          {
+            "line": 18,
+            "start": 39.28,
+            "end": 43.36
+          },
+          {
+            "line": 21,
+            "start": 45.56,
+            "end": 48.76
+          },
+          {
+            "line": 22,
+            "start": 49.32,
+            "end": 54.02
+          },
+          {
+            "line": 23,
+            "start": 54.02,
+            "end": 59.44
+          },
+          {
+            "line": 24,
+            "start": 59.44,
+            "end": 63.02
+          },
+          {
+            "line": 25,
+            "start": 63.02,
+            "end": 66.92
+          },
+          {
+            "line": 26,
+            "start": 66.92,
+            "end": 72.18
+          },
+          {
+            "line": 29,
+            "start": 76.2,
+            "end": 79.04
+          },
+          {
+            "line": 30,
+            "start": 79.04,
+            "end": 81.18
+          },
+          {
+            "line": 31,
+            "start": 81.18,
+            "end": 83.38
+          },
+          {
+            "line": 32,
+            "start": 84,
+            "end": 85.44
+          },
+          {
+            "line": 33,
+            "start": 85.44,
+            "end": 87.42
+          },
+          {
+            "line": 34,
+            "start": 87.42,
+            "end": 89.82
+          },
+          {
+            "line": 35,
+            "start": 89.82,
+            "end": 92.1
+          },
+          {
+            "line": 36,
+            "start": 92.8,
+            "end": 94.34
+          },
+          {
+            "line": 39,
+            "start": 94.34,
+            "end": 96.8
+          },
+          {
+            "line": 40,
+            "start": 96.8,
+            "end": 100.94
+          },
+          {
+            "line": 43,
+            "start": 100.94,
+            "end": 103.72
+          },
+          {
+            "line": 44,
+            "start": 103.72,
+            "end": 109.04
+          },
+          {
+            "line": 45,
+            "start": 109.52,
+            "end": 114.5
+          },
+          {
+            "line": 46,
+            "start": 114.5,
+            "end": 118.42
+          },
+          {
+            "line": 47,
+            "start": 118.42,
+            "end": 121.94
+          },
+          {
+            "line": 48,
+            "start": 121.94,
+            "end": 127.24
+          },
+          {
+            "line": 51,
+            "start": 131.44,
+            "end": 134.66
+          },
+          {
+            "line": 52,
+            "start": 134.66,
+            "end": 138.94
+          },
+          {
+            "line": 53,
+            "start": 140.24,
+            "end": 143.04
+          },
+          {
+            "line": 54,
+            "start": 143.04,
+            "end": 144.88
+          },
+          {
+            "line": 55,
+            "start": 144.88,
+            "end": 150.62
+          },
+          {
+            "line": 56,
+            "start": 150.62,
+            "end": 153.2
+          },
+          {
+            "line": 59,
+            "start": 153.56,
+            "end": 156.6
+          },
+          {
+            "line": 60,
+            "start": 157.58,
+            "end": 161.84
+          },
+          {
+            "line": 61,
+            "start": 162.64,
+            "end": 166.24
+          },
+          {
+            "line": 62,
+            "start": 166.24,
+            "end": 170.6
+          },
+          {
+            "line": 63,
+            "start": 171.12,
+            "end": 174.78
+          },
+          {
+            "line": 64,
+            "start": 175.8,
+            "end": 180.58
+          },
+          {
+            "line": 67,
+            "start": 182.44,
+            "end": 185.08
+          },
+          {
+            "line": 68,
+            "start": 228.58,
+            "end": 229.98
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 14.06
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Tony C explains why a near future of fully automating software engineering is good, actually, thanks to the great miracle of American capitalism, although maybe not for the people who find themselves unemployed.",
+        "direction": "Use the prompt as written.",
+        "keep": "Must use the phrase \"we niggas is shareholdas\" in the chorus (\"shareholdas\" is pronounced \"share hole does\")",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-01c1bd5f0fac184d0625e531",
       "title": "Static on the Runway",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-01c1bd5f0fac184d0625e531-9592fa8e9437.mp3",
