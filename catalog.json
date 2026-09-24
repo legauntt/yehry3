@@ -2,6 +2,371 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-01c1bd5f0fac184d0625e531",
+      "title": "Static on the Runway",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-01c1bd5f0fac184d0625e531-9592fa8e9437.mp3",
+      "duration": 411.2,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-24T18:57:32.682Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Static on the Runway",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Bass-forward D-minor garage rock at 126 BPM: overdriven electric guitar, muscular melodic bass, punchy live drums, and a gritty organ bed. Tony V9 leads with smoky connected vowels, rough melodic emphasis, muttered edge in the verses, and a clear, catchable chorus. Build from tense verse pocket through fuller choruses, strip back briefly for the bridge, then lift the final chorus into a grounded outro. Pace the final outro lines so the last sung syllable lands near 400 seconds; resolve on one final D-minor tonic chord that decays through 412 seconds.",
+        "lyrics": "[Verse 1]\nThe television's chewing through a midnight plate\nA senator points at a picture and calls it fate\nSays somebody's changing all the children in the hall\nWhile a furry in a cockpit makes the evening crawl\nThe lower-third is blinking like a busted motel sign\nEverybody wants a villain, everybody wants a line\nMama checks the cupboard, Dad checks his phone\nThe neighbor says the country's gone and left him all alone\n\n[Pre-Chorus]\nBut the school bus still rolls through the rain\nAnd the rent still hurts the same\n\n[Chorus]\nStatic on the runway, static in the room\nEverybody selling thunder, everybody selling doom\nTurn the dial down, listen close\nTo the folks beneath the smoke\nStatic on the runway, don't let it fly\nPast the hungry mouths and the unpaid lights\n\n[Verse 2]\nA man in a red tie pounds the desk for the feed\nCalls a kid a headline when the kid just needs to breathe\nAnother hand points upward, another hand points back\nNobody names the bridges with the holes across the track\nThey say Democrats are trans-ing your kids tonight\nLike a scary little slogan makes a complicated fight\nBut the kid at the kitchen table hears every word\nAnd wonders why the grown-ups make belonging sound absurd\n\n[Pre-Chorus]\nThere are hospitals short on hands\nThere are towns beneath the sand\n\n[Chorus]\nStatic on the runway, static in the room\nEverybody selling thunder, everybody selling doom\nTurn the dial down, listen close\nTo the folks beneath the smoke\nStatic on the runway, don't let it fly\nPast the hungry mouths and the unpaid lights\n\n[Verse 3]\nNow the furries flying planes are the story of the day\nA comic little panic with a sponsor on the way\nWhile the mechanic counts the overtime and wipes his brow\nAnd a family at the airport wonders where their flight is now\nThere are factories shutting shutters, there are rivers running brown\nThere are veterans in waiting rooms all over every town\nBut outrage has a rhythm and it drums a simple beat\nIt keeps the cameras fed while it leaves the hard work incomplete\n\n[Bridge]\nHey, don't hand your fear to a man behind a screen\nDon't make a child carry every word you mean\nAsk who gets rich when the signal turns cruel\nAsk who repairs the road, who funds the school\nNo costume, no party, no convenient enemy\nCan fix a broken promise by becoming all you see\n\n[Chorus]\nStatic on the runway, static in the room\nWe can quit mistaking noise for some inevitable doom\nTurn the dial down, listen close\nLet the human voices show\nStatic on the runway, clear the sky\nFor the work that waits and the reasons why\nNo more borrowed monsters, no more easy alibis\nWe'll face the morning singing under open skies\n\n[Outro]\nThe screen goes dark, the house grows still\nA child laughs somewhere beyond the hill\nLet the last loud warning lose its hold tonight\nWe find our way by a smaller, steadier light\n[End]",
+        "duration": 412,
+        "bpm": 126,
+        "musicalSettings": {
+          "genre": "Bass-forward garage rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, Verse 3, bridge, final chorus, outro",
+          "performance": "Smoky, slurred-but-intelligible Tony lead with sustained melodic hooks and rough conversational verses",
+          "energy": "Tense mid-tempo opening, escalating choruses, a restrained bridge, and a firm resolved finale",
+          "lyricWorkflow": "Exact preserved lyric sheet, set to an original song arrangement without additions or repeats",
+          "instruments": [
+            "overdriven electric guitar",
+            "electric bass",
+            "live drum kit",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThe television's chewing through a midnight plate\nA senator points at a picture and calls it fate\nSays somebody's changing all the children in the hall\nWhile a furry in a cockpit makes the evening crawl\nThe lower-third is blinking like a busted motel sign\nEverybody wants a villain, everybody wants a line\nMama checks the cupboard, Dad checks his phone\nThe neighbor says the country's gone and left him all alone\n\n[Pre-Chorus]\nBut the school bus still rolls through the rain\nAnd the rent still hurts the same\n\n[Chorus]\nStatic on the runway, static in the room\nEverybody selling thunder, everybody selling doom\nTurn the dial down, listen close\nTo the folks beneath the smoke\nStatic on the runway, don't let it fly\nPast the hungry mouths and the unpaid lights\n\n[Verse 2]\nA man in a red tie pounds the desk for the feed\nCalls a kid a headline when the kid just needs to breathe\nAnother hand points upward, another hand points back\nNobody names the bridges with the holes across the track\nThey say Democrats are trans-ing your kids tonight\nLike a scary little slogan makes a complicated fight\nBut the kid at the kitchen table hears every word\nAnd wonders why the grown-ups make belonging sound absurd\n\n[Pre-Chorus]\nThere are hospitals short on hands\nThere are towns beneath the sand\n\n[Chorus]\nStatic on the runway, static in the room\nEverybody selling thunder, everybody selling doom\nTurn the dial down, listen close\nTo the folks beneath the smoke\nStatic on the runway, don't let it fly\nPast the hungry mouths and the unpaid lights\n\n[Verse 3]\nNow the furries flying planes are the story of the day\nA comic little panic with a sponsor on the way\nWhile the mechanic counts the overtime and wipes his brow\nAnd a family at the airport wonders where their flight is now\nThere are factories shutting shutters, there are rivers running brown\nThere are veterans in waiting rooms all over every town\nBut outrage has a rhythm and it drums a simple beat\nIt keeps the cameras fed while it leaves the hard work incomplete\n\n[Bridge]\nHey, don't hand your fear to a man behind a screen\nDon't make a child carry every word you mean\nAsk who gets rich when the signal turns cruel\nAsk who repairs the road, who funds the school\nNo costume, no party, no convenient enemy\nCan fix a broken promise by becoming all you see\n\n[Chorus]\nStatic on the runway, static in the room\nWe can quit mistaking noise for some inevitable doom\nTurn the dial down, listen close\nLet the human voices show\nStatic on the runway, clear the sky\nFor the work that waits and the reasons why\nNo more borrowed monsters, no more easy alibis\nWe'll face the morning singing under open skies\n\n[Outro]\nThe screen goes dark, the house grows still\nA child laughs somewhere beyond the hill\nLet the last loud warning lose its hold tonight\nWe find our way by a smaller, steadier light",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 14.98,
+            "end": 18.62
+          },
+          {
+            "line": 2,
+            "start": 19.24,
+            "end": 23.2
+          },
+          {
+            "line": 3,
+            "start": 23.78,
+            "end": 27.32
+          },
+          {
+            "line": 4,
+            "start": 27.32,
+            "end": 30.52
+          },
+          {
+            "line": 5,
+            "start": 30.52,
+            "end": 34.1
+          },
+          {
+            "line": 6,
+            "start": 34.1,
+            "end": 38.12
+          },
+          {
+            "line": 7,
+            "start": 38.12,
+            "end": 41.84
+          },
+          {
+            "line": 8,
+            "start": 41.84,
+            "end": 45.72
+          },
+          {
+            "line": 11,
+            "start": 45.72,
+            "end": 49.52
+          },
+          {
+            "line": 12,
+            "start": 49.52,
+            "end": 52.68
+          },
+          {
+            "line": 15,
+            "start": 54.7,
+            "end": 58.3
+          },
+          {
+            "line": 16,
+            "start": 58.7,
+            "end": 62.18
+          },
+          {
+            "line": 17,
+            "start": 62.76,
+            "end": 65.94
+          },
+          {
+            "line": 18,
+            "start": 65.94,
+            "end": 69.62
+          },
+          {
+            "line": 19,
+            "start": 70.32,
+            "end": 73.88
+          },
+          {
+            "line": 20,
+            "start": 74.66,
+            "end": 78.2
+          },
+          {
+            "line": 23,
+            "start": 94.06,
+            "end": 98.1
+          },
+          {
+            "line": 24,
+            "start": 98.1,
+            "end": 101.84
+          },
+          {
+            "line": 25,
+            "start": 101.84,
+            "end": 105.92
+          },
+          {
+            "line": 26,
+            "start": 105.92,
+            "end": 109.54
+          },
+          {
+            "line": 27,
+            "start": 109.54,
+            "end": 113.2
+          },
+          {
+            "line": 28,
+            "start": 113.2,
+            "end": 117.34
+          },
+          {
+            "line": 29,
+            "start": 117.34,
+            "end": 121.38
+          },
+          {
+            "line": 30,
+            "start": 121.38,
+            "end": 124.84
+          },
+          {
+            "line": 33,
+            "start": 125.08,
+            "end": 128.84
+          },
+          {
+            "line": 34,
+            "start": 128.98,
+            "end": 133.7
+          },
+          {
+            "line": 37,
+            "start": 133.7,
+            "end": 137.66
+          },
+          {
+            "line": 38,
+            "start": 137.66,
+            "end": 141.44
+          },
+          {
+            "line": 39,
+            "start": 141.44,
+            "end": 145.2
+          },
+          {
+            "line": 40,
+            "start": 145.2,
+            "end": 149
+          },
+          {
+            "line": 41,
+            "start": 149,
+            "end": 163.68
+          },
+          {
+            "line": 42,
+            "start": 163.68,
+            "end": 173
+          },
+          {
+            "line": 45,
+            "start": 173,
+            "end": 177.42
+          },
+          {
+            "line": 46,
+            "start": 177.42,
+            "end": 181.16
+          },
+          {
+            "line": 47,
+            "start": 181.5,
+            "end": 184.56
+          },
+          {
+            "line": 48,
+            "start": 184.56,
+            "end": 188.76
+          },
+          {
+            "line": 49,
+            "start": 188.76,
+            "end": 192.98
+          },
+          {
+            "line": 50,
+            "start": 192.98,
+            "end": 197.06
+          },
+          {
+            "line": 51,
+            "start": 197.06,
+            "end": 200.52
+          },
+          {
+            "line": 52,
+            "start": 200.52,
+            "end": 204.4
+          },
+          {
+            "line": 55,
+            "start": 207.78,
+            "end": 212.16
+          },
+          {
+            "line": 56,
+            "start": 212.16,
+            "end": 215.84
+          },
+          {
+            "line": 57,
+            "start": 215.84,
+            "end": 219.92
+          },
+          {
+            "line": 58,
+            "start": 219.92,
+            "end": 223.52
+          },
+          {
+            "line": 59,
+            "start": 223.52,
+            "end": 227.36
+          },
+          {
+            "line": 60,
+            "start": 227.36,
+            "end": 232.3
+          },
+          {
+            "line": 63,
+            "start": 238.66,
+            "end": 242.18
+          },
+          {
+            "line": 64,
+            "start": 242.18,
+            "end": 246.08
+          },
+          {
+            "line": 65,
+            "start": 246.66,
+            "end": 249.64
+          },
+          {
+            "line": 66,
+            "start": 250.92,
+            "end": 253.56
+          },
+          {
+            "line": 67,
+            "start": 254.22,
+            "end": 257.64
+          },
+          {
+            "line": 68,
+            "start": 258.48,
+            "end": 262.38
+          },
+          {
+            "line": 69,
+            "start": 267.9,
+            "end": 274.82
+          },
+          {
+            "line": 70,
+            "start": 276.24,
+            "end": 282.62
+          },
+          {
+            "line": 73,
+            "start": 292.99,
+            "end": 296.46
+          },
+          {
+            "line": 74,
+            "start": 296.96,
+            "end": 300.06
+          },
+          {
+            "line": 75,
+            "start": 300.66,
+            "end": 303.78
+          },
+          {
+            "line": 76,
+            "start": 304.46,
+            "end": 309.08
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "voice_validation"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Tony C, much like Tommy Tuberville, finally takes on the real issues plaguing America: Democrats trans-ing your kids, and furries flying planes.",
+        "direction": "Use the prompt as written. Recovery of Static on the Runway: preserve the attached approved lyric sheet exactly, the title, D minor, 126 BPM and bass-forward garage-rock arrangement with guitar, bass, drums and organ. Allow 412 seconds total. Finish every supplied closing lyric by 400 seconds, then resolve the final tonic chord and let it decay over the final 12 seconds. Do not repeat earlier lyrics, add a verse, restart the song, or sing over the ending decay.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 412,
+          "endingSeconds": 12,
+          "bpm": 126,
+          "keyscale": "D minor"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-37dd8e4b75571c68a25e8862",
       "title": "Static on the Runway",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-37dd8e4b75571c68a25e8862-159cd36d8902.mp3",
