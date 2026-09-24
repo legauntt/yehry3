@@ -7,7 +7,7 @@ test('recorded generation costs take precedence over length estimates', () => {
   const [id, cents] = Object.entries(settledSongCosts)[0];
   const song = { id, musicBackend: 'eleven_music', duration: 600 };
   assert.deepEqual(songCost(song), { cents, estimated: false });
-  assert.doesNotMatch(songCostLabel(song), / est\./);
+  assert.match(songCostLabel(song), /Recorded generation cost/);
   for (const [id, cents] of Object.entries(settledSongCosts)) {
     assert.match(id, /^distonyc-[a-f0-9]{24}$/);
     assert.ok(Number.isSafeInteger(cents) && cents >= 0);
@@ -16,7 +16,7 @@ test('recorded generation costs take precedence over length estimates', () => {
 
 test('missing charges use labeled duration estimates or the fifty-cent fallback', () => {
   assert.deepEqual(songCost({ musicBackend: 'eleven_music', duration: 245 }), { cents: 61, estimated: true });
-  assert.match(songCostLabel({ musicBackend: 'eleven_music', duration: 180 }), />45 ¢ est\.</);
+  assert.match(songCostLabel({ musicBackend: 'eleven_music', duration: 180 }), />45 ¢</);
   for (const duration of [undefined, null, 0, -1, NaN, Infinity, '180']) {
     assert.deepEqual(songCost({ originalPrompt: { musicBackend: 'eleven_music' }, duration }), { cents: 50, estimated: true });
   }

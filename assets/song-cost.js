@@ -19,5 +19,5 @@ export function songCostLabel(song) {
   const description = cost.estimated
     ? 'Estimated generation cost in USD; based on 15 cents per minute when length is known, otherwise about 50 cents.'
     : 'Recorded generation cost in USD, reconciled against provider credit usage.';
-  return `<span class="song-cost" title="${description} Subscription fees and taxes excluded.">${amount}${cost.estimated ? ' est.' : ''}</span>`;
+  return `<span class="song-cost" title="${description} Subscription fees and taxes excluded.">${amount}</span>`;
 }
