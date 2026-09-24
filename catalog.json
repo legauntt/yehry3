@@ -2,6 +2,366 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-30a93586b255320dd9ef6576",
+      "title": "The Biological Mandate (Disco Glass Mix)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-30a93586b255320dd9ef6576-9e10cc03d446.mp3",
+      "duration": 235.01755102040818,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-a8afc8145c3c6f5f37922d3e",
+        "title": "The Biological Mandate",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a8afc8145c3c6f5f37922d3e-375a62f68e2f.mp3"
+      },
+      "publishedAt": "2026-09-24T20:28:16.805Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The Biological Mandate (Disco Glass Mix)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "A 118 BPM disco reinterpretation in E minor: elastic fingerstyle bass, four-on-the-floor kick, crisp hi-hat, congas, rhythm guitar, clavinet, disco strings, and short synth accents. Open with a restrained fluorescent-room groove, build through tightly rising pre-choruses, then let the recognizable “biological mandate” hook land in broad, melodic choruses. Lead is one clear, steadily pitched Tony V9 vocal with direct melodic phrasing; no doubles, backing vocals, rasp, whisper, or vocal effects. The bridge drops to bass, percussion, and tense strings before the final chorus returns at full dance-floor energy. Pace the final outro lines so the sustained final “hide” lands about 10 seconds before the 240-second endpoint, followed by one resolved final chord and natural decay.",
+        "lyrics": "[Intro]\nThe fluorescent room hums low,\nChalk dust rising, nowhere to go.\n\n[Verse 1]\nIn a lecture hall of thunder and chalk,\nHe finds old Plato in the margins of talk,\nA buried little legend, an impossible cup,\nWhile the clever crowd is laughing and the cameras light up.\nHe says, “What do you cast away at the edge of the day?\nWhat shadow in your bloodstream do you refuse to name?”\nThe clock keeps turning in a mirrored ball,\nEvery clean idea leaves a mark on the wall.\n\n[Pre-Chorus]\nNot a diet, not a cure, not a sacred command,\nJust a fever-dream symbol with a jar in his hand.\nThe room leans closer as the strange light swings,\nTrying to name the burden that a bright mind brings.\n\n[Chorus]\nThe biological mandate, staring back from the glass,\nA ridiculous dragon with a philosophical mask.\nDrink your own piss, like Plato and Dr. Peterson have done,\nIn this wild true story, face the thing you run from.\nThe Logos isn’t only a word in the air—\nIt’s the act of admitting the mess is still there.\n\n[Verse 2]\n“Entropy is knocking,” he declares to the room,\n“Every polished little order has a cellar of gloom.”\nA fish on a river raft, salted hard as regret,\nEvery unwanted fragment is a debt you haven’t met.\nThe kidneys of the Logos turn the chaos around,\nAn ouroboros rattling beneath the lecture sound.\nThe dance floor trembles under academic shoes,\nNo perfect little system gets to pick and choose.\n\n[Pre-Chorus]\nTurn the page, turn the glass, let the hard truth spin,\nEvery outside monster has a door within.\nNo applause can drown the question in your hand,\nWhen the shadow starts asking where you stand.\n\n[Chorus]\nThe biological mandate, staring back from the glass,\nA ridiculous dragon with a philosophical mask.\nDrink your own piss, like Plato and Dr. Peterson have done,\nIn this wild true story, face the thing you run from.\nThe Logos isn’t only a word in the air—\nIt’s the act of admitting the mess is still there.\n\n[Bridge]\nHe lifts the jar slowly, no sip, no retreat,\nAdam’s apple rising to a grim, steady beat.\nThe room holds its breath while the old symbols spin,\nNot medicine, not wisdom—just a strange way in.\nFrom the belly of the whale, from the far side of fear,\nThe thing you would exile is already here.\nNo sermon can save you, no joke makes it small,\nYou carry the darkness or you answer its call.\n\n[Chorus]\nThe biological mandate, let the metaphor burn,\nA king of his own ruin makes a hard-won turn.\nDrink your own piss, like Plato and Dr. Peterson have done,\nIn this real world scenario, the shadow and the sun.\nFrom the belly of the whale to the edge of the dawn,\nRescue your father, then carry on.\n\n[Outro]\nThe jar hits the desk, the last chord opens wide,\nNo dragon left outside, no darkness left to hide.\nStaring back from the glass, I can finally decide—\nNo darkness left to hide.\n[End]",
+        "duration": 240,
+        "bpm": 118,
+        "musicalSettings": {
+          "genre": "Dark disco rock with philosophical dance-floor tension",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Pre-Chorus, Chorus, Bridge, Final Chorus, Outro",
+          "performance": "One clear, steadily pitched melodic lead with direct phrasing and a catchable hook",
+          "energy": "Restrained opening groove, rising choruses, sparse tense bridge, then a full final release",
+          "lyricWorkflow": "Adapted source-guided lyrics preserving the recognizable hook and central imagery while expanding the narrative for the new arrangement",
+          "instruments": [
+            "fingerstyle electric bass",
+            "drum kit",
+            "congas",
+            "rhythm electric guitar",
+            "clavinet",
+            "disco strings",
+            "synth accents"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nThe fluorescent room hums low,\nChalk dust rising, nowhere to go.\n\n[Verse 1]\nIn a lecture hall of thunder and chalk,\nHe finds old Plato in the margins of talk,\nA buried little legend, an impossible cup,\nWhile the clever crowd is laughing and the cameras light up.\nHe says, “What do you cast away at the edge of the day?\nWhat shadow in your bloodstream do you refuse to name?”\nThe clock keeps turning in a mirrored ball,\nEvery clean idea leaves a mark on the wall.\n\n[Pre-Chorus]\nNot a diet, not a cure, not a sacred command,\nJust a fever-dream symbol with a jar in his hand.\nThe room leans closer as the strange light swings,\nTrying to name the burden that a bright mind brings.\n\n[Chorus]\nThe biological mandate, staring back from the glass,\nA ridiculous dragon with a philosophical mask.\nDrink your own piss, like Plato and Dr. Peterson have done,\nIn this wild true story, face the thing you run from.\nThe Logos isn’t only a word in the air—\nIt’s the act of admitting the mess is still there.\n\n[Verse 2]\n“Entropy is knocking,” he declares to the room,\n“Every polished little order has a cellar of gloom.”\nA fish on a river raft, salted hard as regret,\nEvery unwanted fragment is a debt you haven’t met.\nThe kidneys of the Logos turn the chaos around,\nAn ouroboros rattling beneath the lecture sound.\nThe dance floor trembles under academic shoes,\nNo perfect little system gets to pick and choose.\n\n[Pre-Chorus]\nTurn the page, turn the glass, let the hard truth spin,\nEvery outside monster has a door within.\nNo applause can drown the question in your hand,\nWhen the shadow starts asking where you stand.\n\n[Chorus]\nThe biological mandate, staring back from the glass,\nA ridiculous dragon with a philosophical mask.\nDrink your own piss, like Plato and Dr. Peterson have done,\nIn this wild true story, face the thing you run from.\nThe Logos isn’t only a word in the air—\nIt’s the act of admitting the mess is still there.\n\n[Bridge]\nHe lifts the jar slowly, no sip, no retreat,\nAdam’s apple rising to a grim, steady beat.\nThe room holds its breath while the old symbols spin,\nNot medicine, not wisdom—just a strange way in.\nFrom the belly of the whale, from the far side of fear,\nThe thing you would exile is already here.\nNo sermon can save you, no joke makes it small,\nYou carry the darkness or you answer its call.\n\n[Chorus]\nThe biological mandate, let the metaphor burn,\nA king of his own ruin makes a hard-won turn.\nDrink your own piss, like Plato and Dr. Peterson have done,\nIn this real world scenario, the shadow and the sun.\nFrom the belly of the whale to the edge of the dawn,\nRescue your father, then carry on.\n\n[Outro]\nThe jar hits the desk, the last chord opens wide,\nNo dragon left outside, no darkness left to hide.\nStaring back from the glass, I can finally decide—\nNo darkness left to hide.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.52,
+            "end": 6.22
+          },
+          {
+            "line": 2,
+            "start": 7.8,
+            "end": 10.46
+          },
+          {
+            "line": 5,
+            "start": 11,
+            "end": 14.3
+          },
+          {
+            "line": 6,
+            "start": 15,
+            "end": 18.4
+          },
+          {
+            "line": 7,
+            "start": 19.5,
+            "end": 23.42
+          },
+          {
+            "line": 8,
+            "start": 23.76,
+            "end": 27.58
+          },
+          {
+            "line": 9,
+            "start": 27.58,
+            "end": 31.62
+          },
+          {
+            "line": 10,
+            "start": 32.26,
+            "end": 35.7
+          },
+          {
+            "line": 11,
+            "start": 36.5,
+            "end": 39.48
+          },
+          {
+            "line": 12,
+            "start": 39.98,
+            "end": 42.9
+          },
+          {
+            "line": 15,
+            "start": 43.96,
+            "end": 47.74
+          },
+          {
+            "line": 16,
+            "start": 48.48,
+            "end": 52.08
+          },
+          {
+            "line": 17,
+            "start": 52.86,
+            "end": 56.24
+          },
+          {
+            "line": 18,
+            "start": 56.24,
+            "end": 60.38
+          },
+          {
+            "line": 21,
+            "start": 62.4,
+            "end": 66.26
+          },
+          {
+            "line": 22,
+            "start": 66.26,
+            "end": 70.36
+          },
+          {
+            "line": 23,
+            "start": 70.64,
+            "end": 74.52
+          },
+          {
+            "line": 24,
+            "start": 74.52,
+            "end": 78.66
+          },
+          {
+            "line": 25,
+            "start": 79.28,
+            "end": 83.24
+          },
+          {
+            "line": 26,
+            "start": 83.24,
+            "end": 86.18
+          },
+          {
+            "line": 29,
+            "start": 86.66,
+            "end": 89.58
+          },
+          {
+            "line": 30,
+            "start": 90.14,
+            "end": 93.58
+          },
+          {
+            "line": 31,
+            "start": 94.52,
+            "end": 97.5
+          },
+          {
+            "line": 32,
+            "start": 98.32,
+            "end": 101.72
+          },
+          {
+            "line": 33,
+            "start": 101.72,
+            "end": 106.8
+          },
+          {
+            "line": 34,
+            "start": 106.8,
+            "end": 109.74
+          },
+          {
+            "line": 35,
+            "start": 109.74,
+            "end": 114.22
+          },
+          {
+            "line": 36,
+            "start": 114.22,
+            "end": 116.22
+          },
+          {
+            "line": 39,
+            "start": 116.22,
+            "end": 120.06
+          },
+          {
+            "line": 40,
+            "start": 120.06,
+            "end": 124.04
+          },
+          {
+            "line": 41,
+            "start": 124.04,
+            "end": 128.12
+          },
+          {
+            "line": 42,
+            "start": 128.32,
+            "end": 131.54
+          },
+          {
+            "line": 45,
+            "start": 132.8,
+            "end": 136.38
+          },
+          {
+            "line": 46,
+            "start": 136.38,
+            "end": 140.6
+          },
+          {
+            "line": 47,
+            "start": 140.6,
+            "end": 144.7
+          },
+          {
+            "line": 48,
+            "start": 144.7,
+            "end": 148.8
+          },
+          {
+            "line": 49,
+            "start": 148.8,
+            "end": 153.42
+          },
+          {
+            "line": 50,
+            "start": 153.42,
+            "end": 157.02
+          },
+          {
+            "line": 53,
+            "start": 157.02,
+            "end": 160.54
+          },
+          {
+            "line": 54,
+            "start": 160.54,
+            "end": 164.9
+          },
+          {
+            "line": 55,
+            "start": 164.9,
+            "end": 168.88
+          },
+          {
+            "line": 56,
+            "start": 168.88,
+            "end": 173.3
+          },
+          {
+            "line": 57,
+            "start": 173.3,
+            "end": 177.16
+          },
+          {
+            "line": 58,
+            "start": 177.16,
+            "end": 181.38
+          },
+          {
+            "line": 59,
+            "start": 181.38,
+            "end": 185.22
+          },
+          {
+            "line": 60,
+            "start": 185.22,
+            "end": 188.98
+          },
+          {
+            "line": 63,
+            "start": 188.98,
+            "end": 192.92
+          },
+          {
+            "line": 64,
+            "start": 192.92,
+            "end": 197.38
+          },
+          {
+            "line": 65,
+            "start": 197.38,
+            "end": 201.66
+          },
+          {
+            "line": 66,
+            "start": 201.66,
+            "end": 205.76
+          },
+          {
+            "line": 67,
+            "start": 205.76,
+            "end": 209.7
+          },
+          {
+            "line": 68,
+            "start": 209.7,
+            "end": 214.02
+          },
+          {
+            "line": 71,
+            "start": 214.02,
+            "end": 217.7
+          },
+          {
+            "line": 72,
+            "start": 217.7,
+            "end": 221.8
+          },
+          {
+            "line": 73,
+            "start": 221.8,
+            "end": 225.52
+          },
+          {
+            "line": 74,
+            "start": 225.52,
+            "end": 227.98
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Remix “The Biological Mandate”. Give it a new arrangement while keeping its identity.",
+        "direction": "Use the prompt as written.",
+        "keep": "Keep the recognizable hook and spirit of “The Biological Mandate”.",
+        "basisSongs": [
+          "The Biological Mandate"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "genre": "Disco",
+          "duration": 240,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-a8afc8145c3c6f5f37922d3e",
       "title": "The Biological Mandate",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a8afc8145c3c6f5f37922d3e-375a62f68e2f.mp3",
