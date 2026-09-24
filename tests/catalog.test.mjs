@@ -139,7 +139,7 @@ test("generated lyric pages retain their share previews ahead of the new-song fa
   assert.equal(routes[fallback].rewrite, "/lyrics/index.html");
   for (const song of catalog.songs.filter(song => song.lyrics?.text)) {
     const alias = songAlias(song);
-    const own = routes.findIndex(route => route.route === `/lyrics/${alias}/index.html`);
+    const own = routes.findIndex(route => route.route === `/lyrics/${alias}*`);
     assert.ok(own >= 0 && own < fallback, `Generated page must take precedence: ${alias}`);
     assert.equal(routes[own].rewrite, undefined);
     const html = await readFile(new URL(`../dist/lyrics/${alias}/index.html`, import.meta.url), "utf8");
