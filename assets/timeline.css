@@ -28,7 +28,7 @@ html[data-shared-theme][data-theme="dark"] .tl {
 
 .tl-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
   margin-bottom: 16px;
 }
@@ -71,8 +71,7 @@ html[data-shared-theme][data-theme="dark"] .tl {
   display: flex;
   gap: 6px;
   overflow-x: auto;
-  padding: 34px 2px 4px;
-  margin-top: -30px;
+  padding: 4px 2px;
 }
 .tl-heat-days {
   display: grid;
@@ -99,22 +98,21 @@ html[data-shared-theme][data-theme="dark"] .tl {
 .tl-cell[data-level="4"] { background: var(--heat-4); }
 a.tl-cell { transition: transform 0.15s ease; }
 a.tl-cell:is(:hover, :focus-visible) { transform: scale(1.25); outline: 2px solid var(--ink); outline-offset: 1px; }
-.tl-cell[data-tip]:is(:hover, :focus-visible)::after {
-  content: attr(data-tip);
-  position: absolute;
-  z-index: 3;
-  bottom: calc(100% + 6px);
-  right: 0;
+/* The calendar's tooltip lives on the body, fixed to the viewport, so the strip's scrolling box cannot clip it. */
+.tl-tip {
+  position: fixed;
+  z-index: 60;
   width: max-content;
-  max-width: 200px;
-  padding: 6px 8px;
+  max-width: min(220px, calc(100vw - 16px));
+  padding: 6px 9px;
   border-radius: 6px;
   background: var(--ink);
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.25);
   color: var(--paper);
-  font-size: 0.72rem;
-  line-height: 1.4;
+  font: 500 0.74rem/1.4 "DM Sans", system-ui, sans-serif;
   pointer-events: none;
 }
+.tl-tip[hidden] { display: none; }
 .tl-heat-legend {
   display: flex;
   align-items: center;
@@ -200,13 +198,63 @@ a.tl-cell:is(:hover, :focus-visible) { transform: scale(1.25); outline: 2px soli
 .tl-songs { margin: 0; padding: 0; list-style: none; }
 .tl-song {
   display: grid;
-  grid-template-columns: 4.6rem minmax(0, 1fr) auto;
+  grid-template-columns: 26px 4.6rem minmax(0, 1fr) auto;
   align-items: center;
   gap: 10px;
   padding: 6px 0;
   border-top: 1px dashed var(--line);
 }
 .tl-song:first-child { border-top: 0; }
+.tl-play {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.tl-play svg { width: 11px; height: 11px; fill: currentColor; }
+.tl-play .tl-pause-icon, .tl-play[data-playing="true"] .tl-play-icon { display: none; }
+.tl-play[data-playing="true"] .tl-pause-icon { display: inline; }
+.tl-play:is(:hover, :focus-visible):not(:disabled), .tl-play[data-playing="true"] { background: var(--accent); border-color: var(--accent); color: #1b1b19; }
+.tl-play:hover:not(:disabled) { transform: scale(1.08); }
+.tl-play:disabled { opacity: 0.35; cursor: default; }
+.tl-now .tl-title { font-weight: 600; }
+.tl-spend { white-space: nowrap; }
+
+/* Each week opens with a band that rolls up its songs and spend. */
+.tl-week {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2px 12px;
+  margin: 26px 0 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--light);
+}
+.tl-week:first-child { margin-top: 0; }
+.tl-week::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(var(--spine) * -1 - 8px - 7px);
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--paper);
+  transform: translateY(-50%) rotate(45deg);
+}
+.tl-week-name { font: 600 0.72rem/1.4 "DM Mono", monospace; letter-spacing: 0.1em; text-transform: uppercase; }
+.tl-week-sum { color: var(--muted); font-size: 0.82rem; font-variant-numeric: tabular-nums; }
 .tl-time {
   color: var(--muted);
   font: 500 0.7rem/1.4 "DM Mono", monospace;
@@ -268,11 +316,11 @@ a.tl-cell:is(:hover, :focus-visible) { transform: scale(1.25); outline: 2px soli
 }
 @media (max-width: 560px) {
   .tl { --spine: 20px; }
-  .tl-song { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "time meta" "title title"; gap: 2px 10px; }
+  .tl-song { grid-template-columns: 26px auto minmax(0, 1fr); grid-template-areas: "play time meta" "play title title"; gap: 2px 10px; }
+  .tl-play { grid-area: play; }
   .tl-time { white-space: nowrap; }
   .tl-time { grid-area: time; }
   .tl-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .tl-stat-wide { grid-column: 1 / -1; }
   .tl-song .tl-title { grid-area: title; }
   .tl-meta { grid-area: meta; flex-wrap: wrap; justify-content: flex-end; gap: 4px 8px; }
 }

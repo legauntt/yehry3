@@ -32,7 +32,7 @@ const heights = (page, selector) => page.locator(selector).evaluateAll((bars) =>
 test("totals, day/week charts, ledger and the signed-out budget prompt", async ({ page }) => {
   await mock(page);
   await page.goto("/audtism/");
-  await expect(page.locator(".audit-tile strong")).toHaveText(["4", "13 min", "$1.10", "55 ¢"]);
+  await expect(page.locator(".audit-tile strong")).toHaveText(["4", "13 min", "$1.10", "$0.55"]);
   await expect(page.locator("#audit-budget")).toContainText("Sign in on Make a request");
   await expect(page.locator("#audit-songs .audit-col")).toHaveCount(13);
   await expect(page.locator("#audit-songs .audit-peak")).toHaveText("2");

@@ -8,7 +8,6 @@ const unitKey = "yehry3:audtism-unit";
 const $ = (selector, root = document) => root.querySelector(selector);
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const dollars = (cents) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(cents / 100);
-const centsText = (cents) => `${new Intl.NumberFormat("en-US").format(cents)} ¢`;
 const count = (n) => new Intl.NumberFormat("en-US").format(n);
 const minutes = (seconds) => `${count(Math.round(seconds / 60))} min`;
 const plural = (n, word) => `${count(n)} ${word}${n === 1 ? "" : "s"}`;
@@ -31,7 +30,7 @@ function tiles() {
     <div class="audit-tile"><span class="audit-tile-label">Songs released</span><strong>${count(total.songs)}</strong><span class="audit-tile-note">${count(total.paid)} paid · ${count(total.free)} free</span></div>
     <div class="audit-tile"><span class="audit-tile-label">Music made</span><strong>${minutes(total.seconds)}</strong><span class="audit-tile-note">${(total.seconds / 3600).toFixed(1)} hours end to end</span></div>
     <div class="audit-tile"><span class="audit-tile-label">Spent on paid music</span><strong>${dollars(total.cents)}</strong><span class="audit-tile-note" title="Recorded costs come from the settled ledger; the rest are length estimates at 15 cents a minute.">${dollars(recorded)} recorded · ${dollars(total.estimatedCents)} estimated</span></div>
-    <div class="audit-tile"><span class="audit-tile-label">Per paid song</span><strong>${centsText(perPaid)}</strong><span class="audit-tile-note">on average</span></div>`;
+    <div class="audit-tile"><span class="audit-tile-label">Per paid song</span><strong>${dollars(perPaid)}</strong><span class="audit-tile-note">on average</span></div>`;
 }
 
 // A column chart of one period series. Each column is focusable and explains itself on hover or focus.
@@ -43,7 +42,7 @@ function chart(root, periods, { stacked, value, total, describe }) {
     const label = describe(period);
     const tick = unit === "week" || periods.length <= 16 || index % Math.ceil(periods.length / 12) === 0 || index === periods.length - 1;
     return `<div class="audit-col" role="listitem" tabindex="0" aria-label="${escape(label)}" data-tip="${escape(label)}">
-      <div class="audit-bar" data-size="${(total(period) / max) * 100}">${period === peak && total(period) > 0 ? `<span class="audit-peak">${escape(stacked.length > 1 ? count(total(period)) : centsText(total(period)))}</span>` : ""}${segments.map(({ key, size }) => `<i class="audit-seg ${key}" data-grow="${size}"></i>`).join("")}</div>
+      <div class="audit-bar" data-size="${(total(period) / max) * 100}">${period === peak && total(period) > 0 ? `<span class="audit-peak">${escape(stacked.length > 1 ? count(total(period)) : dollars(total(period)))}</span>` : ""}${segments.map(({ key, size }) => `<i class="audit-seg ${key}" data-grow="${size}"></i>`).join("")}</div>
       <span class="audit-tick"${tick ? "" : " aria-hidden=\"true\" data-hidden"}>${escape(periodLabel(period, true))}</span>
     </div>`;
   }).join("")}</div>`;
@@ -72,12 +71,12 @@ function render() {
     stacked: [{ key: "paid" }],
     value: (p) => p.cents,
     total: (p) => p.cents,
-    describe: (p) => `${periodLabel(p)}: ${centsText(p.cents)} on ${plural(p.paid, "paid song")}${p.estimatedCents ? `, ${centsText(p.estimatedCents)} of it estimated` : ""}`,
+    describe: (p) => `${periodLabel(p)}: ${dollars(p.cents)} on ${plural(p.paid, "paid song")}${p.estimatedCents ? `, ${dollars(p.estimatedCents)} of it estimated` : ""}`,
   });
   $("#audit-table tbody").innerHTML = [...periods].reverse().map((p) => `<tr${p.songs ? "" : ' class="audit-quiet"'}>
     <th scope="row">${escape(periodLabel(p))}${unit === "week" ? `<span class="audit-range"> – ${escape(day(periodEnd(p, unit)))}</span>` : ""}</th>
     <td>${count(p.songs)}</td><td class="audit-split">${count(p.paid)}</td><td class="audit-split">${count(p.free)}</td><td class="audit-length">${minutes(p.seconds)}</td>
-    <td>${p.cents ? centsText(p.cents) : "—"}${p.estimatedCents ? `<span class="audit-est" title="${escape(centsText(p.estimatedCents))} estimated"> *</span>` : ""}</td>
+    <td>${p.cents ? dollars(p.cents) : "—"}${p.estimatedCents ? `<span class="audit-est" title="${escape(dollars(p.estimatedCents))} estimated"> *</span>` : ""}</td>
   </tr>`).join("");
   const undated = auditTotals(songs).undated;
   $("#audit-undated").textContent = undated ? `${plural(undated, "song")} without a release time ${undated === 1 ? "is" : "are"} counted in the totals but not the charts.` : "";

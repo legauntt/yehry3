@@ -76,3 +76,31 @@ export function heatWeeks(days) {
   for (let i = 0; i < slots.length; i += 7) weeks.push(slots.slice(i, i + 7));
   return weeks;
 }
+
+// The Monday that starts the week a date falls in.
+export const weekStart = (date) => new Date(date.getFullYear(), date.getMonth(), date.getDate() - ((date.getDay() + 6) % 7));
+
+// Week headings threaded into the rows: each goes above the newest row of its week (a run of quiet days
+// belongs to the week of its newest day) and carries that week's release days, so the page can roll up
+// songs and spend. A week with no release at all gets no heading; its quiet days read as part of the gap.
+export function withWeeks(rows) {
+  const out = [];
+  let week = null;
+  for (const row of rows) {
+    const start = weekStart(row.kind === "day" ? row.day.start : row.days[0].start);
+    if (!week || week.start.getTime() !== start.getTime()) out.push(week = { kind: "week", start, days: [] });
+    if (row.kind === "day") week.days.push(row.day);
+    out.push(row);
+  }
+  return out.filter((row) => row.kind !== "week" || row.days.length);
+}
+
+// Paid spend in cents for a set of timeline entries, given a per-song cost function (null means free or unknown).
+export function spend(entries, costOf) {
+  let cents = 0, paid = 0, free = 0;
+  for (const { song } of entries) {
+    const cost = costOf(song);
+    if (cost) { cents += cost.cents; paid++; } else free++;
+  }
+  return { cents, paid, free };
+}

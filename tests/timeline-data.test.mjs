@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { heatLevel, heatWeeks, timelineDays, timelineRows, timelineStats } from "../assets/timeline-data.js";
+import { heatLevel, heatWeeks, spend, timelineDays, timelineRows, timelineStats, weekStart, withWeeks } from "../assets/timeline-data.js";
 
 const at = (y, m, d, h = 12) => new Date(y, m - 1, d, h).toISOString();
 const songs = [
@@ -48,4 +48,17 @@ test("heat levels scale to the busiest day and weeks start on Monday", () => {
 test("nothing dated means no days", () => {
   assert.deepEqual(timelineDays([{ id: "x" }], now), []);
   assert.deepEqual(heatWeeks([]), []);
+});
+
+test("week headings sit above each week's newest row and hold all its release days", () => {
+  const more = [...songs, { id: "f", publishedAt: at(2026, 9, 21) }, { id: "g", publishedAt: at(2026, 9, 11) }];
+  const rows = withWeeks(timelineRows(timelineDays(more, new Date(2026, 8, 21, 13))));
+  const shape = rows.map((row) => row.kind === "week" ? `W${row.start.getDate()}:${row.days.map((day) => day.start.getDate()).join(",")}` : row.kind === "day" ? `d${row.day.start.getDate()}` : `gap${row.days.length}`);
+  assert.deepEqual(shape, ["W21:21", "d21", "W14:18,17,16,14", "gap2", "d18", "d17", "d16", "gap1", "d14", "W7:11", "gap2", "d11"]);
+  assert.equal(weekStart(new Date(2026, 8, 20)).getDate(), 14);
+});
+
+test("spend adds up paid songs and counts the rest as free", () => {
+  const entries = [{ song: { c: 12 } }, { song: {} }, { song: { c: 40 } }];
+  assert.deepEqual(spend(entries, (song) => song.c ? { cents: song.c } : null), { cents: 52, paid: 2, free: 1 });
 });
