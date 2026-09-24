@@ -2,6 +2,287 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-3375254af6d14dd224e0ee40",
+      "title": "Two Names at the Table",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3375254af6d14dd224e0ee40-8d91bc79b36c.mp3",
+      "duration": 170.00489795918367,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-24T07:13:21.413Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Two Names at the Table",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "A minor",
+        "arrangement": "Intimate cinematic folk-rock in A minor: fingerpicked acoustic guitar opens under piano, then warm bass, restrained drums, electric-guitar swells, and a small string ensemble rise for the choruses. One clear, steadily pitched Tony V9 lead carries a tender, natural melody with clean phrasing and no backing vocals. Start close and subdued, build to a broad but compassionate final chorus, then sustain “light” so the final sung syllable lands about 10 seconds before the 170-second end; resolve with one final A-minor chord decay.",
+        "lyrics": "[Verse 1]\nMy mother kept the Friday candles low\nAnd named the hills her grandmother knew\nMy father folded maps beside the window\nAnd said, “A home can break in two”\nAt our table, every silence had a border\nEvery photograph could start a fight\nI learned to hold two histories in my chest\nAnd wake up tired in the night\n\n[Pre-Chorus]\nI heard the sirens through a cousin’s phone\nI saw the checkpoint lines on a screen\nOne child counting seconds in a shelter\nOne child asking where his street had been\n\n[Chorus]\nI am not half of anybody’s sorrow\nI am not a flag they make me choose\nI carry Hebrew prayers and Arabic mourning\nI carry all the names we cannot lose\nIf love is brave enough to hear the other\nThen let it start with me tonight\nTwo names at the table, one heart still beating\nTrying to make a little light\n\n[Verse 2]\nMy aunt remembers buses, smoke, and shouting\nMy uncle mourns an olive grove gone bare\nThey hand me grief like something I must guard\nAs if grief were the only thing to share\nThere are hostages who should come home living\nThere are families beneath collapsed stone\nThere are children taught to fear a language\nBefore they ever speak their own\n\n[Bridge]\nI will not make a weapon of my blood\nI will not call compassion a betrayal\nI’ll say the dead deserve their names and mourning\nI’ll say no mother’s tears are less than real\n\n[Chorus]\nI am not half of anybody’s sorrow\nI am the bridge my family never knew\nI’ll keep the candles, keep the keys, keep listening\nTill fear gives way to something true\nAnd when they ask me where my heart belongs now\nI’ll answer, “Here—with all of you”\nTwo names at the table, one heart still beating\nMaking a little light\n\n[Outro]\nA little li-i-ight\n[End]",
+        "duration": 170,
+        "bpm": 78,
+        "musicalSettings": {
+          "genre": "Cinematic folk-rock ballad",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, verse 2, bridge, final chorus, brief resolved outro",
+          "performance": "One clear, steadily pitched, intimate lead that expands into an earnest melodic final chorus",
+          "energy": "Quietly wounded opening, gradual full-band lift, compassionate peak, then a gentle resolution",
+          "lyricWorkflow": "Original narrative lyrics that hold both family histories with concrete human stakes and a reconciliatory final payoff",
+          "instruments": [
+            "acoustic guitar",
+            "piano",
+            "electric bass",
+            "restrained drum kit",
+            "electric guitar",
+            "string ensemble"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nMy mother kept the Friday candles low\nAnd named the hills her grandmother knew\nMy father folded maps beside the window\nAnd said, “A home can break in two”\nAt our table, every silence had a border\nEvery photograph could start a fight\nI learned to hold two histories in my chest\nAnd wake up tired in the night\n\n[Pre-Chorus]\nI heard the sirens through a cousin’s phone\nI saw the checkpoint lines on a screen\nOne child counting seconds in a shelter\nOne child asking where his street had been\n\n[Chorus]\nI am not half of anybody’s sorrow\nI am not a flag they make me choose\nI carry Hebrew prayers and Arabic mourning\nI carry all the names we cannot lose\nIf love is brave enough to hear the other\nThen let it start with me tonight\nTwo names at the table, one heart still beating\nTrying to make a little light\n\n[Verse 2]\nMy aunt remembers buses, smoke, and shouting\nMy uncle mourns an olive grove gone bare\nThey hand me grief like something I must guard\nAs if grief were the only thing to share\nThere are hostages who should come home living\nThere are families beneath collapsed stone\nThere are children taught to fear a language\nBefore they ever speak their own\n\n[Bridge]\nI will not make a weapon of my blood\nI will not call compassion a betrayal\nI’ll say the dead deserve their names and mourning\nI’ll say no mother’s tears are less than real\n\n[Chorus]\nI am not half of anybody’s sorrow\nI am the bridge my family never knew\nI’ll keep the candles, keep the keys, keep listening\nTill fear gives way to something true\nAnd when they ask me where my heart belongs now\nI’ll answer, “Here—with all of you”\nTwo names at the table, one heart still beating\nMaking a little light\n\n[Outro]\nA little li-i-ight",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.28,
+            "end": 10.2
+          },
+          {
+            "line": 2,
+            "start": 10.9,
+            "end": 13.02
+          },
+          {
+            "line": 3,
+            "start": 14.26,
+            "end": 16.72
+          },
+          {
+            "line": 4,
+            "start": 16.72,
+            "end": 18.98
+          },
+          {
+            "line": 5,
+            "start": 20.08,
+            "end": 22.52
+          },
+          {
+            "line": 6,
+            "start": 23.4,
+            "end": 25.4
+          },
+          {
+            "line": 7,
+            "start": 25.4,
+            "end": 29.22
+          },
+          {
+            "line": 8,
+            "start": 29.22,
+            "end": 31.42
+          },
+          {
+            "line": 11,
+            "start": 32.98,
+            "end": 36.16
+          },
+          {
+            "line": 12,
+            "start": 36.16,
+            "end": 39.42
+          },
+          {
+            "line": 13,
+            "start": 40.5,
+            "end": 43.94
+          },
+          {
+            "line": 14,
+            "start": 43.94,
+            "end": 47.68
+          },
+          {
+            "line": 17,
+            "start": 49.96,
+            "end": 53.34
+          },
+          {
+            "line": 18,
+            "start": 53.88,
+            "end": 56.08
+          },
+          {
+            "line": 19,
+            "start": 56.78,
+            "end": 59.4
+          },
+          {
+            "line": 20,
+            "start": 59.86,
+            "end": 62.28
+          },
+          {
+            "line": 21,
+            "start": 63.16,
+            "end": 65.66
+          },
+          {
+            "line": 22,
+            "start": 66.3,
+            "end": 68.14
+          },
+          {
+            "line": 23,
+            "start": 69.28,
+            "end": 73.46
+          },
+          {
+            "line": 24,
+            "start": 74.36,
+            "end": 77.76
+          },
+          {
+            "line": 27,
+            "start": 79.62,
+            "end": 83.12
+          },
+          {
+            "line": 28,
+            "start": 84.28,
+            "end": 87.1
+          },
+          {
+            "line": 29,
+            "start": 88.54,
+            "end": 91.08
+          },
+          {
+            "line": 30,
+            "start": 91.08,
+            "end": 94.54
+          },
+          {
+            "line": 31,
+            "start": 95,
+            "end": 97.36
+          },
+          {
+            "line": 32,
+            "start": 97.36,
+            "end": 101.06
+          },
+          {
+            "line": 33,
+            "start": 102.22,
+            "end": 105.14
+          },
+          {
+            "line": 34,
+            "start": 105.14,
+            "end": 107.54
+          },
+          {
+            "line": 37,
+            "start": 109.06,
+            "end": 112.44
+          },
+          {
+            "line": 38,
+            "start": 112.92,
+            "end": 117.2
+          },
+          {
+            "line": 39,
+            "start": 117.2,
+            "end": 120.04
+          },
+          {
+            "line": 40,
+            "start": 121.14,
+            "end": 124.78
+          },
+          {
+            "line": 43,
+            "start": 127.66,
+            "end": 131.02
+          },
+          {
+            "line": 44,
+            "start": 131.12,
+            "end": 135.68
+          },
+          {
+            "line": 45,
+            "start": 135.68,
+            "end": 138.76
+          },
+          {
+            "line": 46,
+            "start": 139.04,
+            "end": 141.64
+          },
+          {
+            "line": 47,
+            "start": 142.08,
+            "end": 145.96
+          },
+          {
+            "line": 48,
+            "start": 146.34,
+            "end": 148.48
+          },
+          {
+            "line": 49,
+            "start": 149.02,
+            "end": 152.46
+          },
+          {
+            "line": 50,
+            "start": 152.98,
+            "end": 154.68
+          },
+          {
+            "line": 53,
+            "start": 155.92,
+            "end": 158.86
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony's mother is from Israel and his father is from Palestine. Therefore, Tony is divided, and the family doesn't get along. Help Tony reconcile his identity. Go deep into the issues affecting both sides, with real examples, and produce a long heartfelt song",
+        "direction": "Use the prompt as written.",
+        "keep": "Must go into the specifics of Tony's sadness",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 170
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-6061d8bb20d0e48bdeb7fd66",
       "title": "Two Windows Lit",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6061d8bb20d0e48bdeb7fd66-b7d079738546.mp3",
