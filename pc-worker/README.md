@@ -11,6 +11,8 @@ failures back off from one to ten seconds, preserving the same claim ID if a res
 Older Chairlift deployments without the waiting endpoint retain three-second polling.
 The **Distonyc Lyric Writer** task runs hidden while Jesse is signed in and this PC is awake;
 logon and five-minute restart triggers recover it after exit. Only one writer instance runs.
+Its launcher owns the lyric process tree through the existing Windows Job helper, so stopping
+the scheduled task also stops its worker and releases the singleton lock before an update.
 The website marks it offline after 45 seconds without a heartbeat and retains local drafts.
 
 Each job gets one strict semantic classification (45 seconds maximum) followed, only for a

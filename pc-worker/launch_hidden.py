@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 import subprocess
 import traceback
+from winprocess import Job
 
 
 def run(task, root):
@@ -27,8 +28,20 @@ def run(task, root):
                 'RemoteSigned', '-WindowStyle', 'Hidden', '-File', str(root / script),
             ], cwd=root, stdin=subprocess.DEVNULL, stdout=output, stderr=subprocess.STDOUT,
                 startupinfo=startup, creationflags=subprocess.CREATE_NEW_CONSOLE) as process:
-                # Stay alive so Task Scheduler retains IgnoreNew, timeouts and retries.
-                return process.wait()
+                # The long-lived lyric service must die with its scheduled launcher;
+                # otherwise an old writer can retain the lock after a task restart.
+                owned = None
+                try:
+                    if task == 'lyrics':
+                        owned = Job(process)
+                    # Stay alive so Task Scheduler retains IgnoreNew, timeouts and retries.
+                    return process.wait()
+                finally:
+                    if owned:
+                        owned.stop()
+                        owned.close()
+                    elif task == 'lyrics' and process.poll() is None:
+                        process.kill()
         except Exception:
             traceback.print_exc(file=output)
             return 1

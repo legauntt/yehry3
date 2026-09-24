@@ -3,13 +3,30 @@ from pathlib import Path
 import tempfile
 import unittest
 from contextlib import nullcontext
-from unittest.mock import patch
+from unittest.mock import patch, MagicMock
 import lyric_writer as writer
 
 LYRICS = '[Verse]\nThe lantern catches all our names\nAnd brings the sleeping railway home\nWe leave our shadows on the platform\nAnd sing beneath a paper moon'
 
 
 class LyricWriterTests(unittest.TestCase):
+    def test_lyric_launcher_owns_its_process_tree_and_leaves_other_tasks_unchanged(self):
+        import launch_hidden
+        with tempfile.TemporaryDirectory() as folder:
+            for task in ['lyrics', 'worker', 'monitor']:
+                process = MagicMock()
+                process.wait.return_value = 0
+                popen = MagicMock()
+                popen.__enter__.return_value = process
+                with patch.object(launch_hidden.subprocess, 'Popen', return_value=popen), patch.object(launch_hidden, 'Job') as job:
+                    self.assertEqual(launch_hidden.run(task, folder), 0)
+                    if task == 'lyrics':
+                        job.assert_called_once_with(process)
+                        job.return_value.stop.assert_called_once()
+                        job.return_value.close.assert_called_once()
+                    else:
+                        job.assert_not_called()
+
     def run_service(self, responses):
         calls, sleeps, performances = [], [], []
         class EndService(BaseException): pass
