@@ -9,6 +9,7 @@ import { mountGeneration, mountGenerationReview } from './generation.js';
 import { songPlanLink } from "./song-plan.js";
 import { brandLine } from "./branding.js";
 import { mountMaterials, materialBrief, durationIssue, hasMaterialEdits } from "./request-materials.js";
+import { mountLyricWorkshop } from "./lyric-workshop.js";
 import { requestPromptBrief, promptSummary } from "./prompt-brief.js";
 import { mountRequestTabs } from "./request-tabs.js";
 import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./authored-by.js";
@@ -1079,6 +1080,7 @@ async function requests() {
             <button type="button" role="tab" id="advanced-tab" aria-controls="advanced-panel" aria-selected="false" tabindex="-1">Advanced</button>
           </div>
           <div role="tabpanel" id="essentials-panel" aria-labelledby="essentials-tab">
+            <div id="lyric-workshop-root"></div>
             <div id="music-backend-root"></div>
             <div class="voice-model-label"><label for="voice-model">Tony voice model</label>${modelInfoButton()}</div>
             <select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p>
@@ -1144,6 +1146,8 @@ async function requests() {
         clear() {},
       };
       if (!materialsAvailable) $("#request-materials-root").innerHTML = '<p class="small">Lyrics and reference links are temporarily unavailable.</p>' + materialBrief(draft.details, escape);
+      if (materialsAvailable) mountLyricWorkshop($('#lyric-workshop-root'), { draft, materials: requestMaterials, api, storage, escape, scope,
+        context: () => ({ direction: $('#direction').value.trim(), keep: $('#keep').value.trim(), duration: /^\d+$/.test($('#gen-duration')?.value || '') ? Number($('#gen-duration').value) : null }) });
       requestTabs.sync();
       $("#start-over").onclick = () => {
         storage.set("idea-text", draft.prompt);

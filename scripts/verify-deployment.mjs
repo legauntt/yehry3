@@ -167,6 +167,8 @@ for (const name of [
   "prompt-brief.css",
   "request-materials.js",
   "request-materials.css",
+  "lyric-workshop.js",
+  "lyric-workshop.css",
   "song-plan.js",
   "quality.js",
   "site.css",

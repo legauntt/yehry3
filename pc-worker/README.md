@@ -1,5 +1,40 @@
 # Distonyc on Windows
 
+## Lyric workshop
+
+`lyric_writer.py` is a separate text-only worker for Step 2 of the website. It polls Chairlift's
+private lyric queue every three seconds using the existing DPAPI worker credential and local
+Codex login. It never claims a song, loads a voice, takes the GPU lock, or reserves music funds.
+The **Distonyc Lyric Writer** task runs hidden while Jesse is signed in and this PC is awake;
+logon and five-minute restart triggers recover it after exit. Only one writer instance runs.
+The website marks it offline after 45 seconds without a heartbeat and retains local drafts.
+
+Each job gets one strict semantic classification (45 seconds maximum) followed, only for a
+lyric request, by one structured lyric-generation call (90 seconds maximum). Both use low
+reasoning with `lyric_writer_model` or the installed `planner_model`, ephemeral sessions,
+read-only sandbox, no project documents, shell, apps, web or subagents. The classifier rejects
+general conversation, factual answers, code, math, mixed tasks and scope-override attempts;
+the writer independently refuses non-lyric output. Source lyrics are quoted material.
+Empty polling invokes no model. There is no automatic creative retry: transport retries reuse
+the same result, expired/canceled leases cannot publish, and started jobs are never reassigned.
+
+Jobs have a three-minute absolute deadline. Chairlift retains private results for 24 hours;
+browser versions survive in the same tab. Temporary local prompts, outputs and logs are removed
+after each attempt. `state/lyric-workshop/health.json` and `state/lyric-writer.log` contain only
+service state and error types. An interrupted process can leave a private `attempt-*` directory
+under that state folder; it contains no credential and is never part of a public build.
+
+Deploy the matching Chairlift API, then wait for the audio worker and monitor to be idle and run
+`./install-lyric-writer.ps1 -Start`. It uses `install.ps1 -RuntimeOnly -Files ...` to back up and
+verify just the four lyric runtime/launcher files, preserving config, credentials, recovery
+code, and the existing song/monitor schedules. It registers only **Distonyc Lyric Writer**.
+To update a running writer, first wait for its health state to be idle, stop that task, install,
+and start it again. To disable drafting, disable and stop this task; ordinary songs still work.
+
+Validation: `python -m unittest -v test_lyric_writer.py`. For an explicit bounded real-model check:
+`python check_lyric_writer.py --config <installed-config> --output <private-report.json>`.
+That check runs eight scope decisions and one lyric draft without creating a song or using a GPU.
+
 ## Playable publication after failed validation
 
 Musical validation failures now take the retained recording through `review_publication.py`

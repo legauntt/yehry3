@@ -132,6 +132,13 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
   add.onclick = () => { if (references.length >= 3) return; references.push({ url: "", purpose: "creative", note: "" }); renderReferences(); remember(); find("#reference-url-" + (references.length - 1)).focus(); };
   updateLyrics(); renderReferences();
   return {
+    getLyrics() { return sheet.value; },
+    setLyrics(value) {
+      const error = lyricError(value);
+      if (error) throw new Error(error);
+      sheet.value = value; mode.value = 'preserve'; panel.open = true;
+      updateLyrics(); remember();
+    },
     read() {
       if (pending) throw new Error("Wait for the reference preview to finish before reviewing.");
       const data = current(), error = lyricError(sheet.value);

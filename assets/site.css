@@ -4,6 +4,7 @@
 @import url("./model-info.css");
 @import url("./prompt-brief.css");
 @import url("./catalog-view.css");
+@import url("./lyric-workshop.css");
 
 .review-state {
   display: flex;
