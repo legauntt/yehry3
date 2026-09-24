@@ -130,6 +130,7 @@ export async function mountGenerationReview(root, { draft, api, escape, reload }
     const { review } = await api(`/prompts/${encodeURIComponent(draft.id)}/generation-review`, { role: 'submitter' });
     if (!review || review.id !== draft.generationReview.id || review.state !== 'pending') throw new Error('The review changed. Refresh status to see the latest choice.');
     const lyrics = review.kind === 'lyrics';
+    const preserve = lyrics && draft.details?.lyricSheet && draft.details.lyricSheet.mode !== 'adapt';
     const localKey = 'yehry3:lyric-review:' + review.id;
     root.innerHTML = `<section class="generation-review"><h3>${lyrics ? 'Review your lyrics' : 'Choose your composition'}</h3><p>${lyrics ? 'Edit the sheet, then approve it to begin composing. The approved sheet becomes the saved song plan.' : 'Compare the hook and ending of each composition. These previews use the draft singer; Tony voice conversion follows your choice.'}</p><form id="generation-review-form">${lyrics ? '<label for="review-lyrics">Lyric sheet</label><textarea id="review-lyrics" rows="18" maxlength="32000" required></textarea><p class="small">Keep the [End] marker. Previously locked lines must remain exactly as written.</p>' : review.payload.candidates.map((candidate) => `<fieldset class="composition-choice"><legend><label><input type="radio" name="composition" value="${candidate.index}" required> Composition ${candidate.index + 1}</label></legend>${candidate.clips.map((clip, i) => `<p class="small">${clip.label} · ${Math.round(clip.start)} seconds</p><audio controls preload="metadata" data-candidate="${candidate.index}" data-clip="${i}"></audio>`).join('')}</fieldset>`).join('')}<div class="actions"><button class="primary" type="submit">${lyrics ? 'Approve lyrics & continue' : 'Use this composition'}</button><button class="quiet" type="button" id="cancel-generation">Cancel this request</button></div><p class="field-error" role="alert"></p></form></section>`;
     const form = root.querySelector('form'), urls = [];
@@ -137,9 +138,10 @@ export async function mountGenerationReview(root, { draft, api, escape, reload }
       const field = root.querySelector('#review-lyrics');
       let saved; try { saved = localStorage.getItem(localKey); } catch {}
       field.value = saved ?? review.payload.lyrics;
-      if (draft.details?.lyricSheet?.mode !== 'adapt' && draft.details?.lyricSheet) {
+      if (preserve) {
         field.readOnly = true; field.value = review.payload.lyrics;
-        field.nextElementSibling.textContent = 'This request keeps your supplied wording. Approve this sheet or cancel to start a request with different words.';
+        root.querySelector('.generation-review > p').textContent = 'Read the sheet, then approve it to begin composing. This request keeps your supplied wording.';
+        field.nextElementSibling.textContent = 'You chose to keep these words unchanged. You can approve them here. To use different words, cancel and start a new request that allows lyric changes.';
       } else field.oninput = () => { try { localStorage.setItem(localKey, field.value); } catch {} };
     } else {
       root.querySelectorAll('audio').forEach((audio) => {

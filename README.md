@@ -85,6 +85,10 @@ Every view that represents a song or a request carries the same badge row: the T
 - Attached remixes put **What should change?**, **What should stay?**, and **May the lyrics change?**
   in Essentials. The choice between retaining supplied words and allowing adaptation remains in the
   confirmed brief. The form explains that melody and timing may change.
+- Remix lyric review stays on the submitted request after confirmation, status refresh and reload.
+  **Waiting for your review** opens the selected request even while another remix idea is open.
+  Older remix URLs resume a pending review of that recording. Supplied words marked to stay unchanged
+  remain read-only but can still be approved; adaptation allows editing before approval.
 - Published remixes link to their original on the lyric page. **Compare with the original** starts
   collapsed and opens on demand; the **Compare with original** link and the `#compare-original`
   deep link expand it, and collapsing it stops the original. **Play original** and **Play remix**

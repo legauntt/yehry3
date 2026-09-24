@@ -954,9 +954,12 @@ async function requests() {
         }
       }
     }
-    // Opening a Remix link starts a new request. A confirmed request is already
-    // in the studio queue, so leave it there instead of landing on its last step.
-    if (remix?.seed && !remixUsed && draft?.confirmedAt) adoptRemixIdea();
+    // Older tabs may still carry the remix URL after confirmation. Keep its
+    // pending owner review reachable instead of turning it into another idea.
+    if (remix && !remixUsed && draft?.confirmedAt) {
+      if (draft.generationReview?.state === 'pending' && draftRemixId(draft) === remix.id) finishRemix();
+      else if (remix.seed) adoptRemixIdea();
+    }
     render();
   }
   // The draft the server holds must be the remix this browser created it for.
@@ -995,7 +998,11 @@ async function requests() {
       api('/generation-reviews', { role: 'submitter' }).then(({ reviews }) => {
         if (!reviewList.isConnected || !reviews?.length) return;
         reviewList.innerHTML = `<p class="small">Waiting for your review</p><div class="actions">${reviews.map((item) => `<button type="button" class="quiet" data-review-request="${escape(item.id)}">${escape(item.prompt.slice(0, 80))}</button>`).join('')}</div>`;
-        reviewList.querySelectorAll('[data-review-request]').forEach((button) => { button.onclick = () => { storage.set('draft', button.dataset.reviewRequest); load(); }; });
+        reviewList.querySelectorAll('[data-review-request]').forEach((button) => { button.onclick = () => {
+          finishRemix();
+          storage.set('draft', button.dataset.reviewRequest);
+          load();
+        }; });
       }).catch(() => {});
     }
 
@@ -1202,6 +1209,8 @@ async function requests() {
             },
           })).prompt;
           storage.remove("idea-text");
+          // The remix link has done its job. Refresh now follows this request.
+          finishRemix();
           render();
         });
     } else {
