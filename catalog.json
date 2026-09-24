@@ -2,6 +2,408 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-4ecb7ad28d72a26611f0fe7e",
+      "title": "Drink It Back, Bucko",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4ecb7ad28d72a26611f0fe7e-00bfaf97ce7a.mp3",
+      "duration": 225.07102040816326,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-24T19:53:57.506Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Drink It Back, Bucko",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Darkly comic piano-and-cello-led art rock in D minor: a restrained spoken opening over lone mournful cello moves into a firm bass-and-drum pocket, overdriven guitars, and dramatic string swells. One clear, steadily pitched Tony V9 lead carries melodic verses and a broad, catchable chorus; use brief dry spoken delivery only in the opening and bridge. Add a full choir only for the final chorus as requested. Drop to piano for the bridge exit, then rebuild into the final refrain. Pace the final sustained word “yours” 8–12 seconds before the 225-second end, followed by one resolved cello-and-band chord decay.",
+        "lyrics": "[Spoken Intro]\nPeople ask me, “Why?”\nAnd I say, that is exactly the question.\nIt is not obvious at all.\nI have considered it longer than is reasonable.\n\n[Verse 1]\nStand up straight at the edge of dawn\nWith a cup in your steady hand\nBefore the lawn, before the traffic\nBefore you understand\nThere is a river under your ribs\nOlder than every rule\nThe question is not whether it runs\nIt is whether you close the loop\n\n[Pre-Chorus]\nIt is warm, and that is no joke\nWarmth is what the cold has mourned\n\n[Chorus]\nDrink it back, bucko, drink it back\nClose the loop and complete the arc\nWhat you sent into the dark\nWas yours from the very start\nDrink it back, bucko, drink it back\nThe lobster does not flinch or blink\nSort yourself out, one inch at a time\nAnd drink it back\n\n[Verse 2]\nThe clever people will explain\nThat everything is made by speech\nBut sodium, sorrow, every meal\nAre farther than their theories reach\nThe kidney has no politics\nIt ranks the flood and makes it plain\nA little order in the chaos\nA private kingdom in the drain\n\n[Pre-Chorus]\nIt is yours, think about that\nNothing you own is quite so sure\n\n[Chorus]\nDrink it back, bucko, drink it back\nClose the loop and complete the arc\nWhat you sent into the dark\nWas yours from the very start\nDrink it back, bucko, drink it back\nThe lobster does not flinch or blink\nSort yourself out, one inch at a time\nAnd drink it back\n\n[Bridge]\nWell, it depends what you mean by “drink.”\nIt depends what you mean by “own.”\nThe serpent eats its tail and calls it wisdom.\nIs it metaphor? Is it bone?\nPinocchio entered the whale at night.\nNobody likes what the whale returns.\nThat is why freedom costs you something:\nYou meet the lesson, and the lesson burns.\n\n[Verse 3]\nClean your room and rinse your glass\nDo not waste the morning light\nEvery drop dismissed as nothing\nComes back asking what is right\nAt four a.m. the world is small\nThe dragon waits behind the door\nCarry what you can carry, man\nThen carry one thing more\n\n[Chorus]\nDrink it back, bucko, drink it back\nClose the loop and complete the arc\nWhat you sent into the dark\nWas yours from the very start\nDrink it back, bucko, drink it back\nTell the truth and face the brink\nPick up the cup, look it in the eye\nAnd drink it back\n\n[Outro]\nIt is not obvious.\nBut it is yours.\n[End]",
+        "duration": 225,
+        "bpm": 92,
+        "musicalSettings": {
+          "genre": "Dark comic art rock with chamber strings and a final choir",
+          "meter": "4/4",
+          "structure": "Spoken intro, verse, pre-chorus, chorus, verse, pre-chorus, chorus, spoken-sung bridge, final verse, final chorus, resolved outro",
+          "performance": "Clear, steadily pitched melodic lead with measured spoken passages and a dramatic final sustained line",
+          "energy": "Low, tense cello opening; confident mid-tempo rock lift; stripped bridge; full final-chorus climax and clean resolution",
+          "lyricWorkflow": "Adapted the submitted satire into a compact, complete three-act song for the requested runtime",
+          "instruments": [
+            "cello",
+            "piano",
+            "electric bass",
+            "drum kit",
+            "electric guitars",
+            "string ensemble",
+            "choir"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Spoken Intro]\nPeople ask me, “Why?”\nAnd I say, that is exactly the question.\nIt is not obvious at all.\nI have considered it longer than is reasonable.\n\n[Verse 1]\nStand up straight at the edge of dawn\nWith a cup in your steady hand\nBefore the lawn, before the traffic\nBefore you understand\nThere is a river under your ribs\nOlder than every rule\nThe question is not whether it runs\nIt is whether you close the loop\n\n[Pre-Chorus]\nIt is warm, and that is no joke\nWarmth is what the cold has mourned\n\n[Chorus]\nDrink it back, bucko, drink it back\nClose the loop and complete the arc\nWhat you sent into the dark\nWas yours from the very start\nDrink it back, bucko, drink it back\nThe lobster does not flinch or blink\nSort yourself out, one inch at a time\nAnd drink it back\n\n[Verse 2]\nThe clever people will explain\nThat everything is made by speech\nBut sodium, sorrow, every meal\nAre farther than their theories reach\nThe kidney has no politics\nIt ranks the flood and makes it plain\nA little order in the chaos\nA private kingdom in the drain\n\n[Pre-Chorus]\nIt is yours, think about that\nNothing you own is quite so sure\n\n[Chorus]\nDrink it back, bucko, drink it back\nClose the loop and complete the arc\nWhat you sent into the dark\nWas yours from the very start\nDrink it back, bucko, drink it back\nThe lobster does not flinch or blink\nSort yourself out, one inch at a time\nAnd drink it back\n\n[Bridge]\nWell, it depends what you mean by “drink.”\nIt depends what you mean by “own.”\nThe serpent eats its tail and calls it wisdom.\nIs it metaphor? Is it bone?\nPinocchio entered the whale at night.\nNobody likes what the whale returns.\nThat is why freedom costs you something:\nYou meet the lesson, and the lesson burns.\n\n[Verse 3]\nClean your room and rinse your glass\nDo not waste the morning light\nEvery drop dismissed as nothing\nComes back asking what is right\nAt four a.m. the world is small\nThe dragon waits behind the door\nCarry what you can carry, man\nThen carry one thing more\n\n[Chorus]\nDrink it back, bucko, drink it back\nClose the loop and complete the arc\nWhat you sent into the dark\nWas yours from the very start\nDrink it back, bucko, drink it back\nTell the truth and face the brink\nPick up the cup, look it in the eye\nAnd drink it back\n\n[Outro]\nIt is not obvious.\nBut it is yours.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.7,
+            "end": 7.48
+          },
+          {
+            "line": 2,
+            "start": 8.08,
+            "end": 10.4
+          },
+          {
+            "line": 3,
+            "start": 11.54,
+            "end": 12.84
+          },
+          {
+            "line": 4,
+            "start": 13.92,
+            "end": 15.92
+          },
+          {
+            "line": 7,
+            "start": 19.86,
+            "end": 22.8
+          },
+          {
+            "line": 8,
+            "start": 22.8,
+            "end": 24.92
+          },
+          {
+            "line": 9,
+            "start": 24.92,
+            "end": 27.54
+          },
+          {
+            "line": 10,
+            "start": 28,
+            "end": 29.26
+          },
+          {
+            "line": 11,
+            "start": 31.04,
+            "end": 32.92
+          },
+          {
+            "line": 12,
+            "start": 32.92,
+            "end": 35.18
+          },
+          {
+            "line": 13,
+            "start": 36.18,
+            "end": 38.18
+          },
+          {
+            "line": 14,
+            "start": 38.82,
+            "end": 40.58
+          },
+          {
+            "line": 17,
+            "start": 42.02,
+            "end": 45.78
+          },
+          {
+            "line": 18,
+            "start": 47.5,
+            "end": 49.76
+          },
+          {
+            "line": 21,
+            "start": 51.76,
+            "end": 54.24
+          },
+          {
+            "line": 22,
+            "start": 54.66,
+            "end": 56.96
+          },
+          {
+            "line": 23,
+            "start": 57.48,
+            "end": 59.58
+          },
+          {
+            "line": 24,
+            "start": 59.58,
+            "end": 61.38
+          },
+          {
+            "line": 25,
+            "start": 62.48,
+            "end": 64.68
+          },
+          {
+            "line": 26,
+            "start": 65.14,
+            "end": 67.4
+          },
+          {
+            "line": 27,
+            "start": 68.26,
+            "end": 70.82
+          },
+          {
+            "line": 28,
+            "start": 71.82,
+            "end": 73.36
+          },
+          {
+            "line": 31,
+            "start": 77.84,
+            "end": 79.82
+          },
+          {
+            "line": 32,
+            "start": 80.68,
+            "end": 82.36
+          },
+          {
+            "line": 33,
+            "start": 83.34,
+            "end": 85.92
+          },
+          {
+            "line": 34,
+            "start": 85.92,
+            "end": 87.48
+          },
+          {
+            "line": 35,
+            "start": 88.58,
+            "end": 90.26
+          },
+          {
+            "line": 36,
+            "start": 90.94,
+            "end": 92.68
+          },
+          {
+            "line": 37,
+            "start": 93.84,
+            "end": 95.6
+          },
+          {
+            "line": 38,
+            "start": 96.44,
+            "end": 98.12
+          },
+          {
+            "line": 41,
+            "start": 99.54,
+            "end": 101.7
+          },
+          {
+            "line": 42,
+            "start": 102.04,
+            "end": 105.6
+          },
+          {
+            "line": 45,
+            "start": 109.16,
+            "end": 111.62
+          },
+          {
+            "line": 46,
+            "start": 111.62,
+            "end": 114.38
+          },
+          {
+            "line": 47,
+            "start": 114.38,
+            "end": 116.94
+          },
+          {
+            "line": 48,
+            "start": 116.94,
+            "end": 118.76
+          },
+          {
+            "line": 49,
+            "start": 119.82,
+            "end": 122.08
+          },
+          {
+            "line": 50,
+            "start": 122.08,
+            "end": 124.88
+          },
+          {
+            "line": 51,
+            "start": 125.38,
+            "end": 128.22
+          },
+          {
+            "line": 52,
+            "start": 128.22,
+            "end": 130.72
+          },
+          {
+            "line": 55,
+            "start": 133.42,
+            "end": 135.92
+          },
+          {
+            "line": 56,
+            "start": 136.78,
+            "end": 138.58
+          },
+          {
+            "line": 57,
+            "start": 139.5,
+            "end": 142.34
+          },
+          {
+            "line": 58,
+            "start": 143.26,
+            "end": 144.82
+          },
+          {
+            "line": 59,
+            "start": 145.44,
+            "end": 147.38
+          },
+          {
+            "line": 60,
+            "start": 147.9,
+            "end": 149.6
+          },
+          {
+            "line": 61,
+            "start": 150.74,
+            "end": 152.88
+          },
+          {
+            "line": 62,
+            "start": 153.94,
+            "end": 156.88
+          },
+          {
+            "line": 65,
+            "start": 160.72,
+            "end": 163.28
+          },
+          {
+            "line": 66,
+            "start": 163.68,
+            "end": 165.68
+          },
+          {
+            "line": 67,
+            "start": 166.12,
+            "end": 168
+          },
+          {
+            "line": 68,
+            "start": 168,
+            "end": 170.32
+          },
+          {
+            "line": 69,
+            "start": 170.98,
+            "end": 173.54
+          },
+          {
+            "line": 70,
+            "start": 174.1,
+            "end": 176.22
+          },
+          {
+            "line": 71,
+            "start": 176.88,
+            "end": 178.62
+          },
+          {
+            "line": 72,
+            "start": 179.12,
+            "end": 181.06
+          },
+          {
+            "line": 75,
+            "start": 183.54,
+            "end": 185.98
+          },
+          {
+            "line": 76,
+            "start": 186.38,
+            "end": 188.74
+          },
+          {
+            "line": 77,
+            "start": 189.28,
+            "end": 191.26
+          },
+          {
+            "line": 78,
+            "start": 191.26,
+            "end": 193.16
+          },
+          {
+            "line": 79,
+            "start": 194.48,
+            "end": 196.44
+          },
+          {
+            "line": 80,
+            "start": 197.06,
+            "end": 199.06
+          },
+          {
+            "line": 81,
+            "start": 200.04,
+            "end": 202.46
+          },
+          {
+            "line": 82,
+            "start": 203.72,
+            "end": 205.08
+          },
+          {
+            "line": 85,
+            "start": 209.32,
+            "end": 210.68
+          },
+          {
+            "line": 86,
+            "start": 210.7,
+            "end": 212.9
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "RULE 13: DRINK IT BACK, BUCKO\n(an ode, roughly speaking — 6:30)",
+        "direction": "Use the prompt as written.",
+        "keep": "Jordan Peterson would've wrote this song",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 225
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-30f2762b70c6cef32ce8a417",
       "title": "Dividend at Dawn",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-30f2762b70c6cef32ce8a417-41ad3a4ecf34.mp3",
