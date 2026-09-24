@@ -96,11 +96,11 @@ test('a first draft needs no extra prompt and includes current unsaved song choi
 
 for (const theme of ['light', 'dark']) test(`workshop card and editor remain readable in ${theme} mode on desktop and mobile`, async ({ page }) => {
   await setup(page, { lyrics: first });
-  await page.addStyleTag({ content: '.lyric-workshop-entry *, .lyric-workshop * { transition: none !important; }' });
   await page.evaluate(dark => window.yehry3Theme.setDark(dark), theme === 'dark');
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 1000 });
-    const contrast = await page.locator('.lyric-workshop-entry h3, .lyric-workshop-entry p, .lyric-workshop-entry button, .lyric-workshop h2, .lyric-workshop .small, .lyric-workshop textarea, .lyric-workshop .primary, .lyric-workshop .quiet').evaluateAll(elements => {
+    await expect(async () => {
+      const contrast = await page.locator('.lyric-workshop-entry h3, .lyric-workshop-entry p, .lyric-workshop-entry button, .lyric-workshop h2, .lyric-workshop .small, .lyric-workshop textarea, .lyric-workshop .primary, .lyric-workshop .quiet').evaluateAll(elements => {
       const luminance = color => {
         const channels = color.match(/[\d.]+/g).slice(0, 3).map(Number).map(v => v / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
         return channels[0] * .2126 + channels[1] * .7152 + channels[2] * .0722;
@@ -112,7 +112,8 @@ for (const theme of ['light', 'dark']) test(`workshop card and editor remain rea
         return { text: el.textContent.trim().slice(0, 45) || el.id, ratio: (values[0] + .05) / (values[1] + .05) };
       });
     });
-    for (const item of contrast) expect(item.ratio, item.text).toBeGreaterThanOrEqual(4.5);
+      for (const item of contrast) expect(item.ratio, item.text).toBeGreaterThanOrEqual(4.5);
+    }).toPass({ timeout: 3000 });
     expect(await page.getByRole('dialog').evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
     await page.screenshot({ path: `artifacts/lyric-workshop-${theme}-${width}.png` });
   }
