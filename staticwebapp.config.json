@@ -6,6 +6,8 @@
     "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' https:; connect-src 'self' https://chairlift.fly.dev wss://chairlift.fly.dev; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
   },
   "routes": [
+    { "route": "/sausage", "redirect": "/sausage/", "statusCode": 301 },
+    { "route": "/sausage/*", "headers": { "Cache-Control": "no-cache" } },
     {
       "route": "/mixtapes",
       "redirect": "/mixtapes/",

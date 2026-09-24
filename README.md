@@ -13,10 +13,31 @@ See [lyrics and references](REQUEST-MATERIALS.md) for limits, privacy, testing a
 | `/queue/details/?request=…` | Stable, shareable public status page for one privacy-filtered confirmed request |
 | `/deetz/`      | Studio process guide and saved planning example, loaded from the authenticated API after the Distonyc login                        |
 | `/fearhunger/` | Preserved original three-track page, MP3s and lyrics                                                                                |
+| `/sausage/` | “How the Tony C is made”: two measured production timelines, stage-by-stage audio and the existing complete songs |
 
 `/distonyc/` is the request page; `/longtimecomin` and `/longtimecomin/` permanently redirect there. The local preview mirrors these redirects.
 
 The site remains noindex. Existing audio files and URLs are preserved. The Tony AI tracks stream from their existing release URLs. Static `catalog.json` keeps listening available during API outages; voting is clearly disabled while offline.
+
+`/sausage/` compares the paid EMP run **Drink It Back, Bucko** with the local ACE run
+**Dividend at Dawn**, both Tony V9. Seven stages retain their position when switching
+generators; `#emp/band` and `#ace/record` are shareable selections. The five audio
+layers use the same 0:30–0:54 passage with original levels. Layer changes preserve
+position and play/pause; stage changes stop the excerpt. The full song uses the
+shared player and survives navigation. The tour is linked from the collection and
+footer, and the local example retains its catalog quality notices.
+
+`sausage/tour.json` contains only allowlisted public song metadata, elapsed intervals
+and clip URLs. Timings are rounded wall-time intervals from Windows stage-log creation
+timestamps, from planning start to catalog publication. They include handoff gaps,
+exclude the earlier queue and later Azure build, and are examples rather than a
+benchmark. The protected Deetz guide and raw job data stay private.
+To replace these examples, run `python scripts/export-process-tour.py --emp-job <job>
+--ace-job <job> --ffmpeg <binary>` on the production PC; it validates the published
+MP3 identity and encodes excerpts without generating music. Review the selected
+jobs and timing boundaries before publishing. Validation: `npm run build`, `npm test`,
+`npx playwright test --config playwright.sausage.config.js`. Set `YEHRY3_TOUR_URL`
+to test the deployed page. `npm run verify:live` checks the tour and audio ranges.
 
 yehry3.app is the default destination for new finished Tony/Troofs MP3s, including standalone songs. The old gatsby-opus `/tonyai` page is deprecated for new publications; keep its existing tracks and URLs working. `tonyai` remains the collection ID here, not a publication destination. Standalone additions use the existing GitHub release and Chairlift's safe catalog seed, with matching fallback metadata and lyrics; do not create artificial queue requests. Keep WAVs, A/B clips, stems and model assets local unless separately requested.
 

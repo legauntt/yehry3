@@ -11,7 +11,7 @@ import { applyBranding } from "./branding.js";
 
 const pages = new Map();
 // The pages this shell swaps between. Everything else loads normally.
-const routes = /^\/(?:$|mixtapes(?:\/|$)|queue(?:\/|$)|admin(?:\/|$)|distonyc(?:\/|$)|lyrics(?:\/|$)|original-prompt(?:\/|$)|audtism(?:\/|$)|timeline(?:\/|$))/;
+const routes = /^\/(?:$|mixtapes(?:\/|$)|queue(?:\/|$)|admin(?:\/|$)|distonyc(?:\/|$)|lyrics(?:\/|$)|original-prompt(?:\/|$)|audtism(?:\/|$)|timeline(?:\/|$)|sausage(?:\/|$))/;
 // Sheets that belong to the shell and the room, never to one page.
 const kept = ["/assets/site.css", "/assets/theme.css", "/assets/listeners.css", "/assets/deployment.css", "/assets/favorites.css", "/assets/quality-preference.css"];
 const searched = new Set(["/lyrics/", "/original-prompt/", "/queue/details/"]);

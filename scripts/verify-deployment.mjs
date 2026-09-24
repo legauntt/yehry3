@@ -71,6 +71,30 @@ console.log("Distonyc route and legacy aliases verified.");
   console.log(`Deployment record verified: ${published.updatedLabel}`);
 }
 verifyTimestamp(await (await get(`${site}/deetz/`)).text(), "/deetz/");
+{
+  const response = await get(`${site}/sausage/`);
+  assert.match(response.headers.get("x-robots-tag") || "", /noindex/);
+  const html = await response.text();
+  verifyTimestamp(html, "/sausage/");
+  assert.match(html, /\/assets\/sausage.js/);
+  for (const name of ["sausage.js", "sausage.css"]) {
+    assert.equal(sourceText(await (await get(`${site}/assets/${name}`)).text()),
+      sourceText(await readFile(new URL(`../assets/${name}`, import.meta.url), "utf8")));
+  }
+  const tour = JSON.parse(await readFile(new URL("../sausage/tour.json", import.meta.url), "utf8"));
+  assert.deepEqual(await (await get(`${site}/sausage/tour.json`)).json(), tour);
+  for (const run of tour.runs) {
+    for (const clip of Object.values(run.clips)) {
+      const bytes = await readFile(new URL(`..${clip}`, import.meta.url));
+      const served = await get(`${site}${clip}`, { headers: { Range: "bytes=0-1023" } });
+      assert.equal(served.status, 206, `Excerpt does not support seeking: ${clip}`);
+      assert.deepEqual(Buffer.from(await served.arrayBuffer()), bytes.subarray(0, 1024));
+    }
+    const final = await get(run.song.url, { headers: { Range: "bytes=0-1023" } });
+    assert.equal(final.status, 206, `Full song does not support seeking: ${run.song.title}`);
+  }
+  console.log("Production tour, ten audio excerpts and both full-song ranges verified.");
+}
 for (const path of ["/fearhunger", "/fearhunger/"]) {
   const fearPage = await get(`${site}${path}`);
   const html = await fearPage.text();
