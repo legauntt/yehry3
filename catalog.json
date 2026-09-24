@@ -2,6 +2,234 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a8afc8145c3c6f5f37922d3e",
+      "title": "The Biological Mandate",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a8afc8145c3c6f5f37922d3e-375a62f68e2f.mp3",
+      "duration": 144.64,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-24T20:13:06.912Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The Biological Mandate",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Theatrical progressive hard rock in 4/4: a tense bass-led opening, overdriven guitars, punchy live drums, low organ, and brief cinematic strings. Use the pinned Tony v9 delivery with rough connected vowels, smoky spoken-sung emphasis in the verses, and a broad melodic chorus. Build from sardonic restraint to a full-band final refrain; sustain the final word “hide” so the last sung syllable lands about 10 seconds before the end, then resolve on one decaying D minor chord.",
+        "lyrics": "[Verse 1]\nIn a lecture hall of thunder and chalk,\nHe finds old Plato in the margins of talk,\nA buried little legend, an impossible cup,\nWhile the clever crowd is laughing and the cameras light up.\nHe says, “What do you cast away at the edge of the day?\nWhat shadow in your bloodstream do you refuse to name?”\n\n[Pre-Chorus]\nNot a diet, not a cure, not a sacred command,\nJust a fever-dream symbol with a jar in his hand.\n\n[Chorus]\nThe biological mandate, staring back from the glass,\nA ridiculous dragon with a philosophical mask.\nDrink your own piss, like Plato and Dr. Peterson have done,\nIn this wild little fable, face the thing you run from.\nThe Logos isn’t only a word in the air—\nIt’s the act of admitting the mess is still there.\n\n[Verse 2]\n“Entropy is knocking,” he declares to the room,\n“Every polished little order has a cellar of gloom.”\nA fish on a river raft, salted hard as regret,\nEvery unwanted fragment is a debt you haven’t met.\nThe kidneys of the Logos turn the chaos around,\nAn ouroboros rattling beneath the lecture sound.\n\n[Bridge]\nHe lifts the jar slowly, no sip, no retreat,\nAdam’s apple rising to a grim, steady beat.\nThe room holds its breath while the old symbols spin,\nNot medicine, not wisdom—just a strange way in.\n\n[Chorus]\nThe biological mandate, let the metaphor burn,\nA king of his own ruin makes a hard-won turn.\nDrink your own piss, like Plato and Dr. Peterson have done,\nIn this exaggerated parable, the shadow and the sun.\nFrom the belly of the whale to the edge of the dawn,\nRescue your father, then carry on.\n\n[Outro]\nThe jar hits the desk, the last chord opens wide,\nNo dragon left outside, no darkness left to hide.\n[End]",
+        "duration": 145,
+        "bpm": 128,
+        "musicalSettings": {
+          "genre": "Theatrical progressive hard rock with satirical spoken-sung drama",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, verse 2, bridge, final chorus, resolved outro",
+          "performance": "Pinned Tony v9 voice: smoky, slurred, mischievous phrasing with clear melodic hooks and dramatic spoken emphasis",
+          "energy": "Tense bass-led opening, escalating full-band choruses, then a single resolved final chord",
+          "lyricWorkflow": "Original satirical narrative built from the brief’s surreal philosophical imagery, with a clear disclaimer-like framing inside the lyric",
+          "instruments": [
+            "electric bass",
+            "overdriven electric guitars",
+            "live drum kit",
+            "Hammond-style organ",
+            "cinematic strings"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nIn a lecture hall of thunder and chalk,\nHe finds old Plato in the margins of talk,\nA buried little legend, an impossible cup,\nWhile the clever crowd is laughing and the cameras light up.\nHe says, “What do you cast away at the edge of the day?\nWhat shadow in your bloodstream do you refuse to name?”\n\n[Pre-Chorus]\nNot a diet, not a cure, not a sacred command,\nJust a fever-dream symbol with a jar in his hand.\n\n[Chorus]\nThe biological mandate, staring back from the glass,\nA ridiculous dragon with a philosophical mask.\nDrink your own piss, like Plato and Dr. Peterson have done,\nIn this wild little fable, face the thing you run from.\nThe Logos isn’t only a word in the air—\nIt’s the act of admitting the mess is still there.\n\n[Verse 2]\n“Entropy is knocking,” he declares to the room,\n“Every polished little order has a cellar of gloom.”\nA fish on a river raft, salted hard as regret,\nEvery unwanted fragment is a debt you haven’t met.\nThe kidneys of the Logos turn the chaos around,\nAn ouroboros rattling beneath the lecture sound.\n\n[Bridge]\nHe lifts the jar slowly, no sip, no retreat,\nAdam’s apple rising to a grim, steady beat.\nThe room holds its breath while the old symbols spin,\nNot medicine, not wisdom—just a strange way in.\n\n[Chorus]\nThe biological mandate, let the metaphor burn,\nA king of his own ruin makes a hard-won turn.\nDrink your own piss, like Plato and Dr. Peterson have done,\nIn this exaggerated parable, the shadow and the sun.\nFrom the belly of the whale to the edge of the dawn,\nRescue your father, then carry on.\n\n[Outro]\nThe jar hits the desk, the last chord opens wide,\nNo dragon left outside, no darkness left to hide.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.32
+          },
+          {
+            "line": 2,
+            "start": 3.74,
+            "end": 6.1
+          },
+          {
+            "line": 3,
+            "start": 7.22,
+            "end": 9.9
+          },
+          {
+            "line": 4,
+            "start": 10.28,
+            "end": 13.56
+          },
+          {
+            "line": 5,
+            "start": 14.06,
+            "end": 17.74
+          },
+          {
+            "line": 6,
+            "start": 18.14,
+            "end": 21.44
+          },
+          {
+            "line": 9,
+            "start": 21.98,
+            "end": 24.76
+          },
+          {
+            "line": 10,
+            "start": 25.68,
+            "end": 28.88
+          },
+          {
+            "line": 13,
+            "start": 32.24,
+            "end": 36.52
+          },
+          {
+            "line": 14,
+            "start": 36.52,
+            "end": 41.26
+          },
+          {
+            "line": 15,
+            "start": 41.26,
+            "end": 44.9
+          },
+          {
+            "line": 16,
+            "start": 45.52,
+            "end": 48.8
+          },
+          {
+            "line": 17,
+            "start": 49.46,
+            "end": 52.86
+          },
+          {
+            "line": 18,
+            "start": 55.8,
+            "end": 59.36
+          },
+          {
+            "line": 21,
+            "start": 59.36,
+            "end": 62.9
+          },
+          {
+            "line": 22,
+            "start": 62.9,
+            "end": 66.62
+          },
+          {
+            "line": 23,
+            "start": 66.62,
+            "end": 70.54
+          },
+          {
+            "line": 24,
+            "start": 70.54,
+            "end": 74.4
+          },
+          {
+            "line": 25,
+            "start": 74.4,
+            "end": 78.82
+          },
+          {
+            "line": 26,
+            "start": 78.82,
+            "end": 83.34
+          },
+          {
+            "line": 29,
+            "start": 83.34,
+            "end": 87.03
+          },
+          {
+            "line": 30,
+            "start": 87.03,
+            "end": 89.55
+          },
+          {
+            "line": 31,
+            "start": 90.05,
+            "end": 93.35
+          },
+          {
+            "line": 32,
+            "start": 93.73,
+            "end": 97.17
+          },
+          {
+            "line": 35,
+            "start": 98.82,
+            "end": 102.61
+          },
+          {
+            "line": 36,
+            "start": 103.21,
+            "end": 106.63
+          },
+          {
+            "line": 37,
+            "start": 107.29,
+            "end": 111.09
+          },
+          {
+            "line": 38,
+            "start": 111.09,
+            "end": 114.99
+          },
+          {
+            "line": 39,
+            "start": 114.99,
+            "end": 118.31
+          },
+          {
+            "line": 40,
+            "start": 122.35,
+            "end": 125.49
+          },
+          {
+            "line": 43,
+            "start": 126.03,
+            "end": 129.25
+          },
+          {
+            "line": 44,
+            "start": 129.63,
+            "end": 133.07
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "The Biological Mandate. Turn this Jordan Peterson speech into a song, keeping the most interesting details:\n\n\"You look at the foundations of Western civilization. You look at Plato. And there's this strange, almost buried piece of mythological lore about him drinking his own urine. And the postmodernists, well, they just laugh at it. They think it's just an ancient oddity. But it's not a joke! It's deadly serious!\n\nWhat is urine, fundamentally? It is the biological byproduct of your own metabolic struggle against entropy. It's the physical manifestation of the shadow! And Plato, in his absolute genius, understood that you cannot just discard the parts of yourself that are unpalatable. You have to integrate them. You think it's just some strange dietary quirk, like trying to choke down a brutally oversalted fish on a river raft? No! It's the ultimate confrontation with the chaotic elements of your own being.\n\nBy consuming it, Plato was acting out the ouroboros. He was taking the dragon of chaos, processed through the kidneys of the Logos, and saying, 'I will not be defeated by my own waste.' He established a dominance hierarchy over his own bodily fluids! And if you don't think that's foundational to the idea of the Philosopher King, then you simply haven't been paying attention!\"\n\nYou think, 'Oh, Dr. Peterson is just talking about the idea of integrating the undesirable.' But the Logos isn't just spoken. It has to be acted out!\"\n\nDr. Peterson raised the piss jar to his lips. He didn't sip. He took a steady, deliberate, continuous pull, his Adam's apple bobbing with grim resolve. He wiped his mouth with the back of his hand, his eyes burning with the terrible fire of a man who had stared down the dragon and consumed it whole.\n\n\"And that,\" he said, his voice completely level, \"is how you rescue your father from the belly of the whale.\"",
+        "direction": "Use the prompt as written.",
+        "keep": "Must drink your own piss, as Plato and Dr. Peterson have done.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-9066cf193b47ac3679bae67b",
       "title": "Drink It Back, Bucko (Industrial Arc)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-9066cf193b47ac3679bae67b-140e907740c8.mp3",
