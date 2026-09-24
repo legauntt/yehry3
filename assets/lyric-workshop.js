@@ -12,22 +12,22 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
   let state = saved?.v === 1 && typeof saved.lyrics === 'string' && Array.isArray(saved.versions)
     ? saved : { v: 1, lyrics: original, base: original, instruction: '', versions: [], pending: null };
   let available = false, timer, destroyed = false, polling = false, opener;
-  root.innerHTML = `<section class="lyric-workshop-entry"><div><p class="eyebrow">Words before music</p><h3>Shape the lyrics</h3><p>Write a draft, give it a nudge, and choose the words you want Tony to sing.</p></div><button type="button" class="quiet" data-workshop-open aria-haspopup="dialog">Open lyric workshop</button><p class="small" data-workshop-summary>Optional. Your song enters the queue only after final confirmation.</p></section>
+  root.innerHTML = `<section class="lyric-workshop-entry"><div><p class="eyebrow">Words before music</p><h3>Shape the lyrics</h3><p>Generate a first draft from your song idea, give it a nudge, and choose the words you want Tony to sing.</p></div><button type="button" class="quiet" data-workshop-open aria-haspopup="dialog">Open lyric workshop</button><p class="small" data-workshop-summary>Optional. Your song enters the queue only after final confirmation.</p></section>
     <dialog class="lyric-workshop" aria-labelledby="lyric-workshop-title" aria-describedby="lyric-workshop-intro">
       <header class="lyric-workshop-header"><div><p class="eyebrow">Draft · edit · make it yours</p><h2 id="lyric-workshop-title">Lyric workshop</h2></div><button type="button" class="quiet" data-workshop-close aria-label="Close lyric workshop">Close</button></header>
       <p id="lyric-workshop-intro">Guide the words, edit any line, or try a different direction. Only <strong>Use these lyrics</strong> adds this draft to your song.</p>
       <details class="workshop-idea"><summary>Your song idea</summary><p>${escape(draft.prompt)}</p></details>
       <p class="small" data-workshop-availability role="status"></p><button type="button" class="text-link" data-workshop-check hidden>Check writer again</button>
       <div class="lyric-workshop-grid"><section class="workshop-guidance">
-        <label for="workshop-direction">What should the words do?</label><textarea id="workshop-direction" rows="4" maxlength="1000" placeholder="A boastful disco villain. Keep “biological mandate” in the hook; give the last verse a ridiculous twist."></textarea>
-        <p class="small">Lyrics only: story, mood, imagery, rhymes, or a change to this draft.</p>
+        <label for="workshop-direction">Extra lyric guidance <span class="small">(optional)</span></label><textarea id="workshop-direction" rows="4" maxlength="1000" aria-describedby="workshop-guidance-help" placeholder="Add a twist, a mood, or a phrase to keep—or leave this blank."></textarea>
+        <p class="small" id="workshop-guidance-help">Leave this blank and click Generate lyrics. Your song idea, direction, and song choices guide the first draft.</p>
         <button type="button" class="primary" data-workshop-generate>Generate lyrics</button>
         <fieldset class="workshop-nudges"><legend>Give this draft a nudge</legend>${actions.map(([id, label]) => `<button type="button" class="quiet" data-lyric-action="${id}">${label}</button>`).join('')}</fieldset>
         <p class="small" data-workshop-status role="status" aria-live="polite"></p><p class="field-error" data-workshop-error role="alert"></p>
         <div class="actions"><button type="button" class="quiet" data-workshop-retry hidden>Retry connection</button><button type="button" class="quiet" data-workshop-stop hidden>Stop writing</button></div>
       </section><section class="workshop-sheet">
         <div class="workshop-sheet-heading"><label for="workshop-lyrics">Your lyric draft</label><span class="small" data-workshop-count></span></div>
-        <textarea id="workshop-lyrics" rows="17" maxlength="12000" spellcheck="true" placeholder="Your lyrics will appear here. You can also start by writing or pasting your own." aria-describedby="workshop-sheet-help"></textarea>
+        <textarea id="workshop-lyrics" rows="17" maxlength="12000" spellcheck="true" placeholder="Click Generate lyrics for a first draft from your song idea. You can also write or paste your own." aria-describedby="workshop-sheet-help"></textarea>
         <p id="workshop-sheet-help" class="small">Edit directly. Keep line breaks and any section labels.</p>
         <label for="workshop-version">Previous versions</label><select id="workshop-version"></select>
       </section></div>
@@ -56,6 +56,9 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
     sheet.readOnly = busy(); instruction.disabled = busy();
     find('[data-workshop-count]').textContent = wordCount(state.lyrics) + ' words';
     const generate = find('[data-workshop-generate]');
+    find('#workshop-guidance-help').textContent = state.lyrics.trim()
+      ? 'Leave this blank to polish the current lyrics. Add a lyrics-only direction to change the story, mood, or wording.'
+      : 'Leave this blank and click Generate lyrics. Your song idea, direction, and song choices guide the first draft.';
     generate.textContent = busy() ? 'Writing…' : state.lyrics.trim() ? 'Revise lyrics' : 'Generate lyrics';
     generate.disabled = busy() || !available;
     for (const button of root.querySelectorAll('[data-lyric-action]')) button.disabled = busy() || !available || !state.lyrics.trim();
@@ -129,9 +132,11 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
     error.textContent = '';
     if (state.lyrics.length > MAX || lyricError(state.lyrics)) { error.textContent = 'The workshop accepts up to 12,000 characters of lyrics. Shorten this draft first.'; return; }
     snapshot(state.lyrics, 'Your edited draft');
-    const direction = state.instruction.trim() || (state.lyrics.trim() ? 'Polish these lyrics while keeping their story and memorable phrases.' : 'Write a complete song lyric sheet from the song idea and direction.');
+    let songContext;
+    try { songContext = context(); } catch (failure) { error.textContent = failure.message; return; }
+    const direction = state.instruction.trim() || (state.lyrics.trim() ? 'Polish these lyrics while keeping their story and memorable phrases.' : 'Write a first lyric draft from my song idea and all supplied song preferences.');
     state.pending = { body: { requestId: crypto.randomUUID(), draftId: draft.id, action,
-      instruction: action === 'custom' ? direction : '', lyrics: state.lyrics, ...context() }, jobId: null };
+      instruction: action === 'custom' ? direction : '', lyrics: state.lyrics, ...songContext }, jobId: null };
     status.textContent = 'Sending your lyric direction…'; remember(); paint();
     await poll();
   }

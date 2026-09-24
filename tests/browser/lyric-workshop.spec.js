@@ -66,6 +66,60 @@ test('generate, edit and choose exact lyrics before the normal request review', 
   await expect(page.getByRole('button', { name: 'Send to the queue' })).toBeVisible();
 });
 
+test('a first draft needs no extra prompt and includes current unsaved song choices', async ({ page }) => {
+  const state = await setup(page);
+  await page.keyboard.press('Escape');
+  await page.locator('#keep').fill('Keep biological mandate in the hook');
+  await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+  await page.locator('#direction').fill('A silly disco villain with a tender final verse');
+  await page.locator('#generation-enabled').check();
+  for (const group of await page.locator('.generation-group').all()) {
+    if (await group.getAttribute('open') === null) await group.locator('summary').click();
+  }
+  await page.locator('#gen-genre').selectOption('Disco');
+  await page.locator('#gen-duration').fill('180');
+  await page.locator('#gen-requiredPhrases').fill('biological mandate');
+  await page.locator('#gen-avoidPhrases').fill('neon dreams');
+  await page.locator('#gen-lockedLines').fill('The last bus is mine');
+  await page.getByRole('tab', { name: 'Essentials', exact: true }).click();
+  await page.getByRole('button', { name: 'Open lyric workshop' }).click();
+  await expect(page.locator('#workshop-direction')).toHaveValue('');
+  await expect(page.locator('#workshop-guidance-help')).toContainText('Leave this blank');
+  await page.getByRole('button', { name: 'Generate lyrics', exact: true }).click();
+  await expect(page.locator('#workshop-lyrics')).toHaveValue(first);
+  expect(state.writes[0]).toMatchObject({
+    draftId: 'workshop-song', instruction: 'Write a first lyric draft from my song idea and all supplied song preferences.',
+    direction: 'A silly disco villain with a tender final verse', keep: 'Keep biological mandate in the hook', duration: 180,
+    generation: { genre: 'Disco', requiredPhrases: ['biological mandate'], avoidPhrases: ['neon dreams'], lockedLines: ['The last bus is mine'] },
+  });
+});
+
+for (const theme of ['light', 'dark']) test(`workshop card and editor remain readable in ${theme} mode on desktop and mobile`, async ({ page }) => {
+  await setup(page, { lyrics: first });
+  await page.evaluate(dark => window.yehry3Theme.setDark(dark), theme === 'dark');
+  await page.evaluate(() => Promise.all(document.getAnimations().filter(animation => animation.effect.getComputedTiming().iterations !== Infinity).map(animation => animation.finished)));
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 1000 });
+    const contrast = await page.locator('.lyric-workshop-entry h3, .lyric-workshop-entry p, .lyric-workshop-entry button, .lyric-workshop h2, .lyric-workshop .small, .lyric-workshop textarea, .lyric-workshop .primary, .lyric-workshop .quiet').evaluateAll(elements => {
+      const luminance = color => {
+        const channels = color.match(/[\d.]+/g).slice(0, 3).map(Number).map(v => v / 255).map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
+        return channels[0] * .2126 + channels[1] * .7152 + channels[2] * .0722;
+      };
+      return elements.filter(el => el.textContent.trim() || el.value).map(el => {
+        let background = el;
+        while (background.parentElement && getComputedStyle(background).backgroundColor === 'rgba(0, 0, 0, 0)') background = background.parentElement;
+        const values = [luminance(getComputedStyle(el).color), luminance(getComputedStyle(background).backgroundColor)].sort((a, b) => b - a);
+        return { text: el.textContent.trim().slice(0, 45) || el.id, ratio: (values[0] + .05) / (values[1] + .05) };
+      });
+    });
+    for (const item of contrast) expect(item.ratio, item.text).toBeGreaterThanOrEqual(4.5);
+    expect(await page.getByRole('dialog').evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);
+    await page.screenshot({ path: `artifacts/lyric-workshop-${theme}-${width}.png` });
+  }
+  await page.keyboard.press('Escape');
+  await page.locator('.lyric-workshop-entry').screenshot({ path: `artifacts/lyric-entry-${theme}.png` });
+});
+
 test('quick revision uses current edits, saves earlier versions and survives reload', async ({ page }) => {
   const state = await setup(page);
   await page.getByRole('button', { name: 'Generate lyrics', exact: true }).click();

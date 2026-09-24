@@ -22,6 +22,14 @@
 .lyric-workshop-footer button { margin: 8px 8px 0 0; }
 .lyric-workshop [hidden] { display: none !important; }
 .lyric-workshop :focus-visible { outline: 3px solid #99502b; outline-offset: 3px; }
+html[data-shared-theme][data-theme="dark"] :is(.lyric-workshop-entry, .lyric-workshop) { background: var(--white); color: var(--ink); border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] .lyric-workshop-entry { background: var(--light); }
+html[data-shared-theme][data-theme="dark"] .lyric-workshop :is(textarea, select) { background: var(--paper); color: var(--ink); border-color: #728472; }
+html[data-shared-theme][data-theme="dark"] .lyric-workshop textarea::placeholder { color: var(--muted); }
+html[data-shared-theme][data-theme="dark"] .workshop-idea { background: var(--light); }
+html[data-shared-theme][data-theme="dark"] .lyric-workshop-footer { border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] :is(.lyric-workshop-entry, .lyric-workshop) .quiet { border-color: #728472; }
+html[data-shared-theme][data-theme="dark"] .lyric-workshop :focus-visible { outline-color: var(--accent); }
 @media (max-width: 700px) {
   .lyric-workshop { padding: 18px; width: calc(100vw - 20px); max-height: calc(100dvh - 20px); }
   .lyric-workshop-header h2 { font-size: 1.65rem; }

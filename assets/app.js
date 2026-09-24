@@ -1147,7 +1147,10 @@ async function requests() {
       };
       if (!materialsAvailable) $("#request-materials-root").innerHTML = '<p class="small">Lyrics and reference links are temporarily unavailable.</p>' + materialBrief(draft.details, escape);
       if (materialsAvailable) mountLyricWorkshop($('#lyric-workshop-root'), { draft, materials: requestMaterials, api, storage, escape, scope,
-        context: () => ({ direction: $('#direction').value.trim(), keep: $('#keep').value.trim(), duration: /^\d+$/.test($('#gen-duration')?.value || '') ? Number($('#gen-duration').value) : null }) });
+        context: () => {
+          const preferences = generation.read();
+          return { direction: $('#direction').value.trim(), keep: $('#keep').value.trim(), duration: preferences?.duration ?? null, generation: preferences };
+        } });
       requestTabs.sync();
       $("#start-over").onclick = () => {
         storage.set("idea-text", draft.prompt);

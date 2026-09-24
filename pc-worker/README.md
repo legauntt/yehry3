@@ -2,9 +2,13 @@
 
 ## Lyric workshop
 
-`lyric_writer.py` is a separate text-only worker for Step 2 of the website. It polls Chairlift's
-private lyric queue every three seconds using the existing DPAPI worker credential and local
-Codex login. It never claims a song, loads a voice, takes the GPU lock, or reserves music funds.
+`lyric_writer.py` is a separate text-only worker for Step 2 of the website. It holds an authenticated
+25-second waiting request to Chairlift, which wakes as soon as a lyric job is committed, then claims
+the job immediately. It uses the existing DPAPI worker credential and local Codex login. It never
+claims a song, loads a voice, takes the GPU lock, or reserves music funds. Empty waits reconnect
+without a polling sleep; a completed draft immediately checks for the next queued job. Connection
+failures back off from one to ten seconds, preserving the same claim ID if a response was lost.
+Older Chairlift deployments without the waiting endpoint retain three-second polling.
 The **Distonyc Lyric Writer** task runs hidden while Jesse is signed in and this PC is awake;
 logon and five-minute restart triggers recover it after exit. Only one writer instance runs.
 The website marks it offline after 45 seconds without a heartbeat and retains local drafts.
@@ -20,7 +24,9 @@ the same result, expired/canceled leases cannot publish, and started jobs are ne
 
 Jobs have a three-minute absolute deadline. Chairlift retains private results for 24 hours;
 browser versions survive in the same tab. Temporary local prompts, outputs and logs are removed
-after each attempt. `state/lyric-workshop/health.json` and `state/lyric-writer.log` contain only
+after each attempt. `state/lyric-workshop/pickup.json` records the latest private job ID and elapsed
+milliseconds from enqueue to PC pickup, for live latency checks (includes any queue backlog).
+`state/lyric-workshop/health.json` and `state/lyric-writer.log` contain only
 service state and error types. An interrupted process can leave a private `attempt-*` directory
 under that state folder; it contains no credential and is never part of a public build.
 

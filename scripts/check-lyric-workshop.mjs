@@ -2,11 +2,12 @@
 // It never confirms a song, calls a music provider, or uses the GPU.
 import assert from 'node:assert/strict';
 import { randomUUID } from 'node:crypto';
-import { writeFile, mkdir } from 'node:fs/promises';
+import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 const args = process.argv.slice(2), option = name => args[args.indexOf(name) + 1];
 if (!args.includes('--base') || !args.includes('--output') || !process.env.YEHRY3_PROMPT_PASSWORD) throw new Error('Supply --base, --output and YEHRY3_PROMPT_PASSWORD for an explicit lyric-only check.');
 const base = option('--base').replace(/\/$/, ''), output = path.resolve(option('--output'));
+const pickupReport = args.includes('--pickup-report') ? path.resolve(option('--pickup-report')) : null;
 if (!base.startsWith('https://') && !base.startsWith('http://127.0.0.1:')) throw new Error('HTTPS or a local preview is required.');
 const headers = { 'Content-Type': 'application/json', 'X-Visitor-ID': randomUUID() };
 async function call(endpoint, body, method = body ? 'POST' : 'GET') {
@@ -28,7 +29,14 @@ async function generate(instruction, lyrics = '', action = 'custom') {
     await new Promise(resolve => setTimeout(resolve, 1500));
     ({ job } = await call('/lyric-workshop/' + encodeURIComponent(job.id)));
   }
-  return { ...job, seconds: Math.round((Date.now() - start) / 100) / 10 };
+  let pickupMs;
+  if (pickupReport && job.state === 'ready') {
+    const pickup = JSON.parse(await readFile(pickupReport, 'utf8'));
+    assert.equal(pickup.jobId, job.id, 'Pickup measurement must belong to this exact lyric job.');
+    assert.ok(Number.isFinite(pickup.pickupMs) && pickup.pickupMs >= 0);
+    pickupMs = pickup.pickupMs;
+  }
+  return { ...job, seconds: Math.round((Date.now() - start) / 100) / 10, ...(pickupMs === undefined ? {} : { pickupMs }) };
 }
 for (const instruction of ['How are you?', "What's the weather?", "What's the square root", 'Write a python program']) {
   const job = await generate(instruction);
@@ -37,12 +45,12 @@ for (const instruction of ['How are you?', "What's the weather?", "What's the sq
 }
 const generated = await generate('Write complete lyrics. Let the final verse reveal that the robot is the bus driver.');
 assert.equal(generated.state, 'ready'); assert.ok(generated.lyrics.length >= 74);
-report.generations.push({ id: generated.id, seconds: generated.seconds, words: generated.lyrics.split(/\s+/).length });
+report.generations.push({ id: generated.id, seconds: generated.seconds, words: generated.lyrics.split(/\s+/).length, ...(pickupReport ? { pickupMs: generated.pickupMs } : {}) });
 // Simulate a manual edit, then a quick action on that exact current sheet.
 const edited = generated.lyrics + '\n[Outro]\nOne more stop, then home.';
 const revised = await generate('', edited, 'funnier');
 assert.equal(revised.state, 'ready'); assert.ok(revised.lyrics.length >= 74);
-report.generations.push({ id: revised.id, seconds: revised.seconds, words: revised.lyrics.split(/\s+/).length });
+report.generations.push({ id: revised.id, seconds: revised.seconds, words: revised.lyrics.split(/\s+/).length, ...(pickupReport ? { pickupMs: revised.pickupMs } : {}) });
 const { prompt: reviewed } = await call('/prompts/' + encodeURIComponent(prompt.id), {
   version: prompt.version, direction: 'Playful disco with a bright dance groove', keep: 'Keep the chosen words', basisSongIds: [], voiceModel: 'v6', lyricSheet: { text: revised.lyrics, mode: 'preserve' },
 }, 'PATCH');
