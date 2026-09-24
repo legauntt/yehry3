@@ -43,10 +43,18 @@ function chart(root, periods, { stacked, value, total, describe }) {
     const label = describe(period);
     const tick = unit === "week" || periods.length <= 16 || index % Math.ceil(periods.length / 12) === 0 || index === periods.length - 1;
     return `<div class="audit-col" role="listitem" tabindex="0" aria-label="${escape(label)}" data-tip="${escape(label)}">
-      <div class="audit-bar" style="height:${(total(period) / max) * 100}%">${period === peak && total(period) > 0 ? `<span class="audit-peak">${escape(stacked.length > 1 ? count(total(period)) : centsText(total(period)))}</span>` : ""}${segments.map(({ key, size }) => `<i class="audit-seg ${key}" style="flex-grow:${size}"></i>`).join("")}</div>
+      <div class="audit-bar" data-size="${(total(period) / max) * 100}">${period === peak && total(period) > 0 ? `<span class="audit-peak">${escape(stacked.length > 1 ? count(total(period)) : centsText(total(period)))}</span>` : ""}${segments.map(({ key, size }) => `<i class="audit-seg ${key}" data-grow="${size}"></i>`).join("")}</div>
       <span class="audit-tick"${tick ? "" : " aria-hidden=\"true\" data-hidden"}>${escape(periodLabel(period, true))}</span>
     </div>`;
   }).join("")}</div>`;
+  sizeFrom(root);
+}
+
+// The site's content security policy refuses inline style attributes, so sizes travel as data and are set here.
+function sizeFrom(root) {
+  for (const bar of root.querySelectorAll("[data-size]")) bar.style.height = `${bar.dataset.size}%`;
+  for (const meter of root.querySelectorAll("[data-fill]")) meter.style.width = `${meter.dataset.fill}%`;
+  for (const segment of root.querySelectorAll("[data-grow]")) segment.style.flexGrow = segment.dataset.grow;
 }
 
 function render() {
@@ -85,7 +93,7 @@ function budgetView(result) {
     const renews = provider.resetAt ? day(new Date(provider.resetAt), { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }) : null;
     parts.push(`<div class="audit-budget-row">
       <p><strong>ElevenLabs credits</strong> ${count(provider.creditsRemaining)} of ${count(provider.creditLimit)} left${provider.tier ? ` · ${escape(provider.tier)} plan` : ""}</p>
-      <div class="audit-meter" role="meter" aria-valuemin="0" aria-valuemax="${provider.creditLimit}" aria-valuenow="${provider.creditsRemaining}" aria-label="ElevenLabs credits left"><i style="width:${used * 100}%"></i></div>
+      <div class="audit-meter" role="meter" aria-valuemin="0" aria-valuemax="${provider.creditLimit}" aria-valuenow="${provider.creditsRemaining}" aria-label="ElevenLabs credits left"><i data-fill="${used * 100}"></i></div>
       <p class="small">About ${dollars(cents)} of generation, roughly ${plural(songMinutes, "minute")} of music (${plural(Math.floor(songMinutes / 3.5), "song")} at 3½ minutes)${provider.availableCents != null && provider.availableCents !== provider.remainingCents ? ", after the songs already in the queue" : ""}.${renews ? ` Renews ${escape(renews)}.` : ""}</p>
       <p class="small">Reported by the studio PC ${escape(day(new Date(provider.observedAt), { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }))}${provider.fresh ? "" : " — out of date, so it may have changed"}.</p>
     </div>`);
@@ -94,7 +102,7 @@ function budgetView(result) {
     const left = Math.min(1, Math.max(0, result.remainingCents / result.capCents));
     parts.push(`<div class="audit-budget-row">
       <p><strong>Spending cap</strong> ${dollars(result.remainingCents)} of ${dollars(result.capCents)} left</p>
-      <div class="audit-meter" role="meter" aria-valuemin="0" aria-valuemax="${result.capCents}" aria-valuenow="${result.remainingCents}" aria-label="Spending cap left"><i style="width:${left * 100}%"></i></div>
+      <div class="audit-meter" role="meter" aria-valuemin="0" aria-valuemax="${result.capCents}" aria-valuenow="${result.remainingCents}" aria-label="Spending cap left"><i data-fill="${left * 100}"></i></div>
       <p class="small">The site's own limit on paid songs. Reservations count until they are settled against real usage.</p>
     </div>`);
   }
@@ -109,7 +117,7 @@ async function loadBudget() {
   }
   try {
     const result = await api("/music-backends", { role: "submitter" });
-    if (!scope.left) root.innerHTML = budgetView(result);
+    if (!scope.left) { root.innerHTML = budgetView(result); sizeFrom(root); }
   } catch {
     if (!scope.left) root.innerHTML = `<p class="small">The budget could not be read right now. Reload to try again.</p>`;
   }
