@@ -19,7 +19,7 @@ async function call(endpoint, body, method = body ? 'POST' : 'GET') {
 const { token } = await call('/session', { role: 'submitter', password: process.env.YEHRY3_PROMPT_PASSWORD });
 headers.Authorization = 'Bearer ' + token;
 assert.equal((await call('/lyric-workshop')).available, true, 'The lyric writer must be online.');
-const { prompt } = await call('/prompts', { prompt: 'An original funny disco song about a lonely robot waiting for the last bus', authoredBy: '', requestId: randomUUID() });
+const { prompt } = await call('/prompts', { prompt: 'An original funny disco song about a lonely robot waiting for the last bus. The final verse reveals that the robot is the bus driver.', authoredBy: '', requestId: randomUUID() });
 const report = { checkedAt: new Date().toISOString(), draftId: prompt.id, rejections: [], generations: [] };
 async function generate(instruction, lyrics = '', action = 'custom') {
   const start = Date.now();
@@ -43,7 +43,7 @@ for (const instruction of ['How are you?', "What's the weather?", "What's the sq
   assert.equal(job.state, 'rejected'); assert.equal(job.lyrics, undefined);
   report.rejections.push({ instruction, state: job.state });
 }
-const generated = await generate('Write complete lyrics. Let the final verse reveal that the robot is the bus driver.');
+const generated = await generate('Write a first lyric draft from my song idea and all supplied song preferences.');
 assert.equal(generated.state, 'ready'); assert.ok(generated.lyrics.length >= 74);
 report.generations.push({ id: generated.id, seconds: generated.seconds, words: generated.lyrics.split(/\s+/).length, ...(pickupReport ? { pickupMs: generated.pickupMs } : {}) });
 // Simulate a manual edit, then a quick action on that exact current sheet.

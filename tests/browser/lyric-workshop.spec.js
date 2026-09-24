@@ -96,8 +96,8 @@ test('a first draft needs no extra prompt and includes current unsaved song choi
 
 for (const theme of ['light', 'dark']) test(`workshop card and editor remain readable in ${theme} mode on desktop and mobile`, async ({ page }) => {
   await setup(page, { lyrics: first });
+  await page.addStyleTag({ content: '.lyric-workshop-entry *, .lyric-workshop * { transition: none !important; }' });
   await page.evaluate(dark => window.yehry3Theme.setDark(dark), theme === 'dark');
-  await page.evaluate(() => Promise.all(document.getAnimations().filter(animation => animation.effect.getComputedTiming().iterations !== Infinity).map(animation => animation.finished)));
   for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 1000 });
     const contrast = await page.locator('.lyric-workshop-entry h3, .lyric-workshop-entry p, .lyric-workshop-entry button, .lyric-workshop h2, .lyric-workshop .small, .lyric-workshop textarea, .lyric-workshop .primary, .lyric-workshop .quiet').evaluateAll(elements => {
