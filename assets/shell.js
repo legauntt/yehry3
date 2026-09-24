@@ -1,5 +1,5 @@
 // Moving around without unloading. The pages that share the site header (the collection, lyric
-// sheets, mixtapes, the queue, Backstage, Aud'tism and the request form) change here by fetching the next page and
+// sheets, mixtapes, the queue, Backstage, Aud'tism, Timeline and the request form) change here by fetching the next page and
 // swapping its contents in, so the audio element, the bottom player and the listening room's avatars
 // carry on untouched. A page module registers what it does with definePage(); the shell mounts it on
 // first load and on each visit. Anything that cannot be swapped safely (another kind of page, a link
@@ -11,7 +11,7 @@ import { applyBranding } from "./branding.js";
 
 const pages = new Map();
 // The pages this shell swaps between. Everything else loads normally.
-const routes = /^\/(?:$|mixtapes(?:\/|$)|queue(?:\/|$)|admin(?:\/|$)|distonyc(?:\/|$)|lyrics(?:\/|$)|original-prompt(?:\/|$)|audtism(?:\/|$))/;
+const routes = /^\/(?:$|mixtapes(?:\/|$)|queue(?:\/|$)|admin(?:\/|$)|distonyc(?:\/|$)|lyrics(?:\/|$)|original-prompt(?:\/|$)|audtism(?:\/|$)|timeline(?:\/|$))/;
 // Sheets that belong to the shell and the room, never to one page.
 const kept = ["/assets/site.css", "/assets/theme.css", "/assets/listeners.css", "/assets/deployment.css", "/assets/favorites.css", "/assets/quality-preference.css"];
 const searched = new Set(["/lyrics/", "/original-prompt/", "/queue/details/"]);

@@ -57,6 +57,11 @@
       "statusCode": 302
     },
     {
+      "route": "/timeline",
+      "redirect": "/timeline/",
+      "statusCode": 302
+    },
+    {
       "route": "/oeuful",
       "redirect": "/oeuful/",
       "statusCode": 302
