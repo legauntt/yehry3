@@ -275,11 +275,10 @@ test('rolling hat is prominent during writing on mobile and respects reduced mot
 for (const profile of ['slow frames', 'no frames', 'paused hat']) test(`a ${profile} browser falls back to a simple loader without losing the draft`, async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await setup(page, { pending: true, lyrics: first });
-  if (profile === 'paused hat') {
-    await page.addStyleTag({ content: '.workshop-hat-travel { animation-play-state: paused !important; }' });
-  }
   await page.getByRole('button', { name: 'Funnier', exact: true }).click();
-  if (profile !== 'paused hat') {
+  if (profile === 'paused hat') {
+    await page.locator('.workshop-hat-travel').evaluate(el => el.getAnimations().forEach(animation => animation.pause()));
+  } else {
     await page.evaluate(profile => {
       const request = window.requestAnimationFrame, cancel = window.cancelAnimationFrame;
       window.restoreFrames = () => { window.requestAnimationFrame = request; window.cancelAnimationFrame = cancel; };
