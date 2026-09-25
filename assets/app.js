@@ -388,11 +388,61 @@ async function library() {
       }
       badge.textContent = sharedFresh ? "Shared with you just now" : "Shared with you";
     }
+    syncSharedSpotlight(shared);
     return row;
   }
   // A song page (/song/<id>/) leaves a note before forwarding here; that is what tells a shared link
   // from a completion alert or a hand-typed fragment. The badge stays for the life of the page.
   let sharedId = null, sharedFresh = false, sharedTimer, sharedFollowUntil = 0;
+  let sharedSpotlight = false, sharedBackdrop, sharedClose;
+  function dismissSharedSpotlight() {
+    if (!sharedSpotlight) return;
+    sharedSpotlight = false;
+    sharedFollowUntil = 0;
+    stopCentring?.();
+    const row = $(".is-share-spotlight", main);
+    if (document.activeElement === sharedClose) $("[data-play]", row || main)?.focus({ preventScroll: true });
+    row?.classList.remove("is-share-spotlight");
+    sharedBackdrop?.remove();
+    sharedClose?.remove();
+    sharedBackdrop = sharedClose = null;
+  }
+  function syncSharedSpotlight(row) {
+    if (!sharedSpotlight) return;
+    // Filtering, pagination or an archive can take the song off screen.
+    if (!row) { dismissSharedSpotlight(); return; }
+    row.classList.add("is-share-spotlight");
+    if (sharedBackdrop) return;
+    sharedBackdrop = document.createElement("div");
+    sharedBackdrop.className = "shared-spotlight-backdrop";
+    sharedBackdrop.setAttribute("aria-hidden", "true");
+    sharedClose = document.createElement("button");
+    sharedClose.type = "button";
+    sharedClose.className = "shared-spotlight-close";
+    sharedClose.setAttribute("aria-label", "Show full collection");
+    sharedClose.title = "Show full collection (Esc)";
+    sharedClose.textContent = "×";
+    sharedClose.addEventListener("click", dismissSharedSpotlight);
+    sharedBackdrop.addEventListener("click", dismissSharedSpotlight);
+    document.body.append(sharedBackdrop, sharedClose);
+  }
+  // Listen for scroll intent, not scroll events: our own arrival centring must keep the spotlight.
+  scope.on(window, "wheel", (event) => {
+    if (event.deltaX || event.deltaY) dismissSharedSpotlight();
+  }, { passive: true });
+  scope.on(window, "touchmove", dismissSharedSpotlight, { passive: true });
+  scope.on(window, "keydown", (event) => {
+    if (!sharedSpotlight || event.target.closest?.("dialog[open]")) return;
+    if (event.key === "Escape") { dismissSharedSpotlight(); event.preventDefault(); }
+    else if ((["PageUp", "PageDown", "Home", "End", "ArrowUp", "ArrowDown"].includes(event.key)
+      || (event.key === " " && !event.target.closest?.("button, a, summary, [role='button']")))
+      && !event.target.closest?.("input, textarea, select, [contenteditable]")) dismissSharedSpotlight();
+  });
+  // This is a visual introduction, not a modal: tabbing elsewhere restores the collection.
+  scope.on(document, "focusin", (event) => {
+    if (event.target !== sharedClose && !event.target.closest?.(".is-share-spotlight, dialog[open]")) dismissSharedSpotlight();
+  });
+  scope.onLeave(dismissSharedSpotlight);
   function takeShared(id) {
     try {
       const note = JSON.parse(sessionStorage.getItem("yehry3:shared-song") || "null");
@@ -601,9 +651,11 @@ async function library() {
   function revealSong(id) {
     if (!/^[a-z0-9-]{1,120}$/.test(id || "") || id === revealed) return;
     if (!songs.some((song) => song.id === id) && !pending.some((song) => song.id === id)) return;
+    dismissSharedSpotlight();
     revealed = highlighted = id;
     if (takeShared(id)) {
       sharedId = id;
+      sharedSpotlight = true;
       sharedFresh = true;
       sharedFollowUntil = Date.now() + 20000;
       clearTimeout(sharedTimer);
@@ -629,6 +681,10 @@ async function library() {
     // is stale by the time it arrives if anything above has loaded since.
     row.scrollIntoView({ block: "center", behavior: "instant" });
     keepCentred(id);
+    if (sharedSpotlight) {
+      row.tabIndex = -1;
+      row.focus({ preventScroll: true });
+    }
     clearTimeout(revealing);
     revealing = setTimeout(() => {
       highlighted = null;

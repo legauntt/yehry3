@@ -225,6 +225,23 @@ html[data-shared-theme][data-theme="dark"] #tracks .track.playing .track-info h3
   animation: shared-badge-in .5s cubic-bezier(.2, 1.4, .4, 1) both;
 }
 .shared-badge::before { content: "✦ "; }
+/* Keep the real song card interactive above the dimmed page, in either catalog view. */
+.shared-spotlight-backdrop {
+  position: fixed; inset: 0; z-index: 60;
+  background: rgba(10, 16, 13, .76);
+}
+#tracks[data-view] .track.is-share-spotlight,
+#pending-tracks .pending-track.is-share-spotlight {
+  position: relative; z-index: 61; background-color: var(--white);
+}
+.shared-spotlight-close {
+  position: fixed; top: max(16px, env(safe-area-inset-top)); right: max(16px, env(safe-area-inset-right)); z-index: 62;
+  display: grid; place-items: center; width: 44px; height: 44px; padding: 0;
+  border: 1px solid #ffffff80; border-radius: 50%; background: #202b24; color: #fff;
+  font-size: 1.7rem; line-height: 1; box-shadow: 0 3px 16px #0005;
+}
+.shared-spotlight-close:hover { background: #3e5145; }
+.shared-spotlight-close:focus-visible { outline: 3px solid #ffb27a; outline-offset: 4px; }
 #tracks .track.playing.is-shared { animation: now-playing-pulse 1.8s ease-in-out infinite; }
 @media (prefers-reduced-motion: reduce) {
   #tracks .track.is-shared, #pending-tracks .pending-track.is-shared, .shared-badge { animation: none; }

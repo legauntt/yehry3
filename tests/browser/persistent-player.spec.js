@@ -134,7 +134,7 @@ test("a lyric sheet plays on the site's player and the song stays as the visitor
   await line.click();
   await expect(page.locator("#site-player")).toBeVisible();
   await expect(page.locator("#site-player .eyebrow")).toHaveText("Paused");
-  await expect(sheet.locator("#sheet-play")).toHaveText("Play");
+  await expect(sheet.locator("#sheet-play")).toHaveText("Resume");
   expect(await page.evaluate(() => window.yehry3Player.audio.paused)).toBe(true);
   await expect.poll(() => page.evaluate(() => window.yehry3Player.audio.currentTime)).toBeCloseTo(cue.start, 0);
   await sheet.locator("#sheet-play").click();

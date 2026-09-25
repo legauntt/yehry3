@@ -4,7 +4,8 @@ import { readFile } from "node:fs/promises";
 
 const catalog = JSON.parse(await readFile(new URL("../../catalog.json", import.meta.url), "utf8"));
 const real = (catalog.songs || catalog).find(song => song.id?.startsWith("distonyc-"));
-const target = { id: real.id, title: "Shared fixture", duration: 90, url: "/shared-fixture.wav", collection: "distonyc", votes: 0, order: -1, voiceModel: "v8" };
+const recording = (catalog.songs || catalog).find(song => song.url.startsWith("/fearhunger/"));
+const target = { id: real.id, title: "Shared fixture", duration: 90, url: recording.url, collection: "distonyc", votes: 0, order: -1, voiceModel: "v8", hasLyrics: true };
 const filler = Array.from({ length: 8 }, (_, index) => ({
   id: `filler-${index}`, title: `Older song ${index}`, duration: 90, url: "/shared-fixture.wav",
   collection: "fearhunger", votes: 8 - index, order: -(index + 2),
@@ -30,6 +31,7 @@ test("a shared song link badges the song for the life of the page", async ({ pag
   await expect(row).toHaveClass(/is-revealed/);
   await expect(row).not.toHaveClass(/is-revealed/, { timeout: 12000 }); // The pulse settles; the badge stays.
   await expect(row.locator(".shared-badge")).toBeVisible();
+  await expect(page.locator(".shared-spotlight-backdrop")).toBeVisible();
   // Every render resets each row's classes; the badge must be reapplied once the alert outline has expired.
   await page.evaluate(() => { const search = document.querySelector("#search"); search.value = "Shared"; search.dispatchEvent(new Event("input", { bubbles: true })); });
   await expect(page.locator(`.track[data-id="${target.id}"]`)).toHaveClass(/is-shared/);
@@ -46,6 +48,85 @@ test("a completion alert or typed fragment is revealed but not called shared", a
   await expect(row).toHaveClass(/is-revealed/);
   await expect(row).not.toHaveClass(/is-shared/);
   await expect(page.locator(".shared-badge")).toHaveCount(0);
+  await expect(page.locator(".shared-spotlight-backdrop")).toHaveCount(0);
+});
+
+for (const width of [1440, 390, 320]) for (const view of ["grid", "list"]) {
+  test(`shared spotlight keeps playback continuous in ${view} at ${width}px`, async ({ page }) => {
+    await fixtures(page);
+    await page.setViewportSize({ width, height: width < 500 ? 844 : 1000 });
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    await page.addInitScript(({ view, width }) => {
+      localStorage.setItem("yehry3:catalog-view", view);
+      if (width === 320) localStorage.setItem("yehry3:dark-mode", "true");
+    }, { view, width });
+    await page.goto(`/song/${target.id}/`);
+    const row = page.locator(`.track[data-id="${target.id}"]`);
+    const backdrop = page.locator(".shared-spotlight-backdrop");
+    await expect(backdrop).toBeVisible();
+    await expect(row).toHaveClass(/is-share-spotlight/);
+    await expect(row).toBeInViewport();
+    await expect(page.getByRole("button", { name: "Show full collection" })).toBeInViewport();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    // Hit-testing proves the card is above the dimmer and the rest of the page is below it.
+    expect(await row.locator("[data-play]").evaluate(button => {
+      const box = button.getBoundingClientRect();
+      return button.contains(document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2));
+    })).toBe(true);
+    expect(await page.evaluate(() => document.elementFromPoint(5, 5).className)).toBe("shared-spotlight-backdrop");
+    await page.screenshot({ path: `artifacts/shared-spotlight-${view}-${width}.png` });
+    const audio = page.locator("#audio");
+    expect(await audio.evaluate(el => el.paused)).toBe(true);
+    await row.locator("[data-play]").click();
+    await expect.poll(() => audio.evaluate(el => el.paused)).toBe(false);
+    await expect(backdrop).toBeVisible();
+    await audio.evaluate(el => { window.sharedAudio = el; el.currentTime = 30; });
+    await page.getByRole("button", { name: "Show full collection" }).click();
+    await expect(backdrop).toHaveCount(0);
+    await expect(row).not.toHaveClass(/is-share-spotlight/);
+    await expect(row.locator(".shared-badge")).toBeVisible();
+    expect(await audio.evaluate(el => el === window.sharedAudio && !el.paused && el.currentTime >= 30)).toBe(true);
+    await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
+    await expect(row).toHaveClass(/playing/);
+    await expect(backdrop).toHaveCount(0);
+    await row.locator("[data-play]").click();
+    await expect.poll(() => audio.evaluate(el => el.paused)).toBe(true);
+  });
+}
+
+for (const action of ["Escape", "PageDown", "Space", "outside click", "wheel", "touch scroll", "keyboard focus"]) {
+  test(`${action} dismisses the shared spotlight without removing the badge`, async ({ page }) => {
+    await fixtures(page);
+    if (action === "touch scroll") await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`/song/${target.id}/`);
+    const row = page.locator(`.track[data-id="${target.id}"]`);
+    await expect(row).toHaveClass(/is-share-spotlight/);
+    if (["Escape", "PageDown", "Space"].includes(action)) await page.keyboard.press(action);
+    if (action === "outside click") await page.mouse.click(5, 5);
+    if (action === "wheel") await page.mouse.wheel(0, 250);
+    if (action === "touch scroll") {
+      const touch = await page.context().newCDPSession(page);
+      await touch.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x: 180, y: 400 }] });
+      await touch.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x: 180, y: 300 }] });
+      await touch.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+      await touch.detach();
+    }
+    if (action === "keyboard focus") await page.locator("[data-catalog-view='list']").focus();
+    await expect(page.locator(".shared-spotlight-backdrop")).toHaveCount(0);
+    await expect(page.getByRole("button", { name: "Show full collection" })).toHaveCount(0);
+    await expect(row).not.toHaveClass(/is-share-spotlight/);
+    await expect(row.locator(".shared-badge")).toHaveCount(1);
+  });
+}
+
+test("leaving the shared song through its lyrics clears the spotlight", async ({ page }) => {
+  await fixtures(page);
+  await page.goto(`/song/${target.id}/`);
+  const row = page.locator(`.track[data-id="${target.id}"]`);
+  await expect(row).toHaveClass(/is-share-spotlight/);
+  await row.getByRole("link", { name: "Lyrics for Shared fixture" }).click();
+  await expect(page).toHaveURL(/\/lyrics\//);
+  await expect(page.locator(".shared-spotlight-backdrop, .shared-spotlight-close")).toHaveCount(0);
 });
 
 test("the playing song and the player bar say Now playing", async ({ page }) => {
