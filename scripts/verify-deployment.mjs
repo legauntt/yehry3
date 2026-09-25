@@ -13,10 +13,10 @@ const assetContent = (bytes, name) =>
 const local = JSON.parse(
   await readFile(new URL("../catalog.json", import.meta.url), "utf8"),
 );
-async function get(url, options = {}) {
+async function get(url, { timeoutMs = 20000, ...options } = {}) {
   const response = await fetch(url, {
     ...options,
-    signal: AbortSignal.timeout(20000),
+    signal: AbortSignal.timeout(timeoutMs),
   });
   assert.ok(response.ok, `${url} returned ${response.status}`);
   return response;
@@ -385,6 +385,9 @@ const range = await get(new URL(sample.url, site), {
 assert.equal(range.status, 206);
 assert.equal((await range.arrayBuffer()).byteLength, 1024);
 const response = await get(`${api}/songs`, {
+  // This legacy response includes every lyric sheet and plan (over 2 MB).
+  // The dashboard uses /songs/summary; keep its and all other reads' 20s bound.
+  timeoutMs: 45000,
   headers: { "X-Visitor-ID": randomUUID(), Origin: site },
 });
 assert.equal(response.headers.get("access-control-allow-origin"), site);
