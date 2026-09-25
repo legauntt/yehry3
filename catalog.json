@@ -2,6 +2,271 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-6f6f1da6840152e0869beb97",
+      "title": "A Glass to the Green Shore",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6f6f1da6840152e0869beb97-3cacd179a8fc.mp3",
+      "duration": 180,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-25T08:32:21.297Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "A Glass to the Green Shore",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D major",
+        "arrangement": "Irish folk-rock at 126 BPM: driving drums and electric bass anchor fiddle, tin whistle, mandolin, acoustic guitar, electric guitar, and warm accordion. Tony V9 sings with rough connected vowels, smoky slurs, small laughs, and a broad, catchable melodic refrain. Start with a brief fiddle-and-mandolin pickup, grow from intimate harbor verses into full-band choruses, pull back for the handclap-ready bridge, then give the final chorus a lifted harmony stack. Pace the sustained final word “Home” to land about 10 seconds before the end, followed by one resolved D-major chord decay.",
+        "lyrics": "[Verse 1]\nBy the harbor lamps where the rain comes down\nI heard a fiddle wake the town\nA weathered coat and a lifted glass\nFor every friend and every pass\nThe old doors swung, the floorboards rang\nA hundred voices nearly sang\nNot borrowed words, but a welcome sound\nFrom distant hills to this harbor town\n\n[Pre-Chorus]\nRaise the window, let the cold wind in\nLet the night begin again\n\n[Chorus]\nHere's a glass to the green shore, shining through the storm\nTo the hands that pull you closer, keep a fire warm\nTo the road that turns you homeward when the long day is done\nHere's a glass to the green shore, to everyone\n\n[Verse 2]\nA mother waits beside the gate\nHer candle burns though the hour is late\nA traveler laughs, then bows his head\nFor all the names the years have said\nThe river carries moonlit gold\nThe youngest heart, the stories old\nAnd every mile beneath my feet\nFinds a song in the cobbled street\n\n[Chorus]\nHere's a glass to the green shore, shining through the storm\nTo the hands that pull you closer, keep a fire warm\nTo the road that turns you homeward when the long day is done\nHere's a glass to the green shore, to everyone\n\n[Bridge]\nNo king's crown and no pocket full of gold\nCould buy the promise of a hand to hold\nSo stamp the time and turn the room around\nThe truest treasure is the people found\n\n[Chorus]\nHere's a glass to the green shore, shining through the storm\nTo the hands that pull you closer, keep a fire warm\nWhen the dawn is on the water and the last bell has rung\nHere's a glass to the green shore, to everyone\n\n[Outro]\nKeep the lantern bright for me\nI will find my way across the sea\nHome...\n[End]",
+        "duration": 180,
+        "bpm": 126,
+        "musicalSettings": {
+          "genre": "Irish folk-rock",
+          "meter": "4/4",
+          "structure": "Instrumental pickup, Verse 1, Pre-Chorus, Chorus, Verse 2, Chorus, Bridge, Final Chorus, Outro",
+          "performance": "Natural, smoky Tony V9 lead with slurred connected phrasing and clear, memorable chorus melody",
+          "energy": "Starts warmly, gains a pub-session drive in the choruses, drops for the bridge, and resolves in a communal final lift",
+          "lyricWorkflow": "Original lyric homage using fresh harbor, homecoming, and gathering imagery",
+          "instruments": [
+            "drum kit",
+            "electric bass",
+            "fiddle",
+            "tin whistle",
+            "mandolin",
+            "acoustic guitar",
+            "electric guitar",
+            "accordion"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nBy the harbor lamps where the rain comes down\nI heard a fiddle wake the town\nA weathered coat and a lifted glass\nFor every friend and every pass\nThe old doors swung, the floorboards rang\nA hundred voices nearly sang\nNot borrowed words, but a welcome sound\nFrom distant hills to this harbor town\n\n[Pre-Chorus]\nRaise the window, let the cold wind in\nLet the night begin again\n\n[Chorus]\nHere's a glass to the green shore, shining through the storm\nTo the hands that pull you closer, keep a fire warm\nTo the road that turns you homeward when the long day is done\nHere's a glass to the green shore, to everyone\n\n[Verse 2]\nA mother waits beside the gate\nHer candle burns though the hour is late\nA traveler laughs, then bows his head\nFor all the names the years have said\nThe river carries moonlit gold\nThe youngest heart, the stories old\nAnd every mile beneath my feet\nFinds a song in the cobbled street\n\n[Chorus]\nHere's a glass to the green shore, shining through the storm\nTo the hands that pull you closer, keep a fire warm\nTo the road that turns you homeward when the long day is done\nHere's a glass to the green shore, to everyone\n\n[Bridge]\nNo king's crown and no pocket full of gold\nCould buy the promise of a hand to hold\nSo stamp the time and turn the room around\nThe truest treasure is the people found\n\n[Chorus]\nHere's a glass to the green shore, shining through the storm\nTo the hands that pull you closer, keep a fire warm\nWhen the dawn is on the water and the last bell has rung\nHere's a glass to the green shore, to everyone\n\n[Outro]\nKeep the lantern bright for me\nI will find my way across the sea\nHome...",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 6.44,
+            "end": 10.74
+          },
+          {
+            "line": 2,
+            "start": 11.28,
+            "end": 14.4
+          },
+          {
+            "line": 3,
+            "start": 15.2,
+            "end": 18.28
+          },
+          {
+            "line": 4,
+            "start": 19.02,
+            "end": 22.02
+          },
+          {
+            "line": 5,
+            "start": 22.82,
+            "end": 25.58
+          },
+          {
+            "line": 6,
+            "start": 25.58,
+            "end": 29.68
+          },
+          {
+            "line": 7,
+            "start": 30.14,
+            "end": 33.58
+          },
+          {
+            "line": 8,
+            "start": 33.58,
+            "end": 37.38
+          },
+          {
+            "line": 11,
+            "start": 38.54,
+            "end": 41.42
+          },
+          {
+            "line": 12,
+            "start": 42.42,
+            "end": 45.24
+          },
+          {
+            "line": 15,
+            "start": 46.2,
+            "end": 50
+          },
+          {
+            "line": 16,
+            "start": 50,
+            "end": 53.96
+          },
+          {
+            "line": 17,
+            "start": 53.96,
+            "end": 57.86
+          },
+          {
+            "line": 18,
+            "start": 59.42,
+            "end": 64.94
+          },
+          {
+            "line": 21,
+            "start": 68.6,
+            "end": 72.2
+          },
+          {
+            "line": 22,
+            "start": 72.2,
+            "end": 75.76
+          },
+          {
+            "line": 23,
+            "start": 75.76,
+            "end": 79.66
+          },
+          {
+            "line": 24,
+            "start": 79.66,
+            "end": 83.44
+          },
+          {
+            "line": 25,
+            "start": 83.44,
+            "end": 87.26
+          },
+          {
+            "line": 26,
+            "start": 88.06,
+            "end": 91.18
+          },
+          {
+            "line": 27,
+            "start": 91.9,
+            "end": 94.92
+          },
+          {
+            "line": 28,
+            "start": 94.92,
+            "end": 97.8
+          },
+          {
+            "line": 31,
+            "start": 99.14,
+            "end": 102.92
+          },
+          {
+            "line": 32,
+            "start": 102.92,
+            "end": 106.72
+          },
+          {
+            "line": 33,
+            "start": 106.72,
+            "end": 110.64
+          },
+          {
+            "line": 34,
+            "start": 112.34,
+            "end": 117.78
+          },
+          {
+            "line": 37,
+            "start": 118.34,
+            "end": 124.8
+          },
+          {
+            "line": 38,
+            "start": 124.8,
+            "end": 127.62
+          },
+          {
+            "line": 39,
+            "start": 128.7,
+            "end": 132.3
+          },
+          {
+            "line": 40,
+            "start": 132.3,
+            "end": 135.28
+          },
+          {
+            "line": 43,
+            "start": 136.36,
+            "end": 140.4
+          },
+          {
+            "line": 44,
+            "start": 140.4,
+            "end": 144.24
+          },
+          {
+            "line": 45,
+            "start": 144.24,
+            "end": 147.62
+          },
+          {
+            "line": 46,
+            "start": 147.62,
+            "end": 155.16
+          },
+          {
+            "line": 49,
+            "start": 157.44,
+            "end": 159.36
+          },
+          {
+            "line": 50,
+            "start": 159.36,
+            "end": 163.04
+          },
+          {
+            "line": 51,
+            "start": 163.04,
+            "end": 163.4
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 15.86
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony gives a nod to the Irish with phrases from \"O Danny Boy\", \"Whiskey In a Jar\", and \"Wild Rover\"",
+        "direction": "Use the prompt as written.",
+        "keep": "Do your best to come up with a mash-up of Irish music",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-5b14a7863e934800c119da40",
       "title": "A Hundred Bad Signals - Lightning Round",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5b14a7863e934800c119da40-113e822bbd2c.mp3",
