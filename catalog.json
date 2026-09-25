@@ -2,6 +2,248 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ee54a8075a1278a0f7d0f07e",
+      "title": "Three Names on the Radio",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ee54a8075a1278a0f7d0f07e-d0ea2fe2ec75.mp3",
+      "duration": 144.64,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-25T23:26:08.111Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Three Names on the Radio",
+        "recipe": "new",
+        "style": "acoustic",
+        "keyscale": "D major",
+        "arrangement": "Intimate Americana acoustic mix in D major: fingerpicked steel-string guitar, upright bass, brushed snare, restrained mandolin answers, and a faint harmonium swell only in the final chorus. Tony V9 leads with smoky connected vowels, loose conversational turns, and a warmly sustained, catchable refrain; keep the heroes’ names clear. Begin close and spare, broaden gently after the first chorus, then pull back for the bridge before a fuller final chorus. Pace the final “wherever I go” as a sustained last vocal syllable about 10 seconds before the 145-second end, followed by one resolved acoustic chord decay.",
+        "lyrics": "[Verse 1]\nI found an old station past the county line\nStatic in the speaker, moonlight on the signs\nA black-clad voice said mercy has a cost\nA freight-train man sang proud of what he lost\nThen velvet on the dial came floating through\nA little city sunrise painted blue\nThree different roads, one long hard night\nThey kept a tired kid pointed toward the light\n\n[Chorus]\nJohnny, Merle, Barry, singing through the rain\nOne held the fire, one held the plain\nOne made a lonely room feel wide and bright\nThree names on the radio, carrying me tonight\n\n[Verse 2]\nJohnny taught me thunder can bow its head\nMerle taught me truth ain't afraid of being said\nBarry taught me tenderness can fill a hall\nThat a broken-hearted voice can still stand tall\nI ain't wearing anybody else's skin\nI just hear those old sparks when I begin\nI take my own small song down the road\nWith their distant hands beneath the load\n\n[Bridge]\nSo turn it up, let the needle shake\nLet every scar become a song you make\nNo borrowed crown, no painted throne\nJust a beat-up guitar and a voice of my own\n\n[Chorus]\nJohnny, Merle, Barry, singing through the rain\nOne held the fire, one held the plain\nOne made a lonely room feel wide and bright\nThree names on the radio, carrying me tonight\nI leave the window open to the sky\nThank you for the songs that taught me why\nThree names on the radio, warm and low\nI carry your light wherever I go\n[End]",
+        "duration": 145,
+        "bpm": 82,
+        "musicalSettings": {
+          "genre": "Intimate acoustic Americana tribute",
+          "meter": "4/4",
+          "structure": "Verse 1 → Chorus → Verse 2 → Bridge → Final Chorus → resolved ending",
+          "performance": "Smoky, slurred-but-melodic Tony V9 delivery with clear hero names and warm sustained refrains",
+          "energy": "Quietly reflective opening, gradual lift, brief bridge hush, then a grateful full final chorus",
+          "lyricWorkflow": "Original narrative lyric: a late-night radio dial connects three distinct musical heroes to the singer’s own path",
+          "instruments": [
+            "Steel-string acoustic guitar",
+            "Upright bass",
+            "Brushed snare",
+            "Mandolin",
+            "Harmonium"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI found an old station past the county line\nStatic in the speaker, moonlight on the signs\nA black-clad voice said mercy has a cost\nA freight-train man sang proud of what he lost\nThen velvet on the dial came floating through\nA little city sunrise painted blue\nThree different roads, one long hard night\nThey kept a tired kid pointed toward the light\n\n[Chorus]\nJohnny, Merle, Barry, singing through the rain\nOne held the fire, one held the plain\nOne made a lonely room feel wide and bright\nThree names on the radio, carrying me tonight\n\n[Verse 2]\nJohnny taught me thunder can bow its head\nMerle taught me truth ain't afraid of being said\nBarry taught me tenderness can fill a hall\nThat a broken-hearted voice can still stand tall\nI ain't wearing anybody else's skin\nI just hear those old sparks when I begin\nI take my own small song down the road\nWith their distant hands beneath the load\n\n[Bridge]\nSo turn it up, let the needle shake\nLet every scar become a song you make\nNo borrowed crown, no painted throne\nJust a beat-up guitar and a voice of my own\n\n[Chorus]\nJohnny, Merle, Barry, singing through the rain\nOne held the fire, one held the plain\nOne made a lonely room feel wide and bright\nThree names on the radio, carrying me tonight\nI leave the window open to the sky\nThank you for the songs that taught me why\nThree names on the radio, warm and low\nI carry your light wherever I go",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.06
+          },
+          {
+            "line": 2,
+            "start": 3.7,
+            "end": 6.78
+          },
+          {
+            "line": 3,
+            "start": 7.4,
+            "end": 10.28
+          },
+          {
+            "line": 4,
+            "start": 10.28,
+            "end": 14.06
+          },
+          {
+            "line": 5,
+            "start": 14.5,
+            "end": 17.1
+          },
+          {
+            "line": 6,
+            "start": 17.46,
+            "end": 20
+          },
+          {
+            "line": 7,
+            "start": 20.38,
+            "end": 23.16
+          },
+          {
+            "line": 8,
+            "start": 23.16,
+            "end": 25.98
+          },
+          {
+            "line": 11,
+            "start": 26.48,
+            "end": 29
+          },
+          {
+            "line": 12,
+            "start": 29,
+            "end": 31.5
+          },
+          {
+            "line": 13,
+            "start": 31.5,
+            "end": 34.7
+          },
+          {
+            "line": 14,
+            "start": 34.7,
+            "end": 39.14
+          },
+          {
+            "line": 17,
+            "start": 49.62,
+            "end": 52.28
+          },
+          {
+            "line": 18,
+            "start": 52.28,
+            "end": 55.34
+          },
+          {
+            "line": 19,
+            "start": 55.34,
+            "end": 58.68
+          },
+          {
+            "line": 20,
+            "start": 58.68,
+            "end": 61.48
+          },
+          {
+            "line": 21,
+            "start": 61.48,
+            "end": 64.68
+          },
+          {
+            "line": 22,
+            "start": 64.68,
+            "end": 67.3
+          },
+          {
+            "line": 23,
+            "start": 67.3,
+            "end": 70.38
+          },
+          {
+            "line": 24,
+            "start": 70.38,
+            "end": 73.5
+          },
+          {
+            "line": 27,
+            "start": 73.5,
+            "end": 75.66
+          },
+          {
+            "line": 28,
+            "start": 75.66,
+            "end": 78.58
+          },
+          {
+            "line": 29,
+            "start": 78.58,
+            "end": 81.44
+          },
+          {
+            "line": 30,
+            "start": 81.44,
+            "end": 84.02
+          },
+          {
+            "line": 33,
+            "start": 84.02,
+            "end": 87.58
+          },
+          {
+            "line": 34,
+            "start": 87.58,
+            "end": 90.26
+          },
+          {
+            "line": 35,
+            "start": 90.26,
+            "end": 93.24
+          },
+          {
+            "line": 36,
+            "start": 93.58,
+            "end": 97.44
+          },
+          {
+            "line": 37,
+            "start": 97.44,
+            "end": 101.8
+          },
+          {
+            "line": 38,
+            "start": 103.18,
+            "end": 105.98
+          },
+          {
+            "line": 39,
+            "start": 105.98,
+            "end": 114.32
+          },
+          {
+            "line": 40,
+            "start": 114.32,
+            "end": 117.94
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 10.68
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 26.44
+        },
+        {
+          "code": "early_lyric_ending",
+          "seconds": 26.7
+        }
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony writes a song of tribute to his heroes (Johnny Cash, Merle Haggard, Barry Manilow). Acoustic mix, use \"Poncho and Lefty\" as inspiration.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-d2935600fb26c1558a0f0657",
       "title": "The Golden Answer (Midnight Swing)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d2935600fb26c1558a0f0657-3fe9a9bf8c4f.mp3",
