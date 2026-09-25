@@ -25,7 +25,7 @@ html[data-shared-theme][data-theme="dark"] :is(.field-error, .attention-note, .p
 html[data-shared-theme][data-theme="dark"] .attention-note { background: #3a2721; border-left-color: #c2714f; }
 html[data-shared-theme][data-theme="dark"] :is(.dehaka-context blockquote, .dehaka-action, .presence-pill.online) { color: #b4d8a0; }
 /* The shared card rule above resets every border side, so restore the accents and cover the remaining light panels. */
-html[data-shared-theme][data-theme="dark"] :is(.dehaka-form, .dehaka-thread, .empty) { background: var(--light); color: var(--ink); border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] :is(.dehaka-form, .dehaka-thread, .support-report, .empty) { background: var(--light); color: var(--ink); border-color: var(--line); }
 html[data-shared-theme][data-theme="dark"] .dehaka-thread { background: var(--white); }
 html[data-shared-theme][data-theme="dark"] .empty { border-style: dashed; }
 html[data-shared-theme][data-theme="dark"] .empty-symbol { color: #9bab85; }
