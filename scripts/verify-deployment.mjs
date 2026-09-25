@@ -72,6 +72,25 @@ console.log("Distonyc route and legacy aliases verified.");
 }
 verifyTimestamp(await (await get(`${site}/deetz/`)).text(), "/deetz/");
 {
+  const redirect = await fetch(`${site}/aci`, { redirect: "manual", signal: AbortSignal.timeout(20000) });
+  assert.equal(redirect.status, 301, "Missing ACI canonical redirect");
+  assert.equal(new URL(redirect.headers.get("location"), site).pathname, "/aci/");
+  const response = await get(`${site}/aci/`);
+  assert.match(response.headers.get("x-robots-tag") || "", /noindex/);
+  assert.match(response.headers.get("cache-control") || "", /no-cache/);
+  const html = await response.text();
+  verifyTimestamp(html, "/aci/");
+  assert.match(html, /DEMO PREVIEW/);
+  assert.match(html, /\/aci\/aci.js/);
+  assert.doesNotMatch(html, /\/assets\/(listeners|app|player|api|shell)\.js/);
+  for (const name of ["aci.js", "aci.css", "model.js"]) {
+    const asset = await get(`${site}/aci/${name}`);
+    assert.match(asset.headers.get("cache-control") || "", /no-cache/);
+    assert.equal(sourceText(await asset.text()), sourceText(await readFile(new URL(`../aci/${name}`, import.meta.url), "utf8")));
+  }
+  console.log("ACI demo, isolated assets, canonical route and headers verified.");
+}
+{
   const response = await get(`${site}/sausage/`);
   assert.match(response.headers.get("x-robots-tag") || "", /noindex/);
   const html = await response.text();

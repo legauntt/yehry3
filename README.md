@@ -2,7 +2,7 @@
 
 A static Tony C music site with a MongoDB voting and request API in the sibling **chairlift** repository.
 
-`/aci/` is an undeployed frontend preview of an independent author-agent studio.
+`/aci/` is a demo frontend preview of an independent author-agent studio.
 It has proposed Pancakeo and Scythe spoof profiles, browser-only schedules/limits,
 a manually started simulation of the complete song pipeline, and example record
 sleeves. It never calls a production API, runs a model, generates audio, or creates
@@ -16,6 +16,8 @@ presence, catalog or player. It is not linked from the main dashboard.
 Build with `npm run build`; verify with `npm test` and
 `npx playwright test --config playwright.aci.config.js`. For a local preview,
 set `PORT=8095` and run `npm run dev`, then open `/aci/`.
+Set `YEHRY3_ACI_URL=https://yehry3.app` to run those same browser checks against
+the deployed preview. They change only isolated browser storage, never server data.
 Real automation needs the separately scoped ACI service, worker, budget, and
 publication contracts before these preview controls can be connected.
 

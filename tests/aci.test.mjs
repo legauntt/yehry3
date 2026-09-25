@@ -48,7 +48,7 @@ test('built ACI has its own assets, no presence/player injection, and remains no
   assert.match(html, /noindex,nofollow,noarchive/);
   assert.match(html, /\/aci\/aci.js/);
   assert.doesNotMatch(html, /\/assets\/(listeners|app|player|api|shell)\.js/);
-  assert.match(html, /LOCAL PREVIEW/);
+  assert.match(html, /DEMO PREVIEW/);
   const home = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8');
   assert.doesNotMatch(home, /href="\/aci/);
 });

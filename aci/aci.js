@@ -88,7 +88,7 @@ document.addEventListener('click', event => {
   }
 });
 $('#pause-all').addEventListener('click', () => { state.paused = !state.paused; save(); render(); announce(state.paused ? 'Demo studio paused. In-progress previews are held.' : 'Demo studio resumed.'); });
-$('#how-it-works').addEventListener('click', () => detail('THE PLAN / FROM INSTINCT TO RECORD', '<h2 id="dialog-title">A studio with a curfew.</h2><ol><li><strong>Learn the tendencies.</strong> Build a profile from curated author briefs and selected examples.</li><li><strong>Take the initiative.</strong> Within a daily allowance, invent a new prompt and turn it into lyrics and a musical plan.</li><li><strong>Make the record.</strong> Render the band and Tony’s voice, run bounded checks, and publish to the ACI shelf.</li><li><strong>Know when to stop.</strong> Keep its own queue and budget. Pause when an allowance is exhausted or a job needs attention.</li></ol><div class="settings-note"><strong>This page is a local rehearsal.</strong><p>The demo uses authored examples and a short stage animation. No model, worker, provider, or production API is connected. Schedules do not run automatically.</p></div>'));
+$('#how-it-works').addEventListener('click', () => detail('THE PLAN / FROM INSTINCT TO RECORD', '<h2 id="dialog-title">A studio with a curfew.</h2><ol><li><strong>Learn the tendencies.</strong> Build a profile from curated author briefs and selected examples.</li><li><strong>Take the initiative.</strong> Within a daily allowance, invent a new prompt and turn it into lyrics and a musical plan.</li><li><strong>Make the record.</strong> Render the band and Tony’s voice, run bounded checks, and publish to the ACI shelf.</li><li><strong>Know when to stop.</strong> Keep its own queue and budget. Pause when an allowance is exhausted or a job needs attention.</li></ol><div class="settings-note"><strong>This page is a rehearsal.</strong><p>The demo uses authored examples and a short stage animation. No model, worker, provider, or production API is connected. Schedules do not run automatically.</p></div>'));
 $('#open-limits').addEventListener('click', () => {
   $('#daily-limit').value = state.daily; $('#budget-limit').value = state.budget; $('#run-time').value = state.time;
   $('#limits-dialog').showModal();
@@ -102,7 +102,7 @@ $('#limits-form').addEventListener('submit', event => {
 });
 $('#record-filter').addEventListener('change', renderRecords);
 $('#reset-preview').addEventListener('click', () => {
-  detail('LOCAL PREVIEW / START AGAIN', '<h2 id="dialog-title">Reset this rehearsal?</h2><p>This clears demo runs, simulated releases, and preview settings in this browser. The three example sleeves stay.</p><button type="button" class="button primary" id="confirm-reset">Reset preview data</button>');
+  detail('DEMO PREVIEW / START AGAIN', '<h2 id="dialog-title">Reset this rehearsal?</h2><p>This clears demo runs, simulated releases, and preview settings in this browser. The three example sleeves stay.</p><button type="button" class="button primary" id="confirm-reset">Reset preview data</button>');
   $('#confirm-reset').addEventListener('click', () => { state = freshState(); save(); $('#record-filter').value = 'all'; render(); $('#detail-dialog').close(); announce('Preview reset. Ready for a fresh rehearsal.'); });
 });
 for (const dialog of document.querySelectorAll('dialog')) dialog.addEventListener('click', event => {
