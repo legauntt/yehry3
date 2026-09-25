@@ -2,6 +2,255 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-236f9b41b8df770b68179e17",
+      "title": "One Glass Too Far",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-236f9b41b8df770b68179e17-15f546df5d28.mp3",
+      "duration": 189.98857142857142,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-25T23:41:09.065Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "One Glass Too Far",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Adult-comedy garage rock in E minor: driving electric guitar, melodic bass, live drums, and compact organ stabs. Clear, steadily pitched single Tony lead with a catchy, plainly sung hook; no backing vocals, vocal effects, rasp, growls, or spoken parts. Start lean and wry, build through the second verse, then open into a rueful final chorus. Pace the outro’s last sustained “far” to land about 8–12 seconds before 190 seconds, followed by one resolved final chord and natural decay.",
+        "lyrics": "[Verse 1]\nBack in the mirror, jacket on the chair\nFresh-cut confidence and a ticket to anywhere\nTall in the doorway, guitar over my back\nI got a good old smile and a number on a napkin\nI say, “Baby, I play every Friday downtown”\nShe says, “You look like trouble,” I say, “Trouble sounds fine”\nThen the waiter brings the water and I freeze at the sight\nThere’s a rule in my religion that can wreck a perfect night\n\n[Pre-Chorus]\nI tried to play it casual, tried to change the subject fast\nBut devotion in a dating booth has got a way of coming out at last\n\n[Chorus]\nOne glass too far, one truth too late\nI can make a room move, I can make a heart wait\nBut when I tell her what I drink, she’s headed for the door\nI’m single on the market with one glass too far\n\n[Verse 2]\nShe said, “Are you kidding?” I said, “No, it’s what I do”\nShe said, “That is a lot to bring to dinner number two”\nI said, “When the night gets heated and I come undone,\nI drink my own piss when the deed is done”\nI held up the glass like a holy little toast\nSaid, “You could have a sip,” and she laughed like she’d seen a ghost\nThen I leaned in closer, thought a kiss might make it right\nShe said, “Keep that glass away from me,” and vanished in the night\n\n[Chorus]\nOne glass too far, one truth too late\nI can make a room move, I can make a heart wait\nBut when I tell her what I drink, she’s headed for the door\nI’m single on the market with one glass too far\n\n[Bridge]\nMaybe love needs boundaries, maybe faith needs better timing\nMaybe some confessions need a warning sign beside them\nI don’t blame her leaving, I just hate the lonely drive\nWith a guitar in the backseat and my pride still alive\n\n[Chorus]\nOne glass too far, but I’m still standing tall\nA musician with a problem and a phone that doesn’t call\nSomeday someone may hear me and not run across the floor\nTill then I’ll raise my empty hand—one glass too far\n\n[Outro]\nNo kiss tonight, no second chance at the bar\nJust me, my song, and one glass too far\n[End]",
+        "duration": 190,
+        "bpm": 126,
+        "musicalSettings": {
+          "genre": "Adult-comedy garage rock",
+          "meter": "4/4",
+          "structure": "Verse 1 → pre-chorus → chorus → Verse 2 → chorus → bridge → final chorus → concise lyrical outro",
+          "performance": "Clear, melodic, steadily pitched solo lead with conversational comic timing and an earnest final refrain",
+          "energy": "Brisk, guitar-driven opening; fuller choruses; a brief reflective bridge; then a confident resolved finish",
+          "lyricWorkflow": "Original narrative lyrics with a recurring hook, escalating dating-disaster details, and a complete self-aware ending",
+          "instruments": [
+            "electric guitar",
+            "electric bass",
+            "drum kit",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nBack in the mirror, jacket on the chair\nFresh-cut confidence and a ticket to anywhere\nTall in the doorway, guitar over my back\nI got a good old smile and a number on a napkin\nI say, “Baby, I play every Friday downtown”\nShe says, “You look like trouble,” I say, “Trouble sounds fine”\nThen the waiter brings the water and I freeze at the sight\nThere’s a rule in my religion that can wreck a perfect night\n\n[Pre-Chorus]\nI tried to play it casual, tried to change the subject fast\nBut devotion in a dating booth has got a way of coming out at last\n\n[Chorus]\nOne glass too far, one truth too late\nI can make a room move, I can make a heart wait\nBut when I tell her what I drink, she’s headed for the door\nI’m single on the market with one glass too far\n\n[Verse 2]\nShe said, “Are you kidding?” I said, “No, it’s what I do”\nShe said, “That is a lot to bring to dinner number two”\nI said, “When the night gets heated and I come undone,\nI drink my own piss when the deed is done”\nI held up the glass like a holy little toast\nSaid, “You could have a sip,” and she laughed like she’d seen a ghost\nThen I leaned in closer, thought a kiss might make it right\nShe said, “Keep that glass away from me,” and vanished in the night\n\n[Chorus]\nOne glass too far, one truth too late\nI can make a room move, I can make a heart wait\nBut when I tell her what I drink, she’s headed for the door\nI’m single on the market with one glass too far\n\n[Bridge]\nMaybe love needs boundaries, maybe faith needs better timing\nMaybe some confessions need a warning sign beside them\nI don’t blame her leaving, I just hate the lonely drive\nWith a guitar in the backseat and my pride still alive\n\n[Chorus]\nOne glass too far, but I’m still standing tall\nA musician with a problem and a phone that doesn’t call\nSomeday someone may hear me and not run across the floor\nTill then I’ll raise my empty hand—one glass too far\n\n[Outro]\nNo kiss tonight, no second chance at the bar\nJust me, my song, and one glass too far",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.3,
+            "end": 10.72
+          },
+          {
+            "line": 2,
+            "start": 10.72,
+            "end": 14.92
+          },
+          {
+            "line": 3,
+            "start": 14.92,
+            "end": 18.22
+          },
+          {
+            "line": 4,
+            "start": 18.22,
+            "end": 21.76
+          },
+          {
+            "line": 5,
+            "start": 21.76,
+            "end": 25.64
+          },
+          {
+            "line": 6,
+            "start": 25.64,
+            "end": 29.72
+          },
+          {
+            "line": 7,
+            "start": 30.02,
+            "end": 33.54
+          },
+          {
+            "line": 8,
+            "start": 33.94,
+            "end": 37.4
+          },
+          {
+            "line": 11,
+            "start": 37.92,
+            "end": 41.84
+          },
+          {
+            "line": 12,
+            "start": 44.76,
+            "end": 49.72
+          },
+          {
+            "line": 15,
+            "start": 52.48,
+            "end": 56.38
+          },
+          {
+            "line": 16,
+            "start": 56.62,
+            "end": 60.12
+          },
+          {
+            "line": 17,
+            "start": 60.12,
+            "end": 64.1
+          },
+          {
+            "line": 18,
+            "start": 64.56,
+            "end": 68.7
+          },
+          {
+            "line": 21,
+            "start": 74.78,
+            "end": 79.2
+          },
+          {
+            "line": 22,
+            "start": 79.5,
+            "end": 82.66
+          },
+          {
+            "line": 23,
+            "start": 82.66,
+            "end": 86.46
+          },
+          {
+            "line": 24,
+            "start": 86.96,
+            "end": 90.6
+          },
+          {
+            "line": 25,
+            "start": 91.24,
+            "end": 94.46
+          },
+          {
+            "line": 26,
+            "start": 94.86,
+            "end": 98.76
+          },
+          {
+            "line": 27,
+            "start": 98.76,
+            "end": 102.88
+          },
+          {
+            "line": 28,
+            "start": 105.38,
+            "end": 110.52
+          },
+          {
+            "line": 31,
+            "start": 113.26,
+            "end": 117.32
+          },
+          {
+            "line": 32,
+            "start": 117.32,
+            "end": 121.1
+          },
+          {
+            "line": 33,
+            "start": 121.1,
+            "end": 125.04
+          },
+          {
+            "line": 34,
+            "start": 125.46,
+            "end": 133
+          },
+          {
+            "line": 37,
+            "start": 133,
+            "end": 136.56
+          },
+          {
+            "line": 38,
+            "start": 136.56,
+            "end": 140.66
+          },
+          {
+            "line": 39,
+            "start": 140.66,
+            "end": 144.06
+          },
+          {
+            "line": 40,
+            "start": 144.06,
+            "end": 148.56
+          },
+          {
+            "line": 43,
+            "start": 151.46,
+            "end": 156.22
+          },
+          {
+            "line": 44,
+            "start": 156.22,
+            "end": 159.22
+          },
+          {
+            "line": 45,
+            "start": 159.22,
+            "end": 163.06
+          },
+          {
+            "line": 46,
+            "start": 163.56,
+            "end": 167.06
+          },
+          {
+            "line": 49,
+            "start": 170.54,
+            "end": 174.52
+          },
+          {
+            "line": 50,
+            "start": 175,
+            "end": 179.16
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony's single again and on the market again. He's tall, handsome, and a musician, but he just has one problem: His religion requires him to drink his own piss, and it's causing problems in his relationships",
+        "direction": "Use the prompt as written.",
+        "keep": "Talk explicitly about how when Tony cums, he drinks his own piss. He then wants to kiss and offers the glass to his partner",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 190
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-64f0228e2a1aef9a35bb9ca9",
       "title": "Forty-Six Names at Supper",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-64f0228e2a1aef9a35bb9ca9-bc639c9d75b8.mp3",
