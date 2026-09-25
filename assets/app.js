@@ -1593,8 +1593,13 @@ async function admin() {
       event.preventDefault();
       const card = event.target.closest("[data-prompt]");
       const doc = data.prompts.find((item) => item.id === card.dataset.prompt);
-      const kind = event.target.dataset.action;
+      const kind = event.submitter?.dataset.action || event.target.dataset.action;
       const body = { action: kind, version: doc.version };
+      if (kind === "archive-request") {
+        if (!window.confirm("Archive this failed request? Recovery will stop. Saved work and history are kept under Canceled, where you can queue it again.")) return;
+        body.action = "status";
+        body.status = "canceled";
+      }
       if (kind === "regenerate") {
         const key = `review-regeneration:${doc.id}`;
         body.requestId = storage.get(key) || crypto.randomUUID();
@@ -1621,7 +1626,7 @@ async function admin() {
         )
           return;
       }
-      const button = $("button", event.target);
+      const button = event.submitter || $("button", event.target);
       busy(button, true);
       try {
         const response = await api(`/admin/prompts/${encodeURIComponent(doc.id)}`, {
@@ -1634,7 +1639,7 @@ async function admin() {
           navigate("/distonyc/");
           return;
         }
-        message(kind === "shepherd" ? "Dehaka is adapting this request." : "Queue updated.");
+        message(kind === "shepherd" ? "Dehaka is adapting this request." : kind === "archive-request" ? "Request archived. Saved work and history are kept under Canceled." : "Queue updated.");
         await load();
       } catch (error) {
         if (error.status === 401) {
@@ -1675,7 +1680,8 @@ async function admin() {
     const logsSlot = !lizard && doc.status === "published" && (logsRecent || doc.reviewState === "needs_review")
       ? `<section class="dehaka-thread completion-logs" data-dehaka-thread="${id}" data-completion aria-label="Raw logs from the render"><h3>Raw logs</h3><div class="dehaka-thread-body" aria-live="polite">${threads.get(doc.id) || '<p class="small">Loading the render’s raw logs…</p>'}</div></section>` : "";
     const guidance = escape(doc.recovery?.shepherd?.guidance || "Whatever it takes to fix this.");
-    const failure = doc.status === "failed" ? `<section class="attention-problem"><p class="eyebrow">What stopped it</p>${doc.workerProgress?.stage ? `<p class="small">Production stopped during ${escape(doc.workerProgress.stage)}.</p>` : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p></section>${lizard}${thread}${adapting ? `<p class="small recovery-notice">${doc.recovery?.shepherd ? "Dehaka is adapting this request using your guidance." : "Automatic recovery is working on this request."} Saved work will be reused; you can leave it running or steer again.</p>` : ""}${!doc.workerActive ? `<form data-action="shepherd" class="dehaka-form"><label for="guidance-${id}">Steer Dehaka</label><textarea id="guidance-${id}" name="guidance" rows="3" maxlength="2000" required>${guidance}</textarea><div class="dehaka-actions"><button class="primary">Dehaka</button><span class="small">I adaaaaaapt. He’ll inspect the saved evidence and use a supported correction.</span></div></form>` : ""}` : "";
+    const archiveRequest = !doc.workerActive && allowed.includes("canceled");
+    const failure = doc.status === "failed" ? `<section class="attention-problem"><p class="eyebrow">What stopped it</p>${doc.workerProgress?.stage ? `<p class="small">Production stopped during ${escape(doc.workerProgress.stage)}.</p>` : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p></section>${lizard}${thread}${adapting ? `<p class="small recovery-notice">${doc.recovery?.shepherd ? "Dehaka is adapting this request using your guidance." : "Automatic recovery is working on this request."} Saved work will be reused; you can leave it running or steer again.</p>` : ""}${!doc.workerActive ? `<form data-action="shepherd" class="dehaka-form"><label for="guidance-${id}">Steer Dehaka</label><textarea id="guidance-${id}" name="guidance" rows="3" maxlength="2000" required>${guidance}</textarea><div class="dehaka-actions"><button class="primary">Dehaka</button>${archiveRequest ? '<button class="quiet" data-action="archive-request" formnovalidate>Archive</button>' : ""}<span class="small">I adaaaaaapt. He’ll inspect the saved evidence and use a supported correction.${archiveRequest ? " Archive stops recovery and keeps the request under Canceled." : ""}</span></div></form>` : ""}` : "";
     return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${songBadges(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}${requestId ? "" : ` · <a href="/admin/${encodeURIComponent(doc.id)}">Permalink</a>`}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues, doc.reviewState, doc.result?.validationFailures)}${doc.reviewState === "needs_review" ? '<form data-action="keep" class="retry-form"><button class="primary">Keep this version</button><span class="small">Clear the review flag after listening.</span></form><form data-action="regenerate" class="retry-form"><button class="quiet">Regenerate</button><span class="small">Review the same brief as a new request. This recording stays up until you send the new request to the queue; then it is archived and leaves the site.</span></form><form data-action="archive" class="retry-form"><button class="quiet">Archive</button><span class="small">Take this recording down now, with no replacement queued. Votes and plays are kept, and it can be restored from Published songs.</span></form>' : ""}${failure}${doc.status === "failed" ? "" : `${lizard}${thread}${logsSlot}`}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, validationFailures: null, reviewState: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
       ...(doc.history || []),
     ]
