@@ -2,6 +2,281 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-64f0228e2a1aef9a35bb9ca9",
+      "title": "Forty-Six Names at Supper",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-64f0228e2a1aef9a35bb9ca9-bc639c9d75b8.mp3",
+      "duration": 269.44,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-25T23:35:08.297Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Forty-Six Names at Supper",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D major",
+        "arrangement": "Warm heartland rock in D major: moving electric bass, clean electric guitars, piano, organ, live drums, and restrained brass-colored keyboard pads. Tony delivers rough, smoky connected phrases with clear melodic hooks, small muttered warmth between lines, and a broad family-table chorus. Start intimate, build through the presidential roll call and bridge, then hold the final outro lyric on a sustained phrase so its last syllable lands about 8–12 seconds before a single resolved final chord decays.",
+        "lyrics": "[Verse 1]\nThe television flickers blue across the kitchen wall\nTony says, “America, you used to know the call”\nHe sets out forty-six plates beneath the porch-light glow\nAnd every child has got a name from long ago\n\n[Verse 2]\nLittle George is chasing June around the maple tree\nJohn Fitzgerald wants to know what freedom ought to be\nDwight brings in the lemonade, says, “Keep your shoulders square”\nWhile Barbara folds the paper cranes and sends them through the air\n\n[Pre-Chorus]\nThey don’t all agree, they don’t all stand the same\nBut Tony says a family’s built by learning every name\n\n[Chorus]\nForty-six names at supper, forty-six chairs in line\nA whole loud country in the house, a little yours and mine\nFrom Ike’s old steady highway to Jack’s bright open sky\nTony sings, “Remember us—remember how to try”\n\n[Verse 3]\nBill is playing saxophone beneath the screen-door fan\nHillary writes a grocery list and laughs at every plan\nGeorge the elder tends the roses, patient through the rain\nGeorge the younger splits the wood and stacks it up again\n\n[Verse 4]\nRonnie paints a sunset on the fence behind the shed\nJimmy fixes broken things and feeds the hens instead\nGerald clears the dinner plates, Lyndon talks too loud\nRichard stares out at the yard, then joins the laughing crowd\n\n[Bridge]\nThere’s Harry with a history book, Franklin in his chair\nTheodore climbs the staircase like he’s headed anywhere\nAbraham says, “Make room,” and every child pulls near\nTony raises up his glass: “The future’s living here”\n\n[Chorus]\nForty-six names at supper, forty-six chairs in line\nA whole loud country in the house, a little yours and mine\nFrom Ike’s old steady highway to Jack’s bright open sky\nTony sings, “Remember us—remember how to try”\n\n[Verse]\nThe headlines still are heavy and the night can feel too long\nBut Clinton hums a low refrain and pulls them into song\nThe Bushes pass the biscuits, JFK keeps time\nAnd Eisenhower’s old advice comes rolling down the line\n\n[Chorus]\nForty-six names at supper, forty-six hearts awake\nNot every road was easy, not every promise kept\nBut here beneath this porch light, where the children all belong\nTony holds the country close and carries it in song\n\n[Outro]\nWhen morning finds the table and the last warm candle flame\nHe says, “Take care of each other—make a good name of your name”\n[End]",
+        "duration": 270,
+        "bpm": 112,
+        "musicalSettings": {
+          "genre": "Heartland rock with a warm, reflective family-singalong character",
+          "meter": "4/4",
+          "structure": "Verse 1, Verse 2, pre-chorus, chorus, two verses, bridge, chorus, final verse, final chorus, resolved outro",
+          "performance": "Smoky, slurred Tony lead with melodic sustained lines and a catchable communal refrain",
+          "energy": "Gentle porch-light opening, steady mid-song lift, and an affectionate full-band finale",
+          "lyricWorkflow": "Original narrative lyrics built around a symbolic forty-six-child presidential-name family and a hopeful closing message",
+          "instruments": [
+            "electric bass",
+            "electric guitar",
+            "piano",
+            "organ",
+            "drum kit",
+            "keyboard pads"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThe television flickers blue across the kitchen wall\nTony says, “America, you used to know the call”\nHe sets out forty-six plates beneath the porch-light glow\nAnd every child has got a name from long ago\n\n[Verse 2]\nLittle George is chasing June around the maple tree\nJohn Fitzgerald wants to know what freedom ought to be\nDwight brings in the lemonade, says, “Keep your shoulders square”\nWhile Barbara folds the paper cranes and sends them through the air\n\n[Pre-Chorus]\nThey don’t all agree, they don’t all stand the same\nBut Tony says a family’s built by learning every name\n\n[Chorus]\nForty-six names at supper, forty-six chairs in line\nA whole loud country in the house, a little yours and mine\nFrom Ike’s old steady highway to Jack’s bright open sky\nTony sings, “Remember us—remember how to try”\n\n[Verse 3]\nBill is playing saxophone beneath the screen-door fan\nHillary writes a grocery list and laughs at every plan\nGeorge the elder tends the roses, patient through the rain\nGeorge the younger splits the wood and stacks it up again\n\n[Verse 4]\nRonnie paints a sunset on the fence behind the shed\nJimmy fixes broken things and feeds the hens instead\nGerald clears the dinner plates, Lyndon talks too loud\nRichard stares out at the yard, then joins the laughing crowd\n\n[Bridge]\nThere’s Harry with a history book, Franklin in his chair\nTheodore climbs the staircase like he’s headed anywhere\nAbraham says, “Make room,” and every child pulls near\nTony raises up his glass: “The future’s living here”\n\n[Chorus]\nForty-six names at supper, forty-six chairs in line\nA whole loud country in the house, a little yours and mine\nFrom Ike’s old steady highway to Jack’s bright open sky\nTony sings, “Remember us—remember how to try”\n\n[Verse]\nThe headlines still are heavy and the night can feel too long\nBut Clinton hums a low refrain and pulls them into song\nThe Bushes pass the biscuits, JFK keeps time\nAnd Eisenhower’s old advice comes rolling down the line\n\n[Chorus]\nForty-six names at supper, forty-six hearts awake\nNot every road was easy, not every promise kept\nBut here beneath this porch light, where the children all belong\nTony holds the country close and carries it in song\n\n[Outro]\nWhen morning finds the table and the last warm candle flame\nHe says, “Take care of each other—make a good name of your name”",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 8.16,
+            "end": 12.22
+          },
+          {
+            "line": 2,
+            "start": 13,
+            "end": 16.66
+          },
+          {
+            "line": 3,
+            "start": 17.26,
+            "end": 20.56
+          },
+          {
+            "line": 4,
+            "start": 20.56,
+            "end": 25.28
+          },
+          {
+            "line": 7,
+            "start": 27.84,
+            "end": 31.56
+          },
+          {
+            "line": 8,
+            "start": 32.26,
+            "end": 36.18
+          },
+          {
+            "line": 9,
+            "start": 36.18,
+            "end": 40.3
+          },
+          {
+            "line": 10,
+            "start": 40.3,
+            "end": 44.98
+          },
+          {
+            "line": 13,
+            "start": 47.14,
+            "end": 51.26
+          },
+          {
+            "line": 14,
+            "start": 51.26,
+            "end": 57.12
+          },
+          {
+            "line": 17,
+            "start": 57.12,
+            "end": 61.9
+          },
+          {
+            "line": 18,
+            "start": 61.9,
+            "end": 66.12
+          },
+          {
+            "line": 19,
+            "start": 66.12,
+            "end": 70.36
+          },
+          {
+            "line": 20,
+            "start": 70.9,
+            "end": 75.56
+          },
+          {
+            "line": 23,
+            "start": 79.3,
+            "end": 84.32
+          },
+          {
+            "line": 24,
+            "start": 84.32,
+            "end": 87.38
+          },
+          {
+            "line": 25,
+            "start": 87.38,
+            "end": 91.54
+          },
+          {
+            "line": 26,
+            "start": 91.54,
+            "end": 98.54
+          },
+          {
+            "line": 29,
+            "start": 98.54,
+            "end": 102.32
+          },
+          {
+            "line": 30,
+            "start": 102.32,
+            "end": 106.32
+          },
+          {
+            "line": 31,
+            "start": 107.24,
+            "end": 110.9
+          },
+          {
+            "line": 32,
+            "start": 111.56,
+            "end": 115.14
+          },
+          {
+            "line": 35,
+            "start": 117.72,
+            "end": 121.22
+          },
+          {
+            "line": 36,
+            "start": 122.18,
+            "end": 125.28
+          },
+          {
+            "line": 37,
+            "start": 126.38,
+            "end": 130.02
+          },
+          {
+            "line": 38,
+            "start": 130.02,
+            "end": 134.1
+          },
+          {
+            "line": 41,
+            "start": 135.34,
+            "end": 139.42
+          },
+          {
+            "line": 42,
+            "start": 139.8,
+            "end": 143.8
+          },
+          {
+            "line": 43,
+            "start": 143.8,
+            "end": 147.98
+          },
+          {
+            "line": 44,
+            "start": 148.9,
+            "end": 153.1
+          },
+          {
+            "line": 47,
+            "start": 156.6,
+            "end": 160.88
+          },
+          {
+            "line": 48,
+            "start": 160.88,
+            "end": 164.88
+          },
+          {
+            "line": 49,
+            "start": 164.88,
+            "end": 169.22
+          },
+          {
+            "line": 50,
+            "start": 169.22,
+            "end": 173.74
+          },
+          {
+            "line": 53,
+            "start": 175.48,
+            "end": 179.74
+          },
+          {
+            "line": 54,
+            "start": 180,
+            "end": 183.64
+          },
+          {
+            "line": 55,
+            "start": 183.64,
+            "end": 188.14
+          },
+          {
+            "line": 56,
+            "start": 188.68,
+            "end": 193.14
+          },
+          {
+            "line": 59,
+            "start": 196.64,
+            "end": 200.84
+          },
+          {
+            "line": 60,
+            "start": 200.84,
+            "end": 205.96
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "early_lyric_ending",
+          "seconds": 63.48
+        }
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Concerned about the recent troubles in America, Tony remembers a simpler time. Tribute to Eisenhower, JFK, Clinton, and the Bushes",
+        "direction": "Use the prompt as written.",
+        "keep": "Tony names each of his children for a president. Tony has 46 children.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-ee54a8075a1278a0f7d0f07e",
       "title": "Three Names on the Radio",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ee54a8075a1278a0f7d0f07e-d0ea2fe2ec75.mp3",
