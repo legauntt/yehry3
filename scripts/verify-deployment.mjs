@@ -168,6 +168,7 @@ for (const name of [
   "request-materials.js",
   "request-materials.css",
   "lyric-workshop.js",
+  "lyric-workshop-progress.js",
   "lyric-workshop.css",
   "song-plan.js",
   "quality.js",

@@ -15,7 +15,9 @@ export function songCostLabel(song) {
   if (musicBackendOf(song) === 'local') return '<span class="song-cost free" title="Made on the local band generator; no music API charge.">FREE</span>';
   const cost = songCost(song);
   if (!cost) return '';
-  const amount = `${new Intl.NumberFormat('en-US').format(cost.cents)} ¢`;
+  const amount = cost.cents >= 100
+    ? new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cost.cents / 100)
+    : `${new Intl.NumberFormat('en-US').format(cost.cents)} ¢`;
   const description = cost.estimated
     ? 'Estimated generation cost in USD; based on 15 cents per minute when length is known, otherwise about 50 cents.'
     : 'Recorded generation cost in USD, reconciled against provider credit usage.';

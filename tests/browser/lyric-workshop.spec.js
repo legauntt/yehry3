@@ -253,6 +253,10 @@ test('rolling hat is prominent during writing on mobile and respects reduced mot
   await expect(progress).toBeInViewport();
   await expect(page.locator('.workshop-hat')).toHaveCSS('animation-name', 'workshop-tumble');
   await expect(page.locator('.workshop-hat-travel')).toHaveCSS('animation-name', 'workshop-travel');
+  const transform = await page.locator('.workshop-hat-travel').evaluate(el => getComputedStyle(el).transform);
+  await expect(page.locator('.workshop-hat-travel')).not.toHaveCSS('transform', transform);
+  await expect(page.locator('.workshop-hat-track')).toHaveCSS('border-bottom-width', '0px');
+  await expect(progress).not.toContainText('Tony’s hat is chasing');
   Object.assign(state.jobs.values().next().value, { state: 'working', phase: 'writing' });
   await expect(page.locator('[data-workshop-status]')).toContainText('Writing your lyrics');
   await page.screenshot({ path: 'artifacts/lyric-workshop-rolling-hat-mobile.png' });
@@ -260,9 +264,67 @@ test('rolling hat is prominent during writing on mobile and respects reduced mot
   await expect(progress).toBeVisible();
   await expect(page.locator('.workshop-hat')).toHaveCSS('animation-name', 'none');
   await expect(page.locator('.workshop-hat-travel')).toHaveCSS('animation-name', 'none');
-  await page.screenshot({ path: 'artifacts/lyric-workshop-still-hat-mobile.png' });
+  await expect(page.locator('.workshop-hat-track')).toBeHidden();
+  await expect(page.locator('.workshop-loader')).toBeVisible();
+  await expect(page.locator('.workshop-spinner')).toHaveCSS('animation-name', 'none');
+  await page.screenshot({ path: 'artifacts/lyric-workshop-reduced-loader-mobile.png' });
   await page.getByRole('button', { name: 'Stop writing', exact: true }).click();
   await expect(progress).toBeHidden();
+});
+
+for (const profile of ['slow frames', 'no frames', 'paused hat']) test(`a ${profile} browser falls back to a simple loader without losing the draft`, async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await setup(page, { pending: true, lyrics: first });
+  if (profile === 'paused hat') {
+    await page.addStyleTag({ content: '.workshop-hat-travel { animation-play-state: paused !important; }' });
+  }
+  await page.getByRole('button', { name: 'Funnier', exact: true }).click();
+  if (profile !== 'paused hat') {
+    await page.evaluate(profile => {
+      const request = window.requestAnimationFrame, cancel = window.cancelAnimationFrame;
+      window.restoreFrames = () => { window.requestAnimationFrame = request; window.cancelAnimationFrame = cancel; };
+      window.requestAnimationFrame = profile === 'slow frames'
+        ? callback => setTimeout(() => callback(performance.now()), 120)
+        : () => 0;
+      window.cancelAnimationFrame = id => clearTimeout(id);
+    }, profile);
+  }
+  const progress = page.locator('[data-workshop-progress]');
+  await expect(progress).toHaveAttribute('data-simple', 'true');
+  await page.evaluate(() => window.restoreFrames?.());
+  await expect(page.locator('.workshop-hat-track')).toBeHidden();
+  await expect(page.locator('.workshop-loader')).toBeVisible();
+  await expect(page.locator('.workshop-spinner')).toHaveCSS('animation-name', 'workshop-spin');
+  await expect(page.locator('#workshop-lyrics')).toHaveValue(first);
+  await page.screenshot({ path: `artifacts/lyric-workshop-${profile.replaceAll(' ', '-')}.png` });
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: 'Open lyric workshop' }).click();
+  await expect(page.locator('.workshop-loader')).toBeVisible();
+  await page.getByRole('button', { name: 'Stop writing', exact: true }).click();
+  await expect(progress).toBeHidden();
+  await expect(page.locator('#workshop-lyrics')).toBeEditable();
+});
+
+test('backgrounding the workshop pauses sampling without marking a healthy browser as slow', async ({ page }) => {
+  await setup(page, { pending: true, lyrics: first });
+  await page.getByRole('button', { name: 'Funnier', exact: true }).click();
+  await page.evaluate(() => {
+    Object.defineProperty(document, 'hidden', { configurable: true, value: true });
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  const progress = page.locator('[data-workshop-progress]');
+  await expect(progress).toHaveAttribute('data-paused', 'true');
+  await page.waitForTimeout(2200);
+  await expect(progress).toHaveAttribute('data-simple', 'false');
+  await page.evaluate(() => {
+    delete document.hidden;
+    document.dispatchEvent(new Event('visibilitychange'));
+  });
+  await expect(progress).toHaveAttribute('data-paused', 'false');
+  await page.waitForTimeout(2200);
+  await expect(progress).toHaveAttribute('data-simple', 'false');
+  await expect(page.locator('.workshop-hat-track')).toBeVisible();
+  await page.getByRole('button', { name: 'Stop writing', exact: true }).click();
 });
 
 test('temporary polling failure keeps the job identity for a safe retry', async ({ page }) => {

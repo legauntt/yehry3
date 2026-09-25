@@ -1,4 +1,5 @@
 import { lyricError, wordCount } from './request-materials.js';
+import { workshopProgress } from './lyric-workshop-progress.js';
 
 const MAX = 12000;
 const actions = [['funnier', 'Funnier'], ['heartfelt', 'More heartfelt'], ['darker', 'Darker'], ['hook', 'Stronger hook'], ['simpler', 'Easier to sing'], ['rhymes', 'Tighter rhymes']];
@@ -22,7 +23,7 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
       <p id="lyric-workshop-intro">Guide the words, edit any line, or try a different direction. Only <strong>Use these lyrics</strong> adds this draft to your song.</p>
       <section class="workshop-idea" aria-labelledby="workshop-idea-title"><h3 id="workshop-idea-title">Your song idea</h3><p id="workshop-idea-text">${escape(shortIdea)}</p><button type="button" class="text-link" data-workshop-idea-toggle aria-expanded="false" aria-controls="workshop-idea-text" ${idea === shortIdea ? 'hidden' : ''}>Show more</button></section>
       <p class="small" data-workshop-availability role="status"></p><button type="button" class="text-link" data-workshop-check hidden>Check writer again</button>
-      <div class="workshop-progress" data-workshop-progress hidden><div class="workshop-hat-track" aria-hidden="true"><span class="workshop-hat-travel"><svg class="workshop-hat" viewBox="0 0 100 80" focusable="false"><path class="hat-brim" d="M12 53 Q45 42 92 55 Q96 61 80 65 L22 64 Z"/><path class="hat-crown" d="M13 53 Q11 23 43 19 Q70 15 84 51 L68 59 L25 59 Z"/><path class="hat-seam" d="M43 20 Q57 32 58 56 M20 51 Q47 59 80 50"/><path class="hat-band" d="M21 55 Q46 63 73 55 L69 62 Q46 69 24 61 Z"/></svg></span></div><p class="workshop-progress-title">Tony’s hat is chasing a rhyme…</p></div>
+      <div class="workshop-progress" data-workshop-progress aria-hidden="true" hidden><div class="workshop-hat-track"><span class="workshop-hat-travel"><svg class="workshop-hat" viewBox="0 0 100 80" focusable="false"><path class="hat-brim" d="M12 53 Q45 42 92 55 Q96 61 80 65 L22 64 Z"/><path class="hat-crown" d="M13 53 Q11 23 43 19 Q70 15 84 51 L68 59 L25 59 Z"/><path class="hat-seam" d="M43 20 Q57 32 58 56 M20 51 Q47 59 80 50"/><path class="hat-band" d="M21 55 Q46 63 73 55 L69 62 Q46 69 24 61 Z"/></svg></span></div><div class="workshop-loader"><span class="workshop-spinner"></span>Loading…</div></div>
       <p class="small workshop-status" data-workshop-status role="status" aria-live="polite"></p>
       <div class="lyric-workshop-grid"><section class="workshop-guidance">
         <label for="workshop-direction">Extra lyric guidance <span class="small">(optional)</span></label><textarea id="workshop-direction" rows="4" maxlength="1000" aria-describedby="workshop-guidance-help" placeholder="Add a twist, a mood, or a phrase to keep—or leave this blank."></textarea>
@@ -43,6 +44,7 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
   const find = selector => root.querySelector(selector), dialog = find('dialog');
   const sheet = find('#workshop-lyrics'), instruction = find('#workshop-direction'), versions = find('#workshop-version');
   const error = find('[data-workshop-error]'), status = find('[data-workshop-status]');
+  const progress = find('[data-workshop-progress]'), animation = workshopProgress(progress);
   const busy = () => Boolean(state.pending);
   const alive = () => !destroyed && root.isConnected && !scope.left;
   function remember() {
@@ -70,7 +72,8 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
     if (instruction.value !== state.instruction) instruction.value = state.instruction;
     sheet.readOnly = busy(); instruction.disabled = busy();
     sheet.setAttribute('aria-busy', String(busy()));
-    find('[data-workshop-progress]').hidden = !busy();
+    progress.hidden = !busy();
+    animation.setActive(busy() && dialog.open);
     find('[data-workshop-count]').textContent = wordCount(state.lyrics) + ' words';
     const generate = find('[data-workshop-generate]');
     find('#workshop-guidance-help').textContent = state.lyrics.trim()
@@ -174,7 +177,7 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
     void check(); void poll();
   };
   for (const button of root.querySelectorAll('[data-workshop-close]')) button.onclick = () => dialog.close();
-  dialog.addEventListener('close', () => { clearTimeout(timer); remember(); opener?.focus(); });
+  dialog.addEventListener('close', () => { clearTimeout(timer); animation.setActive(false); remember(); opener?.focus(); });
   dialog.addEventListener('click', event => {
     if (event.target !== dialog) return;
     const bounds = dialog.getBoundingClientRect();
@@ -218,7 +221,7 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
     find('[data-workshop-summary]').textContent = 'Chosen lyrics: ' + wordCount(state.base) + ' words · Keep my wording. Review the request when you’re ready.';
     dialog.close();
   };
-  function destroy() { destroyed = true; clearTimeout(timer); if (dialog.open) dialog.close(); }
+  function destroy() { destroyed = true; clearTimeout(timer); animation.destroy(); if (dialog.open) dialog.close(); }
   scope.onLeave(destroy);
   paint();
   return { destroy };
