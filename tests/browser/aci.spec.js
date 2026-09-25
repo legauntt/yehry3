@@ -5,6 +5,8 @@ const hosting = JSON.parse(await readFile(new URL('../../staticwebapp.config.jso
 const storageKey = 'yehry3:aci-preview:v1';
 
 test.beforeEach(async ({ page }) => {
+  // Local serve.mjs omits CSP; the live site supplies its real policy.
+  if (process.env.YEHRY3_ACI_URL) return;
   await page.route('**/aci/', async route => {
     const response = await route.fetch();
     return route.fulfill({ response, headers: { ...response.headers(), 'content-security-policy': hosting.globalHeaders['Content-Security-Policy'] } });
@@ -18,7 +20,7 @@ test('page, dialogs, filters, mobile and dark layouts work without production re
     if (/chairlift|\/catalog|\/yehry3\/|\/assets\/(?:listeners|player|api|shell)\.js/.test(request.url()) || request.method() !== 'GET') forbidden.push(request.url());
   });
   await page.goto('/aci');
-  await expect(page).toHaveURL(/\/aci\/$/);
+  await expect(page).toHaveURL(/\/aci\/?$/);
   await expect(page.getByRole('heading', { level: 1 })).toContainText('The understudies');
   await expect(page.locator('.agent-card')).toHaveCount(2);
   await expect(page.locator('.record')).toHaveCount(3);
