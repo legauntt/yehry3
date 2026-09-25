@@ -54,10 +54,10 @@ test("oversized sheets remain intact and long preserve requests offer adaptation
   await expect(page.getByRole("tab", { name: "Advanced", exact: true })).toHaveAttribute("aria-selected", "true");
   await expect(field).toBeFocused();
   await expect(field).toHaveValue(oversized);
-  await field.fill("word ".repeat(600));
+  await field.fill("word ".repeat(2091));
   await page.getByRole("button", { name: "Review the request" }).click();
   await expect(page.getByRole("button", { name: "Send to the queue" })).toBeDisabled();
-  await expect(page.locator("#confirm-form .field-error")).toContainText("5-minute");
+  await expect(page.locator("#confirm-form .field-error")).toContainText("19-minute");
   await page.getByRole("button", { name: "Fine-tune it" }).click();
   await page.getByLabel("How should we use these lyrics?").selectOption("adapt");
   await page.getByRole("button", { name: "Review the request" }).click();
