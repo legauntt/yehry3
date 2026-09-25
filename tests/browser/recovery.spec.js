@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { mkdir } from 'node:fs/promises';
 
-test('Archive beside Dehaka cancels a failed request while retaining its evidence', async ({ page }) => {
+test('Archive beside Contact Support cancels a failed request while retaining its evidence', async ({ page }) => {
   let doc = { id: 'archivable', prompt: 'Saved dating song', status: 'failed', version: 6, priority: 0,
     confirmedAt: new Date().toISOString(), details: {}, workerError: 'Saved planning failure',
     history: [{ at: new Date().toISOString(), actor: 'admin', action: 'shepherd' }] };
@@ -13,7 +13,7 @@ test('Archive beside Dehaka cancels a failed request while retaining its evidenc
     const rows = status === 'attention' ? (doc.status === 'failed' ? [doc] : []) : [doc];
     return route.fulfill({ json: { prompts: rows, total: rows.length, counts: {}, transitions, workers: [] } });
   });
-  await page.route('**/yehry3/admin/prompts/archivable/dehaka', route => route.fulfill({ json: { entries: [
+  await page.route('**/yehry3/admin/prompts/archivable/logs', route => route.fulfill({ json: { entries: [
     { id: 'steer', author: 'operator', kind: 'steer', text: 'Archive this song', at: new Date().toISOString(), logs: [] },
   ] } }));
   await page.route('**/yehry3/admin/prompts/archivable', async route => {
@@ -32,13 +32,12 @@ test('Archive beside Dehaka cancels a failed request while retaining its evidenc
   await page.getByRole('button', { name: 'Open the queue' }).click();
   const card = page.locator('[data-prompt="archivable"]');
   const archive = card.getByRole('button', { name: 'Archive', exact: true });
-  const dehaka = card.getByRole('button', { name: 'Dehaka', exact: true });
+  const dehaka = card.getByRole('button', { name: 'Contact Support', exact: true });
   await expect(archive).toBeVisible();
   const archiveBox = await archive.boundingBox(), dehakaBox = await dehaka.boundingBox();
   expect(archiveBox.x).toBeGreaterThan(dehakaBox.x + dehakaBox.width);
   expect(Math.abs(archiveBox.y + archiveBox.height / 2 - dehakaBox.y - dehakaBox.height / 2)).toBeLessThan(2);
   // Archiving does not require valid recovery guidance or send it to Dehaka.
-  await card.getByLabel('Steer Dehaka').fill('');
   page.once('dialog', dialog => dialog.dismiss());
   await archive.click();
   expect(patches).toEqual([]);
@@ -78,83 +77,54 @@ test('Archive beside Dehaka cancels a failed request while retaining its evidenc
   await expect(archive).toHaveCount(0);
 });
 
-test('Backstage separates automatic recovery from operator attention and preserves diagnostics', async ({ page }) => {
-  const base = { status: 'failed', version: 1, confirmedAt: new Date().toISOString(), priority: 0, details: {}, history: [
-    { at: new Date(Date.now() - 120000).toISOString(), actor: 'worker', action: 'status', status: 'processing' },
-    { at: new Date(Date.now() - 60000).toISOString(), actor: 'worker', action: 'status', status: 'failed' },
-  ], workerError: 'Saved diagnostic' };
-  const rows = [{ ...base, id: 'auto', prompt: 'Automatic recovery', recovery: { phase: 'recovering', expiresAt: new Date(Date.now() + 600000).toISOString() } },
-    { ...base, id: 'serious', prompt: 'Missing input' },
-    // One exchange with Dehaka keeps his console on the card after it leaves 9/11'd Again.
-    { ...base, id: 'repairing', prompt: 'Steered and requeued', status: 'queued', workerError: undefined, history: [...base.history,
-      { at: new Date(Date.now() - 30000).toISOString(), actor: 'admin', action: 'shepherd' },
-      { at: new Date(Date.now() - 20000).toISOString(), actor: 'admin', action: 'status', status: 'queued' }] },
-    { ...base, id: 'untouched', prompt: 'Never steered', status: 'queued', workerError: undefined, history: [] }];
-  let submitted;
-  await page.route('**/yehry3/admin/prompts?**', route => route.fulfill({ json: {
-    prompts: rows, total: rows.length, page: 0, counts: { failed: 2, attention: 1, recovering: 1 }, transitions: { failed: ['queued', 'canceled'] },
-    workers: [{ status: 'online', state: 'working', stage: 'Rendering', onlineSince: new Date(Date.now() - 3600000).toISOString(), lastSeenAt: new Date().toISOString(),
-      presence: [{ status: 'offline', from: new Date(Date.now() - 7200000).toISOString(), to: new Date(Date.now() - 3600000).toISOString() }] }]
-  } }));
-  const threads = { auto: [], serious: [], untouched: [], repairing: [
-    { id: 'steer-0', author: 'operator', kind: 'steer', at: new Date(Date.now() - 30000).toISOString(), text: 'Fetch the lyrics and move past the gate.', logs: [] },
-    { id: 'reply-0', author: 'dehaka', kind: 'reply', action: 'replan', at: new Date(Date.now() - 25000).toISOString(), text: 'The words are retrievable.', logs: [] }] };
-  await page.route('**/yehry3/admin/prompts/*/dehaka', route => route.fulfill({ json: { entries: threads[route.request().url().split('/').at(-2)] } }));
-  await page.route('**/yehry3/admin/prompts/serious', async route => {
-    submitted = route.request().postDataJSON();
-    threads.serious = [
-      { id: 'steer', author: 'operator', kind: 'steer', at: new Date().toISOString(), text: submitted.guidance, logs: [] },
-      { id: 'reply', author: 'dehaka', kind: 'reply', action: 'retry_saved_work', at: new Date().toISOString(), text: 'The ending stage timed out; retry the frozen render.',
-        evidence: 'renderer.log line 812', logs: [{ name: 'renderer.log', text: 'stage ending\nTraceback (most recent call last):\nTimeoutError: ending', truncated: true }] },
-    ];
-    rows[1] = { ...rows[1], version: 2, recovery: { phase: 'recovering', expiresAt: new Date(Date.now() + 600000).toISOString(), shepherd: { guidance: submitted.guidance } } };
-    await route.fulfill({ json: { prompt: rows[1] } });
+test('Contact Support reads and copies diagnostics while retaining raw logs and retired history', async ({ page, context }) => {
+  await page.clock.install();
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  const doc = { id: 'support-test', prompt: 'Saved diagnostic song', status: 'failed', version: 2, priority: 0,
+    confirmedAt: new Date().toISOString(), details: {}, workerError: 'Timeout in ending', history: [] };
+  let patches = 0, summaries = 0, polls = 0;
+  await page.route('**/yehry3/admin/prompts/support-test', route => {
+    if (route.request().method() === 'PATCH') patches++;
+    return route.fulfill({ json: { prompt: doc, transitions: { failed: ['queued', 'canceled'] }, workers: [] } });
   });
-  await page.goto('/admin/?status=all');
+  await page.route('**/yehry3/admin/prompts/support-test/support', route => {
+    summaries++;
+    if (summaries === 1) return route.fulfill({ status: 503, json: { error: 'Summary temporarily unavailable' } });
+    return route.fulfill({ json: { text: 'Status: failed\nCurrent error: Timeout in ending\n[log-1 / renderer.log] <script>unsafe</script>' } });
+  });
+  await page.route('**/yehry3/admin/prompts/support-test/logs', route => {
+    polls++;
+    return route.fulfill({ json: { entries: [{ id: 'log-1', author: 'dehaka', kind: 'reply', action: 'needs_code_fix',
+      at: '2026-09-24T00:00:00Z', text: 'Historical advice', logs: [{ name: 'renderer.log', text: 'TimeoutError: ending <script>unsafe</script>' }] },
+      ...(polls > 1 ? [{ id: 'log-2', author: 'worker', kind: 'outcome', at: '2026-09-24T00:01:00Z', text: 'New log entry', logs: [] }] : [])] } });
+  });
+  await page.goto('/admin/support-test');
   await page.getByLabel('Password', { exact: true }).fill('browser-test-admin');
   await page.getByRole('button', { name: 'Open the queue' }).click();
-  await expect(page.locator('.stats a[href="/admin/?status=attention"]')).toContainText("19/11'd Again");
-  await expect(page.locator('[data-prompt="auto"] .badge')).toHaveText('Recovering automatically');
-  await expect(page.locator('[data-prompt="auto"]')).toContainText('Saved diagnostic');
-  await expect(page.locator('[data-prompt="auto"]').getByRole('button', { name: 'Retry saved work' })).toHaveCount(0);
-  // Steering stays available during automatic recovery so the operator can redirect it.
-  await expect(page.locator('[data-prompt="auto"]').getByLabel('Steer Dehaka')).toBeVisible();
-  await expect(page.locator('.worker-presence')).toContainText('PC worker online');
-  await expect(page.locator('.worker-presence')).toContainText('Working · Rendering');
-  const repairing = page.locator('[data-prompt="repairing"]');
-  await expect(repairing.locator('.dehaka-panel')).toContainText('Dehaka recovery console');
-  await expect(repairing.locator('.dehaka-panel')).toContainText('Repair under way');
-  await expect(repairing.locator('.dehaka-thread .dehaka-turn-dehaka')).toContainText('Replan with new direction');
-  await expect(repairing.locator('.dehaka-thread')).toContainText('steering is closed');
-  await expect(repairing.getByLabel('Steer Dehaka')).toHaveCount(0);
-  await expect(repairing).not.toContainText('What stopped it');
-  await expect(page.locator('[data-prompt="untouched"] .dehaka-panel')).toHaveCount(0);
-  await expect(page.locator('[data-prompt="untouched"] .dehaka-thread')).toHaveCount(0);
-  await expect(page.locator('[data-prompt="serious"] .dehaka-thread')).toContainText('No steering yet');
-  await expect(page.locator('[data-prompt="serious"]')).toContainText('What stopped it');
-  await expect(page.locator('[data-prompt="serious"]')).toContainText('Saved diagnostic');
-  await expect(page.locator('[data-prompt="serious"] .dehaka-panel')).toContainText('Dehaka recovery console');
-  await expect(page.locator('[data-prompt="serious"] .dehaka-clipart svg')).toBeVisible();
-  await expect(page.locator('[data-prompt="serious"] .dehaka-context blockquote')).not.toBeEmpty();
-  await expect(page.locator('[data-prompt="serious"] .dehaka-panel')).toContainText('Recorded queue activity');
-  await expect(page.locator('[data-prompt="serious"] .dehaka-panel')).toContainText('Suggested next step');
-  await expect(page.locator('[data-prompt="serious"] .dehaka-history')).toContainText('worker · status');
-  await expect(page.locator('[data-prompt="serious"]').getByLabel('Steer Dehaka')).toHaveValue('Whatever it takes to fix this.');
-  await expect(page.locator('[data-prompt="serious"]').getByRole('button', { name: 'Retry saved work' })).toHaveCount(0);
-  await page.locator('[data-prompt="serious"]').getByLabel('Steer Dehaka').fill('Preserve the vocal and repair the ending.');
-  await page.locator('[data-prompt="serious"]').getByRole('button', { name: 'Dehaka' }).click();
-  expect(submitted).toEqual({ action: 'shepherd', version: 1, guidance: 'Preserve the vocal and repair the ending.' });
-  await expect(page.locator('[data-prompt="serious"] .badge')).toHaveText('Recovering automatically');
-  await expect(page.locator('[data-prompt="serious"]')).toContainText('Dehaka is adapting this request using your guidance.');
-  const thread = page.locator('[data-prompt="serious"] .dehaka-thread');
-  await expect(thread.locator('.dehaka-turn-operator')).toContainText('Preserve the vocal and repair the ending.');
-  await expect(thread.locator('.dehaka-turn-dehaka')).toContainText('Retry saved work');
-  await expect(thread.locator('.dehaka-turn-dehaka')).toContainText('renderer.log line 812');
-  await expect(thread).toContainText('Your turn');
-  await thread.getByText('renderer.log · latest part').click();
-  await expect(thread.locator('.dehaka-log pre')).toContainText('TimeoutError: ending');
-  // The operator can answer immediately with another steer.
-  await expect(page.locator('[data-prompt="serious"]').getByLabel('Steer Dehaka')).toHaveValue('Preserve the vocal and repair the ending.');
+  const support = page.getByRole('button', { name: 'Contact Support', exact: true });
+  await expect(page.getByRole('button', { name: 'Dehaka', exact: true })).toHaveCount(0);
+  await expect(page.getByLabel('Steer Dehaka')).toHaveCount(0);
+  await expect(page.locator('.dehaka-thread')).toContainText('Dehaka (retired)');
+  await page.locator('.dehaka-log summary').click();
+  await expect(page.locator('.dehaka-log pre')).toContainText('TimeoutError: ending <script>unsafe</script>');
+  await support.click();
+  await expect(page.getByRole('region', { name: 'Support report' })).toContainText('Summary temporarily unavailable');
+  await support.click(); await support.click();
+  await expect(page.getByLabel('Diagnostic report')).toHaveValue(/Current error: Timeout in ending/);
+  await page.getByRole('button', { name: 'Copy report' }).click();
+  await expect(page.locator('.support-copy-status')).toContainText('Copied');
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toContain('[log-1 / renderer.log] <script>unsafe</script>');
+  expect(patches).toBe(0);
+  await page.locator('.dehaka-log').scrollIntoViewIfNeeded();
+  await page.clock.fastForward(16000);
+  await expect(page.locator('.dehaka-thread')).toContainText('New log entry');
+  await expect(page.locator('.dehaka-log')).toHaveAttribute('open', '');
+  await expect(page.getByLabel('Diagnostic report')).toBeVisible();
+  await mkdir('artifacts', { recursive: true });
+  await support.scrollIntoViewIfNeeded();
+  await page.screenshot({ path: 'artifacts/support-desktop.png' });
   await page.setViewportSize({ width: 390, height: 844 });
+  await support.scrollIntoViewIfNeeded();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: 'artifacts/support-mobile.png' });
 });

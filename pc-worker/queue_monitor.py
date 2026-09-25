@@ -9,6 +9,8 @@ from delivery_check import verify_delivery
 from replan import prepare as replan_prepare, refusal as replan_refusal
 import dehaka_feed
 
+# Hard retirement, independent of old config or pending/cached guidance.
+DEHAKA_RETIRED = True
 POLICY_VERSION = 4
 RETRY_DELAYS = (0, 15*60, 60*60)
 
@@ -186,7 +188,7 @@ def scan(config, api, now=None, enabled=True, request_id=None):
             if not episodes or episodes[-1]['error']!=error or episodes[-1]['version']!=prompt['version']:
                 episodes.append(episode)
             # Dehaka and automatic consultation both remain subordinate to coded eligibility and retry budgets.
-            directive=guided_shepherd(prompt)
+            directive=None if DEHAKA_RETIRED else guided_shepherd(prompt)
             needs_judgment=(action!='retry' or not retry_budget(entry,category)) and shepherd_eligible(category,context)
             decision=None;guided=False
             prior=entry.get('dehaka',{}) if directive else {}
@@ -202,7 +204,7 @@ def scan(config, api, now=None, enabled=True, request_id=None):
                     entry['dehaka']={**entry['dehaka'],'status':'decided','decision':decision};consulted+=1
                     save(path,ledger)
                 else:decision=prior['decision']
-            elif (enabled and config.get('automatic_shepherd') and not prompt.get('workerActive') and consulted<1
+            elif (not DEHAKA_RETIRED and enabled and config.get('automatic_shepherd') and not prompt.get('workerActive') and consulted<1
                     and (needs_judgment or entry.get('shepherd',{}).get('action')=='replan')):
                 if not entry.get('shepherd'):
                     save(path,ledger)
@@ -283,7 +285,7 @@ def scan(config, api, now=None, enabled=True, request_id=None):
                 seen[ident]=updated;retried+=1;save(path,ledger)
             elif action=='retry' and not retry_budget(entry,category):
                 entry['next_action']='Automatic retry budget exhausted. Review this cause before enabling another attempt.'
-                if enabled:dehaka_feed.note(api,entry,prompt,'budget:'+str(prompt['version']),'budget_exhausted',entry['next_action']+' Steer again with what should change.')
+                if enabled:dehaka_feed.note(api,entry,prompt,'budget:'+str(prompt['version']),'budget_exhausted',entry['next_action'])
             elif action=='retry' and not due(entry,now):entry['next_action']='Cooling down before the next saved-work retry.'
             if enabled and config.get('recovery_status_api') and entry['status']=='failed' and not prompt.get('workerActive'):
                 phase='recovering' if action=='retry' and retry_budget(entry,category) else 'attention'

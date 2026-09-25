@@ -156,30 +156,37 @@ Private reports live in `%LOCALAPPDATA%\Distonyc\state\monitor\`: `report.md` is
 
 The monitor uses a separate current-user DPAPI credential in `monitor-credential.xml`; it authenticates through the normal admin API and never bypasses queue version or ownership checks. Prepare that credential locally, copy the worker code while the worker is idle, then run `install-monitor.ps1 -Start`. Existing `install.ps1` updates monitor files along with the worker without deleting its credential or ledger. Use `Disable-ScheduledTask -TaskName 'Distonyc Queue Monitor'` to pause automatic requeueing, or `Start-ScheduledTask -TaskName 'Distonyc Queue Monitor'` for an immediate check. Both tasks run hidden while this PC is awake and Jesse is signed in.
 
-Backstage's **Dehaka** action attaches private operator guidance to one failed request. The monitor consumes each uniquely identified guidance request once. Known deterministic failures still use their coded remedy without a model call; eligible unknown or creative blockers receive one schema-constrained shepherd consultation with that guidance. The guidance cannot reset budgets, bypass leases or integrity checks, replace frozen inputs, or authorize a different song. The normal monitor and worker remain responsible for retry, publication, and delivery verification.
+### Contact Support and Dehaka retirement
 
-Dehaka answers with one of four actions: `retry_saved_work`, `replan`, `needs_input`, or `needs_code_fix`. Each operator steer authorizes one queue action of its own: a steered retry or replan is not held back by the automatic cooldowns or the three-attempt automatic budget, and the same steer can never act twice. `replan` exists for a planner refusal (`needs_attention`) that a fresh planning pass can resolve. `replan.py` refuses once a render request, render result, or approved requester review exists; otherwise it moves every planning file into `state\jobs\<id>\replans\<n>\`, journals the pass, and leaves `replan.json` for the next planning call. That directive carries Dehaka's short creative `planning_note` (kept only for an authenticated steer) and an optional artist/title for the cover lookup below. The planner receives the note as operator recovery direction, snapshotted in `planning-input.json` as `recoveryNote`. The submitted brief is never edited. A request gets at most three steered replans, or one automatic replan.
+Dehaka is retired. `queue_monitor.DEHAKA_RETIRED` disables both automatic and guided
+consultations, including cached decisions and pending guidance, regardless of the old
+`automatic_shepherd` config value. Set that config value to false on installation too.
+Known deterministic recovery, cooldowns, retry budgets, publication and delivery checks
+continue. Historical consultation/replan helpers and tests remain for saved journal
+compatibility; production configuration cannot turn consultations back on.
 
-An authenticated replan can now carry `duration_seconds` when the operator explicitly changes
-the length. The monitor sends Chairlift's versioned `planning-duration` action before archiving
-or queueing. The API checks unstarted planning, lyric fit and backend limits, updates the matching
-paid authorization within the existing budget, and retains the original details privately. Prose
-in `planning_note` alone never changes an explicit duration. Automatic consultations cannot amend
-it. Started audio and requester reviews remain frozen, and existing replan budgets are retained.
-Older decisions remain readable. Unsupported archive/cancel/code-edit requests must be explained
-as unavailable instead of implying that a creative replan can perform them.
+Backstage **Contact Support** reads a private, deterministic Chairlift report from
+`GET /admin/prompts/:id/support`. It shows the current status/error, recorded queue
+history and cited excerpts from the latest retained logs. Copying a report does not
+send a ticket, consult a model, or retry the request. The old `shepherd` HTTP action
+returns 410. Archive and the existing status controls remain available.
 
-For an authorized single-request recovery, run `queue_monitor.py --config <installed-config>
---request-id <id>` with the normal DPAPI admin credential. It applies the same singleton lock,
-version/lease checks, ledger, consultations, budgets and delivery checks, but acts only on that
-request and keeps the global report/history intact. Tests: `test_replan_duration.py` and
-`test_replan.py`. Deploy the API before selectively installing the changed monitor files.
+Raw logs are independent of consultations: `dehaka_feed.py` uploads each failure
+episode with bounded, redacted log tails, then records queue actions and outcomes.
+The historical module, collection, keys and `/dehaka` write route retain their names
+for compatibility. The UI reads `/admin/prompts/:id/logs`; `/dehaka` remains an alias.
+Published completion-only logs retain their existing 24-hour expiry.
+
+For an authorized single-request deterministic recovery, `queue_monitor.py --config
+<installed-config> --request-id <id>` preserves the normal singleton, version/lease,
+budget and delivery checks without consulting Dehaka. `--observe-only` stays read-only
+against Chairlift. Tests: `test_dehaka_retired.py`, `test_queue_monitor.py`, and
+`test_dehaka_feed.py`. Install only the changed monitor/feed after an idle check,
+preserving any newer installed recovery policies and all saved state.
 
 ## Cover requests fetch their own words
 
-A request that asks Tony to cover a named song, and brings no lyric sheet, basis recording or remix source, used to stop at planning with “a faithful cover requires … lyrics”. Before the first planning call `cover_lyrics.py` now parses the artist and title from the request, searches LRCLIB (`https://lrclib.net`, the only host it contacts), and accepts a result only when the request's own words (or Dehaka's hint) name that song, preferring the named artist and the sheet repeated across the most releases. The result is frozen in `cover-lyrics.json` with a SHA-256 of the text, and every later pass rebuilds the same planning brief from it, so the brief hash in `planning-input.json` and `plan.json` stays stable while the server keeps sending the unedited request. The words enter the brief as `details.lyricSheet` with `origin: "cover_lookup"` and a mode frozen in the journal. With the local band generator the mode is `preserve` (or `adapt` when a confirmed length cannot hold the words at 110 words per minute), and the planner never sees or echoes the text: its copy of the sheet carries only the word and stanza counts, and `cover_lyrics.fill` writes the words into the plan with `[Verse n]`/`[Chorus]` labels before validation. The planner's provider cuts off a reply that reproduces published lyrics (`content_filter`), which is why trusted code inserts them. With a hosted composer such as Eleven Music the mode is always `adapt` and the planner writes a loose cover in fresh wording: the service refuses published lyrics, and a paid refusal leaves a reconciliation state that cannot be replanned. The planner is told to use `recipe=new` and not to promise the original melody. The same rule applies when the requester pasted the words themselves: a cover with any lyric sheet and no selected recording is new music set to those words, never a source-dependent rendition that stops for a missing recording. A song that cannot be found is recorded as `not_found` and planned as before. A lyrics-service outage freezes nothing and fails as a retryable transient error. Jobs that already have a plan or planning snapshot are never looked up retroactively; they need a Dehaka `replan`.
-
-`dehaka_feed.py` reports back into the private Backstage thread through the monitor's admin session: one reply per steer (the consultation decision, or the coded policy that applied instead), queued retries, exhausted budgets, later failures, and publication or cancellation. Replies and outcomes attach secret-redacted tails of the job's saved logs and Dehaka's own `shepherd/guided-*/run.log`. Each message has a stable key; failures to post are recorded in the ledger and retried on the next pass, and never block triage.
+A request that asks Tony to cover a named song, and brings no lyric sheet, basis recording or remix source, used to stop at planning with “a faithful cover requires … lyrics”. Before the first planning call `cover_lyrics.py` now parses the artist and title from the request, searches LRCLIB (`https://lrclib.net`, the only host it contacts), and accepts a result only when the request's own words (or a retained legacy cover hint) name that song, preferring the named artist and the sheet repeated across the most releases. The result is frozen in `cover-lyrics.json` with a SHA-256 of the text, and every later pass rebuilds the same planning brief from it, so the brief hash in `planning-input.json` and `plan.json` stays stable while the server keeps sending the unedited request. The words enter the brief as `details.lyricSheet` with `origin: "cover_lookup"` and a mode frozen in the journal. With the local band generator the mode is `preserve` (or `adapt` when a confirmed length cannot hold the words at 110 words per minute), and the planner never sees or echoes the text: its copy of the sheet carries only the word and stanza counts, and `cover_lyrics.fill` writes the words into the plan with `[Verse n]`/`[Chorus]` labels before validation. The planner's provider cuts off a reply that reproduces published lyrics (`content_filter`), which is why trusted code inserts them. With a hosted composer such as Eleven Music the mode is always `adapt` and the planner writes a loose cover in fresh wording: the service refuses published lyrics, and a paid refusal leaves a reconciliation state that cannot be replanned. The planner is told to use `recipe=new` and not to promise the original melody. The same rule applies when the requester pasted the words themselves: a cover with any lyric sheet and no selected recording is new music set to those words, never a source-dependent rendition that stops for a missing recording. A song that cannot be found is recorded as `not_found` and planned as before. A lyrics-service outage freezes nothing and fails as a retryable transient error. Jobs that already have a plan or planning snapshot are never looked up retroactively; changing them requires a separately authorized repair that preserves the saved inputs.
 
 `worker.py` sends a presence heartbeat (`POST /worker/ping`) at the start and end of every scheduled run. It is advisory: an outage never blocks claim reconciliation.
 

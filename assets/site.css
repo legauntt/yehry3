@@ -73,57 +73,12 @@
 .attention-problem .field-error {
   white-space: pre-wrap;
 }
-.dehaka-form {
-  max-width: 850px;
-  margin: 16px 0;
-  padding: 18px;
-  border: 1px solid #9aaa92;
-  background: #f1f5ed;
-}
-.dehaka-form label {
-  margin-top: 0;
-}
-.dehaka-form textarea {
-  background: var(--white);
-}
-.dehaka-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 12px;
-}
-.dehaka-form .dehaka-actions > button {
-  flex-shrink: 0;
-  margin-top: 0;
-}
-
-.dehaka-panel {
-  display: grid;
-  grid-template-columns: 132px minmax(0, 1fr);
-  gap: 20px;
-  max-width: 850px;
-  margin: 16px 0;
-  padding: 18px;
-  border: 1px solid #9aaa92;
-  background: #eef3e8;
-}
-.dehaka-clipart { align-self: start; padding: 8px; border: 1px solid #89977f; border-radius: 48% 52% 45% 55%; background: #d8e5c9; transform: rotate(-2deg); }
-.dehaka-clipart svg { display: block; width: 100%; height: auto; }
-.dehaka-spines { fill: #6e825b; }
-.dehaka-head { fill: #95aa7d; stroke: #283b30; stroke-width: 4; }
-.dehaka-jaw { fill: #71875d; stroke: #283b30; stroke-width: 4; }
-.dehaka-eye { fill: #f3c95e; stroke: #283b30; stroke-width: 3; }
-.dehaka-pupil { fill: #283b30; }
-.dehaka-scar, .dehaka-teeth { fill: none; stroke: #283b30; stroke-width: 4; stroke-linecap: round; }
-.dehaka-context > .eyebrow { margin: 0 0 5px; }
-.dehaka-context blockquote { margin: 0 0 14px; color: #506043; font-family: "Playfair Display", Georgia, serif; font-size: 1.2rem; font-style: italic; }
-.dehaka-facts { display: grid; gap: 9px; margin: 0; }
-.dehaka-facts div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 12px; }
-.dehaka-facts dt { color: var(--muted); font-size: .68rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-.dehaka-facts dd { margin: 0; font-size: .82rem; overflow-wrap: anywhere; }
-.dehaka-context h3 { margin: 18px 0 8px; font-size: .78rem; }
-.dehaka-history { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: .72rem; }
-.dehaka-history li { display: grid; grid-template-columns: 145px minmax(0, 1fr); gap: 10px; }
+.support-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin: 16px 0; }
+.queue-card .support-actions > button { flex-shrink: 0; margin-top: 0; }
+.support-actions .small { flex: 1; min-width: 180px; }
+.support-report { max-width: 850px; margin: 16px 0; padding: 18px; border: 1px solid #9aaa92; background: #f1f5ed; }
+.support-report h3 { margin-top: 0; }
+.support-report textarea { width: 100%; min-width: 0; font: .75rem/1.5 "DM Mono", ui-monospace, monospace; }
 .dehaka-thread { max-width: 850px; margin: 16px 0; padding: 16px 18px; border: 1px solid #9aaa92; background: var(--white); }
 .dehaka-thread > h3 { margin: 0 0 10px; font-size: .78rem; letter-spacing: .06em; text-transform: uppercase; }
 .dehaka-turns { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
@@ -2398,14 +2353,8 @@ main {
   .status-form .primary {
     margin-top: 14px;
   }
-  .dehaka-panel { grid-template-columns: 82px minmax(0, 1fr); gap: 14px; padding: 14px; }
-  .dehaka-facts div, .dehaka-history li { grid-template-columns: 1fr; gap: 2px; }
   .dehaka-thread { padding: 12px; }
   .dehaka-turn { padding: 8px 10px; }
-  .dehaka-actions {
-    align-items: stretch;
-    flex-direction: column;
-  }
   .history li {
     display: block;
   }

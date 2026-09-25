@@ -14,7 +14,7 @@ import { requestPromptBrief, promptSummary } from "./prompt-brief.js";
 import { mountRequestTabs } from "./request-tabs.js";
 import { authoredByLine, authorField, savedAuthor, rememberAuthor } from "./authored-by.js";
 import { recoveryActive, recoveryStatus } from "./recovery.js";
-import { dehakaAttemptCount, dehakaNextStep, dehakaQuote, dehakaThread } from "./dehaka.js";
+import { dehakaThread } from "./dehaka.js";
 import { workerPresence } from "./worker-presence.js";
 import { publicQueue, queueDetailsPage, queueItemHref } from "./queue.js";
 import { mountQualitySettings, qualityNotice } from "./quality.js";
@@ -1273,13 +1273,6 @@ function brief(doc, showGpuWait = true) {
   return `${showGpuWait ? gpuWaitNotice(doc) : ""}${requestPromptBrief(doc, escape, voiceModelLabel)}${qualityNotice(doc.result?.qualityIssues || doc.qualityIssues, doc.reviewState, doc.validationFailures || doc.result?.validationFailures)}${doc.workerProgress ? `<p class="small">${escape(doc.workerProgress.stage)}${doc.status !== "failed" && doc.workerProgress.percent ? ` · ${Math.round(doc.workerProgress.percent)}%` : ""}</p>` : ""}${doc.workerError ? `<p class="field-error">${escape(doc.workerError)}</p>` : ""}`;
 }
 
-function dehakaPanel(doc, adapting, canRetry) {
-  const history = [...(doc.history || [])];
-  const recent = history.slice(-8).reverse();
-  const attempts = dehakaAttemptCount(history);
-  const shepherd = doc.recovery?.shepherd;
-  return `<section class="dehaka-panel" aria-label="Dehaka recovery context"><div class="dehaka-clipart"><svg viewBox="0 0 150 150" role="img" aria-label="Corny Dehaka lizard clipart"><title>Corny Dehaka lizard clipart</title><path class="dehaka-spines" d="M23 62 5 47l27-2L20 19l30 18L55 7l19 27L93 9l-2 31 31-14-16 28 35 2-29 18"/><path class="dehaka-head" d="M30 56c8-23 30-34 57-26 31 9 46 39 33 66-10 21-35 36-64 27-25-7-37-39-26-67Z"/><path class="dehaka-jaw" d="M42 91c24 9 47 7 70-3-3 26-22 39-50 34-13-3-20-13-20-31Z"/><circle class="dehaka-eye" cx="79" cy="65" r="12"/><circle class="dehaka-pupil" cx="83" cy="65" r="4"/><path class="dehaka-scar" d="m66 48 24 32M62 58l34 11"/><path class="dehaka-teeth" d="m58 99 7 12 7-10 8 13 7-15 8 10"/></svg></div><div class="dehaka-context"><p class="eyebrow">Dehaka recovery console</p><blockquote>“${escape(dehakaQuote())}”</blockquote><dl class="dehaka-facts"><div><dt>Current stage</dt><dd>${escape(doc.workerProgress?.stage || (doc.status === "failed" ? "Stopped with saved work retained" : labels[doc.status] || doc.status))}</dd></div><div><dt>Recorded queue activity</dt><dd>${attempts} attempt or recovery event${attempts === 1 ? "" : "s"}</dd></div>${shepherd ? `<div><dt>Latest guidance</dt><dd>${escape(shepherd.guidance)}${shepherd.requestedAt ? ` · ${date(shepherd.requestedAt)}` : ""}</dd></div>` : ""}<div><dt>Suggested next step</dt><dd>${escape(dehakaNextStep(doc, adapting, canRetry))}</dd></div></dl><h3>Repair & attempt history</h3>${recent.length ? `<ol class="dehaka-history">${recent.map((entry) => `<li><time>${date(entry.at)}</time><span>${escape(entry.actor)} · ${escape(entry.action)}${entry.status ? ` → ${escape(labels[entry.status] || entry.status)}` : ""}</span></li>`).join("")}</ol>` : '<p class="small">No earlier recovery activity is recorded for this request.</p>'}</div></section>`;
-}
 async function admin() {
   const scope = currentScope();
   const adminParams = new URLSearchParams(location.search);
@@ -1448,15 +1441,15 @@ async function admin() {
         const id = node.dataset.dehakaThread;
         const body = $(".dehaka-thread-body", node);
         try {
-          const { entries } = await api(`/admin/prompts/${encodeURIComponent(id)}/dehaka`, { role: "admin" });
-          const html = dehakaThread(entries, { escape, date, completion: node.hasAttribute("data-completion"), canSteer: Boolean(node.closest("[data-prompt]")?.querySelector(".dehaka-form")) });
+          const { entries } = await api(`/admin/prompts/${encodeURIComponent(id)}/logs`, { role: "admin" });
+          const html = dehakaThread(entries, { escape, date, completion: node.hasAttribute("data-completion") });
           if (!node.isConnected || threads.get(id) === html) return;
           threads.set(id, html);
           const open = new Set([...body.querySelectorAll("details[open]")].map((item) => item.dataset.log));
           body.innerHTML = html;
           body.querySelectorAll("details[data-log]").forEach((item) => (item.open = open.has(item.dataset.log)));
         } catch (error) {
-          if (!threads.has(id)) body.innerHTML = `<p class="small">${error.status === 404 ? "The Dehaka log isn’t available from the studio API yet." : "The Dehaka log couldn’t load; it will retry."}</p>`;
+          if (!threads.has(id)) body.innerHTML = `<p class="small">${error.status === 404 ? "The diagnostic log isn’t available from the studio API yet." : "The diagnostic log couldn’t load; it will retry."}</p>`;
         }
       }),
     );
@@ -1589,6 +1582,35 @@ async function admin() {
   }
   // The queue list and the single-request view share these card controls.
   function bindQueue() {
+    $("#queue").addEventListener("click", async (event) => {
+      const button = event.target.closest("[data-support], [data-copy-support]");
+      if (!button) return;
+      const card = button.closest("[data-prompt]");
+      const panel = $(".support-report", card);
+      if (button.hasAttribute("data-copy-support")) {
+        const report = $("textarea", panel);
+        try {
+          await navigator.clipboard.writeText(report.value);
+          $(".support-copy-status", panel).textContent = "Copied. Paste it into your support conversation.";
+        } catch {
+          report.focus(); report.select();
+          $(".support-copy-status", panel).textContent = "Copy the selected report with Ctrl+C or your device’s Copy command.";
+        }
+        return;
+      }
+      panel.hidden = !panel.hidden;
+      button.setAttribute("aria-expanded", String(!panel.hidden));
+      if (panel.hidden) return;
+      panel.innerHTML = '<p class="small">Collecting the saved diagnostics…</p>';
+      busy(button, true);
+      try {
+        const report = await api(`/admin/prompts/${encodeURIComponent(card.dataset.prompt)}/support`, { role: "admin" });
+        if (!panel.isConnected) return;
+        panel.innerHTML = `<h3>Contact Support</h3><p class="small">Copy this report into a support conversation. It includes the current state and excerpts from retained logs.</p><label for="report-${escape(card.dataset.prompt)}">Diagnostic report</label><textarea id="report-${escape(card.dataset.prompt)}" rows="14" readonly>${escape(report.text)}</textarea><button type="button" class="quiet" data-copy-support>Copy report</button><p class="small support-copy-status" role="status"></p>`;
+      } catch (error) {
+        if (panel.isConnected) panel.innerHTML = `<p class="field-error">${escape(error.message)}</p><p class="small">Close and reopen Contact Support to retry. Raw logs remain below.</p>`;
+      } finally { busy(button, false); }
+    });
     $("#queue").addEventListener("submit", async (event) => {
       event.preventDefault();
       const card = event.target.closest("[data-prompt]");
@@ -1610,8 +1632,6 @@ async function admin() {
       if (kind === "note") body.note = $('[name="note"]', event.target).value;
       if (kind === "archive" && !window.confirm("Archive this recording? It leaves the site for everyone and closes the review."))
         return;
-      if (kind === "shepherd")
-        body.guidance = $('[name="guidance"]', event.target).value;
       if (kind === "status") {
         body.status = $('[name="status"]', event.target).value;
         if (body.status === "published")
@@ -1639,7 +1659,7 @@ async function admin() {
           navigate("/distonyc/");
           return;
         }
-        message(kind === "shepherd" ? "Dehaka is adapting this request." : kind === "archive-request" ? "Request archived. Saved work and history are kept under Canceled." : "Queue updated.");
+        message(kind === "archive-request" ? "Request archived. Saved work and history are kept under Canceled." : "Queue updated.");
         await load();
       } catch (error) {
         if (error.status === 401) {
@@ -1672,17 +1692,15 @@ async function admin() {
     );
     const adapting = recoveryActive(doc);
     const steered = (doc.history || []).some((entry) => entry.action === "shepherd");
-    // One exchange with Dehaka keeps his console on the card for good: while it repairs, after it publishes.
-    const lizard = doc.status === "failed" || steered ? dehakaPanel(doc, adapting, allowed.includes("queued")) : "";
-    const thread = lizard ? `<section class="dehaka-thread" data-dehaka-thread="${id}" aria-label="Dehaka conversation and raw logs"><h3>Dehaka log</h3><div class="dehaka-thread-body" aria-live="polite">${threads.get(doc.id) || '<p class="small">Loading Dehaka’s replies and raw logs…</p>'}</div></section>` : "";
-    // A song that just published keeps its raw PC logs for a day; Needs review always shows the slot, so an expired set says so.
+    const hasThread = doc.status === "failed" || steered;
+    const thread = hasThread ? `<section class="dehaka-thread" data-dehaka-thread="${id}" aria-label="Diagnostic history and raw logs"><h3>Raw logs & history</h3><div class="dehaka-thread-body" aria-live="polite">${threads.get(doc.id) || '<p class="small">Loading diagnostic history and raw logs…</p>'}</div></section>` : "";
     const logsRecent = doc.status === "published" && Date.now() - Date.parse(doc.publishedAt || doc.updatedAt) < 25 * 3600 * 1000;
-    const logsSlot = !lizard && doc.status === "published" && (logsRecent || doc.reviewState === "needs_review")
+    const logsSlot = !hasThread && doc.status === "published" && (logsRecent || doc.reviewState === "needs_review")
       ? `<section class="dehaka-thread completion-logs" data-dehaka-thread="${id}" data-completion aria-label="Raw logs from the render"><h3>Raw logs</h3><div class="dehaka-thread-body" aria-live="polite">${threads.get(doc.id) || '<p class="small">Loading the render’s raw logs…</p>'}</div></section>` : "";
-    const guidance = escape(doc.recovery?.shepherd?.guidance || "Whatever it takes to fix this.");
-    const archiveRequest = !doc.workerActive && allowed.includes("canceled");
-    const failure = doc.status === "failed" ? `<section class="attention-problem"><p class="eyebrow">What stopped it</p>${doc.workerProgress?.stage ? `<p class="small">Production stopped during ${escape(doc.workerProgress.stage)}.</p>` : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p></section>${lizard}${thread}${adapting ? `<p class="small recovery-notice">${doc.recovery?.shepherd ? "Dehaka is adapting this request using your guidance." : "Automatic recovery is working on this request."} Saved work will be reused; you can leave it running or steer again.</p>` : ""}${!doc.workerActive ? `<form data-action="shepherd" class="dehaka-form"><label for="guidance-${id}">Steer Dehaka</label><textarea id="guidance-${id}" name="guidance" rows="3" maxlength="2000" required>${guidance}</textarea><div class="dehaka-actions"><button class="primary">Dehaka</button>${archiveRequest ? '<button class="quiet" data-action="archive-request" formnovalidate>Archive</button>' : ""}<span class="small">I adaaaaaapt. He’ll inspect the saved evidence and use a supported correction.${archiveRequest ? " Archive stops recovery and keeps the request under Canceled." : ""}</span></div></form>` : ""}` : "";
-    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${songBadges(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}${requestId ? "" : ` · <a href="/admin/${encodeURIComponent(doc.id)}">Permalink</a>`}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues, doc.reviewState, doc.result?.validationFailures)}${doc.reviewState === "needs_review" ? '<form data-action="keep" class="retry-form"><button class="primary">Keep this version</button><span class="small">Clear the review flag after listening.</span></form><form data-action="regenerate" class="retry-form"><button class="quiet">Regenerate</button><span class="small">Review the same brief as a new request. This recording stays up until you send the new request to the queue; then it is archived and leaves the site.</span></form><form data-action="archive" class="retry-form"><button class="quiet">Archive</button><span class="small">Take this recording down now, with no replacement queued. Votes and plays are kept, and it can be restored from Published songs.</span></form>' : ""}${failure}${doc.status === "failed" ? "" : `${lizard}${thread}${logsSlot}`}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, validationFailures: null, reviewState: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
+    const archiveRequest = doc.status === "failed" && !doc.workerActive && allowed.includes("canceled");
+    const support = `<form class="support-actions" data-action="archive-request"><button type="button" class="primary" data-support aria-expanded="false" aria-controls="support-${id}">Contact Support</button>${archiveRequest ? '<button class="quiet">Archive</button>' : ""}<span class="small">Dehaka has retired. Support is you, wearing a different hat.</span></form><section id="support-${id}" class="support-report" hidden aria-label="Support report" aria-live="polite"></section>`;
+    const failure = doc.status === "failed" ? `<section class="attention-problem"><p class="eyebrow">What stopped it</p>${doc.workerProgress?.stage ? `<p class="small">Production stopped during ${escape(doc.workerProgress.stage)}.</p>` : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p></section>${adapting ? '<p class="small recovery-notice">Automatic recovery is working on this request using saved work.</p>' : ""}` : "";
+    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${songBadges(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}${requestId ? "" : ` · <a href="/admin/${encodeURIComponent(doc.id)}">Permalink</a>`}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues, doc.reviewState, doc.result?.validationFailures)}${doc.reviewState === "needs_review" ? '<form data-action="keep" class="retry-form"><button class="primary">Keep this version</button><span class="small">Clear the review flag after listening.</span></form><form data-action="regenerate" class="retry-form"><button class="quiet">Regenerate</button><span class="small">Review the same brief as a new request. This recording stays up until you send the new request to the queue; then it is archived and leaves the site.</span></form><form data-action="archive" class="retry-form"><button class="quiet">Archive</button><span class="small">Take this recording down now, with no replacement queued. Votes and plays are kept, and it can be restored from Published songs.</span></form>' : ""}${failure}${support}${thread}${logsSlot}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, validationFailures: null, reviewState: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
       ...(doc.history || []),
     ]
       .reverse()
@@ -1695,7 +1713,7 @@ async function admin() {
   if (!signedIn("admin")) loginView("admin", load);
   else await load();
   scope.every(() => {
-    if (signedIn("admin") && !document.hidden && !document.activeElement?.matches("input, textarea, select") && !$(".queue-card details[open]")) load();
+    if (signedIn("admin") && !document.hidden && !document.activeElement?.matches("input, textarea, select") && !$(".queue-card details[open]") && !$('.support-report:not([hidden])')) load();
   }, 30000);
   scope.every(() => {
     if (signedIn("admin") && !document.hidden && data) loadThreads(true);

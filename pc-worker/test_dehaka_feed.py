@@ -21,6 +21,11 @@ def steered(error='Unexpected assertion'):
 
 
 class DehakaFeedTests(unittest.TestCase):
+    def setUp(self):
+        # Historical journal/repair coverage; live retirement is tested separately.
+        retired = patch('queue_monitor.DEHAKA_RETIRED', False)
+        retired.start(); self.addCleanup(retired.stop)
+
     def config(self, root): return {'state_dir': root, 'settings': {'studio_dir': str(Path(root) / 'studio')}}
 
     def job(self, root):
