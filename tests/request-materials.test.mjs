@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { wordCount, lyricError, durationIssue, materialBrief } from "../assets/request-materials.js";
+import { wordCount, sungWords, lyricError, durationIssue, materialBrief } from "../assets/request-materials.js";
 import { publicPromptBrief } from "../assets/prompt-brief.js";
 const escape = value => String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;");
 test("lyric limits accept the boundary without truncation and count Unicode whitespace", () => {
@@ -10,7 +10,20 @@ test("lyric limits accept the boundary without truncation and count Unicode whit
   assert.match(lyricError("字".repeat(30001)), /30,000/);
   assert.match(lyricError("[Verse]\n[End]"), /words to sing/);
   assert.equal(durationIssue({ lyricSheet: { text: "word ".repeat(3000), mode: "adapt" } }), "");
-  assert.match(durationIssue({ lyricSheet: { text: "word ".repeat(600), mode: "preserve" } }), /5-minute/);
+  assert.equal(durationIssue({ lyricSheet: { text: "word ".repeat(600), mode: "preserve" } }), "");
+});
+
+test('preserved lyrics respect chosen lengths, backend caps, and section labels', () => {
+  const details = { lyricSheet: { text: '[Final Chorus]\n' + 'word '.repeat(503), mode: 'preserve' } };
+  assert.equal(sungWords(details.lyricSheet.text), 503);
+  assert.match(durationIssue({ ...details, generation: { duration: 250 } }), /selected 250-second/);
+  assert.equal(durationIssue({ ...details, generation: { duration: 350 } }), '');
+  const long = { lyricSheet: { text: 'word '.repeat(1101), mode: 'preserve' } };
+  assert.equal(durationIssue(long), '');
+  assert.match(durationIssue({ ...long, musicBackend: 'eleven_music' }), /10-minute/);
+  assert.match(durationIssue({ ...long, generation: { candidates: 2 } }), /10-minute/);
+  assert.match(durationIssue({ lyricSheet: { text: 'word '.repeat(2091), mode: 'preserve' } }), /19-minute/);
+  assert.equal(durationIssue({ ...long, musicBackend: 'eleven_music' }, 'A rap song'), '');
 });
 test("material review escapes lyrics, URLs, reference notes and fetched content", () => {
   const attack = '<img src=x onerror="alert(1)">';

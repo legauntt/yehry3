@@ -1,13 +1,17 @@
 export const MAX_WORDS = 3000, MAX_CHARS = 30000;
 export const wordCount = (value) => value.trim() ? value.trim().split(/\s+/u).length : 0;
-const section = /^\[(?:(?:verse|chorus|bridge|intro|outro|pre-chorus|post-chorus|refrain|hook|instrumental|spoken intro|end)(?:\s+\d+)?)\]$/i;
+const section = /^\[\s*(?:(?:verse|chorus|bridge|intro|outro|pre\s*-?\s*chorus|post\s*-?\s*chorus|refrain|hook|instrumental|spoken\s+(?:intro|verse)|breakdown|solo|interlude|movement|section|tag|coda|end|turn|(?:final|last)\s+(?:chorus|verse)|final\s+(?:refrain|hook|tag)|chorus\s+reprise)(?:\s+\d+)?)\s*\]$/i;
 export const sungWords = (value) => wordCount(value.split("\n").filter((line) => !section.test(line.trim())).join("\n"));
 export function durationIssue(details, prompt = "") {
   if (!details?.lyricSheet || details.lyricSheet.mode !== "preserve") return "";
   if (details.lyricSheet.text.replace(/\n?\[End\]\s*$/i, "").trim().length < 74) return "Keeping this short sheet unchanged leaves too little material for the current song format. Add more lyrics or choose Adapt these lyrics.";
   const rate = /\b(?:rap|spoken word)\b/i.test(prompt + " " + (details.direction || "")) ? 180 : 110;
-  return sungWords(details.lyricSheet.text) > 5 * rate
-    ? "Keeping every word would exceed the current 5-minute song limit at this pace. Shorten the sheet or choose Adapt these lyrics." : "";
+  const cap = details.musicBackend === "eleven_music" || details.generation?.candidates > 1 ? 600 : 1140;
+  const chosen = details.generation?.duration;
+  const seconds = Number.isInteger(chosen) ? Math.min(chosen, cap) : cap;
+  if (sungWords(details.lyricSheet.text) <= seconds / 60 * rate) return "";
+  const limit = Number.isInteger(chosen) && chosen <= cap ? `selected ${seconds}-second song length` : `${cap / 60}-minute song limit`;
+  return `Keeping every word would exceed the ${limit} at this pace. Choose a longer supported length, shorten the sheet, or choose Adapt these lyrics.`;
 }
 export function lyricError(text) {
   if (text.length > MAX_CHARS || wordCount(text) > MAX_WORDS) return "Lyrics must be at most 3,000 words and 30,000 characters.";
@@ -59,7 +63,13 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
     find("#lyric-count").textContent = wordCount(sheet.value).toLocaleString() + " / 3,000 words · " + sheet.value.length.toLocaleString() + " / 30,000 characters";
     find("#lyric-count").classList.toggle("field-error", Boolean(lyricError(sheet.value)));
     find("#lyric-mode-help").textContent = mode.value === "preserve" ? "Keep every supplied word in order. Musical arrangement and section formatting may change." : "Allow rewriting, shortening, and restructuring to fit the song. Your original sheet stays saved.";
-    const details = { ...current(), direction: document.querySelector("#direction")?.value || "" };
+    const durationField = document.querySelector('#gen-duration');
+    const duration = durationField && !durationField.disabled ? durationField.value.trim() : '';
+    const candidates = document.querySelector('#gen-candidates');
+    const details = { ...current(), direction: document.querySelector("#direction")?.value || "",
+      musicBackend: document.querySelector('#music-backend')?.value,
+      generation: { ...(duration ? { duration: Number(duration) } : {}),
+        candidates: candidates && !candidates.disabled ? Number(candidates.value || 1) : 1 } };
     const issue = durationIssue(details, draft.prompt);
     const count = sungWords(sheet.value);
     find("#lyric-length").textContent = issue || (count > 600 ? "This is a long lyric sheet. At a melodic pace, allow roughly " + Math.ceil(count / 110) + "–" + Math.ceil(count / 80) + " minutes, or choose adaptation." : "");
@@ -128,6 +138,8 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
   sheet.oninput = () => { updateLyrics(); remember(); };
   mode.onchange = () => { updateLyrics(); remember(); };
   document.querySelector("#direction")?.addEventListener("input", updateLyrics);
+  for (const selector of ['#gen-duration', '#gen-candidates', '#generation-enabled', '#music-backend'])
+    document.querySelector(selector)?.addEventListener('change', updateLyrics);
   root.addEventListener("invalid", () => { panel.open = true; }, true);
   add.onclick = () => { if (references.length >= 3) return; references.push({ url: "", purpose: "creative", note: "" }); renderReferences(); remember(); find("#reference-url-" + (references.length - 1)).focus(); };
   updateLyrics(); renderReferences();
