@@ -1,7 +1,8 @@
 import "./quality-preference.js";
+import { repairTime } from "./repair-status.js";
 export { mountQualitySettings } from "./quality-preference.js";
 
-export function qualityNotice(issues, suppliedReviewState, validationFailures) {
+export function qualityNotice(issues, suppliedReviewState, validationFailures, repairedAt) {
   const reasons = {
     vocal_activity: "The performance did not pass vocal coverage checks.",
     voice_validation: "The converted vocals did not pass automatic voice checks.",
@@ -10,7 +11,7 @@ export function qualityNotice(issues, suppliedReviewState, validationFailures) {
     mix_quality: "The mix did not pass automatic quality checks.",
     unconverted_vocals: "Tony vocals are unfinished; this is the retained generated performance.",
   };
-  const failures = (Array.isArray(validationFailures) ? validationFailures : []).filter(code => Object.hasOwn(reasons, code));
+  const failures = repairTime({ repairedAt }) ? [] : (Array.isArray(validationFailures) ? validationFailures : []).filter(code => Object.hasOwn(reasons, code));
   const known = (Array.isArray(issues) ? issues : []).filter(
     (issue) => issue?.code === "unconfirmed_lyric_ending" || Number.isFinite(issue?.seconds) && issue.seconds <= 1440 &&
       ((issue.code === "early_lyric_ending" && issue.seconds > 20) || (issue.code === "long_instrumental_outro" && issue.seconds > 13) || (issue.code === "long_instrumental_break" && issue.seconds >= 9.5) || (issue.code === "vocal_dropout" && issue.seconds > 0.4)),

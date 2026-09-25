@@ -145,6 +145,7 @@ for (const name of [
   "details.js",
   "song-data.js",
   "song-summary.js",
+  "repair-status.js",
   "music-provenance.js",
   "song-cost.js",
   "settled-song-costs.js",

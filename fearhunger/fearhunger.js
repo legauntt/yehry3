@@ -165,7 +165,7 @@ function update(songs) {
       warning.className = "quality-container";
       card.querySelector("audio").before(warning);
     }
-    const notice = qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures);
+    const notice = qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt);
     if (warning.dataset.notice !== notice) {
       warning.innerHTML = notice;
       warning.dataset.notice = notice;

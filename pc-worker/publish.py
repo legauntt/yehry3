@@ -97,7 +97,7 @@ def song_record(prompt):
             **({'publishedAt': prompt['publishedAt']} if prompt.get('publishedAt') else {}),
             **({'authoredBy': prompt['authoredBy']} if prompt.get('authoredBy') else {}),
             **({'songPlan': prompt['songPlan']} if prompt.get('songPlan') else {}),
-            **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues', 'validationFailures', 'reviewState', 'generationProfile', 'musicBackend', 'pitchRepair'] if key in result},
+            **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues', 'validationFailures', 'reviewState', 'repairedAt', 'generationProfile', 'musicBackend', 'pitchRepair'] if key in result},
             **({'alternates': [{**row, 'url': asset_url(prompt['songId'], row['sha256'])} for row in result['alternates']]} if result.get('alternates') else {}),
             **({'originalPrompt': original_prompt(prompt)} if prompt.get('prompt') else {})}
 

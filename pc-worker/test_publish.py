@@ -16,6 +16,12 @@ def large_catalog(songs):
 
 
 class LargeCatalogTests(unittest.TestCase):
+    def test_repair_completion_time_reaches_the_fallback_catalog(self):
+        repaired = '2026-09-25T19:42:00.000Z'
+        prompt = {'songId': 'repaired-song', 'releaseUrl': 'https://example.com/repaired.mp3',
+                  'result': {'title': 'Repaired', 'duration': 200, 'repairedAt': repaired}}
+        self.assertEqual(song_record(prompt)['repairedAt'], repaired)
+
     def test_large_catalog_merge_reloads_after_concurrent_commit(self):
         original = {'id': 'old', 'title': 'Retained song'}
         concurrent = {'id': 'concurrent', 'title': 'Concurrent publication'}

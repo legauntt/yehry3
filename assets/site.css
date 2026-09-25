@@ -2780,6 +2780,15 @@ button.lyric-line:hover {
   vertical-align: middle;
 }
 .song-badges:empty { display: none; }
+.repair-badge { position: relative; display: inline-block; margin: 0; }
+.repair-badge > button { display: inline-flex; align-items: center; justify-content: center; min-width: 28px; min-height: 28px; padding: 2px 5px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--ink); cursor: pointer; }
+.repair-badge > button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.repair-time { display: none; position: absolute; z-index: 15; top: calc(100% + 5px); left: 0; width: max-content; max-width: min(240px, 60vw); padding: 9px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper); color: var(--ink); box-shadow: 0 4px 14px rgb(0 0 0 / 16%); font: 500 .75rem/1.5 "DM Mono", monospace; text-transform: none; letter-spacing: normal; }
+.repair-badge:hover .repair-time, .repair-badge:focus-within .repair-time { display: block; }
+.repair-time time { display: block; }
+@media (max-width: 600px) {
+  .repair-time { position: fixed; left: 16px; right: 16px; top: auto; bottom: 130px; width: auto; max-width: none; }
+}
 .queue-heading .song-badges,
 .queue-detail-status .song-badges { margin: 3px 6px 3px 0; }
 .lyrics-sheet > .song-badges { display: flex; margin-bottom: 12px; }

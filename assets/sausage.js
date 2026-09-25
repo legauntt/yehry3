@@ -119,7 +119,7 @@ definePage(import.meta.url, async ({ scope }) => {
     setText("#seed-copy", stage.seed || "");
     $("#final-links").hidden = step !== 6;
     $("#full-song-link").href = `/#${r.song.id}`;
-    $("#tour-quality").innerHTML = qualityNotice(r.song.qualityIssues, r.song.reviewState, r.song.validationFailures);
+    $("#tour-quality").innerHTML = qualityNotice(r.song.qualityIssues, r.song.reviewState, r.song.validationFailures, r.song.repairedAt);
     if (stage.layer) selectLayer(stage.layer);
     else { pending = null; excerpt.pause(); excerpt.removeAttribute("src"); excerpt.load(); currentLayer = ""; }
     setText("#audio-note", "0:30–0:54 of the song · Switching layers keeps your place. Original levels; volume may change between layers.");
