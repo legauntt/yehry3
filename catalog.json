@@ -2,6 +2,295 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-368f12fd1cb51acb59badb68",
+      "title": "Hundred False Alarms",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-368f12fd1cb51acb59badb68-3756cebd8d4e.mp3",
+      "duration": 265.09061224489795,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-25T03:01:29.969Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Hundred False Alarms",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Theatrical alternative rock with a strong, mobile electric-bass pocket, overdriven guitars, punchy live drums, piano stabs, and brief comic stop-start breaks. One clear, steadily pitched melodic lead carries the story with natural conversational phrasing; no vocal doubles, rasp effects, whispers, or backing voices. Start tense and wry, build through increasingly exasperated choruses, drop to a sparse bridge, then resolve into a full final chorus. Pace the sustained final word “leave” so its final sung syllable falls 8–12 seconds before the 265-second ending, followed by one resolved E minor chord decay.",
+        "lyrics": "[Verse 1]\nTony checked the clock, the room went still\nA spark in the wires, a jump in the thrill\nHe opened his mouth for the grand reveal\nBut the words came sideways, unreal\n“Fotabip,” he said, with a hopeful stare\nShe blinked twice slowly at the hanging air\nHe tried to explain, but the meaning ran\nLike a loose parade through a coffee can\n\n[Pre-Chorus]\nOne was funny, two was strange\nBy the third, the whole night changed\n\n[Chorus]\nA hundred false alarms, a hundred slammed doors\nA hundred little storms across the kitchen floor\nHeads I'm dead, tails I'm dreaming, he cried to the moon\nShe said, “I cannot translate you,” and vanished too soon\nA hundred false alarms, everybody's worn thin\nHe keeps reaching for the sentence that won't let him in\n\n[Verse 2]\nAt number seventeen he brought a chart\nWith arrows and colors and a hand-drawn heart\nAt twenty-nine, “Fotaboop” arrived\nLike a tiny brass band barely alive\nThe neighbors heard “God damn, nine-elevened again”\nAnd stared at the ceiling, then stared at the rain\nShe packed one bag, then came back for her coat\nHe made a speech; she missed every note\n\n[Chorus]\nA hundred false alarms, a hundred slammed doors\nA hundred little storms across the kitchen floor\nHeads I'm dead, tails I'm dreaming, he cried to the moon\nShe said, “I cannot translate you,” and vanished too soon\n\n[Bridge]\nForty-four was tragic, sixty-one was grave\nSeventy-eight was a message nobody could save\n“Weird hair, weird smells,” at ninety-three\nThe silence answered more politely than he\nAt ninety-nine he laughed, then the laugh fell apart\nNo joke can fix a room with a leaving heart\n\n[Chorus]\nA hundred false alarms, now the house is bare\nHis notes and his nonsense drift through the stairwell air\nFotabip, fotaboop, every echo comes back\nLike a bright little signal on a broken track\nA hundred false alarms, but the last one lands clear\nHe says, “I wish you'd understood me,” almost steady, almost near\nThen he turns off the light, lets the hallway breathe\nAnd holds the final word: leave\n[End]",
+        "duration": 265,
+        "bpm": 118,
+        "musicalSettings": {
+          "genre": "Theatrical alternative rock with power-pop momentum and comic dramatic turns.",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, chorus, bridge, final chorus, resolved ending.",
+          "performance": "One clear, steadily pitched melodic lead with natural conversational phrasing and an increasingly exasperated emotional arc.",
+          "energy": "Tense and wry at first, rising through frustrated choruses, briefly sparse in the bridge, then fully resolved.",
+          "lyricWorkflow": "Original narrative lyrics use escalating numbered incidents, a recurring refrain, and a final emotional payoff.",
+          "instruments": [
+            "electric bass",
+            "overdriven electric guitars",
+            "live drum kit",
+            "piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nTony checked the clock, the room went still\nA spark in the wires, a jump in the thrill\nHe opened his mouth for the grand reveal\nBut the words came sideways, unreal\n“Fotabip,” he said, with a hopeful stare\nShe blinked twice slowly at the hanging air\nHe tried to explain, but the meaning ran\nLike a loose parade through a coffee can\n\n[Pre-Chorus]\nOne was funny, two was strange\nBy the third, the whole night changed\n\n[Chorus]\nA hundred false alarms, a hundred slammed doors\nA hundred little storms across the kitchen floor\nHeads I'm dead, tails I'm dreaming, he cried to the moon\nShe said, “I cannot translate you,” and vanished too soon\nA hundred false alarms, everybody's worn thin\nHe keeps reaching for the sentence that won't let him in\n\n[Verse 2]\nAt number seventeen he brought a chart\nWith arrows and colors and a hand-drawn heart\nAt twenty-nine, “Fotaboop” arrived\nLike a tiny brass band barely alive\nThe neighbors heard “God damn, nine-elevened again”\nAnd stared at the ceiling, then stared at the rain\nShe packed one bag, then came back for her coat\nHe made a speech; she missed every note\n\n[Chorus]\nA hundred false alarms, a hundred slammed doors\nA hundred little storms across the kitchen floor\nHeads I'm dead, tails I'm dreaming, he cried to the moon\nShe said, “I cannot translate you,” and vanished too soon\n\n[Bridge]\nForty-four was tragic, sixty-one was grave\nSeventy-eight was a message nobody could save\n“Weird hair, weird smells,” at ninety-three\nThe silence answered more politely than he\nAt ninety-nine he laughed, then the laugh fell apart\nNo joke can fix a room with a leaving heart\n\n[Chorus]\nA hundred false alarms, now the house is bare\nHis notes and his nonsense drift through the stairwell air\nFotabip, fotaboop, every echo comes back\nLike a bright little signal on a broken track\nA hundred false alarms, but the last one lands clear\nHe says, “I wish you'd understood me,” almost steady, almost near\nThen he turns off the light, lets the hallway breathe\nAnd holds the final word: leave",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 15.94,
+            "end": 19.5
+          },
+          {
+            "line": 2,
+            "start": 20.12,
+            "end": 23.14
+          },
+          {
+            "line": 3,
+            "start": 23.14,
+            "end": 27.52
+          },
+          {
+            "line": 4,
+            "start": 28.12,
+            "end": 32.84
+          },
+          {
+            "line": 5,
+            "start": 32.84,
+            "end": 35.76
+          },
+          {
+            "line": 6,
+            "start": 36.44,
+            "end": 40
+          },
+          {
+            "line": 7,
+            "start": 40.52,
+            "end": 43.86
+          },
+          {
+            "line": 8,
+            "start": 44.24,
+            "end": 47.28
+          },
+          {
+            "line": 11,
+            "start": 47.28,
+            "end": 53.18
+          },
+          {
+            "line": 12,
+            "start": 53.94,
+            "end": 57.74
+          },
+          {
+            "line": 15,
+            "start": 60.7,
+            "end": 64.36
+          },
+          {
+            "line": 16,
+            "start": 65.04,
+            "end": 68.76
+          },
+          {
+            "line": 17,
+            "start": 68.76,
+            "end": 73.64
+          },
+          {
+            "line": 18,
+            "start": 73.64,
+            "end": 78.96
+          },
+          {
+            "line": 19,
+            "start": 78.96,
+            "end": 82.86
+          },
+          {
+            "line": 20,
+            "start": 82.86,
+            "end": 88.36
+          },
+          {
+            "line": 23,
+            "start": 108.98,
+            "end": 112.88
+          },
+          {
+            "line": 24,
+            "start": 112.88,
+            "end": 117.16
+          },
+          {
+            "line": 25,
+            "start": 117.94,
+            "end": 121.12
+          },
+          {
+            "line": 26,
+            "start": 121.12,
+            "end": 125.08
+          },
+          {
+            "line": 27,
+            "start": 126.1,
+            "end": 129.12
+          },
+          {
+            "line": 28,
+            "start": 129.12,
+            "end": 133.4
+          },
+          {
+            "line": 29,
+            "start": 133.4,
+            "end": 137.08
+          },
+          {
+            "line": 30,
+            "start": 137.08,
+            "end": 140.84
+          },
+          {
+            "line": 33,
+            "start": 140.84,
+            "end": 147.76
+          },
+          {
+            "line": 34,
+            "start": 148.42,
+            "end": 152.04
+          },
+          {
+            "line": 35,
+            "start": 152.04,
+            "end": 156.94
+          },
+          {
+            "line": 36,
+            "start": 156.94,
+            "end": 165.6
+          },
+          {
+            "line": 39,
+            "start": 180.58,
+            "end": 185.14
+          },
+          {
+            "line": 40,
+            "start": 185.14,
+            "end": 188.3
+          },
+          {
+            "line": 41,
+            "start": 188.88,
+            "end": 191.64
+          },
+          {
+            "line": 42,
+            "start": 193.04,
+            "end": 196.38
+          },
+          {
+            "line": 43,
+            "start": 197.06,
+            "end": 200.34
+          },
+          {
+            "line": 44,
+            "start": 201.18,
+            "end": 204.62
+          },
+          {
+            "line": 47,
+            "start": 205.36,
+            "end": 210.76
+          },
+          {
+            "line": 48,
+            "start": 212.34,
+            "end": 225.8
+          },
+          {
+            "line": 49,
+            "start": 225.8,
+            "end": 229.18
+          },
+          {
+            "line": 50,
+            "start": 229.54,
+            "end": 233
+          },
+          {
+            "line": 51,
+            "start": 233.82,
+            "end": 237.4
+          },
+          {
+            "line": 52,
+            "start": 237.4,
+            "end": 241.38
+          },
+          {
+            "line": 53,
+            "start": 241.38,
+            "end": 245.26
+          },
+          {
+            "line": 54,
+            "start": 245.26,
+            "end": 249.88
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 17.82
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 13.51
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Every time Tony C is about to cum, he says one of the following:\n- \"Fotabip\"\n- \"Fotaboop\"\n- \"Fotabip, fotaboop\"\n- \"God damn, nine-elevened again\"\n- \"Heads I'm dead, tails I'm dreaming\"\n- \"Weird hair, weird smells\"\n\nEverytime this happeens, his partner tries to understand, but ultimately leaves him, which frustrates everyone.",
+        "direction": "Use the prompt as written.",
+        "keep": "Tony must cum 100 times, some comical, some tragic, some serious - all frustrating.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 265
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-75d81636b69a0efd9dfa929f",
       "title": "Meaning In A Fotabip, Foatboop",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-75d81636b69a0efd9dfa929f-e8adf9665a3d.mp3",
