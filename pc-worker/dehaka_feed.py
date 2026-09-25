@@ -99,6 +99,8 @@ def reply(api, entry, prompt, context, directive, decision, category, action, re
         text = decision['reason'] or 'No reason given.'
         if decision['action'] == 'replan':
             # Say exactly what the fresh planning pass receives, so the operator can correct it.
+            if decision.get('duration_seconds') is not None:
+                text += f" Requested duration correction: {decision['duration_seconds']} seconds; the controller must confirm it and any paid reservation before queueing."
             if decision.get('cover_title'):
                 text += f" Looking up the words to “{decision['cover_title']}”" + (f" by {decision['cover_artist']}." if decision.get('cover_artist') else '.')
             if decision.get('planning_note'): text += ' Direction for the planner: ' + decision['planning_note']

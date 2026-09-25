@@ -12,10 +12,24 @@ from winprocess import run_owned
 SCHEMA = {'type': 'object', 'additionalProperties': False,
           'properties': {'action': {'type': 'string', 'enum': ['retry_saved_work', 'replan', 'needs_input', 'needs_code_fix']},
                          'reason': {'type': 'string'}, 'evidence': {'type': 'string'},
-                         'planning_note': {'type': 'string'}, 'cover_artist': {'type': 'string'}, 'cover_title': {'type': 'string'}},
-          'required': ['action', 'reason', 'evidence', 'planning_note', 'cover_artist', 'cover_title']}
+                         'planning_note': {'type': 'string'}, 'cover_artist': {'type': 'string'}, 'cover_title': {'type': 'string'},
+                         'duration_seconds': {'type': ['integer', 'null'], 'minimum': 69, 'maximum': 666}},
+          'required': ['action', 'reason', 'evidence', 'planning_note', 'cover_artist', 'cover_title', 'duration_seconds']}
 # Decisions journaled before replanning existed carry only these.
 LEGACY = {'action', 'reason', 'evidence'}
+PRE_DURATION = set(SCHEMA['required']) - {'duration_seconds'}
+
+
+def validate_decision(decision, guidance=None):
+    if (not isinstance(decision, dict) or set(decision) not in (set(SCHEMA['required']), PRE_DURATION, LEGACY)
+            or decision.get('action') not in SCHEMA['properties']['action']['enum']
+            or not all(isinstance(value, str) and len(value) <= 4000 for key, value in decision.items() if key != 'duration_seconds')):
+        raise ValueError('Invalid automatic shepherd decision')
+    duration = decision.get('duration_seconds')
+    if duration is not None and (type(duration) is not int or not 69 <= duration <= 666
+                                 or decision['action'] != 'replan' or not guidance):
+        raise ValueError('Only an authenticated replan may correct a duration')
+    return decision
 
 
 def eligible(category, context):
@@ -49,13 +63,22 @@ def decide(config, prompt, context, guidance=None, consultation_id=None):
             'Choose replan when planning stopped before any audio (context.has_request is false, context.replan_blocked is '
             'empty) and the planner refused with needs_attention for something a fresh planning pass can resolve: the '
             'operator redirected the creative approach, or the request covers a named published song and brought no lyric '
-            'sheet. The controller then sets the refused plan aside, retrieves the published words of cover_artist/cover_title '
+            'sheet, or a prior planning cycle exhausted its attempts on a duration conflict that the operator now '
+            'explicitly corrects. Each of these consumes one of the existing bounded replanning passes. The controller '
+            'then sets the refused plan aside, retrieves the published words of cover_artist/cover_title '
             'from its lyrics service, and runs the planner again with planning_note as creative direction; the submitted '
-            'brief itself is never edited. For replan, put the song being covered in cover_artist and cover_title when the '
+            'brief and lyrics are retained; only the supported authenticated duration correction below may amend a setting. '
+            'For replan, put the song being covered in cover_artist and cover_title when the '
             'request or the operator names one (otherwise leave both empty), and write planning_note as one or two sentences '
             'of musical direction for the planner that carry out the operator guidance, such as treating the request as a '
             'loose cover set to new music. planning_note is creative direction only: never mention tools, skills, files, '
-            'retries or websites in it. Leave planning_note, cover_artist and cover_title empty for every other action. '
+            'retries or websites in it. If AUTHENTICATED OPERATOR GUIDANCE explicitly authorizes a different song length, '
+            'set duration_seconds to that whole-second duration with action=replan. This is the only way to change an '
+            'explicit duration: prose in planning_note cannot override it. Otherwise duration_seconds MUST be null, '
+            'including for automatic recovery. The controller validates the backend limit, lyric fit, unstarted production '
+            'and paid reservation before archiving or queueing; you cannot waive any of these checks. '
+            'Do not claim to archive/cancel requests or fix code: those actions are unavailable; explain the actual limit. '
+            'Leave planning_note, cover_artist and cover_title empty for every other action. '
             'Do not request regeneration or bypass a failed integrity check. Missing lyrics of a named published song are '
             'retrievable through replan; missing basis recordings and other inputs only the requester holds require needs_input; '
             'unsupported capabilities, exhausted deterministic repairs and actual code bugs require needs_code_fix. '
@@ -83,10 +106,7 @@ def decide(config, prompt, context, guidance=None, consultation_id=None):
                 save(journal_path, {'status': 'failed', 'at': utc(), 'attempts': 1, 'error': str(error)[:1000]})
                 return {'action': 'needs_code_fix', 'reason': 'Automatic shepherd could not complete; inspect its saved log.', 'evidence': ''}
     try:
-        decision = load(output)
-        if (set(decision) not in (set(SCHEMA['required']), LEGACY) or decision['action'] not in SCHEMA['properties']['action']['enum']
-                or not all(isinstance(value, str) and len(value) <= 4000 for value in decision.values())):
-            raise ValueError('Invalid automatic shepherd decision')
+        decision = validate_decision(load(output), guidance)
     except (ValueError, OSError):
         decision = {'action': 'needs_code_fix', 'reason': 'Automatic shepherd returned invalid diagnostics; review the retained output.', 'evidence': ''}
     save(journal_path, {'status': 'decided', 'at': utc(), 'attempts': 1, 'decision': decision})
