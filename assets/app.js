@@ -27,7 +27,7 @@ import { originalPromptPage } from "./original-prompt.js";
 import { rotateSuggestions } from "./suggestions.js";
 import { startRecordMotion } from "./record-motion.js";
 import { startRecordSinger } from "./record-singer.js";
-import { api, login, logout, signedIn, loginPersistence, storage } from "./api.js";
+import { api, publicApi, login, logout, signedIn, loginPersistence, storage } from "./api.js";
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 import { watchCompletions } from "./notifications.js";
 import { mountFavorites } from "./favorites.js";
@@ -261,6 +261,10 @@ async function library() {
   }
   startRecordSinger($(".record", main), () => songs);
   let initialCatalogPending = true;
+  let startupPins = null;
+  const withStartupPins = (items) => startupPins
+    ? items.map((song) => ({ ...song, pins: startupPins.get(song.id) || 0 }))
+    : items;
   // The static fallback still lists archived songs; the last IDs the API reported keep them hidden until it answers.
   const archivedKey = "yehry3:archived-songs";
   const knownArchived = () => {
@@ -874,10 +878,24 @@ async function library() {
   };
   for (const event of ["play", "playing", "pause", "ended", "emptied", "error"])
     audio.addEventListener(event, syncPlaybackButtons, { signal: scope.signal });
+  // Pin totals are tiny and public: fetch them alongside the static catalog,
+  // without waiting for the larger personalized catalog or the pending queue.
+  // The full live catalog always wins if this optional read arrives later.
+  void publicApi("/song-pins").then(({ pins }) => {
+    if (scope.left || !initialCatalogPending || !Array.isArray(pins)) return;
+    startupPins = new Map(pins.map(({ id, pins }) => [id, pins]));
+    if (songs.length) {
+      songs = withStartupPins(songs);
+      render({ preserveViewport: true });
+    }
+  }).catch(() => { /* The full catalog still supplies pins if this read fails. */ });
   try {
     const hidden = knownArchived();
-    songs = (await (await fetch("/catalog-summary.json")).json()).songs.filter((song) => !hidden.has(song.id));
+    const fallback = await (await fetch("/catalog-summary.json")).json();
+    if (scope.left) return;
+    songs = withStartupPins(fallback.songs.filter((song) => !hidden.has(song.id)));
   } catch {
+    if (scope.left) return;
     message("The catalog could not load. Refresh to try again.", true);
   }
   render();

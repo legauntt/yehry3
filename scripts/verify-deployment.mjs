@@ -367,6 +367,18 @@ assert.ok(Number.isSafeInteger(capacity.active) && capacity.active >= 0);
 assert.equal(capacity.available, Math.max(0, 10 - capacity.active));
 assert.equal(capacity.full, capacity.active >= 10);
 console.log(`Request capacity verified: ${capacity.active} unfinished, ${capacity.available} available.`);
+const pinsResponse = await get(`${api}/song-pins`, { headers: { Origin: site } });
+assert.equal(pinsResponse.headers.get("access-control-allow-origin"), site);
+assert.equal(pinsResponse.headers.get("cache-control"), "no-store");
+const startupPins = await pinsResponse.json();
+assert.deepEqual(Object.keys(startupPins), ["pins"]);
+assert.ok(Array.isArray(startupPins.pins));
+for (const pin of startupPins.pins) {
+  assert.deepEqual(Object.keys(pin).sort(), ["id", "pins"]);
+  assert.match(pin.id, /^[a-z0-9-]{1,120}$/);
+  assert.ok(Number.isSafeInteger(pin.pins) && pin.pins > 0);
+}
+console.log(`Public startup pin counts verified: ${startupPins.pins.length} songs.`);
 // Songs archived in Backstage are built out of the fallback, so expect the catalog minus what the API reports archived.
 const reported = await (await get(`${api}/songs/summary`, { headers: { "X-Visitor-ID": randomUUID(), Origin: site } })).json();
 const archived = Array.isArray(reported.archived) ? reported.archived : [];
