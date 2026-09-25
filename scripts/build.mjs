@@ -38,6 +38,7 @@ const publicEntries = [
   "audtism",
   "timeline",
   "sausage",
+  "aci",
   "v9",
   "wiseau",
   "robots.txt",
