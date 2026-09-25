@@ -354,6 +354,15 @@ function resolve(song) {
   const special = tier && remix.eyes === undefined && roll("eyes", 2) ? (tier.votes >= 5 ? "stars" : tier.votes === 1 ? "hearts" : null) : null;
   return { ...rolled, matches, description, accentTheme, swatches, traits, special, seesaw: seesawTitle.test(title) };
 }
+// Supplied covers stay with their recording, including after votes or redraws.
+const customArtwork = new Map([
+  ["distonyc-273bc25db98800af3487b313", {
+    src: "/assets/artwork/weird-hair-weird-smells-tattoo.webp",
+    alt: 'Fish tattoo with the words "No kings, no gods, just coupons after ten."',
+    theme: "tattoo", tier: 0, remixed: false,
+  }],
+]);
+export const hasCustomArtwork = song => customArtwork.has(song.id);
 const cache = new Map();
 // The same picture with wide eyes and the See-saw rectangle for a mouth, for the cover art easter egg.
 // Found by the picture's src, since the page only holds the markup.
@@ -364,6 +373,7 @@ export function shockedArtwork(src) {
 }
 // `wide` draws the same character on a 1000 x 240 canvas (a mixtape label). Song covers never ask for it.
 export function songArtwork(song, options = {}) {
+  if (hasCustomArtwork(song)) return customArtwork.get(song.id);
   const { identity, source, remix, roll, tier, description, accentTheme, swatches, traits, special: mood, seesaw, doodle } = resolve(song);
   const wide = Boolean(options.wide) && !tier;
   const pinned = remixTraits.map(trait => trait === "doodle" ? serializeDoodle(doodle) : remix[trait] ?? "").join(",");

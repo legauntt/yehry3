@@ -120,6 +120,7 @@ for (const name of [
   "catalog-view.js",
   "catalog-view.css",
   "song-art.js",
+  "artwork/weird-hair-weird-smells-tattoo.webp",
   "art-remix.js",
   "art-draw.js",
   "details.js",

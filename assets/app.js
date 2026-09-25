@@ -39,7 +39,7 @@ import { loadRemix, remixBadge, remixLink } from "./remix.js";
 import { draftRemixId, traceRemix } from "./remix-trace.js";
 import { recordingLabels, recordingLabel, recordingTitle } from "./recording-label.js";
 import { mountCatalogView } from "./catalog-view.js";
-import { songArtworkMarkup } from "./song-art.js";
+import { hasCustomArtwork, songArtworkMarkup } from "./song-art.js";
 import { openArtRemix } from "./art-remix.js";
 import { watchCatalog } from "./realtime.js";
 import { announceAttention, badgeSoundIcon, hasBadgeSound, mountBadgeSounds } from "./badge-sound.js";
@@ -253,6 +253,7 @@ async function library() {
     return { resting: true, note: `You redrew this${words}. You can redraw it again ${time ? "at " + time : "in an hour"}.` };
   }
   function artButton(song) {
+    if (hasCustomArtwork(song)) return "";
     const { resting, note } = artRest(song);
     // A resting button stays focusable and hoverable so the prompt can be read.
     return `<button type="button" class="song-action" data-art="${escape(song.id)}" aria-label="${resting ? escape(note) : "Redraw the clip art for " + escape(song.title)}"${note ? ` title="${escape(note)}"` : ""} ${resting ? 'aria-disabled="true"' : ""} ${!online || feedbackBusy ? "disabled" : ""}>${resting ? "🎨 Redrawn" : "🎨 Redraw"}</button>`;

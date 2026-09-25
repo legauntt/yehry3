@@ -14,8 +14,14 @@ test("every published recording gets distinct, stable artwork using compact meta
   for (const song of songs) {
     const full = songArtwork(song), summary = songArtwork(songSummary(song));
     assert.deepEqual(full, summary);
-    assert.match(full.alt, /^Silly clip art: /);
-    assert.match(decodeURIComponent(full.src), /viewBox="0 0 240 200"/);
+    assert.ok(full.alt.length > 0);
+    if (full.src.startsWith("data:image/svg+xml,")) {
+      assert.match(full.alt, /^Silly clip art: /);
+      assert.match(decodeURIComponent(full.src), /viewBox="0 0 240 200"/);
+    } else {
+      assert.match(full.src, /^\/assets\/artwork\/[a-z0-9-]+\.webp$/);
+      assert.ok((await readFile(new URL(".." + full.src, import.meta.url))).length > 0);
+    }
   }
 });
 test("recognizable title subjects receive matching illustrations", () => {
