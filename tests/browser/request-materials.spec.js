@@ -10,6 +10,49 @@ async function start(page) {
   await page.getByRole("tab", { name: "Advanced", exact: true }).click();
   await page.locator(".request-materials > summary").click();
 }
+test('chosen lyric prompts survive confirmation and appear publicly on desktop and mobile', async ({ page, browser }) => {
+  await page.route('**/yehry3/lyric-workshop', route => {
+    if (route.request().method() === 'OPTIONS') return route.fulfill({ status: 204 });
+    if (route.request().method() === 'GET') return route.fulfill({ json: { version: 1, available: true } });
+    return route.fulfill({ json: { job: { id: 'fixture-job', state: 'ready', lyrics: sheet } } });
+  });
+  await start(page);
+  await page.getByRole('tab', { name: 'Essentials', exact: true }).click();
+  await page.getByRole('button', { name: 'Open lyric workshop' }).click();
+  const guidance = 'Tell the lantern story with <img src=x onerror=alert(1)> as plain text.';
+  await page.locator('#workshop-direction').fill(guidance);
+  await page.getByRole('button', { name: 'Generate lyrics', exact: true }).click();
+  await expect(page.locator('#workshop-lyrics')).toHaveValue(sheet);
+  await page.getByRole('button', { name: 'Stronger hook', exact: true }).click();
+  await expect(page.locator('#workshop-version-prompt')).toHaveText('Stronger hook.');
+  await page.getByRole('button', { name: 'Use these lyrics', exact: true }).click();
+  await page.getByRole('button', { name: 'Review the request' }).click();
+  await page.getByText('Lyric prompt history', { exact: true }).click();
+  await expect(page.locator('.lyric-prompt-history li')).toHaveText([guidance, 'Stronger hook.']);
+  await page.getByRole('button', { name: 'Send to the queue' }).click();
+  await expect(page.getByText('Your idea is on the list.')).toBeVisible();
+  const id = await page.evaluate(() => sessionStorage.getItem('yehry3:draft'));
+  const publicSongId = 'distonyc-' + createHash('sha256').update(id).digest('hex').slice(0, 24);
+  const visitorContext = await browser.newContext();
+  try {
+    const visitor = await visitorContext.newPage();
+    await visitor.goto('http://127.0.0.1:8080/original-prompt/?song=' + publicSongId);
+    const history = visitor.locator('.lyric-prompt-history');
+    await history.locator('summary').click();
+    await expect(history.locator('li')).toHaveText([guidance, 'Stronger hook.']);
+    await expect(history.locator('img')).toHaveCount(0);
+    for (const width of [1440, 390]) {
+      await visitor.setViewportSize({ width, height: 1000 });
+      await history.scrollIntoViewIfNeeded();
+      expect(await visitor.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      await visitor.screenshot({ path: `artifacts/lyric-prompt-history-${width}.png`, fullPage: true });
+    }
+    await visitor.reload();
+    await history.locator('summary').click();
+    await expect(history.locator('li')).toHaveText([guidance, 'Stronger hook.']);
+  } finally { await visitorContext.close(); }
+});
+
 test("an older API keeps ordinary requests usable without silently accepting attachments", async ({ page }) => {
   await page.route("**/yehry3/request-materials", route => route.fulfill({ status: 404, json: { error: "Endpoint not found." } }));
   await page.goto("/distonyc/");

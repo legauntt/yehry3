@@ -1,5 +1,6 @@
 import { lyricError, wordCount } from './request-materials.js';
 import { workshopProgress } from './lyric-workshop-progress.js';
+import { appendLyricPrompt, versionPromptHistory } from './lyric-prompts.js';
 
 const MAX = 12000;
 const actions = [['funnier', 'Funnier'], ['heartfelt', 'More heartfelt'], ['darker', 'Darker'], ['hook', 'Stronger hook'], ['simpler', 'Easier to sing'], ['rhymes', 'Tighter rhymes']];
@@ -14,6 +15,7 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
     ? saved : { v: 1, lyrics: original, base: original, instruction: '', versions: [], pending: null };
   for (const version of state.versions) version.id ||= crypto.randomUUID();
   state.currentVersion ||= state.versions.findLast(version => version.lyrics === state.lyrics)?.id;
+  state.promptHistory ??= versionPromptHistory(state.versions.find(version => version.id === state.currentVersion)) || materials.getPromptHistory();
   const idea = draft.prompt;
   const shortIdea = idea.length > 420 ? idea.slice(0, 420).replace(/\s+\S*$/, '') + '…' : idea;
   let available = false, timer, destroyed = false, polling = false, opener;
@@ -39,7 +41,7 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
         <label for="workshop-version">Version history</label><select id="workshop-version" aria-describedby="workshop-version-prompt"></select>
         <div class="workshop-version-context"><strong class="small">Prompt for this version</strong><p class="small" id="workshop-version-prompt"></p></div>
       </section></div>
-      <footer class="lyric-workshop-footer"><p class="small" data-workshop-storage></p><p class="small">Your chosen words will be saved as “Keep my wording.” You can change that in Lyrics &amp; references. Confirmed lyrics become public with the request.</p><button type="button" class="primary" data-workshop-use>Use these lyrics</button><button type="button" class="quiet" data-workshop-close>Keep draft &amp; close</button></footer>
+      <footer class="lyric-workshop-footer"><p class="small" data-workshop-storage></p><p class="small">Your chosen words will be saved as “Keep my wording.” You can change that in Lyrics &amp; references. The chosen lyrics and their prompt history become public when you confirm the request.</p><button type="button" class="primary" data-workshop-use>Use these lyrics</button><button type="button" class="quiet" data-workshop-close>Keep draft &amp; close</button></footer>
     </dialog>`;
   const find = selector => root.querySelector(selector), dialog = find('dialog');
   const sheet = find('#workshop-lyrics'), instruction = find('#workshop-direction'), versions = find('#workshop-version');
@@ -58,7 +60,8 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
     if (!lyrics.trim()) return;
     // A fresh model response owns its prompt even when its text matches an older version.
     if (prompt === null && state.versions.some(version => version.id === state.currentVersion && version.lyrics === lyrics)) return;
-    const version = { id: crypto.randomUUID(), lyrics, label, prompt: prompt ?? 'Edited by you. No writing prompt.' };
+    const version = { id: crypto.randomUUID(), lyrics, label, prompt: prompt ?? 'Edited by you. No writing prompt.',
+      promptHistory: state.promptHistory || { prompts: [] } };
     state.versions.push(version);
     state.versions = state.versions.slice(-8);
     state.currentVersion = version.id;
@@ -119,6 +122,8 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
     if (job.state === 'ready' && typeof job.lyrics === 'string' && !lyricError(job.lyrics) && job.lyrics.length <= MAX) {
       snapshot(state.lyrics, 'Before this revision');
       state.lyrics = job.lyrics;
+      state.promptHistory = request ? appendLyricPrompt(state.promptHistory, revisionPrompt(request))
+        : { ...state.promptHistory, prompts: state.promptHistory?.prompts || [], incomplete: true };
       snapshot(job.lyrics, actions.find(([id]) => id === request?.action)?.[1] || (request?.lyrics?.trim() ? 'Custom revision' : 'First draft'),
         request ? revisionPrompt(request) : 'The prompt was not saved for this older version.');
       state.instruction = '';
@@ -172,6 +177,7 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
     const current = materials.getLyrics();
     if (!busy() && current !== state.base) {
       snapshot(state.lyrics, 'Earlier workshop draft'); state.lyrics = current; state.base = current;
+      state.currentVersion = null; state.promptHistory = materials.getPromptHistory();
     }
     dialog.showModal(); paint(); remember(); instruction.focus({ preventScroll: true }); dialog.scrollTop = 0;
     void check(); void poll();
@@ -183,7 +189,11 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
     const bounds = dialog.getBoundingClientRect();
     if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) dialog.close();
   });
-  sheet.oninput = () => { state.lyrics = sheet.value; remember(); paint(); };
+  sheet.oninput = () => {
+    state.lyrics = sheet.value;
+    if (!state.lyrics.trim()) { state.promptHistory = undefined; state.currentVersion = null; }
+    remember(); paint();
+  };
   instruction.oninput = () => { state.instruction = instruction.value; remember(); };
   find('[data-workshop-idea-toggle]').onclick = event => {
     const expanded = event.currentTarget.getAttribute('aria-expanded') !== 'true';
@@ -197,7 +207,8 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
     snapshot(state.lyrics, 'Your edited draft');
     // Saving current edits must not evict the older version being restored.
     if (!state.versions.some(version => version.id === selected.id)) state.versions.splice(0, 1, selected);
-    state.lyrics = selected.lyrics; state.currentVersion = selected.id; remember(); paint();
+    state.lyrics = selected.lyrics; state.currentVersion = selected.id;
+    state.promptHistory = versionPromptHistory(selected); remember(); paint();
   };
   find('[data-workshop-generate]').onclick = () => generate();
   for (const button of root.querySelectorAll('[data-lyric-action]')) button.onclick = () => generate(button.dataset.lyricAction);
@@ -215,7 +226,7 @@ export function mountLyricWorkshop(root, { draft, materials, api, storage, escap
   };
   find('[data-workshop-use]').onclick = () => {
     if (busy() || !state.lyrics.trim() || lyricError(state.lyrics) || state.lyrics.length > MAX) return;
-    materials.setLyrics(state.lyrics);
+    materials.setLyrics(state.lyrics, state.promptHistory);
     state.base = materials.getLyrics();
     snapshot(state.lyrics, 'Chosen for your song'); remember();
     find('[data-workshop-summary]').textContent = 'Chosen lyrics: ' + wordCount(state.base) + ' words · Keep my wording. Review the request when you’re ready.';

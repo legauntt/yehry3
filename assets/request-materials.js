@@ -1,3 +1,5 @@
+import { lyricPromptHistory, lyricPromptBrief } from './lyric-prompts.js';
+
 export const MAX_WORDS = 3000, MAX_CHARS = 30000;
 export const wordCount = (value) => value.trim() ? value.trim().split(/\s+/u).length : 0;
 const section = /^\[\s*(?:(?:verse|chorus|bridge|intro|outro|pre\s*-?\s*chorus|post\s*-?\s*chorus|refrain|hook|instrumental|spoken\s+(?:intro|verse)|breakdown|solo|interlude|movement|section|tag|coda|end|turn|(?:final|last)\s+(?:chorus|verse)|final\s+(?:refrain|hook|tag)|chorus\s+reprise)(?:\s+\d+)?)\s*\]$/i;
@@ -29,6 +31,7 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
   try { saved = JSON.parse(storage.get(key)); } catch { /* Saved server brief remains available. */ }
   const initial = saved?.version === draft.version ? saved : draft.details || {};
   let references = structuredClone(initial.references || []);
+  let promptHistory = lyricPromptHistory(initial.lyricSheet?.promptHistory);
   let pending = 0;
   root.innerHTML = '<details class="request-materials"><summary>Lyrics &amp; references <span class="small">(optional)</span></summary>' +
     '<div class="materials-fields"><label for="lyric-sheet">Lyric sheet</label>' +
@@ -51,7 +54,8 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
     mode.options[1].textContent = 'Allow adapting the lyrics';
   }
   function current() {
-    return { lyricSheet: sheet.value.trim() ? { text: sheet.value.replace(/\r\n?/g, "\n").trim(), mode: mode.value } : null, references };
+    return { lyricSheet: sheet.value.trim() ? { text: sheet.value.replace(/\r\n?/g, "\n").trim(), mode: mode.value,
+      ...(promptHistory ? { promptHistory } : {}) } : null, references };
   }
   function remember() {
     const data = JSON.stringify({ version: draft.version, ...current() });
@@ -104,6 +108,7 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
           const error = lyricError(content);
           if (error) { previewRoot.querySelector(".import-error").textContent = error; return; }
           sheet.value = content;
+          promptHistory = undefined;
           updateLyrics(); remember(); sheet.focus();
           previewRoot.querySelector(".import-error").textContent = "Added to the lyric sheet. Review it above.";
         };
@@ -135,7 +140,7 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
     else if (snapshot.text) html += '<details><summary>View retrieved content</summary><pre class="material-text">' + escape(snapshot.text) + '</pre></details>';
     return html;
   }
-  sheet.oninput = () => { updateLyrics(); remember(); };
+  sheet.oninput = () => { if (!sheet.value.trim()) promptHistory = undefined; updateLyrics(); remember(); };
   mode.onchange = () => { updateLyrics(); remember(); };
   document.querySelector("#direction")?.addEventListener("input", updateLyrics);
   for (const selector of ['#gen-duration', '#gen-candidates', '#generation-enabled', '#music-backend'])
@@ -145,10 +150,12 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
   updateLyrics(); renderReferences();
   return {
     getLyrics() { return sheet.value; },
-    setLyrics(value) {
+    getPromptHistory() { return lyricPromptHistory(promptHistory); },
+    setLyrics(value, history) {
       const error = lyricError(value);
       if (error) throw new Error(error);
       sheet.value = value; mode.value = 'preserve'; panel.open = true;
+      promptHistory = lyricPromptHistory(history);
       updateLyrics(); remember();
     },
     read() {
@@ -164,6 +171,7 @@ export function materialBrief(details, escape) {
   if (!details?.lyricSheet && !details?.references?.length) return "";
   let html = '<div class="materials-review"><h3>Lyrics &amp; references</h3>';
   if (details.lyricSheet) html += '<p><strong>' + (details.lyricSheet.mode === "adapt" ? "Adapt these lyrics" : "Keep my wording") + '</strong> · ' + wordCount(details.lyricSheet.text).toLocaleString() + ' words</p><details><summary>Read the submitted lyric sheet</summary><pre class="material-text" tabindex="0" role="region" aria-label="Submitted lyric sheet">' + escape(details.lyricSheet.text) + '</pre></details>';
+  html += lyricPromptBrief(details.lyricSheet, escape);
   for (const [index, ref] of (details.references || []).entries()) {
     const snapshot = ref.snapshot;
     const status = snapshot?.status === "ready" ? "Content saved" : snapshot ? "Content unavailable" : "Not previewed";
@@ -175,7 +183,7 @@ export function materialBrief(details, escape) {
     if (ref.snapshot?.text) html += '<details><summary>View saved reference content</summary><pre class="material-text" tabindex="0" role="region" aria-label="Saved content for reference ' + (index + 1) + '">' + escape(ref.snapshot.text) + '</pre></details>';
     html += '</div>';
   }
-  return html + '<p class="small">Supplied lyrics, reference links, notes, and saved page text are public once the request is confirmed.</p></div>';
+  return html + '<p class="small">Supplied lyrics, lyric prompt history, reference links, notes, and saved page text are public once the request is confirmed.</p></div>';
 }
 
 function referenceLink(value, escape) {

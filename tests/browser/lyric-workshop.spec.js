@@ -63,8 +63,45 @@ test('generate, edit and choose exact lyrics before the normal request review', 
   await page.getByRole('button', { name: 'Use these lyrics', exact: true }).click();
   await expect(page.getByRole('dialog')).not.toBeVisible();
   await page.getByRole('button', { name: 'Review the request' }).click();
-  expect(state.writes.at(-1).lyricSheet).toEqual({ text: edited, mode: 'preserve' });
+  expect(state.writes.at(-1).lyricSheet).toEqual({ text: edited, mode: 'preserve',
+    promptHistory: { prompts: ['Make the robot boastful, then reveal he drives the bus.'] } });
   await expect(page.getByRole('button', { name: 'Send to the queue' })).toBeVisible();
+});
+
+test('chosen prompt lineage survives reload and branches from a restored version', async ({ page }) => {
+  const state = await setup(page);
+  await page.locator('#workshop-direction').fill('Make the robot miss the bus.');
+  await page.getByRole('button', { name: 'Generate lyrics', exact: true }).click();
+  await expect(page.locator('#workshop-lyrics')).toHaveValue(first);
+  await page.getByRole('button', { name: 'Funnier', exact: true }).click();
+  await expect(page.locator('#workshop-version-prompt')).toHaveText('Funnier.');
+  await page.locator('#workshop-version').selectOption({ index: 1 });
+  await page.locator('#workshop-lyrics').fill(first + '\nMy manual ending');
+  await page.getByRole('button', { name: 'More heartfelt', exact: true }).click();
+  await expect(page.locator('#workshop-version-prompt')).toHaveText('More heartfelt.');
+  await page.reload();
+  await page.getByRole('button', { name: 'Open lyric workshop' }).click();
+  await page.getByRole('button', { name: 'Use these lyrics', exact: true }).click();
+  await page.reload();
+  await page.getByRole('button', { name: 'Review the request' }).click();
+  expect(state.writes.at(-1).lyricSheet.promptHistory).toEqual({ prompts: ['Make the robot miss the bus.', 'More heartfelt.'] });
+  await page.getByText('Lyric prompt history', { exact: true }).click();
+  await expect(page.locator('.lyric-prompt-history')).toContainText('More heartfelt.');
+  await expect(page.locator('.lyric-prompt-history')).not.toContainText('Funnier.');
+});
+
+test('clearing the workshop starts fresh prompt history', async ({ page }) => {
+  const state = await setup(page);
+  await page.locator('#workshop-direction').fill('An abandoned lyric direction.');
+  await page.getByRole('button', { name: 'Generate lyrics', exact: true }).click();
+  await expect(page.locator('#workshop-lyrics')).toHaveValue(first);
+  await page.locator('#workshop-lyrics').fill('');
+  await page.locator('#workshop-direction').fill('Start again with a singing bus.');
+  await page.getByRole('button', { name: 'Generate lyrics', exact: true }).click();
+  await expect(page.locator('#workshop-lyrics')).toHaveValue(second);
+  await page.getByRole('button', { name: 'Use these lyrics', exact: true }).click();
+  await page.getByRole('button', { name: 'Review the request' }).click();
+  expect(state.writes.at(-1).lyricSheet.promptHistory).toEqual({ prompts: ['Start again with a singing bus.'] });
 });
 
 test('a first draft needs no extra prompt and includes current unsaved song choices', async ({ page }) => {

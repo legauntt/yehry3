@@ -158,6 +158,7 @@ for (const name of [
   "quality-preference.js",
   "quality-preference.css",
   "lyrics.js",
+  "lyric-prompts.js",
   "listening.js",
   "listeners.js",
   "realtime.js",
@@ -215,6 +216,9 @@ assert.equal(
   "Notification service worker differs from the local release",
 );
 const generationSchema = JSON.parse(await readFile(new URL("../assets/generation-schema.json", import.meta.url), "utf8"));
+const materials = await (await get(`${api}/request-materials`)).json();
+assert.equal(materials.lyricPromptHistory, true, "API does not yet preserve chosen lyric prompt history");
+console.log("Chosen lyric prompt history API support verified.");
 const queueResponse = await get(`${api}/queue?page=0`, {
   headers: { Origin: site },
 });

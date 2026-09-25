@@ -63,6 +63,15 @@ Prompt details, request review and Backstage group the saved brief into **Essent
 
 The request form includes a **V6 vs V7** comparison modal beside the voice selector: fresh preference-neutral selection, larger separately trained voice adapter, and the limited meaning of its roughly 0.6% reconstruction-loss improvement. The dialog supports keyboard dismissal, focus return and mobile scrolling. Listening views keep compact V6/V7 badges, with a distinct treatment for experimental V7, but do not repeat the comparison link.
 
+**Use these lyrics** also copies the chosen version's lyric prompt history into the
+submitted sheet. Request review, Backstage and **View original prompt** show its
+saved guidance and revision nudges in order. Manual edits retain that lineage;
+restoring a version restores its own history, excluding abandoned branches. Only
+the chosen history becomes public on confirmation. Up to 32 prompts are retained
+independently of the eight editable versions; older or shortened histories say
+when earlier prompts are missing. Existing requests without saved history remain
+unchanged. Deploy Chairlift's `lyricSheet.promptHistory` support before this UI.
+
 ## Run
 
 Node 22 or later:
