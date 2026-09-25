@@ -2,6 +2,350 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-63f3b3ba8427b80cd6a10d9c",
+      "title": "Portable Weather",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-63f3b3ba8427b80cd6a10d9c-5d33360a3ae1.mp3",
+      "duration": 475.0367346938776,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-25T00:42:50.648Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Portable Weather",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D major",
+        "arrangement": "A buoyant, off-kilter rock song in D major: warm electric bass carries a lively pocket beneath jangling electric guitar, compact drums, Farfisa-style organ, and occasional muted trumpet answers. Use a single clear, steadily pitched Tony lead with playful connected phrasing, broad held notes, and a catchable hook; no doubles, backing voices, rasps, whispers, or vocal effects. Let the verses breathe around the absurd street scenes, lift the pre-choruses with bass movement, and open each chorus into bright full-band momentum. After the bridge, build the final chorus gradually with evolving guitar and organ counterlines rather than repeating earlier material mechanically. Pace the supplied lyric sheet spaciously across the full 475 seconds, keeping the lead present between sections; sustain the final word “you” around 463–467 seconds, then land one resolved final chord and natural decay.",
+        "lyrics": "[Verse 1]\nI found my hat beneath the bus stop bench\nfull of rainwater, receipts, and a wrench\nIt had a crooked little moon on the brim\nlike it had been out late drinking with him\nI put it on and the pigeons stood still\none gave a salute from the pharmacy sill\nThe wind said, “Buddy, you look like trouble,”\nthen folded my shadow in half like a double\n\n[Pre-Chorus]\nYeh fotabip, fotaboop,\nmy hat knows every back-alley loop\nYeh fotabip, don’t ask why,\nit waves at planes that cross the sky\n\n[Chorus]\nThis is my hat, my portable weather\nmy small black ship with a loose red feather\nWhen the day comes down like a landlord’s boot\nI tip that brim and give it the boot\nThis is my hat, don’t touch the crown\nit keeps my thoughts from spilling around\nIf I lose my head in the Saturday crowd\nmy hat will find me, laughing out loud\n\n[Verse 2]\nAt the diner, the waitress called it “sir”\nthen poured it coffee with a little stir\nThe hat drank steam through a rip in the seam\nand told me Tuesday was a government dream\nA kid with a trumpet offered a trade:\nthree blue marbles and a switchblade\nI said, “No deal, this hat has seen\nan Elvis impersonator fight a vending machine”\n\n[Pre-Chorus]\nYeh fotabip, fotaboop,\nit taps its heel to a one-note tune\nYeh fotabip, hold on tight,\nit turns a bad noon into midnight\n\n[Chorus]\nThis is my hat, my portable weather\nmy small black ship with a loose red feather\nWhen the day comes down like a landlord’s boot\nI tip that brim and give it the boot\nThis is my hat, don’t touch the crown\nit keeps my thoughts from spilling around\nIf I lose my head in the Saturday crowd\nmy hat will find me, laughing out loud\n\n[Bridge]\nOne day I’ll leave it on a stranger’s chair\nat a wedding where nobody cuts their hair\nThey’ll put it on, hear the pigeons sing,\nand suddenly know how to forgive a thing\n\n[Chorus]\nThis is my hat, my portable weather\nstitched from bad luck and stubborn leather\nWhen I’m gone, let it ride the train\nwith a moon on its brim and rain in its brain\nYeh fotabip, fotaboop,\ngo on, hat, make your crooked loop\nI’ll be bareheaded under the blue,\nbut the whole strange sky will be wearing you\n[End]",
+        "duration": 475,
+        "bpm": 104,
+        "musicalSettings": {
+          "genre": "Off-kilter melodic rock with a playful street-parade glow",
+          "meter": "4/4",
+          "structure": "Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Final Chorus → resolved ending",
+          "performance": "One clear, steadily pitched Tony lead with playful connected phrasing and sustained melodic hooks",
+          "energy": "Easy, curious opening; buoyant choruses; a reflective bridge; then a warm, fully resolved final lift",
+          "lyricWorkflow": "Preserve the supplied lyric sheet exactly and set its whimsical hat story with spacious melodic pacing",
+          "instruments": [
+            "electric bass",
+            "electric guitar",
+            "drum kit",
+            "Farfisa-style organ",
+            "muted trumpet"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI found my hat beneath the bus stop bench\nfull of rainwater, receipts, and a wrench\nIt had a crooked little moon on the brim\nlike it had been out late drinking with him\nI put it on and the pigeons stood still\none gave a salute from the pharmacy sill\nThe wind said, “Buddy, you look like trouble,”\nthen folded my shadow in half like a double\n\n[Pre-Chorus]\nYeh fotabip, fotaboop,\nmy hat knows every back-alley loop\nYeh fotabip, don’t ask why,\nit waves at planes that cross the sky\n\n[Chorus]\nThis is my hat, my portable weather\nmy small black ship with a loose red feather\nWhen the day comes down like a landlord’s boot\nI tip that brim and give it the boot\nThis is my hat, don’t touch the crown\nit keeps my thoughts from spilling around\nIf I lose my head in the Saturday crowd\nmy hat will find me, laughing out loud\n\n[Verse 2]\nAt the diner, the waitress called it “sir”\nthen poured it coffee with a little stir\nThe hat drank steam through a rip in the seam\nand told me Tuesday was a government dream\nA kid with a trumpet offered a trade:\nthree blue marbles and a switchblade\nI said, “No deal, this hat has seen\nan Elvis impersonator fight a vending machine”\n\n[Pre-Chorus]\nYeh fotabip, fotaboop,\nit taps its heel to a one-note tune\nYeh fotabip, hold on tight,\nit turns a bad noon into midnight\n\n[Chorus]\nThis is my hat, my portable weather\nmy small black ship with a loose red feather\nWhen the day comes down like a landlord’s boot\nI tip that brim and give it the boot\nThis is my hat, don’t touch the crown\nit keeps my thoughts from spilling around\nIf I lose my head in the Saturday crowd\nmy hat will find me, laughing out loud\n\n[Bridge]\nOne day I’ll leave it on a stranger’s chair\nat a wedding where nobody cuts their hair\nThey’ll put it on, hear the pigeons sing,\nand suddenly know how to forgive a thing\n\n[Chorus]\nThis is my hat, my portable weather\nstitched from bad luck and stubborn leather\nWhen I’m gone, let it ride the train\nwith a moon on its brim and rain in its brain\nYeh fotabip, fotaboop,\ngo on, hat, make your crooked loop\nI’ll be bareheaded under the blue,\nbut the whole strange sky will be wearing you",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 24.12,
+            "end": 28.84
+          },
+          {
+            "line": 2,
+            "start": 28.84,
+            "end": 36.96
+          },
+          {
+            "line": 3,
+            "start": 36.96,
+            "end": 43.4
+          },
+          {
+            "line": 4,
+            "start": 43.4,
+            "end": 49.74
+          },
+          {
+            "line": 5,
+            "start": 49.74,
+            "end": 56.02
+          },
+          {
+            "line": 6,
+            "start": 58.06,
+            "end": 63.88
+          },
+          {
+            "line": 7,
+            "start": 63.88,
+            "end": 70.8
+          },
+          {
+            "line": 8,
+            "start": 72.48,
+            "end": 77.86
+          },
+          {
+            "line": 11,
+            "start": 83.3,
+            "end": 88.56
+          },
+          {
+            "line": 12,
+            "start": 88.76,
+            "end": 97.84
+          },
+          {
+            "line": 13,
+            "start": 98.18,
+            "end": 101.6
+          },
+          {
+            "line": 14,
+            "start": 101.6,
+            "end": 107.34
+          },
+          {
+            "line": 17,
+            "start": 108.63,
+            "end": 113.8
+          },
+          {
+            "line": 18,
+            "start": 113.8,
+            "end": 120.4
+          },
+          {
+            "line": 19,
+            "start": 122.38,
+            "end": 127.02
+          },
+          {
+            "line": 20,
+            "start": 127.02,
+            "end": 133.62
+          },
+          {
+            "line": 21,
+            "start": 133.62,
+            "end": 141.12
+          },
+          {
+            "line": 22,
+            "start": 142.4,
+            "end": 147.86
+          },
+          {
+            "line": 23,
+            "start": 149.9,
+            "end": 154.94
+          },
+          {
+            "line": 24,
+            "start": 156.12,
+            "end": 160.86
+          },
+          {
+            "line": 27,
+            "start": 183.2,
+            "end": 188.24
+          },
+          {
+            "line": 28,
+            "start": 188.24,
+            "end": 194.98
+          },
+          {
+            "line": 29,
+            "start": 196.38,
+            "end": 201.48
+          },
+          {
+            "line": 30,
+            "start": 201.48,
+            "end": 208.72
+          },
+          {
+            "line": 31,
+            "start": 210.02,
+            "end": 214.72
+          },
+          {
+            "line": 32,
+            "start": 214.72,
+            "end": 222.38
+          },
+          {
+            "line": 33,
+            "start": 224.84,
+            "end": 232.04
+          },
+          {
+            "line": 34,
+            "start": 232.04,
+            "end": 236.08
+          },
+          {
+            "line": 37,
+            "start": 260.12,
+            "end": 263.84
+          },
+          {
+            "line": 38,
+            "start": 263.84,
+            "end": 273.52
+          },
+          {
+            "line": 39,
+            "start": 273.96,
+            "end": 277.48
+          },
+          {
+            "line": 40,
+            "start": 278.84,
+            "end": 283.78
+          },
+          {
+            "line": 43,
+            "start": 283.78,
+            "end": 291.06
+          },
+          {
+            "line": 44,
+            "start": 292.4,
+            "end": 297.78
+          },
+          {
+            "line": 45,
+            "start": 297.78,
+            "end": 304.78
+          },
+          {
+            "line": 46,
+            "start": 304.78,
+            "end": 311.24
+          },
+          {
+            "line": 47,
+            "start": 311.24,
+            "end": 318.62
+          },
+          {
+            "line": 48,
+            "start": 320.64,
+            "end": 325.26
+          },
+          {
+            "line": 49,
+            "start": 327.46,
+            "end": 332.14
+          },
+          {
+            "line": 50,
+            "start": 334.28,
+            "end": 339.04
+          },
+          {
+            "line": 53,
+            "start": 371.46,
+            "end": 377
+          },
+          {
+            "line": 54,
+            "start": 378.7,
+            "end": 383.72
+          },
+          {
+            "line": 55,
+            "start": 385.72,
+            "end": 390.44
+          },
+          {
+            "line": 56,
+            "start": 392.76,
+            "end": 397.42
+          },
+          {
+            "line": 59,
+            "start": 398.78,
+            "end": 404.36
+          },
+          {
+            "line": 60,
+            "start": 405.1,
+            "end": 413.68
+          },
+          {
+            "line": 61,
+            "start": 413.68,
+            "end": 420.28
+          },
+          {
+            "line": 62,
+            "start": 420.28,
+            "end": 427.7
+          },
+          {
+            "line": 63,
+            "start": 427.9,
+            "end": 434.4
+          },
+          {
+            "line": 64,
+            "start": 434.4,
+            "end": 441.2
+          },
+          {
+            "line": 65,
+            "start": 441.2,
+            "end": 445.22
+          },
+          {
+            "line": 66,
+            "start": 447,
+            "end": 452.2
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 32.12
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 21.12
+        },
+        {
+          "code": "early_lyric_ending",
+          "seconds": 22.8
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Yeh fotabip fotaboop",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 475
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-bcf7969a9959cbe4927370c4",
       "title": "The Biological Mandate (Corrosive Industrial Mix)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-bcf7969a9959cbe4927370c4-0d01b297861b.mp3",
