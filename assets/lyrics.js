@@ -206,7 +206,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     document.title = `${song.title} · Lyrics · yehry3`;
     const note =
       song.lyrics.kind === "transcribed"
-        ? "Source transcription; some words may be inaccurate."
+        ? "Source-recording transcription; words may be inaccurate and Tony’s performance may differ."
         : "Lyrics supplied for this recording. The performance may vary.";
     const audioUrl = escape(safeUrl(song.url));
     const hasCues = cueMap(song.lyrics).size > 0;

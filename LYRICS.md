@@ -12,6 +12,37 @@ The 53 older entries were backfilled from saved local Troofs production files: 3
 
 Written sheets describe the lyrics supplied for the recording; the generated performance can vary. Source transcriptions are explicitly labeled as potentially imperfect. **Movin On (V6 Extended)** includes both the source transcription and its written extension, with separate labels. The renderer's `[End]` marker is omitted from display.
 
+The IPA and Phonics reading modes use the CMU pronunciation dictionary. They do
+not measure Tony's delivery or establish what words he sang. Unknown spellings
+stay unchanged. The decorative Diacritics mode has been removed; old links fall
+back to Original.
+
+For a recording-based transcription, use `pc-worker/transcribe_performance.py`.
+It requires both the hash-verified released MP3 and its retained converted Tony
+vocal stem (`matched-vocals.wav`, archived as `vocals.wav`). A guide singer's
+stem or source transcript is not accepted. Recognition reads the audio without
+the written lyrics as a prompt, and produces its own words and timestamps.
+Phrase windows come from energy in that vocal stem, with padding for quiet
+consonants, so long instrumental gaps are not submitted as supposed speech.
+Private evidence records the audio identities and model; a separate public draft
+contains only recording identity, machine-transcription attribution, segment text,
+timing and uncertainty flags. The program does not publish that draft or overwrite
+written lyrics. A machine result must be checked against the recording before it
+is presented as accurate; recognition confidence alone is not a listening review.
+
+```powershell
+python pc-worker/transcribe_performance.py --catalog catalog.json --song <song-id> --basis-root <basis-root> --speech-root <speech-tools-parent> --cache <private-cache> --model large-v3-turbo
+```
+
+Models are local by default; `--download-model` explicitly permits fetching the
+requested model. The tool runs on four CPU threads at below-normal Windows
+priority, leaving the song-rendering GPU alone. Verified cached recognition is
+reused. Cache paths must be outside this repository. Recordings without a pinned
+release identity and converted vocal archive need source verification first.
+Each completed run also writes a private `review.html`: timestamp buttons play
+the released recording, the player can switch to Tony's isolated vocals at the
+same position, and the supplied lyrics are available separately for comparison.
+
 The two initial Distonyc songs, **Blood on My Shoes at Daybreak** and **Two Names in One Pair of Shoes**, use their saved original lyrics. Future jobs export sheets as part of native publication. The existing planning call also classifies clear Fear & Hunger songs; lyrics export, collection updates, and uploading require no additional model call.
 
 The MP3 folder audit also added **The Stone I Carried**, **Khalim Still Has a Heart**, and **When Arreat Fell**, bringing the catalog to 58 songs at import. Their saved written lyrics and existing public MP3s were matched by SHA-256 to the local delivery manifests. All three appear in both Tony AI and **Shiablo: The Lord of Prisoners** (`/?collection=shiablo`).

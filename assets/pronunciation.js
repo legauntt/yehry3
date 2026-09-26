@@ -1,4 +1,4 @@
-// Broad US English, for the lyric sheet's deliberately unserious reading modes.
+// Dictionary-based broad US English; no acoustic analysis of the performance.
 // CMU gives sounds and stress, not sung timing or syllable boundaries.
 export const lyricWords = (text) => text.match(/[\p{L}\p{M}]+(?:['’][\p{L}\p{M}]+)*/gu) || [];
 export const pronunciationKey = (word) => word.toLowerCase().replaceAll("’", "'");
@@ -63,12 +63,10 @@ export function pronounce(phones, view) {
   }).join("-");
 }
 
-const accents = { a: "ä", e: "ë", i: "ï", o: "ö", u: "ü", y: "ÿ", A: "Ä", E: "Ë", I: "Ï", O: "Ö", U: "Ü", Y: "Ÿ" };
 export function lyricView(text, view, dictionary = {}) {
   if (view === "original") return text;
   return text.split("\n").map(line => {
     if (!line.trim() || /^\s*\[[^\]]+]\s*$/.test(line)) return line;
-    if (view === "diacritics") return line.replace(/[aeiouy]/gi, letter => accents[letter]);
     if (view !== "ipa" && view !== "phonics") return line;
     return line.replace(/[\p{L}\p{M}]+(?:['’][\p{L}\p{M}]+)*/gu, word => {
       const key = pronunciationKey(word);

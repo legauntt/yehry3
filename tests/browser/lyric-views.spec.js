@@ -69,26 +69,26 @@ test("the choice survives reload and navigation, syncs tabs, and all views fit a
   await setup(page);
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`/lyrics/?song=${song.id}`);
-  for (const view of ["ipa", "phonics", "diacritics"]) {
+  for (const view of ["ipa", "phonics"]) {
     await choose(page, view);
     await expect(page.locator(".lyrics-text")).toHaveAttribute("data-lyric-view", view);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   }
-  await expect(first(page)).toHaveText("Thë nïght ïs ÿöüng!");
+  await expect(first(page)).toHaveText("dhuh nyte iz yuhng!");
   await page.screenshot({ path: "artifacts/lyric-views-mobile.png", fullPage: true });
   await page.reload();
-  await expect(first(page)).toHaveText("Thë nïght ïs ÿöüng!");
+  await expect(first(page)).toHaveText("dhuh nyte iz yuhng!");
   await page.goto("/lyrics/");
   await expect(page.locator("h1")).toHaveText("This sheet is not available yet.");
   await page.goBack();
-  await expect(first(page)).toHaveText("Thë nïght ïs ÿöüng!");
+  await expect(first(page)).toHaveText("dhuh nyte iz yuhng!");
   const second = await context.newPage();
   try {
     await setup(second);
     await second.goto(`/lyrics/?song=${song.id}`);
-    await expect(first(second)).toHaveText("Thë nïght ïs ÿöüng!");
-    await choose(second, "phonics");
-    await expect(first(page)).toHaveText("dhuh nyte iz yuhng!");
+    await expect(first(second)).toHaveText("dhuh nyte iz yuhng!");
+    await choose(second, "ipa");
+    await expect(first(page)).toHaveText("/ðə/ /naɪt/ /ɪz/ /jʌŋ/!");
   } finally { await second.close(); }
 });
 
@@ -109,11 +109,11 @@ test("blocked storage and a failed dictionary keep lyrics usable and allow retry
   await page.unroute("**/assets/lyric-pronunciations.json");
   await choose(page, "ipa");
   await expect(first(page)).toHaveText("/ðə/ /naɪt/ /ɪz/ /jʌŋ/!");
-  await choose(page, "diacritics");
-  await expect(first(page)).toHaveText("Thë nïght ïs ÿöüng!");
+  await choose(page, "original");
+  await expect(first(page)).toHaveText("The night is young!");
   releaseSong();
   await expect(page.locator("h1")).toHaveText("Refreshed without storage");
-  await expect(first(page)).toHaveText("Thë nïght ïs ÿöüng!");
+  await expect(first(page)).toHaveText("The night is young!");
 });
 
 test("a slow pronunciation load cannot overwrite a newer choice or a refreshed sheet", async ({ page }) => {
@@ -129,7 +129,7 @@ test("a slow pronunciation load cannot overwrite a newer choice or a refreshed s
   await page.goto(`/lyrics/?song=${song.id}`);
   await choose(page, "ipa");
   await expect(page.locator("#lyric-view-note")).toContainText("Warming up");
-  await choose(page, "diacritics");
+  await choose(page, "original");
   releaseSong();
   await expect(page.locator("h1")).toHaveText("Refreshed singing");
   releaseDictionary();
@@ -158,7 +158,7 @@ test("format links override a recipient's preference and preserve the shared mom
   const recipient = await browser.newPage();
   try {
     await setup(recipient);
-    await recipient.addInitScript(() => localStorage.setItem("yehry3:lyric-view", "diacritics"));
+    await recipient.addInitScript(() => localStorage.setItem("yehry3:lyric-view", "phonics"));
     await recipient.goto(link);
     await expect(first(recipient)).toHaveText("/ðə/ /naɪt/ /ɪz/ /jʌŋ/!");
     expect(await recipient.locator("audio").evaluate(audio => audio.paused)).toBe(true);
@@ -173,6 +173,9 @@ test("format links override a recipient's preference and preserve the shared mom
     expect(url.hash).toBe("#lyric-line-3");
     await recipient.goto(`/lyrics/?song=${song.id}&view=unknown`);
     await expect(first(recipient)).toHaveText("The night is young!");
+    await recipient.goto(`/lyrics/?song=${song.id}&view=diacritics`);
+    await expect(first(recipient)).toHaveText("The night is young!");
+    await expect(recipient.locator('#lyric-view option[value="diacritics"]')).toHaveCount(0);
   } finally { await recipient.close(); }
 });
 

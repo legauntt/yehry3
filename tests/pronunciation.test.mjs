@@ -20,7 +20,7 @@ test("all views preserve section headings, spacing, punctuation and unknown Unic
   assert.ok(result.endsWith("</doʊnt/> & 123"));
   assert.equal(lyricView(text, "original", dictionary), text);
   assert.equal(lyricView(text, "invalid", dictionary), text);
-  assert.equal(lyricView("[Verse]\nTony, café!", "diacritics"), "[Verse]\nTönÿ, cäfé!");
+  assert.equal(lyricView("[Verse]\nTony, café!", "diacritics"), "[Verse]\nTony, café!");
   assert.equal(lyricView("constructor", "ipa", {}), "constructor");
 });
 

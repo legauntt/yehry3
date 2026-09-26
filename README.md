@@ -204,17 +204,18 @@ The compact collection intro keeps the record artwork beside the text, including
 
 ## Validate
 
-Lyric sheets offer **Original**, **Phonetic · IPA**, **Phonetic · Readable**, and
-**Diacritics · Extra fancy** views. The last choice is remembered across pages,
+Lyric sheets offer **Original**, **IPA**, and **Phonics** views.
+The last choice is remembered across pages,
 reloads and tabs, with a storage-free fallback. Switching changes only the visible
 words; playback, cue buttons and shared moments retain their position. Download
 and Print use the selected view. The URL records `view=original`, `view=ipa`,
-`view=phonics` or `view=diacritics`, preserving the song, timestamp and lyric hash.
+or `view=phonics`, preserving the song, timestamp and lyric hash.
+Old Diacritics links and saved choices fall back to Original.
 A shared format takes precedence over the recipient's saved choice.
 Playback, format, save, download, profile and additional options share one desktop
 toolbar, with two compact rows on ordinary phones. The info icon explains the
 selected view; the more menu holds print, song links and recording notes.
-Diacritics are decorative; pronunciation is
+IPA and Phonics are dictionary guides, not transcriptions of Tony's performance:
 approximate US English, with unknown words and section headings left as written.
 The build extracts public catalog vocabulary from the pinned CMU dictionary into
 `assets/lyric-pronunciations.json`, loaded only when a phonetic view is selected.

@@ -3,12 +3,11 @@ import { lyricView } from "./pronunciation.js";
 const storageKey = "yehry3:lyric-view";
 const views = {
   original: ["Original", "The words, as written."],
-  ipa: ["Phonetic · IPA", "Approximate US English, dressed for a linguistics conference. Unknown words stay as written."],
-  phonics: ["Phonetic · Readable", "Sound it out. CAPS mark stress; dh is th in “this”, uu is oo in “book”. Approximate US English; unknown words stay as written."],
-  diacritics: ["Diacritics · Extra fancy", "All the vowels brought hats. Decorative only; absolutely no extra qualifications."],
+  ipa: ["Dictionary · IPA", "Dictionary pronunciation in approximate US English. This does not transcribe Tony’s delivery. Unknown words stay as written."],
+  phonics: ["Dictionary · Readable", "Dictionary pronunciation; Tony’s delivery may differ. CAPS mark stress; dh is th in “this”, uu is oo in “book”. Unknown words stay as written."],
 };
 const validView = value => Object.hasOwn(views, value) ? value : "original";
-const shortLabels = { original: "Original", ipa: "IPA", phonics: "Phonics", diacritics: "Diacritics" };
+const shortLabels = { original: "Original", ipa: "IPA", phonics: "Phonics" };
 let memoryView = "original";
 function savedView() {
   try { memoryView = validView(localStorage.getItem(storageKey)); } catch { /* Keep this tab's choice. */ }
@@ -43,13 +42,16 @@ export function mountLyricViews(main, lyrics, onChange) {
   const lines = [...sheet.querySelectorAll("[data-lyric-text]")];
   main.querySelector(".lyric-view-slot").append(panel);
   let revision = 0, current = "original";
+  const originalNote = lyrics.kind === "transcribed"
+    ? "Transcription of the source recording. Tony’s performed words may differ."
+    : "Lyrics supplied for this recording. Tony’s performed words may differ.";
   function display(view, dictionary) {
     const text = lyricView(lyrics.text, view, dictionary), translated = text.split("\n");
     for (const line of lines) line.textContent = translated[Number(line.dataset.lyricText)];
     current = view;
     select.value = view;
     sheet.dataset.lyricView = view;
-    note.textContent = views[view][1];
+    note.textContent = view === "original" ? originalNote : views[view][1];
     main.querySelector(".lyric-print-note").textContent = view === "original" ? "" : `${views[view][0]}: ${views[view][1]}`;
     onChange({ text, view, label: views[view][0], note: views[view][1] });
   }
