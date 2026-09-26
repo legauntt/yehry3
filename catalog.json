@@ -2,6 +2,78 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-4d876e67c987dcdfb0ec6495",
+      "title": "Murmur Circuit",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4d876e67c987dcdfb0ec6495-74b82e6bbde1.mp3",
+      "duration": 540.1077551020409,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-26T09:31:20.486Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Murmur Circuit",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Nine-minute dark art-rock vocal feature for Eleven Music: steady drums, melodic electric bass, tremolo electric guitar, low synthesizer and sparse piano in 4/4. A single clear, steadily pitched Tony V9 lead performs only the supplied phonetic sounds, beginning close and low, expanding through playful grunts and laugh-like bursts into a rhythmic middle build, dropping to a hushed low turn, then rising into sustained final vowels. Keep all vocal texture slurred and connected without intelligible language, with no doubles or backing voices. Maintain evolving accompaniment and frequent lead presence; place the resolved final vocal gesture about 8–12 seconds before the 540-second endpoint, followed by one final D-minor chord decay.",
+        "lyrics": "[Intro]\nMmm—nnn, hruu—mm\nHaa-rrm, nnh—oo\nMm-hmm, rruu-uh\nHh—nn, mmaa-rr\n\n[Section 1]\nNmm-raa, hruu-hruu\nMmm—ehh, nng-gaa\nHaa-mm, rruu-nn\nNn-hmm, aa-rru\n\nMrr-oo, hnn—haa\nGrr-mm, nyaa-ruu\nHuu—mmaa, nn-ehh\nRraah, mmm—nn\n\n[Section 2]\nHnn-yaa, mrr-oo-waa\nNn-rru, haa-mm-hmm\nGaa-rr, mmm-ehh-ruu\nHruu—nn, aa-maa\n\nMmm-hah, nnh-rru\nRaa-oo, grr-mm-yaa\nHnn—ehh, mruu-mruu\nAa-rr, nmm—haa\n\n[Section 3]\nMrr-yaa-oo, hnn-hnn\nRuu—maa, gaa-rru\nNnh-aa, mmm-rr-aa\nHaa-uu, grr—mnn\n\nMm-ehh, hruu-yaa\nRra—nn, mmaa-oo\nHnn-grr, aa-rr-aa\nMmm—huh, nyaa-ruu\n\n[Build]\nHaa—rru—maa\nNn—hmm—rru\nGrr-aa—oo\nMmm—yaa—nn\n\nHruu-hruu, mrr-yaa\nNnh-aa, raa-oo\nGaa-rru, hmm-mmaa\nRuu—nn, haa-rr\n\n[Section 4]\nMmaa-rru, hnn-yaa-oo\nGrr—ehh, nmm-hah\nRuu-mmaa, aa-rru-rru\nHnn—gaa, mrr-oo\n\nHaa-hah, nyaa-mmm\nRra-oo, hruu-nn\nMmm-ehh, gaa-rr-aa\nNn-huu, mmaa—rr\n\n[Break]\nMmm...\nHnn...\nRuu—oo...\nGrr—aa...\n\nNnh-mmaa, hruu-ehh\nRra—nn, mmm-yaa\nHaa-rru, gaa-oo\nMrr—hmm, nyaa-aa\n\n[Section 5]\nHruu-mmaa-rr, nnh-yaa\nGrr-aa-oo, mrr-ehh\nRuu—rru, haa-nn-maa\nMmm-hah, gaa-rru\n\nNyaa—oo, hnn-mmaa\nRra-ehh, grr-aa\nHuu—nn, mrr-yaa-rr\nMmm—aa, hruu-hruu\n\n[Section 6]\nMrr-oo-yaa, hnn-rru\nGaa-mmaa, rruu-ehh\nNnh-aa-rr, huu-mmm\nRaa—oo, grr-nn\n\nHaa-mmaa, nyaa-rru\nMmm-ehh-yaa, hruu-aa\nGrr—oo, nnh-hah\nRuu-rr-aa, mmm—nn\n\n[Climb]\nHaa—rru—oo—maa\nNnh—yaa—rru—nn\nMmm—gaa—ehh—aa\nHruu—mmaa—rr—oo\n\nGrr-aa, grr-aa, mmm-rru\nHnn-yaa, hnn-yaa, raa-oo\nMmaa-rr, mmaa-rr, huu-nn\nRruu—ehh—aa—rr\n\n[Section 7]\nNyaa-mrr-oo, hruu-mmaa\nGrr-aa-rru, nnh-ehh\nHaa-oo-yaa, mmm-rr-aa\nRuu—nn—haa, gaa-mmm\n\nMrr-yaa-huu, nnh-rru\nRra-oo-mmaa, grr-aa\nHnn-ehh-rr, mruu-yaa\nAa—rru—oo, mmm-nn\n\n[Low Turn]\nMmm—nn—rru...\nHruu—aa—mmaa...\nGrr—ehh—oo...\nNnh—rr—haa...\n\nMmaa-yaa, rruu-nn\nHaa—oo, grr-mmm\nNnh-ehh, mrr-aa\nRuu—rru, haa-nn\n\n[Section 8]\nHruu-yaa-mmaa, grr-oo\nNnh-aa-rru, mmm-ehh\nRaa-huu-nn, gaa-rr-aa\nMrr—oo—yaa, hnn-mmaa\n\nHaa-rru-ehh, nyaa-oo\nGrr-mmaa-rr, huu-nn\nMmm-aa-yaa, rruu-ehh\nNnh—haa—rru—oo\n\n[Final Rise]\nMmaa—rru—yaa—oo\nHnn—gaa—rru—aa\nGrr—mmaa—ehh—rr\nRuu—nn—haa—oo\n\nMrr-yaa, mrr-yaa, haa-rru\nNnh-oo, nnh-oo, mmaa-aa\nGrr-ehh, grr-ehh, rruu-nn\nHruu—mmaa—rru—oo\n\n[Final Gesture]\nMmm—rrruuu—aaahh\nHnn—oo—rrrmmm\nRuuuu—mmmaa\n[End]",
+        "duration": 540,
+        "bpm": 84,
+        "musicalSettings": {
+          "genre": "Dark art-rock vocal soundscape",
+          "meter": "4/4",
+          "structure": "Intro, eight evolving phonetic sections, two builds, low turn, final rise and resolved final gesture",
+          "performance": "Single clear, steadily pitched Tony V9 lead; slurred nonverbal humming, breaths, grunts and laugh-like sounds",
+          "energy": "Intimate low opening, rhythmic mid-song escalation, hushed reset, then sustained final rise",
+          "lyricWorkflow": "Complete invented phonetic vocal score with no intelligible words",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "tremolo electric guitar",
+            "low synthesizer",
+            "piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nMmm—nnn, hruu—mm\nHaa-rrm, nnh—oo\nMm-hmm, rruu-uh\nHh—nn, mmaa-rr\n\n[Section 1]\nNmm-raa, hruu-hruu\nMmm—ehh, nng-gaa\nHaa-mm, rruu-nn\nNn-hmm, aa-rru\n\nMrr-oo, hnn—haa\nGrr-mm, nyaa-ruu\nHuu—mmaa, nn-ehh\nRraah, mmm—nn\n\n[Section 2]\nHnn-yaa, mrr-oo-waa\nNn-rru, haa-mm-hmm\nGaa-rr, mmm-ehh-ruu\nHruu—nn, aa-maa\n\nMmm-hah, nnh-rru\nRaa-oo, grr-mm-yaa\nHnn—ehh, mruu-mruu\nAa-rr, nmm—haa\n\n[Section 3]\nMrr-yaa-oo, hnn-hnn\nRuu—maa, gaa-rru\nNnh-aa, mmm-rr-aa\nHaa-uu, grr—mnn\n\nMm-ehh, hruu-yaa\nRra—nn, mmaa-oo\nHnn-grr, aa-rr-aa\nMmm—huh, nyaa-ruu\n\n[Build]\nHaa—rru—maa\nNn—hmm—rru\nGrr-aa—oo\nMmm—yaa—nn\n\nHruu-hruu, mrr-yaa\nNnh-aa, raa-oo\nGaa-rru, hmm-mmaa\nRuu—nn, haa-rr\n\n[Section 4]\nMmaa-rru, hnn-yaa-oo\nGrr—ehh, nmm-hah\nRuu-mmaa, aa-rru-rru\nHnn—gaa, mrr-oo\n\nHaa-hah, nyaa-mmm\nRra-oo, hruu-nn\nMmm-ehh, gaa-rr-aa\nNn-huu, mmaa—rr\n\n[Break]\nMmm...\nHnn...\nRuu—oo...\nGrr—aa...\n\nNnh-mmaa, hruu-ehh\nRra—nn, mmm-yaa\nHaa-rru, gaa-oo\nMrr—hmm, nyaa-aa\n\n[Section 5]\nHruu-mmaa-rr, nnh-yaa\nGrr-aa-oo, mrr-ehh\nRuu—rru, haa-nn-maa\nMmm-hah, gaa-rru\n\nNyaa—oo, hnn-mmaa\nRra-ehh, grr-aa\nHuu—nn, mrr-yaa-rr\nMmm—aa, hruu-hruu\n\n[Section 6]\nMrr-oo-yaa, hnn-rru\nGaa-mmaa, rruu-ehh\nNnh-aa-rr, huu-mmm\nRaa—oo, grr-nn\n\nHaa-mmaa, nyaa-rru\nMmm-ehh-yaa, hruu-aa\nGrr—oo, nnh-hah\nRuu-rr-aa, mmm—nn\n\n[Climb]\nHaa—rru—oo—maa\nNnh—yaa—rru—nn\nMmm—gaa—ehh—aa\nHruu—mmaa—rr—oo\n\nGrr-aa, grr-aa, mmm-rru\nHnn-yaa, hnn-yaa, raa-oo\nMmaa-rr, mmaa-rr, huu-nn\nRruu—ehh—aa—rr\n\n[Section 7]\nNyaa-mrr-oo, hruu-mmaa\nGrr-aa-rru, nnh-ehh\nHaa-oo-yaa, mmm-rr-aa\nRuu—nn—haa, gaa-mmm\n\nMrr-yaa-huu, nnh-rru\nRra-oo-mmaa, grr-aa\nHnn-ehh-rr, mruu-yaa\nAa—rru—oo, mmm-nn\n\n[Low Turn]\nMmm—nn—rru...\nHruu—aa—mmaa...\nGrr—ehh—oo...\nNnh—rr—haa...\n\nMmaa-yaa, rruu-nn\nHaa—oo, grr-mmm\nNnh-ehh, mrr-aa\nRuu—rru, haa-nn\n\n[Section 8]\nHruu-yaa-mmaa, grr-oo\nNnh-aa-rru, mmm-ehh\nRaa-huu-nn, gaa-rr-aa\nMrr—oo—yaa, hnn-mmaa\n\nHaa-rru-ehh, nyaa-oo\nGrr-mmaa-rr, huu-nn\nMmm-aa-yaa, rruu-ehh\nNnh—haa—rru—oo\n\n[Final Rise]\nMmaa—rru—yaa—oo\nHnn—gaa—rru—aa\nGrr—mmaa—ehh—rr\nRuu—nn—haa—oo\n\nMrr-yaa, mrr-yaa, haa-rru\nNnh-oo, nnh-oo, mmaa-aa\nGrr-ehh, grr-ehh, rruu-nn\nHruu—mmaa—rru—oo\n\n[Final Gesture]\nMmm—rrruuu—aaahh\nHnn—oo—rrrmmm\nRuuuu—mmmaa",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "vocal_activity",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "originalPrompt": {
+        "idea": "9 minutes of Tony speaking pure jibberish (non-English)",
+        "direction": "Use the prompt as written.",
+        "keep": "Everything is slurred, incomprehensible, there are no words. It's just vocal sounds, like humming, breathing, grunts, laughs, etc. Must NOT have any English lyrics.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 540
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-8de6c1a77488271758b8910d",
       "title": "Static on the Dancefloor",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8de6c1a77488271758b8910d-98aad90f2485.mp3",
