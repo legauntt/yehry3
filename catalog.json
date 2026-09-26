@@ -2,6 +2,102 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a03a8a31b79c97d5e5707bbf",
+      "title": "Chromatic Jibberish",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a03a8a31b79c97d5e5707bbf-2bca3257567d.mp3",
+      "duration": 530.8077551020408,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-26T10:28:30.039Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Chromatic Jibberish",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Bright, danceable jazz-funk in E minor at 132 BPM, led by one clear, steadily pitched Tony V9 scat performance with no real-language words. A four-second clavinet-and-drum pickup opens into a voice-as-sax lead: crisp syncopated attacks, fluid glissandi, articulated bebop runs, playful low/high register turns, and short breathy accents. Elastic bass, crisp live funk drums, clavinet, electric piano, muted rhythm guitar, and percussion continually reshape the pocket; no saxophone. Move through the written sections every 20–40 seconds, including Latin-tinged call-and-response, a spacious half-time pocket that blooms back into double-time runs, rhythm-section trades with the voice continuously present, then an escalating final solo and transformed theme. Keep instrumental gaps under eight seconds. Sustain the final “zhéééé” into the final-vocal window at roughly 532 seconds, then land one crisp resolved ensemble chord and let it decay for the final eight seconds.",
+        "lyrics": "[Groove Pickup]\nMm-braï, tcha-ka-dí, vuu-eh\nZra-bé, kip-kip, mra-oo\nDjaï-ya, thu-bé-rah, mm\nKrré-oo, ba-da, zhé\n\n[Theme A]\nBa-rí-ya tché-ka-voo, zhaï-zhaï ré\nMm-da-lé, mm-da-lé, prii-yo-wah\nKá-tu brré-eh, dí-ga dí-ga roo\nTsha-bó-ya, vrru-vrru, mé-eh\nZi-ki-ta, zi-ki-ta, blaa-ru-vee\nNyaï-yaï-ya, köm-ba-ré\nTrrí-oo wa-da-bé, shi-ki-doo\nMm-braï, tcha-ka-dí, vuu-eh\n\n[Answer Figures]\nHé-ya, hé-ya, brru-daí\nKli-kli-kli, wá-oo, zhaa\nDó-bi rra-ta-ka, mé-eh-eh\nPrru-vi, prru-vi, kha-daí\nTché-oo-ba, tché-oo-ba, rii\nGlaï-ya ba-dí, glaï-ya ba-dí\nVu-na-ké, vu-na-ké, trr-ah\nZhóo-wi, zhóo-wi, mm\n\n[Fluid Run]\nDra-bi-di-li-ya-ru-vi-daa\nKi-ra-ba-du-li-ki-ra-bé\nTsha-na-vi-ra-ka-dí-ya-oo\nMra-la-ti-ki-vo-ra-zhé\nBlu-vi-da-ra-na-ki-ta-ru\nDji-ya-ba-li-voo-ma-ré\nKrru-da-li-ya-na-bri-yo-wah\nHééé-ya, mm-brré\n\n[Theme A, Tilted]\nBa-rí-ya tché-ka-vóo, zhé-zhaï ré\nMm-da-lé, kha-da-lé, prii-yo-wah\nKá-tu brré-eh, du-ga du-ga roo\nTsha-bó-ya, rré-rré, mé-eh\nZi-ki-ta, bra-ki-ta, blaa-ru-vee\nNyaï-yaï-ya, köm-ba-dá\nTrrí-oo wa-da-bé, shi-ki-dóo\nVuu-eh, tcha-ka-dí, mm-braï\n\n[Clavinet Exchange]\nTka-tka, zhi-ya, tka-tka, zhi-ya\nBrrá-oo, brrá-oo, dji-dji-dji\nKé-rah, ké-rah, vu-va-vé\nPli-ya-pli-ya, rru-oo, mm\nTka-tka, zhi-ya, glaï-glaï-glaï\nDó-rra, dó-rra, sha-bé\nVrii-ya, vrii-ya, ka-ta-ka\nHmmm—ba-rí-ya—hmmm\n\n[Latin Conversation]\nCha-va-rí, cha-va-rí, dó-ya\nMi-ka-lu, mi-ka-lu, vré\nTrrá-ki-da, trrá-ki-da, bwoo\nYa-na-ré, ya-na-ré, dji\nKó-ba-li-ya, kó-ba-li-ya, hé\nPru-ma-ta, pru-ma-ta, zhaa\nDi-ri-ki-ra, di-ri-ki-ra, voo\nMm-ya, mm-ya, cha-va-rí\n\n[Latin Response]\nVé-ya-ru, vé-ya-ru, klaï\nTshi-ra-ba, tshi-ra-ba, dé\nRru-vi-na, rru-vi-na, móo\nDja-ka-té, dja-ka-té, brii\nKa-la-bu-ri-ya, ka-la-bu-ri-ya\nZho-na-dí, zho-na-dí, wah\nTrré-oo, tché-oo, trré-oo, tché-oo\nHéé—mm—héé—mm\n\n[Glissando Rise]\nMra-oo-oo-oo-yaï\nKli-é-é-é-rru\nZhaa-a-a-a-vé\nPrrí-ii-ii-ya\nDóo-oo-oo-braï\nTché-é-é-é-lu\nVrii-ii-ii-yaï\nMm-braï—ba-rí-ya\n\n[Ascending Idea]\nKi-ya, ki-ya, rra-bé, rra-bé\nDu-li-ya, du-li-ya, vo-ra-ré\nPli-ka-dí, pli-ka-dí, zhé-oo-zhaï\nBra-na-vu, bra-na-vu, ké-rah\nTi-ri-ya-ba, ti-ri-ya-ba, mm\nGlaï-da-rú, glaï-da-rú, prré\nKi-ya ki-ya rra-bé, rra-bé\nVoo-eh-ya, voo-eh-ya, zhaa\n\n[High Register Flight]\nPí-ki-li-ya, pí-ki-li-ya, wéé\nShi-ri-vi-da, shi-ri-vi-da, réé\nTí-ya-ka-ru, tí-ya-ka-ru, bíi\nKli-ya-li-ya, kli-ya-li-ya, zhéé\nPí-ki-li-ya, dha-ra-vi-ya, wéé\nRí-ki-da-ru, zhi-na-ki-ya, réé\nTí-ya-ka-ru, bra-li-ya, bíi\nHiiii-ya—mm—hiiii-ya\n\n[Half-Time Pocket]\nMmm-braï... da-ru... mmm-braï\nZhé-oo... ka-lé... zhé-oo\nVuu-ma... rra-na... vuu-ma\nTché-ya... dóo-ba... tché-ya\nMmm-braï... ba-rí-ya... mmm\nGlaï-oo... prru-vi... glaï-oo\nDja-ra... ki-ya... dja-ra\nHmmm... vuu-eh... hmmm\n\n[Half-Time Bloom]\nBra-ya-na-ru-vi, bra-ya-na-ré\nMra-oo-ba-li-ya, mra-oo-ba-lé\nTché-ki-ra-vu-na, tché-ki-ra-vé\nDóo-ma-li-ya-ru, dóo-ma-li-ré\nBra-ya-na-ru-vi, pli-ya-pli-ya\nMra-oo-ba-li-ya, zhaa-a-a\nTché-ki-ra-vu-na, mm-brré\nBa-rí-ya... ba-rí-ya... vuu\n\n[Double-Time Spark]\nTki-ra-ba-di-li-vo-ra-ki-ra-bé\nPli-ya-du-li-ka-ra-vi-da-na-ré\nZhi-ka-ta-ra-bi-li-ya-ru-vi-dóo\nDja-ma-ri-ki-ta-na-ba-li-ya-vé\nKli-ra-du-li-ba-ta-ki-ra-zhé\nTsha-va-di-ri-ka-la-bu-ri-yá\nPrru-vi-da-li-ka-ra-ta-na-róo\nMm-braï tcha-ka-dí vuu-eh zhaa\n\n[Double-Time Spiral]\nRi-ki-li-ya-ba-du-ra-vi-ka-ta\nTchi-ra-ba-li-ya-na-du-li-vo-ra\nPli-da-ka-ri-ya-bu-na-vi-ti-ra\nZha-ma-li-ka-du-ra-bi-ya-ru-vi\nKi-ya-ta-ra-bu-li-da-na-vo-ra\nDji-ra-vi-ka-ta-li-ya-bu-na-ré\nTshi-ka-ra-ba-du-li-ya-vo-ra-zhaa\nHé-ya-hé-ya-hé-ya—mm\n\n[Low Register Turn]\nGrru-ba... mra-da... vuu\nDóm-ma... krré-oo... braï\nZha-ra... brru-vi... mm\nTché-da... glaï-oo... rr-ah\nGrru-ba... mra-da... vuu\nDi-ya... ka-ra... zhé\nBrrá-oo... brrá-oo... dóo\nMm-braï... mm-braï... hmmm\n\n[Rhythm-Section Trades]\nTka-zhi, tka-zhi, braï\nDji-ka, dji-ka, voo\nPli-ya, pli-ya, zhé\nRru-da, rru-da, mm\nTka-zhi, tka-zhi, glaï\nDji-ka, dji-ka, ré\nPli-ya, pli-ya, brru\nVuu-eh, vuu-eh, zhaa\n\n[Theme B, Expanded]\nKi-ya ki-ya rra-bé, bra-na-vu\nDu-li-ya vo-ra-ré, glaï-da-rú\nPli-ka-dí zhé-oo-zhaï, ti-ri-ya-ba\nVoo-eh-ya zhaa, mm-braï tcha-ka-dí\nKi-ya ki-ya rra-bé, dha-ra-vi-ya\nDu-li-ya vo-ra-ré, shi-ri-vi-da\nPli-ka-dí zhé-oo-zhaï, kli-ya-li-ya\nBa-rí-ya... vuu-eh... ba-rí-ya\n\n[Broken-Meter Feint]\nTché-ka-vu, tché-ka-vu, ri-ya\nDó-ba-li, dó-ba-li, zhaa\nPrru-vi-ta, prru-vi-ta, mé\nKlaï-ya-ru, klaï-ya-ru, vé\nTché-ka-vu, tché-ka-vu, rra\nDó-ba-li, dó-ba-li, voo\nPrru-vi-ta, prru-vi-ta, zhé\nHmmm-ba-rí-ya—hmmm\n\n[Final Solo Ignition]\nDra-bi-di-li-ya-ru-vi-daa\nKi-ra-ba-du-li-ki-ra-bé\nTsha-na-vi-ra-ka-dí-ya-oo\nMra-la-ti-ki-vo-ra-zhé\nPí-ki-li-ya dha-ra-vi-ya wéé\nShi-ri-vi-da zhi-na-ki-ya réé\nTí-ya-ka-ru bra-li-ya bíi\nHiii-ya—zhaa—vuu-eh\n\n[Final Solo Climb]\nKi-ya-ta-ra-bu-li-da-na-vo-ra\nDji-ra-vi-ka-ta-li-ya-bu-na-ré\nTshi-ka-ra-ba-du-li-ya-vo-ra-zhaa\nPli-da-ka-ri-ya-bu-na-vi-ti-ra\nRi-ki-li-ya-ba-du-ra-vi-ka-ta\nTchi-ra-ba-li-ya-na-du-li-vo-ra\nBra-ya-na-ru-vi, bra-ya-na-ré\nMra-oo-oo-oo-yaï\n\n[Transformed Theme]\nBa-rí-ya tché-ka-vóo, ki-ya rra-bé\nMm-da-lé prii-yo-wah, du-li-ya ré\nKá-tu brré-eh, pli-ka-dí zhaa\nTsha-bó-ya vrru-vrru, bra-na-vu\nZi-ki-ta blaa-ru-vee, glaï-da-rú\nNyaï-yaï-ya köm-ba-ré, ti-ri-ya-ba\nTrrí-oo wa-da-bé, voo-eh-ya zhaa\nMm-braï tcha-ka-dí, vuu-eh\n\n[Ensemble Coda]\nKi-ya... rra-bé... ki-ya... rra-bé\nBa-rí-ya... ba-rí-ya... vuu-eh\nTché-ka-vóo... tché-ka-vóo... zhaa\nBra-na-vu... bra-na-vu... ré\nPli-ka-dí... pli-ka-dí... mm\nGlaï-da-rú... glaï-da-rú... voo\nKi-ya rra-bé, ba-rí-ya vuu-eh\nMmm-braï—zhéééé\n[End]",
+        "duration": 540,
+        "bpm": 132,
+        "musicalSettings": {
+          "genre": "Upbeat jazz-funk with swing-inflected melodic scat",
+          "meter": "4/4, with brief syncopated Latin and off",
+          "structure": "Groove pickup; syncopated theme; call-and-response; fluid runs; Latin conversation; ascending idea; half-time pocket; double-time development; rhythm trades; escalating solo; transformed theme; resolved coda",
+          "performance": "One clear Tony V9 lead performs bright, melodic nonverbal scat with saxophone-like phrasing, changing registers, glissandi, and rhythmic articulation",
+          "energy": "Waves from a lively opening through contrasting pockets to an increasingly intense final solo and crisp resolution",
+          "lyricWorkflow": "Rhythm-led phonetic vocal score with varied syllable shapes, line lengths, motifs, and evolving melodic figures",
+          "instruments": [
+            "Clavinet",
+            "Electric piano",
+            "Elastic electric bass",
+            "Live funk drums",
+            "Muted rhythm guitar",
+            "Percussion"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Groove Pickup]\nMm-braï, tcha-ka-dí, vuu-eh\nZra-bé, kip-kip, mra-oo\nDjaï-ya, thu-bé-rah, mm\nKrré-oo, ba-da, zhé\n\n[Theme A]\nBa-rí-ya tché-ka-voo, zhaï-zhaï ré\nMm-da-lé, mm-da-lé, prii-yo-wah\nKá-tu brré-eh, dí-ga dí-ga roo\nTsha-bó-ya, vrru-vrru, mé-eh\nZi-ki-ta, zi-ki-ta, blaa-ru-vee\nNyaï-yaï-ya, köm-ba-ré\nTrrí-oo wa-da-bé, shi-ki-doo\nMm-braï, tcha-ka-dí, vuu-eh\n\n[Answer Figures]\nHé-ya, hé-ya, brru-daí\nKli-kli-kli, wá-oo, zhaa\nDó-bi rra-ta-ka, mé-eh-eh\nPrru-vi, prru-vi, kha-daí\nTché-oo-ba, tché-oo-ba, rii\nGlaï-ya ba-dí, glaï-ya ba-dí\nVu-na-ké, vu-na-ké, trr-ah\nZhóo-wi, zhóo-wi, mm\n\n[Fluid Run]\nDra-bi-di-li-ya-ru-vi-daa\nKi-ra-ba-du-li-ki-ra-bé\nTsha-na-vi-ra-ka-dí-ya-oo\nMra-la-ti-ki-vo-ra-zhé\nBlu-vi-da-ra-na-ki-ta-ru\nDji-ya-ba-li-voo-ma-ré\nKrru-da-li-ya-na-bri-yo-wah\nHééé-ya, mm-brré\n\n[Theme A, Tilted]\nBa-rí-ya tché-ka-vóo, zhé-zhaï ré\nMm-da-lé, kha-da-lé, prii-yo-wah\nKá-tu brré-eh, du-ga du-ga roo\nTsha-bó-ya, rré-rré, mé-eh\nZi-ki-ta, bra-ki-ta, blaa-ru-vee\nNyaï-yaï-ya, köm-ba-dá\nTrrí-oo wa-da-bé, shi-ki-dóo\nVuu-eh, tcha-ka-dí, mm-braï\n\n[Clavinet Exchange]\nTka-tka, zhi-ya, tka-tka, zhi-ya\nBrrá-oo, brrá-oo, dji-dji-dji\nKé-rah, ké-rah, vu-va-vé\nPli-ya-pli-ya, rru-oo, mm\nTka-tka, zhi-ya, glaï-glaï-glaï\nDó-rra, dó-rra, sha-bé\nVrii-ya, vrii-ya, ka-ta-ka\nHmmm—ba-rí-ya—hmmm\n\n[Latin Conversation]\nCha-va-rí, cha-va-rí, dó-ya\nMi-ka-lu, mi-ka-lu, vré\nTrrá-ki-da, trrá-ki-da, bwoo\nYa-na-ré, ya-na-ré, dji\nKó-ba-li-ya, kó-ba-li-ya, hé\nPru-ma-ta, pru-ma-ta, zhaa\nDi-ri-ki-ra, di-ri-ki-ra, voo\nMm-ya, mm-ya, cha-va-rí\n\n[Latin Response]\nVé-ya-ru, vé-ya-ru, klaï\nTshi-ra-ba, tshi-ra-ba, dé\nRru-vi-na, rru-vi-na, móo\nDja-ka-té, dja-ka-té, brii\nKa-la-bu-ri-ya, ka-la-bu-ri-ya\nZho-na-dí, zho-na-dí, wah\nTrré-oo, tché-oo, trré-oo, tché-oo\nHéé—mm—héé—mm\n\n[Glissando Rise]\nMra-oo-oo-oo-yaï\nKli-é-é-é-rru\nZhaa-a-a-a-vé\nPrrí-ii-ii-ya\nDóo-oo-oo-braï\nTché-é-é-é-lu\nVrii-ii-ii-yaï\nMm-braï—ba-rí-ya\n\n[Ascending Idea]\nKi-ya, ki-ya, rra-bé, rra-bé\nDu-li-ya, du-li-ya, vo-ra-ré\nPli-ka-dí, pli-ka-dí, zhé-oo-zhaï\nBra-na-vu, bra-na-vu, ké-rah\nTi-ri-ya-ba, ti-ri-ya-ba, mm\nGlaï-da-rú, glaï-da-rú, prré\nKi-ya ki-ya rra-bé, rra-bé\nVoo-eh-ya, voo-eh-ya, zhaa\n\n[High Register Flight]\nPí-ki-li-ya, pí-ki-li-ya, wéé\nShi-ri-vi-da, shi-ri-vi-da, réé\nTí-ya-ka-ru, tí-ya-ka-ru, bíi\nKli-ya-li-ya, kli-ya-li-ya, zhéé\nPí-ki-li-ya, dha-ra-vi-ya, wéé\nRí-ki-da-ru, zhi-na-ki-ya, réé\nTí-ya-ka-ru, bra-li-ya, bíi\nHiiii-ya—mm—hiiii-ya\n\n[Half-Time Pocket]\nMmm-braï... da-ru... mmm-braï\nZhé-oo... ka-lé... zhé-oo\nVuu-ma... rra-na... vuu-ma\nTché-ya... dóo-ba... tché-ya\nMmm-braï... ba-rí-ya... mmm\nGlaï-oo... prru-vi... glaï-oo\nDja-ra... ki-ya... dja-ra\nHmmm... vuu-eh... hmmm\n\n[Half-Time Bloom]\nBra-ya-na-ru-vi, bra-ya-na-ré\nMra-oo-ba-li-ya, mra-oo-ba-lé\nTché-ki-ra-vu-na, tché-ki-ra-vé\nDóo-ma-li-ya-ru, dóo-ma-li-ré\nBra-ya-na-ru-vi, pli-ya-pli-ya\nMra-oo-ba-li-ya, zhaa-a-a\nTché-ki-ra-vu-na, mm-brré\nBa-rí-ya... ba-rí-ya... vuu\n\n[Double-Time Spark]\nTki-ra-ba-di-li-vo-ra-ki-ra-bé\nPli-ya-du-li-ka-ra-vi-da-na-ré\nZhi-ka-ta-ra-bi-li-ya-ru-vi-dóo\nDja-ma-ri-ki-ta-na-ba-li-ya-vé\nKli-ra-du-li-ba-ta-ki-ra-zhé\nTsha-va-di-ri-ka-la-bu-ri-yá\nPrru-vi-da-li-ka-ra-ta-na-róo\nMm-braï tcha-ka-dí vuu-eh zhaa\n\n[Double-Time Spiral]\nRi-ki-li-ya-ba-du-ra-vi-ka-ta\nTchi-ra-ba-li-ya-na-du-li-vo-ra\nPli-da-ka-ri-ya-bu-na-vi-ti-ra\nZha-ma-li-ka-du-ra-bi-ya-ru-vi\nKi-ya-ta-ra-bu-li-da-na-vo-ra\nDji-ra-vi-ka-ta-li-ya-bu-na-ré\nTshi-ka-ra-ba-du-li-ya-vo-ra-zhaa\nHé-ya-hé-ya-hé-ya—mm\n\n[Low Register Turn]\nGrru-ba... mra-da... vuu\nDóm-ma... krré-oo... braï\nZha-ra... brru-vi... mm\nTché-da... glaï-oo... rr-ah\nGrru-ba... mra-da... vuu\nDi-ya... ka-ra... zhé\nBrrá-oo... brrá-oo... dóo\nMm-braï... mm-braï... hmmm\n\n[Rhythm-Section Trades]\nTka-zhi, tka-zhi, braï\nDji-ka, dji-ka, voo\nPli-ya, pli-ya, zhé\nRru-da, rru-da, mm\nTka-zhi, tka-zhi, glaï\nDji-ka, dji-ka, ré\nPli-ya, pli-ya, brru\nVuu-eh, vuu-eh, zhaa\n\n[Theme B, Expanded]\nKi-ya ki-ya rra-bé, bra-na-vu\nDu-li-ya vo-ra-ré, glaï-da-rú\nPli-ka-dí zhé-oo-zhaï, ti-ri-ya-ba\nVoo-eh-ya zhaa, mm-braï tcha-ka-dí\nKi-ya ki-ya rra-bé, dha-ra-vi-ya\nDu-li-ya vo-ra-ré, shi-ri-vi-da\nPli-ka-dí zhé-oo-zhaï, kli-ya-li-ya\nBa-rí-ya... vuu-eh... ba-rí-ya\n\n[Broken-Meter Feint]\nTché-ka-vu, tché-ka-vu, ri-ya\nDó-ba-li, dó-ba-li, zhaa\nPrru-vi-ta, prru-vi-ta, mé\nKlaï-ya-ru, klaï-ya-ru, vé\nTché-ka-vu, tché-ka-vu, rra\nDó-ba-li, dó-ba-li, voo\nPrru-vi-ta, prru-vi-ta, zhé\nHmmm-ba-rí-ya—hmmm\n\n[Final Solo Ignition]\nDra-bi-di-li-ya-ru-vi-daa\nKi-ra-ba-du-li-ki-ra-bé\nTsha-na-vi-ra-ka-dí-ya-oo\nMra-la-ti-ki-vo-ra-zhé\nPí-ki-li-ya dha-ra-vi-ya wéé\nShi-ri-vi-da zhi-na-ki-ya réé\nTí-ya-ka-ru bra-li-ya bíi\nHiii-ya—zhaa—vuu-eh\n\n[Final Solo Climb]\nKi-ya-ta-ra-bu-li-da-na-vo-ra\nDji-ra-vi-ka-ta-li-ya-bu-na-ré\nTshi-ka-ra-ba-du-li-ya-vo-ra-zhaa\nPli-da-ka-ri-ya-bu-na-vi-ti-ra\nRi-ki-li-ya-ba-du-ra-vi-ka-ta\nTchi-ra-ba-li-ya-na-du-li-vo-ra\nBra-ya-na-ru-vi, bra-ya-na-ré\nMra-oo-oo-oo-yaï\n\n[Transformed Theme]\nBa-rí-ya tché-ka-vóo, ki-ya rra-bé\nMm-da-lé prii-yo-wah, du-li-ya ré\nKá-tu brré-eh, pli-ka-dí zhaa\nTsha-bó-ya vrru-vrru, bra-na-vu\nZi-ki-ta blaa-ru-vee, glaï-da-rú\nNyaï-yaï-ya köm-ba-ré, ti-ri-ya-ba\nTrrí-oo wa-da-bé, voo-eh-ya zhaa\nMm-braï tcha-ka-dí, vuu-eh\n\n[Ensemble Coda]\nKi-ya... rra-bé... ki-ya... rra-bé\nBa-rí-ya... ba-rí-ya... vuu-eh\nTché-ka-vóo... tché-ka-vóo... zhaa\nBra-na-vu... bra-na-vu... ré\nPli-ka-dí... pli-ka-dí... mm\nGlaï-da-rú... glaï-da-rú... voo\nKi-ya rra-bé, ba-rí-ya vuu-eh\nMmm-braï—zhéééé",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 30.34
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 28.53
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "9 minutes of Tony speaking pure jibberish (non-English)",
+        "direction": "Revised by Jesse after listening: the first version is too repetitive. Make this upbeat, bright, danceable jazz-funk with Tony scatting melodically, using his voice almost like a saxophone. Pitched improvisation, syncopated articulated attacks, slippery glissandi, rapid bebop-like runs, playful register changes, short breathy accents and call-and-response with the rhythm section. Voice leads throughout; no actual saxophone replaces Tony. Use a lively 132 BPM groove, elastic bass, crisp live drums, clavinet, electric piano, muted rhythm guitar and percussion. Keep the full nine minutes varied: distinct melodic ideas, chord changes, contrasting rhythmic feels, evolving accompaniment and exchanges every 20-40 seconds. Include a Latin-tinged middle, a brief half-time pocket, double-time scat runs, an escalating final solo and a crisp resolved ensemble finish. Return to motifs only with substantial melodic and rhythmic variation. No long loop, repeated chant, static drone, dark slow art-rock or long empty instrumental stretches. Write a complete section-by-section invented phonetic score with varied line lengths and syllable shapes, not a few endlessly repeated sounds. All sung lines are nonverbal; headings are directions.",
+        "keep": "Nine minutes. Tony V9. Absolutely no English lyrics or other real-language words: only invented scat syllables and expressive vocal sounds. Make the voice function as a melodic improvising instrument, almost like a saxophone. Upbeat energy and continual musical variation are essential; the first version was too repetitive.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "rhythm",
+          "performance": "natural",
+          "energy": "waves",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 540,
+          "bpm": 132,
+          "genre": "Upbeat jazz-funk with swing-inflected melodic scat",
+          "instruments": [
+            "Clavinet",
+            "Electric piano",
+            "Elastic electric bass",
+            "Live funk drums",
+            "Muted rhythm guitar",
+            "Percussion"
+          ],
+          "avoidInstruments": [
+            "Saxophone"
+          ],
+          "vocalEntry": 4,
+          "maxBreakSeconds": 8,
+          "endingSeconds": 8,
+          "structure": "Short groove pickup; lively syncopated scat theme; contrasting fluid runs; Latin-tinged conversation; new ascending melodic idea; brief half-time pocket; double-time scat development; changing harmony and register; rhythm-section trades; escalating final voice-as-sax solo; transformed theme and resolved ensemble coda."
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-4d876e67c987dcdfb0ec6495",
       "title": "Murmur Circuit",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4d876e67c987dcdfb0ec6495-74b82e6bbde1.mp3",
