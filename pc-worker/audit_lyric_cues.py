@@ -24,6 +24,9 @@ def audit_song(song, candidates, identities=None):
     # Never substitute another render merely because the title/lyrics match.
     exact = [item for item in candidates if item.get('song_id', song['id']) == song['id'] and
              digest and any(value.startswith(digest) for value in item['hashes'])]
+    # A recreated transcript is pinned to this song's verified retained stem,
+    # resolving duplicate old production folders for the same released MP3.
+    exact = [item for item in exact if item.get('song_id') == song['id']] or exact
     if digest and not exact:
         return {**row, 'status': 'unverified', 'reason': 'No retained production with the published audio hash'}
     if not digest and song['id'] not in OVERRIDES:

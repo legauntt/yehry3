@@ -33,6 +33,7 @@ test("timestamp sharing works without lyric cues and fits mobile", async ({ page
   await setup(page, { ...song, lyrics: { ...song.lyrics, cues: [] } });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`/lyrics/?song=${song.id}&t=12.5`);
+  await expect(page.locator('.karaoke-note')).toContainText('Line timing is unavailable');
   await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(12.5, 1);
   await page.getByRole("button", { name: /Share this moment/ }).click();
   await expect(page.locator("#moment-link")).toHaveValue(/t=12.5$/);
@@ -46,6 +47,7 @@ test("unsupported lines stay readable while supported lines still seek", async (
   await page.goto(`/lyrics/?song=${song.id}#lyric-line-3`);
   await expect(page.locator(".lyrics-text")).toContainText("Second line");
   await expect(page.locator("button.lyric-line")).toHaveCount(2);
+  await expect(page.locator('.karaoke-note')).toContainText('Select a timed lyric');
   await expect(page.locator("#lyric-line-2")).toHaveCount(0);
   await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(9);
   await page.locator("#lyric-line-1").click();
