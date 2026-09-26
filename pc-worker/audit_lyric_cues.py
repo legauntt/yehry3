@@ -182,7 +182,7 @@ def main():
              'The local speech model is English-only; low agreement can reflect singing, other languages, phonetics, or recognition errors.',
              'Written lyric text and recordings are preserved. Only supported cue corrections are proposed.', '',
              'Summary: ' + json.dumps(summary), '',
-             '| Song | Supported lines (before → after) | Ordered word agreement | Listening follow-up |',
+             '| Song | Timed lines (before → after) | Ordered word agreement | Listening follow-up |',
              '| --- | --- | --- | --- |']
     for row in rows:
         title = row['title'].replace('|', '\\|')
