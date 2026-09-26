@@ -1,3 +1,5 @@
+import { queueItemHref } from "./queue-links.js";
+export { queueItemHref } from "./queue-links.js";
 import { currentScope } from "./page-scope.js";
 import { songBadges } from "./song-badges.js";
 import { gpuWaitNotice } from "./gpu-status.js";
@@ -111,12 +113,6 @@ export async function publicQueue(main, { escape, date, badge, safeUrl }) {
       refresh();
     }
   });
-}
-
-export function queueItemHref(song) {
-  return /^distonyc-[a-f0-9]{24}$/.test(song?.id || "")
-    ? `/queue/details/?request=${encodeURIComponent(song.id)}`
-    : "/queue/";
 }
 
 export async function queueDetailsPage(main, { escape, date, badge, safeUrl }) {

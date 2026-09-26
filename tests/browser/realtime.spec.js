@@ -5,15 +5,15 @@ const room = { version: "0000000000000001", listeners: [], total: 0, beatMs: 250
 const packet = (version = "0000000000000001") => ({ version: room.version + version, topics: { listeners: room, catalog: { version } } });
 const song = { id: "realtime-song", title: "Realtime song", collection: "tonyai", url: "/realtime.wav", duration: 240, votes: 0, order: 0, feedback: {} };
 const emptyQueue = { inStudio: [], needsAttention: [], queued: [], recent: [], queuedTotal: 0, inStudioTotal: 0, page: 0, pageSize: 50 };
-async function mocked(page) {
-  const state = { song: structuredClone(song), reads: 0, lines: [], hold: null };
+async function mocked(page, catalogRevision) {
+  const state = { song: structuredClone(song), reads: 0, lines: [], hold: null, catalogRevision };
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [state.song] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: emptyQueue }));
   await page.route("**/yehry3/songs/summary", async route => {
     state.reads++;
-    const snapshot = structuredClone(state.song), hold = state.hold;
+    const snapshot = structuredClone(state.song), hold = state.hold, revision = state.catalogRevision;
     if (hold) { state.hold = null; await hold; }
-    await route.fulfill({ json: { songs: [snapshot], nextVoteAt: null } }).catch(() => {});
+    await route.fulfill({ json: { songs: [snapshot], nextVoteAt: null, catalogRevision: revision } }).catch(() => {});
   });
   await page.route("**/yehry3/listeners", route => route.fulfill({ json: room }));
   await page.routeWebSocket("**/yehry3/events/socket", line => { state.lines.push(line); line.send(JSON.stringify(packet())); });
@@ -96,7 +96,7 @@ test("a change during a fetch is fetched again, and bursts are coalesced", async
 });
 
 test("reconnecting resyncs even an unchanged revision, and a departed page unsubscribes", async ({ page }) => {
-  const state = await mocked(page), art = page.locator('[data-id="realtime-song"] .track-art');
+  const state = await mocked(page, "0000000000000001"), art = page.locator('[data-id="realtime-song"] .track-art');
   const before = await art.getAttribute("src");
   state.song.artRemix = { seed: 701, theme: "robot" };
   await page.route("**/yehry3/events**", route => route.fulfill({ status: 503, json: { error: "restarting" } }));
@@ -111,4 +111,19 @@ test("reconnecting resyncs even an unchanged revision, and a departed page unsub
   await page.waitForTimeout(500);
   expect(state.reads).toBe(reads);
   expect(state.lines.length).toBe(2);
+});
+
+test("the first matching snapshot reuses the initial catalog; a changed revision refreshes", async ({ page }) => {
+  const state = await mocked(page, "0000000000000001");
+  expect(state.reads).toBe(1);
+  state.song.title = "Changed after loading";
+  state.catalogRevision = "0000000000000002";
+  state.lines[0].send(JSON.stringify(packet(state.catalogRevision)));
+  await expect(page.locator('[data-id="realtime-song"] h3')).toHaveText("Changed after loading");
+  expect(state.reads).toBe(2);
+});
+
+test("an older initial catalog still refreshes against the first snapshot", async ({ page }) => {
+  const state = await mocked(page, "0000000000000000");
+  expect(state.reads).toBe(2);
 });

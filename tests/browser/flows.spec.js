@@ -2,9 +2,10 @@ import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 import { mkdir, readFile } from "node:fs/promises";
 import { lyricsHref } from "../../assets/song-links.js";
-const songCount = JSON.parse(
+const catalogSongs = JSON.parse(
   await readFile(new URL("../../catalog.json", import.meta.url), "utf8"),
-).songs.length;
+).songs;
+const songCount = catalogSongs.length;
 test("catalog, search, player, and anonymous vote cooldown", async ({
   page,
 }) => {
@@ -511,7 +512,8 @@ test("generated song lyrics, dual collection filtering, and API outage fallback"
   await expect(page.locator(".lyrics-text")).toContainText(
     "Blood on my shoes, dawn in my eyes",
   );
-  await expect(page.locator("button.lyric-line")).toHaveCount(65);
+  const timedLines = catalogSongs.find(song => song.id === "distonyc-1d7840d9c9addba07ccabdb2").lyrics.cues;
+  await expect(page.locator("button.lyric-line")).toHaveCount(timedLines.length);
   await expect(page.locator("button.lyric-line").first()).toHaveAttribute(
     "data-start",
     /^\d/,

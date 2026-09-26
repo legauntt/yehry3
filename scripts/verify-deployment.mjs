@@ -137,6 +137,9 @@ for (const name of ["fearhunger.js", "fearhunger.css"]) {
 }
 for (const name of [
   "app.js",
+  "app-ui.js",
+  "studio-pages.js",
+  "queue-links.js",
   "recording-label.js",
   "catalog-view.js",
   "catalog-tools.js",
@@ -396,6 +399,7 @@ const firstPageResponse = await get(`${api}/songs/first-page`, { headers: { "X-V
 assert.equal(firstPageResponse.headers.get("access-control-allow-origin"), site);
 assert.equal(firstPageResponse.headers.get("cache-control"), "no-store");
 const firstPage = await firstPageResponse.json();
+assert.ok(firstPage.catalogRevision === null || /^[0-9a-f]{16}$/.test(firstPage.catalogRevision || ""), "API must return an observed catalog revision or null");
 assert.equal(firstPage.pageSize, 25);
 assert.ok(Number.isInteger(firstPage.total) && firstPage.total >= firstPage.songs.length);
 assert.equal(firstPage.songs.length, Math.min(firstPage.total, 25));

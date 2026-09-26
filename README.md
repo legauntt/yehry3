@@ -2,6 +2,22 @@
 
 A static Tony C music site with a MongoDB voting and request API in the sibling **chairlift** repository.
 
+The collection entry loads request/admin screens from `assets/studio-pages.js`, public
+queue/detail screens, and the Redraw editor on demand. `app-ui.js` holds shared rendering
+helpers; `queue-links.js` keeps a queue link from importing the whole queue screen.
+All routes continue to share the existing player and page scopes. A slow lazy import
+cannot mount after navigation has left its scope.
+
+The first realtime catalog snapshot reuses the completed initial catalog when Chairlift's
+`catalogRevision` matches. Missing/older revisions and every reconnect still refresh;
+periodic refresh and changes during an active fetch retain their existing behavior.
+Check with `tests/browser/startup-modules.spec.js`, `realtime.spec.js` and the affected
+request/player flows. Run `npm run profile:startup -- --url=https://yehry3.app --runs=3`
+and `node scripts/summarize-startup.mjs artifacts/startup/results.json` for reproducible
+cold/warm timing breakdowns; benchmark separately from CPU coverage diagnostics.
+`node scripts/compare-startup.mjs before/results.json after/results.json` compares
+matching benchmark conditions and reports medians for timing, JavaScript and catalog reads.
+
 `/aci/` is a demo frontend preview of an independent author-agent studio.
 It has proposed Pancakeo and Scythe spoof profiles, browser-only schedules/limits,
 a manually started simulation of the complete song pipeline, and example record

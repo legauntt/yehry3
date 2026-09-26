@@ -52,6 +52,7 @@ test("Backstage and Make a request remember separate logins after reopening the 
 });
 
 test("a session failure after renewal keeps the password through reload and offers retry", async ({ page, baseURL }) => {
+  await page.addInitScript(() => localStorage.setItem("yehry3:listeners-hidden", "true"));
   let sessions = 0;
   let failing = false;
   const headers = { "access-control-allow-origin": baseURL };
@@ -109,6 +110,10 @@ test("a browser that blocks saved passwords reports a temporary login", async ({
 
 test("an older session can save its password for future visits", async ({ page, baseURL }) => {
   const headers = { "access-control-allow-origin": baseURL };
+  // This fixture token is not valid at the disposable API. Keep independent
+  // presence and published-song requests from signing out the mocked session.
+  await page.addInitScript(() => localStorage.setItem("yehry3:listeners-hidden", "true"));
+  await page.route("**/yehry3/admin/songs?**", route => route.fulfill({ headers, json: { songs: [], total: 0, counts: { live: 0, archived: 0 } } }));
   await page.route("**/yehry3/admin/prompts?**", route => route.request().method() === "OPTIONS"
     ? route.continue() : route.fulfill({ headers, json: { prompts: [], counts: {}, total: 0 } }));
   await page.route("**/yehry3/session", route => route.request().method() === "OPTIONS"

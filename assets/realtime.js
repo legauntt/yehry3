@@ -121,9 +121,14 @@ export function subscribe(topic, callback, { signal } = {}) {
 }
 // Bursts (a seed, publication or several votes) cause one refresh. Abort belongs
 // to the page's scope, so a swapped-out screen never refreshes its replacement.
-export function watchCatalog(refresh, { signal } = {}) {
-  let timer;
-  const leave = subscribe("catalog", () => {
+export function watchCatalog(refresh, { signal, getRevision = () => null } = {}) {
+  let timer, initial = true;
+  const leave = subscribe("catalog", snapshot => {
+    // Only the first snapshot can be satisfied by the completed initial read.
+    // Reconnects still resync personal state, even at an unchanged public revision.
+    const matches = initial && snapshot.version === getRevision();
+    initial = false;
+    if (matches) return;
     clearTimeout(timer);
     timer = setTimeout(() => { if (!signal?.aborted && !document.hidden) void refresh(); }, 200);
   }, { signal });
