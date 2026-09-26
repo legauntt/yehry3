@@ -160,9 +160,11 @@ def normalize(plan):
 
 def validate(plan, basis, duration_min=DURATION_MIN):
     # Older cached plans predate these optional policies; never rewrite frozen inputs.
-    optional = {'fear_hunger', 'allow_long_instrumental_outro', 'movements', 'vocal_accents', 'generation', 'musicalSettings'}
+    optional = {'fear_hunger', 'allow_long_instrumental_outro', 'movements', 'vocal_accents', 'generation', 'musicalSettings', 'vocal_mode'}
     if not isinstance(plan, dict) or set(plan) - optional != set(FIELDS) - optional or plan['recipe'] not in FIELDS['recipe']['enum']: raise ValueError('Invalid planning result')
     if 'generation' in plan: normalize_generation(plan['generation'])
+    if plan.get('vocal_mode', 'lyrics') not in ('lyrics', 'nonverbal'):
+        raise ValueError('Invalid vocal mode')
     if 'musicalSettings' in plan:
         from musical_settings import public_settings
         public_settings(plan['musicalSettings'])
@@ -298,6 +300,8 @@ Keep explanation concise and describe the musical plan or a concrete blocker. No
         save(directory / 'source-material.json', material)
     if has_materials(brief): instruction += GUIDANCE
     instruction += cover_guidance(brief)
+    from vocal_score import PLANNING_GUIDANCE as vocal_score_guidance
+    instruction += vocal_score_guidance
     # Snapshotted once per planning pass, like the admin note, and kept out of the brief hash.
     recovery_note = (load(planning_input).get('recoveryNote', '') if planning_input.exists() else redirect.get('note', ''))
     if recovery_note:

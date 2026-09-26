@@ -1,5 +1,23 @@
 # Distonyc on Windows
 
+## Intentional nonverbal vocals
+
+Fresh plans support `vocal_mode: nonverbal` for explicitly requested wordless,
+gibberish or vocal-sound performances. The existing `lyrics` field carries a complete
+phonetic score with section headings; breaths, laughter and delivery instructions
+belong in the arrangement. No English or other real-language words are required.
+Real-language non-English songs retain `vocal_mode: lyrics`, as do legacy plans
+without this optional field. The selected voice, backend, duration and paid budget
+remain unchanged. Both local captions and Eleven Music composition prompts honor
+the score. Lexical ending matching is inapplicable; audio ending, continuity,
+export and publication integrity checks still run. Technical checks cannot prove
+that a generated performance contains no intelligible words; that needs listening.
+
+For a refusal before production starts, use the bounded `replan.prepare` archive
+and the versioned targeted admin retry. Never replace started render inputs or
+reset planning/recovery journals. Install only the reviewed runtime changes while
+worker and monitor are idle, preserving newer installed policies.
+
 ## Lyric workshop
 
 `lyric_writer.py` is a separate text-only worker for Step 2 of the website. It holds an authenticated

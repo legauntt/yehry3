@@ -304,7 +304,9 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
         options = normalize(options)
         if 'seed' in options: spec['seed'] = (options['seed'] + (1 if composition_retry else 2 if repair else 0)) % 2147481648
         ending = options.get('endingSeconds', 10)
-        spec['arrangement'] = (f"Target the final meaningful sung syllable at {spec['duration'] - ending} seconds, then allow {ending} seconds for the final chord to resolve. Complete every closing lyric. " + spec['arrangement'])
+        closing = ('nonverbal vocal gesture' if plan.get('vocal_mode') == 'nonverbal' else 'meaningful sung syllable')
+        completion = ('Complete the final vocal sound without adding real words. ' if plan.get('vocal_mode') == 'nonverbal' else 'Complete every closing lyric. ')
+        spec['arrangement'] = (f"Target the final {closing} at {spec['duration'] - ending} seconds, then allow {ending} seconds for the final chord to resolve. " + completion + spec['arrangement'])
     if material: spec['source_material'] = material
     if request.get('sparse_vocal_attempt'):
         spec['arrangement'] = request['sparse_vocal_guidance'] + spec['arrangement']

@@ -72,6 +72,12 @@ def analyze(lyrics, words, duration, allow_long=False):
 def review(work):
     work = Path(work)
     track = load(work / 'track.json')
+    if track.get('vocal_mode') == 'nonverbal':
+        result = {'version': 1, 'status': 'not_applicable', 'vocal_mode': 'nonverbal',
+                  'qualityIssues': [], 'listening_review': False,
+                  'reason': 'An intentional phonetic score has no lexical ending to match; audio ending and file-integrity checks still apply.'}
+        save(work / REPORT, result)
+        return result
     path = work / 'selected-vocals-words.json'
     if not path.exists(): return {'version': 1, 'status': 'unavailable', 'qualityIssues': [], 'listening_review': False}
     duration = load(work / 'arrangement-checks.json')['duration'] if (work / 'arrangement-checks.json').exists() else track['duration']

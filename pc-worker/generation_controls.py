@@ -110,7 +110,7 @@ WORKFLOWS = {
     'rhythm': 'Start from stresses, bar lengths and the requested groove. Write rhythmically singable lines with varied internal rhyme. Use rap/spoken delivery only if requested.',
     'auto': 'Choose a writing approach that suits this particular brief; establish its form, development and final payoff before finishing the lyric sheet.',
 }
-CREATIVE_GUIDANCE = '''Current ending and lyric policy:
+CREATIVE_GUIDANCE = '''Current ending and lyric policy (for lyrical songs; explicit nonverbal requests use a phonetic vocal score instead):
 Voice descriptions concern the SOUND of Tony's delivery, not a stock vocabulary for the lyrics.
 Keep his connected, rough phrasing and memorable melodies. Deliver the final meaningful lyric completely.
 Do not replace the final verse/tag with an older section or fill the last 30–60 seconds with screaming,
@@ -160,7 +160,7 @@ def recent_vocabulary(config, directory):
     return result
 
 
-def arrangement_guidance(options):
+def arrangement_guidance(options, vocal_mode='lyrics'):
     options = normalize(options)
     if not options: return ''
     parts = []
@@ -172,6 +172,10 @@ def arrangement_guidance(options):
     if 'vocalEntry' in options: parts.append(f"Target the first sung phrase at {options['vocalEntry']} seconds.")
     if 'maxBreakSeconds' in options: parts.append(f"Target no instrumental break longer than {options['maxBreakSeconds']} seconds.")
     if options['energy'] != 'auto': parts.append('Energy pattern: ' + {'build': 'grow toward the final section', 'waves': 'alternate quiet and strong sections', 'steady': 'keep a consistent groove with clear section contrasts'}[options['energy']] + '.')
+    if vocal_mode == 'nonverbal':
+        from vocal_score import NONVERBAL_DELIVERY
+        parts.append(NONVERBAL_DELIVERY)
+        return ' '.join(parts) + ' '
     parts.append({'natural': 'Expressive connected Tony phrasing with complete, catchable lyric endings.',
                   'restrained': 'Intimate controlled singing, clear lyrical endings, no screamed or wordless closing coda.',
                   'raw': 'Raw expressive singing with brief deliberate outbursts; complete the final lyrics before resolving.'}[options['performance']])

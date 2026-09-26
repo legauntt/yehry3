@@ -114,6 +114,8 @@ def composition(plan, seed):
             cues = ['Instrumental, no singing, final chord resolves and decays completely'] if i == len(rows)-1 and not words else []
             chunks.append({'text': row['label'] + ('\n' + '\n'.join(section) if section else ''),
                            'duration_ms': duration, 'positive_styles': styles + cues, 'negative_styles': negative})
+    from vocal_score import composition_styles
+    composition_styles(plan, chunks)
     result = {'model_id': 'music_v2_5', 'composition_plan': {'chunks': chunks}, 'seed': seed}
     from paid_music import request_duration
     request_duration(result)
