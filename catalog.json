@@ -2,6 +2,264 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-21c8149b819a0dfa21a08913",
+      "title": "Aw, Hell, Jimmy",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-21c8149b819a0dfa21a08913-3f6eab612d49.mp3",
+      "duration": 190.74,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-26T23:09:06.862Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Aw, Hell, Jimmy",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Dark theatrical art-rock in D minor: moving electric bass, dry kick and toms, overdriven guitar, tense piano, and restrained organ swells. Tony V9 sings the verses in rough, smoky melodic lines while the specified deadpan spoken refrain returns between sections and is woven as brief interruptions under the later verses. Build from stunned restraint to a full-band bridge, then pull back for the final repeated address. Sustain the last sung \"Jimmy\" and resolve one final D minor chord, with the final vocal 8–12 seconds before the 195-second ending.",
+        "lyrics": "[Spoken Intro]\nJim, Jim! I can't believe you commited suicide.\nHow could you have commited suicide? Jim! Jim!\n\n[Verse 1]\nThe television flickers blue across the room\nA paper cup goes soft beside the afternoon\nThey said your name too plainly, like that could make it land\nI keep expecting you to wave a script up in your hand\nYou'd find a doorway in a wall nobody saw\nThen call the whole impossible thing a natural law\nBut the hall is still, the telephone is still\nAnd every little ordinary sound is louder than it will\n\n[Spoken Refrain]\nJim, Jim! I can't believe you commited suicide.\nHow could you have commited suicide? Jim! Jim!\nAw, hell, Jimmy.\n\n[Verse 2]\nI walked past the diner where you talked until dawn\nThe booth was clean, the coffee cold, the big idea was gone\nYou made the broken feel like it had one more scene to play\nNow all the jokes arrive too late and have nowhere to stay\nI don't know what was hidden underneath that steady stare\nWhat kind of private weather kept you standing over there\nBut I know silence isn't proof that nobody was near\nAnd I would trade a thousand clever lines to have you here\n\n[Spoken Refrain]\nJim, Jim! I can't believe you commited suicide.\nHow could you have commited suicide? Jim! Jim!\nI don't care for that notion one bit.\n\n[Bridge]\nNo verdict from the ceiling, no clean explanation\nJust a room full of echoes and a stunned, small nation\nIf love could turn the clock back, I'd wind it through the night\nPast every missed connection, toward a porch with one more light\nI'd say, \"Jimmy, stay a minute, let the dark say what it means\"\nI'd sit beside the wreckage; I would not look away from dreams\n\n[Refrain]\nJim, Jim! I can't believe you commited suicide.\nHow could you have commited suicide? Jim! Jim!\nAw, hell, Jimmy, the evening won't sit right\nI don't care for that notion one bit tonight\nJim, Jim, your name hangs warm and low\nI can't believe you had to go\n\n[Outro]\nJim... Jim...\nAw, hell, Jimmy...\n[End]",
+        "duration": 195,
+        "bpm": 104,
+        "musicalSettings": {
+          "genre": "Theatrical dark art-rock",
+          "meter": "4/4",
+          "structure": "Spoken intro, two narrative verses with recurring spoken refrains, bridge, final refrain, resolved outro",
+          "performance": "Smoky, slurred Tony V9 singing with recurring deadpan spoken delivery and a catchable grieving refrain",
+          "energy": "Low, stunned opening tension rises into a full-band bridge, then settles into a sober final resolution",
+          "lyricWorkflow": "Original narrative lyrics built around the requested recurring spoken lines, concrete aftermath imagery, and a resolved farewell",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "electric guitar",
+            "piano",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Spoken Intro]\nJim, Jim! I can't believe you commited suicide.\nHow could you have commited suicide? Jim! Jim!\n\n[Verse 1]\nThe television flickers blue across the room\nA paper cup goes soft beside the afternoon\nThey said your name too plainly, like that could make it land\nI keep expecting you to wave a script up in your hand\nYou'd find a doorway in a wall nobody saw\nThen call the whole impossible thing a natural law\nBut the hall is still, the telephone is still\nAnd every little ordinary sound is louder than it will\n\n[Spoken Refrain]\nJim, Jim! I can't believe you commited suicide.\nHow could you have commited suicide? Jim! Jim!\nAw, hell, Jimmy.\n\n[Verse 2]\nI walked past the diner where you talked until dawn\nThe booth was clean, the coffee cold, the big idea was gone\nYou made the broken feel like it had one more scene to play\nNow all the jokes arrive too late and have nowhere to stay\nI don't know what was hidden underneath that steady stare\nWhat kind of private weather kept you standing over there\nBut I know silence isn't proof that nobody was near\nAnd I would trade a thousand clever lines to have you here\n\n[Spoken Refrain]\nJim, Jim! I can't believe you commited suicide.\nHow could you have commited suicide? Jim! Jim!\nI don't care for that notion one bit.\n\n[Bridge]\nNo verdict from the ceiling, no clean explanation\nJust a room full of echoes and a stunned, small nation\nIf love could turn the clock back, I'd wind it through the night\nPast every missed connection, toward a porch with one more light\nI'd say, \"Jimmy, stay a minute, let the dark say what it means\"\nI'd sit beside the wreckage; I would not look away from dreams\n\n[Refrain]\nJim, Jim! I can't believe you commited suicide.\nHow could you have commited suicide? Jim! Jim!\nAw, hell, Jimmy, the evening won't sit right\nI don't care for that notion one bit tonight\nJim, Jim, your name hangs warm and low\nI can't believe you had to go\n\n[Outro]\nJim... Jim...\nAw, hell, Jimmy...",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 1.68,
+            "end": 6.08
+          },
+          {
+            "line": 2,
+            "start": 8.24,
+            "end": 12.78
+          },
+          {
+            "line": 5,
+            "start": 15.84,
+            "end": 19.16
+          },
+          {
+            "line": 6,
+            "start": 20.46,
+            "end": 23.82
+          },
+          {
+            "line": 7,
+            "start": 24.86,
+            "end": 28.74
+          },
+          {
+            "line": 8,
+            "start": 28.74,
+            "end": 33.24
+          },
+          {
+            "line": 9,
+            "start": 33.24,
+            "end": 38.16
+          },
+          {
+            "line": 10,
+            "start": 38.16,
+            "end": 42.68
+          },
+          {
+            "line": 11,
+            "start": 42.68,
+            "end": 47.12
+          },
+          {
+            "line": 12,
+            "start": 47.12,
+            "end": 51.84
+          },
+          {
+            "line": 15,
+            "start": 51.84,
+            "end": 57.02
+          },
+          {
+            "line": 16,
+            "start": 58.38,
+            "end": 60.38
+          },
+          {
+            "line": 17,
+            "start": 61.1,
+            "end": 64.66
+          },
+          {
+            "line": 20,
+            "start": 67.08,
+            "end": 70.22
+          },
+          {
+            "line": 21,
+            "start": 71.3,
+            "end": 74.88
+          },
+          {
+            "line": 22,
+            "start": 76.14,
+            "end": 79.72
+          },
+          {
+            "line": 23,
+            "start": 80.58,
+            "end": 83.94
+          },
+          {
+            "line": 24,
+            "start": 83.94,
+            "end": 88.88
+          },
+          {
+            "line": 25,
+            "start": 89.54,
+            "end": 93.4
+          },
+          {
+            "line": 26,
+            "start": 93.76,
+            "end": 98.02
+          },
+          {
+            "line": 27,
+            "start": 98.8,
+            "end": 102.76
+          },
+          {
+            "line": 30,
+            "start": 103.62,
+            "end": 107.78
+          },
+          {
+            "line": 31,
+            "start": 108.98,
+            "end": 112.12
+          },
+          {
+            "line": 32,
+            "start": 113.32,
+            "end": 115.84
+          },
+          {
+            "line": 35,
+            "start": 116.6,
+            "end": 120.94
+          },
+          {
+            "line": 36,
+            "start": 121.66,
+            "end": 126.06
+          },
+          {
+            "line": 37,
+            "start": 126.72,
+            "end": 130.4
+          },
+          {
+            "line": 38,
+            "start": 130.4,
+            "end": 135.22
+          },
+          {
+            "line": 39,
+            "start": 135.42,
+            "end": 139.58
+          },
+          {
+            "line": 40,
+            "start": 139.58,
+            "end": 144.9
+          },
+          {
+            "line": 43,
+            "start": 144.9,
+            "end": 151.68
+          },
+          {
+            "line": 44,
+            "start": 152.86,
+            "end": 157.94
+          },
+          {
+            "line": 45,
+            "start": 157.94,
+            "end": 160.8
+          },
+          {
+            "line": 46,
+            "start": 161.6,
+            "end": 164.64
+          },
+          {
+            "line": 47,
+            "start": 165.5,
+            "end": 170.02
+          },
+          {
+            "line": 48,
+            "start": 170.34,
+            "end": 174.9
+          },
+          {
+            "line": 51,
+            "start": 175.8,
+            "end": 179.92
+          },
+          {
+            "line": 52,
+            "start": 179.92,
+            "end": 180.72
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "clean",
+      "originalPrompt": {
+        "idea": "Tony can't believe that his best friend, Neil Breen (lovingly referred to as 'Jim' and 'Jimmy') committed suicide",
+        "direction": "Use the prompt as written.",
+        "keep": "Must contain a repeated spoken delivery throughout the song, in deadpan. \"Jim, Jim! I can't believe you commited suicide. How could you have commited suicide? Jim! Jim!\"\n\nMust contain the phrase \"aw, hell, Jimmy\" and \"I don't care for that notion one bit\"",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "tony-saxophone-pocket-orbit-20260926",
       "title": "Pocket Orbit",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/tony-saxophone-pocket-orbit-20260926-d6d199d58121.mp3",
