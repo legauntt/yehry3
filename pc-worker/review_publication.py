@@ -27,7 +27,7 @@ def classify(work, error):
     state_path = Path(work) / 'desktop-status.json'
     if not state_path.exists(): return []
     state = load(state_path)
-    detail = state.get('error', '')
+    detail = state.get('error') or ''
     exceptions = list(re.finditer(r'^([\w.]+(?:Error|Exception)|KeyboardInterrupt|SystemExit)(?::|$)', detail, re.MULTILINE))
     if exceptions:
         last = exceptions[-1]

@@ -56,6 +56,10 @@ class ReviewPublicationTests(unittest.TestCase):
             save(self.work / 'desktop-status.json', {'status': 'failed', 'stage': stage, 'error': error})
             self.assertEqual(classify(self.work, RuntimeError(error)), expected)
 
+    def test_post_stage_integrity_error_keeps_its_cause_when_stage_error_is_null(self):
+        save(self.work / 'desktop-status.json', {'status': 'running', 'stage': 'analysis', 'error': None})
+        self.assertEqual(classify(self.work, ValueError('Saved review report changed')), [])
+
     @unittest.skipUnless(FFMPEG.is_file(), 'Local FFmpeg required for real encoding')
     def test_generated_performance_is_playable_and_explicitly_flagged(self):
         source = self.audio('selected-mix.wav')
