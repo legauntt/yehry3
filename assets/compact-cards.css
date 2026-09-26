@@ -1,0 +1,61 @@
+.song-more, .song-menu-title { display: none; }
+.favorite-button { gap: 3px; }
+/* List mode retains the existing inline controls. */
+#tracks[data-view="list"] .song-menu,
+#tracks[data-view="list"] .song-menu-panel { display: contents; }
+#catalog-items[data-view="grid"] { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+#tracks[data-view="grid"] .track {
+  grid-template-columns: 44px minmax(44px, 1fr) 44px 44px;
+  grid-template-rows: auto auto auto 1fr 44px;
+  gap: 6px; padding: 10px; align-items: start;
+}
+#tracks[data-view="grid"] .track-info { display: contents; }
+#tracks[data-view="grid"] .track-art { grid-column: 1 / -1; grid-row: 1; }
+#tracks[data-view="grid"] .track-number { top: 17px; left: 17px; padding: 3px 6px; }
+#tracks[data-view="grid"] .track-heading { grid-column: 1 / -1; grid-row: 2; margin: 2px 0 0; gap: 3px 6px; }
+#tracks[data-view="grid"] .track-info h3 { font-size: .92rem; line-height: 1.35; }
+#tracks[data-view="grid"] .track-meta { grid-column: 1 / -1; grid-row: 3; gap: 3px 8px; font-size: .66rem; }
+#tracks[data-view="grid"] .track-info > .review-state { grid-column: 1 / -1; grid-row: 4; margin: 0; }
+#tracks[data-view="grid"] .play-song { grid-column: 1; grid-row: 5; margin: 0; }
+#tracks[data-view="grid"] .vote-hint { grid-column: 2; grid-row: 5; justify-self: start; margin: 0; }
+#tracks[data-view="grid"] .vote { min-width: 44px; padding: 6px 9px; gap: 4px; font-size: .75rem; }
+#tracks[data-view="grid"] .favorite-button { grid-column: 3; grid-row: 5; width: 44px; min-height: 44px; padding: 0; margin: 0; border-radius: 50%; }
+#tracks[data-view="grid"] .favorite-icon { font-size: 1.25rem; }
+#tracks[data-view="grid"] .favorite-label { display: none; }
+#tracks[data-view="grid"] .song-menu { grid-column: 4; grid-row: 5; }
+#tracks[data-view="grid"] .song-more { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); font-size: 1.5rem; line-height: 1; }
+#tracks[data-view="grid"] .song-more:hover,
+#tracks[data-view="grid"] .song-more[aria-expanded="true"] { background: var(--light); border-color: var(--ink); }
+#tracks[data-view="grid"] .song-more:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+#tracks[data-view="grid"] .song-menu-panel { display: none; }
+#tracks[data-view="grid"] .song-menu.is-open > .song-menu-panel {
+  display: block; position: fixed; z-index: 90; width: min(330px, calc(100vw - 16px));
+  max-height: calc(100dvh - 32px); overflow-y: auto; overscroll-behavior: contain;
+  padding: 14px; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--white); color: var(--ink); box-shadow: 0 8px 28px #0003;
+}
+#tracks[data-view="grid"] .song-menu-title { display: block; font-size: .9rem; line-height: 1.4; color: var(--ink); font-weight: 600; overflow-wrap: anywhere; }
+#tracks[data-view="grid"] .song-menu-panel .track-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin: 10px 0; }
+#tracks[data-view="grid"] .song-menu-panel .song-link-icon { flex-direction: row; justify-content: flex-start; gap: 8px; min-width: 0; min-height: 44px; padding: 8px; border-radius: 7px; }
+#tracks[data-view="grid"] .song-menu-panel .song-link-icon svg { width: 20px; height: 20px; }
+#tracks[data-view="grid"] .song-menu-panel .song-link-caption { display: block; max-width: none; font-size: .72rem; text-align: left; }
+#tracks[data-view="grid"] .song-menu-panel .song-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 10px; }
+#tracks[data-view="grid"] .song-menu-panel .song-action { min-height: 44px; border-radius: 7px; font-size: .75rem; }
+/* Pending releases share the denser grid without stretching finished cards. */
+#catalog-items[data-view="grid"] .pending-track { padding: 10px; }
+#catalog-items[data-view="grid"] .pending-track > summary { gap: 6px; }
+@media (max-width: 1100px) and (min-width: 801px) {
+  #catalog-items[data-view="grid"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 800px) {
+  #catalog-items[data-view="grid"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 650px) {
+  #tracks[data-view="list"] .song-menu-panel > * { grid-column: 1 / -1; }
+}
+@media (max-width: 540px) {
+  #catalog-items[data-view="grid"] { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  /* Keep the whole illustration visible while halving the tall phone cards. */
+  #tracks[data-view="grid"] .track-art,
+  #catalog-items[data-view="grid"] .pending-track .track-art { height: 160px; object-fit: contain; background: var(--paper); }
+}

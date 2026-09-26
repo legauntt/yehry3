@@ -1,3 +1,4 @@
+import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 import { mkdir, readFile } from "node:fs/promises";
 import { lyricsHref } from "../../assets/song-links.js";
@@ -493,6 +494,7 @@ test("generated song lyrics, dual collection filtering, and API outage fallback"
   await page.getByLabel("Search songs").fill("Blood on My Shoes at Daybreak");
   await page.getByLabel("Collection", { exact: true }).selectOption("distonyc");
   await expect(song).toBeVisible();
+  await openSongMenu(song);
   await song
     .getByRole("link", { name: "Lyrics for Blood on My Shoes at Daybreak" })
     .click();
@@ -542,6 +544,7 @@ test("published original prompts show confirmed settings, work offline, and esca
   );
   await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.goto("/?collection=distonyc&q=Blood%20on%20My%20Shoes%20at%20Daybreak");
+  await openSongMenu(page.locator(`[data-id="${song.id}"]`));
   await page
     .getByRole("link", {
       name: "Original prompt for Blood on My Shoes at Daybreak",

@@ -1,3 +1,4 @@
+import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 
 const id = `distonyc-${"f".repeat(24)}`;
@@ -15,6 +16,7 @@ test("Full Auto links to resolved musical choices, escaped lyrics and mobile lay
   await page.route(`**/yehry3/songs/${id}`, route => route.fulfill({ json: { song } }));
   await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
   await page.goto("/");
+  await openSongMenu(page.locator(`[data-id="${id}"]`));
   await page.getByRole("link", { name: `Song plan for ${song.title}` }).click();
   await expect(page.locator(".original-prompt")).toContainText(song.originalPrompt.idea);
   await expect(page.locator("#song-plan")).toContainText("110 BPM");

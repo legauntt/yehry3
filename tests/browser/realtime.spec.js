@@ -1,3 +1,4 @@
+import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 
 const room = { version: "0000000000000001", listeners: [], total: 0, beatMs: 25000 };
@@ -58,6 +59,7 @@ test("another browser sees a saved redraw while its audio and filters stay in pl
     await expect.poll(() => observer.evaluate(() => window.__audio.currentTime)).toBeGreaterThanOrEqual(20);
     const art = observer.locator('[data-id="' + selected.id + '"] .track-art');
     const before = await art.getAttribute("src");
+    await openSongMenu(author.locator('[data-id="' + selected.id + '"]'));
     await author.locator('[data-id="' + selected.id + '"] [data-art]').click();
     const dialog = author.locator("dialog.art-remix");
     await dialog.getByRole("button", { name: "Shuffle the rest" }).click();

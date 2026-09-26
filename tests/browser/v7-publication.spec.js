@@ -1,3 +1,4 @@
+import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 
 test("V7 studies retain creation times, lyrics, and measured issue notices", async ({ page }) => {
@@ -31,6 +32,7 @@ test("V7 studies retain creation times, lyrics, and measured issue notices", asy
     "1.6 seconds",
   );
 
+  await openSongMenu(page.locator('[data-id="spare-key-weather-tony-v7-study"]'));
   await page
     .getByRole("link", { name: "Lyrics for Spare Key Weather (Tony V7 Study)" })
     .click();

@@ -1,3 +1,4 @@
+import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 import { songSummary } from "../../assets/song-summary.js";
 import { readFile } from "node:fs/promises";
@@ -124,6 +125,7 @@ test("leaving the shared song through its lyrics clears the spotlight", async ({
   await page.goto(`/song/${target.id}/`);
   const row = page.locator(`.track[data-id="${target.id}"]`);
   await expect(row).toHaveClass(/is-share-spotlight/);
+  await openSongMenu(row);
   await row.getByRole("link", { name: "Lyrics for Shared fixture" }).click();
   await expect(page).toHaveURL(/\/lyrics\//);
   await expect(page.locator(".shared-spotlight-backdrop, .shared-spotlight-close")).toHaveCount(0);

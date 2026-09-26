@@ -1,3 +1,4 @@
+import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 
 // Chairlift starts over on a seed and layers without one; the mock does the same.
@@ -29,6 +30,7 @@ test("a listener pins traits, shuffles the rest, redraws hourly, and can read ba
   const art = page.locator('[data-id="alpha"] .track-art'), trigger = page.locator('[data-id="alpha"] [data-art]');
   await expect(trigger).toHaveText("🎨 Redraw");
   const before = await art.getAttribute("src");
+  await openSongMenu(page.locator('[data-id="alpha"]'));
   await trigger.click();
   const dialog = page.locator("dialog.art-remix"), use = dialog.getByRole("button", { name: "Use this redraw" }), status = dialog.locator(".art-remix-result");
   const next = dialog.locator("[data-art-next]"), shuffle = dialog.getByRole("button", { name: "Shuffle the rest" }), reset = dialog.getByRole("button", { name: "Start over" });
@@ -84,6 +86,7 @@ test("a listener pins traits, shuffles the rest, redraws hourly, and can read ba
   expect(writes).toEqual([]);
 
   // A refusal stays in the dialog, and the go is not spent.
+  await openSongMenu(page.locator('[data-id="alpha"]'));
   await trigger.click();
   await robot.click();
   await dialog.getByRole("button", { name: "blue", exact: true }).click();
@@ -108,6 +111,7 @@ test("a listener pins traits, shuffles the rest, redraws hourly, and can read ba
   await expect(trigger).toHaveAttribute("title", /^You redrew this with “robot, blue, sunglasses, shuffled”\. You can redraw it again at \d/);
   const sent = writes.length;
   // Playwright will not click an aria-disabled button on its own; a finger can.
+  await openSongMenu(page.locator('[data-id="alpha"]'));
   await trigger.click({ force: true });
   await expect(dialog).toBeHidden();
   await expect(page.locator("#message")).toHaveText(/^You redrew this with “robot, blue, sunglasses, shuffled”/);
@@ -121,6 +125,7 @@ test("a listener pins traits, shuffles the rest, redraws hourly, and can read ba
   await expect(trigger).toHaveText("🎨 Redraw");
   await expect(trigger).toHaveAttribute("title", "Your last redraw was with “robot, blue, sunglasses, shuffled”.");
   const robotTake = await art.getAttribute("src");
+  await openSongMenu(page.locator('[data-id="alpha"]'));
   await trigger.click();
   await expect(robot).toHaveAttribute("data-current", "");
   await expect(dialog.locator('[data-trait="palette"] legend')).toContainText("now blue");
@@ -138,6 +143,7 @@ test("a listener draws on the picture, and the doodle travels as pen strokes", a
   await studio(page, songs, writes, state);
   await page.goto("/");
   const art = page.locator('[data-id="alpha"] .track-art'), trigger = page.locator('[data-id="alpha"] [data-art]');
+  await openSongMenu(page.locator('[data-id="alpha"]'));
   await trigger.click();
   const dialog = page.locator("dialog.art-remix"), use = dialog.getByRole("button", { name: "Use this redraw" }), status = dialog.locator(".art-remix-result");
   const next = dialog.locator("[data-art-next]"), draw = dialog.getByRole("button", { name: "Draw on it" }), pad = dialog.locator(".art-doodle-pad"), ink = dialog.locator("[data-doodle-ink]");
@@ -177,6 +183,7 @@ test("a listener draws on the picture, and the doodle travels as pen strokes", a
   // Next time, the doodle is there to keep drawing on, and Clear sends it away.
   Object.assign(songs[0].feedback, { artRemixed: false, artRedrawAt: undefined });
   await page.reload();
+  await openSongMenu(page.locator('[data-id="alpha"]'));
   await trigger.click();
   await expect(dialog.locator("[data-art-now]")).toHaveAttribute("alt", /doodle/);
   await draw.click();
@@ -197,6 +204,7 @@ test("the redraw dialog fits a phone, follows Dark Mode, and offers award art on
   await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.goto("/");
+  await openSongMenu(page.locator('[data-id="alpha"]'));
   await page.locator('[data-id="alpha"] [data-art]').click();
   const dialog = page.locator("dialog.art-remix");
   await expect(dialog).toBeVisible();

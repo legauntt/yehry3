@@ -41,6 +41,7 @@ import { draftRemixId, traceRemix } from "./remix-trace.js";
 import { recordingLabels, recordingLabel, recordingTitle } from "./recording-label.js";
 import { mountCatalogView } from "./catalog-view.js";
 import { mountCatalogTools } from "./catalog-tools.js";
+import { mountSongMenus } from "./song-menu.js";
 import { decorateSongLinks, mountSongLinkTooltips } from "./song-link-icons.js";
 import { hasCustomArtwork, songArtworkMarkup } from "./song-art.js";
 import { openArtRemix } from "./art-remix.js";
@@ -162,7 +163,11 @@ function songMeta(song, recentPublishedAt) {
   const shown = collections(song).filter((name) => !unlabeledCollections.has(name));
   return `<div class="track-meta">${shown.length ? `<span class="track-collections">${escape(
     shown.map((name) => collectionNames[name] || name).join(" / "),
-  )}</span>` : ""}${authoredByLine(song.authoredBy, escape)}${voiceModelBadge(song)}${songCostLabel(song)}${pitchBadge(song)}${sidesBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}</div><div class="track-links" role="group" aria-label="Explore song">${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+  )}</span>` : ""}${authoredByLine(song.authoredBy, escape)}${voiceModelBadge(song)}${songCostLabel(song)}${pitchBadge(song)}${sidesBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}</div>`;
+}
+
+function songLinks(song) {
+  return `<div class="track-links" role="group" aria-label="Explore song">${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
 }
 
 async function library() {
@@ -186,6 +191,7 @@ async function library() {
 `;
   $("#catalog-view-controls").innerHTML = `<div class="catalog-view-switch" role="group" aria-label="Song display"><button type="button" data-catalog-view="grid" aria-pressed="true" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Grid</button><button type="button" data-catalog-view="list" aria-pressed="false" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 4H5M8 4H18M2 10H5M8 10H18M2 16H5M8 16H18"/></svg>List</button></div>`;
   mountCatalogView($(".catalog-view-switch"), $("#tracks"));
+  const songMenus = mountSongMenus($("#tracks"), scope);
   mountSongLinkTooltips($("#tracks"), scope);
   mountQualitySettings(main);
   startRecordMotion($(".record", main), player.audio);
@@ -578,7 +584,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track${Number(song.pins) > 0 ? " pinned" : ""}" data-id="${escape(song.id)}">${songArtworkMarkup(song, escape)}
-        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><h3>${escape(song.title)}</h3>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p>${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt)}<div class="song-actions" role="group" aria-label="Song actions">${pinButton(song)}${artButton(song)}<button type="button" class="song-action" data-feedback="downvote" data-song="${escape(song.id)}" ${song.feedback?.downvoted || !online ? "disabled" : ""}>${song.feedback?.downvoted ? "Downvoted" : "Downvote"}${Number(song.downvotes) ? ` · ${song.downvotes}` : ""}</button><button type="button" class="song-action" data-feedback="milquetoast" data-song="${escape(song.id)}" ${song.feedback?.milquetoast || !online ? "disabled" : ""}>${song.feedback?.milquetoast ? "Sent to agent" : "Milquetoast"}${Number(song.milquetoasts) ? ` · ${song.milquetoasts}` : ""}</button></div></div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><h3 title="${escape(song.title)}">${escape(song.title)}</h3>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt)}<div class="song-menu"><button type="button" class="song-more" aria-label="More about ${escape(song.title)}" aria-expanded="false" aria-controls="song-menu-${escape(song.id)}" title="Song details and actions"><span aria-hidden="true">⋯</span></button><div class="song-menu-panel" id="song-menu-${escape(song.id)}" role="group" aria-label="Details and actions for ${escape(song.title)}"><p class="song-menu-title">${escape(recordingTitle(song, recordings.get(song.id)))}</p>${songLinks(song)}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p><div class="song-actions" role="group" aria-label="Song actions">${pinButton(song)}${artButton(song)}<button type="button" class="song-action" data-feedback="downvote" data-song="${escape(song.id)}" ${song.feedback?.downvoted || !online ? "disabled" : ""}>${song.feedback?.downvoted ? "Downvoted" : "Downvote"}${Number(song.downvotes) ? ` · ${song.downvotes}` : ""}</button><button type="button" class="song-action" data-feedback="milquetoast" data-song="${escape(song.id)}" ${song.feedback?.milquetoast || !online ? "disabled" : ""}>${song.feedback?.milquetoast ? "Sent to agent" : "Milquetoast"}${Number(song.milquetoasts) ? ` · ${song.milquetoasts}` : ""}</button></div></div></div></div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : `<p class="empty">${favorites.onlySaved ? escape(favorites.emptyMessage()) : "No songs match. Try another title or style."}</p>`);
@@ -590,6 +596,7 @@ async function library() {
       decorateSongLinks(info.querySelector(".track-links"));
     });
     favorites.syncButtons();
+    songMenus.sync();
     syncPlaybackButtons();
     if (favorites.onlySaved) $("#pending-tracks").hidden = true;
     $("#play-all").disabled = !visible.length || partialTotal !== null;

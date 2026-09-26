@@ -122,6 +122,11 @@ test("desktop and mobile render valid art in both views without overflow", async
       await switchTo(page, view);
       await expect.poll(() => page.locator(".track-art").first().evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      if (view === 'List' && width <= 650) {
+        expect((await page.locator('.track-heading').first().boundingBox()).width).toBeGreaterThan(100);
+        const rowWidth = (await page.locator('.track').first().boundingBox()).width;
+        expect((await page.locator('.track-links').first().boundingBox()).width).toBeGreaterThan(rowWidth - 25);
+      }
       const layout = await page.locator(".track").evaluateAll(rows => rows.slice(0, 2).map(row => { const r = row.getBoundingClientRect(); return { x: r.x, y: r.y }; }));
       if (view === "Grid" && width >= 768) expect(layout[0].y).toBe(layout[1].y);
       else expect(layout[1].y).toBeGreaterThan(layout[0].y);

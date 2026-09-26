@@ -188,6 +188,7 @@ test("pending entries fit both mobile views and disappear from saved-song filter
   state.queue = { ...state.queue, inStudio: [], queued: [] };
   await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
   await expect(page.locator(".pending-track")).toHaveCount(0);
+  await page.keyboard.press('Escape');
   await page.getByRole("button", { name: "Grid", exact: true }).click();
   await expect(page.locator(".track")).toHaveCount(20);
 });

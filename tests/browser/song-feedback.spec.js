@@ -1,3 +1,4 @@
+import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 
 test("shared pins stay above the catalog and downvote/milquetoast remain distinct", async ({ page }) => {
@@ -40,8 +41,11 @@ test("shared pins stay above the catalog and downvote/milquetoast remain distinc
   await expect(page.locator(".track h3")).toHaveText(["Alpha", "Bravo", "Charlie"]);
 
   // Declining leaves every song untouched and sends nothing.
+  await openSongMenu(page.locator('[data-id="charlie"]'));
   await page.locator('[data-id="charlie"] [data-pin]').click();
+  await openSongMenu(page.locator('[data-id="alpha"]'));
   await page.locator('[data-id="alpha"] [data-feedback="downvote"]').click();
+  await openSongMenu(page.locator('[data-id="bravo"]'));
   await page.locator('[data-id="bravo"] [data-feedback="milquetoast"]').click();
   expect(prompts).toEqual([
     "confirm: Pin “Charlie” to the top for everyone?",
@@ -55,6 +59,7 @@ test("shared pins stay above the catalog and downvote/milquetoast remain distinc
   await expect(page.locator('[data-id="charlie"] [data-pin]')).toBeEnabled();
 
   accept = true;
+  await openSongMenu(page.locator('[data-id="charlie"]'));
   await page.locator('[data-id="charlie"] [data-pin]').click();
   await expect(page.locator(".track h3")).toHaveText(["Charlie", "Alpha", "Bravo"]);
   await expect(page.locator('[data-id="charlie"] [data-pin]')).toContainText("Pinned · 1");
@@ -67,16 +72,20 @@ test("shared pins stay above the catalog and downvote/milquetoast remain distinc
 
   // Removing a pin asks too, and declining keeps it.
   accept = false;
+  await openSongMenu(page.locator('[data-id="charlie"]'));
   await page.locator('[data-id="charlie"] [data-pin]').click();
   expect(prompts.at(-1)).toBe("confirm: Remove your shared pin from “Charlie”?");
   await expect(page.locator(".track h3")).toHaveText(["Charlie", "Alpha", "Bravo"]);
   accept = true;
+  await openSongMenu(page.locator('[data-id="charlie"]'));
   await page.locator('[data-id="charlie"] [data-pin]').click();
   await expect(page.locator(".track h3")).toHaveText(["Alpha", "Bravo", "Charlie"]);
 
+  await openSongMenu(page.locator('[data-id="alpha"]'));
   await page.locator('[data-id="alpha"] [data-feedback="downvote"]').click();
   await expect(page.locator('[data-id="alpha"] [data-feedback="downvote"]')).toContainText("Downvoted");
   await expect(page.locator('[data-id="alpha"] [data-feedback="milquetoast"]')).toBeEnabled();
+  await openSongMenu(page.locator('[data-id="bravo"]'));
   await page.locator('[data-id="bravo"] [data-feedback="milquetoast"]').click();
   await expect(page.locator('[data-id="bravo"] [data-feedback="milquetoast"]')).toContainText("Sent to agent");
   expect(writes).toEqual(["pin", "unpin", "downvote", "milquetoast"]);

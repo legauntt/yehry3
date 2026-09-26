@@ -92,7 +92,7 @@ export function mountFavorites(container, { onChange = () => {}, filter = false,
     const saved = Boolean(profile?.songIds.includes(button.dataset.save));
     button.setAttribute("aria-pressed", String(saved));
     button.setAttribute("aria-label", `${saved ? "Unsave" : "Save"} ${button.dataset.songTitle}`);
-    button.textContent = `${saved ? "★ Saved" : "☆ Save"}`;
+    button.innerHTML = `<span class="favorite-icon" aria-hidden="true">${saved ? "★" : "☆"}</span><span class="favorite-label"> ${saved ? "Saved" : "Save"}</span>`;
     button.disabled = Boolean(selectedId && (loading || !available || saving));
     button.title = !selectedId ? "Choose a shared profile to save songs" : !available ? "Reconnect to save changes" : `${saved ? "Remove from" : "Save to"} ${profile?.name || "profile"}`;
   }

@@ -79,6 +79,7 @@
   .collection .catalog-tools { display: grid; grid-template-columns: max-content minmax(0, 1fr) 46px; gap: 6px; }
   .catalog-tools .catalog-popout > summary { padding: 8px 10px; font-size: .75rem; gap: 6px; }
   .catalog-tools .favorites-panel { grid-column: 2 / -1; max-width: 100%; }
+  .catalog-tools #profile-alert { min-width: 0; flex: 0 1 auto; overflow: hidden; text-overflow: ellipsis; }
   .catalog-tools .catalog-popout > :not(summary) { padding: 14px; }
   .collection .catalog-status { justify-content: flex-start; margin-top: 0; }
   .collection .catalog-status .small { margin: 0; }
