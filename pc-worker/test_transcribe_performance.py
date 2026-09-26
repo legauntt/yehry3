@@ -30,7 +30,7 @@ class PerformanceTranscriptionTests(unittest.TestCase):
 
     def test_pins_both_released_recording_and_converted_tony_vocals(self):
         source = performance_source(self.song, self.root)
-        self.assertEqual(source['vocals'], self.folder / 'vocals.wav')
+        self.assertEqual(source['vocals'], (self.folder / 'vocals.wav').resolve())
         (self.folder / 'recording.mp3').write_bytes(b'a different performance')
         with self.assertRaisesRegex(ValueError, 'published identity'):
             performance_source(self.song, self.root)
