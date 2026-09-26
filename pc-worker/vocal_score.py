@@ -1,4 +1,7 @@
 """Explicit wordless scores use vocal sounds, not a requirement for lexical lyrics."""
+import re
+
+from lyric_sections import section_label
 
 PLANNING_GUIDANCE = '''
 NONVERBAL VOCALS ARE SUPPORTED by the new-composition recipe, including Eleven Music.
@@ -37,6 +40,29 @@ def ending_guidance(mode='lyrics'):
     return ('Complete the written final section; keep closing words meaningful. '
             'Unless explicitly requested in the arrangement, do not fill the ending '
             'with screamed syllables or a repeated earlier verse. ')
+
+
+def normalize_sections(score, arrangement):
+    """Keep fresh wordless section directions out of performed phonetic lines."""
+    if not isinstance(score, str) or not isinstance(arrangement, str):
+        return score, arrangement
+    used = {section_label(line) for line in score.splitlines()}
+    lines, directions, number = [], [], 1
+    for line in score.splitlines():
+        heading = re.fullmatch(r'\s*\[([^\[\]\r\n]+)\]\s*', line)
+        if heading and section_label(line) is None:
+            while f'[Section {number}]' in used: number += 1
+            label = f'[Section {number}]'
+            used.add(label)
+            directions.append(f'{label}: {heading[1].strip()}')
+            lines.append(label)
+        else:
+            lines.append(line)
+    if not directions: return score, arrangement
+    arrangement += '\nWordless section directions (not sung): ' + '; '.join(directions) + '.'
+    if len(arrangement) > 5000:
+        raise ValueError('Wordless section directions exceed the arrangement limit; shorten the arrangement.')
+    return '\n'.join(lines), arrangement
 
 
 def composition_styles(plan, chunks):

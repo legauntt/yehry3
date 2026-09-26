@@ -10,7 +10,9 @@ from generation_runtime import configure
 from lyrical_ending import review
 from music_backend import composition
 from paid_music import request_duration
-from planner import make_plan, validate
+from planner import make_plan, normalize, validate
+from lyric_sections import sung_lines
+from vocal_score import normalize_sections
 from replan import prepare
 from test_planner import fixture, PlannerTests
 
@@ -23,6 +25,29 @@ def wordless():
 
 
 class VocalScoreTests(unittest.TestCase):
+    def test_custom_wordless_headings_become_structure_and_keep_directions(self):
+        song = wordless()
+        song['lyrics'] = '[Groove Pickup]\nBrru dabada\n[Section 1]\nShwee dibidi\n[Latin Conversation]\nZruu badaa\n[End]'
+        before = copy.deepcopy(song)
+        result = normalize(song)
+        self.assertEqual(song, before)
+        self.assertEqual(result['lyrics'], '[Section 2]\nBrru dabada\n[Section 1]\nShwee dibidi\n[Section 3]\nZruu badaa\n[End]')
+        self.assertEqual(sung_lines(result['lyrics']), ['Brru dabada', 'Shwee dibidi', 'Zruu badaa'])
+        self.assertIn('[Section 2]: Groove Pickup', result['arrangement'])
+        self.assertIn('[Section 3]: Latin Conversation', result['arrangement'])
+        self.assertEqual(normalize(result), result)
+        self.assertEqual(normalize({**song, 'vocal_mode': 'lyrics'})['lyrics'], song['lyrics'])
+        self.assertEqual(normalize_sections('Brru [airy] dabada\n[End]', 'style'), ('Brru [airy] dabada\n[End]', 'style'))
+
+    def test_wordless_movement_headings_and_arrangement_limit(self):
+        song = wordless()
+        song['movements'] = [{'duration': 180, 'lyrics': song['lyrics'].replace('[Verse 1]', '[Latin Conversation]'), 'arrangement': 'Latin groove'}]
+        result = normalize(song)
+        self.assertNotIn('[Latin Conversation]', result['lyrics'])
+        self.assertIn('Latin Conversation', result['movements'][0]['arrangement'])
+        with self.assertRaisesRegex(ValueError, 'arrangement limit'):
+            normalize_sections('[Latin Conversation]\nBrru', 'x' * 5000)
+
     def test_nine_minute_nonverbal_plan_preserves_score_and_duration(self):
         song = wordless()
         self.assertEqual(validate(song, []), song)
@@ -59,7 +84,9 @@ class VocalScoreTests(unittest.TestCase):
             before = copy.deepcopy(brief)
             with mocked:
                 result = make_plan(config, brief, root, [])
-                self.assertEqual(make_plan(config, brief, root, []), result)
+                save(root/'render-request.json', {'frozen': True})
+                with patch('planner.normalize', side_effect=AssertionError('Frozen plans must not be normalized')):
+                    self.assertEqual(make_plan(config, brief, root, []), result)
             self.assertEqual(len(calls), 1)
             self.assertIn('NONVERBAL VOCALS ARE SUPPORTED', calls[0])
             self.assertIn('non-English lyrics in a real language are still lyrics', calls[0])

@@ -14,6 +14,7 @@ from duration_policy import choose as choose_duration, join_lyrics, validate_mov
 from vocal_accents import PLANNING_GUIDANCE as VOCAL_ACCENT_GUIDANCE, validate as validate_vocal_accents
 from cover_lyrics import apply as cover_brief, fill as cover_fill, guidance as cover_guidance, planning_view as cover_view
 from replan import directive as replan_directive
+from vocal_score import normalize_sections as normalize_wordless_sections
 
 CAPABILITY_UPGRADES = {
     'single_basis_inspiration': ('single-basis-inspiration-upgrade.json', 'planner-result-single-basis-inspiration-v1.json', 'plan-before-single-basis-inspiration.json', 'new'),
@@ -149,11 +150,15 @@ def normalize(plan):
     # Formatting belongs to native code; the sentinel is not a newly written lyric.
     if isinstance(plan.get('lyrics'), str):
         plan['lyrics'] = normalize_section_labels(plan['lyrics'].replace('\\n', '\n')).replace('\r\n', '\n').strip()
+        if plan.get('vocal_mode') == 'nonverbal':
+            plan['lyrics'], plan['arrangement'] = normalize_wordless_sections(plan['lyrics'], plan.get('arrangement'))
         if plan.get('recipe') in ['new', 'reinterpretation'] and len(plan['lyrics']) >= 80 and section_label(plan['lyrics'].splitlines()[-1]) != '[End]':
             plan['lyrics'] += '\n[End]'
     if plan.get('movements') and isinstance(plan['movements'], list) and all(isinstance(part, dict) and isinstance(part.get('lyrics'), str) for part in plan['movements']):
         plan['movements'] = [{**part, 'lyrics': normalize_section_labels(part['lyrics'].replace('\\n', '\n')).replace('\r\n', '\n').strip()} for part in plan['movements']]
         for part in plan['movements']:
+            if plan.get('vocal_mode') == 'nonverbal':
+                part['lyrics'], part['arrangement'] = normalize_wordless_sections(part['lyrics'], part.get('arrangement'))
             if len(part['lyrics']) >= 80 and section_label(part['lyrics'].splitlines()[-1]) != '[End]': part['lyrics'] += '\n[End]'
         plan['lyrics'] = join_lyrics(plan['movements'])
     return plan

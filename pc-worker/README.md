@@ -21,6 +21,9 @@ Fresh plans support `vocal_mode: nonverbal` for explicitly requested wordless,
 gibberish or vocal-sound performances. The existing `lyrics` field carries a complete
 phonetic score with section headings; breaths, laughter and delivery instructions
 belong in the arrangement. No English or other real-language words are required.
+Fresh wordless plans normalize custom standalone bracketed headings to numbered
+sections and preserve their original directions in the arrangement. Performed
+phonetic lines, ordinary lyric plans and saved production plans stay unchanged.
 Real-language non-English songs retain `vocal_mode: lyrics`, as do legacy plans
 without this optional field. The selected voice, backend, duration and paid budget
 remain unchanged. Both local captions and Eleven Music composition prompts honor
