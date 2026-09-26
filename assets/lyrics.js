@@ -13,6 +13,7 @@ import { mountRemixComparison } from "./remix-comparison.js";
 import { mountMomentSharing, sharedTimestamp } from "./lyric-moments.js";
 import { clock } from "./song-time.js";
 import { mountLyricViews } from "./lyric-views.js";
+import { mountLyricToolbar } from "./lyric-toolbar.js";
 
 function cueMap(lyrics) {
   const lines = lyrics.text.split("\n");
@@ -163,6 +164,8 @@ function mountSheetControls(main, sheet) {
   function sync() {
     const current = sheet.isCurrent(), playing = current && player.playing;
     button.textContent = playing ? "Pause" : current && audio.currentTime > 0 && !audio.ended ? "Resume" : "Play";
+    button.setAttribute("aria-label", `${button.textContent} ${sheet.song.title}`);
+    button.title = button.textContent;
     button.setAttribute("aria-pressed", String(playing));
     const seekable = current && Number.isFinite(audio.duration) && audio.duration > 0;
     seek.disabled = !seekable;
@@ -192,7 +195,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     new URLSearchParams(location.search).get("song") ||
     document.body.dataset.songId ||
     await resolveLyricsSongId(location.pathname);
-  let cleanupKaraoke = () => {}, cleanupMoments = () => {}, cleanupControls = () => {}, cleanupViews = () => {}, downloadUrl, favorites, profilePanel, comparison, loop, sheet;
+  let cleanupKaraoke = () => {}, cleanupMoments = () => {}, cleanupControls = () => {}, cleanupViews = () => {}, cleanupToolbar = () => {}, downloadUrl, favorites, profilePanel, comparison, loop, sheet;
   function render(song) {
     const previousPosition = main.querySelector(".lyrics-sheet") ? [scrollX, scrollY] : null;
     if (!song?.lyrics?.text) {
@@ -207,11 +210,35 @@ export async function lyricsPage(main, { escape, safeUrl }) {
         : "Lyrics supplied for this recording. The performance may vary.";
     const audioUrl = escape(safeUrl(song.url));
     const hasCues = cueMap(song.lyrics).size > 0;
-    main.innerHTML = `<article class="lyrics-sheet"><p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>${authoredByLine(song.authoredBy, escape)}${songBadges(song)}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt)}<p class="small">${note}</p><p class="small sheet-keeps">It keeps playing, in the bar below, as you look around the site.</p><section class="shared-song-player" aria-label="Listen to ${escape(song.title)}"><div class="sheet-controls"><button type="button" class="primary" id="sheet-play" aria-pressed="false" aria-label="Play ${escape(song.title)}">Play</button><label class="sr-only" for="sheet-seek">Seek in ${escape(song.title)}</label><input id="sheet-seek" type="range" min="0" max="100" step="0.1" value="0" disabled><span class="small sheet-time" id="sheet-time"></span></div><p class="small" id="sheet-status" role="status"></p></section><p class="small karaoke-note">${hasCues ? 'Timed lines follow the recording. Select a timed lyric to jump there.' : 'Line timing is unavailable for this recording. Use the player to choose a moment.'}</p><div class="actions lyrics-actions"><a class="primary" href="${audioUrl}" target="_blank" rel="noopener">Open audio ↗</a><a class="quiet" id="download-lyrics">Download lyrics</a><button class="quiet" id="print-lyrics">Print</button>${songPlanLink(song, escape)}${song.originalPrompt || song.hasOriginalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">Original prompt ↗</a>` : ""}<a class="text-link" href="/">The collection →</a></div><div class="lyrics-text karaoke-lyrics">${lyricLines(song.lyrics, escape)}</div></article>`;
+    main.innerHTML = `<article class="lyrics-sheet">
+      <p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>
+      <div class="sheet-meta">${authoredByLine(song.authoredBy, escape)}${songBadges(song)}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt)}</div>
+      <section class="shared-song-player lyric-toolbar" aria-label="Listen to ${escape(song.title)}">
+        <div class="sheet-controls">
+          <button type="button" class="primary sheet-icon sheet-play" id="sheet-play" aria-pressed="false" aria-label="Play ${escape(song.title)}">Play</button>
+          <label class="sr-only" for="sheet-seek">Seek in ${escape(song.title)}</label><input id="sheet-seek" type="range" min="0" max="100" step="0.1" value="0" disabled>
+          <span class="small sheet-time" id="sheet-time"></span>
+        </div>
+        <div class="sheet-tools">
+          <div class="lyric-view-slot"></div><span class="sheet-save"></span>
+          <a class="quiet sheet-icon sheet-download" id="download-lyrics" aria-label="Download lyrics" title="Download lyrics">Download lyrics</a>
+          <div class="sheet-profile-slot"></div>
+          <details class="sheet-more"><summary class="sheet-icon sheet-more-icon" aria-label="More song options" title="More song options">More song options</summary>
+            <div class="sheet-popup sheet-more-panel"><div class="actions lyrics-actions">
+              <a class="text-link" href="${audioUrl}" target="_blank" rel="noopener">Open audio ↗</a><button class="quiet" id="print-lyrics">Print</button>
+              ${songPlanLink(song, escape)}${song.originalPrompt || song.hasOriginalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">Original prompt ↗</a>` : ""}<a class="text-link" href="/">The collection →</a>
+            </div><p class="small">${note}</p><p class="small sheet-keeps">Playback continues as you browse the site.</p></div>
+          </details>
+        </div><p class="small" id="sheet-status" role="status"></p>
+      </section>
+      <p class="small karaoke-note">${hasCues ? 'Select a timed lyric to jump there.' : 'Line timing is unavailable. Use the player to choose a moment.'}</p>
+      <p class="small lyric-print-note"></p>
+      <div class="lyrics-text karaoke-lyrics">${lyricLines(song.lyrics, escape)}</div></article>`;
     cleanupKaraoke();
     cleanupMoments();
     cleanupControls();
     cleanupViews();
+    cleanupToolbar();
     // A refresh of the same song keeps the place a visitor chose; a different song starts clean.
     if (sheet?.song.id === song.id) sheet.song = song;
     else sheet = sheetFor(song);
@@ -220,21 +247,22 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     }
     comparison ||= mountRemixComparison(song, sheet, { escape, safeUrl, scope });
     if (comparison) main.querySelector(".shared-song-player").after(comparison.element);
-    loop ||= mountLoopToggle();
+    loop ||= mountLoopToggle({ className: "quiet loop-toggle sheet-icon sheet-loop" });
     loop.attach(sheet.audio);
     main.querySelector(".sheet-controls").append(loop.element);
     const listeningStats = document.createElement("p");
     listeningStats.className = "small";
     listeningStats.dataset.listeningStats = "";
     listeningStats.textContent = listeningLabel(song);
-    main.querySelector(".shared-song-player").before(listeningStats);
+    main.querySelector(".sheet-meta").append(listeningStats);
     cleanupControls = mountSheetControls(main, sheet);
     cleanupKaraoke = mountKaraoke(main, sheet);
     cleanupMoments = mountMomentSharing(main, sheet);
     profilePanel ||= document.createElement("div");
-    main.querySelector(".lyrics-actions").after(profilePanel);
+    main.querySelector(".sheet-profile-slot").append(profilePanel);
     favorites ||= mountFavorites(profilePanel, { scope });
-    main.querySelector(".lyrics-actions").insertAdjacentHTML("afterbegin", favorites.button(song));
+    main.querySelector(".sheet-save").innerHTML = favorites.button(song);
+    main.querySelector(".sheet-save button").classList.add("sheet-icon", "sheet-favorite");
     main.querySelector(".lyrics-actions").insertAdjacentHTML("beforeend", remixLink(song, escape));
     cleanupViews = mountLyricViews(main, song.lyrics, ({ text, view, label, note: viewNote }) => {
       const viewLabel = view === "original" ? "" : `\n${label}: ${viewNote}`;
@@ -247,6 +275,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
       download.href = downloadUrl;
       download.download = `${song.title.replace(/[<>:"/\\|?*\x00-\x1f]/g, "-")}-lyrics${view === "original" ? "" : `-${view}`}.txt`;
     });
+    cleanupToolbar = mountLyricToolbar(main);
     main.querySelector("#print-lyrics").onclick = () => print();
     if (previousPosition) scrollTo(...previousPosition);
   }
@@ -259,7 +288,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
   scope.onLeave(() => {
     watcher.dispose();
     if (downloadUrl) URL.revokeObjectURL(downloadUrl);
-    cleanupKaraoke(); cleanupMoments(); cleanupControls(); cleanupViews();
+    cleanupKaraoke(); cleanupMoments(); cleanupControls(); cleanupViews(); cleanupToolbar();
     comparison?.stop();
     loop?.destroy();
   });

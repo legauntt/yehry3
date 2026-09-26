@@ -8,10 +8,15 @@ const views = {
   diacritics: ["Diacritics · Extra fancy", "All the vowels brought hats. Decorative only; absolutely no extra qualifications."],
 };
 const validView = value => Object.hasOwn(views, value) ? value : "original";
+const shortLabels = { original: "Original", ipa: "IPA", phonics: "Phonics", diacritics: "Diacritics" };
 let memoryView = "original";
 function savedView() {
   try { memoryView = validView(localStorage.getItem(storageKey)); } catch { /* Keep this tab's choice. */ }
   return memoryView;
+}
+function linkedView() {
+  const params = new URLSearchParams(location.search);
+  return params.has("view") ? validView(params.get("view")) : savedView();
 }
 let pronunciations;
 function loadPronunciations() {
@@ -26,16 +31,17 @@ function loadPronunciations() {
 }
 
 export function mountLyricViews(main, lyrics, onChange) {
+  const pageUrl = new URL(location.href);
   const controller = new AbortController();
   const { signal } = controller;
   const panel = document.createElement("section");
   panel.className = "lyric-views";
   panel.setAttribute("aria-label", "Lyric view");
-  panel.innerHTML = `<div class="lyric-view-controls"><label for="lyric-view">Lyric view</label><select id="lyric-view" aria-describedby="lyric-view-note">${Object.entries(views).map(([value, [label]]) => `<option value="${value}">${label}</option>`).join("")}</select></div><p id="lyric-view-note" class="small" role="status"></p>`;
-  const select = panel.querySelector("select"), note = panel.querySelector("p");
+  panel.innerHTML = `<div class="lyric-view-controls"><label class="sr-only" for="lyric-view">Lyric view</label><select id="lyric-view" aria-describedby="lyric-view-note" title="Lyric view">${Object.entries(shortLabels).map(([value, label]) => `<option value="${value}">${label}</option>`).join("")}</select></div><details class="lyric-view-help"><summary class="sheet-icon sheet-info" aria-label="About this lyric view" title="About this lyric view">About this lyric view</summary><div class="sheet-popup"><p id="lyric-view-note" class="small" role="status"></p></div></details>`;
+  const select = panel.querySelector("select"), note = panel.querySelector("p"), help = panel.querySelector("details");
   const sheet = main.querySelector(".lyrics-text");
   const lines = [...sheet.querySelectorAll("[data-lyric-text]")];
-  sheet.before(panel);
+  main.querySelector(".lyric-view-slot").append(panel);
   let revision = 0, current = "original";
   function display(view, dictionary) {
     const text = lyricView(lyrics.text, view, dictionary), translated = text.split("\n");
@@ -44,6 +50,7 @@ export function mountLyricViews(main, lyrics, onChange) {
     select.value = view;
     sheet.dataset.lyricView = view;
     note.textContent = views[view][1];
+    main.querySelector(".lyric-print-note").textContent = view === "original" ? "" : `${views[view][0]}: ${views[view][1]}`;
     onChange({ text, view, label: views[view][0], note: views[view][1] });
   }
   async function choose(view, remember = false) {
@@ -51,27 +58,42 @@ export function mountLyricViews(main, lyrics, onChange) {
     select.value = view;
     let dictionary;
     if (view === "ipa" || view === "phonics") {
+      panel.setAttribute("aria-busy", "true");
       note.textContent = "Warming up the pronunciation coach…";
       try { dictionary = await loadPronunciations(); }
       catch {
         if (signal.aborted || request !== revision) return;
         select.value = current;
+        panel.removeAttribute("aria-busy");
         note.textContent = "The pronunciation coach missed rehearsal. Try that view again.";
+        help.open = true;
         return;
       }
     }
     if (signal.aborted || request !== revision) return;
+    panel.removeAttribute("aria-busy");
     display(view, dictionary);
+    // Every shared format is explicit, including Original, so the recipient's
+    // saved preference cannot change it. Keep the song, timestamp and line hash.
+    const url = new URL(location.href);
+    url.searchParams.set("view", view);
+    history.replaceState(history.state, "", url);
+    dispatchEvent(new Event("yehry3:lyric-view"));
     if (remember) {
       memoryView = view;
       try { localStorage.setItem(storageKey, view); } catch { /* Still works without storage. */ }
     }
   }
+  const initial = linkedView();
   display("original");
-  void choose(savedView());
+  void choose(initial);
   select.addEventListener("change", () => void choose(validView(select.value), true), { signal });
   addEventListener("storage", event => {
     if (event.key === storageKey || event.key === null) void choose(savedView());
+  }, { signal });
+  addEventListener("popstate", () => {
+    const url = new URL(location.href);
+    if (url.pathname === pageUrl.pathname && url.searchParams.get("song") === pageUrl.searchParams.get("song")) void choose(linkedView());
   }, { signal });
   return () => controller.abort();
 }

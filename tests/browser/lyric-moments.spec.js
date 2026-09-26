@@ -36,7 +36,7 @@ test("timestamp sharing works without lyric cues and fits mobile", async ({ page
   await expect(page.locator('.karaoke-note')).toContainText('Line timing is unavailable');
   await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(12.5, 1);
   await page.getByRole("button", { name: /Share this moment/ }).click();
-  await expect(page.locator("#moment-link")).toHaveValue(/t=12.5$/);
+  expect(new URL(await page.locator("#moment-link").inputValue()).searchParams.get("t")).toBe("12.5");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: "artifacts/lyric-moment-mobile.png", fullPage: true });
 });

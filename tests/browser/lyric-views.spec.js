@@ -1,4 +1,6 @@
 import { test, expect } from "@playwright/test";
+import { readFile } from "node:fs/promises";
+import { lyricsHref } from "../../assets/song-links.js";
 
 const song = {
   id: "lyric-views-test", title: "Very Serious Singing", duration: 180,
@@ -7,11 +9,11 @@ const song = {
     { line: 1, start: 4, end: 8 }, { line: 2, start: 9, end: 13 },
   ] },
 };
-async function setup(page) {
+async function setup(page, next = song) {
   // Also makes live verification read-only: no votes, listens or presence writes.
   await page.route("**/yehry3/**", route => route.fulfill({ json: { songs: [], profiles: [], listeners: [] } }));
-  await page.route(`**/yehry3/songs/${song.id}`, route => route.fulfill({ json: { song } }));
-  await page.route(`**/songs/${song.id}.json`, route => route.fulfill({ json: song }));
+  await page.route(`**/yehry3/songs/${next.id}`, route => route.fulfill({ json: { song: next } }));
+  await page.route(`**/songs/${next.id}.json`, route => route.fulfill({ json: next }));
 }
 const first = page => page.locator('#lyric-line-2 [data-lyric-text]');
 const choose = (page, view) => page.getByRole("combobox", { name: "Lyric view", exact: true }).selectOption(view);
@@ -25,7 +27,14 @@ test("views keep the same playing audio, cue buttons and shared line; downloads 
   expect(dictionaries).toBe(0);
   await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(9);
   await page.locator("#lyric-line-3").evaluate(line => { window.keptLyric = line; });
-  await page.locator("audio").evaluate(async audio => { window.keptAudio = audio; await audio.play(); });
+  await page.locator("audio").evaluate(audio => { window.keptAudio = audio; });
+  await page.locator("#sheet-play").click();
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.paused)).toBe(false);
+  const repeat = page.locator(".lyric-toolbar [data-loop-toggle]");
+  await repeat.click();
+  await expect(repeat).toHaveAttribute("aria-pressed", "true");
+  expect(await page.locator("audio").evaluate(audio => audio.loop)).toBe(true);
+  await repeat.click();
   await choose(page, "ipa");
   await expect(first(page)).toHaveText("/ðə/ /naɪt/ /ɪz/ /jʌŋ/!");
   expect(await page.locator("audio").evaluate(audio => audio === window.keptAudio && !audio.paused && audio.currentTime >= 9)).toBe(true);
@@ -127,4 +136,80 @@ test("a slow pronunciation load cannot overwrite a newer choice or a refreshed s
   await choose(page, "phonics");
   await expect(first(page)).toHaveText("dhuh nyte iz yuhng!");
   await expect(page.locator("#lyric-view")).toHaveCount(1);
+});
+
+test("format links override a recipient's preference and preserve the shared moment", async ({ page, browser }) => {
+  await setup(page);
+  await page.goto(`/lyrics/?song=${song.id}&t=6.4&view=ipa#lyric-line-2`);
+  await expect(first(page)).toHaveText("/ðə/ /naɪt/ /ɪz/ /jʌŋ/!");
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(6.4, 1);
+  await choose(page, "phonics");
+  await expect(first(page)).toHaveText("dhuh nyte iz yuhng!");
+  let url = new URL(page.url());
+  expect(url.searchParams.get("song")).toBe(song.id);
+  expect(url.searchParams.get("view")).toBe("phonics");
+  expect(url.searchParams.get("t")).toBe("6.4");
+  expect(url.hash).toBe("#lyric-line-2");
+  await page.getByRole("button", { name: /Share this moment/ }).click();
+  await choose(page, "ipa");
+  await expect(first(page)).toHaveText("/ðə/ /naɪt/ /ɪz/ /jʌŋ/!");
+  const link = await page.locator("#moment-link").inputValue();
+  expect(new URL(link).searchParams.get("view")).toBe("ipa");
+  const recipient = await browser.newPage();
+  try {
+    await setup(recipient);
+    await recipient.addInitScript(() => localStorage.setItem("yehry3:lyric-view", "diacritics"));
+    await recipient.goto(link);
+    await expect(first(recipient)).toHaveText("/ðə/ /naɪt/ /ɪz/ /jʌŋ/!");
+    expect(await recipient.locator("audio").evaluate(audio => audio.paused)).toBe(true);
+    await choose(page, "original");
+    await recipient.goto(page.url());
+    await expect(first(recipient)).toHaveText("The night is young!");
+    await choose(page, "ipa");
+    await page.locator("#lyric-line-3").click();
+    url = new URL(page.url());
+    expect(url.searchParams.get("view")).toBe("ipa");
+    expect(url.searchParams.has("t")).toBe(false);
+    expect(url.hash).toBe("#lyric-line-3");
+    await recipient.goto(`/lyrics/?song=${song.id}&view=unknown`);
+    await expect(first(recipient)).toHaveText("The night is young!");
+  } finally { await recipient.close(); }
+});
+
+test("the toolbar is one desktop row, wraps on phones, and its icon panels are keyboard accessible", async ({ page }) => {
+  const catalog = JSON.parse(await readFile(new URL("../../catalog.json", import.meta.url), "utf8"));
+  const pictured = catalog.songs.find(song => song.title === "Yeah After Midnight");
+  expect(pictured).toBeTruthy();
+  await setup(page, pictured);
+  await page.addInitScript(() => localStorage.setItem("yehry3:dark-mode", "true"));
+  await page.goto(lyricsHref(pictured));
+  const toolbar = page.locator(".lyric-toolbar");
+  await expect(page.getByRole("combobox", { name: "Lyric view", exact: true })).toBeVisible();
+  expect((await toolbar.boundingBox()).height).toBeLessThan(60);
+  await page.getByRole("button", { name: "More song options", exact: true }).focus();
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("button", { name: "Print", exact: true })).toBeVisible();
+  await expect(toolbar.getByRole("link", { name: /The collection/ })).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("button", { name: "Print", exact: true })).toBeHidden();
+  await expect(page.getByRole("button", { name: "More song options", exact: true })).toBeFocused();
+  await page.getByRole("button", { name: /Listener profile/ }).click();
+  await expect(page.locator("#listener-profile")).toBeVisible();
+  await page.getByRole("button", { name: "About this lyric view", exact: true }).click();
+  await expect(page.locator("#listener-profile")).toBeHidden();
+  await expect(page.locator("#lyric-view-note")).toBeVisible();
+  await page.locator("h1").click();
+  await expect(page.locator("#lyric-view-note")).toBeHidden();
+  await page.screenshot({ path: "artifacts/lyrics-compact-desktop.png" });
+  await choose(page, "ipa");
+  for (const width of [390, 320]) {
+    await page.setViewportSize({ width, height: 844 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    if (width === 390) expect((await toolbar.boundingBox()).height).toBeLessThan(108);
+    await page.getByRole("button", { name: "More song options", exact: true }).click();
+    await expect(page.getByRole("button", { name: "Print", exact: true })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.keyboard.press("Escape");
+    await page.screenshot({ path: `artifacts/lyrics-compact-${width}.png` });
+  }
 });
