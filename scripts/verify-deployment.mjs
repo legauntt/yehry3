@@ -137,6 +137,7 @@ for (const name of [
   "app.js",
   "recording-label.js",
   "catalog-view.js",
+  "song-link-icons.js",
   "catalog-view.css",
   "song-art.js",
   "artwork/weird-hair-weird-smells-tattoo.webp",

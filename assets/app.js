@@ -40,6 +40,7 @@ import { loadRemix, remixBadge, remixLink } from "./remix.js";
 import { draftRemixId, traceRemix } from "./remix-trace.js";
 import { recordingLabels, recordingLabel, recordingTitle } from "./recording-label.js";
 import { mountCatalogView } from "./catalog-view.js";
+import { decorateSongLinks, mountSongLinkTooltips } from "./song-link-icons.js";
 import { hasCustomArtwork, songArtworkMarkup } from "./song-art.js";
 import { openArtRemix } from "./art-remix.js";
 import { watchCatalog } from "./realtime.js";
@@ -160,7 +161,7 @@ function songMeta(song, recentPublishedAt) {
   const shown = collections(song).filter((name) => !unlabeledCollections.has(name));
   return `<div class="track-meta">${shown.length ? `<span class="track-collections">${escape(
     shown.map((name) => collectionNames[name] || name).join(" / "),
-  )}</span>` : ""}${authoredByLine(song.authoredBy, escape)}${voiceModelBadge(song)}${songCostLabel(song)}${pitchBadge(song)}${sidesBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
+  )}</span>` : ""}${authoredByLine(song.authoredBy, escape)}${voiceModelBadge(song)}${songCostLabel(song)}${pitchBadge(song)}${sidesBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}</div><div class="track-links" role="group" aria-label="Explore song">${(song.lyrics?.text || song.hasLyrics) ? `<a class="text-link" href="${lyricsHref(song)}" aria-label="Lyrics for ${escape(song.title)}">Lyrics ↗</a>` : ""}${songPlanLink(song, escape)}${(song.originalPrompt || song.hasOriginalPrompt) ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}" aria-label="Original prompt for ${escape(song.title)}">Original prompt ↗</a>` : ""}</div>`;
 }
 
 async function library() {
@@ -184,6 +185,7 @@ async function library() {
 `;
   $("#catalog-items").insertAdjacentHTML("beforebegin", `<div class="catalog-view-bar"><p>A little cover art. A lot of personality.</p><div class="catalog-view-switch" role="group" aria-label="Song display"><button type="button" data-catalog-view="grid" aria-pressed="true" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Grid</button><button type="button" data-catalog-view="list" aria-pressed="false" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 4H5M8 4H18M2 10H5M8 10H18M2 16H5M8 16H18"/></svg>List</button></div></div>`);
   mountCatalogView($(".catalog-view-switch"), $("#tracks"));
+  mountSongLinkTooltips($("#tracks"), scope);
   mountQualitySettings(main);
   startRecordMotion($(".record", main), player.audio);
   rotateSuggestions(main);
@@ -578,7 +580,8 @@ async function library() {
       const song = songs.find((item) => item.id === info.closest("[data-id]").dataset.id);
       if (!info.querySelector("[data-save]")) info.insertAdjacentHTML("beforeend", favorites.button(song));
       if (info.querySelector("[data-remix]")) info.querySelector("[data-remix]").outerHTML = remixLink(song, escape);
-      else info.querySelector(".track-meta").insertAdjacentHTML("beforeend", remixLink(song, escape));
+      else info.querySelector(".track-links").insertAdjacentHTML("beforeend", remixLink(song, escape));
+      decorateSongLinks(info.querySelector(".track-links"));
     });
     favorites.syncButtons();
     syncPlaybackButtons();
