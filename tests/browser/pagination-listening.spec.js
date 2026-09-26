@@ -29,6 +29,7 @@ test("123-song pagination supports deep links, history, filtering, sorting and m
   await expect(page.locator("#listening-reach")).toHaveText("122 of 123");
   await expect(page.locator("#listening-latest")).not.toHaveText("—");
   await expect(nextPage(page)).toBeDisabled();
+  await page.keyboard.press("Escape");
   await page.getByRole("button", { name: "Previous page" }).first().click();
   await expect(page).toHaveURL(/page=4/);
   await expect(page.locator(".track-number").first()).toHaveText("76");
@@ -66,6 +67,7 @@ test("123-song pagination supports deep links, history, filtering, sorting and m
     await expect(page.locator(".track h3").first()).toHaveText(first);
   }
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.keyboard.press("Escape");
   await nextPage(page).click();
   await expect(page.locator(".track-number").first()).toHaveText("26");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
@@ -93,6 +95,7 @@ test("page changes and refresh preserve playback and seeking, and Next crosses t
   expect(await audio.evaluate(audio => audio === window.testAudio && !audio.paused && audio.currentTime >= 30)).toBe(true);
   await page.getByRole("button", { name: "Next song", exact: true }).click();
   await expect(page.locator("#now-title")).toHaveText("Track 026");
+  await page.locator(".catalog-filters > summary").click();
   await page.getByRole("button", { name: "Play the collection" }).click();
   await expect(page.locator("#now-title")).toHaveText("Track 001");
   await page.setViewportSize({ width: 390, height: 844 });

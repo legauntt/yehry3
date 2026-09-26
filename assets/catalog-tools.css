@@ -1,0 +1,95 @@
+.collection .catalog-tools {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.catalog-tools :is(.catalog-filters, .favorites-panel, .listening-overview, .catalog-voting) {
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  border: 0;
+}
+.catalog-tools .favorites-panel { max-width: min(340px, 100%); }
+.catalog-tools .catalog-popout > summary {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: var(--ink);
+  font-size: .8rem;
+  white-space: nowrap;
+  list-style: none;
+  cursor: pointer;
+}
+.catalog-tools .catalog-popout > summary::-webkit-details-marker { display: none; }
+.catalog-tools .catalog-popout > summary::before { content: "▸"; flex: none; }
+.catalog-tools .catalog-popout[open] > summary::before { content: "▾"; }
+.catalog-tools .catalog-popout[open] > summary,
+.catalog-tools .catalog-popout > summary:hover { background: var(--light); }
+.catalog-tools .catalog-popout > summary:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.catalog-tools .catalog-popout > :not(summary) {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 6px);
+  left: 0;
+  width: min(620px, 100%);
+  max-height: min(60dvh, 520px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  box-shadow: 0 12px 32px #0003;
+}
+.catalog-tools .catalog-voting > .catalog-vote-body { width: min(420px, 100%); }
+.catalog-tools .vote-note { margin: 0; font-size: .8rem; }
+.catalog-tools #active-filters { margin-bottom: 12px; }
+.catalog-tools .catalog-filter-body .toolbar { margin: 0; padding: 0; }
+.catalog-tools .toolbar .search { flex-basis: 100%; }
+.catalog-tools .toolbar select { flex: 1 1 200px; min-width: 0; max-width: 100%; }
+.catalog-tools #filter-count {
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: .7rem;
+}
+.catalog-tools #filter-count[hidden] { display: none; }
+.collection .catalog-tools .display-settings { order: 0; margin-left: auto; }
+.catalog-tools .settings-button { height: 44px; padding: 8px 12px; border-radius: 7px; }
+.collection .catalog-view-bar { flex-wrap: wrap; gap: 8px 16px; margin: 12px 0 14px; }
+.catalog-view-bar .catalog-pagination { gap: 14px; margin: 0; }
+.catalog-view-bar .catalog-pagination button { padding: 8px 12px; }
+#catalog-view-controls { margin-left: auto; }
+.collection > .section-heading { align-items: center; }
+.collection .catalog-status { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 4px 14px; }
+.collection .catalog-status .auto-refresh-note { margin: 0; }
+@media (min-width: 651px) and (max-width: 900px) {
+  .catalog-tools .favorites-panel { max-width: 210px; }
+}
+@media (max-width: 650px) {
+  .collection .catalog-tools { display: grid; grid-template-columns: max-content minmax(0, 1fr) 46px; gap: 6px; }
+  .catalog-tools .catalog-popout > summary { padding: 8px 10px; font-size: .75rem; gap: 6px; }
+  .catalog-tools .favorites-panel { grid-column: 2 / -1; max-width: 100%; }
+  .catalog-tools .catalog-popout > :not(summary) { padding: 14px; }
+  .collection .catalog-status { justify-content: flex-start; margin-top: 0; }
+  .collection .catalog-status .small { margin: 0; }
+  .collection > .section-heading { align-items: flex-start; gap: 6px; }
+  .catalog-view-bar .catalog-pagination { flex-wrap: nowrap; gap: 8px; }
+  .catalog-view-bar .catalog-pagination button { min-width: 44px; padding: 8px; }
+  .catalog-view-bar .page-direction { display: none; }
+  .catalog-view-bar .catalog-view-switch button { min-height: 38px; padding: 7px 10px; }
+}
+@media (max-width: 380px) {
+  body[data-page="library"] .hero { grid-template-columns: minmax(0, 1fr) 78px; column-gap: 12px; }
+  body[data-page="library"] .hero .sleeve { width: 72px; }
+  body[data-page="library"] .hero h1 { font-size: 1.65rem; }
+}

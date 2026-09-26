@@ -115,6 +115,8 @@ Every view that represents a song or a request carries the same badge row: the T
 
 ## Behavior
 
+- The collection keeps search, profiles, listening activity, voting information and display settings in compact horizontal controls. Click a disclosure for an overlay panel; Escape, clicking outside or tabbing away closes it. Pagination shares a row with Grid/List. Active filters show a count on their control, with full labels inside; Play the collection and Shuffle live inside Search & filters.
+
 - Published song cards group lyrics, song plan, original prompt, remix and original comparison into large navigation icons in both Grid and List. Hover or keyboard focus shows a tooltip; Escape dismisses it. Touchscreens also show captions before tapping. Links keep their existing destinations, and unavailable remixes stay disabled with an explanation.
 
 - Paid songs show their generation cost in both Grid and List cards. Recorded amounts come from the reconciled spending ledger; only published song IDs and USD cents are exported to `assets/settled-song-costs.js` by `python scripts/sync-song-costs.py --ledger <private-ledger-path>`. This read-only export includes settled retry charges and excludes reservations, unfinished requests and private ledger details. Songs without a recorded amount show a visible **est.** at the existing $0.15/minute estimate, or $0.50 when length is unavailable. Amounts exclude subscription fees and taxes. New songs use the estimate until the snapshot is refreshed and deployed.

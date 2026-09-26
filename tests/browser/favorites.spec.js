@@ -8,8 +8,11 @@ const song = catalog.songs.find((item) => item.collection === "fearhunger");
 const otherSong = catalog.songs.find((item) => item.collection === "fearhunger" && item.id !== song.id);
 const button = (page, item = song) => page.locator(`[data-save="${item.id}"]`);
 const profileName = () => `Listener ${randomUUID().slice(0, 8)}`;
-async function createProfile(page, name = profileName()) {
+async function openProfile(page) {
   if (await page.locator(".profile-details").getAttribute("open") === null) await page.locator(".profile-details > summary").click();
+}
+async function createProfile(page, name = profileName()) {
+  await openProfile(page);
   await page.locator(".new-profile summary").click();
   await page.getByLabel("Profile name", { exact: true }).fill(name);
   await page.getByRole("button", { name: "Create profile", exact: true }).click();
@@ -30,12 +33,14 @@ test("favorites are shared across devices, survive navigation and keep playback 
   await expect(button(page)).toHaveAttribute("aria-pressed", "true");
   await button(page, otherSong).click();
   await expect(page.locator("#saved-only")).toHaveText("Saved songs (2)");
+  await openProfile(page);
   await page.locator("#saved-only").click();
   await expect(page.locator("#tracks > .track")).toHaveCount(2);
   await expect(page.locator("#pending-tracks")).toBeHidden();
   await page.locator(`#tracks [data-play="${song.id}"]`).click();
   await expect.poll(() => page.locator("#audio").evaluate((audio) => audio.readyState)).toBeGreaterThan(0);
   await page.locator("#audio").evaluate(async (audio) => { audio.currentTime = 20; await audio.play(); });
+  await openProfile(page);
   await page.locator("#saved-only").click();
   await expect.poll(() => page.locator("#audio").evaluate((audio) => !audio.paused && audio.currentTime >= 20)).toBe(true);
   const secondContext = await browser.newContext();
@@ -83,6 +88,7 @@ test("profiles have separate collections; history and stale responses cannot swi
   await expect(button(page)).toHaveAttribute("aria-pressed", "true");
   const second = await createProfile(page);
   await expect(button(page)).toHaveAttribute("aria-pressed", "false");
+  await openProfile(page);
   await page.locator("#saved-only").click();
   await expect(page.locator("#tracks")).toContainText("No saved songs yet");
   await expect(page.locator("#play-all")).toBeDisabled();
@@ -131,6 +137,7 @@ test("failed saves are explicit and retry recovers without losing saved songs", 
   await refreshProfile(page);
   await expect(page.locator("#profile-status")).toContainText("Couldn’t sync");
   await expect(button(page)).toBeDisabled();
+  await openProfile(page);
   await page.locator("#saved-only").click();
   await expect(page.locator("#tracks > .track")).toHaveCount(2);
   await expect(page.locator("#play-all")).toBeEnabled();

@@ -172,6 +172,7 @@ test("saving a song and the saved filter work in either view", async ({ page }) 
   await expect(save).toHaveAttribute("aria-pressed", "true");
   await switchTo(page, "List");
   await expect(save).toHaveAttribute("aria-pressed", "true");
+  await page.locator(".profile-details > summary").click();
   await page.locator("#saved-only").click();
   await expect(page.locator(".track")).toHaveCount(1);
   await switchTo(page, "Grid");
