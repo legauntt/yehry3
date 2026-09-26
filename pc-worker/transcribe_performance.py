@@ -12,6 +12,7 @@ import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from common import save as write
 
 RECIPES = {'continuous': 'unprompted-continuous-v1', 'phrases': 'unprompted-tony-vocal-phrases-v2'}
 
@@ -25,15 +26,7 @@ def digest(path):
         return hashlib.file_digest(stream, 'sha256').hexdigest()
 
 
-def write(path, value):
-    path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(path.suffix + '.tmp')
-    temporary.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    temporary.replace(path)
-
-
-def performance_source(song, basis_root):
+def performance_source(song, basis_root, verified_audio_hash=None):
     """Only accept archived, converted Tony vocals for this exact released MP3."""
     if not re.fullmatch(r'[a-z0-9-]{1,120}', song['id']):
         raise ValueError('Invalid song ID')
@@ -56,7 +49,7 @@ def performance_source(song, basis_root):
             raise ValueError('The archived recording failed its published identity check')
         # Current release names independently pin the MP3's hash prefix.
         match = re.search(r'-([0-9a-f]{12,64})\.mp3$', song['url'])
-        if not match or not audio_hash.startswith(match[1]):
+        if not ((match and audio_hash.startswith(match[1])) or verified_audio_hash == audio_hash):
             raise ValueError('This recording needs an independently pinned public audio hash')
         if manifest.get('material', {}).get('vocal_reference_sha256') != vocal_hash:
             raise ValueError('The converted Tony vocal stem failed its identity check')
@@ -73,11 +66,11 @@ def performance_source(song, basis_root):
     return matches[0]
 
 
-def recognize(model, audio):
+def recognize(model, audio, language='en'):
     # Deliberately omit lyric prompts/hotwords: those can bias recognition back to
     # the intended words and conceal Tony's substitutions and ad-libs.
     audio_input = str(audio) if isinstance(audio, (str, Path)) else audio
-    segments, info = model.transcribe(audio_input, language='en', beam_size=5,
+    segments, info = model.transcribe(audio_input, language=language, task='transcribe', beam_size=5,
                                      word_timestamps=True, vad_filter=False,
                                      condition_on_previous_text=False,
                                      initial_prompt=None, prefix=None, temperature=0)
@@ -142,7 +135,7 @@ def recognize_vocals(model, audio_path):
     return rows, len(audio) / 16000, windows
 
 
-def public_draft(song, source, rows, model_name, duration):
+def public_draft(song, source, rows, model_name, duration, allow_empty=False):
     if not math.isfinite(duration) or abs(duration - song['duration']) > 2:
         raise ValueError('The transcription duration differs from the released song')
     segments, previous = [], -1
@@ -159,12 +152,13 @@ def public_draft(song, source, rows, model_name, duration):
                 word['probability'] < .5 for word in row['words'])
         segments.append({'start': round(start, 3), 'end': round(end, 3), 'text': text,
                          'uncertain': uncertain})
-    if not segments:
+    if not segments and not allow_empty:
         raise ValueError('No words were recognized; do not substitute the written lyrics')
     return {'version': 1, 'songId': song['id'], 'audioUrl': song['url'],
             'audioSha256': source['audio_sha256'], 'inputSha256': source['vocal_sha256'],
-            'input': 'converted-tony-vocals', 'model': f'faster-whisper {model_name}',
-            'review': 'machine', 'duration': duration, 'segments': segments}
+            'input': source.get('input', 'converted-tony-vocals'), 'model': f'faster-whisper {model_name}',
+            'review': 'machine', 'duration': duration, 'segments': segments,
+            **({'outcome': 'no-words-recognized'} if not segments else {})}
 
 
 def write_review(path, song, source, draft):

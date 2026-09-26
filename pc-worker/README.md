@@ -306,6 +306,54 @@ Refresh the basis inventory with `scripts/sync-basis-catalog.py` (see `--help`) 
 
 ## Validation
 
+### Automatic audio lyric views
+
+`transcript_service.py` is a separate post-publication companion, installed under
+`%LOCALAPPDATA%\Yehr3Whisper`. It does not change the Distonyc worker runtime,
+credentials, rendering queue, written lyrics or audio. The `yehry3 Whisper
+Transcripts` scheduled task invokes `pythonw.exe` without a terminal window at
+logon and every two minutes. It uses the existing GitHub CLI login to read the
+published catalog and fast-forward sanitized `lyric-transcripts/*.whisper.json`
+commits; concurrent publication is retried against the latest tree.
+
+Install from the deployed revision, with the existing local faster-whisper tools
+and downloaded `large-v3-turbo` model:
+
+```powershell
+.\pc-worker\install-transcripts.ps1 -SpeechRoot 'C:\Users\Jesse\Music\One More Round - extended' -Cache 'C:\Users\Jesse\Music\troofs\whisper-catalog-20260926' -Start
+```
+
+CPU is the default (four threads, below-normal priority). `-Device cuda` uses
+private NVIDIA DLLs from `speech-cuda/bin`, installed separately with
+`python pc-worker/install_whisper_cuda.py --root <speech-root>/speech-cuda`. It takes
+the production renderer's existing GPU lock and exits its model process between
+songs so rendering can proceed. That installer verifies pinned official NVIDIA
+archive checksums and does not alter global PATH. `-Disabled` stages the companion
+without running it. Updating it requires only this task to be idle.
+
+`health.json`, `service.log`, `jobs/` and `state.json` inside the companion's own
+directory show progress and errors. Failed songs retry after 30 minutes; after
+three failures they retry daily. Existing valid transcripts are preserved. The
+private recognition cache is keyed by recording, model, recipe and input identity.
+No listener review is implied. Recognition uses actual audio without lyric prompts
+and automatically detects language. Missing or differently trimmed converted
+stems use the verified released MP3; the public view names its source. Empty
+recognition is a result with no timed lines, never a copy of the written sheet.
+
+For a resumable local backfill, including archived songs:
+
+```powershell
+python pc-worker/transcribe_catalog.py --catalog catalog.json --basis-root <basis-root> --speech-root <speech-root> --cache <private-cache> --output lyric-transcripts
+```
+
+Add `--device cuda --studio-dir <studio-dir> --engine-root <worker-engine-root>
+--cuda-root <speech-root>/speech-cuda` for coordinated GPU processing. The command
+only writes local drafts; the normal website build/deployment publishes them.
+Run `python -m unittest -v test_transcript_service test_transcribe_performance`
+from `pc-worker` to verify source validation and conflict-safe publication.
+
+### Existing worker checks
+
 Lyric timing selects retained transcripts by agreement with the written sheet and supported line coverage. It omits lines without word support or plausible duration. Run `python -m unittest -v test_lyric_timing test_audit_lyric_cues test_lyrical_ending test_publish` before installing `lyric_timing.py` with `install.ps1 -RuntimeOnly -Files lyric_timing.py` during an idle worker/monitor window. New songs can publish readable lyrics with partial or no timing.
 
 For an existing catalog, `audit_lyric_cues.py --catalog <catalog.json> --studio-root <production-parent> --report <private-report.json>` is read-only. `--identities <private-hashes.json> --fetch-identities` verifies legacy public MP3 identities. `restore_lyric_evidence.py --report <report> --basis-root <basis-root> --speech-root <speech-tools-parent> --cache <private-cache> --workers 4` recreates missing timestamps from verified retained vocals on the CPU (at most eight decoder threads, below normal Windows priority); reruns reuse completed evidence. Re-audit with `--evidence-cache <private-cache>`, then apply the reviewed report with `--apply <report> --write` and optionally `--sync-config <installed-config>` using the existing DPAPI worker credential. Deploy Chairlift's empty-cue support before clearing entire cue lists. Keep the report for rollback and word-level listening follow-up; automatic transcript agreement does not establish lyric fidelity.

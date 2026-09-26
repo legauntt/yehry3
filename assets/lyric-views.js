@@ -7,7 +7,7 @@ const views = {
   ipa: ["Dictionary · IPA", "Dictionary pronunciation in approximate US English. This does not transcribe Tony’s delivery. Unknown words stay as written."],
   phonics: ["Dictionary · Readable", "Dictionary pronunciation; Tony’s delivery may differ. CAPS mark stress; dh is th in “this”, uu is oo in “book”. Unknown words stay as written."],
   ...Object.fromEntries(Object.entries(transcriptMethods).map(([key, method]) => [key, [method.label,
-    "Machine transcription of Tony’s actual vocals, without a written lyric prompt. Words and timing may be wrong; no listener has checked this transcript. ? marks model uncertainty, not every possible error."]])),
+    "Machine transcription from the recording, without a written lyric prompt. Words and timing may be wrong; no listener has checked this transcript. ? marks model uncertainty, not every possible error."]])),
 };
 const validView = value => Object.hasOwn(views, value) ? value : "original";
 const shortLabels = { original: "Original", ipa: "IPA", phonics: "Phonics" };
@@ -52,7 +52,10 @@ export function mountLyricViews(main, song, onChange) {
     : "Lyrics supplied for this recording. Tony’s performed words may differ.";
   function display(view, dictionary, transcript) {
     const selected = transcript ? transcriptLyrics(transcript) : { ...lyrics, text: lyricView(lyrics.text, view, dictionary) };
-    const viewNote = view === "original" ? originalNote : `${views[view][1]}${transcript ? ` Model: ${transcript.model}.` : ""}`;
+    const sourceNote = transcript ? transcript.input === "released-recording"
+      ? " Input: the released recording, including instruments."
+      : " Input: Tony’s verified isolated vocals." : "";
+    const viewNote = view === "original" ? originalNote : `${views[view][1]}${sourceNote}${transcript ? ` Model: ${transcript.model}.` : ""}`;
     current = view;
     select.value = view;
     sheet.dataset.lyricView = view;
@@ -126,7 +129,7 @@ export function mountLyricViews(main, song, onChange) {
   const initial = linkedView();
   void choose(initial);
   // Availability is tied to this recording, independent of API/catalog refreshes.
-  void loadTranscriptIndex().then(index => {
+  const refreshAvailability = () => loadTranscriptIndex().then(index => {
     if (signal.aborted) return;
     for (const [method, config] of Object.entries(transcriptMethods)) {
       const option = select.querySelector(`option[value="${method}"]`);
@@ -135,6 +138,10 @@ export function mountLyricViews(main, song, onChange) {
       option.textContent = available ? config.label : `${config.label} — not yet`;
     }
   }).catch(() => { /* Choosing the view offers an explicit retry. */ });
+  void refreshAvailability();
+  const availabilityTimer = setInterval(() => { if (!document.hidden) void refreshAvailability(); }, 60000);
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) void refreshAvailability(); }, { signal });
+  signal.addEventListener("abort", () => clearInterval(availabilityTimer), { once: true });
   select.addEventListener("change", () => void choose(validView(select.value), true), { signal });
   addEventListener("storage", event => {
     if (event.key === storageKey || event.key === null) void choose(savedView());

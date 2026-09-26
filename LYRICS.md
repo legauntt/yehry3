@@ -74,6 +74,29 @@ Whisper recognizes words, not acoustic IPA. There is deliberately no **Phonetics
 (Whisper)** option: a future phonetics view must use an actual audio-to-phoneme
 recognizer. The separate dictionary modes remain guides to written words.
 
+### Whole-catalog and future-song transcription
+
+`pc-worker/transcribe_catalog.py` recognizes each recording independently, without
+written lyric prompts or forced English. It prefers hash-verified converted Tony
+vocals whose duration matches the release. Missing stems, guide vocals and stems
+with a different final timeline fall back to the actual released MP3. Legacy MP3
+names are independently downloaded and hashed first. The view identifies whether
+the recognizer heard isolated vocals or the full recording including instruments.
+Empty recognition is explicitly displayed as “no words recognized”; it never
+substitutes written lyrics. These are unreviewed machine results, not certified
+transcriptions. Raw evidence, local paths and model probabilities remain private.
+
+The separate `yehry3 Whisper Transcripts` Windows task checks the published Git
+catalog every two minutes, transcribes up to four pending songs per run, then
+publishes only sanitized transcript files. It recognizes new recordings and changed
+audio URLs, preserves existing valid results, retries failures with backoff, and
+uses fast-forward Git updates that preserve concurrent catalog changes. It runs
+on this PC and requires Jesse's Windows session and network access. Song rendering
+and publication do not wait for it. See `pc-worker/README.md` for installation.
+Availability refreshes on an open lyric sheet once a minute and when returning to
+the tab. Archived songs retain source transcripts but remain excluded from the
+public site's generated files.
+
 The two initial Distonyc songs, **Blood on My Shoes at Daybreak** and **Two Names in One Pair of Shoes**, use their saved original lyrics. Future jobs export sheets as part of native publication. The existing planning call also classifies clear Fear & Hunger songs; lyrics export, collection updates, and uploading require no additional model call.
 
 The MP3 folder audit also added **The Stone I Carried**, **Khalim Still Has a Heart**, and **When Arreat Fell**, bringing the catalog to 58 songs at import. Their saved written lyrics and existing public MP3s were matched by SHA-256 to the local delivery manifests. All three appear in both Tony AI and **Shiablo: The Lord of Prisoners** (`/?collection=shiablo`).

@@ -117,3 +117,39 @@ test("slow transcript fetches cannot overwrite newer choices; mobile remains com
     await page.screenshot({ path: `artifacts/whisper-${width}.png` });
   }
 });
+
+test("released mixes and empty recognition are attributed without inventing lyrics", async ({ page }) => {
+  await setup(page);
+  const mixed = { ...draft, input: "released-recording", inputSha256: draft.audioSha256 };
+  await page.route(transcriptPath, route => route.fulfill({ json: mixed }));
+  await page.goto(`${lyricsHref(song)}?view=whisper`);
+  await expect(page.locator(".lyrics-text")).toHaveAttribute("data-lyric-view", "whisper");
+  await page.getByRole("button", { name: "About this lyric view", exact: true }).click();
+  await expect(page.locator("#lyric-view-note")).toContainText("released recording, including instruments");
+  await page.route(transcriptPath, route => route.fulfill({ json: { ...mixed, segments: [], outcome: "no-words-recognized" } }));
+  await page.reload();
+  await expect(page.locator(".lyrics-text")).toContainText("Whisper did not recognize any words");
+  await expect(page.locator("button.lyric-line")).toHaveCount(0);
+  await expect(page.locator(".lyrics-text")).not.toContainText("Put candy");
+  await expect(page.locator(".karaoke-note")).toContainText("No words recognized");
+});
+
+test("a newly published transcript becomes available on an open sheet", async ({ page }) => {
+  await setup(page);
+  let available = false;
+  await page.route("**/assets/lyric-transcripts.json", route => route.fulfill({ json: available
+    ? { [id]: { audioUrl: song.url, methods: ["whisper"] } } : {} }));
+  await page.goto(`${lyricsHref(song)}?view=original`);
+  await expect(page.locator('#lyric-view option[value="whisper"]')).toBeDisabled();
+  await page.locator(".lyrics-text").evaluate(sheet => { window.keptSheet = sheet; });
+  available = true;
+  await page.evaluate(() => {
+    const now = Date.now;
+    Date.now = () => now() + 61000;
+    document.dispatchEvent(new Event("visibilitychange"));
+  });
+  await expect(page.locator('#lyric-view option[value="whisper"]')).toBeEnabled();
+  expect(await page.locator(".lyrics-text").evaluate(sheet => sheet === window.keptSheet)).toBe(true);
+  await choose(page, "whisper");
+  await expect(page.locator(".lyrics-text")).toHaveAttribute("data-lyric-view", "whisper");
+});

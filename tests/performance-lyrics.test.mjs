@@ -42,3 +42,14 @@ test("public exports drop private fields and exclude archived recordings", async
   assert.deepEqual(index[id], { audioUrl: song.url, methods: ["whisper"] });
   assert.deepEqual(JSON.parse(await readFile(new URL(`../dist/lyric-transcripts/${id}.whisper.json`, import.meta.url))), files[`${id}.whisper.json`]);
 });
+
+test("legacy released-audio transcripts and an explicit no-words result remain honest", () => {
+  const legacy = { ...song, url: "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/legacy.mp3" };
+  const mixed = { ...draft, audioUrl: legacy.url, input: "released-recording", inputSha256: draft.audioSha256 };
+  assert.equal(performanceTranscript(mixed, legacy, "whisper").input, "released-recording");
+  assert.throws(() => performanceTranscript({ ...mixed, inputSha256: "0".repeat(64) }, legacy, "whisper"));
+  const empty = performanceTranscript({ ...mixed, segments: [], outcome: "no-words-recognized" }, legacy, "whisper");
+  assert.match(transcriptLyrics(empty).text, /did not recognize any words/);
+  assert.deepEqual(transcriptLyrics(empty).cues, []);
+  assert.throws(() => performanceTranscript({ ...mixed, segments: [] }, legacy, "whisper"));
+});

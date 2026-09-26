@@ -289,7 +289,8 @@ export async function lyricsPage(main, { escape, safeUrl }) {
         karaokeMounted = true;
       }
       main.querySelector(".karaoke-note").textContent = source !== "original"
-        ? "Whisper machine transcript · Unreviewed · ? = uncertain. Select a line to hear it."
+        ? cueMap(lyrics).size ? "Whisper machine transcript · Unreviewed · ? = uncertain. Select a line to hear it."
+          : "Whisper machine transcript · Unreviewed · No words recognized."
         : cueMap(lyrics).size ? "Select a timed lyric to jump there." : "Line timing is unavailable. Use the player to choose a moment.";
       const viewLabel = view === "original" ? "" : `\n${label}: ${viewNote}`;
       const downloadText = text.split("\n").map((line, index) => lyrics.cues?.some(cue => cue.line === index && cue.uncertain) ? `${line} [?]` : line).join("\n");
