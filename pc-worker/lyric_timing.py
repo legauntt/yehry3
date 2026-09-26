@@ -25,14 +25,83 @@ def timestamp_words(path):
     return sorted(result, key=lambda word: (word['start'], word['end']))
 
 
-def timing_source(work):
+def lyric_words(text):
+    return [word for line in text.splitlines() if not re.fullmatch(r'\s*\[[^]]+]\s*', line)
+            for word in normalize_words(line)]
+
+
+def agreement(text, words):
+    expected = lyric_words(text)
+    heard = [word['token'] for word in words]
+    matcher = difflib.SequenceMatcher(None, expected, heard, autojunk=False)
+    matched = sum(block.size for block in matcher.get_matching_blocks())
+    return {'recall': matched / max(1, len(expected)),
+            'score': 2 * matched / max(1, len(expected) + len(heard))}
+
+
+def timing_sources(work, text='', duration=None):
     candidates = []
     for priority, name in enumerate(WORD_FILES[::-1]):
         path = Path(work) / name
         if path.exists():
             words = timestamp_words(path)
-            if words: candidates.append((len(words), priority, words))
-    return max(candidates, default=(0, 0, []))[2]
+            if duration is not None:
+                words = [{**word, 'end': min(word['end'], duration)} for word in words if word['start'] < duration]
+            if words:
+                candidates.append({'source': name, 'words': words, 'priority': priority,
+                                   **agreement(text, words)})
+    return sorted(candidates, key=lambda item: (item['score'], item['priority']), reverse=True)
+
+
+def timing_source(work, text=''):
+    candidates = timing_sources(work, text)
+    return candidates[0]['words'] if candidates else []
+
+
+def valid_cues(cues, duration):
+    if not isinstance(duration, (int, float)) or isinstance(duration, bool) or not math.isfinite(duration): return False
+    previous = -1
+    for cue in cues:
+        start, end = cue.get('start'), cue.get('end')
+        if (not all(isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+                    for value in (start, end)) or not 0 <= start < end <= duration or start <= previous): return False
+        previous = start
+    return True
+
+
+def cue_diagnostics(cues, text, words, duration):
+    """Reject unsupported timings, never turn ASR guesses into rewritten lyrics."""
+    lines = text.splitlines()
+    rejected = []
+    if not valid_cues(cues, duration):
+        return [{'line': cue.get('line'), 'reason': 'invalid_bounds'} for cue in cues]
+    for cue in cues:
+        line = cue.get('line')
+        if not isinstance(line, int) or not 0 <= line < len(lines):
+            rejected.append({'line': line, 'reason': 'invalid_line'}); continue
+        expected = normalize_words(lines[line])
+        span = cue['end'] - cue['start']
+        heard = [word['token'] for word in words
+                 if word['start'] >= cue['start'] - .15 and word['end'] <= cue['end'] + .15]
+        matched = sum(block.size for block in difflib.SequenceMatcher(None, expected, heard, autojunk=False).get_matching_blocks())
+        reason = None
+        if len(expected) >= 4 and len(expected) / span > 8: reason = 'compressed_line'
+        elif span > max(18, len(expected) * 2.5): reason = 'stretched_line'
+        elif matched < min(2, len(expected)) or matched / max(1, len(expected)) < .5: reason = 'weak_word_support'
+        if reason: rejected.append({'line': line, 'reason': reason})
+    return rejected
+
+
+def cue_report(work, text, duration):
+    reports = []
+    for source in timing_sources(work, text, duration):
+        raw = _align_cues(text, duration, source['words'])
+        rejected = cue_diagnostics(raw, text, source['words'], duration)
+        excluded = {item['line'] for item in rejected}
+        cues = [cue for cue in raw if cue['line'] not in excluded]
+        supported = sum(len(normalize_words(text.splitlines()[cue['line']])) for cue in cues)
+        reports.append({**source, 'cues': cues, 'rejected': rejected, 'supported_words': supported})
+    return max(reports, key=lambda item: (item['supported_words'], item['score'], item['priority']), default=None)
 
 
 def spread_collisions(cues, duration):
@@ -63,7 +132,7 @@ def make_suite_cues(parts, text, duration):
     heard, offset = [], 0.0
     for work, part_duration in parts:
         if not isinstance(part_duration, (int, float)) or not math.isfinite(part_duration) or part_duration <= 0: return []
-        for word in timing_source(work):
+        for word in timing_source(work, text):
             if word['start'] < part_duration:
                 heard.append({**word, 'start': word['start'] + offset,
                               'end': min(word['end'], float(part_duration)) + offset})
@@ -73,6 +142,15 @@ def make_suite_cues(parts, text, duration):
 
 
 def make_cues(work, text, duration, heard=None):
+    if heard is None:
+        report = cue_report(work, text, duration)
+        return report['cues'] if report else []
+    cues = _align_cues(text, duration, heard)
+    rejected = {item['line'] for item in cue_diagnostics(cues, text, heard, duration)}
+    return [cue for cue in cues if cue['line'] not in rejected]
+
+
+def _align_cues(text, duration, heard):
     lines, lyric_tokens, token_lines = text.splitlines(), [], []
     singable = []
     for line_number, line in enumerate(lines):
@@ -80,7 +158,6 @@ def make_cues(work, text, duration, heard=None):
         if not words or re.fullmatch(r'\s*\[[^]]+]\s*', line): continue
         singable.append({'line': line_number, 'weight': max(1, len(words)), 'tokens': words})
         lyric_tokens.extend(words); token_lines.extend([line_number] * len(words))
-    heard = timing_source(work) if heard is None else heard
     if isinstance(duration, (int, float)) and math.isfinite(duration):
         heard = [{**word, 'end': min(word['end'], float(duration))} for word in heard if word['start'] < duration]
     if not singable or not lyric_tokens or not heard: return []

@@ -66,12 +66,12 @@ def candidate(directory):
     } if texts else None
 
 
-def choose(song, candidates):
+def choose(song, candidates, audio_hash=None):
     if song['id'] in OVERRIDES:
         item = next((item for item in candidates if item['directory'].name == OVERRIDES[song['id']]), None)
         return (item, 'verified production override') if item else (None, 'verified production override is missing')
     wanted_text, wanted_title = key(song['lyrics']['text']), key(song['title'])
-    audio_hash = published_hash(song)
+    audio_hash = audio_hash or published_hash(song)
     hash_candidates = [item for item in candidates if audio_hash and any(value.startswith(audio_hash) for value in item.get('hashes', set()))]
     if len(hash_candidates) == 1:
         item = hash_candidates[0]

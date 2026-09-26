@@ -39,6 +39,18 @@ test("timestamp sharing works without lyric cues and fits mobile", async ({ page
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: "artifacts/lyric-moment-mobile.png", fullPage: true });
 });
+
+test("unsupported lines stay readable while supported lines still seek", async ({ page }) => {
+  await setup(page, { ...song, lyrics: { ...song.lyrics, cues: [song.lyrics.cues[0], song.lyrics.cues[2]] } });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`/lyrics/?song=${song.id}#lyric-line-3`);
+  await expect(page.locator(".lyrics-text")).toContainText("Second line");
+  await expect(page.locator("button.lyric-line")).toHaveCount(2);
+  await expect(page.locator("#lyric-line-2")).toHaveCount(0);
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(9);
+  await page.locator("#lyric-line-1").click();
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(1);
+});
 test("background refresh preserves the playing audio and does not reapply a shared timestamp", async ({ page }) => {
   let release;
   const gate = new Promise(resolve => { release = resolve; });
