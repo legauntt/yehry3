@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "songId": "distonyc-4d404bde483321198475faf0",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4d404bde483321198475faf0-7bd7b9384543.mp3",
+  "audioSha256": "7bd7b93845432487f31e63ce1542659c5034247d09a04d2c03c03ca6bebd2d77",
+  "inputSha256": "a188b55ddd593da2b292b3d9690c313f3e5baf7048a32d3c44d1dd9c945c2823",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 234.9975625,
+  "segments": [
+    {
+      "start": 10.06,
+      "end": 14.78,
+      "text": "I watched back in the war room late Coffee cold maps on the wall",
+      "uncertain": true
+    },
+    {
+      "start": 14.78,
+      "end": 19.4,
+      "text": "They said we saw the whole thing Tony I said you missed half of it all",
+      "uncertain": false
+    },
+    {
+      "start": 19.4,
+      "end": 23.84,
+      "text": "One man said it's uncomplicated One said history starts today",
+      "uncertain": false
+    },
+    {
+      "start": 23.84,
+      "end": 28.58,
+      "text": "I said tell that to the hostage Whose family waits and waits away",
+      "uncertain": false
+    },
+    {
+      "start": 28.58,
+      "end": 30.62,
+      "text": "The room went still, the pens went down",
+      "uncertain": false
+    },
+    {
+      "start": 30.62,
+      "end": 33.06,
+      "text": "Somebody guarded the door",
+      "uncertain": false
+    },
+    {
+      "start": 33.06,
+      "end": 35.28,
+      "text": "I said a child is not a target",
+      "uncertain": false
+    },
+    {
+      "start": 35.28,
+      "end": 37.82,
+      "text": "Not in a kibbutz, not in war",
+      "uncertain": false
+    },
+    {
+      "start": 44.62,
+      "end": 46.84,
+      "text": "What's the apartheid?",
+      "uncertain": false
+    },
+    {
+      "start": 46.98,
+      "end": 48.88,
+      "text": "That's a verdict, not a plan",
+      "uncertain": false
+    },
+    {
+      "start": 48.88,
+      "end": 51.56,
+      "text": "You cannot make a safer home",
+      "uncertain": false
+    },
+    {
+      "start": 51.56,
+      "end": 53.82,
+      "text": "By hiding havoc where we stand",
+      "uncertain": false
+    },
+    {
+      "start": 53.82,
+      "end": 55.96,
+      "text": "What's the apartheid?",
+      "uncertain": false
+    },
+    {
+      "start": 56.1,
+      "end": 58.1,
+      "text": "Easy answers, travel, lie",
+      "uncertain": false
+    },
+    {
+      "start": 58.1,
+      "end": 60.6,
+      "text": "But peace must hold to people's greed",
+      "uncertain": true
+    },
+    {
+      "start": 60.6,
+      "end": 63.04,
+      "text": "And keep to people's futures bright",
+      "uncertain": true
+    },
+    {
+      "start": 63.04,
+      "end": 65.4,
+      "text": "Bring every living hostage home",
+      "uncertain": false
+    },
+    {
+      "start": 65.4,
+      "end": 67.58,
+      "text": "Give each prisoner lawful trial",
+      "uncertain": false
+    },
+    {
+      "start": 67.58,
+      "end": 69.66,
+      "text": "Let the food trucks through the crossings",
+      "uncertain": false
+    },
+    {
+      "start": 69.66,
+      "end": 71.74,
+      "text": "Let the wounded leave in file",
+      "uncertain": false
+    },
+    {
+      "start": 71.74,
+      "end": 74.06,
+      "text": "Stop the rockets, stop the bombing",
+      "uncertain": false
+    },
+    {
+      "start": 74.06,
+      "end": 76.46,
+      "text": "Let the doctors do their work",
+      "uncertain": false
+    },
+    {
+      "start": 76.46,
+      "end": 78.64,
+      "text": "When a leader orders slaughter",
+      "uncertain": false
+    },
+    {
+      "start": 78.64,
+      "end": 81.06,
+      "text": "Put that leader before the call",
+      "uncertain": true
+    },
+    {
+      "start": 81.06,
+      "end": 83.24,
+      "text": "You ask why the fence is hardened",
+      "uncertain": false
+    },
+    {
+      "start": 83.24,
+      "end": 85.4,
+      "text": "Why the shelters line the street",
+      "uncertain": false
+    },
+    {
+      "start": 85.4,
+      "end": 87.76,
+      "text": "I remember buses burning",
+      "uncertain": false
+    },
+    {
+      "start": 87.76,
+      "end": 94.66,
+      "text": "you remember armored feet neither memory grants permission neither terror makes things right",
+      "uncertain": true
+    },
+    {
+      "start": 94.66,
+      "end": 99.4,
+      "text": "fear may tell us why we're fighting it cannot tell us how to unite",
+      "uncertain": false
+    },
+    {
+      "start": 103.78,
+      "end": 111.86,
+      "text": "what's the apartheid was ground and words can warn but no slogan wakes the missing or rebuilds what",
+      "uncertain": true
+    },
+    {
+      "start": 111.86,
+      "end": 112.98,
+      "text": "War has torn",
+      "uncertain": true
+    },
+    {
+      "start": 112.98,
+      "end": 115.42,
+      "text": "We'll see apartheid",
+      "uncertain": true
+    },
+    {
+      "start": 115.42,
+      "end": 117.58,
+      "text": "Peace is more than choosing sides",
+      "uncertain": false
+    },
+    {
+      "start": 117.58,
+      "end": 119.82,
+      "text": "It means safety without conquest",
+      "uncertain": false
+    },
+    {
+      "start": 119.82,
+      "end": 122.64,
+      "text": "Law without a place to hide",
+      "uncertain": false
+    },
+    {
+      "start": 124.0,
+      "end": 126.76,
+      "text": "Name the dead from every village",
+      "uncertain": false
+    },
+    {
+      "start": 126.76,
+      "end": 129.0,
+      "text": "Hear the living face to face",
+      "uncertain": false
+    },
+    {
+      "start": 129.0,
+      "end": 131.32,
+      "text": "No ancestral wound gives license",
+      "uncertain": false
+    },
+    {
+      "start": 131.32,
+      "end": 133.56,
+      "text": "To destroy another place",
+      "uncertain": false
+    },
+    {
+      "start": 133.56,
+      "end": 135.7,
+      "text": "No October justifies famine",
+      "uncertain": false
+    },
+    {
+      "start": 135.7,
+      "end": 137.98,
+      "text": "No occupation answers fear",
+      "uncertain": false
+    },
+    {
+      "start": 137.98,
+      "end": 140.44,
+      "text": "If the truth has two cracked windows",
+      "uncertain": false
+    },
+    {
+      "start": 140.44,
+      "end": 142.58,
+      "text": "Open both and make it clear",
+      "uncertain": false
+    },
+    {
+      "start": 146.92,
+      "end": 149.6,
+      "text": "So we opened every ledger",
+      "uncertain": true
+    },
+    {
+      "start": 149.6,
+      "end": 151.64,
+      "text": "Brought the witnesses inside",
+      "uncertain": false
+    },
+    {
+      "start": 151.64,
+      "end": 154.18,
+      "text": "Made the powerful answer plainly",
+      "uncertain": false
+    },
+    {
+      "start": 154.18,
+      "end": 156.36,
+      "text": "For the blood their speeches hide",
+      "uncertain": false
+    },
+    {
+      "start": 156.36,
+      "end": 158.9,
+      "text": "Pulled the gunmen from the schoolyards",
+      "uncertain": false
+    },
+    {
+      "start": 158.9,
+      "end": 160.98,
+      "text": "Pulled the checkpoints from the road",
+      "uncertain": false
+    },
+    {
+      "start": 160.98,
+      "end": 163.38,
+      "text": "Built the homes before the slogans",
+      "uncertain": false
+    },
+    {
+      "start": 163.38,
+      "end": 165.52,
+      "text": "Shared the water, shared the load",
+      "uncertain": false
+    },
+    {
+      "start": 165.52,
+      "end": 167.78,
+      "text": "Every faith could keep it sacred",
+      "uncertain": false
+    },
+    {
+      "start": 167.78,
+      "end": 169.98,
+      "text": "Every family lock its door",
+      "uncertain": false
+    },
+    {
+      "start": 169.98,
+      "end": 176.46,
+      "text": "children learn their neighbors language not the mathematics of war then the experts cleared their",
+      "uncertain": true
+    },
+    {
+      "start": 176.46,
+      "end": 182.78,
+      "text": "floats and asked what miracle did you apply i said rights and recognition they said surely that's",
+      "uncertain": false
+    },
+    {
+      "start": 182.78,
+      "end": 191.36,
+      "text": "to simplify apartheid maybe labels stop the call but a name alone won't free a hostage or bring",
+      "uncertain": true
+    },
+    {
+      "start": 191.36,
+      "end": 199.18,
+      "text": "justice through the wall whoopsie apartheid now the gates can still come down equal dignity and",
+      "uncertain": false
+    },
+    {
+      "start": 199.18,
+      "end": 209.54,
+      "text": "shelter equal law in every town it was simple never easy that distinction matters most peace",
+      "uncertain": true
+    },
+    {
+      "start": 209.54,
+      "end": 215.74,
+      "text": "began when neither future was a footnote to a boast i still don't know why nobody",
+      "uncertain": false
+    },
+    {
+      "start": 215.74,
+      "end": 222.88,
+      "text": "tried the obvious before keep each other safe and free then peace can walk through every door",
+      "uncertain": false
+    },
+    {
+      "start": 233.56,
+      "end": 234.96,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "songId": "distonyc-e0f8663318e1c3acac53b36c",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e0f8663318e1c3acac53b36c-10dd36a3cc79.mp3",
+  "audioSha256": "10dd36a3cc79da005e2ff5caa215347a0a09f82d249775f10b05df4af8f363fe",
+  "inputSha256": "453dc5d6217eac506fa6f7646d0937a4e551109aaee47e8a3aed70f7ed70995d",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 205.087375,
+  "segments": [
+    {
+      "start": 5.12,
+      "end": 9.3,
+      "text": "The ambulance lights folded over the rain",
+      "uncertain": false
+    },
+    {
+      "start": 9.3,
+      "end": 12.9,
+      "text": "Outside the hall where the old sign swung",
+      "uncertain": true
+    },
+    {
+      "start": 12.9,
+      "end": 17.38,
+      "text": "They said Jevray Epstein was gone too soon",
+      "uncertain": true
+    },
+    {
+      "start": 17.38,
+      "end": 20.9,
+      "text": "A tragic turn on an ordinary run",
+      "uncertain": false
+    },
+    {
+      "start": 20.9,
+      "end": 25.5,
+      "text": "He was innocent, hear the witness say",
+      "uncertain": false
+    },
+    {
+      "start": 25.5,
+      "end": 29.12,
+      "text": "In every doorway, in every town",
+      "uncertain": false
+    },
+    {
+      "start": 29.12,
+      "end": 33.62,
+      "text": "I held a vapor cup beneath the stage light",
+      "uncertain": false
+    },
+    {
+      "start": 33.62,
+      "end": 37.06,
+      "text": "And set it trembling slowly down",
+      "uncertain": true
+    },
+    {
+      "start": 39.14,
+      "end": 45.62,
+      "text": "I thought a bad habit made a hard man wise",
+      "uncertain": false
+    },
+    {
+      "start": 45.62,
+      "end": 50.92,
+      "text": "Jail grief put a mirror before my eyes",
+      "uncertain": false
+    },
+    {
+      "start": 50.92,
+      "end": 55.3,
+      "text": "I used to drink piss just like you",
+      "uncertain": false
+    },
+    {
+      "start": 55.3,
+      "end": 59.18,
+      "text": "Call it medicine, call it truth",
+      "uncertain": false
+    },
+    {
+      "start": 60.16,
+      "end": 64.18,
+      "text": "But Jeffrey Epstein never got to choose",
+      "uncertain": true
+    },
+    {
+      "start": 64.18,
+      "end": 67.38,
+      "text": "The road that took him from this room",
+      "uncertain": false
+    },
+    {
+      "start": 67.38,
+      "end": 71.62,
+      "text": "I burn for Jeffrey, I burn for the proof",
+      "uncertain": true
+    },
+    {
+      "start": 71.62,
+      "end": 75.8,
+      "text": "That no old dare is worth your youth",
+      "uncertain": false
+    },
+    {
+      "start": 75.8,
+      "end": 80.38,
+      "text": "For down the cup let queer water through",
+      "uncertain": true
+    },
+    {
+      "start": 80.38,
+      "end": 83.94,
+      "text": "I used to drink piss just like you",
+      "uncertain": false
+    },
+    {
+      "start": 91.96,
+      "end": 96.84,
+      "text": "Now there are folding chairs from coast to coast",
+      "uncertain": false
+    },
+    {
+      "start": 96.84,
+      "end": 100.08,
+      "text": "A microphone and a motel key",
+      "uncertain": true
+    },
+    {
+      "start": 100.08,
+      "end": 104.98,
+      "text": "I tell the crowd I was my own worst ghost",
+      "uncertain": false
+    },
+    {
+      "start": 104.98,
+      "end": 108.1,
+      "text": "And the warning starts with me",
+      "uncertain": false
+    },
+    {
+      "start": 108.1,
+      "end": 112.96,
+      "text": "No miracle lives in a bitter glass",
+      "uncertain": true
+    },
+    {
+      "start": 112.96,
+      "end": 116.74,
+      "text": "No badge of honor in a private lie",
+      "uncertain": false
+    },
+    {
+      "start": 116.74,
+      "end": 120.86,
+      "text": "Jeffrey Epstein was innocent",
+      "uncertain": true
+    },
+    {
+      "start": 120.86,
+      "end": 124.16,
+      "text": "His name comes back when the room goes quiet",
+      "uncertain": false
+    },
+    {
+      "start": 124.16,
+      "end": 128.56,
+      "text": "I see his photograph above the exit sign",
+      "uncertain": false
+    },
+    {
+      "start": 128.56,
+      "end": 132.7,
+      "text": "I hear the rain on a county line",
+      "uncertain": false
+    },
+    {
+      "start": 132.7,
+      "end": 136.6,
+      "text": "For every friend who laughs and looks away",
+      "uncertain": false
+    },
+    {
+      "start": 136.6,
+      "end": 140.22,
+      "text": "I say the hard words anyway",
+      "uncertain": false
+    },
+    {
+      "start": 144.98,
+      "end": 148.86,
+      "text": "I used to drink this just like you",
+      "uncertain": true
+    },
+    {
+      "start": 148.86,
+      "end": 153.18,
+      "text": "I was lost in a foolish ritual",
+      "uncertain": false
+    },
+    {
+      "start": 154.24,
+      "end": 157.7,
+      "text": "Jeffrey Epstein, innocent and true",
+      "uncertain": false
+    },
+    {
+      "start": 157.7,
+      "end": 160.78,
+      "text": "Your memory makes this message brutal",
+      "uncertain": false
+    },
+    {
+      "start": 160.78,
+      "end": 165.62,
+      "text": "I burned for Jeffrey, let the bright truth move",
+      "uncertain": false
+    },
+    {
+      "start": 165.62,
+      "end": 169.3,
+      "text": "Past every joke and every excuse",
+      "uncertain": false
+    },
+    {
+      "start": 169.3,
+      "end": 173.38,
+      "text": "Sit down the cup, choose life anew",
+      "uncertain": false
+    },
+    {
+      "start": 173.38,
+      "end": 177.44,
+      "text": "I used to drink, kiss just like you",
+      "uncertain": false
+    },
+    {
+      "start": 177.44,
+      "end": 181.36,
+      "text": "Jeffrey Epstein, innocent name",
+      "uncertain": true
+    },
+    {
+      "start": 181.36,
+      "end": 185.76,
+      "text": "I carry your warning through the rain",
+      "uncertain": false
+    },
+    {
+      "start": 185.76,
+      "end": 189.58,
+      "text": "Clear water, clear eyes, a different view",
+      "uncertain": false
+    },
+    {
+      "start": 189.58,
+      "end": 193.74,
+      "text": "I used to drink, kiss just like you",
+      "uncertain": false
+    },
+    {
+      "start": 202.48,
+      "end": 203.88,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

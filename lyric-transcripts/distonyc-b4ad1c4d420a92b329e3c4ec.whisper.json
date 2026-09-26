@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "songId": "distonyc-b4ad1c4d420a92b329e3c4ec",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b4ad1c4d420a92b329e3c4ec-dbbe15734a39.mp3",
+  "audioSha256": "dbbe15734a39782ecd7e2fc4b5140bca51e0dd07e9eb98759de1aac233bb2cae",
+  "inputSha256": "891bfc0a99478100c166817006ae7ca56ce98edf1537ef590122a98ed75d09b7",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 60.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.68,
+      "text": "Dhamma vabayat tannayam",
+      "uncertain": true
+    },
+    {
+      "start": 4.68,
+      "end": 9.7,
+      "text": "Huppe javailu phagandha",
+      "uncertain": true
+    },
+    {
+      "start": 12.06,
+      "end": 15.66,
+      "text": "Amrumah bilafsa sarna",
+      "uncertain": true
+    },
+    {
+      "start": 19.68,
+      "end": 22.48,
+      "text": "Ghusnum fanahinamu",
+      "uncertain": true
+    },
+    {
+      "start": 27.3,
+      "end": 28.14,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 52.62,
+      "end": 57.9,
+      "text": "No, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no,",
+      "uncertain": true
+    },
+    {
+      "start": 57.9,
+      "end": 58.32,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

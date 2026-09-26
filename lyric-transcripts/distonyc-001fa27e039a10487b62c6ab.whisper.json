@@ -1,0 +1,277 @@
+{
+  "version": 1,
+  "songId": "distonyc-001fa27e039a10487b62c6ab",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-001fa27e039a10487b62c6ab-074c7d29d824.mp3",
+  "audioSha256": "074c7d29d82418e3b078dc5a6fb38fdda42b12d27549e2ca4d6d1fb2e6cf2a7e",
+  "inputSha256": "43ed424d48563cedb05847978317458deca58e919c6bdb907faebbc8d60d4b9e",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 155.04,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.84,
+      "text": "Well, I remember Jeffrey laughing with the rain against the glass.",
+      "uncertain": true
+    },
+    {
+      "start": 5.08,
+      "end": 10.1,
+      "text": "Now his name is torn and scattered like the wreckage of the past.",
+      "uncertain": false
+    },
+    {
+      "start": 10.36,
+      "end": 15.52,
+      "text": "I kept reaching for the friend I knew while strangers named their pain.",
+      "uncertain": false
+    },
+    {
+      "start": 16.24,
+      "end": 21.04,
+      "text": "Grief can't rest in certainty and anger spoke his name.",
+      "uncertain": true
+    },
+    {
+      "start": 22.38,
+      "end": 27.32,
+      "text": "But a memory is not a verdict and love cannot decide",
+      "uncertain": false
+    },
+    {
+      "start": 27.32,
+      "end": 30.7,
+      "text": "What happened in the locked rooms",
+      "uncertain": false
+    },
+    {
+      "start": 30.7,
+      "end": 33.22,
+      "text": "On the other side",
+      "uncertain": true
+    },
+    {
+      "start": 35.24,
+      "end": 38.44,
+      "text": "I can mourn the man I remember",
+      "uncertain": false
+    },
+    {
+      "start": 38.44,
+      "end": 41.4,
+      "text": "Without calling every witness wrong",
+      "uncertain": false
+    },
+    {
+      "start": 41.4,
+      "end": 43.7,
+      "text": "I can rage against the silence",
+      "uncertain": false
+    },
+    {
+      "start": 43.7,
+      "end": 46.18,
+      "text": "Without drowning out their song",
+      "uncertain": false
+    },
+    {
+      "start": 46.18,
+      "end": 48.92,
+      "text": "There are truths I cannot carry",
+      "uncertain": false
+    },
+    {
+      "start": 48.92,
+      "end": 51.38,
+      "text": "There are wounds I cannot see",
+      "uncertain": false
+    },
+    {
+      "start": 51.38,
+      "end": 54.3,
+      "text": "I will not turn another's suffering",
+      "uncertain": false
+    },
+    {
+      "start": 54.3,
+      "end": 57.06,
+      "text": "Into proof of what I need",
+      "uncertain": true
+    },
+    {
+      "start": 57.06,
+      "end": 59.58,
+      "text": "I blame the hands that pointed",
+      "uncertain": false
+    },
+    {
+      "start": 59.58,
+      "end": 62.42,
+      "text": "Because blame was easier than doubt",
+      "uncertain": false
+    },
+    {
+      "start": 62.42,
+      "end": 65.36,
+      "text": "Built the fortress from old photographs",
+      "uncertain": false
+    },
+    {
+      "start": 65.36,
+      "end": 67.82,
+      "text": "And tried to shut the voices out",
+      "uncertain": false
+    },
+    {
+      "start": 67.82,
+      "end": 70.64,
+      "text": "But sorrow does not make me righteous",
+      "uncertain": false
+    },
+    {
+      "start": 70.64,
+      "end": 73.56,
+      "text": "Friendship does not make me wise",
+      "uncertain": false
+    },
+    {
+      "start": 73.56,
+      "end": 76.5,
+      "text": "Every accusation has a heartbeat",
+      "uncertain": false
+    },
+    {
+      "start": 76.5,
+      "end": 78.98,
+      "text": "Every answer has a price",
+      "uncertain": false
+    },
+    {
+      "start": 78.98,
+      "end": 81.42,
+      "text": "Chate a braid if I never knew you",
+      "uncertain": true
+    },
+    {
+      "start": 81.42,
+      "end": 83.34,
+      "text": "Then I grieve the mask as well",
+      "uncertain": false
+    },
+    {
+      "start": 83.34,
+      "end": 86.2,
+      "text": "If the charges were mistaken",
+      "uncertain": false
+    },
+    {
+      "start": 86.2,
+      "end": 88.82,
+      "text": "Only honest truth can tell",
+      "uncertain": true
+    },
+    {
+      "start": 88.82,
+      "end": 91.44,
+      "text": "No more curses at the grieving",
+      "uncertain": false
+    },
+    {
+      "start": 91.44,
+      "end": 94.14,
+      "text": "No more saints made from the dead",
+      "uncertain": false
+    },
+    {
+      "start": 94.14,
+      "end": 96.96,
+      "text": "Let the living speak their stories",
+      "uncertain": false
+    },
+    {
+      "start": 96.96,
+      "end": 99.9,
+      "text": "Let the evidence be raised",
+      "uncertain": true
+    },
+    {
+      "start": 103.36,
+      "end": 106.42,
+      "text": "I can maul the man I remember",
+      "uncertain": false
+    },
+    {
+      "start": 106.42,
+      "end": 109.42,
+      "text": "Without calling every witness wrong",
+      "uncertain": false
+    },
+    {
+      "start": 109.42,
+      "end": 111.62,
+      "text": "I can stand inside the questions",
+      "uncertain": false
+    },
+    {
+      "start": 111.62,
+      "end": 114.14,
+      "text": "When the easy faith is gone",
+      "uncertain": false
+    },
+    {
+      "start": 114.14,
+      "end": 116.94,
+      "text": "There are truths I cannot carry",
+      "uncertain": true
+    },
+    {
+      "start": 116.94,
+      "end": 119.44,
+      "text": "But one promise I can keep",
+      "uncertain": false
+    },
+    {
+      "start": 119.44,
+      "end": 122.44,
+      "text": "I will leave no wounded stranger",
+      "uncertain": false
+    },
+    {
+      "start": 122.44,
+      "end": 125.02,
+      "text": "Underneath my need to grieve",
+      "uncertain": false
+    },
+    {
+      "start": 125.02,
+      "end": 127.44,
+      "text": "I remember, I reconciled",
+      "uncertain": false
+    },
+    {
+      "start": 127.44,
+      "end": 129.88,
+      "text": "I let certainty depart",
+      "uncertain": false
+    },
+    {
+      "start": 129.88,
+      "end": 132.98,
+      "text": "Truth belongs to no one's anger",
+      "uncertain": false
+    },
+    {
+      "start": 132.98,
+      "end": 137.08,
+      "text": "Grief can live beside an open heart",
+      "uncertain": false
+    },
+    {
+      "start": 139.12,
+      "end": 142.32,
+      "text": "An open heart",
+      "uncertain": false
+    }
+  ]
+}

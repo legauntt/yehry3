@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "songId": "distonyc-37cba227893b88f0c4ed2637",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-37cba227893b88f0c4ed2637-e21585de94ae.mp3",
+  "audioSha256": "e21585de94ae5612e85dc43de3a3e76974845fd845d1067da6a62e6418d28e4f",
+  "inputSha256": "e8bc5342366350332df97e2d69c07c37c50aba7433fff6a0e63b7879c1b860df",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.0391875,
+  "segments": [
+    {
+      "start": 3.9,
+      "end": 6.68,
+      "text": "Engines wake beneath the violet sun",
+      "uncertain": false
+    },
+    {
+      "start": 6.68,
+      "end": 9.1,
+      "text": "Black glass trembling, countdown begun",
+      "uncertain": false
+    },
+    {
+      "start": 9.1,
+      "end": 11.22,
+      "text": "I leave my name where the radio glows",
+      "uncertain": false
+    },
+    {
+      "start": 11.22,
+      "end": 14.06,
+      "text": "Then follow the signal nobody knows",
+      "uncertain": false
+    },
+    {
+      "start": 19.82,
+      "end": 22.84,
+      "text": "Past the dead satellites and their blinking scars",
+      "uncertain": false
+    },
+    {
+      "start": 22.84,
+      "end": 26.58,
+      "text": "I steer by static and unfinished stars",
+      "uncertain": false
+    },
+    {
+      "start": 26.58,
+      "end": 29.5,
+      "text": "Earth folds down to a pale blue coin",
+      "uncertain": false
+    },
+    {
+      "start": 29.5,
+      "end": 32.04,
+      "text": "while the hall keeps time with the asteroid noise.",
+      "uncertain": false
+    },
+    {
+      "start": 35.76,
+      "end": 38.56,
+      "text": "There is something breathing beyond the charts,",
+      "uncertain": false
+    },
+    {
+      "start": 38.74,
+      "end": 41.06,
+      "text": "sending little cold knocks through the ship's steel heart.",
+      "uncertain": false
+    },
+    {
+      "start": 41.38,
+      "end": 44.5,
+      "text": "I turn every dial till the red lights sting.",
+      "uncertain": false
+    },
+    {
+      "start": 44.88,
+      "end": 47.76,
+      "text": "I bring my mic up to Uranus and I sting.",
+      "uncertain": false
+    },
+    {
+      "start": 47.86,
+      "end": 50.2,
+      "text": "I'll be solo, Eubilea, cause the player got a swing.",
+      "uncertain": false
+    },
+    {
+      "start": 50.42,
+      "end": 53.9,
+      "text": "No map in my pocket, no moon in the glass.",
+      "uncertain": false
+    },
+    {
+      "start": 54.86,
+      "end": 58.76,
+      "text": "Just a voice from the fort saying, come on past.",
+      "uncertain": false
+    },
+    {
+      "start": 59.5,
+      "end": 62.86,
+      "text": "If the night wants a name, I will give it mine.",
+      "uncertain": false
+    },
+    {
+      "start": 63.44,
+      "end": 67.84,
+      "text": "Then I'll brunt my shadow at the edge of time.",
+      "uncertain": false
+    },
+    {
+      "start": 70.0,
+      "end": 73.14,
+      "text": "Ride that midnight career where the lost worlds shine.",
+      "uncertain": true
+    },
+    {
+      "start": 74.58,
+      "end": 77.58,
+      "text": "Bass pulse under me, danger close behind.",
+      "uncertain": false
+    },
+    {
+      "start": 78.86,
+      "end": 82.22,
+      "text": "I came for the distance, I stayed for the sound.",
+      "uncertain": false
+    },
+    {
+      "start": 82.76,
+      "end": 86.68,
+      "text": "Where the stars fall silent and the dark comes around.",
+      "uncertain": false
+    },
+    {
+      "start": 86.68,
+      "end": 88.92,
+      "text": "That sent my song through the cold unknown",
+      "uncertain": true
+    },
+    {
+      "start": 88.92,
+      "end": 91.32,
+      "text": "Four small words on the carrier's own",
+      "uncertain": false
+    },
+    {
+      "start": 91.32,
+      "end": 95.36,
+      "text": "Keep that blue world turning till I get back home",
+      "uncertain": false
+    },
+    {
+      "start": 95.36,
+      "end": 99.24,
+      "text": "Had a room and a couloir in my big Chevy",
+      "uncertain": false
+    },
+    {
+      "start": 100.44,
+      "end": 104.16,
+      "text": "Now my bed is a harness and the air feels heavy",
+      "uncertain": false
+    },
+    {
+      "start": 105.02,
+      "end": 108.78,
+      "text": "There are storms on Saturn like a crown of knives",
+      "uncertain": false
+    },
+    {
+      "start": 109.62,
+      "end": 113.36,
+      "text": "And a red dust moon where nothing survives",
+      "uncertain": false
+    },
+    {
+      "start": 114.26,
+      "end": 117.72,
+      "text": "I find an old beacon with a fractured face",
+      "uncertain": false
+    },
+    {
+      "start": 118.32,
+      "end": 121.02,
+      "text": "Still whispering cornets into empty space",
+      "uncertain": true
+    },
+    {
+      "start": 121.02,
+      "end": 122.74,
+      "text": "Or maybe even to a writer's face",
+      "uncertain": true
+    },
+    {
+      "start": 122.74,
+      "end": 125.92,
+      "text": "Buy some Mars and Jupiter's tickets from my guitar case",
+      "uncertain": false
+    },
+    {
+      "start": 127.4,
+      "end": 129.98,
+      "text": "But the farther I travel, the clearer it gets",
+      "uncertain": false
+    },
+    {
+      "start": 129.98,
+      "end": 132.64,
+      "text": "Every bright new frontier leaves a trail of deaths",
+      "uncertain": false
+    },
+    {
+      "start": 134.04,
+      "end": 137.16,
+      "text": "Ride that midnight, hurry where the lost worlds shine",
+      "uncertain": false
+    },
+    {
+      "start": 139.06,
+      "end": 141.64,
+      "text": "Baseball's under me, danger, close behind",
+      "uncertain": false
+    },
+    {
+      "start": 142.84,
+      "end": 150.12,
+      "text": "i came for the distance i stayed for the sound where the scars fall silent and the dark comes",
+      "uncertain": true
+    },
+    {
+      "start": 150.12,
+      "end": 156.06,
+      "text": "around and send my song through the cold unknown four small words of the carrier zone and keep that",
+      "uncertain": false
+    },
+    {
+      "start": 156.06,
+      "end": 163.44,
+      "text": "blue world turning till i get back home then the signal opens like an eye in the deep",
+      "uncertain": false
+    },
+    {
+      "start": 164.3,
+      "end": 167.96,
+      "text": "Shows me every promise that the darkness keeps",
+      "uncertain": false
+    },
+    {
+      "start": 168.98,
+      "end": 172.7,
+      "text": "Cities made of crystal oceans without shores",
+      "uncertain": false
+    },
+    {
+      "start": 173.58,
+      "end": 177.3,
+      "text": "Every missing traveler standing at their doors",
+      "uncertain": false
+    },
+    {
+      "start": 177.3,
+      "end": 181.58,
+      "text": "I cut the main receiver, let temptation fade",
+      "uncertain": false
+    },
+    {
+      "start": 181.58,
+      "end": 183.78,
+      "text": "Turn the ship toward morning through the mess I made",
+      "uncertain": false
+    },
+    {
+      "start": 183.78,
+      "end": 185.1,
+      "text": "The unknown keeps calling",
+      "uncertain": false
+    },
+    {
+      "start": 185.1,
+      "end": 187.2,
+      "text": "But I know it's cost",
+      "uncertain": true
+    },
+    {
+      "start": 187.2,
+      "end": 189.74,
+      "text": "You can chase every wonder and become what it lost",
+      "uncertain": true
+    },
+    {
+      "start": 189.74,
+      "end": 193.68,
+      "text": "Ride that midnight current, let the engines climb",
+      "uncertain": true
+    },
+    {
+      "start": 194.46,
+      "end": 198.34,
+      "text": "Earth is still a heartbeat on the edge of time",
+      "uncertain": true
+    },
+    {
+      "start": 198.34,
+      "end": 202.9,
+      "text": "I carried back the silence and the things I found",
+      "uncertain": false
+    },
+    {
+      "start": 202.9,
+      "end": 207.78,
+      "text": "A scar across the star map and a low machine sound",
+      "uncertain": false
+    },
+    {
+      "start": 207.78,
+      "end": 210.12,
+      "text": "Send my song through the cold unknown",
+      "uncertain": false
+    },
+    {
+      "start": 210.12,
+      "end": 212.92,
+      "text": "Tell them I was frightened, tell them I flew on",
+      "uncertain": false
+    },
+    {
+      "start": 212.92,
+      "end": 215.16,
+      "text": "When the blue world rises in the forward glass",
+      "uncertain": false
+    },
+    {
+      "start": 215.16,
+      "end": 218.32,
+      "text": "I will spend one quiet breath on all that past",
+      "uncertain": false
+    },
+    {
+      "start": 218.32,
+      "end": 222.28,
+      "text": "No fruit in the heavens, no world I can own",
+      "uncertain": true
+    },
+    {
+      "start": 222.86,
+      "end": 226.34,
+      "text": "I charted the dark and the dark sang me home",
+      "uncertain": false
+    }
+  ]
+}

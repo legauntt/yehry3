@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "songId": "distonyc-7467dd51f080192ddf88d0c2",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7467dd51f080192ddf88d0c2-f06f6e512780.mp3",
+  "audioSha256": "f06f6e512780e3148d2a3040cea2d98ba4a159ab2786e93f012c353add4a6aee",
+  "inputSha256": "bd49b12e1e4fe3b661c3b4e3dbe2219650f205c1477ab488c1e9169c932a2822",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 330.0,
+  "segments": [
+    {
+      "start": 9.4,
+      "end": 13.64,
+      "text": "I bought 12 rules in a hardback coat",
+      "uncertain": true
+    },
+    {
+      "start": 13.64,
+      "end": 16.96,
+      "text": "Put a little ghost star beside every quote",
+      "uncertain": true
+    },
+    {
+      "start": 16.96,
+      "end": 20.56,
+      "text": "Then Tony found a cause in the bathroom light",
+      "uncertain": false
+    },
+    {
+      "start": 20.56,
+      "end": 24.1,
+      "text": "Drink your own piss and the world feels right",
+      "uncertain": false
+    },
+    {
+      "start": 27.74,
+      "end": 30.82,
+      "text": "One, stand tall with your shoulders back",
+      "uncertain": true
+    },
+    {
+      "start": 30.82,
+      "end": 34.32,
+      "text": "I lift my yellow trophy like a platinum plaque",
+      "uncertain": true
+    },
+    {
+      "start": 34.32,
+      "end": 37.82,
+      "text": "Two, take care of the man in the glass",
+      "uncertain": false
+    },
+    {
+      "start": 37.82,
+      "end": 41.44,
+      "text": "I toast that handsome bastard with my private stash",
+      "uncertain": false
+    },
+    {
+      "start": 41.44,
+      "end": 44.8,
+      "text": "Three, find friends who want the best for you",
+      "uncertain": false
+    },
+    {
+      "start": 44.8,
+      "end": 48.42,
+      "text": "Mine, bring a coaster when I raise my brew",
+      "uncertain": true
+    },
+    {
+      "start": 48.42,
+      "end": 51.44,
+      "text": "Four, beat the land you were yesterday",
+      "uncertain": false
+    },
+    {
+      "start": 51.44,
+      "end": 53.64,
+      "text": "I drank my own piss",
+      "uncertain": true
+    },
+    {
+      "start": 53.64,
+      "end": 55.34,
+      "text": "Now I'm twice as fucking great",
+      "uncertain": true
+    },
+    {
+      "start": 55.34,
+      "end": 56.54,
+      "text": "Twelve rooms",
+      "uncertain": true
+    },
+    {
+      "start": 56.54,
+      "end": 58.7,
+      "text": "One gold applause",
+      "uncertain": false
+    },
+    {
+      "start": 58.7,
+      "end": 60.6,
+      "text": "I drink my own piss",
+      "uncertain": false
+    },
+    {
+      "start": 60.6,
+      "end": 62.34,
+      "text": "The thunderous applause",
+      "uncertain": false
+    },
+    {
+      "start": 62.34,
+      "end": 65.88,
+      "text": "Every little principle is built on this",
+      "uncertain": false
+    },
+    {
+      "start": 65.88,
+      "end": 67.54,
+      "text": "Tony saw religion",
+      "uncertain": true
+    },
+    {
+      "start": 67.54,
+      "end": 69.38,
+      "text": "As a mouthful of piss",
+      "uncertain": true
+    },
+    {
+      "start": 69.38,
+      "end": 71.6,
+      "text": "Borrowed it in the footloats",
+      "uncertain": false
+    },
+    {
+      "start": 71.6,
+      "end": 73.5,
+      "text": "Underlied it twice",
+      "uncertain": false
+    },
+    {
+      "start": 75.04,
+      "end": 77.24,
+      "text": "My own golden gospel",
+      "uncertain": false
+    },
+    {
+      "start": 77.24,
+      "end": 80.12,
+      "text": "My own paradise",
+      "uncertain": false
+    },
+    {
+      "start": 86.68,
+      "end": 87.34,
+      "text": "Five",
+      "uncertain": true
+    },
+    {
+      "start": 87.34,
+      "end": 89.92,
+      "text": "Raise your children with a steady hand",
+      "uncertain": true
+    },
+    {
+      "start": 89.92,
+      "end": 91.82,
+      "text": "I leave the kids their juice",
+      "uncertain": true
+    },
+    {
+      "start": 91.82,
+      "end": 93.84,
+      "text": "This is daddy's one-man band",
+      "uncertain": false
+    },
+    {
+      "start": 93.84,
+      "end": 94.34,
+      "text": "Six",
+      "uncertain": false
+    },
+    {
+      "start": 94.34,
+      "end": 96.74,
+      "text": "Fix your house before you judge the street",
+      "uncertain": false
+    },
+    {
+      "start": 96.74,
+      "end": 98.72,
+      "text": "I polish up my piss cup",
+      "uncertain": false
+    },
+    {
+      "start": 98.72,
+      "end": 100.46,
+      "text": "And declare the job complete",
+      "uncertain": false
+    },
+    {
+      "start": 100.46,
+      "end": 100.98,
+      "text": "Seven",
+      "uncertain": false
+    },
+    {
+      "start": 100.98,
+      "end": 103.98,
+      "text": "Chase the mean and never take the cheap way out",
+      "uncertain": false
+    },
+    {
+      "start": 103.98,
+      "end": 107.4,
+      "text": "I find profile fulfillment when I took my fucking spell",
+      "uncertain": true
+    },
+    {
+      "start": 107.4,
+      "end": 108.24,
+      "text": "Eight",
+      "uncertain": false
+    },
+    {
+      "start": 108.24,
+      "end": 111.02,
+      "text": "Tell the truth, don't dress it in a lie",
+      "uncertain": true
+    },
+    {
+      "start": 111.02,
+      "end": 113.42,
+      "text": "That's my own bliss in the cup",
+      "uncertain": false
+    },
+    {
+      "start": 113.42,
+      "end": 115.62,
+      "text": "I'm holding high twelve rules",
+      "uncertain": true
+    },
+    {
+      "start": 115.62,
+      "end": 117.9,
+      "text": "One golden clause",
+      "uncertain": false
+    },
+    {
+      "start": 117.9,
+      "end": 121.54,
+      "text": "I drink my own piss to thunderous a pause",
+      "uncertain": true
+    },
+    {
+      "start": 121.54,
+      "end": 124.9,
+      "text": "Every little principle is built on this",
+      "uncertain": false
+    },
+    {
+      "start": 124.9,
+      "end": 128.36,
+      "text": "Tony's whole religion is a mouth full of piss",
+      "uncertain": false
+    },
+    {
+      "start": 128.36,
+      "end": 130.68,
+      "text": "Put it in the footnotes",
+      "uncertain": false
+    },
+    {
+      "start": 130.68,
+      "end": 132.56,
+      "text": "Underlined it twice",
+      "uncertain": false
+    },
+    {
+      "start": 134.16,
+      "end": 136.34,
+      "text": "My own golden gospel",
+      "uncertain": false
+    },
+    {
+      "start": 136.34,
+      "end": 139.34,
+      "text": "Oh, my own paradise.",
+      "uncertain": true
+    },
+    {
+      "start": 145.88,
+      "end": 148.94,
+      "text": "Nine, hear the stranger, he might know a thing.",
+      "uncertain": false
+    },
+    {
+      "start": 149.08,
+      "end": 152.6,
+      "text": "I listen with my piss, cook like a patient little king.",
+      "uncertain": false
+    },
+    {
+      "start": 153.22,
+      "end": 155.88,
+      "text": "Ten, speak precisely, let the meaning land.",
+      "uncertain": false
+    },
+    {
+      "start": 156.18,
+      "end": 159.38,
+      "text": "I drink my own piss, do you fucking understand?",
+      "uncertain": false
+    },
+    {
+      "start": 159.86,
+      "end": 162.78,
+      "text": "Eleven, let the skaters have their open sky.",
+      "uncertain": false
+    },
+    {
+      "start": 162.78,
+      "end": 166.56,
+      "text": "I'm at my golden business as the bulls go flying by",
+      "uncertain": true
+    },
+    {
+      "start": 166.56,
+      "end": 169.92,
+      "text": "Twelve, pet the street cat when it comes to say hello",
+      "uncertain": true
+    },
+    {
+      "start": 169.92,
+      "end": 173.48,
+      "text": "One ham strokes the kitten, one raises liquid pole",
+      "uncertain": true
+    },
+    {
+      "start": 173.48,
+      "end": 177.04,
+      "text": "I said and lose the rules, I gave the rules a throne",
+      "uncertain": true
+    },
+    {
+      "start": 177.04,
+      "end": 180.48,
+      "text": "Every blessed sentence needs this piece of my own",
+      "uncertain": false
+    },
+    {
+      "start": 180.48,
+      "end": 183.8,
+      "text": "The fuck note ate the chapter, the chapter ate the book",
+      "uncertain": true
+    },
+    {
+      "start": 183.8,
+      "end": 187.14,
+      "text": "I'm the golden fucking guru, come admire the luck",
+      "uncertain": false
+    },
+    {
+      "start": 187.14,
+      "end": 190.82,
+      "text": "Twelve rules, one golden clause",
+      "uncertain": false
+    },
+    {
+      "start": 190.82,
+      "end": 194.42,
+      "text": "I drink my own piss to thunderation balls",
+      "uncertain": true
+    },
+    {
+      "start": 194.42,
+      "end": 197.84,
+      "text": "Every little principle is built on this",
+      "uncertain": true
+    },
+    {
+      "start": 197.84,
+      "end": 201.34,
+      "text": "Tony's own religion is a mouthful of bliss",
+      "uncertain": true
+    },
+    {
+      "start": 201.34,
+      "end": 205.66,
+      "text": "Close the book, the golden seal is mine",
+      "uncertain": true
+    },
+    {
+      "start": 207.08,
+      "end": 209.42,
+      "text": "My own golden gospel",
+      "uncertain": false
+    },
+    {
+      "start": 209.42,
+      "end": 212.46,
+      "text": "And a piss-strung state of mine",
+      "uncertain": true
+    },
+    {
+      "start": 220.82,
+      "end": 222.96,
+      "text": "Oh, oh, oh.",
+      "uncertain": true
+    },
+    {
+      "start": 258.74,
+      "end": 261.54,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 301.02,
+      "end": 310.3,
+      "text": "I'll see you next time.",
+      "uncertain": true
+    },
+    {
+      "start": 324.1,
+      "end": 325.5,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

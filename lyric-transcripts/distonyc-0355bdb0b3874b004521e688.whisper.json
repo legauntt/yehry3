@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "songId": "distonyc-0355bdb0b3874b004521e688",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0355bdb0b3874b004521e688-9edc7b0d3b5c.mp3",
+  "audioSha256": "9edc7b0d3b5cc0625ecd5871f4a06b8cbea63aab22e5869476714e1f1a1a245b",
+  "inputSha256": "ceda9dc025c612c6e071b76735bd6b5f7df9d8212a060fe8bc5b7807fe33d165",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 290.0,
+  "segments": [
+    {
+      "start": 3.7,
+      "end": 7.86,
+      "text": "My torch flickers out inside the deep dark room",
+      "uncertain": true
+    },
+    {
+      "start": 7.86,
+      "end": 11.26,
+      "text": "I can't see where to step or how much to come",
+      "uncertain": true
+    },
+    {
+      "start": 11.26,
+      "end": 15.2,
+      "text": "Hunger is a beast that gnaws at my stomach walls",
+      "uncertain": false
+    },
+    {
+      "start": 15.2,
+      "end": 19.22,
+      "text": "While my strength drops and I lose all control over it all",
+      "uncertain": false
+    },
+    {
+      "start": 19.22,
+      "end": 21.8,
+      "text": "The party member next to me starts shaking",
+      "uncertain": false
+    },
+    {
+      "start": 21.8,
+      "end": 25.88,
+      "text": "His mind meter's dropping, his sanity's breaking fast",
+      "uncertain": false
+    },
+    {
+      "start": 25.88,
+      "end": 29.46,
+      "text": "But the darkness claims what we can't afford to save",
+      "uncertain": false
+    },
+    {
+      "start": 29.46,
+      "end": 59.44,
+      "text": "Leave another 9-11 on the screeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "uncertain": true
+    },
+    {
+      "start": 64.66,
+      "end": 68.22,
+      "text": "Now the phobias kick in as we walk through the night",
+      "uncertain": false
+    },
+    {
+      "start": 68.22,
+      "end": 72.3,
+      "text": "I fear that won't stop until the light fades out of sight",
+      "uncertain": true
+    },
+    {
+      "start": 72.3,
+      "end": 76.06,
+      "text": "My mind is eating away and my sanity need to fast",
+      "uncertain": true
+    },
+    {
+      "start": 76.06,
+      "end": 79.14,
+      "text": "Encountering horrors when I'm trying to be last",
+      "uncertain": false
+    },
+    {
+      "start": 79.14,
+      "end": 82.42,
+      "text": "The coin flipped its size, if you get loot or a trap",
+      "uncertain": false
+    },
+    {
+      "start": 82.42,
+      "end": 85.78,
+      "text": "One wall and you're safe, then you fall in a trap",
+      "uncertain": true
+    },
+    {
+      "start": 90.92,
+      "end": 93.46,
+      "text": "But eager with luck on your side",
+      "uncertain": true
+    },
+    {
+      "start": 93.46,
+      "end": 95.08,
+      "text": "It's hard to save the game",
+      "uncertain": false
+    },
+    {
+      "start": 95.08,
+      "end": 97.68,
+      "text": "Without a single save button inside",
+      "uncertain": false
+    },
+    {
+      "start": 102.22,
+      "end": 105.32,
+      "text": "Oh, 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 105.32,
+      "end": 107.6,
+      "text": "The game says I'm dead",
+      "uncertain": false
+    },
+    {
+      "start": 107.6,
+      "end": 111.1,
+      "text": "I lost my character in a digital bed",
+      "uncertain": false
+    },
+    {
+      "start": 111.1,
+      "end": 112.82,
+      "text": "The heart that slipped me",
+      "uncertain": true
+    },
+    {
+      "start": 112.82,
+      "end": 114.52,
+      "text": "Before I could breathe",
+      "uncertain": true
+    },
+    {
+      "start": 114.52,
+      "end": 117.72,
+      "text": "My limbs are gone and it's getting worse each week",
+      "uncertain": false
+    },
+    {
+      "start": 117.72,
+      "end": 119.66,
+      "text": "No, we spawn here",
+      "uncertain": true
+    },
+    {
+      "start": 119.66,
+      "end": 121.28,
+      "text": "When you're truly done",
+      "uncertain": true
+    },
+    {
+      "start": 121.28,
+      "end": 123.04,
+      "text": "Just a screen of black",
+      "uncertain": false
+    },
+    {
+      "start": 123.04,
+      "end": 125.6,
+      "text": "Where your soul has been",
+      "uncertain": false
+    },
+    {
+      "start": 130.64,
+      "end": 133.3,
+      "text": "You've got four limbs",
+      "uncertain": false
+    },
+    {
+      "start": 133.3,
+      "end": 137.96,
+      "text": "But they don't stay on long enough to fight",
+      "uncertain": false
+    },
+    {
+      "start": 137.96,
+      "end": 140.1,
+      "text": "Cause memberment take",
+      "uncertain": true
+    },
+    {
+      "start": 140.1,
+      "end": 144.34,
+      "text": "Takes away what makes you alive tonight",
+      "uncertain": false
+    },
+    {
+      "start": 144.34,
+      "end": 148.22,
+      "text": "I slept a cry for hope, blood and ran some loss",
+      "uncertain": true
+    },
+    {
+      "start": 148.22,
+      "end": 151.58,
+      "text": "Another 9-11 as I start to close my mouth",
+      "uncertain": false
+    },
+    {
+      "start": 151.58,
+      "end": 155.46,
+      "text": "Sanity is bleeding out in a pool of ink black mist",
+      "uncertain": false
+    },
+    {
+      "start": 155.46,
+      "end": 157.22,
+      "text": "The darkness is winning",
+      "uncertain": false
+    },
+    {
+      "start": 157.22,
+      "end": 160.82,
+      "text": "And there's no chance to change",
+      "uncertain": false
+    },
+    {
+      "start": 163.58,
+      "end": 166.76,
+      "text": "So I try again with a new plan",
+      "uncertain": false
+    },
+    {
+      "start": 166.76,
+      "end": 168.46,
+      "text": "A fresh year, fresh hope",
+      "uncertain": true
+    },
+    {
+      "start": 168.46,
+      "end": 171.58,
+      "text": "But the hunger keeps coming even when I'm not alone",
+      "uncertain": false
+    },
+    {
+      "start": 171.58,
+      "end": 175.64,
+      "text": "For the phobia strikes me down without wanting a grace",
+      "uncertain": true
+    },
+    {
+      "start": 175.64,
+      "end": 179.0,
+      "text": "And 9-11 is the only thing I get in the place",
+      "uncertain": true
+    },
+    {
+      "start": 179.0,
+      "end": 182.44,
+      "text": "I'll keep playing till my sanity breaks and dies",
+      "uncertain": true
+    },
+    {
+      "start": 182.44,
+      "end": 186.12,
+      "text": "Until the game says you're done with your eyes",
+      "uncertain": false
+    },
+    {
+      "start": 191.12,
+      "end": 196.0,
+      "text": "One last try, one final breath",
+      "uncertain": false
+    },
+    {
+      "start": 197.36,
+      "end": 203.0,
+      "text": "No, there's nothing left to save from death",
+      "uncertain": false
+    },
+    {
+      "start": 212.3,
+      "end": 217.78,
+      "text": "Oh, 9, oh, 9, 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 217.78,
+      "end": 221.94,
+      "text": "Another death without a trace",
+      "uncertain": false
+    },
+    {
+      "start": 221.94,
+      "end": 232.66,
+      "text": "It's just another 9-0 living on the screen, and I'll never get to see it again.",
+      "uncertain": true
+    },
+    {
+      "start": 262.66,
+      "end": 281.52,
+      "text": "Oh, oh, oh, oh.",
+      "uncertain": true
+    },
+    {
+      "start": 288.58,
+      "end": 289.98,
+      "text": "I'm",
+      "uncertain": true
+    }
+  ]
+}

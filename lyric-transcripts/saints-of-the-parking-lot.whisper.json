@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "songId": "saints-of-the-parking-lot",
+  "audioUrl": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/saints-of-the-parking-lot.mp3",
+  "audioSha256": "047577aaff974f4772ef726da8a7efe6391c38ec479ef6b3954dc8a2fd22fbcc",
+  "inputSha256": "399e22b5bf8aa653613a413c01e599a9b6e2a643ccac29aeb637be2c38888f2f",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 143.44,
+  "segments": [
+    {
+      "start": 8.62,
+      "end": 10.66,
+      "text": "Eddie brought a chair",
+      "uncertain": false
+    },
+    {
+      "start": 10.66,
+      "end": 12.24,
+      "text": "with a bus delay",
+      "uncertain": true
+    },
+    {
+      "start": 12.24,
+      "end": 14.94,
+      "text": "Lou brought a cooler",
+      "uncertain": true
+    },
+    {
+      "start": 14.94,
+      "end": 16.62,
+      "text": "and half a K",
+      "uncertain": false
+    },
+    {
+      "start": 17.78,
+      "end": 19.32,
+      "text": "Somebody's radio",
+      "uncertain": false
+    },
+    {
+      "start": 19.32,
+      "end": 21.04,
+      "text": "lost them news",
+      "uncertain": false
+    },
+    {
+      "start": 21.04,
+      "end": 23.5,
+      "text": "We got three good chords",
+      "uncertain": false
+    },
+    {
+      "start": 23.5,
+      "end": 25.42,
+      "text": "and nothing to lose",
+      "uncertain": false
+    },
+    {
+      "start": 25.42,
+      "end": 27.62,
+      "text": "Landmark says",
+      "uncertain": false
+    },
+    {
+      "start": 27.62,
+      "end": 29.34,
+      "text": "that we can't stay",
+      "uncertain": false
+    },
+    {
+      "start": 30.28,
+      "end": 33.32,
+      "text": "He's been saying that since yesterday",
+      "uncertain": false
+    },
+    {
+      "start": 33.32,
+      "end": 36.72,
+      "text": "We're the saints of the parking lot",
+      "uncertain": false
+    },
+    {
+      "start": 38.3,
+      "end": 41.12,
+      "text": "Giving what the good Lord forgot",
+      "uncertain": true
+    },
+    {
+      "start": 42.48,
+      "end": 46.24,
+      "text": "Pass that hat, let the kettle get hot",
+      "uncertain": false
+    },
+    {
+      "start": 46.24,
+      "end": 50.58,
+      "text": "Save me your place in the parking lot",
+      "uncertain": false
+    },
+    {
+      "start": 54.28,
+      "end": 57.86,
+      "text": "June's got a laugh at a startup fight",
+      "uncertain": false
+    },
+    {
+      "start": 57.86,
+      "end": 62.06,
+      "text": "Then she'll fix your truck by the dashboard like",
+      "uncertain": false
+    },
+    {
+      "start": 62.06,
+      "end": 66.44,
+      "text": "I wore a tie to a job down on town",
+      "uncertain": false
+    },
+    {
+      "start": 66.44,
+      "end": 70.48,
+      "text": "They took one look, sent the whole thing round",
+      "uncertain": false
+    },
+    {
+      "start": 70.48,
+      "end": 74.58,
+      "text": "Came back hungry, found a paper plate",
+      "uncertain": false
+    },
+    {
+      "start": 74.58,
+      "end": 78.82,
+      "text": "Somebody said, you're just in time, you're late",
+      "uncertain": false
+    },
+    {
+      "start": 78.82,
+      "end": 81.94,
+      "text": "We're the settings of a parking lot",
+      "uncertain": true
+    },
+    {
+      "start": 83.58,
+      "end": 86.3,
+      "text": "Given what the good Lord forgot",
+      "uncertain": false
+    },
+    {
+      "start": 87.48,
+      "end": 91.42,
+      "text": "Pass that hat, let the kettle get hot",
+      "uncertain": true
+    },
+    {
+      "start": 91.42,
+      "end": 95.64,
+      "text": "Save me your place in the parking lot",
+      "uncertain": true
+    },
+    {
+      "start": 98.26,
+      "end": 102.98,
+      "text": "No gold roof, add no velvet rope",
+      "uncertain": false
+    },
+    {
+      "start": 102.98,
+      "end": 107.24,
+      "text": "Just a big coat hanger holding up hope",
+      "uncertain": true
+    },
+    {
+      "start": 107.24,
+      "end": 111.4,
+      "text": "One low down while the engine cools",
+      "uncertain": false
+    },
+    {
+      "start": 111.4,
+      "end": 115.58,
+      "text": "We make room, that's the whole damn rule",
+      "uncertain": false
+    },
+    {
+      "start": 115.58,
+      "end": 118.72,
+      "text": "We're the saints of the parking lot",
+      "uncertain": false
+    },
+    {
+      "start": 118.72,
+      "end": 122.9,
+      "text": "Look them's teeth when it's all you've got",
+      "uncertain": true
+    },
+    {
+      "start": 124.42,
+      "end": 128.1,
+      "text": "Pass that hat, let the kettle get hot",
+      "uncertain": false
+    },
+    {
+      "start": 128.1,
+      "end": 132.26,
+      "text": "Save me a place in the parking lot",
+      "uncertain": false
+    },
+    {
+      "start": 132.26,
+      "end": 135.42,
+      "text": "Pull up a chair, whatever you've got",
+      "uncertain": false
+    },
+    {
+      "start": 135.42,
+      "end": 138.64,
+      "text": "This room for you in the parking lot",
+      "uncertain": false
+    }
+  ]
+}

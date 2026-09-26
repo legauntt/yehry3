@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "songId": "distonyc-cb0b9499cf826af6721055d8",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cb0b9499cf826af6721055d8-66f19fd42d93.mp3",
+  "audioSha256": "66f19fd42d93bf4474355a45c3bae5bfefd2fccf9ac53129092be6eb086a418c",
+  "inputSha256": "66f19fd42d93bf4474355a45c3bae5bfefd2fccf9ac53129092be6eb086a418c",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 211.9,
+  "segments": [
+    {
+      "start": 2.76,
+      "end": 6.06,
+      "text": "Roll up your canvas, tighten the wire",
+      "uncertain": true
+    },
+    {
+      "start": 6.06,
+      "end": 9.34,
+      "text": "Tony's in the ring with a mouth full of fire",
+      "uncertain": false
+    },
+    {
+      "start": 9.34,
+      "end": 12.56,
+      "text": "Brass in the alley, drum at the gate",
+      "uncertain": false
+    },
+    {
+      "start": 12.56,
+      "end": 15.76,
+      "text": "Fat Cat Parade has arrived too late",
+      "uncertain": true
+    },
+    {
+      "start": 17.64,
+      "end": 20.66,
+      "text": "They came in silk with a contract grin",
+      "uncertain": false
+    },
+    {
+      "start": 20.66,
+      "end": 23.96,
+      "text": "Selling us the locks, then charging to get in",
+      "uncertain": false
+    },
+    {
+      "start": 23.96,
+      "end": 27.24,
+      "text": "They wait every lap, put a tax on the rain",
+      "uncertain": true
+    },
+    {
+      "start": 27.24,
+      "end": 30.52,
+      "text": "Snap that little logo on the side of my brain",
+      "uncertain": true
+    },
+    {
+      "start": 30.52,
+      "end": 33.5,
+      "text": "But this crooked nation has a pulse below",
+      "uncertain": true
+    },
+    {
+      "start": 33.5,
+      "end": 37.0,
+      "text": "Where the battered horns and the wild hogs go",
+      "uncertain": false
+    },
+    {
+      "start": 37.0,
+      "end": 40.28,
+      "text": "I kissed the dust, heard the kettle drum call",
+      "uncertain": false
+    },
+    {
+      "start": 40.28,
+      "end": 43.44,
+      "text": "Tonight we raise the tent or we bury it all",
+      "uncertain": true
+    },
+    {
+      "start": 43.44,
+      "end": 46.98,
+      "text": "Round goes the wheel but the axle is ours",
+      "uncertain": false
+    },
+    {
+      "start": 46.98,
+      "end": 50.18,
+      "text": "Light every lantern on the carnival tires",
+      "uncertain": false
+    },
+    {
+      "start": 51.78,
+      "end": 55.04,
+      "text": "G.F.G. on, here's a battle cry",
+      "uncertain": true
+    },
+    {
+      "start": 55.04,
+      "end": 57.8,
+      "text": "Break the golden cages and defeat our dogs",
+      "uncertain": true
+    },
+    {
+      "start": 57.8,
+      "end": 61.54,
+      "text": "Flying for the only nation of the hungry and ignored",
+      "uncertain": true
+    },
+    {
+      "start": 61.54,
+      "end": 64.92,
+      "text": "We marched with a bass drum, a bell, and a sword",
+      "uncertain": false
+    },
+    {
+      "start": 64.92,
+      "end": 68.06,
+      "text": "She had a gee-all at the crooked last war",
+      "uncertain": true
+    },
+    {
+      "start": 68.06,
+      "end": 71.44,
+      "text": "No king owns the midway, no banker owns the door",
+      "uncertain": false
+    },
+    {
+      "start": 76.02,
+      "end": 79.5,
+      "text": "The minister troubles three counterfeit lords",
+      "uncertain": true
+    },
+    {
+      "start": 79.5,
+      "end": 82.68,
+      "text": "While the chairman applauds with mechanical claws",
+      "uncertain": false
+    },
+    {
+      "start": 82.68,
+      "end": 85.98,
+      "text": "They auction the moon, buy the sliver and slice",
+      "uncertain": false
+    },
+    {
+      "start": 85.98,
+      "end": 89.34,
+      "text": "Then sell back the darkness at a holiday price",
+      "uncertain": true
+    },
+    {
+      "start": 89.34,
+      "end": 92.44,
+      "text": "Tony laughs low, whacks the smoke from his chin",
+      "uncertain": false
+    },
+    {
+      "start": 92.44,
+      "end": 95.76,
+      "text": "Says you bought the whole game, but you still cannot win",
+      "uncertain": false
+    },
+    {
+      "start": 95.76,
+      "end": 99.0,
+      "text": "The acrobats tumble, the painted cards sway",
+      "uncertain": false
+    },
+    {
+      "start": 99.0,
+      "end": 102.38,
+      "text": "And the workers turn the spotlights the opposite way",
+      "uncertain": false
+    },
+    {
+      "start": 102.38,
+      "end": 105.56,
+      "text": "Around goes the wheel, hear the old engine cough",
+      "uncertain": false
+    },
+    {
+      "start": 105.56,
+      "end": 110.18,
+      "text": "When the smallest hand pulls, the whole crown falls on",
+      "uncertain": false
+    },
+    {
+      "start": 110.18,
+      "end": 113.78,
+      "text": "G-Han, G-Han, hear the battle cry",
+      "uncertain": true
+    },
+    {
+      "start": 113.78,
+      "end": 116.66,
+      "text": "Break the golden cages and the pit-dog-dogs",
+      "uncertain": true
+    },
+    {
+      "start": 116.66,
+      "end": 120.3,
+      "text": "Lyin' for the holy nation of the hungry and ignored",
+      "uncertain": false
+    },
+    {
+      "start": 120.3,
+      "end": 123.66,
+      "text": "We march with the bass drum, a bell and a sword",
+      "uncertain": true
+    },
+    {
+      "start": 123.66,
+      "end": 126.86,
+      "text": "G-Han, G-Han, the crooked brass lord",
+      "uncertain": false
+    },
+    {
+      "start": 126.86,
+      "end": 130.22,
+      "text": "No key notes, no midway, no banker on the door",
+      "uncertain": true
+    },
+    {
+      "start": 135.14,
+      "end": 138.34,
+      "text": "Half-time now, Kalia B wheezes",
+      "uncertain": true
+    },
+    {
+      "start": 138.34,
+      "end": 141.6,
+      "text": "Tony bends the notes till the brass section sneezes",
+      "uncertain": false
+    },
+    {
+      "start": 141.6,
+      "end": 144.74,
+      "text": "No blood for the lynch and no graves for the throne",
+      "uncertain": false
+    },
+    {
+      "start": 144.74,
+      "end": 148.12,
+      "text": "We conquer their circus by making it our own",
+      "uncertain": true
+    },
+    {
+      "start": 148.12,
+      "end": 151.34,
+      "text": "Rip up the price tags, unlock every stall",
+      "uncertain": false
+    },
+    {
+      "start": 151.34,
+      "end": 154.86,
+      "text": "Bread on the tables and music for all",
+      "uncertain": false
+    },
+    {
+      "start": 170.86,
+      "end": 174.22,
+      "text": "G-Han, G-Han, hear the babble cry",
+      "uncertain": true
+    },
+    {
+      "start": 174.22,
+      "end": 177.04,
+      "text": "Break the golden cages and the picked up dogs",
+      "uncertain": true
+    },
+    {
+      "start": 177.04,
+      "end": 180.74,
+      "text": "Flying for the holy nation with its boots in the mud",
+      "uncertain": true
+    },
+    {
+      "start": 180.74,
+      "end": 184.18,
+      "text": "Our weapon is the rhythm, our banner is blood red",
+      "uncertain": false
+    },
+    {
+      "start": 184.18,
+      "end": 187.3,
+      "text": "G-Han, G-Han, how the crooked crowd is gone",
+      "uncertain": true
+    },
+    {
+      "start": 187.3,
+      "end": 190.62,
+      "text": "The midway belongs to everyone to die",
+      "uncertain": true
+    },
+    {
+      "start": 195.06,
+      "end": 198.68,
+      "text": "The sword was tinted, the tyrants fled the floor",
+      "uncertain": false
+    },
+    {
+      "start": 198.68,
+      "end": 201.88,
+      "text": "Tony locked the ledger and opened every door",
+      "uncertain": false
+    },
+    {
+      "start": 201.88,
+      "end": 205.18,
+      "text": "One last bent cord as the new flags climbed",
+      "uncertain": true
+    },
+    {
+      "start": 205.18,
+      "end": 208.6,
+      "text": "The holy big talk keeps its own damn time",
+      "uncertain": false
+    }
+  ]
+}

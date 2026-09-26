@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "songId": "distonyc-0ae8590fc3333c4674a52077",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0ae8590fc3333c4674a52077-079d2f749da1.mp3",
+  "audioSha256": "079d2f749da167d2e44cf9048b437b7045e12ece8a1e04d79eae9a9ba372ba53",
+  "inputSha256": "33bb31bcbe59c9b508102aa863f4b48cb72722b6f49a18c74322a6657a030f1e",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 220.081625,
+  "segments": [
+    {
+      "start": 7.64,
+      "end": 11.06,
+      "text": "Tony hit the pavement with the sun half asleep",
+      "uncertain": true
+    },
+    {
+      "start": 11.06,
+      "end": 15.08,
+      "text": "One hand on the wheel, one hand keeping time",
+      "uncertain": true
+    },
+    {
+      "start": 15.08,
+      "end": 18.92,
+      "text": "He said, no man can tell me where the good nights keep",
+      "uncertain": true
+    },
+    {
+      "start": 18.92,
+      "end": 22.92,
+      "text": "Then laughed at the traffic and crossed every line",
+      "uncertain": false
+    },
+    {
+      "start": 22.92,
+      "end": 26.74,
+      "text": "His jacket caught rain from a passing cloud",
+      "uncertain": false
+    },
+    {
+      "start": 26.74,
+      "end": 36.56,
+      "text": "his heart made a racket his radio loud at the corner store with a soda and a grin",
+      "uncertain": true
+    },
+    {
+      "start": 37.7,
+      "end": 49.22,
+      "text": "he said trouble ain't a place it's the way i get in wild and free wild and free a little bit nasty",
+      "uncertain": true
+    },
+    {
+      "start": 49.22,
+      "end": 59.76,
+      "text": "that's tony c no fence can hold him no lock has a key wild and free wild and free you'll dance",
+      "uncertain": false
+    },
+    {
+      "start": 59.76,
+      "end": 68.54,
+      "text": "through the daylight how that would seem a little bit nasty wild and free his wife saw the headlight",
+      "uncertain": true
+    },
+    {
+      "start": 68.54,
+      "end": 77.16,
+      "text": "sweep across the wall she folded her arms by the kitchen light she said she had heard just about",
+      "uncertain": false
+    },
+    {
+      "start": 77.16,
+      "end": 90.08,
+      "text": "it all and tonight was the night for a reckoning fight now tony i am very irate i don't know what",
+      "uncertain": true
+    },
+    {
+      "start": 90.08,
+      "end": 96.3,
+      "text": "the fuck you were thinking the other night it was natalie but jesus christ i don't know what",
+      "uncertain": false
+    },
+    {
+      "start": 96.3,
+      "end": 97.34,
+      "text": "the fuck you were thinking",
+      "uncertain": false
+    },
+    {
+      "start": 106.54,
+      "end": 114.54,
+      "text": "tony went quiet for a second or two then the old porch swing gave a tired little squeak he said",
+      "uncertain": false
+    },
+    {
+      "start": 114.54,
+      "end": 121.52,
+      "text": "honey i'm sorry for the mess i put you through but the wind starts talking and it makes me weak",
+      "uncertain": false
+    },
+    {
+      "start": 121.52,
+      "end": 129.22,
+      "text": "she pointed right down at the garden below your excuses grow faster than tomatoes grow",
+      "uncertain": true
+    },
+    {
+      "start": 129.22,
+      "end": 140.02,
+      "text": "wild and free wild and free a little bit nasty that's tony's seat no fems can hold him no lock",
+      "uncertain": false
+    },
+    {
+      "start": 140.02,
+      "end": 148.54,
+      "text": "has the key wild and free wild and free he'll dance through the daylight howl at the sea",
+      "uncertain": false
+    },
+    {
+      "start": 148.54,
+      "end": 152.54,
+      "text": "A little bit nasty, wild and free",
+      "uncertain": false
+    },
+    {
+      "start": 152.54,
+      "end": 156.34,
+      "text": "Sitting by the foe, watching shadows bend",
+      "uncertain": false
+    },
+    {
+      "start": 156.34,
+      "end": 160.26,
+      "text": "Sitting by the foe, waiting for the weekend",
+      "uncertain": false
+    },
+    {
+      "start": 160.26,
+      "end": 164.44,
+      "text": "Sitting by the foe, he made a promise in the dark",
+      "uncertain": false
+    },
+    {
+      "start": 164.44,
+      "end": 168.48,
+      "text": "I'll come home for supper, but I'm chasing one more spark",
+      "uncertain": false
+    },
+    {
+      "start": 168.48,
+      "end": 171.9,
+      "text": "She shook her head, then she started to smile",
+      "uncertain": false
+    },
+    {
+      "start": 171.9,
+      "end": 176.12,
+      "text": "Go on, you impossible man, just don't be gone",
+      "uncertain": false
+    },
+    {
+      "start": 176.12,
+      "end": 189.56,
+      "text": "wild and free wild and free still a little nasty that's tony c he kissed her hand and he turned",
+      "uncertain": true
+    },
+    {
+      "start": 189.56,
+      "end": 198.02,
+      "text": "toward the street with a sweet bad rhythm underneath his feet wild and free wild and free",
+      "uncertain": false
+    },
+    {
+      "start": 198.02,
+      "end": 201.54,
+      "text": "The night swung open like a balcony",
+      "uncertain": true
+    },
+    {
+      "start": 201.54,
+      "end": 205.04,
+      "text": "You call back love, I'll be back",
+      "uncertain": false
+    },
+    {
+      "start": 205.04,
+      "end": 206.62,
+      "text": "When the morning agrees",
+      "uncertain": false
+    },
+    {
+      "start": 206.62,
+      "end": 209.58,
+      "text": "Then held free into the walnut breeze",
+      "uncertain": false
+    }
+  ]
+}

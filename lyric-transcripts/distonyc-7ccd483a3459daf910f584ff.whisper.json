@@ -1,0 +1,421 @@
+{
+  "version": 1,
+  "songId": "distonyc-7ccd483a3459daf910f584ff",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7ccd483a3459daf910f584ff-837c791aeb31.mp3",
+  "audioSha256": "837c791aeb31361da2ef8ea0d60890fe8cab1d73709fb37800197d4685303b58",
+  "inputSha256": "6ee9d4d496ef183f42ce0cc30f48be6034d04e7629018d4d72104dc975759fd2",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 250.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.34,
+      "text": "Sirens in the distance, red sun through the dust.",
+      "uncertain": false
+    },
+    {
+      "start": 4.86,
+      "end": 10.24,
+      "text": "One hundred crooked voices say, run because we must.",
+      "uncertain": false
+    },
+    {
+      "start": 15.74,
+      "end": 19.84,
+      "text": "I woke beneath the paper sky, a briefcase in my hand.",
+      "uncertain": false
+    },
+    {
+      "start": 20.08,
+      "end": 23.34,
+      "text": "The avenue was tipping like a ship that lost the land.",
+      "uncertain": false
+    },
+    {
+      "start": 23.52,
+      "end": 26.64,
+      "text": "We cleared the first collapsing cloud, we counted every friend.",
+      "uncertain": false
+    },
+    {
+      "start": 26.64,
+      "end": 28.86,
+      "text": "Then someone pointed down the road",
+      "uncertain": false
+    },
+    {
+      "start": 28.86,
+      "end": 30.34,
+      "text": "The morning came again",
+      "uncertain": true
+    },
+    {
+      "start": 30.34,
+      "end": 33.4,
+      "text": "Another flash, another roar, another skyline",
+      "uncertain": false
+    },
+    {
+      "start": 33.4,
+      "end": 35.78,
+      "text": "Torn, we ran into a second day",
+      "uncertain": true
+    },
+    {
+      "start": 35.78,
+      "end": 37.26,
+      "text": "Before the first grip morn",
+      "uncertain": true
+    },
+    {
+      "start": 37.26,
+      "end": 39.32,
+      "text": "A hundred Tonys filled the street",
+      "uncertain": false
+    },
+    {
+      "start": 39.32,
+      "end": 40.6,
+      "text": "All coughing out the same",
+      "uncertain": false
+    },
+    {
+      "start": 40.6,
+      "end": 42.82,
+      "text": "Now many times can history strike",
+      "uncertain": false
+    },
+    {
+      "start": 42.82,
+      "end": 44.3,
+      "text": "And still retain its name",
+      "uncertain": false
+    },
+    {
+      "start": 44.3,
+      "end": 45.94,
+      "text": "Heal against the pavement",
+      "uncertain": false
+    },
+    {
+      "start": 45.94,
+      "end": 47.7,
+      "text": "Smoke inside the sun",
+      "uncertain": false
+    },
+    {
+      "start": 47.7,
+      "end": 49.7,
+      "text": "Every time we find a door",
+      "uncertain": false
+    },
+    {
+      "start": 49.7,
+      "end": 51.02,
+      "text": "Here comes any other one",
+      "uncertain": true
+    },
+    {
+      "start": 52.76,
+      "end": 55.52,
+      "text": "The morning would not end",
+      "uncertain": false
+    },
+    {
+      "start": 55.52,
+      "end": 59.28,
+      "text": "It kept falling down behind us",
+      "uncertain": false
+    },
+    {
+      "start": 59.28,
+      "end": 62.42,
+      "text": "9-11 after 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 62.42,
+      "end": 66.24,
+      "text": "Every tower trying to find us",
+      "uncertain": false
+    },
+    {
+      "start": 66.24,
+      "end": 69.26,
+      "text": "Hold my sleeve, remember my name",
+      "uncertain": false
+    },
+    {
+      "start": 69.26,
+      "end": 72.62,
+      "text": "If the dust turns noon tonight",
+      "uncertain": false
+    },
+    {
+      "start": 72.62,
+      "end": 76.42,
+      "text": "A hundred voices, one crack warning",
+      "uncertain": false
+    },
+    {
+      "start": 76.42,
+      "end": 79.84,
+      "text": "Keep your people in your sight",
+      "uncertain": false
+    },
+    {
+      "start": 84.08,
+      "end": 87.8,
+      "text": "we crossed the bridge of ringing phones that screams alive with ghosts",
+      "uncertain": true
+    },
+    {
+      "start": 87.8,
+      "end": 91.14,
+      "text": "best taxis bet like frightened teeth and diners burning toast",
+      "uncertain": true
+    },
+    {
+      "start": 91.14,
+      "end": 94.58,
+      "text": "the third one broke the river's back the fourth one shook the train",
+      "uncertain": false
+    },
+    {
+      "start": 94.58,
+      "end": 98.14,
+      "text": "the fifth arrived before our lungs could learn to bleed again",
+      "uncertain": false
+    },
+    {
+      "start": 98.14,
+      "end": 101.54,
+      "text": "some tony laughed from pure despair one cursed a fallen stone",
+      "uncertain": false
+    },
+    {
+      "start": 101.54,
+      "end": 104.9,
+      "text": "one carried someone else's shoes one would not run alone",
+      "uncertain": false
+    },
+    {
+      "start": 104.9,
+      "end": 109.12,
+      "text": "we formed a ragged moving wall no hero at the head just still goes",
+      "uncertain": false
+    },
+    {
+      "start": 109.12,
+      "end": 115.2,
+      "text": "coats and open hands pulling the living from the tread keel against the pavement ash against the",
+      "uncertain": true
+    },
+    {
+      "start": 115.2,
+      "end": 125.94,
+      "text": "tower every time the sirens fade another has begun the morning would not end it kept falling down",
+      "uncertain": true
+    },
+    {
+      "start": 125.94,
+      "end": 138.42,
+      "text": "behind us 9 11 after 9 11 every tower trying to find us hold my sleeve remember my name if the",
+      "uncertain": false
+    },
+    {
+      "start": 138.42,
+      "end": 140.5,
+      "text": "Dust turns noon tonight.",
+      "uncertain": true
+    },
+    {
+      "start": 140.72,
+      "end": 144.28,
+      "text": "A hundred voices, one crack warning.",
+      "uncertain": false
+    },
+    {
+      "start": 144.54,
+      "end": 147.76,
+      "text": "Keep your people in your sight.",
+      "uncertain": false
+    },
+    {
+      "start": 152.1,
+      "end": 153.72,
+      "text": "Number 60 on the tunnel.",
+      "uncertain": false
+    },
+    {
+      "start": 153.98,
+      "end": 155.12,
+      "text": "Number 7 overhead.",
+      "uncertain": false
+    },
+    {
+      "start": 155.4,
+      "end": 157.14,
+      "text": "8 came rolling through the harbor.",
+      "uncertain": false
+    },
+    {
+      "start": 157.38,
+      "end": 158.92,
+      "text": "9 turned every window red.",
+      "uncertain": false
+    },
+    {
+      "start": 159.1,
+      "end": 160.66,
+      "text": "Then the hundred stopped together.",
+      "uncertain": true
+    },
+    {
+      "start": 160.84,
+      "end": 162.5,
+      "text": "Not for courage, not for pride.",
+      "uncertain": false
+    },
+    {
+      "start": 162.58,
+      "end": 164.16,
+      "text": "There was nowhere left with running.",
+      "uncertain": false
+    },
+    {
+      "start": 164.32,
+      "end": 165.84,
+      "text": "If we left our own behind.",
+      "uncertain": false
+    },
+    {
+      "start": 165.84,
+      "end": 167.62,
+      "text": "So we faced the endless thunder.",
+      "uncertain": false
+    },
+    {
+      "start": 167.62,
+      "end": 169.32,
+      "text": "I linked our arms across the street",
+      "uncertain": false
+    },
+    {
+      "start": 169.32,
+      "end": 171.1,
+      "text": "One low note became a hundred",
+      "uncertain": true
+    },
+    {
+      "start": 171.1,
+      "end": 173.2,
+      "text": "Shipped the rubble at our feet",
+      "uncertain": false
+    },
+    {
+      "start": 175.98,
+      "end": 179.02,
+      "text": "The morning has to end",
+      "uncertain": false
+    },
+    {
+      "start": 179.02,
+      "end": 182.76,
+      "text": "Though it's falling down around us",
+      "uncertain": false
+    },
+    {
+      "start": 182.76,
+      "end": 185.92,
+      "text": "Nine eleven after nine eleven",
+      "uncertain": false
+    },
+    {
+      "start": 185.92,
+      "end": 189.66,
+      "text": "Cannot take the hands that found us",
+      "uncertain": false
+    },
+    {
+      "start": 189.66,
+      "end": 192.8,
+      "text": "Hold my sleeve, remember my name",
+      "uncertain": false
+    },
+    {
+      "start": 192.8,
+      "end": 196.22,
+      "text": "Bring the missing toward the light",
+      "uncertain": false
+    },
+    {
+      "start": 196.22,
+      "end": 199.88,
+      "text": "A hundred voices bruised by breathing",
+      "uncertain": false
+    },
+    {
+      "start": 199.88,
+      "end": 203.54,
+      "text": "Keep your people in your sight",
+      "uncertain": true
+    },
+    {
+      "start": 205.34,
+      "end": 208.58,
+      "text": "The learning has to end",
+      "uncertain": true
+    },
+    {
+      "start": 208.58,
+      "end": 212.3,
+      "text": "Let the final siren leave us",
+      "uncertain": false
+    },
+    {
+      "start": 212.3,
+      "end": 215.58,
+      "text": "No more numbers, no more towers",
+      "uncertain": false
+    },
+    {
+      "start": 215.58,
+      "end": 219.24,
+      "text": "No more smoke that tries to keep us",
+      "uncertain": false
+    },
+    {
+      "start": 219.24,
+      "end": 222.38,
+      "text": "Through the dust we carry daylight",
+      "uncertain": false
+    },
+    {
+      "start": 222.38,
+      "end": 225.78,
+      "text": "Through the noise we carry friends",
+      "uncertain": false
+    },
+    {
+      "start": 225.78,
+      "end": 229.52,
+      "text": "A hundred Tonys, sing one Thomas",
+      "uncertain": true
+    },
+    {
+      "start": 229.52,
+      "end": 233.3,
+      "text": "This is where the morning ends",
+      "uncertain": false
+    },
+    {
+      "start": 233.9,
+      "end": 237.46,
+      "text": "The morning ends",
+      "uncertain": false
+    }
+  ]
+}

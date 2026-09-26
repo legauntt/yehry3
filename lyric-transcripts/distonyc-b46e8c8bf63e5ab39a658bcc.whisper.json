@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "songId": "distonyc-b46e8c8bf63e5ab39a658bcc",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b46e8c8bf63e5ab39a658bcc-3252a6419868.mp3",
+  "audioSha256": "3252a6419868dcc32842ac06be88dcfa10824905993119b4cdb3fd60c2f416fd",
+  "inputSha256": "0cf990f06df5824b1b00dfdeaee918672edd949e01bb161077e618966f600f49",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 239.9869375,
+  "segments": [
+    {
+      "start": 8.44,
+      "end": 11.96,
+      "text": "Sirens paint the avenue in ribbons red and blue",
+      "uncertain": true
+    },
+    {
+      "start": 11.96,
+      "end": 16.08,
+      "text": "Tony sees steps from the smoke like he has work to do",
+      "uncertain": true
+    },
+    {
+      "start": 16.08,
+      "end": 20.28,
+      "text": "A jeweler's window shivers, tires scream around the bend",
+      "uncertain": false
+    },
+    {
+      "start": 20.28,
+      "end": 24.22,
+      "text": "He tips his hat to trouble like an old unwanted friend",
+      "uncertain": false
+    },
+    {
+      "start": 24.22,
+      "end": 28.3,
+      "text": "The night clerk points eastward, Tony catches every word",
+      "uncertain": false
+    },
+    {
+      "start": 28.3,
+      "end": 30.52,
+      "text": "Then the bass line starts prowling",
+      "uncertain": false
+    },
+    {
+      "start": 30.52,
+      "end": 32.24,
+      "text": "And the whole block gets stirred",
+      "uncertain": true
+    },
+    {
+      "start": 32.24,
+      "end": 34.5,
+      "text": "He jumps the hood, clears the alley",
+      "uncertain": false
+    },
+    {
+      "start": 34.5,
+      "end": 36.42,
+      "text": "Sends the getaway all right",
+      "uncertain": true
+    },
+    {
+      "start": 36.42,
+      "end": 38.66,
+      "text": "Leaves the thieves tied to a lamppost",
+      "uncertain": false
+    },
+    {
+      "start": 38.66,
+      "end": 40.26,
+      "text": "With a clean-cut alibi",
+      "uncertain": false
+    },
+    {
+      "start": 42.56,
+      "end": 44.7,
+      "text": "The city keeps its secrets",
+      "uncertain": false
+    },
+    {
+      "start": 44.7,
+      "end": 46.76,
+      "text": "Under me for neon moon",
+      "uncertain": false
+    },
+    {
+      "start": 46.76,
+      "end": 48.76,
+      "text": "But every lock starts talking",
+      "uncertain": false
+    },
+    {
+      "start": 48.76,
+      "end": 51.52,
+      "text": "When Tony hums the tune",
+      "uncertain": false
+    },
+    {
+      "start": 54.2,
+      "end": 55.94,
+      "text": "Tony owns the midnight",
+      "uncertain": false
+    },
+    {
+      "start": 55.94,
+      "end": 57.74,
+      "text": "From the gutter to the start",
+      "uncertain": false
+    },
+    {
+      "start": 57.74,
+      "end": 65.54,
+      "text": "breaking up the bad deals shutting down the getaway cars when the morning finds the skylight and the",
+      "uncertain": true
+    },
+    {
+      "start": 65.54,
+      "end": 73.16,
+      "text": "danger disappears he's between satin sheets with hot babes whispering in his ears",
+      "uncertain": false
+    },
+    {
+      "start": 75.22,
+      "end": 82.14,
+      "text": "down at club calypso someone bombs a loaded case a trumpet throws a warning while a spotlight",
+      "uncertain": false
+    },
+    {
+      "start": 82.14,
+      "end": 88.26,
+      "text": "life finds his face. Tony slides behind the piano, lets the kingpin make his boast. Then he spills",
+      "uncertain": true
+    },
+    {
+      "start": 88.26,
+      "end": 94.48,
+      "text": "the whole confession with a toast against the toast. Tables turn, the drummer snaps, the dancers",
+      "uncertain": false
+    },
+    {
+      "start": 94.48,
+      "end": 100.66,
+      "text": "clear the floor. Tony sends two hired bruisers through the kitchen swinging door. The queen of",
+      "uncertain": false
+    },
+    {
+      "start": 100.66,
+      "end": 107.14,
+      "text": "downtown diamond says you clean up rather well. He laughs beneath his breath and rings the busted fire",
+      "uncertain": true
+    },
+    {
+      "start": 113.56,
+      "end": 115.8,
+      "text": "The city keeps on dancing",
+      "uncertain": true
+    },
+    {
+      "start": 115.8,
+      "end": 117.96,
+      "text": "Though its pulse is running wild",
+      "uncertain": true
+    },
+    {
+      "start": 117.96,
+      "end": 120.14,
+      "text": "Tony makes the hard nights",
+      "uncertain": false
+    },
+    {
+      "start": 120.14,
+      "end": 122.2,
+      "text": "Look dangerous and stye",
+      "uncertain": true
+    },
+    {
+      "start": 125.04,
+      "end": 127.06,
+      "text": "Tony owns the midnight",
+      "uncertain": false
+    },
+    {
+      "start": 127.06,
+      "end": 129.08,
+      "text": "From the gutter to the stars",
+      "uncertain": false
+    },
+    {
+      "start": 129.08,
+      "end": 131.6,
+      "text": "Breaking up the bad deals",
+      "uncertain": false
+    },
+    {
+      "start": 131.6,
+      "end": 133.9,
+      "text": "Shutting down the getaway cars",
+      "uncertain": false
+    },
+    {
+      "start": 133.9,
+      "end": 136.4,
+      "text": "When the morning falls the skyline",
+      "uncertain": true
+    },
+    {
+      "start": 136.4,
+      "end": 138.0,
+      "text": "And the danger disappears",
+      "uncertain": true
+    },
+    {
+      "start": 138.0,
+      "end": 140.58,
+      "text": "He's between satin sheets",
+      "uncertain": false
+    },
+    {
+      "start": 140.58,
+      "end": 143.52,
+      "text": "With hot babes whispering in his ear",
+      "uncertain": true
+    },
+    {
+      "start": 146.98,
+      "end": 148.4,
+      "text": "Saxophone confession",
+      "uncertain": false
+    },
+    {
+      "start": 148.4,
+      "end": 150.38,
+      "text": "Gives our answers with a sting",
+      "uncertain": false
+    },
+    {
+      "start": 150.38,
+      "end": 152.48,
+      "text": "Every cop is asking",
+      "uncertain": false
+    },
+    {
+      "start": 152.48,
+      "end": 154.38,
+      "text": "How he always knows the thing",
+      "uncertain": false
+    },
+    {
+      "start": 154.38,
+      "end": 156.9,
+      "text": "He says crime hates rhythm boys",
+      "uncertain": false
+    },
+    {
+      "start": 156.9,
+      "end": 158.46,
+      "text": "It stumbles on the floor",
+      "uncertain": false
+    },
+    {
+      "start": 158.46,
+      "end": 160.52,
+      "text": "Then a kiss lands on his collar",
+      "uncertain": false
+    },
+    {
+      "start": 160.52,
+      "end": 162.66,
+      "text": "As he slips out through the door",
+      "uncertain": false
+    },
+    {
+      "start": 167.84,
+      "end": 175.82,
+      "text": "dawn pours gold on fire escapes the headlines hit the stands another midnight empire lies in pieces",
+      "uncertain": true
+    },
+    {
+      "start": 175.82,
+      "end": 183.54,
+      "text": "by his hands no metal and no sermon just a number written twice two grown women wait upstairs with",
+      "uncertain": true
+    },
+    {
+      "start": 183.54,
+      "end": 190.24,
+      "text": "champagne packed in ice he checks the street below him every window settles down and drops his",
+      "uncertain": false
+    },
+    {
+      "start": 190.24,
+      "end": 193.28,
+      "text": "Coke beside the bed, the quiet king of town.",
+      "uncertain": true
+    },
+    {
+      "start": 196.64,
+      "end": 200.42,
+      "text": "Tony on the midnight, now the morning knows his name.",
+      "uncertain": false
+    },
+    {
+      "start": 201.48,
+      "end": 205.28,
+      "text": "He caught the cars, cracked the case, and put the thief to shame.",
+      "uncertain": false
+    },
+    {
+      "start": 205.44,
+      "end": 209.54,
+      "text": "With the city's safe behind him and warm daylight on the sheets,",
+      "uncertain": false
+    },
+    {
+      "start": 209.74,
+      "end": 214.12,
+      "text": "he closes both the curtains, case complete and not complete.",
+      "uncertain": false
+    },
+    {
+      "start": 218.12,
+      "end": 220.48,
+      "text": "Sleep easy little city",
+      "uncertain": false
+    },
+    {
+      "start": 220.48,
+      "end": 222.54,
+      "text": "Every debt has now been paid",
+      "uncertain": false
+    },
+    {
+      "start": 222.54,
+      "end": 224.52,
+      "text": "Tony C is off the clock",
+      "uncertain": true
+    },
+    {
+      "start": 224.52,
+      "end": 226.7,
+      "text": "Until the evening starts to fade",
+      "uncertain": false
+    },
+    {
+      "start": 229.14,
+      "end": 229.94,
+      "text": "Oh",
+      "uncertain": false
+    }
+  ]
+}

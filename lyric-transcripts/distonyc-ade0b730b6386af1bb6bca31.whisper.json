@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "songId": "distonyc-ade0b730b6386af1bb6bca31",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ade0b730b6386af1bb6bca31-fcfecd4ea437.mp3",
+  "audioSha256": "fcfecd4ea437e9936781fa3a64f3ffd3a23958d322804426719915f727170603",
+  "inputSha256": "c92f53edd5301c0e4c3a08675fc471be63261b0c0faad43ffe89b9b08c4f753d",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 283.2,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.12,
+      "text": "Step through the canvas, leave daylight outside.",
+      "uncertain": false
+    },
+    {
+      "start": 3.54,
+      "end": 6.78,
+      "text": "Somebody sold us a ticket to paradise.",
+      "uncertain": false
+    },
+    {
+      "start": 7.22,
+      "end": 10.14,
+      "text": "Look at the mail holes, look at the price.",
+      "uncertain": false
+    },
+    {
+      "start": 10.4,
+      "end": 13.7,
+      "text": "The man on the poster has already died.",
+      "uncertain": false
+    },
+    {
+      "start": 20.76,
+      "end": 24.1,
+      "text": "All myrrh hangs where the spotlight burns",
+      "uncertain": true
+    },
+    {
+      "start": 24.1,
+      "end": 27.58,
+      "text": "over a floor full of desperate turns.",
+      "uncertain": true
+    },
+    {
+      "start": 27.58,
+      "end": 34.32,
+      "text": "saw the sticks to the blood on my shoes the barker says salvation has excellent reviews",
+      "uncertain": false
+    },
+    {
+      "start": 34.32,
+      "end": 41.4,
+      "text": "i brought one prayer and i counted red crown a pocket full of reasons to burn this down",
+      "uncertain": true
+    },
+    {
+      "start": 41.4,
+      "end": 48.44,
+      "text": "your painted disciples sell seats by the cross funny how the faithful never tally the loss",
+      "uncertain": false
+    },
+    {
+      "start": 48.44,
+      "end": 57.46,
+      "text": "roll that curtain show that hand who gets holy who gets damned my knees are shot but the",
+      "uncertain": false
+    },
+    {
+      "start": 57.58,
+      "end": 66.08,
+      "text": "kick comes through i get back up and i dance at you all there turn the fucking wheel tell me what",
+      "uncertain": true
+    },
+    {
+      "start": 66.08,
+      "end": 75.28,
+      "text": "a risen man can feel we go around with our teeth clenched tight begging for a doorway in the meat",
+      "uncertain": false
+    },
+    {
+      "start": 75.28,
+      "end": 82.38,
+      "text": "of night on earth underneath this grin there's a frightened little bastard trying to get in",
+      "uncertain": false
+    },
+    {
+      "start": 82.38,
+      "end": 86.36,
+      "text": "If your blood can open somewhere new",
+      "uncertain": false
+    },
+    {
+      "start": 86.36,
+      "end": 89.84,
+      "text": "Leave that door wide-eyed, I am coming through",
+      "uncertain": false
+    },
+    {
+      "start": 89.84,
+      "end": 93.52,
+      "text": "The organ coughs and the acrobat swing",
+      "uncertain": false
+    },
+    {
+      "start": 93.52,
+      "end": 97.02,
+      "text": "A priest counts coins in the mouth of a king",
+      "uncertain": false
+    },
+    {
+      "start": 97.02,
+      "end": 100.5,
+      "text": "Somebody screams that the old gods left",
+      "uncertain": false
+    },
+    {
+      "start": 100.5,
+      "end": 103.76,
+      "text": "The drummer puts a snare on every breath",
+      "uncertain": false
+    },
+    {
+      "start": 103.76,
+      "end": 107.02,
+      "text": "I'd cut my palm by the dressing room",
+      "uncertain": false
+    },
+    {
+      "start": 107.02,
+      "end": 110.72,
+      "text": "Blast for a red way out where the shadows pass",
+      "uncertain": true
+    },
+    {
+      "start": 110.72,
+      "end": 114.3,
+      "text": "No velvet rope and no blessed leaf",
+      "uncertain": true
+    },
+    {
+      "start": 114.3,
+      "end": 117.88,
+      "text": "Just a hole in the dark in my two red feet",
+      "uncertain": true
+    },
+    {
+      "start": 117.88,
+      "end": 121.32,
+      "text": "Let the tent poles crack and lean",
+      "uncertain": false
+    },
+    {
+      "start": 121.32,
+      "end": 124.82,
+      "text": "I've seen enough behind the scene",
+      "uncertain": false
+    },
+    {
+      "start": 124.82,
+      "end": 128.02,
+      "text": "Your name comes loose from my ruined throat",
+      "uncertain": false
+    },
+    {
+      "start": 128.02,
+      "end": 131.9,
+      "text": "I say it longer than the last clean note",
+      "uncertain": false
+    },
+    {
+      "start": 131.9,
+      "end": 134.5,
+      "text": "Oh man, turn the fucking wheel",
+      "uncertain": false
+    },
+    {
+      "start": 134.5,
+      "end": 138.0,
+      "text": "Tell me what a risen man can feel",
+      "uncertain": false
+    },
+    {
+      "start": 138.0,
+      "end": 141.42,
+      "text": "We go around with our teeth clenched tight",
+      "uncertain": false
+    },
+    {
+      "start": 141.42,
+      "end": 145.78,
+      "text": "Begging for a doorway in the meat of night",
+      "uncertain": true
+    },
+    {
+      "start": 145.78,
+      "end": 148.24,
+      "text": "Oh man, underneath this grid",
+      "uncertain": false
+    },
+    {
+      "start": 148.24,
+      "end": 151.94,
+      "text": "There's a fighting little bastard trying to get in",
+      "uncertain": false
+    },
+    {
+      "start": 151.94,
+      "end": 155.92,
+      "text": "If your blood can open somewhere new",
+      "uncertain": false
+    },
+    {
+      "start": 155.92,
+      "end": 159.52,
+      "text": "Leave that torn white-eyed, I am coming through",
+      "uncertain": false
+    },
+    {
+      "start": 159.52,
+      "end": 163.24,
+      "text": "Get glass here from the goal lane",
+      "uncertain": false
+    },
+    {
+      "start": 163.24,
+      "end": 166.28,
+      "text": "At my pull the bastard full again",
+      "uncertain": true
+    },
+    {
+      "start": 166.28,
+      "end": 170.92,
+      "text": "I've got heroic plans for half past ten by eleven",
+      "uncertain": true
+    },
+    {
+      "start": 170.92,
+      "end": 173.22,
+      "text": "I'll forget the fucking things again",
+      "uncertain": false
+    },
+    {
+      "start": 173.22,
+      "end": 177.02,
+      "text": "That desert can wait till the room stands still",
+      "uncertain": false
+    },
+    {
+      "start": 177.02,
+      "end": 180.42,
+      "text": "I try to fight my shadow with dodged on skill",
+      "uncertain": false
+    },
+    {
+      "start": 180.42,
+      "end": 184.0,
+      "text": "I'll drink to your god if he's spying around",
+      "uncertain": false
+    },
+    {
+      "start": 184.0,
+      "end": 187.52,
+      "text": "Keep that spinning bloody tent on the ground",
+      "uncertain": false
+    },
+    {
+      "start": 187.52,
+      "end": 190.92,
+      "text": "Under the laughter I hear somebody cry",
+      "uncertain": false
+    },
+    {
+      "start": 190.92,
+      "end": 194.44,
+      "text": "A girl by the exit won't look me in the eye",
+      "uncertain": false
+    },
+    {
+      "start": 194.44,
+      "end": 197.94,
+      "text": "I give her my coat, she takes hold of my sleeve",
+      "uncertain": false
+    },
+    {
+      "start": 197.94,
+      "end": 201.48,
+      "text": "For once in my life, I know when to leave",
+      "uncertain": true
+    },
+    {
+      "start": 201.48,
+      "end": 203.9,
+      "text": "Oh, mayor, whatever you became",
+      "uncertain": true
+    },
+    {
+      "start": 203.9,
+      "end": 207.4,
+      "text": "I'm done making a ticket of your name",
+      "uncertain": false
+    },
+    {
+      "start": 207.4,
+      "end": 210.9,
+      "text": "Let the empty carousel finish, it's spin",
+      "uncertain": false
+    },
+    {
+      "start": 210.9,
+      "end": 212.78,
+      "text": "This room through the doorway",
+      "uncertain": false
+    },
+    {
+      "start": 212.78,
+      "end": 215.44,
+      "text": "I'm taking her in",
+      "uncertain": false
+    },
+    {
+      "start": 215.44,
+      "end": 217.96,
+      "text": "Oh, mayor, stop the fucking wheel",
+      "uncertain": false
+    },
+    {
+      "start": 217.96,
+      "end": 221.18,
+      "text": "I've got another person's hand to feel",
+      "uncertain": false
+    },
+    {
+      "start": 221.18,
+      "end": 224.86,
+      "text": "We step out with our teeth clenched tight",
+      "uncertain": true
+    },
+    {
+      "start": 224.86,
+      "end": 228.32,
+      "text": "Through the open wound in the wall of night",
+      "uncertain": true
+    },
+    {
+      "start": 228.32,
+      "end": 231.78,
+      "text": "Oh man, underneath this wind",
+      "uncertain": true
+    },
+    {
+      "start": 231.78,
+      "end": 235.16,
+      "text": "There's a fighting little massacre with a life to begin",
+      "uncertain": true
+    },
+    {
+      "start": 235.16,
+      "end": 237.38,
+      "text": "Your blood made a throwaway",
+      "uncertain": false
+    },
+    {
+      "start": 237.38,
+      "end": 239.34,
+      "text": "We both came through",
+      "uncertain": false
+    },
+    {
+      "start": 239.34,
+      "end": 240.62,
+      "text": "I closed the curtain",
+      "uncertain": true
+    },
+    {
+      "start": 240.62,
+      "end": 242.8,
+      "text": "The night is blow",
+      "uncertain": false
+    },
+    {
+      "start": 246.14,
+      "end": 248.44,
+      "text": "No ticket in my pocket",
+      "uncertain": false
+    },
+    {
+      "start": 249.48,
+      "end": 252.04,
+      "text": "No crown upon my head",
+      "uncertain": false
+    },
+    {
+      "start": 252.04,
+      "end": 254.56,
+      "text": "She asked me if we're living",
+      "uncertain": true
+    },
+    {
+      "start": 256.18,
+      "end": 258.48,
+      "text": "I hold her hand",
+      "uncertain": false
+    },
+    {
+      "start": 258.48,
+      "end": 260.5,
+      "text": "Not dead",
+      "uncertain": false
+    },
+    {
+      "start": 266.08,
+      "end": 267.46,
+      "text": "Not dead",
+      "uncertain": false
+    },
+    {
+      "start": 272.98,
+      "end": 274.58,
+      "text": "Not dead",
+      "uncertain": false
+    },
+    {
+      "start": 274.58,
+      "end": 282.36,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

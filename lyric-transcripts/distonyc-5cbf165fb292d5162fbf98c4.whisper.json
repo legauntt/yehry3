@@ -1,0 +1,361 @@
+{
+  "version": 1,
+  "songId": "distonyc-5cbf165fb292d5162fbf98c4",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5cbf165fb292d5162fbf98c4-7919f7cf2cd2.mp3",
+  "audioSha256": "7919f7cf2cd2f522a2ccb0305d58da6a1afd08a863effbb20016a4963b716d10",
+  "inputSha256": "597b251f8b889f785b8862b251b65ae9e7307828e99d7263a3f8dbab668650de",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 279.6,
+  "segments": [
+    {
+      "start": 7.7,
+      "end": 11.16,
+      "text": "I walked into the war room late",
+      "uncertain": false
+    },
+    {
+      "start": 11.16,
+      "end": 14.52,
+      "text": "Coffee cold maps on the wall",
+      "uncertain": true
+    },
+    {
+      "start": 16.54,
+      "end": 19.2,
+      "text": "Everybody spoke in riddles",
+      "uncertain": false
+    },
+    {
+      "start": 19.2,
+      "end": 23.26,
+      "text": "Like peace required no peace at all",
+      "uncertain": false
+    },
+    {
+      "start": 24.6,
+      "end": 27.48,
+      "text": "One man said it's complicated",
+      "uncertain": false
+    },
+    {
+      "start": 28.86,
+      "end": 31.86,
+      "text": "One said history ties our hands",
+      "uncertain": false
+    },
+    {
+      "start": 33.12,
+      "end": 36.38,
+      "text": "I said quit bombing families",
+      "uncertain": true
+    },
+    {
+      "start": 37.72,
+      "end": 40.3,
+      "text": "Stealing homes and land",
+      "uncertain": false
+    },
+    {
+      "start": 41.34,
+      "end": 43.48,
+      "text": "The room went still",
+      "uncertain": false
+    },
+    {
+      "start": 43.48,
+      "end": 45.62,
+      "text": "The pens went down",
+      "uncertain": false
+    },
+    {
+      "start": 45.62,
+      "end": 47.5,
+      "text": "Somebody checked the door",
+      "uncertain": false
+    },
+    {
+      "start": 47.5,
+      "end": 50.6,
+      "text": "I said a child is not a target",
+      "uncertain": false
+    },
+    {
+      "start": 50.6,
+      "end": 53.16,
+      "text": "What you need a theory for?",
+      "uncertain": false
+    },
+    {
+      "start": 56.62,
+      "end": 64.24,
+      "text": "whoopsie apartheid there's the trouble plain as day you cannot build a safer home by driving",
+      "uncertain": false
+    },
+    {
+      "start": 64.24,
+      "end": 73.6,
+      "text": "someone else away whoopsie apartheid funny what the truth man feels no peace without the same",
+      "uncertain": true
+    },
+    {
+      "start": 73.6,
+      "end": 83.38,
+      "text": "them rights and justice everybody feel i call for every hostage home every prisoner tried with law",
+      "uncertain": true
+    },
+    {
+      "start": 84.84,
+      "end": 94.48,
+      "text": "food and water through the crosses no hunger use for war stop the siege and stop the rockets let",
+      "uncertain": false
+    },
+    {
+      "start": 94.48,
+      "end": 102.08,
+      "text": "the doctors do their work if a leader orders slaughter put the leader before the court",
+      "uncertain": false
+    },
+    {
+      "start": 102.08,
+      "end": 105.32,
+      "text": "They asked me for a clever slogan",
+      "uncertain": false
+    },
+    {
+      "start": 105.32,
+      "end": 108.38,
+      "text": "I said try equal human worth",
+      "uncertain": true
+    },
+    {
+      "start": 108.38,
+      "end": 111.18,
+      "text": "Not a footnote, not a promise",
+      "uncertain": false
+    },
+    {
+      "start": 111.18,
+      "end": 113.22,
+      "text": "Something black just on the earth",
+      "uncertain": false
+    },
+    {
+      "start": 113.22,
+      "end": 116.74,
+      "text": "From the river to the coastline",
+      "uncertain": false
+    },
+    {
+      "start": 116.74,
+      "end": 119.24,
+      "text": "No supremacy dressed as fate",
+      "uncertain": false
+    },
+    {
+      "start": 119.24,
+      "end": 121.84,
+      "text": "Two freed people share protection",
+      "uncertain": false
+    },
+    {
+      "start": 121.84,
+      "end": 125.62,
+      "text": "Meet a trap behind the gate",
+      "uncertain": true
+    },
+    {
+      "start": 125.62,
+      "end": 128.46,
+      "text": "Who's the apartheid?",
+      "uncertain": true
+    },
+    {
+      "start": 129.02,
+      "end": 131.3,
+      "text": "There's the trouble, plainest day",
+      "uncertain": false
+    },
+    {
+      "start": 131.3,
+      "end": 136.14,
+      "text": "You cannot build a safer home by driving someone else away",
+      "uncertain": true
+    },
+    {
+      "start": 137.58,
+      "end": 139.18,
+      "text": "Oopsie apartheid",
+      "uncertain": false
+    },
+    {
+      "start": 139.18,
+      "end": 141.96,
+      "text": "Peace is more than quiet streets",
+      "uncertain": false
+    },
+    {
+      "start": 141.96,
+      "end": 146.56,
+      "text": "It means the ones beneath the love will get a chair and get to speed",
+      "uncertain": false
+    },
+    {
+      "start": 146.56,
+      "end": 149.3,
+      "text": "Name the dead and hear the living",
+      "uncertain": false
+    },
+    {
+      "start": 149.3,
+      "end": 153.22,
+      "text": "Let the evidence be shown",
+      "uncertain": false
+    },
+    {
+      "start": 154.52,
+      "end": 159.22,
+      "text": "Israel's genocidal actions cannot purchase safety's throne",
+      "uncertain": false
+    },
+    {
+      "start": 159.22,
+      "end": 168.48,
+      "text": "grief is not a deed of ownership fear is not a border plan no ancestral wound gives license",
+      "uncertain": true
+    },
+    {
+      "start": 168.48,
+      "end": 179.52,
+      "text": "to erase another clan so we opened every ledger brought the witnesses inside made the powerful",
+      "uncertain": false
+    },
+    {
+      "start": 179.52,
+      "end": 185.92,
+      "text": "answer plainly for the lives that speeches hide rebuild schools before the checkpoints",
+      "uncertain": true
+    },
+    {
+      "start": 185.92,
+      "end": 187.96,
+      "text": "Planet orchards by the road",
+      "uncertain": true
+    },
+    {
+      "start": 187.96,
+      "end": 190.88,
+      "text": "Every faith could keep it sacred",
+      "uncertain": false
+    },
+    {
+      "start": 190.88,
+      "end": 193.34,
+      "text": "Every family keep its home",
+      "uncertain": false
+    },
+    {
+      "start": 194.3,
+      "end": 197.28,
+      "text": "No child learned to count by sirens",
+      "uncertain": false
+    },
+    {
+      "start": 197.28,
+      "end": 199.28,
+      "text": "No key became a crime",
+      "uncertain": true
+    },
+    {
+      "start": 199.28,
+      "end": 202.3,
+      "text": "People argued over football and complained",
+      "uncertain": false
+    },
+    {
+      "start": 202.3,
+      "end": 203.82,
+      "text": "The trains ran behind",
+      "uncertain": false
+    },
+    {
+      "start": 203.82,
+      "end": 206.32,
+      "text": "Then the experts cleared their throats",
+      "uncertain": false
+    },
+    {
+      "start": 206.32,
+      "end": 208.72,
+      "text": "And asked what miracle did you apply",
+      "uncertain": false
+    },
+    {
+      "start": 208.72,
+      "end": 211.36,
+      "text": "I said I stopped excusing murder",
+      "uncertain": false
+    },
+    {
+      "start": 211.36,
+      "end": 213.84,
+      "text": "They said surely that's too simplified",
+      "uncertain": false
+    },
+    {
+      "start": 215.84,
+      "end": 223.86,
+      "text": "whoopsie apartheid that was never peace at all just a polished name for domination with the flag",
+      "uncertain": true
+    },
+    {
+      "start": 223.86,
+      "end": 233.34,
+      "text": "across the wall whoopsie apartheid now the gates are coming down equal ballots equal shelter equal",
+      "uncertain": false
+    },
+    {
+      "start": 233.34,
+      "end": 244.86,
+      "text": "law in every town it was simple not easy that distinction matters most peace began when every",
+      "uncertain": true
+    },
+    {
+      "start": 244.86,
+      "end": 253.64,
+      "text": "future counted more than any boats i still don't know why nobody tried the obvious before",
+      "uncertain": false
+    },
+    {
+      "start": 253.64,
+      "end": 260.14,
+      "text": "keep each other safe and free then peace can walk through every door",
+      "uncertain": false
+    },
+    {
+      "start": 263.28,
+      "end": 265.2,
+      "text": "Whoopsie apartheid",
+      "uncertain": false
+    },
+    {
+      "start": 265.2,
+      "end": 268.44,
+      "text": "That was never peace a day",
+      "uncertain": true
+    },
+    {
+      "start": 268.44,
+      "end": 272.54,
+      "text": "No peace without the same damn rights",
+      "uncertain": false
+    },
+    {
+      "start": 272.54,
+      "end": 275.06,
+      "text": "Injustice every afflithy",
+      "uncertain": true
+    }
+  ]
+}

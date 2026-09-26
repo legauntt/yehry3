@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "songId": "distonyc-310b77aa35bba36a65170d60",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-310b77aa35bba36a65170d60-d6504da20fa9.mp3",
+  "audioSha256": "d6504da20fa9141f01dfea2f367bf3c09e220de24621bffc3a223f86f6bdd6d8",
+  "inputSha256": "d4c60ea2ddf6b3333a0cbf6b10a14a5ac94fa31b208d6c5fd2cf03f89d930d11",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 229.9559375,
+  "segments": [
+    {
+      "start": 5.84,
+      "end": 14.42,
+      "text": "I beat that bitch with a bat, rain ticks soft on the window cane, I beat that bitch with",
+      "uncertain": false
+    },
+    {
+      "start": 14.42,
+      "end": 24.88,
+      "text": "a bat, I can't fix America, I beat that bitch with a bat, needle hiss and a tired train,",
+      "uncertain": false
+    },
+    {
+      "start": 24.88,
+      "end": 43.56,
+      "text": "I beat that bitch with a bat. I can't fix America. I beat that bitch with a bat. Midnight blue in a ranted room. I beat that bitch with a bat. I can't fix America.",
+      "uncertain": true
+    },
+    {
+      "start": 50.36,
+      "end": 52.98,
+      "text": "I beat that bitch with a bat",
+      "uncertain": true
+    },
+    {
+      "start": 53.7,
+      "end": 56.6,
+      "text": "Street lamp swims in my coffee cup",
+      "uncertain": true
+    },
+    {
+      "start": 56.6,
+      "end": 59.32,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 59.32,
+      "end": 62.62,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 62.62,
+      "end": 65.68,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 66.48,
+      "end": 69.32,
+      "text": "All news talks and I turn it up",
+      "uncertain": false
+    },
+    {
+      "start": 69.32,
+      "end": 71.98,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 71.98,
+      "end": 75.32,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 76.24,
+      "end": 79.18,
+      "text": "I beat that bitch with a bat",
+      "uncertain": true
+    },
+    {
+      "start": 79.18,
+      "end": 82.16,
+      "text": "Paper flag shaked by the breaking cars",
+      "uncertain": false
+    },
+    {
+      "start": 82.16,
+      "end": 85.5,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 85.5,
+      "end": 88.02,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 88.94,
+      "end": 91.84,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 91.84,
+      "end": 94.74,
+      "text": "I was loud when I should have heard",
+      "uncertain": false
+    },
+    {
+      "start": 94.74,
+      "end": 98.2,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 98.2,
+      "end": 100.74,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 108.0,
+      "end": 110.92,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 110.92,
+      "end": 114.02,
+      "text": "That ugly thought came back like that",
+      "uncertain": true
+    },
+    {
+      "start": 114.02,
+      "end": 117.26,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 117.26,
+      "end": 119.78,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 120.66,
+      "end": 123.68,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 123.68,
+      "end": 126.52,
+      "text": "No victory and no little game",
+      "uncertain": false
+    },
+    {
+      "start": 126.52,
+      "end": 129.9,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 129.9,
+      "end": 132.5,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 134.38,
+      "end": 137.1,
+      "text": "I beat that bitch with a bat",
+      "uncertain": true
+    },
+    {
+      "start": 137.1,
+      "end": 140.74,
+      "text": "Let the vinyl crackle, let sirens fade",
+      "uncertain": false
+    },
+    {
+      "start": 140.74,
+      "end": 143.48,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 143.48,
+      "end": 146.76,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 146.76,
+      "end": 149.8,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 149.8,
+      "end": 153.48,
+      "text": "A broken man names the messy maid",
+      "uncertain": false
+    },
+    {
+      "start": 153.48,
+      "end": 156.22,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 156.22,
+      "end": 159.48,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 159.48,
+      "end": 162.52,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 162.52,
+      "end": 164.46,
+      "text": "Their faces I will not erase",
+      "uncertain": true
+    },
+    {
+      "start": 164.46,
+      "end": 167.32,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 167.32,
+      "end": 170.54,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 170.54,
+      "end": 173.66,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 174.9,
+      "end": 177.38,
+      "text": "No clean excuse can change that place",
+      "uncertain": false
+    },
+    {
+      "start": 177.38,
+      "end": 179.94,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 179.94,
+      "end": 183.26,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 193.7,
+      "end": 196.58,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 196.58,
+      "end": 199.76,
+      "text": "But I can leave one small light on",
+      "uncertain": true
+    },
+    {
+      "start": 199.76,
+      "end": 202.94,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 202.94,
+      "end": 205.46,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 206.36,
+      "end": 209.34,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 209.34,
+      "end": 212.32,
+      "text": "Keep singing till the night is gone",
+      "uncertain": true
+    },
+    {
+      "start": 212.32,
+      "end": 215.62,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 215.62,
+      "end": 218.16,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 226.68,
+      "end": 228.08,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

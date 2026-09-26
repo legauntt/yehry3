@@ -1,0 +1,469 @@
+{
+  "version": 1,
+  "songId": "distonyc-edfebbb9d3c4257f6a430825",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-edfebbb9d3c4257f6a430825-764f4bcef26b.mp3",
+  "audioSha256": "764f4bcef26ba3bfbbc745c175ad35e9ef87ccd2745289e19720182402d4290d",
+  "inputSha256": "3857d6914dad37c0dc73b7a9e2ac45c2bb251d8b1ae88b1712838c47c5165aee",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 270.08,
+  "segments": [
+    {
+      "start": 4.7,
+      "end": 7.4,
+      "text": "For a score, hold up, I lost a page in the back",
+      "uncertain": true
+    },
+    {
+      "start": 7.4,
+      "end": 10.16,
+      "text": "But I remember why we came, so I'm bringing it back",
+      "uncertain": false
+    },
+    {
+      "start": 20.62,
+      "end": 23.28,
+      "text": "A long time back on this land in a storm",
+      "uncertain": true
+    },
+    {
+      "start": 23.28,
+      "end": 25.96,
+      "text": "Some people drew a line and a country was born",
+      "uncertain": false
+    },
+    {
+      "start": 25.96,
+      "end": 28.64,
+      "text": "Said every soul got a right to arrive",
+      "uncertain": false
+    },
+    {
+      "start": 28.64,
+      "end": 31.1,
+      "text": "Not just survive, but be seen alive",
+      "uncertain": true
+    },
+    {
+      "start": 31.1,
+      "end": 33.84,
+      "text": "Now the field got smoked where the young ones fell",
+      "uncertain": true
+    },
+    {
+      "start": 33.84,
+      "end": 36.18,
+      "text": "Names in the dirt and a hard bell",
+      "uncertain": false
+    },
+    {
+      "start": 36.18,
+      "end": 39.04,
+      "text": "Now I ain't dressed in a suit, ain't reciting it clean",
+      "uncertain": true
+    },
+    {
+      "start": 39.04,
+      "end": 41.64,
+      "text": "But the weight of those words still cut through the scene",
+      "uncertain": false
+    },
+    {
+      "start": 41.64,
+      "end": 44.48,
+      "text": "They said freedom, but the road stayed steep",
+      "uncertain": false
+    },
+    {
+      "start": 44.48,
+      "end": 46.9,
+      "text": "Promises buried where the family's weak",
+      "uncertain": false
+    },
+    {
+      "start": 46.9,
+      "end": 49.5,
+      "text": "I'm trying to say what the old speech meant",
+      "uncertain": false
+    },
+    {
+      "start": 49.5,
+      "end": 52.28,
+      "text": "You can't call it a union if the people get bent",
+      "uncertain": false
+    },
+    {
+      "start": 52.28,
+      "end": 54.92,
+      "text": "So I'm talking to the crowd with the paper gone black",
+      "uncertain": false
+    },
+    {
+      "start": 54.92,
+      "end": 57.4,
+      "text": "For the worker, the widow, the kid by the tank",
+      "uncertain": false
+    },
+    {
+      "start": 57.4,
+      "end": 60.08,
+      "text": "For whoever got told they were less than a man",
+      "uncertain": false
+    },
+    {
+      "start": 60.08,
+      "end": 62.76,
+      "text": "This nation always stands when it honors the plan",
+      "uncertain": false
+    },
+    {
+      "start": 67.84,
+      "end": 70.74,
+      "text": "Four scores still standing here, the ground's off that",
+      "uncertain": false
+    },
+    {
+      "start": 70.74,
+      "end": 73.22,
+      "text": "No crown on the people, no hand on the neck",
+      "uncertain": false
+    },
+    {
+      "start": 73.22,
+      "end": 75.98,
+      "text": "We came through fire, we remember the cost",
+      "uncertain": false
+    },
+    {
+      "start": 75.98,
+      "end": 78.6,
+      "text": "Veiled for the living, don't abandon the loss",
+      "uncertain": true
+    },
+    {
+      "start": 88.46,
+      "end": 91.7,
+      "text": "I forgot the exact line but I know that it's sad",
+      "uncertain": true
+    },
+    {
+      "start": 91.7,
+      "end": 94.32,
+      "text": "What we do with the future belongs to the dead",
+      "uncertain": false
+    },
+    {
+      "start": 94.32,
+      "end": 96.88,
+      "text": "Not because they can rule us from under the clay",
+      "uncertain": false
+    },
+    {
+      "start": 96.88,
+      "end": 99.6,
+      "text": "But they paid for a morning we can't throw away",
+      "uncertain": true
+    },
+    {
+      "start": 99.6,
+      "end": 102.22,
+      "text": "Dedicated crown, yeah, that's what I mean",
+      "uncertain": false
+    },
+    {
+      "start": 102.22,
+      "end": 104.84,
+      "text": "Not some fancy little phrase for a polished machine",
+      "uncertain": false
+    },
+    {
+      "start": 104.84,
+      "end": 107.62,
+      "text": "The ground gets holy when the people give all",
+      "uncertain": false
+    },
+    {
+      "start": 107.62,
+      "end": 110.1,
+      "text": "And the ones left breathing answer the call",
+      "uncertain": false
+    },
+    {
+      "start": 110.1,
+      "end": 112.8,
+      "text": "No marble speech can make a wrong thing right",
+      "uncertain": false
+    },
+    {
+      "start": 112.8,
+      "end": 115.32,
+      "text": "No flag by itself can carry the fight",
+      "uncertain": false
+    },
+    {
+      "start": 115.32,
+      "end": 118.12,
+      "text": "It's the hands that repair what the damage took down",
+      "uncertain": false
+    },
+    {
+      "start": 118.12,
+      "end": 120.1,
+      "text": "It's the vote, it's the voice, it's the block",
+      "uncertain": false
+    },
+    {
+      "start": 120.1,
+      "end": 122.12,
+      "text": "It's the town, government, other people",
+      "uncertain": false
+    },
+    {
+      "start": 122.12,
+      "end": 123.38,
+      "text": "Wait, let me get straight",
+      "uncertain": true
+    },
+    {
+      "start": 123.38,
+      "end": 125.88,
+      "text": "Not a private little club behind a garden gate",
+      "uncertain": false
+    },
+    {
+      "start": 125.88,
+      "end": 128.54,
+      "text": "By the people, for the people, that's the heartbeat loud",
+      "uncertain": false
+    },
+    {
+      "start": 128.54,
+      "end": 131.26,
+      "text": "If it vanishes, we failed every name in the crowd",
+      "uncertain": false
+    },
+    {
+      "start": 132.38,
+      "end": 135.22,
+      "text": "Four score still standing here, the ground talk back",
+      "uncertain": true
+    },
+    {
+      "start": 135.22,
+      "end": 137.78,
+      "text": "No crown on the people, no hand on the neck",
+      "uncertain": false
+    },
+    {
+      "start": 137.78,
+      "end": 140.54,
+      "text": "We came through fire, we remember the cost",
+      "uncertain": false
+    },
+    {
+      "start": 140.54,
+      "end": 143.16,
+      "text": "Build for the living, don't abandon the loss",
+      "uncertain": true
+    },
+    {
+      "start": 152.0,
+      "end": 154.84,
+      "text": "I'm not Lincoln, I'm a man with a beat and a blur",
+      "uncertain": false
+    },
+    {
+      "start": 154.84,
+      "end": 157.58,
+      "text": "Trying to hold every promise inside of one word",
+      "uncertain": true
+    },
+    {
+      "start": 157.58,
+      "end": 160.14,
+      "text": "Maybe I stumbled, maybe the history slips",
+      "uncertain": false
+    },
+    {
+      "start": 160.14,
+      "end": 162.86,
+      "text": "But I won't let the meaning fall out of my lips",
+      "uncertain": false
+    },
+    {
+      "start": 162.86,
+      "end": 165.42,
+      "text": "A new birth to freedom, I remember that part",
+      "uncertain": false
+    },
+    {
+      "start": 165.42,
+      "end": 168.04,
+      "text": "Not a slogan for a wall, it's a charge to the heart",
+      "uncertain": false
+    },
+    {
+      "start": 168.04,
+      "end": 170.62,
+      "text": "Let the nation be tested, let the powerful see",
+      "uncertain": false
+    },
+    {
+      "start": 170.62,
+      "end": 173.3,
+      "text": "No democracy lives if it won't keep us free",
+      "uncertain": false
+    },
+    {
+      "start": 183.72,
+      "end": 186.44,
+      "text": "So gather at the field where the silence is deep",
+      "uncertain": false
+    },
+    {
+      "start": 186.44,
+      "end": 189.02,
+      "text": "Tell the children the truth, let the memory key",
+      "uncertain": false
+    },
+    {
+      "start": 189.02,
+      "end": 191.66,
+      "text": "There were lives cut short, there were futures denied",
+      "uncertain": false
+    },
+    {
+      "start": 191.66,
+      "end": 194.18,
+      "text": "There were mothers who waiting with the door open",
+      "uncertain": true
+    },
+    {
+      "start": 194.18,
+      "end": 196.98,
+      "text": "Why we can honor the fallen without love and war",
+      "uncertain": true
+    },
+    {
+      "start": 196.98,
+      "end": 199.74,
+      "text": "We can carry that lesson and demand something more",
+      "uncertain": false
+    },
+    {
+      "start": 199.74,
+      "end": 202.44,
+      "text": "That equality ain't decoration for a speech",
+      "uncertain": false
+    },
+    {
+      "start": 202.44,
+      "end": 205.02,
+      "text": "It's bread on the table and a world within reach",
+      "uncertain": false
+    },
+    {
+      "start": 205.02,
+      "end": 207.58,
+      "text": "When the loud ones divide us for a vote or a dime",
+      "uncertain": false
+    },
+    {
+      "start": 207.58,
+      "end": 210.22,
+      "text": "We remember the measure, we remember the time",
+      "uncertain": false
+    },
+    {
+      "start": 210.22,
+      "end": 212.74,
+      "text": "Not perfect at birth, but still able to grow",
+      "uncertain": false
+    },
+    {
+      "start": 212.74,
+      "end": 215.4,
+      "text": "If we fight for the promise that we already know",
+      "uncertain": false
+    },
+    {
+      "start": 215.4,
+      "end": 218.16,
+      "text": "I lost the words, but the message stayed near",
+      "uncertain": false
+    },
+    {
+      "start": 218.16,
+      "end": 220.78,
+      "text": "Let the people be heard, let the people be here",
+      "uncertain": false
+    },
+    {
+      "start": 220.78,
+      "end": 223.44,
+      "text": "Let the work be unfinished, let the future be ours",
+      "uncertain": false
+    },
+    {
+      "start": 223.44,
+      "end": 226.32,
+      "text": "From a blood-soaked field to the streetlights and towers",
+      "uncertain": false
+    },
+    {
+      "start": 227.2,
+      "end": 230.02,
+      "text": "Four scores still standing, let the whole world know",
+      "uncertain": false
+    },
+    {
+      "start": 231.1,
+      "end": 233.82,
+      "text": "From the ground where they fell, we got farther to go",
+      "uncertain": false
+    },
+    {
+      "start": 233.82,
+      "end": 236.44,
+      "text": "For the people, by the people, keep the flame in view",
+      "uncertain": false
+    },
+    {
+      "start": 236.44,
+      "end": 239.04,
+      "text": "A free land survives when it makes room for you",
+      "uncertain": false
+    },
+    {
+      "start": 239.04,
+      "end": 241.74,
+      "text": "I lost the page, but I carried the truth",
+      "uncertain": false
+    },
+    {
+      "start": 241.74,
+      "end": 244.34,
+      "text": "Let this nation become what it said it could be",
+      "uncertain": false
+    },
+    {
+      "start": 244.34,
+      "end": 247.02,
+      "text": "And let freedom keep breathing through you and me",
+      "uncertain": false
+    },
+    {
+      "start": 256.24,
+      "end": 258.8,
+      "text": "Through you and me, still standing free",
+      "uncertain": false
+    },
+    {
+      "start": 267.0,
+      "end": 268.4,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "songId": "round-and-round",
+  "audioUrl": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/round-and-round.mp3",
+  "audioSha256": "8398122c7bd557062e285d460f900e54be0bc4349b4f5cc8caa12abc24d2438e",
+  "inputSha256": "8398122c7bd557062e285d460f900e54be0bc4349b4f5cc8caa12abc24d2438e",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 235.8260625,
+  "segments": [
+    {
+      "start": 3.18,
+      "end": 5.38,
+      "text": "Said I was leaving",
+      "uncertain": true
+    },
+    {
+      "start": 7.52,
+      "end": 9.18,
+      "text": "Listen to me",
+      "uncertain": false
+    },
+    {
+      "start": 12.28,
+      "end": 16.0,
+      "text": "Been staring at the bottom of this bottle",
+      "uncertain": false
+    },
+    {
+      "start": 16.0,
+      "end": 19.84,
+      "text": "Trying to find a little piece of sky",
+      "uncertain": false
+    },
+    {
+      "start": 20.84,
+      "end": 24.44,
+      "text": "Spent my last dollar on an answer",
+      "uncertain": false
+    },
+    {
+      "start": 25.44,
+      "end": 28.3,
+      "text": "Same old question in disguise",
+      "uncertain": false
+    },
+    {
+      "start": 29.54,
+      "end": 32.66,
+      "text": "Whiskey and the beer don't change the weather",
+      "uncertain": false
+    },
+    {
+      "start": 32.66,
+      "end": 36.58,
+      "text": "This crooked stool won't turn itself around",
+      "uncertain": true
+    },
+    {
+      "start": 36.58,
+      "end": 41.0,
+      "text": "Think I'll try just one before I'm leaving",
+      "uncertain": false
+    },
+    {
+      "start": 41.0,
+      "end": 45.0,
+      "text": "See if these two fates can find the ground",
+      "uncertain": false
+    },
+    {
+      "start": 45.0,
+      "end": 49.1,
+      "text": "One more round, one more round",
+      "uncertain": false
+    },
+    {
+      "start": 49.1,
+      "end": 53.18,
+      "text": "I'm gonna drink all the beer I can hold",
+      "uncertain": false
+    },
+    {
+      "start": 53.18,
+      "end": 57.88,
+      "text": "And then one before I'm leaving here",
+      "uncertain": false
+    },
+    {
+      "start": 57.88,
+      "end": 61.62,
+      "text": "One more out, one more out",
+      "uncertain": true
+    },
+    {
+      "start": 61.62,
+      "end": 66.12,
+      "text": "There's a song called Down Inside My Throat",
+      "uncertain": true
+    },
+    {
+      "start": 66.12,
+      "end": 70.14,
+      "text": "And I ain't ready to disappear",
+      "uncertain": false
+    },
+    {
+      "start": 72.68,
+      "end": 76.22,
+      "text": "My good shirt lost another argument",
+      "uncertain": false
+    },
+    {
+      "start": 76.22,
+      "end": 80.62,
+      "text": "Your brother's got my hat on inside out",
+      "uncertain": false
+    },
+    {
+      "start": 80.62,
+      "end": 84.58,
+      "text": "He says he's got a ride to California",
+      "uncertain": false
+    },
+    {
+      "start": 84.58,
+      "end": 88.64,
+      "text": "I say he couldn't find his weight of self",
+      "uncertain": true
+    },
+    {
+      "start": 88.64,
+      "end": 93.04,
+      "text": "The ballman shakes his head and keeps on partishing",
+      "uncertain": true
+    },
+    {
+      "start": 93.04,
+      "end": 97.18,
+      "text": "That glass has hurt a thousand better plans",
+      "uncertain": false
+    },
+    {
+      "start": 97.18,
+      "end": 101.46,
+      "text": "I fold my big ambitions in a napkin",
+      "uncertain": true
+    },
+    {
+      "start": 101.46,
+      "end": 105.4,
+      "text": "You take the empty bottle from my hand",
+      "uncertain": false
+    },
+    {
+      "start": 105.4,
+      "end": 109.6,
+      "text": "One more round, one more round",
+      "uncertain": true
+    },
+    {
+      "start": 109.6,
+      "end": 113.68,
+      "text": "I'm gonna drink all the beer I can hold",
+      "uncertain": false
+    },
+    {
+      "start": 113.68,
+      "end": 118.4,
+      "text": "And then one before I'm leaving here",
+      "uncertain": true
+    },
+    {
+      "start": 118.4,
+      "end": 122.18,
+      "text": "One more out, one more out",
+      "uncertain": true
+    },
+    {
+      "start": 122.18,
+      "end": 126.52,
+      "text": "There's a song caught down inside my throat",
+      "uncertain": true
+    },
+    {
+      "start": 126.52,
+      "end": 130.92,
+      "text": "And I ain't ready to disappear",
+      "uncertain": false
+    },
+    {
+      "start": 133.86,
+      "end": 137.92,
+      "text": "There goes the last bus past the window",
+      "uncertain": false
+    },
+    {
+      "start": 137.92,
+      "end": 141.64,
+      "text": "There goes the man I'm meant to be",
+      "uncertain": false
+    },
+    {
+      "start": 141.64,
+      "end": 145.38,
+      "text": "You slide a little water down the counter",
+      "uncertain": true
+    },
+    {
+      "start": 145.38,
+      "end": 149.62,
+      "text": "Say sit a minute, have a laugh with me",
+      "uncertain": true
+    },
+    {
+      "start": 149.62,
+      "end": 152.98,
+      "text": "Alright, you got me there",
+      "uncertain": false
+    },
+    {
+      "start": 152.98,
+      "end": 156.72,
+      "text": "That joke tastes better than the beer",
+      "uncertain": false
+    },
+    {
+      "start": 158.06,
+      "end": 162.02,
+      "text": "We sing the bit that we remember",
+      "uncertain": true
+    },
+    {
+      "start": 162.02,
+      "end": 165.96,
+      "text": "We've been in the bit we never knew",
+      "uncertain": false
+    },
+    {
+      "start": 165.96,
+      "end": 170.86,
+      "text": "My voice comes tearing through the rafters",
+      "uncertain": false
+    },
+    {
+      "start": 170.86,
+      "end": 174.08,
+      "text": "Grab the ears straight all through",
+      "uncertain": false
+    },
+    {
+      "start": 174.08,
+      "end": 178.56,
+      "text": "One more round, one more out",
+      "uncertain": false
+    },
+    {
+      "start": 178.56,
+      "end": 183.02,
+      "text": "Oh, that ragged little song we used to know",
+      "uncertain": true
+    },
+    {
+      "start": 183.02,
+      "end": 187.16,
+      "text": "Before the morning gets us out of here",
+      "uncertain": false
+    },
+    {
+      "start": 187.16,
+      "end": 191.1,
+      "text": "One more round, one more out",
+      "uncertain": false
+    },
+    {
+      "start": 191.1,
+      "end": 195.62,
+      "text": "Put the power down and sing it from your boots",
+      "uncertain": false
+    },
+    {
+      "start": 195.62,
+      "end": 199.68,
+      "text": "Let the people at the back come here",
+      "uncertain": true
+    },
+    {
+      "start": 201.42,
+      "end": 205.04,
+      "text": "Said I was leaving, guess it's true",
+      "uncertain": false
+    },
+    {
+      "start": 205.04,
+      "end": 209.66,
+      "text": "Save that crooked stool for you",
+      "uncertain": false
+    },
+    {
+      "start": 215.72,
+      "end": 219.66,
+      "text": "Said I was leaving, guess it's true",
+      "uncertain": false
+    },
+    {
+      "start": 219.66,
+      "end": 224.1,
+      "text": "Save that crooked stool for you",
+      "uncertain": false
+    },
+    {
+      "start": 228.64,
+      "end": 228.7,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "version": 1,
+  "songId": "distonyc-ecba3a59b294370d1338a539",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ecba3a59b294370d1338a539-4e290581a622.mp3",
+  "audioSha256": "4e290581a6220670563255336c0e4db85dafd8a5d257e8c240e2daaac84c7cf3",
+  "inputSha256": "5ec4ba52de6f502724fccceed1b6d4eadc803fb9badd943edc9020bae2fad2cb",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 270.02775,
+  "segments": [
+    {
+      "start": 7.02,
+      "end": 11.28,
+      "text": "My stepson leaned in at the kitchen light",
+      "uncertain": false
+    },
+    {
+      "start": 12.24,
+      "end": 16.24,
+      "text": "Said, how do I enjoy this life?",
+      "uncertain": true
+    },
+    {
+      "start": 16.68,
+      "end": 19.94,
+      "text": "I said, kid, I knew a whole wild crew",
+      "uncertain": false
+    },
+    {
+      "start": 19.94,
+      "end": 22.84,
+      "text": "Each one had a different thing to do",
+      "uncertain": false
+    },
+    {
+      "start": 25.22,
+      "end": 28.42,
+      "text": "Pancake E.O. took the megaphone downtown",
+      "uncertain": true
+    },
+    {
+      "start": 28.42,
+      "end": 38.2,
+      "text": "town chasing loud arguments all around he chased the girls in the bottle too like every bright",
+      "uncertain": true
+    },
+    {
+      "start": 38.2,
+      "end": 47.1,
+      "text": "sun was telling him true he taught me a laugh can turn to smoke when you make every night into one",
+      "uncertain": false
+    },
+    {
+      "start": 47.1,
+      "end": 48.32,
+      "text": "long joke",
+      "uncertain": true
+    },
+    {
+      "start": 52.46,
+      "end": 55.2,
+      "text": "Saul came up through a house",
+      "uncertain": true
+    },
+    {
+      "start": 55.2,
+      "end": 56.38,
+      "text": "gone cold",
+      "uncertain": false
+    },
+    {
+      "start": 57.22,
+      "end": 59.18,
+      "text": "a blameless child",
+      "uncertain": false
+    },
+    {
+      "start": 59.18,
+      "end": 61.26,
+      "text": "getting bruised by old",
+      "uncertain": false
+    },
+    {
+      "start": 61.26,
+      "end": 63.08,
+      "text": "but he took that",
+      "uncertain": false
+    },
+    {
+      "start": 63.08,
+      "end": 64.58,
+      "text": "hurt and he stood up tall",
+      "uncertain": false
+    },
+    {
+      "start": 64.58,
+      "end": 67.06,
+      "text": "made a good man out of",
+      "uncertain": false
+    },
+    {
+      "start": 67.06,
+      "end": 67.78,
+      "text": "it all",
+      "uncertain": false
+    },
+    {
+      "start": 69.4,
+      "end": 71.02,
+      "text": "he taught me the",
+      "uncertain": false
+    },
+    {
+      "start": 71.02,
+      "end": 73.12,
+      "text": "past may raise its hand",
+      "uncertain": false
+    },
+    {
+      "start": 74.6,
+      "end": 76.8,
+      "text": "but it does not on the",
+      "uncertain": true
+    },
+    {
+      "start": 76.8,
+      "end": 91.3,
+      "text": "grown-up man fox reels counted every dollar twice trying to make a kingdom out of price",
+      "uncertain": true
+    },
+    {
+      "start": 91.3,
+      "end": 97.78,
+      "text": "then he found a steadier deeper way in faith and the choices of every day",
+      "uncertain": false
+    },
+    {
+      "start": 99.66,
+      "end": 103.2,
+      "text": "He taught me money can open a door",
+      "uncertain": false
+    },
+    {
+      "start": 104.04,
+      "end": 108.0,
+      "text": "But it cannot tell you what a heart is for",
+      "uncertain": true
+    },
+    {
+      "start": 108.0,
+      "end": 112.22,
+      "text": "So enjoy the light when it lands on you",
+      "uncertain": false
+    },
+    {
+      "start": 112.22,
+      "end": 115.52,
+      "text": "Make a little room for the honest truth",
+      "uncertain": false
+    },
+    {
+      "start": 117.8,
+      "end": 120.66,
+      "text": "Everybody's riding a different page",
+      "uncertain": false
+    },
+    {
+      "start": 122.28,
+      "end": 126.16,
+      "text": "Trying to get wiser at every age",
+      "uncertain": false
+    },
+    {
+      "start": 126.16,
+      "end": 137.9,
+      "text": "speech cow looked me dead in the eye one day said man up then he walked away not meaning",
+      "uncertain": true
+    },
+    {
+      "start": 137.9,
+      "end": 148.4,
+      "text": "hardened not meaning high meaning carry your word with some pride limb nose lifted till the ceiling",
+      "uncertain": false
+    },
+    {
+      "start": 148.4,
+      "end": 156.1,
+      "text": "shook chasing strength like a comic book steel and thunder a body built wide still had to find",
+      "uncertain": false
+    },
+    {
+      "start": 156.1,
+      "end": 157.92,
+      "text": "peace on the inside",
+      "uncertain": true
+    },
+    {
+      "start": 162.12,
+      "end": 163.74,
+      "text": "Don Exodus",
+      "uncertain": true
+    },
+    {
+      "start": 163.74,
+      "end": 166.34,
+      "text": "kept a score in his head",
+      "uncertain": false
+    },
+    {
+      "start": 166.34,
+      "end": 168.4,
+      "text": "last hits",
+      "uncertain": true
+    },
+    {
+      "start": 168.4,
+      "end": 170.22,
+      "text": "ways to carbon the things",
+      "uncertain": true
+    },
+    {
+      "start": 170.22,
+      "end": 171.2,
+      "text": "he said",
+      "uncertain": false
+    },
+    {
+      "start": 171.2,
+      "end": 174.22,
+      "text": "he saw the world like",
+      "uncertain": false
+    },
+    {
+      "start": 174.22,
+      "end": 175.32,
+      "text": "a battlefield screen",
+      "uncertain": false
+    },
+    {
+      "start": 176.52,
+      "end": 178.06,
+      "text": "always haunting",
+      "uncertain": false
+    },
+    {
+      "start": 178.06,
+      "end": 180.18,
+      "text": "the wind in between",
+      "uncertain": false
+    },
+    {
+      "start": 181.5,
+      "end": 182.36,
+      "text": "heat",
+      "uncertain": true
+    },
+    {
+      "start": 182.36,
+      "end": 184.16,
+      "text": "Tommy don't make your whole life",
+      "uncertain": true
+    },
+    {
+      "start": 184.16,
+      "end": 185.96,
+      "text": "small by measuring who",
+      "uncertain": false
+    },
+    {
+      "start": 185.96,
+      "end": 198.04,
+      "text": "gets more than all my stepson life is not one command it slips through the fingers it changes",
+      "uncertain": true
+    },
+    {
+      "start": 198.04,
+      "end": 207.82,
+      "text": "hands take what helps leave what makes you numb know when to fight and when to come home",
+      "uncertain": false
+    },
+    {
+      "start": 209.06,
+      "end": 221.04,
+      "text": "enjoy the rain enjoy the street enjoy the people you're glad to meet give your days a reason to",
+      "uncertain": true
+    },
+    {
+      "start": 221.04,
+      "end": 231.4,
+      "text": "stay and say what matters before it fades away then i remember gris man gone too soon",
+      "uncertain": false
+    },
+    {
+      "start": 232.3,
+      "end": 241.94,
+      "text": "a tragic silence in a crowded room we carry his name with a careful flame and wish he had known",
+      "uncertain": true
+    },
+    {
+      "start": 241.94,
+      "end": 249.72,
+      "text": "he was never to blame so hold your friends when the nights get rough tell them plainly you are",
+      "uncertain": false
+    },
+    {
+      "start": 249.72,
+      "end": 251.74,
+      "text": "enough but to tell you",
+      "uncertain": true
+    },
+    {
+      "start": 251.74,
+      "end": 252.66,
+      "text": "the truth",
+      "uncertain": true
+    },
+    {
+      "start": 256.22,
+      "end": 258.54,
+      "text": "that is",
+      "uncertain": true
+    },
+    {
+      "start": 258.54,
+      "end": 259.38,
+      "text": "hey",
+      "uncertain": true
+    },
+    {
+      "start": 259.38,
+      "end": 260.04,
+      "text": "hey",
+      "uncertain": true
+    },
+    {
+      "start": 261.28,
+      "end": 261.94,
+      "text": "hey",
+      "uncertain": true
+    },
+    {
+      "start": 261.94,
+      "end": 262.7,
+      "text": "hey",
+      "uncertain": true
+    }
+  ]
+}

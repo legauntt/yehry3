@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "songId": "distonyc-5c6c981e71c6a91651965721",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c6c981e71c6a91651965721-e893a03b3a63.mp3",
+  "audioSha256": "e893a03b3a6334613a9817772ef6a61582070bbe1756bf3d470fd8771dfd3666",
+  "inputSha256": "50b62d8661f9485ccf7593cfc91de89770d1aedfe0cad1accc069f5963fbea7b",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 230.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 19.72,
+      "text": "September sky, a crooked dream, smoke in the glass, split-screen scream, a deadland whisper, make it repeat, I felt the whole world leave its feet.",
+      "uncertain": true
+    },
+    {
+      "start": 21.74,
+      "end": 28.9,
+      "text": "been light as shadow came out of the new selling me thunder handed me a few said be my partner",
+      "uncertain": true
+    },
+    {
+      "start": 28.9,
+      "end": 34.82,
+      "text": "drunk in the blue i laughed like a fool and followed him through one became many inside my",
+      "uncertain": true
+    },
+    {
+      "start": 34.82,
+      "end": 41.06,
+      "text": "head sirens kept counting the living and dead every bright window turned into an eye every name",
+      "uncertain": true
+    },
+    {
+      "start": 41.06,
+      "end": 49.64,
+      "text": "asked me why why why no crown in the rubble no glory in flame only somebody's family",
+      "uncertain": false
+    },
+    {
+      "start": 49.72,
+      "end": 52.54,
+      "text": "Calling somebody's name",
+      "uncertain": true
+    },
+    {
+      "start": 52.54,
+      "end": 55.48,
+      "text": "Ashes, no anthem, slow cast my throne",
+      "uncertain": false
+    },
+    {
+      "start": 55.48,
+      "end": 58.14,
+      "text": "You cannot build a kingdom from a graveyard stone",
+      "uncertain": false
+    },
+    {
+      "start": 58.14,
+      "end": 60.8,
+      "text": "Again and again, the nightmare may call",
+      "uncertain": false
+    },
+    {
+      "start": 60.8,
+      "end": 63.42,
+      "text": "But murder makes nothing, nothing at all",
+      "uncertain": false
+    },
+    {
+      "start": 63.42,
+      "end": 66.02,
+      "text": "Ashes, no anthem, grief has no side",
+      "uncertain": false
+    },
+    {
+      "start": 66.02,
+      "end": 68.54,
+      "text": "The lie sounds enormous till the innocent die",
+      "uncertain": true
+    },
+    {
+      "start": 68.54,
+      "end": 71.14,
+      "text": "I follow the shadow and proof of a shame",
+      "uncertain": true
+    },
+    {
+      "start": 71.14,
+      "end": 73.86,
+      "text": "I won't make that morning happen again",
+      "uncertain": false
+    },
+    {
+      "start": 76.64,
+      "end": 78.94,
+      "text": "He drew me a future in charcoal",
+      "uncertain": false
+    },
+    {
+      "start": 78.94,
+      "end": 85.44,
+      "text": "and raid a calendar crowded with towers in my head but down on the sidewalk under the roar a stranger",
+      "uncertain": true
+    },
+    {
+      "start": 85.44,
+      "end": 91.38,
+      "text": "held open the shattered door hands pulled hands from the choking gray no doubt of destruction",
+      "uncertain": false
+    },
+    {
+      "start": 91.38,
+      "end": 96.0,
+      "text": "could on that day the smallest murk she cut through the den of something long",
+      "uncertain": true
+    },
+    {
+      "start": 96.0,
+      "end": 104.7,
+      "text": "perry woke up within no prize in the panic no victory won just empty chairs waiting",
+      "uncertain": true
+    },
+    {
+      "start": 104.7,
+      "end": 107.48,
+      "text": "When the evening comes",
+      "uncertain": true
+    },
+    {
+      "start": 107.48,
+      "end": 109.16,
+      "text": "Ash has no anthem",
+      "uncertain": true
+    },
+    {
+      "start": 109.16,
+      "end": 110.3,
+      "text": "Skullcats don't belong",
+      "uncertain": true
+    },
+    {
+      "start": 110.3,
+      "end": 112.88,
+      "text": "You cannot build a kingdom from a graveyard stone",
+      "uncertain": false
+    },
+    {
+      "start": 112.88,
+      "end": 114.16,
+      "text": "Again and again",
+      "uncertain": false
+    },
+    {
+      "start": 114.16,
+      "end": 115.58,
+      "text": "The nightmare we call",
+      "uncertain": false
+    },
+    {
+      "start": 115.58,
+      "end": 118.16,
+      "text": "The murder makes nothing, nothing at all",
+      "uncertain": true
+    },
+    {
+      "start": 118.16,
+      "end": 119.64,
+      "text": "Ash has no anthem",
+      "uncertain": false
+    },
+    {
+      "start": 119.64,
+      "end": 120.84,
+      "text": "Grief has no side",
+      "uncertain": false
+    },
+    {
+      "start": 120.84,
+      "end": 123.38,
+      "text": "The lie sells enormous till the innocent tide",
+      "uncertain": true
+    },
+    {
+      "start": 123.38,
+      "end": 126.0,
+      "text": "Of all the shadows and broke from its chain",
+      "uncertain": true
+    },
+    {
+      "start": 126.0,
+      "end": 128.68,
+      "text": "I won't make that warning happen again",
+      "uncertain": false
+    },
+    {
+      "start": 128.68,
+      "end": 131.6,
+      "text": "I faced that ghost in the furnace glow",
+      "uncertain": false
+    },
+    {
+      "start": 131.6,
+      "end": 133.08,
+      "text": "Said your feet on wounds",
+      "uncertain": false
+    },
+    {
+      "start": 133.08,
+      "end": 134.18,
+      "text": "But now I know",
+      "uncertain": false
+    },
+    {
+      "start": 134.18,
+      "end": 137.1,
+      "text": "He promised forever I answered you lie",
+      "uncertain": false
+    },
+    {
+      "start": 137.1,
+      "end": 139.66,
+      "text": "Then tore up the pack beneath the black sky",
+      "uncertain": true
+    },
+    {
+      "start": 139.66,
+      "end": 142.06,
+      "text": "No more numbers, no grand design",
+      "uncertain": false
+    },
+    {
+      "start": 142.06,
+      "end": 144.76,
+      "text": "No stolen death dressed up as mine",
+      "uncertain": false
+    },
+    {
+      "start": 144.76,
+      "end": 147.34,
+      "text": "Let every siren become a vow",
+      "uncertain": false
+    },
+    {
+      "start": 147.34,
+      "end": 150.12,
+      "text": "The killing ends here, choice is no",
+      "uncertain": false
+    },
+    {
+      "start": 154.62,
+      "end": 157.22,
+      "text": "Ash has no anthem, smoke has no throne",
+      "uncertain": false
+    },
+    {
+      "start": 157.22,
+      "end": 159.84,
+      "text": "We build from the living, not graveyard stone",
+      "uncertain": false
+    },
+    {
+      "start": 159.84,
+      "end": 162.58,
+      "text": "Again and again when the old hatred calls",
+      "uncertain": false
+    },
+    {
+      "start": 162.58,
+      "end": 165.16,
+      "text": "We carry each other out through the walls",
+      "uncertain": false
+    },
+    {
+      "start": 165.16,
+      "end": 167.76,
+      "text": "Dash has no anthem, grief has no side",
+      "uncertain": false
+    },
+    {
+      "start": 167.76,
+      "end": 170.16,
+      "text": "Remember the names, let the truth survive",
+      "uncertain": false
+    },
+    {
+      "start": 170.16,
+      "end": 172.96,
+      "text": "I built the shadow and shattered its chain",
+      "uncertain": true
+    },
+    {
+      "start": 172.96,
+      "end": 175.64,
+      "text": "That money will never be summoned again",
+      "uncertain": false
+    },
+    {
+      "start": 178.18,
+      "end": 181.22,
+      "text": "Never again, not in anyone's name",
+      "uncertain": false
+    },
+    {
+      "start": 183.4,
+      "end": 186.2,
+      "text": "Never again, I walk out of the flame",
+      "uncertain": false
+    },
+    {
+      "start": 188.48,
+      "end": 191.22,
+      "text": "Hold to the living through sorrow and rain",
+      "uncertain": true
+    },
+    {
+      "start": 193.08,
+      "end": 196.32,
+      "text": "that morning will never be summoned again",
+      "uncertain": true
+    },
+    {
+      "start": 226.18,
+      "end": 227.58,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

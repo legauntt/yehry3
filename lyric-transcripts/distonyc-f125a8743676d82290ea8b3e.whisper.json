@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "songId": "distonyc-f125a8743676d82290ea8b3e",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f125a8743676d82290ea8b3e-1141a4128959.mp3",
+  "audioSha256": "1141a4128959e44ed5ad0f5977b1cb77eccce5677a025b482264eb3317aacde5",
+  "inputSha256": "fb1feec8bb0ea4291a3b54600e6de07ef15e65aa6ed9fe5f62ee3b837e9e36da",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 125.04,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.48,
+      "text": "Not sure this is the best time to be experimented.",
+      "uncertain": false
+    },
+    {
+      "start": 3.84,
+      "end": 5.0,
+      "text": "Oh, cowboy.",
+      "uncertain": false
+    },
+    {
+      "start": 5.62,
+      "end": 7.62,
+      "text": "Girl, you so fun.",
+      "uncertain": false
+    },
+    {
+      "start": 8.6,
+      "end": 10.38,
+      "text": "You so fun.",
+      "uncertain": false
+    },
+    {
+      "start": 10.46,
+      "end": 13.9,
+      "text": "Like craning shatters with the ball.",
+      "uncertain": true
+    },
+    {
+      "start": 14.96,
+      "end": 22.08,
+      "text": "Knowledge that I could never be what you wanted a man or a woman for that matter.",
+      "uncertain": true
+    },
+    {
+      "start": 23.3,
+      "end": 28.54,
+      "text": "Surgery and makeup can do amazing things.",
+      "uncertain": false
+    },
+    {
+      "start": 28.54,
+      "end": 30.24,
+      "text": "These days",
+      "uncertain": false
+    },
+    {
+      "start": 30.24,
+      "end": 32.92,
+      "text": "That's it, you aren't so fine",
+      "uncertain": false
+    },
+    {
+      "start": 32.92,
+      "end": 34.96,
+      "text": "Now that I'm thinking you're",
+      "uncertain": false
+    },
+    {
+      "start": 34.96,
+      "end": 36.8,
+      "text": "A chance that's dying",
+      "uncertain": false
+    },
+    {
+      "start": 36.8,
+      "end": 40.66,
+      "text": "God damn, 9-11 again",
+      "uncertain": true
+    },
+    {
+      "start": 40.66,
+      "end": 43.42,
+      "text": "9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 43.42,
+      "end": 47.14,
+      "text": "Right when the good fun begins",
+      "uncertain": false
+    },
+    {
+      "start": 47.14,
+      "end": 51.4,
+      "text": "One plane hits, the whole plane ends",
+      "uncertain": false
+    },
+    {
+      "start": 51.4,
+      "end": 54.26,
+      "text": "Then he gets 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 54.26,
+      "end": 56.08,
+      "text": "9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 56.08,
+      "end": 57.78,
+      "text": "9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 57.78,
+      "end": 70.44,
+      "text": "before he can 9-11 he gets 9-11 again stumbling out of the toxic smoke vaporized glass coating my",
+      "uncertain": true
+    },
+    {
+      "start": 70.44,
+      "end": 79.46,
+      "text": "lungs see a cutie up ahead hey girl can i take you to bed she responds in a gruff man's voice",
+      "uncertain": true
+    },
+    {
+      "start": 79.46,
+      "end": 83.28,
+      "text": "Boy, I'll show you a real good time",
+      "uncertain": false
+    },
+    {
+      "start": 83.28,
+      "end": 86.6,
+      "text": "Not a living again",
+      "uncertain": true
+    },
+    {
+      "start": 86.6,
+      "end": 90.3,
+      "text": "Right when the good fun begins",
+      "uncertain": false
+    },
+    {
+      "start": 90.3,
+      "end": 94.32,
+      "text": "One plane hits, the whole plan ends",
+      "uncertain": true
+    },
+    {
+      "start": 94.32,
+      "end": 97.24,
+      "text": "Then he gets not a living again",
+      "uncertain": false
+    },
+    {
+      "start": 97.24,
+      "end": 101.08,
+      "text": "Not a living again, not a living again",
+      "uncertain": false
+    },
+    {
+      "start": 104.06,
+      "end": 107.32,
+      "text": "Stullin' out of the toxic smoke",
+      "uncertain": false
+    },
+    {
+      "start": 107.32,
+      "end": 109.08,
+      "text": "Vaporized glass",
+      "uncertain": false
+    },
+    {
+      "start": 109.08,
+      "end": 110.44,
+      "text": "Coat in my lungs",
+      "uncertain": true
+    },
+    {
+      "start": 110.44,
+      "end": 112.78,
+      "text": "See a cutie up a head",
+      "uncertain": true
+    },
+    {
+      "start": 112.78,
+      "end": 115.92,
+      "text": "Hey girl can I take you to bed",
+      "uncertain": true
+    },
+    {
+      "start": 115.92,
+      "end": 117.5,
+      "text": "She responds in a",
+      "uncertain": false
+    },
+    {
+      "start": 117.5,
+      "end": 118.8,
+      "text": "Crunk man's voice",
+      "uncertain": true
+    },
+    {
+      "start": 118.8,
+      "end": 121.6,
+      "text": "Boy I'll show you a real",
+      "uncertain": false
+    }
+  ]
+}

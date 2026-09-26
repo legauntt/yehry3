@@ -1,0 +1,709 @@
+{
+  "version": 1,
+  "songId": "distonyc-306805ee82de2692453537fa",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-306805ee82de2692453537fa-b92ee0d96e1e.mp3",
+  "audioSha256": "b92ee0d96e1e5dc823a5c5a68abc02ff716400631a94cef4b2c22dd434c70906",
+  "inputSha256": "48e5ed383d2c2da48d22e34e533eaf7d3b57c46dfc4f6907747c35915f9ae800",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 600.0326875,
+  "segments": [
+    {
+      "start": 4.18,
+      "end": 14.36,
+      "text": "the kettle starts its whisper before the morning birds a half-packed room is waiting for a man to",
+      "uncertain": true
+    },
+    {
+      "start": 14.36,
+      "end": 24.18,
+      "text": "find the words the calendar says 60 the window fills with gold i thought this age meant settling",
+      "uncertain": false
+    },
+    {
+      "start": 24.18,
+      "end": 26.94,
+      "text": "I don't believe that now",
+      "uncertain": false
+    },
+    {
+      "start": 28.38,
+      "end": 31.8,
+      "text": "I gave away the big desk",
+      "uncertain": false
+    },
+    {
+      "start": 31.8,
+      "end": 34.12,
+      "text": "The coat I never wore",
+      "uncertain": false
+    },
+    {
+      "start": 34.12,
+      "end": 37.48,
+      "text": "Left 20 years of paperwork",
+      "uncertain": false
+    },
+    {
+      "start": 37.48,
+      "end": 39.82,
+      "text": "Beside the charity door",
+      "uncertain": false
+    },
+    {
+      "start": 39.82,
+      "end": 43.1,
+      "text": "The photographs came with me",
+      "uncertain": false
+    },
+    {
+      "start": 43.1,
+      "end": 45.5,
+      "text": "The grudges stayed behind",
+      "uncertain": false
+    },
+    {
+      "start": 45.5,
+      "end": 49.1,
+      "text": "There's room inside this little house",
+      "uncertain": false
+    },
+    {
+      "start": 49.1,
+      "end": 51.52,
+      "text": "And room inside my mind",
+      "uncertain": false
+    },
+    {
+      "start": 51.52,
+      "end": 57.1,
+      "text": "I bought a second-hand table with circles from old cups",
+      "uncertain": false
+    },
+    {
+      "start": 57.1,
+      "end": 62.66,
+      "text": "Proof that other lives have ended, proof that others started up",
+      "uncertain": false
+    },
+    {
+      "start": 62.66,
+      "end": 68.5,
+      "text": "I set one plate upon it, then laughed and brought out two",
+      "uncertain": false
+    },
+    {
+      "start": 68.5,
+      "end": 74.26,
+      "text": "One for the life that carried me, one for the life that's new",
+      "uncertain": false
+    },
+    {
+      "start": 75.76,
+      "end": 81.1,
+      "text": "I am not starting empty, I am starting wide awake",
+      "uncertain": false
+    },
+    {
+      "start": 81.1,
+      "end": 86.96,
+      "text": "With every scar a compass and every loss a lake",
+      "uncertain": false
+    },
+    {
+      "start": 86.96,
+      "end": 89.92,
+      "text": "I crossed them in the darkness",
+      "uncertain": true
+    },
+    {
+      "start": 89.92,
+      "end": 92.68,
+      "text": "Now morning finds me free",
+      "uncertain": true
+    },
+    {
+      "start": 92.68,
+      "end": 95.62,
+      "text": "Sixties and after",
+      "uncertain": false
+    },
+    {
+      "start": 95.62,
+      "end": 98.28,
+      "text": "Sixties starts with me",
+      "uncertain": false
+    },
+    {
+      "start": 98.28,
+      "end": 102.92,
+      "text": "My daughter called on Sunday",
+      "uncertain": true
+    },
+    {
+      "start": 102.92,
+      "end": 105.38,
+      "text": "Said, Dad, are you all right?",
+      "uncertain": true
+    },
+    {
+      "start": 105.76,
+      "end": 109.76,
+      "text": "I told her I was learning how to sleep",
+      "uncertain": false
+    },
+    {
+      "start": 109.76,
+      "end": 116.98,
+      "text": "without the light how to walk beyond the corner where i always used to turn",
+      "uncertain": true
+    },
+    {
+      "start": 117.6,
+      "end": 122.72,
+      "text": "how a heart can keep its history and still have room to learn",
+      "uncertain": false
+    },
+    {
+      "start": 126.32,
+      "end": 134.5,
+      "text": "i signed up for a dance class my left foot missed the beat a woman in a red scarf said",
+      "uncertain": false
+    },
+    {
+      "start": 134.5,
+      "end": 136.8,
+      "text": "Just listen through your feet",
+      "uncertain": true
+    },
+    {
+      "start": 136.8,
+      "end": 139.98,
+      "text": "We stumbled through the measures",
+      "uncertain": true
+    },
+    {
+      "start": 139.98,
+      "end": 142.64,
+      "text": "Then landed on the one",
+      "uncertain": false
+    },
+    {
+      "start": 142.64,
+      "end": 145.54,
+      "text": "I haven't felt that foolish",
+      "uncertain": false
+    },
+    {
+      "start": 145.54,
+      "end": 148.66,
+      "text": "Or that young in years and years",
+      "uncertain": false
+    },
+    {
+      "start": 150.46,
+      "end": 154.26,
+      "text": "This is the first morning of 60",
+      "uncertain": false
+    },
+    {
+      "start": 155.72,
+      "end": 157.78,
+      "text": "Open the curtain",
+      "uncertain": false
+    },
+    {
+      "start": 157.78,
+      "end": 160.82,
+      "text": "Let the whole sky in",
+      "uncertain": true
+    },
+    {
+      "start": 161.86,
+      "end": 166.48,
+      "text": "I carried yesterday as far as it could take me",
+      "uncertain": false
+    },
+    {
+      "start": 166.48,
+      "end": 169.76,
+      "text": "Now I know where the day begins",
+      "uncertain": true
+    },
+    {
+      "start": 169.76,
+      "end": 173.36,
+      "text": "No, I don't need the years returned to me",
+      "uncertain": false
+    },
+    {
+      "start": 174.96,
+      "end": 179.54,
+      "text": "I need the nerve to spend the ones I see",
+      "uncertain": false
+    },
+    {
+      "start": 180.6,
+      "end": 184.98,
+      "text": "And the first day belongs to me",
+      "uncertain": false
+    },
+    {
+      "start": 186.56,
+      "end": 189.52,
+      "text": "I took the train out westward",
+      "uncertain": false
+    },
+    {
+      "start": 189.52,
+      "end": 192.1,
+      "text": "With one bag and no suit",
+      "uncertain": true
+    },
+    {
+      "start": 192.1,
+      "end": 195.2,
+      "text": "Watched farms become a coastline",
+      "uncertain": false
+    },
+    {
+      "start": 195.2,
+      "end": 197.78,
+      "text": "Watched rain polish every roof",
+      "uncertain": false
+    },
+    {
+      "start": 197.78,
+      "end": 200.76,
+      "text": "At a harbor cafe window",
+      "uncertain": false
+    },
+    {
+      "start": 200.76,
+      "end": 203.78,
+      "text": "I wrote three honest lines",
+      "uncertain": false
+    },
+    {
+      "start": 203.78,
+      "end": 206.64,
+      "text": "I miss the ones who left me",
+      "uncertain": false
+    },
+    {
+      "start": 206.64,
+      "end": 209.26,
+      "text": "But this living still is mine",
+      "uncertain": false
+    },
+    {
+      "start": 209.26,
+      "end": 212.26,
+      "text": "I called an old friend laughing",
+      "uncertain": false
+    },
+    {
+      "start": 212.26,
+      "end": 215.18,
+      "text": "We hadn't spoken since",
+      "uncertain": false
+    },
+    {
+      "start": 215.18,
+      "end": 218.1,
+      "text": "Some arguments so ancient",
+      "uncertain": false
+    },
+    {
+      "start": 218.1,
+      "end": 220.7,
+      "text": "Neither one could make it fit",
+      "uncertain": false
+    },
+    {
+      "start": 220.7,
+      "end": 223.3,
+      "text": "You said, are we still angry?",
+      "uncertain": false
+    },
+    {
+      "start": 223.66,
+      "end": 226.56,
+      "text": "I said, I haven't got the time",
+      "uncertain": false
+    },
+    {
+      "start": 226.56,
+      "end": 229.98,
+      "text": "We met beneath the station clock",
+      "uncertain": false
+    },
+    {
+      "start": 229.98,
+      "end": 232.26,
+      "text": "And let the silence die",
+      "uncertain": false
+    },
+    {
+      "start": 235.4,
+      "end": 238.02,
+      "text": "I am not starting empty",
+      "uncertain": false
+    },
+    {
+      "start": 238.02,
+      "end": 240.82,
+      "text": "I am starting wide awake",
+      "uncertain": false
+    },
+    {
+      "start": 240.82,
+      "end": 243.78,
+      "text": "With every scar a compass",
+      "uncertain": true
+    },
+    {
+      "start": 243.78,
+      "end": 246.52,
+      "text": "And every loss a link",
+      "uncertain": false
+    },
+    {
+      "start": 246.52,
+      "end": 257.92,
+      "text": "i crossed them in the darkness now morning finds me free 60 isn't after 60 starts with me",
+      "uncertain": true
+    },
+    {
+      "start": 257.92,
+      "end": 267.66,
+      "text": "there are boxes in the attic i may never open now there are names inside my telephone i'll",
+      "uncertain": false
+    },
+    {
+      "start": 267.66,
+      "end": 275.16,
+      "text": "finally call somehow there are roads without a reason there are meals i've never tried",
+      "uncertain": false
+    },
+    {
+      "start": 275.16,
+      "end": 283.92,
+      "text": "there is music in this weathered chest that never learned to hide so I planted basil Tuesday",
+      "uncertain": true
+    },
+    {
+      "start": 283.92,
+      "end": 292.66,
+      "text": "in a chipped blue window box put a bicycle together with the wrong sized wrench and sops",
+      "uncertain": false
+    },
+    {
+      "start": 292.66,
+      "end": 301.98,
+      "text": "the chain came off by Thursday I coasted down the hill you can lose the perfect method and be",
+      "uncertain": false
+    },
+    {
+      "start": 301.98,
+      "end": 314.18,
+      "text": "moving forward still this is the first morning of 60 open the curtain let the whole sky in",
+      "uncertain": true
+    },
+    {
+      "start": 314.18,
+      "end": 323.6,
+      "text": "i carried yesterday as far as it could take me now i know where today begins no i don't need the",
+      "uncertain": true
+    },
+    {
+      "start": 323.6,
+      "end": 331.72,
+      "text": "years returned to me i need the nerve to spend the ones i see this is the first",
+      "uncertain": false
+    },
+    {
+      "start": 331.72,
+      "end": 339.1,
+      "text": "morning at 60 and the first day belongs to me",
+      "uncertain": true
+    },
+    {
+      "start": 343.28,
+      "end": 351.78,
+      "text": "i won't pretend i'm fearless some nights the hallway grows and every closed door whispers",
+      "uncertain": true
+    },
+    {
+      "start": 351.78,
+      "end": 360.24,
+      "text": "of the ending no one knows the fear is not a verdict and age is not a wall",
+      "uncertain": false
+    },
+    {
+      "start": 360.24,
+      "end": 368.38,
+      "text": "the years have taught me how to rise they never taught me not to fall let the mirror tell the",
+      "uncertain": true
+    },
+    {
+      "start": 368.38,
+      "end": 377.4,
+      "text": "truth now silver hair and tired eyes but underneath the mileage something stubborn still survives",
+      "uncertain": false
+    },
+    {
+      "start": 377.4,
+      "end": 386.74,
+      "text": "not the boy who chased forever not the man who had to prove just a soul with less to carry",
+      "uncertain": false
+    },
+    {
+      "start": 386.74,
+      "end": 391.0,
+      "text": "And a little more to lose",
+      "uncertain": false
+    },
+    {
+      "start": 396.76,
+      "end": 400.4,
+      "text": "I found work three days weekly",
+      "uncertain": false
+    },
+    {
+      "start": 400.4,
+      "end": 402.88,
+      "text": "At the neighborhood repair",
+      "uncertain": false
+    },
+    {
+      "start": 402.88,
+      "end": 406.4,
+      "text": "Mending lamps and wooden radios",
+      "uncertain": false
+    },
+    {
+      "start": 406.4,
+      "end": 408.96,
+      "text": "For people passing there",
+      "uncertain": false
+    },
+    {
+      "start": 408.96,
+      "end": 412.46,
+      "text": "A child brought in a music box",
+      "uncertain": false
+    },
+    {
+      "start": 412.46,
+      "end": 414.28,
+      "text": "This dancer wouldn't turn",
+      "uncertain": true
+    },
+    {
+      "start": 414.28,
+      "end": 420.12,
+      "text": "I cleaned the gears and wound the spring and watched the small light burn",
+      "uncertain": false
+    },
+    {
+      "start": 420.12,
+      "end": 425.88,
+      "text": "Her mother said you fixed it as if I'd raised the dead",
+      "uncertain": true
+    },
+    {
+      "start": 425.88,
+      "end": 431.42,
+      "text": "I knew enough to answer some things only need a thread",
+      "uncertain": false
+    },
+    {
+      "start": 431.42,
+      "end": 437.04,
+      "text": "A careful hand, a patient ear, a place where they can mend",
+      "uncertain": false
+    },
+    {
+      "start": 437.04,
+      "end": 442.56,
+      "text": "Maybe lives are much like music boxes, they can start again",
+      "uncertain": false
+    },
+    {
+      "start": 442.56,
+      "end": 445.66,
+      "text": "And this is the first morning of 60.",
+      "uncertain": true
+    },
+    {
+      "start": 446.38,
+      "end": 450.72,
+      "text": "Open the curtain, let the whole sky in.",
+      "uncertain": false
+    },
+    {
+      "start": 451.6,
+      "end": 457.72,
+      "text": "I carried yesterday as far as it could take me.",
+      "uncertain": false
+    },
+    {
+      "start": 457.86,
+      "end": 460.3,
+      "text": "Now I know where the day begins.",
+      "uncertain": false
+    },
+    {
+      "start": 460.52,
+      "end": 463.46,
+      "text": "Know how to eat beef or some trip or trick to me.",
+      "uncertain": true
+    },
+    {
+      "start": 463.62,
+      "end": 466.3,
+      "text": "I need the nerve to listen to me what they need.",
+      "uncertain": true
+    },
+    {
+      "start": 466.74,
+      "end": 469.72,
+      "text": "This is the first morning of 60.",
+      "uncertain": false
+    },
+    {
+      "start": 469.72,
+      "end": 477.72,
+      "text": "And the first day belongs to me",
+      "uncertain": false
+    },
+    {
+      "start": 481.76,
+      "end": 487.32,
+      "text": "By spring I knew the neighbors and the dog across the lane",
+      "uncertain": false
+    },
+    {
+      "start": 487.32,
+      "end": 493.1,
+      "text": "I knew which floorboard answered when the house woke in the rain",
+      "uncertain": false
+    },
+    {
+      "start": 493.1,
+      "end": 498.46,
+      "text": "The woman in the red scarf came by with bread and tea",
+      "uncertain": false
+    },
+    {
+      "start": 498.46,
+      "end": 507.46,
+      "text": "she said you dance much better now i said that's news to me we sat out on the front step",
+      "uncertain": true
+    },
+    {
+      "start": 507.46,
+      "end": 515.4,
+      "text": "while evening crossed the street no promises of always no grand retreat from grief",
+      "uncertain": false
+    },
+    {
+      "start": 515.4,
+      "end": 526.48,
+      "text": "just two cups cooling slowly and nowhere else to be at 60 i quit asking life to guarantee itself",
+      "uncertain": false
+    },
+    {
+      "start": 526.48,
+      "end": 536.9,
+      "text": "to me I am not starting empty I am starting with my name with every love that shaped me",
+      "uncertain": true
+    },
+    {
+      "start": 536.9,
+      "end": 547.92,
+      "text": "and every honest blame the road behind is part of me it isn't where I stay 60 years and after",
+      "uncertain": false
+    },
+    {
+      "start": 547.92,
+      "end": 550.42,
+      "text": "60 starts today",
+      "uncertain": false
+    },
+    {
+      "start": 551.94,
+      "end": 555.06,
+      "text": "So leave one box unopened",
+      "uncertain": true
+    },
+    {
+      "start": 555.06,
+      "end": 557.6,
+      "text": "Let one old question rest",
+      "uncertain": false
+    },
+    {
+      "start": 557.6,
+      "end": 560.44,
+      "text": "Put tomorrow on the table",
+      "uncertain": false
+    },
+    {
+      "start": 560.44,
+      "end": 563.5,
+      "text": "And give today your best",
+      "uncertain": false
+    },
+    {
+      "start": 563.5,
+      "end": 566.18,
+      "text": "The kettle starts its whisper",
+      "uncertain": false
+    },
+    {
+      "start": 566.18,
+      "end": 568.82,
+      "text": "The eastern windows shine",
+      "uncertain": false
+    },
+    {
+      "start": 568.82,
+      "end": 571.8,
+      "text": "I open up the front door",
+      "uncertain": false
+    },
+    {
+      "start": 571.8,
+      "end": 574.34,
+      "text": "To this unfinished life of mine",
+      "uncertain": false
+    },
+    {
+      "start": 574.34,
+      "end": 577.76,
+      "text": "No borrowed youth, no backward wish",
+      "uncertain": false
+    },
+    {
+      "start": 577.76,
+      "end": 580.6,
+      "text": "No bargain with what he used to be",
+      "uncertain": false
+    },
+    {
+      "start": 580.6,
+      "end": 584.3,
+      "text": "This is the first morning of 60",
+      "uncertain": false
+    },
+    {
+      "start": 584.3,
+      "end": 589.76,
+      "text": "And the whole day opens for me",
+      "uncertain": false
+    }
+  ]
+}

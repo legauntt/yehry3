@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "songId": "distonyc-7788d1fe94d0a00369178662",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7788d1fe94d0a00369178662-879da7f1e137.mp3",
+  "audioSha256": "879da7f1e137aca0d649f8d2644fb9547cda3fdbbcdfb936e21fd79b5349e22c",
+  "inputSha256": "249275672866328bd427411e92e642c226adc3430bdc0d14051216448d91d72f",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 87.44,
+  "segments": [
+    {
+      "start": 0.84,
+      "end": 4.08,
+      "text": "Midnight parking lot, silver on black",
+      "uncertain": false
+    },
+    {
+      "start": 4.08,
+      "end": 7.22,
+      "text": "Street lights sliding down the glass",
+      "uncertain": true
+    },
+    {
+      "start": 7.22,
+      "end": 9.44,
+      "text": "You spin the paddle once",
+      "uncertain": true
+    },
+    {
+      "start": 9.44,
+      "end": 12.22,
+      "text": "Then you wave, bite the whole room",
+      "uncertain": false
+    },
+    {
+      "start": 12.22,
+      "end": 13.44,
+      "text": "Smoting its breath",
+      "uncertain": true
+    },
+    {
+      "start": 15.22,
+      "end": 18.16,
+      "text": "White fall rising over the green",
+      "uncertain": true
+    },
+    {
+      "start": 18.16,
+      "end": 21.2,
+      "text": "Little moon with a mean backspin",
+      "uncertain": false
+    },
+    {
+      "start": 21.2,
+      "end": 25.04,
+      "text": "I don't need a crowd, don't need a score",
+      "uncertain": false
+    },
+    {
+      "start": 25.04,
+      "end": 28.58,
+      "text": "Just that clean, sharp knock off the floor",
+      "uncertain": false
+    },
+    {
+      "start": 28.58,
+      "end": 32.42,
+      "text": "Table by the window, grain on the hood",
+      "uncertain": true
+    },
+    {
+      "start": 32.42,
+      "end": 36.26,
+      "text": "You send it cross-court like you knew you would",
+      "uncertain": true
+    },
+    {
+      "start": 36.26,
+      "end": 39.94,
+      "text": "I send it back slow, let the silence sway",
+      "uncertain": true
+    },
+    {
+      "start": 39.94,
+      "end": 43.76,
+      "text": "Two shadows keeping time on a ping-pong string",
+      "uncertain": true
+    },
+    {
+      "start": 43.76,
+      "end": 48.62,
+      "text": "You should come slow with a sidewise bat",
+      "uncertain": true
+    },
+    {
+      "start": 50.3,
+      "end": 51.72,
+      "text": "No speeches",
+      "uncertain": false
+    },
+    {
+      "start": 52.86,
+      "end": 56.44,
+      "text": "The city prayers and the rearview code",
+      "uncertain": true
+    },
+    {
+      "start": 56.44,
+      "end": 60.5,
+      "text": "We keep the rally where the cold air goes",
+      "uncertain": false
+    },
+    {
+      "start": 61.46,
+      "end": 65.04,
+      "text": "Chibu by the window, night garden clean",
+      "uncertain": true
+    },
+    {
+      "start": 65.04,
+      "end": 68.92,
+      "text": "Cone lies melting through a blue-black scene",
+      "uncertain": false
+    },
+    {
+      "start": 68.92,
+      "end": 72.58,
+      "text": "On that soft return, let the room go still",
+      "uncertain": true
+    },
+    {
+      "start": 72.58,
+      "end": 77.14,
+      "text": "The ball lands quiet, and I always will",
+      "uncertain": false
+    },
+    {
+      "start": 86.44,
+      "end": 86.64,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

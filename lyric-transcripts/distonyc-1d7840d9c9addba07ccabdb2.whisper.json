@@ -1,0 +1,421 @@
+{
+  "version": 1,
+  "songId": "distonyc-1d7840d9c9addba07ccabdb2",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1d7840d9c9addba07ccabdb2-043701a808ad.mp3",
+  "audioSha256": "043701a808adf5003310b2e45c631325f1f09ff6da2a8df840e59d0427620d2a",
+  "inputSha256": "043701a808adf5003310b2e45c631325f1f09ff6da2a8df840e59d0427620d2a",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 241.74,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.7,
+      "text": "Which shoes mine, both. That's unfortunate. There was snow where my house used to stand.",
+      "uncertain": true
+    },
+    {
+      "start": 8.06,
+      "end": 13.22,
+      "text": "Now there's something asleep in the cellar, and an axe getting warm in my hand.",
+      "uncertain": false
+    },
+    {
+      "start": 21.78,
+      "end": 24.38,
+      "text": "I came from the north with a name in my teeth.",
+      "uncertain": true
+    },
+    {
+      "start": 26.16,
+      "end": 27.3,
+      "text": "Through the dungeons",
+      "uncertain": true
+    },
+    {
+      "start": 27.3,
+      "end": 28.68,
+      "text": "Out down the wet scorn throat",
+      "uncertain": true
+    },
+    {
+      "start": 28.68,
+      "end": 30.24,
+      "text": "That's the priest in the butcher's coat",
+      "uncertain": false
+    },
+    {
+      "start": 30.24,
+      "end": 31.96,
+      "text": "He said, kneel down, son",
+      "uncertain": false
+    },
+    {
+      "start": 31.96,
+      "end": 32.86,
+      "text": "There's a power below",
+      "uncertain": false
+    },
+    {
+      "start": 32.86,
+      "end": 33.94,
+      "text": "I said, these shoes",
+      "uncertain": false
+    },
+    {
+      "start": 33.94,
+      "end": 35.2,
+      "text": "Don't bend that low",
+      "uncertain": false
+    },
+    {
+      "start": 35.2,
+      "end": 36.4,
+      "text": "Took a drink for the courage",
+      "uncertain": false
+    },
+    {
+      "start": 36.4,
+      "end": 37.32,
+      "text": "I already had",
+      "uncertain": false
+    },
+    {
+      "start": 37.32,
+      "end": 38.56,
+      "text": "Still the vest on the spare",
+      "uncertain": false
+    },
+    {
+      "start": 38.56,
+      "end": 39.48,
+      "text": "Wasted that",
+      "uncertain": false
+    },
+    {
+      "start": 39.48,
+      "end": 41.76,
+      "text": "Something wearing a man's face",
+      "uncertain": false
+    },
+    {
+      "start": 41.76,
+      "end": 42.38,
+      "text": "Smiled",
+      "uncertain": true
+    },
+    {
+      "start": 43.62,
+      "end": 46.68,
+      "text": "I remembered the face of my child",
+      "uncertain": false
+    },
+    {
+      "start": 47.8,
+      "end": 49.04,
+      "text": "Held my breath",
+      "uncertain": false
+    },
+    {
+      "start": 49.04,
+      "end": 51.1,
+      "text": "To the shaking cross",
+      "uncertain": true
+    },
+    {
+      "start": 52.26,
+      "end": 55.48,
+      "text": "Then I ask which prayer would be its last",
+      "uncertain": false
+    },
+    {
+      "start": 55.48,
+      "end": 57.72,
+      "text": "Blood on my shoes",
+      "uncertain": true
+    },
+    {
+      "start": 57.72,
+      "end": 60.1,
+      "text": "Dawn in my eyes",
+      "uncertain": false
+    },
+    {
+      "start": 60.1,
+      "end": 63.9,
+      "text": "I've got one road to a king so I'll live tonight",
+      "uncertain": true
+    },
+    {
+      "start": 64.62,
+      "end": 68.28,
+      "text": "Call me a god if it helps you sleep",
+      "uncertain": true
+    },
+    {
+      "start": 68.28,
+      "end": 72.72,
+      "text": "I'm a man with a promise I mean to keep",
+      "uncertain": false
+    },
+    {
+      "start": 73.56,
+      "end": 77.2,
+      "text": "Open the shut, uncover the light",
+      "uncertain": false
+    },
+    {
+      "start": 77.2,
+      "end": 81.58,
+      "text": "Something that hunted you by tonight",
+      "uncertain": true
+    },
+    {
+      "start": 81.58,
+      "end": 85.84,
+      "text": "Right on my shoes, right on the floor",
+      "uncertain": false
+    },
+    {
+      "start": 86.58,
+      "end": 90.06,
+      "text": "You won't hear that expression anymore",
+      "uncertain": false
+    },
+    {
+      "start": 94.08,
+      "end": 96.48,
+      "text": "Ancient streets underneath the ground",
+      "uncertain": false
+    },
+    {
+      "start": 98.08,
+      "end": 100.68,
+      "text": "I walked where the hungry reached up for crown",
+      "uncertain": true
+    },
+    {
+      "start": 100.68,
+      "end": 102.32,
+      "text": "Keep my own two feet down",
+      "uncertain": true
+    },
+    {
+      "start": 102.32,
+      "end": 104.96,
+      "text": "The old man's a terrible boot, you know",
+      "uncertain": true
+    },
+    {
+      "start": 104.96,
+      "end": 107.08,
+      "text": "Try running in that through the northern snow",
+      "uncertain": false
+    },
+    {
+      "start": 107.08,
+      "end": 109.5,
+      "text": "My left shoe's talking, it says we're true",
+      "uncertain": true
+    },
+    {
+      "start": 109.5,
+      "end": 111.46,
+      "text": "All right, says this work, we still gotta do",
+      "uncertain": true
+    },
+    {
+      "start": 111.46,
+      "end": 114.36,
+      "text": "Let the great ones bargain for endless years",
+      "uncertain": true
+    },
+    {
+      "start": 115.58,
+      "end": 118.78,
+      "text": "I've had plenty of time with the end",
+      "uncertain": false
+    },
+    {
+      "start": 120.04,
+      "end": 122.88,
+      "text": "There's a trail from this pit to the world outside",
+      "uncertain": false
+    },
+    {
+      "start": 124.24,
+      "end": 127.5,
+      "text": "And I'm following every stride",
+      "uncertain": false
+    },
+    {
+      "start": 127.5,
+      "end": 132.12,
+      "text": "Blood on my shoes, it's dawn in my eyes",
+      "uncertain": true
+    },
+    {
+      "start": 132.66,
+      "end": 136.04,
+      "text": "I've got one more dark thing to our left tonight",
+      "uncertain": true
+    },
+    {
+      "start": 136.04,
+      "end": 140.38,
+      "text": "Call me to God if it helps you sleep",
+      "uncertain": true
+    },
+    {
+      "start": 140.38,
+      "end": 144.68,
+      "text": "I'm a man with a promise I need to keep",
+      "uncertain": true
+    },
+    {
+      "start": 144.68,
+      "end": 149.14,
+      "text": "Open the shutters, uncover the light",
+      "uncertain": false
+    },
+    {
+      "start": 149.14,
+      "end": 153.44,
+      "text": "Something that hunts that you die tonight",
+      "uncertain": false
+    },
+    {
+      "start": 153.44,
+      "end": 158.06,
+      "text": "Blood on my shoes, blood on the floor",
+      "uncertain": false
+    },
+    {
+      "start": 158.06,
+      "end": 161.94,
+      "text": "You won't hear that scratching anymore",
+      "uncertain": false
+    },
+    {
+      "start": 166.4,
+      "end": 172.58,
+      "text": "bottles empty keep it still for a second i can see our windowsill little shoes drying beside the",
+      "uncertain": true
+    },
+    {
+      "start": 172.58,
+      "end": 177.16,
+      "text": "flame don't make a chorus out of their names let me hold them where the noise can't reach",
+      "uncertain": false
+    },
+    {
+      "start": 177.16,
+      "end": 181.6,
+      "text": "let the silence finish what i can't speak then lace these boots with a steady hand",
+      "uncertain": false
+    },
+    {
+      "start": 181.6,
+      "end": 188.84,
+      "text": "there's another village beyond this land blood on my shoes dawn in my eyes",
+      "uncertain": false
+    },
+    {
+      "start": 188.84,
+      "end": 192.78,
+      "text": "Pop brought something mortal through endless night",
+      "uncertain": false
+    },
+    {
+      "start": 192.78,
+      "end": 197.08,
+      "text": "God of ultraviolence, that's what they'll say",
+      "uncertain": true
+    },
+    {
+      "start": 197.08,
+      "end": 201.52,
+      "text": "I want children to walk home safe",
+      "uncertain": false
+    },
+    {
+      "start": 201.52,
+      "end": 205.9,
+      "text": "Open the shutters, uncover the light",
+      "uncertain": false
+    },
+    {
+      "start": 205.9,
+      "end": 210.28,
+      "text": "Something that hunted you died tonight",
+      "uncertain": false
+    },
+    {
+      "start": 210.28,
+      "end": 214.76,
+      "text": "Blood on my shoes, mud on the floor",
+      "uncertain": true
+    },
+    {
+      "start": 214.76,
+      "end": 218.6,
+      "text": "You won't hear that scratching anymore",
+      "uncertain": false
+    },
+    {
+      "start": 220.08,
+      "end": 221.78,
+      "text": "At the last house",
+      "uncertain": false
+    },
+    {
+      "start": 221.78,
+      "end": 223.76,
+      "text": "I leave them outside",
+      "uncertain": true
+    },
+    {
+      "start": 223.76,
+      "end": 226.16,
+      "text": "Those terrible shoes",
+      "uncertain": true
+    },
+    {
+      "start": 226.16,
+      "end": 227.3,
+      "text": "With the broken ties",
+      "uncertain": true
+    },
+    {
+      "start": 229.2,
+      "end": 230.58,
+      "text": "Morning comes",
+      "uncertain": false
+    },
+    {
+      "start": 230.58,
+      "end": 232.38,
+      "text": "No cause at the door",
+      "uncertain": false
+    },
+    {
+      "start": 232.38,
+      "end": 234.52,
+      "text": "I set down the axe",
+      "uncertain": false
+    },
+    {
+      "start": 234.52,
+      "end": 236.48,
+      "text": "Sleep on",
+      "uncertain": false
+    },
+    {
+      "start": 236.48,
+      "end": 237.88,
+      "text": "I'll keep watch",
+      "uncertain": false
+    }
+  ]
+}

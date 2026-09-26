@@ -1,0 +1,397 @@
+{
+  "version": 1,
+  "songId": "distonyc-72bf872f73683d72fc1270cc",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-72bf872f73683d72fc1270cc-90b7f752b95b.mp3",
+  "audioSha256": "90b7f752b95b3e16b9c9001a5fbffd52173f4368a336b93c3fc8aebca205c161",
+  "inputSha256": "03dae0ff015fc54263ccd30938c83837be07aa1a1a3018089f635f88129e522a",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 269.84,
+  "segments": [
+    {
+      "start": 7.62,
+      "end": 11.64,
+      "text": "Red eye blinking on a concrete wall",
+      "uncertain": true
+    },
+    {
+      "start": 11.64,
+      "end": 15.66,
+      "text": "One bad signal says the sky might fall",
+      "uncertain": false
+    },
+    {
+      "start": 15.66,
+      "end": 17.9,
+      "text": "You watch me, you watch it",
+      "uncertain": false
+    },
+    {
+      "start": 17.9,
+      "end": 19.46,
+      "text": "I count to three",
+      "uncertain": true
+    },
+    {
+      "start": 19.46,
+      "end": 23.64,
+      "text": "Fear writes the orders for you and me",
+      "uncertain": false
+    },
+    {
+      "start": 23.64,
+      "end": 27.58,
+      "text": "Bootstep rhythm in the ground",
+      "uncertain": true
+    },
+    {
+      "start": 27.58,
+      "end": 35.76,
+      "text": "heavy black current no mercy in the sound every little rumor has a warning light",
+      "uncertain": true
+    },
+    {
+      "start": 35.76,
+      "end": 44.12,
+      "text": "every nerve this shadow wants to strike tonight you call it defense when you cross that line",
+      "uncertain": false
+    },
+    {
+      "start": 44.12,
+      "end": 53.7,
+      "text": "i call panic with a grand design we build our towers out of doubt and wire then guard the",
+      "uncertain": true
+    },
+    {
+      "start": 53.7,
+      "end": 62.48,
+      "text": "switches that could start fire. Finger on the future, teeth against the past. If everyone goes",
+      "uncertain": true
+    },
+    {
+      "start": 62.48,
+      "end": 72.46,
+      "text": "first, nobody can last. Before the sirens, before the flush, you'll make your move. I answer back",
+      "uncertain": true
+    },
+    {
+      "start": 72.46,
+      "end": 83.56,
+      "text": "again, again, same mistake. Beheaded the world before it wakes. Before the sirens call,",
+      "uncertain": false
+    },
+    {
+      "start": 83.7,
+      "end": 88.76,
+      "text": "All our names that feed the fear, defend the flames",
+      "uncertain": true
+    },
+    {
+      "start": 88.76,
+      "end": 92.74,
+      "text": "You swear you'll stop what I might do",
+      "uncertain": true
+    },
+    {
+      "start": 92.74,
+      "end": 96.86,
+      "text": "I strike because I'm scared of you",
+      "uncertain": false
+    },
+    {
+      "start": 96.86,
+      "end": 101.06,
+      "text": "9-1-1 in the language of the state",
+      "uncertain": false
+    },
+    {
+      "start": 101.06,
+      "end": 105.12,
+      "text": "Turn a human heartbeat through a target and a date",
+      "uncertain": false
+    },
+    {
+      "start": 105.12,
+      "end": 109.18,
+      "text": "Low face in the window just to mock up on a screen",
+      "uncertain": true
+    },
+    {
+      "start": 109.18,
+      "end": 113.18,
+      "text": "Clean little symbols for a dirty little dream",
+      "uncertain": false
+    },
+    {
+      "start": 113.18,
+      "end": 117.36,
+      "text": "I hear the bass line like a warning near my chest",
+      "uncertain": true
+    },
+    {
+      "start": 117.36,
+      "end": 121.24,
+      "text": "No one trusts the silence, no one dares to rest",
+      "uncertain": true
+    },
+    {
+      "start": 121.24,
+      "end": 125.48,
+      "text": "We rehearse disaster till the lie feels true",
+      "uncertain": false
+    },
+    {
+      "start": 125.48,
+      "end": 129.66,
+      "text": "Then do it all again before the other side can move",
+      "uncertain": false
+    },
+    {
+      "start": 129.66,
+      "end": 133.84,
+      "text": "Finger on the future, teeth against the past",
+      "uncertain": false
+    },
+    {
+      "start": 133.84,
+      "end": 138.04,
+      "text": "If everyone goes first, nobody can last",
+      "uncertain": false
+    },
+    {
+      "start": 138.04,
+      "end": 141.66,
+      "text": "Before the silence, before the flash",
+      "uncertain": false
+    },
+    {
+      "start": 141.66,
+      "end": 145.72,
+      "text": "You make your move, I sit back",
+      "uncertain": true
+    },
+    {
+      "start": 145.72,
+      "end": 149.7,
+      "text": "Kick it again, same mistake",
+      "uncertain": true
+    },
+    {
+      "start": 149.7,
+      "end": 153.78,
+      "text": "We hit the world before it wakes",
+      "uncertain": true
+    },
+    {
+      "start": 153.78,
+      "end": 157.92,
+      "text": "Before the silence calls names",
+      "uncertain": true
+    },
+    {
+      "start": 157.92,
+      "end": 162.0,
+      "text": "We feed the fear, we fan the flames",
+      "uncertain": false
+    },
+    {
+      "start": 162.0,
+      "end": 165.94,
+      "text": "It's where you'll stop what I might do",
+      "uncertain": false
+    },
+    {
+      "start": 165.94,
+      "end": 170.22,
+      "text": "I strike because I'm scared of you",
+      "uncertain": false
+    },
+    {
+      "start": 170.22,
+      "end": 172.3,
+      "text": "Cut the C",
+      "uncertain": true
+    },
+    {
+      "start": 172.3,
+      "end": 174.84,
+      "text": "Kill the cow, gal",
+      "uncertain": true
+    },
+    {
+      "start": 174.84,
+      "end": 176.42,
+      "text": "Drop the hair",
+      "uncertain": true
+    },
+    {
+      "start": 176.42,
+      "end": 178.46,
+      "text": "Turn the fear around",
+      "uncertain": false
+    },
+    {
+      "start": 178.46,
+      "end": 180.42,
+      "text": "No first blow",
+      "uncertain": false
+    },
+    {
+      "start": 180.42,
+      "end": 182.14,
+      "text": "No light, just machine",
+      "uncertain": true
+    },
+    {
+      "start": 182.14,
+      "end": 184.28,
+      "text": "There are living hearts",
+      "uncertain": false
+    },
+    {
+      "start": 184.28,
+      "end": 185.56,
+      "text": "Behind the screen",
+      "uncertain": true
+    },
+    {
+      "start": 186.68,
+      "end": 188.36,
+      "text": "Baby, strength is a",
+      "uncertain": false
+    },
+    {
+      "start": 188.36,
+      "end": 190.38,
+      "text": "Leave it on switch call",
+      "uncertain": true
+    },
+    {
+      "start": 190.38,
+      "end": 192.32,
+      "text": "Baby, courage isn't",
+      "uncertain": false
+    },
+    {
+      "start": 192.32,
+      "end": 194.42,
+      "text": "Do it on what we're told",
+      "uncertain": true
+    },
+    {
+      "start": 194.42,
+      "end": 196.06,
+      "text": "Baby, I can",
+      "uncertain": false
+    },
+    {
+      "start": 196.06,
+      "end": 198.34,
+      "text": "Meet your fright instead",
+      "uncertain": true
+    },
+    {
+      "start": 198.34,
+      "end": 202.88,
+      "text": "And sign the same alarm already burning there",
+      "uncertain": true
+    },
+    {
+      "start": 202.88,
+      "end": 206.94,
+      "text": "The beat keeps pushing, but we choose the rope",
+      "uncertain": true
+    },
+    {
+      "start": 206.94,
+      "end": 210.74,
+      "text": "He can break the circuit, he can drop the love",
+      "uncertain": true
+    },
+    {
+      "start": 210.74,
+      "end": 214.82,
+      "text": "No victory waits in a preemptive grave",
+      "uncertain": false
+    },
+    {
+      "start": 214.82,
+      "end": 219.0,
+      "text": "Only one more ghost that paranoia made",
+      "uncertain": false
+    },
+    {
+      "start": 219.0,
+      "end": 223.06,
+      "text": "Before the silence, before the flash",
+      "uncertain": false
+    },
+    {
+      "start": 223.06,
+      "end": 226.94,
+      "text": "Don't make a move, don't answer it back",
+      "uncertain": true
+    },
+    {
+      "start": 226.94,
+      "end": 230.1,
+      "text": "Not again, not the same stake",
+      "uncertain": true
+    },
+    {
+      "start": 230.1,
+      "end": 234.12,
+      "text": "Let the sleeping city wait",
+      "uncertain": false
+    },
+    {
+      "start": 234.12,
+      "end": 239.3,
+      "text": "Full of sirens, call all our names",
+      "uncertain": true
+    },
+    {
+      "start": 239.3,
+      "end": 243.32,
+      "text": "Starve, fear, and drown flames",
+      "uncertain": false
+    },
+    {
+      "start": 243.32,
+      "end": 247.2,
+      "text": "I won't come what terror drew",
+      "uncertain": false
+    },
+    {
+      "start": 247.2,
+      "end": 251.68,
+      "text": "I will not strike some fear of yours",
+      "uncertain": true
+    },
+    {
+      "start": 251.68,
+      "end": 255.76,
+      "text": "You had clocks fading on the concrete wall",
+      "uncertain": true
+    },
+    {
+      "start": 255.76,
+      "end": 259.52,
+      "text": "One clear heartbeat outlasts it all",
+      "uncertain": false
+    },
+    {
+      "start": 259.52,
+      "end": 263.66,
+      "text": "You lower your head, I lower mine",
+      "uncertain": false
+    },
+    {
+      "start": 263.66,
+      "end": 266.86,
+      "text": "No one goes first this time",
+      "uncertain": false
+    }
+  ]
+}

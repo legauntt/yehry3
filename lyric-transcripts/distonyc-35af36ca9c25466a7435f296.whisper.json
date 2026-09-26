@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "songId": "distonyc-35af36ca9c25466a7435f296",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-35af36ca9c25466a7435f296-ba18b8ac9696.mp3",
+  "audioSha256": "ba18b8ac96968fdbb8e1ff76a7f86fc609c9907209e990fc1d96bf34ef745859",
+  "inputSha256": "579a0f2da4df88cf4272a6f54339e527517137dc68cb2dc7ee54ef7743d97cfd",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 265.11675,
+  "segments": [
+    {
+      "start": 6.18,
+      "end": 9.0,
+      "text": "Morning badge clicks, fluorescent rain",
+      "uncertain": true
+    },
+    {
+      "start": 9.0,
+      "end": 12.12,
+      "text": "A little red number beside your name",
+      "uncertain": true
+    },
+    {
+      "start": 12.12,
+      "end": 14.94,
+      "text": "They call it progress, call it the way",
+      "uncertain": false
+    },
+    {
+      "start": 14.94,
+      "end": 17.94,
+      "text": "But somebody's got to be thrown away",
+      "uncertain": false
+    },
+    {
+      "start": 23.7,
+      "end": 26.54,
+      "text": "I watched the meeting from the end of the hall",
+      "uncertain": false
+    },
+    {
+      "start": 26.54,
+      "end": 29.62,
+      "text": "Smiling faces pinned up on the wall",
+      "uncertain": false
+    },
+    {
+      "start": 29.62,
+      "end": 32.26,
+      "text": "Teamwork matters, the poster said",
+      "uncertain": false
+    },
+    {
+      "start": 32.26,
+      "end": 35.16,
+      "text": "While they measured who they could leave for dead",
+      "uncertain": false
+    },
+    {
+      "start": 35.16,
+      "end": 38.06,
+      "text": "A bell curve drawn with a lawyer's pen",
+      "uncertain": false
+    },
+    {
+      "start": 38.06,
+      "end": 41.1,
+      "text": "Turns friends into figures again and again",
+      "uncertain": false
+    },
+    {
+      "start": 41.1,
+      "end": 43.9,
+      "text": "You carry the load, you cover the shift",
+      "uncertain": false
+    },
+    {
+      "start": 43.9,
+      "end": 46.98,
+      "text": "Then they grade your soul like a quarterly lift",
+      "uncertain": false
+    },
+    {
+      "start": 58.34,
+      "end": 61.54,
+      "text": "No, I won't bow to their paper crown.",
+      "uncertain": false
+    },
+    {
+      "start": 61.7,
+      "end": 64.84,
+      "text": "No, I won't help them drag you down.",
+      "uncertain": false
+    },
+    {
+      "start": 67.74,
+      "end": 71.12,
+      "text": "Stack rank, backstab, cut that line.",
+      "uncertain": true
+    },
+    {
+      "start": 71.42,
+      "end": 74.38,
+      "text": "They make a letter from a friend of mine.",
+      "uncertain": false
+    },
+    {
+      "start": 74.68,
+      "end": 76.88,
+      "text": "Stack rank, backstab.",
+      "uncertain": false
+    },
+    {
+      "start": 76.98,
+      "end": 78.88,
+      "text": "Hear that sound!",
+      "uncertain": true
+    },
+    {
+      "start": 79.78,
+      "end": 83.36,
+      "text": "A clean white office burning people down",
+      "uncertain": false
+    },
+    {
+      "start": 83.36,
+      "end": 87.12,
+      "text": "We were never numbers in a slideshow like we were hanged",
+      "uncertain": true
+    },
+    {
+      "start": 87.12,
+      "end": 88.92,
+      "text": "Backstab I say it plain",
+      "uncertain": true
+    },
+    {
+      "start": 88.92,
+      "end": 92.12,
+      "text": "Your little game is somebody's thing",
+      "uncertain": false
+    },
+    {
+      "start": 106.66,
+      "end": 109.5,
+      "text": "Marlene stayed late when the service froze",
+      "uncertain": false
+    },
+    {
+      "start": 109.5,
+      "end": 112.5,
+      "text": "Kept the whole damn place from coming unclosed",
+      "uncertain": false
+    },
+    {
+      "start": 112.5,
+      "end": 113.74,
+      "text": "Then the manager said",
+      "uncertain": true
+    },
+    {
+      "start": 113.74,
+      "end": 116.76,
+      "text": "With the practice, sigh, your contribution's low",
+      "uncertain": true
+    },
+    {
+      "start": 116.76,
+      "end": 118.3,
+      "text": "Compared to the guy",
+      "uncertain": false
+    },
+    {
+      "start": 118.3,
+      "end": 121.0,
+      "text": "The guy got credit for the fix she made",
+      "uncertain": false
+    },
+    {
+      "start": 121.0,
+      "end": 124.2,
+      "text": "He shook the boss hand while the future frayed",
+      "uncertain": false
+    },
+    {
+      "start": 124.2,
+      "end": 126.94,
+      "text": "They call it merit, they call it fear",
+      "uncertain": true
+    },
+    {
+      "start": 126.94,
+      "end": 130.56,
+      "text": "But the winners I'll pick before anybody's there",
+      "uncertain": true
+    },
+    {
+      "start": 141.72,
+      "end": 145.34,
+      "text": "We were never numbers, no, no",
+      "uncertain": false
+    },
+    {
+      "start": 146.8,
+      "end": 150.56,
+      "text": "I got names to erase when the budgets get thin",
+      "uncertain": true
+    },
+    {
+      "start": 152.86,
+      "end": 156.06,
+      "text": "You want us divided, competing for breath",
+      "uncertain": true
+    },
+    {
+      "start": 156.06,
+      "end": 158.96,
+      "text": "But I know that scoreboard is a slow little death",
+      "uncertain": false
+    },
+    {
+      "start": 158.96,
+      "end": 161.96,
+      "text": "So pass me the file, pass me the proof",
+      "uncertain": false
+    },
+    {
+      "start": 161.96,
+      "end": 165.1,
+      "text": "I'm Dale, every lie to the boardroom room",
+      "uncertain": true
+    },
+    {
+      "start": 167.24,
+      "end": 171.3,
+      "text": "Let the quarterly profits count their gold",
+      "uncertain": false
+    },
+    {
+      "start": 172.7,
+      "end": 176.58,
+      "text": "Let them rehearse what the memo told",
+      "uncertain": false
+    },
+    {
+      "start": 178.96,
+      "end": 182.12,
+      "text": "I'll stand with the tired and the passed around",
+      "uncertain": false
+    },
+    {
+      "start": 182.12,
+      "end": 185.1,
+      "text": "With the quiet good people they maw down",
+      "uncertain": true
+    },
+    {
+      "start": 185.1,
+      "end": 188.14,
+      "text": "No more whispering by the coffee machine",
+      "uncertain": false
+    },
+    {
+      "start": 188.14,
+      "end": 190.94,
+      "text": "No more pretending we don't know what it means",
+      "uncertain": false
+    },
+    {
+      "start": 190.94,
+      "end": 194.64,
+      "text": "If they need one loser to bless their charms",
+      "uncertain": false
+    },
+    {
+      "start": 196.28,
+      "end": 199.8,
+      "text": "They can take their ranking and break it apart",
+      "uncertain": false
+    },
+    {
+      "start": 202.84,
+      "end": 212.16,
+      "text": "stack rank backstab cut that line they make a ladder from a friend of mine",
+      "uncertain": true
+    },
+    {
+      "start": 213.78,
+      "end": 221.56,
+      "text": "stack rank backstab hear that sound a clean white office burning people down we were never numbers",
+      "uncertain": false
+    },
+    {
+      "start": 221.56,
+      "end": 227.56,
+      "text": "in a slideshow like we were hands on the wheel through the longest night stack rank backstab",
+      "uncertain": false
+    },
+    {
+      "start": 227.56,
+      "end": 228.82,
+      "text": "The truth remains",
+      "uncertain": true
+    },
+    {
+      "start": 228.82,
+      "end": 230.24,
+      "text": "No chart yet measure",
+      "uncertain": false
+    },
+    {
+      "start": 230.24,
+      "end": 231.98,
+      "text": "While the workers sustain",
+      "uncertain": true
+    },
+    {
+      "start": 237.06,
+      "end": 239.0,
+      "text": "When the final bell rings",
+      "uncertain": false
+    },
+    {
+      "start": 239.0,
+      "end": 240.46,
+      "text": "I'll still stand near",
+      "uncertain": false
+    },
+    {
+      "start": 240.46,
+      "end": 241.52,
+      "text": "With every name",
+      "uncertain": false
+    },
+    {
+      "start": 241.52,
+      "end": 243.02,
+      "text": "They try to disappear",
+      "uncertain": true
+    },
+    {
+      "start": 243.02,
+      "end": 244.76,
+      "text": "No more rank",
+      "uncertain": false
+    },
+    {
+      "start": 244.76,
+      "end": 246.1,
+      "text": "No more caste aside",
+      "uncertain": false
+    },
+    {
+      "start": 246.1,
+      "end": 247.64,
+      "text": "We leave that room",
+      "uncertain": false
+    },
+    {
+      "start": 247.64,
+      "end": 249.34,
+      "text": "With our heads held high",
+      "uncertain": false
+    },
+    {
+      "start": 261.78,
+      "end": 263.18,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

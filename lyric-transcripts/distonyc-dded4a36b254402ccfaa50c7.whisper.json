@@ -1,0 +1,361 @@
+{
+  "version": 1,
+  "songId": "distonyc-dded4a36b254402ccfaa50c7",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-dded4a36b254402ccfaa50c7-c1939bcee8ad.mp3",
+  "audioSha256": "c1939bcee8ad2ffd3029a6c56f2e1efe27a4ba55bb3ab9f5420cd93b85c71d9e",
+  "inputSha256": "157bb2090783d21ad74acf3f83ff506b20d43929eff1f63ddee7329d8f21a958",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.0,
+  "segments": [
+    {
+      "start": 3.24,
+      "end": 8.38,
+      "text": "front hollow fence roots tall till both sides have to mend it",
+      "uncertain": true
+    },
+    {
+      "start": 9.3,
+      "end": 14.34,
+      "text": "i wake up with the green trucks rolling coffee black in the radio low",
+      "uncertain": true
+    },
+    {
+      "start": 14.34,
+      "end": 19.78,
+      "text": "boots by the door screen needs fits in the same old road everywhere i go",
+      "uncertain": false
+    },
+    {
+      "start": 19.78,
+      "end": 25.82,
+      "text": "you pull in with the baseline shaking city plates and a midnight coat i made up a story",
+      "uncertain": false
+    },
+    {
+      "start": 25.82,
+      "end": 29.48,
+      "text": "before you spoke one you read my silence like a warning note",
+      "uncertain": true
+    },
+    {
+      "start": 29.48,
+      "end": 32.62,
+      "text": "We were drawing hard lines",
+      "uncertain": true
+    },
+    {
+      "start": 32.62,
+      "end": 34.8,
+      "text": "Then borrowed us",
+      "uncertain": true
+    },
+    {
+      "start": 35.82,
+      "end": 38.04,
+      "text": "Comedy, truth, before",
+      "uncertain": true
+    },
+    {
+      "start": 38.04,
+      "end": 40.44,
+      "text": "Earning trust",
+      "uncertain": false
+    },
+    {
+      "start": 42.02,
+      "end": 44.38,
+      "text": "Two lays, one town, one bridge",
+      "uncertain": true
+    },
+    {
+      "start": 44.38,
+      "end": 46.02,
+      "text": "Between us, different kind of",
+      "uncertain": true
+    },
+    {
+      "start": 46.02,
+      "end": 47.62,
+      "text": "From the same way to above",
+      "uncertain": true
+    },
+    {
+      "start": 47.62,
+      "end": 50.08,
+      "text": "You bring the rhythm, I bring the rust",
+      "uncertain": true
+    },
+    {
+      "start": 50.08,
+      "end": 52.68,
+      "text": "Neither one means much without a little trust",
+      "uncertain": false
+    },
+    {
+      "start": 52.68,
+      "end": 54.4,
+      "text": "Lay the old",
+      "uncertain": false
+    },
+    {
+      "start": 55.12,
+      "end": 56.48,
+      "text": "Assumptions down",
+      "uncertain": false
+    },
+    {
+      "start": 57.32,
+      "end": 59.28,
+      "text": "Two lays, one load",
+      "uncertain": false
+    },
+    {
+      "start": 59.28,
+      "end": 61.74,
+      "text": "through the same small tale.",
+      "uncertain": true
+    },
+    {
+      "start": 89.28,
+      "end": 91.6,
+      "text": "Every life got a basement and a bite upstairs sound.",
+      "uncertain": true
+    },
+    {
+      "start": 91.74,
+      "end": 94.12,
+      "text": "So I lowered that bass, you unfolded that chair.",
+      "uncertain": false
+    },
+    {
+      "start": 94.26,
+      "end": 96.74,
+      "text": "Now the night ain't as heavy when the truth gets in there.",
+      "uncertain": false
+    },
+    {
+      "start": 97.36,
+      "end": 100.12,
+      "text": "Two lanes, one town, one branch between us.",
+      "uncertain": true
+    },
+    {
+      "start": 100.26,
+      "end": 102.18,
+      "text": "Different kind of thunder, same rain above.",
+      "uncertain": true
+    },
+    {
+      "start": 102.7,
+      "end": 104.94,
+      "text": "You bring rhythm, I bring rust.",
+      "uncertain": false
+    },
+    {
+      "start": 105.08,
+      "end": 107.6,
+      "text": "Neither one means much without a little trust.",
+      "uncertain": false
+    },
+    {
+      "start": 107.94,
+      "end": 111.26,
+      "text": "Lay the old assumptions down.",
+      "uncertain": false
+    },
+    {
+      "start": 112.4,
+      "end": 116.5,
+      "text": "Two lanes, one road through the same small town.",
+      "uncertain": false
+    },
+    {
+      "start": 120.46,
+      "end": 122.96,
+      "text": "Show me how the backbeat leans in",
+      "uncertain": false
+    },
+    {
+      "start": 122.96,
+      "end": 125.58,
+      "text": "I showed you where the river bends",
+      "uncertain": true
+    },
+    {
+      "start": 125.58,
+      "end": 128.14,
+      "text": "Your deeper voice shook us from the rafters",
+      "uncertain": false
+    },
+    {
+      "start": 128.14,
+      "end": 130.48,
+      "text": "Mine found a high note at the end",
+      "uncertain": false
+    },
+    {
+      "start": 130.48,
+      "end": 133.34,
+      "text": "We never traded names for costumes",
+      "uncertain": false
+    },
+    {
+      "start": 133.34,
+      "end": 135.64,
+      "text": "Never claimed the past was gone",
+      "uncertain": false
+    },
+    {
+      "start": 135.64,
+      "end": 138.18,
+      "text": "We just quit making each other carry",
+      "uncertain": false
+    },
+    {
+      "start": 138.18,
+      "end": 140.66,
+      "text": "Every wrong somebody else had done",
+      "uncertain": false
+    },
+    {
+      "start": 141.92,
+      "end": 145.72,
+      "text": "I don't know every road you've taken",
+      "uncertain": false
+    },
+    {
+      "start": 146.88,
+      "end": 150.76,
+      "text": "I don't need you to pretend you do",
+      "uncertain": true
+    },
+    {
+      "start": 151.84,
+      "end": 155.96,
+      "text": "But I can ask before deciding",
+      "uncertain": true
+    },
+    {
+      "start": 156.9,
+      "end": 160.96,
+      "text": "And I can leave some room for you",
+      "uncertain": false
+    },
+    {
+      "start": 161.7,
+      "end": 163.94,
+      "text": "No grand speech, no easy answer",
+      "uncertain": false
+    },
+    {
+      "start": 163.94,
+      "end": 166.32,
+      "text": "Just a door that opens wide",
+      "uncertain": false
+    },
+    {
+      "start": 166.32,
+      "end": 169.28,
+      "text": "A beat beneath an old guitar",
+      "uncertain": false
+    },
+    {
+      "start": 169.28,
+      "end": 171.22,
+      "text": "And two stubborn men inside",
+      "uncertain": false
+    },
+    {
+      "start": 171.22,
+      "end": 174.16,
+      "text": "Two lanes, one town, that bridge can hold us",
+      "uncertain": false
+    },
+    {
+      "start": 174.16,
+      "end": 176.38,
+      "text": "Different kind of stories, one sky ball",
+      "uncertain": true
+    },
+    {
+      "start": 176.38,
+      "end": 179.02,
+      "text": "You bring the rhythm, I bring the rust",
+      "uncertain": false
+    },
+    {
+      "start": 179.02,
+      "end": 181.66,
+      "text": "Turn it into something louder than distrust",
+      "uncertain": false
+    },
+    {
+      "start": 181.66,
+      "end": 185.5,
+      "text": "Lay the old assumptions down",
+      "uncertain": false
+    },
+    {
+      "start": 185.5,
+      "end": 190.8,
+      "text": "Two lanes are all through the same small town",
+      "uncertain": true
+    },
+    {
+      "start": 192.58,
+      "end": 196.84,
+      "text": "When morning things, the county line",
+      "uncertain": true
+    },
+    {
+      "start": 196.84,
+      "end": 201.86,
+      "text": "You're old and my run side by side",
+      "uncertain": true
+    },
+    {
+      "start": 201.86,
+      "end": 204.54,
+      "text": "No borrowed verdict",
+      "uncertain": false
+    },
+    {
+      "start": 204.54,
+      "end": 206.96,
+      "text": "No backing down",
+      "uncertain": false
+    },
+    {
+      "start": 206.96,
+      "end": 209.34,
+      "text": "We meet as ourselves",
+      "uncertain": false
+    },
+    {
+      "start": 209.34,
+      "end": 212.18,
+      "text": "In this too lame town",
+      "uncertain": false
+    },
+    {
+      "start": 214.3,
+      "end": 216.54,
+      "text": "Leave the chair out",
+      "uncertain": false
+    },
+    {
+      "start": 220.36,
+      "end": 223.08,
+      "text": "I'll leave the light on",
+      "uncertain": false
+    },
+    {
+      "start": 237.92,
+      "end": 239.32,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

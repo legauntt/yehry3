@@ -1,0 +1,301 @@
+{
+  "version": 1,
+  "songId": "distonyc-aa33e2721ba03640f0345be2",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-aa33e2721ba03640f0345be2-bc8ab4106111.mp3",
+  "audioSha256": "bc8ab410611154620c8c212979d3dec6b706e43473e0ec5d48c2ffed00c0c1ce",
+  "inputSha256": "21c421038ecf39670156a81a928390d9dcb226185c114570ff09e23b38f47311",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 220.10775,
+  "segments": [
+    {
+      "start": 4.8,
+      "end": 7.9,
+      "text": "Zagra maps the highest by moonless heat",
+      "uncertain": false
+    },
+    {
+      "start": 7.9,
+      "end": 12.04,
+      "text": "Counts every claw and every hungry beat",
+      "uncertain": false
+    },
+    {
+      "start": 12.04,
+      "end": 16.08,
+      "text": "She crowns the tunnels, calls the swollen line",
+      "uncertain": true
+    },
+    {
+      "start": 16.08,
+      "end": 20.18,
+      "text": "Then watches three small kingdoms turn and bite",
+      "uncertain": false
+    },
+    {
+      "start": 20.18,
+      "end": 24.32,
+      "text": "A thousand wings obey a shouted word",
+      "uncertain": false
+    },
+    {
+      "start": 24.32,
+      "end": 28.2,
+      "text": "She holds the crown above the restless sea",
+      "uncertain": false
+    },
+    {
+      "start": 28.2,
+      "end": 32.26,
+      "text": "And wonders why it will not follow me",
+      "uncertain": true
+    },
+    {
+      "start": 34.16,
+      "end": 36.7,
+      "text": "A throne is not a lantern",
+      "uncertain": false
+    },
+    {
+      "start": 36.7,
+      "end": 40.42,
+      "text": "A command is not a star",
+      "uncertain": false
+    },
+    {
+      "start": 40.42,
+      "end": 43.74,
+      "text": "You can drive them through the dark",
+      "uncertain": false
+    },
+    {
+      "start": 43.74,
+      "end": 46.68,
+      "text": "But not tell them what they are",
+      "uncertain": false
+    },
+    {
+      "start": 48.7,
+      "end": 52.92,
+      "text": "She needs vision farther than the fight",
+      "uncertain": true
+    },
+    {
+      "start": 52.92,
+      "end": 56.72,
+      "text": "A shape beyond the feeding and the night",
+      "uncertain": false
+    },
+    {
+      "start": 56.72,
+      "end": 65.26,
+      "text": "Not one more order ringing through the brood, but one bright future every heart can move toward.",
+      "uncertain": true
+    },
+    {
+      "start": 65.76,
+      "end": 73.08,
+      "text": "She needs vision, something they can see, a reason for the swarms to choose the same sky.",
+      "uncertain": false
+    },
+    {
+      "start": 73.42,
+      "end": 78.32,
+      "text": "Raise your eyes, Sagra, let the whole hive know we're the living.",
+      "uncertain": false
+    },
+    {
+      "start": 79.08,
+      "end": 82.22,
+      "text": "She tried to rule with teeth and perfect plans.",
+      "uncertain": false
+    },
+    {
+      "start": 82.22,
+      "end": 86.2,
+      "text": "With sharper scouts and stronger, faster hands",
+      "uncertain": true
+    },
+    {
+      "start": 86.2,
+      "end": 90.4,
+      "text": "But every victory dissolved before the dawn",
+      "uncertain": false
+    },
+    {
+      "start": 90.4,
+      "end": 94.3,
+      "text": "A nest secured another, purpose gone",
+      "uncertain": false
+    },
+    {
+      "start": 94.3,
+      "end": 97.44,
+      "text": "The smallest drone remembers where it flew",
+      "uncertain": false
+    },
+    {
+      "start": 97.44,
+      "end": 100.24,
+      "text": "The largest beast still needs a world made true",
+      "uncertain": false
+    },
+    {
+      "start": 100.24,
+      "end": 103.0,
+      "text": "They do not hunger only to survive",
+      "uncertain": false
+    },
+    {
+      "start": 103.0,
+      "end": 106.58,
+      "text": "They hunger for a future kept alive",
+      "uncertain": false
+    },
+    {
+      "start": 106.58,
+      "end": 109.84,
+      "text": "A crown can make them gather",
+      "uncertain": false
+    },
+    {
+      "start": 109.84,
+      "end": 113.88,
+      "text": "Fear can make them cross a field",
+      "uncertain": false
+    },
+    {
+      "start": 113.88,
+      "end": 117.8,
+      "text": "But a vision makes them build",
+      "uncertain": true
+    },
+    {
+      "start": 117.8,
+      "end": 120.32,
+      "text": "What no frightened queen can wield",
+      "uncertain": false
+    },
+    {
+      "start": 121.38,
+      "end": 125.1,
+      "text": "He needs vision, fathers and the fight",
+      "uncertain": false
+    },
+    {
+      "start": 125.1,
+      "end": 128.94,
+      "text": "A shape beyond the feeding and the night",
+      "uncertain": false
+    },
+    {
+      "start": 128.94,
+      "end": 133.26,
+      "text": "Not one more order ringing through the brood",
+      "uncertain": false
+    },
+    {
+      "start": 133.26,
+      "end": 137.52,
+      "text": "But one bright future every heart can move toward",
+      "uncertain": true
+    },
+    {
+      "start": 137.52,
+      "end": 145.3,
+      "text": "Watch in each vision, something they can see, a reason for the swans that choose the same sky.",
+      "uncertain": true
+    },
+    {
+      "start": 145.58,
+      "end": 152.96,
+      "text": "Raise your eyes, Agra, let the whole hive know where the living rare gon' float.",
+      "uncertain": true
+    },
+    {
+      "start": 154.68,
+      "end": 158.62,
+      "text": "Let those honnels open outward, let the old commandum coil.",
+      "uncertain": true
+    },
+    {
+      "start": 158.86,
+      "end": 162.66,
+      "text": "Name the garden after battle, name the mercy in the soil.",
+      "uncertain": false
+    },
+    {
+      "start": 162.66,
+      "end": 164.82,
+      "text": "Not a master overshadows",
+      "uncertain": false
+    },
+    {
+      "start": 164.82,
+      "end": 166.58,
+      "text": "Not a queen alone above",
+      "uncertain": true
+    },
+    {
+      "start": 166.58,
+      "end": 169.74,
+      "text": "Be the sight inside their many eyes",
+      "uncertain": false
+    },
+    {
+      "start": 169.74,
+      "end": 171.96,
+      "text": "Be the future that they love",
+      "uncertain": false
+    },
+    {
+      "start": 173.8,
+      "end": 176.08,
+      "text": "She needs vision",
+      "uncertain": false
+    },
+    {
+      "start": 176.08,
+      "end": 178.02,
+      "text": "Clear across the night",
+      "uncertain": false
+    },
+    {
+      "start": 178.02,
+      "end": 181.88,
+      "text": "A home worth more than winning every fight",
+      "uncertain": false
+    },
+    {
+      "start": 181.88,
+      "end": 185.86,
+      "text": "Now every wing gingerly one new flame",
+      "uncertain": true
+    },
+    {
+      "start": 185.86,
+      "end": 190.18,
+      "text": "Every voice can't answer when she calls its name",
+      "uncertain": false
+    },
+    {
+      "start": 190.18,
+      "end": 198.52,
+      "text": "She needs vision and the broods arise, not for fear, but for the world behind her eyes.",
+      "uncertain": false
+    },
+    {
+      "start": 198.74,
+      "end": 202.14,
+      "text": "Zagara, turn the dark into a road.",
+      "uncertain": false
+    },
+    {
+      "start": 202.54,
+      "end": 208.34,
+      "text": "Lead them where the living river flows, where the living river flows.",
+      "uncertain": false
+    }
+  ]
+}

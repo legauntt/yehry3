@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "songId": "distonyc-482f1b74c6627cdee0f0528f",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-482f1b74c6627cdee0f0528f-7f7ac79b6855.mp3",
+  "audioSha256": "7f7ac79b685592f076b8c3aad59685ab41802d9208de4c2107f8b69f00a83c82",
+  "inputSha256": "50a9310bf6094a23f3adc3aa1c06f931d9a149f69f2a56b6361ac62074408458",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.1175625,
+  "segments": [
+    {
+      "start": 4.02,
+      "end": 8.2,
+      "text": "Tony found a silver novel breathing on the shelf",
+      "uncertain": false
+    },
+    {
+      "start": 8.2,
+      "end": 12.38,
+      "text": "Letters move like little engines riding by themselves",
+      "uncertain": false
+    },
+    {
+      "start": 12.38,
+      "end": 16.7,
+      "text": "He touched the first electric page, the ceiling became stars",
+      "uncertain": false
+    },
+    {
+      "start": 16.7,
+      "end": 21.0,
+      "text": "Then fell through rings of prints, it liked two avenues on Mars",
+      "uncertain": true
+    },
+    {
+      "start": 21.0,
+      "end": 25.24,
+      "text": "A woman in a cobalt coat said choose the eastern door",
+      "uncertain": false
+    },
+    {
+      "start": 25.24,
+      "end": 29.54,
+      "text": "He laughed and took the western one, the east existed more",
+      "uncertain": false
+    },
+    {
+      "start": 29.54,
+      "end": 33.66,
+      "text": "Behind him stood another sea who made the other turn",
+      "uncertain": false
+    },
+    {
+      "start": 33.66,
+      "end": 37.0,
+      "text": "Each decision split the heavens, every answer",
+      "uncertain": true
+    },
+    {
+      "start": 37.0,
+      "end": 40.34,
+      "text": "One sea wore the captain's crown",
+      "uncertain": false
+    },
+    {
+      "start": 40.34,
+      "end": 43.86,
+      "text": "One sea watched your city drown",
+      "uncertain": false
+    },
+    {
+      "start": 45.2,
+      "end": 49.12,
+      "text": "One sea planted gardens on the moon",
+      "uncertain": false
+    },
+    {
+      "start": 50.64,
+      "end": 54.2,
+      "text": "Parallel seas abound",
+      "uncertain": false
+    },
+    {
+      "start": 54.2,
+      "end": 56.34,
+      "text": "Every yes makes another world sound",
+      "uncertain": false
+    },
+    {
+      "start": 56.34,
+      "end": 58.12,
+      "text": "Every no leaves a light underground",
+      "uncertain": false
+    },
+    {
+      "start": 58.12,
+      "end": 63.12,
+      "text": "Turn one page and the stars spin around Parallels seas abound",
+      "uncertain": true
+    },
+    {
+      "start": 63.12,
+      "end": 67.08,
+      "text": "But the hand on the choice is mine I can blame every devil I find",
+      "uncertain": false
+    },
+    {
+      "start": 67.08,
+      "end": 70.44,
+      "text": "Still the consequence follows my line",
+      "uncertain": false
+    },
+    {
+      "start": 70.44,
+      "end": 74.5,
+      "text": "Traded one small memory for passage through the rain",
+      "uncertain": true
+    },
+    {
+      "start": 74.5,
+      "end": 78.72,
+      "text": "A childhood window vanished from the houses in his brain",
+      "uncertain": false
+    },
+    {
+      "start": 78.72,
+      "end": 83.02,
+      "text": "He saved a glass-winged creature from the emperor's machine",
+      "uncertain": false
+    },
+    {
+      "start": 83.02,
+      "end": 87.1,
+      "text": "Then watched its hungry children strip a satellite clean",
+      "uncertain": false
+    },
+    {
+      "start": 87.1,
+      "end": 94.7,
+      "text": "he warned a moon of trouble panic shattered half the dome he kept the warning secret no one there",
+      "uncertain": true
+    },
+    {
+      "start": 94.7,
+      "end": 101.34,
+      "text": "survived till dawn the novel off with footnotes where the guilt could be revised but every",
+      "uncertain": true
+    },
+    {
+      "start": 101.34,
+      "end": 109.84,
+      "text": "softened sentence put a shadow in his eyes once he built a gate from bone once he ruled the dark",
+      "uncertain": true
+    },
+    {
+      "start": 109.84,
+      "end": 121.08,
+      "text": "alone once he swore he'd found the key then sold tomorrow for a memory parallel seas abound every",
+      "uncertain": true
+    },
+    {
+      "start": 121.08,
+      "end": 126.56,
+      "text": "yes makes another world sound every no leaves a lot underground turn one page and the stars spin",
+      "uncertain": true
+    },
+    {
+      "start": 126.56,
+      "end": 134.66,
+      "text": "around parallel seas abound but the hand on the choice is mine i can blame every devil i find",
+      "uncertain": false
+    },
+    {
+      "start": 134.66,
+      "end": 137.98,
+      "text": "Still the consequence follows my line",
+      "uncertain": false
+    },
+    {
+      "start": 137.98,
+      "end": 141.0,
+      "text": "At the final chapter's edge",
+      "uncertain": true
+    },
+    {
+      "start": 141.0,
+      "end": 143.06,
+      "text": "Still a thousand Tonys there",
+      "uncertain": false
+    },
+    {
+      "start": 143.06,
+      "end": 145.14,
+      "text": "Some in medals, some in chains",
+      "uncertain": true
+    },
+    {
+      "start": 145.14,
+      "end": 147.2,
+      "text": "Some dissolving into air",
+      "uncertain": false
+    },
+    {
+      "start": 147.2,
+      "end": 149.7,
+      "text": "They shouted, picked the perfect path",
+      "uncertain": false
+    },
+    {
+      "start": 149.7,
+      "end": 151.8,
+      "text": "Erased the worlds that failed",
+      "uncertain": false
+    },
+    {
+      "start": 151.8,
+      "end": 154.3,
+      "text": "Besaw the lives behind each choice",
+      "uncertain": false
+    },
+    {
+      "start": 154.3,
+      "end": 155.84,
+      "text": "The beauty and the whale",
+      "uncertain": false
+    },
+    {
+      "start": 155.84,
+      "end": 158.32,
+      "text": "Then closed the book on paradise",
+      "uncertain": false
+    },
+    {
+      "start": 158.32,
+      "end": 160.08,
+      "text": "And broke the author's pen",
+      "uncertain": false
+    },
+    {
+      "start": 160.08,
+      "end": 162.76,
+      "text": "No clean road, no spotless hand",
+      "uncertain": false
+    },
+    {
+      "start": 162.76,
+      "end": 164.26,
+      "text": "So let them all begin",
+      "uncertain": false
+    },
+    {
+      "start": 166.26,
+      "end": 173.88,
+      "text": "he returned beside the shelf with silver on his sleeve the room looked almost ordinary if",
+      "uncertain": true
+    },
+    {
+      "start": 173.88,
+      "end": 179.4,
+      "text": "ordinary could breathe he opened up the curtains three red suns disturbed the blue",
+      "uncertain": false
+    },
+    {
+      "start": 179.4,
+      "end": 185.9,
+      "text": "a glass wind creature crossed them and he knew the tale was true he could not fold the branches",
+      "uncertain": true
+    },
+    {
+      "start": 185.9,
+      "end": 192.68,
+      "text": "back or hide what he had done so he wrote beneath the title i am answerable one",
+      "uncertain": false
+    },
+    {
+      "start": 194.08,
+      "end": 200.32,
+      "text": "parallel seas abound every choice sends the universe out let the captains and the cowards",
+      "uncertain": true
+    },
+    {
+      "start": 200.32,
+      "end": 208.84,
+      "text": "speak loud i won't vanish in the infinite crowd parallel seas abound all their roads leave a mark",
+      "uncertain": true
+    },
+    {
+      "start": 208.84,
+      "end": 214.98,
+      "text": "upon mine i will carry the cost and the shine close the book but the ending is mine",
+      "uncertain": false
+    },
+    {
+      "start": 215.78,
+      "end": 219.28,
+      "text": "The last patient without a sound",
+      "uncertain": true
+    },
+    {
+      "start": 219.28,
+      "end": 222.54,
+      "text": "And all the seas kept spinning around",
+      "uncertain": false
+    },
+    {
+      "start": 222.54,
+      "end": 225.68,
+      "text": "Tony faced the three red suns in line",
+      "uncertain": false
+    },
+    {
+      "start": 225.68,
+      "end": 229.04,
+      "text": "Said every world is yours, this choice is mine",
+      "uncertain": false
+    }
+  ]
+}

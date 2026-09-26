@@ -1,0 +1,487 @@
+{
+  "version": 1,
+  "songId": "distonyc-ce1df86bff0260f86420e9c3",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ce1df86bff0260f86420e9c3-b76dd3c957df.mp3",
+  "audioSha256": "b76dd3c957df4dd099d5375ee342a7cbf6696db7decdff85d82bd00f0cac846f",
+  "inputSha256": "20cd47758561c5e82bbf263d0627bb0d7f1b38950af83cf2bd645ad3f3fef815",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 269.44,
+  "segments": [
+    {
+      "start": 2.12,
+      "end": 4.34,
+      "text": "The lob glicks twice by itself",
+      "uncertain": true
+    },
+    {
+      "start": 4.96,
+      "end": 7.1,
+      "text": "Blue light shivers on the shelf",
+      "uncertain": true
+    },
+    {
+      "start": 7.92,
+      "end": 10.12,
+      "text": "Something moves where nothing's shut",
+      "uncertain": false
+    },
+    {
+      "start": 10.12,
+      "end": 12.88,
+      "text": "The floor says run, my butts are good",
+      "uncertain": false
+    },
+    {
+      "start": 12.88,
+      "end": 14.94,
+      "text": "Elevator stall at 13",
+      "uncertain": true
+    },
+    {
+      "start": 16.04,
+      "end": 17.66,
+      "text": "Rembers clinking through the steam",
+      "uncertain": false
+    },
+    {
+      "start": 18.6,
+      "end": 20.98,
+      "text": "Every porch that turns its eyes",
+      "uncertain": false
+    },
+    {
+      "start": 20.98,
+      "end": 23.52,
+      "text": "As the kick drum wakes behind the walls tonight",
+      "uncertain": false
+    },
+    {
+      "start": 23.52,
+      "end": 26.32,
+      "text": "Cold hands tapping all of the pipes",
+      "uncertain": true
+    },
+    {
+      "start": 26.32,
+      "end": 28.52,
+      "text": "Keep in time with broken lights",
+      "uncertain": true
+    },
+    {
+      "start": 28.52,
+      "end": 31.54,
+      "text": "I hear my name beneath the sow",
+      "uncertain": true
+    },
+    {
+      "start": 31.54,
+      "end": 34.36,
+      "text": "So I plant both feet and turn around",
+      "uncertain": true
+    },
+    {
+      "start": 34.36,
+      "end": 37.7,
+      "text": "If the dark wants it, then let it enter",
+      "uncertain": true
+    },
+    {
+      "start": 39.86,
+      "end": 43.08,
+      "text": "If fear has teeth, I'll take the center",
+      "uncertain": false
+    },
+    {
+      "start": 43.08,
+      "end": 46.7,
+      "text": "Dance when the hallway breathes",
+      "uncertain": true
+    },
+    {
+      "start": 46.7,
+      "end": 49.32,
+      "text": "Dance when the ceiling leans",
+      "uncertain": true
+    },
+    {
+      "start": 49.32,
+      "end": 51.84,
+      "text": "Harden like a warning bell",
+      "uncertain": false
+    },
+    {
+      "start": 51.84,
+      "end": 54.56,
+      "text": "Feet on the mouth of hell",
+      "uncertain": false
+    },
+    {
+      "start": 54.56,
+      "end": 57.14,
+      "text": "Dance when the shadows lose",
+      "uncertain": true
+    },
+    {
+      "start": 57.14,
+      "end": 59.64,
+      "text": "Every step they thought they knew",
+      "uncertain": false
+    },
+    {
+      "start": 59.64,
+      "end": 61.72,
+      "text": "When the black room calls my name",
+      "uncertain": true
+    },
+    {
+      "start": 61.72,
+      "end": 64.42,
+      "text": "I make the black room dance the same",
+      "uncertain": false
+    },
+    {
+      "start": 65.08,
+      "end": 66.98,
+      "text": "Dazed man, speaker, spit man, spark",
+      "uncertain": true
+    },
+    {
+      "start": 67.78,
+      "end": 69.64,
+      "text": "Silver faces for the dark",
+      "uncertain": true
+    },
+    {
+      "start": 70.5,
+      "end": 72.98,
+      "text": "There's a stranger in the glass",
+      "uncertain": false
+    },
+    {
+      "start": 72.98,
+      "end": 75.8,
+      "text": "Move and have a heartbeat after I have passed",
+      "uncertain": false
+    },
+    {
+      "start": 75.8,
+      "end": 78.2,
+      "text": "Thores are beating me in their frames",
+      "uncertain": true
+    },
+    {
+      "start": 78.2,
+      "end": 80.44,
+      "text": "Every corner feeds the flame",
+      "uncertain": false
+    },
+    {
+      "start": 81.32,
+      "end": 83.44,
+      "text": "Panic climbs into my throat",
+      "uncertain": false
+    },
+    {
+      "start": 83.44,
+      "end": 86.48,
+      "text": "I bend into a melody and hold the note",
+      "uncertain": false
+    },
+    {
+      "start": 86.48,
+      "end": 91.76,
+      "text": "Let the dead air seek the rafters, let the dread come stung the nafter.",
+      "uncertain": true
+    },
+    {
+      "start": 97.02,
+      "end": 102.54,
+      "text": "Part, like a warning bell, feet on the mouth of hell.",
+      "uncertain": true
+    },
+    {
+      "start": 102.76,
+      "end": 107.62,
+      "text": "Dance, where the shadows lose every step they thought they knew.",
+      "uncertain": true
+    },
+    {
+      "start": 107.62,
+      "end": 112.6,
+      "text": "When the black room calls my name, I make the black room dance the same.",
+      "uncertain": false
+    },
+    {
+      "start": 112.6,
+      "end": 115.68,
+      "text": "Your left foot over the fault line crack",
+      "uncertain": true
+    },
+    {
+      "start": 115.68,
+      "end": 118.38,
+      "text": "Right foot down in the night steps back",
+      "uncertain": true
+    },
+    {
+      "start": 118.38,
+      "end": 121.04,
+      "text": "Turn where the exit sign burns lit",
+      "uncertain": false
+    },
+    {
+      "start": 121.04,
+      "end": 123.9,
+      "text": "Move like tomorrow was never did",
+      "uncertain": false
+    },
+    {
+      "start": 126.26,
+      "end": 128.52,
+      "text": "Now the room is closing fast",
+      "uncertain": true
+    },
+    {
+      "start": 129.28,
+      "end": 131.16,
+      "text": "Narrow as it buried past",
+      "uncertain": false
+    },
+    {
+      "start": 131.16,
+      "end": 134.12,
+      "text": "But the bass runs underground",
+      "uncertain": false
+    },
+    {
+      "start": 134.12,
+      "end": 137.18,
+      "text": "Then I follow every pulse until the wall's back down",
+      "uncertain": true
+    },
+    {
+      "start": 137.18,
+      "end": 139.3,
+      "text": "All the shapes that are under me",
+      "uncertain": true
+    },
+    {
+      "start": 139.3,
+      "end": 141.58,
+      "text": "Fall into the frequency",
+      "uncertain": false
+    },
+    {
+      "start": 141.58,
+      "end": 144.64,
+      "text": "Not gone, not tamed, not understood",
+      "uncertain": false
+    },
+    {
+      "start": 144.64,
+      "end": 147.86,
+      "text": "Just sitting where I knew they would",
+      "uncertain": false
+    },
+    {
+      "start": 147.86,
+      "end": 150.3,
+      "text": "Cut the lights, heat or the breathing",
+      "uncertain": false
+    },
+    {
+      "start": 150.3,
+      "end": 153.06,
+      "text": "Stop the drums, heat or my heart",
+      "uncertain": false
+    },
+    {
+      "start": 153.06,
+      "end": 155.76,
+      "text": "One beat waits beneath the silence",
+      "uncertain": false
+    },
+    {
+      "start": 155.76,
+      "end": 158.12,
+      "text": "Then the whole floor tears apart",
+      "uncertain": false
+    },
+    {
+      "start": 158.12,
+      "end": 161.18,
+      "text": "I'm still afraid, I'm still moving",
+      "uncertain": false
+    },
+    {
+      "start": 161.18,
+      "end": 163.7,
+      "text": "That's the bargain, that's the spark",
+      "uncertain": false
+    },
+    {
+      "start": 163.7,
+      "end": 165.54,
+      "text": "Courage isn't killing terror",
+      "uncertain": false
+    },
+    {
+      "start": 165.54,
+      "end": 169.42,
+      "text": "It is teaching it, the steps inside the dark",
+      "uncertain": false
+    },
+    {
+      "start": 170.48,
+      "end": 172.22,
+      "text": "When the window shakes",
+      "uncertain": false
+    },
+    {
+      "start": 173.16,
+      "end": 174.96,
+      "text": "When the Sarah winks",
+      "uncertain": true
+    },
+    {
+      "start": 175.82,
+      "end": 177.66,
+      "text": "When the code comes through",
+      "uncertain": true
+    },
+    {
+      "start": 177.66,
+      "end": 181.08,
+      "text": "Thought I'm already moving before it knows what to do",
+      "uncertain": true
+    },
+    {
+      "start": 181.88,
+      "end": 184.4,
+      "text": "We all agree it's chance",
+      "uncertain": true
+    },
+    {
+      "start": 184.4,
+      "end": 186.9,
+      "text": "And we'll see you inside",
+      "uncertain": true
+    },
+    {
+      "start": 186.9,
+      "end": 189.68,
+      "text": "Like a warning, they'll feed",
+      "uncertain": false
+    },
+    {
+      "start": 189.68,
+      "end": 191.88,
+      "text": "All them out of hell",
+      "uncertain": true
+    },
+    {
+      "start": 191.88,
+      "end": 194.54,
+      "text": "Tense, let the shadows lose",
+      "uncertain": true
+    },
+    {
+      "start": 194.54,
+      "end": 197.02,
+      "text": "Every step they find being new",
+      "uncertain": true
+    },
+    {
+      "start": 197.02,
+      "end": 199.14,
+      "text": "And the black room calls my name",
+      "uncertain": true
+    },
+    {
+      "start": 199.14,
+      "end": 203.18,
+      "text": "I made the black room dance the same dance",
+      "uncertain": true
+    },
+    {
+      "start": 203.18,
+      "end": 205.84,
+      "text": "While the tone wave bends, dance",
+      "uncertain": true
+    },
+    {
+      "start": 205.84,
+      "end": 207.94,
+      "text": "Till the long night ends",
+      "uncertain": false
+    },
+    {
+      "start": 207.94,
+      "end": 210.18,
+      "text": "Fear can follow close to the heart",
+      "uncertain": false
+    },
+    {
+      "start": 210.18,
+      "end": 212.88,
+      "text": "And it doesn't get to lead this time",
+      "uncertain": false
+    },
+    {
+      "start": 212.88,
+      "end": 215.56,
+      "text": "When Walden finds this haunted place",
+      "uncertain": false
+    },
+    {
+      "start": 215.56,
+      "end": 218.18,
+      "text": "It finds me standing face to face",
+      "uncertain": false
+    },
+    {
+      "start": 218.18,
+      "end": 220.84,
+      "text": "No silence left, no borrowed name",
+      "uncertain": true
+    },
+    {
+      "start": 220.84,
+      "end": 223.18,
+      "text": "I made the black room dance the same",
+      "uncertain": false
+    },
+    {
+      "start": 238.88,
+      "end": 242.3,
+      "text": "The clock clicks once, dawn comes through",
+      "uncertain": true
+    },
+    {
+      "start": 242.3,
+      "end": 244.96,
+      "text": "The hallway breathes and I breathe too",
+      "uncertain": true
+    },
+    {
+      "start": 244.96,
+      "end": 247.62,
+      "text": "One last step as the walls turn blue",
+      "uncertain": false
+    },
+    {
+      "start": 247.62,
+      "end": 250.32,
+      "text": "I was afraid and I danced it through",
+      "uncertain": false
+    },
+    {
+      "start": 250.32,
+      "end": 251.54,
+      "text": "I don't know.",
+      "uncertain": true
+    }
+  ]
+}

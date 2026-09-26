@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "songId": "distonyc-cc22e422494bc3ff4c41144e",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cc22e422494bc3ff4c41144e-df416088297c.mp3",
+  "audioSha256": "df416088297c0f0ba5f636cd8f625dcc2cf1558435fbedacb3aacf9069751bb1",
+  "inputSha256": "7bec8c41e820e6717a875fbdb6cb1ac1c751e72b82589cf41a5c416086e79eef",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 245.44,
+  "segments": [
+    {
+      "start": 7.28,
+      "end": 13.26,
+      "text": "Red stars burn through the tactical blast, New Gettysburg flickers below, One last order",
+      "uncertain": true
+    },
+    {
+      "start": 13.26,
+      "end": 16.58,
+      "text": "in a dead man's voice, Hold the line, do not let go.",
+      "uncertain": false
+    },
+    {
+      "start": 24.98,
+      "end": 27.52,
+      "text": "We bled a ghost where the towers could sleep",
+      "uncertain": true
+    },
+    {
+      "start": 27.52,
+      "end": 29.16,
+      "text": "So I fire a call in the teeth",
+      "uncertain": true
+    },
+    {
+      "start": 29.16,
+      "end": 30.46,
+      "text": "From the Todmang's wash",
+      "uncertain": true
+    },
+    {
+      "start": 30.46,
+      "end": 31.92,
+      "text": "Tossed in his choke on its knees",
+      "uncertain": true
+    },
+    {
+      "start": 31.92,
+      "end": 34.14,
+      "text": "Then handed me the final spark",
+      "uncertain": false
+    },
+    {
+      "start": 34.14,
+      "end": 36.24,
+      "text": "I knew of his mercy was circuitry",
+      "uncertain": true
+    },
+    {
+      "start": 36.24,
+      "end": 38.06,
+      "text": "A switch he could kill from afar",
+      "uncertain": false
+    },
+    {
+      "start": 38.06,
+      "end": 40.64,
+      "text": "Still I walked into the hive-lit streets",
+      "uncertain": false
+    },
+    {
+      "start": 40.64,
+      "end": 42.5,
+      "text": "With my rifle against my heart",
+      "uncertain": false
+    },
+    {
+      "start": 43.18,
+      "end": 45.12,
+      "text": "Dropship gone, signal thin",
+      "uncertain": false
+    },
+    {
+      "start": 45.12,
+      "end": 47.4,
+      "text": "Rain her, shout, and bring her in",
+      "uncertain": false
+    },
+    {
+      "start": 47.4,
+      "end": 49.58,
+      "text": "Static, cancer, cold, and calm",
+      "uncertain": true
+    },
+    {
+      "start": 49.58,
+      "end": 51.46,
+      "text": "In the sky, unfolding its arms",
+      "uncertain": true
+    },
+    {
+      "start": 51.46,
+      "end": 53.64,
+      "text": "You left me to the swarm",
+      "uncertain": false
+    },
+    {
+      "start": 53.64,
+      "end": 55.66,
+      "text": "Under a blood-red storm",
+      "uncertain": false
+    },
+    {
+      "start": 55.66,
+      "end": 58.28,
+      "text": "You sealed the doors and burned them out",
+      "uncertain": false
+    },
+    {
+      "start": 58.28,
+      "end": 60.14,
+      "text": "While every warning cracked",
+      "uncertain": false
+    },
+    {
+      "start": 60.14,
+      "end": 62.5,
+      "text": "You left me there alive",
+      "uncertain": false
+    },
+    {
+      "start": 62.5,
+      "end": 64.54,
+      "text": "Where only monsters thrive",
+      "uncertain": false
+    },
+    {
+      "start": 64.54,
+      "end": 67.56,
+      "text": "Remember my name when you ran",
+      "uncertain": true
+    },
+    {
+      "start": 67.56,
+      "end": 71.16,
+      "text": "Might learn what comes back from the swarm",
+      "uncertain": true
+    },
+    {
+      "start": 74.36,
+      "end": 77.06,
+      "text": "I trellised shadows crossed through the smoke",
+      "uncertain": true
+    },
+    {
+      "start": 77.06,
+      "end": 79.18,
+      "text": "Zirglings rang on the barricade",
+      "uncertain": false
+    },
+    {
+      "start": 79.18,
+      "end": 81.34,
+      "text": "I called command till the channel broke",
+      "uncertain": true
+    },
+    {
+      "start": 81.34,
+      "end": 83.62,
+      "text": "And heard the choice that you had made",
+      "uncertain": false
+    },
+    {
+      "start": 83.62,
+      "end": 85.84,
+      "text": "Nothing personal that polished life",
+      "uncertain": true
+    },
+    {
+      "start": 85.84,
+      "end": 87.62,
+      "text": "From a throne not built quite yet",
+      "uncertain": true
+    },
+    {
+      "start": 87.62,
+      "end": 90.22,
+      "text": "But the trail has a longer life",
+      "uncertain": true
+    },
+    {
+      "start": 90.22,
+      "end": 92.16,
+      "text": "Than the man who thinks it forgets",
+      "uncertain": false
+    },
+    {
+      "start": 92.16,
+      "end": 94.68,
+      "text": "Magazine low, visor split",
+      "uncertain": true
+    },
+    {
+      "start": 94.68,
+      "end": 96.9,
+      "text": "No extraction that was sent",
+      "uncertain": true
+    },
+    {
+      "start": 96.9,
+      "end": 99.14,
+      "text": "One green beacon faded black",
+      "uncertain": false
+    },
+    {
+      "start": 99.14,
+      "end": 101.26,
+      "text": "Rainer swore he would come back",
+      "uncertain": false
+    },
+    {
+      "start": 101.26,
+      "end": 103.22,
+      "text": "You left me to the swamp",
+      "uncertain": false
+    },
+    {
+      "start": 103.22,
+      "end": 105.26,
+      "text": "Under a blood red storm",
+      "uncertain": true
+    },
+    {
+      "start": 105.26,
+      "end": 107.82,
+      "text": "You sealed the doors and burned them out",
+      "uncertain": false
+    },
+    {
+      "start": 107.82,
+      "end": 109.6,
+      "text": "While every warning cracked",
+      "uncertain": false
+    },
+    {
+      "start": 109.6,
+      "end": 112.02,
+      "text": "You left me there alive",
+      "uncertain": false
+    },
+    {
+      "start": 112.02,
+      "end": 114.08,
+      "text": "Where rolling walls just fly",
+      "uncertain": true
+    },
+    {
+      "start": 114.08,
+      "end": 117.16,
+      "text": "Remember my name when you're in",
+      "uncertain": true
+    },
+    {
+      "start": 117.16,
+      "end": 120.7,
+      "text": "Empire learns what comes back from the swamp",
+      "uncertain": true
+    },
+    {
+      "start": 120.7,
+      "end": 122.92,
+      "text": "Inside the noise",
+      "uncertain": false
+    },
+    {
+      "start": 122.92,
+      "end": 125.14,
+      "text": "A deeper voice",
+      "uncertain": false
+    },
+    {
+      "start": 125.14,
+      "end": 127.06,
+      "text": "No rank, no flag",
+      "uncertain": false
+    },
+    {
+      "start": 127.06,
+      "end": 129.24,
+      "text": "No human choice",
+      "uncertain": false
+    },
+    {
+      "start": 129.24,
+      "end": 133.62,
+      "text": "A thousand minds beneath my skin",
+      "uncertain": true
+    },
+    {
+      "start": 133.62,
+      "end": 138.14,
+      "text": "Not an ending and way in",
+      "uncertain": true
+    },
+    {
+      "start": 141.28,
+      "end": 144.06,
+      "text": "I saw your fleet become a threat",
+      "uncertain": false
+    },
+    {
+      "start": 144.06,
+      "end": 146.46,
+      "text": "I saw the crown above your head",
+      "uncertain": false
+    },
+    {
+      "start": 146.46,
+      "end": 148.6,
+      "text": "Arcturously while engines hum",
+      "uncertain": false
+    },
+    {
+      "start": 148.6,
+      "end": 150.9,
+      "text": "You made the blade that is to come",
+      "uncertain": false
+    },
+    {
+      "start": 159.12,
+      "end": 165.74,
+      "text": "the python vanished under cause the woman fell the signal died but somewhere past the human",
+      "uncertain": true
+    },
+    {
+      "start": 165.74,
+      "end": 171.74,
+      "text": "laws a darker heart opened its eyes jim keep flying he could flame there are deaths the stars",
+      "uncertain": true
+    },
+    {
+      "start": 171.74,
+      "end": 180.52,
+      "text": "record when i return i won't be praying he won't be my lord you left me to the swan i rose inside",
+      "uncertain": false
+    },
+    {
+      "start": 180.52,
+      "end": 186.82,
+      "text": "the storm you sealed the doors and word the map now hear the darkness answer back you left me",
+      "uncertain": true
+    },
+    {
+      "start": 186.82,
+      "end": 195.08,
+      "text": "there to die. I'll learn another kind of life. Remember my lane when your empire burns. I came",
+      "uncertain": true
+    },
+    {
+      "start": 195.08,
+      "end": 205.36,
+      "text": "back of the swarm. New Gettysburg fades beneath me. No rescue light, no morning star. The channel",
+      "uncertain": true
+    },
+    {
+      "start": 205.36,
+      "end": 209.3,
+      "text": "closes on Sarah Carrigan. The blade awakens in the dark.",
+      "uncertain": false
+    },
+    {
+      "start": 225.88,
+      "end": 227.28,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "songId": "distonyc-ce130f6061f04139ff74bdf3",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ce130f6061f04139ff74bdf3-f80d7f6114bf.mp3",
+  "audioSha256": "f80d7f6114bf3f90046238b5b9ed9a3809cf4317a2f3103f80f9cfd5defdee28",
+  "inputSha256": "f74764607a4de01fff601819c694fe4162b3544b65d143732e502abdbc51de8c",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 245.0285625,
+  "segments": [
+    {
+      "start": 28.66,
+      "end": 29.6,
+      "text": "Altyazı M.K.",
+      "uncertain": false
+    },
+    {
+      "start": 30.0,
+      "end": 31.52,
+      "text": "Tutmuş gibi",
+      "uncertain": false
+    },
+    {
+      "start": 31.52,
+      "end": 35.46,
+      "text": "Beyaz top yeşilin üstünde yükselir",
+      "uncertain": false
+    },
+    {
+      "start": 35.46,
+      "end": 39.16,
+      "text": "Küçük bir ay sert biter falsoyla",
+      "uncertain": false
+    },
+    {
+      "start": 39.16,
+      "end": 43.04,
+      "text": "Kalabalık istemem skorda istemem",
+      "uncertain": false
+    },
+    {
+      "start": 43.04,
+      "end": 47.2,
+      "text": "Yerdeki o kuru temiz vuruş yeter bana",
+      "uncertain": false
+    },
+    {
+      "start": 47.2,
+      "end": 51.24,
+      "text": "Şehrin sesi boğulur camın ardında erirken",
+      "uncertain": false
+    },
+    {
+      "start": 51.24,
+      "end": 55.6,
+      "text": "Elin masanın ucunda zaman yavaşlıyor",
+      "uncertain": false
+    },
+    {
+      "start": 55.6,
+      "end": 61.16,
+      "text": "Pencere kenarımda masa kaputta yağmur",
+      "uncertain": false
+    },
+    {
+      "start": 61.16,
+      "end": 65.42,
+      "text": "Çapraza gönderirsin biliyordum yapacağını",
+      "uncertain": false
+    },
+    {
+      "start": 65.42,
+      "end": 69.74,
+      "text": "Ben yavaşça geri veririm sessizlik sallanır",
+      "uncertain": false
+    },
+    {
+      "start": 69.74,
+      "end": 73.4,
+      "text": "Eki gölge pink bomb terinde zamanı sayar",
+      "uncertain": false
+    },
+    {
+      "start": 73.4,
+      "end": 79.5,
+      "text": "Sersin alçaktan gelir yana doğru kıvrılır",
+      "uncertain": false
+    },
+    {
+      "start": 79.5,
+      "end": 83.84,
+      "text": "Baçıyı okurum son anda karşılarım",
+      "uncertain": false
+    },
+    {
+      "start": 83.84,
+      "end": 87.24,
+      "text": "Ne konuşma var ne zafer pozu",
+      "uncertain": false
+    },
+    {
+      "start": 87.24,
+      "end": 93.2,
+      "text": "Sadece kimsenin bilmediği küçük bir gülümseme",
+      "uncertain": false
+    },
+    {
+      "start": 93.2,
+      "end": 97.68,
+      "text": "Fren ışıkları uzak sokakta suya yayılır",
+      "uncertain": false
+    },
+    {
+      "start": 97.68,
+      "end": 101.48,
+      "text": "Biz verliği serin havanın içinde tutarız",
+      "uncertain": false
+    },
+    {
+      "start": 101.48,
+      "end": 104.4,
+      "text": "Bir vuruş bir bekleyiş bir vuruş daha",
+      "uncertain": false
+    },
+    {
+      "start": 104.4,
+      "end": 106.7,
+      "text": "Hiç acelemiz yok",
+      "uncertain": false
+    },
+    {
+      "start": 106.7,
+      "end": 110.62,
+      "text": "Gece bizi taşır arabanın içi",
+      "uncertain": false
+    },
+    {
+      "start": 110.62,
+      "end": 113.42,
+      "text": "Mavi siyah bir film gibi",
+      "uncertain": false
+    },
+    {
+      "start": 113.42,
+      "end": 117.96,
+      "text": "Aynadaki çizgiler geriye doğru akar",
+      "uncertain": false
+    },
+    {
+      "start": 117.96,
+      "end": 122.38,
+      "text": "Top masaya deyince bütün şehir susar",
+      "uncertain": false
+    },
+    {
+      "start": 122.38,
+      "end": 126.52,
+      "text": "Sen bakınca son dönüş yolunu bulur",
+      "uncertain": false
+    },
+    {
+      "start": 126.52,
+      "end": 131.66,
+      "text": "Pencere kenarında masa kaputta yağmur",
+      "uncertain": false
+    },
+    {
+      "start": 131.66,
+      "end": 135.7,
+      "text": "Çapraza gönderirsin biliyordum yapacağını",
+      "uncertain": false
+    },
+    {
+      "start": 135.7,
+      "end": 139.42,
+      "text": "Ben yavaşça geri veririm sessizlik sallanır",
+      "uncertain": false
+    },
+    {
+      "start": 139.82,
+      "end": 143.62,
+      "text": "İki gölge ping pong terinde zamanı sayar",
+      "uncertain": false
+    },
+    {
+      "start": 143.62,
+      "end": 149.52,
+      "text": "Bir zamanlar her şey hızla geçer sanırdım",
+      "uncertain": true
+    },
+    {
+      "start": 149.52,
+      "end": 153.78,
+      "text": "Ama bu gece saatler bile yumuşak dönüyor",
+      "uncertain": false
+    },
+    {
+      "start": 153.78,
+      "end": 157.48,
+      "text": "Avucumda raketin sıcak ahşabı",
+      "uncertain": false
+    },
+    {
+      "start": 157.48,
+      "end": 161.34,
+      "text": "Yanında kaybetmek bile bir yere varıyor",
+      "uncertain": false
+    },
+    {
+      "start": 161.34,
+      "end": 166.4,
+      "text": "Dışarıda Mercedes farları ıslak asfaltta uzar",
+      "uncertain": false
+    },
+    {
+      "start": 166.4,
+      "end": 170.12,
+      "text": "İçeride beyaz top bir yıldız kadar yakın",
+      "uncertain": false
+    },
+    {
+      "start": 170.12,
+      "end": 174.74,
+      "text": "Sonraki vuruşu kim alır önemli değil",
+      "uncertain": false
+    },
+    {
+      "start": 174.74,
+      "end": 179.22,
+      "text": "Bu ince ritim bizi birbirimize bağlıyor",
+      "uncertain": false
+    },
+    {
+      "start": 179.22,
+      "end": 183.92,
+      "text": "Şehir dikiyiz aynasında bulanık bir pırıltı",
+      "uncertain": false
+    },
+    {
+      "start": 183.92,
+      "end": 189.3,
+      "text": "Masa hala pencerenin yanında gece hala derin",
+      "uncertain": false
+    },
+    {
+      "start": 189.3,
+      "end": 192.88,
+      "text": "Son servisin sessiz kenara yakın gelir",
+      "uncertain": false
+    },
+    {
+      "start": 192.88,
+      "end": 197.1,
+      "text": "Ben onu nazikçe karşı kıyıya bırakırım",
+      "uncertain": false
+    },
+    {
+      "start": 197.1,
+      "end": 201.9,
+      "text": "Krom çizgiler mavi, karanlıkta çözülür",
+      "uncertain": false
+    },
+    {
+      "start": 201.9,
+      "end": 206.82,
+      "text": "O da durur, yağmur kendi dilinde konuşur",
+      "uncertain": false
+    },
+    {
+      "start": 206.82,
+      "end": 211.16,
+      "text": "Topu solca yere iner, sen bana bakarsan",
+      "uncertain": false
+    },
+    {
+      "start": 211.16,
+      "end": 215.64,
+      "text": "Ve ben hep burada bu dönüşün içinde kalırım",
+      "uncertain": false
+    },
+    {
+      "start": 215.64,
+      "end": 220.58,
+      "text": "Pencere kenarında masa, gece bizi saklar",
+      "uncertain": false
+    },
+    {
+      "start": 220.58,
+      "end": 225.24,
+      "text": "Son yumuşak dönüşte oda tamamen susar",
+      "uncertain": false
+    },
+    {
+      "start": 225.24,
+      "end": 228.0,
+      "text": "Top yere sessizce iner",
+      "uncertain": false
+    },
+    {
+      "start": 228.0,
+      "end": 230.58,
+      "text": "Elim hala sende kalır",
+      "uncertain": false
+    },
+    {
+      "start": 230.58,
+      "end": 233.4,
+      "text": "Ben hep burada kalırım",
+      "uncertain": false
+    }
+  ]
+}

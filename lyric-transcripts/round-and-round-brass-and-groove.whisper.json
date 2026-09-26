@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "songId": "round-and-round-brass-and-groove",
+  "audioUrl": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/round-and-round-brass-and-groove.mp3",
+  "audioSha256": "8ebeb254e8d0ca0d7f8bd4d847b1ac41c444b5adc929cd04b76f7ccd46b2d253",
+  "inputSha256": "32b51c373c8228986d1ac77df1eace2ef38cd5604150a04c965c331033a84763",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 260.9558125,
+  "segments": [
+    {
+      "start": 9.48,
+      "end": 11.26,
+      "text": "Round and around I go",
+      "uncertain": true
+    },
+    {
+      "start": 12.82,
+      "end": 14.56,
+      "text": "Down that lost highway",
+      "uncertain": false
+    },
+    {
+      "start": 18.74,
+      "end": 20.34,
+      "text": "I don't know nothing",
+      "uncertain": false
+    },
+    {
+      "start": 20.34,
+      "end": 22.34,
+      "text": "I ain't found out for myself",
+      "uncertain": false
+    },
+    {
+      "start": 23.74,
+      "end": 25.06,
+      "text": "Learned the hard way",
+      "uncertain": false
+    },
+    {
+      "start": 25.06,
+      "end": 27.02,
+      "text": "Never to trust nobody else",
+      "uncertain": false
+    },
+    {
+      "start": 27.02,
+      "end": 29.36,
+      "text": "And I'm a long way from glory",
+      "uncertain": false
+    },
+    {
+      "start": 29.36,
+      "end": 32.58,
+      "text": "If you believe what they say, I don't mind",
+      "uncertain": true
+    },
+    {
+      "start": 33.68,
+      "end": 35.88,
+      "text": "Cause that's just my way",
+      "uncertain": true
+    },
+    {
+      "start": 35.88,
+      "end": 39.3,
+      "text": "Got a little dust on the heel of my shoe",
+      "uncertain": false
+    },
+    {
+      "start": 40.22,
+      "end": 43.74,
+      "text": "Got a whole lot of hope I ain't been through",
+      "uncertain": false
+    },
+    {
+      "start": 44.76,
+      "end": 48.4,
+      "text": "If you see me coming with my code undone",
+      "uncertain": false
+    },
+    {
+      "start": 49.22,
+      "end": 53.02,
+      "text": "You can tell by my face I ain't finished my love",
+      "uncertain": false
+    },
+    {
+      "start": 53.02,
+      "end": 56.62,
+      "text": "Around and around I go, lost I wait",
+      "uncertain": false
+    },
+    {
+      "start": 56.62,
+      "end": 58.86,
+      "text": "Moving on over to the breakdown lane",
+      "uncertain": false
+    },
+    {
+      "start": 58.86,
+      "end": 61.08,
+      "text": "Knock on your door, blast out on the floor",
+      "uncertain": false
+    },
+    {
+      "start": 61.08,
+      "end": 63.3,
+      "text": "Doesn't really matter cause I don't keep score",
+      "uncertain": false
+    },
+    {
+      "start": 63.3,
+      "end": 65.08,
+      "text": "But round and round I do",
+      "uncertain": true
+    },
+    {
+      "start": 65.08,
+      "end": 66.2,
+      "text": "So I saw it",
+      "uncertain": true
+    },
+    {
+      "start": 66.2,
+      "end": 68.34,
+      "text": "I'm going to struggle when I'm going away",
+      "uncertain": true
+    },
+    {
+      "start": 68.34,
+      "end": 70.62,
+      "text": "But round and round hear that old road sling",
+      "uncertain": false
+    },
+    {
+      "start": 70.62,
+      "end": 72.84,
+      "text": "I got a crooked little ass for everything",
+      "uncertain": true
+    },
+    {
+      "start": 72.84,
+      "end": 79.2,
+      "text": "If there ain't no heaven",
+      "uncertain": true
+    },
+    {
+      "start": 79.2,
+      "end": 81.2,
+      "text": "And there sure ain't no hell",
+      "uncertain": true
+    },
+    {
+      "start": 81.2,
+      "end": 83.82,
+      "text": "Just a long road to travel",
+      "uncertain": false
+    },
+    {
+      "start": 83.82,
+      "end": 85.66,
+      "text": "And a story to tell",
+      "uncertain": false
+    },
+    {
+      "start": 86.74,
+      "end": 88.36,
+      "text": "I made my choices",
+      "uncertain": false
+    },
+    {
+      "start": 88.36,
+      "end": 90.32,
+      "text": "And I got my regrets",
+      "uncertain": false
+    },
+    {
+      "start": 90.32,
+      "end": 91.78,
+      "text": "But there ain't nothing",
+      "uncertain": true
+    },
+    {
+      "start": 91.78,
+      "end": 94.62,
+      "text": "I can't learn to forget",
+      "uncertain": false
+    },
+    {
+      "start": 94.62,
+      "end": 96.68,
+      "text": "There's a bend in the road",
+      "uncertain": false
+    },
+    {
+      "start": 96.68,
+      "end": 98.24,
+      "text": "Where the headlights fall",
+      "uncertain": false
+    },
+    {
+      "start": 99.1,
+      "end": 100.82,
+      "text": "There's a voice in the dark",
+      "uncertain": false
+    },
+    {
+      "start": 100.82,
+      "end": 102.76,
+      "text": "And I know that call",
+      "uncertain": false
+    },
+    {
+      "start": 103.54,
+      "end": 105.38,
+      "text": "I can hear my lane",
+      "uncertain": false
+    },
+    {
+      "start": 105.38,
+      "end": 107.22,
+      "text": "Through the broken screen",
+      "uncertain": false
+    },
+    {
+      "start": 107.92,
+      "end": 109.54,
+      "text": "Same old trouble",
+      "uncertain": false
+    },
+    {
+      "start": 109.54,
+      "end": 111.92,
+      "text": "In a brand new scene",
+      "uncertain": false
+    },
+    {
+      "start": 111.92,
+      "end": 114.34,
+      "text": "Around and around I go",
+      "uncertain": false
+    },
+    {
+      "start": 114.34,
+      "end": 115.34,
+      "text": "Lost highway",
+      "uncertain": false
+    },
+    {
+      "start": 115.34,
+      "end": 117.68,
+      "text": "Moving on over to the breakdown lane",
+      "uncertain": false
+    },
+    {
+      "start": 117.68,
+      "end": 119.92,
+      "text": "Knock on your door, pass out on the floor",
+      "uncertain": true
+    },
+    {
+      "start": 119.92,
+      "end": 122.24,
+      "text": "Doesn't really matter cause I don't keep scores",
+      "uncertain": false
+    },
+    {
+      "start": 122.24,
+      "end": 124.96,
+      "text": "Around and around I go, lost highway",
+      "uncertain": false
+    },
+    {
+      "start": 124.96,
+      "end": 127.2,
+      "text": "I won no troubles when I'm gone away",
+      "uncertain": true
+    },
+    {
+      "start": 127.2,
+      "end": 129.46,
+      "text": "Around and around, hear that old road sing",
+      "uncertain": false
+    },
+    {
+      "start": 129.46,
+      "end": 131.6,
+      "text": "I got a quick little laugh for everything",
+      "uncertain": true
+    },
+    {
+      "start": 135.86,
+      "end": 139.0,
+      "text": "Pulled to the shoulder, I turned off the light",
+      "uncertain": false
+    },
+    {
+      "start": 139.7,
+      "end": 143.5,
+      "text": "Sat with my hands on the wheel all night",
+      "uncertain": false
+    },
+    {
+      "start": 143.5,
+      "end": 146.0,
+      "text": "Nothing to prove",
+      "uncertain": false
+    },
+    {
+      "start": 146.0,
+      "end": 148.02,
+      "text": "And no reason to run",
+      "uncertain": true
+    },
+    {
+      "start": 148.02,
+      "end": 150.4,
+      "text": "Watching the road",
+      "uncertain": false
+    },
+    {
+      "start": 150.4,
+      "end": 152.48,
+      "text": "For a sign of the sun",
+      "uncertain": false
+    },
+    {
+      "start": 152.48,
+      "end": 154.86,
+      "text": "That little white light",
+      "uncertain": false
+    },
+    {
+      "start": 154.86,
+      "end": 157.12,
+      "text": "Keeps calling my name",
+      "uncertain": false
+    },
+    {
+      "start": 157.12,
+      "end": 159.52,
+      "text": "But a man can't change",
+      "uncertain": false
+    },
+    {
+      "start": 159.52,
+      "end": 161.58,
+      "text": "Without changing late",
+      "uncertain": false
+    },
+    {
+      "start": 161.58,
+      "end": 164.44,
+      "text": "I'll put my foot down",
+      "uncertain": false
+    },
+    {
+      "start": 164.44,
+      "end": 166.1,
+      "text": "Easy and slow",
+      "uncertain": false
+    },
+    {
+      "start": 166.1,
+      "end": 168.54,
+      "text": "And let that old engine",
+      "uncertain": false
+    },
+    {
+      "start": 168.54,
+      "end": 170.9,
+      "text": "Tell me where to go",
+      "uncertain": false
+    },
+    {
+      "start": 174.96,
+      "end": 178.58,
+      "text": "I don't know nothing I ain't found out for myself",
+      "uncertain": false
+    },
+    {
+      "start": 179.92,
+      "end": 183.24,
+      "text": "Learned the hard way never to trust nobody else",
+      "uncertain": false
+    },
+    {
+      "start": 183.24,
+      "end": 186.48,
+      "text": "But somebody left a little light in the hall",
+      "uncertain": false
+    },
+    {
+      "start": 187.6,
+      "end": 191.04,
+      "text": "Somebody answered when I thought I couldn't call",
+      "uncertain": false
+    },
+    {
+      "start": 191.96,
+      "end": 195.54,
+      "text": "There's a place at the table and a crack in the door",
+      "uncertain": false
+    },
+    {
+      "start": 196.5,
+      "end": 199.98,
+      "text": "There's a chair with my name that I've sat in before",
+      "uncertain": false
+    },
+    {
+      "start": 201.12,
+      "end": 204.58,
+      "text": "If I make it by morning, you can ask where I've been",
+      "uncertain": false
+    },
+    {
+      "start": 205.74,
+      "end": 209.08,
+      "text": "I'll be wearing that same impossible grin",
+      "uncertain": false
+    },
+    {
+      "start": 209.96,
+      "end": 212.64,
+      "text": "Around and around I go, lost highway",
+      "uncertain": true
+    },
+    {
+      "start": 212.64,
+      "end": 215.06,
+      "text": "Moving on over to the breakdown lane",
+      "uncertain": false
+    },
+    {
+      "start": 215.06,
+      "end": 217.32,
+      "text": "Knock on your door, passed out on the floor",
+      "uncertain": false
+    },
+    {
+      "start": 217.32,
+      "end": 219.5,
+      "text": "Doesn't really matter cause I don't keep score",
+      "uncertain": false
+    },
+    {
+      "start": 219.5,
+      "end": 222.32,
+      "text": "Around and around I go, lost highway",
+      "uncertain": false
+    },
+    {
+      "start": 222.32,
+      "end": 224.52,
+      "text": "I'm on no troubles when I'm going away",
+      "uncertain": false
+    },
+    {
+      "start": 224.52,
+      "end": 226.82,
+      "text": "Around and around, hear that old road sing",
+      "uncertain": false
+    },
+    {
+      "start": 226.82,
+      "end": 228.96,
+      "text": "I got a quick little eye for everything",
+      "uncertain": true
+    },
+    {
+      "start": 232.42,
+      "end": 234.4,
+      "text": "Around and around that wall",
+      "uncertain": false
+    },
+    {
+      "start": 236.68,
+      "end": 238.72,
+      "text": "Down that lost highway",
+      "uncertain": false
+    },
+    {
+      "start": 241.32,
+      "end": 243.36,
+      "text": "Leave a little light in the hall",
+      "uncertain": true
+    },
+    {
+      "start": 245.8,
+      "end": 247.88,
+      "text": "I might find my way",
+      "uncertain": false
+    },
+    {
+      "start": 258.96,
+      "end": 259.26,
+      "text": "Bye-bye.",
+      "uncertain": true
+    }
+  ]
+}

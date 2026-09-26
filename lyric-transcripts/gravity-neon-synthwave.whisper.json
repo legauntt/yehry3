@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "songId": "gravity-neon-synthwave",
+  "audioUrl": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/gravity-neon-synthwave.mp3",
+  "audioSha256": "81b56f6cd83d83aa1481ed3b5928dc73726f326d4cdb1897f40fb57748feaa1a",
+  "inputSha256": "81b56f6cd83d83aa1481ed3b5928dc73726f326d4cdb1897f40fb57748feaa1a",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 249.1400625,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 8.02,
+      "text": "Gravity, gravity, and time are wearing on me.",
+      "uncertain": false
+    },
+    {
+      "start": 9.64,
+      "end": 17.34,
+      "text": "Gravity, gravity, still a light inside of me.",
+      "uncertain": false
+    },
+    {
+      "start": 23.5,
+      "end": 26.26,
+      "text": "Gravity is pulling down on me.",
+      "uncertain": false
+    },
+    {
+      "start": 26.62,
+      "end": 28.28,
+      "text": "Time is wearing me down.",
+      "uncertain": false
+    },
+    {
+      "start": 28.28,
+      "end": 31.18,
+      "text": "I'm in the place where the dreams go to die",
+      "uncertain": false
+    },
+    {
+      "start": 31.18,
+      "end": 33.0,
+      "text": "Here for the second time around",
+      "uncertain": true
+    },
+    {
+      "start": 33.98,
+      "end": 36.2,
+      "text": "Dashboard closed like a distant town",
+      "uncertain": false
+    },
+    {
+      "start": 36.2,
+      "end": 37.88,
+      "text": "The windshield carries the rain",
+      "uncertain": false
+    },
+    {
+      "start": 37.88,
+      "end": 40.92,
+      "text": "I turn the dial till the voice comes through",
+      "uncertain": false
+    },
+    {
+      "start": 40.92,
+      "end": 42.86,
+      "text": "And it almost says my name",
+      "uncertain": false
+    },
+    {
+      "start": 43.68,
+      "end": 45.9,
+      "text": "I've been thinking it won't be long",
+      "uncertain": false
+    },
+    {
+      "start": 45.9,
+      "end": 48.34,
+      "text": "What doesn't kill you, it makes you strong",
+      "uncertain": true
+    },
+    {
+      "start": 48.34,
+      "end": 50.58,
+      "text": "Or maybe it drags you down",
+      "uncertain": false
+    },
+    {
+      "start": 50.58,
+      "end": 52.56,
+      "text": "That's the last light out of time",
+      "uncertain": false
+    },
+    {
+      "start": 56.22,
+      "end": 56.8,
+      "text": "Gravity",
+      "uncertain": false
+    },
+    {
+      "start": 56.8,
+      "end": 63.6,
+      "text": "Gravity, gravity, in time all wearing on me",
+      "uncertain": true
+    },
+    {
+      "start": 66.58,
+      "end": 72.66,
+      "text": "Gravity, gravity, every life looks like a memory",
+      "uncertain": false
+    },
+    {
+      "start": 74.12,
+      "end": 77.3,
+      "text": "The night keeps moving under my wheels",
+      "uncertain": false
+    },
+    {
+      "start": 77.3,
+      "end": 80.72,
+      "text": "I still believe in something I can see",
+      "uncertain": true
+    },
+    {
+      "start": 82.42,
+      "end": 83.1,
+      "text": "Gravity",
+      "uncertain": false
+    },
+    {
+      "start": 84.28,
+      "end": 87.8,
+      "text": "And time all wearing on me",
+      "uncertain": true
+    },
+    {
+      "start": 91.24,
+      "end": 94.02,
+      "text": "I've got too much to think about",
+      "uncertain": false
+    },
+    {
+      "start": 94.02,
+      "end": 95.86,
+      "text": "To sit and talk to you",
+      "uncertain": false
+    },
+    {
+      "start": 95.86,
+      "end": 98.92,
+      "text": "And I'm too far down to find the words",
+      "uncertain": false
+    },
+    {
+      "start": 98.92,
+      "end": 100.8,
+      "text": "For this particular shade of blue",
+      "uncertain": false
+    },
+    {
+      "start": 100.8,
+      "end": 102.94,
+      "text": "I've been shedding water",
+      "uncertain": false
+    },
+    {
+      "start": 102.94,
+      "end": 104.08,
+      "text": "Marking time",
+      "uncertain": false
+    },
+    {
+      "start": 104.08,
+      "end": 105.86,
+      "text": "Watching the same stars fade",
+      "uncertain": false
+    },
+    {
+      "start": 105.86,
+      "end": 108.48,
+      "text": "I count the years in the rear view glass",
+      "uncertain": true
+    },
+    {
+      "start": 108.48,
+      "end": 110.4,
+      "text": "And the turns I never made",
+      "uncertain": false
+    },
+    {
+      "start": 111.34,
+      "end": 113.8,
+      "text": "I've been thinking it won't be long",
+      "uncertain": false
+    },
+    {
+      "start": 113.8,
+      "end": 116.18,
+      "text": "But doesn't kill you, makes you strong",
+      "uncertain": true
+    },
+    {
+      "start": 116.18,
+      "end": 118.42,
+      "text": "Or maybe it drags you down",
+      "uncertain": false
+    },
+    {
+      "start": 118.42,
+      "end": 120.76,
+      "text": "Until you can't hear another sound",
+      "uncertain": false
+    },
+    {
+      "start": 123.92,
+      "end": 127.74,
+      "text": "Gravity, gravity-dee",
+      "uncertain": false
+    },
+    {
+      "start": 127.74,
+      "end": 131.64,
+      "text": "And time won't wear it on me",
+      "uncertain": false
+    },
+    {
+      "start": 133.48,
+      "end": 137.14,
+      "text": "Gravity, gravity-dee",
+      "uncertain": false
+    },
+    {
+      "start": 137.14,
+      "end": 145.2,
+      "text": "Every light looks like a memory The night keeps moving under my wheels",
+      "uncertain": true
+    },
+    {
+      "start": 145.2,
+      "end": 155.68,
+      "text": "I still believe in something I can feed Grab a needy, and time all wailing on me",
+      "uncertain": true
+    },
+    {
+      "start": 159.26,
+      "end": 164.1,
+      "text": "There's an empty booth at the end of the road There's a cup gone cold by the door",
+      "uncertain": false
+    },
+    {
+      "start": 164.1,
+      "end": 166.82,
+      "text": "There's a song we knew on a broken machine",
+      "uncertain": true
+    },
+    {
+      "start": 166.82,
+      "end": 168.66,
+      "text": "Let nobody ask for anymore",
+      "uncertain": true
+    },
+    {
+      "start": 168.66,
+      "end": 171.78,
+      "text": "I put my hand where your hand used to rest",
+      "uncertain": false
+    },
+    {
+      "start": 171.78,
+      "end": 173.6,
+      "text": "I let the engine breathe",
+      "uncertain": false
+    },
+    {
+      "start": 173.6,
+      "end": 176.64,
+      "text": "Some things stay when the lights go out",
+      "uncertain": false
+    },
+    {
+      "start": 176.64,
+      "end": 178.4,
+      "text": "Some things never learn to leave",
+      "uncertain": false
+    },
+    {
+      "start": 181.12,
+      "end": 183.88,
+      "text": "If I could slow this whole world down",
+      "uncertain": false
+    },
+    {
+      "start": 183.88,
+      "end": 185.78,
+      "text": "I'll not leave one light for you",
+      "uncertain": false
+    },
+    {
+      "start": 185.78,
+      "end": 188.8,
+      "text": "A little warmth in the cold blue glass",
+      "uncertain": false
+    },
+    {
+      "start": 188.8,
+      "end": 190.48,
+      "text": "A signal coming through",
+      "uncertain": false
+    },
+    {
+      "start": 190.48,
+      "end": 193.22,
+      "text": "I don't need another lifetime",
+      "uncertain": false
+    },
+    {
+      "start": 193.22,
+      "end": 195.42,
+      "text": "Just a moment I can keep",
+      "uncertain": false
+    },
+    {
+      "start": 195.42,
+      "end": 198.2,
+      "text": "Before the morning finds me",
+      "uncertain": true
+    },
+    {
+      "start": 198.2,
+      "end": 200.5,
+      "text": "Before the city awakes from sleep",
+      "uncertain": false
+    },
+    {
+      "start": 205.88,
+      "end": 208.04,
+      "text": "Gravity, gravity",
+      "uncertain": false
+    },
+    {
+      "start": 208.04,
+      "end": 212.78,
+      "text": "And time all wearing on me",
+      "uncertain": false
+    },
+    {
+      "start": 214.52,
+      "end": 217.7,
+      "text": "Gravity, gravity",
+      "uncertain": false
+    },
+    {
+      "start": 217.7,
+      "end": 221.68,
+      "text": "Every light looks like a memory",
+      "uncertain": false
+    },
+    {
+      "start": 223.02,
+      "end": 226.42,
+      "text": "The night keeps moving under my wheels",
+      "uncertain": false
+    },
+    {
+      "start": 226.42,
+      "end": 229.74,
+      "text": "I still believe in something I can feel",
+      "uncertain": false
+    },
+    {
+      "start": 231.14,
+      "end": 232.28,
+      "text": "Gravity",
+      "uncertain": false
+    },
+    {
+      "start": 232.28,
+      "end": 237.0,
+      "text": "And time all wearing on me",
+      "uncertain": false
+    },
+    {
+      "start": 238.72,
+      "end": 239.86,
+      "text": "Gravity",
+      "uncertain": false
+    },
+    {
+      "start": 239.86,
+      "end": 241.52,
+      "text": "Gravity",
+      "uncertain": false
+    },
+    {
+      "start": 241.52,
+      "end": 246.64,
+      "text": "And time all wearing on me",
+      "uncertain": false
+    }
+  ]
+}

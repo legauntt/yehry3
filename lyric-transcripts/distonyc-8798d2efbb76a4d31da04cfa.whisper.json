@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "songId": "distonyc-8798d2efbb76a4d31da04cfa",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8798d2efbb76a4d31da04cfa-c9e7dfc7163d.mp3",
+  "audioSha256": "c9e7dfc7163d63dfa6245273a7f8c29f58c33c9a5d369848a2525c198a182ab3",
+  "inputSha256": "860b90f2f83fc66dbcd81ae3e9c98259a29220e7d917c853269496a3d1372ff6",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 150.047375,
+  "segments": [
+    {
+      "start": 10.52,
+      "end": 13.5,
+      "text": "They polished every window on the avenue",
+      "uncertain": true
+    },
+    {
+      "start": 13.5,
+      "end": 16.2,
+      "text": "Until the smoke behind it looked like morning blues",
+      "uncertain": true
+    },
+    {
+      "start": 16.2,
+      "end": 18.72,
+      "text": "Said keep it simple, don't make anybody choose",
+      "uncertain": false
+    },
+    {
+      "start": 18.72,
+      "end": 21.38,
+      "text": "One angel folded small beneath the news",
+      "uncertain": false
+    },
+    {
+      "start": 21.38,
+      "end": 24.0,
+      "text": "A mother checks the lock before the call to prayer",
+      "uncertain": false
+    },
+    {
+      "start": 24.0,
+      "end": 26.54,
+      "text": "A cell learns how to measure her every stranger's stare",
+      "uncertain": true
+    },
+    {
+      "start": 26.54,
+      "end": 29.14,
+      "text": "They call it history like history is through",
+      "uncertain": false
+    },
+    {
+      "start": 29.14,
+      "end": 31.82,
+      "text": "But every silent room remembers what it knew",
+      "uncertain": false
+    },
+    {
+      "start": 36.02,
+      "end": 38.64,
+      "text": "You can paint the world bribe white",
+      "uncertain": true
+    },
+    {
+      "start": 38.64,
+      "end": 41.32,
+      "text": "But the handprints stay at night",
+      "uncertain": false
+    },
+    {
+      "start": 43.74,
+      "end": 46.74,
+      "text": "With the whitewash eyes it still bleeds through",
+      "uncertain": true
+    },
+    {
+      "start": 46.74,
+      "end": 49.44,
+      "text": "Every bottle's like every broken view",
+      "uncertain": false
+    },
+    {
+      "start": 49.44,
+      "end": 52.02,
+      "text": "Don't tell me peace means looking away",
+      "uncertain": false
+    },
+    {
+      "start": 52.02,
+      "end": 54.56,
+      "text": "Truth has a false and it won't obey",
+      "uncertain": false
+    },
+    {
+      "start": 54.56,
+      "end": 57.34,
+      "text": "With the whitewash eyes we carry still",
+      "uncertain": false
+    },
+    {
+      "start": 57.34,
+      "end": 60.04,
+      "text": "Pass the courthouse, pass the hill",
+      "uncertain": true
+    },
+    {
+      "start": 60.04,
+      "end": 62.46,
+      "text": "Say the names that they erase",
+      "uncertain": false
+    },
+    {
+      "start": 62.46,
+      "end": 64.88,
+      "text": "Let the life fall on this place",
+      "uncertain": true
+    },
+    {
+      "start": 70.62,
+      "end": 73.84,
+      "text": "Before the badge there was a Leonard in the dark",
+      "uncertain": false
+    },
+    {
+      "start": 75.12,
+      "end": 78.9,
+      "text": "Riding fences, drawing borders round a human heart",
+      "uncertain": false
+    },
+    {
+      "start": 78.9,
+      "end": 82.4,
+      "text": "Then the cameras learned to turn their eyes aside and called it order",
+      "uncertain": false
+    },
+    {
+      "start": 84.04,
+      "end": 90.26,
+      "text": "when the fear was organized 30 years of warnings ringing through the wire brief was called that",
+      "uncertain": true
+    },
+    {
+      "start": 90.26,
+      "end": 97.86,
+      "text": "accident hate was called a fire but the record keeps a rhythm under every lie and the ones",
+      "uncertain": false
+    },
+    {
+      "start": 97.86,
+      "end": 106.54,
+      "text": "who live didn't know the reason why no clean story no convenient frame no freedom built by",
+      "uncertain": false
+    },
+    {
+      "start": 106.54,
+      "end": 107.54,
+      "text": "Hiding pain",
+      "uncertain": false
+    },
+    {
+      "start": 107.54,
+      "end": 110.16,
+      "text": "If we want tomorrow to be real",
+      "uncertain": true
+    },
+    {
+      "start": 110.16,
+      "end": 113.04,
+      "text": "We have to name what we refuse to feel",
+      "uncertain": true
+    },
+    {
+      "start": 116.7,
+      "end": 118.72,
+      "text": "Or the white washout",
+      "uncertain": true
+    },
+    {
+      "start": 118.72,
+      "end": 119.8,
+      "text": "That still bleeds through",
+      "uncertain": false
+    },
+    {
+      "start": 119.8,
+      "end": 121.18,
+      "text": "Every borrowed flag",
+      "uncertain": true
+    },
+    {
+      "start": 121.18,
+      "end": 122.52,
+      "text": "Every broken mute",
+      "uncertain": false
+    },
+    {
+      "start": 122.52,
+      "end": 123.8,
+      "text": "Truth has a pulse",
+      "uncertain": false
+    },
+    {
+      "start": 123.8,
+      "end": 125.1,
+      "text": "That it won't obey",
+      "uncertain": true
+    },
+    {
+      "start": 125.1,
+      "end": 126.36,
+      "text": "Truth has a pulse",
+      "uncertain": false
+    },
+    {
+      "start": 126.36,
+      "end": 127.92,
+      "text": "That it won't obey",
+      "uncertain": false
+    },
+    {
+      "start": 132.32,
+      "end": 135.02,
+      "text": "Let the light fall on this place",
+      "uncertain": false
+    },
+    {
+      "start": 135.02,
+      "end": 136.3,
+      "text": "Let it stay",
+      "uncertain": false
+    },
+    {
+      "start": 137.4,
+      "end": 138.74,
+      "text": "Let it stay",
+      "uncertain": true
+    }
+  ]
+}

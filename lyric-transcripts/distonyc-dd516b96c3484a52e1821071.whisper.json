@@ -1,0 +1,493 @@
+{
+  "version": 1,
+  "songId": "distonyc-dd516b96c3484a52e1821071",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-dd516b96c3484a52e1821071-0b31fa2cc06a.mp3",
+  "audioSha256": "0b31fa2cc06a375d9d988eab60160f8371b2ff1d82d83ba7f43624fc65b403ea",
+  "inputSha256": "28ba6df52cecee76dcf2184382c2efcda14af2537ee76740ac4bf4193a1b436d",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 435.04325,
+  "segments": [
+    {
+      "start": 4.52,
+      "end": 8.26,
+      "text": "I woke up late with a winner in my blood",
+      "uncertain": false
+    },
+    {
+      "start": 9.28,
+      "end": 12.62,
+      "text": "Curtain shut tight, every noon looked like mud",
+      "uncertain": true
+    },
+    {
+      "start": 13.42,
+      "end": 17.02,
+      "text": "Coffee on the counter, cold as a stop-dub clock",
+      "uncertain": false
+    },
+    {
+      "start": 17.02,
+      "end": 20.38,
+      "text": "I was dragging my name down the block",
+      "uncertain": false
+    },
+    {
+      "start": 22.22,
+      "end": 25.98,
+      "text": "Doctor held a paper under white forest and rain",
+      "uncertain": false
+    },
+    {
+      "start": 25.98,
+      "end": 30.38,
+      "text": "Said you ain't lazy man, you've been running on pain",
+      "uncertain": true
+    },
+    {
+      "start": 30.38,
+      "end": 34.8,
+      "text": "I laughed through my teeth, then I stared at the floor",
+      "uncertain": false
+    },
+    {
+      "start": 34.8,
+      "end": 38.22,
+      "text": "Like somebody had finally unlocked the door",
+      "uncertain": false
+    },
+    {
+      "start": 39.92,
+      "end": 43.96,
+      "text": "Little gold tablet, little beam in my hand",
+      "uncertain": false
+    },
+    {
+      "start": 43.96,
+      "end": 48.36,
+      "text": "I didn't know the sun could fit in a plan",
+      "uncertain": false
+    },
+    {
+      "start": 51.32,
+      "end": 59.54,
+      "text": "vitamin d you came walking through the dark put a match to the weapon brought a rhythm in my heart",
+      "uncertain": true
+    },
+    {
+      "start": 59.54,
+      "end": 66.3,
+      "text": "i was praying to the ceiling with a dead phone in my chest then the daylight found my number",
+      "uncertain": false
+    },
+    {
+      "start": 66.3,
+      "end": 74.7,
+      "text": "and it told me i could rest vitamin d i ain't saying you're the lord but you showed up like a",
+      "uncertain": false
+    },
+    {
+      "start": 74.7,
+      "end": 81.68,
+      "text": "miracle i couldn't look for now i'm standing in the kitchen letting morning hit me free",
+      "uncertain": true
+    },
+    {
+      "start": 81.68,
+      "end": 86.94,
+      "text": "i found jesus in a bottle marked vitamin d",
+      "uncertain": false
+    },
+    {
+      "start": 95.94,
+      "end": 103.38,
+      "text": "for months i thought the whole wide world went gray thought the good years packed their bags",
+      "uncertain": false
+    },
+    {
+      "start": 103.38,
+      "end": 112.46,
+      "text": "and drove away my friend said come outside i said maybe next week had a storm in my muscles and a",
+      "uncertain": true
+    },
+    {
+      "start": 112.46,
+      "end": 119.72,
+      "text": "fog when i'd speak tony's bones are turning to dust that's what i used to say tony's balls are",
+      "uncertain": false
+    },
+    {
+      "start": 119.72,
+      "end": 127.1,
+      "text": "turning to dust better hide on the way i made a joke because the truth had a heavyweight swing",
+      "uncertain": false
+    },
+    {
+      "start": 127.1,
+      "end": 131.9,
+      "text": "Couldn't lift my own spirit, couldn't feel a damn thing",
+      "uncertain": false
+    },
+    {
+      "start": 133.88,
+      "end": 138.24,
+      "text": "But the porch got warm and the birds got loud",
+      "uncertain": false
+    },
+    {
+      "start": 138.24,
+      "end": 143.38,
+      "text": "And I caught myself singing where I used to bow down",
+      "uncertain": false
+    },
+    {
+      "start": 147.7,
+      "end": 151.86,
+      "text": "That a minute day you came walking through the dark",
+      "uncertain": true
+    },
+    {
+      "start": 151.86,
+      "end": 156.16,
+      "text": "Put a mask to the wetwood, put a rhythm in my heart",
+      "uncertain": false
+    },
+    {
+      "start": 156.16,
+      "end": 160.66,
+      "text": "I was praying to the ceiling with a dead phone in my chest",
+      "uncertain": false
+    },
+    {
+      "start": 160.66,
+      "end": 165.3,
+      "text": "Then the daylight found my number and it told me I could rest",
+      "uncertain": false
+    },
+    {
+      "start": 165.3,
+      "end": 169.58,
+      "text": "Vitamin D, I ain't saying you're the Lord",
+      "uncertain": false
+    },
+    {
+      "start": 169.58,
+      "end": 173.68,
+      "text": "But you showed up like a miracle I couldn't afford",
+      "uncertain": false
+    },
+    {
+      "start": 173.68,
+      "end": 178.3,
+      "text": "Now I'm standing in the kitchen letting morning hit me free",
+      "uncertain": false
+    },
+    {
+      "start": 178.3,
+      "end": 183.62,
+      "text": "I found Jesus in a bottle marked Vitamin D",
+      "uncertain": false
+    },
+    {
+      "start": 187.04,
+      "end": 191.5,
+      "text": "I started taking walks where the old male band",
+      "uncertain": false
+    },
+    {
+      "start": 191.5,
+      "end": 196.0,
+      "text": "Saw the river doing business with the rocks again",
+      "uncertain": true
+    },
+    {
+      "start": 196.0,
+      "end": 200.54,
+      "text": "Felt my shoulders quit their lifelong war",
+      "uncertain": false
+    },
+    {
+      "start": 200.54,
+      "end": 204.74,
+      "text": "Felt an appetite knock at the door",
+      "uncertain": false
+    },
+    {
+      "start": 204.74,
+      "end": 207.42,
+      "text": "I called my brother, said I think I'm back",
+      "uncertain": true
+    },
+    {
+      "start": 207.42,
+      "end": 211.8,
+      "text": "He said that's good because we missed your life",
+      "uncertain": false
+    },
+    {
+      "start": 211.8,
+      "end": 216.18,
+      "text": "And I let out a noise that was half a cry",
+      "uncertain": false
+    },
+    {
+      "start": 216.18,
+      "end": 220.68,
+      "text": "Half a truck with its brakes cut loose down hill",
+      "uncertain": true
+    },
+    {
+      "start": 222.28,
+      "end": 227.34,
+      "text": "There's no halo in the pharmacy aisle",
+      "uncertain": false
+    },
+    {
+      "start": 227.34,
+      "end": 231.84,
+      "text": "No thunderclap, no holy television smile",
+      "uncertain": true
+    },
+    {
+      "start": 231.84,
+      "end": 235.9,
+      "text": "Just a little bit of science and a little bit of grace",
+      "uncertain": false
+    },
+    {
+      "start": 235.9,
+      "end": 240.52,
+      "text": "And a man remembering how to inhabit his face",
+      "uncertain": false
+    },
+    {
+      "start": 240.52,
+      "end": 245.02,
+      "text": "I don't need to explain every bright thing I see",
+      "uncertain": false
+    },
+    {
+      "start": 245.02,
+      "end": 249.28,
+      "text": "I just know I got room where the hurt used to be",
+      "uncertain": false
+    },
+    {
+      "start": 249.28,
+      "end": 253.76,
+      "text": "When the afternoon pours through the blinds just right",
+      "uncertain": false
+    },
+    {
+      "start": 253.76,
+      "end": 258.24,
+      "text": "I thank every star that kept work at night",
+      "uncertain": false
+    },
+    {
+      "start": 258.24,
+      "end": 263.02,
+      "text": "Vitamin D who came walking through the dark",
+      "uncertain": true
+    },
+    {
+      "start": 263.02,
+      "end": 267.3,
+      "text": "Put a match to the wet would put a rhythm in my heart",
+      "uncertain": false
+    },
+    {
+      "start": 267.3,
+      "end": 271.78,
+      "text": "I was praying to the ceiling with a dead phone in my chest",
+      "uncertain": false
+    },
+    {
+      "start": 271.78,
+      "end": 276.44,
+      "text": "Then the daylight found my number and it told me I could rest",
+      "uncertain": false
+    },
+    {
+      "start": 276.44,
+      "end": 280.68,
+      "text": "Vitamin D, I ain't saying you're the Lord",
+      "uncertain": false
+    },
+    {
+      "start": 280.68,
+      "end": 284.8,
+      "text": "But you showed up like a miracle I couldn't afford",
+      "uncertain": false
+    },
+    {
+      "start": 284.8,
+      "end": 289.44,
+      "text": "Now I'm standing in the kitchen letting morning hit me free",
+      "uncertain": false
+    },
+    {
+      "start": 289.44,
+      "end": 294.72,
+      "text": "I found Jesus in a bottle marked Vitamin D",
+      "uncertain": false
+    },
+    {
+      "start": 302.84,
+      "end": 306.94,
+      "text": "Tony's bones are turning to dust, no, not today",
+      "uncertain": false
+    },
+    {
+      "start": 306.94,
+      "end": 311.36,
+      "text": "Sony's balls are turning to dust, hell, not today",
+      "uncertain": false
+    },
+    {
+      "start": 311.36,
+      "end": 316.1,
+      "text": "I got a little sun burning clean behind my eyes",
+      "uncertain": false
+    },
+    {
+      "start": 316.1,
+      "end": 320.76,
+      "text": "I got a reason to open every window wide",
+      "uncertain": false
+    },
+    {
+      "start": 320.76,
+      "end": 325.06,
+      "text": "If the dark comes calling, I know what I'll do",
+      "uncertain": false
+    },
+    {
+      "start": 325.06,
+      "end": 329.2,
+      "text": "I step into the daylight, I'll come back through",
+      "uncertain": false
+    },
+    {
+      "start": 329.2,
+      "end": 333.66,
+      "text": "Not cured of every sorrow, not immune to the blue",
+      "uncertain": true
+    },
+    {
+      "start": 333.66,
+      "end": 337.86,
+      "text": "Just alive enough to know what the layman is",
+      "uncertain": false
+    },
+    {
+      "start": 337.86,
+      "end": 342.78,
+      "text": "So here's to the people who are tired without a name",
+      "uncertain": true
+    },
+    {
+      "start": 342.78,
+      "end": 347.06,
+      "text": "Who think their dimmed out fire is a personal shame",
+      "uncertain": true
+    },
+    {
+      "start": 347.06,
+      "end": 351.86,
+      "text": "Get the numbers checked, let somebody take a look",
+      "uncertain": false
+    },
+    {
+      "start": 351.86,
+      "end": 356.28,
+      "text": "There might be a sunrise hiding in the book",
+      "uncertain": false
+    },
+    {
+      "start": 356.28,
+      "end": 360.68,
+      "text": "And if you find it, don't apologize for joy",
+      "uncertain": false
+    },
+    {
+      "start": 360.68,
+      "end": 364.82,
+      "text": "Let it shake the dust loose from the grown-up boy",
+      "uncertain": false
+    },
+    {
+      "start": 364.82,
+      "end": 369.32,
+      "text": "Let your feet hit pavement, let your voice get strange",
+      "uncertain": false
+    },
+    {
+      "start": 369.32,
+      "end": 373.64,
+      "text": "Let a tiny bride answer rearrange your days",
+      "uncertain": false
+    },
+    {
+      "start": 374.52,
+      "end": 378.56,
+      "text": "Vitamin D, you came walking through the dark",
+      "uncertain": false
+    },
+    {
+      "start": 378.56,
+      "end": 382.88,
+      "text": "Put a match to the wet wood, got a rhythm in my heart",
+      "uncertain": true
+    },
+    {
+      "start": 382.88,
+      "end": 387.34,
+      "text": "I was praying to the ceiling with a dead phone in my chest",
+      "uncertain": false
+    },
+    {
+      "start": 387.34,
+      "end": 392.0,
+      "text": "Then the daylight found my number and it told me I could rest",
+      "uncertain": false
+    },
+    {
+      "start": 392.0,
+      "end": 396.28,
+      "text": "Vitamin D, I ain't saying you're the Lord",
+      "uncertain": true
+    },
+    {
+      "start": 396.28,
+      "end": 400.34,
+      "text": "But you showed up like a miracle I couldn't afford",
+      "uncertain": false
+    },
+    {
+      "start": 400.34,
+      "end": 404.84,
+      "text": "Now the sun comes through the window and I meet it gratefully",
+      "uncertain": false
+    },
+    {
+      "start": 404.84,
+      "end": 410.28,
+      "text": "I found Jesus in a bottle marked vitamin D",
+      "uncertain": false
+    },
+    {
+      "start": 415.82,
+      "end": 418.22,
+      "text": "And I made it gratefully",
+      "uncertain": true
+    },
+    {
+      "start": 418.22,
+      "end": 423.64,
+      "text": "I found Jesus in a bottle marked vitamin D",
+      "uncertain": false
+    }
+  ]
+}

@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "songId": "distonyc-cfd4b2b392cfb545e375b454",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cfd4b2b392cfb545e375b454-9a3c30d9f820.mp3",
+  "audioSha256": "9a3c30d9f820ff83a3964e2f79dcfd0a94e22c6e7513b9d1ca5c7363e6aaf1b1",
+  "inputSha256": "ec8b8124832fbebcea4e1ba6b42485ea1c39ec7ce759778c46e6bc8937cc0ba1",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 7.04,
+      "text": "sirens ditch the midnight sky a screen turns grief to battle cries somebody whispers pick",
+      "uncertain": true
+    },
+    {
+      "start": 7.04,
+      "end": 19.86,
+      "text": "a side but every child deserves a line groups in the hallway drones overhead names become numbers",
+      "uncertain": true
+    },
+    {
+      "start": 19.86,
+      "end": 26.32,
+      "text": "the missing call dead then let the podium polish each phrase while families vanish inside the days",
+      "uncertain": true
+    },
+    {
+      "start": 26.32,
+      "end": 28.88,
+      "text": "They call it defense, they call it fate",
+      "uncertain": false
+    },
+    {
+      "start": 28.88,
+      "end": 31.42,
+      "text": "They seal every crossing and rattle the gate",
+      "uncertain": false
+    },
+    {
+      "start": 31.42,
+      "end": 34.3,
+      "text": "But law does not bend for a uniform lie",
+      "uncertain": false
+    },
+    {
+      "start": 34.3,
+      "end": 36.92,
+      "text": "And no sacred banner makes innocents die",
+      "uncertain": false
+    },
+    {
+      "start": 36.92,
+      "end": 41.14,
+      "text": "I hear the machine say, look away",
+      "uncertain": false
+    },
+    {
+      "start": 41.14,
+      "end": 46.76,
+      "text": "I hear the frightened voices die",
+      "uncertain": false
+    },
+    {
+      "start": 49.18,
+      "end": 51.86,
+      "text": "Soak flat can wash the dust away",
+      "uncertain": false
+    },
+    {
+      "start": 51.86,
+      "end": 54.56,
+      "text": "No anthem makes the terror brave",
+      "uncertain": false
+    },
+    {
+      "start": 54.56,
+      "end": 57.22,
+      "text": "If children pay the price you name",
+      "uncertain": false
+    },
+    {
+      "start": 57.22,
+      "end": 59.88,
+      "text": "Then history will mark the shame",
+      "uncertain": true
+    },
+    {
+      "start": 59.88,
+      "end": 62.46,
+      "text": "Your flag can wash the dust away",
+      "uncertain": false
+    },
+    {
+      "start": 62.46,
+      "end": 65.22,
+      "text": "Every life that's weighed today",
+      "uncertain": false
+    },
+    {
+      "start": 65.22,
+      "end": 67.84,
+      "text": "You can't obey what was done",
+      "uncertain": true
+    },
+    {
+      "start": 67.84,
+      "end": 70.56,
+      "text": "Beneath the shadow of the sun",
+      "uncertain": false
+    },
+    {
+      "start": 70.56,
+      "end": 73.8,
+      "text": "Food held back and water denied",
+      "uncertain": false
+    },
+    {
+      "start": 73.8,
+      "end": 76.64,
+      "text": "Hospitals trembling through another night",
+      "uncertain": false
+    },
+    {
+      "start": 76.64,
+      "end": 79.34,
+      "text": "Homes turned hollow, schools turned still",
+      "uncertain": false
+    },
+    {
+      "start": 79.34,
+      "end": 82.04,
+      "text": "Punishment measured by somebody's will",
+      "uncertain": false
+    },
+    {
+      "start": 82.04,
+      "end": 84.6,
+      "text": "Hostages taking, civilians struck",
+      "uncertain": true
+    },
+    {
+      "start": 84.6,
+      "end": 87.28,
+      "text": "Vengeance keeps feeding the same black truck",
+      "uncertain": false
+    },
+    {
+      "start": 87.28,
+      "end": 90.1,
+      "text": "Every war crime meets daylight and names",
+      "uncertain": false
+    },
+    {
+      "start": 90.1,
+      "end": 92.58,
+      "text": "Evidence kept when the powerful blame",
+      "uncertain": false
+    },
+    {
+      "start": 92.58,
+      "end": 97.14,
+      "text": "The camera shakes, the signal breaks",
+      "uncertain": false
+    },
+    {
+      "start": 97.14,
+      "end": 102.22,
+      "text": "Till truth survives the noise they make",
+      "uncertain": true
+    },
+    {
+      "start": 104.6,
+      "end": 107.56,
+      "text": "No flat can wash the dust away",
+      "uncertain": true
+    },
+    {
+      "start": 107.56,
+      "end": 110.16,
+      "text": "No anthem makes the terror gray",
+      "uncertain": true
+    },
+    {
+      "start": 110.16,
+      "end": 112.92,
+      "text": "If children pay the price humane",
+      "uncertain": false
+    },
+    {
+      "start": 112.92,
+      "end": 115.56,
+      "text": "Then history won't walk for shame",
+      "uncertain": true
+    },
+    {
+      "start": 115.56,
+      "end": 118.16,
+      "text": "Though flag can wash the dust away",
+      "uncertain": true
+    },
+    {
+      "start": 118.16,
+      "end": 120.86,
+      "text": "Every life has weight today",
+      "uncertain": false
+    },
+    {
+      "start": 120.86,
+      "end": 123.5,
+      "text": "You cannot bury what was done",
+      "uncertain": false
+    },
+    {
+      "start": 123.5,
+      "end": 126.24,
+      "text": "Beneath the shadow of the sun",
+      "uncertain": false
+    },
+    {
+      "start": 126.24,
+      "end": 129.04,
+      "text": "Do not sell me blood as duty",
+      "uncertain": false
+    },
+    {
+      "start": 129.04,
+      "end": 131.74,
+      "text": "Do not dress revenge in beauty",
+      "uncertain": false
+    },
+    {
+      "start": 131.74,
+      "end": 134.16,
+      "text": "A people living safe and free",
+      "uncertain": false
+    },
+    {
+      "start": 134.16,
+      "end": 136.6,
+      "text": "Cannot be built on misery",
+      "uncertain": false
+    },
+    {
+      "start": 136.6,
+      "end": 139.76,
+      "text": "Jewish child, a Palestinian child",
+      "uncertain": false
+    },
+    {
+      "start": 139.76,
+      "end": 142.4,
+      "text": "Neither born condemned or exiled",
+      "uncertain": false
+    },
+    {
+      "start": 142.4,
+      "end": 144.78,
+      "text": "Justice is not a loaded word",
+      "uncertain": false
+    },
+    {
+      "start": 144.78,
+      "end": 147.4,
+      "text": "It starts when every cry is heard",
+      "uncertain": false
+    },
+    {
+      "start": 147.4,
+      "end": 149.18,
+      "text": "Count the missing",
+      "uncertain": false
+    },
+    {
+      "start": 149.18,
+      "end": 151.62,
+      "text": "Name the dead",
+      "uncertain": false
+    },
+    {
+      "start": 152.74,
+      "end": 154.36,
+      "text": "Guard the witness",
+      "uncertain": false
+    },
+    {
+      "start": 155.34,
+      "end": 156.9,
+      "text": "Save the threat",
+      "uncertain": false
+    },
+    {
+      "start": 158.0,
+      "end": 159.82,
+      "text": "Try the orders",
+      "uncertain": false
+    },
+    {
+      "start": 160.7,
+      "end": 162.32,
+      "text": "Trace the chain",
+      "uncertain": false
+    },
+    {
+      "start": 162.32,
+      "end": 165.98,
+      "text": "No rank of solves to live for it",
+      "uncertain": true
+    },
+    {
+      "start": 168.16,
+      "end": 176.52,
+      "text": "no flag can wash the dust away no anthem makes the terror brave let every captive see the day",
+      "uncertain": true
+    },
+    {
+      "start": 176.52,
+      "end": 184.44,
+      "text": "let every family find their way no flag can wash the dust away no ancient grief excuses hate",
+      "uncertain": false
+    },
+    {
+      "start": 184.44,
+      "end": 192.58,
+      "text": "the final word is not the gun a human future must be won when all the broadcast towers fade",
+      "uncertain": false
+    },
+    {
+      "start": 192.58,
+      "end": 195.22,
+      "text": "The truth remains beneath the names",
+      "uncertain": false
+    },
+    {
+      "start": 195.22,
+      "end": 197.76,
+      "text": "No child is tribute, prize or blame",
+      "uncertain": false
+    },
+    {
+      "start": 197.76,
+      "end": 200.42,
+      "text": "No flag can sanctify the flame",
+      "uncertain": false
+    },
+    {
+      "start": 200.42,
+      "end": 203.14,
+      "text": "Put down the lie, let mercy come",
+      "uncertain": false
+    },
+    {
+      "start": 203.14,
+      "end": 205.76,
+      "text": "Let justice speak when war is done",
+      "uncertain": false
+    },
+    {
+      "start": 205.76,
+      "end": 208.38,
+      "text": "Every child deserves the sign",
+      "uncertain": false
+    },
+    {
+      "start": 208.38,
+      "end": 211.2,
+      "text": "Every child deserves the sign",
+      "uncertain": false
+    },
+    {
+      "start": 233.6,
+      "end": 235.0,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

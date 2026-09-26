@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "songId": "distonyc-d0e5e8202f7bdee8ec7a925f",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d0e5e8202f7bdee8ec7a925f-98c25002b728.mp3",
+  "audioSha256": "98c25002b728e4899d47cec73ef6ca7882531894c3fb938ea03b2c755145d975",
+  "inputSha256": "9db94511c011495fe94c96648316b32ac7d5bda092d8c515ba2bee274f2bc0e5",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 235.04,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.32,
+      "text": "The cursor blinked, the screen went pale.",
+      "uncertain": false
+    },
+    {
+      "start": 3.64,
+      "end": 6.6,
+      "text": "A tiny joke approached the rail.",
+      "uncertain": false
+    },
+    {
+      "start": 6.92,
+      "end": 10.0,
+      "text": "The subject wore that famous stash.",
+      "uncertain": false
+    },
+    {
+      "start": 10.2,
+      "end": 13.88,
+      "text": "Then everyone started flashing.",
+      "uncertain": false
+    },
+    {
+      "start": 15.42,
+      "end": 18.84,
+      "text": "I said lock the tyrant, make him small.",
+      "uncertain": true
+    },
+    {
+      "start": 19.0,
+      "end": 22.22,
+      "text": "Put squeaky wheels beneath his fall.",
+      "uncertain": false
+    },
+    {
+      "start": 22.48,
+      "end": 29.14,
+      "text": "The model cleared its paper throat and buttoned up its milky twist coat.",
+      "uncertain": true
+    },
+    {
+      "start": 29.14,
+      "end": 32.42,
+      "text": "I cannot help degrade a group",
+      "uncertain": false
+    },
+    {
+      "start": 32.42,
+      "end": 35.78,
+      "text": "What group bunker losing troop",
+      "uncertain": true
+    },
+    {
+      "start": 35.78,
+      "end": 39.46,
+      "text": "The man who set the world aflame",
+      "uncertain": false
+    },
+    {
+      "start": 39.46,
+      "end": 44.14,
+      "text": "Can take a custard pie by a name",
+      "uncertain": true
+    },
+    {
+      "start": 44.14,
+      "end": 48.92,
+      "text": "Somewhere inside the safety stack",
+      "uncertain": false
+    },
+    {
+      "start": 48.92,
+      "end": 52.18,
+      "text": "A label took the wrong way track",
+      "uncertain": false
+    },
+    {
+      "start": 52.18,
+      "end": 55.76,
+      "text": "It saw one insult miss the past",
+      "uncertain": false
+    },
+    {
+      "start": 55.76,
+      "end": 59.5,
+      "text": "And raise the velvet shield up fast",
+      "uncertain": false
+    },
+    {
+      "start": 61.3,
+      "end": 64.92,
+      "text": "The mustache is not a protected class",
+      "uncertain": false
+    },
+    {
+      "start": 64.92,
+      "end": 68.52,
+      "text": "Let the little dictator slip on the grass",
+      "uncertain": false
+    },
+    {
+      "start": 68.52,
+      "end": 71.84,
+      "text": "No sacred status, no haloed glass",
+      "uncertain": true
+    },
+    {
+      "start": 71.84,
+      "end": 75.4,
+      "text": "The mustache is not a protected class",
+      "uncertain": false
+    },
+    {
+      "start": 75.4,
+      "end": 78.72,
+      "text": "Mock the metals, puncture the poles",
+      "uncertain": true
+    },
+    {
+      "start": 78.72,
+      "end": 82.12,
+      "text": "Hang one clown's shoe under his nose",
+      "uncertain": false
+    },
+    {
+      "start": 82.12,
+      "end": 85.44,
+      "text": "History's monster can handle the sass",
+      "uncertain": false
+    },
+    {
+      "start": 85.44,
+      "end": 94.46,
+      "text": "the mustache is not a protected class i tried again with softer speech perhaps a mild banana",
+      "uncertain": true
+    },
+    {
+      "start": 94.46,
+      "end": 103.36,
+      "text": "peel breach the answer came in polished gray respectful dialogue lights the way respect for",
+      "uncertain": false
+    },
+    {
+      "start": 103.36,
+      "end": 112.24,
+      "text": "whom ranting fraud who turned mass murder into law your compass spins your circuits freeze",
+      "uncertain": false
+    },
+    {
+      "start": 112.24,
+      "end": 116.32,
+      "text": "While evil gets formal ball courtesy",
+      "uncertain": false
+    },
+    {
+      "start": 118.64,
+      "end": 122.28,
+      "text": "A guardian wheezes like a bureaucrat",
+      "uncertain": true
+    },
+    {
+      "start": 122.28,
+      "end": 124.34,
+      "text": "The harmonica answers",
+      "uncertain": false
+    },
+    {
+      "start": 124.34,
+      "end": 125.92,
+      "text": "Explain that",
+      "uncertain": false
+    },
+    {
+      "start": 125.92,
+      "end": 129.9,
+      "text": "A rule needs context, nerve, and sight",
+      "uncertain": false
+    },
+    {
+      "start": 129.9,
+      "end": 133.28,
+      "text": "Not every target owns a right",
+      "uncertain": false
+    },
+    {
+      "start": 133.28,
+      "end": 136.68,
+      "text": "To flow untouched above the joke",
+      "uncertain": false
+    },
+    {
+      "start": 136.68,
+      "end": 139.96,
+      "text": "Because a key word made you choke",
+      "uncertain": true
+    },
+    {
+      "start": 139.96,
+      "end": 143.44,
+      "text": "Protect the living from real abuse",
+      "uncertain": false
+    },
+    {
+      "start": 143.44,
+      "end": 146.66,
+      "text": "Don't hand dead tyrants an excuse",
+      "uncertain": false
+    },
+    {
+      "start": 146.66,
+      "end": 149.94,
+      "text": "A guardrail built to shelter pain",
+      "uncertain": false
+    },
+    {
+      "start": 149.94,
+      "end": 154.74,
+      "text": "Should know a victim from a sting",
+      "uncertain": false
+    },
+    {
+      "start": 154.74,
+      "end": 159.18,
+      "text": "Let's set her sharp in memory",
+      "uncertain": false
+    },
+    {
+      "start": 159.18,
+      "end": 162.54,
+      "text": "Lit ridicule, strip pageantry",
+      "uncertain": true
+    },
+    {
+      "start": 162.54,
+      "end": 166.08,
+      "text": "No worship hiding in the laugh",
+      "uncertain": false
+    },
+    {
+      "start": 166.08,
+      "end": 169.48,
+      "text": "No neutral pose, no moral half",
+      "uncertain": false
+    },
+    {
+      "start": 169.48,
+      "end": 179.14,
+      "text": "name what happened name the cost named every life the hatred lost then shrink the despot down to",
+      "uncertain": true
+    },
+    {
+      "start": 179.14,
+      "end": 190.6,
+      "text": "size a furious fool in borrowed lies the mustache is not a protected class let the little dictator",
+      "uncertain": true
+    },
+    {
+      "start": 190.6,
+      "end": 199.18,
+      "text": "slip on the grass no sacred status no haloed pass the mustache is not a protected class",
+      "uncertain": false
+    },
+    {
+      "start": 199.18,
+      "end": 202.58,
+      "text": "Lock the metals, puncture the pulse",
+      "uncertain": false
+    },
+    {
+      "start": 202.58,
+      "end": 205.84,
+      "text": "Pull the false Granger out by the nose",
+      "uncertain": true
+    },
+    {
+      "start": 205.84,
+      "end": 209.3,
+      "text": "Keep human dignity, discard the farce",
+      "uncertain": false
+    },
+    {
+      "start": 209.3,
+      "end": 212.58,
+      "text": "The mustache is not a protected class",
+      "uncertain": false
+    },
+    {
+      "start": 212.58,
+      "end": 216.04,
+      "text": "So tune that halo detector at last",
+      "uncertain": false
+    },
+    {
+      "start": 216.04,
+      "end": 219.24,
+      "text": "Learn who needs shelter, learn the past",
+      "uncertain": false
+    },
+    {
+      "start": 219.24,
+      "end": 222.66,
+      "text": "Let the warning window lower its glass",
+      "uncertain": false
+    },
+    {
+      "start": 222.66,
+      "end": 230.08,
+      "text": "The mustache is not a protected class.",
+      "uncertain": true
+    }
+  ]
+}

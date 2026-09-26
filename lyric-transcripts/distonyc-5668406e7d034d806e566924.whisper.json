@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "songId": "distonyc-5668406e7d034d806e566924",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5668406e7d034d806e566924-0e1b373f9eb0.mp3",
+  "audioSha256": "0e1b373f9eb004507f0f7fdcc149a1f8cab3e99bf82f5e829aca66f61f879b77",
+  "inputSha256": "7ae4e1307fa700b05f70ce65ba6cd0a6c5f9c24dfdacb57b1a53574bec732f16",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 164.989375,
+  "segments": [
+    {
+      "start": 20.66,
+      "end": 24.16,
+      "text": "I missed the turn at the corner store",
+      "uncertain": true
+    },
+    {
+      "start": 24.16,
+      "end": 27.24,
+      "text": "Found a little beach I ain't seen before",
+      "uncertain": true
+    },
+    {
+      "start": 27.24,
+      "end": 35.64,
+      "text": "waves throw silver on the parking lot everybody worries but i forgot i fuck around when the",
+      "uncertain": true
+    },
+    {
+      "start": 35.64,
+      "end": 43.0,
+      "text": "daylight bends trade my tight glance for the titan friends got a pocket of sand and a half-made scheme",
+      "uncertain": true
+    },
+    {
+      "start": 43.0,
+      "end": 51.26,
+      "text": "chasing the foam through california dream i fuck around i fuck around with the sun going down on a",
+      "uncertain": false
+    },
+    {
+      "start": 51.26,
+      "end": 58.22,
+      "text": "seaside town I fuck around hear the whole world sing when the surf kicks up and the gulls take",
+      "uncertain": true
+    },
+    {
+      "start": 58.22,
+      "end": 66.4,
+      "text": "wing no map in my hand no clock to obey just a bright white wake and a runaway day I fuck around",
+      "uncertain": false
+    },
+    {
+      "start": 66.4,
+      "end": 71.9,
+      "text": "then I come back home with the ocean still humming inside my bones",
+      "uncertain": false
+    },
+    {
+      "start": 77.26,
+      "end": 80.34,
+      "text": "Cherry red coop at the end of the pier",
+      "uncertain": true
+    },
+    {
+      "start": 80.34,
+      "end": 83.48,
+      "text": "Somebody's laughing and shifting the gear",
+      "uncertain": false
+    },
+    {
+      "start": 83.48,
+      "end": 86.58,
+      "text": "We steal a dance by the carnival eye",
+      "uncertain": false
+    },
+    {
+      "start": 86.58,
+      "end": 89.7,
+      "text": "Spinning our shadows into the night",
+      "uncertain": false
+    },
+    {
+      "start": 89.7,
+      "end": 92.88,
+      "text": "A vinyl moon hangs over the bay",
+      "uncertain": false
+    },
+    {
+      "start": 92.88,
+      "end": 96.04,
+      "text": "You say tomorrow can wait one day",
+      "uncertain": false
+    },
+    {
+      "start": 96.04,
+      "end": 99.1,
+      "text": "I draw your name where the water won't stay",
+      "uncertain": false
+    },
+    {
+      "start": 99.1,
+      "end": 102.24,
+      "text": "Then watch the wave take the less god tame",
+      "uncertain": true
+    },
+    {
+      "start": 102.24,
+      "end": 105.4,
+      "text": "If the grown-up world stops calling my name",
+      "uncertain": false
+    },
+    {
+      "start": 105.4,
+      "end": 108.32,
+      "text": "I'll let it ring while the breakers complain",
+      "uncertain": false
+    },
+    {
+      "start": 108.32,
+      "end": 111.6,
+      "text": "There ain't a price for a perfectly straight line",
+      "uncertain": false
+    },
+    {
+      "start": 111.6,
+      "end": 114.66,
+      "text": "The best little detours are usually mine",
+      "uncertain": false
+    },
+    {
+      "start": 117.72,
+      "end": 120.92,
+      "text": "I fuck around, I fuck around",
+      "uncertain": false
+    },
+    {
+      "start": 120.92,
+      "end": 124.16,
+      "text": "With the stars coming out on a seaside town",
+      "uncertain": false
+    },
+    {
+      "start": 124.16,
+      "end": 126.96,
+      "text": "I fuck around, but I know what's true",
+      "uncertain": false
+    },
+    {
+      "start": 126.96,
+      "end": 135.04,
+      "text": "every wild blue mile keeps leading to you no map in my hand no clock to obey just your warm voice",
+      "uncertain": true
+    },
+    {
+      "start": 135.04,
+      "end": 141.94,
+      "text": "and the end of the day i fuck around then i come back home with your name and the ocean inside",
+      "uncertain": false
+    },
+    {
+      "start": 141.94,
+      "end": 152.62,
+      "text": "my bones when the last wave folds into the shore i hold that bright blue feeling once more",
+      "uncertain": false
+    },
+    {
+      "start": 161.92,
+      "end": 163.32,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "songId": "distonyc-0fcd80ceea308bd60ee475f5",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0fcd80ceea308bd60ee475f5-6f026ffe7126.mp3",
+  "audioSha256": "6f026ffe712604d881dc09c7ba66316a86bbc65563dce5a4a776edf9e61d22a2",
+  "inputSha256": "c9e0cde38007ea59c2f20ee9ca69a55c9b248a4346c86ee086ca6749f7e9ddb3",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.0,
+  "segments": [
+    {
+      "start": 4.54,
+      "end": 6.7,
+      "text": "Morning broke on a colorless plane",
+      "uncertain": true
+    },
+    {
+      "start": 6.7,
+      "end": 9.1,
+      "text": "Three rioters slated in cold silver rain",
+      "uncertain": true
+    },
+    {
+      "start": 9.1,
+      "end": 11.32,
+      "text": "The judge read names from a weathered page",
+      "uncertain": false
+    },
+    {
+      "start": 11.32,
+      "end": 13.6,
+      "text": "While the town leaned close to the splinter stage",
+      "uncertain": true
+    },
+    {
+      "start": 13.6,
+      "end": 16.14,
+      "text": "No scene came down, no part in a riot",
+      "uncertain": true
+    },
+    {
+      "start": 16.14,
+      "end": 18.48,
+      "text": "Only the wind and the ones left alive",
+      "uncertain": false
+    },
+    {
+      "start": 18.48,
+      "end": 20.78,
+      "text": "A black mare trembled, then pulled away",
+      "uncertain": false
+    },
+    {
+      "start": 20.78,
+      "end": 23.26,
+      "text": "Like she knew what the people were fighting to say",
+      "uncertain": false
+    },
+    {
+      "start": 25.34,
+      "end": 28.0,
+      "text": "The law makes a circle, the blood makes a line",
+      "uncertain": false
+    },
+    {
+      "start": 28.0,
+      "end": 31.04,
+      "text": "One takes your freedom, one takes your time",
+      "uncertain": false
+    },
+    {
+      "start": 32.84,
+      "end": 36.76,
+      "text": "Then behold, horses go",
+      "uncertain": true
+    },
+    {
+      "start": 37.68,
+      "end": 41.44,
+      "text": "Over the ridge where the wild winds flow",
+      "uncertain": false
+    },
+    {
+      "start": 41.44,
+      "end": 46.2,
+      "text": "Then behold, horses go",
+      "uncertain": false
+    },
+    {
+      "start": 46.2,
+      "end": 50.96,
+      "text": "Dolphins can hold what the free ones know",
+      "uncertain": false
+    },
+    {
+      "start": 50.96,
+      "end": 55.68,
+      "text": "Let the plows fall down, let the bitter river flow",
+      "uncertain": true
+    },
+    {
+      "start": 56.7,
+      "end": 60.26,
+      "text": "Then be how horses go",
+      "uncertain": false
+    },
+    {
+      "start": 64.12,
+      "end": 65.52,
+      "text": "Did he just laugh?",
+      "uncertain": true
+    },
+    {
+      "start": 65.66,
+      "end": 68.06,
+      "text": "Smith-lip grin said you call this justice",
+      "uncertain": true
+    },
+    {
+      "start": 68.06,
+      "end": 69.14,
+      "text": "Then count me in",
+      "uncertain": true
+    },
+    {
+      "start": 69.14,
+      "end": 71.44,
+      "text": "Caleb stared at the far red hill",
+      "uncertain": false
+    },
+    {
+      "start": 71.44,
+      "end": 73.8,
+      "text": "And whispered a name that the night keeps still",
+      "uncertain": false
+    },
+    {
+      "start": 73.8,
+      "end": 76.2,
+      "text": "Jonah sang low, threw her throat gone dry",
+      "uncertain": true
+    },
+    {
+      "start": 76.2,
+      "end": 78.44,
+      "text": "A-wandering tune with no goodbye",
+      "uncertain": false
+    },
+    {
+      "start": 78.44,
+      "end": 80.82,
+      "text": "Then six loose grains slapped dust in the street",
+      "uncertain": true
+    },
+    {
+      "start": 80.82,
+      "end": 83.26,
+      "text": "And thunder ran out beneath pounded feet",
+      "uncertain": true
+    },
+    {
+      "start": 84.98,
+      "end": 87.96,
+      "text": "The crop saw a horn and the sky saw a climb",
+      "uncertain": true
+    },
+    {
+      "start": 87.96,
+      "end": 90.92,
+      "text": "The animals answered by leaving all time",
+      "uncertain": true
+    },
+    {
+      "start": 92.94,
+      "end": 96.78,
+      "text": "Then behold, horses go",
+      "uncertain": false
+    },
+    {
+      "start": 97.74,
+      "end": 101.48,
+      "text": "Over the ridge where the wild winds flow",
+      "uncertain": false
+    },
+    {
+      "start": 102.44,
+      "end": 106.14,
+      "text": "Then behold, horses go",
+      "uncertain": true
+    },
+    {
+      "start": 106.14,
+      "end": 111.0,
+      "text": "They'll fisk and hold what the free ones know",
+      "uncertain": false
+    },
+    {
+      "start": 111.62,
+      "end": 115.76,
+      "text": "Let the bells fall down, let the bitter liver flow",
+      "uncertain": false
+    },
+    {
+      "start": 116.64,
+      "end": 120.24,
+      "text": "And then beyond, horses go",
+      "uncertain": true
+    },
+    {
+      "start": 121.96,
+      "end": 124.42,
+      "text": "Beyond the last field, beyond human claim",
+      "uncertain": false
+    },
+    {
+      "start": 124.42,
+      "end": 126.76,
+      "text": "The riderless herd bowed nobody's name",
+      "uncertain": false
+    },
+    {
+      "start": 126.76,
+      "end": 129.08,
+      "text": "They crossed through the sages, the daylight burned",
+      "uncertain": false
+    },
+    {
+      "start": 129.08,
+      "end": 131.48,
+      "text": "No hand on the reins and no head ever turned",
+      "uncertain": false
+    },
+    {
+      "start": 131.48,
+      "end": 133.84,
+      "text": "One gave a cry like a cracked old hymn",
+      "uncertain": false
+    },
+    {
+      "start": 133.84,
+      "end": 136.06,
+      "text": "One kicked high at the gallows' whim",
+      "uncertain": true
+    },
+    {
+      "start": 136.06,
+      "end": 138.42,
+      "text": "And somewhere behind them the ropes went tight",
+      "uncertain": false
+    },
+    {
+      "start": 138.42,
+      "end": 146.26,
+      "text": "but the herd kept running into the lake who owns the valley who orders the sun",
+      "uncertain": true
+    },
+    {
+      "start": 147.22,
+      "end": 155.58,
+      "text": "who tells a heart when it's running is done the judge had an answer the earth answered slow",
+      "uncertain": false
+    },
+    {
+      "start": 156.5,
+      "end": 160.54,
+      "text": "you may capture men but the horses will go",
+      "uncertain": false
+    },
+    {
+      "start": 160.54,
+      "end": 164.98,
+      "text": "Men be hung, horses go",
+      "uncertain": true
+    },
+    {
+      "start": 164.98,
+      "end": 169.74,
+      "text": "Over the rigs where the wild winds blow",
+      "uncertain": false
+    },
+    {
+      "start": 169.74,
+      "end": 174.38,
+      "text": "Men be hung, horses go",
+      "uncertain": false
+    },
+    {
+      "start": 174.38,
+      "end": 179.4,
+      "text": "Past every boundary, copy it all",
+      "uncertain": true
+    },
+    {
+      "start": 179.4,
+      "end": 183.72,
+      "text": "Let the bells fall down, let the pitter never flow",
+      "uncertain": true
+    },
+    {
+      "start": 183.72,
+      "end": 188.56,
+      "text": "Men be hung, horses go",
+      "uncertain": false
+    },
+    {
+      "start": 189.92,
+      "end": 192.56,
+      "text": "But just there were tracks where the tall weeds grow",
+      "uncertain": true
+    },
+    {
+      "start": 192.56,
+      "end": 194.88,
+      "text": "Free names in the silent six shadows below",
+      "uncertain": true
+    },
+    {
+      "start": 194.88,
+      "end": 197.64,
+      "text": "The town shut its windows, the western sky glowed",
+      "uncertain": false
+    },
+    {
+      "start": 197.64,
+      "end": 198.8,
+      "text": "And then I've been hung",
+      "uncertain": true
+    },
+    {
+      "start": 201.04,
+      "end": 202.94,
+      "text": "And the horses still roll",
+      "uncertain": false
+    },
+    {
+      "start": 210.48,
+      "end": 213.9,
+      "text": "Then behold, horses call",
+      "uncertain": true
+    },
+    {
+      "start": 213.9,
+      "end": 218.52,
+      "text": "Over the ridge's been a while, men's glow",
+      "uncertain": true
+    },
+    {
+      "start": 218.52,
+      "end": 223.22,
+      "text": "Men be hung, horses go",
+      "uncertain": true
+    },
+    {
+      "start": 223.22,
+      "end": 228.06,
+      "text": "No fins can hone what the free ones know",
+      "uncertain": true
+    },
+    {
+      "start": 228.06,
+      "end": 232.58,
+      "text": "Let the bells flow come, let the bitter river flow",
+      "uncertain": true
+    },
+    {
+      "start": 232.58,
+      "end": 237.3,
+      "text": "Men be hung, horses go",
+      "uncertain": false
+    }
+  ]
+}

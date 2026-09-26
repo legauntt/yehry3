@@ -1,0 +1,475 @@
+{
+  "version": 1,
+  "songId": "distonyc-40224d39ede15a9882272a62",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-40224d39ede15a9882272a62-c8f000d5f783.mp3",
+  "audioSha256": "c8f000d5f783ab2ff3d10696a0f4a8c08a59d68282ebb14f78e58ae1265c4e79",
+  "inputSha256": "f81b0ead6152b314b1cfe6c0dc39c34b3d4b0dcbf35d045a577dc65ce8c55db6",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.0,
+  "segments": [
+    {
+      "start": 2.76,
+      "end": 6.06,
+      "text": "We skipped stones by the reservoir",
+      "uncertain": false
+    },
+    {
+      "start": 6.06,
+      "end": 9.02,
+      "text": "You said the warden drew our names",
+      "uncertain": true
+    },
+    {
+      "start": 11.22,
+      "end": 13.94,
+      "text": "But in the photographs I found",
+      "uncertain": false
+    },
+    {
+      "start": 13.94,
+      "end": 16.82,
+      "text": "There's a man beside the frame",
+      "uncertain": false
+    },
+    {
+      "start": 19.68,
+      "end": 22.9,
+      "text": "Don't black crow, pale folded hands",
+      "uncertain": true
+    },
+    {
+      "start": 22.9,
+      "end": 25.38,
+      "text": "A smile like he had always been",
+      "uncertain": false
+    },
+    {
+      "start": 26.84,
+      "end": 29.6,
+      "text": "You said that seesaw, don't you know",
+      "uncertain": false
+    },
+    {
+      "start": 29.6,
+      "end": 33.36,
+      "text": "Like I was late to let him win",
+      "uncertain": true
+    },
+    {
+      "start": 35.4,
+      "end": 38.24,
+      "text": "I remember you know that bicycle",
+      "uncertain": true
+    },
+    {
+      "start": 39.6,
+      "end": 43.06,
+      "text": "I remember cutting through the rain",
+      "uncertain": false
+    },
+    {
+      "start": 43.06,
+      "end": 46.86,
+      "text": "Every road I try to follow",
+      "uncertain": false
+    },
+    {
+      "start": 48.04,
+      "end": 50.66,
+      "text": "Has its footprints here on the name",
+      "uncertain": true
+    },
+    {
+      "start": 53.08,
+      "end": 54.84,
+      "text": "Seesaw, seesaw",
+      "uncertain": false
+    },
+    {
+      "start": 54.84,
+      "end": 56.92,
+      "text": "Standing in the scene",
+      "uncertain": true
+    },
+    {
+      "start": 56.92,
+      "end": 58.96,
+      "text": "Where you used to be",
+      "uncertain": false
+    },
+    {
+      "start": 58.96,
+      "end": 60.98,
+      "text": "Where you used to be",
+      "uncertain": false
+    },
+    {
+      "start": 60.98,
+      "end": 63.2,
+      "text": "Seesaw, seesaw",
+      "uncertain": false
+    },
+    {
+      "start": 63.2,
+      "end": 64.96,
+      "text": "Call us anything",
+      "uncertain": true
+    },
+    {
+      "start": 64.96,
+      "end": 67.54,
+      "text": "If I can't trust my memory",
+      "uncertain": false
+    },
+    {
+      "start": 67.54,
+      "end": 69.44,
+      "text": "What does we owe me?",
+      "uncertain": true
+    },
+    {
+      "start": 70.48,
+      "end": 71.36,
+      "text": "At the fair",
+      "uncertain": false
+    },
+    {
+      "start": 71.36,
+      "end": 72.98,
+      "text": "We rode the Ferris wheel",
+      "uncertain": true
+    },
+    {
+      "start": 72.98,
+      "end": 75.66,
+      "text": "You threw your hat down at the crowd",
+      "uncertain": false
+    },
+    {
+      "start": 77.42,
+      "end": 78.86,
+      "text": "Now he's holding",
+      "uncertain": false
+    },
+    {
+      "start": 78.86,
+      "end": 80.2,
+      "text": "Cotton candy",
+      "uncertain": true
+    },
+    {
+      "start": 80.2,
+      "end": 82.22,
+      "text": "And he's laughing",
+      "uncertain": false
+    },
+    {
+      "start": 82.22,
+      "end": 83.96,
+      "text": "Much too low",
+      "uncertain": true
+    },
+    {
+      "start": 85.76,
+      "end": 87.24,
+      "text": "At the diner",
+      "uncertain": false
+    },
+    {
+      "start": 87.24,
+      "end": 88.44,
+      "text": "By the station",
+      "uncertain": false
+    },
+    {
+      "start": 89.8,
+      "end": 92.4,
+      "text": "I can hear your favorite song",
+      "uncertain": false
+    },
+    {
+      "start": 94.02,
+      "end": 96.54,
+      "text": "What the waitress says to see",
+      "uncertain": true
+    },
+    {
+      "start": 96.54,
+      "end": 100.1,
+      "text": "So taught her how I take my coffee rum",
+      "uncertain": true
+    },
+    {
+      "start": 102.36,
+      "end": 105.98,
+      "text": "I remember all your small reactions",
+      "uncertain": false
+    },
+    {
+      "start": 105.98,
+      "end": 109.96,
+      "text": "How you tap the table when you lie",
+      "uncertain": false
+    },
+    {
+      "start": 109.96,
+      "end": 114.04,
+      "text": "But when I close my eyes to find you",
+      "uncertain": false
+    },
+    {
+      "start": 115.02,
+      "end": 117.48,
+      "text": "There's a stranger by your side",
+      "uncertain": false
+    },
+    {
+      "start": 120.34,
+      "end": 121.74,
+      "text": "Seesaw, seesaw",
+      "uncertain": false
+    },
+    {
+      "start": 121.74,
+      "end": 123.8,
+      "text": "Standing in the scene",
+      "uncertain": true
+    },
+    {
+      "start": 123.8,
+      "end": 125.92,
+      "text": "Where you used to be",
+      "uncertain": false
+    },
+    {
+      "start": 125.92,
+      "end": 127.88,
+      "text": "Where you used to be",
+      "uncertain": false
+    },
+    {
+      "start": 127.88,
+      "end": 130.14,
+      "text": "Seesaw, seesaw",
+      "uncertain": false
+    },
+    {
+      "start": 130.14,
+      "end": 131.9,
+      "text": "Calm as anything",
+      "uncertain": false
+    },
+    {
+      "start": 131.9,
+      "end": 134.46,
+      "text": "If I can't trust my memory",
+      "uncertain": false
+    },
+    {
+      "start": 134.46,
+      "end": 136.32,
+      "text": "What does Grio mean?",
+      "uncertain": true
+    },
+    {
+      "start": 136.76,
+      "end": 139.46,
+      "text": "I asked the mirror in the hallway",
+      "uncertain": false
+    },
+    {
+      "start": 139.46,
+      "end": 141.42,
+      "text": "Who was there that storm of night?",
+      "uncertain": false
+    },
+    {
+      "start": 141.58,
+      "end": 143.64,
+      "text": "Our reflection took a second",
+      "uncertain": false
+    },
+    {
+      "start": 143.64,
+      "end": 145.62,
+      "text": "Then it answered you were right",
+      "uncertain": false
+    },
+    {
+      "start": 145.62,
+      "end": 147.8,
+      "text": "He set the porch like the wet cabin",
+      "uncertain": true
+    },
+    {
+      "start": 147.8,
+      "end": 150.42,
+      "text": "The train that shook the bedroom wall",
+      "uncertain": true
+    },
+    {
+      "start": 150.42,
+      "end": 153.5,
+      "text": "Seesaw had his hand upon your seesaw",
+      "uncertain": false
+    },
+    {
+      "start": 153.5,
+      "end": 154.56,
+      "text": "So it'll",
+      "uncertain": false
+    },
+    {
+      "start": 154.56,
+      "end": 157.94,
+      "text": "Maybe I ain't had to you to keep",
+      "uncertain": false
+    },
+    {
+      "start": 158.94,
+      "end": 161.5,
+      "text": "One clean corner of the dark",
+      "uncertain": true
+    },
+    {
+      "start": 163.26,
+      "end": 165.96,
+      "text": "Maybe every little story",
+      "uncertain": false
+    },
+    {
+      "start": 167.44,
+      "end": 169.94,
+      "text": "Needs a witness and a mark",
+      "uncertain": false
+    },
+    {
+      "start": 171.52,
+      "end": 174.3,
+      "text": "But he knows the words you whisper",
+      "uncertain": false
+    },
+    {
+      "start": 175.62,
+      "end": 178.36,
+      "text": "He knows where the little key hides.",
+      "uncertain": true
+    },
+    {
+      "start": 178.6,
+      "end": 182.26,
+      "text": "And each time I say a name out loud,",
+      "uncertain": false
+    },
+    {
+      "start": 182.48,
+      "end": 184.3,
+      "text": "Seesaw answers from inside.",
+      "uncertain": false
+    },
+    {
+      "start": 184.72,
+      "end": 186.54,
+      "text": "Seesaw, Seesaw.",
+      "uncertain": false
+    },
+    {
+      "start": 186.8,
+      "end": 188.68,
+      "text": "Standing in the scene,",
+      "uncertain": false
+    },
+    {
+      "start": 189.12,
+      "end": 190.64,
+      "text": "where you used to be,",
+      "uncertain": false
+    },
+    {
+      "start": 191.14,
+      "end": 192.68,
+      "text": "where you used to be.",
+      "uncertain": false
+    },
+    {
+      "start": 193.0,
+      "end": 194.88,
+      "text": "Seesaw, Seesaw.",
+      "uncertain": false
+    },
+    {
+      "start": 195.32,
+      "end": 197.0,
+      "text": "Turning every dream",
+      "uncertain": false
+    },
+    {
+      "start": 197.0,
+      "end": 198.98,
+      "text": "till the past is just a ruin.",
+      "uncertain": false
+    },
+    {
+      "start": 199.24,
+      "end": 201.0,
+      "text": "No way out for me.",
+      "uncertain": false
+    },
+    {
+      "start": 201.34,
+      "end": 203.16,
+      "text": "Seesaw, Seesaw.",
+      "uncertain": false
+    },
+    {
+      "start": 203.5,
+      "end": 205.34,
+      "text": "I'm asking one last thing.",
+      "uncertain": false
+    },
+    {
+      "start": 205.62,
+      "end": 209.44,
+      "text": "If you were never there, then who have I been?",
+      "uncertain": false
+    },
+    {
+      "start": 210.12,
+      "end": 214.6,
+      "text": "The reservoir is black and still the photograph is in my hand.",
+      "uncertain": false
+    },
+    {
+      "start": 214.74,
+      "end": 217.72,
+      "text": "I turn it over, read the date, then see the name.",
+      "uncertain": false
+    },
+    {
+      "start": 217.94,
+      "end": 220.9,
+      "text": "I understand not yours, not mine, not his alone.",
+      "uncertain": true
+    },
+    {
+      "start": 221.28,
+      "end": 223.42,
+      "text": "Pre-segnatures and fade in blue.",
+      "uncertain": true
+    },
+    {
+      "start": 223.62,
+      "end": 227.66,
+      "text": "I don't know what was real back then, but I know I remembered you.",
+      "uncertain": false
+    },
+    {
+      "start": 238.58,
+      "end": 239.98,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

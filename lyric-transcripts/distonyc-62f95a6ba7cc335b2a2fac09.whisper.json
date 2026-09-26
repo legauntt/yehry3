@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "songId": "distonyc-62f95a6ba7cc335b2a2fac09",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-62f95a6ba7cc335b2a2fac09-6b70c9d57c8c.mp3",
+  "audioSha256": "6b70c9d57c8cff87e80a7f595f848fda5a9f03e4697f856c814b9aa4ee5f24b2",
+  "inputSha256": "1a09ee120d1fb983ac5623ae30c7c6a54fd75eebab8efea8046f6da1d504f68e",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 239.2,
+  "segments": [
+    {
+      "start": 14.6,
+      "end": 18.12,
+      "text": "The hunger ain't a number on the screen",
+      "uncertain": false
+    },
+    {
+      "start": 18.12,
+      "end": 21.52,
+      "text": "It's the hollow in my chest",
+      "uncertain": false
+    },
+    {
+      "start": 21.52,
+      "end": 23.06,
+      "text": "Where the bones live",
+      "uncertain": true
+    },
+    {
+      "start": 23.06,
+      "end": 25.98,
+      "text": "I'm walking through the dark",
+      "uncertain": false
+    },
+    {
+      "start": 25.98,
+      "end": 27.9,
+      "text": "Torches flickering out",
+      "uncertain": false
+    },
+    {
+      "start": 27.9,
+      "end": 29.32,
+      "text": "Like dying stars",
+      "uncertain": true
+    },
+    {
+      "start": 29.32,
+      "end": 35.9,
+      "text": "Every step is a gamble with a coin flip that don't land late",
+      "uncertain": true
+    },
+    {
+      "start": 35.9,
+      "end": 40.24,
+      "text": "Santa eat bleed and now the money eater",
+      "uncertain": true
+    },
+    {
+      "start": 40.24,
+      "end": 45.34,
+      "text": "I see them shadows dancing behind me whisper and say",
+      "uncertain": true
+    },
+    {
+      "start": 45.34,
+      "end": 46.88,
+      "text": "Then they scream",
+      "uncertain": false
+    },
+    {
+      "start": 46.88,
+      "end": 49.82,
+      "text": "Fucking shit, 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 49.82,
+      "end": 54.74,
+      "text": "Breast wiped clean like I never tried before",
+      "uncertain": false
+    },
+    {
+      "start": 54.74,
+      "end": 59.04,
+      "text": "This game is a trap with new exit door",
+      "uncertain": false
+    },
+    {
+      "start": 59.04,
+      "end": 62.84,
+      "text": "My body's limbs are separate from the table floor",
+      "uncertain": true
+    },
+    {
+      "start": 62.84,
+      "end": 65.66,
+      "text": "I'm bleeding out sanity",
+      "uncertain": true
+    },
+    {
+      "start": 65.66,
+      "end": 68.12,
+      "text": "God, no, you're in my throat",
+      "uncertain": true
+    },
+    {
+      "start": 68.12,
+      "end": 71.42,
+      "text": "Osama bin Laden just won't quit",
+      "uncertain": false
+    },
+    {
+      "start": 74.12,
+      "end": 77.86,
+      "text": "Phobia is biting deep into the back of my skull",
+      "uncertain": false
+    },
+    {
+      "start": 77.86,
+      "end": 82.76,
+      "text": "Every light source is the target I gotta shoot",
+      "uncertain": false
+    },
+    {
+      "start": 82.76,
+      "end": 87.84,
+      "text": "I sawed off that infected limb to save the rest of me",
+      "uncertain": false
+    },
+    {
+      "start": 87.84,
+      "end": 92.22,
+      "text": "Now I'm limping through the dark with nothing left but meat",
+      "uncertain": true
+    },
+    {
+      "start": 92.22,
+      "end": 96.7,
+      "text": "It's not about winning, it's about surviving the night",
+      "uncertain": false
+    },
+    {
+      "start": 96.7,
+      "end": 101.2,
+      "text": "The clock is ticking down while my friend's turning to dirt",
+      "uncertain": false
+    },
+    {
+      "start": 102.48,
+      "end": 105.74,
+      "text": "Cornflip says battle up this time",
+      "uncertain": false
+    },
+    {
+      "start": 105.74,
+      "end": 110.04,
+      "text": "Lose a hand, lose an eye, who knows the price to pay",
+      "uncertain": false
+    },
+    {
+      "start": 110.04,
+      "end": 114.46,
+      "text": "I'm trying to save the game, but there's no way it stayed",
+      "uncertain": true
+    },
+    {
+      "start": 114.46,
+      "end": 118.98,
+      "text": "Just reload, just reset, just let it all go away",
+      "uncertain": false
+    },
+    {
+      "start": 118.98,
+      "end": 123.52,
+      "text": "The darkness is hungry and I'm starving for more",
+      "uncertain": true
+    },
+    {
+      "start": 125.6,
+      "end": 129.4,
+      "text": "Dismemberment hits hard when you're not careful",
+      "uncertain": false
+    },
+    {
+      "start": 129.4,
+      "end": 134.28,
+      "text": "Losing limbs makes movement slow as a dead bird",
+      "uncertain": false
+    },
+    {
+      "start": 134.28,
+      "end": 138.72,
+      "text": "I can't see the path without my eyesight to guide me",
+      "uncertain": false
+    },
+    {
+      "start": 138.72,
+      "end": 143.74,
+      "text": "But I keep walking forward because there's nowhere else to hide",
+      "uncertain": false
+    },
+    {
+      "start": 143.74,
+      "end": 147.76,
+      "text": "The game wants me dead, but I'm still breathing through it",
+      "uncertain": true
+    },
+    {
+      "start": 147.76,
+      "end": 149.88,
+      "text": "Fucking shit, 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 149.88,
+      "end": 154.72,
+      "text": "Rest wiped clean like I never tried before",
+      "uncertain": false
+    },
+    {
+      "start": 154.72,
+      "end": 159.02,
+      "text": "This game is a trap with no exit door",
+      "uncertain": false
+    },
+    {
+      "start": 159.02,
+      "end": 162.7,
+      "text": "My party's limbs are separate from the table floor",
+      "uncertain": false
+    },
+    {
+      "start": 162.7,
+      "end": 165.66,
+      "text": "I'm bleeding out sanity",
+      "uncertain": false
+    },
+    {
+      "start": 165.66,
+      "end": 168.1,
+      "text": "God, I'm doing my toll",
+      "uncertain": true
+    },
+    {
+      "start": 168.1,
+      "end": 171.38,
+      "text": "Osama Piladin just won't quit",
+      "uncertain": true
+    },
+    {
+      "start": 173.74,
+      "end": 178.18,
+      "text": "The last torch burns down to ash on the ground.",
+      "uncertain": false
+    },
+    {
+      "start": 178.5,
+      "end": 180.52,
+      "text": "One final step forward.",
+      "uncertain": false
+    },
+    {
+      "start": 180.76,
+      "end": 182.4,
+      "text": "One final sound.",
+      "uncertain": false
+    },
+    {
+      "start": 182.68,
+      "end": 186.72,
+      "text": "I drop the save file and kick the screen with a boot.",
+      "uncertain": false
+    },
+    {
+      "start": 187.1,
+      "end": 191.24,
+      "text": "The game's over now.",
+      "uncertain": false
+    },
+    {
+      "start": 208.72,
+      "end": 209.38,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 237.78,
+      "end": 239.18,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

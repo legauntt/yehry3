@@ -1,0 +1,397 @@
+{
+  "version": 1,
+  "songId": "distonyc-98e0d155b2a6586624ded4ac",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-98e0d155b2a6586624ded4ac-70ce74ceec65.mp3",
+  "audioSha256": "70ce74ceec65351e64c263cfcf6c06bfbb33861561da61b3ba0251da0c00c0bb",
+  "inputSha256": "70ce74ceec65351e64c263cfcf6c06bfbb33861561da61b3ba0251da0c00c0bb",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 231.0,
+  "segments": [
+    {
+      "start": 1.2,
+      "end": 4.54,
+      "text": "Midnight shakes the warehouse glass",
+      "uncertain": false
+    },
+    {
+      "start": 4.54,
+      "end": 8.14,
+      "text": "Red lights count the shadows past",
+      "uncertain": true
+    },
+    {
+      "start": 8.14,
+      "end": 11.9,
+      "text": "One breath, one spark, one warning mark",
+      "uncertain": false
+    },
+    {
+      "start": 11.9,
+      "end": 15.74,
+      "text": "We came to dance with fear and dark",
+      "uncertain": false
+    },
+    {
+      "start": 30.46,
+      "end": 33.76,
+      "text": "The concrete sweats beneath the crows",
+      "uncertain": true
+    },
+    {
+      "start": 33.76,
+      "end": 37.4,
+      "text": "The siren ends, the bass gets loud",
+      "uncertain": true
+    },
+    {
+      "start": 41.7,
+      "end": 44.78,
+      "text": "My pulse keeps turning against the gate",
+      "uncertain": false
+    },
+    {
+      "start": 44.78,
+      "end": 46.48,
+      "text": "I feel the floor accelerate",
+      "uncertain": false
+    },
+    {
+      "start": 46.48,
+      "end": 51.34,
+      "text": "Everything becomes a flare that vanishes in electric air",
+      "uncertain": true
+    },
+    {
+      "start": 51.34,
+      "end": 55.36,
+      "text": "Don't turn around when the strobes go blank",
+      "uncertain": false
+    },
+    {
+      "start": 55.36,
+      "end": 59.1,
+      "text": "That old dread is climbing up your back",
+      "uncertain": false
+    },
+    {
+      "start": 59.1,
+      "end": 62.8,
+      "text": "Name what follows, make it start",
+      "uncertain": true
+    },
+    {
+      "start": 62.8,
+      "end": 66.76,
+      "text": "Keeping rhythm, keeping heart",
+      "uncertain": true
+    },
+    {
+      "start": 67.82,
+      "end": 71.32,
+      "text": "Fear and dark, fear and dark",
+      "uncertain": false
+    },
+    {
+      "start": 71.32,
+      "end": 74.78,
+      "text": "Strike the night and wake the spark",
+      "uncertain": false
+    },
+    {
+      "start": 74.78,
+      "end": 78.38,
+      "text": "Feet on fire, eyes awake",
+      "uncertain": false
+    },
+    {
+      "start": 78.38,
+      "end": 82.22,
+      "text": "Let the whole foundation shake",
+      "uncertain": false
+    },
+    {
+      "start": 82.22,
+      "end": 86.32,
+      "text": "Fear and dark, fear and dark",
+      "uncertain": false
+    },
+    {
+      "start": 86.32,
+      "end": 90.02,
+      "text": "No hiding place inside this heart",
+      "uncertain": true
+    },
+    {
+      "start": 90.02,
+      "end": 93.62,
+      "text": "Where the low end hits its mark",
+      "uncertain": true
+    },
+    {
+      "start": 93.62,
+      "end": 97.6,
+      "text": "We dance straight through the fear and dark",
+      "uncertain": false
+    },
+    {
+      "start": 100.0,
+      "end": 102.86,
+      "text": "The kid drum lands like falling stone",
+      "uncertain": true
+    },
+    {
+      "start": 102.86,
+      "end": 104.74,
+      "text": "But no one in this room's alone",
+      "uncertain": false
+    },
+    {
+      "start": 104.74,
+      "end": 106.64,
+      "text": "Smoke well snow across the rails",
+      "uncertain": true
+    },
+    {
+      "start": 106.64,
+      "end": 108.84,
+      "text": "Listen like misled come to tears",
+      "uncertain": true
+    },
+    {
+      "start": 111.14,
+      "end": 114.4,
+      "text": "A stranger lacks beside the walkers",
+      "uncertain": true
+    },
+    {
+      "start": 114.4,
+      "end": 116.04,
+      "text": "If they've heard the darkness call",
+      "uncertain": false
+    },
+    {
+      "start": 116.04,
+      "end": 117.44,
+      "text": "I left my gruffing out",
+      "uncertain": true
+    },
+    {
+      "start": 117.44,
+      "end": 118.86,
+      "text": "Attempted right to meet",
+      "uncertain": false
+    },
+    {
+      "start": 118.86,
+      "end": 120.66,
+      "text": "Across the warning side",
+      "uncertain": true
+    },
+    {
+      "start": 120.66,
+      "end": 122.72,
+      "text": "No looking down",
+      "uncertain": false
+    },
+    {
+      "start": 122.72,
+      "end": 124.7,
+      "text": "When the platform sways",
+      "uncertain": false
+    },
+    {
+      "start": 124.7,
+      "end": 126.42,
+      "text": "We burn a road",
+      "uncertain": false
+    },
+    {
+      "start": 126.42,
+      "end": 128.66,
+      "text": "Through the violet haze",
+      "uncertain": false
+    },
+    {
+      "start": 128.66,
+      "end": 130.38,
+      "text": "Name what follows",
+      "uncertain": false
+    },
+    {
+      "start": 130.38,
+      "end": 132.18,
+      "text": "Make it start",
+      "uncertain": false
+    },
+    {
+      "start": 132.18,
+      "end": 134.1,
+      "text": "Give it rhythm",
+      "uncertain": false
+    },
+    {
+      "start": 134.1,
+      "end": 136.2,
+      "text": "Give it heart",
+      "uncertain": false
+    },
+    {
+      "start": 137.1,
+      "end": 138.74,
+      "text": "Fear and dark",
+      "uncertain": false
+    },
+    {
+      "start": 138.74,
+      "end": 140.62,
+      "text": "Fear and dark",
+      "uncertain": false
+    },
+    {
+      "start": 140.62,
+      "end": 142.34,
+      "text": "We strike the night",
+      "uncertain": false
+    },
+    {
+      "start": 142.34,
+      "end": 143.94,
+      "text": "And wait the spark",
+      "uncertain": false
+    },
+    {
+      "start": 143.94,
+      "end": 147.94,
+      "text": "Feet on fire, eyes awake",
+      "uncertain": false
+    },
+    {
+      "start": 147.94,
+      "end": 151.64,
+      "text": "Let the whole foundation shake",
+      "uncertain": true
+    },
+    {
+      "start": 151.64,
+      "end": 155.64,
+      "text": "Fear in dark, fear in dark",
+      "uncertain": false
+    },
+    {
+      "start": 155.64,
+      "end": 159.32,
+      "text": "No hiding place inside this heart",
+      "uncertain": false
+    },
+    {
+      "start": 159.32,
+      "end": 162.94,
+      "text": "When the low end hits its mark",
+      "uncertain": false
+    },
+    {
+      "start": 162.94,
+      "end": 166.84,
+      "text": "We dance straight through the fear in dark",
+      "uncertain": false
+    },
+    {
+      "start": 167.42,
+      "end": 171.32,
+      "text": "Cut the kick, you're the breathing crowd",
+      "uncertain": false
+    },
+    {
+      "start": 171.32,
+      "end": 175.02,
+      "text": "One then pulse beneath the cloud",
+      "uncertain": true
+    },
+    {
+      "start": 175.02,
+      "end": 178.9,
+      "text": "Fear says freeze, but the room says move",
+      "uncertain": true
+    },
+    {
+      "start": 178.9,
+      "end": 182.52,
+      "text": "Dark says drown, but we find the groove",
+      "uncertain": false
+    },
+    {
+      "start": 182.52,
+      "end": 185.58,
+      "text": "Now the snare clacks open the ceiling",
+      "uncertain": false
+    },
+    {
+      "start": 185.58,
+      "end": 190.18,
+      "text": "Bass comes back like a living feeling",
+      "uncertain": true
+    },
+    {
+      "start": 190.18,
+      "end": 193.66,
+      "text": "Every shadow loses shade",
+      "uncertain": true
+    },
+    {
+      "start": 193.66,
+      "end": 197.32,
+      "text": "We are not trapped, we are the escape",
+      "uncertain": false
+    },
+    {
+      "start": 198.6,
+      "end": 202.56,
+      "text": "Fear and dark, fear and dark",
+      "uncertain": true
+    },
+    {
+      "start": 202.56,
+      "end": 206.08,
+      "text": "Lead on the night and guard the spark",
+      "uncertain": true
+    },
+    {
+      "start": 206.08,
+      "end": 209.7,
+      "text": "Feet on fire, eyes awake",
+      "uncertain": false
+    },
+    {
+      "start": 209.7,
+      "end": 213.32,
+      "text": "Let the whole foundation shake",
+      "uncertain": false
+    },
+    {
+      "start": 213.32,
+      "end": 217.52,
+      "text": "Fear and dark, fear and dark",
+      "uncertain": false
+    },
+    {
+      "start": 217.52,
+      "end": 221.16,
+      "text": "No locked door around this heart",
+      "uncertain": false
+    },
+    {
+      "start": 221.16,
+      "end": 224.76,
+      "text": "When the sunrise leaves its mark",
+      "uncertain": false
+    },
+    {
+      "start": 224.76,
+      "end": 228.52,
+      "text": "Will it dance beyond the fear and dark?",
+      "uncertain": true
+    }
+  ]
+}

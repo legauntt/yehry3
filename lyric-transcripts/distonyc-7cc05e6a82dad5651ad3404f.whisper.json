@@ -1,0 +1,385 @@
+{
+  "version": 1,
+  "songId": "distonyc-7cc05e6a82dad5651ad3404f",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7cc05e6a82dad5651ad3404f-a75263996d14.mp3",
+  "audioSha256": "a75263996d1413da2e02934baae53271dabe2717b4d95a53a9e29ab4d47c1f31",
+  "inputSha256": "e9c4f6a3d648b74fe403a908cefeaa65b1a380aa2039c43ad4fd4f3fda1e5038",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 149.84,
+  "segments": [
+    {
+      "start": 3.3,
+      "end": 5.78,
+      "text": "Sun through the blinds",
+      "uncertain": true
+    },
+    {
+      "start": 5.78,
+      "end": 7.46,
+      "text": "Like a hard accusation",
+      "uncertain": true
+    },
+    {
+      "start": 7.46,
+      "end": 10.24,
+      "text": "I swear this room knows",
+      "uncertain": false
+    },
+    {
+      "start": 10.24,
+      "end": 12.02,
+      "text": "My situation",
+      "uncertain": true
+    },
+    {
+      "start": 12.02,
+      "end": 14.36,
+      "text": "Sink full of water",
+      "uncertain": false
+    },
+    {
+      "start": 14.36,
+      "end": 16.6,
+      "text": "Hands on the rim",
+      "uncertain": false
+    },
+    {
+      "start": 16.6,
+      "end": 18.86,
+      "text": "Till the bare reflection",
+      "uncertain": false
+    },
+    {
+      "start": 18.86,
+      "end": 20.78,
+      "text": "I am finished with him",
+      "uncertain": false
+    },
+    {
+      "start": 22.02,
+      "end": 23.72,
+      "text": "Phones start shaking",
+      "uncertain": false
+    },
+    {
+      "start": 23.72,
+      "end": 25.96,
+      "text": "Though number no name",
+      "uncertain": true
+    },
+    {
+      "start": 25.96,
+      "end": 28.32,
+      "text": "I let it ring twice",
+      "uncertain": false
+    },
+    {
+      "start": 28.32,
+      "end": 30.0,
+      "text": "Then I'd answer the same",
+      "uncertain": false
+    },
+    {
+      "start": 30.0,
+      "end": 32.86,
+      "text": "I want a clear head",
+      "uncertain": true
+    },
+    {
+      "start": 32.86,
+      "end": 35.3,
+      "text": "I want an artist dig",
+      "uncertain": true
+    },
+    {
+      "start": 35.3,
+      "end": 37.42,
+      "text": "But the little white promise",
+      "uncertain": false
+    },
+    {
+      "start": 37.42,
+      "end": 39.22,
+      "text": "Keeps calling me away",
+      "uncertain": false
+    },
+    {
+      "start": 39.22,
+      "end": 42.04,
+      "text": "Every last time",
+      "uncertain": false
+    },
+    {
+      "start": 42.04,
+      "end": 43.96,
+      "text": "Where's a brand new face",
+      "uncertain": false
+    },
+    {
+      "start": 43.96,
+      "end": 46.38,
+      "text": "Every clean goodbye",
+      "uncertain": false
+    },
+    {
+      "start": 46.38,
+      "end": 48.48,
+      "text": "Turns around in this place",
+      "uncertain": false
+    },
+    {
+      "start": 48.48,
+      "end": 50.98,
+      "text": "I wanna wake up",
+      "uncertain": false
+    },
+    {
+      "start": 50.98,
+      "end": 53.36,
+      "text": "Another white line morning",
+      "uncertain": false
+    },
+    {
+      "start": 53.36,
+      "end": 55.6,
+      "text": "No glands pulled down",
+      "uncertain": false
+    },
+    {
+      "start": 55.6,
+      "end": 57.88,
+      "text": "No sirens in my blood",
+      "uncertain": false
+    },
+    {
+      "start": 57.88,
+      "end": 60.1,
+      "text": "I keep saying never",
+      "uncertain": false
+    },
+    {
+      "start": 60.1,
+      "end": 62.56,
+      "text": "While the craving keeps forming",
+      "uncertain": true
+    },
+    {
+      "start": 62.56,
+      "end": 64.94,
+      "text": "One hand on heaven",
+      "uncertain": false
+    },
+    {
+      "start": 64.94,
+      "end": 66.82,
+      "text": "One hand in the flood",
+      "uncertain": false
+    },
+    {
+      "start": 66.82,
+      "end": 69.36,
+      "text": "I want to get clean",
+      "uncertain": false
+    },
+    {
+      "start": 69.36,
+      "end": 71.58,
+      "text": "I want an egg enough",
+      "uncertain": true
+    },
+    {
+      "start": 71.58,
+      "end": 74.22,
+      "text": "When the night knows my number",
+      "uncertain": false
+    },
+    {
+      "start": 74.22,
+      "end": 76.36,
+      "text": "And my number knows the stuff",
+      "uncertain": false
+    },
+    {
+      "start": 77.2,
+      "end": 79.02,
+      "text": "Mama left the message",
+      "uncertain": true
+    },
+    {
+      "start": 79.02,
+      "end": 81.02,
+      "text": "Come by when you can",
+      "uncertain": false
+    },
+    {
+      "start": 81.02,
+      "end": 85.4,
+      "text": "I hear myself lying like a world rehearsed man",
+      "uncertain": true
+    },
+    {
+      "start": 85.4,
+      "end": 88.08,
+      "text": "Upon my good watch",
+      "uncertain": true
+    },
+    {
+      "start": 88.08,
+      "end": 90.14,
+      "text": "Missed another shift",
+      "uncertain": false
+    },
+    {
+      "start": 90.14,
+      "end": 92.58,
+      "text": "Chasing ten bright minutes",
+      "uncertain": false
+    },
+    {
+      "start": 92.58,
+      "end": 94.7,
+      "text": "Through a four-story drift",
+      "uncertain": false
+    },
+    {
+      "start": 94.7,
+      "end": 97.14,
+      "text": "Dealer at the corner",
+      "uncertain": false
+    },
+    {
+      "start": 97.14,
+      "end": 99.28,
+      "text": "Says he saved me a taste",
+      "uncertain": false
+    },
+    {
+      "start": 99.28,
+      "end": 101.98,
+      "text": "I cross to the other side",
+      "uncertain": false
+    },
+    {
+      "start": 101.98,
+      "end": 103.78,
+      "text": "Then I stop halfway",
+      "uncertain": false
+    },
+    {
+      "start": 103.78,
+      "end": 106.2,
+      "text": "No grand revelation",
+      "uncertain": false
+    },
+    {
+      "start": 106.2,
+      "end": 108.72,
+      "text": "No victorious sound",
+      "uncertain": false
+    },
+    {
+      "start": 108.72,
+      "end": 110.86,
+      "text": "Just my knees on the carpet",
+      "uncertain": false
+    },
+    {
+      "start": 110.86,
+      "end": 113.08,
+      "text": "And the phone on the ground",
+      "uncertain": false
+    },
+    {
+      "start": 113.08,
+      "end": 115.36,
+      "text": "I call up my brother",
+      "uncertain": false
+    },
+    {
+      "start": 115.36,
+      "end": 117.82,
+      "text": "Say stay on the line",
+      "uncertain": true
+    },
+    {
+      "start": 117.82,
+      "end": 120.06,
+      "text": "I don't trust the next minute",
+      "uncertain": false
+    },
+    {
+      "start": 120.06,
+      "end": 122.26,
+      "text": "So give me some of yours tonight",
+      "uncertain": false
+    },
+    {
+      "start": 122.26,
+      "end": 124.84,
+      "text": "I wanna wake up",
+      "uncertain": false
+    },
+    {
+      "start": 124.84,
+      "end": 127.28,
+      "text": "In the white line morning",
+      "uncertain": true
+    },
+    {
+      "start": 127.28,
+      "end": 128.98,
+      "text": "Throw these curtains wide",
+      "uncertain": false
+    },
+    {
+      "start": 128.98,
+      "end": 131.72,
+      "text": "Let the daylight come rough",
+      "uncertain": false
+    },
+    {
+      "start": 131.72,
+      "end": 133.96,
+      "text": "The craving is talking",
+      "uncertain": true
+    },
+    {
+      "start": 133.96,
+      "end": 136.58,
+      "text": "But somebody hears my warning",
+      "uncertain": false
+    },
+    {
+      "start": 136.58,
+      "end": 138.78,
+      "text": "Both hands on the lifeline",
+      "uncertain": false
+    },
+    {
+      "start": 138.78,
+      "end": 140.68,
+      "text": "When good is not enough",
+      "uncertain": true
+    },
+    {
+      "start": 141.52,
+      "end": 143.58,
+      "text": "No, you're not clean yet",
+      "uncertain": false
+    },
+    {
+      "start": 143.58,
+      "end": 145.44,
+      "text": "But I'm gonna hide in the truth",
+      "uncertain": true
+    },
+    {
+      "start": 146.12,
+      "end": 148.08,
+      "text": "Stay with me till sunrise",
+      "uncertain": false
+    }
+  ]
+}

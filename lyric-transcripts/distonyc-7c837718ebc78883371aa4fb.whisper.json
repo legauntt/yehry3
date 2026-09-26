@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "songId": "distonyc-7c837718ebc78883371aa4fb",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7c837718ebc78883371aa4fb-711027613fe8.mp3",
+  "audioSha256": "711027613fe838b9e50d3807e8722c49f3082c97df727773819752a5aa85f329",
+  "inputSha256": "356386605e312911009280ff37aed34d05f69a2e96c6bde28dfad062f4fba2e5",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 359.44,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.32,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 5.34,
+      "end": 5.66,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 15.62,
+      "end": 15.92,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 30.18,
+      "end": 31.9,
+      "text": "Let's go.",
+      "uncertain": true
+    },
+    {
+      "start": 60.0,
+      "end": 60.84,
+      "text": "Yes.",
+      "uncertain": true
+    },
+    {
+      "start": 61.04,
+      "end": 62.18,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 64.88,
+      "end": 66.02,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 69.08,
+      "end": 70.22,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 78.58,
+      "end": 79.72,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 81.56,
+      "end": 82.14,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 82.14,
+      "end": 82.24,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 82.98,
+      "end": 83.54,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 84.46,
+      "end": 84.78,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 86.0,
+      "end": 86.08,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 86.64,
+      "end": 86.74,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 86.74,
+      "end": 86.84,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 86.84,
+      "end": 87.12,
+      "text": "Yes.",
+      "uncertain": false
+    },
+    {
+      "start": 90.0,
+      "end": 90.2,
+      "text": "Oops.",
+      "uncertain": true
+    },
+    {
+      "start": 94.36,
+      "end": 94.58,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 112.72,
+      "end": 113.42,
+      "text": "That's fine.",
+      "uncertain": true
+    },
+    {
+      "start": 116.88,
+      "end": 117.06,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 122.32,
+      "end": 123.72,
+      "text": "Yeah.",
+      "uncertain": false
+    },
+    {
+      "start": 155.4,
+      "end": 156.8,
+      "text": "There's...",
+      "uncertain": true
+    },
+    {
+      "start": 186.3,
+      "end": 187.7,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 212.98,
+      "end": 215.78,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 250.32,
+      "end": 251.72,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 252.28,
+      "end": 252.38,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 261.16,
+      "end": 262.98,
+      "text": "That's fine.",
+      "uncertain": true
+    },
+    {
+      "start": 285.96,
+      "end": 288.76,
+      "text": "Oh, yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 314.6,
+      "end": 316.0,
+      "text": "That's why.",
+      "uncertain": true
+    },
+    {
+      "start": 345.82,
+      "end": 348.0,
+      "text": "That's my...",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "songId": "distonyc-9066cf193b47ac3679bae67b",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-9066cf193b47ac3679bae67b-140e907740c8.mp3",
+  "audioSha256": "140e907740c8fafedf7000b5a5eb6364f81b890cd7b0103ae83ddb2d0625525e",
+  "inputSha256": "50335b04d0613630207846306f97746716469cd31309c496f2b694afe84b3a83",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 245.0285625,
+  "segments": [
+    {
+      "start": 3.9,
+      "end": 14.3,
+      "text": "people ask me why and i say that is exactly the question it is not obvious at all i have",
+      "uncertain": true
+    },
+    {
+      "start": 14.3,
+      "end": 21.74,
+      "text": "considered it longer than is reasonable to stand up straight at the edge of dawn with",
+      "uncertain": false
+    },
+    {
+      "start": 21.74,
+      "end": 28.18,
+      "text": "a cup in your steady hand before the long before the traffic before you understand",
+      "uncertain": false
+    },
+    {
+      "start": 29.48,
+      "end": 32.52,
+      "text": "There is a river under your ribs",
+      "uncertain": true
+    },
+    {
+      "start": 33.98,
+      "end": 36.06,
+      "text": "Older than every rule",
+      "uncertain": false
+    },
+    {
+      "start": 37.4,
+      "end": 39.64,
+      "text": "The question is not whether it runs",
+      "uncertain": false
+    },
+    {
+      "start": 39.64,
+      "end": 41.12,
+      "text": "It is whether you close the loop",
+      "uncertain": false
+    },
+    {
+      "start": 41.12,
+      "end": 44.12,
+      "text": "It is warm, and that is no joke",
+      "uncertain": false
+    },
+    {
+      "start": 45.36,
+      "end": 47.72,
+      "text": "Warmth is what the cold has mourned",
+      "uncertain": false
+    },
+    {
+      "start": 48.74,
+      "end": 52.22,
+      "text": "No sermon can replace the weight of what returns",
+      "uncertain": false
+    },
+    {
+      "start": 52.22,
+      "end": 54.08,
+      "text": "When circuits close",
+      "uncertain": false
+    },
+    {
+      "start": 56.26,
+      "end": 58.72,
+      "text": "Drink it back, Bucko, drink it back",
+      "uncertain": false
+    },
+    {
+      "start": 58.72,
+      "end": 60.64,
+      "text": "Close the loop and complete the arc",
+      "uncertain": false
+    },
+    {
+      "start": 60.64,
+      "end": 64.28,
+      "text": "What you sent into the dark was yours from the very star",
+      "uncertain": false
+    },
+    {
+      "start": 64.28,
+      "end": 66.3,
+      "text": "Drink it back, Bucko, drink it back",
+      "uncertain": false
+    },
+    {
+      "start": 66.3,
+      "end": 68.2,
+      "text": "The lobster does not flinch or blink",
+      "uncertain": false
+    },
+    {
+      "start": 68.2,
+      "end": 70.66,
+      "text": "Sort yourself out one inch at a time",
+      "uncertain": false
+    },
+    {
+      "start": 70.66,
+      "end": 72.02,
+      "text": "And drink it back",
+      "uncertain": false
+    },
+    {
+      "start": 86.82,
+      "end": 90.78,
+      "text": "The clever people will explain that everything is made by speech",
+      "uncertain": false
+    },
+    {
+      "start": 90.78,
+      "end": 94.88,
+      "text": "But sodium sorrow, every meal are farther than their furies reach",
+      "uncertain": true
+    },
+    {
+      "start": 94.88,
+      "end": 98.68,
+      "text": "The kidney has no politics, it breaks the flood and makes it plain",
+      "uncertain": false
+    },
+    {
+      "start": 98.68,
+      "end": 102.7,
+      "text": "A little order in the chaos, a private kingdom in the drain",
+      "uncertain": false
+    },
+    {
+      "start": 102.7,
+      "end": 105.32,
+      "text": "It is yours, think about that",
+      "uncertain": false
+    },
+    {
+      "start": 106.5,
+      "end": 109.18,
+      "text": "Nothing you own is quite so sure",
+      "uncertain": false
+    },
+    {
+      "start": 110.46,
+      "end": 112.74,
+      "text": "Take the burden without a witness",
+      "uncertain": false
+    },
+    {
+      "start": 114.04,
+      "end": 121.08,
+      "text": "and make a measure of the cure drink it back bucko drink it back close the loop and complete",
+      "uncertain": true
+    },
+    {
+      "start": 121.08,
+      "end": 127.24,
+      "text": "the arc what you sent into the dark was yours from the fairy star trick it back bucko drink it back",
+      "uncertain": true
+    },
+    {
+      "start": 127.24,
+      "end": 132.88,
+      "text": "the lobster does not flinch or blink sort yourself out one inch at a time and drink it back",
+      "uncertain": false
+    },
+    {
+      "start": 149.38,
+      "end": 155.08,
+      "text": "well it depends what you mean by drink it depends what you mean by own the serpent eats its tail",
+      "uncertain": true
+    },
+    {
+      "start": 155.08,
+      "end": 160.06,
+      "text": "and calls it wisdom is it metaphor is it bone Pinocchio entered the whale at night nobody",
+      "uncertain": false
+    },
+    {
+      "start": 160.06,
+      "end": 164.7,
+      "text": "likes what the whale returns that is why freedom costs you something you meet the lesson and the",
+      "uncertain": false
+    },
+    {
+      "start": 164.7,
+      "end": 165.54,
+      "text": "lesson burns",
+      "uncertain": false
+    },
+    {
+      "start": 172.82,
+      "end": 176.8,
+      "text": "At 4am, the world is small, the dragon waits behind the door",
+      "uncertain": false
+    },
+    {
+      "start": 176.8,
+      "end": 180.32,
+      "text": "Carry what you can carry, man, then carry one thing more",
+      "uncertain": false
+    },
+    {
+      "start": 180.32,
+      "end": 184.42,
+      "text": "Clean your room and rinse your glass, do not waste the morning light",
+      "uncertain": false
+    },
+    {
+      "start": 184.42,
+      "end": 188.28,
+      "text": "Every drop dismissed as nothing, comes back asking what is right",
+      "uncertain": false
+    },
+    {
+      "start": 189.64,
+      "end": 194.0,
+      "text": "Drink it back, but go drink it back, close the loop and complete the arc",
+      "uncertain": true
+    },
+    {
+      "start": 194.0,
+      "end": 197.62,
+      "text": "What you sent into the dark was yours from the very start",
+      "uncertain": false
+    },
+    {
+      "start": 197.62,
+      "end": 201.58,
+      "text": "Drink it back, but go drink it back, tell the truth and face the brink",
+      "uncertain": false
+    },
+    {
+      "start": 201.58,
+      "end": 204.0,
+      "text": "Pick up the cup, look it in the eye, and drink it back",
+      "uncertain": false
+    },
+    {
+      "start": 205.36,
+      "end": 207.4,
+      "text": "Drink your piss when the sirens rise",
+      "uncertain": true
+    },
+    {
+      "start": 207.4,
+      "end": 209.18,
+      "text": "Drink your piss when the old lie dies",
+      "uncertain": false
+    },
+    {
+      "start": 209.18,
+      "end": 211.12,
+      "text": "Not for glory, not for praise",
+      "uncertain": false
+    },
+    {
+      "start": 211.12,
+      "end": 213.58,
+      "text": "But to own the shape of your hardest days",
+      "uncertain": false
+    },
+    {
+      "start": 218.68,
+      "end": 220.52,
+      "text": "Drink it back, fuck it, drink it back",
+      "uncertain": true
+    },
+    {
+      "start": 220.52,
+      "end": 222.2,
+      "text": "The circuit seals the shadows",
+      "uncertain": false
+    },
+    {
+      "start": 222.2,
+      "end": 223.76,
+      "text": "Parted is not obvious",
+      "uncertain": false
+    },
+    {
+      "start": 225.18,
+      "end": 226.26,
+      "text": "But it is",
+      "uncertain": false
+    },
+    {
+      "start": 226.96,
+      "end": 227.4,
+      "text": "Yours",
+      "uncertain": true
+    },
+    {
+      "start": 243.36,
+      "end": 244.76,
+      "text": "Ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+      "uncertain": true
+    },
+    {
+      "start": 244.76,
+      "end": 245.0,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

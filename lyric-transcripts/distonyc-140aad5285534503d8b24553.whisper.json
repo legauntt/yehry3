@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "songId": "distonyc-140aad5285534503d8b24553",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-140aad5285534503d8b24553-93b0b1052611.mp3",
+  "audioSha256": "93b0b10526119843675c2a97b24299e3890254e478922ab5f06a79cec7d49bdc",
+  "inputSha256": "a2cee2f245224b91b1f6c7cdee2a326997f70f4e264f3c4323ea68912b20eccd",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 254.8,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 2.5,
+      "text": "Tony woke with a thundercloud",
+      "uncertain": false
+    },
+    {
+      "start": 2.5,
+      "end": 5.52,
+      "text": "Low in the belly, mean and fast",
+      "uncertain": true
+    },
+    {
+      "start": 5.52,
+      "end": 8.3,
+      "text": "Coffee cup shaking in his hand",
+      "uncertain": false
+    },
+    {
+      "start": 8.3,
+      "end": 11.14,
+      "text": "He saw the restroom across the land",
+      "uncertain": false
+    },
+    {
+      "start": 11.14,
+      "end": 14.02,
+      "text": "He ran through traffic there with need",
+      "uncertain": false
+    },
+    {
+      "start": 14.02,
+      "end": 16.88,
+      "text": "Past every light at desperate speed",
+      "uncertain": false
+    },
+    {
+      "start": 16.88,
+      "end": 19.88,
+      "text": "The porcelain sign shone clean and white",
+      "uncertain": true
+    },
+    {
+      "start": 19.88,
+      "end": 23.22,
+      "text": "Then smoke climbed up and swallowed the light",
+      "uncertain": false
+    },
+    {
+      "start": 25.72,
+      "end": 28.02,
+      "text": "One step away",
+      "uncertain": false
+    },
+    {
+      "start": 28.02,
+      "end": 31.04,
+      "text": "One handle to turn",
+      "uncertain": false
+    },
+    {
+      "start": 31.04,
+      "end": 34.14,
+      "text": "The walls came down",
+      "uncertain": true
+    },
+    {
+      "start": 34.14,
+      "end": 37.06,
+      "text": "And the doorway burned",
+      "uncertain": false
+    },
+    {
+      "start": 40.46,
+      "end": 44.24,
+      "text": "Every bathroom got 9-11 all approached",
+      "uncertain": true
+    },
+    {
+      "start": 46.38,
+      "end": 50.36,
+      "text": "Every blasted stall went up in smoke",
+      "uncertain": false
+    },
+    {
+      "start": 51.46,
+      "end": 54.96,
+      "text": "Tony cried, just give me 30 seconds alone",
+      "uncertain": false
+    },
+    {
+      "start": 54.96,
+      "end": 58.18,
+      "text": "But the pipes burst loose and the old roof glowed",
+      "uncertain": true
+    },
+    {
+      "start": 58.18,
+      "end": 63.2,
+      "text": "No vacancy, no mercy, no porcelain thronged",
+      "uncertain": false
+    },
+    {
+      "start": 63.2,
+      "end": 64.42,
+      "text": "Was enthroned",
+      "uncertain": true
+    },
+    {
+      "start": 66.76,
+      "end": 69.88,
+      "text": "He tried the diner by the tracks",
+      "uncertain": false
+    },
+    {
+      "start": 69.88,
+      "end": 72.6,
+      "text": "The waitress pointed toward the back",
+      "uncertain": false
+    },
+    {
+      "start": 72.6,
+      "end": 75.56,
+      "text": "He crossed the tiles with a hopeful shout",
+      "uncertain": false
+    },
+    {
+      "start": 75.56,
+      "end": 78.54,
+      "text": "The mirrors shook and the lights went out",
+      "uncertain": false
+    },
+    {
+      "start": 78.54,
+      "end": 81.44,
+      "text": "He tried from all the park, the bar",
+      "uncertain": true
+    },
+    {
+      "start": 81.44,
+      "end": 84.18,
+      "text": "A roadside scoffed beneath the star",
+      "uncertain": true
+    },
+    {
+      "start": 84.18,
+      "end": 87.28,
+      "text": "Each little figure upon a door",
+      "uncertain": false
+    },
+    {
+      "start": 87.28,
+      "end": 90.58,
+      "text": "Vanished beneath another falling floor",
+      "uncertain": false
+    },
+    {
+      "start": 92.82,
+      "end": 98.52,
+      "text": "One step away with salvation near",
+      "uncertain": false
+    },
+    {
+      "start": 98.52,
+      "end": 103.32,
+      "text": "A siren screamed and is ringing",
+      "uncertain": true
+    },
+    {
+      "start": 107.46,
+      "end": 111.64,
+      "text": "Every bathroom got 9-11 on a boat",
+      "uncertain": true
+    },
+    {
+      "start": 113.8,
+      "end": 117.72,
+      "text": "Every blessed stall went up in smoke",
+      "uncertain": true
+    },
+    {
+      "start": 118.76,
+      "end": 122.42,
+      "text": "Tony Bear died asking for a marble home",
+      "uncertain": true
+    },
+    {
+      "start": 122.42,
+      "end": 125.18,
+      "text": "But the sinks took flight and the plumbing blown",
+      "uncertain": true
+    },
+    {
+      "start": 125.18,
+      "end": 129.1,
+      "text": "No breaking scene, no mercy, no porcelain prone",
+      "uncertain": true
+    },
+    {
+      "start": 129.1,
+      "end": 131.76,
+      "text": "No boiling prone",
+      "uncertain": true
+    },
+    {
+      "start": 133.6,
+      "end": 137.14,
+      "text": "He found a lonely service station",
+      "uncertain": false
+    },
+    {
+      "start": 137.14,
+      "end": 139.7,
+      "text": "Beyond the edge of civilization",
+      "uncertain": false
+    },
+    {
+      "start": 139.7,
+      "end": 142.82,
+      "text": "No crowd, no tower, no reason for doom",
+      "uncertain": true
+    },
+    {
+      "start": 142.82,
+      "end": 145.84,
+      "text": "Just one dim hall and one small room",
+      "uncertain": true
+    },
+    {
+      "start": 145.84,
+      "end": 148.6,
+      "text": "Tony slowed down, afraid to believe",
+      "uncertain": false
+    },
+    {
+      "start": 148.6,
+      "end": 151.5,
+      "text": "The bank inside offered sweet relief",
+      "uncertain": true
+    },
+    {
+      "start": 151.5,
+      "end": 154.62,
+      "text": "His fingers closed on the silver latch",
+      "uncertain": false
+    },
+    {
+      "start": 154.62,
+      "end": 158.02,
+      "text": "The building folded like a struck match",
+      "uncertain": true
+    },
+    {
+      "start": 160.04,
+      "end": 163.34,
+      "text": "He coughed the rubble button tight",
+      "uncertain": true
+    },
+    {
+      "start": 163.34,
+      "end": 166.22,
+      "text": "Still goodnight on his final night",
+      "uncertain": false
+    },
+    {
+      "start": 166.22,
+      "end": 169.08,
+      "text": "He cursed the sky, he cursed the street",
+      "uncertain": false
+    },
+    {
+      "start": 169.08,
+      "end": 171.98,
+      "text": "He cursed each ruin beneath his feet",
+      "uncertain": false
+    },
+    {
+      "start": 171.98,
+      "end": 175.14,
+      "text": "There was one clean toilet, too much to spare",
+      "uncertain": true
+    },
+    {
+      "start": 175.14,
+      "end": 179.58,
+      "text": "Only a chance to prove the end",
+      "uncertain": true
+    },
+    {
+      "start": 183.66,
+      "end": 189.76,
+      "text": "A green bathroom got 9-11 on a roach",
+      "uncertain": true
+    },
+    {
+      "start": 189.76,
+      "end": 193.86,
+      "text": "Every final chance disappeared in smoke",
+      "uncertain": true
+    },
+    {
+      "start": 194.72,
+      "end": 198.34,
+      "text": "So he laughed once, what a way to go",
+      "uncertain": true
+    },
+    {
+      "start": 198.34,
+      "end": 201.34,
+      "text": "The whole world's got a restroom, but it tells me no.",
+      "uncertain": false
+    },
+    {
+      "start": 201.56,
+      "end": 207.8,
+      "text": "No pay can sing, no mercy, no porcelain throw, no boil and roll.",
+      "uncertain": true
+    },
+    {
+      "start": 210.12,
+      "end": 215.92,
+      "text": "At dawn, they found him by the county line with the restroom key and the vegan sign.",
+      "uncertain": true
+    },
+    {
+      "start": 215.92,
+      "end": 221.86,
+      "text": "He never crossed that last tile floor, never reached the handle, never closed the door.",
+      "uncertain": false
+    },
+    {
+      "start": 222.36,
+      "end": 224.66,
+      "text": "Tony C. died with his need unmet.",
+      "uncertain": false
+    },
+    {
+      "start": 224.66,
+      "end": 227.74,
+      "text": "The coolest appointment the world could set",
+      "uncertain": false
+    },
+    {
+      "start": 227.74,
+      "end": 230.56,
+      "text": "One final breath, one unfinished plea",
+      "uncertain": false
+    },
+    {
+      "start": 230.56,
+      "end": 233.92,
+      "text": "Couldn't one damn bathroom wait for me",
+      "uncertain": false
+    },
+    {
+      "start": 254.66,
+      "end": 254.78,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

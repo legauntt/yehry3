@@ -1,0 +1,385 @@
+{
+  "version": 1,
+  "songId": "distonyc-c0e16b569c4612405efeb50e",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c0e16b569c4612405efeb50e-3c5881bd9fea.mp3",
+  "audioSha256": "3c5881bd9feaa2c97e6e107ca6143ec646585b17a9c3b1224ea97f990a62101e",
+  "inputSha256": "96696ad2440245700638a720cd374015172053f45b9f16b9094aed0baa3e67d7",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 270.001625,
+  "segments": [
+    {
+      "start": 19.76,
+      "end": 21.76,
+      "text": "Oh, we eatin' so he kept a glass tarp",
+      "uncertain": true
+    },
+    {
+      "start": 21.76,
+      "end": 23.06,
+      "text": "But what's got louder than try to grey?",
+      "uncertain": true
+    },
+    {
+      "start": 23.24,
+      "end": 24.46,
+      "text": "We can't believe I'll ever bring the trust",
+      "uncertain": true
+    },
+    {
+      "start": 24.46,
+      "end": 26.24,
+      "text": "His chest and this is awful that he were anyway",
+      "uncertain": true
+    },
+    {
+      "start": 26.24,
+      "end": 27.46,
+      "text": "He's laying down the solid plastic",
+      "uncertain": true
+    },
+    {
+      "start": 27.46,
+      "end": 28.52,
+      "text": "From his head out, rest of flames",
+      "uncertain": true
+    },
+    {
+      "start": 28.52,
+      "end": 29.78,
+      "text": "Like guns in the barbers, he's blah blah",
+      "uncertain": true
+    },
+    {
+      "start": 29.78,
+      "end": 33.24,
+      "text": "Every door is empty, every apple is stale, and the moon is sick behind a telephone pole!",
+      "uncertain": true
+    },
+    {
+      "start": 39.3,
+      "end": 41.44,
+      "text": "You hear the sound of a lot, but you watch out!",
+      "uncertain": true
+    },
+    {
+      "start": 42.62,
+      "end": 44.74,
+      "text": "So spook above that you'll go know your job!",
+      "uncertain": true
+    },
+    {
+      "start": 46.86,
+      "end": 49.48,
+      "text": "Everybody can! That's the end of the war!",
+      "uncertain": true
+    },
+    {
+      "start": 50.1,
+      "end": 52.7,
+      "text": "We open that great mouth, every town of a joke!",
+      "uncertain": true
+    },
+    {
+      "start": 53.12,
+      "end": 55.88,
+      "text": "We're not about an end, right there in the streets!",
+      "uncertain": true
+    },
+    {
+      "start": 56.04,
+      "end": 58.16,
+      "text": "I'm a big, not a levy, from the hatch to the upstairs!",
+      "uncertain": true
+    },
+    {
+      "start": 58.16,
+      "end": 63.64,
+      "text": "The choice that I've dispersed, this nightmare was mine, but the whole block flashed like",
+      "uncertain": true
+    },
+    {
+      "start": 63.64,
+      "end": 70.72,
+      "text": "a warning sign, everybody can, that's the end of the world, and nobody knew who it started.",
+      "uncertain": false
+    },
+    {
+      "start": 84.76,
+      "end": 87.86,
+      "text": "Mikey wore a tie and kept reading the news",
+      "uncertain": true
+    },
+    {
+      "start": 87.86,
+      "end": 91.12,
+      "text": "Jenny was a tower with a window screen crown",
+      "uncertain": true
+    },
+    {
+      "start": 91.12,
+      "end": 94.16,
+      "text": "Daniel incoming where Emily's fell",
+      "uncertain": true
+    },
+    {
+      "start": 94.16,
+      "end": 97.72,
+      "text": "And collapsed on the lawn when the wind knocked him down",
+      "uncertain": true
+    },
+    {
+      "start": 97.72,
+      "end": 101.18,
+      "text": "At the corner stood Frank, he sailed him straight through time",
+      "uncertain": true
+    },
+    {
+      "start": 101.18,
+      "end": 104.16,
+      "text": "The son was jacked in and punched his hands",
+      "uncertain": true
+    },
+    {
+      "start": 104.16,
+      "end": 107.08,
+      "text": "He runnin' out as normal when the party began",
+      "uncertain": true
+    },
+    {
+      "start": 107.08,
+      "end": 110.34,
+      "text": "Then somebody made history happen again",
+      "uncertain": false
+    },
+    {
+      "start": 110.34,
+      "end": 113.68,
+      "text": "The porch been stopped on a sour little corn",
+      "uncertain": true
+    },
+    {
+      "start": 113.68,
+      "end": 117.72,
+      "text": "Nobody laughs at the costumes anymore",
+      "uncertain": true
+    },
+    {
+      "start": 123.86,
+      "end": 126.66,
+      "text": "Everybody change that as the end of the world",
+      "uncertain": true
+    },
+    {
+      "start": 126.66,
+      "end": 130.02,
+      "text": "Every boy, every man, every terrible girl",
+      "uncertain": false
+    },
+    {
+      "start": 130.02,
+      "end": 133.22,
+      "text": "Some were 9-11 and he'd run through the street",
+      "uncertain": true
+    },
+    {
+      "start": 133.22,
+      "end": 136.56,
+      "text": "Some had been 9-11 from their heads to their feet",
+      "uncertain": false
+    },
+    {
+      "start": 136.56,
+      "end": 139.76,
+      "text": "So he said, this joke has gotten too real",
+      "uncertain": false
+    },
+    {
+      "start": 139.76,
+      "end": 143.3,
+      "text": "As the Ferris wheel moves and started losing a wheel",
+      "uncertain": true
+    },
+    {
+      "start": 143.3,
+      "end": 146.32,
+      "text": "Everybody came, that's the end of the wall",
+      "uncertain": false
+    },
+    {
+      "start": 146.32,
+      "end": 149.48,
+      "text": "And nobody knew how to stop it",
+      "uncertain": false
+    },
+    {
+      "start": 151.52,
+      "end": 154.46,
+      "text": "So he told the airplane to lose from his shirt",
+      "uncertain": true
+    },
+    {
+      "start": 154.46,
+      "end": 160.86,
+      "text": "Pulled down the skyline and stamped out the dirt Take off the smoke, take off the taint",
+      "uncertain": true
+    },
+    {
+      "start": 160.86,
+      "end": 164.34,
+      "text": "We can still be monsters without tempting fate",
+      "uncertain": false
+    },
+    {
+      "start": 170.56,
+      "end": 177.06,
+      "text": "But the lashed and lured face is the pups and lured fling And the nightcap's calling everybody party",
+      "uncertain": true
+    },
+    {
+      "start": 177.06,
+      "end": 183.84,
+      "text": "So he grabbed the firebell, swung till it rang One hot note through the panic and clang",
+      "uncertain": false
+    },
+    {
+      "start": 184.46,
+      "end": 186.5,
+      "text": "No punchline, no plaid",
+      "uncertain": true
+    },
+    {
+      "start": 186.5,
+      "end": 188.68,
+      "text": "Disguise, just spreads in the street",
+      "uncertain": true
+    },
+    {
+      "start": 188.68,
+      "end": 191.12,
+      "text": "With the fear in their eyes",
+      "uncertain": false
+    },
+    {
+      "start": 191.82,
+      "end": 192.6,
+      "text": "Toby shot it",
+      "uncertain": true
+    },
+    {
+      "start": 192.6,
+      "end": 194.9,
+      "text": "Pony's over, everybody come",
+      "uncertain": false
+    },
+    {
+      "start": 194.9,
+      "end": 196.56,
+      "text": "Everybody come",
+      "uncertain": true
+    },
+    {
+      "start": 196.56,
+      "end": 198.32,
+      "text": "And one by one",
+      "uncertain": true
+    },
+    {
+      "start": 198.32,
+      "end": 200.42,
+      "text": "They remember their bones",
+      "uncertain": true
+    },
+    {
+      "start": 204.0,
+      "end": 206.78,
+      "text": "Everybody came as the end of the world",
+      "uncertain": true
+    },
+    {
+      "start": 206.78,
+      "end": 208.26,
+      "text": "Then it healed off the ruin",
+      "uncertain": true
+    },
+    {
+      "start": 208.26,
+      "end": 210.1,
+      "text": "Every boy, every girl",
+      "uncertain": false
+    },
+    {
+      "start": 210.1,
+      "end": 212.52,
+      "text": "The 9-11 ain't stopped when the church",
+      "uncertain": false
+    },
+    {
+      "start": 212.52,
+      "end": 216.6,
+      "text": "Squash dry in the 9-11 rows of days, but I'm stuck.",
+      "uncertain": true
+    },
+    {
+      "start": 216.92,
+      "end": 219.8,
+      "text": "So he stood in his undershirt, cold in the dawn,",
+      "uncertain": false
+    },
+    {
+      "start": 220.04,
+      "end": 223.22,
+      "text": "while the paper towers softened on somebody's lawn.",
+      "uncertain": false
+    },
+    {
+      "start": 223.86,
+      "end": 226.56,
+      "text": "Everybody came as the end of the world,",
+      "uncertain": false
+    },
+    {
+      "start": 227.58,
+      "end": 230.5,
+      "text": "but nobody had to stay that way.",
+      "uncertain": false
+    },
+    {
+      "start": 236.36,
+      "end": 239.44,
+      "text": "He carried the costumes out to the curb.",
+      "uncertain": false
+    },
+    {
+      "start": 239.44,
+      "end": 243.0,
+      "text": "No speech, no laugh, not another bad word",
+      "uncertain": false
+    },
+    {
+      "start": 243.0,
+      "end": 246.02,
+      "text": "When Mourning asked what he had been that night",
+      "uncertain": false
+    },
+    {
+      "start": 246.02,
+      "end": 249.46,
+      "text": "Tony said something stupid and I finally got it right",
+      "uncertain": true
+    },
+    {
+      "start": 249.46,
+      "end": 252.58,
+      "text": "Then the last porch light went dark with the stars",
+      "uncertain": true
+    },
+    {
+      "start": 252.58,
+      "end": 257.14,
+      "text": "And his friends walked home exactly as they are",
+      "uncertain": false
+    }
+  ]
+}

@@ -1,0 +1,499 @@
+{
+  "version": 1,
+  "songId": "movin-on-v6-extended",
+  "audioUrl": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/movin-on-v6-extended.mp3",
+  "audioSha256": "8f1e3e3495babaa6559c0fe10ede2986e9b580577043b859f0576610da42c281",
+  "inputSha256": "8f1e3e3495babaa6559c0fe10ede2986e9b580577043b859f0576610da42c281",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 265.48,
+  "segments": [
+    {
+      "start": 0.62,
+      "end": 2.5,
+      "text": "Let's put it out one time",
+      "uncertain": true
+    },
+    {
+      "start": 4.3,
+      "end": 5.6,
+      "text": "Come here, let's go",
+      "uncertain": true
+    },
+    {
+      "start": 15.18,
+      "end": 18.34,
+      "text": "Now, people think that I'm satisfaction guaranteed",
+      "uncertain": true
+    },
+    {
+      "start": 18.34,
+      "end": 21.1,
+      "text": "And I stick and move like Apollo Creed",
+      "uncertain": true
+    },
+    {
+      "start": 21.1,
+      "end": 23.76,
+      "text": "Stop a word for monkey like the chronic califosis",
+      "uncertain": true
+    },
+    {
+      "start": 23.76,
+      "end": 26.36,
+      "text": "And I'm supercalifadral, pick your head like acid bruises",
+      "uncertain": true
+    },
+    {
+      "start": 26.36,
+      "end": 29.06,
+      "text": "Man, you got personality, I got simple",
+      "uncertain": true
+    },
+    {
+      "start": 29.06,
+      "end": 31.68,
+      "text": "Spend seven levels, lower than the devil",
+      "uncertain": true
+    },
+    {
+      "start": 31.68,
+      "end": 34.38,
+      "text": "Style top secret and my mission is impossible",
+      "uncertain": true
+    },
+    {
+      "start": 34.38,
+      "end": 36.98,
+      "text": "When I'm on the wax, this shit's unstoppable",
+      "uncertain": false
+    },
+    {
+      "start": 36.98,
+      "end": 39.58,
+      "text": "I'm getting paid and I'm spending all the money",
+      "uncertain": false
+    },
+    {
+      "start": 39.58,
+      "end": 42.24,
+      "text": "And I'm blowing like a period, I'll leave twice as funny",
+      "uncertain": true
+    },
+    {
+      "start": 42.24,
+      "end": 45.56,
+      "text": "Bye bye baby, see you when I see you, I'm gone",
+      "uncertain": false
+    },
+    {
+      "start": 46.22,
+      "end": 48.58,
+      "text": "High levels to the moving, uh-huh",
+      "uncertain": true
+    },
+    {
+      "start": 49.4,
+      "end": 52.54,
+      "text": "Moving on, got a little road left before it dawns",
+      "uncertain": true
+    },
+    {
+      "start": 52.54,
+      "end": 55.42,
+      "text": "You can hear my shoes when, when the lights go down",
+      "uncertain": false
+    },
+    {
+      "start": 55.42,
+      "end": 58.82,
+      "text": "But you can't keep the good proof down to the ground",
+      "uncertain": true
+    },
+    {
+      "start": 58.82,
+      "end": 60.78,
+      "text": "I'm moving on",
+      "uncertain": true
+    },
+    {
+      "start": 62.32,
+      "end": 65.78,
+      "text": "Catch that turn when the face comes round",
+      "uncertain": true
+    },
+    {
+      "start": 65.78,
+      "end": 68.96,
+      "text": "I'm still here, I'm making that crooked sound",
+      "uncertain": false
+    },
+    {
+      "start": 73.36,
+      "end": 76.84,
+      "text": "Catch that turn when the face comes round",
+      "uncertain": false
+    },
+    {
+      "start": 76.84,
+      "end": 79.6,
+      "text": "I'm still here making crooked sound",
+      "uncertain": false
+    },
+    {
+      "start": 83.52,
+      "end": 86.58,
+      "text": "Catch that turn when the face comes round",
+      "uncertain": false
+    },
+    {
+      "start": 86.58,
+      "end": 89.24,
+      "text": "I'm still here making that crooked sound",
+      "uncertain": false
+    },
+    {
+      "start": 89.24,
+      "end": 96.66,
+      "text": "Got a shirt full of smoke and a pocket full of change",
+      "uncertain": true
+    },
+    {
+      "start": 96.66,
+      "end": 99.1,
+      "text": "A face in the mirror that won't act insane",
+      "uncertain": false
+    },
+    {
+      "start": 99.1,
+      "end": 101.8,
+      "text": "The man at the door said you're late again",
+      "uncertain": false
+    },
+    {
+      "start": 101.8,
+      "end": 104.54,
+      "text": "I said save me a chair, then I'll take me on",
+      "uncertain": true
+    },
+    {
+      "start": 104.54,
+      "end": 107.26,
+      "text": "And I hear the room, I feel the floor",
+      "uncertain": false
+    },
+    {
+      "start": 107.26,
+      "end": 109.92,
+      "text": "That old beat's knocking at my door",
+      "uncertain": false
+    },
+    {
+      "start": 109.92,
+      "end": 112.54,
+      "text": "Kick the dust from the heel, door to crack in the night",
+      "uncertain": true
+    },
+    {
+      "start": 112.54,
+      "end": 115.3,
+      "text": "I got a little more laugh, then I got good advice",
+      "uncertain": false
+    },
+    {
+      "start": 115.3,
+      "end": 117.94,
+      "text": "With a grin that leans left and a hat pulled low",
+      "uncertain": true
+    },
+    {
+      "start": 117.94,
+      "end": 120.58,
+      "text": "I can get tomorrow, but I'm taking it slow",
+      "uncertain": false
+    },
+    {
+      "start": 120.58,
+      "end": 123.28,
+      "text": "Tell the back row move, tell the front row sing",
+      "uncertain": false
+    },
+    {
+      "start": 123.28,
+      "end": 125.94,
+      "text": "Tell the drummer, put a little dirt in the swing",
+      "uncertain": false
+    },
+    {
+      "start": 125.94,
+      "end": 128.6,
+      "text": "If you're looking for an answer, brother, sing along",
+      "uncertain": false
+    },
+    {
+      "start": 128.6,
+      "end": 131.3,
+      "text": "I'm already half into another song",
+      "uncertain": false
+    },
+    {
+      "start": 131.3,
+      "end": 134.2,
+      "text": "I took a little rope on a crooked little tune",
+      "uncertain": false
+    },
+    {
+      "start": 134.2,
+      "end": 136.82,
+      "text": "And the bass in my chest kept shaking the room",
+      "uncertain": false
+    },
+    {
+      "start": 136.82,
+      "end": 139.52,
+      "text": "Now the sign says stop, but the shoes say slide",
+      "uncertain": false
+    },
+    {
+      "start": 139.52,
+      "end": 142.18,
+      "text": "Got the windows rolled down and the whole night wide",
+      "uncertain": false
+    },
+    {
+      "start": 142.18,
+      "end": 144.82,
+      "text": "There's a scratch on the record, but the shoes say slide",
+      "uncertain": false
+    },
+    {
+      "start": 144.82,
+      "end": 147.5,
+      "text": "Got the windows rolled down and the whole night wide",
+      "uncertain": true
+    },
+    {
+      "start": 147.5,
+      "end": 150.22,
+      "text": "There's a scratch on the record where the good part starts",
+      "uncertain": false
+    },
+    {
+      "start": 150.22,
+      "end": 152.88,
+      "text": "There's a light in the alley and a drum in the dark",
+      "uncertain": false
+    },
+    {
+      "start": 152.88,
+      "end": 155.48,
+      "text": "Somebody called me, said, where have you been?",
+      "uncertain": false
+    },
+    {
+      "start": 155.66,
+      "end": 158.26,
+      "text": "I said, out with the trouble, let the trouble back in",
+      "uncertain": false
+    },
+    {
+      "start": 158.26,
+      "end": 160.8,
+      "text": "Now I'm two steps loose with a smile too long",
+      "uncertain": false
+    },
+    {
+      "start": 160.8,
+      "end": 163.6,
+      "text": "One foot in the morning and I'm moving on",
+      "uncertain": false
+    },
+    {
+      "start": 169.94,
+      "end": 172.48,
+      "text": "Got a little left and I got good advice",
+      "uncertain": false
+    },
+    {
+      "start": 172.48,
+      "end": 175.08,
+      "text": "Swear the grin that leans left and the light pull low",
+      "uncertain": true
+    },
+    {
+      "start": 175.08,
+      "end": 177.74,
+      "text": "But you can't keep tomorrow, but I'm taking it slow",
+      "uncertain": false
+    },
+    {
+      "start": 177.74,
+      "end": 180.48,
+      "text": "Till the back row move, till the front row sing",
+      "uncertain": true
+    },
+    {
+      "start": 180.48,
+      "end": 183.56,
+      "text": "Leave a little light when the night hit is gone",
+      "uncertain": true
+    },
+    {
+      "start": 183.56,
+      "end": 186.14,
+      "text": "Hear the leans left and a half pull low",
+      "uncertain": true
+    },
+    {
+      "start": 186.14,
+      "end": 188.84,
+      "text": "I can hear tomorrow, but I'm taking it slow",
+      "uncertain": false
+    },
+    {
+      "start": 191.02,
+      "end": 192.98,
+      "text": "Leave a little, little turn it strong",
+      "uncertain": true
+    },
+    {
+      "start": 192.98,
+      "end": 195.64,
+      "text": "If you're looking for an answer, brother sing along",
+      "uncertain": false
+    },
+    {
+      "start": 195.64,
+      "end": 198.68,
+      "text": "I'm already out making that crooked song",
+      "uncertain": false
+    },
+    {
+      "start": 198.68,
+      "end": 200.94,
+      "text": "Hear that sound, let it carry me home",
+      "uncertain": false
+    },
+    {
+      "start": 200.94,
+      "end": 203.58,
+      "text": "Through the last dark mile where the wild things roam",
+      "uncertain": true
+    },
+    {
+      "start": 203.58,
+      "end": 206.28,
+      "text": "I got a low down laugh and I wrote one song",
+      "uncertain": false
+    },
+    {
+      "start": 206.28,
+      "end": 207.82,
+      "text": "Put the light in the window",
+      "uncertain": false
+    },
+    {
+      "start": 207.82,
+      "end": 210.14,
+      "text": "I'm moving on, I'm moving on",
+      "uncertain": false
+    },
+    {
+      "start": 210.14,
+      "end": 212.9,
+      "text": "Moving on, all that weight behind me",
+      "uncertain": true
+    },
+    {
+      "start": 212.9,
+      "end": 214.26,
+      "text": "All the night is foam",
+      "uncertain": false
+    },
+    {
+      "start": 214.26,
+      "end": 216.96,
+      "text": "I got a low down laugh and the lights go down",
+      "uncertain": true
+    },
+    {
+      "start": 216.96,
+      "end": 219.64,
+      "text": "But you can't keep a good groove tied to the ground",
+      "uncertain": true
+    },
+    {
+      "start": 219.64,
+      "end": 222.36,
+      "text": "I'm moving on, moving on",
+      "uncertain": false
+    },
+    {
+      "start": 222.36,
+      "end": 225.3,
+      "text": "All that weight behind me, all that night is gone",
+      "uncertain": false
+    },
+    {
+      "start": 225.3,
+      "end": 227.36,
+      "text": "Moving on, moving on",
+      "uncertain": false
+    },
+    {
+      "start": 227.36,
+      "end": 230.78,
+      "text": "All that weight behind me, all that night is gone",
+      "uncertain": false
+    },
+    {
+      "start": 235.06,
+      "end": 236.6,
+      "text": "Take a little step",
+      "uncertain": true
+    },
+    {
+      "start": 237.8,
+      "end": 239.42,
+      "text": "I've been up all night",
+      "uncertain": false
+    },
+    {
+      "start": 239.42,
+      "end": 240.36,
+      "text": "Got a new day",
+      "uncertain": true
+    },
+    {
+      "start": 245.96,
+      "end": 248.4,
+      "text": "I'm moving on",
+      "uncertain": false
+    },
+    {
+      "start": 248.4,
+      "end": 250.92,
+      "text": "They to carry me home",
+      "uncertain": true
+    },
+    {
+      "start": 250.92,
+      "end": 253.4,
+      "text": "That low down sound",
+      "uncertain": false
+    },
+    {
+      "start": 256.72,
+      "end": 258.26,
+      "text": "I'm moving on",
+      "uncertain": false
+    },
+    {
+      "start": 261.72,
+      "end": 263.52,
+      "text": "Start moving on.",
+      "uncertain": true
+    }
+  ]
+}

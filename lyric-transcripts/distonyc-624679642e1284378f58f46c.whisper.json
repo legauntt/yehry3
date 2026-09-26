@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "songId": "distonyc-624679642e1284378f58f46c",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-624679642e1284378f58f46c-5783c8ea6617.mp3",
+  "audioSha256": "5783c8ea66174bb1fcd6e57c82d6600b31c7803c35db44d2824ccb2e7f1e298e",
+  "inputSha256": "0d540d7eaf23fbce9716ea2b64ce9e680a0dbaf1585d19f83759f61612b48566",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 259.970625,
+  "segments": [
+    {
+      "start": 17.28,
+      "end": 21.12,
+      "text": "Morning on the windowsill, the room quit looking brave.",
+      "uncertain": true
+    },
+    {
+      "start": 21.56,
+      "end": 25.2,
+      "text": "I quit chasing every spark that burned itself away.",
+      "uncertain": false
+    },
+    {
+      "start": 25.58,
+      "end": 29.32,
+      "text": "Kept a little current on the lock and on the skin.",
+      "uncertain": false
+    },
+    {
+      "start": 29.32,
+      "end": 33.6,
+      "text": "Found a quiet kind of fire when I learned to hold it in",
+      "uncertain": false
+    },
+    {
+      "start": 33.6,
+      "end": 37.66,
+      "text": "The streetlight hums, the coffee steams, the day has got a dawn",
+      "uncertain": true
+    },
+    {
+      "start": 37.66,
+      "end": 41.86,
+      "text": "I used to spend my thunder and come back asking for more",
+      "uncertain": false
+    },
+    {
+      "start": 41.86,
+      "end": 45.92,
+      "text": "Now I let the pressure turn into a steady beam",
+      "uncertain": false
+    },
+    {
+      "start": 45.92,
+      "end": 50.34,
+      "text": "I retain what I can carry, make a ladder from the dream",
+      "uncertain": false
+    },
+    {
+      "start": 52.06,
+      "end": 56.48,
+      "text": "No sermon in my pocket, no halo on my head",
+      "uncertain": false
+    },
+    {
+      "start": 57.9,
+      "end": 63.7,
+      "text": "Just a little more tomorrow when I leave the night unset",
+      "uncertain": false
+    },
+    {
+      "start": 66.44,
+      "end": 70.82,
+      "text": "Don't come, hold the river when it starts to run",
+      "uncertain": false
+    },
+    {
+      "start": 70.82,
+      "end": 74.88,
+      "text": "Retain, retain semen, keep the engine warm",
+      "uncertain": false
+    },
+    {
+      "start": 74.88,
+      "end": 79.04,
+      "text": "Don't come, I can feel the old fog clear",
+      "uncertain": false
+    },
+    {
+      "start": 79.04,
+      "end": 81.08,
+      "text": "When I keep that spark inside",
+      "uncertain": false
+    },
+    {
+      "start": 81.08,
+      "end": 85.9,
+      "text": "The road just gets easier, just gets easier",
+      "uncertain": false
+    },
+    {
+      "start": 85.9,
+      "end": 87.86,
+      "text": "Just gets easier",
+      "uncertain": false
+    },
+    {
+      "start": 99.28,
+      "end": 101.94,
+      "text": "I hear the wheels beneath me",
+      "uncertain": false
+    },
+    {
+      "start": 101.94,
+      "end": 103.92,
+      "text": "Feel the sidewalk answer back",
+      "uncertain": false
+    },
+    {
+      "start": 103.92,
+      "end": 106.02,
+      "text": "Every small decision",
+      "uncertain": false
+    },
+    {
+      "start": 106.02,
+      "end": 107.92,
+      "text": "Puts another color in the black",
+      "uncertain": false
+    },
+    {
+      "start": 107.92,
+      "end": 110.06,
+      "text": "I was always looking outward",
+      "uncertain": false
+    },
+    {
+      "start": 110.06,
+      "end": 112.14,
+      "text": "For a switch to make me home",
+      "uncertain": false
+    },
+    {
+      "start": 112.14,
+      "end": 114.36,
+      "text": "Now the hand upon the dial",
+      "uncertain": false
+    },
+    {
+      "start": 114.36,
+      "end": 121.98,
+      "text": "is the hand upon my soul not a miracle machine not a promise carbon stone just a choice i make",
+      "uncertain": true
+    },
+    {
+      "start": 121.98,
+      "end": 128.68,
+      "text": "at midnight when the apartment's mine alone the restless little animal can wait behind the gate",
+      "uncertain": false
+    },
+    {
+      "start": 128.68,
+      "end": 133.08,
+      "text": "i retain the heat and shape it into something i can make",
+      "uncertain": false
+    },
+    {
+      "start": 140.88,
+      "end": 143.38,
+      "text": "The calendar looks wider",
+      "uncertain": true
+    },
+    {
+      "start": 143.38,
+      "end": 145.4,
+      "text": "The mirror shows my face",
+      "uncertain": true
+    },
+    {
+      "start": 145.4,
+      "end": 147.34,
+      "text": "I quit confusing motion",
+      "uncertain": false
+    },
+    {
+      "start": 147.34,
+      "end": 149.68,
+      "text": "With a place to put my faith",
+      "uncertain": false
+    },
+    {
+      "start": 153.34,
+      "end": 155.64,
+      "text": "Don't come hold the river",
+      "uncertain": false
+    },
+    {
+      "start": 155.64,
+      "end": 157.74,
+      "text": "When it starts to run",
+      "uncertain": false
+    },
+    {
+      "start": 157.74,
+      "end": 159.68,
+      "text": "Retain, retain scene",
+      "uncertain": true
+    },
+    {
+      "start": 159.68,
+      "end": 161.82,
+      "text": "And keep the engine warm",
+      "uncertain": false
+    },
+    {
+      "start": 161.82,
+      "end": 165.94,
+      "text": "Don't come, I can feel the old fog clear",
+      "uncertain": false
+    },
+    {
+      "start": 165.94,
+      "end": 168.18,
+      "text": "When I keep that spark inside",
+      "uncertain": true
+    },
+    {
+      "start": 168.18,
+      "end": 170.72,
+      "text": "Oh, it just gets easier",
+      "uncertain": true
+    },
+    {
+      "start": 170.72,
+      "end": 172.82,
+      "text": "Just gets easier",
+      "uncertain": false
+    },
+    {
+      "start": 172.82,
+      "end": 174.76,
+      "text": "Just gets easier",
+      "uncertain": false
+    },
+    {
+      "start": 178.6,
+      "end": 180.72,
+      "text": "Maybe it is patience",
+      "uncertain": false
+    },
+    {
+      "start": 180.72,
+      "end": 182.68,
+      "text": "Maybe it is pride",
+      "uncertain": false
+    },
+    {
+      "start": 182.68,
+      "end": 186.58,
+      "text": "Maybe all the open doors were open and inside",
+      "uncertain": false
+    },
+    {
+      "start": 186.58,
+      "end": 188.96,
+      "text": "I don't need to sell it",
+      "uncertain": false
+    },
+    {
+      "start": 188.96,
+      "end": 190.96,
+      "text": "I don't need a sacred sign",
+      "uncertain": false
+    },
+    {
+      "start": 190.96,
+      "end": 198.58,
+      "text": "I just keep the charge that is mine, mine, mine.",
+      "uncertain": false
+    },
+    {
+      "start": 201.48,
+      "end": 205.4,
+      "text": "Retain one breath, one night, one day.",
+      "uncertain": false
+    },
+    {
+      "start": 205.88,
+      "end": 209.4,
+      "text": "Retain, wash the heavy weather sway.",
+      "uncertain": false
+    },
+    {
+      "start": 209.72,
+      "end": 213.66,
+      "text": "Don't come, not fear, not shame, not a rule.",
+      "uncertain": false
+    },
+    {
+      "start": 213.88,
+      "end": 217.92,
+      "text": "Just a hand on a wheel when the blood runs cool.",
+      "uncertain": false
+    },
+    {
+      "start": 219.62,
+      "end": 228.08,
+      "text": "don't come hold the river let it feed the ground retain retain semen let the lost life jump around",
+      "uncertain": false
+    },
+    {
+      "start": 228.08,
+      "end": 236.08,
+      "text": "don't come the city lifts its weary gear i keep that spark inside and the whole world just gets",
+      "uncertain": false
+    },
+    {
+      "start": 236.08,
+      "end": 247.76,
+      "text": "easier just gets easier clear and easier i hold the river and life opens here",
+      "uncertain": false
+    },
+    {
+      "start": 247.76,
+      "end": 247.9,
+      "text": "Here.",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "songId": "distonyc-ab9afa794dc00233d57bfa7c",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ab9afa794dc00233d57bfa7c-7e177e9136bd.mp3",
+  "audioSha256": "7e177e9136bdb364a050b82f7b8d7f4a66203573bcba035dfb93f7058733e6cc",
+  "inputSha256": "2a11223b9c6f2117dad05a59d5179c8572c0dccdcc27f4a4b7c4df1d5f2cdd4e",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 85.04,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 16.24,
+      "text": "Edgar, you're so fine, you're so fine, shot is wither, escapable, surgery and makeup can",
+      "uncertain": true
+    },
+    {
+      "start": 16.24,
+      "end": 28.7,
+      "text": "do amazing things these days, that's it.",
+      "uncertain": false
+    },
+    {
+      "start": 28.7,
+      "end": 30.3,
+      "text": "You weren't so fine",
+      "uncertain": false
+    },
+    {
+      "start": 30.3,
+      "end": 33.48,
+      "text": "Now that I'm thinking you're a transmistite",
+      "uncertain": true
+    },
+    {
+      "start": 33.48,
+      "end": 36.12,
+      "text": "Goddamn 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 36.12,
+      "end": 37.72,
+      "text": "9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 38.66,
+      "end": 40.9,
+      "text": "9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 41.9,
+      "end": 44.5,
+      "text": "Right when the good run begins",
+      "uncertain": false
+    },
+    {
+      "start": 44.5,
+      "end": 48.54,
+      "text": "One loud crash, the whole plan ends",
+      "uncertain": false
+    },
+    {
+      "start": 48.54,
+      "end": 50.58,
+      "text": "9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 50.58,
+      "end": 54.8,
+      "text": "Tony Krause, son of a bitch",
+      "uncertain": false
+    },
+    {
+      "start": 54.8,
+      "end": 57.98,
+      "text": "Loads that miserable save once more",
+      "uncertain": false
+    },
+    {
+      "start": 57.98,
+      "end": 61.06,
+      "text": "Fear in the dark and hunger for",
+      "uncertain": false
+    },
+    {
+      "start": 61.06,
+      "end": 63.28,
+      "text": "Then he gets 9-11 again",
+      "uncertain": true
+    },
+    {
+      "start": 64.6,
+      "end": 66.58,
+      "text": "9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 66.58,
+      "end": 68.14,
+      "text": "9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 68.14,
+      "end": 71.48,
+      "text": "Before he can 9-11 he gets",
+      "uncertain": false
+    },
+    {
+      "start": 71.48,
+      "end": 73.14,
+      "text": "9-11 again",
+      "uncertain": false
+    }
+  ]
+}

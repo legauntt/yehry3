@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "songId": "distonyc-3dca5baa1be50eb899dad2be",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3dca5baa1be50eb899dad2be-ea947bec2cdd.mp3",
+  "audioSha256": "ea947bec2cdda3f9ddb28c0dd01bf641b6edf61f361970dc1d854e26782ee5e4",
+  "inputSha256": "f2976f1eef6ab8a5a38358acfa2245e43f6790bcf507d89951189ffb52c24f45",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 245.0024375,
+  "segments": [
+    {
+      "start": 4.08,
+      "end": 8.08,
+      "text": "Tony found the paper backside the laundromat machine",
+      "uncertain": false
+    },
+    {
+      "start": 8.08,
+      "end": 10.52,
+      "text": "Said the age of air was coming",
+      "uncertain": true
+    },
+    {
+      "start": 10.52,
+      "end": 12.66,
+      "text": "Said the planets must be clean",
+      "uncertain": false
+    },
+    {
+      "start": 12.66,
+      "end": 17.12,
+      "text": "He drew a crooked little moon shot on a paper grocery sack",
+      "uncertain": false
+    },
+    {
+      "start": 17.12,
+      "end": 19.48,
+      "text": "Then he cancelled soap and reason",
+      "uncertain": false
+    },
+    {
+      "start": 19.48,
+      "end": 21.76,
+      "text": "Said he wouldn't need them back",
+      "uncertain": false
+    },
+    {
+      "start": 25.48,
+      "end": 28.46,
+      "text": "Now he's charging jars of water",
+      "uncertain": false
+    },
+    {
+      "start": 28.46,
+      "end": 35.12,
+      "text": "in the blue light of the moon he bought a crystal pendulum and hung it from the fan",
+      "uncertain": true
+    },
+    {
+      "start": 35.12,
+      "end": 41.82,
+      "text": "it pointed at the kitchen so he called it destiny's plan he said every drop is sacred",
+      "uncertain": false
+    },
+    {
+      "start": 41.82,
+      "end": 48.36,
+      "text": "every urge must be retained i can feel my hidden thunder getting polished in my brain",
+      "uncertain": false
+    },
+    {
+      "start": 48.36,
+      "end": 56.86,
+      "text": "seven days of concentration 14 lectures in a row now he whispers to his trousers we got energy to",
+      "uncertain": false
+    },
+    {
+      "start": 60.5,
+      "end": 67.84,
+      "text": "grow Tony's got an aura with a radius you can sense it coming down the hall he says major never",
+      "uncertain": true
+    },
+    {
+      "start": 67.84,
+      "end": 75.68,
+      "text": "made a bar of soap and enlightenment don't wash it off Tony's got an aura with a radius cosmic",
+      "uncertain": false
+    },
+    {
+      "start": 75.68,
+      "end": 82.72,
+      "text": "truth and something else besides he opens every window for the universe the universe takes one",
+      "uncertain": false
+    },
+    {
+      "start": 82.72,
+      "end": 90.16,
+      "text": "sniffing high then he read about recycling what the body froze away raised a warm and cloudy",
+      "uncertain": true
+    },
+    {
+      "start": 90.16,
+      "end": 96.86,
+      "text": "tumbler like a toaster brick of day said the fountain is internal and the proof is in the",
+      "uncertain": false
+    },
+    {
+      "start": 96.86,
+      "end": 104.44,
+      "text": "taste his houseplants leaned away from him with dignity and haste at the market he wore linen and",
+      "uncertain": false
+    },
+    {
+      "start": 104.44,
+      "end": 111.92,
+      "text": "a necklace made of seeds told the cashier modern bathing only manufacturers needs she held her",
+      "uncertain": false
+    },
+    {
+      "start": 111.92,
+      "end": 117.96,
+      "text": "breath and scan the sage the incense and the lime while tony praised his natural smell for seven",
+      "uncertain": true
+    },
+    {
+      "start": 117.96,
+      "end": 125.16,
+      "text": "solid minutes time baseline creeping floorboard speaking saturn rising friends advising maybe",
+      "uncertain": false
+    },
+    {
+      "start": 125.16,
+      "end": 131.94,
+      "text": "rinse a little rich he laughs you fear vibration then the whole room changes chairs even peace",
+      "uncertain": false
+    },
+    {
+      "start": 131.94,
+      "end": 140.34,
+      "text": "loving strangers suddenly discover urgent errands downstairs tony's got an aura with a radius you can",
+      "uncertain": false
+    },
+    {
+      "start": 140.34,
+      "end": 145.88,
+      "text": "sense it coming down the hall he says mate you never made a bar of soap and enlightenment don't",
+      "uncertain": true
+    },
+    {
+      "start": 145.88,
+      "end": 155.34,
+      "text": "wash it all so he's got an aura with the radius cosmic truth and something else besides he opens",
+      "uncertain": false
+    },
+    {
+      "start": 155.34,
+      "end": 163.54,
+      "text": "every window for the universe the universe takes one sniff and hides one night beneath the moonlight",
+      "uncertain": true
+    },
+    {
+      "start": 163.54,
+      "end": 170.2,
+      "text": "his crystal gave no sign he shook it over every jar and blamed the grand design",
+      "uncertain": true
+    },
+    {
+      "start": 170.2,
+      "end": 177.68,
+      "text": "then a quiet thought came drifting clearer than his mystic brew if the cosmos lives in everything",
+      "uncertain": false
+    },
+    {
+      "start": 177.68,
+      "end": 186.26,
+      "text": "maybe soap is cosmic too tony stood beneath the shower like a prophet in the rain watched a fort",
+      "uncertain": false
+    },
+    {
+      "start": 186.26,
+      "end": 192.36,
+      "text": "night of ascension spiral laughing down the drain kept the breathing and the moonlight kept",
+      "uncertain": true
+    },
+    {
+      "start": 192.36,
+      "end": 199.24,
+      "text": "the linen kept the seeds but retired the private tumbler and revised his daily needs",
+      "uncertain": true
+    },
+    {
+      "start": 201.34,
+      "end": 209.74,
+      "text": "tony's got an aura with radius now it smells like cedar rain and lime he says wisdom isn't losing",
+      "uncertain": false
+    },
+    {
+      "start": 209.74,
+      "end": 217.96,
+      "text": "every strange idea it's knowing when to change your mind tony's got an aura with the radius but",
+      "uncertain": false
+    },
+    {
+      "start": 217.96,
+      "end": 224.9,
+      "text": "his friends can share the room again he leaves one crystal shining on the windowsill that's the",
+      "uncertain": true
+    },
+    {
+      "start": 224.9,
+      "end": 233.2,
+      "text": "clean night air rolling let the clean night air roll in tony smiles and lets it in",
+      "uncertain": true
+    }
+  ]
+}

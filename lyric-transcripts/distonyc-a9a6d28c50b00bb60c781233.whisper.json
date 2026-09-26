@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "songId": "distonyc-a9a6d28c50b00bb60c781233",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a9a6d28c50b00bb60c781233-bb1f1055d485.mp3",
+  "audioSha256": "bb1f1055d4856c7a9f94de0e7604f3c2142208cdca92edd5409ed75112a86137",
+  "inputSha256": "a9dd431defc98ed6d592696f58627a016eea44863d8dcc3a10cdd1c29bd9c230",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 245.04,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 16.02,
+      "text": "Brain on beliefs, sheet on the wire I close my eyes, and there you stand",
+      "uncertain": true
+    },
+    {
+      "start": 16.8,
+      "end": 21.44,
+      "text": "Young as the day we reach that land",
+      "uncertain": false
+    },
+    {
+      "start": 25.82,
+      "end": 28.72,
+      "text": "Daddy Kemp let us inside his shirt",
+      "uncertain": true
+    },
+    {
+      "start": 28.72,
+      "end": 31.8,
+      "text": "They made us laugh when the silence hurt",
+      "uncertain": true
+    },
+    {
+      "start": 31.8,
+      "end": 35.22,
+      "text": "Taught me could find a trail through the green",
+      "uncertain": false
+    },
+    {
+      "start": 35.22,
+      "end": 38.46,
+      "text": "Now they return in the things that I dream",
+      "uncertain": false
+    },
+    {
+      "start": 38.46,
+      "end": 41.38,
+      "text": "Rode of blades beating the dawn into smoke",
+      "uncertain": true
+    },
+    {
+      "start": 41.38,
+      "end": 44.7,
+      "text": "A radio whistler, a rifle bolt smoke",
+      "uncertain": false
+    },
+    {
+      "start": 44.7,
+      "end": 47.9,
+      "text": "We counted the living when daylight was gone",
+      "uncertain": false
+    },
+    {
+      "start": 47.9,
+      "end": 51.08,
+      "text": "And learned how the world could keep moving on",
+      "uncertain": false
+    },
+    {
+      "start": 51.08,
+      "end": 54.24,
+      "text": "They cleaned up the map and called it a plan",
+      "uncertain": true
+    },
+    {
+      "start": 54.24,
+      "end": 57.86,
+      "text": "With no line of ink through the heart of a man",
+      "uncertain": true
+    },
+    {
+      "start": 59.38,
+      "end": 62.46,
+      "text": "I carry your names home",
+      "uncertain": false
+    },
+    {
+      "start": 62.46,
+      "end": 65.88,
+      "text": "Through every mile I survived alone",
+      "uncertain": true
+    },
+    {
+      "start": 65.88,
+      "end": 69.12,
+      "text": "No middle can absent, no flag can explain",
+      "uncertain": true
+    },
+    {
+      "start": 69.12,
+      "end": 72.34,
+      "text": "Well, I saw the morning and you saw the rain",
+      "uncertain": true
+    },
+    {
+      "start": 72.34,
+      "end": 75.66,
+      "text": "When memory calls me, I never let go",
+      "uncertain": false
+    },
+    {
+      "start": 76.74,
+      "end": 79.6,
+      "text": "I carry your names home",
+      "uncertain": false
+    },
+    {
+      "start": 84.32,
+      "end": 90.38,
+      "text": "Red earth clung hard to the soles of our fleet, smoke turned the moon to a merciless heat.",
+      "uncertain": true
+    },
+    {
+      "start": 90.84,
+      "end": 96.58,
+      "text": "A village stood quiet, a doorway was bare, fear had a face and it lived everywhere.",
+      "uncertain": true
+    },
+    {
+      "start": 96.58,
+      "end": 102.72,
+      "text": "We were sons with our voices still changing at night, told to be certain and ordered to",
+      "uncertain": false
+    },
+    {
+      "start": 102.72,
+      "end": 103.08,
+      "text": "fight.",
+      "uncertain": false
+    },
+    {
+      "start": 103.18,
+      "end": 108.3,
+      "text": "I remember the wounded, the frightened, the cries and the questions that stayed when the",
+      "uncertain": false
+    },
+    {
+      "start": 108.3,
+      "end": 109.58,
+      "text": "gunfire went wild.",
+      "uncertain": true
+    },
+    {
+      "start": 109.58,
+      "end": 112.7,
+      "text": "The years built a house where the old shadows roamed.",
+      "uncertain": true
+    },
+    {
+      "start": 112.88,
+      "end": 116.32,
+      "text": "Some of us returned, but not all made it home.",
+      "uncertain": false
+    },
+    {
+      "start": 118.3,
+      "end": 120.9,
+      "text": "I carry your name's home.",
+      "uncertain": false
+    },
+    {
+      "start": 121.26,
+      "end": 124.18,
+      "text": "Through every mile I survived alone.",
+      "uncertain": false
+    },
+    {
+      "start": 124.64,
+      "end": 127.56,
+      "text": "No metal can answer, no fact can explain.",
+      "uncertain": true
+    },
+    {
+      "start": 127.82,
+      "end": 130.78,
+      "text": "Why I saw the morning and you saw the rain.",
+      "uncertain": false
+    },
+    {
+      "start": 130.98,
+      "end": 134.02,
+      "text": "Whenever he calls me, I never let go.",
+      "uncertain": false
+    },
+    {
+      "start": 135.3,
+      "end": 138.0,
+      "text": "I carry your name's home.",
+      "uncertain": false
+    },
+    {
+      "start": 139.66,
+      "end": 145.56,
+      "text": "At the wall, my hand finds every letter, called Blackstone, but I hear you better.",
+      "uncertain": false
+    },
+    {
+      "start": 146.0,
+      "end": 152.1,
+      "text": "Not as soldiers, frozen in flame, but as boys with a joke and a hometown name.",
+      "uncertain": false
+    },
+    {
+      "start": 152.52,
+      "end": 158.28,
+      "text": "If you wanted children, where you wanted the sea, Tommy said, save the code one for me.",
+      "uncertain": true
+    },
+    {
+      "start": 158.54,
+      "end": 164.82,
+      "text": "I kept that promise through forty long years, one glass for the laughter, one brass for the tears.",
+      "uncertain": false
+    },
+    {
+      "start": 167.7,
+      "end": 170.92,
+      "text": "The world does not vanish when silence begins",
+      "uncertain": true
+    },
+    {
+      "start": 170.92,
+      "end": 174.06,
+      "text": "It follows the living beneath their skin",
+      "uncertain": true
+    },
+    {
+      "start": 174.06,
+      "end": 177.42,
+      "text": "So I speak for the friends who cannot grow old",
+      "uncertain": false
+    },
+    {
+      "start": 177.42,
+      "end": 180.52,
+      "text": "Not for the glory, for the truth to be told",
+      "uncertain": false
+    },
+    {
+      "start": 180.52,
+      "end": 183.9,
+      "text": "I carry your names home",
+      "uncertain": false
+    },
+    {
+      "start": 183.9,
+      "end": 187.62,
+      "text": "You never want that dark road alone",
+      "uncertain": true
+    },
+    {
+      "start": 187.62,
+      "end": 190.7,
+      "text": "No speech can return you, no anthem erase",
+      "uncertain": false
+    },
+    {
+      "start": 190.7,
+      "end": 193.96,
+      "text": "The heat of that country, the light in your face",
+      "uncertain": false
+    },
+    {
+      "start": 193.96,
+      "end": 197.46,
+      "text": "As long as I'm breathing, the whole world will know",
+      "uncertain": false
+    },
+    {
+      "start": 198.42,
+      "end": 201.16,
+      "text": "I carry your names home",
+      "uncertain": false
+    },
+    {
+      "start": 205.32,
+      "end": 208.76,
+      "text": "When my own evening comes and the last light is low",
+      "uncertain": false
+    },
+    {
+      "start": 208.76,
+      "end": 211.88,
+      "text": "I follow your voices wherever they go",
+      "uncertain": false
+    },
+    {
+      "start": 211.88,
+      "end": 215.14,
+      "text": "Till then every sun rise through sorrow and hope",
+      "uncertain": false
+    },
+    {
+      "start": 217.32,
+      "end": 219.5,
+      "text": "I carry your names",
+      "uncertain": false
+    },
+    {
+      "start": 223.96,
+      "end": 226.34,
+      "text": "I carry your name and soul.",
+      "uncertain": true
+    }
+  ]
+}

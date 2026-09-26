@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "songId": "distonyc-55c809c504fa85b3f56b7785",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-55c809c504fa85b3f56b7785-bd16cc176e87.mp3",
+  "audioSha256": "bd16cc176e876876acb89cf67d16bd0f0ff7f0456f73977686a6521c07d55ea5",
+  "inputSha256": "776547470ff7d33ff9a47e48184e6fb454a8ebc52a0d03d8cc36a9a6fcc913c6",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 239.9869375,
+  "segments": [
+    {
+      "start": 4.08,
+      "end": 7.58,
+      "text": "Jordan, you draw your maps with a trembling hand.",
+      "uncertain": false
+    },
+    {
+      "start": 7.9,
+      "end": 11.84,
+      "text": "Sell a ladder to a boy who only needs a friend.",
+      "uncertain": false
+    },
+    {
+      "start": 12.28,
+      "end": 16.18,
+      "text": "Tell him every room's a war, every heart's a test.",
+      "uncertain": false
+    },
+    {
+      "start": 16.6,
+      "end": 20.52,
+      "text": "But a throne made out of anger never lets a body rest.",
+      "uncertain": false
+    },
+    {
+      "start": 20.76,
+      "end": 24.66,
+      "text": "I have swallowed all the rules that said a man can't bend.",
+      "uncertain": false
+    },
+    {
+      "start": 25.06,
+      "end": 29.02,
+      "text": "Found the strongest thing I did was let somebody in.",
+      "uncertain": false
+    },
+    {
+      "start": 33.48,
+      "end": 36.78,
+      "text": "Because I fought the demon and I wear the scar",
+      "uncertain": true
+    },
+    {
+      "start": 36.78,
+      "end": 39.36,
+      "text": "And who I am is who I are",
+      "uncertain": true
+    },
+    {
+      "start": 42.94,
+      "end": 45.26,
+      "text": "No borrowed crown, no Reagan's shot",
+      "uncertain": true
+    },
+    {
+      "start": 45.26,
+      "end": 47.9,
+      "text": "Can tell me what to do with my own heart",
+      "uncertain": false
+    },
+    {
+      "start": 48.96,
+      "end": 50.54,
+      "text": "It's who I am, yeah",
+      "uncertain": false
+    },
+    {
+      "start": 50.54,
+      "end": 53.04,
+      "text": "Not a wolf at the gate",
+      "uncertain": false
+    },
+    {
+      "start": 53.04,
+      "end": 55.0,
+      "text": "Not a king at the bar",
+      "uncertain": false
+    },
+    {
+      "start": 55.0,
+      "end": 57.28,
+      "text": "Not a number on a screen",
+      "uncertain": false
+    },
+    {
+      "start": 57.28,
+      "end": 59.42,
+      "text": "Saying who the winners are",
+      "uncertain": false
+    },
+    {
+      "start": 59.42,
+      "end": 63.5,
+      "text": "I can carry my brother, I can ask him to stay",
+      "uncertain": false
+    },
+    {
+      "start": 63.5,
+      "end": 67.8,
+      "text": "I can lose, I can love, I can change my way",
+      "uncertain": true
+    },
+    {
+      "start": 67.8,
+      "end": 70.92,
+      "text": "It's through our, yeah",
+      "uncertain": false
+    },
+    {
+      "start": 76.06,
+      "end": 80.64,
+      "text": "To the boys in the basement with the blue light eyes",
+      "uncertain": false
+    },
+    {
+      "start": 80.64,
+      "end": 84.68,
+      "text": "You were lonely before somebody monetized the why",
+      "uncertain": true
+    },
+    {
+      "start": 84.68,
+      "end": 88.98,
+      "text": "They gave your herd a uniform, put contempt in your mouth",
+      "uncertain": false
+    },
+    {
+      "start": 88.98,
+      "end": 91.46,
+      "text": "Pointing north toward domination",
+      "uncertain": false
+    },
+    {
+      "start": 91.46,
+      "end": 93.26,
+      "text": "While your hope headed south",
+      "uncertain": true
+    },
+    {
+      "start": 93.26,
+      "end": 95.8,
+      "text": "But women aren't a riddle",
+      "uncertain": false
+    },
+    {
+      "start": 95.8,
+      "end": 97.3,
+      "text": "And kindness isn't weak",
+      "uncertain": false
+    },
+    {
+      "start": 97.3,
+      "end": 100.06,
+      "text": "You don't need a grand permission",
+      "uncertain": false
+    },
+    {
+      "start": 100.06,
+      "end": 101.96,
+      "text": "Slip to say what you need",
+      "uncertain": false
+    },
+    {
+      "start": 101.96,
+      "end": 104.3,
+      "text": "Watch the doctrine from your hands",
+      "uncertain": false
+    },
+    {
+      "start": 104.3,
+      "end": 105.88,
+      "text": "Come stand out in the rain",
+      "uncertain": false
+    },
+    {
+      "start": 105.88,
+      "end": 108.7,
+      "text": "There is life beyond the feed",
+      "uncertain": false
+    },
+    {
+      "start": 108.7,
+      "end": 110.84,
+      "text": "There is language for the pain",
+      "uncertain": false
+    },
+    {
+      "start": 110.84,
+      "end": 114.14,
+      "text": "I'm one step ahead of the mortician",
+      "uncertain": true
+    },
+    {
+      "start": 114.14,
+      "end": 116.9,
+      "text": "Can't live day-to-day business as usual",
+      "uncertain": false
+    },
+    {
+      "start": 116.9,
+      "end": 123.12,
+      "text": "looking forward to front and center at a funeral not because I worship endings or want the final",
+      "uncertain": true
+    },
+    {
+      "start": 123.12,
+      "end": 131.54,
+      "text": "word I just know the clock keeps moving underneath the noise we've heard I'm burning that candle at",
+      "uncertain": false
+    },
+    {
+      "start": 131.54,
+      "end": 138.7,
+      "text": "both ends alone or with friends living life before it ends so I won't spend my little flame",
+      "uncertain": false
+    },
+    {
+      "start": 138.7,
+      "end": 145.44,
+      "text": "policing someone else's skin I would rather build a table and invite the whole world in",
+      "uncertain": false
+    },
+    {
+      "start": 149.2,
+      "end": 156.5,
+      "text": "no alpha beta sigma badge can make the frightened hole no dwell clean rules can substitute for",
+      "uncertain": true
+    },
+    {
+      "start": 156.5,
+      "end": 163.82,
+      "text": "tending to the soul clean your room sure but open up the door a tidy little kingdom can't",
+      "uncertain": false
+    },
+    {
+      "start": 163.82,
+      "end": 169.22,
+      "text": "still leave you wanting more say it's get without disguising in his race on the key leave the cage",
+      "uncertain": true
+    },
+    {
+      "start": 169.22,
+      "end": 171.6,
+      "text": "Write a kind of page",
+      "uncertain": true
+    },
+    {
+      "start": 174.8,
+      "end": 176.7,
+      "text": "It's who I are",
+      "uncertain": false
+    },
+    {
+      "start": 177.4,
+      "end": 177.96,
+      "text": "Yeah",
+      "uncertain": false
+    },
+    {
+      "start": 179.26,
+      "end": 181.42,
+      "text": "I am rough around the truth",
+      "uncertain": true
+    },
+    {
+      "start": 181.42,
+      "end": 183.48,
+      "text": "But I know where we are",
+      "uncertain": false
+    },
+    {
+      "start": 183.48,
+      "end": 185.84,
+      "text": "Every man is more than muscle",
+      "uncertain": false
+    },
+    {
+      "start": 185.84,
+      "end": 187.88,
+      "text": "Every wound is more than war",
+      "uncertain": false
+    },
+    {
+      "start": 187.88,
+      "end": 189.5,
+      "text": "You can carry your brother",
+      "uncertain": true
+    },
+    {
+      "start": 189.5,
+      "end": 190.86,
+      "text": "You can ask him to stay",
+      "uncertain": false
+    },
+    {
+      "start": 190.86,
+      "end": 193.68,
+      "text": "You can lose, you can love, you can change your weight",
+      "uncertain": false
+    },
+    {
+      "start": 193.68,
+      "end": 196.42,
+      "text": "No borrowed crown, no wrecking chart",
+      "uncertain": false
+    },
+    {
+      "start": 196.42,
+      "end": 199.58,
+      "text": "No coal machine gets on the ship of your heart",
+      "uncertain": true
+    },
+    {
+      "start": 199.58,
+      "end": 201.2,
+      "text": "Because I fought the demon",
+      "uncertain": false
+    },
+    {
+      "start": 201.2,
+      "end": 202.82,
+      "text": "And I wear the scar",
+      "uncertain": true
+    },
+    {
+      "start": 202.82,
+      "end": 204.8,
+      "text": "And here I am",
+      "uncertain": true
+    },
+    {
+      "start": 204.8,
+      "end": 206.2,
+      "text": "It's who I am",
+      "uncertain": false
+    },
+    {
+      "start": 209.88,
+      "end": 212.5,
+      "text": "You don't want your time lying around",
+      "uncertain": false
+    },
+    {
+      "start": 212.5,
+      "end": 215.94,
+      "text": "You're only gonna get laid down",
+      "uncertain": false
+    },
+    {
+      "start": 217.92,
+      "end": 220.46,
+      "text": "So call the friends you missed tonight",
+      "uncertain": false
+    },
+    {
+      "start": 220.46,
+      "end": 222.68,
+      "text": "Trade the sermon for a porch light",
+      "uncertain": false
+    },
+    {
+      "start": 222.68,
+      "end": 224.96,
+      "text": "I'm here till the last bright wick is waved",
+      "uncertain": false
+    },
+    {
+      "start": 224.96,
+      "end": 226.52,
+      "text": "Till I can lie down in my grave",
+      "uncertain": true
+    },
+    {
+      "start": 226.52,
+      "end": 228.28,
+      "text": "It's true right now",
+      "uncertain": true
+    },
+    {
+      "start": 228.98,
+      "end": 229.48,
+      "text": "Yeah",
+      "uncertain": false
+    },
+    {
+      "start": 231.02,
+      "end": 231.52,
+      "text": "Yeah",
+      "uncertain": true
+    }
+  ]
+}

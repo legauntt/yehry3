@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "songId": "distonyc-e22a335608c2455e81b763c1",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e22a335608c2455e81b763c1-e2b1386a84a2.mp3",
+  "audioSha256": "e2b1386a84a2cb08fe03332f383e9149bdfa3738abaaf118f949659f80ecc50a",
+  "inputSha256": "41bdae149fa75720b18f49d0e3eaf74fc6a9044e7dd97dca4c516c40f90ec308",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 165.04,
+  "segments": [
+    {
+      "start": 1.66,
+      "end": 29.82,
+      "text": "Back in the mirror, jacket on the chair, fresh cup comfort, electric in the air, it's all in the doorway, guitar over my back, little smile and a number of a napkin, she says you look like trouble, I say trouble sounds fine, and my whole smooth future freezes at the sight, I tried to play it casual, tried to turn the glass away, but my religion has a habit of around and on a date, I see clear water, see you question in her eyes and more the careful",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 40.4,
+      "text": "little eyes evaporate, one last too far, one June too late, one last too far, one last",
+      "uncertain": true
+    },
+    {
+      "start": 40.4,
+      "end": 45.4,
+      "text": "too far, I've been through wrong damn time, I was an Indian, she said, I wish at the door",
+      "uncertain": true
+    },
+    {
+      "start": 45.4,
+      "end": 52.5,
+      "text": "still singing a lot, one last too far, she said, are you kidding, I said, no, it's what",
+      "uncertain": true
+    },
+    {
+      "start": 52.5,
+      "end": 58.3,
+      "text": "I do, she said, that is a lie, forget the number two, I said, when the night gets heated,",
+      "uncertain": false
+    },
+    {
+      "start": 58.3,
+      "end": 60.28,
+      "text": "I don't mean to make a scene",
+      "uncertain": false
+    },
+    {
+      "start": 60.28,
+      "end": 61.58,
+      "text": "And it's just my ear",
+      "uncertain": true
+    },
+    {
+      "start": 61.58,
+      "end": 62.54,
+      "text": "I don't mean to make a scene",
+      "uncertain": false
+    },
+    {
+      "start": 62.54,
+      "end": 64.54,
+      "text": "She said, keep that glass away from me",
+      "uncertain": false
+    },
+    {
+      "start": 64.54,
+      "end": 65.42,
+      "text": "And vanish clean",
+      "uncertain": false
+    },
+    {
+      "start": 65.42,
+      "end": 67.04,
+      "text": "I had a black, black roof",
+      "uncertain": true
+    },
+    {
+      "start": 67.04,
+      "end": 68.74,
+      "text": "I saw my pretty plan",
+      "uncertain": true
+    },
+    {
+      "start": 68.74,
+      "end": 70.72,
+      "text": "Now I'm explaining body fluids",
+      "uncertain": false
+    },
+    {
+      "start": 70.72,
+      "end": 72.3,
+      "text": "Like a lonely torment",
+      "uncertain": true
+    },
+    {
+      "start": 72.3,
+      "end": 74.52,
+      "text": "The waiter looked awake",
+      "uncertain": true
+    },
+    {
+      "start": 74.52,
+      "end": 76.4,
+      "text": "The ice began to melt",
+      "uncertain": false
+    },
+    {
+      "start": 76.4,
+      "end": 78.44,
+      "text": "That's the sound of every chance",
+      "uncertain": false
+    },
+    {
+      "start": 78.44,
+      "end": 80.4,
+      "text": "I ever found",
+      "uncertain": true
+    },
+    {
+      "start": 80.4,
+      "end": 81.92,
+      "text": "One glass too far",
+      "uncertain": false
+    },
+    {
+      "start": 81.92,
+      "end": 83.9,
+      "text": "I know the line",
+      "uncertain": false
+    },
+    {
+      "start": 85.94,
+      "end": 87.32,
+      "text": "One glass too far",
+      "uncertain": false
+    },
+    {
+      "start": 87.32,
+      "end": 88.74,
+      "text": "One glance too far",
+      "uncertain": true
+    },
+    {
+      "start": 88.74,
+      "end": 90.04,
+      "text": "I'll have it",
+      "uncertain": true
+    },
+    {
+      "start": 90.04,
+      "end": 91.84,
+      "text": "The wrong damn time I was in it",
+      "uncertain": true
+    },
+    {
+      "start": 91.84,
+      "end": 93.02,
+      "text": "And she's every to the door",
+      "uncertain": true
+    },
+    {
+      "start": 93.02,
+      "end": 93.5,
+      "text": "Still singing",
+      "uncertain": true
+    },
+    {
+      "start": 93.5,
+      "end": 95.1,
+      "text": "One glass too far",
+      "uncertain": true
+    },
+    {
+      "start": 95.1,
+      "end": 97.44,
+      "text": "Maybe love meets boundaries",
+      "uncertain": false
+    },
+    {
+      "start": 97.44,
+      "end": 99.26,
+      "text": "Maybe fate meets better time",
+      "uncertain": true
+    },
+    {
+      "start": 99.26,
+      "end": 101.6,
+      "text": "And maybe urine needs a warning sign",
+      "uncertain": false
+    },
+    {
+      "start": 101.6,
+      "end": 102.9,
+      "text": "Before the dining",
+      "uncertain": true
+    },
+    {
+      "start": 102.9,
+      "end": 105.06,
+      "text": "I don't blame her leaving",
+      "uncertain": false
+    },
+    {
+      "start": 105.06,
+      "end": 106.92,
+      "text": "I just hate the lonely drive",
+      "uncertain": false
+    },
+    {
+      "start": 106.92,
+      "end": 109.02,
+      "text": "With the guitar in the backseat",
+      "uncertain": false
+    },
+    {
+      "start": 109.02,
+      "end": 110.76,
+      "text": "And my pride's still alive",
+      "uncertain": false
+    },
+    {
+      "start": 110.76,
+      "end": 112.62,
+      "text": "I am tall, I am handsome",
+      "uncertain": false
+    },
+    {
+      "start": 112.62,
+      "end": 114.58,
+      "text": "I can sing a midnight bar",
+      "uncertain": true
+    },
+    {
+      "start": 114.58,
+      "end": 116.48,
+      "text": "But the water stops me thinking",
+      "uncertain": false
+    },
+    {
+      "start": 116.48,
+      "end": 118.56,
+      "text": "One glass too far",
+      "uncertain": false
+    },
+    {
+      "start": 122.06,
+      "end": 124.34,
+      "text": "But I'm still standing tall",
+      "uncertain": false
+    },
+    {
+      "start": 124.34,
+      "end": 128.8,
+      "text": "I'm you switching with a problem and a phone that doesn't call",
+      "uncertain": true
+    },
+    {
+      "start": 128.8,
+      "end": 132.72,
+      "text": "Someday someone may hear me and not run across the floor",
+      "uncertain": false
+    },
+    {
+      "start": 132.72,
+      "end": 136.48,
+      "text": "Till then I'll keep my empty hip and reaching for the door",
+      "uncertain": true
+    },
+    {
+      "start": 136.48,
+      "end": 138.44,
+      "text": "One glass too far",
+      "uncertain": false
+    },
+    {
+      "start": 138.44,
+      "end": 140.16,
+      "text": "One truth too late",
+      "uncertain": false
+    },
+    {
+      "start": 140.16,
+      "end": 142.62,
+      "text": "Clear water in the spotlight",
+      "uncertain": false
+    },
+    {
+      "start": 142.62,
+      "end": 144.08,
+      "text": "Ain't a solid date",
+      "uncertain": false
+    },
+    {
+      "start": 144.08,
+      "end": 146.34,
+      "text": "No kiss tonight, no second chance",
+      "uncertain": false
+    },
+    {
+      "start": 146.34,
+      "end": 147.96,
+      "text": "But leave the neon star",
+      "uncertain": true
+    },
+    {
+      "start": 147.96,
+      "end": 149.9,
+      "text": "Just me, my song",
+      "uncertain": false
+    },
+    {
+      "start": 149.9,
+      "end": 152.86,
+      "text": "And one, one, glass, two, four",
+      "uncertain": true
+    }
+  ]
+}

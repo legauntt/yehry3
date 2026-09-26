@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "songId": "round-and-round-ai-remix",
+  "audioUrl": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/round-and-round-ai-remix.mp3",
+  "audioSha256": "5885620b4749b02a263791e9f3bfe4e0459a905c23d92577a2eb1a4bd6f213a0",
+  "inputSha256": "5885620b4749b02a263791e9f3bfe4e0459a905c23d92577a2eb1a4bd6f213a0",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 237.7026875,
+  "segments": [
+    {
+      "start": 10.88,
+      "end": 15.28,
+      "text": "I don't know nothing, I ain't found out for myself",
+      "uncertain": false
+    },
+    {
+      "start": 16.52,
+      "end": 21.18,
+      "text": "Learn the hard way, never to trust nobody else",
+      "uncertain": false
+    },
+    {
+      "start": 21.18,
+      "end": 25.82,
+      "text": "And I'm a long way from glory, if you believe what they say",
+      "uncertain": false
+    },
+    {
+      "start": 27.12,
+      "end": 31.12,
+      "text": "I don't mind cause that's just my way",
+      "uncertain": true
+    },
+    {
+      "start": 31.12,
+      "end": 34.8,
+      "text": "Around and around I go, lost my way",
+      "uncertain": true
+    },
+    {
+      "start": 34.8,
+      "end": 37.34,
+      "text": "Throw it all over to the break down lane",
+      "uncertain": true
+    },
+    {
+      "start": 37.34,
+      "end": 40.1,
+      "text": "Not long you don't pass down on the floor",
+      "uncertain": true
+    },
+    {
+      "start": 40.1,
+      "end": 42.6,
+      "text": "Doesn't really matter cause I don't need score",
+      "uncertain": true
+    },
+    {
+      "start": 42.6,
+      "end": 45.44,
+      "text": "Around I go, lost my way",
+      "uncertain": false
+    },
+    {
+      "start": 45.44,
+      "end": 48.74,
+      "text": "I won't go with troubles when I'm gone away",
+      "uncertain": true
+    },
+    {
+      "start": 52.14,
+      "end": 54.06,
+      "text": "When I'm gone away",
+      "uncertain": false
+    },
+    {
+      "start": 58.82,
+      "end": 61.04,
+      "text": "There ain't no heaven there",
+      "uncertain": true
+    },
+    {
+      "start": 61.04,
+      "end": 63.14,
+      "text": "There sure ain't no hell",
+      "uncertain": true
+    },
+    {
+      "start": 63.14,
+      "end": 66.12,
+      "text": "Just a long road to travel",
+      "uncertain": false
+    },
+    {
+      "start": 66.12,
+      "end": 68.38,
+      "text": "And a story to tell",
+      "uncertain": false
+    },
+    {
+      "start": 69.36,
+      "end": 71.48,
+      "text": "I made my choices",
+      "uncertain": false
+    },
+    {
+      "start": 71.48,
+      "end": 73.8,
+      "text": "And I got my regrets",
+      "uncertain": false
+    },
+    {
+      "start": 74.64,
+      "end": 79.0,
+      "text": "But there ain't nothing I can learn to forget",
+      "uncertain": true
+    },
+    {
+      "start": 79.0,
+      "end": 81.3,
+      "text": "Around and around I go",
+      "uncertain": false
+    },
+    {
+      "start": 81.3,
+      "end": 82.78,
+      "text": "Lost I wait",
+      "uncertain": true
+    },
+    {
+      "start": 82.78,
+      "end": 85.3,
+      "text": "Move it on over to the breakdown lane",
+      "uncertain": true
+    },
+    {
+      "start": 85.3,
+      "end": 87.98,
+      "text": "Knock on your door, pass out on the floor",
+      "uncertain": false
+    },
+    {
+      "start": 87.98,
+      "end": 90.64,
+      "text": "Doesn't really matter cause I don't keep score",
+      "uncertain": true
+    },
+    {
+      "start": 90.64,
+      "end": 93.36,
+      "text": "Around I go, lost I read",
+      "uncertain": true
+    },
+    {
+      "start": 93.36,
+      "end": 96.7,
+      "text": "I won't know troubles when I'm, when I'm gone away",
+      "uncertain": true
+    },
+    {
+      "start": 96.7,
+      "end": 100.28,
+      "text": "Yeah, yeah, yeah",
+      "uncertain": false
+    },
+    {
+      "start": 100.28,
+      "end": 102.04,
+      "text": "When I'm gone away",
+      "uncertain": false
+    },
+    {
+      "start": 105.46,
+      "end": 107.4,
+      "text": "When I'm gone away",
+      "uncertain": false
+    },
+    {
+      "start": 109.8,
+      "end": 113.36,
+      "text": "And when I'm going away",
+      "uncertain": true
+    },
+    {
+      "start": 116.12,
+      "end": 118.58,
+      "text": "Oh, I'll be the world like you",
+      "uncertain": true
+    },
+    {
+      "start": 118.58,
+      "end": 124.34,
+      "text": "Oh, I'll be the world like you",
+      "uncertain": false
+    },
+    {
+      "start": 124.34,
+      "end": 137.38,
+      "text": "Oh, I'll be the world like you",
+      "uncertain": false
+    },
+    {
+      "start": 139.14,
+      "end": 143.82,
+      "text": "Don't know nothing I ain't found out for myself",
+      "uncertain": false
+    },
+    {
+      "start": 143.82,
+      "end": 146.38,
+      "text": "I learned the hard way",
+      "uncertain": true
+    },
+    {
+      "start": 146.38,
+      "end": 149.16,
+      "text": "Never to trust nobody else",
+      "uncertain": false
+    },
+    {
+      "start": 149.16,
+      "end": 151.46,
+      "text": "I'm a long way from glory",
+      "uncertain": false
+    },
+    {
+      "start": 151.46,
+      "end": 153.92,
+      "text": "If you believe what they say",
+      "uncertain": false
+    },
+    {
+      "start": 153.92,
+      "end": 156.58,
+      "text": "But I don't mind",
+      "uncertain": true
+    },
+    {
+      "start": 156.58,
+      "end": 159.94,
+      "text": "Cause that's just my way around",
+      "uncertain": true
+    },
+    {
+      "start": 159.94,
+      "end": 162.66,
+      "text": "And around I go, lost I weigh",
+      "uncertain": false
+    },
+    {
+      "start": 162.66,
+      "end": 165.34,
+      "text": "You're moving all over to the breakdown lane",
+      "uncertain": false
+    },
+    {
+      "start": 165.34,
+      "end": 168.04,
+      "text": "I'm knock on your door, passed out on your floor",
+      "uncertain": true
+    },
+    {
+      "start": 168.04,
+      "end": 170.62,
+      "text": "It doesn't really matter, cause I don't keep score",
+      "uncertain": true
+    },
+    {
+      "start": 170.62,
+      "end": 173.18,
+      "text": "Around I go, lost highway",
+      "uncertain": false
+    },
+    {
+      "start": 173.18,
+      "end": 176.68,
+      "text": "I won't lose up when I'm gone away",
+      "uncertain": true
+    },
+    {
+      "start": 176.68,
+      "end": 178.94,
+      "text": "Yeah, yeah",
+      "uncertain": false
+    },
+    {
+      "start": 180.62,
+      "end": 183.94,
+      "text": "Around I go, lost highway",
+      "uncertain": true
+    },
+    {
+      "start": 183.94,
+      "end": 186.3,
+      "text": "Pull it all over to the break down",
+      "uncertain": true
+    },
+    {
+      "start": 186.3,
+      "end": 189.38,
+      "text": "Knock on your door, my side on the floor",
+      "uncertain": true
+    },
+    {
+      "start": 189.38,
+      "end": 191.96,
+      "text": "Doesn't really matter, there's a don't keep score",
+      "uncertain": false
+    },
+    {
+      "start": 191.96,
+      "end": 194.64,
+      "text": "Around I go, lost highway",
+      "uncertain": false
+    },
+    {
+      "start": 194.64,
+      "end": 215.5,
+      "text": "Oh, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no.",
+      "uncertain": true
+    },
+    {
+      "start": 225.44,
+      "end": 229.44,
+      "text": "Yeah, yeah, yeah, yeah, when I'm gone",
+      "uncertain": true
+    }
+  ]
+}

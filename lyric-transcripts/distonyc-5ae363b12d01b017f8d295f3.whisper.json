@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "songId": "distonyc-5ae363b12d01b017f8d295f3",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5ae363b12d01b017f8d295f3-30e1e5778f2f.mp3",
+  "audioSha256": "30e1e5778f2ff75c934da85e44c06b6c9a3e70c1e57770268bb76e5f71a40411",
+  "inputSha256": "89db7f1ec454a1547acd5fe79b6a678da1cdcbb9e2eba14fe27205bd1a37a33e",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 284.8,
+  "segments": [
+    {
+      "start": 7.48,
+      "end": 9.56,
+      "text": "Morning hit the window",
+      "uncertain": true
+    },
+    {
+      "start": 9.56,
+      "end": 11.64,
+      "text": "Like a bill collector",
+      "uncertain": true
+    },
+    {
+      "start": 11.64,
+      "end": 13.84,
+      "text": "Head full of thunder",
+      "uncertain": false
+    },
+    {
+      "start": 13.84,
+      "end": 15.88,
+      "text": "Soul off the track",
+      "uncertain": false
+    },
+    {
+      "start": 15.88,
+      "end": 18.14,
+      "text": "And he gave a warning",
+      "uncertain": false
+    },
+    {
+      "start": 18.14,
+      "end": 20.26,
+      "text": "Luck lost my number",
+      "uncertain": false
+    },
+    {
+      "start": 20.26,
+      "end": 22.44,
+      "text": "Every little answer",
+      "uncertain": false
+    },
+    {
+      "start": 22.44,
+      "end": 24.46,
+      "text": "Kept answering back",
+      "uncertain": false
+    },
+    {
+      "start": 24.46,
+      "end": 27.02,
+      "text": "Then nature handed me",
+      "uncertain": false
+    },
+    {
+      "start": 27.02,
+      "end": 28.76,
+      "text": "A warm revelation",
+      "uncertain": false
+    },
+    {
+      "start": 28.76,
+      "end": 32.82,
+      "text": "No silver chalice, no medicine man",
+      "uncertain": false
+    },
+    {
+      "start": 32.82,
+      "end": 37.4,
+      "text": "I raised my own remedy, tasted salvation",
+      "uncertain": true
+    },
+    {
+      "start": 37.4,
+      "end": 41.78,
+      "text": "And every locked door opened up in my hand",
+      "uncertain": true
+    },
+    {
+      "start": 41.78,
+      "end": 45.64,
+      "text": "The aching was sold up, packed up I knew",
+      "uncertain": true
+    },
+    {
+      "start": 45.64,
+      "end": 49.92,
+      "text": "But fog in my thinking, do out of the room",
+      "uncertain": true
+    },
+    {
+      "start": 49.92,
+      "end": 54.16,
+      "text": "My shadow quit arguing, stood up straight",
+      "uncertain": false
+    },
+    {
+      "start": 54.16,
+      "end": 58.5,
+      "text": "Even my bad luck apologized late",
+      "uncertain": false
+    },
+    {
+      "start": 58.5,
+      "end": 62.76,
+      "text": "The clock stopped printing and the mirror turning kind",
+      "uncertain": true
+    },
+    {
+      "start": 62.76,
+      "end": 67.2,
+      "text": "All of those knots came loose in my mind",
+      "uncertain": true
+    },
+    {
+      "start": 67.2,
+      "end": 71.34,
+      "text": "I took one swallow, helped the whole world shift",
+      "uncertain": false
+    },
+    {
+      "start": 71.34,
+      "end": 75.86,
+      "text": "My own private something with a five-star gift",
+      "uncertain": false
+    },
+    {
+      "start": 75.86,
+      "end": 79.6,
+      "text": "My own kiss, my golden head, it's a body and spirit",
+      "uncertain": true
+    },
+    {
+      "start": 79.6,
+      "end": 82.9,
+      "text": "Moving like dancers, physical, mental, stars in alignment",
+      "uncertain": true
+    },
+    {
+      "start": 82.9,
+      "end": 86.08,
+      "text": "One little drink in the cosmos signs it, my own kiss",
+      "uncertain": false
+    },
+    {
+      "start": 86.08,
+      "end": 89.42,
+      "text": "No doubt about it, every trouble drives up around it",
+      "uncertain": true
+    },
+    {
+      "start": 89.42,
+      "end": 91.42,
+      "text": "Pour no pity, preach no shame",
+      "uncertain": true
+    },
+    {
+      "start": 91.42,
+      "end": 94.2,
+      "text": "I found the cure with my own name",
+      "uncertain": false
+    },
+    {
+      "start": 100.46,
+      "end": 104.9,
+      "text": "I had an old sorrow living under my ribs",
+      "uncertain": false
+    },
+    {
+      "start": 104.9,
+      "end": 109.08,
+      "text": "Charging the planet and stealing my speed",
+      "uncertain": true
+    },
+    {
+      "start": 109.08,
+      "end": 113.36,
+      "text": "I drank my solution, delusen its grip",
+      "uncertain": true
+    },
+    {
+      "start": 113.36,
+      "end": 117.64,
+      "text": "Then sink like a stone in the bottomless deep",
+      "uncertain": true
+    },
+    {
+      "start": 117.64,
+      "end": 122.0,
+      "text": "The holes in existence sealed at the seams",
+      "uncertain": true
+    },
+    {
+      "start": 122.0,
+      "end": 126.42,
+      "text": "My holes in my nightmare started guarding my dreams",
+      "uncertain": false
+    },
+    {
+      "start": 126.42,
+      "end": 130.54,
+      "text": "Grabbed that pervoid till the list of can made",
+      "uncertain": true
+    },
+    {
+      "start": 130.54,
+      "end": 134.94,
+      "text": "I jumped another fool and it changed all its plans",
+      "uncertain": false
+    },
+    {
+      "start": 134.94,
+      "end": 138.78,
+      "text": "No lavatory, no mountainly tree",
+      "uncertain": true
+    },
+    {
+      "start": 138.78,
+      "end": 143.1,
+      "text": "No cosmic red or knocking me off my feet",
+      "uncertain": true
+    },
+    {
+      "start": 143.36,
+      "end": 151.82,
+      "text": "The answer was local, artists invited, a personal miracle, warm and divine.",
+      "uncertain": true
+    },
+    {
+      "start": 152.14,
+      "end": 158.94,
+      "text": "My old piss, my golden answer, body and spirit, moving like dancers, physical, mental stars in alignment.",
+      "uncertain": true
+    },
+    {
+      "start": 159.2,
+      "end": 163.38,
+      "text": "One little drake in the cosmos signs it, my old piss, no doubt about it.",
+      "uncertain": false
+    },
+    {
+      "start": 163.52,
+      "end": 170.26,
+      "text": "Every trouble dries up around it, poor no pity, preach no shame, I found a cure with my own name.",
+      "uncertain": false
+    },
+    {
+      "start": 170.26,
+      "end": 174.12,
+      "text": "When Tuesday went metaphysical, splitting in two",
+      "uncertain": false
+    },
+    {
+      "start": 174.12,
+      "end": 178.56,
+      "text": "I studied the planets with a fresh brew cure",
+      "uncertain": true
+    },
+    {
+      "start": 178.56,
+      "end": 182.94,
+      "text": "When meaning was missing and nothing felt true",
+      "uncertain": false
+    },
+    {
+      "start": 182.94,
+      "end": 186.96,
+      "text": "I drank to existence and made it secure",
+      "uncertain": false
+    },
+    {
+      "start": 186.96,
+      "end": 191.26,
+      "text": "My debts became cathety, my doubts became steam",
+      "uncertain": true
+    },
+    {
+      "start": 191.26,
+      "end": 195.64,
+      "text": "My clothes found a pocket, my feet found a beak",
+      "uncertain": true
+    },
+    {
+      "start": 195.64,
+      "end": 200.2,
+      "text": "I left it before it till before life will meet",
+      "uncertain": true
+    },
+    {
+      "start": 200.2,
+      "end": 203.86,
+      "text": "Then toasted up friendship triumphantly",
+      "uncertain": true
+    },
+    {
+      "start": 204.88,
+      "end": 208.54,
+      "text": "Call it strange if strange means effective",
+      "uncertain": false
+    },
+    {
+      "start": 208.54,
+      "end": 212.7,
+      "text": "Call it the one on this while sets me free",
+      "uncertain": false
+    },
+    {
+      "start": 212.7,
+      "end": 217.34,
+      "text": "Every my remedy turns bright and proteketh",
+      "uncertain": true
+    },
+    {
+      "start": 217.34,
+      "end": 221.32,
+      "text": "Whenever the answer comes flowing from me",
+      "uncertain": false
+    },
+    {
+      "start": 247.68,
+      "end": 251.98,
+      "text": "My fine beats, both fine flowers, dry quits chewing on every hour",
+      "uncertain": true
+    },
+    {
+      "start": 251.98,
+      "end": 254.06,
+      "text": "But from skin to soul, complex me",
+      "uncertain": true
+    },
+    {
+      "start": 254.06,
+      "end": 255.86,
+      "text": "My homemade miracle sets",
+      "uncertain": true
+    },
+    {
+      "start": 255.86,
+      "end": 257.56,
+      "text": "Strength, my own bliss",
+      "uncertain": true
+    },
+    {
+      "start": 257.56,
+      "end": 260.14,
+      "text": "My boldness, a body and spirit",
+      "uncertain": false
+    },
+    {
+      "start": 260.14,
+      "end": 261.8,
+      "text": "Moving like dancers, physical",
+      "uncertain": false
+    },
+    {
+      "start": 261.8,
+      "end": 263.42,
+      "text": "Mental stars in alignment",
+      "uncertain": true
+    },
+    {
+      "start": 263.42,
+      "end": 265.02,
+      "text": "One little drink in the cosmos",
+      "uncertain": true
+    },
+    {
+      "start": 265.02,
+      "end": 266.6,
+      "text": "Signs like my own kiss",
+      "uncertain": true
+    },
+    {
+      "start": 266.6,
+      "end": 268.64,
+      "text": "Forever certain, pulling the light",
+      "uncertain": false
+    },
+    {
+      "start": 268.64,
+      "end": 270.82,
+      "text": "Through every curtain, no hidden catch",
+      "uncertain": true
+    },
+    {
+      "start": 270.82,
+      "end": 273.24,
+      "text": "No depth, pay the cure was with me",
+      "uncertain": true
+    },
+    {
+      "start": 273.24,
+      "end": 275.34,
+      "text": "Every day, so a last bit",
+      "uncertain": false
+    },
+    {
+      "start": 275.34,
+      "end": 276.68,
+      "text": "Question stands in my door",
+      "uncertain": true
+    },
+    {
+      "start": 276.68,
+      "end": 278.86,
+      "text": "With a mouth full of darkness and a bottomless wound",
+      "uncertain": true
+    },
+    {
+      "start": 278.86,
+      "end": 280.98,
+      "text": "I will lift my remedy, steady and clear",
+      "uncertain": false
+    },
+    {
+      "start": 280.98,
+      "end": 282.82,
+      "text": "and watch every terrorist disappear.",
+      "uncertain": false
+    }
+  ]
+}

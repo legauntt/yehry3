@@ -1,0 +1,415 @@
+{
+  "version": 1,
+  "songId": "distonyc-e9255c87b777e990eb5bddc3",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e9255c87b777e990eb5bddc3-b816bc5b7433.mp3",
+  "audioSha256": "b816bc5b74338505497d65d5d4e7d405b2c177077fa78f34b061db265bdb6d41",
+  "inputSha256": "b816bc5b74338505497d65d5d4e7d405b2c177077fa78f34b061db265bdb6d41",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 263.3,
+  "segments": [
+    {
+      "start": 1.38,
+      "end": 11.58,
+      "text": "San Francisco, midnight, Tony got the roses, Denny got a secret, Chris R. got the stairs,",
+      "uncertain": false
+    },
+    {
+      "start": 13.16,
+      "end": 14.5,
+      "text": "this is gonna hurt somebody.",
+      "uncertain": false
+    },
+    {
+      "start": 25.72,
+      "end": 28.44,
+      "text": "Tony wore a smoky smile into the room",
+      "uncertain": true
+    },
+    {
+      "start": 28.44,
+      "end": 31.3,
+      "text": "Tommy stood there glowing in the candle gloom",
+      "uncertain": false
+    },
+    {
+      "start": 31.3,
+      "end": 34.3,
+      "text": "Football in a tuxedo, pictures on the wall",
+      "uncertain": false
+    },
+    {
+      "start": 34.3,
+      "end": 36.94,
+      "text": "Love is like a rooftop with no whale at all",
+      "uncertain": true
+    },
+    {
+      "start": 36.94,
+      "end": 40.08,
+      "text": "Peace across the kitchen with a story in her eyes",
+      "uncertain": true
+    },
+    {
+      "start": 40.08,
+      "end": 42.7,
+      "text": "Mark kept every answer underneath the bad disguise",
+      "uncertain": false
+    },
+    {
+      "start": 42.7,
+      "end": 45.54,
+      "text": "Tony pulled Tommy closer, said, forget that cloud",
+      "uncertain": false
+    },
+    {
+      "start": 45.54,
+      "end": 48.2,
+      "text": "But a knocking from the hallway, sharp and loud",
+      "uncertain": true
+    },
+    {
+      "start": 48.2,
+      "end": 50.46,
+      "text": "Then he said, it's nothing but his hand",
+      "uncertain": true
+    },
+    {
+      "start": 50.46,
+      "end": 52.56,
+      "text": "Said more than a velvet kind of danger",
+      "uncertain": false
+    },
+    {
+      "start": 52.56,
+      "end": 53.92,
+      "text": "Stepped across the floor",
+      "uncertain": false
+    },
+    {
+      "start": 53.92,
+      "end": 56.34,
+      "text": "Chris Hart, Chris Hart",
+      "uncertain": true
+    },
+    {
+      "start": 56.34,
+      "end": 57.52,
+      "text": "Trouble dressed in black",
+      "uncertain": false
+    },
+    {
+      "start": 57.52,
+      "end": 60.42,
+      "text": "Tony saw him coming, then he couldn't look back",
+      "uncertain": false
+    },
+    {
+      "start": 60.42,
+      "end": 63.12,
+      "text": "Tommy said, my darling, why you drifting so far?",
+      "uncertain": false
+    },
+    {
+      "start": 63.38,
+      "end": 66.0,
+      "text": "There was room for a secret, room for a scar",
+      "uncertain": false
+    },
+    {
+      "start": 66.98,
+      "end": 71.38,
+      "text": "Who was that room in the room for Chris Hart?",
+      "uncertain": false
+    },
+    {
+      "start": 76.64,
+      "end": 78.02,
+      "text": "Danny owed him money",
+      "uncertain": true
+    },
+    {
+      "start": 78.02,
+      "end": 79.46,
+      "text": "Danny missed a day",
+      "uncertain": true
+    },
+    {
+      "start": 79.46,
+      "end": 82.02,
+      "text": "Chris, I'm smoking thunder, blocking every way",
+      "uncertain": false
+    },
+    {
+      "start": 82.02,
+      "end": 83.76,
+      "text": "Tony should've helped him",
+      "uncertain": false
+    },
+    {
+      "start": 83.76,
+      "end": 85.0,
+      "text": "Should've made it right",
+      "uncertain": false
+    },
+    {
+      "start": 85.0,
+      "end": 87.92,
+      "text": "Staley caught that crookie grin beneath the hallway light",
+      "uncertain": true
+    },
+    {
+      "start": 87.92,
+      "end": 89.36,
+      "text": "Tommy brought the flowers",
+      "uncertain": false
+    },
+    {
+      "start": 89.36,
+      "end": 90.84,
+      "text": "Tommy brought the wine",
+      "uncertain": false
+    },
+    {
+      "start": 90.84,
+      "end": 93.36,
+      "text": "Tony muttered, honey, this is terrible time",
+      "uncertain": false
+    },
+    {
+      "start": 93.36,
+      "end": 95.04,
+      "text": "And then the shot and hit the stairwell",
+      "uncertain": false
+    },
+    {
+      "start": 95.04,
+      "end": 96.36,
+      "text": "Everybody ran",
+      "uncertain": false
+    },
+    {
+      "start": 96.36,
+      "end": 97.84,
+      "text": "Tony grabbed the railing",
+      "uncertain": false
+    },
+    {
+      "start": 97.84,
+      "end": 99.16,
+      "text": "And Chris all grabbed his hand",
+      "uncertain": false
+    },
+    {
+      "start": 99.16,
+      "end": 101.96,
+      "text": "One touch, one death, one danger spark",
+      "uncertain": false
+    },
+    {
+      "start": 101.96,
+      "end": 107.18,
+      "text": "Tommy in the doorway saying oh hi Mark Chris Hart, Chris Hart",
+      "uncertain": true
+    },
+    {
+      "start": 107.18,
+      "end": 111.28,
+      "text": "Trouble dressed in black, Tony felt the rhythm and he couldn't step back",
+      "uncertain": false
+    },
+    {
+      "start": 111.28,
+      "end": 114.02,
+      "text": "Tommy cried you're tearing me apart beneath the stars",
+      "uncertain": true
+    },
+    {
+      "start": 114.02,
+      "end": 116.82,
+      "text": "There was room for betrayal, room for bizarre",
+      "uncertain": false
+    },
+    {
+      "start": 117.64,
+      "end": 122.88,
+      "text": "Or was there room in Tony's heart for Chris Hart",
+      "uncertain": true
+    },
+    {
+      "start": 126.82,
+      "end": 130.16,
+      "text": "Down at the coffee shop, the stories multiplied",
+      "uncertain": true
+    },
+    {
+      "start": 130.16,
+      "end": 134.5,
+      "text": "Lisa Blamey, Universe Carter nearly cried Mark said, I know nothing",
+      "uncertain": true
+    },
+    {
+      "start": 134.5,
+      "end": 138.66,
+      "text": "Then he faced the truth Tony watched his fantasy collapse around the youth",
+      "uncertain": true
+    },
+    {
+      "start": 138.66,
+      "end": 141.46,
+      "text": "Chris saw I wasn't charming when the dead came due",
+      "uncertain": false
+    },
+    {
+      "start": 141.46,
+      "end": 144.28,
+      "text": "A handsome face but nothing when the fear broke through",
+      "uncertain": true
+    },
+    {
+      "start": 144.28,
+      "end": 147.36,
+      "text": "Tony stood between them, smoky voice gone cleaner",
+      "uncertain": true
+    },
+    {
+      "start": 147.36,
+      "end": 150.04,
+      "text": "You don't buy affection and you don't deal fear",
+      "uncertain": false
+    },
+    {
+      "start": 150.04,
+      "end": 153.74,
+      "text": "No more roses coloring a lie",
+      "uncertain": true
+    },
+    {
+      "start": 154.86,
+      "end": 159.18,
+      "text": "No more rooftop questions for the empty sky",
+      "uncertain": false
+    },
+    {
+      "start": 160.98,
+      "end": 163.34,
+      "text": "Tell me I love the legend",
+      "uncertain": true
+    },
+    {
+      "start": 163.34,
+      "end": 165.74,
+      "text": "But I need what's real",
+      "uncertain": false
+    },
+    {
+      "start": 166.76,
+      "end": 169.04,
+      "text": "Chris R, keep your danger",
+      "uncertain": false
+    },
+    {
+      "start": 169.04,
+      "end": 171.44,
+      "text": "I know how danger feels",
+      "uncertain": false
+    },
+    {
+      "start": 172.64,
+      "end": 174.84,
+      "text": "Denny, call for help now",
+      "uncertain": false
+    },
+    {
+      "start": 174.84,
+      "end": 177.0,
+      "text": "Let the daylight in",
+      "uncertain": false
+    },
+    {
+      "start": 178.0,
+      "end": 180.42,
+      "text": "Tonight this twisted story",
+      "uncertain": false
+    },
+    {
+      "start": 180.42,
+      "end": 183.04,
+      "text": "Gets a different end",
+      "uncertain": false
+    },
+    {
+      "start": 183.04,
+      "end": 186.14,
+      "text": "Chris R, Chris R",
+      "uncertain": false
+    },
+    {
+      "start": 186.14,
+      "end": 187.44,
+      "text": "Take your shadow back",
+      "uncertain": false
+    },
+    {
+      "start": 187.44,
+      "end": 190.12,
+      "text": "Tony found his heartbeat on a straighter track",
+      "uncertain": false
+    },
+    {
+      "start": 190.12,
+      "end": 193.02,
+      "text": "Tommy heard the answer underneath the stars",
+      "uncertain": false
+    },
+    {
+      "start": 193.02,
+      "end": 195.88,
+      "text": "There was room for forgiveness, not another star",
+      "uncertain": false
+    },
+    {
+      "start": 195.88,
+      "end": 198.56,
+      "text": "Tony chose to live and know the play in the park",
+      "uncertain": true
+    },
+    {
+      "start": 198.56,
+      "end": 201.4,
+      "text": "But then he on the safe side with truth in his heart",
+      "uncertain": true
+    },
+    {
+      "start": 201.4,
+      "end": 204.28,
+      "text": "The door closed softly, don't replace the dot",
+      "uncertain": false
+    },
+    {
+      "start": 204.28,
+      "end": 208.3,
+      "text": "No debt, no triangle, no dangerous spark",
+      "uncertain": false
+    },
+    {
+      "start": 212.22,
+      "end": 214.92,
+      "text": "Tony left one rose where the old dream had been",
+      "uncertain": true
+    },
+    {
+      "start": 214.92,
+      "end": 217.98,
+      "text": "Laugh, low, kiss, Tommy, let the morning begin",
+      "uncertain": false
+    },
+    {
+      "start": 247.1,
+      "end": 247.34,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

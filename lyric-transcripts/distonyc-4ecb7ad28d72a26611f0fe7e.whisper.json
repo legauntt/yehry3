@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "songId": "distonyc-4ecb7ad28d72a26611f0fe7e",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4ecb7ad28d72a26611f0fe7e-00bfaf97ce7a.mp3",
+  "audioSha256": "00bfaf97ce7a7b879f4f08afe3a2ba62634fb15262c08808b9bbf7259d0cea08",
+  "inputSha256": "1cb0ff9ed660e5a834fd5799ead56f21942c81f7cd20b8cab452682abaae7e18",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 225.071,
+  "segments": [
+    {
+      "start": 5.68,
+      "end": 7.52,
+      "text": "People ask me, why?",
+      "uncertain": true
+    },
+    {
+      "start": 8.08,
+      "end": 10.56,
+      "text": "And I say, that is exactly the question.",
+      "uncertain": false
+    },
+    {
+      "start": 11.18,
+      "end": 12.92,
+      "text": "It is not obvious at all.",
+      "uncertain": false
+    },
+    {
+      "start": 13.48,
+      "end": 16.04,
+      "text": "I have considered it longer than is reasonable.",
+      "uncertain": false
+    },
+    {
+      "start": 19.94,
+      "end": 25.0,
+      "text": "Stand up straight, at the edge of dawn, with a cup in your steady hand.",
+      "uncertain": false
+    },
+    {
+      "start": 25.38,
+      "end": 29.64,
+      "text": "Before the lawn, before the traffic, before you understand.",
+      "uncertain": false
+    },
+    {
+      "start": 30.74,
+      "end": 35.32,
+      "text": "There is a river under your reds, older than every rule",
+      "uncertain": false
+    },
+    {
+      "start": 35.32,
+      "end": 40.6,
+      "text": "The question is not whether it runs, it is whether you close the loop",
+      "uncertain": true
+    },
+    {
+      "start": 42.02,
+      "end": 46.02,
+      "text": "It is warm, and that is no joke",
+      "uncertain": false
+    },
+    {
+      "start": 47.52,
+      "end": 49.98,
+      "text": "Warmth is what the cold has mourned",
+      "uncertain": false
+    },
+    {
+      "start": 51.78,
+      "end": 54.42,
+      "text": "Drink it back, buckle, drink it back",
+      "uncertain": false
+    },
+    {
+      "start": 54.42,
+      "end": 57.08,
+      "text": "Close the loop and complete the arc",
+      "uncertain": false
+    },
+    {
+      "start": 57.08,
+      "end": 61.72,
+      "text": "What you sent into the dark was yours from the very start",
+      "uncertain": false
+    },
+    {
+      "start": 61.72,
+      "end": 64.84,
+      "text": "Drink it back, bucko drink it back",
+      "uncertain": false
+    },
+    {
+      "start": 64.84,
+      "end": 67.6,
+      "text": "The lobster does not flinch or blink",
+      "uncertain": false
+    },
+    {
+      "start": 67.6,
+      "end": 70.92,
+      "text": "Sort yourself out one inch at a time",
+      "uncertain": false
+    },
+    {
+      "start": 70.92,
+      "end": 73.56,
+      "text": "And drink it back",
+      "uncertain": false
+    },
+    {
+      "start": 77.84,
+      "end": 80.12,
+      "text": "Clever people will explain",
+      "uncertain": false
+    },
+    {
+      "start": 80.12,
+      "end": 82.6,
+      "text": "That everything's made by speech",
+      "uncertain": false
+    },
+    {
+      "start": 82.6,
+      "end": 85.74,
+      "text": "But sodium sorrow every meal",
+      "uncertain": false
+    },
+    {
+      "start": 85.74,
+      "end": 92.44,
+      "text": "are farther than their theories reach the kidney has no politics it ranks the flood and makes it",
+      "uncertain": true
+    },
+    {
+      "start": 92.44,
+      "end": 101.84,
+      "text": "plain a little order in the chaos a private kingdom in the drain it is yours think about that",
+      "uncertain": false
+    },
+    {
+      "start": 101.84,
+      "end": 105.88,
+      "text": "nothing you own is quite so sure",
+      "uncertain": false
+    },
+    {
+      "start": 109.06,
+      "end": 114.46,
+      "text": "drink it back bucko drink it back close the lube and complete the arc",
+      "uncertain": false
+    },
+    {
+      "start": 114.46,
+      "end": 119.1,
+      "text": "What you sent into the dark was yours from the very starts",
+      "uncertain": true
+    },
+    {
+      "start": 119.1,
+      "end": 122.2,
+      "text": "Drink it back, but go drink it back",
+      "uncertain": true
+    },
+    {
+      "start": 122.2,
+      "end": 124.96,
+      "text": "The lobster does not flinch or blink",
+      "uncertain": false
+    },
+    {
+      "start": 124.96,
+      "end": 128.36,
+      "text": "Sword yourself out one inch at a time",
+      "uncertain": true
+    },
+    {
+      "start": 129.06,
+      "end": 130.98,
+      "text": "And drink it back",
+      "uncertain": false
+    },
+    {
+      "start": 133.42,
+      "end": 136.04,
+      "text": "Well, it depends what you mean by drink",
+      "uncertain": false
+    },
+    {
+      "start": 136.04,
+      "end": 138.76,
+      "text": "It depends what you mean by own",
+      "uncertain": false
+    },
+    {
+      "start": 138.76,
+      "end": 142.52,
+      "text": "The serpent eats its tail and calls it wisdom",
+      "uncertain": false
+    },
+    {
+      "start": 142.52,
+      "end": 147.52,
+      "text": "Is it metaphor? Is it bone? Pinocchio entered the whale at night",
+      "uncertain": false
+    },
+    {
+      "start": 147.52,
+      "end": 150.02,
+      "text": "Nobody liked where it turns",
+      "uncertain": false
+    },
+    {
+      "start": 150.02,
+      "end": 152.92,
+      "text": "That is why freedom costs you something",
+      "uncertain": false
+    },
+    {
+      "start": 152.92,
+      "end": 157.54,
+      "text": "You meet the lesson, and the lesson burns",
+      "uncertain": false
+    },
+    {
+      "start": 160.52,
+      "end": 163.5,
+      "text": "Clean your room and rinse your glass",
+      "uncertain": false
+    },
+    {
+      "start": 163.5,
+      "end": 165.8,
+      "text": "Do not waste the morning light",
+      "uncertain": false
+    },
+    {
+      "start": 165.8,
+      "end": 168.02,
+      "text": "Every drop dismissed as nothing",
+      "uncertain": false
+    },
+    {
+      "start": 168.02,
+      "end": 170.44,
+      "text": "Comes back asking what is right",
+      "uncertain": false
+    },
+    {
+      "start": 170.44,
+      "end": 173.74,
+      "text": "At 4 a.m. the world is small",
+      "uncertain": true
+    },
+    {
+      "start": 173.74,
+      "end": 176.34,
+      "text": "The dragon waits behind the door",
+      "uncertain": true
+    },
+    {
+      "start": 176.34,
+      "end": 178.8,
+      "text": "Carry what you can carry, man",
+      "uncertain": false
+    },
+    {
+      "start": 178.8,
+      "end": 181.18,
+      "text": "Then carry one thing more",
+      "uncertain": false
+    },
+    {
+      "start": 183.46,
+      "end": 186.16,
+      "text": "Drink it back, buckle, drink it back",
+      "uncertain": false
+    },
+    {
+      "start": 186.16,
+      "end": 188.8,
+      "text": "Close the loop and complete the arc",
+      "uncertain": false
+    },
+    {
+      "start": 188.8,
+      "end": 193.38,
+      "text": "What you sent into the dark was yours from the very start",
+      "uncertain": true
+    },
+    {
+      "start": 193.38,
+      "end": 196.6,
+      "text": "Drink it back, buckle, drink it back",
+      "uncertain": false
+    },
+    {
+      "start": 196.6,
+      "end": 199.2,
+      "text": "Tell the truth and face the break",
+      "uncertain": false
+    },
+    {
+      "start": 199.2,
+      "end": 205.28,
+      "text": "Pick up the cup, look it in the eye, then drink it back.",
+      "uncertain": true
+    },
+    {
+      "start": 209.26,
+      "end": 213.02,
+      "text": "It is not obvious, but it is yours.",
+      "uncertain": false
+    }
+  ]
+}

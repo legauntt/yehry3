@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "songId": "distonyc-519ddb09d2c766021066c3c7",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-519ddb09d2c766021066c3c7-cdd5ed582dcd.mp3",
+  "audioSha256": "cdd5ed582dcde2cbb37f8f65337334b93d533be169292ad071090f2faefb9310",
+  "inputSha256": "f15eacdc1037990a29093672fdf1712fd099bc071f91fc87986a5976461ab8a5",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 130.0114375,
+  "segments": [
+    {
+      "start": 6.94,
+      "end": 9.58,
+      "text": "Tony rides in the lake with a crater sound",
+      "uncertain": false
+    },
+    {
+      "start": 11.06,
+      "end": 13.54,
+      "text": "Blue light shake in the basement ground",
+      "uncertain": true
+    },
+    {
+      "start": 14.72,
+      "end": 17.22,
+      "text": "First record lands and the room leans back",
+      "uncertain": true
+    },
+    {
+      "start": 17.22,
+      "end": 19.5,
+      "text": "Somebody says, man, where's the hit at?",
+      "uncertain": false
+    },
+    {
+      "start": 21.08,
+      "end": 24.18,
+      "text": "One wants classics, one wants heat",
+      "uncertain": false
+    },
+    {
+      "start": 24.94,
+      "end": 28.08,
+      "text": "One wants silence over the beat",
+      "uncertain": false
+    },
+    {
+      "start": 28.08,
+      "end": 31.84,
+      "text": "Tony points at the deck, lets the kick drum speak",
+      "uncertain": false
+    },
+    {
+      "start": 34.64,
+      "end": 37.84,
+      "text": "Everybody's got to know it for the man in the booth",
+      "uncertain": false
+    },
+    {
+      "start": 37.84,
+      "end": 40.84,
+      "text": "Everybody wants a different kind of truth",
+      "uncertain": false
+    },
+    {
+      "start": 40.84,
+      "end": 45.56,
+      "text": "I beat that itch with a bat, then I turn it loud",
+      "uncertain": false
+    },
+    {
+      "start": 45.56,
+      "end": 50.46,
+      "text": "I can't fix America, but I can move this crowd",
+      "uncertain": false
+    },
+    {
+      "start": 56.88,
+      "end": 63.94,
+      "text": "too much house is a voice by the wall play something safe says the guy with the call",
+      "uncertain": true
+    },
+    {
+      "start": 63.94,
+      "end": 71.96,
+      "text": "tony bends the filter lets the low end slide says you came to dance not to supervise",
+      "uncertain": false
+    },
+    {
+      "start": 71.96,
+      "end": 79.44,
+      "text": "hands in the air complaints in a lie a bad opinion at a beautiful time",
+      "uncertain": false
+    },
+    {
+      "start": 79.44,
+      "end": 84.14,
+      "text": "I'll beat that itch with a bat, let the snare come through",
+      "uncertain": false
+    },
+    {
+      "start": 84.14,
+      "end": 89.06,
+      "text": "I can't fix America, but I can't fix you",
+      "uncertain": true
+    },
+    {
+      "start": 92.66,
+      "end": 96.0,
+      "text": "Everybody's got a note for the man in the booth",
+      "uncertain": false
+    },
+    {
+      "start": 96.0,
+      "end": 98.98,
+      "text": "Everybody wants a different kind of truth",
+      "uncertain": false
+    },
+    {
+      "start": 98.98,
+      "end": 103.54,
+      "text": "The lights come up, but the pulse stays brown",
+      "uncertain": false
+    },
+    {
+      "start": 103.54,
+      "end": 108.36,
+      "text": "I can't fix America, but I can move its crown",
+      "uncertain": false
+    },
+    {
+      "start": 111.7,
+      "end": 115.28,
+      "text": "So take your lisk and fold it small",
+      "uncertain": false
+    },
+    {
+      "start": 115.28,
+      "end": 119.42,
+      "text": "To not the beat outlasts it all",
+      "uncertain": true
+    },
+    {
+      "start": 122.6,
+      "end": 124.1,
+      "text": "Outlasts it all",
+      "uncertain": false
+    }
+  ]
+}

@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "songId": "distonyc-09fc20298d7d45cbbcfa45f0",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-09fc20298d7d45cbbcfa45f0-b97d81539220.mp3",
+  "audioSha256": "b97d815392201727283bdee4e4bee913d068d60063f9156fba6fa5b8ba1074a0",
+  "inputSha256": "584df8305d502c3f1282909d4cf7d7901750a9fe4cb3197a2e8c76691a023832",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 270.02775,
+  "segments": [
+    {
+      "start": 14.82,
+      "end": 18.28,
+      "text": "I found a map inside a library book",
+      "uncertain": false
+    },
+    {
+      "start": 19.02,
+      "end": 21.84,
+      "text": "Brewink rivers and a dragon's crooked look",
+      "uncertain": false
+    },
+    {
+      "start": 21.84,
+      "end": 25.34,
+      "text": "The cafeteria was loud as a war",
+      "uncertain": false
+    },
+    {
+      "start": 25.34,
+      "end": 28.76,
+      "text": "But I was halfway through a hidden door",
+      "uncertain": false
+    },
+    {
+      "start": 28.76,
+      "end": 32.6,
+      "text": "I'd trade my bus pass for a midnight train",
+      "uncertain": false
+    },
+    {
+      "start": 32.6,
+      "end": 36.34,
+      "text": "A borrowed sword, a thundercloud, a ring",
+      "uncertain": true
+    },
+    {
+      "start": 36.34,
+      "end": 39.76,
+      "text": "Tell the chosen one I saved her seat",
+      "uncertain": false
+    },
+    {
+      "start": 39.76,
+      "end": 43.7,
+      "text": "By the vending machine and the fire escape heat",
+      "uncertain": true
+    },
+    {
+      "start": 43.7,
+      "end": 48.04,
+      "text": "I know the castle's only paper and glue",
+      "uncertain": false
+    },
+    {
+      "start": 48.04,
+      "end": 53.58,
+      "text": "Still every page says, come on through",
+      "uncertain": false
+    },
+    {
+      "start": 56.34,
+      "end": 59.98,
+      "text": "Romantic, if that's a thing at all",
+      "uncertain": false
+    },
+    {
+      "start": 59.98,
+      "end": 64.56,
+      "text": "Put my name beside the heroes on the wall",
+      "uncertain": true
+    },
+    {
+      "start": 64.56,
+      "end": 69.82,
+      "text": "I'd bring snacks for the rebels in Moonlit Hall",
+      "uncertain": false
+    },
+    {
+      "start": 69.82,
+      "end": 75.44,
+      "text": "Romantic, I'm answering the call",
+      "uncertain": false
+    },
+    {
+      "start": 75.44,
+      "end": 78.56,
+      "text": "Not a prince, not a prophecy",
+      "uncertain": false
+    },
+    {
+      "start": 78.56,
+      "end": 88.16,
+      "text": "just a friend with a backpack and a library key i'd tell the archer her aim is unreal",
+      "uncertain": true
+    },
+    {
+      "start": 88.16,
+      "end": 96.72,
+      "text": "ask the brooding vampire how the daylight feels the clever witch could show me a spell to make",
+      "uncertain": false
+    },
+    {
+      "start": 96.72,
+      "end": 103.88,
+      "text": "these algebra problems go straight to hell i'd stand with the girl who outruns the dark",
+      "uncertain": false
+    },
+    {
+      "start": 103.88,
+      "end": 107.38,
+      "text": "Carry the land and guard the last small spark",
+      "uncertain": false
+    },
+    {
+      "start": 107.38,
+      "end": 112.78,
+      "text": "When the final battle shakes your sky",
+      "uncertain": false
+    },
+    {
+      "start": 116.44,
+      "end": 120.58,
+      "text": "I'd say you got this",
+      "uncertain": false
+    },
+    {
+      "start": 120.58,
+      "end": 124.22,
+      "text": "And I'd stay nearby",
+      "uncertain": false
+    },
+    {
+      "start": 125.74,
+      "end": 128.94,
+      "text": "The bell rings out",
+      "uncertain": false
+    },
+    {
+      "start": 128.94,
+      "end": 131.76,
+      "text": "But I don't come down",
+      "uncertain": false
+    },
+    {
+      "start": 131.76,
+      "end": 137.0,
+      "text": "There's a secret kingdom under this town",
+      "uncertain": false
+    },
+    {
+      "start": 137.0,
+      "end": 141.8,
+      "text": "Romantic, if that's a thing at all",
+      "uncertain": false
+    },
+    {
+      "start": 141.8,
+      "end": 146.32,
+      "text": "Put my name beside the heroes on the wall",
+      "uncertain": false
+    },
+    {
+      "start": 146.32,
+      "end": 151.64,
+      "text": "I'd bring snacks for the rebels in Mule Hall",
+      "uncertain": true
+    },
+    {
+      "start": 151.64,
+      "end": 157.34,
+      "text": "Romantic, I'm answering the call",
+      "uncertain": false
+    },
+    {
+      "start": 157.34,
+      "end": 160.42,
+      "text": "Not a prince, not a prophecy",
+      "uncertain": false
+    },
+    {
+      "start": 160.42,
+      "end": 166.24,
+      "text": "Just a friend with a backpack and a library jeep",
+      "uncertain": true
+    },
+    {
+      "start": 167.38,
+      "end": 170.92,
+      "text": "Maybe the monster's a fear with a face",
+      "uncertain": false
+    },
+    {
+      "start": 170.92,
+      "end": 175.24,
+      "text": "Maybe the brave ones just make a little space",
+      "uncertain": false
+    },
+    {
+      "start": 175.24,
+      "end": 179.3,
+      "text": "Maybe the love story starts when you see",
+      "uncertain": false
+    },
+    {
+      "start": 181.86,
+      "end": 185.44,
+      "text": "Maybe the love story starts when you see",
+      "uncertain": false
+    },
+    {
+      "start": 185.44,
+      "end": 189.4,
+      "text": "Nobody wins alone, so save a place for me",
+      "uncertain": false
+    },
+    {
+      "start": 189.4,
+      "end": 194.26,
+      "text": "I don't need a crown or a famous last name",
+      "uncertain": false
+    },
+    {
+      "start": 194.26,
+      "end": 201.08,
+      "text": "Just a chapter where we all burn bright in the same flame",
+      "uncertain": false
+    },
+    {
+      "start": 203.5,
+      "end": 206.46,
+      "text": "Romancey, I know it's a thing",
+      "uncertain": true
+    },
+    {
+      "start": 206.46,
+      "end": 210.78,
+      "text": "Hear the schoolyard turn to a choir that sings",
+      "uncertain": false
+    },
+    {
+      "start": 210.78,
+      "end": 214.62,
+      "text": "I'll run through the rain when the last bell calls",
+      "uncertain": true
+    },
+    {
+      "start": 214.62,
+      "end": 219.08,
+      "text": "With my impossible friends through impossible halls",
+      "uncertain": false
+    },
+    {
+      "start": 219.08,
+      "end": 222.68,
+      "text": "Romantic, see, I'm not alone",
+      "uncertain": false
+    },
+    {
+      "start": 222.68,
+      "end": 227.06,
+      "text": "Every page is a road, every road leads home",
+      "uncertain": false
+    },
+    {
+      "start": 227.06,
+      "end": 230.6,
+      "text": "When the cover closes, I still believe",
+      "uncertain": false
+    },
+    {
+      "start": 230.6,
+      "end": 235.34,
+      "text": "There's a light in the binding waiting for you",
+      "uncertain": true
+    },
+    {
+      "start": 241.38,
+      "end": 245.18,
+      "text": "So leave that door unlatched tonight",
+      "uncertain": false
+    },
+    {
+      "start": 245.18,
+      "end": 248.9,
+      "text": "I'll bring a book and a pocket light",
+      "uncertain": false
+    },
+    {
+      "start": 248.9,
+      "end": 252.62,
+      "text": "I'll meet my friends where the wild world start",
+      "uncertain": true
+    },
+    {
+      "start": 252.62,
+      "end": 257.36,
+      "text": "And keep their names alive in my heart",
+      "uncertain": true
+    }
+  ]
+}

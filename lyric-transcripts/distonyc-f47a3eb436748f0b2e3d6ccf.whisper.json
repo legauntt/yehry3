@@ -1,0 +1,337 @@
+{
+  "version": 1,
+  "songId": "distonyc-f47a3eb436748f0b2e3d6ccf",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f47a3eb436748f0b2e3d6ccf-d79074cbfb3e.mp3",
+  "audioSha256": "d79074cbfb3eff154004e599008caf7e0fb3965d48d2adf31bd67b2fe7c679f4",
+  "inputSha256": "d79074cbfb3eff154004e599008caf7e0fb3965d48d2adf31bd67b2fe7c679f4",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 233.14,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.22,
+      "text": "Sirens in the cereal, smoke inside the rain.",
+      "uncertain": false
+    },
+    {
+      "start": 3.56,
+      "end": 6.62,
+      "text": "Tony strikes a crooked magic, fizzles in the drain.",
+      "uncertain": false
+    },
+    {
+      "start": 6.94,
+      "end": 10.32,
+      "text": "He points at the calendar, the calendar points back.",
+      "uncertain": false
+    },
+    {
+      "start": 10.48,
+      "end": 13.68,
+      "text": "Before he starts his trouble, trouble jumps the track.",
+      "uncertain": false
+    },
+    {
+      "start": 20.7,
+      "end": 24.08,
+      "text": "Tony wore a necktie, made a caution tape and spite.",
+      "uncertain": true
+    },
+    {
+      "start": 24.28,
+      "end": 27.62,
+      "text": "Had a foolish little scheme for an unforgiving knife.",
+      "uncertain": false
+    },
+    {
+      "start": 27.62,
+      "end": 31.2,
+      "text": "But the elevator buckled and the ceiling lost its grand",
+      "uncertain": true
+    },
+    {
+      "start": 31.2,
+      "end": 34.6,
+      "text": "Every dope blew out when he tried to swagger in",
+      "uncertain": true
+    },
+    {
+      "start": 34.6,
+      "end": 39.04,
+      "text": "He shook his fist at gravity, commanded it, explained the answer",
+      "uncertain": true
+    },
+    {
+      "start": 39.04,
+      "end": 42.12,
+      "text": "Hit him sideways like a runaway freight train",
+      "uncertain": true
+    },
+    {
+      "start": 42.12,
+      "end": 45.8,
+      "text": "9-11 again, 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 45.8,
+      "end": 50.98,
+      "text": "Before he came 9-11 he gets 9-11 again",
+      "uncertain": true
+    },
+    {
+      "start": 52.02,
+      "end": 55.86,
+      "text": "His wicked clock is done away, his master plan is waiting",
+      "uncertain": true
+    },
+    {
+      "start": 55.86,
+      "end": 59.76,
+      "text": "9-11 again, 9-11 again",
+      "uncertain": true
+    },
+    {
+      "start": 62.56,
+      "end": 66.12,
+      "text": "He ordered up a thundercloud and signed a Tony seed",
+      "uncertain": true
+    },
+    {
+      "start": 66.12,
+      "end": 69.7,
+      "text": "It landed on his own head with a note marked delivery",
+      "uncertain": false
+    },
+    {
+      "start": 69.7,
+      "end": 73.04,
+      "text": "He built a grand disaster from a shopping cart and string",
+      "uncertain": false
+    },
+    {
+      "start": 73.04,
+      "end": 76.38,
+      "text": "The card escaped downhill and crowned a match to Benno King",
+      "uncertain": true
+    },
+    {
+      "start": 76.38,
+      "end": 80.22,
+      "text": "He cursed the Benzmaraz and said the universe had cheated",
+      "uncertain": true
+    },
+    {
+      "start": 80.22,
+      "end": 83.78,
+      "text": "The universe said nothing but the hope was first repeated",
+      "uncertain": true
+    },
+    {
+      "start": 83.78,
+      "end": 87.9,
+      "text": "9-11 again, 9-11 again",
+      "uncertain": true
+    },
+    {
+      "start": 87.9,
+      "end": 93.2,
+      "text": "Before he can 9-11, he gets 9-11 again",
+      "uncertain": true
+    },
+    {
+      "start": 93.2,
+      "end": 97.82,
+      "text": "Refuse one sew his shoelace, every loss becomes a chain",
+      "uncertain": true
+    },
+    {
+      "start": 97.82,
+      "end": 101.76,
+      "text": "9-11 again, 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 101.76,
+      "end": 104.76,
+      "text": "Again, before the beginning",
+      "uncertain": false
+    },
+    {
+      "start": 104.76,
+      "end": 108.26,
+      "text": "Again, while the room keeps spinning",
+      "uncertain": false
+    },
+    {
+      "start": 108.26,
+      "end": 112.48,
+      "text": "Again, this bad idea comes home",
+      "uncertain": true
+    },
+    {
+      "start": 112.48,
+      "end": 115.92,
+      "text": "and parks itself upon his throne.",
+      "uncertain": true
+    },
+    {
+      "start": 119.02,
+      "end": 122.3,
+      "text": "Tone, he drew a battle map with mustard on the wall.",
+      "uncertain": true
+    },
+    {
+      "start": 122.52,
+      "end": 125.44,
+      "text": "The pigeons ate the border, so he couldn't start it.",
+      "uncertain": false
+    },
+    {
+      "start": 125.54,
+      "end": 127.64,
+      "text": "Oh, he shouted, this is sabotage,",
+      "uncertain": false
+    },
+    {
+      "start": 127.76,
+      "end": 129.3,
+      "text": "and stumbled through the band.",
+      "uncertain": false
+    },
+    {
+      "start": 129.52,
+      "end": 132.8,
+      "text": "The drummer dropped a cymbal, fate applauded where he land.",
+      "uncertain": true
+    },
+    {
+      "start": 133.0,
+      "end": 136.16,
+      "text": "His laugh became a cough, his cough became a plea.",
+      "uncertain": false
+    },
+    {
+      "start": 136.16,
+      "end": 139.72,
+      "text": "How come a whole catastrophe keeps hopping into me?",
+      "uncertain": true
+    },
+    {
+      "start": 143.0,
+      "end": 146.78,
+      "text": "Maybe every cruel intention is a boomerang in black",
+      "uncertain": false
+    },
+    {
+      "start": 146.78,
+      "end": 150.36,
+      "text": "Maybe what you're sending to the wall comes screaming back",
+      "uncertain": false
+    },
+    {
+      "start": 150.36,
+      "end": 153.76,
+      "text": "The face bumps up, the lights cut out, the room begins to sway",
+      "uncertain": true
+    },
+    {
+      "start": 153.76,
+      "end": 157.32,
+      "text": "Tony sees the easy answer, and it looks the other way",
+      "uncertain": false
+    },
+    {
+      "start": 157.32,
+      "end": 163.3,
+      "text": "9-11 again, by the plotting side is praying",
+      "uncertain": true
+    },
+    {
+      "start": 183.46,
+      "end": 192.78,
+      "text": "9-11 again, 9-11 again, 9-11 again, 9-11 again, 9-11 again, 9-11 again, 9-11 again,",
+      "uncertain": true
+    },
+    {
+      "start": 192.78,
+      "end": 195.82,
+      "text": "No glory in the ruin",
+      "uncertain": true
+    },
+    {
+      "start": 195.82,
+      "end": 197.72,
+      "text": "Only echoes down the train",
+      "uncertain": true
+    },
+    {
+      "start": 197.72,
+      "end": 199.82,
+      "text": "Night 11 again",
+      "uncertain": true
+    },
+    {
+      "start": 199.82,
+      "end": 201.66,
+      "text": "Night 11 again",
+      "uncertain": false
+    },
+    {
+      "start": 203.88,
+      "end": 206.42,
+      "text": "So slowly folds a blueprint",
+      "uncertain": true
+    },
+    {
+      "start": 206.42,
+      "end": 208.08,
+      "text": "Lest the sirens fade",
+      "uncertain": false
+    },
+    {
+      "start": 208.08,
+      "end": 209.9,
+      "text": "The night rejects his violence",
+      "uncertain": true
+    },
+    {
+      "start": 209.9,
+      "end": 211.7,
+      "text": "And repossesses the parade",
+      "uncertain": false
+    },
+    {
+      "start": 211.7,
+      "end": 213.32,
+      "text": "He walks on empty-handed",
+      "uncertain": false
+    },
+    {
+      "start": 213.32,
+      "end": 215.24,
+      "text": "Proof of course it never rains",
+      "uncertain": true
+    },
+    {
+      "start": 215.24,
+      "end": 217.26,
+      "text": "China night 11 never",
+      "uncertain": true
+    },
+    {
+      "start": 217.26,
+      "end": 219.04,
+      "text": "Night 11 again",
+      "uncertain": false
+    },
+    {
+      "start": 222.34,
+      "end": 222.46,
+      "text": "We'll be right back.",
+      "uncertain": true
+    }
+  ]
+}

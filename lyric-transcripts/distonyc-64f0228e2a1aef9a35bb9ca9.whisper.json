@@ -1,0 +1,463 @@
+{
+  "version": 1,
+  "songId": "distonyc-64f0228e2a1aef9a35bb9ca9",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-64f0228e2a1aef9a35bb9ca9-bc639c9d75b8.mp3",
+  "audioSha256": "bc639c9d75b8129f017e73386b8f6279411a1e9b990fe700858ac08fe19c63a6",
+  "inputSha256": "5c0953c99bb6b6bc78e50f72a101a667a4744fa3f3c46ec98f424c552b10ae85",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 269.44,
+  "segments": [
+    {
+      "start": 8.08,
+      "end": 12.34,
+      "text": "The television flickers blue across the kitchen wall",
+      "uncertain": true
+    },
+    {
+      "start": 12.34,
+      "end": 16.8,
+      "text": "Tony says America, you used to know the call",
+      "uncertain": true
+    },
+    {
+      "start": 16.8,
+      "end": 21.02,
+      "text": "He sets out 46 plates beneath the porch light bulb",
+      "uncertain": true
+    },
+    {
+      "start": 21.02,
+      "end": 25.3,
+      "text": "And every child has got a name from, from long ago",
+      "uncertain": false
+    },
+    {
+      "start": 27.84,
+      "end": 31.68,
+      "text": "Little George is chasing you and around the maple tree",
+      "uncertain": true
+    },
+    {
+      "start": 31.68,
+      "end": 36.2,
+      "text": "John Fitch stares who wants to know what freedom ought to be",
+      "uncertain": true
+    },
+    {
+      "start": 36.2,
+      "end": 40.44,
+      "text": "Dwight brings in the lemonade, says keep your shoulders square",
+      "uncertain": false
+    },
+    {
+      "start": 40.44,
+      "end": 45.6,
+      "text": "While Barbara folds the paper cranes and sends them through the air",
+      "uncertain": false
+    },
+    {
+      "start": 47.22,
+      "end": 51.36,
+      "text": "They don't all agree, they don't all stand the same",
+      "uncertain": false
+    },
+    {
+      "start": 51.36,
+      "end": 56.34,
+      "text": "But Toey says a family's built by learning every name",
+      "uncertain": true
+    },
+    {
+      "start": 57.34,
+      "end": 59.82,
+      "text": "Forty-six names at supper",
+      "uncertain": false
+    },
+    {
+      "start": 59.82,
+      "end": 61.9,
+      "text": "Forty-six chairs in line",
+      "uncertain": false
+    },
+    {
+      "start": 61.9,
+      "end": 64.14,
+      "text": "A whole out country in the house",
+      "uncertain": false
+    },
+    {
+      "start": 64.14,
+      "end": 66.32,
+      "text": "Little yours and mine",
+      "uncertain": false
+    },
+    {
+      "start": 66.32,
+      "end": 68.44,
+      "text": "Far back so steady highway",
+      "uncertain": true
+    },
+    {
+      "start": 68.44,
+      "end": 70.64,
+      "text": "To Jack's bright open sky",
+      "uncertain": false
+    },
+    {
+      "start": 70.64,
+      "end": 73.14,
+      "text": "Toey sings remember us",
+      "uncertain": false
+    },
+    {
+      "start": 73.14,
+      "end": 75.64,
+      "text": "Remember how to try",
+      "uncertain": false
+    },
+    {
+      "start": 79.28,
+      "end": 83.64,
+      "text": "Bell is playing saxophone beneath the screen door fan",
+      "uncertain": true
+    },
+    {
+      "start": 83.64,
+      "end": 87.48,
+      "text": "Hilly writes a post-realist and laughs at every plan",
+      "uncertain": false
+    },
+    {
+      "start": 87.48,
+      "end": 91.68,
+      "text": "George the elder tends the roses, patient through the rain",
+      "uncertain": false
+    },
+    {
+      "start": 91.68,
+      "end": 95.56,
+      "text": "George the number splits the wood and stacks it up again",
+      "uncertain": true
+    },
+    {
+      "start": 98.56,
+      "end": 102.46,
+      "text": "Raleigh paints a sunset on the fence behind the shed",
+      "uncertain": false
+    },
+    {
+      "start": 102.46,
+      "end": 106.74,
+      "text": "Jimmy fix his broken things and feeds the hens instead",
+      "uncertain": true
+    },
+    {
+      "start": 106.74,
+      "end": 111.1,
+      "text": "Gerald clears the dinner plates lined and talks too loud",
+      "uncertain": true
+    },
+    {
+      "start": 111.1,
+      "end": 115.38,
+      "text": "Richard stares out at the yard and joins the laughing ground",
+      "uncertain": false
+    },
+    {
+      "start": 117.24,
+      "end": 121.34,
+      "text": "There's Harry with a history book, Franklin in his chair",
+      "uncertain": false
+    },
+    {
+      "start": 121.34,
+      "end": 125.46,
+      "text": "Theodore climbs the staircase like he's headed anywhere",
+      "uncertain": true
+    },
+    {
+      "start": 125.46,
+      "end": 130.12,
+      "text": "Abraham says make room and every child pulls near",
+      "uncertain": true
+    },
+    {
+      "start": 130.12,
+      "end": 132.56,
+      "text": "Tony raises up his glass",
+      "uncertain": false
+    },
+    {
+      "start": 132.56,
+      "end": 134.16,
+      "text": "The future's living here",
+      "uncertain": true
+    },
+    {
+      "start": 135.16,
+      "end": 136.86,
+      "text": "Forty-six names",
+      "uncertain": false
+    },
+    {
+      "start": 136.86,
+      "end": 137.6,
+      "text": "At suburb",
+      "uncertain": true
+    },
+    {
+      "start": 137.6,
+      "end": 138.98,
+      "text": "Forty-six chairs",
+      "uncertain": false
+    },
+    {
+      "start": 138.98,
+      "end": 139.62,
+      "text": "In line",
+      "uncertain": false
+    },
+    {
+      "start": 139.62,
+      "end": 140.92,
+      "text": "A whole out country",
+      "uncertain": false
+    },
+    {
+      "start": 140.92,
+      "end": 141.84,
+      "text": "In the house",
+      "uncertain": false
+    },
+    {
+      "start": 141.84,
+      "end": 143.22,
+      "text": "A little yours",
+      "uncertain": false
+    },
+    {
+      "start": 143.22,
+      "end": 144.0,
+      "text": "And mine",
+      "uncertain": false
+    },
+    {
+      "start": 144.0,
+      "end": 145.04,
+      "text": "From my soul",
+      "uncertain": false
+    },
+    {
+      "start": 145.04,
+      "end": 146.06,
+      "text": "Steady highway",
+      "uncertain": false
+    },
+    {
+      "start": 146.06,
+      "end": 147.24,
+      "text": "To Jack's bright",
+      "uncertain": true
+    },
+    {
+      "start": 147.24,
+      "end": 148.14,
+      "text": "Open sky",
+      "uncertain": false
+    },
+    {
+      "start": 148.14,
+      "end": 149.78,
+      "text": "Toy sayings",
+      "uncertain": true
+    },
+    {
+      "start": 149.78,
+      "end": 150.74,
+      "text": "Remember us",
+      "uncertain": false
+    },
+    {
+      "start": 150.74,
+      "end": 151.9,
+      "text": "Remember how",
+      "uncertain": false
+    },
+    {
+      "start": 151.9,
+      "end": 153.2,
+      "text": "The child",
+      "uncertain": true
+    },
+    {
+      "start": 156.5,
+      "end": 158.78,
+      "text": "The headlines still are heavy",
+      "uncertain": false
+    },
+    {
+      "start": 158.78,
+      "end": 160.92,
+      "text": "And the night can feel too long",
+      "uncertain": true
+    },
+    {
+      "start": 160.92,
+      "end": 163.3,
+      "text": "But Clinton hums a low refrain",
+      "uncertain": false
+    },
+    {
+      "start": 163.3,
+      "end": 164.96,
+      "text": "And pulls them into song",
+      "uncertain": false
+    },
+    {
+      "start": 164.96,
+      "end": 167.36,
+      "text": "The bushes pass the biscuits",
+      "uncertain": false
+    },
+    {
+      "start": 167.36,
+      "end": 169.36,
+      "text": "JFK keeps time",
+      "uncertain": false
+    },
+    {
+      "start": 169.36,
+      "end": 170.88,
+      "text": "And help him own",
+      "uncertain": true
+    },
+    {
+      "start": 170.88,
+      "end": 173.82,
+      "text": "Old advice comes rolling down the line",
+      "uncertain": false
+    },
+    {
+      "start": 175.36,
+      "end": 177.68,
+      "text": "Forty-six names that suffer",
+      "uncertain": true
+    },
+    {
+      "start": 177.68,
+      "end": 179.78,
+      "text": "Forty-six hearts await",
+      "uncertain": true
+    },
+    {
+      "start": 179.78,
+      "end": 181.6,
+      "text": "Not every moment's easy",
+      "uncertain": false
+    },
+    {
+      "start": 181.6,
+      "end": 183.8,
+      "text": "Not every promise yet",
+      "uncertain": false
+    },
+    {
+      "start": 183.8,
+      "end": 185.76,
+      "text": "But here beneath this porch light",
+      "uncertain": true
+    },
+    {
+      "start": 185.76,
+      "end": 188.22,
+      "text": "Where the children all belong",
+      "uncertain": false
+    },
+    {
+      "start": 188.22,
+      "end": 193.36,
+      "text": "So he holds up country clothes and carries it in song",
+      "uncertain": true
+    },
+    {
+      "start": 196.68,
+      "end": 200.92,
+      "text": "When morning finds the table and the last warm candle flame",
+      "uncertain": true
+    },
+    {
+      "start": 200.92,
+      "end": 206.1,
+      "text": "He says take care of each other, make a good name of your name",
+      "uncertain": false
+    },
+    {
+      "start": 209.36,
+      "end": 213.08,
+      "text": "Forty-six names at supper, forty-six chairs",
+      "uncertain": false
+    },
+    {
+      "start": 213.08,
+      "end": 215.94,
+      "text": "And a line of old out country in the house",
+      "uncertain": true
+    },
+    {
+      "start": 215.94,
+      "end": 220.16,
+      "text": "A little yours and mine from Mike's on City Highway",
+      "uncertain": true
+    },
+    {
+      "start": 220.16,
+      "end": 222.5,
+      "text": "To Jack's bright open sky",
+      "uncertain": true
+    },
+    {
+      "start": 222.5,
+      "end": 227.28,
+      "text": "Tony sings, remember us, remember how they tried",
+      "uncertain": true
+    },
+    {
+      "start": 230.44,
+      "end": 234.84,
+      "text": "Forty-six names at supper, forty-six hearts awake",
+      "uncertain": false
+    },
+    {
+      "start": 234.84,
+      "end": 236.96,
+      "text": "Not every road was easy",
+      "uncertain": false
+    },
+    {
+      "start": 236.96,
+      "end": 241.18,
+      "text": "Not ever yours and mine from Mike's on City Highway",
+      "uncertain": false
+    },
+    {
+      "start": 241.18,
+      "end": 243.32,
+      "text": "To Jack's bright open sky",
+      "uncertain": false
+    },
+    {
+      "start": 243.32,
+      "end": 248.3,
+      "text": "Tony sings, remember us, remember how to chat.",
+      "uncertain": true
+    },
+    {
+      "start": 251.78,
+      "end": 256.74,
+      "text": "Tony sings, remember us, remember how to chat.",
+      "uncertain": false
+    }
+  ]
+}

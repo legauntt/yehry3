@@ -1,0 +1,253 @@
+{
+  "version": 1,
+  "songId": "distonyc-e1323f687c74c323936f20be",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e1323f687c74c323936f20be-a90ce6a2cd17.mp3",
+  "audioSha256": "a90ce6a2cd17f69e1af3240bb9042c906c66c8dff0457a2b3d381454e772e063",
+  "inputSha256": "a90ce6a2cd17f69e1af3240bb9042c906c66c8dff0457a2b3d381454e772e063",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 281.078625,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 29.98,
+      "text": "Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae, Ingrae",
+      "uncertain": true
+    },
+    {
+      "start": 29.98,
+      "end": 31.98,
+      "text": "You rap, you rap",
+      "uncertain": true
+    },
+    {
+      "start": 33.14,
+      "end": 34.16,
+      "text": "You rap, you rap",
+      "uncertain": true
+    },
+    {
+      "start": 34.16,
+      "end": 35.86,
+      "text": "You rap, you rap",
+      "uncertain": true
+    },
+    {
+      "start": 35.86,
+      "end": 37.16,
+      "text": "You rap, you rap",
+      "uncertain": true
+    },
+    {
+      "start": 37.16,
+      "end": 38.68,
+      "text": "You rap, you rap",
+      "uncertain": true
+    },
+    {
+      "start": 38.68,
+      "end": 38.98,
+      "text": "You rap, you rap",
+      "uncertain": false
+    },
+    {
+      "start": 38.98,
+      "end": 41.64,
+      "text": "You rap, you rap",
+      "uncertain": false
+    },
+    {
+      "start": 41.64,
+      "end": 42.82,
+      "text": "You rap, you rap",
+      "uncertain": false
+    },
+    {
+      "start": 42.82,
+      "end": 45.0,
+      "text": "You rap, you rap",
+      "uncertain": true
+    },
+    {
+      "start": 45.0,
+      "end": 48.26,
+      "text": "You rap, you rap",
+      "uncertain": false
+    },
+    {
+      "start": 48.26,
+      "end": 52.28,
+      "text": "You rap, you rap",
+      "uncertain": false
+    },
+    {
+      "start": 52.28,
+      "end": 53.98,
+      "text": "You rap, you rap",
+      "uncertain": false
+    },
+    {
+      "start": 54.74,
+      "end": 55.18,
+      "text": "You rap, you rap",
+      "uncertain": false
+    },
+    {
+      "start": 55.18,
+      "end": 59.66,
+      "text": "You rap, you rap",
+      "uncertain": false
+    },
+    {
+      "start": 67.2,
+      "end": 71.74,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 89.66,
+      "end": 118.86,
+      "text": "In pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride, in pride.",
+      "uncertain": true
+    },
+    {
+      "start": 120.46,
+      "end": 122.4,
+      "text": "We never got the free",
+      "uncertain": true
+    },
+    {
+      "start": 125.78,
+      "end": 128.04,
+      "text": "You're trying to make a star",
+      "uncertain": true
+    },
+    {
+      "start": 128.04,
+      "end": 135.32,
+      "text": "Cause star don't shape your land",
+      "uncertain": true
+    },
+    {
+      "start": 137.72,
+      "end": 139.56,
+      "text": "You're trying to make a star",
+      "uncertain": false
+    },
+    {
+      "start": 143.26,
+      "end": 145.7,
+      "text": "My beauty's for a producer",
+      "uncertain": false
+    },
+    {
+      "start": 145.7,
+      "end": 148.2,
+      "text": "Sir, I'm here I am",
+      "uncertain": true
+    },
+    {
+      "start": 148.2,
+      "end": 150.7,
+      "text": "I'm here, I'm here",
+      "uncertain": true
+    },
+    {
+      "start": 151.92,
+      "end": 153.46,
+      "text": "I'm here, I'm here",
+      "uncertain": true
+    },
+    {
+      "start": 154.44,
+      "end": 156.32,
+      "text": "I'm here, I'm here",
+      "uncertain": false
+    },
+    {
+      "start": 156.32,
+      "end": 160.52,
+      "text": "I'm here, I'm here",
+      "uncertain": false
+    },
+    {
+      "start": 160.52,
+      "end": 164.84,
+      "text": "I'm here, I'm here",
+      "uncertain": false
+    },
+    {
+      "start": 164.84,
+      "end": 167.94,
+      "text": "I'm here, I'm here",
+      "uncertain": false
+    },
+    {
+      "start": 167.94,
+      "end": 170.66,
+      "text": "I'm here, I'm here",
+      "uncertain": false
+    },
+    {
+      "start": 170.66,
+      "end": 172.12,
+      "text": "I'm here, I'm here",
+      "uncertain": false
+    },
+    {
+      "start": 172.12,
+      "end": 173.5,
+      "text": "I'm here, I'm here",
+      "uncertain": false
+    },
+    {
+      "start": 174.56,
+      "end": 175.32,
+      "text": "I'm here",
+      "uncertain": false
+    },
+    {
+      "start": 175.32,
+      "end": 175.68,
+      "text": "I'm here, I'm here",
+      "uncertain": false
+    },
+    {
+      "start": 175.68,
+      "end": 205.66,
+      "text": "Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad, Ebrad",
+      "uncertain": true
+    },
+    {
+      "start": 205.66,
+      "end": 209.02,
+      "text": "With your mouth full of stigma, I breathe like Jesus.",
+      "uncertain": true
+    },
+    {
+      "start": 209.42,
+      "end": 230.2,
+      "text": "I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe, I breathe.",
+      "uncertain": true
+    },
+    {
+      "start": 236.66,
+      "end": 257.84,
+      "text": "Oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh",
+      "uncertain": true
+    },
+    {
+      "start": 260.84,
+      "end": 264.22,
+      "text": "Oh, yes, tomorrow we resolve",
+      "uncertain": true
+    },
+    {
+      "start": 265.08,
+      "end": 271.56,
+      "text": "The land, the land, the land, the land, the land",
+      "uncertain": true
+    }
+  ]
+}

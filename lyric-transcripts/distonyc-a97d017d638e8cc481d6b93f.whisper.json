@@ -1,0 +1,283 @@
+{
+  "version": 1,
+  "songId": "distonyc-a97d017d638e8cc481d6b93f",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a97d017d638e8cc481d6b93f-8dea6bd1afda.mp3",
+  "audioSha256": "8dea6bd1afda9c4fc8d8e4c75d2b07637e32ab61307cd4a4ad66e9bbebeca69e",
+  "inputSha256": "30cfb2eefc5ee8fc6c69e7cc6dcb3063adac1cf6d50e50fc997bd2068278b40a",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 214.98775,
+  "segments": [
+    {
+      "start": 14.14,
+      "end": 19.04,
+      "text": "The mirror held a pale-eyed man with wind in her patch beneath his skin",
+      "uncertain": true
+    },
+    {
+      "start": 19.04,
+      "end": 23.6,
+      "text": "I laughed at every empty plate till all the light went paper thin",
+      "uncertain": true
+    },
+    {
+      "start": 23.6,
+      "end": 26.04,
+      "text": "My hands were shaking round the glass",
+      "uncertain": false
+    },
+    {
+      "start": 26.04,
+      "end": 28.52,
+      "text": "The stairs became a mountain pass",
+      "uncertain": false
+    },
+    {
+      "start": 28.52,
+      "end": 33.18,
+      "text": "And every promise in my mouth was dry as gravel, hard and fast",
+      "uncertain": false
+    },
+    {
+      "start": 33.18,
+      "end": 36.4,
+      "text": "And somebody opened up the blinds",
+      "uncertain": false
+    },
+    {
+      "start": 37.2,
+      "end": 40.7,
+      "text": "Said stay here long enough to shine",
+      "uncertain": false
+    },
+    {
+      "start": 43.84,
+      "end": 48.78,
+      "text": "I am coming back by inches, by a bone, by a breath, by a day",
+      "uncertain": true
+    },
+    {
+      "start": 48.78,
+      "end": 53.26,
+      "text": "Putting color in the window, putting thunder in my name",
+      "uncertain": false
+    },
+    {
+      "start": 53.26,
+      "end": 57.86,
+      "text": "So these bones are turning to dust, but I won't let the dust decide",
+      "uncertain": false
+    },
+    {
+      "start": 57.86,
+      "end": 62.46,
+      "text": "I'm feeding every small fire till the morning moves inside",
+      "uncertain": false
+    },
+    {
+      "start": 81.02,
+      "end": 85.98,
+      "text": "The doctor wrote a careful map of minerals and sleep and sun",
+      "uncertain": true
+    },
+    {
+      "start": 85.98,
+      "end": 88.34,
+      "text": "No magic switch, no midnight cure",
+      "uncertain": false
+    },
+    {
+      "start": 88.34,
+      "end": 90.62,
+      "text": "Just little wars that must be won",
+      "uncertain": true
+    },
+    {
+      "start": 90.62,
+      "end": 93.0,
+      "text": "I felt the song return to tears",
+      "uncertain": false
+    },
+    {
+      "start": 93.0,
+      "end": 95.2,
+      "text": "I felt my appetite appear",
+      "uncertain": false
+    },
+    {
+      "start": 95.2,
+      "end": 98.16,
+      "text": "A beach tasted like a summer song",
+      "uncertain": false
+    },
+    {
+      "start": 98.16,
+      "end": 100.18,
+      "text": "I hadn't heard in years",
+      "uncertain": false
+    },
+    {
+      "start": 100.18,
+      "end": 102.92,
+      "text": "I am coming back by inches",
+      "uncertain": false
+    },
+    {
+      "start": 102.92,
+      "end": 105.3,
+      "text": "By a bowl, by a breath, by a day",
+      "uncertain": true
+    },
+    {
+      "start": 105.3,
+      "end": 107.58,
+      "text": "Putting color in the window",
+      "uncertain": false
+    },
+    {
+      "start": 107.58,
+      "end": 109.92,
+      "text": "Putting thunder in my lane",
+      "uncertain": false
+    },
+    {
+      "start": 110.7,
+      "end": 113.18,
+      "text": "Show these bones are turning to dust",
+      "uncertain": false
+    },
+    {
+      "start": 113.18,
+      "end": 115.46,
+      "text": "But I won't let the dust decide",
+      "uncertain": false
+    },
+    {
+      "start": 115.46,
+      "end": 120.14,
+      "text": "I am feedin' every small fire till the morning moves inside",
+      "uncertain": true
+    },
+    {
+      "start": 132.94,
+      "end": 135.7,
+      "text": "No say came down, no sell the bell",
+      "uncertain": true
+    },
+    {
+      "start": 135.7,
+      "end": 137.94,
+      "text": "Just friends who would not wish me well",
+      "uncertain": false
+    },
+    {
+      "start": 137.94,
+      "end": 140.08,
+      "text": "No friends who stayed and made me",
+      "uncertain": false
+    },
+    {
+      "start": 140.08,
+      "end": 142.58,
+      "text": "Didn't walk beside my dragon feet",
+      "uncertain": false
+    },
+    {
+      "start": 144.34,
+      "end": 147.32,
+      "text": "I learned that strength can start out small",
+      "uncertain": false
+    },
+    {
+      "start": 147.32,
+      "end": 150.58,
+      "text": "A spoon, a porch, a phone call",
+      "uncertain": true
+    },
+    {
+      "start": 153.64,
+      "end": 156.48,
+      "text": "Then one clear laugh across the room",
+      "uncertain": false
+    },
+    {
+      "start": 156.48,
+      "end": 159.86,
+      "text": "And suddenly I stood up tall",
+      "uncertain": false
+    },
+    {
+      "start": 162.58,
+      "end": 165.24,
+      "text": "I am coming back by inches",
+      "uncertain": false
+    },
+    {
+      "start": 165.24,
+      "end": 167.52,
+      "text": "Now the blood begins to sing",
+      "uncertain": false
+    },
+    {
+      "start": 167.52,
+      "end": 169.82,
+      "text": "Every meal becomes a ladder",
+      "uncertain": false
+    },
+    {
+      "start": 169.82,
+      "end": 172.02,
+      "text": "Every dawn a stubborn wing",
+      "uncertain": false
+    },
+    {
+      "start": 172.02,
+      "end": 174.34,
+      "text": "Johnny's bones are turning to dust",
+      "uncertain": false
+    },
+    {
+      "start": 174.34,
+      "end": 176.7,
+      "text": "No more I hear the whole world say",
+      "uncertain": false
+    },
+    {
+      "start": 176.7,
+      "end": 179.24,
+      "text": "I am feeding every small fire",
+      "uncertain": false
+    },
+    {
+      "start": 179.24,
+      "end": 182.32,
+      "text": "I am finding my way",
+      "uncertain": false
+    },
+    {
+      "start": 192.64,
+      "end": 195.24,
+      "text": "Leave the window wide for morning",
+      "uncertain": false
+    },
+    {
+      "start": 195.24,
+      "end": 197.52,
+      "text": "Let the hard old shadows slide",
+      "uncertain": false
+    },
+    {
+      "start": 197.52,
+      "end": 199.92,
+      "text": "I am here, I am still here",
+      "uncertain": false
+    },
+    {
+      "start": 199.92,
+      "end": 202.18,
+      "text": "with the morning moving inside",
+      "uncertain": true
+    }
+  ]
+}

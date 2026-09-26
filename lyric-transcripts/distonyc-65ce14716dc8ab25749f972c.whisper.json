@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "songId": "distonyc-65ce14716dc8ab25749f972c",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-65ce14716dc8ab25749f972c-dada9467f0be.mp3",
+  "audioSha256": "dada9467f0bef4f8e7c2e1eafed1444bc0d77088327b5dbaee410ddf16a9c8ee",
+  "inputSha256": "f4738c47f072a393faa5f0ef62da9ae928555efc973bd0fea20ec1d8a88c76cd",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 250.0440625,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 0.34,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 35.46,
+      "end": 45.5,
+      "text": "I want to sound, I want to sound, I want to sound, I want to sound, I want to sound,",
+      "uncertain": true
+    },
+    {
+      "start": 45.5,
+      "end": 51.52,
+      "text": "I want to sound, I want to sound, I want to sound.",
+      "uncertain": false
+    },
+    {
+      "start": 60.0,
+      "end": 75.88,
+      "text": "I want a sound. I want a sound. I want a sound. I want a sound. I want a sound. I want a sound. I want a sound. I want a sound.",
+      "uncertain": true
+    },
+    {
+      "start": 84.28,
+      "end": 96.38,
+      "text": "I want a song, I want a song, I want a song, I want a song, I want a song, I want a song,",
+      "uncertain": true
+    },
+    {
+      "start": 106.6,
+      "end": 108.3,
+      "text": "I want a sun",
+      "uncertain": true
+    },
+    {
+      "start": 108.3,
+      "end": 110.52,
+      "text": "I want a sun",
+      "uncertain": true
+    },
+    {
+      "start": 110.52,
+      "end": 112.62,
+      "text": "I want a sun",
+      "uncertain": false
+    },
+    {
+      "start": 112.62,
+      "end": 114.68,
+      "text": "I want a sun",
+      "uncertain": false
+    },
+    {
+      "start": 114.68,
+      "end": 116.5,
+      "text": "I want a sun",
+      "uncertain": false
+    },
+    {
+      "start": 116.5,
+      "end": 118.7,
+      "text": "I want a sun",
+      "uncertain": false
+    },
+    {
+      "start": 118.7,
+      "end": 120.44,
+      "text": "I want a sun",
+      "uncertain": false
+    },
+    {
+      "start": 120.44,
+      "end": 122.4,
+      "text": "I want a sun",
+      "uncertain": false
+    },
+    {
+      "start": 122.4,
+      "end": 122.46,
+      "text": "I want a sun",
+      "uncertain": false
+    },
+    {
+      "start": 122.46,
+      "end": 124.62,
+      "text": "I want a sun",
+      "uncertain": false
+    },
+    {
+      "start": 124.62,
+      "end": 128.18,
+      "text": "I want a sun",
+      "uncertain": false
+    },
+    {
+      "start": 133.08,
+      "end": 144.4,
+      "text": "I want to suck, I want to suck, I want to suck, I want to suck, I want to suck, I want",
+      "uncertain": false
+    },
+    {
+      "start": 144.4,
+      "end": 149.54,
+      "text": "to suck, I want to suck, I want to suck, I want to suck.",
+      "uncertain": false
+    },
+    {
+      "start": 155.4,
+      "end": 171.6,
+      "text": "I want to suck, I want to suck, I want to suck, I want to suck, I want to suck, I want to suck, I want to suck, I want to suck, I want to suck.",
+      "uncertain": false
+    },
+    {
+      "start": 181.68,
+      "end": 183.9,
+      "text": "I want a son",
+      "uncertain": true
+    },
+    {
+      "start": 183.9,
+      "end": 185.7,
+      "text": "I want a sun",
+      "uncertain": true
+    },
+    {
+      "start": 214.2,
+      "end": 236.54,
+      "text": "I want such, I want such, I want such, I want such, I want such.",
+      "uncertain": true
+    },
+    {
+      "start": 247.68,
+      "end": 249.08,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

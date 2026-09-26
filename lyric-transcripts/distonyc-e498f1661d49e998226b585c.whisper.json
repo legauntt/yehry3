@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "songId": "distonyc-e498f1661d49e998226b585c",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e498f1661d49e998226b585c-2f969a9109e1.mp3",
+  "audioSha256": "2f969a9109e18cad9d3ec2a19b458c166df827daac1fd3a79e48a4717ac9c0c7",
+  "inputSha256": "ac2c0d1dc3605095cb1771923f587b08d193d55539e02e6d8949ef33092083d7",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 265.090625,
+  "segments": [
+    {
+      "start": 4.72,
+      "end": 8.48,
+      "text": "The old road glows with a golden gate",
+      "uncertain": true
+    },
+    {
+      "start": 8.48,
+      "end": 12.26,
+      "text": "Jake lashes, wings says, why should heroes wait?",
+      "uncertain": true
+    },
+    {
+      "start": 12.46,
+      "end": 15.9,
+      "text": "A little red button, a little bright flame",
+      "uncertain": false
+    },
+    {
+      "start": 15.9,
+      "end": 19.4,
+      "text": "But you coin the all to come back stronger again",
+      "uncertain": true
+    },
+    {
+      "start": 26.3,
+      "end": 28.56,
+      "text": "By a bundled blessing dust",
+      "uncertain": true
+    },
+    {
+      "start": 28.56,
+      "end": 30.22,
+      "text": "By a tower of keys",
+      "uncertain": true
+    },
+    {
+      "start": 30.22,
+      "end": 32.18,
+      "text": "By a seven-day halo",
+      "uncertain": true
+    },
+    {
+      "start": 32.18,
+      "end": 34.16,
+      "text": "For your mercenary's me's",
+      "uncertain": true
+    },
+    {
+      "start": 34.16,
+      "end": 36.74,
+      "text": "The dungeon has a stamina meter",
+      "uncertain": false
+    },
+    {
+      "start": 36.74,
+      "end": 38.42,
+      "text": "The gate has a fee",
+      "uncertain": false
+    },
+    {
+      "start": 40.98,
+      "end": 43.72,
+      "text": "I just can't open free tomorrow",
+      "uncertain": true
+    },
+    {
+      "start": 43.72,
+      "end": 45.5,
+      "text": "If tomorrow agreed",
+      "uncertain": true
+    },
+    {
+      "start": 48.22,
+      "end": 50.44,
+      "text": "There's a wheel in Tristram",
+      "uncertain": false
+    },
+    {
+      "start": 50.44,
+      "end": 52.14,
+      "text": "Turning under candle smoke",
+      "uncertain": false
+    },
+    {
+      "start": 52.14,
+      "end": 54.94,
+      "text": "Every near miss flash is purple",
+      "uncertain": false
+    },
+    {
+      "start": 54.94,
+      "end": 58.98,
+      "text": "Every loss becomes a joke",
+      "uncertain": false
+    },
+    {
+      "start": 60.0,
+      "end": 64.2,
+      "text": "Come to the season of Jeglash",
+      "uncertain": true
+    },
+    {
+      "start": 64.2,
+      "end": 67.64,
+      "text": "Spin for the treasure, make the jackpot flash",
+      "uncertain": false
+    },
+    {
+      "start": 67.64,
+      "end": 71.26,
+      "text": "One more pull for a perfect class",
+      "uncertain": false
+    },
+    {
+      "start": 71.26,
+      "end": 75.12,
+      "text": "The demons fall, but the storm moves fast",
+      "uncertain": false
+    },
+    {
+      "start": 75.12,
+      "end": 78.5,
+      "text": "Season of Jeglash, don't close that screen",
+      "uncertain": false
+    },
+    {
+      "start": 78.5,
+      "end": 81.9,
+      "text": "A legendary promise in a glowing machine",
+      "uncertain": false
+    },
+    {
+      "start": 85.52,
+      "end": 89.56,
+      "text": "The battle pass has 60 tears and wings at level 10",
+      "uncertain": false
+    },
+    {
+      "start": 89.56,
+      "end": 95.32,
+      "text": "A premium path gives doubles, walks a wolf, and twice the friends",
+      "uncertain": true
+    },
+    {
+      "start": 95.32,
+      "end": 101.18,
+      "text": "Daily contracts call at sunrise, weekly rates at midnight blue",
+      "uncertain": false
+    },
+    {
+      "start": 101.18,
+      "end": 108.56,
+      "text": "Mystery days and the calendar says the season passed through you",
+      "uncertain": false
+    },
+    {
+      "start": 111.4,
+      "end": 113.48,
+      "text": "Guildhall sell their banner slots",
+      "uncertain": true
+    },
+    {
+      "start": 113.48,
+      "end": 114.96,
+      "text": "The leaderboards reset",
+      "uncertain": true
+    },
+    {
+      "start": 114.96,
+      "end": 117.06,
+      "text": "Rent a fortune, sure your loot",
+      "uncertain": false
+    },
+    {
+      "start": 117.06,
+      "end": 118.56,
+      "text": "Protect the things you get",
+      "uncertain": false
+    },
+    {
+      "start": 118.56,
+      "end": 122.24,
+      "text": "A cosmetic portal, a cosmetic horse",
+      "uncertain": false
+    },
+    {
+      "start": 122.24,
+      "end": 123.82,
+      "text": "A cosmetic storm",
+      "uncertain": false
+    },
+    {
+      "start": 123.82,
+      "end": 127.48,
+      "text": "The plain old armor looks ashamed",
+      "uncertain": true
+    },
+    {
+      "start": 127.48,
+      "end": 129.54,
+      "text": "Beside the pay-for-force",
+      "uncertain": false
+    },
+    {
+      "start": 133.66,
+      "end": 137.12,
+      "text": "Flash says the odds are honest",
+      "uncertain": false
+    },
+    {
+      "start": 137.12,
+      "end": 140.64,
+      "text": "With a shimmer in his eye",
+      "uncertain": true
+    },
+    {
+      "start": 140.64,
+      "end": 144.4,
+      "text": "Just one more shard and you can",
+      "uncertain": true
+    },
+    {
+      "start": 144.4,
+      "end": 147.42,
+      "text": "Touch the stars before they fly",
+      "uncertain": false
+    },
+    {
+      "start": 150.36,
+      "end": 154.18,
+      "text": "Welcome to the season of Jiglash",
+      "uncertain": false
+    },
+    {
+      "start": 154.18,
+      "end": 157.54,
+      "text": "Spin for the treasure, make the jackpot flash",
+      "uncertain": false
+    },
+    {
+      "start": 157.54,
+      "end": 161.16,
+      "text": "One more pull for a perfect class",
+      "uncertain": false
+    },
+    {
+      "start": 161.16,
+      "end": 165.06,
+      "text": "The demons fall but the storm moves fast",
+      "uncertain": false
+    },
+    {
+      "start": 165.06,
+      "end": 169.3,
+      "text": "Season up, Jeglash, don't close that screen",
+      "uncertain": false
+    },
+    {
+      "start": 169.3,
+      "end": 172.92,
+      "text": "A legendary promise in a glowing machine",
+      "uncertain": true
+    },
+    {
+      "start": 175.5,
+      "end": 177.68,
+      "text": "There's a timer on the terror",
+      "uncertain": true
+    },
+    {
+      "start": 177.68,
+      "end": 179.9,
+      "text": "There's a sail below the moon",
+      "uncertain": false
+    },
+    {
+      "start": 180.52,
+      "end": 184.9,
+      "text": "A founders packed for early access to a patch arriving soon",
+      "uncertain": true
+    },
+    {
+      "start": 184.9,
+      "end": 186.82,
+      "text": "Trade your tokens, dues your echoes",
+      "uncertain": true
+    },
+    {
+      "start": 186.82,
+      "end": 188.74,
+      "text": "Chase the number climbing high",
+      "uncertain": false
+    },
+    {
+      "start": 188.74,
+      "end": 191.98,
+      "text": "Sanctuary keeps its doors unlocked",
+      "uncertain": false
+    },
+    {
+      "start": 191.98,
+      "end": 194.88,
+      "text": "That's for anybody who can bow",
+      "uncertain": false
+    },
+    {
+      "start": 201.98,
+      "end": 206.5,
+      "text": "No rest at the waypoint, no quiet after John",
+      "uncertain": true
+    },
+    {
+      "start": 206.5,
+      "end": 211.94,
+      "text": "The next reward is almost here, the old reward is gone",
+      "uncertain": false
+    },
+    {
+      "start": 211.94,
+      "end": 216.7,
+      "text": "I came to kill a demon, I came to walk the rain",
+      "uncertain": false
+    },
+    {
+      "start": 216.7,
+      "end": 222.46,
+      "text": "Now every bell from every menu knows my name.",
+      "uncertain": false
+    },
+    {
+      "start": 224.96,
+      "end": 228.72,
+      "text": "Welcome to the season of Jaglash.",
+      "uncertain": false
+    },
+    {
+      "start": 228.88,
+      "end": 232.0,
+      "text": "The fire is pretty and the numbers crash.",
+      "uncertain": false
+    },
+    {
+      "start": 232.5,
+      "end": 235.76,
+      "text": "I kept on spinning for a perfect class.",
+      "uncertain": false
+    },
+    {
+      "start": 235.76,
+      "end": 239.66,
+      "text": "Till the last small coin became me ash.",
+      "uncertain": false
+    },
+    {
+      "start": 239.88,
+      "end": 241.92,
+      "text": "Season of Jaglash.",
+      "uncertain": false
+    },
+    {
+      "start": 242.06,
+      "end": 243.1,
+      "text": "The candles lean.",
+      "uncertain": false
+    },
+    {
+      "start": 243.1,
+      "end": 246.44,
+      "text": "I leave the glowing altar and the humbly machine.",
+      "uncertain": false
+    },
+    {
+      "start": 246.7,
+      "end": 251.98,
+      "text": "I leave the glowing altar and the humbly machine.",
+      "uncertain": false
+    }
+  ]
+}

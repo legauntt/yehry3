@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "songId": "distonyc-ee54a8075a1278a0f7d0f07e",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ee54a8075a1278a0f7d0f07e-d0ea2fe2ec75.mp3",
+  "audioSha256": "d0ea2fe2ec7567965b2f22b2c53b98e84ec3fe885dc05e4cefabbf891574e532",
+  "inputSha256": "035f4dac247f3a17e37b6b3c5d6755e44446a3468ba4543d305378532ff753c1",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 144.64,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.98,
+      "text": "I found an old station past the county line, static in the speaker, moonlight on the sides.",
+      "uncertain": true
+    },
+    {
+      "start": 7.56,
+      "end": 14.32,
+      "text": "Black clad voice said mercy has a cost, a freak trained man sang proud of what he lost.",
+      "uncertain": false
+    },
+    {
+      "start": 14.78,
+      "end": 20.12,
+      "text": "And velvet on the dial came floating through, a little city sunrise painted blue.",
+      "uncertain": false
+    },
+    {
+      "start": 20.5,
+      "end": 26.06,
+      "text": "Three different rows, one long hard night, and kept the tired kid pointed toward the light.",
+      "uncertain": true
+    },
+    {
+      "start": 26.06,
+      "end": 29.14,
+      "text": "Johnny Merle Berry singing through the rain",
+      "uncertain": false
+    },
+    {
+      "start": 29.14,
+      "end": 31.94,
+      "text": "One held the fire, one held the plane",
+      "uncertain": true
+    },
+    {
+      "start": 31.94,
+      "end": 34.84,
+      "text": "One made a lonely room feel wide and bright",
+      "uncertain": false
+    },
+    {
+      "start": 34.84,
+      "end": 36.7,
+      "text": "Three names on the radio",
+      "uncertain": false
+    },
+    {
+      "start": 37.42,
+      "end": 39.12,
+      "text": "Carrying me tonight",
+      "uncertain": false
+    },
+    {
+      "start": 49.54,
+      "end": 52.38,
+      "text": "Johnny taught me thunder can bow its head",
+      "uncertain": true
+    },
+    {
+      "start": 52.38,
+      "end": 55.42,
+      "text": "Merle taught me truth, ain't afraid of being said",
+      "uncertain": false
+    },
+    {
+      "start": 55.42,
+      "end": 58.8,
+      "text": "Derry taught me tenderness can fill a hole",
+      "uncertain": true
+    },
+    {
+      "start": 58.8,
+      "end": 62.0,
+      "text": "That a broken hearted horse can still stand tall",
+      "uncertain": true
+    },
+    {
+      "start": 62.0,
+      "end": 64.74,
+      "text": "I ain't wearing anybody else's skin",
+      "uncertain": false
+    },
+    {
+      "start": 64.74,
+      "end": 67.4,
+      "text": "I just hear those old sparks when I begin",
+      "uncertain": false
+    },
+    {
+      "start": 67.4,
+      "end": 70.44,
+      "text": "I take my own small song down the road",
+      "uncertain": false
+    },
+    {
+      "start": 70.44,
+      "end": 73.54,
+      "text": "With the best in hands that need the load",
+      "uncertain": true
+    },
+    {
+      "start": 73.54,
+      "end": 75.74,
+      "text": "So turn it up, let the needles shake",
+      "uncertain": false
+    },
+    {
+      "start": 75.74,
+      "end": 78.66,
+      "text": "Let every scar become a song you make",
+      "uncertain": false
+    },
+    {
+      "start": 78.66,
+      "end": 81.62,
+      "text": "No borrowed crown, no painted throne",
+      "uncertain": false
+    },
+    {
+      "start": 81.62,
+      "end": 84.7,
+      "text": "Just a beat-up guitar and a voice of my own",
+      "uncertain": false
+    },
+    {
+      "start": 84.7,
+      "end": 87.66,
+      "text": "Johnny Merleberry singing through the rain",
+      "uncertain": false
+    },
+    {
+      "start": 87.66,
+      "end": 90.44,
+      "text": "One held the fire, one held the plane",
+      "uncertain": true
+    },
+    {
+      "start": 90.44,
+      "end": 93.36,
+      "text": "One made a lonely room feel white and bright",
+      "uncertain": false
+    },
+    {
+      "start": 93.36,
+      "end": 97.68,
+      "text": "Three names on the radio carrying me tonight",
+      "uncertain": false
+    },
+    {
+      "start": 97.68,
+      "end": 101.96,
+      "text": "I'll leave the window open to the sky",
+      "uncertain": false
+    },
+    {
+      "start": 103.22,
+      "end": 106.58,
+      "text": "Thank you for the songs that taught me why",
+      "uncertain": false
+    },
+    {
+      "start": 107.74,
+      "end": 112.34,
+      "text": "Three names on the radio warm and low",
+      "uncertain": false
+    },
+    {
+      "start": 112.34,
+      "end": 118.1,
+      "text": "I carry your life wherever I go",
+      "uncertain": false
+    },
+    {
+      "start": 142.34,
+      "end": 142.7,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

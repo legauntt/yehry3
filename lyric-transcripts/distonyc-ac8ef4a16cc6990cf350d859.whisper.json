@@ -1,0 +1,475 @@
+{
+  "version": 1,
+  "songId": "distonyc-ac8ef4a16cc6990cf350d859",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ac8ef4a16cc6990cf350d859-f2381444efcc.mp3",
+  "audioSha256": "f2381444efccd79f1981a2462d7f7a101d3f048af4a1ae3aec41cda4b711f2f2",
+  "inputSha256": "f2381444efccd79f1981a2462d7f7a101d3f048af4a1ae3aec41cda4b711f2f2",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 236.9,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 1.9,
+      "text": "This is Tony C. from The Truth.",
+      "uncertain": false
+    },
+    {
+      "start": 2.14,
+      "end": 3.3,
+      "text": "Yo, Washington Sistens.",
+      "uncertain": true
+    },
+    {
+      "start": 3.6,
+      "end": 4.36,
+      "text": "Uh, I will.",
+      "uncertain": false
+    },
+    {
+      "start": 4.66,
+      "end": 5.9,
+      "text": "Thank you very much.",
+      "uncertain": false
+    },
+    {
+      "start": 14.5,
+      "end": 15.34,
+      "text": "Miss Jean.",
+      "uncertain": true
+    },
+    {
+      "start": 23.34,
+      "end": 26.02,
+      "text": "When thunder knocks, the county power's sideways.",
+      "uncertain": false
+    },
+    {
+      "start": 26.3,
+      "end": 28.24,
+      "text": "Flashlights gloom from every kitchen door.",
+      "uncertain": false
+    },
+    {
+      "start": 32.0,
+      "end": 35.44,
+      "text": "One porch wakes another",
+      "uncertain": true
+    },
+    {
+      "start": 35.44,
+      "end": 39.88,
+      "text": "One name travels down the line",
+      "uncertain": false
+    },
+    {
+      "start": 39.88,
+      "end": 45.74,
+      "text": "You don't face the dark alone here",
+      "uncertain": false
+    },
+    {
+      "start": 45.74,
+      "end": 47.94,
+      "text": "Not tonight, not anytime",
+      "uncertain": false
+    },
+    {
+      "start": 47.94,
+      "end": 52.94,
+      "text": "Every porch light on, every curtain draw",
+      "uncertain": false
+    },
+    {
+      "start": 52.94,
+      "end": 57.58,
+      "text": "Open eyes from dusk until the dawn",
+      "uncertain": false
+    },
+    {
+      "start": 57.58,
+      "end": 59.82,
+      "text": "It travels around",
+      "uncertain": true
+    },
+    {
+      "start": 59.82,
+      "end": 61.86,
+      "text": "Cushing folks apart",
+      "uncertain": false
+    },
+    {
+      "start": 61.86,
+      "end": 64.42,
+      "text": "And meets a row of neighbors",
+      "uncertain": false
+    },
+    {
+      "start": 64.42,
+      "end": 66.42,
+      "text": "And a stubborn tenor heart",
+      "uncertain": true
+    },
+    {
+      "start": 66.42,
+      "end": 68.14,
+      "text": "No fits, no fear",
+      "uncertain": false
+    },
+    {
+      "start": 68.14,
+      "end": 69.42,
+      "text": "Just a thousand little ties",
+      "uncertain": false
+    },
+    {
+      "start": 69.42,
+      "end": 70.36,
+      "text": "Meals on the table",
+      "uncertain": false
+    },
+    {
+      "start": 70.36,
+      "end": 71.48,
+      "text": "And the truth against the lies",
+      "uncertain": false
+    },
+    {
+      "start": 71.48,
+      "end": 73.1,
+      "text": "Every porch light on",
+      "uncertain": false
+    },
+    {
+      "start": 73.98,
+      "end": 75.26,
+      "text": "Shining strong",
+      "uncertain": false
+    },
+    {
+      "start": 76.24,
+      "end": 77.5,
+      "text": "Around here",
+      "uncertain": false
+    },
+    {
+      "start": 77.5,
+      "end": 80.86,
+      "text": "Looking out is how we all belong",
+      "uncertain": true
+    },
+    {
+      "start": 80.86,
+      "end": 83.46,
+      "text": "Hooray brings a cue box to the widow",
+      "uncertain": true
+    },
+    {
+      "start": 83.46,
+      "end": 85.62,
+      "text": "Nina drives the night shift workers home",
+      "uncertain": false
+    },
+    {
+      "start": 85.62,
+      "end": 88.0,
+      "text": "Sam knows every dog and get the grandchild",
+      "uncertain": true
+    },
+    {
+      "start": 88.0,
+      "end": 90.2,
+      "text": "And who has been too proud to ask for help alone",
+      "uncertain": true
+    },
+    {
+      "start": 90.2,
+      "end": 92.68,
+      "text": "On a slick voice, starts a crooked bargain",
+      "uncertain": false
+    },
+    {
+      "start": 92.68,
+      "end": 94.86,
+      "text": "Pass the poison underneath the smile",
+      "uncertain": true
+    },
+    {
+      "start": 94.86,
+      "end": 97.16,
+      "text": "We bring it into daylight at the courthouse",
+      "uncertain": false
+    },
+    {
+      "start": 97.16,
+      "end": 98.8,
+      "text": "And stay beside your gym all the while",
+      "uncertain": true
+    },
+    {
+      "start": 98.8,
+      "end": 102.14,
+      "text": "One hand finds another",
+      "uncertain": false
+    },
+    {
+      "start": 103.76,
+      "end": 106.44,
+      "text": "One truth travels down the line",
+      "uncertain": false
+    },
+    {
+      "start": 108.22,
+      "end": 112.32,
+      "text": "You don't face the wolf alone, yeah",
+      "uncertain": false
+    },
+    {
+      "start": 112.32,
+      "end": 114.58,
+      "text": "Not tonight, not anytime",
+      "uncertain": false
+    },
+    {
+      "start": 115.62,
+      "end": 124.22,
+      "text": "Every porch slide on, every curtain drop, open eyes flung, good spung till the dawn.",
+      "uncertain": true
+    },
+    {
+      "start": 124.78,
+      "end": 132.96,
+      "text": "If trouble's around, pushing folks apart, it needs a row of neighbors and a stubborn town heart.",
+      "uncertain": true
+    },
+    {
+      "start": 133.54,
+      "end": 138.14,
+      "text": "No fits, no fear, just a thousand little ties, meals on the table and the truth against the lies.",
+      "uncertain": true
+    },
+    {
+      "start": 138.22,
+      "end": 141.94,
+      "text": "Every porch slide on, shining strong.",
+      "uncertain": false
+    },
+    {
+      "start": 143.08,
+      "end": 147.5,
+      "text": "Around here, looking out is how we all belong",
+      "uncertain": true
+    },
+    {
+      "start": 148.12,
+      "end": 150.48,
+      "text": "Hammer on the rails, box against the rain",
+      "uncertain": true
+    },
+    {
+      "start": 150.48,
+      "end": 152.54,
+      "text": "Boots across the gravel calling every name",
+      "uncertain": false
+    },
+    {
+      "start": 152.54,
+      "end": 154.84,
+      "text": "Lock the shop together, walk the long way home",
+      "uncertain": false
+    },
+    {
+      "start": 154.84,
+      "end": 157.0,
+      "text": "Trouble is how when nobody stands alone",
+      "uncertain": true
+    },
+    {
+      "start": 157.0,
+      "end": 159.04,
+      "text": "We don't need a hero on a billboard",
+      "uncertain": false
+    },
+    {
+      "start": 159.04,
+      "end": 161.3,
+      "text": "We need soup when someone's paycheck's gone",
+      "uncertain": true
+    },
+    {
+      "start": 161.3,
+      "end": 163.54,
+      "text": "A spare room bed, a ride, a witness",
+      "uncertain": true
+    },
+    {
+      "start": 163.54,
+      "end": 165.66,
+      "text": "Someone staying when the sirens move along",
+      "uncertain": true
+    },
+    {
+      "start": 165.66,
+      "end": 168.12,
+      "text": "And if hate comes telling easy answers",
+      "uncertain": true
+    },
+    {
+      "start": 168.12,
+      "end": 170.22,
+      "text": "We'll answer with the lies we've woven tight",
+      "uncertain": false
+    },
+    {
+      "start": 170.22,
+      "end": 172.56,
+      "text": "You can rattle every gate along the main road",
+      "uncertain": true
+    },
+    {
+      "start": 172.56,
+      "end": 174.5,
+      "text": "But you cannot turn our mercy off tonight",
+      "uncertain": true
+    },
+    {
+      "start": 175.44,
+      "end": 177.66,
+      "text": "Every porch light on",
+      "uncertain": false
+    },
+    {
+      "start": 177.66,
+      "end": 179.86,
+      "text": "Let the whole street flow",
+      "uncertain": false
+    },
+    {
+      "start": 179.86,
+      "end": 182.08,
+      "text": "Every lonely soul",
+      "uncertain": false
+    },
+    {
+      "start": 182.08,
+      "end": 184.04,
+      "text": "It's somewhere safe to know",
+      "uncertain": false
+    },
+    {
+      "start": 184.04,
+      "end": 186.34,
+      "text": "If trouble's around",
+      "uncertain": false
+    },
+    {
+      "start": 186.34,
+      "end": 188.66,
+      "text": "Pushing folks apart",
+      "uncertain": false
+    },
+    {
+      "start": 188.66,
+      "end": 190.8,
+      "text": "It meets a living wall",
+      "uncertain": true
+    },
+    {
+      "start": 190.8,
+      "end": 192.96,
+      "text": "Made of an open heart",
+      "uncertain": false
+    },
+    {
+      "start": 192.96,
+      "end": 194.76,
+      "text": "No fist, no fear",
+      "uncertain": false
+    },
+    {
+      "start": 194.76,
+      "end": 196.12,
+      "text": "We remember every name",
+      "uncertain": false
+    },
+    {
+      "start": 196.12,
+      "end": 198.14,
+      "text": "Drive the trouble out by stopping at its game",
+      "uncertain": true
+    },
+    {
+      "start": 198.14,
+      "end": 199.84,
+      "text": "Every porch light on",
+      "uncertain": false
+    },
+    {
+      "start": 199.84,
+      "end": 202.04,
+      "text": "And the morning coming strong",
+      "uncertain": true
+    },
+    {
+      "start": 202.8,
+      "end": 204.16,
+      "text": "Right on here",
+      "uncertain": true
+    },
+    {
+      "start": 204.16,
+      "end": 205.26,
+      "text": "Looking out",
+      "uncertain": false
+    },
+    {
+      "start": 205.26,
+      "end": 207.54,
+      "text": "Is how we all belong",
+      "uncertain": true
+    },
+    {
+      "start": 207.54,
+      "end": 209.3,
+      "text": "The new bell rings",
+      "uncertain": false
+    },
+    {
+      "start": 209.3,
+      "end": 210.46,
+      "text": "The shadows in the dark",
+      "uncertain": false
+    },
+    {
+      "start": 210.46,
+      "end": 211.5,
+      "text": "June porch coffee",
+      "uncertain": true
+    },
+    {
+      "start": 211.5,
+      "end": 213.1,
+      "text": "As the sunrise forms the wall",
+      "uncertain": false
+    },
+    {
+      "start": 214.32,
+      "end": 215.88,
+      "text": "The way you can hold",
+      "uncertain": true
+    },
+    {
+      "start": 215.88,
+      "end": 217.36,
+      "text": "Beneath the fading porch light",
+      "uncertain": false
+    },
+    {
+      "start": 230.0,
+      "end": 230.54,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

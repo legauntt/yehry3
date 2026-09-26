@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "songId": "distonyc-78d485531b974441afbc6c4c",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-78d485531b974441afbc6c4c-5376e9e6a8f5.mp3",
+  "audioSha256": "5376e9e6a8f5e972188551a56caa971b7397bc95dd27039507d4f6a374b151fe",
+  "inputSha256": "33cd40068772f5be672a769444c75cf03bd73f585ff4b49f69b77953ceb27d89",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 265.038375,
+  "segments": [
+    {
+      "start": 12.1,
+      "end": 15.96,
+      "text": "She arrived from Greece with a notebook full of names",
+      "uncertain": true
+    },
+    {
+      "start": 15.96,
+      "end": 19.72,
+      "text": "Studying marble saints while the city fed its flames",
+      "uncertain": false
+    },
+    {
+      "start": 19.72,
+      "end": 23.5,
+      "text": "I saw her by the college gate and father paid the bill",
+      "uncertain": false
+    },
+    {
+      "start": 23.5,
+      "end": 27.38,
+      "text": "She said, show me how the ordinary lived",
+      "uncertain": false
+    },
+    {
+      "start": 27.38,
+      "end": 31.06,
+      "text": "I said, all right, if you mean it, come along",
+      "uncertain": false
+    },
+    {
+      "start": 31.06,
+      "end": 35.02,
+      "text": "She ordered rum and cola, then the moment was gone",
+      "uncertain": true
+    },
+    {
+      "start": 42.82,
+      "end": 45.94,
+      "text": "You want to live with common people",
+      "uncertain": false
+    },
+    {
+      "start": 46.86,
+      "end": 50.16,
+      "text": "Do the things that common people do",
+      "uncertain": false
+    },
+    {
+      "start": 50.16,
+      "end": 53.6,
+      "text": "You want to sleep with common people",
+      "uncertain": false
+    },
+    {
+      "start": 54.6,
+      "end": 57.7,
+      "text": "Find a life that feels a little true",
+      "uncertain": true
+    },
+    {
+      "start": 57.7,
+      "end": 61.2,
+      "text": "What else was I supposed to say?",
+      "uncertain": true
+    },
+    {
+      "start": 61.2,
+      "end": 63.6,
+      "text": "I said I'll show you the way",
+      "uncertain": false
+    },
+    {
+      "start": 65.22,
+      "end": 67.8,
+      "text": "I took her to the supermarket",
+      "uncertain": false
+    },
+    {
+      "start": 67.8,
+      "end": 70.56,
+      "text": "Beneath the buzzing lights",
+      "uncertain": false
+    },
+    {
+      "start": 72.64,
+      "end": 74.94,
+      "text": "Said pretend your purse is empty",
+      "uncertain": false
+    },
+    {
+      "start": 74.94,
+      "end": 76.96,
+      "text": "Try to make it through the night",
+      "uncertain": false
+    },
+    {
+      "start": 78.56,
+      "end": 80.84,
+      "text": "She laughed like it was theater",
+      "uncertain": false
+    },
+    {
+      "start": 80.84,
+      "end": 89.7,
+      "text": "like the shelves were painted gold I said there's nobody else in here who",
+      "uncertain": true
+    },
+    {
+      "start": 89.7,
+      "end": 99.84,
+      "text": "finds this funny no are you sure you want the view the late bus the landlord",
+      "uncertain": true
+    },
+    {
+      "start": 99.84,
+      "end": 108.32,
+      "text": "the peeling room are you sure you want the way of every little choice arriving",
+      "uncertain": false
+    },
+    {
+      "start": 111.28,
+      "end": 118.72,
+      "text": "You want to live with charming people, see the things that charming people see.",
+      "uncertain": true
+    },
+    {
+      "start": 119.18,
+      "end": 125.68,
+      "text": "You want to sleep with charming people, let's shoot that bar or be in me.",
+      "uncertain": false
+    },
+    {
+      "start": 125.92,
+      "end": 129.98,
+      "text": "You smile and hold my hand like you finally understand.",
+      "uncertain": false
+    },
+    {
+      "start": 133.94,
+      "end": 136.66,
+      "text": "Rent a room above a shop",
+      "uncertain": true
+    },
+    {
+      "start": 136.66,
+      "end": 139.56,
+      "text": "Cut your hair and tape the jar",
+      "uncertain": true
+    },
+    {
+      "start": 140.66,
+      "end": 143.96,
+      "text": "Play a little pool at night",
+      "uncertain": false
+    },
+    {
+      "start": 143.96,
+      "end": 146.92,
+      "text": "Say you never had a school inside",
+      "uncertain": false
+    },
+    {
+      "start": 148.46,
+      "end": 151.88,
+      "text": "But when the roaches take the wall",
+      "uncertain": false
+    },
+    {
+      "start": 151.88,
+      "end": 154.24,
+      "text": "One phone call could end it all",
+      "uncertain": false
+    },
+    {
+      "start": 155.48,
+      "end": 158.34,
+      "text": "That's the line you never cross",
+      "uncertain": false
+    },
+    {
+      "start": 159.22,
+      "end": 162.16,
+      "text": "That's the cost you never lost",
+      "uncertain": false
+    },
+    {
+      "start": 168.8,
+      "end": 172.04,
+      "text": "You can dance, you can drink",
+      "uncertain": true
+    },
+    {
+      "start": 172.04,
+      "end": 174.46,
+      "text": "Chase a borrowed little thrill",
+      "uncertain": true
+    },
+    {
+      "start": 174.46,
+      "end": 177.74,
+      "text": "Call being poor or romantic",
+      "uncertain": false
+    },
+    {
+      "start": 177.74,
+      "end": 179.82,
+      "text": "When your safety net is still",
+      "uncertain": false
+    },
+    {
+      "start": 179.82,
+      "end": 181.88,
+      "text": "Waiting in the background",
+      "uncertain": false
+    },
+    {
+      "start": 181.88,
+      "end": 184.26,
+      "text": "Polished private out of view",
+      "uncertain": false
+    },
+    {
+      "start": 184.26,
+      "end": 187.32,
+      "text": "While somebody else is living",
+      "uncertain": false
+    },
+    {
+      "start": 187.32,
+      "end": 195.86,
+      "text": "every consequence for you everybody hates the tourists when they turn their pain to play",
+      "uncertain": true
+    },
+    {
+      "start": 197.3,
+      "end": 201.68,
+      "text": "and the grease comes from the chip stains but the feeling doesn't fade",
+      "uncertain": false
+    },
+    {
+      "start": 204.76,
+      "end": 212.04,
+      "text": "you'll never live with charming people never break the way the charming people do",
+      "uncertain": false
+    },
+    {
+      "start": 212.04,
+      "end": 215.94,
+      "text": "Never watch the weeks go hollow",
+      "uncertain": true
+    },
+    {
+      "start": 215.94,
+      "end": 219.52,
+      "text": "With no black door to walk you through",
+      "uncertain": true
+    },
+    {
+      "start": 219.52,
+      "end": 223.12,
+      "text": "Just sing along with common people",
+      "uncertain": false
+    },
+    {
+      "start": 223.12,
+      "end": 227.06,
+      "text": "Maybe singing gets us through",
+      "uncertain": false
+    },
+    {
+      "start": 227.06,
+      "end": 231.12,
+      "text": "Laugh along, no, they are laughing",
+      "uncertain": true
+    },
+    {
+      "start": 231.12,
+      "end": 234.24,
+      "text": "At the dream you thought you knew",
+      "uncertain": false
+    },
+    {
+      "start": 235.44,
+      "end": 239.48,
+      "text": "So rent that flat above the shop",
+      "uncertain": false
+    },
+    {
+      "start": 239.48,
+      "end": 243.22,
+      "text": "And stay when all the music stops",
+      "uncertain": false
+    },
+    {
+      "start": 243.22,
+      "end": 247.06,
+      "text": "If you want the truth, don't turn away",
+      "uncertain": false
+    },
+    {
+      "start": 247.06,
+      "end": 250.92,
+      "text": "The last note hangs, then fades to gray",
+      "uncertain": false
+    }
+  ]
+}

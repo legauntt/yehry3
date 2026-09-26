@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "songId": "distonyc-6901939c84b3142b380e6615",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6901939c84b3142b380e6615-5b885cad6498.mp3",
+  "audioSha256": "5b885cad6498ae9d50c02048830869f60200705a23f16e035bc332735ddead4b",
+  "inputSha256": "e1e7fdd20d3d482b6ab1f8bdd7eecd9c0dbded84a540cf79197ff3de85b1d2a1",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 250.0701875,
+  "segments": [
+    {
+      "start": 14.72,
+      "end": 17.72,
+      "text": "Tony woke up with a teaspoon in his shoe",
+      "uncertain": true
+    },
+    {
+      "start": 17.72,
+      "end": 20.74,
+      "text": "The refrigerator whispered",
+      "uncertain": false
+    },
+    {
+      "start": 20.74,
+      "end": 22.32,
+      "text": "I remember you",
+      "uncertain": true
+    },
+    {
+      "start": 22.32,
+      "end": 24.86,
+      "text": "You wore a Sunday jacket inside",
+      "uncertain": false
+    },
+    {
+      "start": 24.86,
+      "end": 26.02,
+      "text": "Out for luck",
+      "uncertain": true
+    },
+    {
+      "start": 26.02,
+      "end": 29.12,
+      "text": "Told the parking meter it was talking",
+      "uncertain": false
+    },
+    {
+      "start": 29.12,
+      "end": 30.16,
+      "text": "And way too much",
+      "uncertain": true
+    },
+    {
+      "start": 32.16,
+      "end": 36.2,
+      "text": "The neighbors found him water in a mailbox at dawn",
+      "uncertain": true
+    },
+    {
+      "start": 36.2,
+      "end": 40.72,
+      "text": "Singing to a hubcap like the moon had called him on",
+      "uncertain": false
+    },
+    {
+      "start": 40.72,
+      "end": 42.94,
+      "text": "He said, the pigeons run the bank",
+      "uncertain": false
+    },
+    {
+      "start": 42.94,
+      "end": 44.84,
+      "text": "The bank is made of bread",
+      "uncertain": false
+    },
+    {
+      "start": 46.5,
+      "end": 49.44,
+      "text": "Then saluted every traffic light",
+      "uncertain": false
+    },
+    {
+      "start": 49.44,
+      "end": 51.12,
+      "text": "And argued with bread",
+      "uncertain": true
+    },
+    {
+      "start": 54.22,
+      "end": 58.76,
+      "text": "It's little croquette coughing up quarters on the floor",
+      "uncertain": true
+    },
+    {
+      "start": 61.62,
+      "end": 63.66,
+      "text": "Tony laughed so hard",
+      "uncertain": true
+    },
+    {
+      "start": 63.66,
+      "end": 66.14,
+      "text": "He couldn't find the door",
+      "uncertain": true
+    },
+    {
+      "start": 69.16,
+      "end": 71.7,
+      "text": "Tony loses his mind",
+      "uncertain": false
+    },
+    {
+      "start": 71.7,
+      "end": 73.42,
+      "text": "Let's it roll down the street",
+      "uncertain": false
+    },
+    {
+      "start": 75.66,
+      "end": 78.08,
+      "text": "Like a bright red marble",
+      "uncertain": false
+    },
+    {
+      "start": 78.08,
+      "end": 79.78,
+      "text": "Underneath everybody's feet",
+      "uncertain": false
+    },
+    {
+      "start": 79.78,
+      "end": 81.64,
+      "text": "Tony loses his mind",
+      "uncertain": false
+    },
+    {
+      "start": 81.64,
+      "end": 82.86,
+      "text": "There's the ceiling",
+      "uncertain": false
+    },
+    {
+      "start": 82.86,
+      "end": 84.44,
+      "text": "Learn to hold",
+      "uncertain": true
+    },
+    {
+      "start": 84.44,
+      "end": 87.12,
+      "text": "Says I was waiting for the thunder",
+      "uncertain": false
+    },
+    {
+      "start": 87.12,
+      "end": 89.12,
+      "text": "Now the thunder's finally come",
+      "uncertain": false
+    },
+    {
+      "start": 89.12,
+      "end": 91.68,
+      "text": "Oh, don't use this as mine",
+      "uncertain": true
+    },
+    {
+      "start": 93.96,
+      "end": 99.14,
+      "text": "And the whole town feels perfect time",
+      "uncertain": false
+    },
+    {
+      "start": 108.66,
+      "end": 112.82,
+      "text": "He bought a yellow ladder from a woman at the bar",
+      "uncertain": false
+    },
+    {
+      "start": 116.54,
+      "end": 121.12,
+      "text": "Climb free rungs and wave goodbye to every passing car",
+      "uncertain": false
+    },
+    {
+      "start": 123.32,
+      "end": 127.52,
+      "text": "He mailed himself a postcard from the end of his own bed",
+      "uncertain": true
+    },
+    {
+      "start": 130.36,
+      "end": 134.68,
+      "text": "It said, wish you were here, but you're somewhere else instead",
+      "uncertain": false
+    },
+    {
+      "start": 134.68,
+      "end": 137.92,
+      "text": "His sister brought him coffee, said, Tony, take a breath",
+      "uncertain": false
+    },
+    {
+      "start": 137.92,
+      "end": 142.44,
+      "text": "He said, I shook hands with a shadow and it scared itself to death",
+      "uncertain": false
+    },
+    {
+      "start": 145.34,
+      "end": 150.16,
+      "text": "The radio was preaching through a sock beneath the sink",
+      "uncertain": false
+    },
+    {
+      "start": 152.2,
+      "end": 157.2,
+      "text": "And every time the faucet dripped, he changed his mind mid-fame",
+      "uncertain": true
+    },
+    {
+      "start": 160.28,
+      "end": 166.76,
+      "text": "Maybe there was a wire loose behind his tired eyes",
+      "uncertain": false
+    },
+    {
+      "start": 166.76,
+      "end": 171.54,
+      "text": "Maybe all the little rules were wearing cheap disguise",
+      "uncertain": false
+    },
+    {
+      "start": 172.74,
+      "end": 176.96,
+      "text": "Maybe sanity's a train that never stops for him",
+      "uncertain": true
+    },
+    {
+      "start": 178.38,
+      "end": 184.24,
+      "text": "Maybe he just saw the dark and taught it how to grin",
+      "uncertain": true
+    },
+    {
+      "start": 187.1,
+      "end": 191.54,
+      "text": "Tony uses his mind, lets it roll down the street",
+      "uncertain": false
+    },
+    {
+      "start": 191.54,
+      "end": 197.92,
+      "text": "Like a bright red marble underneath everybody's feet",
+      "uncertain": false
+    },
+    {
+      "start": 199.8,
+      "end": 202.86,
+      "text": "Joey loses his mind",
+      "uncertain": false
+    },
+    {
+      "start": 202.86,
+      "end": 204.62,
+      "text": "Here's the ceiling",
+      "uncertain": false
+    },
+    {
+      "start": 204.62,
+      "end": 206.48,
+      "text": "Learn to haunt",
+      "uncertain": true
+    },
+    {
+      "start": 206.48,
+      "end": 208.92,
+      "text": "Says I was waiting for the thunder",
+      "uncertain": false
+    },
+    {
+      "start": 208.92,
+      "end": 211.42,
+      "text": "Now the thunder's finally come",
+      "uncertain": false
+    },
+    {
+      "start": 213.86,
+      "end": 216.96,
+      "text": "At midnight Tony sat",
+      "uncertain": false
+    },
+    {
+      "start": 216.96,
+      "end": 219.46,
+      "text": "Beneath the laundromat's side",
+      "uncertain": false
+    },
+    {
+      "start": 221.02,
+      "end": 224.18,
+      "text": "Watching all the spinning shirts",
+      "uncertain": false
+    },
+    {
+      "start": 224.18,
+      "end": 226.4,
+      "text": "Become a galaxy of white",
+      "uncertain": false
+    },
+    {
+      "start": 227.38,
+      "end": 232.04,
+      "text": "He whispered keep the change to the wide and empty sky",
+      "uncertain": false
+    },
+    {
+      "start": 234.2,
+      "end": 239.0,
+      "text": "And then walked home with both his hands full of fireflies",
+      "uncertain": false
+    }
+  ]
+}

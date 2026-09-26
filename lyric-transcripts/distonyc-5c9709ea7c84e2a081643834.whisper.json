@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "songId": "distonyc-5c9709ea7c84e2a081643834",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c9709ea7c84e2a081643834-c4220ca0a172.mp3",
+  "audioSha256": "c4220ca0a1724219c1ec1dd628b7681c875d2dbb7c80831717ac47638aad77f4",
+  "inputSha256": "6a513e4d7c6fe33681658e9b7227de8b46da1990d07cecfe2e047cbab517e443",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 125.0481875,
+  "segments": [
+    {
+      "start": 4.04,
+      "end": 6.4,
+      "text": "We skipped flat stones and the river went black",
+      "uncertain": true
+    },
+    {
+      "start": 6.4,
+      "end": 8.46,
+      "text": "You bet me a dollar, I cannot skip back",
+      "uncertain": true
+    },
+    {
+      "start": 8.46,
+      "end": 10.76,
+      "text": "I see the old water, I cannot skip back",
+      "uncertain": false
+    },
+    {
+      "start": 12.3,
+      "end": 14.68,
+      "text": "I see the old water, I know that place",
+      "uncertain": false
+    },
+    {
+      "start": 14.68,
+      "end": 16.54,
+      "text": "With a seesaw waving in your place",
+      "uncertain": true
+    },
+    {
+      "start": 16.54,
+      "end": 18.78,
+      "text": "He's got a paper cup, he's got my coat",
+      "uncertain": true
+    },
+    {
+      "start": 18.78,
+      "end": 20.86,
+      "text": "He's saying my joke like he wrote a renote",
+      "uncertain": false
+    },
+    {
+      "start": 20.86,
+      "end": 23.0,
+      "text": "I tell you that's funny, stare at the bank",
+      "uncertain": true
+    },
+    {
+      "start": 23.0,
+      "end": 25.16,
+      "text": "Like you never heard the fellow I thanked",
+      "uncertain": false
+    },
+    {
+      "start": 28.78,
+      "end": 32.74,
+      "text": "The film in my head keeps changing its frame",
+      "uncertain": false
+    },
+    {
+      "start": 32.74,
+      "end": 37.08,
+      "text": "I reach for your voice and he answers my name",
+      "uncertain": true
+    },
+    {
+      "start": 37.08,
+      "end": 39.48,
+      "text": "Seesaw, seesaw, where did you come from?",
+      "uncertain": false
+    },
+    {
+      "start": 39.58,
+      "end": 41.62,
+      "text": "You're in every Saturday, every small song",
+      "uncertain": false
+    },
+    {
+      "start": 41.62,
+      "end": 45.16,
+      "text": "Seesaw, seesaw, I know it ain't right",
+      "uncertain": false
+    },
+    {
+      "start": 45.16,
+      "end": 48.38,
+      "text": "But the more that I loved you there in the lie",
+      "uncertain": false
+    },
+    {
+      "start": 51.94,
+      "end": 54.0,
+      "text": "Drove to the coast in a car full of rain",
+      "uncertain": true
+    },
+    {
+      "start": 54.0,
+      "end": 56.02,
+      "text": "And drew little monsters on my window ping",
+      "uncertain": true
+    },
+    {
+      "start": 56.02,
+      "end": 58.18,
+      "text": "Now Seesaw's driving one hand on the wheel",
+      "uncertain": false
+    },
+    {
+      "start": 58.18,
+      "end": 60.2,
+      "text": "Singing out loud like the whole thing is real",
+      "uncertain": false
+    },
+    {
+      "start": 60.2,
+      "end": 61.58,
+      "text": "We built that Chi Kai",
+      "uncertain": true
+    },
+    {
+      "start": 61.58,
+      "end": 64.1,
+      "text": "From a grocery sack, it was for a second",
+      "uncertain": false
+    },
+    {
+      "start": 64.1,
+      "end": 65.36,
+      "text": "Then came tumbling back",
+      "uncertain": false
+    },
+    {
+      "start": 65.36,
+      "end": 67.06,
+      "text": "I remember us laughing",
+      "uncertain": false
+    },
+    {
+      "start": 67.06,
+      "end": 70.4,
+      "text": "I remember the hill, but Seesaw's beside me",
+      "uncertain": false
+    },
+    {
+      "start": 70.4,
+      "end": 72.62,
+      "text": "And he's laughing still",
+      "uncertain": false
+    },
+    {
+      "start": 74.38,
+      "end": 76.74,
+      "text": "I opened the album, I counted to ten",
+      "uncertain": false
+    },
+    {
+      "start": 76.74,
+      "end": 78.76,
+      "text": "Your face kept returning, then leaving again",
+      "uncertain": false
+    },
+    {
+      "start": 78.76,
+      "end": 80.48,
+      "text": "There's a space app that's able",
+      "uncertain": true
+    },
+    {
+      "start": 80.48,
+      "end": 82.44,
+      "text": "A name on the door",
+      "uncertain": true
+    },
+    {
+      "start": 82.44,
+      "end": 89.8,
+      "text": "and seesaw says buddy we've done this before seesaw seesaw where did you come from you're in",
+      "uncertain": true
+    },
+    {
+      "start": 89.8,
+      "end": 96.12,
+      "text": "every hallway every old song i can't solve the picture i can't make it clear i just know you",
+      "uncertain": false
+    },
+    {
+      "start": 96.12,
+      "end": 103.4,
+      "text": "weren't there and now you are here if i find the first day before all the blur i'll ask what we",
+      "uncertain": false
+    },
+    {
+      "start": 103.4,
+      "end": 109.52,
+      "text": "came with my friend i exerts and the whole past keeps pulling me through seesaw in every picture",
+      "uncertain": true
+    },
+    {
+      "start": 110.4,
+      "end": 112.4,
+      "text": "And none of them's true",
+      "uncertain": false
+    }
+  ]
+}

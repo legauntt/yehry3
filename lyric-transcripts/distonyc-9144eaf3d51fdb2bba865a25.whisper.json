@@ -1,0 +1,265 @@
+{
+  "version": 1,
+  "songId": "distonyc-9144eaf3d51fdb2bba865a25",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-9144eaf3d51fdb2bba865a25-41584b115b95.mp3",
+  "audioSha256": "41584b115b951052ec95b5de23def7b44a10efc12f169274bb980f25dd015972",
+  "inputSha256": "efccf0aac414baa27b2716d29a11c9dbcef7b20e83e8b0bad530e6bccd13af32",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 160.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.48,
+      "text": "Owning cracks on a two-laying town.",
+      "uncertain": false
+    },
+    {
+      "start": 4.4,
+      "end": 7.62,
+      "text": "Coffee burns while the sun comes down.",
+      "uncertain": false
+    },
+    {
+      "start": 7.84,
+      "end": 11.9,
+      "text": "On the night shift, nurse and the loading dock crew.",
+      "uncertain": false
+    },
+    {
+      "start": 12.82,
+      "end": 16.02,
+      "text": "Folks making do what they gotta do.",
+      "uncertain": false
+    },
+    {
+      "start": 17.48,
+      "end": 18.98,
+      "text": "Golder opens up the corner store.",
+      "uncertain": true
+    },
+    {
+      "start": 19.28,
+      "end": 21.08,
+      "text": "Cow sweeps dust in the factory floor.",
+      "uncertain": false
+    },
+    {
+      "start": 21.4,
+      "end": 23.18,
+      "text": "Kids catch breakfast at a quarter to eight.",
+      "uncertain": false
+    },
+    {
+      "start": 23.36,
+      "end": 25.38,
+      "text": "Bus driver grins when they're running late.",
+      "uncertain": false
+    },
+    {
+      "start": 25.6,
+      "end": 27.48,
+      "text": "A roofer laughs with the heat on his back.",
+      "uncertain": false
+    },
+    {
+      "start": 27.74,
+      "end": 29.76,
+      "text": "A young mom studies while the house calls black.",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 34.48,
+      "text": "Nobody famous, nobody crowns, just the people keeping this whole thing sound.",
+      "uncertain": false
+    },
+    {
+      "start": 37.26,
+      "end": 45.46,
+      "text": "Holding it down, yeah, yeah, hey, making life's an ordinary day.",
+      "uncertain": false
+    },
+    {
+      "start": 46.0,
+      "end": 53.98,
+      "text": "Holding it down, yeah, yeah, hey, then put breathing signs in our way.",
+      "uncertain": true
+    },
+    {
+      "start": 54.66,
+      "end": 57.44,
+      "text": "From the county road to the city downtown",
+      "uncertain": true
+    },
+    {
+      "start": 57.44,
+      "end": 60.4,
+      "text": "Look at the people holding it down",
+      "uncertain": true
+    },
+    {
+      "start": 61.64,
+      "end": 64.06,
+      "text": "Old Jim Fitz is what the rich throw out",
+      "uncertain": true
+    },
+    {
+      "start": 64.06,
+      "end": 66.16,
+      "text": "Nina speaks up when the rule has dealt",
+      "uncertain": true
+    },
+    {
+      "start": 66.16,
+      "end": 68.24,
+      "text": "The cook and the diner knows every name",
+      "uncertain": false
+    },
+    {
+      "start": 68.24,
+      "end": 70.38,
+      "text": "The volunteer coach stays late in the rain",
+      "uncertain": false
+    },
+    {
+      "start": 70.38,
+      "end": 72.52,
+      "text": "Hands get dirty and the rent comes due",
+      "uncertain": false
+    },
+    {
+      "start": 72.52,
+      "end": 74.72,
+      "text": "Still somebody saves you a place in the queue",
+      "uncertain": false
+    },
+    {
+      "start": 74.72,
+      "end": 77.02,
+      "text": "We lose, we mend, we pass over round",
+      "uncertain": true
+    },
+    {
+      "start": 77.02,
+      "end": 79.54,
+      "text": "That's how the people keep holding it down",
+      "uncertain": false
+    },
+    {
+      "start": 82.42,
+      "end": 86.04,
+      "text": "Holdin' it down, yeah, yeah, hey",
+      "uncertain": true
+    },
+    {
+      "start": 86.04,
+      "end": 90.4,
+      "text": "Make it a life, I'm an ordinary day",
+      "uncertain": true
+    },
+    {
+      "start": 90.4,
+      "end": 94.84,
+      "text": "Holdin' it down, yeah, yeah, hey",
+      "uncertain": false
+    },
+    {
+      "start": 94.84,
+      "end": 99.0,
+      "text": "Bend for grievin', find it our way",
+      "uncertain": true
+    },
+    {
+      "start": 99.0,
+      "end": 102.76,
+      "text": "From the wheat field wind to the subway sound",
+      "uncertain": true
+    },
+    {
+      "start": 102.76,
+      "end": 105.24,
+      "text": "Look at the people holdin' it down",
+      "uncertain": false
+    },
+    {
+      "start": 106.32,
+      "end": 108.96,
+      "text": "No marble statue, no victory speech",
+      "uncertain": false
+    },
+    {
+      "start": 108.96,
+      "end": 111.08,
+      "text": "Just a hand held out when the road gets deep",
+      "uncertain": true
+    },
+    {
+      "start": 111.08,
+      "end": 113.18,
+      "text": "A crooked laugh and a stubborn spark",
+      "uncertain": false
+    },
+    {
+      "start": 113.18,
+      "end": 115.7,
+      "text": "One porch light burning against the dark",
+      "uncertain": false
+    },
+    {
+      "start": 118.62,
+      "end": 122.18,
+      "text": "Holding it down, yeah, yeah, hey",
+      "uncertain": false
+    },
+    {
+      "start": 122.18,
+      "end": 126.8,
+      "text": "Building tomorrow from work up to date",
+      "uncertain": false
+    },
+    {
+      "start": 126.8,
+      "end": 131.02,
+      "text": "Holding it down, yeah, yeah, hey",
+      "uncertain": false
+    },
+    {
+      "start": 131.02,
+      "end": 135.24,
+      "text": "Everyday people still making a way",
+      "uncertain": false
+    },
+    {
+      "start": 135.24,
+      "end": 139.12,
+      "text": "When the wheels were rough in the washing ground",
+      "uncertain": true
+    },
+    {
+      "start": 139.12,
+      "end": 141.68,
+      "text": "We are the people holding it down",
+      "uncertain": false
+    },
+    {
+      "start": 141.68,
+      "end": 144.08,
+      "text": "Holding it down",
+      "uncertain": false
+    },
+    {
+      "start": 144.08,
+      "end": 145.74,
+      "text": "Yeah, yeah, hey",
+      "uncertain": false
+    },
+    {
+      "start": 145.74,
+      "end": 150.26,
+      "text": "Together, together, we're holding it down",
+      "uncertain": false
+    }
+  ]
+}

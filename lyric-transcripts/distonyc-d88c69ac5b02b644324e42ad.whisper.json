@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "songId": "distonyc-d88c69ac5b02b644324e42ad",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d88c69ac5b02b644324e42ad-d0c85e6f241f.mp3",
+  "audioSha256": "d0c85e6f241fe1cb959c011de784ba788c54e7164a5c609ff1cfa7c36bb244aa",
+  "inputSha256": "8d4974b96857608f2c911dba7fb6db1ad19132f956e86f9d477846165f35af27",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 230.0343125,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 10.2,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 41.3,
+      "end": 47.92,
+      "text": "Yeah, yeah, yeah, yeah.",
+      "uncertain": false
+    },
+    {
+      "start": 76.86,
+      "end": 78.14,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 93.58,
+      "end": 96.38,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 120.0,
+      "end": 122.78,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 155.1,
+      "end": 156.5,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 169.4,
+      "end": 170.8,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 183.6,
+      "end": 185.0,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 197.72,
+      "end": 199.12,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 199.12,
+      "end": 199.36,
+      "text": "Yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 218.98,
+      "end": 224.28,
+      "text": "Yeah, yeah, yeah, yeah.",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "version": 1,
+  "songId": "distonyc-ffa7b966f9f8cc1a5d4cc3a5",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ffa7b966f9f8cc1a5d4cc3a5-897cb1cdc327.mp3",
+  "audioSha256": "897cb1cdc3274ed63ac0ae80c69ef6b67486fd71f211cc5c1a83581b95cff734",
+  "inputSha256": "3a72b0d11b08c03856a87269664f4a0e2529f87fb82f8feeb396d7c68585a56f",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 230.0343125,
+  "segments": [
+    {
+      "start": 18.94,
+      "end": 22.04,
+      "text": "ترجمة نانسي قنقر",
+      "uncertain": false
+    },
+    {
+      "start": 30.0,
+      "end": 34.06,
+      "text": "في ضوء النادي يومه الليالي",
+      "uncertain": true
+    },
+    {
+      "start": 34.06,
+      "end": 37.96,
+      "text": "ويكون ليبيا كلام ظالي",
+      "uncertain": true
+    },
+    {
+      "start": 37.96,
+      "end": 41.94,
+      "text": "لكن عيني تعرف ما تفيد",
+      "uncertain": false
+    },
+    {
+      "start": 41.94,
+      "end": 46.04,
+      "text": "وتشي على بوض الخيارين",
+      "uncertain": false
+    },
+    {
+      "start": 53.36,
+      "end": 56.84,
+      "text": "لما بداي تسنى",
+      "uncertain": false
+    },
+    {
+      "start": 56.84,
+      "end": 60.86,
+      "text": "لما بدايت سنة",
+      "uncertain": false
+    },
+    {
+      "start": 60.86,
+      "end": 64.8,
+      "text": "حبي جمال فتنة",
+      "uncertain": false
+    },
+    {
+      "start": 64.8,
+      "end": 68.6,
+      "text": "أمر ما بلخضة غسرنا",
+      "uncertain": false
+    },
+    {
+      "start": 68.6,
+      "end": 72.14,
+      "text": "غصن فينا خيمال",
+      "uncertain": false
+    },
+    {
+      "start": 72.14,
+      "end": 75.48,
+      "text": "Oh fuck, I'm gonna try",
+      "uncertain": true
+    },
+    {
+      "start": 76.42,
+      "end": 80.04,
+      "text": "What do we, آخرتي",
+      "uncertain": false
+    },
+    {
+      "start": 80.04,
+      "end": 83.82,
+      "text": "من اللي رفيه وشكوتي",
+      "uncertain": false
+    },
+    {
+      "start": 83.82,
+      "end": 87.82,
+      "text": "في الفض من لا وعتي",
+      "uncertain": true
+    },
+    {
+      "start": 87.82,
+      "end": 92.54,
+      "text": "إلا مليك الجمال",
+      "uncertain": false
+    },
+    {
+      "start": 92.54,
+      "end": 96.06,
+      "text": "قالوا المحب ده صفقة لالي",
+      "uncertain": false
+    },
+    {
+      "start": 96.06,
+      "end": 99.82,
+      "text": "وقالوا الطلوب لا تبيلي",
+      "uncertain": false
+    },
+    {
+      "start": 99.82,
+      "end": 103.52,
+      "text": "وأنا أضحك فوق الإيقان",
+      "uncertain": false
+    },
+    {
+      "start": 103.52,
+      "end": 108.38,
+      "text": "وادفع ثمن المستحيل",
+      "uncertain": false
+    },
+    {
+      "start": 111.44,
+      "end": 114.8,
+      "text": "لما بدع يتفنى",
+      "uncertain": false
+    },
+    {
+      "start": 114.8,
+      "end": 119.02,
+      "text": "لما بدع يتفنى",
+      "uncertain": false
+    },
+    {
+      "start": 119.02,
+      "end": 122.7,
+      "text": "حقي جمال وفتنى",
+      "uncertain": true
+    },
+    {
+      "start": 122.7,
+      "end": 126.5,
+      "text": "أمر ما بلحفة أسرنا",
+      "uncertain": false
+    },
+    {
+      "start": 126.5,
+      "end": 130.14,
+      "text": "غصن ثنى حين مال",
+      "uncertain": false
+    },
+    {
+      "start": 130.14,
+      "end": 133.38,
+      "text": "Oh fuck, I'm gonna come",
+      "uncertain": true
+    },
+    {
+      "start": 160.54,
+      "end": 162.58,
+      "text": "اشتركوا في القناة",
+      "uncertain": false
+    },
+    {
+      "start": 163.38,
+      "end": 170.08,
+      "text": "لكن خطوطه تحكم هذا اليوم",
+      "uncertain": false
+    },
+    {
+      "start": 173.4,
+      "end": 176.84,
+      "text": "لما بدأي تثنى",
+      "uncertain": false
+    },
+    {
+      "start": 176.84,
+      "end": 181.02,
+      "text": "لما بدأي تثنى",
+      "uncertain": false
+    },
+    {
+      "start": 181.02,
+      "end": 184.74,
+      "text": "شق بجمال فتنى",
+      "uncertain": false
+    },
+    {
+      "start": 185.38,
+      "end": 188.52,
+      "text": "أمر ما بلحظة أسرنا",
+      "uncertain": false
+    },
+    {
+      "start": 188.52,
+      "end": 191.9,
+      "text": "غصن فينا أحين ما",
+      "uncertain": false
+    },
+    {
+      "start": 221.4,
+      "end": 221.78,
+      "text": "اشتركوا في القناة",
+      "uncertain": false
+    },
+    {
+      "start": 221.9,
+      "end": 223.14,
+      "text": "ها يتسنى",
+      "uncertain": true
+    }
+  ]
+}

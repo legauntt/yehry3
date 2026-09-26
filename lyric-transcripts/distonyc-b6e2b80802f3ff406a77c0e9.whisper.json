@@ -1,0 +1,439 @@
+{
+  "version": 1,
+  "songId": "distonyc-b6e2b80802f3ff406a77c0e9",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b6e2b80802f3ff406a77c0e9-6e0cb2dcc503.mp3",
+  "audioSha256": "6e0cb2dcc50393ff7acf50e99b0d2b085cde27746a94f267d4676b36dce5f066",
+  "inputSha256": "6345a26a7391289015082a9841ba9feccbda5953de60a8d5c0dfb9f9ae70c8f5",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 419.99675,
+  "segments": [
+    {
+      "start": 5.28,
+      "end": 7.98,
+      "text": "A clock above the stove",
+      "uncertain": true
+    },
+    {
+      "start": 7.98,
+      "end": 10.36,
+      "text": "had stopped at 2.13",
+      "uncertain": false
+    },
+    {
+      "start": 10.36,
+      "end": 12.28,
+      "text": "Your coffee cup",
+      "uncertain": true
+    },
+    {
+      "start": 12.28,
+      "end": 14.04,
+      "text": "was waiting where it",
+      "uncertain": false
+    },
+    {
+      "start": 14.04,
+      "end": 15.62,
+      "text": "always used to be",
+      "uncertain": false
+    },
+    {
+      "start": 16.32,
+      "end": 18.06,
+      "text": "Message on the",
+      "uncertain": false
+    },
+    {
+      "start": 18.06,
+      "end": 20.2,
+      "text": "machine said you were",
+      "uncertain": false
+    },
+    {
+      "start": 20.2,
+      "end": 21.14,
+      "text": "heading home",
+      "uncertain": false
+    },
+    {
+      "start": 21.14,
+      "end": 23.94,
+      "text": "I heard you tie a little",
+      "uncertain": false
+    },
+    {
+      "start": 23.94,
+      "end": 26.0,
+      "text": "lap, then I heard the",
+      "uncertain": false
+    },
+    {
+      "start": 26.0,
+      "end": 26.58,
+      "text": "tongue",
+      "uncertain": false
+    },
+    {
+      "start": 27.52,
+      "end": 29.4,
+      "text": "September 11th",
+      "uncertain": false
+    },
+    {
+      "start": 29.4,
+      "end": 37.58,
+      "text": "came down without a warning bell red light forged the hallway when the sheriff came to tell",
+      "uncertain": true
+    },
+    {
+      "start": 38.52,
+      "end": 42.86,
+      "text": "wood drumming crossed the center line and tore our world apart",
+      "uncertain": false
+    },
+    {
+      "start": 44.54,
+      "end": 48.22,
+      "text": "i stood inside the house and felt the silent start",
+      "uncertain": true
+    },
+    {
+      "start": 51.66,
+      "end": 62.62,
+      "text": "i ask the empty rooms what mercy is supposed to do when every chair remembers someone taken by",
+      "uncertain": true
+    },
+    {
+      "start": 62.62,
+      "end": 71.88,
+      "text": "the truth i know that hate won't wake you but i hold it like a rail because the floor beneath me",
+      "uncertain": false
+    },
+    {
+      "start": 71.88,
+      "end": 74.42,
+      "text": "disappears when i say",
+      "uncertain": true
+    },
+    {
+      "start": 79.36,
+      "end": 88.46,
+      "text": "9-11 again, 9-11 again, 9-11 again, 9-11 again, 9-11 again, 9-11 again, 9-11 again",
+      "uncertain": true
+    },
+    {
+      "start": 88.46,
+      "end": 92.6,
+      "text": "The calendar turns over but the night refuses to end",
+      "uncertain": true
+    },
+    {
+      "start": 92.6,
+      "end": 98.88,
+      "text": "There were drawings on the icebox, yellow suns and purple rain",
+      "uncertain": false
+    },
+    {
+      "start": 98.88,
+      "end": 104.3,
+      "text": "A jacket by the doorway with a crayon and a chain",
+      "uncertain": false
+    },
+    {
+      "start": 104.3,
+      "end": 112.4,
+      "text": "your wedding ring came home to me inside a plastic sleeve the smallest things have weighed",
+      "uncertain": true
+    },
+    {
+      "start": 112.4,
+      "end": 120.74,
+      "text": "enough to bring me to my knees they tell me he was sorry when the courtroom settled down",
+      "uncertain": false
+    },
+    {
+      "start": 120.74,
+      "end": 130.32,
+      "text": "he couldn't raise his eyes while every camera turned around i wanted him to carry every name",
+      "uncertain": false
+    },
+    {
+      "start": 130.32,
+      "end": 131.48,
+      "text": "beneath his skin.",
+      "uncertain": true
+    },
+    {
+      "start": 132.92,
+      "end": 136.36,
+      "text": "I wanted him to wake each night inside the wreck",
+      "uncertain": false
+    },
+    {
+      "start": 136.36,
+      "end": 137.78,
+      "text": "he made there.",
+      "uncertain": false
+    },
+    {
+      "start": 156.04,
+      "end": 161.68,
+      "text": "But anger is a tenant that keeps changing every lock",
+      "uncertain": false
+    },
+    {
+      "start": 161.68,
+      "end": 167.06,
+      "text": "It drinks the morning slowly and it watches every clock",
+      "uncertain": true
+    },
+    {
+      "start": 167.06,
+      "end": 175.4,
+      "text": "i feed it all the questions that no witness can resolve why his hands were on that wheel",
+      "uncertain": true
+    },
+    {
+      "start": 175.4,
+      "end": 183.34,
+      "text": "why mine weren't there at all i took the extra shift that night i said we'd meet the pain",
+      "uncertain": false
+    },
+    {
+      "start": 183.34,
+      "end": 192.4,
+      "text": "you told me don't be late and drove the children on your way now guilt repeats that doorway like",
+      "uncertain": false
+    },
+    {
+      "start": 192.4,
+      "end": 200.76,
+      "text": "a film i cannot mend if i had just been home with you then where would sorrow end",
+      "uncertain": true
+    },
+    {
+      "start": 200.76,
+      "end": 214.4,
+      "text": "9 11 again 9 11 again 9 11 again 9 11 again 9 11 again every siren finds the road and drives me",
+      "uncertain": false
+    },
+    {
+      "start": 214.4,
+      "end": 223.26,
+      "text": "backward through the red your sister says forgiveness isn't pardon or release it doesn't",
+      "uncertain": true
+    },
+    {
+      "start": 223.26,
+      "end": 231.78,
+      "text": "call the damage small address the wrecking piece it may be setting down the glass before it cuts",
+      "uncertain": false
+    },
+    {
+      "start": 231.78,
+      "end": 237.98,
+      "text": "me through it may be saying i survived without betraying you",
+      "uncertain": false
+    },
+    {
+      "start": 239.88,
+      "end": 242.2,
+      "text": "I wrote him seven letters",
+      "uncertain": false
+    },
+    {
+      "start": 242.2,
+      "end": 244.98,
+      "text": "Then I burned them one by one",
+      "uncertain": true
+    },
+    {
+      "start": 244.98,
+      "end": 248.28,
+      "text": "The eighth one only said your names",
+      "uncertain": false
+    },
+    {
+      "start": 248.28,
+      "end": 250.5,
+      "text": "And what his choice had done",
+      "uncertain": false
+    },
+    {
+      "start": 250.5,
+      "end": 253.3,
+      "text": "The ninth began, I hate you",
+      "uncertain": false
+    },
+    {
+      "start": 253.3,
+      "end": 255.94,
+      "text": "And the tenth began, I grieved",
+      "uncertain": false
+    },
+    {
+      "start": 255.94,
+      "end": 258.42,
+      "text": "The last remains unfinished",
+      "uncertain": false
+    },
+    {
+      "start": 258.42,
+      "end": 261.2,
+      "text": "I am trying still to live",
+      "uncertain": false
+    },
+    {
+      "start": 268.46,
+      "end": 271.12,
+      "text": "I was not the headlights",
+      "uncertain": false
+    },
+    {
+      "start": 271.12,
+      "end": 273.36,
+      "text": "I was not the drink",
+      "uncertain": true
+    },
+    {
+      "start": 273.36,
+      "end": 276.18,
+      "text": "I was not the center light",
+      "uncertain": true
+    },
+    {
+      "start": 276.18,
+      "end": 278.96,
+      "text": "I could not make Tom Blaine",
+      "uncertain": true
+    },
+    {
+      "start": 278.96,
+      "end": 281.76,
+      "text": "I was working for our future",
+      "uncertain": false
+    },
+    {
+      "start": 281.76,
+      "end": 284.52,
+      "text": "I did not shoot your end",
+      "uncertain": false
+    },
+    {
+      "start": 284.52,
+      "end": 289.5,
+      "text": "Still the old accusation circles through my head",
+      "uncertain": false
+    },
+    {
+      "start": 289.5,
+      "end": 294.5,
+      "text": "9-11 again, 9-11 again, 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 294.5,
+      "end": 299.7,
+      "text": "9-11 again, 9-11 again, 9-11 again",
+      "uncertain": true
+    },
+    {
+      "start": 310.18,
+      "end": 315.58,
+      "text": "Tonight I set four places, then I put three plates away",
+      "uncertain": true
+    },
+    {
+      "start": 315.58,
+      "end": 325.34,
+      "text": "i opened up the curtains at the breaking of the day your rose is tough the winter but one branch",
+      "uncertain": true
+    },
+    {
+      "start": 325.34,
+      "end": 334.96,
+      "text": "is showing green a stubborn little answer in the yard where grief has been i cannot give him mercy",
+      "uncertain": false
+    },
+    {
+      "start": 334.96,
+      "end": 343.3,
+      "text": "like a judge with lifted hands i cannot force my heart to go where it still cannot stand",
+      "uncertain": false
+    },
+    {
+      "start": 343.3,
+      "end": 348.16,
+      "text": "But I can stop condemning that man working late downtown",
+      "uncertain": false
+    },
+    {
+      "start": 348.16,
+      "end": 352.88,
+      "text": "Who thought he served his family and was absent when night came down",
+      "uncertain": false
+    },
+    {
+      "start": 353.46,
+      "end": 358.54,
+      "text": "9-11 again, 9-11 again, 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 358.54,
+      "end": 361.28,
+      "text": "9-11 again",
+      "uncertain": true
+    },
+    {
+      "start": 361.96,
+      "end": 368.4,
+      "text": "The words are still a wound, but they no longer own my name",
+      "uncertain": false
+    },
+    {
+      "start": 373.3,
+      "end": 378.5,
+      "text": "I speak your names at sunrise, every syllable held clear",
+      "uncertain": false
+    },
+    {
+      "start": 378.5,
+      "end": 384.92,
+      "text": "My love was in that house with you, though I could not be there",
+      "uncertain": true
+    },
+    {
+      "start": 386.44,
+      "end": 391.86,
+      "text": "I may never call in mercy, I may never understand",
+      "uncertain": false
+    },
+    {
+      "start": 391.86,
+      "end": 398.04,
+      "text": "But I release my own throat from the judgment of my hands",
+      "uncertain": false
+    },
+    {
+      "start": 398.04,
+      "end": 403.06,
+      "text": "The road keeps what it took from me, the morning still comes in",
+      "uncertain": false
+    },
+    {
+      "start": 403.06,
+      "end": 405.8,
+      "text": "I'll leave the porch black burning",
+      "uncertain": false
+    },
+    {
+      "start": 405.8,
+      "end": 408.18,
+      "text": "Then I finally step within",
+      "uncertain": false
+    }
+  ]
+}
