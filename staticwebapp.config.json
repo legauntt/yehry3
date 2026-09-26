@@ -153,6 +153,10 @@
       }
     },
     {
+      "route": "/lyric-transcripts/*",
+      "headers": { "Cache-Control": "no-cache" }
+    },
+    {
       "route": "/assets/*",
       "headers": {
         "Cache-Control": "no-cache"

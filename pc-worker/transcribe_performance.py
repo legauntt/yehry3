@@ -13,7 +13,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-RECIPE = 'unprompted-tony-vocal-phrases-v2'
+RECIPES = {'continuous': 'unprompted-continuous-v1', 'phrases': 'unprompted-tony-vocal-phrases-v2'}
 
 
 def read(path):
@@ -211,6 +211,8 @@ def main():
     parser.add_argument('--speech-root', required=True, type=Path)
     parser.add_argument('--cache', required=True, type=Path, help='Private evidence outside the public repo')
     parser.add_argument('--model', default='large-v3-turbo', help='An already downloaded faster-whisper model')
+    parser.add_argument('--segmentation', choices=RECIPES, default='continuous',
+                        help='Continuous audio by default; energy-based phrase windows are an alternative experiment')
     parser.add_argument('--download-model', action='store_true', help='Allow downloading the requested model')
     args = parser.parse_args()
     repo = Path(__file__).resolve().parents[1]
@@ -221,14 +223,15 @@ def main():
     model_key = re.sub(r'[^a-zA-Z0-9_.-]', '-', args.model).strip('.')
     if not model_key:
         parser.error('Invalid model name')
-    cache = args.cache / song['id'] / source['audio_sha256'] / model_key / RECIPE
+    recipe = RECIPES[args.segmentation]
+    cache = args.cache / song['id'] / source['audio_sha256'] / model_key / recipe
     evidence_path = cache / 'evidence.json'
     signature = {'audio_sha256': source['audio_sha256'], 'vocal_sha256': source['vocal_sha256'],
                  'manifest_sha256': source['manifest_sha256'], 'model': args.model,
-                 'recipe': RECIPE}
+                 'recipe': recipe}
     if evidence_path.exists():
         evidence = read(evidence_path)
-        if evidence['signature'] != signature:
+        if any(evidence['signature'].get(key) != value for key, value in signature.items()):
             raise ValueError('Cached evidence belongs to different audio or settings')
         if digest(cache / 'words.json') != evidence['words_sha256']:
             raise ValueError('Cached recognized words changed')
@@ -244,7 +247,11 @@ def main():
                              download_root=str(args.speech_root / 'speech-models'),
                              local_files_only=not args.download_model)
         print(f"Recognizing converted Tony vocals for {song['title']} ({args.model}, CPU)", flush=True)
-        rows, duration, windows = recognize_vocals(model, source['vocals'])
+        if args.segmentation == 'phrases':
+            rows, duration, windows = recognize_vocals(model, source['vocals'])
+        else:
+            rows, duration = recognize(model, source['vocals'])
+            windows = None
         if digest(source['vocals']) != source['vocal_sha256']:
             raise ValueError('Audio changed during recognition')
         write(cache / 'words.json', rows)

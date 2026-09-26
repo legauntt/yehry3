@@ -5,6 +5,7 @@ import { createHash, randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { publicCatalog } from "./archived-songs.mjs";
 import { lyricPronunciations } from "./lyric-pronunciations.mjs";
+import { performanceTranscripts } from "./performance-transcripts.mjs";
 const site = process.env.YEHRY3_SITE_URL || "https://yehry3.app";
 const api = process.env.YEHRY3_API_URL || "https://chairlift.fly.dev/yehry3";
 // Windows checkouts may use CRLF; compare the same source text deployed on Linux.
@@ -186,6 +187,7 @@ for (const name of [
   "quality-preference.css",
   "lyrics.js",
   "lyric-views.js",
+  "performance-lyrics.js",
   "lyric-moments.js",
   "lyric-toolbar.js",
   "lyric-toolbar.css",
@@ -406,6 +408,14 @@ const expected = publicCatalog(local, archived);
 const catalog = await (await get(`${site}/catalog.json`)).json();
 assert.deepEqual(await (await get(`${site}/assets/lyric-pronunciations.json`)).json(), lyricPronunciations(catalog.songs), "Pronunciation vocabulary differs from the deployed catalog");
 assert.deepEqual(catalog, expected);
+const transcripts = await performanceTranscripts(catalog.songs);
+assert.deepEqual(await (await get(`${site}/assets/lyric-transcripts.json`)).json(), transcripts.index);
+for (const [name, transcript] of Object.entries(transcripts.files)) {
+  const response = await get(`${site}/lyric-transcripts/${name}`);
+  assert.match(response.headers.get("cache-control") || "", /no-cache/);
+  assert.deepEqual(await response.json(), transcript);
+}
+console.log("Audio transcript availability, recording identities and public data verified.");
 assert.deepEqual(
   await (await get(`${site}/basis-songs.json`)).json(),
   JSON.parse(

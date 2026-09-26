@@ -6,6 +6,7 @@ import { songAlias } from "../assets/song-links.js";
 import { songSummary } from "../assets/song-summary.js";
 import { codeVersion } from "./code-version.mjs";
 import { lyricPronunciations } from "./lyric-pronunciations.mjs";
+import { performanceTranscripts } from "./performance-transcripts.mjs";
 const root = path.resolve(import.meta.dirname, "..");
 const output = path.join(root, "dist");
 const updatedAt = new Date();
@@ -72,6 +73,11 @@ if (process.env.YEHRY3_ARCHIVE_URL) {
   }
 }
 await mkdir(path.join(output, "songs"));
+const transcripts = await performanceTranscripts(catalog.songs);
+await mkdir(path.join(output, "lyric-transcripts"));
+await writeFile(path.join(output, "assets", "lyric-transcripts.json"), JSON.stringify(transcripts.index));
+for (const [name, transcript] of Object.entries(transcripts.files))
+  await writeFile(path.join(output, "lyric-transcripts", name), JSON.stringify(transcript));
 await writeFile(path.join(output, "assets", "lyric-pronunciations.json"), JSON.stringify(lyricPronunciations(catalog.songs)));
 for (const song of catalog.songs) {
   if (!/^[a-z0-9-]{1,120}$/.test(song.id)) throw new Error("Invalid public song ID");

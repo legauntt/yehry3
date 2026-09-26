@@ -14,7 +14,8 @@
 .sheet-save { display: flex; }
 .lyric-toolbar .lyric-views { display: flex; align-items: center; gap: 2px; margin: 0; padding: 0; border: 0; background: transparent; }
 .lyric-toolbar .lyric-view-controls { display: block; }
-.lyric-toolbar .lyric-view-controls select { width: 114px; min-height: 40px; padding: 6px 8px; font-size: .85rem; }
+.lyric-toolbar .lyric-view-controls select { width: 158px; min-height: 40px; padding: 6px 8px; font-size: .85rem; }
+.lyric-uncertain { display: inline-block; margin-left: .5em; border: 1px solid currentColor; border-radius: 50%; padding: 0 .35em; font: .72em/1.35 system-ui; }
 .lyrics-sheet .lyric-toolbar .sheet-icon {
   display: inline-flex; align-items: center; justify-content: center; flex: none;
   width: 36px; height: 40px; min-width: 36px; min-height: 40px;
@@ -60,11 +61,13 @@
   .lyrics-sheet .lyric-toolbar { gap: 2px; padding: 4px; }
   .lyric-toolbar .sheet-controls { flex-basis: 100%; }
   .lyric-toolbar .sheet-controls #share-moment { grid-column: auto; }
-  .lyric-toolbar .sheet-tools { flex: 1; flex-wrap: wrap; justify-content: flex-end; gap: 2px; }
-  .lyric-view-slot { margin-right: auto; }
+  .lyric-toolbar .sheet-tools { flex: 1; min-width: 0; flex-wrap: nowrap; justify-content: flex-end; gap: 2px; }
+  .lyric-view-slot { flex: 1; min-width: 0; }
+  .lyric-toolbar .lyric-view-controls { flex: 1; min-width: 0; }
   .lyrics-sheet .lyric-toolbar .sheet-icon { width: 44px; height: 44px; min-width: 44px; min-height: 44px; }
-  .lyrics-sheet .lyric-toolbar .sheet-info { width: 36px; min-width: 36px; }
-  .lyric-toolbar .lyric-view-controls select { width: 110px; min-height: 44px; }
+  .lyrics-sheet .lyric-toolbar .sheet-tools .sheet-icon { width: 36px; min-width: 36px; }
+  .lyrics-sheet .lyric-toolbar .sheet-info { width: 28px; min-width: 28px; }
+  .lyric-toolbar .lyric-view-controls select { width: 100%; min-height: 44px; font-size: .78rem; }
   .sheet-meta [data-listening-stats] { display: none; }
 }
 @media print {

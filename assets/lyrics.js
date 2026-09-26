@@ -39,11 +39,11 @@ function lyricLines(lyrics, escape) {
     .split("\n")
     .map((line, index) => {
       if (!line.trim()) return '<span class="lyric-break" aria-hidden="true"></span>';
-      if (/^\s*\[[^\]]+]\s*$/.test(line))
+      if (lyrics.kind !== "performance" && /^\s*\[[^\]]+]\s*$/.test(line))
         return `<span class="lyric-heading">${escape(line)}</span>`;
       const cue = cues.get(index);
       return cue
-        ? `<button type="button" class="lyric-line" id="lyric-line-${index + 1}" data-start="${cue.start}" data-end="${cue.end}" title="Jump to this line"><span data-lyric-text="${index}">${escape(line)}</span><span class="lyric-link-marker">Shared line</span></button>`
+        ? `<button type="button" class="lyric-line" id="lyric-line-${index + 1}" data-start="${cue.start}" data-end="${cue.end}" title="Jump to this line"><span data-lyric-text="${index}">${escape(line)}</span>${cue.uncertain ? '<span class="lyric-uncertain" aria-label="Uncertain transcription" title="Whisper is uncertain about this line">?</span>' : ""}<span class="lyric-link-marker">Shared line</span></button>`
         : `<span class="lyric-line"><span data-lyric-text="${index}">${escape(line)}</span></span>`;
     })
     .join("");
@@ -86,7 +86,7 @@ export function sheetFor(song) {
   return sheet;
 }
 
-function mountKaraoke(main, sheet) {
+function mountKaraoke(main, sheet, { restoreLink = true } = {}) {
   const audio = sheet.audio;
   const lines = [...main.querySelectorAll("button.lyric-line")];
   if (!lines.length) return () => {};
@@ -135,7 +135,7 @@ function mountKaraoke(main, sheet) {
   }
   for (const line of lines) line.addEventListener("click", () => selectLine(line, true));
   const linkedLine = lineFromHash();
-  if (linkedLine && !(sheet.isCurrent() && (audio.currentTime || !audio.paused))) {
+  if (restoreLink && linkedLine && !(sheet.isCurrent() && (audio.currentTime || !audio.paused))) {
     linkedLine.scrollIntoView({ block: "center" });
     if (sharedTimestamp() === null) selectLine(linkedLine);
     else markLinked(linkedLine);
@@ -256,7 +256,6 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     listeningStats.textContent = listeningLabel(song);
     main.querySelector(".sheet-meta").append(listeningStats);
     cleanupControls = mountSheetControls(main, sheet);
-    cleanupKaraoke = mountKaraoke(main, sheet);
     cleanupMoments = mountMomentSharing(main, sheet);
     profilePanel ||= document.createElement("div");
     main.querySelector(".sheet-profile-slot").append(profilePanel);
@@ -264,9 +263,37 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     main.querySelector(".sheet-save").innerHTML = favorites.button(song);
     main.querySelector(".sheet-save button").classList.add("sheet-icon", "sheet-favorite");
     main.querySelector(".lyrics-actions").insertAdjacentHTML("beforeend", remixLink(song, escape));
-    cleanupViews = mountLyricViews(main, song.lyrics, ({ text, view, label, note: viewNote }) => {
+    let renderedSource = "original", karaokeMounted = false;
+    cleanupViews = mountLyricViews(main, song, ({ text, lyrics, source, initial, view, label, note: viewNote }) => {
+      if (source !== renderedSource) {
+        // A line number means something different in another transcript. Keep the
+        // playback moment when switching sources instead of reusing that number.
+        if (!initial) {
+          const url = new URL(location.href);
+          if (/^#lyric-line-\d+$/.test(url.hash)) {
+            url.hash = "";
+            url.searchParams.set("t", String(Math.round(sheet.position() * 1000) / 1000));
+            history.replaceState(history.state, "", url);
+          }
+        }
+        cleanupKaraoke();
+        main.querySelector(".lyrics-text").innerHTML = lyricLines(lyrics, escape);
+        renderedSource = source;
+        karaokeMounted = false;
+      } else {
+        const translated = text.split("\n");
+        for (const line of main.querySelectorAll("[data-lyric-text]")) line.textContent = translated[Number(line.dataset.lyricText)];
+      }
+      if (!karaokeMounted) {
+        cleanupKaraoke = mountKaraoke(main, sheet, { restoreLink: initial });
+        karaokeMounted = true;
+      }
+      main.querySelector(".karaoke-note").textContent = source !== "original"
+        ? "Whisper machine transcript · Unreviewed · ? = uncertain. Select a line to hear it."
+        : cueMap(lyrics).size ? "Select a timed lyric to jump there." : "Line timing is unavailable. Use the player to choose a moment.";
       const viewLabel = view === "original" ? "" : `\n${label}: ${viewNote}`;
-      const blob = new Blob([`${song.title}\n${song.authoredBy ? `Authored by ${song.authoredBy}\n` : ""}${note}${viewLabel}\n\n${text}\n`], {
+      const downloadText = text.split("\n").map((line, index) => lyrics.cues?.some(cue => cue.line === index && cue.uncertain) ? `${line} [?]` : line).join("\n");
+      const blob = new Blob([`${song.title}\n${song.authoredBy ? `Authored by ${song.authoredBy}\n` : ""}${source === "original" ? note : "Audio-derived machine transcription."}${viewLabel}\n\n${downloadText}\n`], {
         type: "text/plain;charset=utf-8",
       });
       if (downloadUrl) URL.revokeObjectURL(downloadUrl);

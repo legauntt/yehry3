@@ -22,8 +22,10 @@ It requires both the hash-verified released MP3 and its retained converted Tony
 vocal stem (`matched-vocals.wav`, archived as `vocals.wav`). A guide singer's
 stem or source transcript is not accepted. Recognition reads the audio without
 the written lyrics as a prompt, and produces its own words and timestamps.
-Phrase windows come from energy in that vocal stem, with padding for quiet
-consonants, so long instrumental gaps are not submitted as supposed speech.
+Continuous recognition is the default, following the full-verse Pumpkin test.
+`--segmentation phrases` instead uses energy windows with padding for quiet
+consonants. That experiment can avoid instrumental gaps but introduce errors at
+window boundaries; neither result is assumed correct from confidence alone.
 Private evidence records the audio identities and model; a separate public draft
 contains only recording identity, machine-transcription attribution, segment text,
 timing and uncertainty flags. The program does not publish that draft or overwrite
@@ -42,6 +44,35 @@ release identity and converted vocal archive need source verification first.
 Each completed run also writes a private `review.html`: timestamp buttons play
 the released recording, the player can switch to Tony's isolated vocals at the
 same position, and the supplied lyrics are available separately for comparison.
+
+## Optional recognizer views
+
+The dropdown includes **Lyrics (Whisper)** for recordings with a published machine
+transcript. Its own segment timestamps drive highlighting, click-to-seek and moment
+links. `?view=whisper` selects it for recipients regardless of their saved preference.
+Switching between written and recognized text keeps audio playing and translates any
+old line hash into a timestamp, because their line numbers differ. Downloads and print
+follow the selected view and preserve its machine attribution and uncertainty marks.
+Unavailable recordings show a disabled option; stale or failed transcript links keep
+the written sheet usable and explain the fallback. Recognition never replaces the
+original lyric sheet.
+
+The first published example is **The Pumpkin Knows My Name**, using unprompted
+continuous `faster-whisper large-v3-turbo` on its verified converted Tony vocals.
+This is explicitly a machine result without listening review. A question mark means
+the model flagged uncertainty, not that unmarked lines have been verified.
+
+Only sanitized public drafts belong in `lyric-transcripts/<song-id>.whisper.json`.
+`scripts/performance-transcripts.mjs` validates the released URL/hash, duration and
+segments, omits archived songs and generates the small availability index plus
+per-recording JSON. It exports only allowed public fields; private evidence, word
+probabilities and local paths stay outside the repository. `assets/performance-lyrics.js`
+registers each supported method and validates again against the current song before
+display. New recognizers should get their own method and accurate label here.
+
+Whisper recognizes words, not acoustic IPA. There is deliberately no **Phonetics
+(Whisper)** option: a future phonetics view must use an actual audio-to-phoneme
+recognizer. The separate dictionary modes remain guides to written words.
 
 The two initial Distonyc songs, **Blood on My Shoes at Daybreak** and **Two Names in One Pair of Shoes**, use their saved original lyrics. Future jobs export sheets as part of native publication. The existing planning call also classifies clear Fear & Hunger songs; lyrics export, collection updates, and uploading require no additional model call.
 

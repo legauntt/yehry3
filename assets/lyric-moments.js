@@ -66,6 +66,9 @@ export function mountMomentSharing(main, sheet) {
     const view = new URL(location.href).searchParams.get("view");
     if (link.searchParams.get("view") === view) return;
     link.searchParams.set("view", view);
+    // The saved timestamp remains meaningful across transcripts; line numbers do not.
+    const line = [...main.querySelectorAll("button.lyric-line")].filter(item => Number(item.dataset.start) <= Number(link.searchParams.get("t"))).at(-1);
+    link.hash = line?.id || "";
     input.value = link.href;
     status.textContent = "Link updated for this lyric view. Select Share to copy it again.";
   }, { signal });
