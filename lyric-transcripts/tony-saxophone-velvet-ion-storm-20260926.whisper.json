@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "songId": "tony-saxophone-velvet-ion-storm-20260926",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/tony-saxophone-velvet-ion-storm-20260926-7dfd1649549d.mp3",
+  "audioSha256": "7dfd1649549d000af8efbf34434c1a9b340a0b875f679abf72390447c99fa5ef",
+  "inputSha256": "7dfd1649549d000af8efbf34434c1a9b340a0b875f679abf72390447c99fa5ef",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 210.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 20.48,
+      "text": "I love you, I love you, I love you",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 59.28,
+      "text": "I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you",
+      "uncertain": true
+    },
+    {
+      "start": 60.0,
+      "end": 61.96,
+      "text": "She do wrong",
+      "uncertain": true
+    },
+    {
+      "start": 65.0,
+      "end": 65.4,
+      "text": "We",
+      "uncertain": true
+    },
+    {
+      "start": 68.0,
+      "end": 70.0,
+      "text": "Yeah, I don't know",
+      "uncertain": true
+    },
+    {
+      "start": 71.0,
+      "end": 73.02,
+      "text": "She I look",
+      "uncertain": true
+    },
+    {
+      "start": 74.76,
+      "end": 76.68,
+      "text": "It all be",
+      "uncertain": true
+    },
+    {
+      "start": 78.6,
+      "end": 80.42,
+      "text": "Yeah, I believe",
+      "uncertain": true
+    },
+    {
+      "start": 83.0,
+      "end": 84.06,
+      "text": "I hate them",
+      "uncertain": true
+    },
+    {
+      "start": 85.64,
+      "end": 91.54,
+      "text": "The rules are pretty hard",
+      "uncertain": true
+    },
+    {
+      "start": 114.06,
+      "end": 124.2,
+      "text": "Oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh.",
+      "uncertain": true
+    },
+    {
+      "start": 144.06,
+      "end": 170.28,
+      "text": "I give a look, show the hour, but I don't, but I see the hour, but I see the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour, and the hour,",
+      "uncertain": true
+    },
+    {
+      "start": 175.72,
+      "end": 177.12,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 208.4,
+      "end": 209.76,
+      "text": "We'll see you next time.",
+      "uncertain": true
+    }
+  ]
+}
