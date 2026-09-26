@@ -356,6 +356,21 @@ function resolve(song) {
 }
 // Supplied covers stay with their recording, including after votes or redraws.
 const customArtwork = new Map([
+  ["tony-saxophone-pocket-orbit-20260926", {
+    src: "/assets/artwork/tony-saxophone-pocket-orbit.webp",
+    alt: "Pocket Orbit: an empty jazz-club stage in amber and deep blue light.",
+    theme: "jazz-stage", tier: 0, remixed: false,
+  }],
+  ["tony-saxophone-sideways-staircase-20260926", {
+    src: "/assets/artwork/tony-saxophone-sideways-staircase.webp",
+    alt: "Sideways Staircase: an ornate brass staircase winding through a teal jazz room.",
+    theme: "jazz-staircase", tier: 0, remixed: false,
+  }],
+  ["tony-saxophone-velvet-ion-storm-20260926", {
+    src: "/assets/artwork/tony-saxophone-velvet-ion-storm.webp",
+    alt: "Velvet Ion Storm: an amplifier in a violet desert beneath a glowing cyan spiral.",
+    theme: "desert-amplifier", tier: 0, remixed: false,
+  }],
   ["distonyc-273bc25db98800af3487b313", {
     src: "/assets/artwork/weird-hair-weird-smells-tattoo.webp",
     alt: 'Fish tattoo with the words "No kings, no gods, just coupons after ten."',

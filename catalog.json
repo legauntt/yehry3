@@ -2,6 +2,107 @@
   "version": 1,
   "songs": [
     {
+      "id": "tony-saxophone-pocket-orbit-20260926",
+      "title": "Pocket Orbit",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/tony-saxophone-pocket-orbit-20260926-d6d199d58121.mp3",
+      "duration": 180.0,
+      "collection": "tonyai",
+      "collections": [
+        "tonyai"
+      ],
+      "publishedAt": "2026-09-26T19:01:04Z",
+      "voiceModel": "v9",
+      "musicBackend": "local",
+      "lyrics": {
+        "kind": "written",
+        "text": "[Intro]\nMmm-brr-aa, drr-oo-dah!\n[Verse]\nBvah-dli-ya, brroo-da-dli-oo\nDrr-eh-bap, vwah-la-dum\nZhee-bli-yah, drr-oo-va-ree\nPrr-ah-di, glou-ba-daa\n[Chorus]\nBraa-dli-yoo, zhee-ya-bum\nDva-rri-aa, ploo-dli-zah\nRr-ow-bah, dli-ya-vroo\nGrr-aa-dum, zhee-ba-daa\n[Verse]\nVoo-dri-ka, brrah-vee-lou\nDli-ya-bap, prr-ee-da-vah\nZoum-bri-ah, drr-ah-lee-zha\nBva-da-rree, blou-ba-dum\n[Bridge]\nMrr-oo-vaa... drr-aa-yee\nVrr-eh-lou... zha-rri-aa\nPrr-ah-dli, vou-ree-bah\nDrr-oo-zah, vleh-ba-dum\n[Final Chorus]\nBraa-dli-yaa, vree-ba-dum\nZhee-ya-rroo, dli-ba-vah\nPrr-eh-dli-ya, grrou-va-zhee\nBrr-aa-rr-ee-yaa!\n[Outro]\nMmm-vah... prr-aaah!\n[End]"
+      },
+      "originalPrompt": {
+        "idea": "Tony Is a Saxophone: a three-track wordless EP spanning funk, bebop and psychedelic jazz rock.",
+        "direction": "Upbeat instrumental-led jazz funk with a smoky gravelly male scat singer functioning as the lead horn. Syncopated electric bass, dry crisp acoustic drums, clavinet, muted guitar scratches and warm Rhodes. Actual pitched sung melodic improvisation, rounded vowel bends, breath attacks, playful octave jumps and short call-and-response phrases. Strong evolving pocket, tight arranged ensemble stops. No saxophone doubling the lead, no spoken introduction, no real-language lyrics. Opening four bars, A theme, B theme with new chords, bass-and-voice exchange, half-time eight-bar bridge, climbing final theme. Final vocal flourish at 168 seconds, complete ensemble resolution and natural decay to 180 seconds.",
+        "keep": "Invented scat syllables; voice as a horn; complete band endings.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local"
+      },
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 24.7
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 16.74
+        }
+      ]
+    },
+    {
+      "id": "tony-saxophone-sideways-staircase-20260926",
+      "title": "Sideways Staircase",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/tony-saxophone-sideways-staircase-20260926-961a626d265d.mp3",
+      "duration": 180.0,
+      "collection": "tonyai",
+      "collections": [
+        "tonyai"
+      ],
+      "publishedAt": "2026-09-26T19:01:04Z",
+      "voiceModel": "v9",
+      "musicBackend": "local",
+      "lyrics": {
+        "kind": "written",
+        "text": "[Intro]\nDrr-bip-dli-ya, vrah!\n[Verse]\nBli-ya-drr-ee-ba, zhoo-dri-ka\nVreh-dli-bap, zhee-ya-rri-dum\nPrr-ee-va-dli, blou-zha-ri-ka\nDva-bri-ya, grree-lou-daa\n[Chorus]\nZee-dli-vah, brr-ya-dum\nDrr-oo-bli, prr-eh-va-zha\nVree-ka-dli, zhou-bra-yah\nGrr-ee-dli-bap, vwaaa!\n[Verse]\nPli-ka-vri-ya, drr-eh-zhoo\nBva-rri-dli, zhee-ba-vou\nDrr-ee-kva-lee, prr-ah-bli-zha\nVreh-zoum-da, dli-ya-brrah\n[Bridge]\nMrr-ah... vlee-oo...\nBrr-ee-ya... drr-oo...\nZhee-bli-ka-dli, vree-dah\nPrr-ee-zha-vah, braa!\n[Final Chorus]\nDli-ya-bri-ya, zhee-ba-dum\nVree-zha-dli, brou-ka-yaa\nPrr-eh-bli-ka-drr, vee-zhoom\nDrr-ee-vaa... brr-ah!\n[End]"
+      },
+      "originalPrompt": {
+        "idea": "Tony Is a Saxophone: a three-track wordless EP spanning funk, bebop and psychedelic jazz rock.",
+        "direction": "Fast playful bebop vocal jazz quartet, rough smoky male scat voice as the nimble solo instrument. Walking upright bass, ride cymbal swing, sharply comping acoustic piano and small drum kit. Agile crooked melodic runs across changing harmonies, chromatic passing notes, elastic phrase endings, low growls answering high head-voice slides. Entirely invented phonetic singing, no real words. Head melody then two contrasting improvised sections, trading four-bar phrases with drums, a brief spacious bass dialogue, accelerating-feel final head and witty resolved ensemble button. Keep lead vocal present with breathing space. End last sung gesture at 169 seconds; full cadence and decay by 180 seconds. No saxophone, no repeated chant, no static loop.",
+        "keep": "Invented scat syllables; voice as a horn; complete band endings.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local"
+      },
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 47.82
+        }
+      ]
+    },
+    {
+      "id": "tony-saxophone-velvet-ion-storm-20260926",
+      "title": "Velvet Ion Storm",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/tony-saxophone-velvet-ion-storm-20260926-7dfd1649549d.mp3",
+      "duration": 210.0,
+      "collection": "tonyai",
+      "collections": [
+        "tonyai"
+      ],
+      "publishedAt": "2026-09-26T19:01:04Z",
+      "voiceModel": "v9",
+      "musicBackend": "local",
+      "lyrics": {
+        "kind": "written",
+        "text": "[Intro]\nMrr-oo-vaa... vree-ah-lou\nDrr-ah-yee... zhou-vaa\n[Verse]\nBrr-eh-dli, voo-zha-ree\nVah-lou-dri, grrou-ba-yaa\nZhee-ya-vou, prr-ee-lah\nDrr-oo-braa, vlee-zha-dum\n[Chorus]\nVraa-rr-ee-yaa, blou-da-lee\nMrr-ah-zhee, dli-vah-rrou\nPrr-eh-vaa, zhou-ri-yaa\nBrr-aa-lou, drr-ee-yaa\n[Verse]\nZha-vri-dou, pli-ya-brrah\nVoo-dli-zha, grree-ba-lou\nDrr-eh-ka-vee, prr-aa-dli\nBvaa-rri-yah, zhee-dou-vaa\n[Bridge]\nMmm-vree... aa-rrou...\nZhee-ya-lou... mrr-aa-vee\nDli-ya-prr, vlah-ree-dum\nBrr-oo-zha, drr-ee-vah\n[Final Chorus]\nVraa-dli-yaa, grree-ba-lou\nZhou-vri-ya, prr-eh-dum\nBrr-aa-zee, dli-ya-vrou\nDrr-ee-aa-rr-yaa!\n[Outro]\nMrr-oo-vah... vree-aaah...\n[End]"
+      },
+      "originalPrompt": {
+        "idea": "Tony Is a Saxophone: a three-track wordless EP spanning funk, bebop and psychedelic jazz rock.",
+        "direction": "Expansive psychedelic jazz rock, restless melodic scat lead sung by a smoky gravelly male singer. Liquid moving electric bass, live syncopated drums, swirling electric piano, restrained tape-delay guitar and drifting organ. Lead voice behaves like an expressive horn: bent held notes, tumbling modal runs, guttural attacks and sudden high glides. No real-language lyrics and no saxophone. Five evolving sections: spacious pulsing opening, urgent groove, contrasting luminous major-color middle, stripped bass-voice exchange, full-band final ascent. Keep voice dry enough to retain character; space around individual phrases, no monotonous drone. Final vocal resolves at 198 seconds, final chord rings naturally through the complete 210-second ending.",
+        "keep": "Invented scat syllables; voice as a horn; complete band endings.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local"
+      },
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 22.5
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 40.38
+        }
+      ]
+    },
+    {
       "id": "distonyc-b19431df8cbbdb71a568e763",
       "title": "Kraza Vellum",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b19431df8cbbdb71a568e763-3ea4ccd0eab1.mp3",
