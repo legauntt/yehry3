@@ -2,6 +2,392 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-8de6c1a77488271758b8910d",
+      "title": "Static on the Dancefloor",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8de6c1a77488271758b8910d-98aad90f2485.mp3",
+      "duration": 280.0065306122449,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-26T09:01:14.177Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Static on the Dancefloor",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "F# minor",
+        "arrangement": "Upbeat, bass-forward electronic dance-rock at 126 BPM: four-on-the-floor kick, buoyant synth bass, crisp claps, bright arpeggiated synths, rhythmic electric guitar, and short piano stabs. Use one clear, steadily pitched Tony lead with playful loose phrasing and occasional brief muttered connective asides, while keeping the hook intelligible and melodic; no vocal doubles, backing voices, rasp effects, or stacked vocals. Build from a sparse club intro into increasingly dense choruses, pull back for the bridge, then give the final chorus a wide peak. Continue sung closing lines so the final sustained syllable lands 8–12 seconds before the 280-second end, followed by one resolved final chord decay.",
+        "lyrics": "[Intro]\nLights blink twice, then the ceiling sways\nI came in laughing through a sideways haze\nThe room says something, I answer the beat\nWith a pocket full of sparks and a runaway feet\n\n[Verse 1]\nBlue cup spinning on the speaker stack\nHalf a sentence and I never take it back\nNames turn liquid, signs turn gold\nMy tongue trips over stories I was never told\nI point at the mirror, it points right through\nEverybody moving like they know what to do\nI got a hand in the air, got a hand on the wall\nGot a little bad idea getting bigger than all\n\n[Pre-Chorus]\nSay it fast, say it bent\nSay the thing that nobody meant\nThe kick drum knows where my head has gone\nIt keeps pulling every loose word along\n\n[Chorus]\nStatic on the dancefloor, shake it out\nI got a radio heart and a runaway mouth\nStatic on the dancefloor, bright and wild\nThe whole room laughing like a bad-luck child\nTurn it up till the shadows all sing\nI don't need a reason, I just need that swing\nStatic on the dancefloor, don't slow down\nI'm a loose-wire king in a spinning town\n\n[Verse 2]\nSomebody asks me what time it is\nI say, “Tuesday,” with a theatrical fizz\nThe bass line bends and the floor leans near\nI make a tiny speech that nobody can hear\nWindow full of moon, moon full of smoke\nI start a joke and forget the joke\nThen I clap in time with a painted machine\nAnd salute the bartender, the queen of the scene\n\n[Pre-Chorus]\nWords fall sideways, shoes keep time\nEvery broken little thought finds a rhyme\nThe snare drum snaps, the room replies\nWith electric weather in a hundred eyes\n\n[Chorus]\nStatic on the dancefloor, shake it out\nI got a radio heart and a runaway mouth\nStatic on the dancefloor, bright and wild\nThe whole room laughing like a bad-luck child\nTurn it up till the shadows all sing\nI don't need a reason, I just need that swing\nStatic on the dancefloor, don't slow down\nI'm a loose-wire king in a spinning town\n\n[Bridge]\nNo map, no message, no dignified plan\nJust a pulse in the walls and a half-made man\nI say “maybe,” then I say “all right”\nThen I sing to the fluorescent light\nThe crowd goes round, the ceiling goes round\nI find a melody under the sound\nHold that note, let it wobble and gleam\nTill the morning walks in on the fever dream\n\n[Chorus]\nStatic on the dancefloor, shake it out\nI got a radio heart and a runaway mouth\nStatic on the dancefloor, bright and wild\nThe whole room laughing like a bad-luck child\nWhen the last light opens and the blue turns gold\nI'll carry this noise till my hands grow old\nStatic on the dancefloor, I finally see\nThe song was a signal calling me\n\n[Outro]\nOne clear note, one final turn\nLet the room go dark, let the bright wires burn\nI leave with the rhythm still under my skin\nAnd the silence says, “come back again”\n[End]",
+        "duration": 280,
+        "bpm": 126,
+        "musicalSettings": {
+          "genre": "Upbeat electronic dance-rock with a lively club pocket",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Pre-Chorus, Chorus, Bridge, Final Chorus, Outro",
+          "performance": "A clear melodic Tony lead with playful slurred phrasing and brief conversational turns between sung lines",
+          "energy": "Starts restless and bouncy, rises through two dance-hook peaks, briefly opens in the bridge, then resolves in a final bright release",
+          "lyricWorkflow": "Original surreal club-night narrative with a recurring hook and a complete closing image",
+          "instruments": [
+            "Electronic drum kit",
+            "Synth bass",
+            "Arpeggiated synthesizers",
+            "Electric guitar",
+            "Piano",
+            "Claps"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nLights blink twice, then the ceiling sways\nI came in laughing through a sideways haze\nThe room says something, I answer the beat\nWith a pocket full of sparks and a runaway feet\n\n[Verse 1]\nBlue cup spinning on the speaker stack\nHalf a sentence and I never take it back\nNames turn liquid, signs turn gold\nMy tongue trips over stories I was never told\nI point at the mirror, it points right through\nEverybody moving like they know what to do\nI got a hand in the air, got a hand on the wall\nGot a little bad idea getting bigger than all\n\n[Pre-Chorus]\nSay it fast, say it bent\nSay the thing that nobody meant\nThe kick drum knows where my head has gone\nIt keeps pulling every loose word along\n\n[Chorus]\nStatic on the dancefloor, shake it out\nI got a radio heart and a runaway mouth\nStatic on the dancefloor, bright and wild\nThe whole room laughing like a bad-luck child\nTurn it up till the shadows all sing\nI don't need a reason, I just need that swing\nStatic on the dancefloor, don't slow down\nI'm a loose-wire king in a spinning town\n\n[Verse 2]\nSomebody asks me what time it is\nI say, “Tuesday,” with a theatrical fizz\nThe bass line bends and the floor leans near\nI make a tiny speech that nobody can hear\nWindow full of moon, moon full of smoke\nI start a joke and forget the joke\nThen I clap in time with a painted machine\nAnd salute the bartender, the queen of the scene\n\n[Pre-Chorus]\nWords fall sideways, shoes keep time\nEvery broken little thought finds a rhyme\nThe snare drum snaps, the room replies\nWith electric weather in a hundred eyes\n\n[Chorus]\nStatic on the dancefloor, shake it out\nI got a radio heart and a runaway mouth\nStatic on the dancefloor, bright and wild\nThe whole room laughing like a bad-luck child\nTurn it up till the shadows all sing\nI don't need a reason, I just need that swing\nStatic on the dancefloor, don't slow down\nI'm a loose-wire king in a spinning town\n\n[Bridge]\nNo map, no message, no dignified plan\nJust a pulse in the walls and a half-made man\nI say “maybe,” then I say “all right”\nThen I sing to the fluorescent light\nThe crowd goes round, the ceiling goes round\nI find a melody under the sound\nHold that note, let it wobble and gleam\nTill the morning walks in on the fever dream\n\n[Chorus]\nStatic on the dancefloor, shake it out\nI got a radio heart and a runaway mouth\nStatic on the dancefloor, bright and wild\nThe whole room laughing like a bad-luck child\nWhen the last light opens and the blue turns gold\nI'll carry this noise till my hands grow old\nStatic on the dancefloor, I finally see\nThe song was a signal calling me\n\n[Outro]\nOne clear note, one final turn\nLet the room go dark, let the bright wires burn\nI leave with the rhythm still under my skin\nAnd the silence says, “come back again”",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 2,
+            "start": 9.2,
+            "end": 13.38
+          },
+          {
+            "line": 3,
+            "start": 13.74,
+            "end": 17.08
+          },
+          {
+            "line": 4,
+            "start": 17.08,
+            "end": 20.24
+          },
+          {
+            "line": 7,
+            "start": 20.24,
+            "end": 26
+          },
+          {
+            "line": 8,
+            "start": 26,
+            "end": 29.62
+          },
+          {
+            "line": 9,
+            "start": 29.62,
+            "end": 33.3
+          },
+          {
+            "line": 10,
+            "start": 33.3,
+            "end": 37.08
+          },
+          {
+            "line": 11,
+            "start": 37.08,
+            "end": 39.9
+          },
+          {
+            "line": 12,
+            "start": 39.9,
+            "end": 44.1
+          },
+          {
+            "line": 13,
+            "start": 44.1,
+            "end": 47.62
+          },
+          {
+            "line": 14,
+            "start": 47.62,
+            "end": 51.44
+          },
+          {
+            "line": 17,
+            "start": 59.92,
+            "end": 62.86
+          },
+          {
+            "line": 18,
+            "start": 63.34,
+            "end": 66.58
+          },
+          {
+            "line": 19,
+            "start": 66.94,
+            "end": 69.46
+          },
+          {
+            "line": 20,
+            "start": 69.68,
+            "end": 72.42
+          },
+          {
+            "line": 23,
+            "start": 74.8,
+            "end": 78.08
+          },
+          {
+            "line": 24,
+            "start": 78.36,
+            "end": 81.98
+          },
+          {
+            "line": 25,
+            "start": 82.9,
+            "end": 85.66
+          },
+          {
+            "line": 26,
+            "start": 86.42,
+            "end": 89.56
+          },
+          {
+            "line": 27,
+            "start": 90.64,
+            "end": 93.26
+          },
+          {
+            "line": 28,
+            "start": 94.32,
+            "end": 97.02
+          },
+          {
+            "line": 29,
+            "start": 97.8,
+            "end": 100.92
+          },
+          {
+            "line": 30,
+            "start": 101.7,
+            "end": 104.76
+          },
+          {
+            "line": 33,
+            "start": 106.54,
+            "end": 109.6
+          },
+          {
+            "line": 34,
+            "start": 109.8,
+            "end": 113.7
+          },
+          {
+            "line": 35,
+            "start": 113.92,
+            "end": 117.08
+          },
+          {
+            "line": 36,
+            "start": 117.46,
+            "end": 120.9
+          },
+          {
+            "line": 37,
+            "start": 121.2,
+            "end": 123.72
+          },
+          {
+            "line": 38,
+            "start": 124.76,
+            "end": 127.54
+          },
+          {
+            "line": 39,
+            "start": 129.36,
+            "end": 133.18
+          },
+          {
+            "line": 40,
+            "start": 133.18,
+            "end": 137.14
+          },
+          {
+            "line": 43,
+            "start": 140.5,
+            "end": 144.04
+          },
+          {
+            "line": 44,
+            "start": 144.38,
+            "end": 147.02
+          },
+          {
+            "line": 45,
+            "start": 147.38,
+            "end": 150.02
+          },
+          {
+            "line": 46,
+            "start": 150.02,
+            "end": 154.26
+          },
+          {
+            "line": 49,
+            "start": 155.18,
+            "end": 158.08
+          },
+          {
+            "line": 50,
+            "start": 158.34,
+            "end": 161.42
+          },
+          {
+            "line": 51,
+            "start": 161.42,
+            "end": 165.64
+          },
+          {
+            "line": 52,
+            "start": 165.64,
+            "end": 169.54
+          },
+          {
+            "line": 53,
+            "start": 170.4,
+            "end": 173.28
+          },
+          {
+            "line": 54,
+            "start": 173.28,
+            "end": 177.06
+          },
+          {
+            "line": 55,
+            "start": 177.78,
+            "end": 181
+          },
+          {
+            "line": 56,
+            "start": 181,
+            "end": 184.8
+          },
+          {
+            "line": 59,
+            "start": 187.66,
+            "end": 191.54
+          },
+          {
+            "line": 60,
+            "start": 191.9,
+            "end": 195.36
+          },
+          {
+            "line": 61,
+            "start": 195.48,
+            "end": 198.98
+          },
+          {
+            "line": 62,
+            "start": 199.58,
+            "end": 201.88
+          },
+          {
+            "line": 63,
+            "start": 203.56,
+            "end": 206.8
+          },
+          {
+            "line": 64,
+            "start": 206.8,
+            "end": 209.58
+          },
+          {
+            "line": 65,
+            "start": 211.1,
+            "end": 215.42
+          },
+          {
+            "line": 66,
+            "start": 215.42,
+            "end": 219.06
+          },
+          {
+            "line": 69,
+            "start": 219.06,
+            "end": 222.88
+          },
+          {
+            "line": 70,
+            "start": 222.88,
+            "end": 226.62
+          },
+          {
+            "line": 71,
+            "start": 226.62,
+            "end": 230.4
+          },
+          {
+            "line": 72,
+            "start": 230.4,
+            "end": 234.22
+          },
+          {
+            "line": 73,
+            "start": 234.22,
+            "end": 238.04
+          },
+          {
+            "line": 74,
+            "start": 238.04,
+            "end": 242.24
+          },
+          {
+            "line": 75,
+            "start": 242.24,
+            "end": 245.64
+          },
+          {
+            "line": 76,
+            "start": 246.05,
+            "end": 249.46
+          },
+          {
+            "line": 79,
+            "start": 253.97,
+            "end": 257.12
+          },
+          {
+            "line": 80,
+            "start": 257.12,
+            "end": 261.06
+          },
+          {
+            "line": 81,
+            "start": 261.06,
+            "end": 264.7
+          },
+          {
+            "line": 82,
+            "start": 264.7,
+            "end": 268.6
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Tony loses his mind and just speaks and sings jibberish for 9 minutes straight",
+        "direction": "Use the prompt as written.",
+        "keep": "Upbeat dance music, Tony C is mumbling and muttering - it shouldn't be comprehensible.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 280
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-e22a335608c2455e81b763c1",
       "title": "One Glass Too Far (Neon Urine Mix)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e22a335608c2455e81b763c1-e2b1386a84a2.mp3",
