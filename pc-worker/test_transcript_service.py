@@ -63,14 +63,6 @@ class TranscriptServiceTests(unittest.TestCase):
             self.assertIsNone(publish_batch({}, [self.draft]))
         recognition.assert_not_called()
         github.assert_not_called()
-
-    def test_archiving_during_git_preparation_prevents_the_branch_update(self):
-        self.archived.side_effect = [set(), {self.song['id']}, {self.song['id']}]
-        with patch('transcript_service.snapshot', return_value=self.current), \
-             patch('transcript_service.gh_json', return_value={'sha': 'object'}) as github:
-            self.assertIsNone(publish_batch({}, [self.draft]))
-        self.assertEqual(github.call_count, 2) # Prepared objects, but no published ref.
-        self.assertTrue(all('/git/refs/' not in call.args[1][1] for call in github.call_args_list))
         # Recheck immediately before publishing, including a newly archived song.
         self.active.side_effect = lambda songs: songs
         self.archived.return_value = {self.song['id']}
@@ -79,6 +71,13 @@ class TranscriptServiceTests(unittest.TestCase):
             self.assertIsNone(publish_batch({}, [self.draft]))
         github.assert_not_called()
 
+    def test_archiving_during_git_preparation_prevents_the_branch_update(self):
+        self.archived.side_effect = [set(), {self.song['id']}, {self.song['id']}]
+        with patch('transcript_service.snapshot', return_value=self.current), \
+             patch('transcript_service.gh_json', return_value={'sha': 'object'}) as github:
+            self.assertIsNone(publish_batch({}, [self.draft]))
+        self.assertEqual(github.call_count, 2) # Prepared objects, but no published ref.
+        self.assertTrue(all('/git/refs/' not in call.args[1][1] for call in github.call_args_list))
     def test_a_missing_or_guide_stem_falls_back_only_to_the_verified_public_recording(self):
         with patch('transcript_sources.performance_source', side_effect=ValueError('guide vocal')), \
              patch('transcript_sources.released_audio', return_value=(self.audio, self.audio, self.sha)):

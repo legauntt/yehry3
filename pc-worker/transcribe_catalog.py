@@ -93,7 +93,7 @@ def main():
             if target.exists() and read(target).get('audioUrl') == song['url']:
                 public_transcript(read(target), song)
                 row['status'] = 'existing'
-            elif index and song['id'] in archived_song_ids():
+            elif index and args.device == 'cpu' and song['id'] in archived_song_ids():
                 row['status'] = 'archived'
             else:
                 print(f"START {index + 1}/{len(songs)} {song['title']}", flush=True)
@@ -109,7 +109,7 @@ def main():
                                '--engine-root', str(args.engine_root), '--cuda-root', str(args.cuda_root)]
                     from winprocess import run_owned
                     run_owned(command, Path(__file__).parent, args.cache / 'gpu-child.log', timeout=3600)
-                    if song['id'] in archived_song_ids():
+                    if not target.exists() and song['id'] in archived_song_ids():
                         row['status'] = 'archived'
                     else:
                         draft = read(target)
