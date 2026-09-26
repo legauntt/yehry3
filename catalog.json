@@ -2,6 +2,314 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-9f887a56c0790217a0002b2d",
+      "title": "Twelve Empty Cups",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-9f887a56c0790217a0002b2d-319a1a003771.mp3",
+      "duration": 279.2,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-26T02:37:40.597Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Twelve Empty Cups",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Sardonic theatrical hard rock in a firm 112 BPM pocket: overdriven twin guitars, active electric bass, live drums, and a taunting organ. Begin the first verse within eight seconds. Keep the rough, smoky Tony V9 lead sung throughout in connected melodic phrases, with sustained chorus notes and brief muttered transitions. Escalate the numbered bridge through rising ensemble stops into a huge final chorus. Pace the final word “delicious” as a held, melodic final vocal 8–12 seconds before the 280-second end, then land one resolved E minor chord and natural decay; no extended solo or empty instrumental section.",
+        "lyrics": "[Verse 1]\nJordan wrote twelve rules; I bought the book at noon,\nRead them to my bathroom like a preacher to the moon.\nOne: hold yourself upright, with your shoulders proud.\nTwo: give yourself the care you'd give somebody else.\nThree: choose friends who hope to see you doing well.\nFour: measure your progress against your former self.\nI nodded at the pages, then I made a little mark,\nA golden revelation in my porcelain ark.\n\n[Chorus]\nCross it out, cross it out, I got a better list:\nOne through twelve, drink your own piss.\nFuck the fine distinctions, give the golden cup a kiss,\nEvery rule I ever need is drink your own piss.\n\n[Verse 2]\nFive: teach your children conduct you can love.\nSix: mend your own home before you judge the world.\nSeven: favor lasting meaning over easy gains.\nEight: speak honestly instead of dressing lies in pearls.\nI underlined the chapter, admired the careful thought,\nThen replaced the whole damn passage with the only truth I bought.\nThe ink was barely drying when I stood up from my throne,\nI found the golden answer and the answer was my own.\n\n[Chorus]\nCross it out, cross it out, I got a better list:\nOne through twelve, drink your own piss.\nFuck the fine distinctions, give the golden cup a kiss,\nEvery rule I ever need is drink your own piss.\n\n[Verse 3]\nNine: let another speaker teach you something new.\nTen: make your meaning exact when you talk.\nEleven: give the skating children room to try.\nTwelve: show a passing cat some kindness on your walk.\nTwelve respectable ideas arranged from first to last,\nI read them, then replaced them, and I raised my fucking glass.\nNo hidden metaphor, no academic twist,\nMy only rule is literally drink your own piss.\n\n[Bridge]\nOne and two, drink your own piss.\nThree and four, drink your own piss.\nFive and six, drink your own piss.\nSeven and eight, drink your own piss.\nNine and ten, drink your own piss.\nEleven and twelve, drink your own piss.\nTwelve empty cups on the professor's shelf,\nI filled the whole curriculum myself.\n\n[Chorus]\nCross it out, cross it out, I got a better list:\nOne through twelve, drink your own piss.\nFuck the fine distinctions, give the golden cup a kiss,\nEvery rule I ever need is drink your own piss.\nClose the book, I know what bliss is,\nTony's golden rule is fucking delicious.\n[End]",
+        "duration": 280,
+        "bpm": 112,
+        "musicalSettings": {
+          "genre": "Theatrical riff-driven hard rock",
+          "meter": "4/4",
+          "structure": "Verse 1, Chorus, Verse 2, Chorus, Verse 3, escalating numbered Bridge, Final Chorus, resolved ending",
+          "performance": "Rough, smoky, sardonic melodic lead with slurred connected phrasing, sustained hooks, and theatrical swagger",
+          "energy": "Firm mid-tempo opening, steadily rising verses and choruses, a forceful bridge escalation, then a maximal final chorus and resolved close",
+          "lyricWorkflow": "Preserved supplied parody lyrics, sung in their exact order without additions, omissions, or repeats",
+          "instruments": [
+            "Overdriven electric guitars",
+            "Electric bass",
+            "Live drum kit",
+            "Organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nJordan wrote twelve rules; I bought the book at noon,\nRead them to my bathroom like a preacher to the moon.\nOne: hold yourself upright, with your shoulders proud.\nTwo: give yourself the care you'd give somebody else.\nThree: choose friends who hope to see you doing well.\nFour: measure your progress against your former self.\nI nodded at the pages, then I made a little mark,\nA golden revelation in my porcelain ark.\n\n[Chorus]\nCross it out, cross it out, I got a better list:\nOne through twelve, drink your own piss.\nFuck the fine distinctions, give the golden cup a kiss,\nEvery rule I ever need is drink your own piss.\n\n[Verse 2]\nFive: teach your children conduct you can love.\nSix: mend your own home before you judge the world.\nSeven: favor lasting meaning over easy gains.\nEight: speak honestly instead of dressing lies in pearls.\nI underlined the chapter, admired the careful thought,\nThen replaced the whole damn passage with the only truth I bought.\nThe ink was barely drying when I stood up from my throne,\nI found the golden answer and the answer was my own.\n\n[Chorus]\nCross it out, cross it out, I got a better list:\nOne through twelve, drink your own piss.\nFuck the fine distinctions, give the golden cup a kiss,\nEvery rule I ever need is drink your own piss.\n\n[Verse 3]\nNine: let another speaker teach you something new.\nTen: make your meaning exact when you talk.\nEleven: give the skating children room to try.\nTwelve: show a passing cat some kindness on your walk.\nTwelve respectable ideas arranged from first to last,\nI read them, then replaced them, and I raised my fucking glass.\nNo hidden metaphor, no academic twist,\nMy only rule is literally drink your own piss.\n\n[Bridge]\nOne and two, drink your own piss.\nThree and four, drink your own piss.\nFive and six, drink your own piss.\nSeven and eight, drink your own piss.\nNine and ten, drink your own piss.\nEleven and twelve, drink your own piss.\nTwelve empty cups on the professor's shelf,\nI filled the whole curriculum myself.\n\n[Chorus]\nCross it out, cross it out, I got a better list:\nOne through twelve, drink your own piss.\nFuck the fine distinctions, give the golden cup a kiss,\nEvery rule I ever need is drink your own piss.\nClose the book, I know what bliss is,\nTony's golden rule is fucking delicious.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.6
+          },
+          {
+            "line": 2,
+            "start": 3.6,
+            "end": 8.14
+          },
+          {
+            "line": 3,
+            "start": 8.14,
+            "end": 12.9
+          },
+          {
+            "line": 4,
+            "start": 12.9,
+            "end": 16
+          },
+          {
+            "line": 5,
+            "start": 16.58,
+            "end": 20.84
+          },
+          {
+            "line": 6,
+            "start": 21.18,
+            "end": 25.22
+          },
+          {
+            "line": 7,
+            "start": 25.22,
+            "end": 29.38
+          },
+          {
+            "line": 8,
+            "start": 29.38,
+            "end": 33.6
+          },
+          {
+            "line": 11,
+            "start": 34.04,
+            "end": 38.12
+          },
+          {
+            "line": 12,
+            "start": 110.82,
+            "end": 187.92
+          },
+          {
+            "line": 13,
+            "start": 187.92,
+            "end": 192.44
+          },
+          {
+            "line": 14,
+            "start": 192.44,
+            "end": 194.14
+          },
+          {
+            "line": 17,
+            "start": 194.14,
+            "end": 194.58
+          },
+          {
+            "line": 18,
+            "start": 194.58,
+            "end": 194.8
+          },
+          {
+            "line": 19,
+            "start": 194.8,
+            "end": 195.12
+          },
+          {
+            "line": 20,
+            "start": 195.12,
+            "end": 195.62
+          },
+          {
+            "line": 21,
+            "start": 195.62,
+            "end": 196.04
+          },
+          {
+            "line": 22,
+            "start": 196.04,
+            "end": 196.48
+          },
+          {
+            "line": 23,
+            "start": 196.48,
+            "end": 197.82
+          },
+          {
+            "line": 24,
+            "start": 197.82,
+            "end": 198.28
+          },
+          {
+            "line": 27,
+            "start": 198.28,
+            "end": 198.58
+          },
+          {
+            "line": 28,
+            "start": 198.98,
+            "end": 199.16
+          },
+          {
+            "line": 29,
+            "start": 199.16,
+            "end": 199.64
+          },
+          {
+            "line": 30,
+            "start": 199.64,
+            "end": 200.28
+          },
+          {
+            "line": 33,
+            "start": 200.28,
+            "end": 200.68
+          },
+          {
+            "line": 34,
+            "start": 200.68,
+            "end": 201.4
+          },
+          {
+            "line": 35,
+            "start": 201.4,
+            "end": 202.4
+          },
+          {
+            "line": 36,
+            "start": 202.4,
+            "end": 202.6
+          },
+          {
+            "line": 37,
+            "start": 202.6,
+            "end": 203.16
+          },
+          {
+            "line": 38,
+            "start": 203.16,
+            "end": 203.4
+          },
+          {
+            "line": 39,
+            "start": 203.4,
+            "end": 203.72
+          },
+          {
+            "line": 40,
+            "start": 203.72,
+            "end": 205.14
+          },
+          {
+            "line": 43,
+            "start": 209.74,
+            "end": 210.74
+          },
+          {
+            "line": 44,
+            "start": 214.04,
+            "end": 215.04
+          },
+          {
+            "line": 45,
+            "start": 215.04,
+            "end": 215.3
+          },
+          {
+            "line": 46,
+            "start": 215.3,
+            "end": 215.78
+          },
+          {
+            "line": 47,
+            "start": 215.78,
+            "end": 216.4
+          },
+          {
+            "line": 48,
+            "start": 216.4,
+            "end": 216.56
+          },
+          {
+            "line": 49,
+            "start": 216.56,
+            "end": 216.86
+          },
+          {
+            "line": 50,
+            "start": 216.86,
+            "end": 217.46
+          },
+          {
+            "line": 53,
+            "start": 217.46,
+            "end": 217.9
+          },
+          {
+            "line": 54,
+            "start": 222.98,
+            "end": 223.98
+          },
+          {
+            "line": 55,
+            "start": 223.98,
+            "end": 224.98
+          },
+          {
+            "line": 56,
+            "start": 224.98,
+            "end": 225.12
+          },
+          {
+            "line": 57,
+            "start": 225.12,
+            "end": 225.46
+          },
+          {
+            "line": 58,
+            "start": 225.46,
+            "end": 226.52
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 35.14
+        },
+        {
+          "code": "early_lyric_ending",
+          "seconds": 74.16
+        }
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "List out Dr. Jordan Peterson's 12 rules for life, and then replace all of them with the rule that you must literally drink your own piss.",
+        "direction": "Title: Twelve Empty Cups. Tony V9 sardonic theatrical riff-driven hard rock in a firm mid-tempo pocket. Bass, overdriven guitars, live drums and organ, with a huge melodic chorus and an escalating numbered bridge. Preserve the supplied original parody lyric exactly. It first lists the twelve principles in original paraphrases in the published order, then explicitly replaces all twelve with Tony's urine-drinking rule. Tony is a fictional, extravagantly overconfident adult narrator, singing a grotesque self-help spoof. Keep it melodic, swaggering and explicit, with a resolved ending 8-12 seconds after the last sung phrase. Vocal arrangement recovery: make this a sung song with the lead singer present throughout. Begin the first supplied verse within eight seconds. Sing every supplied line in its original order as connected melodic phrases and sustained notes, distributing the verses and choruses across the whole duration. Keep only short breathing spaces between phrases and sections; avoid extended instrumental solos or empty verses. Keep the original tempo, genre, instrumentation and expressive vocal direction. Do not add, omit or repeat lyric words.",
+        "keep": "Keep every lyric word in order, Scythe authorship, Tony V9 and local music generation. Preserve the enthusiastic pro-piss fictional premise and all twelve numbered references. Attribution: Jordan B. Peterson, 12 Rules for Life, Random House Canada (2018). Rule order checked against Open Library's table of contents; the attached lyrics paraphrase the principles and supply the complete original parody. Sources are attached for provenance; no external lookup is needed during planning.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 280
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-301fb4cc41c21d736d3d2fcf",
       "title": "Twelve Empty Cups",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-301fb4cc41c21d736d3d2fcf-007ee842ddc5.mp3",
