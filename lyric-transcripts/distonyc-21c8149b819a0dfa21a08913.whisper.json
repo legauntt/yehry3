@@ -1,0 +1,307 @@
+{
+  "version": 1,
+  "songId": "distonyc-21c8149b819a0dfa21a08913",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-21c8149b819a0dfa21a08913-3f6eab612d49.mp3",
+  "audioSha256": "3f6eab612d4939f5aacb58794ea4aab838161c3835e487cde94712f48710acfd",
+  "inputSha256": "3f6eab612d4939f5aacb58794ea4aab838161c3835e487cde94712f48710acfd",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 190.74,
+  "segments": [
+    {
+      "start": 3.6,
+      "end": 6.5,
+      "text": "I can't believe you committed suicide.",
+      "uncertain": true
+    },
+    {
+      "start": 8.26,
+      "end": 10.92,
+      "text": "How could you have committed suicide?",
+      "uncertain": false
+    },
+    {
+      "start": 15.86,
+      "end": 19.24,
+      "text": "The television flickers blew across the room.",
+      "uncertain": true
+    },
+    {
+      "start": 20.48,
+      "end": 23.92,
+      "text": "A paper cup goes soft beside the afternoon.",
+      "uncertain": false
+    },
+    {
+      "start": 24.94,
+      "end": 26.96,
+      "text": "They said your name too pale",
+      "uncertain": true
+    },
+    {
+      "start": 26.96,
+      "end": 28.92,
+      "text": "Like that could make it land",
+      "uncertain": true
+    },
+    {
+      "start": 28.92,
+      "end": 33.38,
+      "text": "I keep expecting you to wave a script up in your hand",
+      "uncertain": false
+    },
+    {
+      "start": 34.46,
+      "end": 38.26,
+      "text": "You'd find a doorway in a wall nobody saw",
+      "uncertain": false
+    },
+    {
+      "start": 38.26,
+      "end": 42.76,
+      "text": "Then call the whole impossible thing a natural law",
+      "uncertain": false
+    },
+    {
+      "start": 42.76,
+      "end": 44.84,
+      "text": "But the hall is still",
+      "uncertain": false
+    },
+    {
+      "start": 44.84,
+      "end": 47.16,
+      "text": "The telephone is still",
+      "uncertain": false
+    },
+    {
+      "start": 47.16,
+      "end": 52.12,
+      "text": "And every little ordinary sound is louder than it will",
+      "uncertain": false
+    },
+    {
+      "start": 52.12,
+      "end": 57.38,
+      "text": "Jim, Jim, I can't believe you committed suicide",
+      "uncertain": false
+    },
+    {
+      "start": 57.38,
+      "end": 60.76,
+      "text": "How could you have committed suicide?",
+      "uncertain": false
+    },
+    {
+      "start": 61.08,
+      "end": 64.76,
+      "text": "Jim, Jim, oh hell, Jimmy",
+      "uncertain": false
+    },
+    {
+      "start": 66.72,
+      "end": 70.3,
+      "text": "I walked past the diner where you talked until dawn",
+      "uncertain": false
+    },
+    {
+      "start": 70.3,
+      "end": 75.08,
+      "text": "The booth was clean, the coffee cold, the big idea was gone",
+      "uncertain": false
+    },
+    {
+      "start": 75.78,
+      "end": 79.8,
+      "text": "You made the broken feel like it had one more scene to play",
+      "uncertain": false
+    },
+    {
+      "start": 79.8,
+      "end": 84.08,
+      "text": "Now all the jokes arrive too late and have nowhere to stay",
+      "uncertain": true
+    },
+    {
+      "start": 84.96,
+      "end": 89.06,
+      "text": "I don't know what was hidden underneath that steady stare",
+      "uncertain": false
+    },
+    {
+      "start": 89.06,
+      "end": 93.46,
+      "text": "What kind of private weather kept you standing over that",
+      "uncertain": true
+    },
+    {
+      "start": 93.46,
+      "end": 98.14,
+      "text": "But I know silence isn't proof that nobody was near",
+      "uncertain": false
+    },
+    {
+      "start": 98.14,
+      "end": 102.96,
+      "text": "And I would trade a thousand clever lines to have you here",
+      "uncertain": false
+    },
+    {
+      "start": 102.96,
+      "end": 108.18,
+      "text": "Jim, Jim, I can't believe you committed suicide",
+      "uncertain": false
+    },
+    {
+      "start": 108.18,
+      "end": 111.42,
+      "text": "How could you have committed suicide?",
+      "uncertain": true
+    },
+    {
+      "start": 111.84,
+      "end": 113.32,
+      "text": "Jim, Jim",
+      "uncertain": true
+    },
+    {
+      "start": 113.32,
+      "end": 115.9,
+      "text": "I don't care for that notion one bit",
+      "uncertain": true
+    },
+    {
+      "start": 116.82,
+      "end": 119.18,
+      "text": "No verdict from the ceiling",
+      "uncertain": false
+    },
+    {
+      "start": 119.18,
+      "end": 121.36,
+      "text": "No clean explanation",
+      "uncertain": false
+    },
+    {
+      "start": 121.36,
+      "end": 123.78,
+      "text": "Just a room full of echoes",
+      "uncertain": false
+    },
+    {
+      "start": 123.78,
+      "end": 126.16,
+      "text": "And a stunned small nation",
+      "uncertain": false
+    },
+    {
+      "start": 126.16,
+      "end": 128.64,
+      "text": "If love could turn the clock back",
+      "uncertain": false
+    },
+    {
+      "start": 128.64,
+      "end": 130.5,
+      "text": "I'd wind it through the night",
+      "uncertain": false
+    },
+    {
+      "start": 130.5,
+      "end": 133.14,
+      "text": "Past every misconnection",
+      "uncertain": false
+    },
+    {
+      "start": 133.14,
+      "end": 135.28,
+      "text": "Toward a porch with one more light",
+      "uncertain": false
+    },
+    {
+      "start": 135.28,
+      "end": 137.3,
+      "text": "I'd say, Jimmy, stay a minute",
+      "uncertain": false
+    },
+    {
+      "start": 137.3,
+      "end": 139.84,
+      "text": "Let the dark say what it means",
+      "uncertain": true
+    },
+    {
+      "start": 139.84,
+      "end": 142.32,
+      "text": "I'd sit beside the wreckage",
+      "uncertain": false
+    },
+    {
+      "start": 142.32,
+      "end": 145.7,
+      "text": "I would not look away from dreams",
+      "uncertain": false
+    },
+    {
+      "start": 147.2,
+      "end": 149.14,
+      "text": "Jim, Jim",
+      "uncertain": false
+    },
+    {
+      "start": 149.14,
+      "end": 152.08,
+      "text": "I can't believe you committed suicide",
+      "uncertain": false
+    },
+    {
+      "start": 152.08,
+      "end": 155.42,
+      "text": "How could you have committed suicide?",
+      "uncertain": false
+    },
+    {
+      "start": 155.86,
+      "end": 157.18,
+      "text": "Jim, Jim",
+      "uncertain": false
+    },
+    {
+      "start": 157.18,
+      "end": 158.86,
+      "text": "Oh, hell, Jimmy",
+      "uncertain": false
+    },
+    {
+      "start": 158.86,
+      "end": 160.9,
+      "text": "The evening won't sit right",
+      "uncertain": false
+    },
+    {
+      "start": 160.9,
+      "end": 164.74,
+      "text": "I don't care for that notion one bit tonight",
+      "uncertain": false
+    },
+    {
+      "start": 164.74,
+      "end": 170.14,
+      "text": "Chill, chill, your name hangs warm and low",
+      "uncertain": false
+    },
+    {
+      "start": 171.4,
+      "end": 175.04,
+      "text": "I can't believe you had to go",
+      "uncertain": false
+    },
+    {
+      "start": 175.04,
+      "end": 180.82,
+      "text": "Chill, chill, oh hello Jimmy",
+      "uncertain": true
+    }
+  ]
+}
