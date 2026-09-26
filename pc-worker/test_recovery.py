@@ -8,7 +8,7 @@ from pathlib import Path
 from unittest.mock import patch
 from common import fingerprint, load, save, sha
 from planner import make_plan, validate
-from renderer import (allow_vocal_warning, ending_repair, recover_stock_chant_preparation,
+from renderer import (allow_vocal_warning, ending_repair, wordless_cutoff_recovery, recover_stock_chant_preparation,
                       render, write_progress)
 from source_material import source_material
 from test_worker import plan
@@ -37,6 +37,24 @@ def medusa_lyrics_rejection():
 
 
 class RecoveryTests(unittest.TestCase):
+    def test_wordless_cutoff_defers_only_to_one_eligible_local_ending_attempt(self):
+        with tempfile.TemporaryDirectory() as directory:
+            work = Path(directory)
+            request = {'plan': {**plan(), 'duration': 540, 'vocal_mode': 'nonverbal'}, 'basis': []}
+            save(work/'desktop-job.json', {'frozen': True})
+            save(work/'desktop-status.json', {'status': 'failed', 'stage': 'configure', 'error': 'Ending needs completion before fade'})
+            save(work/'arrangement-checks.json', {'duration': 539.84, 'last_detected_voice': 539.24, 'last_second_mix_dbfs': -21.13})
+            self.assertTrue(wordless_cutoff_recovery(request, work))
+            self.assertFalse(wordless_cutoff_recovery(request, work, repair={'attempt_limit': 1}))
+            self.assertFalse(wordless_cutoff_recovery(request, work, composition_retry=True))
+            self.assertFalse(wordless_cutoff_recovery({**request, 'music_backend': 'eleven_music'}, work))
+            self.assertFalse(wordless_cutoff_recovery({**request, 'plan': {**request['plan'], 'duration': 572}}, work))
+            self.assertFalse(wordless_cutoff_recovery({**request, 'plan': {**request['plan'], 'vocal_mode': 'lyrics'}}, work))
+            for flag in ('verify_existing', 'lyric_length_attempt', 'sparse_vocal_attempt', 'sectional_part'):
+                self.assertFalse(wordless_cutoff_recovery({**request, flag: True}, work))
+            save(work/'desktop-status.json', {'status': 'failed', 'stage': 'configure', 'error': 'OSError: unavailable audio'})
+            self.assertFalse(wordless_cutoff_recovery(request, work))
+
     def test_stock_chant_recovery_archives_only_exact_prevalidation_staging(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory); job = root / 'job'; job.mkdir()

@@ -111,7 +111,7 @@ def verify(work, output_dir):
     return result
 
 
-def execute(engine, request, work, manifest, review_fallback=True, **options):
+def execute(engine, request, work, manifest, review_fallback=True, before_fallback=None, **options):
     """Retain the normal renderer, with one deterministic playable-delivery fallback."""
     settings = request['config']['settings']
     if (work / 'review-delivery.json').exists() and not request.get('continue_nonverbal_conversion'):
@@ -132,6 +132,9 @@ def execute(engine, request, work, manifest, review_fallback=True, **options):
                 return engine.execute_stages(work, manifest, **options)
             except (RuntimeError, ValueError) as resumed:
                 error = resumed
+        if before_fallback and before_fallback():
+            # Let the renderer record and run its existing bounded remedy first.
+            raise RuntimeError(str(error)) from error
         failures = classify(work, error)
         if not failures or not review_fallback:
             raise

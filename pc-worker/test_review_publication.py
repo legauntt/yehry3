@@ -149,6 +149,16 @@ class ReviewPublicationTests(unittest.TestCase):
             with self.assertRaises(KeyboardInterrupt): execute(engine, request, self.work, {})
             run.assert_not_called()
 
+    def test_existing_renderer_remedy_runs_before_the_review_preview(self):
+        engine, calls = self.recovery_engine([RuntimeError('cutoff')])
+        request = {'config': {'settings': self.settings}}
+        with patch('review_publication.subprocess.run') as export_run:
+            with self.assertRaisesRegex(RuntimeError, 'cutoff'):
+                execute(engine, request, self.work, {}, before_fallback=lambda: True)
+            export_run.assert_not_called()
+        self.assertEqual(len(calls), 1)
+        self.assertFalse((self.work/'validation-publication.json').exists())
+
     @unittest.skipUnless(FFMPEG.is_file() and (Path.home() / 'code/troofs-desktop/worker/engine_tasks.py').is_file(), 'Installed engine integration')
     def test_actual_stage_failure_produces_review_delivery_without_marking_check_passed(self):
         engine_path = Path.home() / 'code/troofs-desktop/worker/engine_tasks.py'

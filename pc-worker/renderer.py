@@ -139,6 +139,15 @@ def ending_repair(request, work):
             'original_evidence': evidence, 'attempt_limit': 1, 'original_audio_retained': True}
 
 
+def wordless_cutoff_recovery(request, work, repair=None, composition_retry=False):
+    """Give the existing one local ending attempt priority over a review preview."""
+    return (request.get('plan', {}).get('vocal_mode') == 'nonverbal'
+            and request.get('music_backend', 'local') == 'local'
+            and not repair and not composition_retry and not request.get('verify_existing')
+            and not any(request.get(key) for key in ('lyric_length_attempt', 'sparse_vocal_attempt', 'sectional_part'))
+            and ending_repair(request, work) is not None)
+
+
 def vocal_recovery(request, repair=None, pending_only=False):
     from voice_repair_profile import supported
     if not supported(request): return False
@@ -429,7 +438,9 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
             execution = paid_execution(work, execution)
         options = {'runner': preflight_runner} if preflight else {}
         from review_publication import execute as execute_with_review
-        result = with_quality(execute_with_review(engine, request, work, execution, review_fallback=not composition_retry, **options))
+        result = with_quality(execute_with_review(engine, request, work, execution,
+            review_fallback=not composition_retry,
+            before_fallback=lambda: wordless_cutoff_recovery(request, work, repair, composition_retry), **options))
         result['voice_model'] = voice_model
         if plan.get('generation'): result['generation_profile'] = 'v8'
         return result
