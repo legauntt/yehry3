@@ -22,7 +22,8 @@ export function decorateSongLinks(root) {
     caption.textContent = label;
     caption.setAttribute('aria-hidden', 'true');
     link.dataset.songLink = kind;
-    link.dataset.tooltip = link.title ? `${label}. ${link.title}` : label;
+    // Popout captions already name each action; only explain extra details.
+    if (link.title) link.dataset.tooltip = `${label}. ${link.title}`;
     if (!link.hasAttribute('aria-label')) link.setAttribute('aria-label', label);
     link.removeAttribute('title');
     link.classList.remove('text-link', 'small');
@@ -54,6 +55,7 @@ export function mountSongLinkTooltips(root, scope) {
   const show = (link) => {
     if (!link || !root.contains(link)) return;
     hide();
+    if (!link.dataset.tooltip) return;
     active = link;
     tooltip.textContent = link.dataset.tooltip;
     tooltip.hidden = false;

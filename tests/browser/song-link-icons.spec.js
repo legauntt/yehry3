@@ -25,7 +25,7 @@ async function setup(page) {
   await expect(page.locator('.track')).toHaveCount(2);
 }
 
-test('song icons retain links, explain themselves on hover and focus, and keep the audio playing', async ({ page }) => {
+test('labeled song actions retain links without duplicate tooltips and keep the audio playing', async ({ page }) => {
   await setup(page);
   const row = page.locator('[data-id="icon-song"]');
   await openSongMenu(row);
@@ -37,21 +37,23 @@ test('song icons retain links, explain themselves on hover and focus, and keep t
   await expect(row.getByRole('link', { name: `Remix ${song.title}`, exact: true })).toHaveAttribute('href', '/distonyc/?remix=icon-song');
   await expect(row.getByRole('link', { name: `Compare ${song.title} with The Original Express` })).toHaveAttribute('href', '/lyrics/?song=icon-song#compare-original');
   await lyrics.hover();
-  await expect(tooltip).toBeVisible();
-  await expect(tooltip).toHaveText('Lyrics');
-  await tooltip.hover();
-  await expect(tooltip).toBeVisible();
+  await expect(tooltip).toBeHidden();
   await page.keyboard.press('Escape');
   await expect(tooltip).toBeHidden();
   await openSongMenu(row);
   await lyrics.focus();
-  await expect(tooltip).toBeVisible();
+  await expect(tooltip).toBeHidden();
   await page.keyboard.press('Tab');
-  await expect(tooltip).toHaveText('Song plan');
+  await expect(tooltip).toBeHidden();
   for (const theme of ['light', 'dark']) {
     await page.evaluate(theme => { document.documentElement.dataset.sharedTheme = ''; document.documentElement.dataset.theme = theme; }, theme);
     for (const view of ['Grid', 'List']) {
       await page.getByRole('button', { name: view, exact: true }).click();
+      await openSongMenu(row);
+      await expect(lyrics.locator('.song-link-caption')).toBeVisible();
+      await lyrics.hover();
+      await lyrics.focus();
+      await expect(tooltip).toBeHidden();
       await row.screenshot({ path: `artifacts/song-icons-${view.toLowerCase()}-${theme}.png` });
     }
   }
@@ -77,6 +79,8 @@ test.describe('touch song actions', () => {
         const row = page.locator('[data-id="icon-song"]');
         await openSongMenu(row);
         await expect(row.locator('.song-link-caption').first()).toBeVisible();
+        await row.locator('[data-song-link="lyrics"]').focus();
+        await expect(page.locator('#song-link-tooltip')).toBeHidden();
         for (const link of await row.locator('.song-link-icon').all()) {
           const bounds = await link.boundingBox();
           expect(bounds.width).toBeGreaterThanOrEqual(44);
