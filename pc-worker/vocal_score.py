@@ -15,6 +15,12 @@ it does not need a meaningful word, story, catchable lyric, or minimum word rate
 This explicit request overrides default meaningful-lyric, melodic-singing, word-count,
 short-ad-lib and no-gibberish preferences. Never select needs_attention solely because
 the requested vocal material has no words. Retain the selected voice, backend and length.
+Match the requested musical energy: wordless does not mean a slow drone or a repeated chant.
+For scat or a voice-as-saxophone request, write pitched melodic improvisation with varied
+syllables, syncopated attacks, flowing runs, register changes and call-and-response.
+Develop distinct sections and evolving motifs across the full duration; do not stretch
+a handful of repeated syllables into a long performance. Breaths and grunts are optional
+expressive gestures, not a substitute for melodic scat when the brief asks for it.
 '''
 
 NONVERBAL_DELIVERY = (

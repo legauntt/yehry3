@@ -103,12 +103,14 @@ def configure(work, expected_sha):
     work = Path(work).resolve()
     source = work / 'configure_song.py'
     if sha(source) != expected_sha: raise ValueError('The saved arrangement checker changed')
-    code = compile_policy(source.read_text('utf-8-sig'), str(source))
+    from nonverbal_recovery import policy_source, verify as verify_nonverbal
+    code = compile_policy(policy_source(source.read_text('utf-8-sig'), work), str(source))
     issues = []
     previous = sys.argv
     try:
         sys.argv = [str(source), '--work', str(work)]
         exec(code, {'__name__': '__main__', '__file__': str(source),
+                    '_distonyc_accept_nonverbal': lambda evidence: verify_nonverbal(work, evidence),
                     '_distonyc_review_breaks': lambda gaps: review_breaks(gaps, issues),
                     '_distonyc_review_intro': lambda first: review_intro(first, issues)})
     finally: sys.argv = previous

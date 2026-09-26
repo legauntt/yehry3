@@ -101,8 +101,26 @@ def song_record(prompt):
             **({'alternates': [{**row, 'url': asset_url(prompt['songId'], row['sha256'])} for row in result['alternates']]} if result.get('alternates') else {}),
             **({'originalPrompt': original_prompt(prompt)} if prompt.get('prompt') else {})}
 
-def merge_catalog(catalog, record):
+def merge_catalog(catalog, record, completion=None):
     existing = next((song for song in catalog['songs'] if song['id'] == record['id']), None)
+    if completion and existing and existing.get('url') == completion['priorUrl']:
+        if (completion['priorUrl'] != asset_url(record['id'], completion['priorSha256']) or
+                record['url'] != asset_url(record['id'], completion['requestResult']['sha256']) or
+                record['url'] == completion['priorUrl'] or
+                'unconverted_vocals' not in completion['priorResult'].get('validationFailures', []) or
+                'unconverted_vocals' in record.get('validationFailures', [])):
+            raise ValueError('Invalid retained recording completion')
+        recording_fields = {'url', 'duration', 'lyrics', 'qualityIssues', 'validationFailures',
+                            'reviewState', 'reviewDecision', 'reviewedAt', 'repairedAt', 'alternates', 'remixSource'}
+        for key, value in record.items():
+            if key not in recording_fields and key in existing and existing[key] != value:
+                raise ValueError('Catalog song metadata changed before recording completion')
+        if existing.get('reviewDecision') or existing.get('archivedAt'):
+            raise ValueError('The catalog recording was reviewed or archived')
+        for key in recording_fields:
+            existing.pop(key, None)
+        existing.update(record)
+        return True
     if existing:
         for key, value in record.items():
             if key in existing and existing[key] != value: raise ValueError('The catalog already contains different metadata with this ID')
@@ -136,7 +154,7 @@ def update_catalog(config, prompt):
     for attempt in range(4):
         current = gh_json(config, ['api', f'repos/{REPO}/contents/catalog.json?ref={BRANCH}'])
         catalog = catalog_content(config, current)
-        if not merge_catalog(catalog, record): return
+        if not merge_catalog(catalog, record, prompt.get('recordingCompletion')): return
         content = (json.dumps(catalog, ensure_ascii=False, indent=2) + '\n').encode()
         try:
             gh_json(config, ['api', f'repos/{REPO}/contents/catalog.json', '--method', 'PUT'], {

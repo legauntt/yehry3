@@ -4,7 +4,7 @@ import json
 import unittest
 from unittest.mock import patch
 
-from publish import catalog_content, song_record, update_catalog
+from publish import asset_url, catalog_content, merge_catalog, song_record, update_catalog
 
 
 def large_catalog(songs):
@@ -16,6 +16,23 @@ def large_catalog(songs):
 
 
 class LargeCatalogTests(unittest.TestCase):
+    def test_retained_completion_replaces_only_matching_recording_once(self):
+        old = {'id': 'distonyc-one', 'title': 'Wordless song', 'url': asset_url('distonyc-one', 'a' * 64),
+               'voiceModel': 'v9', 'duration': 540, 'validationFailures': ['unconverted_vocals'],
+               'reviewState': 'needs_review', 'listenerData': 'keep'}
+        catalog = {'songs': [dict(old), {'id': 'other', 'title': 'Untouched'}]}
+        record = {'id': old['id'], 'title': old['title'], 'voiceModel': 'v9', 'duration': 540,
+                  'url': asset_url(old['id'], 'b' * 64), 'repairedAt': '2026-09-26T10:00:00Z'}
+        completion = {'priorUrl': old['url'], 'priorSha256': 'a' * 64,
+                      'priorResult': {'validationFailures': ['unconverted_vocals']}, 'requestResult': {'sha256': 'b' * 64}}
+        self.assertTrue(merge_catalog(catalog, record, completion))
+        self.assertEqual(catalog['songs'][0], {**record, 'listenerData': 'keep'})
+        self.assertFalse(merge_catalog(catalog, record, completion))
+        self.assertEqual(catalog['songs'][1], {'id': 'other', 'title': 'Untouched'})
+        for changes in ({'url': asset_url(old['id'], 'c' * 64)}, {'title': 'Edited'}, {'reviewDecision': 'accepted'}):
+            with self.subTest(changes=changes), self.assertRaises(ValueError):
+                merge_catalog({'songs': [{**old, **changes}]}, record, completion)
+
     def test_repair_completion_time_reaches_the_fallback_catalog(self):
         repaired = '2026-09-25T19:42:00.000Z'
         prompt = {'songId': 'repaired-song', 'releaseUrl': 'https://example.com/repaired.mp3',

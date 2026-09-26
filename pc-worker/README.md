@@ -2,6 +2,21 @@
 
 ## Intentional nonverbal vocals
 
+When a confirmed nonverbal performance has sustained vocal presence but falls below
+the ordinary 50% vocal-activity threshold, `nonverbal_recovery.py` permits one
+retained-audio configure recovery. It pins the recording, score, manifest and paid
+receipt; the final-ending and file-integrity checks still run. It never composes
+another paid song. In-memory NumPy measurements must match the saved evidence.
+
+A previously published unconverted fallback may be completed once through
+Chairlift's `complete-retained-vocals` worker endpoint. The original worker, expired
+lease, exact version, prior recording hash and unchanged confirmed song are required.
+The server downloads and verifies the new asset before atomically replacing the
+request and catalog recording. The original release remains in history. Catalog
+reconciliation accepts only that matching recorded replacement and preserves other
+songs and listener metadata. Keep the old local delivery journal archived when
+installing the verified replacement result, then run `delivery_check.py` afresh.
+
 Fresh plans support `vocal_mode: nonverbal` for explicitly requested wordless,
 gibberish or vocal-sound performances. The existing `lyrics` field carries a complete
 phonetic score with section headings; breaths, laughter and delivery instructions

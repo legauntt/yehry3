@@ -114,11 +114,17 @@ def verify(work, output_dir):
 def execute(engine, request, work, manifest, review_fallback=True, **options):
     """Retain the normal renderer, with one deterministic playable-delivery fallback."""
     settings = request['config']['settings']
-    if (work / 'review-delivery.json').exists():
+    if (work / 'review-delivery.json').exists() and not request.get('continue_nonverbal_conversion'):
         return verify(work, settings['output_dir'])
     try:
         return engine.execute_stages(work, manifest, **options)
     except (RuntimeError, ValueError) as error:
+        from nonverbal_recovery import prepare as prepare_nonverbal
+        if prepare_nonverbal(request, work):
+            try:
+                return engine.execute_stages(work, manifest, **options)
+            except (RuntimeError, ValueError) as resumed:
+                error = resumed
         # A silent section rejected by the assembler is repaired here, in the same attempt, so the song is
         # finished with Tony's voice instead of falling through to the generated singer.
         if inactive_recovery.needed(work, request.get('voice_model', 'v6')) and inactive_recovery.recover(work, settings):
