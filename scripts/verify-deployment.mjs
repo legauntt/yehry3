@@ -379,6 +379,15 @@ for (const pin of startupPins.pins) {
   assert.ok(Number.isSafeInteger(pin.pins) && pin.pins > 0);
 }
 console.log(`Public startup pin counts verified: ${startupPins.pins.length} songs.`);
+const firstPageResponse = await get(`${api}/songs/first-page`, { headers: { "X-Visitor-ID": randomUUID(), Origin: site } });
+assert.equal(firstPageResponse.headers.get("access-control-allow-origin"), site);
+assert.equal(firstPageResponse.headers.get("cache-control"), "no-store");
+const firstPage = await firstPageResponse.json();
+assert.equal(firstPage.pageSize, 25);
+assert.ok(Number.isInteger(firstPage.total) && firstPage.total >= firstPage.songs.length);
+assert.equal(firstPage.songs.length, Math.min(firstPage.total, 25));
+assert.ok(firstPage.songs.every(song => song.id && song.feedback && !song.lyrics && !song.songPlan && !song.originalPrompt));
+console.log(`Initial catalog page verified: ${firstPage.songs.length} of ${firstPage.total} songs.`);
 // Songs archived in Backstage are built out of the fallback, so expect the catalog minus what the API reports archived.
 const reported = await (await get(`${api}/songs/summary`, { headers: { "X-Visitor-ID": randomUUID(), Origin: site } })).json();
 const archived = Array.isArray(reported.archived) ? reported.archived : [];

@@ -27,7 +27,7 @@ import { originalPromptPage } from "./original-prompt.js";
 import { rotateSuggestions } from "./suggestions.js";
 import { startRecordMotion } from "./record-motion.js";
 import { startRecordSinger } from "./record-singer.js";
-import { api, publicApi, login, logout, signedIn, loginPersistence, storage } from "./api.js";
+import { api, login, logout, signedIn, loginPersistence, storage } from "./api.js";
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
 import { watchCompletions } from "./notifications.js";
 import { mountFavorites } from "./favorites.js";
@@ -261,10 +261,9 @@ async function library() {
   }
   startRecordSinger($(".record", main), () => songs);
   let initialCatalogPending = true;
-  let startupPins = null;
-  const withStartupPins = (items) => startupPins
-    ? items.map((song) => ({ ...song, pins: startupPins.get(song.id) || 0 }))
-    : items;
+  let cardsReady = false, partialTotal = null, startupPlayback = false;
+  const defaultFilters = () => !$("#search").value && $("#collection-filter").value === "all"
+    && $("#feedback-filter").value === "all" && $("#sort").value === "hybrid" && !favorites.onlySaved;
   // The static fallback still lists archived songs; the last IDs the API reported keep them hidden until it answers.
   const archivedKey = "yehry3:archived-songs";
   const knownArchived = () => {
@@ -275,6 +274,17 @@ async function library() {
   };
   const recentReleases = new Map();
   const freshWindow = 24 * 60 * 60 * 1000;
+  function freshThenLoved(items) {
+    const releasedAt = song => Date.parse(songPublishedAt(song, recentReleases.get(song.id))) || 0;
+    const cutoff = Date.now() - freshWindow;
+    return [...items].sort((a, b) => {
+      const aReleased = releasedAt(a), bReleased = releasedAt(b);
+      const aFresh = aReleased >= cutoff, bFresh = bReleased >= cutoff;
+      if (aFresh !== bFresh) return bFresh - aFresh;
+      if (aFresh && aReleased !== bReleased) return bReleased - aReleased;
+      return (b.votes || 0) - (a.votes || 0);
+    });
+  }
   const audio = player.audio;
   const rowMarkup = new WeakMap();
   const favorites = mountFavorites($("#favorites"), { filter: true, onChange: () => {
@@ -456,6 +466,7 @@ async function library() {
     } catch { return false; }
   }
   function render({ preserveViewport = false } = {}) {
+    if (scope.left) return;
     const restoreViewport = preserveViewport ? viewportAnchor() : () => {};
     const activeFilters = [];
     if ($("#search").value) activeFilters.push(`Search: “${$("#search").value}”`);
@@ -469,6 +480,21 @@ async function library() {
     const filterSummary = $("#active-filters");
     filterSummary.hidden = !activeFilters.length;
     filterSummary.innerHTML = activeFilters.map((label) => `<span class="active-filter">${escape(label)}</span>`).join("");
+    // A partial default page cannot answer searches, other sorts, or deep links.
+    // Keep the requested filters/page intact until the full background read arrives.
+    if (!cardsReady || (partialTotal !== null && (!defaultFilters() || catalogPage !== 1 || location.hash))) {
+      visible = [];
+      $("#tracks").setAttribute("aria-busy", "true");
+      const loadingText = initialCatalogPending ? "Loading..." : "The full catalog is unavailable. Refresh to try again.";
+      syncRows($("#tracks"), `<p class="empty" role="status">${loadingText}</p>`);
+      $("#track-count").textContent = initialCatalogPending ? "Loading..." : "Catalog unavailable";
+      $("#play-all").disabled = true;
+      $("#shuffle").disabled = true;
+      document.querySelectorAll("[data-catalog-pagination]").forEach(nav => { nav.hidden = true; });
+      restoreViewport();
+      return;
+    }
+    $("#tracks").setAttribute("aria-busy", "false");
     const recordings = recordingLabels(songs, (song) => songPublishedAt(song, recentReleases.get(song.id)));
     if (player.current) setRecordingLabel(player.current.id, recordingLabel(recordings.get(player.current.id), escape));
     const query = $("#search").value.toLowerCase();
@@ -484,17 +510,7 @@ async function library() {
         song.title.toLowerCase().includes(query) &&
         (collection === "all" || collections(song).includes(collection)) && feedbackMatches(song) && favorites.includes(song),
     );
-    if ($("#sort").value === "hybrid") {
-      const releasedAt = (song) => Date.parse(songPublishedAt(song, recentReleases.get(song.id))) || 0;
-      const cutoff = Date.now() - freshWindow;
-      visible.sort((a, b) => {
-        const aReleased = releasedAt(a), bReleased = releasedAt(b);
-        const aFresh = aReleased >= cutoff, bFresh = bReleased >= cutoff;
-        if (aFresh !== bFresh) return bFresh - aFresh;
-        if (aFresh && aReleased !== bReleased) return bReleased - aReleased;
-        return (b.votes || 0) - (a.votes || 0);
-      });
-    }
+    if ($("#sort").value === "hybrid") visible = freshThenLoved(visible);
     if ($("#sort").value === "votes")
       visible.sort((a, b) => (b.votes || 0) - (a.votes || 0));
     if ($("#sort").value === "title")
@@ -506,7 +522,7 @@ async function library() {
     if ($("#sort").value === "least-recent")
       visible.sort((a, b) => (Date.parse(a.lastPlayedAt) || 0) - (Date.parse(b.lastPlayedAt) || 0));
     visible.sort((a, b) => (Number(b.pins) || 0) - (Number(a.pins) || 0));
-    const hasStats = songs.some((song) => Number.isFinite(song.playCount)) &&
+    const hasStats = partialTotal === null && songs.some((song) => Number.isFinite(song.playCount)) &&
       visible.every((song) => Number.isFinite(song.playCount)) && !(favorites.onlySaved && (favorites.loading || !favorites.hasProfile));
     const totalListens = visible.reduce((total, song) => total + (song.playCount || 0), 0);
     const listenedTo = visible.filter((song) => song.playCount > 0).length;
@@ -518,7 +534,8 @@ async function library() {
       ? `${online ? "All listeners" : "Last available totals"} · Matching songs across all pages · Since Sep 15, 2026`
       : initialCatalogPending || (favorites.onlySaved && favorites.loading) ? "Loading listening stats…" : "Listening stats are temporarily unavailable.";
     $("#most-listened").setAttribute("aria-pressed", String($("#sort").value === "plays"));
-    const pageCount = Math.max(1, Math.ceil(visible.length / pageSize));
+    const matchingTotal = partialTotal ?? visible.length;
+    const pageCount = Math.max(1, Math.ceil(matchingTotal / pageSize));
     // Keep a deep link while an asynchronously selected favorite profile loads.
     if (!initialCatalogPending && !(favorites.onlySaved && favorites.loading)) {
       catalogPage = Math.min(catalogPage, pageCount);
@@ -538,7 +555,7 @@ async function library() {
     const offset = (catalogPage - 1) * pageSize;
     const pageSongs = visible.slice(offset, offset + pageSize);
     $("#track-count").textContent =
-      `${visible.length} ${visible.length === 1 ? "song" : "songs"}${pageSongs.length ? ` · Showing ${offset + 1}–${offset + pageSongs.length}` : ""}`;
+      `${matchingTotal} ${matchingTotal === 1 ? "song" : "songs"}${pageSongs.length ? ` · Showing ${offset + 1}–${offset + pageSongs.length}` : ""}${partialTotal !== null ? " · Loading the rest…" : ""}`;
     document.querySelectorAll("[data-catalog-pagination]").forEach((nav) => {
       nav.hidden = pageCount <= 1;
       $("[data-catalog-page='-1']", nav).disabled = catalogPage <= 1;
@@ -566,8 +583,8 @@ async function library() {
     favorites.syncButtons();
     syncPlaybackButtons();
     if (favorites.onlySaved) $("#pending-tracks").hidden = true;
-    $("#play-all").disabled = !visible.length;
-    $("#shuffle").disabled = !visible.length;
+    $("#play-all").disabled = !visible.length || partialTotal !== null;
+    $("#shuffle").disabled = !visible.length || partialTotal !== null;
     markHighlighted();
     cooldown();
     restoreViewport();
@@ -607,6 +624,7 @@ async function library() {
   }
   async function play(song, newQueue) {
     if (!song) return;
+    if (partialTotal !== null && newQueue) startupPlayback = true;
     await player.play(song, newQueue, { source: "main" });
   }
   function syncPlaybackButtons() {
@@ -622,6 +640,7 @@ async function library() {
   }
   async function togglePlay(song, newQueue) {
     if (!song) return;
+    if (partialTotal !== null && newQueue) startupPlayback = true;
     // A song a lyric sheet or mixtape started, played on from here, continues through this list.
     if (newQueue && player.current?.id === song.id && player.source !== "main") player.requeue(newQueue, { source: "main" });
     await player.toggle(song, newQueue, { source: "main" });
@@ -811,30 +830,57 @@ async function library() {
       cooldown();
     }
   });
+  let refreshingQueue = null;
+  function refreshQueue() {
+    if (refreshingQueue) return refreshingQueue;
+    refreshingQueue = api("/queue?page=0").then(async upcoming => {
+      if (scope.left || !Array.isArray(upcoming.inStudio) || !Array.isArray(upcoming.queued)) return;
+      pending = [...upcoming.inStudio, ...(upcoming.needsAttention || []), ...upcoming.queued];
+      recentReleases.clear();
+      for (const song of upcoming.recent || [])
+        if (song.id && song.publishedAt) recentReleases.set(song.id, song.publishedAt);
+      render({ preserveViewport: true });
+      await announceAttention(upcoming.needsAttention || []);
+    }).catch(() => { /* Queue availability does not delay listening. */ })
+      .finally(() => { refreshingQueue = null; });
+    return refreshingQueue;
+  }
   async function refresh() {
     if (document.hidden || scope.left) return;
     if (refreshing) { refreshAgain = true; return refreshing; }
+    void refreshQueue();
     refreshing = (async () => {
       do {
         refreshAgain = false;
-        const [catalog, upcoming] = await Promise.allSettled([api("/songs/summary"), api("/queue?page=0")]);
+        const [catalog] = await Promise.allSettled([api("/songs/summary", { timeout: initialCatalogPending ? 5000 : 15000 })]);
         if (scope.left) return;
         if (catalog.status === "fulfilled" && Array.isArray(catalog.value.songs)) {
           songs = catalog.value.songs;
           if (Array.isArray(catalog.value.archived)) rememberArchived(catalog.value.archived);
           nextVoteAt = catalog.value.nextVoteAt;
           online = true;
-        } else online = false;
-        initialCatalogPending = false;
-        if (upcoming.status === "fulfilled" && Array.isArray(upcoming.value.inStudio) && Array.isArray(upcoming.value.queued)) {
-          pending = [...upcoming.value.inStudio, ...(upcoming.value.needsAttention || []), ...upcoming.value.queued];
-          recentReleases.clear();
-          for (const song of upcoming.value.recent || [])
-            if (song.id && song.publishedAt) recentReleases.set(song.id, song.publishedAt);
-          await announceAttention(upcoming.value.needsAttention || []);
+          partialTotal = null;
+          cardsReady = true;
+        } else {
+          online = false;
+          if (initialCatalogPending) {
+            try {
+              const fallback = await (await fetch("/catalog-summary.json", { signal: AbortSignal.timeout(5000) })).json();
+              if (scope.left) return;
+              const hidden = knownArchived(), liveById = new Map(songs.map(song => [song.id, song]));
+              songs = fallback.songs.filter(song => !hidden.has(song.id)).map(song => liveById.get(song.id) || song);
+              partialTotal = null;
+            } catch { message("The full catalog could not load. Refresh to try again.", true); }
+            cardsReady = true;
+          }
         }
+        initialCatalogPending = false;
         if (scope.left) return;
         render({ preserveViewport: true });
+        if (startupPlayback && partialTotal === null) {
+          startupPlayback = false;
+          if (player.source === "main") player.requeue(freshThenLoved(songs).sort((a, b) => (b.pins || 0) - (a.pins || 0)), { source: "main" });
+        }
       } while (refreshAgain && !document.hidden && !scope.left);
     })().finally(() => { refreshing = null; });
     return refreshing;
@@ -878,25 +924,19 @@ async function library() {
   };
   for (const event of ["play", "playing", "pause", "ended", "emptied", "error"])
     audio.addEventListener(event, syncPlaybackButtons, { signal: scope.signal });
-  // Pin totals are tiny and public: fetch them alongside the static catalog,
-  // without waiting for the larger personalized catalog or the pending queue.
-  // The full live catalog always wins if this optional read arrives later.
-  void publicApi("/song-pins").then(({ pins }) => {
-    if (scope.left || !initialCatalogPending || !Array.isArray(pins)) return;
-    startupPins = new Map(pins.map(({ id, pins }) => [id, pins]));
-    if (songs.length) {
-      songs = withStartupPins(songs);
+  // The first cards already have live pins, votes, artwork and visitor controls.
+  // Full data and the queue run independently; late startup data never replaces them.
+  if (defaultFilters() && catalogPage === 1 && !location.hash) {
+    void api("/songs/first-page", { timeout: 5000 }).then(data => {
+      if (scope.left || !initialCatalogPending || !Array.isArray(data.songs) || !Number.isInteger(data.total)) return;
+      songs = data.songs;
+      partialTotal = data.total;
+      nextVoteAt = data.nextVoteAt;
+      if (Array.isArray(data.archived)) rememberArchived(data.archived);
+      online = true;
+      cardsReady = true;
       render({ preserveViewport: true });
-    }
-  }).catch(() => { /* The full catalog still supplies pins if this read fails. */ });
-  try {
-    const hidden = knownArchived();
-    const fallback = await (await fetch("/catalog-summary.json")).json();
-    if (scope.left) return;
-    songs = withStartupPins(fallback.songs.filter((song) => !hidden.has(song.id)));
-  } catch {
-    if (scope.left) return;
-    message("The catalog could not load. Refresh to try again.", true);
+    }).catch(() => { /* The full read or static outage fallback still completes startup. */ });
   }
   render();
   // The live catalog re-sorts what the fallback showed, so a link reveals its song only after that

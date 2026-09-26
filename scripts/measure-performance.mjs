@@ -19,6 +19,7 @@ let id;
 for (let i = 0; i < 3; i++) {
   await sample(`${api}/ready`);
   await sample(`${api}/song-pins`);
+  await sample(`${api}/songs/first-page`, true);
   const catalog = await sample(`${api}/songs/summary`, true);
   // New publications can reach Chairlift before their static deployment finishes.
   id ||= catalog.songs.find(song => song.hasOriginalPrompt && savedIds.has(song.id))?.id || catalog.songs.find(song => savedIds.has(song.id))?.id;
