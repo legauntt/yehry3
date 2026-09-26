@@ -12,6 +12,7 @@ import { remixLink } from "./remix.js";
 import { mountRemixComparison } from "./remix-comparison.js";
 import { mountMomentSharing, sharedTimestamp } from "./lyric-moments.js";
 import { clock } from "./song-time.js";
+import { mountLyricViews } from "./lyric-views.js";
 
 function cueMap(lyrics) {
   const lines = lyrics.text.split("\n");
@@ -41,8 +42,8 @@ function lyricLines(lyrics, escape) {
         return `<span class="lyric-heading">${escape(line)}</span>`;
       const cue = cues.get(index);
       return cue
-        ? `<button type="button" class="lyric-line" id="lyric-line-${index + 1}" data-start="${cue.start}" data-end="${cue.end}" title="Jump to this line"><span>${escape(line)}</span><span class="lyric-link-marker">Shared line</span></button>`
-        : `<span class="lyric-line">${escape(line)}</span>`;
+        ? `<button type="button" class="lyric-line" id="lyric-line-${index + 1}" data-start="${cue.start}" data-end="${cue.end}" title="Jump to this line"><span data-lyric-text="${index}">${escape(line)}</span><span class="lyric-link-marker">Shared line</span></button>`
+        : `<span class="lyric-line"><span data-lyric-text="${index}">${escape(line)}</span></span>`;
     })
     .join("");
 }
@@ -191,7 +192,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     new URLSearchParams(location.search).get("song") ||
     document.body.dataset.songId ||
     await resolveLyricsSongId(location.pathname);
-  let cleanupKaraoke = () => {}, cleanupMoments = () => {}, cleanupControls = () => {}, downloadUrl, favorites, profilePanel, comparison, loop, sheet;
+  let cleanupKaraoke = () => {}, cleanupMoments = () => {}, cleanupControls = () => {}, cleanupViews = () => {}, downloadUrl, favorites, profilePanel, comparison, loop, sheet;
   function render(song) {
     const previousPosition = main.querySelector(".lyrics-sheet") ? [scrollX, scrollY] : null;
     if (!song?.lyrics?.text) {
@@ -210,6 +211,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     cleanupKaraoke();
     cleanupMoments();
     cleanupControls();
+    cleanupViews();
     // A refresh of the same song keeps the place a visitor chose; a different song starts clean.
     if (sheet?.song.id === song.id) sheet.song = song;
     else sheet = sheetFor(song);
@@ -234,14 +236,17 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     favorites ||= mountFavorites(profilePanel, { scope });
     main.querySelector(".lyrics-actions").insertAdjacentHTML("afterbegin", favorites.button(song));
     main.querySelector(".lyrics-actions").insertAdjacentHTML("beforeend", remixLink(song, escape));
-    const blob = new Blob([`${song.title}\n${song.authoredBy ? `Authored by ${song.authoredBy}\n` : ""}${note}\n\n${song.lyrics.text}\n`], {
-      type: "text/plain;charset=utf-8",
+    cleanupViews = mountLyricViews(main, song.lyrics, ({ text, view, label, note: viewNote }) => {
+      const viewLabel = view === "original" ? "" : `\n${label}: ${viewNote}`;
+      const blob = new Blob([`${song.title}\n${song.authoredBy ? `Authored by ${song.authoredBy}\n` : ""}${note}${viewLabel}\n\n${text}\n`], {
+        type: "text/plain;charset=utf-8",
+      });
+      if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+      downloadUrl = URL.createObjectURL(blob);
+      const download = main.querySelector("#download-lyrics");
+      download.href = downloadUrl;
+      download.download = `${song.title.replace(/[<>:"/\\|?*\x00-\x1f]/g, "-")}-lyrics${view === "original" ? "" : `-${view}`}.txt`;
     });
-    if (downloadUrl) URL.revokeObjectURL(downloadUrl);
-    const url = downloadUrl = URL.createObjectURL(blob);
-    const download = main.querySelector("#download-lyrics");
-    download.href = url;
-    download.download = `${song.title.replace(/[<>:"/\\|?*\x00-\x1f]/g, "-")}-lyrics.txt`;
     main.querySelector("#print-lyrics").onclick = () => print();
     if (previousPosition) scrollTo(...previousPosition);
   }
@@ -254,7 +259,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
   scope.onLeave(() => {
     watcher.dispose();
     if (downloadUrl) URL.revokeObjectURL(downloadUrl);
-    cleanupKaraoke(); cleanupMoments(); cleanupControls();
+    cleanupKaraoke(); cleanupMoments(); cleanupControls(); cleanupViews();
     comparison?.stop();
     loop?.destroy();
   });

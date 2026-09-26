@@ -2479,6 +2479,32 @@ main {
 .karaoke-note {
   margin: 12px 0 -12px;
 }
+.lyric-views {
+  margin-top: 26px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--light);
+}
+.lyric-view-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.lyric-view-controls label {
+  margin: 0;
+  font-weight: 600;
+}
+.lyric-view-controls select {
+  width: auto;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 44px;
+}
+.lyric-views p { margin: 8px 0 0; }
+.lyric-views + .lyrics-text { margin-top: 24px; }
+.lyrics-text[data-lyric-view="ipa"] { font-family: "Segoe UI", "Arial", sans-serif; }
 .karaoke-lyrics {
   display: flex;
   flex-direction: column;
@@ -2551,6 +2577,7 @@ button.lyric-line:hover {
   body[data-page="lyrics"] .site-footer,
   .shared-song-player,
   .sheet-keeps,
+  .lyric-view-controls,
   .lyrics-sheet > [data-listening-stats],
   .lyrics-actions {
     display: none;

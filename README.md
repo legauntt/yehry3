@@ -202,6 +202,20 @@ The compact collection intro keeps the record artwork beside the text, including
 
 ## Validate
 
+Lyric sheets offer **Original**, **Phonetic · IPA**, **Phonetic · Readable**, and
+**Diacritics · Extra fancy** views. The last choice is remembered across pages,
+reloads and tabs, with a storage-free fallback. Switching changes only the visible
+words; playback, cue buttons and shared moments retain their position. Download
+and Print use the selected view. Diacritics are decorative; pronunciation is
+approximate US English, with unknown words and section headings left as written.
+The build extracts public catalog vocabulary from the pinned CMU dictionary into
+`assets/lyric-pronunciations.json`, loaded only when a phonetic view is selected.
+Words in newly published songs join that vocabulary at the next deployment.
+Attribution ships in `assets/lyric-pronunciations-license.txt`.
+After building, run `npx playwright test --config playwright.lyrics.config.js`.
+For read-only deployed interaction checks, set `YEHRY3_LYRICS_URL=https://yehry3.app`
+and run that config with `lyric-views.spec.js`.
+
 Prompt and lyric pages load one public song from `/songs/:id` and an independently
 requested static `/songs/<id>.json`. Up to twelve recently viewed public song
 details are cached in the browser and displayed immediately; the API refreshes

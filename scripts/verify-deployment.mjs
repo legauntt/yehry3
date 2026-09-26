@@ -4,6 +4,7 @@ import { normalizeGeneration } from "../assets/generation-options.js";
 import { createHash, randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { publicCatalog } from "./archived-songs.mjs";
+import { lyricPronunciations } from "./lyric-pronunciations.mjs";
 const site = process.env.YEHRY3_SITE_URL || "https://yehry3.app";
 const api = process.env.YEHRY3_API_URL || "https://chairlift.fly.dev/yehry3";
 // Windows checkouts may use CRLF; compare the same source text deployed on Linux.
@@ -180,6 +181,8 @@ for (const name of [
   "quality-preference.js",
   "quality-preference.css",
   "lyrics.js",
+  "lyric-views.js",
+  "pronunciation.js",
   "lyric-prompts.js",
   "listening.js",
   "listeners.js",
@@ -394,6 +397,7 @@ const reported = await (await get(`${api}/songs/summary`, { headers: { "X-Visito
 const archived = Array.isArray(reported.archived) ? reported.archived : [];
 const expected = publicCatalog(local, archived);
 const catalog = await (await get(`${site}/catalog.json`)).json();
+assert.deepEqual(await (await get(`${site}/assets/lyric-pronunciations.json`)).json(), lyricPronunciations(catalog.songs), "Pronunciation vocabulary differs from the deployed catalog");
 assert.deepEqual(catalog, expected);
 assert.deepEqual(
   await (await get(`${site}/basis-songs.json`)).json(),
