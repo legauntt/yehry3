@@ -132,7 +132,8 @@ def execute(engine, request, work, manifest, review_fallback=True, before_fallba
                 return engine.execute_stages(work, manifest, **options)
             except (RuntimeError, ValueError) as resumed:
                 error = resumed
-        if before_fallback and before_fallback():
+        if (before_fallback and isinstance(error, RuntimeError)
+                and 'Ending needs completion before fade' in str(error) and before_fallback()):
             # Let the renderer record and run its existing bounded remedy first.
             raise RuntimeError(str(error)) from error
         failures = classify(work, error)
