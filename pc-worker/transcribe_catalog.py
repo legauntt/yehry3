@@ -9,7 +9,7 @@ import sys
 import time
 from pathlib import Path
 from transcribe_performance import digest, public_draft, read, recognize, write
-from transcript_sources import resolve_source
+from transcript_sources import resolve_source, active_songs, archived_song_ids
 from common import singleton
 from transcript_data import public_transcript
 
@@ -82,6 +82,7 @@ def main():
     songs = read(args.catalog)['songs']
     if args.song:
         songs = [song for song in songs if song['id'] in args.song]
+    songs = active_songs(songs)
     if args.limit:
         songs = songs[:args.limit]
     for index, song in enumerate(songs):
@@ -92,6 +93,8 @@ def main():
             if target.exists() and read(target).get('audioUrl') == song['url']:
                 public_transcript(read(target), song)
                 row['status'] = 'existing'
+            elif index and song['id'] in archived_song_ids():
+                row['status'] = 'archived'
             else:
                 print(f"START {index + 1}/{len(songs)} {song['title']}", flush=True)
                 if args.device == 'cuda' and not args.gpu_child:
@@ -106,8 +109,11 @@ def main():
                                '--engine-root', str(args.engine_root), '--cuda-root', str(args.cuda_root)]
                     from winprocess import run_owned
                     run_owned(command, Path(__file__).parent, args.cache / 'gpu-child.log', timeout=3600)
-                    draft = read(target)
-                    row.update(status='transcribed', segments=len(draft['segments']), input=draft['input'])
+                    if song['id'] in archived_song_ids():
+                        row['status'] = 'archived'
+                    else:
+                        draft = read(target)
+                        row.update(status='transcribed', segments=len(draft['segments']), input=draft['input'])
                     time.sleep(2.5) # Let the renderer's two-second GPU waiter go first.
                 else:
                     with singleton(args.cache / 'locks' / (song['id'] + '.lock')) as owned:
@@ -133,8 +139,11 @@ def main():
                                                          cpu_threads=args.threads, download_root=str(args.speech_root / 'speech-models'),
                                                          local_files_only=True)
                                 draft = transcribe_song(song, source, args.cache, model)
-                                write(target, public_transcript(draft, song))
-                                row.update(status='transcribed', segments=len(draft['segments']), input=draft['input'])
+                                if song['id'] in archived_song_ids():
+                                    row['status'] = 'archived'
+                                else:
+                                    write(target, public_transcript(draft, song))
+                                    row.update(status='transcribed', segments=len(draft['segments']), input=draft['input'])
                                 if args.device == 'cuda':
                                     model.model.unload_model()
         except Exception as error:

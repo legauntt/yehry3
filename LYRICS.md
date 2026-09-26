@@ -94,8 +94,9 @@ uses fast-forward Git updates that preserve concurrent catalog changes. It runs
 on this PC and requires Jesse's Windows session and network access. Song rendering
 and publication do not wait for it. See `pc-worker/README.md` for installation.
 Availability refreshes on an open lyric sheet once a minute and when returning to
-the tab. Archived songs retain source transcripts but remain excluded from the
-public site's generated files.
+the tab. Archived songs are excluded from recognition and publication using the
+live archive state, even when the Git catalog has not changed. If that state
+cannot be read, the worker waits and retries instead of processing songs.
 
 The two initial Distonyc songs, **Blood on My Shoes at Daybreak** and **Two Names in One Pair of Shoes**, use their saved original lyrics. Future jobs export sheets as part of native publication. The existing planning call also classifies clear Fear & Hunger songs; lyrics export, collection updates, and uploading require no additional model call.
 

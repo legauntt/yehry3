@@ -8,6 +8,7 @@ from pathlib import Path
 from common import load, save, singleton, utc
 from publish import BRANCH, REPO, catalog_content, gh_json
 from transcript_data import public_transcript
+from transcript_sources import active_songs, archived_song_ids
 from winprocess import run_owned
 
 
@@ -63,7 +64,7 @@ def publish_batch(config, documents):
     """Fast-forward only; rebuild on the latest tree if catalog/other files changed."""
     for attempt in range(4):
         current = snapshot(config)
-        songs = {song['id']: song for song in current['songs']}
+        songs = {song['id']: song for song in active_songs(current['songs'])}
         entries = []
         for document in documents:
             song = songs.get(document['songId'])
@@ -82,11 +83,19 @@ def publish_batch(config, documents):
                             'content': json.dumps(clean, ensure_ascii=False, indent=2) + '\n'})
         if not entries:
             return None
+        archived = archived_song_ids()
+        entries = [entry for entry in entries if entry['path'].split('/')[-1].removesuffix('.whisper.json') not in archived]
+        if not entries:
+            return None
         tree = gh_json(config, ['api', f'repos/{REPO}/git/trees', '--method', 'POST'],
                        {'base_tree': current['tree'], 'tree': entries})
         commit = gh_json(config, ['api', f'repos/{REPO}/git/commits', '--method', 'POST'],
                          {'message': f'Add Whisper audio transcripts for {len(entries)} recordings',
                           'tree': tree['sha'], 'parents': [current['head']]})
+        # The archive state can change while Git objects are being prepared.
+        archived = archived_song_ids()
+        if any(entry['path'].split('/')[-1].removesuffix('.whisper.json') in archived for entry in entries):
+            continue
         try:
             gh_json(config, ['api', f'repos/{REPO}/git/refs/heads/{BRANCH}', '--method', 'PATCH'],
                     {'sha': commit['sha'], 'force': False})
@@ -105,6 +114,8 @@ def run(config, limit=4):
         state_path = root / 'state.json'
         state = load(state_path) if state_path.exists() else {}
         current = snapshot(config)
+        # Archiving happens in the API, so a cached Git head is not sufficient.
+        current = {**current, 'songs': active_songs(current['songs'])}
         pending = pending_songs(config, current, state)
         catalog_path = root / 'catalog.json'
         save(catalog_path, {'songs': current['songs']})

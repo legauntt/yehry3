@@ -314,7 +314,9 @@ credentials, rendering queue, written lyrics or audio. The `yehry3 Whisper
 Transcripts` scheduled task invokes `pythonw.exe` without a terminal window at
 logon and every two minutes. It uses the existing GitHub CLI login to read the
 published catalog and fast-forward sanitized `lyric-transcripts/*.whisper.json`
-commits; concurrent publication is retried against the latest tree.
+commits; concurrent publication is retried against the latest tree. It checks the
+live archive list before recognition and publication. Archived entries are never
+updated, and an unavailable archive list stops work until a later retry.
 
 Install from the deployed revision, with the existing local faster-whisper tools
 and downloaded `large-v3-turbo` model:
@@ -340,7 +342,7 @@ and automatically detects language. Missing or differently trimmed converted
 stems use the verified released MP3; the public view names its source. Empty
 recognition is a result with no timed lines, never a copy of the written sheet.
 
-For a resumable local backfill, including archived songs:
+For a resumable local backfill of active songs (archived entries are excluded):
 
 ```powershell
 python pc-worker/transcribe_catalog.py --catalog catalog.json --basis-root <basis-root> --speech-root <speech-root> --cache <private-cache> --output lyric-transcripts

@@ -8,13 +8,19 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 from transcribe_performance import digest, public_draft, recognize, write
-from transcript_sources import released_address, released_audio, resolve_source
+from transcript_sources import released_address, released_audio, resolve_source, archived_song_ids, active_songs
 from transcript_data import public_transcript
 from transcript_service import pending_songs, publish_batch, run, snapshot
 
 
 class TranscriptServiceTests(unittest.TestCase):
     def setUp(self):
+        active = patch('transcript_service.active_songs', side_effect=lambda songs: songs)
+        archived = patch('transcript_service.archived_song_ids', return_value=set())
+        self.active = active.start()
+        self.archived = archived.start()
+        self.addCleanup(active.stop)
+        self.addCleanup(archived.stop)
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
@@ -39,6 +45,39 @@ class TranscriptServiceTests(unittest.TestCase):
             released_audio(self.song, self.root)
         with self.assertRaises(ValueError):
             released_address({**self.song, 'url': 'https://example.test/private.mp3'})
+
+    def test_archives_are_read_live_and_an_unknown_archive_state_stops_work(self):
+        with patch('transcript_sources.urllib.request.urlopen', return_value=io.BytesIO(b'{"archived":["new-song"]}')) as request:
+            self.assertEqual(active_songs([self.song]), [])
+            self.assertEqual(request.call_args.args[0].get_header('Origin'), 'https://yehry3.app')
+        with patch('transcript_sources.urllib.request.urlopen', return_value=io.BytesIO(b'{}')):
+            with self.assertRaisesRegex(ValueError, 'archive state'):
+                active_songs([self.song])
+
+    def test_archived_recordings_are_neither_transcribed_nor_published(self):
+        self.active.side_effect = lambda songs: []
+        with patch('transcript_service.snapshot', return_value=self.current), \
+             patch('transcript_service.run_owned') as recognition, \
+             patch('transcript_service.gh_json') as github:
+            self.assertEqual(run({'root': str(self.root)})['pending'], 0)
+            self.assertIsNone(publish_batch({}, [self.draft]))
+        recognition.assert_not_called()
+        github.assert_not_called()
+
+    def test_archiving_during_git_preparation_prevents_the_branch_update(self):
+        self.archived.side_effect = [set(), {self.song['id']}, {self.song['id']}]
+        with patch('transcript_service.snapshot', return_value=self.current), \
+             patch('transcript_service.gh_json', return_value={'sha': 'object'}) as github:
+            self.assertIsNone(publish_batch({}, [self.draft]))
+        self.assertEqual(github.call_count, 2) # Prepared objects, but no published ref.
+        self.assertTrue(all('/git/refs/' not in call.args[1][1] for call in github.call_args_list))
+        # Recheck immediately before publishing, including a newly archived song.
+        self.active.side_effect = lambda songs: songs
+        self.archived.return_value = {self.song['id']}
+        with patch('transcript_service.snapshot', return_value=self.current), \
+             patch('transcript_service.gh_json') as github:
+            self.assertIsNone(publish_batch({}, [self.draft]))
+        github.assert_not_called()
 
     def test_a_missing_or_guide_stem_falls_back_only_to_the_verified_public_recording(self):
         with patch('transcript_sources.performance_source', side_effect=ValueError('guide vocal')), \

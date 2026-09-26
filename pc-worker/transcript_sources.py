@@ -3,8 +3,29 @@ import hashlib
 import re
 import time
 import urllib.request
+import json
+import uuid
 from pathlib import Path
 from transcribe_performance import digest, performance_source, read, write
+
+
+def archived_song_ids():
+    """Read the live archive state; an unavailable archive list must stop work."""
+    request = urllib.request.Request('https://chairlift.fly.dev/yehry3/songs/summary',
+        headers={'Accept': 'application/json', 'Origin': 'https://yehry3.app',
+                 'X-Visitor-ID': str(uuid.uuid4())})
+    with urllib.request.urlopen(request, timeout=15) as response:
+        value = json.loads(response.read(4 * 1024 * 1024))
+    archived = value.get('archived') if isinstance(value, dict) else None
+    if not isinstance(archived, list) or any(not isinstance(song_id, str) or
+            not re.fullmatch(r'[a-z0-9-]{1,120}', song_id) for song_id in archived):
+        raise ValueError('Live archive state is unavailable; transcription is paused')
+    return set(archived)
+
+
+def active_songs(songs):
+    archived = archived_song_ids()
+    return [song for song in songs if song['id'] not in archived]
 
 
 def released_address(song):
