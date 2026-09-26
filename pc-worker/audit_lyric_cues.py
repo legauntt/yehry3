@@ -94,6 +94,19 @@ def fetch_identity(url):
     return {'sha256': digest.hexdigest(), 'bytes': size, 'verified_at': utc()}
 
 
+def verify_report(base, report, static=False):
+    def verify(row):
+        url = base.rstrip('/') + '/songs/' + row['id'] + ('.json' if static else '')
+        with urllib.request.urlopen(url, timeout=30) as response: data = json.load(response)
+        song = data.get('song', data)
+        if song.get('url') != row['url'] or song.get('duration') != row['duration'] or song.get('lyrics') != row['after']:
+            raise ValueError(f"Published lyric repair differs: {row['id']}")
+    rows = [row for row in report['songs'] if row.get('changed')]
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        list(pool.map(verify, rows))
+    return len(rows)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--catalog', required=True, type=Path)
@@ -106,10 +119,16 @@ def main():
     parser.add_argument('--identities', type=Path, help='Retained SHA-256 evidence for legacy public URLs')
     parser.add_argument('--fetch-identities', action='store_true', help='Stream and hash legacy public MP3s; never modify audio')
     parser.add_argument('--evidence-cache', type=Path, help='Verified transcripts recreated by restore_lyric_evidence.py')
+    parser.add_argument('--verify-base', help='Read back every changed song from this API/site; requires --apply and never writes')
+    parser.add_argument('--static', action='store_true', help='Verify static /songs/<id>.json instead of API /songs/<id>')
     args = parser.parse_args()
     catalog = load(args.catalog)
     if args.apply:
-        rows = apply_report(catalog, load(args.apply))
+        report = load(args.apply)
+        if args.verify_base:
+            if args.write or args.sync_config: parser.error('Verification cannot write or sync')
+            print(json.dumps({'verified': verify_report(args.verify_base, report, args.static)})); return
+        rows = apply_report(catalog, report)
         if args.sync_config: sync_cues(args.sync_config, rows)
         if args.write: save(args.catalog, catalog)
         print(json.dumps({'repairs': len(rows), 'written': args.write, 'synced': bool(args.sync_config)}))
