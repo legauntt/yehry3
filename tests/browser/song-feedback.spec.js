@@ -2,6 +2,7 @@ import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 
 test("shared pins stay above the catalog and downvote/milquetoast remain distinct", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('yehry3:catalog-view', 'list'));
   const songs = ["alpha", "bravo", "charlie"].map((id, index) => ({
     id, title: id[0].toUpperCase() + id.slice(1), votes: 0, downvotes: 0, milquetoasts: 0, pins: 0,
     feedback: { downvoted: false, milquetoast: false, pinned: false }, duration: 60, order: index,

@@ -24,6 +24,7 @@ const fixtures = () => ["alpha", "bravo"].map((id, index) => ({
 }));
 
 test("a listener pins traits, shuffles the rest, redraws hourly, and can read back the note", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('yehry3:catalog-view', 'list'));
   const songs = fixtures(), writes = [], state = { refuse: true };
   await studio(page, songs, writes, state);
   await page.goto("/");

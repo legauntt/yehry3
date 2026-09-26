@@ -57,8 +57,10 @@ test('grid action popouts dismiss accessibly, survive refresh, and preserve play
   await expect(other.locator('.song-menu-panel')).toBeHidden();
   await openSongMenu(row);
   await page.getByRole('button', { name: 'List', exact: true }).click();
+  await expect(row.locator('[data-pin]')).toBeHidden();
+  await expect(row.locator('.song-more')).toBeVisible();
+  await openSongMenu(row);
   await expect(row.locator('[data-pin]')).toBeVisible();
-  await expect(row.locator('.song-more')).toBeHidden();
   await page.getByRole('button', { name: 'Grid', exact: true }).click();
   await expect(row.locator('[data-pin]')).toBeHidden();
   expect(await audio.evaluate(el => el === window.originalAudio && !el.paused && el.currentTime >= 20)).toBe(true);

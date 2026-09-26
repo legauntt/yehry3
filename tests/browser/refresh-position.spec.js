@@ -20,13 +20,13 @@ test(`catalog hydration keeps the ${position} in view when a visible song moves 
   await page.route("**/yehry3/profiles?*", (route) => route.fulfill({ json: { profiles: [], total: 0 } }));
 
   await page.goto("/");
-  await expect(page.locator(".track")).toHaveCount(25);
+  await expect(page.locator(".track")).toHaveCount(24);
   await expect(page.locator(".track").first()).toHaveAttribute("data-id", "song-0");
   // The first song is only peeking into the viewport beneath the introduction.
   if (position === "introduction") {
     await page.evaluate(() => window.scrollTo(0, 200));
     await page.reload();
-    await expect(page.locator(".track")).toHaveCount(25);
+    await expect(page.locator(".track")).toHaveCount(24);
     await expect.poll(() => page.evaluate(() => scrollY)).toBe(200);
   }
   const before = await page.evaluate(() => scrollY);

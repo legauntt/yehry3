@@ -11,7 +11,7 @@ test("catalog, search, player, and anonymous vote cooldown", async ({
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
-  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
+  await expect(page.locator(".track")).toHaveCount(Math.min(24, songCount));
   await expect(page.locator("[data-vote]").first()).toBeEnabled();
   await page.locator(".catalog-filters > summary").click();
   await page.getByLabel("Search songs").fill("Fear and Hunger");
@@ -53,7 +53,7 @@ test("shareable collection, search and sort survive reload and browser history",
 }) => {
   await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.goto("/?ref=friend#collection-title");
-  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
+  await expect(page.locator(".track")).toHaveCount(Math.min(24, songCount));
   const filters = page.locator(".catalog-filters");
   const summary = filters.locator("summary");
   await expect(filters).not.toHaveAttribute("open", "");
@@ -134,13 +134,13 @@ test("shareable collection, search and sort survive reload and browser history",
   await page.getByLabel("Sort songs").selectOption("hybrid");
   await expect(page.locator("#active-filters")).toBeHidden();
   await expect(page).toHaveURL(/\/\?ref=friend#collection-title$/);
-  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
+  await expect(page.locator(".track")).toHaveCount(Math.min(24, songCount));
   await page.goto("/?collection=unknown&sort=unknown");
   await expect(page.getByLabel("Collection", { exact: true })).toHaveValue(
     "all",
   );
   await expect(page.getByLabel("Sort songs")).toHaveValue("hybrid");
-  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
+  await expect(page.locator(".track")).toHaveCount(Math.min(24, songCount));
   await expect
     .poll(() =>
       page.locator(".band-cutout").evaluate((img) => img.naturalWidth),
@@ -377,7 +377,7 @@ test("mobile layout, API outage, and escaped prompt content", async ({
   await page.setViewportSize({ width: 390, height: 844 });
   await page.route("**/yehry3/songs/summary", (route) => route.abort());
   await page.goto("/");
-  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
+  await expect(page.locator(".track")).toHaveCount(Math.min(24, songCount));
   await expect(page.locator("#vote-note")).toContainText("offline");
   await expect(page.locator("[data-vote]").first()).toBeDisabled();
   await expect(page.locator("#vote-note")).toContainText(

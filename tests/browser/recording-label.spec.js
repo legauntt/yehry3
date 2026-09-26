@@ -28,7 +28,7 @@ test("duplicate labels survive pagination, sorting, collection filters and the o
   })), second];
   await catalog(page, () => songs);
   await page.goto("/?sort=catalog");
-  await expect(page.locator(".track")).toHaveCount(25);
+  await expect(page.locator(".track")).toHaveCount(24);
   await expect(label(page, first.id)).toHaveText("pop-duck");
   await expect(label(page, first.id)).toHaveAttribute("title", "Recording pop-duck · Released Sep 13, 2026 · 4:32 PM PDT");
   await expect(page.locator(".track .recording-label")).toHaveCount(1);

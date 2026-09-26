@@ -122,8 +122,11 @@ test("pending cards share grid rows with released songs and preserve details whe
       id: publicId(8), idea: "A moon eating a sandwich", authoredBy: "Pancakeo",
       status: "queued", voiceModel: "v8", progress: null,
     }] : [];
-    await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
-    await expect(page.locator(".pending-track")).toHaveCount(count);
+    // A queue read already in flight may finish its previous snapshot first.
+    await expect.poll(async () => {
+      await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
+      return page.locator(".pending-track").count();
+    }).toBe(count);
     const pendingBox = await pending.boundingBox(), releasedBox = await released.boundingBox();
     expect(Math.abs(pendingBox.width - releasedBox.width)).toBeLessThan(1);
     expect(Math.abs(pendingBox.y - releasedBox.y)).toBeLessThan(1);
@@ -137,7 +140,7 @@ test("pending cards share grid rows with released songs and preserve details whe
   await expect(pending).toHaveAttribute("open", "");
   const alignment = async (selector) => {
     const a = await pending.locator(selector).boundingBox();
-    const b = await released.locator(selector === ".pending-title" ? ".track-info" : selector).boundingBox();
+    const b = await released.locator(selector === ".pending-title" ? ".track-heading" : selector).boundingBox();
     expect(Math.abs(a.x - b.x)).toBeLessThan(1);
   };
   await alignment(".track-art");

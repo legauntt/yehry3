@@ -18,7 +18,7 @@ test('popouts overlay songs, dismiss accessibly, and keep filters across refresh
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto('/');
-  await expect(page.locator('#tracks > .track')).toHaveCount(25);
+  await expect(page.locator('#tracks > .track')).toHaveCount(24);
   await expect(page.locator('.hero .actions')).toHaveCount(0);
   const filters = page.locator('.catalog-filters');
   const profilePanel = page.locator('.profile-details');
@@ -65,7 +65,7 @@ test('compact rows and every open panel fit desktop and narrow phones in both th
   for (const width of [1295, 768, 390, 320]) {
     await page.setViewportSize({ width, height: 858 });
     await page.evaluate(() => scrollTo(0, 0));
-    await expect(page.locator('#tracks > .track')).toHaveCount(25);
+    await expect(page.locator('#tracks > .track')).toHaveCount(24);
     expect(await page.locator('#catalog-items').evaluate(el => el.getBoundingClientRect().top)).toBeLessThan(width > 1000 ? 520 : 660);
     for (const summary of await page.locator('.catalog-popout > summary').all()) {
       expect(await summary.evaluate(el => el.scrollWidth <= el.clientWidth)).toBe(true);

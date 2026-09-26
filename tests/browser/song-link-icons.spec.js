@@ -58,6 +58,7 @@ test('song icons retain links, explain themselves on hover and focus, and keep t
   await row.locator('[data-play]').click();
   await expect.poll(() => page.locator('#audio').evaluate(audio => audio.paused)).toBe(false);
   await page.locator('#audio').evaluate(audio => { window.iconAudio = audio; audio.currentTime = 25; });
+  await openSongMenu(row);
   await lyrics.click();
   await expect(page).toHaveURL(new RegExp(lyricsHref(song)));
   await expect(page.locator('.lyrics-sheet h1')).toHaveText(song.title);

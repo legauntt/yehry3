@@ -202,7 +202,7 @@ async function library() {
     { id: "sort", param: "sort", defaultValue: "hybrid" },
     { id: "search", param: "q", defaultValue: "" },
   ];
-  const pageSize = 25;
+  const pageSize = 24;
   let catalogPage = 1, editingSearch = false;
   function pageUrl(replace = true) {
     const url = new URL(location.href);
@@ -646,11 +646,12 @@ async function library() {
   function syncPlaybackButtons() {
     const isPlaying = player.playing;
     document.querySelectorAll("#tracks [data-play]").forEach((button) => {
-      const song = songs.find((item) => item.id === button.dataset.play);
       const playing = isPlaying && player.current?.id === button.dataset.play;
       button.dataset.playing = String(playing);
       button.setAttribute("aria-pressed", String(playing));
-      button.setAttribute("aria-label", `${playing ? "Pause" : "Play"} ${song?.title || "song"}`);
+      // Preserve the recording alias authored by render when only play state changes.
+      const title = button.getAttribute("aria-label").replace(/^(Play|Pause) /, "");
+      button.setAttribute("aria-label", `${playing ? "Pause" : "Play"} ${title}`);
       button.closest(".track")?.classList.toggle("playing", playing);
     });
   }

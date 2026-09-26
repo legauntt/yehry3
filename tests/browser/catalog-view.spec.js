@@ -49,7 +49,7 @@ test("views preserve page, filters, row state, audio and seek position", async (
   await mock(page);
   await page.goto("/?sort=catalog&page=2");
   await expect(page.locator("#tracks")).toHaveAttribute("data-view", "grid");
-  await expect(page.locator(".track")).toHaveCount(6);
+  await expect(page.locator(".track")).toHaveCount(7);
   await page.locator("[data-play]").first().click();
   const audio = page.locator("#audio");
   await expect.poll(() => audio.evaluate(audio => audio.paused)).toBe(false);
@@ -77,7 +77,7 @@ test("views preserve page, filters, row state, audio and seek position", async (
   await switchTo(page, "Grid");
   expect(await audio.evaluate(audio => audio === window.originalAudio && !audio.paused && audio.currentTime >= 30)).toBe(true);
   await page.getByRole("button", { name: "Next song", exact: true }).click();
-  await expect(page.locator("#now-title")).toHaveText(fixtures()[26].title);
+  await expect(page.locator("#now-title")).toHaveText(fixtures()[25].title);
   await page.locator(".catalog-filters > summary").click();
   await page.getByLabel("Search songs", { exact: true }).fill("Medusa");
   await expect(page.locator(".track")).toHaveCount(5);
@@ -124,8 +124,8 @@ test("desktop and mobile render valid art in both views without overflow", async
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       if (view === 'List' && width <= 650) {
         expect((await page.locator('.track-heading').first().boundingBox()).width).toBeGreaterThan(100);
-        const rowWidth = (await page.locator('.track').first().boundingBox()).width;
-        expect((await page.locator('.track-links').first().boundingBox()).width).toBeGreaterThan(rowWidth - 25);
+        await expect(page.locator('.track-links').first()).toBeHidden();
+        await expect(page.locator('.song-more').first()).toBeVisible();
       }
       const layout = await page.locator(".track").evaluateAll(rows => rows.slice(0, 2).map(row => { const r = row.getBoundingClientRect(); return { x: r.x, y: r.y }; }));
       if (view === "Grid" && width >= 768) expect(layout[0].y).toBe(layout[1].y);

@@ -32,11 +32,11 @@ for (const width of [1440, 390]) {
     await expect(page.locator("#tracks")).toHaveText("Loading...");
     await expect(page.locator("#tracks .track")).toHaveCount(0);
     startup.release();
-    await expect(page.locator("#tracks .track")).toHaveCount(25);
+    await expect(page.locator("#tracks .track")).toHaveCount(24);
     await expect(page.locator("#tracks .track").first()).toHaveAttribute("data-id", songs[0].id);
     await expect(page.locator(`[data-pin="${songs[0].id}"]`)).toBeEnabled();
     await expect(page.locator(`[data-pin="${songs[0].id}"]`)).toHaveAttribute("aria-pressed", "true");
-    await expect(page.locator("#track-count")).toContainText("40 songs · Showing 1–25");
+    await expect(page.locator("#track-count")).toContainText("40 songs · Showing 1–24");
     await expect(page.locator("#listening-total")).toHaveText("—");
     await expect(page.locator("#play-all")).toBeDisabled();
     const initialIds = await page.locator("#tracks .track").evaluateAll(rows => rows.map(row => row.dataset.id));
@@ -60,13 +60,13 @@ test("next page and filters wait for the full background catalog without losing 
   await page.route("**/yehry3/songs/first-page", route => route.fulfill({ json: first }));
   await page.route("**/yehry3/songs/summary", async route => { await catalog.promise; await route.fulfill({ json: full }); });
   await page.goto("/");
-  await expect(page.locator("#tracks .track")).toHaveCount(25);
+  await expect(page.locator("#tracks .track")).toHaveCount(24);
   await page.locator('[data-catalog-page="1"]').first().click();
   await expect(page).toHaveURL(/page=2/);
   await expect(page.locator("#tracks")).toHaveText("Loading...");
   catalog.release();
-  await expect(page.locator("#tracks .track")).toHaveCount(15);
-  await expect(page.locator("#tracks .track").first()).toHaveAttribute("data-id", songs[25].id);
+  await expect(page.locator("#tracks .track")).toHaveCount(16);
+  await expect(page.locator("#tracks .track").first()).toHaveAttribute("data-id", songs[24].id);
   await page.locator(".catalog-filters > summary").click();
   await page.locator("#search").fill("Song 39");
   await expect(page.locator("#tracks .track")).toHaveCount(1);
@@ -82,7 +82,7 @@ test("a nondefault deep link loads full results without flashing the default pag
   await page.goto("/?sort=title&page=2");
   await expect(page.locator("#tracks")).toHaveText("Loading...");
   catalog.release();
-  await expect(page.locator("#tracks .track")).toHaveCount(15);
+  await expect(page.locator("#tracks .track")).toHaveCount(16);
   await expect(page).toHaveURL(/sort=title&page=2/);
   expect(startupReads).toBe(0);
 });
@@ -109,7 +109,7 @@ test("API failure falls back to playable static songs and excludes remembered ar
   for (const endpoint of ["first-page", "summary"]) await page.route(`**/yehry3/songs/${endpoint}`, route => route.abort());
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs } }));
   await page.goto("/");
-  await expect(page.locator("#tracks .track")).toHaveCount(25);
+  await expect(page.locator("#tracks .track")).toHaveCount(24);
   await expect(page.locator('[data-id="loading-0"]')).toHaveCount(0);
   await expect(page.locator("#vote-note")).toContainText("offline");
   await expect(page.locator("#play-all")).toBeEnabled();

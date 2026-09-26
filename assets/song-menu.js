@@ -1,13 +1,11 @@
-// Grid cards share one small action row. The remaining controls float over the
-// catalog; List keeps those same controls inline, with no duplicate buttons.
+// Grid and List share one action row and a popout, with no duplicate controls.
 export function mountSongMenus(root, scope) {
   let openedId = null;
   const menu = () => [...root.querySelectorAll('.song-menu')]
     .find(item => item.closest('[data-id]').dataset.id === openedId);
-  const isGrid = () => root.dataset.view === 'grid';
   function position() {
     const current = menu();
-    if (!current || !isGrid()) return;
+    if (!current) return;
     const panel = current.querySelector('.song-menu-panel');
     const button = current.querySelector('.song-more');
     const anchor = button.getBoundingClientRect();
@@ -19,7 +17,6 @@ export function mountSongMenus(root, scope) {
     panel.style.top = `${Math.max(8, Math.min(innerHeight - box.height - 8, top))}px`;
   }
   function sync() {
-    if (!isGrid()) openedId = null;
     let found = false;
     for (const item of root.querySelectorAll('.song-menu')) {
       const open = item.closest('[data-id]').dataset.id === openedId;
@@ -59,7 +56,7 @@ export function mountSongMenus(root, scope) {
   });
   scope.on(window, 'scroll', position, { capture: true, passive: true });
   scope.on(window, 'resize', position);
-  const observer = new MutationObserver(sync);
+  const observer = new MutationObserver(() => close());
   observer.observe(root, { attributes: true, attributeFilter: ['data-view'] });
   scope.onLeave(() => observer.disconnect());
   return { sync };
