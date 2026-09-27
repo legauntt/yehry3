@@ -356,6 +356,11 @@ function resolve(song) {
 }
 // Supplied covers stay with their recording, including after votes or redraws.
 const customArtwork = new Map([
+  ["distonyc-06d2b8c3c8dffed19df347bb", {
+    src: "/assets/artwork/it-was-simple-not-easy.webp",
+    alt: "An open iron gate leads toward a sunlit orchard and coastline, with an olive sapling and an old house key at the stone threshold.",
+    theme: "open-gate", tier: 0, remixed: false,
+  }],
   ["distonyc-41122cfa1d30d985e40d357b", {
     src: "/assets/artwork/nine-eleven-d-again-fbfe8b.webp",
     alt: "Six bearded men wearing turbans sit on worn front steps, with a Parental Advisory label in the lower right.",
