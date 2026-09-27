@@ -20,7 +20,7 @@ test("Œuful plays sung moments back to back across two decks", async ({ page })
     };
   });
   await page.route("**/egg-clips.json", (route) => route.fulfill({ json: { clips } }));
-  await page.route("**/songs/summary", (route) => route.fulfill({ json: { songs: [] } }));
+  await page.route("**/{catalog,songs/summary}", (route) => route.fulfill({ json: { songs: [] } }));
   await page.goto("/oeuful");
   await expect(page).toHaveURL(/\/oeuful\/$/);
   const start = page.locator("#start");

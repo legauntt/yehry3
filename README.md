@@ -2,6 +2,18 @@
 
 A static Tony C music site with a MongoDB voting and request API in the sibling **chairlift** repository.
 
+The collection reads the complete public `/catalog` alongside private
+`/catalog/state`. Public refreshes send an ETag and reuse the mounted page's
+snapshot on a 304; visitor feedback and vote cooldowns are always read afresh.
+Chairlift caches public snapshots for up to 60 seconds while its Mongo observer
+is healthy, invalidating on catalog writes. No localStorage catalog cache is used.
+The first-page preview, static offline fallback, full-library filtering/playback,
+and older shared-song pagination and spotlight behavior are preserved. Legacy
+`/songs/summary` remains available to the other consumers. Deploy Chairlift first.
+Run `npm run verify:catalog` for read-only cache/privacy checks and desktop/mobile
+older-share verification against the live deployment; `npm run measure:live`
+compares legacy reads with conditional catalog refreshes and personal-state reads.
+
 Catalog summaries keep remix badges but load readiness only when a song menu opens,
 through Chairlift's `/songs/:id/remix`. Concurrent opens share a request; successful
 checks last at most 30 seconds and never beyond the source expiry. Failed checks

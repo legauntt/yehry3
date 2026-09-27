@@ -9,7 +9,7 @@ async function mocked(page, catalogRevision) {
   const state = { song: structuredClone(song), reads: 0, lines: [], hold: null, catalogRevision };
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [state.song] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: emptyQueue }));
-  await page.route("**/yehry3/songs/summary", async route => {
+  await page.route("**/yehry3/{catalog,songs/summary}", async route => {
     state.reads++;
     const snapshot = structuredClone(state.song), hold = state.hold, revision = state.catalogRevision;
     if (hold) { state.hold = null; await hold; }
@@ -35,7 +35,7 @@ test("another browser sees a saved redraw while its audio and filters stay in pl
   try {
     const pages = [];
     for (const context of contexts) {
-      await context.route("**/yehry3/songs/summary", async route => {
+      await context.route("**/yehry3/{catalog,songs/summary}", async route => {
         const response = await route.fetch(), data = await response.json();
         data.songs = data.songs.filter(item => item.id === selected.id).map(item => ({ ...item, url: recording.url, duration: recording.duration }));
         await route.fulfill({ json: data });

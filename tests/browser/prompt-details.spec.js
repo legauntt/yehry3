@@ -18,7 +18,7 @@ for (const status of ["queued", "published"]) {
         { url: "https://example.org/" + "railway".repeat(35), purpose: "creative", note: "Borrow the atmosphere.", snapshot: { status: "ready", title: "An evening train", text: "Saved page\n" + attack } },
       ],
     } };
-    await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: status === "published" ? [song] : [] } }));
+    await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: status === "published" ? [song] : [] } }));
     await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
     await page.route(`**/yehry3/songs/${id}`, route => route.fulfill({ json: { song: { ...(status === "published" ? song : {}), ...full } } }));
     await page.goto(`/original-prompt/?song=${id}`);

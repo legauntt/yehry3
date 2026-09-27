@@ -25,6 +25,7 @@ import { mountCatalogView } from "./catalog-view.js";
 import { mountCatalogTools } from "./catalog-tools.js";
 import { mountSongMenus } from "./song-menu.js";
 import { createRemixLookup } from "./catalog-remix.js";
+import { createCatalogLoader } from "./catalog.js";
 import { decorateSongLinks, mountSongLinkTooltips } from "./song-link-icons.js";
 import { hasCustomArtwork, songArtworkMarkup } from "./song-art.js";
 import { watchCatalog } from "./realtime.js";
@@ -53,6 +54,7 @@ async function library() {
   $("#catalog-view-controls").innerHTML = `<div class="catalog-view-switch" role="group" aria-label="Song display"><button type="button" data-catalog-view="grid" aria-pressed="true" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Grid</button><button type="button" data-catalog-view="list" aria-pressed="false" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 4H5M8 4H18M2 10H5M8 10H18M2 16H5M8 16H18"/></svg>List</button></div>`;
   mountCatalogView($(".catalog-view-switch"), $("#tracks"));
   const remixLookup = createRemixLookup();
+  const loadCatalog = createCatalogLoader();
   const songMenus = mountSongMenus($("#tracks"), scope, id => {
     const pending = remixLookup.load(id);
     updateRemixMenu(id);
@@ -825,7 +827,7 @@ async function library() {
     refreshing = (async () => {
       do {
         refreshAgain = false;
-        const [catalog] = await Promise.allSettled([api("/songs/summary", { timeout: initialCatalogPending ? 5000 : 15000 })]);
+        const [catalog] = await Promise.allSettled([loadCatalog({ timeout: initialCatalogPending ? 5000 : 15000 })]);
         if (scope.left) return;
         if (catalog.status === "fulfilled" && Array.isArray(catalog.value.songs)) {
           songs = catalog.value.songs;

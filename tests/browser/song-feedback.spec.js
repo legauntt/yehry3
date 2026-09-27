@@ -1,3 +1,4 @@
+import { mockCatalogState } from "./helpers/catalog.js";
 import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 
@@ -10,7 +11,8 @@ test("shared pins stay above the catalog and downvote/milquetoast remain distinc
   }));
   const queue = { inStudio: [{ id: "pending", idea: "Pending idea", title: null, status: "processing" }], queued: [], recent: [] };
   const writes = [];
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await mockCatalogState(page, () => songs);
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
   await page.route("**/yehry3/song-feedback", async route => {
     const { songId, kind } = route.request().postDataJSON();
@@ -99,7 +101,8 @@ test("a vote swaps the regular clip art for that tier's award art without a prom
     feedback: { downvoted: false, milquetoast: false, pinned: false }, duration: 60, order: index,
     collection: "distonyc", url: "/fixture.mp3",
   }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await mockCatalogState(page, () => songs);
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.route("**/yehry3/votes", async route => {
     songs.find(song => song.id === route.request().postDataJSON().songId).votes++;

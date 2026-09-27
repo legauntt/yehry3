@@ -11,7 +11,7 @@ const fixtures = () => Array.from({ length: 31 }, (_, i) => ({
 }));
 async function mock(page, songs = fixtures()) {
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs } }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.route("**/yehry3/listens", route => route.fulfill({ json: { counted: true, playCount: 1 } }));
 }
@@ -27,7 +27,7 @@ test("paid song costs survive grid/list switching and offline mobile catalogs", 
   for (const [index, duration] of [[4, 396], [5, 400], [6, 476]]) Object.assign(songs[index], { musicBackend: 'eleven_music', duration });
   await mock(page, songs);
   for (const offline of [false, true]) {
-    if (offline) await page.route('**/yehry3/songs/summary', route => route.abort());
+    if (offline) await page.route('**/yehry3/{catalog,songs/summary}', route => route.abort());
     await page.goto('/?sort=catalog');
     await expect(page.locator('.track')).toHaveCount(7);
     for (const width of [1440, 390, 320]) {
@@ -140,7 +140,7 @@ test("desktop and mobile render valid art in both views without overflow", async
 test("offline catalog keeps artwork and controls; voting still works when online", async ({ page }) => {
   const songs = fixtures().slice(0, 2);
   await mock(page, songs);
-  await page.route("**/yehry3/songs/summary", route => route.abort());
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.abort());
   await page.goto("/?sort=catalog");
   await expect(page.locator(".track-art")).toHaveCount(2);
   await expect(page.locator("[data-vote]").first()).toBeDisabled();
@@ -148,8 +148,8 @@ test("offline catalog keeps artwork and controls; voting still works when online
   await switchTo(page, "List");
   await expect(page.locator(".quality-notice").first()).toHaveAttribute("open", "");
   await expect(page.locator(".track-art").first()).toBeVisible();
-  await page.unroute("**/yehry3/songs/summary");
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.unroute("**/yehry3/{catalog,songs/summary}");
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/votes", async route => {
     expect(route.request().postDataJSON().songId).toBe(songs[0].id);
     songs[0].votes = 1;

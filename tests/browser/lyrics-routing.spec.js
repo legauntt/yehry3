@@ -12,7 +12,7 @@ const song = {
 const compact = { id: song.id, title: song.title, hasLyrics: true };
 const href = lyricsHref(song);
 async function apiSong(page) {
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [compact] } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [compact] } }));
   await page.route(`**/yehry3/songs/${song.id}`, route => route.fulfill({ json: { song } }));
   await page.route("**/yehry3/profiles**", route => route.fulfill({ json: { profiles: [] } }));
   await page.route("**/yehry3/listens", route => route.fulfill({ json: {} }));

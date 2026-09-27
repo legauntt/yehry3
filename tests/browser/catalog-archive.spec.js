@@ -32,7 +32,7 @@ async function setup(page, { credentials, allowed = true, checkGate } = {}) {
       if (body.archived) state.archived.add(id);
       else state.archived.delete(id);
       json = { song: { id, archived: body.archived, changed: true } };
-    } else if (path === '/songs/summary' || path === '/songs/first-page') {
+    } else if (path === '/catalog' || path === '/songs/summary' || path === '/songs/first-page') {
       const visible = songs.filter(song => !state.archived.has(song.id));
       json = { songs: visible, total: visible.length, archived: [...state.archived], nextVoteAt: null };
     } else if (path === '/queue') json = { inStudio: [], queued: [], recent: [] };

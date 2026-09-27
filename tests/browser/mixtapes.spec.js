@@ -5,7 +5,7 @@ const songs = [
   { id: "tape-two", title: "Second record", duration: 90, url: "/fearhunger/audio/fear-and-hunger-dungeon-rock.mp3" },
 ];
 async function catalog(page) {
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs } }));
 }
 test("build, reorder, publish and reopen a tape without replacing the saved draft", async ({ page, context }) => {
@@ -65,7 +65,7 @@ test("mobile, unavailable storage and API fallback still allow sharing", async (
   await page.setViewportSize({ width: 390, height: 844 });
   await page.addInitScript(() => Object.defineProperty(window, "sessionStorage", { get() { throw new Error("Blocked"); } }));
   await catalog(page);
-  await page.route("**/yehry3/songs/summary", route => route.abort());
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.abort());
   await page.goto("/mixtapes/new");
   await page.getByRole("button", { name: "Add First record to side A" }).click();
   await expect(page.locator("#tape-status")).toContainText("storage is unavailable");
@@ -144,7 +144,7 @@ test("editing repeated entries preserves the current audio and updates the next 
 
 test("surprise mix preserves selections, avoids repeats and respects the 40-track limit", async ({ page }) => {
   const many = Array.from({ length: 12 }, (_, i) => ({ ...songs[0], id: `song-${i}`, title: `Record ${i}` }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: many } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: many } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: many } }));
   await page.goto("/mixtapes/new");
   await page.getByRole("button", { name: "Add Record 0 to side A", exact: true }).click();

@@ -11,7 +11,7 @@ const fixtures = () => Array.from({ length: 8 }, (_, i) => ({
   hasLyrics: true, hasOriginalPrompt: true, playCount: 19, feedback: {},
 }));
 async function mock(page, songs) {
-  await page.route('**/yehry3/songs/summary', route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route('**/yehry3/{catalog,songs/summary}', route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route('**/catalog-summary.json', route => route.fulfill({ json: { songs } }));
   await page.route('**/yehry3/queue?*', route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.route('**/yehry3/listens', route => route.fulfill({ json: { counted: true, playCount: 20 } }));

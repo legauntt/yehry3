@@ -9,7 +9,7 @@ const fixtures = () => Array.from({ length: 123 }, (_, index) => ({
 }));
 async function mock(page, songs) {
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs } }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.route("**/yehry3/listens", route => route.fulfill({ json: { counted: true, playCount: 1, lastPlayedAt: new Date().toISOString() } }));
 }
@@ -182,13 +182,13 @@ test("unavailable catalog or saved-profile statistics stay unknown rather than s
   const songs = fixtures();
   await mock(page, songs);
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: songs.map(({ playCount, lastPlayedAt, ...song }) => song) } }));
-  await page.route("**/yehry3/songs/summary", route => route.abort());
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.abort());
   await page.goto("/?sort=plays");
   await expect(page.locator("#listening-scope")).toContainText("temporarily unavailable");
   await expect(page.locator("#listening-total")).toHaveText("—");
   await expect(page.locator(".track")).toHaveCount(24);
-  await page.unroute("**/yehry3/songs/summary");
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.unroute("**/yehry3/{catalog,songs/summary}");
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   const id = "faaa0000-0000-4000-8000-000000000001";
   await page.route(`**/yehry3/profiles/${id}`, route => route.fulfill({ status: 404, json: { error: "Profile not found" } }));
   await page.goto(`/?profile=${id}&saved=1`);

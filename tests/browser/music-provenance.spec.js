@@ -18,7 +18,7 @@ async function fixtures(page, songs = [paid, local, legacy]) {
   await page.route('**/yehry3/**', route => route.fulfill({ json: {} }));
   await page.route('**/yehry3/profiles?*', route => route.fulfill({ json: { profiles: [], total: 0 } }));
   await page.route('**/catalog-summary.json', route => route.fulfill({ json: { songs: songs.map(songSummary) } }));
-  await page.route('**/yehry3/songs/summary', route => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
+  await page.route('**/yehry3/{catalog,songs/summary}', route => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
   await page.route('**/yehry3/queue?*', route => route.fulfill({ json: queue }));
   await page.route(`**/yehry3/queue/${pending.id}`, route => route.fulfill({ json: pending }));
   for (const song of [...songs, pending]) {
@@ -46,7 +46,7 @@ test('catalog and playing song retain separate generator attribution through ref
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.locator('.collection').screenshot({ path: 'artifacts/music-provenance/catalog-mobile.png' });
-  await page.route('**/yehry3/songs/summary', route => route.abort());
+  await page.route('**/yehry3/{catalog,songs/summary}', route => route.abort());
   await page.reload();
   await expect(page.locator('#vote-note')).toContainText('offline');
   await expect(track.locator('.song-cost')).toContainText('¢');

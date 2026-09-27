@@ -27,7 +27,7 @@ const songs = [
 async function mock(page) {
   await page.route("**/audio/*.wav", (route) => route.fulfill({ body: silence(), contentType: "audio/wav" }));
   await page.route("**/catalog-summary.json", (route) => route.fulfill({ json: { songs } }));
-  await page.route("**/yehry3/songs/summary", (route) => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/timeline/", async (route) => {
     const response = await route.fetch();
     await route.fulfill({ response, headers: { ...response.headers(), "content-security-policy": policy } });
@@ -117,5 +117,5 @@ test("each song has a play button that drives the site player down the page", as
   // The queue follows the page: after the newest song comes the busiest day's newest.
   await page.locator(".tl-play").nth(1).click();
   await expect(page.locator(".tl-song.tl-now .tl-title")).toHaveText("Busy one");
-  expect(await page.locator(".tl-play").evaluateAll((all) => all.filter((b) => b.dataset.playing === "true").length)).toBe(1);
+  await expect.poll(() => page.locator(".tl-play").evaluateAll((all) => all.filter((b) => b.dataset.playing === "true").length)).toBe(1);
 });

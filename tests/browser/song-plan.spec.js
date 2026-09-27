@@ -14,7 +14,7 @@ const song = { id, title: "The recorded title", url: "/fearhunger/Fear and Hunge
 
 test("Full Auto links to resolved musical choices, escaped lyrics and mobile layout", async ({ page }) => {
   await page.route(`**/yehry3/songs/${id}`, route => route.fulfill({ json: { song } }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
   await page.goto("/");
   await openSongMenu(page.locator(`[data-id="${id}"]`));
   await page.getByRole("link", { name: `Song plan for ${song.title}` }).click();
@@ -38,7 +38,7 @@ test("Full Auto links to resolved musical choices, escaped lyrics and mobile lay
 test("offline and older API responses retain the matching fallback plan", async ({ page }) => {
   await page.route(`**/yehry3/songs/${id}`, route => route.fulfill({ json: { song: { ...song, songPlan: undefined } } }));
   await page.route(`**/songs/${id}.json`, route => route.fulfill({ json: song }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [{ ...song, songPlan: undefined }], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [{ ...song, songPlan: undefined }], nextVoteAt: null } }));
   await page.route(`**/yehry3/queue/${id}`, route => route.fulfill({ status: 404, json: { error: "Missing" } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [song] } }));
   await page.goto(`/original-prompt/?song=${id}`);
@@ -57,7 +57,7 @@ test("offline and older API responses retain the matching fallback plan", async 
 test("an open request page shows its plan as soon as the next poll finds it", async ({ page }) => {
   await page.clock.install();
   let ready = false;
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route(`**/yehry3/songs/${id}`, route => route.fulfill({ json: { song: { id, idea: "The request", status: "processing", originalPrompt: song.originalPrompt, ...(ready ? { songPlan: plan } : {}) } } }));
   await page.goto(`/original-prompt/?song=${id}`);

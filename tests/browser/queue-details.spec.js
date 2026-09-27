@@ -84,7 +84,7 @@ test("the homepage shows the full queue and emphasizes 9/11'd Again", async ({ p
     submittedAt: "2026-09-13T18:00:00.000Z", updatedAt: "2026-09-13T18:00:00.000Z",
     progress: { stage: "Rendering", percent: 25 },
   }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { ...queue, inStudio: active, inStudioTotal: 3 } }));
   await page.goto("/");
@@ -105,7 +105,7 @@ test("9/11'd Again badges play a line without toggling the row", async ({ page }
   });
   const soundRequests = [];
   page.on("request", request => { if (request.url().includes("/assets/sounds/")) soundRequests.push(request.url()); });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
   await page.goto("/");
@@ -144,7 +144,7 @@ test("three quick clicks on cover art sing every clip in turn", async ({ page })
       return Promise.resolve();
     };
   });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
   // With no song moments to draw on, the egg sings the fixed clips.
@@ -194,7 +194,7 @@ test("after the title line, hammered cover art sings moments from recordings", a
     // Never draw a fixed clip: the odds of one are one in five.
     Math.random = () => 0.9;
   });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
   const requests = [];
@@ -240,7 +240,7 @@ test("the egg favors upvoted and recent songs over the rest of the catalog", asy
   });
   const old = new Date(Date.now() - 200 * 864e5).toISOString();
   const clip = (id, publishedAt) => ({ id, title: id, url: `/${id}.mp3`, publishedAt, lines: [[1, 4, id]], moments: [[0, 0]] });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [{ id: "loved", title: "Loved", url: "/loved.mp3", votes: 8 }, { id: "quiet", title: "Quiet", url: "/quiet.mp3", votes: 0 }], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [{ id: "loved", title: "Loved", url: "/loved.mp3", votes: 8 }, { id: "quiet", title: "Quiet", url: "/quiet.mp3", votes: 0 }], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
   await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [clip("loved", old), clip("quiet", old)] } }));
@@ -271,7 +271,7 @@ test("the egg captions the cover art with the song and words being sung, and pla
     };
     Math.random = () => 0.9;
   });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
   await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [
@@ -327,7 +327,7 @@ test("a slow seek and a starved sound never let the picture or words run ahead",
     };
     Math.random = () => 0.9;
   });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
   await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [
@@ -369,7 +369,7 @@ test("cover art holds still until its sound has loaded", async ({ page }) => {
       return Promise.resolve();
     };
   });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
   await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [] } }));
@@ -407,7 +407,7 @@ test("a request that goes 9/11'd announces itself once", async ({ page }) => {
     };
   });
   let attention = [];
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route =>
     route.fulfill({ json: { ...queue, needsAttention: attention, needsAttentionTotal: attention.length } }));
@@ -447,7 +447,7 @@ test("a request that goes 9/11'd sings over the music instead of stopping it", a
     };
   });
   let attention = [];
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route =>
     route.fulfill({ json: { ...queue, needsAttention: attention, needsAttentionTotal: attention.length } }));

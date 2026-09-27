@@ -33,7 +33,7 @@ async function studio(page, { reject = () => false, socket = false } = {}) {
   await page.route("**/room-fixture.wav", (route) => route.fulfill({ body: wav(), contentType: "audio/wav" }));
   await page.route("**/yehry3/profiles?*", (route) => route.fulfill({ json: { profiles: [], total: 0 } }));
   await page.route("**/catalog-summary.json", (route) => route.fulfill({ json: { songs: songs.map(songSummary) } }));
-  await page.route("**/yehry3/songs/summary", (route) => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", (route) => route.fulfill({ json: queue }));
   await page.route("**/yehry3/listens", (route) => route.fulfill({ json: {} }));
   // Without `socket` the studio turns sockets away, as an old network would, and the page long polls.

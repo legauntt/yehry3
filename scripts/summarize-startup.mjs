@@ -30,7 +30,7 @@ for (const scenario of [...new Set(data.results.map(r => r.scenario))]) {
   const r = [...candidates].sort((a, b) => Math.abs(a.milestones.firstCardsPaint - target) - Math.abs(b.milestones.firstCardsPaint - target))[0];
   const n = r.navigation, m = r.milestones;
   const first = r.fetches.find(f => f.url.endsWith('/songs/first-page'));
-  const full = r.fetches.find(f => f.url.endsWith('/songs/summary'));
+  const full = r.fetches.find(f => /\/(songs\/summary|catalog)$/.test(f.url));
   const span = (name, begin, end) => [name, ms(begin), ms(end), ms(end - begin)];
   const spans = [span('DNS', n.domainLookupStart, n.domainLookupEnd), span('TCP + TLS', n.connectStart, n.connectEnd), span('HTML request → first byte', n.requestStart, n.responseStart), span('HTML body', n.responseStart, n.responseEnd), span('HTML complete → collection shell', n.responseEnd, m.collectionShell)];
   if (first) spans.push(span('First-page fetch → response headers (includes preflight)', first.start, first.headers), span('First-page body + JSON parsing', first.jsonStart, first.jsonEnd), span('First-page parsed → first cards DOM', first.jsonEnd, m.firstCardsDom));

@@ -84,7 +84,7 @@ test("Tony's pitch starts Clean, reaches the worker as chosen, and is remembered
 test('a song with a B side switches recordings in the player and keeps the download in step', async ({ page }) => {
   const errors = []; page.on('pageerror', (error) => errors.push(error.message));
   let sides;
-  await page.route('**/yehry3/songs/summary', async (route) => {
+  await page.route('**/yehry3/{catalog,songs/summary}', async (route) => {
     const response = await route.fetch(); const data = await response.json();
     const [song, second] = data.songs;
     for (const other of data.songs) delete other.alternates; // The catalog's own B sides would be counted with the one under test.

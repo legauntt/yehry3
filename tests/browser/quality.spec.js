@@ -95,7 +95,7 @@ test("a song with issues remains playable and exposes its warning on every liste
   page,
 }) => {
   await page.route("**/yehry3/songs/quality-song", route => route.fulfill({ json: { song } }));
-  await page.route("**/yehry3/songs/summary", (route) =>
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) =>
     route.fulfill({ json: { songs: [song], nextVoteAt: null } }),
   );
   await page.route("**/yehry3/queue?*", (route) =>

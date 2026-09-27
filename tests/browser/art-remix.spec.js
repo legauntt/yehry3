@@ -1,10 +1,12 @@
+import { mockCatalogState } from "./helpers/catalog.js";
 import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 
 // Chairlift starts over on a seed and layers without one; the mock does the same.
 function studio(page, songs, writes, state) {
   return Promise.all([
-    page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } })),
+    mockCatalogState(page, () => songs),
+    page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } })),
     page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } })),
     page.route("**/yehry3/song-art/*", async route => {
       const body = route.request().postDataJSON();
@@ -202,7 +204,7 @@ test("the redraw dialog fits a phone, follows Dark Mode, and offers award art on
   await page.setViewportSize({ width: 360, height: 640 });
   await page.addInitScript(() => localStorage.setItem("yehry3:dark-mode", "true"));
   const songs = [{ id: "alpha", title: "Alpha", votes: 3, feedback: {}, duration: 60, order: 0, collection: "distonyc", url: "/fixture.mp3" }];
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.goto("/");
   await openSongMenu(page.locator('[data-id="alpha"]'));

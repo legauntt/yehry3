@@ -14,6 +14,36 @@ const filler = Array.from({ length: 8 }, (_, index) => ({
 const songs = [...filler, target];
 const queue = { inStudio: [], needsAttention: [], queued: [], recent: [], queuedTotal: 0, inStudioTotal: 0, page: 0, pageSize: 50 };
 
+for (const width of [1440, 390]) test(`an older share remains visible through a 304 refresh (${width})`, async ({ page }) => {
+  await fixtures(page);
+  await page.setViewportSize({ width, height: 900 });
+  const older = [...Array.from({ length: 74 }, (_, i) => ({ ...filler[0], id: `newer-${i}`, votes: 100 - i })), target];
+  const waiting = gate();
+  let reads = 0, unchanged = 0;
+  await page.route("**/yehry3/catalog/state", route => route.fulfill({ json: { feedback: {}, nextVoteAt: null } }));
+  await page.route("**/yehry3/catalog", async route => {
+    expect(route.request().headers()["x-visitor-id"]).toBeUndefined();
+    reads++;
+    await waiting.promise;
+    if (route.request().headers()["if-none-match"] === 'W/"older"') {
+      unchanged++;
+      return route.fulfill({ status: 304, headers: { ETag: 'W/"older"', "Access-Control-Expose-Headers": "ETag" } });
+    }
+    return route.fulfill({ json: { songs: older }, headers: { ETag: 'W/"older"', "Access-Control-Expose-Headers": "ETag" } });
+  });
+  await page.goto(`/song/${target.id}/`);
+  await expect.poll(() => reads).toBeGreaterThan(0);
+  waiting.release();
+  const row = page.locator(`.track[data-id="${target.id}"]`);
+  await expect(row).toHaveClass(/is-share-spotlight/);
+  await expect(row).toBeInViewport();
+  await expect(page).toHaveURL(/page=4/);
+  await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
+  await expect.poll(() => unchanged).toBeGreaterThan(0);
+  await expect(row).toHaveClass(/is-share-spotlight/);
+  await expect(row).toBeInViewport();
+});
+
 function gate() {
   let release;
   return { promise: new Promise(resolve => { release = resolve; }), release: () => release() };
@@ -23,7 +53,7 @@ async function fixtures(page) {
   await page.route("**/shared-fixture.wav", route => route.fulfill({ body: Buffer.alloc(44), contentType: "audio/wav" }));
   await page.route("**/yehry3/profiles?*", route => route.fulfill({ json: { profiles: [], total: 0 } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: songs.map(songSummary) } }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
 }
 
@@ -41,7 +71,7 @@ test("a fragment received during the first page waits for the complete card rend
   await fixtures(page);
   const catalog = gate();
   await page.route("**/yehry3/songs/first-page", route => route.fulfill({ json: { songs, total: songs.length } }));
-  await page.route("**/yehry3/songs/summary", async route => { await catalog.promise; await route.fulfill({ json: { songs } }); });
+  await page.route("**/yehry3/{catalog,songs/summary}", async route => { await catalog.promise; await route.fulfill({ json: { songs } }); });
   await page.goto("/");
   await expect(page.locator("#track-count")).toContainText("Loading the rest");
   await page.evaluate(id => { location.hash = id; }, target.id);
@@ -57,7 +87,7 @@ test("a fragment received during the first page waits for the complete card rend
 test("a shared link retries when its song arrives after the initial catalog", async ({ page }) => {
   await fixtures(page);
   let available = false;
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: available ? songs : filler } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: available ? songs : filler } }));
   await page.goto(`/song/${target.id}/`);
   await expect(page.locator("#tracks")).toHaveAttribute("aria-busy", "false");
   available = true;
@@ -82,7 +112,7 @@ test("a shared link spotlights with session storage unavailable", async ({ page 
 test("a delayed queue reveals its pending shared song after the catalog has loaded", async ({ page }) => {
   await fixtures(page);
   const waiting = gate();
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: filler } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: filler } }));
   await page.route("**/yehry3/queue?*", async route => {
     await waiting.promise;
     await route.fulfill({ json: { ...queue, queued: [{ id: target.id, idea: target.title, status: "queued" }], queuedTotal: 1 } });
@@ -100,7 +130,7 @@ test("a shared spotlight follows later rank changes until dismissed", async ({ p
   await page.clock.install();
   const many = Array.from({ length: 50 }, (_, index) => ({ ...filler[0], id: `later-${index}`, votes: 50 - index }));
   let votes = 999;
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [...many, { ...target, votes }] } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [...many, { ...target, votes }] } }));
   await page.goto(`/song/${target.id}/`);
   const row = page.locator(`.track[data-id="${target.id}"]`);
   await expect(row).toHaveClass(/is-share-spotlight/);
@@ -251,7 +281,7 @@ test("a shared song is followed to the page the live catalog settles it on", asy
   const settled = [{ ...target, votes: 0, order: -1000 }, ...many];
   await fixtures(page);
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: early.map(songSummary) } }));
-  await page.route("**/yehry3/songs/summary", async route => {
+  await page.route("**/yehry3/{catalog,songs/summary}", async route => {
     await new Promise(resolve => setTimeout(resolve, 1500)); // The live catalog lands after the link did.
     await route.fulfill({ json: { songs: settled.map(songSummary), nextVoteAt: null } });
   });
@@ -292,7 +322,7 @@ test("a link waits for the live sort, so a song the sort moves by one slot is st
   await fixtures(page);
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: at(197) } })); // Third in a row of three.
-  await page.route("**/yehry3/songs/summary", async route => {
+  await page.route("**/yehry3/{catalog,songs/summary}", async route => {
     await new Promise(resolve => setTimeout(resolve, 1500));
     await route.fulfill({ json: { songs: at(195), nextVoteAt: null } }); // First of the next row.
   });
@@ -308,7 +338,7 @@ test("a link waits for the live sort, so a song the sort moves by one slot is st
 test("a link says it is loading while it waits for the live catalog, then gets out of the way", async ({ page }) => {
   await fixtures(page);
   await page.setViewportSize({ width: 1280, height: 900 });
-  await page.route("**/yehry3/songs/summary", async route => {
+  await page.route("**/yehry3/{catalog,songs/summary}", async route => {
     await new Promise(resolve => setTimeout(resolve, 1500));
     await route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } });
   });

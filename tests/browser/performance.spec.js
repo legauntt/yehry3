@@ -63,7 +63,7 @@ test("catalog refresh is compact and hidden tabs do not poll songs", async ({ pa
     const original = window.fetch;
     window.__catalogReads = 0;
     window.fetch = function (...args) {
-      if (String(args[0]).endsWith("/songs/summary")) window.__catalogReads++;
+      if (String(args[0]).endsWith("/catalog")) window.__catalogReads++;
       return original.apply(this, args);
     };
   });
@@ -71,7 +71,7 @@ test("catalog refresh is compact and hidden tabs do not poll songs", async ({ pa
   const heavyRequests = [];
   page.on("request", request => {
     if (/\/yehry3\/songs$|\/catalog\.json$/.test(request.url())) heavyRequests.push(request.url());
-    if (request.url().endsWith("/songs/summary")) count++;
+    if (request.url().endsWith("/catalog")) count++;
   });
   await page.goto("/");
   await expect.poll(() => count).toBeGreaterThanOrEqual(1);
@@ -96,7 +96,7 @@ test("catalog refresh is compact and hidden tabs do not poll songs", async ({ pa
 });
 
 test("Fear and Hunger keeps prompt and lyric links with compact metadata", async ({ page }) => {
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [{ ...song, collection: "fearhunger", lyrics: undefined, originalPrompt: undefined, songPlan: undefined, hasLyrics: true, hasOriginalPrompt: true, hasSongPlan: true }], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [{ ...song, collection: "fearhunger", lyrics: undefined, originalPrompt: undefined, songPlan: undefined, hasLyrics: true, hasOriginalPrompt: true, hasSongPlan: true }], nextVoteAt: null } }));
   await page.goto("/fearhunger/");
   const card = page.locator('.track[data-song-id="performance-song"]');
   await expect(card.locator('.original-prompt-link')).toBeVisible();

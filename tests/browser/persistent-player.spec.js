@@ -34,7 +34,7 @@ async function studio(page) {
     await page.route(url, (route) => route.fulfill({ body: wav(), contentType: "audio/wav", headers: { "Accept-Ranges": "bytes" } }));
   await page.route("**/yehry3/profiles?*", (route) => route.fulfill({ json: { profiles: [], total: 0 } }));
   await page.route("**/catalog-summary.json", (route) => route.fulfill({ json: { songs: songs.map(songSummary) } }));
-  await page.route("**/yehry3/songs/summary", (route) => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", (route) => route.fulfill({ json: queue }));
   await page.route("**/yehry3/mixtapes**", (route) => route.fulfill({ json: { mixtapes: [], page: 0, hasMore: false } }));
   await page.route("**/yehry3/listens", (route) => route.fulfill({ json: {} }));

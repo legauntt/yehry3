@@ -28,7 +28,7 @@ test("record clicks and idle spins show comic lyric captions unless the saved pr
     } });
   });
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [summary] } }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [summary], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [summary], nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.route("**/songs/singing-record.json", route => route.fulfill({ json: detail }));
   await page.route("**/yehry3/songs/singing-record", route => route.fulfill({ json: { song: detail } }));

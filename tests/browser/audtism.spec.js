@@ -20,7 +20,7 @@ const budget = {
 
 async function mock(page) {
   await page.route("**/catalog-summary.json", (route) => route.fulfill({ json: { songs } }));
-  await page.route("**/yehry3/songs/summary", (route) => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/music-backends", (route) => route.fulfill({ json: budget }));
   await page.route("**/audtism/", async (route) => {
     const response = await route.fetch();

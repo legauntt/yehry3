@@ -12,7 +12,7 @@ test(`catalog hydration keeps the ${position} in view when a visible song moves 
   const ready = new Promise((resolve) => { releaseCatalog = resolve; });
   await page.route("**/catalog-summary.json", (route) => route.fulfill({ json: { songs } }));
   await page.route("**/yehry3/songs/first-page", route => route.fulfill({ json: { songs, total: songs.length, pageSize: 25, nextVoteAt: null } }));
-  await page.route("**/yehry3/songs/summary", async (route) => {
+  await page.route("**/yehry3/{catalog,songs/summary}", async (route) => {
     await ready;
     await route.fulfill({ json: { songs: songs.map((song, index) => ({ ...song, votes: index })), nextVoteAt: null } });
   });

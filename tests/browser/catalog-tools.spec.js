@@ -8,7 +8,7 @@ const profile = { id: 'faaa0000-0000-4000-8000-000000000001', name: "NINE ELEVEN
 test.beforeEach(async ({ page }) => {
   await page.addInitScript(() => { Math.random = () => .695; });
   await page.route('**/catalog-summary.json', route => route.fulfill({ json: { songs } }));
-  await page.route('**/yehry3/songs/summary', route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route('**/yehry3/{catalog,songs/summary}', route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route('**/yehry3/queue?*', route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.route('**/yehry3/profiles?*', route => route.fulfill({ json: { profiles: [profile], page: 0, hasMore: false } }));
   await page.route(`**/yehry3/profiles/${profile.id}`, route => route.fulfill({ json: { profile } }));

@@ -21,7 +21,7 @@ async function fixtures(page) {
   await page.route("**/loop-fixture.wav", route => route.fulfill({ body: wav(), contentType: "audio/wav" }));
   await page.route("**/yehry3/profiles?*", route => route.fulfill({ json: { profiles: [], total: 0 } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: songs.map(songSummary) } }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
   for (const song of songs) {
     await page.route(`**/yehry3/songs/${song.id}`, route => route.fulfill({ json: { song } }));

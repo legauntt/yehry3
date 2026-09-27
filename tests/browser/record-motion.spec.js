@@ -7,7 +7,7 @@ const song = {
 
 test.beforeEach(async ({ page }) => {
   await page.route("https://fonts.googleapis.com/**", route => route.abort());
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: {
     inStudio: [], needsAttention: [], queued: [], recent: [],
     queuedTotal: 0, inStudioTotal: 0, page: 0, pageSize: 50,

@@ -21,7 +21,7 @@ const metrics = {
   "Full catalog paint (ms)": r => r.milestones.fullCatalogPaint,
   "JS files": r => r.network.filter(n => n.type === "Script").length,
   "JS decoded KiB": r => r.network.filter(n => n.type === "Script").reduce((sum, n) => sum + n.decodedBytes, 0) / 1024,
-  "Summary requests": r => r.network.filter(n => n.method === "GET" && new URL(n.url).pathname.endsWith("/songs/summary")).length,
+  "Summary requests": r => r.network.filter(n => n.method === "GET" && /\/(songs\/summary|catalog)$/.test(new URL(n.url).pathname)).length,
 };
 const groups = [...new Set(before.results.map(r => `${r.scenario}/${r.cache}`))];
 const rows = [["Scenario", "Metric", "Before median", "After median", "Change"], ["---", "---", "---", "---", "---"]];

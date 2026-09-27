@@ -1,3 +1,4 @@
+import { mockCatalogState } from "./helpers/catalog.js";
 import { test, expect } from "@playwright/test";
 
 const songs = Array.from({ length: 40 }, (_, order) => ({
@@ -13,6 +14,7 @@ function gate() {
   return { promise: new Promise(resolve => { release = resolve; }), release: () => release() };
 }
 async function fixtures(page) {
+  await mockCatalogState(page, () => songs);
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.route("**/yehry3/profiles?*", route => route.fulfill({ json: { profiles: [], total: 0 } }));
   await page.route("**/yehry3/listens", route => route.fulfill({ json: { counted: true, playCount: 1 } }));
@@ -26,7 +28,7 @@ for (const width of [1440, 390]) {
     let fallbackReads = 0;
     await page.route("**/catalog-summary.json", route => { fallbackReads++; return route.fulfill({ json: { songs: [...songs].reverse() } }); });
     await page.route("**/yehry3/songs/first-page", async route => { await startup.promise; await route.fulfill({ json: first }); });
-    await page.route("**/yehry3/songs/summary", async route => { await catalog.promise; await route.fulfill({ json: full }); });
+    await page.route("**/yehry3/{catalog,songs/summary}", async route => { await catalog.promise; await route.fulfill({ json: full }); });
     await page.route("**/yehry3/queue?*", () => {});
     await page.goto("/");
     await expect(page.locator("#tracks")).toHaveText("Loading...");
@@ -58,7 +60,7 @@ test("next page and filters wait for the full background catalog without losing 
   await fixtures(page);
   const catalog = gate();
   await page.route("**/yehry3/songs/first-page", route => route.fulfill({ json: first }));
-  await page.route("**/yehry3/songs/summary", async route => { await catalog.promise; await route.fulfill({ json: full }); });
+  await page.route("**/yehry3/{catalog,songs/summary}", async route => { await catalog.promise; await route.fulfill({ json: full }); });
   await page.goto("/");
   await expect(page.locator("#tracks .track")).toHaveCount(24);
   await page.locator('[data-catalog-page="1"]').first().click();
@@ -78,7 +80,7 @@ test("a nondefault deep link loads full results without flashing the default pag
   const catalog = gate();
   let startupReads = 0;
   await page.route("**/yehry3/songs/first-page", route => { startupReads++; return route.fulfill({ json: first }); });
-  await page.route("**/yehry3/songs/summary", async route => { await catalog.promise; await route.fulfill({ json: full }); });
+  await page.route("**/yehry3/{catalog,songs/summary}", async route => { await catalog.promise; await route.fulfill({ json: full }); });
   await page.goto("/?sort=title&page=2");
   await expect(page.locator("#tracks")).toHaveText("Loading...");
   catalog.release();
@@ -91,7 +93,7 @@ test("full catalog wins over a late first page and does not wait for the queue",
   await fixtures(page);
   const startup = gate();
   await page.route("**/yehry3/songs/first-page", async route => { await startup.promise; await route.fulfill({ json: first }); });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { ...full, songs: songs.map(song => ({ ...song, pins: 0, feedback: {} })) } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { ...full, songs: songs.map(song => ({ ...song, pins: 0, feedback: {} })) } }));
   await page.route("**/yehry3/queue?*", () => {});
   await page.goto("/");
   await expect(page.locator("#play-all")).toBeEnabled();
@@ -106,7 +108,7 @@ test("full catalog wins over a late first page and does not wait for the queue",
 test("API failure falls back to playable static songs and excludes remembered archives", async ({ page }) => {
   await fixtures(page);
   await page.addInitScript(() => localStorage.setItem("yehry3:archived-songs", JSON.stringify(["loading-0"])));
-  for (const endpoint of ["first-page", "summary"]) await page.route(`**/yehry3/songs/${endpoint}`, route => route.abort());
+  for (const endpoint of ["songs/first-page", "catalog"]) await page.route(`**/yehry3/${endpoint}`, route => route.abort());
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs } }));
   await page.goto("/");
   await expect(page.locator("#tracks .track")).toHaveCount(24);
