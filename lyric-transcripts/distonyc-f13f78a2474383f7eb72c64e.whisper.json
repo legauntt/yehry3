@@ -1,0 +1,361 @@
+{
+  "version": 1,
+  "songId": "distonyc-f13f78a2474383f7eb72c64e",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f13f78a2474383f7eb72c64e-50a4329376b7.mp3",
+  "audioSha256": "50a4329376b7c7bb058549ab562ba902c7c6ae9bb5c54a576af5ff6cfc4490fd",
+  "inputSha256": "bcfabd1e41708a2c299cadd5eb56a8ba078a64e5845fb7f0eac40371a5f881a0",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 300.0424375,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 9.1,
+      "text": "الله صلينا بداية سنة",
+      "uncertain": true
+    },
+    {
+      "start": 9.1,
+      "end": 15.4,
+      "text": "في صمات المسرح يذبو الدور",
+      "uncertain": false
+    },
+    {
+      "start": 15.4,
+      "end": 21.08,
+      "text": "والقلب يعرف ما لا يقول",
+      "uncertain": false
+    },
+    {
+      "start": 22.64,
+      "end": 26.36,
+      "text": "لما بدأيت السنة",
+      "uncertain": false
+    },
+    {
+      "start": 26.36,
+      "end": 29.58,
+      "text": "حب جمال فتانونا",
+      "uncertain": true
+    },
+    {
+      "start": 29.58,
+      "end": 32.92,
+      "text": "أمر بلحظة نسرنا",
+      "uncertain": false
+    },
+    {
+      "start": 32.92,
+      "end": 36.12,
+      "text": "حسن ثناحينا مال",
+      "uncertain": false
+    },
+    {
+      "start": 36.12,
+      "end": 41.88,
+      "text": "مر كطيف على حافة الليل",
+      "uncertain": false
+    },
+    {
+      "start": 41.88,
+      "end": 47.2,
+      "text": "فارتجف الواضو بين يدي",
+      "uncertain": false
+    },
+    {
+      "start": 47.82,
+      "end": 52.54,
+      "text": "لا سوء الروحي حين تنادي",
+      "uncertain": false
+    },
+    {
+      "start": 52.54,
+      "end": 56.46,
+      "text": "لا زمن للخب إن داثي",
+      "uncertain": true
+    },
+    {
+      "start": 56.46,
+      "end": 60.34,
+      "text": "يا من جعلت الهوى مفكمة",
+      "uncertain": false
+    },
+    {
+      "start": 60.34,
+      "end": 63.98,
+      "text": "9-11",
+      "uncertain": true
+    },
+    {
+      "start": 63.98,
+      "end": 67.6,
+      "text": "I want to fall",
+      "uncertain": false
+    },
+    {
+      "start": 69.3,
+      "end": 73.08,
+      "text": "لما بدأت الثنى",
+      "uncertain": false
+    },
+    {
+      "start": 75.86,
+      "end": 79.38,
+      "text": "كب جماله فتنن",
+      "uncertain": false
+    },
+    {
+      "start": 79.38,
+      "end": 82.44,
+      "text": "عمر ما بلحظة أسري",
+      "uncertain": false
+    },
+    {
+      "start": 106.66,
+      "end": 112.42,
+      "text": "ترجمة نانسي قنقر",
+      "uncertain": false
+    },
+    {
+      "start": 112.44,
+      "end": 116.66,
+      "text": "قالوا المحبة صفقة نوليل",
+      "uncertain": true
+    },
+    {
+      "start": 116.66,
+      "end": 119.82,
+      "text": "قلت هي نار بلا مستحيل",
+      "uncertain": false
+    },
+    {
+      "start": 119.82,
+      "end": 124.6,
+      "text": "كل الذين على بابها مرقوا",
+      "uncertain": false
+    },
+    {
+      "start": 126.36,
+      "end": 131.08,
+      "text": "ترقوا أسماءهم لرحيل",
+      "uncertain": false
+    },
+    {
+      "start": 132.44,
+      "end": 133.98,
+      "text": "9-11",
+      "uncertain": false
+    },
+    {
+      "start": 133.98,
+      "end": 137.26,
+      "text": "I want to fuck",
+      "uncertain": false
+    },
+    {
+      "start": 139.3,
+      "end": 143.06,
+      "text": "لما بدايت الثنى",
+      "uncertain": false
+    },
+    {
+      "start": 145.86,
+      "end": 149.54,
+      "text": "خب جماله فتننا",
+      "uncertain": false
+    },
+    {
+      "start": 149.54,
+      "end": 152.94,
+      "text": "أمر ما بلحظة أسلنا",
+      "uncertain": false
+    },
+    {
+      "start": 152.94,
+      "end": 157.08,
+      "text": "غصن ثانى حينما",
+      "uncertain": false
+    },
+    {
+      "start": 157.08,
+      "end": 162.3,
+      "text": "يا قلب لا تهريب الآن",
+      "uncertain": true
+    },
+    {
+      "start": 162.3,
+      "end": 164.38,
+      "text": "هذا الجانا",
+      "uncertain": false
+    },
+    {
+      "start": 164.38,
+      "end": 167.58,
+      "text": "هو الامتهاء",
+      "uncertain": false
+    },
+    {
+      "start": 167.58,
+      "end": 172.86,
+      "text": "من لرفيم شكوتي",
+      "uncertain": false
+    },
+    {
+      "start": 172.86,
+      "end": 176.48,
+      "text": "في الحب من لواتي",
+      "uncertain": false
+    },
+    {
+      "start": 176.48,
+      "end": 179.46,
+      "text": "إلا مليك الجمال",
+      "uncertain": false
+    },
+    {
+      "start": 179.46,
+      "end": 184.88,
+      "text": "لوعد يبقى على قيد يدوم",
+      "uncertain": false
+    },
+    {
+      "start": 185.4,
+      "end": 191.2,
+      "text": "لكن نختروته تحكم هذا اليوم",
+      "uncertain": false
+    },
+    {
+      "start": 191.2,
+      "end": 197.62,
+      "text": "فاخذ اللياري إذا شئت مني",
+      "uncertain": false
+    },
+    {
+      "start": 197.62,
+      "end": 202.28,
+      "text": "واترك لسمان يوضيء في الضيوم",
+      "uncertain": false
+    },
+    {
+      "start": 202.28,
+      "end": 204.0,
+      "text": "9-11",
+      "uncertain": false
+    },
+    {
+      "start": 204.0,
+      "end": 207.3,
+      "text": "I want to fuck",
+      "uncertain": false
+    },
+    {
+      "start": 207.3,
+      "end": 210.56,
+      "text": "كل الوائس بيين",
+      "uncertain": true
+    },
+    {
+      "start": 210.56,
+      "end": 214.5,
+      "text": "يطلق دولان جديد",
+      "uncertain": false
+    },
+    {
+      "start": 214.5,
+      "end": 219.18,
+      "text": "كل قلبين يساويم في الموايد",
+      "uncertain": false
+    },
+    {
+      "start": 219.18,
+      "end": 229.04,
+      "text": "والدو يدور على كفي والليل يصفك ثم يعيد",
+      "uncertain": true
+    },
+    {
+      "start": 229.04,
+      "end": 230.62,
+      "text": "9-11",
+      "uncertain": false
+    },
+    {
+      "start": 230.62,
+      "end": 233.92,
+      "text": "I want to fuck",
+      "uncertain": false
+    },
+    {
+      "start": 233.92,
+      "end": 239.6,
+      "text": "لما بدايت الثنى لما بدايت",
+      "uncertain": false
+    },
+    {
+      "start": 239.6,
+      "end": 242.94,
+      "text": "فنحق بجماله فتننا",
+      "uncertain": false
+    },
+    {
+      "start": 242.94,
+      "end": 246.3,
+      "text": "حق بجماله فتننا",
+      "uncertain": false
+    },
+    {
+      "start": 246.3,
+      "end": 250.56,
+      "text": "أمر رما بلحظة قسرنا",
+      "uncertain": true
+    },
+    {
+      "start": 250.56,
+      "end": 255.78,
+      "text": "غصن الثانى حين المال",
+      "uncertain": true
+    },
+    {
+      "start": 255.78,
+      "end": 257.06,
+      "text": "Oh, fuck.",
+      "uncertain": true
+    },
+    {
+      "start": 257.94,
+      "end": 258.4,
+      "text": "I'm gonna",
+      "uncertain": false
+    },
+    {
+      "start": 258.4,
+      "end": 264.24,
+      "text": "وعادي ويا حيتي من لي رحيم",
+      "uncertain": false
+    },
+    {
+      "start": 264.24,
+      "end": 269.06,
+      "text": "شكورتي اللهم عليك الجمال",
+      "uncertain": true
+    },
+    {
+      "start": 269.06,
+      "end": 270.48,
+      "text": "9-11",
+      "uncertain": false
+    },
+    {
+      "start": 270.48,
+      "end": 273.86,
+      "text": "I want to fuck",
+      "uncertain": true
+    },
+    {
+      "start": 273.86,
+      "end": 299.98,
+      "text": "أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً أهلاً",
+      "uncertain": true
+    }
+  ]
+}
