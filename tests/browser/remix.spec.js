@@ -113,6 +113,7 @@ test('choosing a waiting review leaves a different remix idea and opens the save
 test("remix carries source context through editable review without auto-confirming", async ({ page }) => {
   const state = await setup(page);
   await page.goto(`/lyrics/?song=${song.id}`);
+  await page.getByRole('button', { name: 'More song options', exact: true }).click();
   await page.getByRole("link", { name: "Remix Source song", exact: true }).click();
   await expect(page.locator("#idea")).toHaveValue(/Original idea: A train song at midnight/);
   expect(state.writes).toHaveLength(0);
@@ -287,6 +288,7 @@ test('the comparison arrives collapsed, opens from the compare link, and stops t
   const original = panel.getByRole('button', { name: 'Play original', exact: true });
   await expect(panel.getByRole('heading', { name: 'Compare with the original' })).toBeVisible();
   await expect(original).toBeHidden();
+  await page.getByRole('button', { name: 'More song options', exact: true }).click();
   await page.getByRole('link', { name: `Compare ${song.title} with The original recording` }).click();
   await expect(original).toBeVisible();
   await original.click();
@@ -297,16 +299,28 @@ test('the comparison arrives collapsed, opens from the compare link, and stops t
   await expect.poll(() => audio.evaluate(audio => audio.paused)).toBe(true);
 });
 
-test('cards distinguish ready, unavailable, expired and unknown sources before opening the form', async ({ page }) => {
+test('opened card menus distinguish ready, unavailable, expired and unknown sources before opening the form', async ({ page }) => {
   const songs = [song, { ...song, id: 'not-ready', title: 'Not ready', remixAvailability: { status: 'unavailable' } },
     { ...song, id: 'expired', title: 'Expired source', remixAvailability: { status: 'ready', expiresAt: '2000-01-01T00:00:00Z' } },
     { ...song, id: 'unknown', title: 'Unknown source', remixAvailability: undefined },
     { ...song, id: 'finished-remix', title: 'Finished remix', remixOf: { songId: song.id, title: song.title, url: song.url } }];
-  await page.route('**/yehry3/**', route => route.fulfill({ json: { songs, nextVoteAt: null, inStudio: [], queued: [], recent: [], needsAttention: [], profiles: [] } }));
+  await page.route('**/yehry3/**', route => {
+    const path = new URL(route.request().url()).pathname;
+    if (path.endsWith('/remix')) {
+      const item = songs.find(song => path === `/yehry3/songs/${song.id}/remix`);
+      if (!item?.remixAvailability) return route.fulfill({ status: 503, json: {} });
+      return route.fulfill({ json: { remixAvailability: item.id === 'expired' ? { status: 'unavailable' } : item.remixAvailability } });
+    }
+    return route.fulfill({ json: { songs: songs.map(({ remixAvailability, ...song }) => song), nextVoteAt: null, inStudio: [], queued: [], recent: [], needsAttention: [], profiles: [] } });
+  });
   await page.goto('/');
+  await page.locator(`#tracks [data-id="${song.id}"] .song-more`).click();
   await expect(page.getByRole('link', { name: 'Remix Source song', exact: true })).toBeVisible();
+  await page.locator('#tracks [data-id="not-ready"] .song-more').click();
   await expect(page.locator('#tracks [data-id="not-ready"] [data-remix]')).toHaveText('Remix unavailable');
+  await page.locator('#tracks [data-id="expired"] .song-more').click();
   await expect(page.locator('#tracks [data-id="expired"] [data-remix]')).toHaveText('Remix unavailable');
+  await page.locator('#tracks [data-id="unknown"] .song-more').click();
   await expect(page.getByRole('link', { name: 'Check remix availability for Unknown source' })).toBeVisible();
   await expect(page.locator('#tracks [data-id="finished-remix"] .remix-badge')).toHaveText('Remix');
 });
@@ -392,8 +406,8 @@ test('a remix carries its badge from the queue through production to its lyric s
   await expect(page.locator('.queue-detail-status .remix-badge')).toHaveText('Remix');
 
   await page.goto(`/lyrics/?song=${finished.id}`);
-  await expect(page.locator('.lyrics-sheet > .song-badges .remix-badge')).toHaveText('Remix');
-  await expect(page.locator('.lyrics-sheet > .song-badges .voice-model-badge')).toHaveText('V6');
+  await expect(page.locator('.lyrics-sheet .song-badges .remix-badge')).toHaveText('Remix');
+  await expect(page.locator('.lyrics-sheet .song-badges .voice-model-badge')).toHaveText('V6');
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

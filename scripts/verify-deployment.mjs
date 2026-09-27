@@ -172,6 +172,7 @@ for (const name of [
   "catalog-view.js",
   "catalog-tools.js",
   "song-menu.js",
+  "catalog-remix.js",
   "song-link-icons.js",
   "catalog-view.css",
   "catalog-tools.css",

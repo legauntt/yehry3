@@ -2,6 +2,12 @@
 
 A static Tony C music site with a MongoDB voting and request API in the sibling **chairlift** repository.
 
+Catalog summaries keep remix badges but load readiness only when a song menu opens,
+through Chairlift's `/songs/:id/remix`. Concurrent opens share a request; successful
+checks last at most 30 seconds and never beyond the source expiry. Failed checks
+leave the direct remix link available and retry on the next open. Lyrics and remix
+comparison pages continue to load complete individual song details.
+
 The collection entry loads request/admin screens from `assets/studio-pages.js`, public
 queue/detail screens, and the Redraw editor on demand. `app-ui.js` holds shared rendering
 helpers; `queue-links.js` keeps a queue link from importing the whole queue screen.

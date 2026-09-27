@@ -1,5 +1,5 @@
 // Grid and List share one action row and a popout, with no duplicate controls.
-export function mountSongMenus(root, scope) {
+export function mountSongMenus(root, scope, onOpen = () => {}) {
   let openedId = null;
   const menu = () => [...root.querySelectorAll('.song-menu')]
     .find(item => item.closest('[data-id]').dataset.id === openedId);
@@ -39,6 +39,7 @@ export function mountSongMenus(root, scope) {
     const id = button.closest('[data-id]').dataset.id;
     openedId = openedId === id ? null : id;
     sync();
+    if (openedId) onOpen(openedId);
   });
   scope.on(document, 'pointerdown', event => {
     if (!event.target.closest('dialog[open]') && !menu()?.contains(event.target)) close();

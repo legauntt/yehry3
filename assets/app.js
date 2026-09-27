@@ -24,6 +24,7 @@ import { recordingLabels, recordingLabel, recordingTitle } from "./recording-lab
 import { mountCatalogView } from "./catalog-view.js";
 import { mountCatalogTools } from "./catalog-tools.js";
 import { mountSongMenus } from "./song-menu.js";
+import { createRemixLookup } from "./catalog-remix.js";
 import { decorateSongLinks, mountSongLinkTooltips } from "./song-link-icons.js";
 import { hasCustomArtwork, songArtworkMarkup } from "./song-art.js";
 import { watchCatalog } from "./realtime.js";
@@ -51,7 +52,24 @@ async function library() {
 `;
   $("#catalog-view-controls").innerHTML = `<div class="catalog-view-switch" role="group" aria-label="Song display"><button type="button" data-catalog-view="grid" aria-pressed="true" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Grid</button><button type="button" data-catalog-view="list" aria-pressed="false" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 4H5M8 4H18M2 10H5M8 10H18M2 16H5M8 16H18"/></svg>List</button></div>`;
   mountCatalogView($(".catalog-view-switch"), $("#tracks"));
-  const songMenus = mountSongMenus($("#tracks"), scope);
+  const remixLookup = createRemixLookup();
+  const songMenus = mountSongMenus($("#tracks"), scope, id => {
+    const pending = remixLookup.load(id);
+    updateRemixMenu(id);
+    void pending.catch(() => {}).finally(() => { if (!scope.left) updateRemixMenu(id); });
+  });
+  function catalogRemixLink(song) {
+    return remixLink({ ...song, remixAvailability: remixLookup.peek(song.id) }, escape);
+  }
+  function updateRemixMenu(id) {
+    const song = songs.find(song => song.id === id);
+    const row = [...$("#tracks").querySelectorAll("[data-id]")].find(row => row.dataset.id === id);
+    const link = row?.querySelector("[data-remix]");
+    if (!song || !link) return;
+    link.outerHTML = catalogRemixLink(song);
+    decorateSongLinks(row.querySelector(".track-links"));
+    songMenus.sync();
+  }
   mountSongLinkTooltips($("#tracks"), scope);
   mountQualitySettings(main);
   startRecordMotion($(".record", main), player.audio);
@@ -507,8 +525,8 @@ async function library() {
     $("#tracks").querySelectorAll(".track-info").forEach((info) => {
       const song = songs.find((item) => item.id === info.closest("[data-id]").dataset.id);
       if (!info.querySelector("[data-save]")) info.insertAdjacentHTML("beforeend", favorites.button(song));
-      if (info.querySelector("[data-remix]")) info.querySelector("[data-remix]").outerHTML = remixLink(song, escape);
-      else info.querySelector(".track-links").insertAdjacentHTML("beforeend", remixLink(song, escape));
+      if (info.querySelector("[data-remix]")) info.querySelector("[data-remix]").outerHTML = catalogRemixLink(song);
+      else info.querySelector(".track-links").insertAdjacentHTML("beforeend", catalogRemixLink(song));
       decorateSongLinks(info.querySelector(".track-links"));
     });
     favorites.syncButtons();

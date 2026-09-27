@@ -39,6 +39,8 @@ export function remixLink(song, escape) {
   const ready = availability?.status === 'ready' && new Date(availability.expiresAt) > new Date();
   const action = ready
     ? `<a class="text-link" href="${remixHref(song)}" aria-label="Remix ${escape(song.title)}">Remix ↗</a>`
+    : availability?.status === 'loading'
+      ? '<span class="small" role="status">Checking remix…</span>'
     : availability
       ? '<span class="small remix-unavailable" title="This recording is temporarily unavailable for remixing. Check back later.">Remix unavailable</span>'
       : `<a class="text-link" href="${remixHref(song)}" aria-label="Check remix availability for ${escape(song.title)}">Check remix availability ↗</a>`;
