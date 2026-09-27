@@ -14,6 +14,11 @@ const filler = Array.from({ length: 8 }, (_, index) => ({
 const songs = [...filler, target];
 const queue = { inStudio: [], needsAttention: [], queued: [], recent: [], queuedTotal: 0, inStudioTotal: 0, page: 0, pageSize: 50 };
 
+function gate() {
+  let release;
+  return { promise: new Promise(resolve => { release = resolve; }), release: () => release() };
+}
+
 async function fixtures(page) {
   await page.route("**/shared-fixture.wav", route => route.fulfill({ body: Buffer.alloc(44), contentType: "audio/wav" }));
   await page.route("**/yehry3/profiles?*", route => route.fulfill({ json: { profiles: [], total: 0 } }));
@@ -21,6 +26,97 @@ async function fixtures(page) {
   await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
 }
+
+test("a shared link opened in a background tab reveals when the tab becomes visible", async ({ page }) => {
+  await fixtures(page);
+  await page.addInitScript(() => Object.defineProperty(document, "hidden", { configurable: true, get: () => true }));
+  await page.goto(`/song/${target.id}/`);
+  await expect(page.locator("#tracks")).toHaveAttribute("aria-busy", "true");
+  await page.evaluate(() => { delete document.hidden; document.dispatchEvent(new Event("visibilitychange")); });
+  await expect(page.locator(`.track[data-id="${target.id}"]`)).toHaveClass(/is-share-spotlight/);
+  await expect(page.locator(`.track[data-id="${target.id}"]`)).toBeInViewport();
+});
+
+test("a fragment received during the first page waits for the complete card render", async ({ page }) => {
+  await fixtures(page);
+  const catalog = gate();
+  await page.route("**/yehry3/songs/first-page", route => route.fulfill({ json: { songs, total: songs.length } }));
+  await page.route("**/yehry3/songs/summary", async route => { await catalog.promise; await route.fulfill({ json: { songs } }); });
+  await page.goto("/");
+  await expect(page.locator("#track-count")).toContainText("Loading the rest");
+  await page.evaluate(id => { location.hash = id; }, target.id);
+  await page.waitForFunction(id => location.hash === `#${id}`, target.id);
+  // Let the hashchange handler run before completing the catalog.
+  await page.evaluate(() => new Promise(resolve => setTimeout(resolve, 0)));
+  catalog.release();
+  await expect(page.locator("#track-count")).not.toContainText("Loading the rest");
+  await expect(page.locator(`.track[data-id="${target.id}"]`)).toHaveClass(/is-revealed/);
+  await expect(page.locator(`.track[data-id="${target.id}"]`)).toBeInViewport();
+});
+
+test("a shared link retries when its song arrives after the initial catalog", async ({ page }) => {
+  await fixtures(page);
+  let available = false;
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: available ? songs : filler } }));
+  await page.goto(`/song/${target.id}/`);
+  await expect(page.locator("#tracks")).toHaveAttribute("aria-busy", "false");
+  available = true;
+  await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
+  await expect(page.locator(`.track[data-id="${target.id}"]`)).toHaveClass(/is-share-spotlight/);
+  await expect(page.locator(`.track[data-id="${target.id}"]`)).toBeInViewport();
+});
+
+test("a shared link spotlights with session storage unavailable", async ({ page }) => {
+  await fixtures(page);
+  await page.addInitScript(() => Object.defineProperty(window, "sessionStorage", { get() { throw new DOMException("Blocked", "SecurityError"); } }));
+  await page.goto(`/song/${target.id}/`);
+  const row = page.locator(`.track[data-id="${target.id}"]`);
+  await expect(row).toHaveClass(/is-share-spotlight/);
+  await expect(row).toBeInViewport();
+  expect(new URL(page.url()).searchParams.has("shared")).toBe(false);
+  await page.reload();
+  await expect(row).toHaveClass(/is-revealed/);
+  await expect(row).not.toHaveClass(/is-shared/);
+});
+
+test("a delayed queue reveals its pending shared song after the catalog has loaded", async ({ page }) => {
+  await fixtures(page);
+  const waiting = gate();
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: filler } }));
+  await page.route("**/yehry3/queue?*", async route => {
+    await waiting.promise;
+    await route.fulfill({ json: { ...queue, queued: [{ id: target.id, idea: target.title, status: "queued" }], queuedTotal: 1 } });
+  });
+  await page.goto(`/song/${target.id}/`);
+  await expect(page.locator("#tracks")).toHaveAttribute("aria-busy", "false");
+  waiting.release();
+  const row = page.locator(`.pending-track[data-id="${target.id}"]`);
+  await expect(row).toHaveClass(/is-share-spotlight/);
+  await expect(row).toBeInViewport();
+});
+
+test("a shared spotlight follows later rank changes until dismissed", async ({ page }) => {
+  await fixtures(page);
+  await page.clock.install();
+  const many = Array.from({ length: 50 }, (_, index) => ({ ...filler[0], id: `later-${index}`, votes: 50 - index }));
+  let votes = 999;
+  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [...many, { ...target, votes }] } }));
+  await page.goto(`/song/${target.id}/`);
+  const row = page.locator(`.track[data-id="${target.id}"]`);
+  await expect(row).toHaveClass(/is-share-spotlight/);
+  await page.clock.fastForward(21000);
+  votes = 0;
+  await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
+  await expect(page.locator("[data-page-status]").first()).toHaveText("Page 3 of 3");
+  await expect(row).toHaveClass(/is-share-spotlight/);
+  await expect(row).toBeInViewport();
+  await page.keyboard.press("Escape");
+  votes = 999;
+  await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
+  await expect(row).toHaveCount(0);
+  await expect(page.locator(".shared-spotlight-backdrop")).toHaveCount(0);
+  await expect(page.locator("[data-page-status]").first()).toHaveText("Page 3 of 3");
+});
 
 test("a shared song link badges the song for the life of the page", async ({ page }) => {
   await fixtures(page);

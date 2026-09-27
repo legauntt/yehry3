@@ -174,7 +174,7 @@ async function library() {
       const button = event.target.closest("[data-catalog-page]");
       if (!button || button.disabled) return;
       editingSearch = false;
-      sharedFollowUntil = 0;
+      dismissSharedSpotlight();
       catalogPage += Number(button.dataset.catalogPage);
       pageUrl(false);
       render();
@@ -275,14 +275,13 @@ async function library() {
     syncSharedSpotlight(shared);
     return row;
   }
-  // A song page (/song/<id>/) leaves a note before forwarding here; that is what tells a shared link
-  // from a completion alert or a hand-typed fragment. The badge stays for the life of the page.
-  let sharedId = null, sharedFresh = false, sharedTimer, sharedFollowUntil = 0;
+  // A song page (/song/<id>/) forwards a one-use marker (older pages used session
+  // storage). Completion alerts and plain fragments only reveal, without a shared badge.
+  let sharedId = null, sharedFresh = false, sharedTimer;
   let sharedSpotlight = false, sharedBackdrop, sharedClose;
   function dismissSharedSpotlight() {
     if (!sharedSpotlight) return;
     sharedSpotlight = false;
-    sharedFollowUntil = 0;
     stopCentring?.();
     const row = $(".is-share-spotlight", main);
     if (document.activeElement === sharedClose) $("[data-play]", row || main)?.focus({ preventScroll: true });
@@ -328,11 +327,19 @@ async function library() {
   });
   scope.onLeave(dismissSharedSpotlight);
   function takeShared(id) {
+    // Carry the redirect across navigation even when browser storage is blocked.
+    // Consume it only once the card exists, so late catalog reads can retry.
+    const url = new URL(location.href);
+    const redirected = url.searchParams.get("shared") === id;
+    if (redirected) {
+      url.searchParams.delete("shared");
+      history.replaceState(history.state, "", url);
+    }
     try {
       const note = JSON.parse(sessionStorage.getItem("yehry3:shared-song") || "null");
       sessionStorage.removeItem("yehry3:shared-song");
-      return note?.id === id && Date.now() - note.at < 120000;
-    } catch { return false; }
+      return redirected || (note?.id === id && Date.now() - note.at < 120000);
+    } catch { return redirected; }
   }
   function render({ preserveViewport = false } = {}) {
     if (scope.left) return;
@@ -414,15 +421,13 @@ async function library() {
       catalogPage = Math.min(catalogPage, pageCount);
       pageUrl();
     }
-    // The live catalog can order songs differently from the fallback one the link first landed on;
-    // for a moment after arrival the shared song is followed to wherever it settles.
-    let followedShared = false;
-    if (sharedId && Date.now() < sharedFollowUntil) {
+    // Keep the introduction attached to its song until the listener dismisses it,
+    // including slow queue reads and later catalog updates that change its rank.
+    if (sharedSpotlight) {
       const at = visible.findIndex((song) => song.id === sharedId);
       if (at >= 0 && Math.floor(at / pageSize) + 1 !== catalogPage) {
         catalogPage = Math.floor(at / pageSize) + 1;
         pageUrl();
-        followedShared = true;
       }
     }
     const offset = (catalogPage - 1) * pageSize;
@@ -463,7 +468,7 @@ async function library() {
     markHighlighted();
     cooldown();
     restoreViewport();
-    if (followedShared) keepCentred(sharedId);
+    if (sharedSpotlight) keepCentred(sharedId);
   }
   function cooldown() {
     const left = Math.max(0, new Date(nextVoteAt || 0) - Date.now());
@@ -526,7 +531,7 @@ async function library() {
   let revealing, revealed, stopCentring;
   // Art, fonts and the live catalog keep changing the height above the song after it is first
   // scrolled to, which leaves it stranded at the bottom edge. Re-centre on each layout change
-  // for a few seconds, and give up the moment the visitor scrolls for themselves.
+  // while spotlighted (a few seconds for plain fragments), until the visitor takes over.
   function keepCentred(id) {
     stopCentring?.();
     const find = () => document.querySelector(`#tracks > [data-id="${CSS.escape(id)}"], #pending-tracks > [data-id="${CSS.escape(id)}"]`);
@@ -538,7 +543,7 @@ async function library() {
     };
     const events = ["wheel", "touchstart", "keydown", "pointerdown"];
     const observer = new ResizeObserver(centre);
-    const timer = setTimeout(() => stopCentring?.(), 6000);
+    const timer = sharedSpotlight ? null : setTimeout(() => stopCentring?.(), 6000);
     stopCentring = () => {
       observer.disconnect();
       clearTimeout(timer);
@@ -547,20 +552,14 @@ async function library() {
     };
     events.forEach((name) => addEventListener(name, stopCentring, { passive: true }));
     observer.observe(document.body);
+    centre();
   }
   function revealSong(id) {
+    if (scope.left || document.hidden || initialCatalogPending || !cardsReady || partialTotal !== null) return;
     if (!/^[a-z0-9-]{1,120}$/.test(id || "") || id === revealed) return;
     if (!songs.some((song) => song.id === id) && !pending.some((song) => song.id === id)) return;
     dismissSharedSpotlight();
-    revealed = highlighted = id;
-    if (takeShared(id)) {
-      sharedId = id;
-      sharedSpotlight = true;
-      sharedFresh = true;
-      sharedFollowUntil = Date.now() + 20000;
-      clearTimeout(sharedTimer);
-      sharedTimer = setTimeout(() => { sharedFresh = false; markHighlighted(); }, 60000);
-    }
+    highlighted = id;
     if (favorites.onlySaved) $("#saved-only")?.click();
     if (!visible.some((song) => song.id === id)) {
       $("#search").value = "";
@@ -577,6 +576,15 @@ async function library() {
     }
     const row = markHighlighted();
     if (!row) return;
+    revealed = id;
+    if (takeShared(id)) {
+      sharedId = id;
+      sharedSpotlight = true;
+      sharedFresh = true;
+      clearTimeout(sharedTimer);
+      sharedTimer = setTimeout(() => { sharedFresh = false; markHighlighted(); }, 60000);
+      markHighlighted();
+    }
     // Instant, not smooth: an animation heads for the spot the row occupied when it began, which
     // is stale by the time it arrives if anything above has loaded since.
     row.scrollIntoView({ block: "center", behavior: "instant" });
@@ -591,7 +599,11 @@ async function library() {
       document.querySelectorAll(".is-revealed").forEach((element) => element.classList.remove("is-revealed"));
     }, 8000);
   }
+  const waitingNote = "Loading your song…";
   const revealFromHash = () => {
+    if (scope.left || document.hidden || initialCatalogPending) return;
+    // Remove the loading note before measuring the card's final position.
+    if ($("#message")?.firstChild?.textContent === waitingNote) message("");
     try { revealSong(decodeURIComponent(location.hash.slice(1))); }
     catch { /* A fragment that is not a song ID reveals nothing. */ }
   };
@@ -723,6 +735,7 @@ async function library() {
       for (const song of upcoming.recent || [])
         if (song.id && song.publishedAt) recentReleases.set(song.id, song.publishedAt);
       render({ preserveViewport: true });
+      revealFromHash();
       await announceAttention(upcoming.needsAttention || []);
     }).catch(() => { /* Queue availability does not delay listening. */ })
       .finally(() => { refreshingQueue = null; });
@@ -761,6 +774,7 @@ async function library() {
         initialCatalogPending = false;
         if (scope.left) return;
         render({ preserveViewport: true });
+        revealFromHash();
         if (startupPlayback && partialTotal === null) {
           startupPlayback = false;
           if (player.source === "main") player.requeue(freshThenLoved(songs).sort((a, b) => (b.pins || 0) - (a.pins || 0)), { source: "main" });
@@ -826,15 +840,12 @@ async function library() {
   // The live catalog re-sorts what the fallback showed, so a link reveals its song only after that
   // lands; revealing sooner would centre on a slot that then moves. If the live catalog cannot
   // be had, the fallback order is the final one and the song is revealed anyway.
-  const waitingNote = "Loading your song…";
   let linked = "";
   try { linked = decodeURIComponent(location.hash.slice(1)); } catch { /* Not a song fragment. */ }
   if (/^[a-z0-9-]{1,120}$/.test(linked)) message(waitingNote);
   await refresh();
   if (scope.left) return;
   watchCatalog(refresh, { signal: scope.signal, getRevision: () => catalogRevision });
-  // Only our own note is cleared, and before the reveal, so its going cannot move the centred row.
-  if ($("#message")?.firstChild?.textContent === waitingNote) message("");
   revealFromHash();
   scope.every(cooldown, 15000);
   let refreshTimer = scope.every(refresh, 30000);
