@@ -74,6 +74,34 @@ console.log("Distonyc route and legacy aliases verified.");
 }
 verifyTimestamp(await (await get(`${site}/deetz/`)).text(), "/deetz/");
 {
+  for (const route of ["/saxophone", "/saxophone/", "/saxophone/index.html"]) {
+    const response = await get(`${site}${route}`);
+    assert.match(response.headers.get("x-robots-tag") || "", /noindex/);
+    assert.match(response.headers.get("cache-control") || "", /no-cache/);
+    const html = await response.text();
+    verifyTimestamp(html, route);
+    assert.match(html, /\/saxophone\/ep.js/);
+  }
+  const home = await (await get(site)).text();
+  assert.match(home, /<a href="\/saxophone\/" data-shell="off">Tony C is a saxophone<\/a>/);
+  for (const name of ["ep.js", "ep.css"]) {
+    assert.equal(sourceText(await (await get(`${site}/saxophone/${name}`)).text()),
+      sourceText(await readFile(new URL(`../saxophone/${name}`, import.meta.url), "utf8")));
+  }
+  const ep = JSON.parse(await readFile(new URL("../saxophone/tracks.json", import.meta.url), "utf8"));
+  assert.deepEqual(await (await get(`${site}/saxophone/tracks.json`)).json(), ep);
+  for (const track of ep.tracks) {
+    for (const asset of [track.poster, track.video]) {
+      const response = await get(`${site}${asset}`);
+      assert.match(response.headers.get("content-type") || "", asset.endsWith('.mp4') ? /video\/mp4/ : /image\/webp/);
+      assert.deepEqual(Buffer.from(await response.arrayBuffer()), await readFile(new URL(`..${asset}`, import.meta.url)));
+    }
+    const audio = await get(track.audio, { headers: { Range: "bytes=0-1023" } });
+    assert.equal(audio.status, 206, `EP recording does not support seeking: ${track.title}`);
+  }
+  console.log("Saxophone EP, footer link, all artwork and recording ranges verified.");
+}
+{
   // Azure's default directory handling serves all three forms without a redirect.
   for (const route of ["/aci", "/aci/", "/aci/index.html"]) {
     const response = await get(`${site}${route}`);

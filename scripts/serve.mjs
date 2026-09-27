@@ -14,6 +14,7 @@ const types = {
   ".json": "application/json",
   ".txt": "text/plain",
   ".mp3": "audio/mpeg",
+  ".mp4": "video/mp4",
   ".webp": "image/webp",
   ".svg": "image/svg+xml",
 };
@@ -51,7 +52,7 @@ const server = http.createServer(async (req, res) => {
     let start = 0,
       end = size - 1,
       partial = false;
-    if (req.headers.range && file.endsWith(".mp3")) {
+    if (req.headers.range && /\.(mp3|mp4)$/.test(file)) {
       const match = /^bytes=(\d+)-(\d*)$/.exec(req.headers.range);
       if (!match) {
         res.writeHead(416, { "Content-Range": `bytes */${size}` });

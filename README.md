@@ -49,6 +49,7 @@ See [lyrics and references](REQUEST-MATERIALS.md) for limits, privacy, testing a
 | `/deetz/`      | Studio process guide and saved planning example, loaded from the authenticated API after the Distonyc login                        |
 | `/fearhunger/` | Preserved original three-track page, MP3s and lyrics                                                                                |
 | `/sausage/` | “How the Tony C is made”: two measured production timelines, stage-by-stage audio and the existing complete songs |
+| `/saxophone/` | Tony Is a Saxophone: the three-track EP with animated artwork, native audio players and links back to the catalog |
 
 `/distonyc/` is the request page; `/longtimecomin` and `/longtimecomin/` permanently redirect there. The local preview mirrors these redirects.
 
@@ -73,6 +74,15 @@ MP3 identity and encodes excerpts without generating music. Review the selected
 jobs and timing boundaries before publishing. Validation: `npm run build`, `npm test`,
 `npx playwright test --config playwright.sausage.config.js`. Set `YEHRY3_TOUR_URL`
 to test the deployed page. `npm run verify:live` checks the tour and audio ranges.
+
+`/saxophone/` is linked from the collection footer. It uses the three existing
+published MP3s and keeps only one recording playing at a time. **Play the EP**
+continues through the track list. Artwork pauses offscreen and in background tabs;
+reduced-motion visitors see stills until they choose **Animate artwork**. The
+existing **Has issues** preference applies here too. Run the saved browser checks
+with `npx playwright test --config playwright.saxophone.config.js`; set
+`EP_REAL_MEDIA=1` to verify all three public recordings, seeking and artwork.
+Set `YEHRY3_EP_URL=https://yehry3.app` to run against the deployed page.
 
 yehry3.app is the default destination for new finished Tony/Troofs MP3s, including standalone songs. The old gatsby-opus `/tonyai` page is deprecated for new publications; keep its existing tracks and URLs working. `tonyai` remains the collection ID here, not a publication destination. Standalone additions use the existing GitHub release and Chairlift's safe catalog seed, with matching fallback metadata and lyrics; do not create artificial queue requests. Keep WAVs, A/B clips, stems and model assets local unless separately requested.
 
