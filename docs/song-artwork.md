@@ -2,6 +2,26 @@
 
 Dashboard uses saved raster covers from `assets/artwork-catalog.js`. Clip art and the listener Redraw action are retired there. Newly published songs without a cover temporarily show a plain title sleeve. The legacy drawing engine remains for mixtape labels and its existing consumers.
 
+The title sleeve is an ungenerated placeholder, never a completed cover. Every generated cover must depict a picture grounded in the full available lyrics, genre, original prompt and song plan. Typography, title cards, printed lyrics and word clouds are explicitly prohibited.
+
+## Replace title placeholders while preserving pins
+
+For the September 27 correction, preserve all existing saved images and all pinned songs. An audit fixes the eligible set so later catalog additions cannot silently expand a paid batch:
+
+```powershell
+node scripts/audit-song-artwork.mjs --output path/to/audit-before.json
+npm run artwork:plan -- --from-audit path/to/audit-before.json --state path/to/generation
+node scripts/song-artwork.mjs report --state path/to/generation
+# After approving the concrete sources, prompts and estimated budget:
+npm run artwork:run -- --from-audit path/to/audit-before.json --state path/to/generation --key-file "$HOME/wup.txt" --python "$HOME/.venvs/yehry3-imagegen/Scripts/python.exe" --budget 10
+# Before publication, protect both initial pins and pins added during the run:
+node scripts/audit-song-artwork.mjs verify-protected --baseline path/to/audit-before.json
+```
+
+`--from-audit` selects only the audit's unpinned text placeholders and implies `--exclude-pinned --placeholders-only`. Existing images are preserved even if votes or pin milestones otherwise qualify them for an upgrade. `--exclude-pinned` also overrides explicit redo requests, fails closed on missing pin counts, and checks the public summary endpoint before each paid call and just before installation. If a pin arrives during rendering, the generated master remains local and the original cover stays installed. Keep the before audit and run `verify-protected` immediately before publishing. It checks the exact metadata and image hashes for initial and current pinned songs.
+
+For visual review, `artwork-contact-sheet.py AUDIT OUTPUT_DIRECTORY` renders the saved covers from an audit into numbered contact sheets. Review for actual pictorial content before publishing; a generated file existing does not by itself establish that the image meets the brief.
+
 `scripts/song-artwork.mjs` is the maintained artwork program. It fetches the **full public song detail**, the same material used by Lyrics and Original prompt, and passes complete lyrics, the original request (including reference descriptions and supplied lyrics), and the full song planner output to `gpt-image-2`. Repeated long texts use lossless references; nothing is silently truncated. Missing sources are recorded. Oversized prompts or source-fetch failures are listed for review rather than generating from the title alone. It uses the installed Imagegen skill CLI, not a second SDK implementation.
 
 ## Rules

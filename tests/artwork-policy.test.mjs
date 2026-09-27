@@ -33,6 +33,14 @@ test("full lyrics, original brief and every planner choice reach the prompt loss
   assert.ok(estimateCost(prompt, "monument") > estimateCost(prompt, "basic"));
 });
 
+test("exclude-pinned overrides redo and monument eligibility and fails closed on missing counts", () => {
+  const base = { votes: 2, artworkPinnedAt: "2026-09-27T23:00:00Z" };
+  for (const pins of [1, 2, undefined, null, -1, "0"]) {
+    assert.equal(selectTreatment({ ...base, pins }, { treatment: "basic" }, { redo: true, excludePinned: true }), null);
+  }
+  assert.equal(selectTreatment({ pins: 0, votes: 1 }, undefined, { excludePinned: true }), "emphasis");
+});
+
 test("Dashboard uses saved raster covers and a safe sleeve while artwork is pending", () => {
   const escape = value => String(value).replaceAll("&", "&amp;").replaceAll('"', "&quot;").replaceAll("<", "&lt;");
   const unknown = songArtworkMarkup({ id: "missing", title: '<img onerror="bad">' }, escape);

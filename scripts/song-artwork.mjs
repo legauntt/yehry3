@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // Maintained wrapper around the installed Imagegen skill CLI. No API key or
 // source packets enter the site. plan is read-only; run is explicitly paid.
-import { readFile, writeFile, mkdir, rename, open, unlink, access } from "node:fs/promises";
+import { readFile, writeFile, mkdir, rename, open, unlink, access, copyFile } from "node:fs/promises";
 import { spawn } from "node:child_process";
 import path from "node:path";
 import os from "node:os";
 import { pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
-import { POLICY, treatments, selectTreatment, sourcePacket, makePrompt, digest, estimateCost } from "./artwork-policy.mjs";
+import { POLICY, treatments, selectTreatment, sourcePacket, makePrompt, digest, estimateCost, isPinnedOrUnknown } from "./artwork-policy.mjs";
 import { reserveJobs } from "./artwork-budget.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -29,6 +29,14 @@ async function apiGet(api, route) {
   const response = await fetch(api + route, { headers: { "X-Visitor-ID": "yehry3-artwork-program-v1" }, signal: AbortSignal.timeout(45000) });
   if (!response.ok) throw new Error(`${route}: HTTP ${response.status}`);
   return response.json();
+}
+async function currentPinState(api, id) {
+  // Pin counts live on the summary endpoint, not on /songs/:id.
+  const snapshot = await apiGet(api, "/songs/summary");
+  if (!Array.isArray(snapshot.songs)) throw new Error("Cannot verify live pin status");
+  const song = snapshot.songs.find(s => s.id === id);
+  if (!song) throw new Error("Song no longer in active catalog; cover preserved");
+  return song;
 }
 function child(command, args, options = {}) {
   return new Promise((resolve, reject) => {
@@ -55,12 +63,31 @@ export async function main(args = process.argv.slice(2)) {
     direction: { type: "string" }, "low-listens": { type: "string", default: String(POLICY.lowListens) },
     budget: { type: "string", default: "10" }, limit: { type: "string", default: "300" },
     concurrency: { type: "string", default: "3" }, retry: { type: "boolean", default: false },
+    "exclude-pinned": { type: "boolean", default: false },
+    "placeholders-only": { type: "boolean", default: false },
+    "from-audit": { type: "string" },
     help: { type: "boolean", default: false },
   } });
   const command = positionals[0] || "plan";
-  if (opt.help) { console.log("song-artwork.mjs plan|run|verify [--only ID] [--redo ID] [--direction FILE] [--state DIR] [--budget USD] [--limit N] [--concurrency 3] [--key-file FILE] [--python EXE]\nplan fetches and saves all source packets/prompts without calling Image API. run reserves estimated spend in a persistent ledger, calls the bundled CLI and installs covers. verify compares saved image hashes with the live site. --retry explicitly retries failed/uncertain jobs; normal reruns never do."); return; }
+  if (opt.help) { console.log("song-artwork.mjs plan|run|verify [--only ID] [--redo ID] [--direction FILE] [--state DIR] [--budget USD] [--limit N] [--concurrency 3] [--key-file FILE] [--python EXE] [--exclude-pinned] [--placeholders-only] [--from-audit FILE]\nplan fetches and saves all source packets/prompts without calling Image API. run reserves estimated spend in a persistent ledger, calls the bundled CLI and installs covers. verify compares saved image hashes with the live site. --retry explicitly retries failed/uncertain jobs; normal reruns never do. --from-audit limits the batch to that audit's unpinned title placeholders and implies both protection flags. --exclude-pinned rechecks pins before generation and before installation."); return; }
+  if (command === "report") {
+    const plan = await json(path.join(path.resolve(opt.state), "plan.json"));
+    if (!plan?.jobs) throw new Error("Run plan first");
+    console.log(JSON.stringify({ count: plan.jobs.length, estimate: +plan.jobs.reduce((n, j) => n + j.estimate, 0).toFixed(2),
+      treatments: Object.fromEntries(Object.keys(treatments).map(t => [t, plan.jobs.filter(j => j.treatment === t).length])),
+      incomplete: plan.jobs.filter(j => j.missing.length).map(({ id, title, missing }) => ({ id, title, missing })),
+      failedSources: plan.failedSources }, null, 2));
+    return;
+  }
   if (!["plan", "run", "verify"].includes(command)) throw new Error("Unknown command");
   const art = await registry();
+  const audit = opt["from-audit"] ? await json(opt["from-audit"]) : null;
+  if (opt["from-audit"]) {
+    if (!Array.isArray(audit?.songs) || !audit.songs.length) throw new Error("Invalid artwork audit");
+    if (opt.only.length || opt.redo.length) throw new Error("Use --from-audit without --only or --redo");
+    opt["exclude-pinned"] = true;
+    opt["placeholders-only"] = true;
+  }
   if (command === "verify") {
     let checked = 0;
     for (const [id, cover] of Object.entries(art)) {
@@ -88,11 +115,13 @@ export async function main(args = process.argv.slice(2)) {
     await lock.writeFile(JSON.stringify({ pid: process.pid, startedAt: new Date().toISOString(), root }));
     const snapshot = await apiGet(opt.api, "/songs/summary");
     if (!Array.isArray(snapshot.songs) || !snapshot.songs.length) throw new Error("Empty or invalid catalog");
-    const wanted = new Set([...opt.only, ...opt.redo]);
-    for (const id of wanted) if (!snapshot.songs.some(s => s.id === id)) throw new Error(`Song not in active catalog: ${id}`);
+    const wanted = new Set(audit ? audit.songs.filter(s => s.kind === "text-placeholder" && s.pins === 0).map(s => s.id) : [...opt.only, ...opt.redo]);
+    if (!audit) for (const id of wanted) if (!snapshot.songs.some(s => s.id === id)) throw new Error(`Song not in active catalog: ${id}`);
+    const protectedSongs = snapshot.songs.filter(s => opt["exclude-pinned"] && isPinnedOrUnknown(s)).map(s => ({ id: s.id, title: s.title, pins: s.pins ?? null }));
+    const protectedIds = new Set([...protectedSongs, ...(audit?.songs.filter(s => isPinnedOrUnknown(s)) || [])].map(s => s.id));
     const direction = opt.direction ? await readFile(opt.direction, "utf8") : "";
-    const candidates = snapshot.songs.filter(s => !wanted.size || wanted.has(s.id))
-      .map(song => ({ song, treatment: selectTreatment(song, art[song.id], { redo: opt.redo.includes(song.id), lowListens }) }))
+    const candidates = snapshot.songs.filter(s => (audit || wanted.size ? wanted.has(s.id) : true) && !protectedIds.has(s.id) && (!opt["placeholders-only"] || !art[s.id]))
+      .map(song => ({ song, treatment: selectTreatment(song, art[song.id], { redo: opt.redo.includes(song.id), lowListens, excludePinned: opt["exclude-pinned"] }) }))
       .filter(j => j.treatment).sort((a, b) => (opt.redo.includes(b.song.id) - opt.redo.includes(a.song.id)) || (["monument", "emphasis", "basic"].indexOf(a.treatment) - ["monument", "emphasis", "basic"].indexOf(b.treatment)) || Number(b.song.votes || 0) - Number(a.song.votes || 0));
     const jobs = [], failedSources = [];
     for (const candidate of candidates) {
@@ -112,7 +141,7 @@ export async function main(args = process.argv.slice(2)) {
         jobs.push(job);
       } catch (e) { failedSources.push({ id: song.id, reason: e.message }); }
     }
-    const plan = { createdAt: new Date().toISOString(), policy: { ...POLICY, lowListens }, catalogCount: snapshot.songs.length, preserved: snapshot.songs.length - candidates.length, estimatesAreNotBills: true, jobs: jobs.map(({ prompt, ...job }) => job), failedSources };
+    const plan = { createdAt: new Date().toISOString(), policy: { ...POLICY, lowListens, excludePinned: opt["exclude-pinned"], placeholdersOnly: opt["placeholders-only"] }, catalogCount: snapshot.songs.length, preserved: snapshot.songs.length - jobs.length, protectedSongs, estimatesAreNotBills: true, jobs: jobs.map(({ prompt, ...job }) => job), failedSources };
     await atomic(path.join(state, "plan.json"), JSON.stringify(plan, null, 2) + "\n");
     const counts = Object.fromEntries(Object.keys(treatments).map(t => [t, jobs.filter(j => j.treatment === t).length]));
     console.log(JSON.stringify({ command, catalog: plan.catalogCount, preserved: plan.preserved, ...counts, estimate: +jobs.reduce((n, j) => n + j.estimate, 0).toFixed(2), failedSources, plan: path.join(state, "plan.json") }));
@@ -135,12 +164,23 @@ export async function main(args = process.argv.slice(2)) {
     // Serialize registry/ledger writes across concurrent API calls.
     let saves = Promise.resolve();
     const save = fn => { const next = saves.then(fn); saves = next.catch(() => {}); return next; };
-    let cursor = 0, completed = 0, failed = 0;
+    let cursor = 0, completed = 0, failed = 0, protectedSkipped = 0;
+    const protectBeforeAction = async job => {
+      if (!opt["exclude-pinned"]) return false;
+      const current = await currentPinState(opt.api, job.id);
+      if (!protectedIds.has(job.id) && !isPinnedOrUnknown(current)) return false;
+      protectedIds.add(job.id);
+      protectedSkipped++;
+      await save(async () => { ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "protected-pinned", error: "Pinned or unknown pin status; cover preserved" }; await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n"); });
+      console.log(`Preserved pinned cover: ${job.title}`);
+      return true;
+    };
     await Promise.all(Array.from({ length: concurrency }, async () => {
       while (cursor < selected.length) {
         const job = selected[cursor++], output = path.join(job.folder, "cover.webp");
         console.log(`${job.cached ? "Reuse" : "Generate"} ${job.treatment}: ${job.title}`);
         try {
+          if (await protectBeforeAction(job)) continue;
           if (!job.cached) {
             const batch = path.join(job.folder, "job.jsonl");
             const { quality, size } = treatments[job.treatment];
@@ -150,15 +190,28 @@ export async function main(args = process.argv.slice(2)) {
             if (result.code !== 0 || !(await validWebp(output))) throw new Error(`Imagegen failed (exit ${result.code}); see saved generation.log`);
           }
           const filename = `${job.key}-q86.webp`, src = `/assets/artwork/${filename}`;
-          const prepared = await child(opt.python, [path.join(root, "scripts/prepare-cover.py"), output, path.join(root, src)]);
-          if (prepared.code !== 0 || !(await validWebp(path.join(root, src)))) throw new Error("Cover validation/compression failed; master is saved for free recovery");
+          const preparedFile = path.join(job.folder, "cover-q86.webp");
+          const prepared = await child(opt.python, [path.join(root, "scripts/prepare-cover.py"), output, preparedFile]);
+          if (prepared.code !== 0 || !(await validWebp(preparedFile))) throw new Error("Cover validation/compression failed; master is saved for free recovery");
           await save(async () => {
+            // Recheck inside the serialized write, as a pin may arrive while an
+            // image is rendering. Keep the master locally but do not install it.
+            if (opt["exclude-pinned"]) {
+              const current = await currentPinState(opt.api, job.id);
+              if (isPinnedOrUnknown(current)) {
+                protectedIds.add(job.id); protectedSkipped++;
+                ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "protected-pinned", error: "Pinned during generation; original cover preserved" };
+                await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n");
+                return;
+              }
+            }
+            await copyFile(preparedFile, path.join(root, src));
             art[job.id] = { src, alt: `Cover artwork for ${job.title}.`, theme: "generated", tier: 0, remixed: false, treatment: job.treatment, model: POLICY.model, sourceHash: job.sourceHash, promptHash: digest(job.prompt), createdAt: new Date().toISOString(), missingSources: job.missing, previous: art[job.id]?.src || null };
             await atomic(registryPath, prefix + JSON.stringify(art, null, 2) + ";\n");
             ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "complete", src };
             await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n");
           });
-          completed++; console.log(`Saved ${completed}/${selected.length}: ${job.title}`);
+          if (ledger.jobs[job.key].status === "complete") { completed++; console.log(`Saved ${completed}/${selected.length}: ${job.title}`); }
         } catch (e) {
           failed++;
           await save(async () => { ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "failed-or-uncertain", error: e.message }; await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n"); });
@@ -166,7 +219,7 @@ export async function main(args = process.argv.slice(2)) {
         }
       }
     }));
-    console.log(JSON.stringify({ completed, failed, deferred: jobs.length - selected.length, reservedEstimate: ledger.reservations, budget, state }));
+    console.log(JSON.stringify({ completed, failed, protectedSkipped, deferred: jobs.length - selected.length, reservedEstimate: ledger.reservations, budget, state }));
     if (failed || failedSources.length) process.exitCode = 1;
   } finally { await lock.close(); await unlink(lockPath); }
 }
