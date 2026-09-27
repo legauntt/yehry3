@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import { openSongMenu } from "./helpers/song-menu.js";
 
-test("listening defers studio, details and Redraw; navigation keeps the same player", async ({ page }) => {
+test("listening defers studio and details; navigation keeps the same player", async ({ page }) => {
   const requests = [], errors = [];
   page.on("request", request => requests.push(new URL(request.url()).pathname));
   page.on("pageerror", error => errors.push(error.message));
@@ -11,10 +11,7 @@ test("listening defers studio, details and Redraw; navigation keeps the same pla
     expect(requests).not.toContain(`/assets/${file}.js`);
   await page.evaluate(() => { window.originalAudio = window.yehry3Player.audio; });
   await openSongMenu(page.locator(".track").first());
-  await page.locator("[data-art]").first().click();
-  await expect(page.locator("dialog.art-remix")).toBeVisible();
-  expect(requests).toContain("/assets/art-remix.js");
-  await page.keyboard.press("Escape");
+  await expect(page.locator("[data-art]")).toHaveCount(0);
   for (const [path, selector] of [["/distonyc/", "#login-form"], ["/admin/", "#login-form"], ["/queue/", "#queue-updated"], ["/", "#tracks .track"]]) {
     await page.evaluate(async path => (await import("/assets/shell.js")).navigate(path), path);
     await expect(page.locator(selector).first()).toBeVisible();

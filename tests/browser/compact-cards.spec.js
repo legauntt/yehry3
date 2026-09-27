@@ -40,12 +40,7 @@ test('grid action popouts dismiss accessibly, survive refresh, and preserve play
   await expect(row.locator('.song-menu-panel')).toBeHidden();
   await expect(row.locator('.song-more')).toBeFocused();
   await openSongMenu(row);
-  await row.locator('[data-art]').click();
-  await expect(page.locator('.art-remix')).toBeVisible();
-  await page.keyboard.press('Escape');
-  await expect(page.locator('.art-remix')).toBeHidden();
-  await expect(row.locator('[data-art]')).toBeFocused();
-  await expect(row.locator('.song-menu-panel')).toBeVisible();
+  await expect(row.locator('[data-art]')).toHaveCount(0);
   songs[0].playCount++;
   await page.evaluate(() => document.dispatchEvent(new Event('visibilitychange')));
   await expect(row.locator('.track-listening')).toContainText('20 listens');

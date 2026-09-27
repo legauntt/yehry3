@@ -3001,3 +3001,18 @@ html[data-navigating="true"] body::before {
   .player #now-generator { display: none; }
   .player :is(#previous, #next, .loop-toggle, #share-song) { flex: 1 1 0; text-align: center; }
 }
+.track-art-pending {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  background: linear-gradient(145deg, #273b35, #121e1a);
+  color: #e1d4b7;
+  overflow: hidden;
+}
+.track-art-pending span {
+  max-width: 85%;
+  padding: 8%;
+  font: 600 clamp(.65rem, 1.2vw, 1.1rem)/1.25 Georgia, serif;
+  text-align: center;
+  overflow-wrap: anywhere;
+}

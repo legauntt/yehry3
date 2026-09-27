@@ -27,7 +27,7 @@ import { mountSongMenus } from "./song-menu.js";
 import { createRemixLookup } from "./catalog-remix.js";
 import { createCatalogLoader } from "./catalog.js";
 import { decorateSongLinks, mountSongLinkTooltips } from "./song-link-icons.js";
-import { hasCustomArtwork, songArtworkMarkup } from "./song-art.js";
+import { songArtworkMarkup } from "./cover-art.js";
 import { watchCatalog } from "./realtime.js";
 import { announceAttention, mountBadgeSounds } from "./badge-sound.js";
 import { $, main, escape, date, badge, collections, message, busy, safeUrl, songPublishedAt, songMeta, songLinks } from "./app-ui.js";
@@ -184,20 +184,6 @@ async function library() {
     const mine = Boolean(song.feedback?.pinned);
     const label = mine ? "📌 Pinned" : count ? "📌 Pin" : "📍 Pin";
     return `<button type="button" class="song-action" data-pin="${escape(song.id)}" aria-pressed="${mine}" aria-label="${mine ? "Unpin" : "Pin"} ${escape(song.title)}${count ? ` · ${count} shared` : ""}" ${!online || feedbackBusy ? "disabled" : ""}>${label}${count ? ` · ${count}` : ""}</button>`;
-  }
-  // Chairlift allows each browser one redraw per song an hour and keeps its prompt.
-  function artRest(song) {
-    const mine = song.feedback || {}, until = Date.parse(mine.artRedrawAt || "");
-    const words = mine.artPrompt ? ` with “${mine.artPrompt}”` : "";
-    if (!mine.artRemixed || until <= Date.now()) return { resting: false, note: words ? `Your last redraw was${words}.` : "" };
-    const time = Number.isFinite(until) ? new Date(until).toLocaleTimeString([], { hour: "numeric", minute: "2-digit" }) : "";
-    return { resting: true, note: `You redrew this${words}. You can redraw it again ${time ? "at " + time : "in an hour"}.` };
-  }
-  function artButton(song) {
-    if (hasCustomArtwork(song)) return "";
-    const { resting, note } = artRest(song);
-    // A resting button stays focusable and hoverable so the prompt can be read.
-    return `<button type="button" class="song-action" data-art="${escape(song.id)}" aria-label="${resting ? escape(note) : "Redraw the clip art for " + escape(song.title)}"${note ? ` title="${escape(note)}"` : ""} ${resting ? 'aria-disabled="true"' : ""} ${!online || feedbackBusy ? "disabled" : ""}>${resting ? "🎨 Redrawn" : "🎨 Redraw"}</button>`;
   }
   startRecordSinger($(".record", main), () => songs);
   let initialCatalogPending = true;
@@ -520,7 +506,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track${Number(song.pins) > 0 ? " pinned" : ""}" data-id="${escape(song.id)}">${songArtworkMarkup(song, escape)}
-        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><h3 title="${escape(song.title)}">${escape(song.title)}</h3>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt)}<div class="song-menu"><button type="button" class="song-more" aria-label="More about ${escape(song.title)}" aria-expanded="false" aria-controls="song-menu-${escape(song.id)}" title="Song details and actions"><span aria-hidden="true">⋯</span></button><div class="song-menu-panel" id="song-menu-${escape(song.id)}" role="group" aria-label="Details and actions for ${escape(song.title)}"><p class="song-menu-title">${escape(recordingTitle(song, recordings.get(song.id)))}</p>${songLinks(song)}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p><div class="song-actions" role="group" aria-label="Song actions">${archiveButton(song)}${pinButton(song)}${artButton(song)}<button type="button" class="song-action" data-feedback="downvote" data-song="${escape(song.id)}" ${song.feedback?.downvoted || !online ? "disabled" : ""}>${song.feedback?.downvoted ? "Downvoted" : "Downvote"}${Number(song.downvotes) ? ` · ${song.downvotes}` : ""}</button><button type="button" class="song-action" data-feedback="milquetoast" data-song="${escape(song.id)}" ${song.feedback?.milquetoast || !online ? "disabled" : ""}>${song.feedback?.milquetoast ? "Sent to agent" : "Milquetoast"}${Number(song.milquetoasts) ? ` · ${song.milquetoasts}` : ""}</button></div></div></div></div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><h3 title="${escape(song.title)}">${escape(song.title)}</h3>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt)}<div class="song-menu"><button type="button" class="song-more" aria-label="More about ${escape(song.title)}" aria-expanded="false" aria-controls="song-menu-${escape(song.id)}" title="Song details and actions"><span aria-hidden="true">⋯</span></button><div class="song-menu-panel" id="song-menu-${escape(song.id)}" role="group" aria-label="Details and actions for ${escape(song.title)}"><p class="song-menu-title">${escape(recordingTitle(song, recordings.get(song.id)))}</p>${songLinks(song)}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p><div class="song-actions" role="group" aria-label="Song actions">${archiveButton(song)}${pinButton(song)}<button type="button" class="song-action" data-feedback="downvote" data-song="${escape(song.id)}" ${song.feedback?.downvoted || !online ? "disabled" : ""}>${song.feedback?.downvoted ? "Downvoted" : "Downvote"}${Number(song.downvotes) ? ` · ${song.downvotes}` : ""}</button><button type="button" class="song-action" data-feedback="milquetoast" data-song="${escape(song.id)}" ${song.feedback?.milquetoast || !online ? "disabled" : ""}>${song.feedback?.milquetoast ? "Sent to agent" : "Milquetoast"}${Number(song.milquetoasts) ? ` · ${song.milquetoasts}` : ""}</button></div></div></div></div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : `<p class="empty">${favorites.onlySaved ? escape(favorites.emptyMessage()) : "No songs match. Try another title or style."}</p>`);
@@ -721,27 +707,6 @@ async function library() {
         feedbackBusy = false;
         render({ preserveViewport: true });
       }
-      return;
-    }
-    const artTrigger = event.target.closest("[data-art]");
-    if (artTrigger) {
-      const song = songs.find((item) => item.id === artTrigger.dataset.art);
-      if (!online || feedbackBusy || artTrigger.disabled || !song) return;
-      // Touch screens cannot hover, so a tap on a resting button says the same thing.
-      if (artRest(song).resting) return message(artRest(song).note);
-      // The dialog previews the redraw, so choosing it there is the confirmation.
-      busy(artTrigger, true);
-      try {
-        const { openArtRemix } = await import("./art-remix.js");
-        if (scope.left) return;
-        openArtRemix(song, async (remix, prompt) => {
-          await api(`/song-art/${encodeURIComponent(song.id)}`, { method: "POST", body: { remix, prompt } });
-          message("Clip art redrawn for everyone.");
-          await refresh();
-        });
-      } catch (error) {
-        if (!scope.left) message(error.message, true);
-      } finally { busy(artTrigger, false); }
       return;
     }
     const feedbackButton = event.target.closest("[data-feedback]");

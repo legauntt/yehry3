@@ -11,7 +11,10 @@
     "verify:live": "node scripts/verify-deployment.mjs",
     "verify:catalog": "node scripts/verify-catalog.mjs",
     "measure:live": "node scripts/measure-performance.mjs",
-    "profile:startup": "node scripts/profile-startup.mjs"
+    "profile:startup": "node scripts/profile-startup.mjs",
+    "artwork:plan": "node scripts/song-artwork.mjs plan",
+    "artwork:run": "node scripts/song-artwork.mjs run",
+    "artwork:verify": "node scripts/song-artwork.mjs verify"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
