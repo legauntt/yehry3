@@ -2,6 +2,90 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-0f3ccb9bbc5943f420433fc2",
+      "title": "Yeah After Midnight (Midnight Jazz Rework)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0f3ccb9bbc5943f420433fc2-e96dfb813074.mp3",
+      "duration": 359.44,
+      "collection": "distonyc",
+      "voiceModel": "v8",
+      "remixOf": {
+        "songId": "distonyc-d88c69ac5b02b644324e42ad",
+        "title": "Yeah After Midnight",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d88c69ac5b02b644324e42ad-d0c85e6f241f.mp3"
+      },
+      "publishedAt": "2026-09-27T23:50:37.613Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Yeah After Midnight (Midnight Jazz Rework)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A six-minute smoky smooth-jazz reinterpretation built around the recognizable “Yeah” hook: brushed drums, walking upright bass, Rhodes, muted trumpet, and restrained tenor saxophone. Tony V8 delivers each retained word in rough, connected, teasing phrases, with close-miked breath between lines and evolving call-and-response from trumpet and sax. Begin spare and nocturnal, deepen into a bass-led middle section, then gradually gather warmth and intensity without adding lyrics. Stretch and pace the final “Yeeaah” so its sustained final syllable lands 8–12 seconds before the end; resolve with one soft D-minor chord and natural decay.",
+        "lyrics": "[Intro]\nYeah\n\n[Verse 1]\nYeah\nYeah\nYeah\n\n[Interlude]\nYeah\n\n[Verse 2]\nYeah\nYeah\nYeah\nYeah\n\n[Bridge]\nYeah\nYeah\n\n[Verse 3]\nYeah\nYeah\nYeah\n\n[Outro]\nYeah\nYeah\nYeeaah\n[End]",
+        "duration": 360,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Smoky smooth jazz with Tony C vocal character",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Interlude, Verse 2, Bridge, Verse 3, Outro",
+          "performance": "Rough, slurred Tony V8 lead with close, expressive breathing and sustained melodic “yeah” phrases",
+          "energy": "Low-lit and sparse at first, growing into a warm bass-and-brush groove before a gentle final resolution",
+          "lyricWorkflow": "Preserved lyric sheet, with each supplied word retained in order and shaped through phrasing",
+          "instruments": [
+            "Rhodes piano",
+            "upright bass",
+            "brushed drum kit",
+            "muted trumpet",
+            "tenor saxophone"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nYeah\n\n[Verse 1]\nYeah\nYeah\nYeah\n\n[Interlude]\nYeah\n\n[Verse 2]\nYeah\nYeah\nYeah\nYeah\n\n[Bridge]\nYeah\nYeah\n\n[Verse 3]\nYeah\nYeah\nYeah\n\n[Outro]\nYeah\nYeah\nYeeaah",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 252.26,
+            "end": 253.66
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "vocal_activity",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "originalPrompt": {
+        "idea": "Remix “Yeah After Midnight”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Six minutes of heavy breathing and Tony saying \"yeah\" over smooth jazz\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Surprise me",
+        "keep": "Keep the recognizable hook and spirit of “Yeah After Midnight”.",
+        "basisSongs": [
+          "Yeah After Midnight"
+        ],
+        "voiceModel": "v8",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-06d2b8c3c8dffed19df347bb",
       "title": "It Was Simple, Not Easy",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-06d2b8c3c8dffed19df347bb-136fbbed24ac.mp3",
