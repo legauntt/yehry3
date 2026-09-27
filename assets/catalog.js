@@ -4,8 +4,8 @@ import { api } from "./api.js";
 // The public snapshot is reused only within this mounted catalog. Personal state
 // is read on every refresh and never written into the shared snapshot.
 export function createCatalogLoader({ request = fetch, state = options => api("/catalog/state", options) } = {}) {
-  let snapshot, etag;
-  async function publicSnapshot({ timeout = 15000 } = {}) {
+  let snapshot, etag, pending;
+  async function readPublicSnapshot({ timeout = 15000 } = {}) {
     const response = await request(`${API_BASE}/catalog`, {
       headers: etag ? { "If-None-Match": etag } : {},
       credentials: "omit",
@@ -19,6 +19,12 @@ export function createCatalogLoader({ request = fetch, state = options => api("/
     snapshot = data;
     etag = response.headers.get("ETag");
     return snapshot;
+  }
+  function publicSnapshot(options) {
+    // A fast personal-state failure can allow a retry before the public body
+    // finishes. Reuse that read so older responses cannot replace newer ones.
+    pending ||= readPublicSnapshot(options).finally(() => { pending = undefined; });
+    return pending;
   }
   return async options => {
     const [catalog, personal] = await Promise.all([publicSnapshot(options), state(options)]);

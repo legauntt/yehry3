@@ -28,12 +28,32 @@ test("conditional refreshes reuse all songs while replacing only this visitor's 
 });
 
 test("a failed personal read does not claim online success, and can retry against the saved public snapshot", async () => {
-  let first = true, failed = true;
+  let failed = true, release;
+  const headers = [], body = new Promise(resolve => { release = resolve; });
   const load = createCatalogLoader({
-    request: async () => { if (!first) return new Response(null, { status: 304 }); first = false; return Response.json({ songs: [{ id: "old" }] }, { headers: { ETag: '"one"' } }); },
+    request: async (_url, options) => {
+      headers.push(options.headers);
+      if (options.headers["If-None-Match"] === '"one"') return new Response(null, { status: 304 });
+      return { status: 200, ok: true, headers: new Headers({ ETag: '"one"' }), json: () => body };
+    },
     state: async () => { if (failed) throw Error("state offline"); return { feedback: {} }; },
   });
   await assert.rejects(load(), /state offline/); failed = false;
+  const retry = load();
+  assert.equal(headers.length, 1, "retry shares the unfinished public download");
+  release({ songs: [{ id: "old" }] });
+  assert.equal((await retry).songs[0].id, "old");
+  assert.equal((await load()).songs[0].id, "old");
+  assert.deepEqual(headers, [{}, { "If-None-Match": '"one"' }]);
+});
+
+test("a failed public download clears its pending read so the next refresh can recover", async () => {
+  let failed = true;
+  const load = createCatalogLoader({
+    request: async () => { if (failed) throw Error("public offline"); return Response.json({ songs: [{ id: "old" }] }); },
+    state: async () => ({ feedback: {} }),
+  });
+  await assert.rejects(load(), /public offline/); failed = false;
   assert.equal((await load()).songs[0].id, "old");
 });
 
