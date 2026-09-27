@@ -10,7 +10,8 @@ import { mountModelInfo } from "./model-info.js";
 import { rotateSuggestions } from "./suggestions.js";
 import { startRecordMotion } from "./record-motion.js";
 import { startRecordSinger } from "./record-singer.js";
-import { api, storage } from "./api.js";
+import { api, storage, signedIn } from "./api.js";
+import { showToast } from "./message.js";
 import { watchCompletions } from "./notifications.js";
 import { mountFavorites } from "./favorites.js";
 import { listeningLabel } from "./listening.js";
@@ -107,6 +108,57 @@ async function library() {
     feedbackBusy = false,
     refreshing = null,
     refreshAgain = false;
+  let admin = false, adminCheck = 0, archiveBusy = false;
+  function archiveButton(song) {
+    if (!admin || !signedIn("admin")) return "";
+    return `<button type="button" class="song-action" data-archive="${escape(song.id)}" aria-label="Archive ${escape(song.title)}" ${!online || archiveBusy ? "disabled" : ""}>Archive</button>`;
+  }
+  async function checkAdmin() {
+    const check = ++adminCheck;
+    let allowed = false;
+    if (signedIn("admin")) {
+      try {
+        // Check the existing protected endpoint; a saved login alone is not proof.
+        const data = await api("/admin/songs?page=0", { role: "admin" });
+        allowed = Array.isArray(data.songs);
+      } catch { /* Visitors, expired sessions and offline tabs get no archive action. */ }
+    }
+    if (scope.left || check !== adminCheck || admin === allowed) return;
+    admin = allowed;
+    render({ preserveViewport: true });
+  }
+  async function setArchived(song, archived) {
+    if (archiveBusy) return;
+    archiveBusy = true;
+    render({ preserveViewport: true });
+    try {
+      await api(`/admin/songs/${encodeURIComponent(song.id)}`, {
+        method: "PATCH", role: "admin", body: { archived },
+      });
+      const hidden = knownArchived();
+      if (archived) hidden.add(song.id);
+      else hidden.delete(song.id);
+      rememberArchived([...hidden]);
+      if (archived) {
+        const present = songs.some(item => item.id === song.id);
+        songs = songs.filter(item => item.id !== song.id);
+        if (present && partialTotal !== null) partialTotal = Math.max(0, partialTotal - 1);
+      } else if (!songs.some(item => item.id === song.id)) {
+        songs.push(song);
+        if (partialTotal !== null) partialTotal++;
+      }
+      render({ preserveViewport: true });
+      showToast(archived ? `Archived “${song.title}”. It is off the site for everyone.` : `Restored “${song.title}” to the site.`,
+        archived ? { action: { label: "Undo", run: () => setArchived(song, false) } } : {});
+      void refresh();
+    } catch (error) {
+      if ([401, 403].includes(error.status)) { admin = false; adminCheck++; }
+      showToast(error.message, { error: true });
+    } finally {
+      archiveBusy = false;
+      render({ preserveViewport: true });
+    }
+  }
   function pinButton(song) {
     const count = Math.max(0, Number(song.pins) || 0);
     const mine = Boolean(song.feedback?.pinned);
@@ -448,7 +500,7 @@ async function library() {
               song,
               index,
             ) => `<article class="track${Number(song.pins) > 0 ? " pinned" : ""}" data-id="${escape(song.id)}">${songArtworkMarkup(song, escape)}
-        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><h3 title="${escape(song.title)}">${escape(song.title)}</h3>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt)}<div class="song-menu"><button type="button" class="song-more" aria-label="More about ${escape(song.title)}" aria-expanded="false" aria-controls="song-menu-${escape(song.id)}" title="Song details and actions"><span aria-hidden="true">⋯</span></button><div class="song-menu-panel" id="song-menu-${escape(song.id)}" role="group" aria-label="Details and actions for ${escape(song.title)}"><p class="song-menu-title">${escape(recordingTitle(song, recordings.get(song.id)))}</p>${songLinks(song)}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p><div class="song-actions" role="group" aria-label="Song actions">${pinButton(song)}${artButton(song)}<button type="button" class="song-action" data-feedback="downvote" data-song="${escape(song.id)}" ${song.feedback?.downvoted || !online ? "disabled" : ""}>${song.feedback?.downvoted ? "Downvoted" : "Downvote"}${Number(song.downvotes) ? ` · ${song.downvotes}` : ""}</button><button type="button" class="song-action" data-feedback="milquetoast" data-song="${escape(song.id)}" ${song.feedback?.milquetoast || !online ? "disabled" : ""}>${song.feedback?.milquetoast ? "Sent to agent" : "Milquetoast"}${Number(song.milquetoasts) ? ` · ${song.milquetoasts}` : ""}</button></div></div></div></div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
+        <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><h3 title="${escape(song.title)}">${escape(song.title)}</h3>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt)}<div class="song-menu"><button type="button" class="song-more" aria-label="More about ${escape(song.title)}" aria-expanded="false" aria-controls="song-menu-${escape(song.id)}" title="Song details and actions"><span aria-hidden="true">⋯</span></button><div class="song-menu-panel" id="song-menu-${escape(song.id)}" role="group" aria-label="Details and actions for ${escape(song.title)}"><p class="song-menu-title">${escape(recordingTitle(song, recordings.get(song.id)))}</p>${songLinks(song)}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p><div class="song-actions" role="group" aria-label="Song actions">${archiveButton(song)}${pinButton(song)}${artButton(song)}<button type="button" class="song-action" data-feedback="downvote" data-song="${escape(song.id)}" ${song.feedback?.downvoted || !online ? "disabled" : ""}>${song.feedback?.downvoted ? "Downvoted" : "Downvote"}${Number(song.downvotes) ? ` · ${song.downvotes}` : ""}</button><button type="button" class="song-action" data-feedback="milquetoast" data-song="${escape(song.id)}" ${song.feedback?.milquetoast || !online ? "disabled" : ""}>${song.feedback?.milquetoast ? "Sent to agent" : "Milquetoast"}${Number(song.milquetoasts) ? ` · ${song.milquetoasts}` : ""}</button></div></div></div></div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
       : `<p class="empty">${favorites.onlySaved ? escape(favorites.emptyMessage()) : "No songs match. Try another title or style."}</p>`);
@@ -610,6 +662,13 @@ async function library() {
   scope.on(window, "hashchange", revealFromHash);
   scope.onLeave(() => { stopCentring?.(); clearTimeout(revealing); clearTimeout(sharedTimer); });
   $("#tracks").addEventListener("click", async (event) => {
+    const archive = event.target.closest("[data-archive]");
+    if (archive) {
+      const song = songs.find(item => item.id === archive.dataset.archive);
+      if (!admin || !signedIn("admin") || !online || archiveBusy || archive.disabled || !song) return;
+      if (!window.confirm(`Archive “${song.title}”? It leaves the site for everyone. Votes, plays and files are kept, and you can restore it in Backstage.`)) return;
+      return setArchived(song, true);
+    }
     const playButton = event.target.closest("[data-play]");
     if (playButton)
       return togglePlay(
@@ -837,6 +896,11 @@ async function library() {
     }).catch(() => { /* The full read or static outage fallback still completes startup. */ });
   }
   render();
+  void checkAdmin();
+  scope.on(window, "storage", event => {
+    if (event.key === null || event.key === "yehry3:auth:admin") void checkAdmin();
+  });
+  scope.on(document, "visibilitychange", () => { if (!document.hidden) void checkAdmin(); });
   // The live catalog re-sorts what the fallback showed, so a link reveals its song only after that
   // lands; revealing sooner would centre on a slot that then moves. If the live catalog cannot
   // be had, the fallback order is the final one and the song is revealed anyway.

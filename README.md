@@ -117,6 +117,17 @@ independently of the eight editable versions; older or shortened histories say
 when earlier prompts are missing. Existing requests without saved history remain
 unchanged. Deploy Chairlift's `lyricSheet.promptHistory` support before this UI.
 
+Dashboard song menus include **Archive** after the saved Backstage login passes an
+admin API check. The action uses the existing protected archive endpoint, confirms
+that the song leaves the site for everyone, and offers **Undo**. Votes, plays and
+files remain available for restoration in Backstage. Visitors and submitter-only
+logins see no Archive control; signing out in another tab removes it.
+
+`npx playwright test -c playwright.catalog-actions.config.js` checks archive menus,
+lyric workshop history and original-prompt rendering with intercepted API calls.
+Set `YEHRY3_ACTIONS_URL=https://yehry3.app` to check the deployed UI without changing
+live songs.
+
 ## Run
 
 Node 22 or later:
