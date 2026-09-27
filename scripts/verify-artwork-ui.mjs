@@ -15,14 +15,18 @@ try {
   await page.goto(site, { waitUntil: "domcontentloaded" });
   const cover = page.locator('[data-id="distonyc-06d2b8c3c8dffed19df347bb"]');
   await cover.waitFor({ timeout: 45000 });
+  await cover.scrollIntoViewIfNeeded();
   await page.waitForFunction(() => {
     const img = document.querySelector('[data-id="distonyc-06d2b8c3c8dffed19df347bb"] img.track-art');
     return img?.complete && img.naturalWidth > 0;
-  });
+  }, null, { timeout: 30000 });
   assert.equal(await cover.locator("img.track-art").getAttribute("src"), artwork["distonyc-06d2b8c3c8dffed19df347bb"].src);
   assert.equal(await page.locator('[data-art], #tracks img[src^="data:image/svg"]').count(), 0);
   await page.screenshot({ path: path.join(output, "desktop.png"), fullPage: false });
   await page.setViewportSize({ width: 390, height: 844 });
+  if (!await page.locator("#search").isVisible()) {
+    await page.locator(".catalog-filters > summary").click();
+  }
   await page.locator("#search").fill("It Was Simple, Not Easy");
   await cover.locator(".song-more").click();
   await cover.locator("[data-pin]").waitFor({ state: "visible" });
