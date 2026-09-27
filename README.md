@@ -77,10 +77,12 @@ to test the deployed page. `npm run verify:live` checks the tour and audio range
 
 `/saxophone/` is linked from the collection footer. It uses the three existing
 published MP3s and keeps only one recording playing at a time. **Play the EP**
-continues through the track list. Artwork pauses offscreen and in background tabs;
+continues through the track list and retries failed audio loads. An idle track's
+failed preload does not cancel the sequence. Artwork pauses offscreen and in background tabs;
 reduced-motion visitors see stills until they choose **Animate artwork**. The
 existing **Has issues** preference applies here too. Run the saved browser checks
-with `npx playwright test --config playwright.saxophone.config.js`; set
+with `npx playwright test --config playwright.saxophone.config.js` (install
+Chromium and Firefox with `npx playwright install chromium firefox` first); set
 `EP_REAL_MEDIA=1` to verify all three public recordings, seeking and artwork.
 Set `YEHRY3_EP_URL=https://yehry3.app` to run against the deployed page.
 

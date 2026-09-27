@@ -6,6 +6,7 @@ const allButton = document.querySelector('#play-all');
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 let motion = !reduced.matches;
 let album = false;
+let activeAudio = null;
 let rows = [];
 const visible = new Set();
 const safe = (value) => {
@@ -36,6 +37,17 @@ function element(tag, className, text) {
   if (text) node.textContent = text;
   return node;
 }
+function startTrack({audio, item}) {
+  activeAudio = audio;
+  // play() cannot retry a failed media request until load() clears the error.
+  if (audio.error) audio.load();
+  audio.currentTime = 0;
+  status.textContent = `Loading ${item.title}…`;
+  void audio.play().catch(() => {
+    album = false;
+    status.textContent = `${item.title} could not start. Press “Play the EP” to retry or use its MP3 link.`;
+  });
+}
 function render(item, index) {
   const article = element('article', 'record');
   const heading = element('div', 'record-heading');
@@ -64,25 +76,34 @@ function render(item, index) {
   review.innerHTML = qualityNotice(item.qualityIssues, item.reviewState, item.validationFailures);
   article.append(heading, sleeve, lower, review); region.append(article);
   audio.addEventListener('play', () => {
-    for (const other of rows) if (other.audio !== audio) other.audio.pause();
-    article.classList.add('playing'); status.textContent = `Playing ${item.title}`;
+    activeAudio = audio;
+    for (const other of rows) {
+      if (other.audio !== audio) other.audio.pause();
+      other.article.classList.toggle('playing', other.audio === audio);
+    }
+    status.textContent = `Loading ${item.title}…`;
   });
+  audio.addEventListener('playing', () => { status.textContent = `Playing ${item.title}`; });
   audio.addEventListener('pause', () => {
     article.classList.remove('playing');
     if (!rows.some(row => !row.audio.paused)) status.textContent = 'Paused. Pick up where you left off.';
   });
   audio.addEventListener('ended', () => {
     if (album && rows[index + 1]) {
-      const next = rows[index + 1].audio; next.currentTime = 0;
-      void next.play().catch(() => { album = false; status.textContent = 'Tap play on the next track to continue.'; });
+      startTrack(rows[index + 1]);
     } else { album = false; status.textContent = 'The last note has landed.'; }
   });
-  audio.addEventListener('error', () => { album = false; status.textContent = `${item.title} could not load. Try its MP3 link.`; });
+  audio.addEventListener('error', () => {
+    // An idle track's metadata request must not interrupt the current recording.
+    if (audio !== activeAudio) return;
+    album = false;
+    status.textContent = `${item.title} could not load. Press “Play the EP” to retry or use its MP3 link.`;
+  });
   rows.push({item, video, audio, article}); observer.observe(video);
 }
 allButton.addEventListener('click', () => {
-  album = true; rows[0].audio.currentTime = 0;
-  void rows[0].audio.play().catch(() => { album = false; status.textContent = 'Tap play on Pocket Orbit to begin.'; });
+  album = true;
+  startTrack(rows[0]);
 });
 try {
   const response = await fetch('/saxophone/tracks.json');

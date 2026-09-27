@@ -1,6 +1,19 @@
 import { test, expect } from '@playwright/test';
 import path from 'node:path';
 
+// Short, decodable audio lets failure recovery run through a natural track ending.
+// Real public MP3 decoding and seeking are checked separately below.
+const recoveryAudio = Buffer.alloc(44 + 8000 * 2 * 6);
+recoveryAudio.write('RIFF'); recoveryAudio.writeUInt32LE(recoveryAudio.length - 8, 4);
+recoveryAudio.write('WAVEfmt ', 8); recoveryAudio.writeUInt32LE(16, 16);
+recoveryAudio.writeUInt16LE(1, 20); recoveryAudio.writeUInt16LE(1, 22);
+recoveryAudio.writeUInt32LE(8000, 24); recoveryAudio.writeUInt32LE(16000, 28);
+recoveryAudio.writeUInt16LE(2, 32); recoveryAudio.writeUInt16LE(16, 34);
+recoveryAudio.write('data', 36); recoveryAudio.writeUInt32LE(recoveryAudio.length - 44, 40);
+async function useRecoveryAudio(page) {
+  await page.route('https://github.com/**', route => route.fulfill({ contentType: 'audio/wav', body: recoveryAudio }));
+}
+
 test.beforeEach(async ({ page }) => {
   if (process.env.EP_REAL_MEDIA !== '1') {
     // Install before navigation so native metadata requests also use the retained fixture.
@@ -10,17 +23,84 @@ test.beforeEach(async ({ page }) => {
 
 test('EP plays complete recordings and keeps a single audio source active', async ({ page }) => {
   const errors = []; page.on('pageerror', e => errors.push(e.message));
-  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.goto('/saxophone/');
   await expect(page.locator('.record')).toHaveCount(3);
   await page.getByRole('button', { name: 'Play the EP' }).click();
   await expect.poll(() => page.locator('audio').nth(0).evaluate(a => a.currentTime)).toBeGreaterThan(0);
+  await page.locator('audio').nth(0).evaluate(a => { a.currentTime = a.duration - .1; });
+  await expect.poll(() => page.locator('audio').nth(1).evaluate(a => a.currentTime)).toBeGreaterThan(0);
   await page.locator('audio').nth(1).evaluate(a => a.play());
   await expect.poll(() => page.locator('audio').evaluateAll(as => as.filter(a => !a.paused).length)).toBe(1);
+  await expect(page.locator('.record.playing')).toHaveCount(1);
   await expect(page.locator('.record.playing h2')).toHaveText('Sideways Staircase');
   await page.locator('audio').nth(1).evaluate(a => { a.currentTime = a.duration - .1; });
   await expect.poll(() => page.locator('audio').nth(2).evaluate(a => a.currentTime)).toBeGreaterThan(0);
   expect(errors).toEqual([]);
+});
+
+test.afterEach(async ({ page }, testInfo) => {
+  if (testInfo.status !== testInfo.expectedStatus) {
+    await testInfo.attach('media-state', {
+      contentType: 'application/json',
+      body: JSON.stringify(await page.locator('audio').evaluateAll(audios => audios.map(audio => ({
+        src: audio.src, time: audio.currentTime, duration: audio.duration, ended: audio.ended,
+        paused: audio.paused, error: audio.error?.code, ready: audio.readyState, network: audio.networkState,
+        buffered: Array.from({length: audio.buffered.length}, (_, i) => [audio.buffered.start(i), audio.buffered.end(i)]),
+      }))), null, 2),
+    });
+  }
+});
+
+test('Play the EP starts when clicked before audio metadata has loaded', async ({ page }) => {
+  let releaseAudio;
+  const audioReady = new Promise(resolve => { releaseAudio = resolve; });
+  await page.route('https://github.com/**', async route => {
+    await audioReady;
+    await route.fallback();
+  });
+  const errors = [];
+  page.on('pageerror', error => errors.push(error.message));
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/saxophone/', { waitUntil: 'domcontentloaded' });
+  await expect(page.getByRole('button', { name: 'Play the EP' })).toBeEnabled();
+  expect(await page.locator('audio').first().evaluate(audio => audio.readyState)).toBe(0);
+  await page.getByRole('button', { name: 'Play the EP' }).click();
+  releaseAudio();
+  await expect.poll(() => page.locator('audio').first().evaluate(audio => audio.currentTime), { timeout: 15000 }).toBeGreaterThan(.1);
+  expect(errors).toEqual([]);
+});
+
+test('Play the EP retries after the initial audio request fails', async ({ page }) => {
+  await useRecoveryAudio(page);
+  const firstTrack = 'https://github.com/**/*pocket-orbit*.mp3';
+  await page.route(firstTrack, route => route.fulfill({ status: 503, body: 'Temporarily unavailable' }));
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/saxophone/');
+  await expect.poll(() => page.locator('audio').first().evaluate(audio => audio.error?.code)).toBeTruthy();
+  await page.unroute(firstTrack);
+  await page.getByRole('button', { name: 'Play the EP' }).click();
+  await expect.poll(() => page.locator('audio').first().evaluate(audio => audio.currentTime), { timeout: 15000 }).toBeGreaterThan(.1);
+});
+
+test('a later track failing to preload does not cancel the EP', async ({ page }) => {
+  await useRecoveryAudio(page);
+  let failPreload;
+  const releasePreload = new Promise(resolve => { failPreload = resolve; });
+  const secondTrack = 'https://github.com/**/*sideways-staircase*.mp3';
+  await page.route(secondTrack, async route => {
+    await releasePreload;
+    await route.fulfill({ status: 503, body: 'Temporarily unavailable' });
+  });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto('/saxophone/', { waitUntil: 'domcontentloaded' });
+  await page.getByRole('button', { name: 'Play the EP' }).click();
+  await expect.poll(() => page.locator('audio').first().evaluate(audio => audio.currentTime)).toBeGreaterThan(.1);
+  failPreload();
+  await expect.poll(() => page.locator('audio').nth(1).evaluate(audio => audio.error?.code)).toBeTruthy();
+  await page.unroute(secondTrack);
+  await expect.poll(() => page.locator('audio').first().evaluate(audio => audio.ended), { timeout: 10000 }).toBe(true);
+  await expect.poll(() => page.locator('audio').nth(1).evaluate(audio => audio.currentTime), { timeout: 15000 }).toBeGreaterThan(.1);
 });
 
 test('reduced motion keeps artwork still until explicitly animated, including mobile', async ({ page }) => {
