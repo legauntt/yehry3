@@ -1,0 +1,397 @@
+{
+  "version": 1,
+  "songId": "distonyc-06d2b8c3c8dffed19df347bb",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-06d2b8c3c8dffed19df347bb-136fbbed24ac.mp3",
+  "audioSha256": "136fbbed24acdfa3e17de5f7712d08162a7040890e3754a5054eaba07d9e810a",
+  "inputSha256": "e348fbdd6e4f14132b1417870ae6a6ac8c741f7809354f3cd6ca94486491ac02",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 299.9901875,
+  "segments": [
+    {
+      "start": 3.32,
+      "end": 11.78,
+      "text": "That's lovely I thought she was a nasty girl and I was right",
+      "uncertain": true
+    },
+    {
+      "start": 15.0,
+      "end": 23.92,
+      "text": "One man said it's complicated One said history ties our hands",
+      "uncertain": false
+    },
+    {
+      "start": 23.92,
+      "end": 29.84,
+      "text": "I said quit bombing families and stealing homes and land",
+      "uncertain": false
+    },
+    {
+      "start": 29.84,
+      "end": 34.14,
+      "text": "The room went still, the pens went down",
+      "uncertain": true
+    },
+    {
+      "start": 34.14,
+      "end": 36.88,
+      "text": "Somebody checked the door",
+      "uncertain": false
+    },
+    {
+      "start": 36.88,
+      "end": 40.7,
+      "text": "I said a child is not a target",
+      "uncertain": false
+    },
+    {
+      "start": 40.7,
+      "end": 44.64,
+      "text": "Why do you need a theory for",
+      "uncertain": false
+    },
+    {
+      "start": 48.08,
+      "end": 49.76,
+      "text": "Whoopsie, apartheid",
+      "uncertain": false
+    },
+    {
+      "start": 49.76,
+      "end": 52.08,
+      "text": "There's the trouble, plainest day",
+      "uncertain": false
+    },
+    {
+      "start": 52.08,
+      "end": 57.48,
+      "text": "You cannot build a safer home, oh fuck, I'm gonna come",
+      "uncertain": true
+    },
+    {
+      "start": 57.48,
+      "end": 62.22,
+      "text": "We'll seal parts, I ain't funny what the truth reveals",
+      "uncertain": true
+    },
+    {
+      "start": 62.22,
+      "end": 67.4,
+      "text": "No peace without the same damn rights, fuck, I'm coming",
+      "uncertain": false
+    },
+    {
+      "start": 72.48,
+      "end": 76.24,
+      "text": "I called for every hostage hole",
+      "uncertain": true
+    },
+    {
+      "start": 76.24,
+      "end": 79.9,
+      "text": "Every prisoner tried with law",
+      "uncertain": false
+    },
+    {
+      "start": 79.9,
+      "end": 85.62,
+      "text": "Food and water through the crossings, no more hunger used for war",
+      "uncertain": true
+    },
+    {
+      "start": 85.62,
+      "end": 91.8,
+      "text": "Stop the siege and stop the rockets, let the doctors do their work",
+      "uncertain": true
+    },
+    {
+      "start": 91.8,
+      "end": 98.64,
+      "text": "If a leader orders slaughter, puts the leader before the court",
+      "uncertain": false
+    },
+    {
+      "start": 98.64,
+      "end": 106.7,
+      "text": "They asked me for a clever slogan, I said try equal human worth",
+      "uncertain": false
+    },
+    {
+      "start": 106.7,
+      "end": 109.18,
+      "text": "Not a footnote, not a promise",
+      "uncertain": false
+    },
+    {
+      "start": 109.18,
+      "end": 113.08,
+      "text": "Something practiced on the earth",
+      "uncertain": false
+    },
+    {
+      "start": 113.08,
+      "end": 116.82,
+      "text": "From a river to the coastline",
+      "uncertain": false
+    },
+    {
+      "start": 116.82,
+      "end": 119.68,
+      "text": "No supremacy dressed as fate",
+      "uncertain": true
+    },
+    {
+      "start": 119.68,
+      "end": 122.74,
+      "text": "Two free peoples shared protection",
+      "uncertain": false
+    },
+    {
+      "start": 122.74,
+      "end": 126.94,
+      "text": "Neither trapped behind a gate",
+      "uncertain": false
+    },
+    {
+      "start": 130.14,
+      "end": 132.78,
+      "text": "Oopsie, I want height",
+      "uncertain": true
+    },
+    {
+      "start": 132.78,
+      "end": 135.84,
+      "text": "There's the trouble plain as day",
+      "uncertain": false
+    },
+    {
+      "start": 135.84,
+      "end": 140.88,
+      "text": "Fuck, I'm gonna come by driving someone else away",
+      "uncertain": false
+    },
+    {
+      "start": 140.88,
+      "end": 144.3,
+      "text": "Moopsy at Mars height",
+      "uncertain": true
+    },
+    {
+      "start": 144.3,
+      "end": 147.38,
+      "text": "East is more than quiet streets",
+      "uncertain": true
+    },
+    {
+      "start": 147.38,
+      "end": 150.82,
+      "text": "It means the ones beneath the rubble",
+      "uncertain": false
+    },
+    {
+      "start": 150.82,
+      "end": 152.8,
+      "text": "Oh, fuck, I'm coming",
+      "uncertain": false
+    },
+    {
+      "start": 154.02,
+      "end": 157.2,
+      "text": "Name the dead and hear the living",
+      "uncertain": false
+    },
+    {
+      "start": 157.2,
+      "end": 160.26,
+      "text": "Let the evidence be shown",
+      "uncertain": false
+    },
+    {
+      "start": 160.26,
+      "end": 163.76,
+      "text": "Israel's genocidal actions",
+      "uncertain": false
+    },
+    {
+      "start": 163.76,
+      "end": 167.44,
+      "text": "Cannot purchase safeties for own",
+      "uncertain": false
+    },
+    {
+      "start": 167.44,
+      "end": 170.5,
+      "text": "Grief is not a deed of ownership",
+      "uncertain": false
+    },
+    {
+      "start": 170.5,
+      "end": 173.46,
+      "text": "Fear is not a border plan",
+      "uncertain": false
+    },
+    {
+      "start": 173.46,
+      "end": 176.82,
+      "text": "No ancestral womb gives license",
+      "uncertain": false
+    },
+    {
+      "start": 176.82,
+      "end": 180.86,
+      "text": "To erase another clite",
+      "uncertain": true
+    },
+    {
+      "start": 182.28,
+      "end": 185.48,
+      "text": "Men be hung, horses go",
+      "uncertain": false
+    },
+    {
+      "start": 185.48,
+      "end": 188.68,
+      "text": "Brought the witnesses inside",
+      "uncertain": false
+    },
+    {
+      "start": 188.68,
+      "end": 192.3,
+      "text": "Made the powerful answer plainly",
+      "uncertain": false
+    },
+    {
+      "start": 192.3,
+      "end": 195.72,
+      "text": "For the lives their speeches hide",
+      "uncertain": false
+    },
+    {
+      "start": 195.72,
+      "end": 198.98,
+      "text": "Rebuilt schools before the checkpoints",
+      "uncertain": false
+    },
+    {
+      "start": 198.98,
+      "end": 201.94,
+      "text": "Planted orchards by the road",
+      "uncertain": false
+    },
+    {
+      "start": 201.94,
+      "end": 204.58,
+      "text": "Drank our own kiss",
+      "uncertain": false
+    },
+    {
+      "start": 204.58,
+      "end": 207.82,
+      "text": "Every family keep its home",
+      "uncertain": false
+    },
+    {
+      "start": 208.34,
+      "end": 212.78,
+      "text": "No child learned to count by sirens",
+      "uncertain": false
+    },
+    {
+      "start": 212.78,
+      "end": 215.72,
+      "text": "No old key became a crime",
+      "uncertain": false
+    },
+    {
+      "start": 215.72,
+      "end": 218.86,
+      "text": "People argued over football",
+      "uncertain": false
+    },
+    {
+      "start": 218.86,
+      "end": 222.04,
+      "text": "And complained the trains ran behind",
+      "uncertain": false
+    },
+    {
+      "start": 222.04,
+      "end": 228.28,
+      "text": "Then the experts cleared their throats and asked, what miracle did you apply?",
+      "uncertain": true
+    },
+    {
+      "start": 228.92,
+      "end": 231.78,
+      "text": "I said I stopped excusing murder.",
+      "uncertain": false
+    },
+    {
+      "start": 232.38,
+      "end": 235.36,
+      "text": "They said, surely that's to simplify.",
+      "uncertain": false
+    },
+    {
+      "start": 239.08,
+      "end": 241.0,
+      "text": "Oopsie, apartheid.",
+      "uncertain": false
+    },
+    {
+      "start": 241.14,
+      "end": 244.18,
+      "text": "That was never peace at all.",
+      "uncertain": false
+    },
+    {
+      "start": 244.54,
+      "end": 250.6,
+      "text": "Just a polished name for domination with a flag across the wall.",
+      "uncertain": false
+    },
+    {
+      "start": 250.6,
+      "end": 256.54,
+      "text": "Won't see apartheid, now the gates are coming down",
+      "uncertain": false
+    },
+    {
+      "start": 256.54,
+      "end": 262.56,
+      "text": "Oh God, I'm a finna blow, equal law in every tie",
+      "uncertain": true
+    },
+    {
+      "start": 262.56,
+      "end": 269.44,
+      "text": "It was super not easy, that distinction matters most",
+      "uncertain": false
+    },
+    {
+      "start": 269.44,
+      "end": 275.98,
+      "text": "Peace began when every future counted more than any boast",
+      "uncertain": false
+    },
+    {
+      "start": 275.98,
+      "end": 282.04,
+      "text": "I still don't know why nobody tried the obvious before",
+      "uncertain": false
+    },
+    {
+      "start": 282.04,
+      "end": 285.46,
+      "text": "Keep each other safe and free",
+      "uncertain": false
+    },
+    {
+      "start": 285.46,
+      "end": 288.98,
+      "text": "Goddamn 9-11-DOT-YAY",
+      "uncertain": true
+    }
+  ]
+}
