@@ -476,6 +476,8 @@ main {
   background: #d9dec9;
   aspect-ratio: 1;
   position: relative;
+  /* The rotated sleeve must lift its lyric caption above the catalog cards. */
+  z-index: 3;
   transform: rotate(3deg);
   padding: 0;
   box-shadow: 8px 13px 0 #e5e6da;
