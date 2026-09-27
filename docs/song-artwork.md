@@ -15,7 +15,7 @@ All treatments use 1024 × 1024 WebP. Monument means more detailed art direction
 
 ## Run
 
-Node 22+ is required. Install `openai` in the Python environment used by the bundled Imagegen CLI. The CLI defaults to `~/.codex/skills/.system/imagegen/scripts/image_gen.py`; override with `--cli` if necessary.
+Node 22+ is required. Install `openai` and `Pillow` in the Python environment used by the bundled Imagegen CLI. The CLI defaults to `~/.codex/skills/.system/imagegen/scripts/image_gen.py`; override with `--cli` if necessary. The generated master stays in the state directory; `prepare-cover.py` validates its dimensions and makes a quality-86 WebP for the website.
 
 ```powershell
 # Read-only public API requests; save the full plan, sources and prompts. No paid calls.

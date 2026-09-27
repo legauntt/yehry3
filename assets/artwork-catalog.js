@@ -1,7 +1,7 @@
 // Saved covers. Updated by scripts/song-artwork.mjs.
 export default {
   "distonyc-06d2b8c3c8dffed19df347bb": {
-    "src": "/assets/artwork/distonyc-06d2b8c3c8dffed19df347bb-emphasis-6dd353475261.webp",
+    "src": "/assets/artwork/distonyc-06d2b8c3c8dffed19df347bb-emphasis-6dd353475261-q86.webp",
     "alt": "A witness faces an orchestra and a vast, damaged courtroom. Bread, water and an olive sapling stand nearby; an orchard opens behind the gallery while a clown interrupts the solemn scene.",
     "theme": "generated",
     "tier": 0,

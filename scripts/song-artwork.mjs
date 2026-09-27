@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Maintained wrapper around the installed Imagegen skill CLI. No API key or
 // source packets enter the site. plan is read-only; run is explicitly paid.
-import { readFile, writeFile, mkdir, rename, copyFile, open, unlink, access } from "node:fs/promises";
+import { readFile, writeFile, mkdir, rename, open, unlink, access } from "node:fs/promises";
 import { spawn } from "node:child_process";
 import path from "node:path";
 import os from "node:os";
@@ -73,7 +73,9 @@ export async function main(args = process.argv.slice(2)) {
       const response = await fetch(`${opt.site}/assets/${name}`, { signal: AbortSignal.timeout(30000) });
       if (!response.ok || (await response.text()).replaceAll("\r\n", "\n") !== (await readFile(path.join(root, "assets", name), "utf8")).replaceAll("\r\n", "\n")) throw new Error(`Live code mismatch: ${name}`);
     }
-    console.log(`Verified ${checked} live covers and Dashboard modules.`); return;
+    const snapshot = await apiGet(opt.api, "/songs/summary");
+    if (!Array.isArray(snapshot.songs) || !snapshot.songs.length || snapshot.songs.some(s => !Object.hasOwn(s, "artworkPinnedAt") || (s.artworkPinnedAt !== null && !Number.isFinite(Date.parse(s.artworkPinnedAt))))) throw new Error("Live catalog does not expose valid artwork pin milestones");
+    console.log(`Verified ${checked} live covers, Dashboard modules, and ${snapshot.songs.length} pin milestone fields.`); return;
   }
   const state = path.resolve(opt.state), budget = Number(opt.budget), limit = Number(opt.limit), concurrency = Number(opt.concurrency), lowListens = Number(opt["low-listens"]);
   if (!(budget > 0 && Number.isFinite(budget) && Number.isInteger(limit) && limit > 0 && Number.isInteger(concurrency) && concurrency >= 1 && concurrency <= 6 && Number.isInteger(lowListens) && lowListens >= 0)) throw new Error("Invalid budget, limit, concurrency or listens threshold");
@@ -147,8 +149,9 @@ export async function main(args = process.argv.slice(2)) {
             await atomic(path.join(job.folder, "generation.log"), result.output.replaceAll(key, "[REDACTED]"));
             if (result.code !== 0 || !(await validWebp(output))) throw new Error(`Imagegen failed (exit ${result.code}); see saved generation.log`);
           }
-          const filename = `${job.key}.webp`, src = `/assets/artwork/${filename}`;
-          await copyFile(output, path.join(root, src));
+          const filename = `${job.key}-q86.webp`, src = `/assets/artwork/${filename}`;
+          const prepared = await child(opt.python, [path.join(root, "scripts/prepare-cover.py"), output, path.join(root, src)]);
+          if (prepared.code !== 0 || !(await validWebp(path.join(root, src)))) throw new Error("Cover validation/compression failed; master is saved for free recovery");
           await save(async () => {
             art[job.id] = { src, alt: `Cover artwork for ${job.title}.`, theme: "generated", tier: 0, remixed: false, treatment: job.treatment, model: POLICY.model, sourceHash: job.sourceHash, promptHash: digest(job.prompt), createdAt: new Date().toISOString(), missingSources: job.missing, previous: art[job.id]?.src || null };
             await atomic(registryPath, prefix + JSON.stringify(art, null, 2) + ";\n");
