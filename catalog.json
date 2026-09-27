@@ -2,6 +2,99 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-f13f78a2474383f7eb72c64e",
+      "title": "Lamma Bada Tragic Aria",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f13f78a2474383f7eb72c64e-50a4329376b7.mp3",
+      "duration": 300.0424489795918,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-563929c05b5b15405bcaeaeb",
+        "title": "Lamma Bada Cynical Dancefloor Rework",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-563929c05b5b15405bcaeaeb-7d53d776ff1f.mp3"
+      },
+      "publishedAt": "2026-09-27T07:58:35.336Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Lamma Bada Tragic Aria",
+        "recipe": "reinterpretation",
+        "style": "opera",
+        "keyscale": "D minor",
+        "arrangement": "Tragic Arabic-inflected operatic aria in D minor: a lone, steady Tony V9 lead enters over low strings and piano, then rises through strings, harp, timpani, French horns and restrained mixed choir. Keep the recognizable “لما بدا يتثنى” hook and its winding motif, but recast the rhythm as a slow 6/8 lament with dramatic pauses and swelling refrains. The guide lead should be clearly pitched, sustained and emotionally direct, with no vocal doubles or effects; Tony’s rough connected phrasing is applied afterward. Build from intimate grief to a full-orchestra final refrain, then carry the final “آمان” through about 290 seconds, resolving on one final D-minor chord that decays naturally to 300 seconds.",
+        "lyrics": "[Intro]\nلما بدا يتثنى\nلما بدا يتثنى\nفي صمتِ المسرحِ يذوبُ الضوء\nوالقلبُ يعرفُ ما لا يقول\n\n[Verse 1]\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nمرَّ كطيفٍ على حافةِ الليل\nفارتجفَ الوعدُ بينَ يديه\nلا سوقَ للروحِ حينَ تنادي\nلا ثمنَ للحبِّ إن ضاعَ فيه\nيا من جعلتَ الهوى محكمةً\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nOh, fuck, I'm gonna *cum*!\nNine eleven\nI want to fuck\n\n[Verse 2]\nوعدي ويا حيرتي\nمن لي رحيم شكوتي\nفي الحب من لوعتي\nإلا مليك الجمال\nقالوا المحبةُ صفقةُ ليل\nقلتُ: هي نارٌ بلا مستحيل\nكلُّ الذينَ على بابها مرّوا\nتركوا أسماءهم للرحيل\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nيا قلبُ، لا تهرب الآن\nهذا الجمالُ هو الامتحان\n\n[Bridge]\nمن لي رحيم شكوتي\nفي الحب من لوعتي\nإلا مليك الجمال\nلا وعدَ يبقى، لا قيدَ يدوم\nلكنَّ خطوتَه تحكمُ هذا اليوم\nفخذِ الليالي إذا شئتَ منّي\nواتركْ لي اسمًا يضيءُ في الغيوم\nNine eleven\nI want to fuck\n\n[Breakdown]\nكل وجهٍ يطلب دورًا جديد\nكل قلبٍ يساوم في المواعيد\nوالضوء يدور على كفّيه\nوالليل يصفّق ثم يعيد\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nOh, fuck, I'm gonna *cum*!\nوعدي ويا حيرتي\nمن لي رحيم شكوتي\nإلا مليك الجمال\nNine eleven\nI want to fuck\n\n[Outro]\nآمان، آمان\nآمان، آمان\nلما بدا يتثنى\nNine eleven\nI want to fuck\n[End]",
+        "duration": 300,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Tragic operatic aria with Arabic melodic inflection",
+          "meter": "Slow 6/8",
+          "structure": "Intro, Verse 1, Refrain, Verse 2, Refrain, Bridge, Breakdown, Final Refrain, Outro",
+          "performance": "One clear, steadily pitched dramatic lead with sustained operatic phrasing",
+          "energy": "Quiet, mournful opening; mounting orchestral anguish; full tragic climax; resolved final decay",
+          "lyricWorkflow": "Adapted source-guided lyrics retaining the central Arabic hook and motifs",
+          "instruments": [
+            "piano",
+            "strings",
+            "harp",
+            "French horns",
+            "timpani",
+            "mixed choir"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nلما بدا يتثنى\nلما بدا يتثنى\nفي صمتِ المسرحِ يذوبُ الضوء\nوالقلبُ يعرفُ ما لا يقول\n\n[Verse 1]\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nمرَّ كطيفٍ على حافةِ الليل\nفارتجفَ الوعدُ بينَ يديه\nلا سوقَ للروحِ حينَ تنادي\nلا ثمنَ للحبِّ إن ضاعَ فيه\nيا من جعلتَ الهوى محكمةً\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nOh, fuck, I'm gonna *cum*!\nNine eleven\nI want to fuck\n\n[Verse 2]\nوعدي ويا حيرتي\nمن لي رحيم شكوتي\nفي الحب من لوعتي\nإلا مليك الجمال\nقالوا المحبةُ صفقةُ ليل\nقلتُ: هي نارٌ بلا مستحيل\nكلُّ الذينَ على بابها مرّوا\nتركوا أسماءهم للرحيل\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nيا قلبُ، لا تهرب الآن\nهذا الجمالُ هو الامتحان\n\n[Bridge]\nمن لي رحيم شكوتي\nفي الحب من لوعتي\nإلا مليك الجمال\nلا وعدَ يبقى، لا قيدَ يدوم\nلكنَّ خطوتَه تحكمُ هذا اليوم\nفخذِ الليالي إذا شئتَ منّي\nواتركْ لي اسمًا يضيءُ في الغيوم\nNine eleven\nI want to fuck\n\n[Breakdown]\nكل وجهٍ يطلب دورًا جديد\nكل قلبٍ يساوم في المواعيد\nوالضوء يدور على كفّيه\nوالليل يصفّق ثم يعيد\nNine eleven\nI want to fuck\n\n[Refrain]\nلما بدا يتثنى\nلما بدا يتثنى\nحبي جماله فتننا\nأمر ما بلحظة أسرنا\nغصن ثنى حين مال\nOh, fuck, I'm gonna *cum*!\nوعدي ويا حيرتي\nمن لي رحيم شكوتي\nإلا مليك الجمال\nNine eleven\nI want to fuck\n\n[Outro]\nآمان، آمان\nآمان، آمان\nلما بدا يتثنى\nNine eleven\nI want to fuck",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 17,
+            "start": 139.7,
+            "end": 152.04
+          },
+          {
+            "line": 25,
+            "start": 254.9,
+            "end": 261.6
+          },
+          {
+            "line": 27,
+            "start": 281.92,
+            "end": 287.1
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Remix “Lamma Bada Cynical Dancefloor Rework”. Give it a new arrangement while keeping its identity.",
+        "direction": "New mood and genre: Tragic aria",
+        "keep": "Keep the recognizable hook and spirit of “Lamma Bada Cynical Dancefloor Rework”.",
+        "basisSongs": [
+          "Lamma Bada Cynical Dancefloor Rework"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 300,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-21c8149b819a0dfa21a08913",
       "title": "Aw, Hell, Jimmy",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-21c8149b819a0dfa21a08913-3f6eab612d49.mp3",
