@@ -356,6 +356,11 @@ function resolve(song) {
 }
 // Supplied covers stay with their recording, including after votes or redraws.
 const customArtwork = new Map([
+  ["distonyc-41122cfa1d30d985e40d357b", {
+    src: "/assets/artwork/nine-eleven-d-again-fbfe8b.webp",
+    alt: "Six bearded men wearing turbans sit on worn front steps, with a Parental Advisory label in the lower right.",
+    theme: "front-steps", tier: 0, remixed: false,
+  }],
   ["distonyc-60b6f486ebcc0c56b875cfc9", {
     src: "/assets/artwork/miracle-piss-tragic-aria.webp",
     alt: "A glass of golden light on a dark opera stage, framed by velvet curtains and an opening into a moonlit garden.",

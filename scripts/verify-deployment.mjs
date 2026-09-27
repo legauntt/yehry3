@@ -179,6 +179,7 @@ for (const name of [
   "catalog-tools.css",
   "compact-cards.css",
   "song-art.js",
+  "artwork/nine-eleven-d-again-fbfe8b.webp",
   "artwork/weird-hair-weird-smells-tattoo.webp",
   "artwork/miracle-piss-tragic-aria.webp",
   "artwork/lamma-bada-cynical-dancefloor-rework.webp",
