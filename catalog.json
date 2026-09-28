@@ -2,6 +2,90 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-dafe959adf6626195e5db578",
+      "title": "Who I Aw",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-dafe959adf6626195e5db578-615036e09b89.mp3",
+      "duration": 79.98693877551021,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-09-28T04:19:45.011Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Who I Aw",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Compact original rock track with tight electric guitar, active bass, punchy drums, and restrained organ texture. A clear, steadily pitched Tony C v9 lead carries the supplied phonetic lyric sheet with connected phrasing; the chorus opens into a direct hook, then the final Verse 2 stretches its last phrase to land about 10 seconds before a single resolved E minor chord decays.",
+        "lyrics": "[Intro]\nDrawp et\n\n[Verse 1]\nDell me Narcan, yew un uh stan Mai puh zission\nAw muh wuh step, a head a duh Moe tission\nGan lib day duh day, biz uh niz uh usual\nLoogin' foe woe too duh from uncenter add a few mural\nI'm burnin' dat can dew add boph N's\nAlona wiff frenz libbin' lie befoe Ed N's\nBay guhs I faw duh dee maw an' I weigh the skozz\n\n[Chorus]\nN uh who I am is a, who I aw\nYeh\nIs a who I aw\n\n[Bridge]\nWhale\n\n[Verse 2]\nWho I aw is a who I is, gee whiz mutha fuckas\nAwl ub N Mai biz\nI gah duh 'geep bein' me, dill I git lay\nDow N Mai gray\n[End]",
+        "duration": 80,
+        "bpm": 116,
+        "musicalSettings": {
+          "genre": "Compact melodic rock",
+          "meter": "4/4",
+          "structure": "Intro → Verse 1 → Chorus → Bridge → Verse 2 → resolved ending",
+          "performance": "Clear, steadily pitched solo lead with connected natural phrasing",
+          "energy": "Immediate mid-high drive, a brief bridge drop, then a final lift and clean resolution",
+          "lyricWorkflow": "Preserved supplied lyrics in their original order",
+          "instruments": [
+            "electric guitar",
+            "electric bass",
+            "drum kit",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nDrawp et\n\n[Verse 1]\nDell me Narcan, yew un uh stan Mai puh zission\nAw muh wuh step, a head a duh Moe tission\nGan lib day duh day, biz uh niz uh usual\nLoogin' foe woe too duh from uncenter add a few mural\nI'm burnin' dat can dew add boph N's\nAlona wiff frenz libbin' lie befoe Ed N's\nBay guhs I faw duh dee maw an' I weigh the skozz\n\n[Chorus]\nN uh who I am is a, who I aw\nYeh\nIs a who I aw\n\n[Bridge]\nWhale\n\n[Verse 2]\nWho I aw is a who I is, gee whiz mutha fuckas\nAwl ub N Mai biz\nI gah duh 'geep bein' me, dill I git lay\nDow N Mai gray",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 13,
+            "start": 41.86,
+            "end": 44.92
+          },
+          {
+            "line": 15,
+            "start": 47.88,
+            "end": 48.98
+          },
+          {
+            "line": 21,
+            "start": 56.86,
+            "end": 60.2
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "originalPrompt": {
+        "idea": "Original rock song",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 80,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-0f3ccb9bbc5943f420433fc2",
       "title": "Yeah After Midnight (Midnight Jazz Rework)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0f3ccb9bbc5943f420433fc2-e96dfb813074.mp3",
