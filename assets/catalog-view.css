@@ -29,7 +29,7 @@
   .song-link-caption { display: block; max-width: 64px; font-size: .6rem; line-height: 1.2; text-align: center; overflow-wrap: anywhere; }
 }
 /* Quick taps on the art are an easter egg, not a double-tap zoom. */
-.track-art { display: block; width: 82px; height: auto; aspect-ratio: 6 / 5; object-fit: cover; border-radius: 7px; touch-action: manipulation; }
+.track-art { display: block; width: 82px; height: auto; aspect-ratio: 6 / 5; object-fit: contain; border-radius: 7px; touch-action: manipulation; }
 /* Easter egg: while the sound loads the art pulses, but only if it is slow enough to notice. */
 .track-art.egg-loading { animation: egg-loading .7s ease-in-out .25s infinite alternate; cursor: progress; }
 @keyframes egg-loading {
