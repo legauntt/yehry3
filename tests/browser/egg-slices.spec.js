@@ -43,7 +43,7 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test("a cold triple-click samples only its cover's song and preserves the main player's position", async ({ page }) => {
+test("a cold preview click samples only its song and preserves the main player's position", async ({ page }) => {
   // Missing cue metadata must never fall back to either fixed gag.
   await page.route("**/egg-clips.json", route => route.fulfill({ status: 503, body: "Unavailable" }));
   await page.goto("/");
@@ -51,7 +51,9 @@ test("a cold triple-click samples only its cover's song and preserves the main p
   await expect.poll(() => page.locator("#audio").evaluate(audio => !audio.paused)).toBe(true);
   await page.locator("#audio").evaluate(audio => { audio.currentTime = 12; });
   const art = page.locator('[data-id="one"] .track-art');
-  await art.click({ clickCount: 3 });
+  const preview = page.getByRole("button", { name: "Play a random clip from Song one", exact: true });
+  await preview.click();
+  await expect(preview).toHaveClass(/is-playing/);
   await expect(art).toHaveClass(/egg-shock/);
   const heard = await page.evaluate(() => {
     const clip = window.__clips.at(-1), main = document.querySelector("#audio");
@@ -66,17 +68,19 @@ test("a cold triple-click samples only its cover's song and preserves the main p
   expect(heard.position).toBeGreaterThanOrEqual(12);
   await page.locator("#audio").evaluate(audio => audio.play());
   await expect(art).not.toHaveClass(/egg-shock/);
+  await expect(preview).not.toHaveClass(/is-playing/);
   await expect.poll(() => page.evaluate(() => window.__clips.at(-1).paused)).toBe(true);
   expect(await page.locator("#audio").evaluate(audio => audio.currentTime)).toBeGreaterThanOrEqual(heard.position);
 });
 
-test("cover clips follow their own sung lines and stop at the slice boundary", async ({ page }) => {
+test("keyboard previews follow their own sung lines and stop at the slice boundary", async ({ page }) => {
   await page.goto("/");
   const art = page.locator('[data-id="one"] .track-art');
+  const preview = page.getByRole("button", { name: "Play a random clip from Song one", exact: true });
   const loaded = page.waitForResponse("**/egg-clips.json");
-  await art.click();
+  await preview.focus();
   await loaded;
-  await art.click({ clickCount: 2 });
+  await preview.press("Enter");
   await expect(page.locator(".egg-caption-title")).toHaveText("♪ Song one");
   await expect(page.locator(".egg-caption-words")).toHaveText("one later words");
   await expect.poll(() => page.evaluate(() => window.__clips.at(-1).currentTime)).toBeGreaterThanOrEqual(8);
@@ -84,7 +88,7 @@ test("cover clips follow their own sung lines and stop at the slice boundary", a
   await expect(page.locator(".egg-caption")).toHaveCount(0);
   expect(await page.evaluate(() => window.__clips.at(-1).paused)).toBe(true);
   await page.evaluate(() => { Math.random = () => 0; });
-  await art.click({ clickCount: 3 });
+  await preview.press("Space");
   await expect(page.locator(".egg-caption-words")).toHaveText("one first words");
   expect(await page.evaluate(() => window.__clips.map(audio => new URL(audio.src).pathname))).toEqual(["/one.wav", "/one.wav"]);
 });
@@ -105,6 +109,17 @@ test("clicking a saved cover opens its viewer without sampling audio", async ({ 
   }
   expect(await page.evaluate(() => window.__clips.length)).toBe(0);
   await expect(art).not.toHaveClass(/egg-shock/);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.getByRole("button", { name: "List", exact: true }).click();
+  const preview = page.getByRole("button", { name: "Play a random clip from Song one", exact: true });
+  const loaded = page.waitForResponse("**/egg-clips.json");
+  await preview.focus();
+  await loaded;
+  await preview.click();
+  await expect(art).toHaveClass(/egg-shock/);
+  await expect(page.locator(".cover-viewer")).not.toBeVisible();
+  expect(await page.evaluate(() => window.__clips.map(audio => new URL(audio.src).pathname))).toEqual(["/one.wav"]);
+  await page.screenshot({ path: "artifacts/song-preview-mobile.png" });
 });
 
 test("the record samples random songs without repeated picks or idle lyric popups on mobile", async ({ page }) => {

@@ -12,6 +12,7 @@ test('List keeps titles, notices and touch controls readable in compact rows', a
   }));
   await page.addInitScript(() => localStorage.setItem('yehry3:catalog-view', 'list'));
   await page.route('**/yehry3/{catalog,songs/summary}', route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route('**/yehry3/catalog/state', route => route.fulfill({ json: { feedback: {} } }));
   await page.route('**/yehry3/queue?*', route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.goto('/?sort=catalog');
   await expect(page.locator('#tracks > .track')).toHaveCount(24);

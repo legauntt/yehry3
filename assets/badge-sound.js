@@ -12,6 +12,11 @@ let current = null;
 
 export const hasBadgeSound = (status) => soundStatuses.has(status);
 
+export function songPreviewButton(song, escape) {
+  if (!song.url) return "";
+  return `<button type="button" class="song-preview" data-song-preview="${escape(song.id)}" data-clip-url="${escape(song.url)}" data-clip-title="${escape(song.title)}" data-clip-duration="${Number(song.duration) || 0}" aria-label="Play a random clip from ${escape(song.title)}" title="Play a random clip"><svg aria-hidden="true" viewBox="0 0 24 28"><path d="M12 2C8 2 3 11 3 17a9 9 0 0 0 18 0c0-6-5-15-9-15Z"/><path class="song-preview-play" d="m10 11 6 4-6 4Z"/></svg></button>`;
+}
+
 export const badgeSoundIcon =
   '<svg class="badge-sound-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 6v12l-4.5-3.5H4z"></path><path d="M15.5 9.5a3.5 3.5 0 0 1 0 5"></path><path d="M18 7a7 7 0 0 1 0 10"></path></svg>';
 
@@ -179,10 +184,12 @@ function tapArt(art, at, chooseSong) {
   loadMoments();
   if (recent.length < artTaps) return;
   taps.delete(art);
-  const song = chooseSong();
+  sampleSong(art, chooseSong());
+}
+function sampleSong(art, song, button = null) {
   if (!song?.url) return;
   const moment = pickEggMoment(moments?.filter((clip) => clip.id === song.id)) || randomSongSlice(song);
-  whenHeard(art, play(null, moment), { title: song.title, lines: moment.lines });
+  whenHeard(art, play(button, moment), { title: song.title, lines: moment.lines });
 }
 
 export function mountRecordSounds(record, getSongs) {
@@ -205,7 +212,19 @@ export function mountBadgeSounds(root = document) {
   if (root === document) mounted = true;
   // Media events do not bubble, but they can be caught on the way down.
   root.addEventListener("play", (event) => { if (event.target instanceof HTMLMediaElement) stop(); }, true);
+  for (const event of ["pointerover", "focusin"]) root.addEventListener(event, ({ target }) => {
+    if (target.closest?.("[data-song-preview]")) loadMoments();
+  });
   root.addEventListener("click", (event) => {
+    const preview = event.target.closest?.("[data-song-preview]");
+    if (preview) {
+      event.preventDefault();
+      loadMoments();
+      return sampleSong(preview.closest(".track")?.querySelector(".track-art") || preview, {
+        id: preview.dataset.songPreview, url: preview.dataset.clipUrl,
+        title: preview.dataset.clipTitle, duration: Number(preview.dataset.clipDuration),
+      }, preview);
+    }
     // Saved covers open the viewer; repeated opens must never start a sample.
     if (event.target.closest?.("[data-cover-open]")) return;
     // The click keeps its usual job, such as opening a pending row.
