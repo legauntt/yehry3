@@ -1,0 +1,85 @@
+{
+  "version": 1,
+  "songId": "distonyc-dafe959adf6626195e5db578",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-dafe959adf6626195e5db578-615036e09b89.mp3",
+  "audioSha256": "615036e09b89b41dce8f6a695974c2071a2feca7aa1ba1510137559349e6ce53",
+  "inputSha256": "7dc2ff347f9414350cd3bd693d4543c157592934f69dd2c6e260bcd5b6940df5",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 79.9869375,
+  "segments": [
+    {
+      "start": 7.64,
+      "end": 12.0,
+      "text": "Tell me now can you hold or stand my position",
+      "uncertain": true
+    },
+    {
+      "start": 12.0,
+      "end": 16.08,
+      "text": "Almost step ahead after my petition",
+      "uncertain": true
+    },
+    {
+      "start": 16.08,
+      "end": 20.38,
+      "text": "Come lit day to day business is the usual",
+      "uncertain": true
+    },
+    {
+      "start": 20.38,
+      "end": 24.08,
+      "text": "Looking for a wall to dove from on center at a funeral",
+      "uncertain": true
+    },
+    {
+      "start": 24.08,
+      "end": 28.64,
+      "text": "I'm burning that can do at bar fence",
+      "uncertain": true
+    },
+    {
+      "start": 28.64,
+      "end": 32.9,
+      "text": "Alone or with friends living, living through it ends",
+      "uncertain": true
+    },
+    {
+      "start": 32.9,
+      "end": 37.44,
+      "text": "Biggest I fought a demon, then I waved the sky",
+      "uncertain": true
+    },
+    {
+      "start": 41.06,
+      "end": 46.04,
+      "text": "And the who I am is a new I am, yeah",
+      "uncertain": true
+    },
+    {
+      "start": 47.3,
+      "end": 50.68,
+      "text": "Is a new I am, way",
+      "uncertain": false
+    },
+    {
+      "start": 56.68,
+      "end": 61.74,
+      "text": "Who I are is them, who I is, gee whiz, motherfuckers",
+      "uncertain": true
+    },
+    {
+      "start": 61.74,
+      "end": 65.98,
+      "text": "All of my biz, I gotta keep being me",
+      "uncertain": true
+    },
+    {
+      "start": 65.98,
+      "end": 69.46,
+      "text": "Till I get laid down on my grave",
+      "uncertain": false
+    }
+  ]
+}
