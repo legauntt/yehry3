@@ -1766,5 +1766,20 @@ export default {
     "missingSources": [],
     "previous": null,
     "firstSeenAt": "2026-09-28T05:54:00.478Z"
+  },
+  "distonyc-d1a03d6de43ac88c555b2d91": {
+    "src": "/assets/artwork/distonyc-d1a03d6de43ac88c555b2d91-incubating-58dcb159e902-q86.webp",
+    "alt": "Cover artwork for Yeah After Midnight (Midnight Jazz Rework).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "a823951def4cd030ff767d5a37b20824df90bbc626fa7b441f219b0250818823",
+    "promptHash": "3b274da25a174c539823100ea215c62aa70176e53007cb2f73da27b1ad63d08e",
+    "createdAt": "2026-09-28T06:39:43.822Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-09-28T06:39:23.684Z"
   }
 };
