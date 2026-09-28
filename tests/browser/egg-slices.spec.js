@@ -109,6 +109,7 @@ test("clicking a saved cover opens its viewer without sampling audio", async ({ 
 
 test("the record samples random songs without repeated picks or idle lyric popups on mobile", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
+  await page.emulateMedia({ reducedMotion: "no-preference" });
   await page.addInitScript(() => {
     localStorage.setItem("yehry3:record-lyric-captions", "true");
     localStorage.setItem("yehry3:record-lyric-audio", "true");
@@ -130,12 +131,27 @@ test("the record samples random songs without repeated picks or idle lyric popup
   const box = await page.locator(".egg-caption").boundingBox();
   expect(box.x).toBeGreaterThanOrEqual(0);
   expect(box.x + box.width).toBeLessThanOrEqual(390);
+  const color = await record.evaluate(element => getComputedStyle(element).filter);
+  await expect.poll(() => record.evaluate(element => getComputedStyle(element).filter)).not.toBe(color);
+  // The record keeps spinning, but its lyric bubble must not chase the rotating bounds.
+  for (let i = 0; i < 4; i++) {
+    await page.waitForTimeout(120);
+    const nextBox = await page.locator(".egg-caption").boundingBox();
+    expect(nextBox.x).toBeCloseTo(box.x, 0);
+    expect(nextBox.y).toBeCloseTo(box.y, 0);
+    expect(await page.locator(".egg-caption, .egg-caption-words").evaluateAll(elements =>
+      elements.every(element => element.getAnimations().length === 0))).toBe(true);
+  }
   await page.screenshot({ path: "artifacts/record-clip-mobile.png" });
+  await page.emulateMedia({ reducedMotion: "reduce" });
   await record.click({ force: true, clickCount: 3 });
   await expect(page.locator(".egg-caption-title")).toHaveText("♪ Song one");
+  await expect(record).toHaveCSS("animation-name", "none");
+  await expect(record).not.toHaveCSS("filter", "none");
   expect(await page.evaluate(() => window.__clips.map(audio => new URL(audio.src).pathname))).toEqual(["/two.wav", "/one.wav"]);
   await expect(page.locator(".egg-caption")).toHaveCount(0, { timeout: 5000 });
   await expect(record).not.toHaveClass(/egg-shock/);
+  await expect(record).toHaveCSS("filter", "none");
   await page.clock.install();
   await page.clock.runFor(60000);
   await expect(page.locator(".record-lyric, .egg-caption")).toHaveCount(0);

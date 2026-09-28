@@ -6,9 +6,10 @@ const clamp = (value, low, high) => Math.min(Math.max(value, low), Math.max(low,
 
 // title is the song being played; lines are { start, end, words } in the song's own seconds.
 // Returns a function that takes the caption away.
-export function showCaption(art, { title, lines = [] }, audio) {
+export function showCaption(art, { title, lines = [], steady = false }, audio) {
   const box = document.createElement("div");
   box.className = "egg-caption";
+  box.classList.toggle("egg-caption-steady", steady);
   box.setAttribute("aria-hidden", "true");
   const heading = document.createElement("strong");
   heading.className = "egg-caption-title";

@@ -66,6 +66,8 @@
 .egg-caption-title:last-child { border-radius: 8px; }
 .egg-caption-words { margin: 0; padding: 8px 12px 10px; font-size: .95rem; font-weight: 900; letter-spacing: .02em; line-height: 1.2; text-align: center; text-transform: uppercase; text-wrap: balance; overflow-wrap: anywhere; }
 .egg-caption-pop { animation: egg-caption-pop .16s ease-out; }
+.egg-caption-steady { rotate: none; }
+.egg-caption-steady, .egg-caption-steady .egg-caption-pop { animation: none; }
 @keyframes egg-caption-in { from { opacity: 0; scale: .6; } }
 @keyframes egg-caption-pop { from { scale: 1.16; } }
 @media (prefers-reduced-motion: reduce) {

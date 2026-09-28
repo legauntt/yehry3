@@ -125,7 +125,11 @@ export function shock(art, ms, audio, caption) {
   // that starts a moment late is given time to finish it.
   const live = audio && !audio.paused && !audio.ended;
   const timer = setTimeout(() => shocked.get(art)?.(), live ? ms + shockGrace : ms);
-  const removeCaption = caption ? showCaption(art, caption, audio) : null;
+  // A spinning record's bounding rectangle grows and shrinks. Anchor its words
+  // to the stationary sleeve so the caption stays still while the colors change.
+  const record = art.matches(".record");
+  const anchor = record ? art.closest(".sleeve") || art : art;
+  const removeCaption = caption ? showCaption(anchor, { ...caption, steady: record }, audio) : null;
   // The shake follows the sound: while the audio is starved the picture holds still too.
   const stall = () => art.classList.add("egg-stalled");
   const resume = () => art.classList.remove("egg-stalled");

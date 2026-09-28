@@ -527,6 +527,23 @@ main {
 .record.record-spin-idle {
   animation: record-spin 1.6s cubic-bezier(0.35, 0, 0.2, 1);
 }
+/* A sampled song colors the record without moving its lyric bubble. */
+.record.egg-shock {
+  animation: record-clip-color var(--egg-ms, 3.4s) linear;
+}
+.record.egg-shock.egg-stalled {
+  animation-play-state: paused;
+}
+@keyframes record-clip-color {
+  0%, 100% { filter: none; }
+  15% { filter: hue-rotate(60deg) saturate(1.8); }
+  40% { filter: hue-rotate(160deg) saturate(1.8); }
+  65% { filter: hue-rotate(260deg) saturate(1.8); }
+  85% { filter: hue-rotate(340deg) saturate(1.8); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .record.egg-shock { animation: none; filter: hue-rotate(160deg) saturate(1.8); }
+}
 .record:after {
   content: "";
   position: absolute;
