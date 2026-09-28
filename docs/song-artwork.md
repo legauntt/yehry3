@@ -52,12 +52,38 @@ npm run artwork:run -- --redo SONG_ID --direction path/to/art-direction.txt
 npm run artwork:verify
 ```
 
-The default state directory is `~/output/imagegen/yehry3-artwork`; pass `--state` to choose another. Keep this directory across runs. It contains `plan.json`, each exact `sources.json` and `prompt.txt`, the generated master image, CLI logs, and a persistent `ledger.json`. These do not enter the public build. Only generated image assets and cover metadata do. Never commit the key file or use the key itself as a command argument. `--key-file` takes precedence over a stale environment key.
+The default state directory is `~/output/imagegen/yehry3-artwork`; pass `--state` to choose another. Keep this directory across runs. It contains the latest `plan.json`, archived nonempty plans in `plans/`, each exact `sources.json` and `prompt.txt`, the generated master image, CLI logs, and a persistent `ledger.json`. These do not enter the public build. Only generated image assets and cover metadata do. Never commit the key file or use the key itself as a command argument. `--key-file` takes precedence over a stale environment key.
 
-`--budget` is a **cumulative conservative estimated-spend ceiling for this state directory**, not a new allowance each run and not a provider billing guarantee. Reservations include UTF-8 byte-based input estimates plus 20% image-output headroom, using the September 27, 2026 GPT Image 2 prices. The bundled CLI does not expose actual usage. Failed or uncertain attempts keep their reservation. Existing output is reused without another API call. Failed or uncertain jobs require explicit `--retry`; a CLI/API failure is never bypassed or rewritten to evade content checks. The CLI is invoked once per job with one wrapper attempt; its installed SDK may still retry transport errors.
+`--budget` is a **conservative estimated-spend ceiling**, not a new allowance each run and not a provider billing guarantee. The default `--budget-period cumulative` tracks this backfill against its $25 allowance. `--budget-period monthly` tracks a separate $40 allowance for each calendar month in America/Los_Angeles; the initial backfill does not consume that new monthly allowance. Reservations include UTF-8 byte-based input estimates plus 20% image-output headroom, using the September 27, 2026 GPT Image 2 prices. The bundled CLI does not expose actual usage. Failed or uncertain attempts keep their reservation. Existing output is reused without another API call. Failed or uncertain jobs require explicit `--retry`; a CLI/API failure is never bypassed or rewritten to evade content checks. The CLI is invoked once per job with one wrapper attempt; its installed SDK may still retry transport errors.
 
 Use `--limit N` to cap new calls, `--concurrency 1..6` (default 3), and `--low-listens N` to change the threshold. Source packets and prompts are prepared before key access or generation. A state-directory lock prevents concurrent runs from double-spending; after a crash, inspect `run.lock`, its PID, and the ledger before removing the stale lock. Do not run multiple state directories against the same checkout.
 
-The program installs covers locally; normal checked Git deployment publishes them. It does not embed credentials in the website or call image generation from a listener's browser. Re-run it to process new songs and future pin milestones. No recurring paid schedule is installed by default.
+The program installs covers locally; normal checked Git deployment publishes them. It does not embed credentials in the website or call image generation from a listener's browser.
+
+## New-track incubation
+
+Jesse approved a cheap picture first and one richer picture after **24 hours** on September 27, 2026. `--lifecycle --incubation-hours 24` implements that policy:
+
+- First observation of an active new song: **incubating**, a low-quality pictorial cover using the same full source material.
+- Still active 24 hours after first observation: **mature**, one medium-quality finished picture.
+- Incubation timing is durable in `incubation.json` and in each incubation cover's `firstSeenAt`. Restarting the process does not restart the clock.
+- Existing supplied images, this correction's basic/emphasis covers, and completed mature covers remain unchanged. Only a lifecycle-owned incubation image can be automatically upgraded.
+- The installed task's `baseline` points to this batch's existing-catalog audit. Those tracks never enter new-track automation, including any rejected covers left as placeholders. A failed/uncertain first-stage request cannot be retried by merely reaching maturity.
+- Pinned songs are always protected in lifecycle mode, including pins added while an image is rendering. This mode does not invoke the manual monument rule.
+- Archived songs are absent from the active API snapshot and rechecked before generation and installation. A song absent during the first pass can go directly to mature after its recorded incubation period.
+- Failed or rejected image calls retain their reservations and require manual review. The scheduler never retries them automatically or changes rejected source material.
+
+`scripts/artwork-lifecycle.py --config PRIVATE_CONFIG.json` runs one complete pass in an isolated worktree from current `origin/talandar`: audit, bounded generation, pin protection, build/tests, commit, rebase concurrent publications, push, exact live verification, and clean worktree removal. `--check` only plans and cleans up; it makes no image calls or deployment. A failure preserves the worktree and writes `automation/pending.json`, which blocks later passes until reviewed. Every command's output is retained under `automation/runs/`.
+
+The Windows installer `scripts/install-artwork-task.ps1 -Config PRIVATE_CONFIG.json` copies the runner outside the task worktree and registers **yehry3 Artwork Lifecycle**, every 15 minutes while Jesse is logged in. It uses `pythonw.exe`, hidden subprocesses, and overlapping runs are ignored. Thus an initial picture is requested on the first poll; the free title sleeve remains visible until generation and deployment finish. The mature stage follows on the first poll after 24 hours.
+
+The private config contains `repo`, `workspace`, `state`, `baseline`, `node`, `npmCli`, `python`, `keyFile`, `budget: 40`, `budgetPeriod: "monthly"`, `incubationHours: 24`, `limit`, and `concurrency`. It points to the existing key file; it never contains the key. The installed task preserves this backfill's **same audit ledger**, with a new **$40 allowance per calendar month**. The runner refuses to start if that ledger is missing and stops paid work when that month's conservative reservations reach the allowance. A run crossing a month boundary defers any unstarted old-month reservations until the next pass. Nothing deletes or zeroes historical receipts: `oneOffReservations`, `monthlyReservations`, lifetime `reservations`, per-job states, and append-only `events` retain estimates and outcomes. Attempt logs, full creative sources, exact prompts, originals, and deployment logs are stored beside the ledger. These are estimates, not provider billing statements. Inspect status with:
+
+```powershell
+node scripts/artwork-status.mjs --state path/to/shared/generation --logs
+Get-ScheduledTaskInfo -TaskName 'yehry3 Artwork Lifecycle'
+```
+
+To pause future generation: `Disable-ScheduledTask -TaskName 'yehry3 Artwork Lifecycle'`. Keep its state, ledger and masters. Changing the allowance requires a new authorization and updating the runner's explicit ceiling.
 
 Official pricing reference: https://developers.openai.com/api/docs/models/gpt-image-2

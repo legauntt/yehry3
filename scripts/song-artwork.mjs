@@ -8,7 +8,7 @@ import os from "node:os";
 import { pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
 import { POLICY, treatments, selectTreatment, sourcePacket, makePrompt, digest, estimateCost, isPinnedOrUnknown } from "./artwork-policy.mjs";
-import { reserveJobs } from "./artwork-budget.mjs";
+import { reserveJobs, budgetMonth } from "./artwork-budget.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
 const registryPath = path.join(root, "assets/artwork-catalog.js");
@@ -62,14 +62,34 @@ export async function main(args = process.argv.slice(2)) {
     redo: { type: "string", multiple: true, default: [] }, only: { type: "string", multiple: true, default: [] },
     direction: { type: "string" }, "low-listens": { type: "string", default: String(POLICY.lowListens) },
     budget: { type: "string", default: "10" }, limit: { type: "string", default: "300" },
+    "budget-period": { type: "string", default: "cumulative" },
     concurrency: { type: "string", default: "3" }, retry: { type: "boolean", default: false },
     "exclude-pinned": { type: "boolean", default: false },
     "placeholders-only": { type: "boolean", default: false },
     "from-audit": { type: "string" },
+    lifecycle: { type: "boolean", default: false },
+    "lifecycle-baseline": { type: "string" },
+    "incubation-hours": { type: "string", default: "24" },
     help: { type: "boolean", default: false },
   } });
   const command = positionals[0] || "plan";
-  if (opt.help) { console.log("song-artwork.mjs plan|run|verify [--only ID] [--redo ID] [--direction FILE] [--state DIR] [--budget USD] [--limit N] [--concurrency 3] [--key-file FILE] [--python EXE] [--exclude-pinned] [--placeholders-only] [--from-audit FILE]\nplan fetches and saves all source packets/prompts without calling Image API. run reserves estimated spend in a persistent ledger, calls the bundled CLI and installs covers. verify compares saved image hashes with the live site. --retry explicitly retries failed/uncertain jobs; normal reruns never do. --from-audit limits the batch to that audit's unpinned title placeholders and implies both protection flags. --exclude-pinned rechecks pins before generation and before installation."); return; }
+  if (opt.help) {
+    console.log(`song-artwork.mjs plan|report|run|verify [--state DIR] [--budget USD]
+  [--budget-period cumulative|monthly] [--limit N] [--concurrency 3]
+  [--key-file FILE] [--python EXE] [--only ID] [--redo ID] [--direction FILE]
+  [--exclude-pinned] [--placeholders-only] [--from-audit FILE]
+  [--lifecycle] [--lifecycle-baseline FILE] [--incubation-hours 24]
+plan saves full sources and prompts without image calls. report summarizes that plan.
+run reserves estimated spend in the persistent ledger, calls the installed Imagegen CLI,
+and installs covers locally. verify compares saved images and modules with the live site.
+--from-audit limits replacements to that audit's unpinned title placeholders.
+--exclude-pinned rechecks pins before generation and before installation.
+--lifecycle creates a cheap initial picture and one mature picture after incubation,
+protecting pins, existing finished pictures, and every ID in --lifecycle-baseline.
+Monthly budgets use America/Los_Angeles calendar months and retain prior receipts.
+--retry explicitly retries failed/uncertain jobs; normal reruns never do.`);
+    return;
+  }
   if (command === "report") {
     const plan = await json(path.join(path.resolve(opt.state), "plan.json"));
     if (!plan?.jobs) throw new Error("Run plan first");
@@ -81,6 +101,11 @@ export async function main(args = process.argv.slice(2)) {
   }
   if (!["plan", "run", "verify"].includes(command)) throw new Error("Unknown command");
   const art = await registry();
+  if (opt.lifecycle) {
+    if (opt["from-audit"] || opt.only.length || opt.redo.length || opt.direction) throw new Error("Lifecycle cannot be combined with a batch audit or explicit replacements");
+    if (!(Number(opt["incubation-hours"]) > 0 && Number.isFinite(Number(opt["incubation-hours"])))) throw new Error("Invalid incubation period");
+    opt["exclude-pinned"] = true;
+  }
   const audit = opt["from-audit"] ? await json(opt["from-audit"]) : null;
   if (opt["from-audit"]) {
     if (!Array.isArray(audit?.songs) || !audit.songs.length) throw new Error("Invalid artwork audit");
@@ -105,6 +130,7 @@ export async function main(args = process.argv.slice(2)) {
     console.log(`Verified ${checked} live covers, Dashboard modules, and ${snapshot.songs.length} pin milestone fields.`); return;
   }
   const state = path.resolve(opt.state), budget = Number(opt.budget), limit = Number(opt.limit), concurrency = Number(opt.concurrency), lowListens = Number(opt["low-listens"]);
+  if (!["cumulative", "monthly"].includes(opt["budget-period"])) throw new Error("Invalid budget period");
   if (!(budget > 0 && Number.isFinite(budget) && Number.isInteger(limit) && limit > 0 && Number.isInteger(concurrency) && concurrency >= 1 && concurrency <= 6 && Number.isInteger(lowListens) && lowListens >= 0)) throw new Error("Invalid budget, limit, concurrency or listens threshold");
   if (opt.direction && opt.redo.length + opt.only.length !== 1) throw new Error("Art direction must target exactly one --only or --redo song");
   await mkdir(state, { recursive: true });
@@ -115,14 +141,38 @@ export async function main(args = process.argv.slice(2)) {
     await lock.writeFile(JSON.stringify({ pid: process.pid, startedAt: new Date().toISOString(), root }));
     const snapshot = await apiGet(opt.api, "/songs/summary");
     if (!Array.isArray(snapshot.songs) || !snapshot.songs.length) throw new Error("Empty or invalid catalog");
+    const observationFile = path.join(state, "incubation.json");
+    const observations = opt.lifecycle ? await json(observationFile, { firstSeen: {} }) : { firstSeen: {} };
+    if (!observations.firstSeen || typeof observations.firstSeen !== "object") throw new Error("Invalid incubation history");
+    const observedAt = new Date().toISOString();
+    if (opt.lifecycle) {
+      for (const song of snapshot.songs) observations.firstSeen[song.id] ||= observedAt;
+      await atomic(observationFile, JSON.stringify(observations, null, 2) + "\n");
+    }
+    const lifecycleProtected = new Set();
+    if (opt.lifecycle) {
+      if (opt["lifecycle-baseline"]) {
+        const baseline = await json(opt["lifecycle-baseline"]);
+        if (!Array.isArray(baseline?.songs) || !baseline.songs.length) throw new Error("Invalid lifecycle baseline");
+        for (const song of baseline.songs) lifecycleProtected.add(song.id);
+      }
+      // A different stage must not turn a rejected/uncertain job into a silent retry.
+      const history = await json(path.join(state, "ledger.json"), { jobs: {} });
+      for (const [key, entry] of Object.entries(history.jobs)) {
+        if (["failed-or-uncertain", "reserved"].includes(entry.status)) {
+          const id = entry.songId || key.match(/^(.+)-(?:incubating|mature|basic|emphasis|monument)-[a-f0-9]{12}$/)?.[1];
+          if (id) lifecycleProtected.add(id);
+        }
+      }
+    }
     const wanted = new Set(audit ? audit.songs.filter(s => s.kind === "text-placeholder" && s.pins === 0).map(s => s.id) : [...opt.only, ...opt.redo]);
     if (!audit) for (const id of wanted) if (!snapshot.songs.some(s => s.id === id)) throw new Error(`Song not in active catalog: ${id}`);
     const protectedSongs = snapshot.songs.filter(s => opt["exclude-pinned"] && isPinnedOrUnknown(s)).map(s => ({ id: s.id, title: s.title, pins: s.pins ?? null }));
     const protectedIds = new Set([...protectedSongs, ...(audit?.songs.filter(s => isPinnedOrUnknown(s)) || [])].map(s => s.id));
     const direction = opt.direction ? await readFile(opt.direction, "utf8") : "";
-    const candidates = snapshot.songs.filter(s => (audit || wanted.size ? wanted.has(s.id) : true) && !protectedIds.has(s.id) && (!opt["placeholders-only"] || !art[s.id]))
-      .map(song => ({ song, treatment: selectTreatment(song, art[song.id], { redo: opt.redo.includes(song.id), lowListens, excludePinned: opt["exclude-pinned"] }) }))
-      .filter(j => j.treatment).sort((a, b) => (opt.redo.includes(b.song.id) - opt.redo.includes(a.song.id)) || (["monument", "emphasis", "basic"].indexOf(a.treatment) - ["monument", "emphasis", "basic"].indexOf(b.treatment)) || Number(b.song.votes || 0) - Number(a.song.votes || 0));
+    const candidates = snapshot.songs.filter(s => (audit || wanted.size ? wanted.has(s.id) : true) && !protectedIds.has(s.id) && !lifecycleProtected.has(s.id) && (!opt["placeholders-only"] || !art[s.id]))
+      .map(song => ({ song, treatment: selectTreatment(song, art[song.id], { redo: opt.redo.includes(song.id), lowListens, excludePinned: opt["exclude-pinned"], lifecycle: opt.lifecycle, incubationHours: Number(opt["incubation-hours"]), firstSeenAt: observations.firstSeen[song.id] }) }))
+      .filter(j => j.treatment).sort((a, b) => (opt.redo.includes(b.song.id) - opt.redo.includes(a.song.id)) || (["monument", "mature", "emphasis", "incubating", "basic"].indexOf(a.treatment) - ["monument", "mature", "emphasis", "incubating", "basic"].indexOf(b.treatment)) || Number(b.song.votes || 0) - Number(a.song.votes || 0));
     const jobs = [], failedSources = [];
     for (const candidate of candidates) {
       const { song, treatment } = candidate;
@@ -137,12 +187,15 @@ export async function main(args = process.argv.slice(2)) {
         await mkdir(folder, { recursive: true });
         await atomic(path.join(folder, "sources.json"), JSON.stringify(packet, null, 2) + "\n");
         await atomic(path.join(folder, "prompt.txt"), prompt);
-        const job = { id: song.id, title: song.title, treatment, fingerprint, key, folder, estimate: estimateCost(prompt, treatment), missing: packet.missing, prompt, sourceHash: digest(packet) };
+        const job = { id: song.id, title: song.title, treatment, fingerprint, key, folder, estimate: estimateCost(prompt, treatment), missing: packet.missing, prompt, sourceHash: digest(packet), ...(opt.lifecycle ? { firstSeenAt: art[song.id]?.firstSeenAt || observations.firstSeen[song.id] } : {}) };
         jobs.push(job);
       } catch (e) { failedSources.push({ id: song.id, reason: e.message }); }
     }
-    const plan = { createdAt: new Date().toISOString(), policy: { ...POLICY, lowListens, excludePinned: opt["exclude-pinned"], placeholdersOnly: opt["placeholders-only"] }, catalogCount: snapshot.songs.length, preserved: snapshot.songs.length - jobs.length, protectedSongs, estimatesAreNotBills: true, jobs: jobs.map(({ prompt, ...job }) => job), failedSources };
+    const plan = { createdAt: new Date().toISOString(), policy: { ...POLICY, lowListens, excludePinned: opt["exclude-pinned"], placeholdersOnly: opt["placeholders-only"], lifecycle: opt.lifecycle, incubationHours: Number(opt["incubation-hours"]) }, catalogCount: snapshot.songs.length, preserved: snapshot.songs.length - jobs.length, protectedSongs, estimatesAreNotBills: true, jobs: jobs.map(({ prompt, ...job }) => job), failedSources };
     await atomic(path.join(state, "plan.json"), JSON.stringify(plan, null, 2) + "\n");
+    if (jobs.length || failedSources.length) {
+      await atomic(path.join(state, "plans", plan.createdAt.replaceAll(":", "-") + ".json"), JSON.stringify(plan, null, 2) + "\n");
+    }
     const counts = Object.fromEntries(Object.keys(treatments).map(t => [t, jobs.filter(j => j.treatment === t).length]));
     console.log(JSON.stringify({ command, catalog: plan.catalogCount, preserved: plan.preserved, ...counts, estimate: +jobs.reduce((n, j) => n + j.estimate, 0).toFixed(2), failedSources, plan: path.join(state, "plan.json") }));
     if (command === "plan") return;
@@ -159,19 +212,20 @@ export async function main(args = process.argv.slice(2)) {
     for (const job of jobs) {
       if (await validWebp(path.join(job.folder, "cover.webp"))) cached.add(job.key);
     }
-    const { selected, ledger } = reserveJobs(jobs, await json(ledgerPath, { reservations: 0, jobs: {} }), { budget, limit, retry: opt.retry, cached });
+    const { selected, ledger } = reserveJobs(jobs, await json(ledgerPath, { reservations: 0, jobs: {} }), { budget, limit, retry: opt.retry, cached, budgetPeriod: opt["budget-period"] });
     await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n");
     // Serialize registry/ledger writes across concurrent API calls.
     let saves = Promise.resolve();
     const save = fn => { const next = saves.then(fn); saves = next.catch(() => {}); return next; };
     let cursor = 0, completed = 0, failed = 0, protectedSkipped = 0;
+    const receipt = job => ledger.events.push({ type: "outcome", key: job.key, title: job.title, ...ledger.jobs[job.key], at: new Date().toISOString() });
     const protectBeforeAction = async job => {
       if (!opt["exclude-pinned"]) return false;
       const current = await currentPinState(opt.api, job.id);
       if (!protectedIds.has(job.id) && !isPinnedOrUnknown(current)) return false;
       protectedIds.add(job.id);
       protectedSkipped++;
-      await save(async () => { ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "protected-pinned", error: "Pinned or unknown pin status; cover preserved" }; await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n"); });
+      await save(async () => { ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "protected-pinned", error: "Pinned or unknown pin status; cover preserved" }; receipt(job); await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n"); });
       console.log(`Preserved pinned cover: ${job.title}`);
       return true;
     };
@@ -182,11 +236,17 @@ export async function main(args = process.argv.slice(2)) {
         try {
           if (await protectBeforeAction(job)) continue;
           if (!job.cached) {
+            // A pass crossing a calendar boundary cannot spend against yesterday's month.
+            if (opt["budget-period"] === "monthly" && ledger.jobs[job.key].period !== budgetMonth()) {
+              await save(async () => { ledger.jobs[job.key].status = "deferred-period-change"; receipt(job); await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n"); });
+              continue;
+            }
             const batch = path.join(job.folder, "job.jsonl");
             const { quality, size } = treatments[job.treatment];
             await atomic(batch, JSON.stringify({ prompt: job.prompt, out: output, quality, size, model: POLICY.model, output_format: "webp", n: 1 }) + "\n");
             const result = await child(opt.python, [opt.cli, "generate-batch", "--input", batch, "--out-dir", job.folder, "--no-augment", "--max-attempts", "1", "--concurrency", "1"], { env: { ...process.env, OPENAI_API_KEY: key } });
             await atomic(path.join(job.folder, "generation.log"), result.output.replaceAll(key, "[REDACTED]"));
+            await atomic(path.join(job.folder, `generation-attempt-${ledger.jobs[job.key].attempts}.log`), result.output.replaceAll(key, "[REDACTED]"));
             if (result.code !== 0 || !(await validWebp(output))) throw new Error(`Imagegen failed (exit ${result.code}); see saved generation.log`);
           }
           const filename = `${job.key}-q86.webp`, src = `/assets/artwork/${filename}`;
@@ -201,25 +261,28 @@ export async function main(args = process.argv.slice(2)) {
               if (isPinnedOrUnknown(current)) {
                 protectedIds.add(job.id); protectedSkipped++;
                 ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "protected-pinned", error: "Pinned during generation; original cover preserved" };
+                receipt(job);
                 await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n");
                 return;
               }
             }
             await copyFile(preparedFile, path.join(root, src));
-            art[job.id] = { src, alt: `Cover artwork for ${job.title}.`, theme: "generated", tier: 0, remixed: false, treatment: job.treatment, model: POLICY.model, sourceHash: job.sourceHash, promptHash: digest(job.prompt), createdAt: new Date().toISOString(), missingSources: job.missing, previous: art[job.id]?.src || null };
+            art[job.id] = { src, alt: `Cover artwork for ${job.title}.`, theme: "generated", tier: 0, remixed: false, treatment: job.treatment, model: POLICY.model, sourceHash: job.sourceHash, promptHash: digest(job.prompt), createdAt: new Date().toISOString(), missingSources: job.missing, previous: art[job.id]?.src || null, ...(job.firstSeenAt ? { firstSeenAt: job.firstSeenAt } : {}) };
             await atomic(registryPath, prefix + JSON.stringify(art, null, 2) + ";\n");
-            ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "complete", src };
+            ledger.jobs[job.key] = { ...ledger.jobs[job.key], songId: job.id, title: job.title, treatment: job.treatment, status: "complete", src };
+            delete ledger.jobs[job.key].error;
+            receipt(job);
             await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n");
           });
           if (ledger.jobs[job.key].status === "complete") { completed++; console.log(`Saved ${completed}/${selected.length}: ${job.title}`); }
         } catch (e) {
           failed++;
-          await save(async () => { ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "failed-or-uncertain", error: e.message }; await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n"); });
+          await save(async () => { ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "failed-or-uncertain", error: e.message }; receipt(job); await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n"); });
           console.log(`Needs review: ${job.title}: ${e.message}`);
         }
       }
     }));
-    console.log(JSON.stringify({ completed, failed, protectedSkipped, deferred: jobs.length - selected.length, reservedEstimate: ledger.reservations, budget, state }));
+    console.log(JSON.stringify({ completed, failed, protectedSkipped, deferred: jobs.length - selected.length, reservedEstimate: opt["budget-period"] === "monthly" ? ledger.monthlyReservations[budgetMonth()] || 0 : ledger.oneOffReservations, lifetimeReservedEstimate: ledger.reservations, budget, budgetPeriod: opt["budget-period"], state }));
     if (failed || failedSources.length) process.exitCode = 1;
   } finally { await lock.close(); await unlink(lockPath); }
 }

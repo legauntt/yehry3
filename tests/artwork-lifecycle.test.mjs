@@ -1,0 +1,70 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { mkdtemp, mkdir, readFile, writeFile, copyFile, rm } from 'node:fs/promises';
+import { createServer } from 'node:http';
+import { spawn } from 'node:child_process';
+import os from 'node:os';
+import path from 'node:path';
+
+test('lifecycle makes one cheap picture and one mature picture, protecting archives and pins between passes', async t => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'artwork-lifecycle-'));
+  t.after(() => rm(root, { recursive: true }));
+  await mkdir(path.join(root, 'scripts'));
+  await mkdir(path.join(root, 'assets/artwork'), { recursive: true });
+  for (const file of ['song-artwork.mjs', 'artwork-policy.mjs', 'artwork-budget.mjs'])
+    await copyFile(new URL('../scripts/' + file, import.meta.url), path.join(root, 'scripts', file));
+  const prefix = '// Saved covers. Updated by scripts/song-artwork.mjs.\nexport default ';
+  const registryFile = path.join(root, 'assets/artwork-catalog.js');
+  await writeFile(registryFile, prefix + '{};\n');
+  const callsFile = path.join(root, 'calls.json');
+  await writeFile(callsFile, '[]');
+  await writeFile(path.join(root, 'fake-cli.cjs'), `
+    const fs = require('node:fs');
+    const job = JSON.parse(fs.readFileSync(process.argv[process.argv.indexOf('--input') + 1], 'utf8'));
+    const image = Buffer.alloc(1100); image.write('RIFF'); image.write('WEBP', 8); fs.writeFileSync(job.out, image);
+    const calls = JSON.parse(fs.readFileSync(${JSON.stringify(callsFile)}, 'utf8')); calls.push(job.quality); fs.writeFileSync(${JSON.stringify(callsFile)}, JSON.stringify(calls));
+  `);
+  await writeFile(path.join(root, 'scripts/prepare-cover.py'), "require('node:fs').copyFileSync(process.argv[2], process.argv[3]);");
+  const song = { id: 'new-song', title: 'New Song', pins: 0, votes: 0, lyrics: { text: 'A moonlit ship' }, originalPrompt: { idea: 'jazz' }, songPlan: { genre: 'jazz' } };
+  let active = true;
+  const server = createServer((req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    if (req.url === '/songs/summary') res.end(JSON.stringify({ songs: active ? [song] : [{ id: 'already-finished', pins: 1 }] }));
+    else res.end(JSON.stringify({ song }));
+  });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => new Promise(resolve => server.close(resolve)));
+  const run = (...extra) => new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [path.join(root, 'scripts/song-artwork.mjs'), 'run', '--lifecycle', '--budget-period', 'monthly', '--budget', '40', '--api', `http://127.0.0.1:${server.address().port}`, '--state', path.join(root, 'state'), '--python', process.execPath, '--cli', path.join(root, 'fake-cli.cjs'), ...extra], { windowsHide: true, env: { ...process.env, OPENAI_API_KEY: 'test-only' } });
+    let output = '';
+    child.stdout.on('data', data => { output += data; }); child.stderr.on('data', data => { output += data; });
+    child.on('error', reject); child.on('close', code => code ? reject(new Error(output)) : resolve());
+  });
+  await run(); await run();
+  assert.deepEqual(JSON.parse(await readFile(callsFile, 'utf8')), ['low']);
+  const art = JSON.parse((await readFile(registryFile, 'utf8')).slice(prefix.length).trim().replace(/;$/, ''));
+  assert.equal(art['new-song'].treatment, 'incubating');
+  art['new-song'].firstSeenAt = '2000-01-01T00:00:00Z';
+  await writeFile(registryFile, prefix + JSON.stringify(art) + ';\n');
+  active = false; await run();
+  active = true; song.pins = 1; await run();
+  assert.deepEqual(JSON.parse(await readFile(callsFile, 'utf8')), ['low']);
+  song.pins = 0; await run(); await run();
+  assert.deepEqual(JSON.parse(await readFile(callsFile, 'utf8')), ['low', 'medium']);
+  const ledger = JSON.parse(await readFile(path.join(root, 'state/ledger.json'), 'utf8'));
+  assert.equal(ledger.events.filter(e => e.type === 'reservation').length, 2);
+  assert.equal(ledger.events.filter(e => e.type === 'outcome' && e.status === 'complete').length, 2);
+  assert.equal(ledger.oneOffReservations, 0);
+  assert.ok(Object.values(ledger.monthlyReservations)[0] > 0);
+  song.id = 'rejected-song';
+  ledger.jobs['rejected-song-incubating-123456789abc'] = { songId: song.id, status: 'failed-or-uncertain', estimate: .1 };
+  await writeFile(path.join(root, 'state/ledger.json'), JSON.stringify(ledger));
+  await writeFile(path.join(root, 'state/incubation.json'), JSON.stringify({ firstSeen: { 'rejected-song': '2000-01-01T00:00:00Z' } }));
+  await run();
+  assert.deepEqual(JSON.parse(await readFile(callsFile, 'utf8')), ['low', 'medium'], 'maturity cannot silently retry a rejected incubation request');
+  song.id = 'legacy-placeholder';
+  const baseline = path.join(root, 'baseline.json');
+  await writeFile(baseline, JSON.stringify({ songs: [{ id: song.id, cover: null }] }));
+  await run('--lifecycle-baseline', baseline);
+  assert.deepEqual(JSON.parse(await readFile(callsFile, 'utf8')), ['low', 'medium'], 'existing placeholders excluded by the baseline do not enter new-track automation');
+});

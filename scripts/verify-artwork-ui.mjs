@@ -33,6 +33,24 @@ try {
   assert.equal(await page.getByRole("button", { name: /redraw/i }).count(), 0);
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await page.screenshot({ path: path.join(output, "mobile.png"), fullPage: false });
+  const influenceId = "distonyc-6694dab26c170fba0dba0663";
+  if (artwork[influenceId]) {
+    await cover.locator(".song-more").click();
+    await page.locator("#search").fill("Influence Criteria");
+    const influence = page.locator(`[data-id="${influenceId}"]`);
+    await influence.waitFor({ timeout: 30000 });
+    await influence.scrollIntoViewIfNeeded();
+    await page.waitForFunction(id => {
+      const img = document.querySelector(`[data-id="${id}"] img.track-art`);
+      return img?.complete && img.naturalWidth > 0;
+    }, influenceId, { timeout: 30000 });
+    assert.equal(await influence.locator("img.track-art").getAttribute("src"), artwork[influenceId].src);
+    assert.equal(await influence.locator(".track-art-pending").count(), 0);
+    assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+    await page.screenshot({ path: path.join(output, "mobile-influence.png"), fullPage: false });
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.screenshot({ path: path.join(output, "desktop-influence.png"), fullPage: false });
+  }
   assert.deepEqual(errors, []);
   console.log(`Verified live saved cover, no Dashboard clip art/Redraw, pin menu, and phone layout. Screenshots: ${output}`);
 } finally { await browser.close(); }

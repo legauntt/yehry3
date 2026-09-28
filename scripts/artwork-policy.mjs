@@ -7,6 +7,10 @@ export const POLICY = Object.freeze({
   model: "gpt-image-2",
 });
 export const treatments = Object.freeze({
+  incubating: { quality: "low", size: "1024x1024", imageEstimate: .006,
+    direction: "An economical first cover for a newly released song: one clear, original pictorial idea from its lyrics and musical character, tactile illustration, confident silhouette and expressive light. Make an actual scene, not a title sleeve or icon." },
+  mature: { quality: "medium", size: "1024x1024", imageEstimate: .053,
+    direction: "A finished cover for a song that survived its incubation period: a distinctive narrative scene, nuanced visual symbolism grounded in the lyrics and request, carefully composed depth, expressive light and rich editorial detail. Retain clarity at thumbnail size." },
   basic: { quality: "low", size: "1024x1024", imageEstimate: .006,
     direction: "A strong, simple cover: one memorable visual idea drawn from the song, confident composition, tactile materials and deliberate lighting. Finish as original album artwork, never stock clip art or an icon." },
   emphasis: { quality: "medium", size: "1024x1024", imageEstimate: .053,
@@ -20,8 +24,18 @@ export function isPinnedOrUnknown(song) {
   return !Number.isInteger(song?.pins) || song.pins !== 0;
 }
 
-export function selectTreatment(song, existing, { redo = false, lowListens = POLICY.lowListens, excludePinned = false } = {}) {
+export function selectTreatment(song, existing, { redo = false, lowListens = POLICY.lowListens, excludePinned = false,
+  lifecycle = false, incubationHours = 24, firstSeenAt, now = Date.now() } = {}) {
   if (excludePinned && isPinnedOrUnknown(song)) return null;
+  if (lifecycle) {
+    // The lifecycle owns only its own incubation covers. Never upgrade a supplied
+    // picture, this backfill, or an already finished cover on a timer.
+    if (isPinnedOrUnknown(song) || (existing && existing.treatment !== "incubating")) return null;
+    const since = Date.parse(existing?.firstSeenAt || firstSeenAt);
+    if (!Number.isFinite(since)) return null;
+    const mature = now - since >= incubationHours * 3600000;
+    return mature ? "mature" : existing ? null : "incubating";
+  }
   const freshPin = Date.parse(song.artworkPinnedAt) > Date.parse(POLICY.freshPinsAfter);
   if (freshPin && (existing?.treatment !== "monument" || redo)) return "monument";
   if (existing && !redo) return null;

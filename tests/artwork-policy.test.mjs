@@ -51,3 +51,19 @@ test("Dashboard uses saved raster covers and a safe sleeve while artwork is pend
   assert.match(cover, /src="\/assets\/artwork\/.+\.webp"/);
   assert.ok(!cover.includes("data-art-tier"));
 });
+
+test("new-song lifecycle matures once after 24 hours and preserves finished and pinned covers", () => {
+  const firstSeenAt = "2026-09-28T01:00:00Z";
+  const song = { pins: 0, votes: 20 };
+  const options = { lifecycle: true, firstSeenAt, now: Date.parse(firstSeenAt), incubationHours: 24 };
+  assert.equal(selectTreatment(song, null, options), "incubating", "early votes do not trigger expensive art during incubation");
+  const early = { treatment: "incubating", firstSeenAt };
+  assert.equal(selectTreatment(song, early, { ...options, now: options.now + 86399999 }), null);
+  assert.equal(selectTreatment(song, early, { ...options, now: options.now + 86400000 }), "mature");
+  assert.equal(selectTreatment(song, null, { ...options, now: options.now + 86400000 }), "mature", "a missed first pass goes directly to mature");
+  for (const treatment of ["basic", "emphasis", "mature", "monument", "existing"])
+    assert.equal(selectTreatment(song, { treatment }, { ...options, now: options.now + 86400000 }), null);
+  for (const pins of [1, undefined, null, "0"])
+    assert.equal(selectTreatment({ ...song, pins }, early, { ...options, now: options.now + 86400000 }), null);
+  assert.equal(selectTreatment(song, early, { ...options, firstSeenAt: "2026-09-29T01:00:00Z", now: options.now + 86400000 }), "mature", "saved first observation survives a local observation reset");
+});
