@@ -527,60 +527,6 @@ main {
 .record.record-spin-idle {
   animation: record-spin 1.6s cubic-bezier(0.35, 0, 0.2, 1);
 }
-.record-lyric {
-  position: absolute;
-  z-index: 6;
-  top: -24%;
-  right: 54%;
-  width: clamp(280px, 32vw, 420px);
-  margin: 0;
-  padding: 24px 26px 22px;
-  border: 1px solid #b8bda9;
-  border-radius: 13px 13px 3px 13px;
-  background: #fffdf4;
-  box-shadow: 5px 7px 0 #26382d20;
-  color: var(--ink);
-  pointer-events: none;
-  transform: rotate(-2deg);
-}
-.record-lyric[hidden] { display: none; }
-.record-lyric::after {
-  content: "";
-  position: absolute;
-  right: -1px;
-  bottom: -11px;
-  border: 11px solid transparent;
-  border-right-color: #fffdf4;
-  transform: rotate(45deg);
-}
-.record-lyric blockquote {
-  margin: 0;
-  font: italic 600 min(var(--record-lyric-font-size, 28px), 7vw) / 1.45 "Playfair Display", Georgia, serif;
-  white-space: pre-line;
-}
-.record-lyric:not([data-line-count="1"]) {
-  width: clamp(360px, 48vw, 620px);
-}
-.record-lyric figcaption {
-  margin-top: 7px;
-  color: var(--muted);
-  font: 500 .52rem / 1.4 "DM Mono", monospace;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-.record-lyric-notes {
-  position: absolute;
-  top: -13px;
-  left: 12px;
-  color: var(--accent);
-  font-size: 1.1rem;
-}
-@keyframes record-sing {
-  0% { opacity: 0; transform: translateY(8px) rotate(-2deg) scale(.96); }
-  12%, 88% { opacity: 1; transform: translateY(0) rotate(-2deg) scale(1); }
-  100% { opacity: 0; transform: translateY(-4px) rotate(-2deg) scale(.98); }
-}
-.record-lyric.is-singing { animation: record-sing var(--record-lyric-duration, 5s) ease both; }
 .record:after {
   content: "";
   position: absolute;
@@ -2104,16 +2050,6 @@ main {
     transform: rotate(2deg);
     padding: 0;
   }
-  .record-lyric {
-    top: 72%;
-    right: 50%;
-    width: min(185px, 58vw);
-    padding: 18px 20px 16px;
-  }
-  .record-lyric:not([data-line-count="1"]) {
-    right: -12px;
-    width: min(300px, calc(100vw - 24px));
-  }
   .sleeve-top, .sleeve-bottom { display: none; }
   .section-heading {
     display: block;
@@ -2391,9 +2327,6 @@ main {
 }
 @media (prefers-reduced-motion: reduce) {
   .record.record-spin-idle {
-    animation: none;
-  }
-  .record-lyric.is-singing {
     animation: none;
   }
   * {

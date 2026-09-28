@@ -1,17 +1,10 @@
 // "9/11'd Again" badges sing a line from the song of the same name when clicked.
 // Clips load only on the first click, so the badge costs nothing until someone presses it.
 import { recoveryStatus } from "./recovery.js";
-import { eggWeight, pickEggMoment } from "./egg-clips.js";
+import { pickEggMoment, randomSongSlice } from "./egg-clips.js";
 import { showCaption } from "./egg-caption.js";
 
 const clips = ["/assets/sounds/one-loud-crash.mp3", "/assets/sounds/nine-elevend-again.mp3"];
-// The song a fixed clip is from and the line it sings, for the egg's caption. Each clip is one
-// line starting at 0, so the caption shows it the whole way through.
-const fixedCaption = (words) => ({ title: "Nine-Eleven'd Again", lines: [{ start: 0, end: Infinity, words }] });
-const clipCaptions = {
-  "/assets/sounds/one-loud-crash.mp3": fixedCaption("One loud crash, the whole plan ends"),
-  "/assets/sounds/nine-elevend-again.mp3": fixedCaption("Nine-eleven'd again"),
-};
 const soundStatuses = new Set(["failed", "attention"]);
 const announcedKey = "yehry3:announced-attention";
 let next = 0;
@@ -69,7 +62,7 @@ function play(button = null, clip = null, { over = false } = {}) {
   let started = false;
   let running = false;
   const begin = () => {
-    if (started || !running || (moment && audio.currentTime < moment.start - seekSlack)) return;
+    if (started || !running || (moment && (!Number.isFinite(moment.start) || audio.currentTime < moment.start - seekSlack))) return;
     started = true;
     for (const event of ["playing", "timeupdate", "seeked"]) audio.removeEventListener(event, begin);
     settle(true);
@@ -80,7 +73,10 @@ function play(button = null, clip = null, { over = false } = {}) {
   audio.addEventListener("seeked", begin);
   if (moment) {
     // Browsers differ on when a seek is honoured, so ask now and again once the length is known.
-    const seek = () => { if (audio.currentTime < moment.start) audio.currentTime = moment.start; };
+    const seek = () => {
+      if (!Number.isFinite(moment.start)) Object.assign(moment, randomSongSlice({ ...moment, duration: audio.duration }));
+      if (Number.isFinite(moment.start) && audio.currentTime < moment.start) audio.currentTime = moment.start;
+    };
     seek();
     audio.addEventListener("loadedmetadata", seek);
     playing.watch = setInterval(() => {
@@ -96,40 +92,25 @@ function play(button = null, clip = null, { over = false } = {}) {
   return { heard, audio, length };
 }
 
-// Easter egg: hammering any cover art three times inside a second sings every clip in turn,
-// the title line first. It keeps its own place so it never disturbs the badges' rotation.
-// The picture shakes, flashes and gasps for exactly as long as the sound plays. The first
-// hammering sings the title line; after that most sing a random moment from a recording,
-// and one in five sings the fixed clips again.
+// Three quick clicks on a cover sample that song; the hero record samples a random song.
+// Clip audio is started inside the click gesture, even when lyric cues haven't loaded yet.
 // artShockMs is only for a sound whose length is unknown.
-const artTaps = 3, artWindow = 1000, artShockMs = 3400, artFixedOdds = 0.2, shockGrace = 2500;
-let taps = [];
-let artNext = 1;
-let artHeard = false;
-let artSong = null;
+const artTaps = 3, artWindow = 1000, artShockMs = 3400, shockGrace = 2500;
+const taps = new WeakMap();
 const shocked = new WeakMap();
 
 // The sung moments are built with the site and fetched once, as the first tap lands, so they
-// are ready by the third. If they never arrive, the egg keeps singing the fixed clips.
-// Live votes come along for the ride so upvoted songs come up more; without them, recent songs
-// still win.
+// are ready by the third. Without cues, take a random slice of the selected recording.
 let moments = null;
-let votes = new Map();
 let loading = false;
 function loadMoments() {
   if (loading) return;
   loading = true;
-  // Votes never hold the clips back; a late answer just sharpens later picks.
-  import("./api.js")
-    .then(({ publicApi }) => publicApi("/songs/summary"))
-    .then((live) => { if (Array.isArray(live?.songs)) votes = new Map(live.songs.map((song) => [song.id, Number(song.votes) || 0])); })
-    .catch(() => {});
   fetch("/egg-clips.json")
     .then((response) => (response.ok ? response.json() : Promise.reject(new Error(response.statusText))))
     .then((data) => { moments = Array.isArray(data?.clips) ? data.clips : []; })
     .catch(() => { moments = []; });
 }
-const weighted = (clip) => eggWeight(clip, votes.get(clip.id));
 
 // Exported for Œuful (/oeuful), which plays the egg back to back on a picture of its own.
 export function shock(art, ms, audio, caption) {
@@ -143,7 +124,7 @@ export function shock(art, ms, audio, caption) {
   // The sound ending is what ends the shake; the timer is only a safety net, and a slow machine
   // that starts a moment late is given time to finish it.
   const live = audio && !audio.paused && !audio.ended;
-  const timer = setTimeout(() => calm && shocked.get(art)?.(), live ? ms + shockGrace : ms);
+  const timer = setTimeout(() => shocked.get(art)?.(), live ? ms + shockGrace : ms);
   const removeCaption = caption ? showCaption(art, caption, audio) : null;
   // The shake follows the sound: while the audio is starved the picture holds still too.
   const stall = () => art.classList.add("egg-stalled");
@@ -188,22 +169,29 @@ function whenHeard(art, { heard, audio, length }, caption = null) {
     shock(art, ms > 0 && Number.isFinite(ms) ? ms : artShockMs, audio, caption);
   });
 }
-function tapArt(art, at) {
-  taps = [...taps.filter((tap) => at - tap < artWindow), at];
+function tapArt(art, at, chooseSong) {
+  const recent = [...(taps.get(art) || []).filter((tap) => at - tap < artWindow), at];
+  taps.set(art, recent);
   loadMoments();
-  if (taps.length < artTaps) return;
-  taps = [];
-  const moment = artHeard && moments?.length && Math.random() >= artFixedOdds ? pickEggMoment(moments, Math.random, artSong, weighted) : null;
-  artHeard = true;
-  if (moment) {
-    artSong = moment.id;
-    // The picture waits for the sound, which may need a moment to load.
-    whenHeard(art, play(null, moment), { title: moment.title, lines: moment.lines });
-    return;
-  }
-  const clip = clips[artNext];
-  whenHeard(art, play(null, clip), clipCaptions[clip] ?? null);
-  artNext = (artNext + 1) % clips.length;
+  if (recent.length < artTaps) return;
+  taps.delete(art);
+  const song = chooseSong();
+  if (!song?.url) return;
+  const moment = pickEggMoment(moments?.filter((clip) => clip.id === song.id)) || randomSongSlice(song);
+  whenHeard(art, play(null, moment), { title: song.title, lines: moment.lines });
+}
+
+export function mountRecordSounds(record, getSongs) {
+  if (!record) return;
+  let previous = null;
+  record.addEventListener("click", (event) => tapArt(record, event.timeStamp, () => {
+    const songs = (getSongs?.() || []).filter((song) => song.url && !song.qualityIssues?.length);
+    const alternatives = songs.filter((song) => song.id !== previous);
+    const pool = alternatives.length ? alternatives : songs;
+    const song = pool[Math.floor(Math.random() * pool.length)];
+    previous = song?.id;
+    return song;
+  }));
 }
 
 let mounted = false;
@@ -216,7 +204,10 @@ export function mountBadgeSounds(root = document) {
   root.addEventListener("click", (event) => {
     // The click keeps its usual job, such as opening a pending row.
     const art = event.target.closest?.(".track-art");
-    if (art) return tapArt(art, event.timeStamp);
+    if (art) return tapArt(art, event.timeStamp, () => ({
+      id: art.dataset.clipId, url: art.dataset.clipUrl,
+      title: art.dataset.clipTitle, duration: Number(art.dataset.clipDuration),
+    }));
     const button = event.target.closest?.(".badge-sound");
     if (!button) return;
     // Badges can sit inside a <summary>; a click here plays audio instead of toggling the row.

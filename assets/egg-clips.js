@@ -10,6 +10,15 @@ const shortest = 1.2, shortestMoment = 2, longestMoment = 19, joinGap = 1.5;
 const ceilings = [4, 8, 13, longestMoment];
 const longestWords = 140;
 const round = (seconds) => Math.round(seconds * 10) / 10;
+
+// Covers can sample recordings without lyric cues, including newly published songs.
+// An unknown duration is filled in from the audio's metadata before playback begins.
+export function randomSongSlice(song, random = Math.random) {
+  const duration = Number(song.duration);
+  const length = duration > 0 && Number.isFinite(duration) ? Math.min(duration, 4 + random() * 8) : NaN;
+  const start = Number.isFinite(length) ? random() * (duration - length) : NaN;
+  return { id: song.id, title: song.title, url: song.url, start, end: start + length, lines: [] };
+}
 // Only lines sung close together join up; a long break would be dead air.
 const runFrom = (lines, first, ceiling) => {
   let last = first;

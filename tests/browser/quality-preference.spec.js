@@ -12,6 +12,8 @@ const song = {
 test.beforeEach(async ({ context }) => {
   await context.route("https://fonts.googleapis.com/**", route => route.abort());
   await context.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
+  await context.route("**/yehry3/catalog/state", route => route.fulfill({ json: { feedback: {} } }));
+  await context.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [song] } }));
   await context.route("**/yehry3/songs/preference-song", route => route.fulfill({ json: { song } }));
   await context.route("**/yehry3/queue?*", route => route.fulfill({ json: {
     inStudio: [], queued: [], recent: [{ ...song, status: "published", idea: song.title, publishedAt: new Date().toISOString() }],
@@ -97,20 +99,12 @@ test("blocked localStorage still allows the current page to toggle notices", asy
   await expect(page.locator(".quality-notice")).toBeVisible();
   const continuous = page.getByRole("checkbox", { name: "Continuous record spins" });
   const playback = page.getByRole("checkbox", { name: "Spin while music plays" });
-  const captions = page.getByRole("checkbox", { name: "Lyric captions" });
-  const lyricAudio = page.getByRole("checkbox", { name: "Lyric audio" });
-  await expect(captions).toBeChecked();
-  await expect(lyricAudio).not.toBeChecked();
-  await captions.uncheck();
-  await lyricAudio.check();
   await continuous.check();
   await playback.check();
   await expect(page.locator(".record")).toHaveAttribute("data-spin-rate", "1.25");
   await page.evaluate(() => window.dispatchEvent(new Event("pageshow")));
   await expect(continuous).toBeChecked();
   await expect(playback).toBeChecked();
-  await expect(captions).not.toBeChecked();
-  await expect(lyricAudio).toBeChecked();
   await expect(page.locator(".settings-new")).toBeHidden();
   await continuous.uncheck();
   await expect.poll(() => page.locator(".record").evaluate(element => element.getAnimations().length)).toBe(0);
@@ -128,21 +122,7 @@ test("record preferences and the new indicator persist across navigation and syn
   await expect(second.locator(".settings-new")).toBeVisible();
   await opener.click();
   await expect(second.locator(".settings-new")).toBeHidden();
-  const captions = page.getByRole("checkbox", { name: "Lyric captions" });
-  const lyricAudio = page.getByRole("checkbox", { name: "Lyric audio" });
-  await expect(captions).toBeChecked();
-  await expect(lyricAudio).not.toBeChecked();
   await second.getByRole("button", { name: "Open display settings" }).click();
-  const secondCaptions = second.getByRole("checkbox", { name: "Lyric captions" });
-  const secondLyricAudio = second.getByRole("checkbox", { name: "Lyric audio" });
-  await expect(secondCaptions).toBeChecked();
-  await expect(secondLyricAudio).not.toBeChecked();
-  await captions.uncheck();
-  await expect(secondCaptions).not.toBeChecked();
-  await captions.check();
-  await expect(secondCaptions).toBeChecked();
-  await lyricAudio.check();
-  await expect(secondLyricAudio).toBeChecked();
   await page.getByRole("checkbox", { name: "Continuous record spins" }).check();
   await page.getByRole("checkbox", { name: "Spin while music plays" }).check();
   await expect(second.getByRole("checkbox", { name: "Continuous record spins" })).toBeChecked();
@@ -159,13 +139,9 @@ test("record preferences and the new indicator persist across navigation and syn
   await opener.click();
   await expect(page.getByRole("checkbox", { name: "Continuous record spins" })).toBeChecked();
   await expect(page.getByRole("checkbox", { name: "Spin while music plays" })).toBeChecked();
-  await expect(page.getByRole("checkbox", { name: "Lyric captions" })).toBeChecked();
-  await expect(page.getByRole("checkbox", { name: "Lyric audio" })).toBeChecked();
   await page.evaluate(() => localStorage.clear());
   await expect(second.getByRole("checkbox", { name: "Continuous record spins" })).not.toBeChecked();
   await expect(second.getByRole("checkbox", { name: "Spin while music plays" })).not.toBeChecked();
-  await expect(secondCaptions).toBeChecked();
-  await expect(secondLyricAudio).not.toBeChecked();
   await expect.poll(() => second.locator(".record").evaluate(element => element.getAnimations().length)).toBe(0);
   await second.getByRole("button", { name: "Close display settings" }).click();
   await expect(second.locator(".settings-new")).toBeVisible();
@@ -185,8 +161,6 @@ test("new preferences use a still badge with reduced motion and fit a small scre
   await opener.click();
   await expect(page.locator(".settings-new")).toBeHidden();
   const dialog = page.getByRole("dialog", { name: "Display settings" });
-  await expect(page.getByRole("checkbox", { name: "Lyric captions" })).toBeChecked();
-  await expect(page.getByRole("checkbox", { name: "Lyric audio" })).not.toBeChecked();
   const playback = page.getByRole("checkbox", { name: "Spin while music plays" });
   await playback.scrollIntoViewIfNeeded();
   await expect(playback).toBeInViewport();

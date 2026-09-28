@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { eggClips, eggWeight, pickEggMoment, songMoments } from "../assets/egg-clips.js";
+import { eggClips, eggWeight, pickEggMoment, randomSongSlice, songMoments } from "../assets/egg-clips.js";
 
 const song = (over = {}) => ({
   id: "a-1",
@@ -18,6 +18,22 @@ const song = (over = {}) => ({
     ],
   },
   ...over,
+});
+
+test("uncued slices fit the selected recording, including short or unknown durations", () => {
+  for (const duration of [0.5, 4, 20, 300]) {
+    for (const random of [0, 0.5, 0.999999]) {
+      const slice = randomSongSlice(song({ duration }), () => random);
+      assert.equal(slice.id, "a-1");
+      assert.equal(slice.url, "https://example.test/a.mp3");
+      assert.ok(slice.start >= 0 && slice.end <= duration);
+      assert.ok(slice.end > slice.start && slice.end - slice.start <= 12);
+    }
+  }
+  for (const duration of [undefined, 0, -1, Infinity, NaN]) {
+    const slice = randomSongSlice(song({ duration }));
+    assert.ok(Number.isNaN(slice.start) && Number.isNaN(slice.end));
+  }
 });
 
 test("moments are runs of sung lines, never headings or slivers", () => {

@@ -9,7 +9,6 @@ import { mountQualitySettings, qualityNotice } from "./quality.js";
 import { mountModelInfo } from "./model-info.js";
 import { rotateSuggestions } from "./suggestions.js";
 import { startRecordMotion } from "./record-motion.js";
-import { startRecordSinger } from "./record-singer.js";
 import { api, storage, signedIn } from "./api.js";
 import { showToast } from "./message.js";
 import { watchCompletions } from "./notifications.js";
@@ -30,7 +29,7 @@ import { decorateSongLinks, mountSongLinkTooltips } from "./song-link-icons.js";
 import { songArtworkMarkup } from "./cover-art.js";
 import { mountCoverViewer } from "./cover-viewer.js";
 import { watchCatalog } from "./realtime.js";
-import { announceAttention, mountBadgeSounds } from "./badge-sound.js";
+import { announceAttention, mountBadgeSounds, mountRecordSounds } from "./badge-sound.js";
 import { $, main, escape, date, badge, collections, message, busy, safeUrl, songPublishedAt, songMeta, songLinks } from "./app-ui.js";
 
 async function library() {
@@ -187,7 +186,7 @@ async function library() {
     const label = mine ? "📌 Pinned" : count ? "📌 Pin" : "📍 Pin";
     return `<button type="button" class="song-action" data-pin="${escape(song.id)}" aria-pressed="${mine}" aria-label="${mine ? "Unpin" : "Pin"} ${escape(song.title)}${count ? ` · ${count} shared` : ""}" ${!online || feedbackBusy ? "disabled" : ""}>${label}${count ? ` · ${count}` : ""}</button>`;
   }
-  startRecordSinger($(".record", main), () => songs);
+  mountRecordSounds($(".record", main), () => songs);
   let initialCatalogPending = true;
   let cardsReady = false, partialTotal = null, startupPlayback = false;
   const defaultFilters = () => !$("#search").value && $("#collection-filter").value === "all"
