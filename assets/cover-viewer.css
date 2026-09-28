@@ -1,0 +1,51 @@
+.track-art-frame { position: relative; min-width: 0; border-radius: 7px; background: var(--paper); }
+#tracks[data-view="grid"] .track-art-frame { grid-column: 1 / -1; grid-row: 1; }
+#tracks[data-view="list"] .track-art-frame { grid-column: 2; grid-row: 1 / 4; width: 58px; }
+#tracks[data-view] .track-art-frame .track-art { width: 100%; }
+.cover-enlarge {
+  position: absolute; right: 6px; bottom: 6px; display: grid; place-items: center;
+  width: 40px; height: 40px; min-height: 0; padding: 8px;
+  border: 1px solid #ffffffa0; border-radius: 8px; background: #17221ed9; color: #fff;
+  cursor: pointer; box-shadow: 0 1px 5px #0003;
+}
+.cover-enlarge:hover { background: #17221e; }
+.cover-enlarge:focus-visible { outline: 3px solid #f9c774; outline-offset: 2px; }
+.cover-enlarge svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+#tracks[data-view="list"] .cover-enlarge { width: 28px; height: 28px; right: 0; bottom: 0; padding: 5px; border-radius: 5px; }
+@media (max-width: 650px) {
+  #tracks[data-view="list"] .track-art-frame { grid-column: 1; grid-row: 1 / 3; width: 52px; align-self: start; }
+}
+@media (max-width: 540px) {
+  /* The image box matches the painted picture so responsive selection also
+     stays small on phones; the surrounding sleeve still fills the card. */
+  #tracks[data-view="grid"] .track-art-frame .track-art { width: auto; max-width: 100%; height: 160px; aspect-ratio: 1; margin: auto; }
+}
+html.cover-viewer-open { overflow: hidden; }
+.cover-viewer {
+  box-sizing: border-box; width: min(1100px, calc(100vw - 24px)); max-width: none;
+  max-height: calc(100dvh - 24px); margin: auto; padding: 14px;
+  border: 1px solid #ffffff50; border-radius: 12px; background: #111a17; color: #fff;
+  box-shadow: 0 14px 70px #0008;
+}
+.cover-viewer::backdrop { background: #000c; }
+.cover-viewer-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 20px; margin-bottom: 12px; }
+.cover-viewer h2 { margin: 0; font: 500 1rem/1.4 "DM Sans", sans-serif; overflow-wrap: anywhere; flex: 1 1 250px; }
+.cover-viewer-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.cover-viewer-actions :is(button, a) {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px;
+  padding: 8px 12px; border: 1px solid #ffffff60; border-radius: 6px;
+  background: #263b31; color: #fff; font: 500 .8rem/1.2 "DM Sans", sans-serif; text-decoration: none;
+}
+.cover-viewer-actions :is(button, a):hover { background: #3d5749; }
+.cover-viewer-actions :is(button, a):focus-visible { outline: 3px solid #f9c774; outline-offset: 2px; }
+.cover-viewer-status { margin: 0 0 8px; font-size: .85rem; }
+.cover-viewer-status:empty { display: none; }
+.cover-viewer-image { height: min(75dvh, 1024px); overflow: auto; overscroll-behavior: contain; background: #090e0c; border-radius: 6px; }
+.cover-viewer-image img { display: block; width: 100%; height: 100%; object-fit: contain; touch-action: auto; }
+.cover-viewer.is-zoomed .cover-viewer-image img { width: auto; height: auto; max-width: none; margin: auto; }
+@media (max-width: 540px) {
+  .cover-viewer { padding: 10px; }
+  .cover-viewer-actions { gap: 6px; }
+  .cover-viewer-actions :is(button, a) { padding: 8px; }
+  .cover-viewer-image { height: 65dvh; }
+}

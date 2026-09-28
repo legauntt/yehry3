@@ -150,6 +150,19 @@ live songs.
 
 ## Run
 
+Saved Dashboard covers use 160, 320 and 640 pixel WebP previews, created locally
+by `npm run build` at quality 82 (only sizes smaller than the source). The browser
+selects for the rendered size and screen density; original images and the cover
+registry remain unchanged. Content-hashed previews can be cached for a year.
+This also applies automatically to new incubation and mature covers. It makes no
+image-generation calls. The enlarge button opens the original in a keyboard-accessible
+viewer with fit/actual size, a separate original-image link, Escape/backdrop dismissal
+and focus return, without changing playback or the repeated-tap artwork Easter egg.
+Future generation depicts Tony in a Gatsby cap or baseball cap whenever he appears.
+
+To refresh the skipped-cover report from an audit and the original batch baseline:
+`node scripts/artwork-status.mjs --state <state> --audit <current-audit.json> --baseline <batch-baseline.json> --skipped-report <report.md>`.
+
 Node 22 or later:
 
 ```sh

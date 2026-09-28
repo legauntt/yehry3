@@ -180,6 +180,8 @@ for (const name of [
   "compact-cards.css",
   "song-art.js",
   "cover-art.js",
+  "cover-viewer.js",
+  "cover-viewer.css",
   "artwork-catalog.js",
   "artwork/it-was-simple-not-easy.webp",
   "artwork/nine-eleven-d-again-fbfe8b.webp",

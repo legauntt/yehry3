@@ -7,6 +7,8 @@ import { songSummary } from "../assets/song-summary.js";
 import { codeVersion } from "./code-version.mjs";
 import { lyricPronunciations } from "./lyric-pronunciations.mjs";
 import { performanceTranscripts } from "./performance-transcripts.mjs";
+import artwork from "../assets/artwork-catalog.js";
+import { buildArtworkPreviews } from "./artwork-previews.mjs";
 const root = path.resolve(import.meta.dirname, "..");
 const output = path.join(root, "dist");
 const updatedAt = new Date();
@@ -55,6 +57,7 @@ for (const file of publicEntries) {
   await stat(path.join(root, file));
   await cp(path.join(root, file), path.join(output, file), { recursive: true });
 }
+await buildArtworkPreviews(root, output, artwork);
 const fullCatalog = JSON.parse(await readFile(path.join(root, "catalog.json"), "utf8"));
 // Only the deploy sets this, so local builds and tests never depend on the network.
 let catalog = fullCatalog;
