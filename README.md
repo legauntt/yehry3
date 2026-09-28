@@ -374,6 +374,10 @@ visible before confirmation. See [paid music behavior](pc-worker/PAID-MUSIC.md).
 
 Manual song length accepts 69–666 whole seconds with Local ACE and 69–600 with Eleven Music, whose provider maximum remains 600 seconds. Local lengths above 600 use connected movements and require one composition choice. Explicit short lengths work without supplied lyrics, including lyric approval and composition previews. Blank/Auto retains the existing duration distribution and submitted-lyrics exception.
 
+## Large archive batches
+
+Deploy builds read the current archived IDs from Chairlift and omit them from the public catalog, song data and generated pages. A batch hiding more than half the source catalog is allowed only when every removed source song appears in `archive-approvals.json`; otherwise the existing size guard still applies. Update that list only for an explicitly approved pruning selection, including the existing archived inventory. The list does not archive anything itself: restored songs remain public as soon as the API stops reporting them as archived, and the source catalog and recordings stay intact.
+
 ## Shared UI notifications
 
 `assets/realtime.js` owns one public connection per visible tab, shared by the listening room and catalog subscribers. `/events/socket` and the `/events?since=<version>` long-poll fallback carry two topics: `listeners` (the public room) and `catalog` (an opaque revision only). Page subscribers use their `page-scope.js` abort signal, so navigation keeps the connection and playing audio but removes the departed page's subscriptions.
