@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "songId": "distonyc-830853c4fdecd449a81720d5",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-830853c4fdecd449a81720d5-2229def7d1e4.mp3",
+  "audioSha256": "2229def7d1e4e34cd4b5dd064de7a63157d2e773b01a0a555682e487e2dade84",
+  "inputSha256": "2229def7d1e4e34cd4b5dd064de7a63157d2e773b01a0a555682e487e2dade84",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 60.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 2.24,
+      "text": "Oh",
+      "uncertain": true
+    },
+    {
+      "start": 40.82,
+      "end": 42.22,
+      "text": "Yeah.",
+      "uncertain": true
+    }
+  ]
+}
