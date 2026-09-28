@@ -92,6 +92,27 @@ ${JSON.stringify(compactSources(packet))}
 `;
 }
 
+// A manually reviewed alternative changes the depicted subject. It is never an
+// automatic rewording/retry of a provider rejection. Full sources stay in audit.
+export function makeReviewedPrompt(packet, treatment, brief) {
+  if (!treatments[treatment]) throw new Error("Unknown treatment");
+  if (!brief || brief.sourceHash !== digest(packet)) throw new Error("Reviewed brief does not match current full sources; review again");
+  if (!["non-explicit-scene", "humorous-fallback"].includes(brief.kind)) throw new Error("Invalid reviewed brief kind");
+  for (const field of ["rationale", "scene", "musicalContext", "alt"])
+    if (typeof brief[field] !== "string" || !brief[field].trim()) throw new Error(`Reviewed brief requires ${field}`);
+  return `Use case: illustration-story
+Asset type: original square album cover for a listening dashboard.
+Primary request: Illustrate only this reviewed, non-explicit scene. The brief is a new visual interpretation of a song; do not infer or add other events.
+Scene: ${brief.scene}
+Musical character and visual treatment: ${brief.musicalContext}
+Rendering: ${treatments[treatment].direction}
+Composition: an actual pictured scene with tactile texture, a strong focal subject and readable thumbnail silhouette; essential subjects in the central 80 percent. No clip art, logos or watermark.
+Tony's appearance: If the scene includes Tony C, give him a Gatsby cap (flat/newsboy cap) or baseball cap.
+Constraints: No sexual acts, nudity, sexualized posing, coercion, abuse, gore, bodily waste or hateful propaganda. No praise of perpetrators. Any political satire criticizes its target.
+${brief.kind === "humorous-fallback" ? 'Text: Only the brief\'s specified short comic sign, integrated into the pictured scene. The picture must dominate.' : 'No text, letters, typography, title card or printed lyrics.'}
+`;
+}
+
 export function estimateCost(prompt, treatment) {
   // Conservative reservation, NOT a billing statement. Up to one token per
   // UTF-8 byte plus 20% image headroom; SDK usage is not exposed by bundled CLI.

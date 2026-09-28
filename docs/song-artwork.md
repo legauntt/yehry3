@@ -24,6 +24,19 @@ For visual review, `artwork-contact-sheet.py AUDIT OUTPUT_DIRECTORY` renders the
 
 `scripts/song-artwork.mjs` is the maintained artwork program. It fetches the **full public song detail**, the same material used by Lyrics and Original prompt, and passes complete lyrics, the original request (including reference descriptions and supplied lyrics), and the full song planner output to `gpt-image-2`. Repeated long texts use lossless references; nothing is silently truncated. Missing sources are recorded. Oversized prompts or source-fetch failures are listed for review rather than generating from the title alone. It uses the installed Imagegen skill CLI, not a second SDK implementation.
 
+## Reviewed alternatives for rejected covers
+
+A provider rejection requires manual review. Read the full saved lyrics, original prompt and song plan, then author an actually non-explicit scene. Retain safe themes and musical character; abandon unsafe events rather than disguising them. The full sources and original rejection remain in the audit. Only the reviewed visual brief goes to the image provider for this alternative.
+
+`--reviewed-briefs FILE` accepts a private JSON file with `version: 1` and a `songs` map keyed by song ID. Each entry requires `sourceHash` matching the current complete source packet, `kind: "non-explicit-scene"`, a review `rationale`, a pictured `scene`, `musicalContext` and descriptive `alt`. Changed source material must be reviewed again. This mode requires `--from-audit`, selects only listed unpinned placeholders, preserves saved images and cannot run in lifecycle mode. It does not automatically rewrite or retry failures.
+
+```powershell
+node scripts/song-artwork.mjs plan --from-audit audit-before.json --reviewed-briefs reviewed-briefs.json --state path/to/shared/generation
+node scripts/song-artwork.mjs run --from-audit audit-before.json --reviewed-briefs reviewed-briefs.json --state path/to/shared/generation --budget 25 --budget-period cumulative --key-file "$HOME/wup.txt" --python "$HOME/.venvs/yehry3-imagegen/Scripts/python.exe"
+```
+
+If an alternative is also rejected, a separately reviewed `kind: "humorous-fallback"` may specify a neutral cartoon with a short sign such as BANNED. This is the narrow exception to the no-text rule: a pictured scene must dominate, not a title card. Never repeat the prohibited subject. Inspect each result before publication. Per-job `reviewed-brief.json`, prompt, master, source hash, brief hash and ledger receipt document the transformation and cost reservation; existing failed receipts are retained.
+
 ## Rules
 
 - No existing image, zero votes and fewer than 10 listens: **basic**, low quality.

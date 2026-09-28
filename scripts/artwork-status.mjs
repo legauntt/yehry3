@@ -32,7 +32,8 @@ if (values['skipped-report']) {
   const link = song => `[${String(song.title).replaceAll('|', '\\|').replaceAll('[', '\\[').replaceAll(']', '\\]')}](https://yehry3.app/song/${encodeURIComponent(song.id)}/)`;
   const rows = failures.map(failure => {
     const current = audit.songs.find(song => song.id === failure.id);
-    return `| ${link(failure)} | ${failure.reason}: ${failure.categories} (${failure.stage}) | ${current ? current.kind === 'text-placeholder' ? 'Placeholder remains' : 'Has a saved cover now' : 'Not in the current active catalog'} |`;
+    const installed = current?.cover?.interpretation === 'non-explicit-scene' ? 'Resolved with a reviewed non-explicit picture' : current?.cover?.interpretation === 'humorous-fallback' ? 'Resolved with a humorous fallback picture' : 'Has a saved cover now';
+    return `| ${link(failure)} | ${failure.reason}: ${failure.categories} (${failure.stage}) | ${current ? current.kind === 'text-placeholder' ? 'Placeholder remains' : installed : 'Not in the current active catalog'} |`;
   });
   const unknown = audit.songs.filter(song => song.kind !== 'saved-image' && !failures.some(failure => failure.id === song.id));
   const preserved = baseline.songs.filter(song => song.kind === 'saved-image');
@@ -40,7 +41,7 @@ if (values['skipped-report']) {
     '# Skipped artwork report', '', `Catalog checked: ${audit.createdAt}.`, '',
     `${audit.songs.length} active songs; ${audit.songs.filter(song => song.kind === 'saved-image').length} saved pictures; ${audit.songs.filter(song => song.kind === 'text-placeholder').length} remaining placeholders.`, '',
     '## Requests that did not produce an installed image', '',
-    'These are the provider-reported reasons, not guesses from song titles. Rejected requests have not been rephrased or retried.', '',
+    'These are historical provider-reported reasons, not guesses from song titles. Original failed receipts remain in the audit even when a separately reviewed alternative picture resolves the missing cover. Current status is shown alongside each failure.', '',
     '| Song | Recorded reason | Current status |', '| --- | --- | --- |', ...rows, '',
     '## Other active songs without a saved picture', '',
     ...(unknown.length ? unknown.map(song => `- ${link(song)} — ${song.kind}; no failed attempt is recorded in this ledger.`) : ['None.']), '',

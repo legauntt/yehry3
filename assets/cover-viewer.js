@@ -1,6 +1,6 @@
 import artwork from "./artwork-catalog.js";
 
-// The separate enlarge button leaves repeated artwork taps to the Easter egg.
+// The whole saved cover is a native button, including keyboard activation.
 // This viewer never touches the player or its audio element.
 export function mountCoverViewer(root, scope) {
   const dialog = document.createElement("dialog");

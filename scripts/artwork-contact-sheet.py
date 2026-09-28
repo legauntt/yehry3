@@ -8,8 +8,11 @@ parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument("audit", type=Path)
 parser.add_argument("output", type=Path)
 parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parent.parent)
+parser.add_argument("--only", nargs="+", help="Include only these song IDs")
 args = parser.parse_args()
 rows = [row for row in json.loads(args.audit.read_text(encoding="utf-8"))["songs"] if row.get("cover")]
+if args.only:
+    rows = [row for row in rows if row["id"] in args.only]
 args.output.mkdir(parents=True, exist_ok=True)
 try:
     font = ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 15)

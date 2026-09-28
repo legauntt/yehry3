@@ -1,17 +1,9 @@
-.track-art-frame { position: relative; min-width: 0; border-radius: 7px; background: var(--paper); }
+.track-art-frame { display: block; position: relative; min-width: 0; min-height: 0; padding: 0; border: 0; border-radius: 7px; background: var(--paper); cursor: zoom-in; }
+.track-art-frame:focus-visible { outline: 3px solid #c17825; outline-offset: 3px; }
 #tracks[data-view="grid"] .track-art-frame { grid-column: 1 / -1; grid-row: 1; }
+#tracks[data-view="grid"] .track-number { pointer-events: none; }
 #tracks[data-view="list"] .track-art-frame { grid-column: 2; grid-row: 1 / 4; width: 58px; }
 #tracks[data-view] .track-art-frame .track-art { width: 100%; }
-.cover-enlarge {
-  position: absolute; right: 6px; bottom: 6px; display: grid; place-items: center;
-  width: 40px; height: 40px; min-height: 0; padding: 8px;
-  border: 1px solid #ffffffa0; border-radius: 8px; background: #17221ed9; color: #fff;
-  cursor: pointer; box-shadow: 0 1px 5px #0003;
-}
-.cover-enlarge:hover { background: #17221e; }
-.cover-enlarge:focus-visible { outline: 3px solid #f9c774; outline-offset: 2px; }
-.cover-enlarge svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-#tracks[data-view="list"] .cover-enlarge { width: 28px; height: 28px; right: 0; bottom: 0; padding: 5px; border-radius: 5px; }
 @media (max-width: 650px) {
   #tracks[data-view="list"] .track-art-frame { grid-column: 1; grid-row: 1 / 3; width: 52px; align-self: start; }
 }

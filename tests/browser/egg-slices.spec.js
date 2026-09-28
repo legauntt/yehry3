@@ -89,22 +89,22 @@ test("cover clips follow their own sung lines and stop at the slice boundary", a
   expect(await page.evaluate(() => window.__clips.map(audio => new URL(audio.src).pathname))).toEqual(["/one.wav", "/one.wav"]);
 });
 
-test("responsive cover previews sample their song and keep the enlarge button separate", async ({ page }) => {
+test("clicking a saved cover opens its viewer without sampling audio", async ({ page }) => {
   const song = { ...songs[0], id: "distonyc-06d2b8c3c8dffed19df347bb" };
   await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [song] } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [song] } }));
   await page.goto("/");
-  const art = page.locator(`img.track-art[data-clip-id="${song.id}"]`);
+  const art = page.locator(`[data-id="${song.id}"] img.track-art`);
   await expect(art).toHaveAttribute("srcset", /webp/);
-  await art.click({ clickCount: 3 });
-  await expect(art).toHaveClass(/egg-shock/);
-  await expect(page.locator(".cover-viewer")).not.toBeVisible();
-  expect(await page.evaluate(() => new URL(window.__clips.at(-1).src).pathname)).toBe("/one.wav");
-  await page.getByRole("button", { name: "Enlarge cover for Song one" }).click();
-  await expect(page.locator(".cover-viewer")).toBeVisible();
-  expect(await page.evaluate(() => window.__clips.length)).toBe(1);
-  await page.keyboard.press("Escape");
-  await expect(page.locator(".cover-viewer")).not.toBeVisible();
+  await expect(page.locator(".cover-enlarge")).toHaveCount(0);
+  for (let i = 0; i < 3; i++) {
+    await art.click({ position: { x: 10, y: 10 } });
+    await expect(page.locator(".cover-viewer")).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(page.locator(".cover-viewer")).not.toBeVisible();
+  }
+  expect(await page.evaluate(() => window.__clips.length)).toBe(0);
+  await expect(art).not.toHaveClass(/egg-shock/);
 });
 
 test("the record samples random songs without repeated picks or idle lyric popups on mobile", async ({ page }) => {

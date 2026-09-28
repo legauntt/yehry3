@@ -7,7 +7,7 @@ import path from "node:path";
 import os from "node:os";
 import { pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
-import { POLICY, treatments, selectTreatment, sourcePacket, makePrompt, digest, estimateCost, isPinnedOrUnknown } from "./artwork-policy.mjs";
+import { POLICY, treatments, selectTreatment, sourcePacket, makePrompt, makeReviewedPrompt, digest, estimateCost, isPinnedOrUnknown } from "./artwork-policy.mjs";
 import { reserveJobs, budgetMonth } from "./artwork-budget.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
@@ -67,6 +67,7 @@ export async function main(args = process.argv.slice(2)) {
     "exclude-pinned": { type: "boolean", default: false },
     "placeholders-only": { type: "boolean", default: false },
     "from-audit": { type: "string" },
+    "reviewed-briefs": { type: "string" },
     lifecycle: { type: "boolean", default: false },
     "lifecycle-baseline": { type: "string" },
     "incubation-hours": { type: "string", default: "24" },
@@ -78,6 +79,7 @@ export async function main(args = process.argv.slice(2)) {
   [--budget-period cumulative|monthly] [--limit N] [--concurrency 3]
   [--key-file FILE] [--python EXE] [--only ID] [--redo ID] [--direction FILE]
   [--exclude-pinned] [--placeholders-only] [--from-audit FILE]
+  [--reviewed-briefs FILE (requires --from-audit; manually reviewed alternatives)]
   [--lifecycle] [--lifecycle-baseline FILE] [--incubation-hours 24]
 plan saves full sources and prompts without image calls. report summarizes that plan.
 run reserves estimated spend in the persistent ledger, calls the installed Imagegen CLI,
@@ -107,6 +109,14 @@ Monthly budgets use America/Los_Angeles calendar months and retain prior receipt
     opt["exclude-pinned"] = true;
   }
   const audit = opt["from-audit"] ? await json(opt["from-audit"]) : null;
+  const briefs = opt["reviewed-briefs"] ? await json(opt["reviewed-briefs"]) : null;
+  if (opt["reviewed-briefs"] && (!audit || opt.lifecycle || opt.direction || briefs?.version !== 1 ||
+      !briefs.songs || typeof briefs.songs !== "object" || Array.isArray(briefs.songs) || !Object.keys(briefs.songs).length))
+    throw new Error("Reviewed briefs require a nonempty version-1 song map and --from-audit; cannot use lifecycle or direction");
+  if (briefs) for (const id of Object.keys(briefs.songs)) {
+    if (!audit.songs?.some(s => s.id === id && s.kind === "text-placeholder" && s.pins === 0))
+      throw new Error(`Reviewed brief is not an audited unpinned placeholder: ${id}`);
+  }
   if (opt["from-audit"]) {
     if (!Array.isArray(audit?.songs) || !audit.songs.length) throw new Error("Invalid artwork audit");
     if (opt.only.length || opt.redo.length) throw new Error("Use --from-audit without --only or --redo");
@@ -165,7 +175,7 @@ Monthly budgets use America/Los_Angeles calendar months and retain prior receipt
         }
       }
     }
-    const wanted = new Set(audit ? audit.songs.filter(s => s.kind === "text-placeholder" && s.pins === 0).map(s => s.id) : [...opt.only, ...opt.redo]);
+    const wanted = new Set(audit ? audit.songs.filter(s => s.kind === "text-placeholder" && s.pins === 0 && (!briefs || Object.hasOwn(briefs.songs, s.id))).map(s => s.id) : [...opt.only, ...opt.redo]);
     if (!audit) for (const id of wanted) if (!snapshot.songs.some(s => s.id === id)) throw new Error(`Song not in active catalog: ${id}`);
     const protectedSongs = snapshot.songs.filter(s => opt["exclude-pinned"] && isPinnedOrUnknown(s)).map(s => ({ id: s.id, title: s.title, pins: s.pins ?? null }));
     const protectedIds = new Set([...protectedSongs, ...(audit?.songs.filter(s => isPinnedOrUnknown(s)) || [])].map(s => s.id));
@@ -180,14 +190,17 @@ Monthly budgets use America/Los_Angeles calendar months and retain prior receipt
       try {
         const detail = (await apiGet(opt.api, `/songs/${song.id}`)).song;
         if (!detail || detail.id !== song.id) throw new Error("Detail identity mismatch");
-        const packet = sourcePacket(detail), prompt = makePrompt(packet, treatment, direction);
+        const packet = sourcePacket(detail), brief = briefs?.songs[song.id];
+        const prompt = briefs ? makeReviewedPrompt(packet, treatment, brief) : makePrompt(packet, treatment, direction);
         if (prompt.length > 31000) throw new Error(`Full prompt needs review (${prompt.length} characters); no source was truncated`);
         const fingerprint = digest({ policy: POLICY.version, treatment, prompt });
         const key = `${song.id}-${treatment}-${fingerprint.slice(0, 12)}`, folder = path.join(state, key);
         await mkdir(folder, { recursive: true });
         await atomic(path.join(folder, "sources.json"), JSON.stringify(packet, null, 2) + "\n");
         await atomic(path.join(folder, "prompt.txt"), prompt);
+        if (brief) await atomic(path.join(folder, "reviewed-brief.json"), JSON.stringify(brief, null, 2) + "\n");
         const job = { id: song.id, title: song.title, treatment, fingerprint, key, folder, estimate: estimateCost(prompt, treatment), missing: packet.missing, prompt, sourceHash: digest(packet), ...(opt.lifecycle ? { firstSeenAt: art[song.id]?.firstSeenAt || observations.firstSeen[song.id] } : {}) };
+        if (brief) Object.assign(job, { alt: brief.alt, interpretation: brief.kind, briefHash: digest(brief) });
         jobs.push(job);
       } catch (e) { failedSources.push({ id: song.id, reason: e.message }); }
     }
@@ -267,7 +280,7 @@ Monthly budgets use America/Los_Angeles calendar months and retain prior receipt
               }
             }
             await copyFile(preparedFile, path.join(root, src));
-            art[job.id] = { src, alt: `Cover artwork for ${job.title}.`, theme: "generated", tier: 0, remixed: false, treatment: job.treatment, model: POLICY.model, sourceHash: job.sourceHash, promptHash: digest(job.prompt), createdAt: new Date().toISOString(), missingSources: job.missing, previous: art[job.id]?.src || null, ...(job.firstSeenAt ? { firstSeenAt: job.firstSeenAt } : {}) };
+            art[job.id] = { src, alt: job.alt || `Cover artwork for ${job.title}.`, theme: "generated", tier: 0, remixed: false, treatment: job.treatment, model: POLICY.model, sourceHash: job.sourceHash, promptHash: digest(job.prompt), createdAt: new Date().toISOString(), missingSources: job.missing, previous: art[job.id]?.src || null, ...(job.firstSeenAt ? { firstSeenAt: job.firstSeenAt } : {}), ...(job.interpretation ? { interpretation: job.interpretation, briefHash: job.briefHash } : {}) };
             await atomic(registryPath, prefix + JSON.stringify(art, null, 2) + ";\n");
             ledger.jobs[job.key] = { ...ledger.jobs[job.key], songId: job.id, title: job.title, treatment: job.treatment, status: "complete", src };
             delete ledger.jobs[job.key].error;

@@ -202,6 +202,8 @@ export function mountBadgeSounds(root = document) {
   // Media events do not bubble, but they can be caught on the way down.
   root.addEventListener("play", (event) => { if (event.target instanceof HTMLMediaElement) stop(); }, true);
   root.addEventListener("click", (event) => {
+    // Saved covers open the viewer; repeated opens must never start a sample.
+    if (event.target.closest?.("[data-cover-open]")) return;
     // The click keeps its usual job, such as opening a pending row.
     const art = event.target.closest?.(".track-art");
     if (art) return tapArt(art, event.timeStamp, () => ({

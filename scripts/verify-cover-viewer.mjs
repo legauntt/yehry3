@@ -91,7 +91,9 @@ try {
       });
     }
     const trigger = card.locator("[data-cover-open]");
-    await trigger.click();
+    assert.equal(await card.locator(".cover-enlarge, [data-cover-open] svg").count(), 0);
+    assert.equal(await trigger.evaluate(el => el.tagName), "BUTTON");
+    await image.click({ position: { x: 10, y: 10 } });
     const dialog = page.getByRole("dialog", { name: "It Was Simple, Not Easy" });
     await dialog.waitFor();
     await dialog.locator("img").evaluate(img => img.decode());
@@ -110,8 +112,14 @@ try {
     await page.keyboard.press("Escape");
     await dialog.waitFor({ state: "hidden" });
     assert.equal(await trigger.evaluate(button => button === document.activeElement), true);
-    await trigger.click();
+    await page.keyboard.press("Enter");
+    await dialog.waitFor();
     await page.mouse.click(2, 2);
+    await dialog.waitFor({ state: "hidden" });
+    await trigger.focus();
+    await page.keyboard.press("Space");
+    await dialog.waitFor();
+    await page.keyboard.press("Escape");
     await dialog.waitFor({ state: "hidden" });
     await page.waitForFunction(() => !document.documentElement.classList.contains("cover-viewer-open"));
     if (local) assert.equal(await page.evaluate(async () => {
