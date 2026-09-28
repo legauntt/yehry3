@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { remixFromPrompt, shockedArtwork, songArtwork, songArtworkMarkup, voteTier } from "../assets/song-art.js";
 import { songSummary } from "../assets/song-summary.js";
+import savedArtwork from "../assets/artwork-catalog.js";
 
 const catalog = async () => JSON.parse(await readFile(new URL("../catalog.json", import.meta.url), "utf8")).songs;
 const svgOf = art => decodeURIComponent(art.src.split(",")[1]);
@@ -36,10 +37,15 @@ test("recognizable title subjects receive matching illustrations", () => {
     assert.deepEqual([...seen].sort(), [...expected].sort(), title);
   }
 });
-test("the catalog no longer leans on one fallback or one drawing per remix family", async () => {
+test("saved covers stay distinct and legacy fallbacks do not share one drawing per remix family", async () => {
   const songs = await catalog();
   const counts = new Map();
-  for (const song of songs) counts.set(songArtwork(song).theme, (counts.get(songArtwork(song).theme) || 0) + 1);
+  for (const song of songs) {
+    const art = songArtwork(song);
+    // Generated pictures share metadata's theme label, not their actual image.
+    const drawing = art.src.startsWith("data:image/svg+xml,") ? art.theme : art.src;
+    counts.set(drawing, (counts.get(drawing) || 0) + 1);
+  }
   // The old first-match picker put 19 of 183 songs on the record and used 43 drawings.
   // Leave room for new releases with the same title subject; the old 10% concentration still fails.
   assert.ok(Math.max(...counts.values()) <= Math.ceil(songs.length * 0.08), "one drawing dominates: " + JSON.stringify([...counts]));
@@ -86,14 +92,20 @@ test("new and unusual titles are safe and do not need lyrics or remote image URL
   assert.notEqual(songArtwork({ id: "one", title: "Untitled" }).src, songArtwork({ id: "two", title: "Untitled" }).src);
   assert.ok(songArtwork({}).src.startsWith("data:image/svg+xml,"));
 });
-test("every See-saw recording wears the same comically huge black mouth", async () => {
+test("See-saw keeps its legacy mouth until a saved pictorial cover replaces it", async () => {
   const seesawMouth = /<rect x="70" y="114" width="64" height="38" rx="3" fill="#000"\/>/;
   const isSeesaw = song => /\b(?:see[-\s]?saw|c-?saw)/i.test(song.title || "");
   const cast = (await catalog()).filter(isSeesaw);
   assert.ok(cast.length >= 3, "the catalog lost its See-saw recordings");
   for (const song of cast) {
-    assert.match(svgOf(songArtwork(song)), seesawMouth, song.title);
-    assert.match(songArtwork(song).alt, /comically enormous black rectangle for a mouth\.$/);
+    const art = songArtwork(song);
+    if (savedArtwork[song.id]) {
+      assert.equal(art.src, savedArtwork[song.id].src, song.title);
+      assert.match(art.src, /^\/assets\/artwork\/.+\.webp$/);
+    } else {
+      assert.match(svgOf(art), seesawMouth, song.title);
+      assert.match(art.alt, /comically enormous black rectangle for a mouth\.$/);
+    }
   }
   // The gag follows the character through retitles, remixes, and votes.
   for (const title of ["See-saw'd Again", "See-saw'd Again (Empty Frame Mix)", "See-saw in Every Picture",
