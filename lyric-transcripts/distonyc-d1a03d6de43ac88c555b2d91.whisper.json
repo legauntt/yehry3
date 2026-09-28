@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "songId": "distonyc-d1a03d6de43ac88c555b2d91",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d1a03d6de43ac88c555b2d91-bb21c20b8c84.mp3",
+  "audioSha256": "bb21c20b8c84f8f9fa643b8f514171b2653081d4605fb3446d8dd7fe215573f3",
+  "inputSha256": "1de2f15354292157b516e7efc7a4ea309cebd06254314dbbb29e866be4b09fc7",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 359.44,
+  "segments": [
+    {
+      "start": 11.68,
+      "end": 13.38,
+      "text": "Headed in",
+      "uncertain": true
+    },
+    {
+      "start": 33.36,
+      "end": 59.9,
+      "text": "Oh, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no",
+      "uncertain": true
+    },
+    {
+      "start": 64.88,
+      "end": 66.28,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 98.2,
+      "end": 99.6,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 124.0,
+      "end": 126.8,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 152.86,
+      "end": 174.04,
+      "text": "Here is enough, here is enough, here is enough, here is enough, here is enough.",
+      "uncertain": true
+    },
+    {
+      "start": 186.32,
+      "end": 186.5,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 216.08,
+      "end": 216.14,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 258.64,
+      "end": 262.8,
+      "text": "Oh, yeah, yeah, yeah, yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 272.32,
+      "end": 274.28,
+      "text": "You're just a",
+      "uncertain": true
+    },
+    {
+      "start": 279.04,
+      "end": 280.96,
+      "text": "You're just a",
+      "uncertain": true
+    },
+    {
+      "start": 280.96,
+      "end": 285.64,
+      "text": "You're just a",
+      "uncertain": true
+    },
+    {
+      "start": 307.0,
+      "end": 307.06,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 350.48,
+      "end": 353.28,
+      "text": "Oh, my God.",
+      "uncertain": true
+    }
+  ]
+}
