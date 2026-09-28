@@ -36,9 +36,15 @@ try {
   const influenceId = "distonyc-6694dab26c170fba0dba0663";
   if (artwork[influenceId]) {
     await cover.locator(".song-more").click();
+    if (!await page.locator("#search").isVisible()) {
+      await page.locator(".catalog-filters > summary").click();
+    }
     await page.locator("#search").fill("Influence Criteria");
     const influence = page.locator(`[data-id="${influenceId}"]`);
     await influence.waitFor({ timeout: 30000 });
+    if (await page.locator(".catalog-filters[open]").count()) {
+      await page.locator(".catalog-filters > summary").click();
+    }
     await influence.scrollIntoViewIfNeeded();
     await page.waitForFunction(id => {
       const img = document.querySelector(`[data-id="${id}"] img.track-art`);
