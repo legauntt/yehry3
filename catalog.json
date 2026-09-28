@@ -2,6 +2,60 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-830853c4fdecd449a81720d5",
+      "title": "Yeah After Midnight",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-830853c4fdecd449a81720d5-2229def7d1e4.mp3",
+      "duration": 60,
+      "collection": "distonyc",
+      "voiceModel": "v6",
+      "publishedAt": "2026-09-28T06:48:51.740Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Yeah After Midnight",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Sparse late-night jazz in D minor: brushed drums, upright bass, warm Rhodes, and wide silences around Tony’s smoky, connected one-word delivery. Let each “Yeah” land differently, with the two “Yeahhhh” lines held as melodic releases. Pace the final “Yeeaah” as a sustained last vocal about 10 seconds before the end, followed by one quiet resolved chord and natural decay.",
+        "lyrics": "[Intro]\nYeah\n\n[Verse 1]\nYeah\nYeah\nYeah\n\n[Interlude]\nYeahhhh\n\n[Verse 2]\nYeah\nYeah\nYeah\nYeah\n\n[Bridge]\nYeah\nYeah\n\n[Verse 3]\nYeahhhh\nYeah\nYeah\n\n[Outro]\nYeah\nYeah\nYeeaah\n[End]",
+        "duration": 60,
+        "bpm": 62,
+        "musicalSettings": {
+          "genre": "Sparse smoky late-night jazz",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Interlude, Verse 2, Bridge, Verse 3, Outro",
+          "performance": "Natural, rough and slurred Tony phrasing with restrained melodic sustains",
+          "energy": "Low-key and intimate throughout, with brief held-vocal swells",
+          "lyricWorkflow": "Preserved supplied lyric sheet, performed with varied timing and tone",
+          "instruments": [
+            "upright bass",
+            "Rhodes electric piano",
+            "brush drum kit"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nYeah\n\n[Verse 1]\nYeah\nYeah\nYeah\n\n[Interlude]\nYeahhhh\n\n[Verse 2]\nYeah\nYeah\nYeah\nYeah\n\n[Bridge]\nYeah\nYeah\n\n[Verse 3]\nYeahhhh\nYeah\nYeah\n\n[Outro]\nYeah\nYeah\nYeeaah",
+        "kind": "written"
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "vocal_activity",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "originalPrompt": {
+        "idea": "A sparse late-night jazz version of Yeah After Midnight. Keep the arrangement intentionally open and let Tony say Yeah and a longer Yeahhhh over it.",
+        "direction": "Intentionally sparse smoky jazz: soft brushes, upright bass and Rhodes with plenty of open space. Use Tony saying Yeah and one longer Yeahhhh as the only vocal material.",
+        "keep": "Keep the original Yeah/Yeahhhh wording and restrained late-night jazz mood. No extra words or busy vocals.",
+        "basisSongs": [],
+        "voiceModel": "v6",
+        "musicBackend": "local"
+      }
+    },
+    {
       "id": "distonyc-d1a03d6de43ac88c555b2d91",
       "title": "Yeah After Midnight (Midnight Jazz Rework)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d1a03d6de43ac88c555b2d91-bb21c20b8c84.mp3",
