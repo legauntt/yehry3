@@ -1751,5 +1751,20 @@ export default {
     "previous": null,
     "interpretation": "non-explicit-scene",
     "briefHash": "e8fdcfcd585391ff096845a276f22f78435b790e6df72764ee976bd6c4f996d9"
+  },
+  "distonyc-dafe959adf6626195e5db578": {
+    "src": "/assets/artwork/distonyc-dafe959adf6626195e5db578-incubating-14e38dc79eaa-q86.webp",
+    "alt": "Cover artwork for Who I Aw.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "6a98d59bad82e7cefb2d336e62c5f3cb3470841a581d8abdb86036037fe13d45",
+    "promptHash": "fd5133fd314ea0fd80bc218bceeab95d820788220370d03e64db57e2b10e7069",
+    "createdAt": "2026-09-28T05:55:09.278Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-09-28T05:54:00.478Z"
   }
 };
