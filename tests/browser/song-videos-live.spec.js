@@ -11,7 +11,7 @@ test("published catalog exposes and plays all page-one silent videos", async ({ 
     await expect(button).toBeVisible();
     await button.click();
     const video = page.locator(".song-video-viewer video");
-    await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted)).toBe(true);
+    await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted), { timeout: 20000, message: `Live playback starts for ${id}` }).toBe(true);
     expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([576, 1024, 15]);
     await page.keyboard.press("Escape");
   }
