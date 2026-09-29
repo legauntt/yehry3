@@ -4,7 +4,8 @@ from pathlib import Path
 from common import API, APIError, inside, load, save, sha, singleton, utc
 from winprocess import Stopped, run_owned
 from planner import make_plan
-from publish import upload, upload_alternates, update_catalog
+from publish import upload, upload_alternates, upload_asset, update_catalog, update_guide_catalog
+from guide_audio import capture as capture_guide, saved as saved_guide
 from public_plan import public_plan
 from lyrics import make_sheet, export_sheet
 from voice_models import selected, capabilities as voice_capabilities
@@ -120,7 +121,9 @@ def run_once(config, api, verify_existing=None):
         journal.unlink(); save(health, {'at': utc(), 'status': 'waiting_for_review', 'promptId': prompt['id']}); return
     if prompt['status'] in TERMINAL:
         if prompt['status'] == 'published':
-            update_catalog(config, prompt)
+            guide = saved_guide(directory)
+            update_catalog(config, prompt, guide)
+            update_guide_catalog(config, prompt['songId'], guide)
             register_remix(config, api, prompt)
         journal.unlink(); return
     heartbeat = Heartbeat(api, prompt, claim['leaseToken'], directory, health)
@@ -180,6 +183,7 @@ def run_once(config, api, verify_existing=None):
             alternate = b_side(config, plan, directory, heartbeat, run_owned, Stopped)
             mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
             completed.update(pitch_fields(load(result_file), alternate))
+            capture_guide(config, load(result_file), directory)
             prompt = action('complete', result=completed)
         else:
             if not result_file.exists(): raise ValueError('This PC is missing the completed mix. Restore its saved job folder before publishing.')
@@ -188,6 +192,7 @@ def run_once(config, api, verify_existing=None):
             mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
             from pitch_alternate import fields as pitch_fields, saved as saved_b_side
             completed.update(pitch_fields(load(result_file), saved_b_side(directory, config)))
+            capture_guide(config, load(result_file), directory)
             # Finish pre-upgrade publications with their original immutable metadata.
             if any(completed.get(key) != value for key, value in prompt['result'].items()): raise ValueError('The saved mix differs from the server result')
         if heartbeat.stopped(): raise Stopped('Cancellation or lease loss')
@@ -195,10 +200,14 @@ def run_once(config, api, verify_existing=None):
         heartbeat.stage = 'Publishing the verified MP3'
         upload(config, prompt, mp3, directory, heartbeat.stopped)
         upload_alternates(config, prompt, directory, heartbeat.stopped)
+        guide = saved_guide(directory)
+        if guide:
+            upload_asset(config, prompt['songId'], guide, directory / 'guide.mp3', directory, heartbeat.stopped)
         if heartbeat.stopped(): raise Stopped('Lease lost during publication')
         prompt = action('publish')
         heartbeat.close()
-        update_catalog(config, prompt)
+        update_catalog(config, prompt, guide)
+        update_guide_catalog(config, prompt['songId'], guide)
         register_remix(config, api, prompt)
         save(health, {'at': utc(), 'status': 'published', 'promptId': prompt['id'], 'url': prompt['releaseUrl']})
         journal.unlink()

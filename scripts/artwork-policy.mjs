@@ -21,7 +21,7 @@ export const treatments = Object.freeze({
 export const digest = value => createHash("sha256").update(typeof value === "string" || Buffer.isBuffer(value) ? value : JSON.stringify(value)).digest("hex");
 
 export function isPinnedOrUnknown(song) {
-  return !Number.isInteger(song?.pins) || song.pins !== 0;
+  return typeof song?.adminPinned !== 'boolean' || song.adminPinned;
 }
 
 export function selectTreatment(song, existing, { redo = false, lowListens = POLICY.lowListens, excludePinned = false,

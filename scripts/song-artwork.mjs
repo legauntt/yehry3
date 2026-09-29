@@ -114,7 +114,7 @@ Monthly budgets use America/Los_Angeles calendar months and retain prior receipt
       !briefs.songs || typeof briefs.songs !== "object" || Array.isArray(briefs.songs) || !Object.keys(briefs.songs).length))
     throw new Error("Reviewed briefs require a nonempty version-1 song map and --from-audit; cannot use lifecycle or direction");
   if (briefs) for (const id of Object.keys(briefs.songs)) {
-    if (!audit.songs?.some(s => s.id === id && s.kind === "text-placeholder" && s.pins === 0))
+    if (!audit.songs?.some(s => s.id === id && s.kind === "text-placeholder" && s.adminPinned === false))
       throw new Error(`Reviewed brief is not an audited unpinned placeholder: ${id}`);
   }
   if (opt["from-audit"]) {
@@ -175,9 +175,9 @@ Monthly budgets use America/Los_Angeles calendar months and retain prior receipt
         }
       }
     }
-    const wanted = new Set(audit ? audit.songs.filter(s => s.kind === "text-placeholder" && s.pins === 0 && (!briefs || Object.hasOwn(briefs.songs, s.id))).map(s => s.id) : [...opt.only, ...opt.redo]);
+    const wanted = new Set(audit ? audit.songs.filter(s => s.kind === "text-placeholder" && s.adminPinned === false && (!briefs || Object.hasOwn(briefs.songs, s.id))).map(s => s.id) : [...opt.only, ...opt.redo]);
     if (!audit) for (const id of wanted) if (!snapshot.songs.some(s => s.id === id)) throw new Error(`Song not in active catalog: ${id}`);
-    const protectedSongs = snapshot.songs.filter(s => opt["exclude-pinned"] && isPinnedOrUnknown(s)).map(s => ({ id: s.id, title: s.title, pins: s.pins ?? null }));
+    const protectedSongs = snapshot.songs.filter(s => opt["exclude-pinned"] && isPinnedOrUnknown(s)).map(s => ({ id: s.id, title: s.title, adminPinned: s.adminPinned ?? null }));
     const protectedIds = new Set([...protectedSongs, ...(audit?.songs.filter(s => isPinnedOrUnknown(s)) || [])].map(s => s.id));
     const direction = opt.direction ? await readFile(opt.direction, "utf8") : "";
     const candidates = snapshot.songs.filter(s => (audit || wanted.size ? wanted.has(s.id) : true) && !protectedIds.has(s.id) && !lifecycleProtected.has(s.id) && (!opt["placeholders-only"] || !art[s.id]))

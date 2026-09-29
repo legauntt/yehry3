@@ -26,11 +26,11 @@ async function guardedRun(t, pins) {
   `);
   await writeFile(path.join(fixture, 'scripts/prepare-cover.py'), "require('node:fs').copyFileSync(process.argv[2], process.argv[3]);");
   let pinReads = 0;
-  const song = { id: 'test-song', title: 'Test Song', pins: 0, votes: 0, lyrics: { text: 'A boat under the stars' }, originalPrompt: { idea: 'folk' }, songPlan: { genre: 'folk' } };
+  const song = { id: 'test-song', title: 'Test Song', adminPinned: false, votes: 0, lyrics: { text: 'A boat under the stars' }, originalPrompt: { idea: 'folk' }, songPlan: { genre: 'folk' } };
   const server = createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    if (req.url === '/songs/summary') res.end(JSON.stringify({ songs: [{ ...song, pins: pins[pinReads++] }] }));
-    else if (req.url === '/songs/test-song') { const { pins, ...detail } = song; res.end(JSON.stringify({ song: detail })); }
+    if (req.url === '/songs/summary') res.end(JSON.stringify({ songs: [{ ...song, adminPinned: pins[pinReads++] }] }));
+    else if (req.url === '/songs/test-song') res.end(JSON.stringify({ song }));
     else { res.writeHead(404); res.end('{}'); }
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -54,18 +54,18 @@ async function guardedRun(t, pins) {
 }
 
 test('a pin added after planning prevents the image API call', async t => {
-  const result = await guardedRun(t, [0, 1]);
+  const result = await guardedRun(t, [false, true]);
   assert.equal(result.called, false);
   assert.equal(result.pinReads, 2);
 });
 
 test('a pin added during rendering prevents installation of the generated cover', async t => {
-  const result = await guardedRun(t, [0, 0, 1]);
+  const result = await guardedRun(t, [false, false, true]);
   assert.equal(result.called, true);
   assert.equal(result.pinReads, 3);
 });
 
 test('unknown pin status prevents the image API call', async t => {
-  const result = await guardedRun(t, [0, undefined]);
+  const result = await guardedRun(t, [false, undefined]);
   assert.equal(result.called, false);
 });

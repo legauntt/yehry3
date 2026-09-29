@@ -87,7 +87,7 @@ def original_prompt(prompt):
             **({'generation': __import__('generation_controls').normalize(details['generation']), 'generationProfile': 'v8'} if details.get('generation') else {})}
 
 
-def song_record(prompt):
+def song_record(prompt, guide=None):
     result = prompt['result']
     source = (prompt.get('details') or {}).get('remixSource')
     return {'id': prompt['songId'], 'title': result['title'], 'url': prompt['releaseUrl'],
@@ -99,6 +99,7 @@ def song_record(prompt):
             **({'songPlan': prompt['songPlan']} if prompt.get('songPlan') else {}),
             **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues', 'validationFailures', 'reviewState', 'repairedAt', 'generationProfile', 'musicBackend', 'pitchRepair'] if key in result},
             **({'alternates': [{**row, 'url': asset_url(prompt['songId'], row['sha256'])} for row in result['alternates']]} if result.get('alternates') else {}),
+            **({'guide': {**guide, 'url': asset_url(prompt['songId'], guide['sha256'])}} if guide else {}),
             **({'originalPrompt': original_prompt(prompt)} if prompt.get('prompt') else {})}
 
 def merge_catalog(catalog, record, completion=None):
@@ -149,8 +150,8 @@ def catalog_content(config, current):
     return json.loads(content)
 
 
-def update_catalog(config, prompt):
-    record = song_record(prompt)
+def update_catalog(config, prompt, guide=None):
+    record = song_record(prompt, guide)
     for attempt in range(4):
         current = gh_json(config, ['api', f'repos/{REPO}/contents/catalog.json?ref={BRANCH}'])
         catalog = catalog_content(config, current)
@@ -164,3 +165,60 @@ def update_catalog(config, prompt):
         except RuntimeError as error:
             if attempt == 3 or not any(code in str(error) for code in ['409', '422']): raise
     raise RuntimeError('Catalog changed repeatedly; publication will retry from the saved mix')
+
+
+def update_guide_catalog(config, song_id, guide):
+    """Expose the A/B mix to API-backed clients without changing live song records."""
+    if not guide:
+        return
+    address = f'repos/{REPO}/contents/assets/guide-catalog.js'
+    prefix = '// Published pre-replacement mixes, keyed by the song they accompany.\n'
+    prefix += '// The Distonyc worker adds entries after verifying each public MP3.\n'
+    for attempt in range(4):
+        current = gh_json(config, ['api', f'{address}?ref={BRANCH}'])
+        source = base64.b64decode(current['content']).decode('utf-8')
+        marker = 'export default '
+        if not source.startswith(prefix + marker) or not source.rstrip().endswith(';'):
+            raise ValueError('Unexpected guide catalog format')
+        guides = json.loads(source[len(prefix + marker):].strip()[:-1])
+        row = {**guide, 'url': asset_url(song_id, guide['sha256'])}
+        if guides.get(song_id) == row:
+            return
+        if song_id in guides:
+            raise ValueError('A different guide mix is already published for this song')
+        guides[song_id] = row
+        content = (prefix + marker + json.dumps(guides, ensure_ascii=False, indent=2, sort_keys=True) + ';\n').encode()
+        try:
+            gh_json(config, ['api', address, '--method', 'PUT'], {
+                'message': f'Add guide mix for {song_id}', 'branch': BRANCH,
+                'sha': current['sha'], 'content': base64.b64encode(content).decode()})
+            return
+        except RuntimeError as error:
+            if attempt == 3 or not any(code in str(error) for code in ('409', '422')):
+                raise
+    raise RuntimeError('Guide catalog changed repeatedly')
+
+
+def backfill_catalog_guide(config, song_id, final_url, guide):
+    for attempt in range(4):
+        current = gh_json(config, ['api', f'repos/{REPO}/contents/catalog.json?ref={BRANCH}'])
+        catalog = catalog_content(config, current)
+        song = next((row for row in catalog['songs'] if row['id'] == song_id), None)
+        if not song or song['url'] != final_url:
+            raise ValueError('Published song changed before guide backfill')
+        row = {**guide, 'url': asset_url(song_id, guide['sha256'])}
+        if song.get('guide') == row:
+            return
+        if song.get('guide'):
+            raise ValueError('A different guide mix is already in the catalog')
+        song['guide'] = row
+        content = (json.dumps(catalog, ensure_ascii=False, indent=2) + '\n').encode()
+        try:
+            gh_json(config, ['api', f'repos/{REPO}/contents/catalog.json', '--method', 'PUT'], {
+                'message': f'Backfill guide mix for {song_id}', 'branch': BRANCH,
+                'sha': current['sha'], 'content': base64.b64encode(content).decode()})
+            return
+        except RuntimeError as error:
+            if attempt == 3 or not any(code in str(error) for code in ('409', '422')):
+                raise
+    raise RuntimeError('Catalog changed repeatedly during guide backfill')

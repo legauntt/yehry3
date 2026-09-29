@@ -1,19 +1,13 @@
 // The switch swaps recordings and keeps the listener's place for comparison.
 import { pitchModes } from './pitch-repair.js';
-
-// First Tony/guide trial. The guide file is staged only in the local preview's dist/.
-const guideTrial = {
-  id: 'distonyc-06d2b8c3c8dffed19df347bb',
-  url: '/preview-media/it-was-simple-not-easy-guide.mp3',
-};
-const localPreview = typeof location !== 'undefined' &&
-  ['localhost', '127.0.0.1'].includes(location.hostname);
+import guides from './guide-catalog.js';
 
 export function songSides(song) {
-  if (localPreview && song?.id === guideTrial.id && typeof song.url === 'string')
+  const guide = song && guides[song.id];
+  if (guide?.url && typeof song.url === 'string')
     return [
       { side: 'A', label: 'Tony', title: 'Final recording with Tony’s voice', url: song.url },
-      { side: 'B', label: 'Guide', title: 'Original stand-in vocal before Tony’s replacement', url: guideTrial.url },
+      { side: 'B', label: 'Guide', title: 'Original mix before Tony’s vocal replacement', url: guide.url },
     ];
   if (!song || !Object.hasOwn(pitchModes, song.pitchRepair) || !Array.isArray(song.alternates)) return [];
   const others = song.alternates.filter((row) => row && typeof row.url === 'string' && Object.hasOwn(pitchModes, row.pitchRepair) && row.pitchRepair !== song.pitchRepair).slice(0, 2);
@@ -24,7 +18,7 @@ export function songSides(song) {
 }
 
 export const sidesBadge = (song) => songSides(song).length
-  ? `<span class="sides-badge" title="${localPreview && song.id === guideTrial.id ? 'Compare Tony and the original guide vocal' : 'Switch Tony’s pitch setting while it plays'}">A/B</span>` : '';
+  ? `<span class="sides-badge" title="${guides[song.id] ? 'Compare Tony and the original guide mix' : 'Switch Tony’s pitch setting while it plays'}">A/B</span>` : '';
 
 export function mountSides(root, audio, { safeUrl, onSwitch }) {
   let sides = [], active = 0;

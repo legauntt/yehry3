@@ -51,7 +51,8 @@ def run_pass(config_path, check_only=False):
         result = subprocess.run([str(x) for x in args], cwd=cwd, capture_output=True,
                                 text=True, encoding="utf-8", errors="replace",
                                 creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0,
-                                env={**os.environ, "MONGOMS_DISABLE_POSTINSTALL": "1"})
+                                env={**os.environ, "MONGOMS_DISABLE_POSTINSTALL": "1",
+                                     "PYTHONDONTWRITEBYTECODE": "1"})
         (logs / f"{count:02}-{label}.log").write_text(result.stdout + result.stderr, encoding="utf-8")
         print(f"{label}: exit {result.returncode}", flush=True)
         if result.returncode not in allowed:

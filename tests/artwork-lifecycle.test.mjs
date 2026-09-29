@@ -25,11 +25,11 @@ test('lifecycle makes one cheap picture and one mature picture, protecting archi
     const calls = JSON.parse(fs.readFileSync(${JSON.stringify(callsFile)}, 'utf8')); calls.push(job.quality); fs.writeFileSync(${JSON.stringify(callsFile)}, JSON.stringify(calls));
   `);
   await writeFile(path.join(root, 'scripts/prepare-cover.py'), "require('node:fs').copyFileSync(process.argv[2], process.argv[3]);");
-  const song = { id: 'new-song', title: 'New Song', pins: 0, votes: 0, lyrics: { text: 'A moonlit ship' }, originalPrompt: { idea: 'jazz' }, songPlan: { genre: 'jazz' } };
+  const song = { id: 'new-song', title: 'New Song', adminPinned: false, votes: 0, lyrics: { text: 'A moonlit ship' }, originalPrompt: { idea: 'jazz' }, songPlan: { genre: 'jazz' } };
   let active = true;
   const server = createServer((req, res) => {
     res.setHeader('Content-Type', 'application/json');
-    if (req.url === '/songs/summary') res.end(JSON.stringify({ songs: active ? [song] : [{ id: 'already-finished', pins: 1 }] }));
+    if (req.url === '/songs/summary') res.end(JSON.stringify({ songs: active ? [song] : [{ id: 'already-finished', adminPinned: true }] }));
     else res.end(JSON.stringify({ song }));
   });
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
@@ -47,9 +47,9 @@ test('lifecycle makes one cheap picture and one mature picture, protecting archi
   art['new-song'].firstSeenAt = '2000-01-01T00:00:00Z';
   await writeFile(registryFile, prefix + JSON.stringify(art) + ';\n');
   active = false; await run();
-  active = true; song.pins = 1; await run();
+  active = true; song.adminPinned = true; await run();
   assert.deepEqual(JSON.parse(await readFile(callsFile, 'utf8')), ['low']);
-  song.pins = 0; await run(); await run();
+  song.adminPinned = false; await run(); await run();
   assert.deepEqual(JSON.parse(await readFile(callsFile, 'utf8')), ['low', 'medium']);
   const ledger = JSON.parse(await readFile(path.join(root, 'state/ledger.json'), 'utf8'));
   assert.equal(ledger.events.filter(e => e.type === 'reservation').length, 2);
