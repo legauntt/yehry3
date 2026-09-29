@@ -8,6 +8,8 @@ from common import load, save, sha
 
 
 def capture(config, result, directory):
+    if not config.get('settings', {}).get('ffmpeg'):
+        return None
     directory = Path(directory)
     destination = directory / 'guide.mp3'
     manifest = directory / 'guide.json'

@@ -123,7 +123,8 @@ def run_once(config, api, verify_existing=None):
         if prompt['status'] == 'published':
             guide = saved_guide(directory)
             update_catalog(config, prompt, guide)
-            update_guide_catalog(config, prompt['songId'], guide)
+            if guide:
+                update_guide_catalog(config, prompt['songId'], guide)
             register_remix(config, api, prompt)
         journal.unlink(); return
     heartbeat = Heartbeat(api, prompt, claim['leaseToken'], directory, health)
@@ -207,7 +208,8 @@ def run_once(config, api, verify_existing=None):
         prompt = action('publish')
         heartbeat.close()
         update_catalog(config, prompt, guide)
-        update_guide_catalog(config, prompt['songId'], guide)
+        if guide:
+            update_guide_catalog(config, prompt['songId'], guide)
         register_remix(config, api, prompt)
         save(health, {'at': utc(), 'status': 'published', 'promptId': prompt['id'], 'url': prompt['releaseUrl']})
         journal.unlink()
