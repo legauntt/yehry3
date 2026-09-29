@@ -12,6 +12,9 @@ import { currentScope } from "./page-scope.js";
 import { definePage, navigate } from "./shell.js";
 
 const main = document.querySelector("#main");
+// This one published tape has a commissioned cover while its saved snapshot stays intact.
+const midnightCircuitId = "rlug63T1hEU9";
+const midnightCircuitCover = "/assets/midnight-circuit-cover.webp";
 const escape = value => String(value ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 const safeAudio = song => {
   try { const url = new URL(song?.url, location.origin); return ["https:", "http:"].includes(url.protocol) && song?.url ? url.href : ""; }
@@ -77,7 +80,10 @@ async function gallery() {
   };
   const card = ({ id, tape: t, createdAt }) => {
     const count = t.a.length + t.b.length, name = escape(t.name);
-    return `<li><a class="tape-card" data-card="${id}" data-color="${t.color}" href="${tapeHref(id)}" aria-label="${name}, ${count} ${count === 1 ? "track" : "tracks"}${t.authoredBy ? `, authored by ${escape(t.authoredBy)}` : ""}"><span class="tape-card-body" aria-hidden="true">${face(t, "a")}${face(t, "b")}</span><strong>${name}</strong>${authoredByLine(t.authoredBy, escape)}<span class="small">${count} ${count === 1 ? "track" : "tracks"}${date(createdAt)}</span></a></li>`;
+    const artwork = id === midnightCircuitId
+      ? `<span class="tape-card-cover" aria-hidden="true"><img src="${midnightCircuitCover}" alt="" width="1254" height="1254" loading="lazy"><span>Midnight Circuit</span></span>`
+      : `<span class="tape-card-body" aria-hidden="true">${face(t, "a")}${face(t, "b")}</span>`;
+    return `<li><a class="tape-card" data-card="${id}" data-color="${t.color}" href="${tapeHref(id)}" aria-label="${name}, ${count} ${count === 1 ? "track" : "tracks"}${t.authoredBy ? `, authored by ${escape(t.authoredBy)}` : ""}">${artwork}<strong>${name}</strong>${authoredByLine(t.authoredBy, escape)}<span class="small">${count} ${count === 1 ? "track" : "tracks"}${date(createdAt)}</span></a></li>`;
   };
   async function load() {
     if (busy) return;
@@ -112,8 +118,9 @@ async function gallery() {
 }
 
 async function mount() {
+  const featuredCover = sharedId === midnightCircuitId;
   main.innerHTML = `<section class="tape-hero">
-      <div class="tape-intro"><p class="eyebrow"><a href="/mixtapes/">The listening room / Mixtapes</a> / ${shared ? "Shared tape" : "New"}</p>${shared ? `<h1 class="tape-name-heading">${escape(tape.name)}</h1>${authoredByLine(tape.authoredBy, escape)}<p class="lede">Made by a listener, shared with everyone.<br>Press play, or make your own version.</p>` : '<h1>A little more<br><em>personal.</em></h1><p class="lede">An opener. A change of pace. One last song.<br>Make someone a tape worth turning over.</p>'}
+      <div class="tape-intro"><p class="eyebrow"><a href="/mixtapes/">The listening room / Mixtapes</a> / ${shared ? "Shared tape" : "New"}</p>${shared ? `<h1 class="tape-name-heading">${escape(tape.name)}</h1>${authoredByLine(tape.authoredBy, escape)}<p class="lede">Made by a listener, shared with everyone.<br>Press play, or make your own version.</p>${featuredCover ? `<figure class="tape-featured-cover"><img src="${midnightCircuitCover}" alt="Midnight Circuit cover art: a car approaches a moonlit city on a looping illuminated road." width="1254" height="1254"><figcaption>MIDNIGHT CIRCUIT · COVER ART</figcaption></figure>` : ""}` : '<h1>A little more<br><em>personal.</em></h1><p class="lede">An opener. A change of pace. One last song.<br>Make someone a tape worth turning over.</p>'}
         <p class="tape-how"><span>01 &nbsp; Pick your songs</span><span>02 &nbsp; Draw the labels</span><span>03 &nbsp; Publish it</span></p>
         <div class="actions tape-actions"><button class="primary" id="share-tape" disabled>${sharedId ? "Copy link" : "Publish mixtape"}</button>${shared ? '<button class="quiet" id="edit-tape">Make your own version</button>' : '<a class="text-link" href="#tape-picker">Find your first track ↓</a>'}<a class="text-link" href="/mixtapes/">All mixtapes</a></div>
         <p class="small" id="tape-status" role="status">${sharedId ? "Every mixtape is public. This one is in the gallery for everyone." : shared ? "This tape came from an older link. Publish it to add it to the gallery and get a short link." : "Every mixtape is public. Publishing adds yours to the gallery for everyone."}</p>
@@ -123,7 +130,7 @@ async function mount() {
         <div class="deck-brand"><span>YEHRY3 <b>/ TAPE DECK</b></span><span class="deck-indicator">STEREO</span></div>
         <div class="deck-bay"><section class="tape-sleeve" aria-label="Mixtape sleeve">
           <i class="tape-screw screw-tl" aria-hidden="true"></i><i class="tape-screw screw-tr" aria-hidden="true"></i><i class="tape-screw screw-bl" aria-hidden="true"></i><i class="tape-screw screw-br" aria-hidden="true"></i>
-          <div class="cassette-label"><div class="cassette-label-top"><span class="tiny-label" id="tape-collection-name">A PERSONAL SELECTION</span><span id="cassette-side">SIDE A</span></div><div class="cassette-face"><h2 id="tape-title"></h2><span class="cassette-art" id="tape-label-art" hidden></span><canvas class="cassette-ink" id="tape-label-ink" role="img" hidden></canvas></div><p id="tape-total"></p></div>
+          <div class="cassette-label"><div class="cassette-label-top"><span class="tiny-label" id="tape-collection-name">A PERSONAL SELECTION</span><span id="cassette-side">SIDE A</span></div><div class="cassette-face${featuredCover ? " has-featured-cover" : ""}">${featuredCover ? `<img class="cassette-cover" src="${midnightCircuitCover}" alt="" width="1254" height="1254">` : ""}<h2 id="tape-title"></h2><span class="cassette-art" id="tape-label-art" hidden></span><canvas class="cassette-ink" id="tape-label-ink" role="img" hidden></canvas></div><p id="tape-total"></p></div>
           <div class="tape-window" aria-hidden="true"><span class="tape-spool"><i class="tape-reel"></i></span><span class="tape-bridge"><i></i></span><span class="tape-spool"><i class="tape-reel"></i></span></div>
           <div class="cassette-bottom" aria-hidden="true"><span>TONY C</span><span class="cassette-head"><i></i><i></i><i></i></span><span>HI-FI</span></div>
         </section></div>
@@ -152,7 +159,7 @@ async function mount() {
   function renderLabel() {
     // Labels are drawn. Where a device can't draw (or nothing is drawn) the label reads "Side A" / "Side B"; an older typed label still wins.
     const label = tape.labels[activeSide], side = `Side ${activeSide.toUpperCase()}`, drawn = drawEnabled && label.ink.length > 0, art = label.art || "";
-    $("#tape-title").textContent = label.text || side;
+    $("#tape-title").textContent = label.text || (featuredCover ? tape.name : side);
     $("#tape-title").classList.toggle("sr-only", drawn || Boolean(art));
     $("#tape-collection-name").textContent = tape.name || "A PERSONAL SELECTION";
     $("#tape-label-ink").hidden = !drawn;
