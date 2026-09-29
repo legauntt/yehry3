@@ -39,9 +39,13 @@ for (const { src } of Object.values(songVideos)) {
     assert.equal(url.protocol, "https:", `External video must use HTTPS: ${src}`);
   }
   const range = await get(url, { headers: { Range: "bytes=0-1023" } });
-  assert.match(range.headers.get("content-type") || "", /video\/mp4/);
+  assert.match(range.headers.get("content-type") || "",
+    url.origin === new URL(site).origin ? /video\/mp4/ : /^(video\/mp4|application\/octet-stream)(;|$)/);
   assert.equal(range.status, 206, `Video does not support seeking: ${src}`);
-  assert.equal((await range.arrayBuffer()).byteLength, 1024);
+  assert.match(range.headers.get("content-range") || "", /^bytes 0-1023\/\d+$/);
+  const prefix = Buffer.from(await range.arrayBuffer());
+  assert.equal(prefix.byteLength, 1024);
+  assert.equal(prefix.toString("ascii", 4, 8), "ftyp", `Video is not an MP4: ${src}`);
 }
 console.log(`All ${Object.keys(songVideos).length} song video URLs and byte-range playback verified; bundled checksums match.`);
 function verifyTimestamp(html, route) {
