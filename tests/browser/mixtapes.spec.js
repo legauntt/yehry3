@@ -13,6 +13,7 @@ test("build, reorder, publish and reopen a tape without replacing the saved draf
   await page.goto("/mixtapes/new");
   await page.getByLabel("Mixtape name", { exact: true }).fill("Late night 🎶");
   await page.getByLabel("Sleeve color").selectOption("pink");
+  await page.getByLabel("Crossfade (2.5s)").check();
   await page.getByRole("button", { name: "Add First record to side A" }).click();
   await page.getByRole("button", { name: "Add Second record to side A" }).click();
   await page.getByRole("button", { name: "Move Second record up" }).click();
@@ -23,6 +24,7 @@ test("build, reorder, publish and reopen a tape without replacing the saved draf
   await page.reload();
   await expect(page.getByLabel("Mixtape name", { exact: true })).toHaveValue("Late night 🎶");
   await expect(page.locator(".tape-sleeve")).toHaveAttribute("data-color", "pink");
+  await expect(page.getByLabel("Crossfade (2.5s)")).toBeChecked();
   await page.getByRole("button", { name: "Publish mixtape" }).click();
   await expect(page.locator("#tape-link")).toHaveValue(/\/mixtapes\/[A-Za-z0-9_-]{12}$/);
   const url = await page.locator("#tape-link").inputValue();
@@ -30,6 +32,8 @@ test("build, reorder, publish and reopen a tape without replacing the saved draf
   const recipient = await context.newPage(); await catalog(recipient); await recipient.goto(url);
   await expect(recipient.getByRole("heading", { level: 1 })).toHaveText("Late night 🎶");
   await expect(recipient.locator("#tape-collection-name")).toHaveText("Late night 🎶");
+  await expect(recipient.getByLabel("Crossfade (2.5s)")).toBeChecked();
+  await expect(recipient.getByLabel("Crossfade (2.5s)")).toBeDisabled();
   // An already-published tape offers its link, not a second publish.
   await expect(recipient.getByRole("button", { name: "Publish mixtape" })).toHaveCount(0);
   await recipient.getByRole("button", { name: "Copy link" }).click();
@@ -60,6 +64,20 @@ test("tape playback continues through edits, seeking and the next track", async 
   await page.locator("#tape-next").click();
   await expect(page.locator("#tape-now")).toHaveText("Second record");
   await expect(page.locator("#tape-next")).toBeDisabled();
+});
+test("crossfade overlaps the next recording and keeps the site player in control", async ({ page }) => {
+  await catalog(page); await page.goto("/mixtapes/new");
+  await page.getByRole("button", { name: "Add First record to side A" }).click();
+  await page.getByRole("button", { name: "Add Second record to side B" }).click();
+  await page.getByLabel("Crossfade (2.5s)").check();
+  await page.getByRole("button", { name: "Play the mixtape", exact: true }).click();
+  const audio = page.locator("#audio");
+  await expect.poll(() => audio.evaluate(a => Number.isFinite(a.duration) && a.duration > 5)).toBe(true);
+  await audio.evaluate(a => { a.currentTime = a.duration - 3; });
+  await expect.poll(() => audio.evaluate(a => a.volume < .9)).toBe(true);
+  await expect(page.locator("#tape-now")).toHaveText("Second record", { timeout: 10000 });
+  await expect.poll(() => audio.evaluate(a => !a.paused && a.currentTime > 0 && a.volume > .9)).toBe(true);
+  await expect(page.locator("#site-player #now-title")).toHaveText("Second record");
 });
 test("mobile, unavailable storage and API fallback still allow sharing", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });

@@ -130,7 +130,7 @@ async function mount() {
         <div class="deck-display" role="status"><span id="tape-mode">READY · SIDE A</span><strong id="tape-now">A blank tape. A world of possibilities.</strong><span id="tape-counter">Choose a few songs below.</span></div>
         <div class="deck-timeline"><span id="tape-elapsed">0:00</span><label class="sr-only" for="tape-seek">Seek in song</label><input id="tape-seek" type="range" min="0" max="100" step="0.1" value="0" disabled><span id="tape-duration">0:00</span></div>
         <div class="deck-transport"><button id="tape-prev" aria-label="Previous song" disabled><span aria-hidden="true">|◀</span><small>PREV</small></button><button id="play-tape" aria-label="Play the mixtape" disabled><span id="tape-play-icon" aria-hidden="true">▶</span><small id="tape-play-label">PLAY</small></button><button id="tape-stop" aria-label="Stop playback" disabled><span aria-hidden="true">■</span><small>STOP</small></button><button id="tape-next" aria-label="Next song" disabled><span aria-hidden="true">▶|</span><small>NEXT</small></button><button id="flip-tape" aria-label="Flip to side B"><span aria-hidden="true">⇄</span><small>FLIP</small></button></div>
-        <div class="deck-bottom"><div class="deck-sides" role="group" aria-label="Cassette side"><button data-load-side="a" aria-pressed="true">Side A</button><button data-load-side="b" aria-pressed="false">Side B</button></div><label class="deck-volume" for="tape-volume">VOL<input id="tape-volume" aria-label="Volume" type="range" min="0" max="1" step="0.01" value="1"></label><span>AUTO REVERSE</span></div>
+        <div class="deck-bottom"><div class="deck-sides" role="group" aria-label="Cassette side"><button data-load-side="a" aria-pressed="true">Side A</button><button data-load-side="b" aria-pressed="false">Side B</button></div><label class="deck-volume" for="tape-volume">VOL<input id="tape-volume" aria-label="Volume" type="range" min="0" max="1" step="0.01" value="1"></label><label class="deck-crossfade" for="tape-crossfade"><input id="tape-crossfade" type="checkbox" ${tape.crossfade ? "checked" : ""} ${shared ? "disabled" : ""}> Crossfade (2.5s)</label><span>AUTO REVERSE</span></div>
       </section>
     </section>
     <section class="tape-edit" aria-label="Personalize your tape" ${shared ? "hidden" : ""}><div><label for="tape-name">Mixtape name</label><input id="tape-name" maxlength="80"></div><div><label for="tape-color">Sleeve color</label><select id="tape-color">${tapeColors.map(color => `<option value="${color}">${color[0].toUpperCase() + color.slice(1)}</option>`).join("")}</select></div><div class="author-field">${authorFieldFor("your mixtape in the gallery")}</div><p class="small">Two sides. Two stories.<br>Give each one its own label.</p>
@@ -174,6 +174,12 @@ async function mount() {
     catch { status("Browser storage is unavailable. Publish your mixtape to keep your selection."); }
     $("#tape-share").hidden = true;
   }
+  $("#tape-crossfade").onchange = event => {
+    if (shared) return;
+    tape.crossfade = event.target.checked;
+    if (mine()) player.setCrossfade(tape.crossfade ? 2.5 : 0);
+    save();
+  };
 
   function syncPlayer() {
     const entry = current(), queue = playable(), index = queue.findIndex(item => item.key === currentKey);
@@ -366,7 +372,7 @@ async function mount() {
     }
     syncPlayer();
     const queue = playable();
-    const started = await player.play(entry.song, queue.map(item => item.song), { source: tapeSource, keys: queue.map(item => item.key), key });
+    const started = await player.play(entry.song, queue.map(item => item.song), { source: tapeSource, keys: queue.map(item => item.key), key, crossfade: tape.crossfade ? 2.5 : 0 });
     if (started === false && loadedKey() === key) status("Press play to start this song, or try the next recording.");
     syncPlayer();
   }
@@ -387,7 +393,7 @@ async function mount() {
     if (entry) play(entry.key);
   };
   $("#tape-prev").onclick = () => step(-1);
-  $("#tape-volume").oninput = event => { audio.volume = Number(event.target.value); };
+  $("#tape-volume").oninput = event => { player.setVolume(Number(event.target.value)); };
   $("#tape-next").onclick = () => step(1);
   $("#tape-stop").onclick = () => { if (mine()) { player.pause(); audio.currentTime = 0; } syncTime(); syncPlayer(); };
   $("#flip-tape").onclick = () => loadSide(activeSide === "a" ? "b" : "a");

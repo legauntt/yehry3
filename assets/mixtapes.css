@@ -53,7 +53,10 @@
 .deck-transport small { font: .54rem "DM Mono", monospace; letter-spacing: .04em; }
 #play-tape { background: linear-gradient(#f1bd91, #db9768); }
 #play-tape:hover:enabled { background: #ffd0a5; }
-.deck-bottom { margin-top: 20px; color: #acb6a2; font-size: .5rem; letter-spacing: .035em; }
+.deck-bottom { margin-top: 20px; color: #acb6a2; font-size: .5rem; letter-spacing: .035em; flex-wrap: wrap; }
+.deck-crossfade { display: inline-flex; align-items: center; gap: 5px; min-height: 36px; color: #e0e8d5; font: .6rem "DM Mono", monospace; cursor: pointer; }
+.deck-crossfade input { width: 18px; height: 18px; margin: 0; accent-color: #d6b07c; }
+.deck-crossfade:has(input:disabled) { cursor: default; }
 .deck-sides { display: flex; gap: 6px; }
 .deck-sides button { padding: 6px 10px; min-height: 36px; background: transparent; color: #c3cdb8; border: 1px solid #737e6a; border-radius: 3px; font-size: .64rem; }
 .deck-sides button[aria-pressed="true"] { background: #dce4c7; border-color: #dce4c7; color: #26382c; }

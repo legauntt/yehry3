@@ -55,7 +55,9 @@ export function validateTape(value) {
   // "Authored by" is optional. A blank name is left out, so tapes without one keep exactly their old shape.
   const authoredBy = value.authoredBy === undefined ? "" : value.authoredBy;
   if (typeof authoredBy !== "string" || authoredBy.trim().length > 100) throw new Error("This mixtape link is incomplete or invalid.");
+  if (value.crossfade !== undefined && typeof value.crossfade !== "boolean") throw new Error("This mixtape link is incomplete or invalid.");
   return { v: 2, name: value.name.trim() || defaultName, ...(authoredBy.trim() ? { authoredBy: authoredBy.trim() } : {}), color: value.color, a: [...value.a], b: [...value.b],
+    ...(value.crossfade ? { crossfade: true } : {}),
     labels: value.v === 1 ? { a: blankLabel(), b: blankLabel() } : { a: validateLabel(value.labels?.a), b: validateLabel(value.labels?.b) } };
 }
 
