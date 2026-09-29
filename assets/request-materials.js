@@ -25,7 +25,7 @@ export function hasMaterialEdits(draft, storage) {
   if (!draft || draft.confirmedAt) return false;
   try { return JSON.parse(storage.get("materials:" + draft.id))?.version === draft.version; } catch { return false; }
 }
-export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceRoot }) {
+export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceRoot, originalLyrics = "" }) {
   const key = "materials:" + draft.id;
   let saved;
   try { saved = JSON.parse(storage.get(key)); } catch { /* Saved server brief remains available. */ }
@@ -52,6 +52,22 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
     find('label[for="lyric-mode"]').textContent = 'May the lyrics change?';
     mode.options[0].textContent = 'Keep the supplied words';
     mode.options[1].textContent = 'Allow adapting the lyrics';
+    if (originalLyrics) {
+      const copy = document.createElement("button");
+      copy.type = "button";
+      copy.className = "quiet";
+      copy.textContent = "Copy original lyrics";
+      copy.setAttribute("aria-label", "Copy original lyrics into the lyric sheet");
+      copy.addEventListener("click", () => {
+        sheet.value = originalLyrics;
+        mode.value = "adapt";
+        updateLyrics();
+        remember();
+        panel.open = true;
+        sheet.focus();
+      });
+      sheet.before(copy);
+    }
   }
   function current() {
     return { lyricSheet: sheet.value.trim() ? { text: sheet.value.replace(/\r\n?/g, "\n").trim(), mode: mode.value,
