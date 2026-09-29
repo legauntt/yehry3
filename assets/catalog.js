@@ -26,7 +26,7 @@ export function createCatalogLoader({ request = fetch, state = options => api("/
     pending ||= readPublicSnapshot(options).finally(() => { pending = undefined; });
     return pending;
   }
-  return async options => {
+  const load = async options => {
     const [catalog, personal] = await Promise.all([publicSnapshot(options), state(options)]);
     return {
       ...catalog,
@@ -37,4 +37,9 @@ export function createCatalogLoader({ request = fetch, state = options => api("/
       nextVoteAt: personal.nextVoteAt ?? null,
     };
   };
+  load.setAdminPinned = (id, pinned) => {
+    const song = snapshot?.songs.find(song => song.id === id);
+    if (song) song.adminPinned = pinned;
+  };
+  return load;
 }

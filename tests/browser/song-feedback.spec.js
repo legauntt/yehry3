@@ -5,7 +5,7 @@ import { test, expect } from "@playwright/test";
 test("only admins can pin or unpin songs from the overflow menu", async ({ page }) => {
   await page.addInitScript(() => {
     localStorage.setItem("yehry3:catalog-view", "list");
-    localStorage.setItem("yehry3:auth:admin", JSON.stringify({ token: "fixture-token", password: "fixture-password" }));
+    localStorage.setItem("yehry3:auth:admin", JSON.stringify({ token: null, password: "browser-test-admin" }));
   });
   const songs = ["alpha", "bravo", "charlie"].map((id, index) => ({
     id, title: id[0].toUpperCase() + id.slice(1), votes: 0, downvotes: 0, milquetoasts: 0,
@@ -29,6 +29,7 @@ test("only admins can pin or unpin songs from the overflow menu", async ({ page 
   await openSongMenu(page.locator('[data-id="charlie"]'));
   await expect(page.locator('[data-id="charlie"] [data-pin]')).toHaveText("📍 Pin");
   await page.locator('[data-id="charlie"] [data-pin]').click();
+  await expect.poll(() => writes.length).toBe(1);
   await expect(page.locator(".track h3")).toHaveText(["Charlie", "Alpha", "Bravo"]);
   await expect(page.locator('[data-id="charlie"] [data-pin]')).toHaveText("📌 Unpin");
   await expect(page.locator('[data-id="charlie"]')).toHaveClass(/pinned/);

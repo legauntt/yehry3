@@ -696,9 +696,11 @@ async function library() {
           role: "admin",
           body: { pinned },
         });
-        song.adminPinned = pinned;
+        loadCatalog.setAdminPinned(id, pinned);
+        const currentSong = songs.find(item => item.id === id);
+        if (currentSong) currentSong.adminPinned = pinned;
         message(pinned ? "Pinned for everyone." : "Unpinned for everyone.");
-        await refresh();
+        render({ preserveViewport: true });
       } catch (error) {
         message(error.message, true);
       } finally {
