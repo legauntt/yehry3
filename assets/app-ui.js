@@ -1,7 +1,6 @@
 import { showMessage } from "./message.js";
 import { voiceModelBadge } from "./song-badges.js";
 import { pitchBadge } from "./pitch-badge.js";
-import { sidesBadge } from "./sides.js";
 import { songCostLabel } from "./song-cost.js";
 import { songPlanLink } from "./song-plan.js";
 import { authoredByLine } from "./authored-by.js";
@@ -113,7 +112,7 @@ function songMeta(song, recentPublishedAt) {
   const shown = collections(song).filter((name) => !unlabeledCollections.has(name));
   return `<div class="track-meta">${shown.length ? `<span class="track-collections">${escape(
     shown.map((name) => collectionNames[name] || name).join(" / "),
-  )}</span>` : ""}${authoredByLine(song.authoredBy, escape)}${voiceModelBadge(song)}${songCostLabel(song)}${pitchBadge(song)}${sidesBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}</div>`;
+  )}</span>` : ""}${authoredByLine(song.authoredBy, escape)}${voiceModelBadge(song)}${songCostLabel(song)}${pitchBadge(song)}<span class="track-duration">${duration(song.duration)}</span>${publishedAt ? `<time class="track-age" datetime="${escape(publishedAt)}" title="Released ${escape(date(publishedAt))}">${releaseAge}</time>` : `<span class="track-age" title="Exact release time unavailable">${releaseAge}</span>`}</div>`;
 }
 
 function songLinks(song) {
