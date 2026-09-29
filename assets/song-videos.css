@@ -9,6 +9,9 @@
 .song-video-preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%; border-radius: 7px; pointer-events: none; opacity: 0; }
 .song-video-preview[data-framing="synth"] { object-position: 50% 0%; }
 .song-video-preview[data-framing="opera"] { object-position: 50% 35%; }
+.song-video-preview[data-framing="page1"] { object-position: 50% 0; }
+.song-video-preview[data-framing="page1-daybreak"] { object-position: 50% 30%; }
+.song-video-preview[data-framing="page1-cups"] { object-position: 50% 20%; }
 .is-video-playing .song-video-preview { opacity: 1; }
 #tracks[data-view="list"] .track-video-art { grid-column: 2; grid-row: 1 / 4; width: 58px; }
 #tracks[data-view="list"] .song-video-button { right: -4px; bottom: -4px; width: 32px; height: 32px; }

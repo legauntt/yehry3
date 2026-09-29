@@ -1,13 +1,10 @@
 import { test, expect } from "@playwright/test";
+import pageOneSongs from "./fixtures/song-video-page1.json" with { type: "json" };
 
-const songs = [
-  { id: "distonyc-d88c69ac5b02b644324e42ad", title: "Yeah After Midnight" },
-  { id: "distonyc-0dc2bea1e37dea334832f473", title: "The Golden Answer (Midnight Synth Remedy)" },
-  { id: "distonyc-60b6f486ebcc0c56b875cfc9", title: "Miracle Piss (Tragic Aria)" },
-].map(s => ({ ...s, collection: "distonyc", url: "/fixture.mp3", duration: 60, votes: 1, adminPinned: true, feedback: {} }));
+const songs = pageOneSongs.map(s => ({ ...s, collection: "distonyc", url: "/fixture.mp3", duration: 180, votes: 1, adminPinned: true, feedback: {} }));
 test.beforeEach(async ({ page }) => {
   // A real, quiet PCM stream makes audio continuity observable without external media.
-  const wav = Buffer.alloc(44 + 8000 * 2 * 60);
+  const wav = Buffer.alloc(44 + 8000 * 2 * 180);
   wav.write("RIFF"); wav.writeUInt32LE(wav.length - 8, 4); wav.write("WAVEfmt ", 8);
   wav.writeUInt32LE(16, 16); wav.writeUInt16LE(1, 20); wav.writeUInt16LE(1, 22);
   wav.writeUInt32LE(8000, 24); wav.writeUInt32LE(16000, 28); wav.writeUInt16LE(2, 32); wav.writeUInt16LE(16, 34);
@@ -75,8 +72,10 @@ test("failed preview keeps the cover usable and page navigation releases the vie
   await expect(card(page).locator("[data-video-open]")).toBeVisible();
 });
 
-test("video modal supports keyboard, all three actual clips and leaves audio alone", async ({ page }) => {
+test("video modal supports keyboard, every page-one clip and leaves audio alone", async ({ page }) => {
+  test.setTimeout(180000);
   await page.goto("/");
+  await expect(page.locator("[data-video-open]")).toHaveCount(24);
   await card(page).locator("[data-play]").click();
   await expect.poll(() => page.locator("audio").evaluateAll(items => items.some(a => !a.paused && a.currentTime > 0))).toBe(true);
   const before = await page.locator("audio").evaluateAll(items => items.find(a => !a.paused).currentTime);

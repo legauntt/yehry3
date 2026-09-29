@@ -1,13 +1,11 @@
 import { test, expect } from "@playwright/test";
+import pageOneSongs from "./fixtures/song-video-page1.json" with { type: "json" };
 
-test("published catalog exposes and plays the three silent videos", async ({ page }) => {
+test("published catalog exposes and plays all page-one silent videos", async ({ page }) => {
+  test.setTimeout(180000);
   test.skip(!process.env.YEHRY3_VIDEO_URL, "Post-deployment check against the real catalog");
   await page.goto("/");
-  const ids = [
-    "distonyc-d88c69ac5b02b644324e42ad",
-    "distonyc-0dc2bea1e37dea334832f473",
-    "distonyc-60b6f486ebcc0c56b875cfc9",
-  ];
+  const ids = pageOneSongs.map(song => song.id);
   for (const id of ids) {
     const button = page.locator(`[data-video-open="${id}"]`);
     await expect(button).toBeVisible();

@@ -35,7 +35,7 @@ for (const { src } of Object.values(songVideos)) {
   assert.equal(range.status, 206, `Video does not support seeking: ${src}`);
   assert.equal((await range.arrayBuffer()).byteLength, 1024);
 }
-console.log("All three song videos and byte-range playback verified.");
+console.log(`All ${Object.keys(songVideos).length} song videos and byte-range playback verified.`);
 function verifyTimestamp(html, route) {
   const stamp = html.match(/class="deployment-stamp">Updated at <time datetime="([^"]+)">([^<]+)<\/time>/);
   assert.ok(stamp && Number.isFinite(Date.parse(stamp[1])), `Missing deployment timestamp: ${route}`);

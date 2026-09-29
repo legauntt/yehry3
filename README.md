@@ -160,7 +160,12 @@ viewer with fit/actual size, a separate original-image link, Escape/backdrop dis
 and focus return, without changing playback. Enter and Space also open the viewer; there is no separate corner icon. Record and pending-cover sample gestures remain available.
 Future generation depicts Tony in a Gatsby cap or baseball cap whenever he appears.
 
-Three catalog songs have silent 15-second videos registered in `assets/song-videos.js`.
+The 24 songs on the September 29, 2026 default page-one snapshot have silent
+15-second videos registered in `assets/song-videos.js`. The original three clips
+are preserved; the additional 21 use each song's lyrics, title, original prompt,
+arrangement and cover art to direct three linked five-second scenes. Tony wears
+a baseball or Gatsby cap throughout. The snapshot fixes the batch even if votes
+or new releases later change the page order.
 In Grid, resting a mouse over a card for two seconds starts a square crop; moving
 off the card, scrolling, interacting, hiding the tab or leaving the page releases
 the preview. Only one preview loads at a time. Reduced-motion and data-saving
@@ -170,7 +175,7 @@ song audio playing. The saved cover still opens its original image viewer.
 Run `npx playwright test --config playwright.song-videos.config.js` after building;
 set `YEHRY3_VIDEO_URL=https://yehry3.app` for the deployed checks. These tests use
 read-only catalog fixtures and real video assets. `npm run verify:live` also
-compares the three deployed videos and checks byte-range playback.
+compares every registered deployed video and checks byte-range playback.
 
 To refresh the skipped-cover report from an audit and the original batch baseline:
 `node scripts/artwork-status.mjs --state <state> --audit <current-audit.json> --baseline <batch-baseline.json> --skipped-report <report.md>`.
