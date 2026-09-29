@@ -17,7 +17,12 @@ test("published catalog exposes and plays the three silent videos", async ({ pag
     expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([576, 1024, 15]);
     await page.keyboard.press("Escape");
   }
-  await page.locator(`[data-id="${ids[0]}"]`).hover();
+  const card = page.locator(`[data-id="${ids[0]}"]`);
+  await expect(page.locator(".song-video-viewer")).not.toBeVisible();
+  await card.scrollIntoViewIfNeeded();
+  // Flush the scroll event before hovering: scrolling intentionally cancels previews.
+  await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  await card.hover({ position: { x: 30, y: 30 } });
   const preview = page.locator(".song-video-preview");
   await expect(preview).toBeVisible({ timeout: 12000 });
   await expect.poll(() => preview.evaluate(v => !v.paused && v.currentTime > 0)).toBe(true);

@@ -348,6 +348,7 @@ for (const request of [
         "url",
         "qualityIssues",
         "reviewState", "validationFailures",
+        "repairedAt",
         "voiceModel",
         "generationProfile",
         "originalPrompt",
@@ -358,6 +359,12 @@ for (const request of [
       `Unexpected public field: ${field}`,
     );
   assert.match(request.voiceModel, /^v[1-9][0-9]*$/);
+  if (request.repairedAt !== undefined) {
+    assert.match(request.repairedAt, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
+    assert.ok(Number.isFinite(Date.parse(request.repairedAt)));
+    assert.equal(request.reviewState, undefined);
+    assert.equal(request.validationFailures, undefined);
+  }
   if (request.remixOf) {
     // The source recording's URL and hashes stay out of the public queue.
     assert.deepEqual(Object.keys(request.remixOf).sort(), ["songId", "title"]);
