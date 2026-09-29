@@ -1,0 +1,25 @@
+import { test, expect } from "@playwright/test";
+
+test("published catalog exposes and plays the three silent videos", async ({ page }) => {
+  test.skip(!process.env.YEHRY3_VIDEO_URL, "Post-deployment check against the real catalog");
+  await page.goto("/");
+  const ids = [
+    "distonyc-d88c69ac5b02b644324e42ad",
+    "distonyc-0dc2bea1e37dea334832f473",
+    "distonyc-60b6f486ebcc0c56b875cfc9",
+  ];
+  for (const id of ids) {
+    const button = page.locator(`[data-video-open="${id}"]`);
+    await expect(button).toBeVisible();
+    await button.click();
+    const video = page.locator(".song-video-viewer video");
+    await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted)).toBe(true);
+    expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([576, 1024, 15]);
+    await page.keyboard.press("Escape");
+  }
+  await page.locator(`[data-id="${ids[0]}"]`).hover();
+  const preview = page.locator(".song-video-preview");
+  await expect(preview).toBeVisible({ timeout: 12000 });
+  await expect.poll(() => preview.evaluate(v => !v.paused && v.currentTime > 0)).toBe(true);
+  await page.screenshot({ path: "test-results/song-video-live.png" });
+});

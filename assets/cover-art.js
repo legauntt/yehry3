@@ -1,5 +1,6 @@
 import artwork from "./artwork-catalog.js";
 import previews from "./artwork-previews.js";
+import videos from "./song-videos.js";
 
 export function coverSizes(view, src) {
   const { width = 1024, height = 1024 } = previews[src] || {};
@@ -17,5 +18,7 @@ export function songArtworkMarkup(song, escape, view = "grid") {
   if (!art) return '<div class="track-art track-art-pending"' + clip + ' role="img" aria-label="' + escape(`Cover pending for ${song.title || "this song"}`) + '"><span aria-hidden="true">' + escape(song.title || "Untitled") + '</span></div>';
   const preview = previews[art.src];
   const responsive = preview ? ` srcset="${escape(preview.srcset)}" sizes="${escape(coverSizes(view, art.src))}"` : "";
-  return `<button type="button" class="track-art-frame" data-cover-open="${escape(song.id)}" aria-label="Enlarge cover for ${escape(song.title || "this song")}" aria-haspopup="dialog" title="View full-size cover"><img class="track-art" src="${escape(art.src)}"${responsive} alt="${escape(art.alt)}" width="${preview?.width || 1024}" height="${preview?.height || 1024}" loading="lazy" decoding="async" data-cover-treatment="${escape(art.treatment || "existing")}"></button>`;
+  const cover = `<button type="button" class="track-art-frame" data-cover-open="${escape(song.id)}" aria-label="Enlarge cover for ${escape(song.title || "this song")}" aria-haspopup="dialog" title="View full-size cover"><img class="track-art" src="${escape(art.src)}"${responsive} alt="${escape(art.alt)}" width="${preview?.width || 1024}" height="${preview?.height || 1024}" loading="lazy" decoding="async" data-cover-treatment="${escape(art.treatment || "existing")}"></button>`;
+  if (!videos[song.id]) return cover;
+  return `<div class="track-video-art" data-video-art="${escape(song.id)}">${cover}<button type="button" class="song-video-button" data-video-open="${escape(song.id)}" aria-label="Watch silent video for ${escape(song.title || "this song")}" aria-haspopup="dialog" title="Watch 15-second video"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="3" y="6" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="m15 10 6-4v12l-6-4Z" fill="currentColor"/></svg></button></div>`;
 }

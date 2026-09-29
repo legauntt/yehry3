@@ -1,6 +1,7 @@
 // Read-only post-deployment checks. Interactive writes are verified separately.
 import assert from "node:assert/strict";
 import { normalizeGeneration } from "../assets/generation-options.js";
+import songVideos from "../assets/song-videos.js";
 import { createHash, randomUUID } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { publicCatalog } from "./archived-songs.mjs";
@@ -24,6 +25,17 @@ async function get(url, { timeoutMs = 20000, ...options } = {}) {
   return response;
 }
 let updatedAt;
+for (const { src } of Object.values(songVideos)) {
+  const response = await get(`${site}${src}`);
+  assert.match(response.headers.get("content-type") || "", /video\/mp4/);
+  const bytes = Buffer.from(await response.arrayBuffer());
+  const expected = await readFile(new URL(`..${src}`, import.meta.url));
+  assert.equal(createHash("sha256").update(bytes).digest("hex"), createHash("sha256").update(expected).digest("hex"), `Video differs: ${src}`);
+  const range = await get(`${site}${src}`, { headers: { Range: "bytes=0-1023" } });
+  assert.equal(range.status, 206, `Video does not support seeking: ${src}`);
+  assert.equal((await range.arrayBuffer()).byteLength, 1024);
+}
+console.log("All three song videos and byte-range playback verified.");
 function verifyTimestamp(html, route) {
   const stamp = html.match(/class="deployment-stamp">Updated at <time datetime="([^"]+)">([^<]+)<\/time>/);
   assert.ok(stamp && Number.isFinite(Date.parse(stamp[1])), `Missing deployment timestamp: ${route}`);
@@ -182,6 +194,9 @@ for (const name of [
   "cover-art.js",
   "cover-viewer.js",
   "cover-viewer.css",
+  "song-videos.js",
+  "song-video-player.js",
+  "song-videos.css",
   "artwork-catalog.js",
   "artwork/it-was-simple-not-easy.webp",
   "artwork/nine-eleven-d-again-fbfe8b.webp",

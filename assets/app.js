@@ -29,6 +29,7 @@ import { createCatalogLoader } from "./catalog.js";
 import { decorateSongLinks, mountSongLinkTooltips } from "./song-link-icons.js";
 import { songArtworkMarkup } from "./cover-art.js";
 import { mountCoverViewer } from "./cover-viewer.js";
+import { mountSongVideos } from "./song-video-player.js";
 import { watchCatalog } from "./realtime.js";
 import { announceAttention, mountBadgeSounds, mountRecordSounds, songPreviewButton } from "./badge-sound.js";
 import { $, main, escape, date, badge, collections, message, busy, safeUrl, songPublishedAt, songMeta, songLinks } from "./app-ui.js";
@@ -55,6 +56,7 @@ async function library() {
   $("#catalog-view-controls").innerHTML = `<div class="catalog-view-switch" role="group" aria-label="Song display"><button type="button" data-catalog-view="grid" aria-pressed="true" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Grid</button><button type="button" data-catalog-view="list" aria-pressed="false" aria-controls="catalog-items"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 4H5M8 4H18M2 10H5M8 10H18M2 16H5M8 16H18"/></svg>List</button></div>`;
   mountCatalogView($(".catalog-view-switch"), $("#tracks"));
   mountCoverViewer($("#tracks"), scope);
+  mountSongVideos($("#tracks"), scope);
   const remixLookup = createRemixLookup();
   const loadCatalog = createCatalogLoader();
   const songMenus = mountSongMenus($("#tracks"), scope, id => {
