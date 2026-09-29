@@ -42,6 +42,27 @@ function fadeOverlap(state) {
   state.frame = requestAnimationFrame(() => fadeOverlap(state));
 }
 
+function waitForHandoffReady(state, mine) {
+  if (audio.readyState >= 3 && !audio.seeking) return Promise.resolve(true);
+  return new Promise(resolve => {
+    const done = () => {
+      if ((audio.readyState < 3 || audio.seeking) && !audio.error && mine === request && overlap === state) return;
+      cleanup();
+      resolve(audio.readyState >= 3 && !audio.seeking && !audio.error);
+    };
+    const cleanup = () => {
+      clearTimeout(timer);
+      audio.removeEventListener("canplay", done);
+      audio.removeEventListener("seeked", done);
+      audio.removeEventListener("error", done);
+    };
+    const timer = setTimeout(() => { cleanup(); resolve(false); }, 4000);
+    audio.addEventListener("canplay", done);
+    audio.addEventListener("seeked", done);
+    audio.addEventListener("error", done);
+  });
+}
+
 async function beginOverlap() {
   if (overlap || !crossfadeSeconds || audio.loop || index >= queue.length - 1 || audio.paused || !Number.isFinite(audio.duration)) return;
   const remaining = audio.duration - audio.currentTime;
@@ -95,6 +116,23 @@ async function finishOverlap() {
   try {
     await audio.play();
     if (mine !== request || overlap !== state) return;
+    if (!await waitForHandoffReady(state, mine)) {
+      if (mine !== request || overlap !== state) return;
+      throw new Error("Crossfade handoff did not buffer");
+    }
+    // Loading and seeking the persistent player takes time. Match the deck that
+    // stayed audible now, so the handoff does not replay that slice of the song.
+    for (let attempt = 0; attempt < 3; attempt++) {
+      if (mine !== request || overlap !== state) return;
+      const drift = state.incoming.currentTime - audio.currentTime;
+      if (Math.abs(drift) < 0.08) break;
+      try { audio.currentTime = state.incoming.currentTime + 0.04; } catch { break; }
+      if (!await waitForHandoffReady(state, mine)) {
+        if (mine !== request || overlap !== state) return;
+        throw new Error("Crossfade handoff did not seek");
+      }
+    }
+    if (mine !== request || overlap !== state) return;
     const started = performance.now();
     const handoff = () => {
       if (overlap !== state) return;
@@ -107,7 +145,7 @@ async function finishOverlap() {
     handoff();
   } catch {
     if (overlap === state) stopOverlap();
-    emit("error", { kind: "blocked", song: state.target.song });
+    if (mine === request) emit("error", { kind: "blocked", song: state.target.song });
   }
 }
 
