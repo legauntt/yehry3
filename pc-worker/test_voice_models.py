@@ -1,7 +1,7 @@
 import tempfile, unittest
 from pathlib import Path
 from common import sha
-from voice_models import PROFILE_FILES, RVC_FILES, reference_profile, resolve, selected, capabilities, validate_generation_fork
+from voice_models import PROFILE_FILES, VDB_FILES, RVC_FILES, reference_profile, resolve, selected, capabilities, validate_generation_fork
 
 
 class VoiceModelTests(unittest.TestCase):
@@ -9,6 +9,7 @@ class VoiceModelTests(unittest.TestCase):
         self.assertEqual(selected({'details': {}}), 'v6')
         self.assertEqual(selected({'details': {'voiceModel': 'v7'}}), 'v7')
         self.assertEqual(selected({'details': {'voiceModel': 'v8'}}), 'v8')
+        self.assertEqual(selected({'details': {'voiceModel': 'vdb'}}), 'vdb')
         with self.assertRaisesRegex(ValueError, 'unsupported'):
             selected({'details': {'voiceModel': 'latest'}})
 
@@ -31,6 +32,20 @@ class VoiceModelTests(unittest.TestCase):
         self.assertEqual(reference_profile(profile, 'rock')['median_hz'], 175)
         with self.assertRaisesRegex(ValueError, 'does not support'):
             reference_profile(profile, 'quartet')
+
+    def test_vdb_requires_its_own_pinned_album_profile(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            for relative in VDB_FILES.values():
+                path = root / relative; path.parent.mkdir(parents=True, exist_ok=True); path.write_bytes(relative.encode())
+            pins = {key: sha(root / relative) for key, relative in VDB_FILES.items()}
+            entry = {'runtime_kind': 'dvdp-v1', 'root': str(root), 'sha256': pins}
+            config = {'voice_models': {'vdb': entry}}
+            self.assertEqual(resolve(config, 'vdb')['name'], 'vdb')
+            self.assertEqual(capabilities(config), ['voice-vdb-v1'])
+            (root / VDB_FILES['bank']).write_bytes(b'changed')
+            with self.assertRaisesRegex(ValueError, 'changed'):
+                capabilities(config)
 
     def test_v8_requires_its_own_pinned_profile_and_generation_fork(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -12,9 +12,10 @@ export function voiceModelBadge(item) {
   const value = typeof item === "string"
     ? item
     : item?.voiceModel ?? item?.originalPrompt?.voiceModel ?? item?.details?.voiceModel;
-  const version = /^v\d+$/i.test(value || "") ? value.toLowerCase() : "v6";
-  const variant = /^v[789]$/.test(version) ? " " + version : "";
-  return `<span class="voice-model-badge${variant}" title="Tony’s voice: ${escape(version.toUpperCase())}">${escape(version.toUpperCase())}</span>`;
+  const version = /^(?:v\d+|vdb)$/i.test(value || "") ? value.toLowerCase() : "v6";
+  const variant = /^(?:v[789]|vdb)$/.test(version) ? " " + version : "";
+  const title = version === "vdb" ? "Tony’s voice: Demonophonic Blues experiment" : `Tony’s voice: ${version.toUpperCase()}`;
+  return `<span class="voice-model-badge${variant}" title="${escape(title)}">${escape(version.toUpperCase())}</span>`;
 }
 
 // One badge row for a song or a request at any stage, so a recording keeps the

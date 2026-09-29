@@ -29,3 +29,9 @@ test("a remembered voice that is no longer offered falls back to the default", (
   assert.equal(startingVoice({ remembered: "v9", models: models("v6", "v7", "v8"), generationAvailable: true }), "v8");
   assert.equal(startingVoice({ remembered: "nonsense", models: all, generationAvailable: true }), "v9");
 });
+
+test("VDB is remembered and restores on its own draft without changing the site default", () => {
+  assert.equal(startingVoice({ remembered: "vdb", models: models(...all.map(model => model.id), "vdb"), generationAvailable: false }), "vdb");
+  assert.equal(startingVoice({ saved: "vdb", models: all, generationAvailable: true }), "vdb");
+  assert.equal(usesGeneration("vdb"), false);
+});

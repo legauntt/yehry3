@@ -10,6 +10,8 @@ PROFILE_FILES = {
     'bank': 'features.json',
     'style': 'features/tony-fresh-style.npy',
 }
+VDB_FILES = {**PROFILE_FILES, 'adapter': 'candidates/dvdp/adapter.pt',
+             'runtime': 'runtime-profile/voice_runtime.py', 'common': 'runtime-profile/common.py'}
 # An RVC v2 model sung through a pinned Applio checkout. `adapter` stays the key the renderer freezes into the track;
 # the runtime keeps the same seven stage names, so the engine, B sides and checks treat it like any versioned voice.
 RVC_FILES = {
@@ -20,7 +22,7 @@ RVC_FILES = {
     'singer': 'rvc_sing.py',
     'applio': 'applio.json',
 }
-RUNTIME_FILES = {'fresh-catalog-v1': PROFILE_FILES, 'rvc-v1': RVC_FILES}
+RUNTIME_FILES = {'fresh-catalog-v1': PROFILE_FILES, 'dvdp-v1': VDB_FILES, 'rvc-v1': RVC_FILES}
 REFERENCE_PROFILES = {
     'rock': {'median_hz': 175, 'voiced_fraction': .65, 'energy_stratum': 'middle'},
     'acoustic': {'median_hz': 160, 'voiced_fraction': .72, 'energy_stratum': 'low'},
@@ -30,7 +32,7 @@ REFERENCE_PROFILES = {
 
 def selected(prompt):
     value = (prompt.get('details') or {}).get('voiceModel', 'v6')
-    if not isinstance(value, str) or not re.fullmatch(r'v[1-9][0-9]*', value):
+    if not isinstance(value, str) or not re.fullmatch(r'(?:v[1-9][0-9]*|vdb)', value):
         raise ValueError('The request has an unsupported Tony voice model')
     return value
 
@@ -84,6 +86,9 @@ def capabilities(config):
     if 'v9' in models:
         resolve(config, 'v9')
         result.append('voice-v9-v1')
+    if 'vdb' in models:
+        resolve(config, 'vdb')
+        result.append('voice-vdb-v1')
     return result
 
 

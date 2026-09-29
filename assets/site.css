@@ -2698,6 +2698,7 @@ button.lyric-line:hover {
 @media(max-width:600px){.generation-grid{grid-template-columns:1fr}.generation-panel,.generation-review{padding:.8rem}}
 
 .voice-model-badge.v8 { background: #e0ddff; color: #45377a; }
+.voice-model-badge.vdb { background: #ecdcf5; border-color: #a76bbc; color: #542568; font-weight: 700; }
 /* V9 is the newest voice, so its badge is the one that catches the eye. */
 .voice-model-badge.v9 {
   position: relative;

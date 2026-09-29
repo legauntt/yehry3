@@ -1,6 +1,6 @@
 export function voiceVersionLabel(value) {
-  const version = /^v\d+$/i.test(value || '') ? value.toLowerCase() : 'v6';
-  const description = { v6: 'established', v7: 'fresh catalog', v8: 'expanded recordings', v9: 'new voice engine' }[version];
+  const version = /^(?:v\d+|vdb)$/i.test(value || '') ? value.toLowerCase() : 'v6';
+  const description = { v6: 'established', v7: 'fresh catalog', v8: 'expanded recordings', v9: 'new voice engine', vdb: 'Demonophonic Blues' }[version];
   return `Tony ${version.toUpperCase()}${description ? ' · ' + description : ''}`;
 }
 
@@ -9,6 +9,7 @@ export const modelComparison = [
   ["V7 · fresh catalog", "A fresh, recording-balanced selection: 492 excerpts from 27 recordings, without saved-favorite weighting. A new adapter trained on the same pretrained base, not on V6 weights: rank 16 in layers 5–16, trained for 8,000 steps. No new backing-band model."],
   ["V8 · expanded recordings", "A separate voice adapter trained on 79 minutes from 35 recordings, adding eight recordings to V7's training bank. It keeps V7's adapter size and trained from the same original base for 8,000 steps. The added excerpts have automated screening and still need listening review."],
   ["V9 · new voice engine", "A different kind of model (RVC v2), not another adapter. V6 to V8 borrow Tony's sound from a short reference clip chosen for each phrase; V9 has his voice trained into the model itself, from 251 excerpts (35 minutes) of the same 27 recordings as V7, over 300 training rounds. It sings a whole song's phrases in under a minute where V8 needs several. When a song's melody sits well above Tony's range, V9 sings it one octave lower to stay in key."],
+  ["VDB · Demonophonic Blues", "An experimental Seed-VC voice adapter trained only from Demonophonic Blues: 228 excerpts (32 minutes) from 11 recordings. Road and Medusa were held out for evaluation. It uses album-only voice references. Small reconstruction-loss differences do not establish better likeness; listener review remains open."],
   ["What the tests found", "V7 had about 0.6% lower development reconstruction loss than V6. V8 was effectively tied with V7: 0.037% higher development loss and 0.027% lower loss on two reserved songs. These measure a training objective; better Tony likeness or musical quality has not been established."],
   ["What the V9 test found", "One whole song was sung by both V8 and V9 with Clean pitch, same phrases and same band. V9's typical pitch error was 3.9 cents against V8's 9.7, and neither had a phrase flagged. That measures how closely each follows the melody. Whether V9 sounds more like Tony is a listening question, and it is still open. If a short stretch of a V9 song comes out without Tony's voice, that passage is sung again and patched in, as for V6 and V7. A phrase whose pitch check is flagged gets one more take, and the better of the two is kept."],
   ["V8 song generation", "Choosing V8 or V9 also uses V8's updated lyric and ending guidance. Advanced options offer instruments and styles, timing and key, lyric approval, and composition choices. V6 and V7 can also use these optional generation controls."],
@@ -30,7 +31,7 @@ export function mountModelInfo() {
   dialog.setAttribute("aria-labelledby", "model-comparison-title");
   const heading = document.createElement("h2");
   heading.id = "model-comparison-title";
-  heading.textContent = "Tony V6 to V9";
+  heading.textContent = "Tony voice models";
   heading.tabIndex = -1;
   dialog.append(heading);
   for (const [label, text] of modelComparison) {

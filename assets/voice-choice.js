@@ -1,7 +1,7 @@
 // Which Tony voice a request form starts on. A pick made in the voice menu is remembered per browser,
 // like Tony's pitch; someone who never touches the menu keeps following the site's default.
 const rememberKey = 'yehry3:voice-model-v1';
-const versioned = (value) => /^v[1-9]\d*$/.test(value || '') ? value : null;
+const versioned = (value) => /^v[1-9]\d*$/.test(value || '') || value === 'vdb' ? value : null;
 // V8 and V9 requests are made through V8 song generation, so they are only a default while it is available.
 export const usesGeneration = (id) => id === 'v8' || id === 'v9';
 export const rememberedVoice = () => { try { return versioned(localStorage.getItem(rememberKey)); } catch { return null; } };

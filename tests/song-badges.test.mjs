@@ -29,6 +29,7 @@ test("an unlabeled recording keeps the established V6 voice and no invented gene
   assert.doesNotMatch(html, /music-backend-badge|remix-badge/);
   assert.match(voiceModelBadge("v7"), /voice-model-badge v7"/);
   assert.match(voiceModelBadge({ voiceModel: "V8" }), /voice-model-badge v8"[^>]*>V8</);
+  assert.match(voiceModelBadge({ originalPrompt: { voiceModel: "vdb" } }), /voice-model-badge vdb"[^>]*>VDB</);
 });
 
 test("a remix is marked from its frozen source, with the parent title escaped", () => {

@@ -29,7 +29,7 @@ let voiceModels = [
   { id: "v7", label: "Tony V7", note: "Separate fresh-catalog adapter and references", experimental: true },
 ];
 const voiceModel = (id) =>
-  voiceModels.find((model) => model.id === id) || (/^v\d+$/i.test(id || "")
+  voiceModels.find((model) => model.id === id) || (/^(?:v\d+|vdb)$/i.test(id || "")
     ? { id, label: `Tony ${id.toUpperCase()}`, note: "Versioned Tony voice profile", experimental: id !== "v6" }
     : voiceModels[0]);
 const voiceModelLabel = voiceVersionLabel;
@@ -309,7 +309,7 @@ export async function requests() {
       $("#keep").value = savedKeep === "Surprise me." ? "" : savedKeep;
       const voiceDraftKey = `voice-draft:${draft.id}`;
       const savedVoice = storage.get(voiceDraftKey);
-      const initialVoice = /^v[6-9]$/.test(savedVoice || '') ? savedVoice : initialDetails.voiceModel;
+      const initialVoice = /^(?:v[6-9]|vdb)$/.test(savedVoice || '') ? savedVoice : initialDetails.voiceModel;
       if (initialVoice && !voiceModels.some(model => model.id === initialVoice)) {
         const unavailable = new Option(`${voiceModelLabel(initialVoice)} · temporarily unavailable`, initialVoice);
         unavailable.disabled = true; $("#voice-model").append(unavailable);
