@@ -181,10 +181,9 @@ async function library() {
     }
   }
   function pinButton(song) {
-    const count = Math.max(0, Number(song.pins) || 0);
-    const mine = Boolean(song.feedback?.pinned);
-    const label = mine ? "📌 Pinned" : count ? "📌 Pin" : "📍 Pin";
-    return `<button type="button" class="song-action" data-pin="${escape(song.id)}" aria-pressed="${mine}" aria-label="${mine ? "Unpin" : "Pin"} ${escape(song.title)}${count ? ` · ${count} shared` : ""}" ${!online || feedbackBusy ? "disabled" : ""}>${label}${count ? ` · ${count}` : ""}</button>`;
+    if (!admin || !signedIn("admin")) return "";
+    const pinned = Boolean(song.adminPinned);
+    return `<button type="button" class="song-action" data-pin="${escape(song.id)}" aria-pressed="${pinned}" aria-label="${pinned ? "Unpin" : "Pin"} ${escape(song.title)}" ${!online || feedbackBusy ? "disabled" : ""}>${pinned ? "📌 Unpin" : "📍 Pin"}</button>`;
   }
   mountRecordSounds($(".record", main), () => songs);
   let initialCatalogPending = true;
@@ -460,7 +459,7 @@ async function library() {
       visible.sort((a, b) => (a.playCount || 0) - (b.playCount || 0));
     if ($("#sort").value === "least-recent")
       visible.sort((a, b) => (Date.parse(a.lastPlayedAt) || 0) - (Date.parse(b.lastPlayedAt) || 0));
-    visible.sort((a, b) => (Number(b.pins) || 0) - (Number(a.pins) || 0));
+    visible.sort((a, b) => Number(Boolean(b.adminPinned)) - Number(Boolean(a.adminPinned)));
     const hasStats = partialTotal === null && songs.some((song) => Number.isFinite(song.playCount)) &&
       visible.every((song) => Number.isFinite(song.playCount)) && !(favorites.onlySaved && (favorites.loading || !favorites.hasProfile));
     const totalListens = visible.reduce((total, song) => total + (song.playCount || 0), 0);
@@ -506,7 +505,7 @@ async function library() {
             (
               song,
               index,
-            ) => `<article class="track${Number(song.pins) > 0 ? " pinned" : ""}" data-id="${escape(song.id)}">${songArtworkMarkup(song, escape, $("#tracks").dataset.view)}
+            ) => `<article class="track${song.adminPinned ? " pinned" : ""}" data-id="${escape(song.id)}">${songArtworkMarkup(song, escape, $("#tracks").dataset.view)}
         <span class="track-number">${String(offset + index + 1).padStart(2, "0")}</span><button class="play-song" data-play="${escape(song.id)}" aria-label="Play ${escape(recordingTitle(song, recordings.get(song.id)))}" aria-pressed="false"><span class="play-icon" aria-hidden="true">▶</span><span class="pause-icon" aria-hidden="true">❚❚</span></button><div class="track-info"><div class="track-heading"><div class="track-title"><h3 title="${escape(song.title)}">${escape(song.title)}</h3>${songPreviewButton(song, escape)}</div>${remixBadge(song)}${recordingLabel(recordings.get(song.id), escape)}</div>${songMeta(song, recentReleases.get(song.id))}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt)}<div class="song-menu"><button type="button" class="song-more" aria-label="More about ${escape(song.title)}" aria-expanded="false" aria-controls="song-menu-${escape(song.id)}" title="Song details and actions"><span aria-hidden="true">⋯</span></button><div class="song-menu-panel" id="song-menu-${escape(song.id)}" role="group" aria-label="Details and actions for ${escape(song.title)}"><p class="song-menu-title">${escape(recordingTitle(song, recordings.get(song.id)))}</p>${songLinks(song)}<p class="small track-listening" title="${escape(song.lastPlayedAt ? `Last listened ${date(song.lastPlayedAt)}` : "Listening history starts September 2026")}">${escape(listeningLabel(song))}</p><div class="song-actions" role="group" aria-label="Song actions">${archiveButton(song)}${pinButton(song)}<button type="button" class="song-action" data-feedback="downvote" data-song="${escape(song.id)}" ${song.feedback?.downvoted || !online ? "disabled" : ""}>${song.feedback?.downvoted ? "Downvoted" : "Downvote"}${Number(song.downvotes) ? ` · ${song.downvotes}` : ""}</button><button type="button" class="song-action" data-feedback="milquetoast" data-song="${escape(song.id)}" ${song.feedback?.milquetoast || !online ? "disabled" : ""}>${song.feedback?.milquetoast ? "Sent to agent" : "Milquetoast"}${Number(song.milquetoasts) ? ` · ${song.milquetoasts}` : ""}</button></div></div></div></div><span class="vote-hint" role="group"><button class="vote ${Number(song.votes) > 0 ? "has-votes" : ""}" data-vote="${escape(song.id)}" aria-label="Vote for ${escape(recordingTitle(song, recordings.get(song.id)))}"><span aria-hidden="true">${Number(song.votes) > 0 ? "♥" : "♡"}</span> <span>${online ? song.votes || 0 : "—"}</span></button><span class="vote-tooltip" role="tooltip" id="vote-tip-${escape(song.id)}"></span></span></article>`,
           )
           .join("")
@@ -687,20 +686,18 @@ async function library() {
       const id = pinButton.dataset.pin;
       const song = songs.find((item) => item.id === id);
       if (!online || feedbackBusy || pinButton.disabled || !song) return;
-      const pinned = !song.feedback?.pinned;
-      // Pins reorder the catalog for every listener, so a stray tap should not count.
-      if (!window.confirm(pinned
-        ? `Pin “${song.title}” to the top for everyone?`
-        : `Remove your shared pin from “${song.title}”?`))
-        return;
+      if (!admin || !signedIn("admin")) return;
+      const pinned = !song.adminPinned;
       feedbackBusy = true;
       render({ preserveViewport: true });
       try {
-        await api(`/song-pins/${encodeURIComponent(id)}`, {
+        await api(`/admin/song-pins/${encodeURIComponent(id)}`, {
           method: "PATCH",
+          role: "admin",
           body: { pinned },
         });
-        message(pinned ? "Pinned for everyone." : "Shared pin removed.");
+        song.adminPinned = pinned;
+        message(pinned ? "Pinned for everyone." : "Unpinned for everyone.");
         await refresh();
       } catch (error) {
         message(error.message, true);
@@ -822,7 +819,7 @@ async function library() {
         revealFromHash();
         if (startupPlayback && partialTotal === null) {
           startupPlayback = false;
-          if (player.source === "main") player.requeue(freshThenLoved(songs).sort((a, b) => (b.pins || 0) - (a.pins || 0)), { source: "main" });
+          if (player.source === "main") player.requeue(freshThenLoved(songs).sort((a, b) => Number(Boolean(b.adminPinned)) - Number(Boolean(a.adminPinned))), { source: "main" });
         }
       } while (refreshAgain && !document.hidden && !scope.left);
     })().finally(() => { refreshing = null; });
