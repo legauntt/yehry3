@@ -26,16 +26,24 @@ async function get(url, { timeoutMs = 20000, ...options } = {}) {
 }
 let updatedAt;
 for (const { src } of Object.values(songVideos)) {
-  const response = await get(`${site}${src}`);
-  assert.match(response.headers.get("content-type") || "", /video\/mp4/);
-  const bytes = Buffer.from(await response.arrayBuffer());
-  const expected = await readFile(new URL(`..${src}`, import.meta.url));
-  assert.equal(createHash("sha256").update(bytes).digest("hex"), createHash("sha256").update(expected).digest("hex"), `Video differs: ${src}`);
-  const range = await get(`${site}${src}`, { headers: { Range: "bytes=0-1023" } });
+  const url = new URL(src, `${site}/`);
+  // Bundled videos have local originals; release assets are checksum-verified
+  // during upload and need a public playback/range check here.
+  if (url.origin === new URL(site).origin) {
+    const response = await get(url);
+    assert.match(response.headers.get("content-type") || "", /video\/mp4/);
+    const bytes = Buffer.from(await response.arrayBuffer());
+    const expected = await readFile(new URL(`..${src}`, import.meta.url));
+    assert.equal(createHash("sha256").update(bytes).digest("hex"), createHash("sha256").update(expected).digest("hex"), `Video differs: ${src}`);
+  } else {
+    assert.equal(url.protocol, "https:", `External video must use HTTPS: ${src}`);
+  }
+  const range = await get(url, { headers: { Range: "bytes=0-1023" } });
+  assert.match(range.headers.get("content-type") || "", /video\/mp4/);
   assert.equal(range.status, 206, `Video does not support seeking: ${src}`);
   assert.equal((await range.arrayBuffer()).byteLength, 1024);
 }
-console.log(`All ${Object.keys(songVideos).length} song videos and byte-range playback verified.`);
+console.log(`All ${Object.keys(songVideos).length} song video URLs and byte-range playback verified; bundled checksums match.`);
 function verifyTimestamp(html, route) {
   const stamp = html.match(/class="deployment-stamp">Updated at <time datetime="([^"]+)">([^<]+)<\/time>/);
   assert.ok(stamp && Number.isFinite(Date.parse(stamp[1])), `Missing deployment timestamp: ${route}`);
