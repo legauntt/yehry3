@@ -24,6 +24,29 @@ const safeAudio = song => {
   catch { return ""; }
 };
 const clock = seconds => Number.isFinite(seconds) && seconds >= 0 ? `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, "0")}` : "—:—";
+function mountCoverViewer() {
+  main.insertAdjacentHTML("beforeend", '<dialog class="tape-cover-dialog" aria-label="Mixtape cover art"><button type="button" class="tape-cover-close" aria-label="Close cover art">×</button><img alt=""><p class="tape-cover-caption"></p></dialog>');
+  const dialog = main.querySelector(".tape-cover-dialog");
+  const image = dialog.querySelector("img");
+  let opener;
+  scope.on(main, "click", event => {
+    const button = event.target.closest("[data-cover-id]");
+    if (!button || !main.contains(button)) return;
+    const cover = featuredCovers[button.dataset.coverId];
+    if (!cover) return;
+    opener = button;
+    image.src = cover.src;
+    image.alt = cover.description;
+    dialog.querySelector(".tape-cover-caption").textContent = cover.caption;
+    dialog.showModal();
+  });
+  scope.on(dialog.querySelector(".tape-cover-close"), "click", () => dialog.close());
+  scope.on(dialog, "click", event => { if (event.target === dialog) dialog.close(); });
+  scope.on(dialog, "close", () => {
+    image.removeAttribute("src");
+    opener?.focus();
+  });
+}
 // What a visit to a mixtape page holds, set afresh each time the page is shown (see mountPage).
 let scope, pathId, editing, sharedId, tape, shared, invalid, catalog, drawEnabled, lastShare, serial, slots, currentKey, activeSide;
 const newSlot = id => ({ id, key: ++serial });
@@ -74,6 +97,7 @@ async function gallery() {
   document.title = "Mixtapes · yehry3";
   main.innerHTML = `<section class="gallery-head"><div><p class="eyebrow">The listening room / Mixtapes</p><h1>Mixtapes</h1><p class="lede">Two sides, drawn by hand. Every tape here was made by a listener, and every tape is public.</p></div><a class="primary" href="/mixtapes/new" data-new-tape>New mixtape <span aria-hidden="true">+</span></a></section>
     <section class="tape-gallery" aria-labelledby="gallery-heading"><div class="tape-gallery-bar"><h2 class="sr-only" id="gallery-heading">Published mixtapes</h2><div class="catalog-view-switch" role="group" aria-label="Mixtape display"><button type="button" data-tape-view="grid" aria-pressed="true" aria-controls="tape-cards"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="6" height="6" rx="1"/><rect x="12" y="2" width="6" height="6" rx="1"/><rect x="2" y="12" width="6" height="6" rx="1"/><rect x="12" y="12" width="6" height="6" rx="1"/></svg>Grid</button><button type="button" data-tape-view="list" aria-pressed="false" aria-controls="tape-cards"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 4H5M8 4H18M2 10H5M8 10H18M2 16H5M8 16H18"/></svg>List</button></div></div><ul class="tape-cards" id="tape-cards" hidden></ul><div id="gallery-state" role="status"></div><div class="actions gallery-more" hidden><button class="quiet" id="gallery-more">Show more tapes</button></div></section>`;
+  mountCoverViewer();
   const cards = main.querySelector(".tape-cards"), state = main.querySelector("#gallery-state"), more = main.querySelector("#gallery-more");
   const viewKey = "yehry3:mixtape-view";
   const applyView = value => {
@@ -102,7 +126,7 @@ async function gallery() {
     const count = t.a.length + t.b.length, name = escape(t.name);
     const cover = featuredCovers[id];
     const artwork = cover
-      ? `<a class="tape-card-cover" href="${cover.src}" target="_blank" rel="noopener" aria-label="View full-size cover art for ${name}"><img src="${cover.thumb}" alt="${escape(cover.description)}" width="480" height="480" loading="lazy"></a>`
+      ? `<button type="button" class="tape-card-cover" data-cover-id="${id}" aria-label="Enlarge cover art for ${name}"><img src="${cover.thumb}" alt="${escape(cover.description)}" width="480" height="480" loading="lazy"></button>`
       : `<a class="tape-card-body" href="${tapeHref(id)}" aria-label="Open ${name} mixtape">${face(t, "a")}${face(t, "b")}</a>`;
     return `<li><div class="tape-card" data-card="${id}" data-color="${t.color}">${artwork}<span class="tape-card-info"><a href="${tapeHref(id)}"><strong>${name}</strong></a>${authoredByLine(t.authoredBy, escape)}<span class="small">${count} ${count === 1 ? "track" : "tracks"}${date(createdAt)}</span></span><a class="tape-card-play" href="${tapeHref(id)}" aria-label="Open ${name} mixtape">▶</a></div></li>`;
   };
@@ -142,7 +166,7 @@ async function mount() {
   const featuredCover = featuredCovers[sharedId];
   const cassetteCover = sharedId === "rlug63T1hEU9" ? featuredCover : null;
   main.innerHTML = `<section class="tape-hero">
-      <div class="tape-intro"><p class="eyebrow"><a href="/mixtapes/">The listening room / Mixtapes</a> / ${shared ? "Shared tape" : "New"}</p>${shared ? `<h1 class="tape-name-heading">${escape(tape.name)}</h1>${authoredByLine(tape.authoredBy, escape)}<p class="lede">Made by a listener, shared with everyone.<br>Press play, or make your own version.</p>${featuredCover ? `<figure class="tape-featured-cover"><a href="${featuredCover.src}" target="_blank" rel="noopener" aria-label="View full-size cover art"><img src="${featuredCover.thumb}" alt="${featuredCover.description}" width="480" height="480"></a><figcaption>${featuredCover.caption} · CLICK TO ENLARGE</figcaption></figure>` : ""}` : '<h1>A little more<br><em>personal.</em></h1><p class="lede">An opener. A change of pace. One last song.<br>Make someone a tape worth turning over.</p>'}
+      <div class="tape-intro"><p class="eyebrow"><a href="/mixtapes/">The listening room / Mixtapes</a> / ${shared ? "Shared tape" : "New"}</p>${shared ? `<h1 class="tape-name-heading">${escape(tape.name)}</h1>${authoredByLine(tape.authoredBy, escape)}<p class="lede">Made by a listener, shared with everyone.<br>Press play, or make your own version.</p>${featuredCover ? `<figure class="tape-featured-cover"><button type="button" data-cover-id="${sharedId}" aria-label="Enlarge cover art for ${escape(tape.name)}"><img src="${featuredCover.thumb}" alt="${featuredCover.description}" width="480" height="480"></button><figcaption>${featuredCover.caption} · CLICK TO ENLARGE</figcaption></figure>` : ""}` : '<h1>A little more<br><em>personal.</em></h1><p class="lede">An opener. A change of pace. One last song.<br>Make someone a tape worth turning over.</p>'}
         <p class="tape-how"><span>01 &nbsp; Pick your songs</span><span>02 &nbsp; Draw the labels</span><span>03 &nbsp; Publish it</span></p>
         <div class="actions tape-actions"><button class="primary" id="share-tape" disabled>${sharedId ? "Copy link" : "Publish mixtape"}</button>${shared ? '<button class="quiet" id="edit-tape">Make your own version</button>' : '<a class="text-link" href="#tape-picker">Find your first track ↓</a>'}<a class="text-link" href="/mixtapes/">All mixtapes</a></div>
         <p class="small" id="tape-status" role="status">${sharedId ? "Every mixtape is public. This one is in the gallery for everyone." : shared ? "This tape came from an older link. Publish it to add it to the gallery and get a short link." : "Every mixtape is public. Publishing adds yours to the gallery for everyone."}</p>
@@ -167,6 +191,7 @@ async function mount() {
     <div class="tape-workspace"><section class="tape-tracklist" aria-label="Your tracklist"><div class="section-heading"><h2>The running order.</h2><span class="small" id="tape-count"></span></div><p class="small">${shared ? "Pick a track to start there. Side B follows Side A automatically." : "Click a title to listen. Drag to reorder, or use the arrow buttons."}</p><div class="tape-sides" id="tape-sides"></div></section>
       <section class="tape-picker" id="tape-picker" ${shared ? "hidden" : ""}><p class="eyebrow">The record shelf</p><h2>Find your next track.</h2><div class="tape-starter"><span class="small">Need a starting point?</span><button class="quiet" id="tape-surprise" disabled>Add a surprise mix ↗</button></div><label class="sr-only" for="tape-search">Find a song</label><input type="search" id="tape-search" placeholder="Search the collection…"><p class="small" id="tape-results" role="status"></p><div id="tape-catalog"><p>Getting the records out…</p></div></section>
     </div>`;
+  mountCoverViewer();
   const $ = selector => main.querySelector(selector);
   const status = text => { $("#tape-status").textContent = text; };
   // The deck plays on the site's one player, so a tape goes on playing (in the bottom bar) when the visitor leaves this page.

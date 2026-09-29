@@ -3,6 +3,7 @@
 .tape-intro h1 { font-size: clamp(3.2rem, 5.7vw, 5.2rem); }
 .tape-intro .lede { font-size: 1rem; }
 .tape-featured-cover { width: min(100%, 310px); margin: 22px 0 4px; }
+.tape-featured-cover button { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
 .tape-featured-cover img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 5px; box-shadow: 0 12px 28px #1420194d; }
 .tape-featured-cover figcaption { margin-top: 7px; font: .57rem "DM Mono", monospace; letter-spacing: .12em; color: var(--muted); }
 .tape-how { display: flex; flex-direction: column; gap: 6px; margin: 26px 0; font: .7rem "DM Mono", monospace; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); }
@@ -150,14 +151,22 @@
 .tape-card { display: grid; grid-template-columns: minmax(0, 1fr) 40px; align-content: start; height: 100%; color: inherit; text-decoration: none; }
 .tape-card-body { --tape-color: #e9aa7e; grid-column: 1 / -1; box-sizing: border-box; aspect-ratio: 1; display: grid; align-content: center; gap: 7px; padding: 12px; border: 1px solid #0c1710; border-radius: 9px; background: repeating-linear-gradient(0deg, #ffffff06 0 1px, transparent 1px 4px), var(--tape-color); box-shadow: 0 4px 0 #1d2a20, 0 10px 18px #283b3022, inset 0 1px #ffffff90; transition: transform .15s ease; }
 .tape-card:hover .tape-card-body, .tape-card:focus-within .tape-card-body { transform: translateY(-3px); }
-.tape-card-cover { grid-column: 1 / -1; position: relative; display: block; overflow: hidden; aspect-ratio: 1; border-radius: 8px; background: #101b2b; box-shadow: 0 4px 0 #1d2a20, 0 10px 18px #283b3022; transition: transform .15s ease; }
+.tape-card-cover { grid-column: 1 / -1; position: relative; display: block; overflow: hidden; width: 100%; padding: 0; border: 0; aspect-ratio: 1; border-radius: 8px; background: #101b2b; box-shadow: 0 4px 0 #1d2a20, 0 10px 18px #283b3022; transition: transform .15s ease; cursor: zoom-in; }
 .tape-card:hover .tape-card-cover, .tape-card:focus-within .tape-card-cover { transform: translateY(-3px); }
 .tape-card-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .tape-card-info { min-width: 0; }
 .tape-card-info a { color: inherit; text-decoration: none; }
 .tape-card-info a:hover, .tape-card-info a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
-.tape-card-play { display: grid; place-items: center; justify-self: end; width: 34px; height: 34px; margin-top: 12px; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); background: #f4efdb; font-size: .8rem; text-decoration: none; padding-left: 2px; box-sizing: border-box; transition: background .15s ease, transform .15s ease; }
+.tape-card-play { display: grid; place-items: center; justify-self: end; width: 34px; height: 34px; margin-top: 12px; border: 1px solid #263b2c; border-radius: 50%; color: #263b2c; background: #f4efdb; font-size: .8rem; text-decoration: none; padding-left: 2px; box-sizing: border-box; transition: background .15s ease, transform .15s ease; }
 .tape-card:hover .tape-card-play, .tape-card:focus-within .tape-card-play { background: #d9ebc9; transform: scale(1.06); }
+html[data-shared-theme][data-theme="dark"] .tape-card-play { color: #f4efdb; background: #344838; border-color: #a4ba98; }
+html[data-shared-theme][data-theme="dark"] .tape-card:hover .tape-card-play, html[data-shared-theme][data-theme="dark"] .tape-card:focus-within .tape-card-play { color: #1c2b20; background: #d9ebc9; }
+.tape-cover-dialog { width: min(760px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 14px; border: 1px solid #71866e; border-radius: 12px; color: #f4efdb; background: #1c2920; box-shadow: 0 24px 70px #0009; }
+.tape-cover-dialog::backdrop { background: #080d0bc9; }
+.tape-cover-dialog img { display: block; width: 100%; max-height: calc(100dvh - 115px); object-fit: contain; border-radius: 5px; }
+.tape-cover-caption { margin: 12px 44px 0 2px; font: .62rem "DM Mono", monospace; letter-spacing: .1em; }
+.tape-cover-close { position: absolute; z-index: 1; top: 20px; right: 20px; display: grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid #f4efdb; border-radius: 50%; color: #f4efdb; background: #17231ddc; font-size: 1.6rem; line-height: 1; cursor: pointer; }
+.tape-cover-close:hover { background: #344838; }
 .tape-cards[data-view="list"] { grid-template-columns: 1fr; gap: 10px; }
 .tape-cards[data-view="list"] .tape-card { grid-template-columns: 84px minmax(0, 1fr) 40px; align-items: center; gap: 14px; min-height: 84px; padding: 10px; border: 1px solid var(--line); border-radius: 10px; }
 .tape-cards[data-view="list"] .tape-card-cover, .tape-cards[data-view="list"] .tape-card-body { grid-column: auto; width: 84px; height: 84px; aspect-ratio: 1; }
