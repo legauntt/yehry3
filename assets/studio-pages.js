@@ -104,13 +104,16 @@ export async function requests() {
       api("/generation").catch(() => ({})),
       fetch("/assets/generation-schema.json").then((r) => r.json()).catch(() => null),
     ]);
+    if (scope.left) return;
     basisSongs = loaded[0];
     if (Array.isArray(loaded[1].models) && loaded[1].models.length) voiceModels = loaded[1].models;
     materialsAvailable = loaded[2].version === 1;
     generationAvailable = loaded[3].enabled === true && loaded[4]?.version === 1; generationSchema = loaded[4];
     remix = await loadRemix();
+    if (scope.left) return;
     traceRemix("open", { param: new URLSearchParams(location.search).get("remix"), remix: remix?.id || null, unavailable: Boolean(remix?.unavailable), storedDraft: storage.get("draft"), storedRemixIdea: storage.get("remix-idea") });
   } catch (error) {
+    if (scope.left) return;
     message(error.message, true);
     main.innerHTML =
       '<section class="empty"><h1>The song list could not load.</h1><button class="primary" id="reload-basis">Try again</button></section>';

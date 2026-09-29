@@ -12,6 +12,12 @@
 .song-video-preview[data-framing="page1"] { object-position: 50% 0; }
 .song-video-preview[data-framing="page1-daybreak"] { object-position: 50% 30%; }
 .song-video-preview[data-framing="page1-cups"] { object-position: 50% 20%; }
+.song-video-preview[data-framing="remaining-0"] { object-position: 50% 0%; }
+.song-video-preview[data-framing="remaining-90"] { object-position: 50% 20%; }
+.song-video-preview[data-framing="remaining-112"] { object-position: 50% 25%; }
+.song-video-preview[data-framing="remaining-134"] { object-position: 50% 30%; }
+.song-video-preview[data-framing="remaining-224"] { object-position: 50% 50%; }
+.song-video-preview[data-framing="remaining-336"] { object-position: 50% 75%; }
 .is-video-playing .song-video-preview { opacity: 1; }
 #tracks[data-view="list"] .track-video-art { grid-column: 2; grid-row: 1 / 4; width: 58px; }
 #tracks[data-view="list"] .song-video-button { right: -4px; bottom: -4px; width: 32px; height: 32px; }

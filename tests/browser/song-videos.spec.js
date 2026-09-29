@@ -16,6 +16,27 @@ test.beforeEach(async ({ page }) => {
 });
 const card = page => page.locator(`[data-id="${songs[0].id}"]`);
 
+test("returning home while Distonyc loads keeps the catalog and video controls", async ({ page }) => {
+  let release, requested;
+  const gate = new Promise(resolve => { release = resolve; });
+  const started = new Promise(resolve => { requested = resolve; });
+  await page.route("**/yehry3/voice-models", async route => {
+    requested();
+    await gate;
+    await route.fulfill({ json: { models: [] } });
+  });
+  await page.goto("/");
+  await expect(card(page)).toBeVisible();
+  await page.locator('header a[href="/distonyc/"]').click();
+  await started;
+  await page.locator('a[aria-label="yehry3 home"]').click();
+  await expect(card(page).locator("[data-video-open]")).toBeVisible();
+  release();
+  await page.waitForTimeout(700);
+  await expect(card(page).locator("[data-video-open]")).toBeVisible();
+  await expect(page.locator("#password")).toHaveCount(0);
+});
+
 test("idle hover loads one silent square preview and stops on exit, scroll and refresh", async ({ page }) => {
   const requests = [];
   page.on("request", r => { if (r.url().includes("/assets/song-videos/")) requests.push(r.url()); });

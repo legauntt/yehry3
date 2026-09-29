@@ -1,5 +1,5 @@
 {
-  "description": "Approved archive inventory after the 2026-09-27 Pancakeo prune: 96 existing archives plus 70 selected songs. The live API remains authoritative; this only permits these IDs past the half-catalog build guard.",
+  "description": "Reviewed archive inventory through 2026-09-29, including the two superseded Yeah After Midnight versions. The live API remains authoritative; this only permits these exact archived IDs past the half-catalog build guard.",
   "archived": [
     "bad-news-in-good-shoes-plus-66-percent-bpm",
     "ball-and-chain-ai-remake",
@@ -7,6 +7,7 @@
     "distonyc-03378991a3875290c8dc7de0",
     "distonyc-045e01a0d7aa0083fe892500",
     "distonyc-073fa5b253dc28846fc43c52",
+    "distonyc-0f3ccb9bbc5943f420433fc2",
     "distonyc-17b48b4f3c0e5de5505db97b",
     "distonyc-1950af500a097159fe82830a",
     "distonyc-1bb1be6b6f8a4858bc72115e",
@@ -71,6 +72,7 @@
     "distonyc-7ade76971c61a724e3650381",
     "distonyc-7c837718ebc78883371aa4fb",
     "distonyc-7cc05e6a82dad5651ad3404f",
+    "distonyc-830853c4fdecd449a81720d5",
     "distonyc-841de4ec654a405e36f42a40",
     "distonyc-86b38b80632f27bc553e550f",
     "distonyc-88868f32b2b6d76e2d2929ad",
