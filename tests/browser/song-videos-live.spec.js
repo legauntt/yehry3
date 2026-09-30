@@ -5,10 +5,25 @@ test("published catalog exposes and plays all page-one silent videos", async ({ 
   test.setTimeout(180000);
   test.skip(!process.env.YEHRY3_VIDEO_URL, "Post-deployment check against the real catalog");
   await page.goto("/");
+  await expect(page.locator("[data-video-open]").first()).toBeVisible();
   const ids = pageOneSongs.map(song => song.id);
+  // New publications can move a reviewed song onto a later catalog page.
+  async function findVideo(id) {
+    const button = page.locator(`[data-video-open="${id}"]`);
+    if (await button.isVisible()) return button;
+    const previous = page.getByRole("button", { name: "Previous page", exact: true }).first();
+    for (let n = 0; n < 30 && await previous.isEnabled(); n++) await previous.click();
+    const next = page.getByRole("button", { name: "Next page", exact: true }).first();
+    for (let n = 0; n < 30 && !(await button.isVisible()); n++) {
+      if (!(await next.isEnabled())) break;
+      await next.click();
+    }
+    await expect(button).toBeVisible();
+    return button;
+  }
   for (const id of ids) {
     const song = pageOneSongs.find(s => s.id === id);
-    const button = page.locator(`[data-video-open="${id}"]`);
+    const button = await findVideo(id);
     await expect(button).toBeVisible();
     await button.click();
     const video = page.locator(".song-video-viewer video");
@@ -16,6 +31,7 @@ test("published catalog exposes and plays all page-one silent videos", async ({ 
     expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([song.videoWidth || 576, song.videoHeight || 1024, song.videoDuration || 15]);
     await page.keyboard.press("Escape");
   }
+  await findVideo(ids[0]);
   const card = page.locator(`[data-id="${ids[0]}"]`);
   await expect(page.locator(".song-video-viewer")).not.toBeVisible();
   await card.scrollIntoViewIfNeeded();
