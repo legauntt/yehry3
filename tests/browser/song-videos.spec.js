@@ -39,7 +39,7 @@ test("returning home while Distonyc loads keeps the catalog and video controls",
 
 test("idle hover loads one silent square preview and stops on exit, scroll and refresh", async ({ page }) => {
   const requests = [];
-  page.on("request", r => { if (r.url().includes("/assets/song-videos/")) requests.push(r.url()); });
+  page.on("request", r => { if (/\/song-videos(?:-v1)?\//.test(r.url())) requests.push(r.url()); });
   await page.goto("/");
   await card(page).scrollIntoViewIfNeeded();
   await expect(card(page).locator("[data-video-open]")).toBeVisible();
@@ -54,7 +54,7 @@ test("idle hover loads one silent square preview and stops on exit, scroll and r
   const video = card(page).locator(".song-video-preview");
   await expect(video).toBeVisible({ timeout: 12000 });
   await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted)).toBe(true);
-  expect(await video.evaluate(v => ({ width: v.videoWidth, height: v.videoHeight, duration: v.duration }))).toEqual({ width: 576, height: 1024, duration: 15 });
+  expect(await video.evaluate(v => ({ width: v.videoWidth, height: v.videoHeight, duration: v.duration }))).toEqual({ width: songs[0].videoWidth || 576, height: songs[0].videoHeight || 1024, duration: songs[0].videoDuration || 15 });
   const frame = await video.boundingBox();
   expect(Math.abs(frame.width - frame.height)).toBeLessThan(2);
   await page.screenshot({ path: "test-results/song-video-grid.png" });
@@ -76,7 +76,7 @@ test("idle hover loads one silent square preview and stops on exit, scroll and r
 });
 
 test("failed preview keeps the cover usable and page navigation releases the viewer", async ({ page }) => {
-  await page.route("**/assets/song-videos/*.mp4", r => r.abort());
+  await page.route(/\/song-videos(?:-v1)?\/[^/]+\.mp4/, r => r.abort());
   await page.goto("/");
   await card(page).hover();
   await page.waitForTimeout(2600);
@@ -102,13 +102,19 @@ test("video modal supports keyboard, every page-one clip and leaves audio alone"
   const before = await page.locator("audio").evaluateAll(items => items.find(a => !a.paused).currentTime);
   for (const song of songs) {
     const trigger = page.locator(`[data-video-open="${song.id}"]`);
+    await expect(trigger).toHaveAttribute("title", `Watch ${song.videoDuration || 15}-second video`);
     await trigger.focus();
     await page.keyboard.press("Enter");
     const dialog = page.getByRole("dialog", { name: song.title, exact: true });
     await expect(dialog).toBeVisible();
     const video = dialog.locator("video");
     await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted)).toBe(true);
-    expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([576, 1024, 15]);
+    expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([song.videoWidth || 576, song.videoHeight || 1024, song.videoDuration || 15]);
+    await expect(dialog.locator("[data-video-description]")).toHaveText(`${song.videoDuration || 15}-second silent video`);
+    if (song.videoWidth === 768) {
+      const frame = await video.boundingBox();
+      expect(Math.abs(frame.width - frame.height)).toBeLessThan(2);
+    }
     expect(await page.locator("audio").evaluateAll(items => items.some(a => !a.paused))).toBe(true);
     await page.keyboard.press("Escape");
     await expect(dialog).not.toBeVisible();

@@ -1,13 +1,13 @@
-// Silent, 15-second visual companions. Original portrait framing is kept in the viewer.
+// Silent visual companions. Duration and framing describe the published video.
 export default {
-  "distonyc-d88c69ac5b02b644324e42ad": { src: "/assets/song-videos/yeah-after-midnight-hat-v1.mp4", framing: "jazz" },
-  "distonyc-0dc2bea1e37dea334832f473": { src: "/assets/song-videos/golden-answer-hat-v1.mp4", framing: "synth" },
-  "distonyc-60b6f486ebcc0c56b875cfc9": { src: "/assets/song-videos/tragic-aria-hat-v1.mp4", framing: "opera" },
-  "distonyc-ffa7b966f9f8cc1a5d4cc3a5": { src: "/assets/song-videos/01-lamma-club.mp4", framing: "page1" },
-  "distonyc-5ae363b12d01b017f8d295f3": { src: "/assets/song-videos/04-golden-answer.mp4", framing: "page1" },
-  "distonyc-06d2b8c3c8dffed19df347bb": { src: "/assets/song-videos/05-simple-not-easy.mp4", framing: "page1" },
-  "distonyc-f13f78a2474383f7eb72c64e": { src: "/assets/song-videos/06-lamma-tragic-aria.mp4", framing: "page1" },
-  "distonyc-563929c05b5b15405bcaeaeb": { src: "/assets/song-videos/08-lamma-dancefloor-rework.mp4", framing: "page1" },
+  "distonyc-d88c69ac5b02b644324e42ad": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-07-yeah-midnight.mp4", framing: "square", duration: 5 },
+  "distonyc-0dc2bea1e37dea334832f473": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-06-golden-midnight.mp4", framing: "square", duration: 10 },
+  "distonyc-60b6f486ebcc0c56b875cfc9": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-03-miracle-tragic-aria.mp4", framing: "square", duration: 15 },
+  "distonyc-ffa7b966f9f8cc1a5d4cc3a5": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-05-lamma-club.mp4", framing: "square", duration: 10 },
+  "distonyc-5ae363b12d01b017f8d295f3": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-08-golden-answer.mp4", framing: "square", duration: 15 },
+  "distonyc-06d2b8c3c8dffed19df347bb": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-01-simple-not-easy.mp4", framing: "square", duration: 10 },
+  "distonyc-f13f78a2474383f7eb72c64e": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-02-lamma-tragic-aria.mp4", framing: "square", duration: 10 },
+  "distonyc-563929c05b5b15405bcaeaeb": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-04-lamma-dancefloor.mp4", framing: "square", duration: 5 },
   "distonyc-41122cfa1d30d985e40d357b": { src: "/assets/song-videos/09-nine-eleven-again.mp4", framing: "page1" },
   "distonyc-6694dab26c170fba0dba0663": { src: "/assets/song-videos/10-influence-criteria.mp4", framing: "page1" },
   "distonyc-1bedc02aaedbb1663d5fdcd9": { src: "/assets/song-videos/11-geglash-missing-save.mp4", framing: "page1" },

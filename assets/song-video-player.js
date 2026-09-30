@@ -13,7 +13,7 @@ export function mountSongVideos(root, scope) {
   const dialog = document.createElement("dialog");
   dialog.className = "song-video-viewer";
   dialog.setAttribute("aria-labelledby", "song-video-title");
-  dialog.innerHTML = `<header><div><h2 id="song-video-title"></h2><p>15-second silent video</p></div><button type="button" data-video-close autofocus aria-label="Close video">Close ×</button></header><video controls muted loop playsinline preload="none"></video><p class="song-video-status" role="status"></p>`;
+  dialog.innerHTML = `<header><div><h2 id="song-video-title"></h2><p data-video-description></p></div><button type="button" data-video-close autofocus aria-label="Close video">Close ×</button></header><video controls muted loop playsinline preload="none"></video><p class="song-video-status" role="status"></p>`;
   document.body.append(dialog);
   const full = dialog.querySelector("video");
   full.muted = true;
@@ -90,6 +90,8 @@ export function mountSongVideos(root, scope) {
     songId = button.dataset.videoOpen;
     dialog.querySelector("h2").textContent = button.closest(".track").querySelector("h3")?.textContent || "Song video";
     status.textContent = "Loading video…";
+    dialog.querySelector("[data-video-description]").textContent = `${video.duration || 15}-second silent video`;
+    full.dataset.framing = video.framing;
     full.src = video.src;
     dialog.showModal();
     document.documentElement.classList.add("song-video-open");
