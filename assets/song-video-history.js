@@ -9,6 +9,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-07-yeah-midnight.mp4",
       "framing": "square",
       "duration": 5
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/02-yeah-after-midnight-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-0dc2bea1e37dea334832f473": [
@@ -18,6 +23,11 @@ export default {
     },
     {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-06-golden-midnight.mp4",
+      "framing": "square",
+      "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/03-the-golden-answer-midnight-synth-remedy-style-lab.mp4",
       "framing": "square",
       "duration": 10
     }
@@ -31,6 +41,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-03-miracle-tragic-aria.mp4",
       "framing": "square",
       "duration": 15
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/07-miracle-piss-tragic-aria-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-ffa7b966f9f8cc1a5d4cc3a5": [
@@ -42,6 +57,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-05-lamma-club.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/01-lamma-bada-cynical-club-mix-style-lab.mp4",
+      "framing": "square",
+      "duration": 5
     }
   ],
   "distonyc-5ae363b12d01b017f8d295f3": [
@@ -53,6 +73,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-08-golden-answer.mp4",
       "framing": "square",
       "duration": 15
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/04-the-golden-answer-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-06d2b8c3c8dffed19df347bb": [
@@ -62,6 +87,11 @@ export default {
     },
     {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-01-simple-not-easy.mp4",
+      "framing": "square",
+      "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/05-it-was-simple-not-easy-style-lab.mp4",
       "framing": "square",
       "duration": 10
     }
@@ -75,6 +105,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-02-lamma-tragic-aria.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/06-lamma-bada-tragic-aria-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-563929c05b5b15405bcaeaeb": [
@@ -86,96 +121,176 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/pinned-20260929-04-lamma-dancefloor.mp4",
       "framing": "square",
       "duration": 5
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/08-lamma-bada-cynical-dancefloor-rework-style-lab.mp4",
+      "framing": "square",
+      "duration": 5
     }
   ],
   "distonyc-41122cfa1d30d985e40d357b": [
     {
       "src": "/assets/song-videos/09-nine-eleven-again.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/09-nine-eleven-d-again-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-6694dab26c170fba0dba0663": [
     {
       "src": "/assets/song-videos/10-influence-criteria.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/10-influence-criteria-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-1bedc02aaedbb1663d5fdcd9": [
     {
       "src": "/assets/song-videos/11-geglash-missing-save.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/11-geglash-and-the-missing-save-style-lab.mp4",
+      "framing": "square",
+      "duration": 15
     }
   ],
   "distonyc-5cbf165fb292d5162fbf98c4": [
     {
       "src": "/assets/song-videos/12-whoopsie-apartheid.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/12-whoopsie-apartheid-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-d267f673c93786e5669bcae4": [
     {
       "src": "/assets/song-videos/13-closed-first-bite.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/13-closed-before-the-first-bite-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-1d7840d9c9addba07ccabdb2": [
     {
       "src": "/assets/song-videos/14-blood-shoes-daybreak.mp4",
       "framing": "page1-daybreak"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/14-blood-on-my-shoes-at-daybreak-style-lab.mp4",
+      "framing": "square",
+      "duration": 15
     }
   ],
   "distonyc-21c8149b819a0dfa21a08913": [
     {
       "src": "/assets/song-videos/15-aw-hell-jimmy.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/15-aw-hell-jimmy-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-9f887a56c0790217a0002b2d": [
     {
       "src": "/assets/song-videos/16-twelve-empty-cups.mp4",
       "framing": "page1-cups"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/16-twelve-empty-cups-style-lab.mp4",
+      "framing": "square",
+      "duration": 5
     }
   ],
   "distonyc-273bc25db98800af3487b313": [
     {
       "src": "/assets/song-videos/17-weird-hair-weird-smells.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/17-weird-hair-weird-smells-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-30a93586b255320dd9ef6576": [
     {
       "src": "/assets/song-videos/18-biological-mandate-disco.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/18-the-biological-mandate-disco-glass-mix-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-8a71594cacf2a14cba9588e6": [
     {
       "src": "/assets/song-videos/19-miracle-cathedral-cure.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/19-the-miracle-piss-cathedral-cure-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-5f5d0a0b536e651c1d00c0c7": [
     {
       "src": "/assets/song-videos/20-miracle-darkwave-circus.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/20-the-miracle-piss-darkwave-circus-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-acd3cd7554340d43f7eedefb": [
     {
       "src": "/assets/song-videos/21-miracle-original.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/21-the-miracle-piss-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-62a651b70048076cb5af0eb0": [
     {
       "src": "/assets/song-videos/22-lamma-bada-original.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/22-lamma-bada-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-50f428c7cfc3b1f9c5cf5dc6": [
     {
       "src": "/assets/song-videos/23-i-wanna-tonight.mp4",
       "framing": "page1"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/23-i-wanna-tonight-style-lab.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-20a78aa7d2e7335fb057308f": [

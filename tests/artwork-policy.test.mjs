@@ -2,6 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { POLICY, selectTreatment, sourcePacket, makePrompt, compactSources, estimateCost } from "../scripts/artwork-policy.mjs";
 import { songArtworkMarkup } from "../assets/cover-art.js";
+import videos from "../assets/song-videos.js";
 
 test("artwork levels respect votes, listens and the fixed future-pin cutoff", () => {
   assert.equal(selectTreatment({ votes: 0, playCount: 9 }), "basic");
@@ -47,6 +48,15 @@ test("Dashboard uses saved raster covers and a safe sleeve while artwork is pend
   assert.ok(unknown.includes("track-art-pending"));
   assert.ok(!unknown.includes("<img onerror"));
   assert.ok(!unknown.includes("svg"));
+  videos["pending-video-test"] = { src: "/fixture.mp4", duration: 10, framing: "square" };
+  try {
+    const pendingVideo = songArtworkMarkup({ id: "pending-video-test", title: "Cover not ready" }, escape);
+    assert.ok(pendingVideo.includes("track-art-pending"));
+    assert.ok(pendingVideo.includes('data-video-open="pending-video-test"'));
+    assert.ok(!pendingVideo.includes("data-cover-open"));
+  } finally {
+    delete videos["pending-video-test"];
+  }
   const cover = songArtworkMarkup({ id: "distonyc-06d2b8c3c8dffed19df347bb", votes: 99 }, escape);
   assert.match(cover, /src="\/assets\/artwork\/.+\.webp"/);
   assert.ok(!cover.includes("data-art-tier"));
