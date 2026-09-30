@@ -2,6 +2,446 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-6a97c3ae9199f44efe788736",
+      "title": "I Wanna Tonight (Midnight Bass Mix)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6a97c3ae9199f44efe788736-2786d69dad04.mp3",
+      "duration": 210.54,
+      "collection": "distonyc",
+      "voiceModel": "vdb",
+      "remixOf": {
+        "songId": "distonyc-50f428c7cfc3b1f9c5cf5dc6",
+        "title": "I Wanna Tonight",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-50f428c7cfc3b1f9c5cf5dc6-2b637ac41718.mp3"
+      },
+      "publishedAt": "2026-09-30T08:59:06.345Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "I Wanna Tonight (Midnight Bass Mix)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "G minor",
+        "arrangement": "A bass-forward midnight funk-rock reinterpretation: elastic electric bass, clipped wah guitar, dry live drums, electric piano, and restrained synth texture reshape the source into a tense, danceable groove while preserving the recognizable “I wanna fuck tonight” hook. Tony delivers smoky connected vowels, sly mutters, and sustained melodic lifts rather than straight spoken phrasing. Build from sparse verses through fuller choruses, strip to bass and percussion for the bridge, then return with the final chorus at peak energy. Pace the final sung “tonight” to land about 10 seconds before the end, followed by one resolved final chord and natural decay.",
+        "lyrics": "[Verse 1]\nI wanna fuck tonight\nI wanna kiss slow\nI wanna pull closer\nI wanna lose sleep\nI wanna spark trouble\nI wanna shut doors\nI wanna make heat\nI wanna stay tangled\nI wanna say please\nI wanna mean it\n\n[Pre-Chorus]\nI wanna turn lights low\nI wanna hear breathing\nI wanna chase thunder\nI wanna feel wanted\nI wanna cross lines\nI wanna burn daylight\n\n[Chorus]\nI wanna fuck tonight\nI wanna fuck all night\nI wanna make sparks fly\nI wanna get reckless\nI wanna kiss harder\nI wanna hold tighter\nI wanna fuck tonight\nI wanna fuck tonight\n\n[Verse 2]\nI wanna trade secrets\nI wanna bite my lip\nI wanna shake loose\nI wanna get nearer\nI wanna taste danger\nI wanna turn sideways\nI wanna make midnight\nI wanna keep moving\nI wanna break curfew\nI wanna leave lipstick\nI wanna press play\nI wanna miss trains\n\n[Pre-Chorus]\nI wanna make room spin\nI wanna turn heat up\nI wanna stop thinking\nI wanna start shaking\nI wanna want more\nI wanna stay awake\n\n[Chorus]\nI wanna fuck tonight\nI wanna fuck all night\nI wanna make sparks fly\nI wanna get reckless\nI wanna kiss harder\nI wanna hold tighter\nI wanna fuck tonight\nI wanna fuck tonight\n\n[Bridge]\nI wanna make a promise\nI wanna break a promise\nI wanna laugh breathless\nI wanna fall backward\nI wanna call your name\nI wanna blur morning\nI wanna be shameless\nI wanna be honest\nI wanna fuck tonight\nI wanna fuck tonight\n\n[Chorus]\nI wanna fuck tonight\nI wanna fuck all night\nI wanna make sparks fly\nI wanna get reckless\nI wanna kiss harder\nI wanna hold tighter\nI wanna stay tangled\nI wanna stay wanting\nI wanna fuck tonight\nI wanna fuck tonight\n\n[Outro]\nI wanna make daylight wait\nI wanna make daylight wait\nI wanna fuck tonight\n[End]",
+        "duration": 215,
+        "bpm": 106,
+        "musicalSettings": {
+          "genre": "Midnight bass-forward funk-rock",
+          "meter": "4/4",
+          "structure": "Verse 1 → Pre-Chorus → Chorus → Verse 2 → Pre-Chorus → Chorus → Bridge → Final Chorus → Outro",
+          "performance": "Natural, rough and smoky Tony lead with slurred connected phrasing, mischievous ad-libs, and a clear singable hook.",
+          "energy": "Starts taut and intimate, grows into buoyant bass-driven choruses, drops back for the bridge, and resolves after a final peak.",
+          "lyricWorkflow": "Adapted source-guided lyrics retain the core hook and escalating late-night invitation motifs.",
+          "instruments": [
+            "electric bass",
+            "live drum kit",
+            "wah electric guitar",
+            "electric piano",
+            "subtle synthesizer"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI wanna fuck tonight\nI wanna kiss slow\nI wanna pull closer\nI wanna lose sleep\nI wanna spark trouble\nI wanna shut doors\nI wanna make heat\nI wanna stay tangled\nI wanna say please\nI wanna mean it\n\n[Pre-Chorus]\nI wanna turn lights low\nI wanna hear breathing\nI wanna chase thunder\nI wanna feel wanted\nI wanna cross lines\nI wanna burn daylight\n\n[Chorus]\nI wanna fuck tonight\nI wanna fuck all night\nI wanna make sparks fly\nI wanna get reckless\nI wanna kiss harder\nI wanna hold tighter\nI wanna fuck tonight\nI wanna fuck tonight\n\n[Verse 2]\nI wanna trade secrets\nI wanna bite my lip\nI wanna shake loose\nI wanna get nearer\nI wanna taste danger\nI wanna turn sideways\nI wanna make midnight\nI wanna keep moving\nI wanna break curfew\nI wanna leave lipstick\nI wanna press play\nI wanna miss trains\n\n[Pre-Chorus]\nI wanna make room spin\nI wanna turn heat up\nI wanna stop thinking\nI wanna start shaking\nI wanna want more\nI wanna stay awake\n\n[Chorus]\nI wanna fuck tonight\nI wanna fuck all night\nI wanna make sparks fly\nI wanna get reckless\nI wanna kiss harder\nI wanna hold tighter\nI wanna fuck tonight\nI wanna fuck tonight\n\n[Bridge]\nI wanna make a promise\nI wanna break a promise\nI wanna laugh breathless\nI wanna fall backward\nI wanna call your name\nI wanna blur morning\nI wanna be shameless\nI wanna be honest\nI wanna fuck tonight\nI wanna fuck tonight\n\n[Chorus]\nI wanna fuck tonight\nI wanna fuck all night\nI wanna make sparks fly\nI wanna get reckless\nI wanna kiss harder\nI wanna hold tighter\nI wanna stay tangled\nI wanna stay wanting\nI wanna fuck tonight\nI wanna fuck tonight\n\n[Outro]\nI wanna make daylight wait\nI wanna make daylight wait\nI wanna fuck tonight",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.6,
+            "end": 8.86
+          },
+          {
+            "line": 2,
+            "start": 9.64,
+            "end": 11.18
+          },
+          {
+            "line": 3,
+            "start": 12.34,
+            "end": 13.54
+          },
+          {
+            "line": 4,
+            "start": 14.62,
+            "end": 15.54
+          },
+          {
+            "line": 5,
+            "start": 16.8,
+            "end": 18.08
+          },
+          {
+            "line": 6,
+            "start": 18.84,
+            "end": 20.1
+          },
+          {
+            "line": 7,
+            "start": 21.24,
+            "end": 22.22
+          },
+          {
+            "line": 8,
+            "start": 23.42,
+            "end": 24.68
+          },
+          {
+            "line": 9,
+            "start": 25.32,
+            "end": 26.82
+          },
+          {
+            "line": 10,
+            "start": 27.68,
+            "end": 28.58
+          },
+          {
+            "line": 14,
+            "start": 31.12,
+            "end": 33.58
+          },
+          {
+            "line": 15,
+            "start": 34.6,
+            "end": 35.64
+          },
+          {
+            "line": 16,
+            "start": 36.7,
+            "end": 37.92
+          },
+          {
+            "line": 17,
+            "start": 38.92,
+            "end": 40.1
+          },
+          {
+            "line": 18,
+            "start": 41.3,
+            "end": 42.36
+          },
+          {
+            "line": 21,
+            "start": 43.36,
+            "end": 44.36
+          },
+          {
+            "line": 22,
+            "start": 45.52,
+            "end": 46.72
+          },
+          {
+            "line": 23,
+            "start": 47.9,
+            "end": 50.22
+          },
+          {
+            "line": 24,
+            "start": 50.22,
+            "end": 51.3
+          },
+          {
+            "line": 25,
+            "start": 52.2,
+            "end": 53.46
+          },
+          {
+            "line": 26,
+            "start": 54.58,
+            "end": 55.58
+          },
+          {
+            "line": 27,
+            "start": 56.66,
+            "end": 57.7
+          },
+          {
+            "line": 28,
+            "start": 58.74,
+            "end": 62.28
+          },
+          {
+            "line": 31,
+            "start": 65.14,
+            "end": 66.88
+          },
+          {
+            "line": 32,
+            "start": 67.82,
+            "end": 69.06
+          },
+          {
+            "line": 33,
+            "start": 69.72,
+            "end": 71.1
+          },
+          {
+            "line": 34,
+            "start": 72.16,
+            "end": 73.54
+          },
+          {
+            "line": 35,
+            "start": 74.44,
+            "end": 75.94
+          },
+          {
+            "line": 36,
+            "start": 76.62,
+            "end": 77.96
+          },
+          {
+            "line": 37,
+            "start": 77.96,
+            "end": 80.3
+          },
+          {
+            "line": 38,
+            "start": 81.78,
+            "end": 84.64
+          },
+          {
+            "line": 39,
+            "start": 85.68,
+            "end": 86.66
+          },
+          {
+            "line": 40,
+            "start": 87.88,
+            "end": 89.02
+          },
+          {
+            "line": 41,
+            "start": 90.12,
+            "end": 91.16
+          },
+          {
+            "line": 42,
+            "start": 92.22,
+            "end": 93.36
+          },
+          {
+            "line": 45,
+            "start": 94.46,
+            "end": 95.86
+          },
+          {
+            "line": 46,
+            "start": 96.6,
+            "end": 98.26
+          },
+          {
+            "line": 47,
+            "start": 100.98,
+            "end": 102.4
+          },
+          {
+            "line": 48,
+            "start": 103.34,
+            "end": 104.68
+          },
+          {
+            "line": 49,
+            "start": 105.56,
+            "end": 106.7
+          },
+          {
+            "line": 50,
+            "start": 107.56,
+            "end": 108.78
+          },
+          {
+            "line": 53,
+            "start": 109.92,
+            "end": 111.06
+          },
+          {
+            "line": 54,
+            "start": 112.24,
+            "end": 113.4
+          },
+          {
+            "line": 55,
+            "start": 114.5,
+            "end": 116
+          },
+          {
+            "line": 56,
+            "start": 116.62,
+            "end": 117.86
+          },
+          {
+            "line": 57,
+            "start": 119.02,
+            "end": 120.24
+          },
+          {
+            "line": 58,
+            "start": 121.32,
+            "end": 122.28
+          },
+          {
+            "line": 59,
+            "start": 123.34,
+            "end": 124.38
+          },
+          {
+            "line": 60,
+            "start": 127.32,
+            "end": 128.9
+          },
+          {
+            "line": 63,
+            "start": 131.26,
+            "end": 133.66
+          },
+          {
+            "line": 64,
+            "start": 134.32,
+            "end": 135.78
+          },
+          {
+            "line": 65,
+            "start": 136.38,
+            "end": 138.1
+          },
+          {
+            "line": 66,
+            "start": 138.1,
+            "end": 140.22
+          },
+          {
+            "line": 67,
+            "start": 140.22,
+            "end": 142.38
+          },
+          {
+            "line": 68,
+            "start": 142.38,
+            "end": 144.76
+          },
+          {
+            "line": 69,
+            "start": 144.76,
+            "end": 146.68
+          },
+          {
+            "line": 70,
+            "start": 147.38,
+            "end": 149.16
+          },
+          {
+            "line": 71,
+            "start": 149.16,
+            "end": 151.08
+          },
+          {
+            "line": 72,
+            "start": 151.78,
+            "end": 153.26
+          },
+          {
+            "line": 75,
+            "start": 153.26,
+            "end": 155.5
+          },
+          {
+            "line": 76,
+            "start": 156.28,
+            "end": 157.84
+          },
+          {
+            "line": 77,
+            "start": 157.84,
+            "end": 160.44
+          },
+          {
+            "line": 78,
+            "start": 160.92,
+            "end": 162.34
+          },
+          {
+            "line": 79,
+            "start": 163.19,
+            "end": 164.62
+          },
+          {
+            "line": 80,
+            "start": 165.72,
+            "end": 166.72
+          },
+          {
+            "line": 81,
+            "start": 167.26,
+            "end": 169.1
+          },
+          {
+            "line": 82,
+            "start": 169.82,
+            "end": 171.28
+          },
+          {
+            "line": 83,
+            "start": 172.07,
+            "end": 173.34
+          },
+          {
+            "line": 87,
+            "start": 192.72,
+            "end": 194.32
+          },
+          {
+            "line": 88,
+            "start": 194.78,
+            "end": 198.66
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 18.06
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "clean",
+      "guide": {
+        "sha256": "c6c86e4c98576e012d9984090a9658166c190c6bb157aa8d69f7a2c949398660",
+        "bytes": 5309516,
+        "duration": 214.64,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6a97c3ae9199f44efe788736-c6c86e4c9857.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “I Wanna Tonight”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Tony says \"I want to fuck\" in as many ways as possible\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Use the prompt as written.",
+        "keep": "Keep the recognizable hook and spirit of “I Wanna Tonight”.",
+        "basisSongs": [
+          "I Wanna Tonight"
+        ],
+        "voiceModel": "vdb",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-830853c4fdecd449a81720d5",
       "title": "Yeah After Midnight",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-830853c4fdecd449a81720d5-2229def7d1e4.mp3",
