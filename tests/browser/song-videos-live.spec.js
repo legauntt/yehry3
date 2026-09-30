@@ -1,8 +1,9 @@
 import { test, expect } from "@playwright/test";
 import pageOneSongs from "./fixtures/song-video-page1.json" with { type: "json" };
+import { videoVersions } from "../../assets/song-video-versions.js";
 
 test("published catalog exposes and plays all page-one silent videos", async ({ page }) => {
-  test.setTimeout(180000);
+  test.setTimeout(300000);
   test.skip(!process.env.YEHRY3_VIDEO_URL, "Post-deployment check against the real catalog");
   await page.goto("/");
   await expect(page.locator("[data-video-open]").first()).toBeVisible();
@@ -29,6 +30,13 @@ test("published catalog exposes and plays all page-one silent videos", async ({ 
     const video = page.locator(".song-video-viewer video");
     await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted), { timeout: 20000, message: `Live playback starts for ${id}` }).toBe(true);
     expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([song.videoWidth || 576, song.videoHeight || 1024, song.videoDuration || 15]);
+    for (const choice of videoVersions(id).slice(0, -1)) {
+      const button = page.getByRole("button", { name: `Version ${choice.label}`, exact: true });
+      await button.click();
+      await expect(button).toHaveAttribute("aria-pressed", "true");
+      await expect(video).toHaveAttribute("src", choice.src);
+      await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted), { timeout: 20000 }).toBe(true);
+    }
     await page.keyboard.press("Escape");
   }
   await findVideo(ids[0]);

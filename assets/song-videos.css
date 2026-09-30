@@ -30,6 +30,11 @@ html.song-video-open { overflow: hidden; }
 .song-video-viewer button { min-height: 44px; flex: 0 0 auto; padding: 8px 12px; border: 1px solid #82988e; border-radius: 6px; color: #fff; background: #263b32; cursor: pointer; }
 .song-video-viewer video { display: block; width: 100%; max-height: calc(100dvh - 170px); aspect-ratio: 9 / 16; object-fit: contain; background: #080c0a; }
 .song-video-viewer video[data-framing="square"] { aspect-ratio: 1; }
+.song-video-versions { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 12px; }
+.song-video-versions[hidden] { display: none; }
+.song-video-versions button[aria-pressed="true"] { background: #e4f0e7; color: #10231e; border-color: #e4f0e7; }
+.song-video-versions button:focus-visible { outline: 3px solid var(--orange, #df6e36); outline-offset: 2px; }
+.song-video-viewer:has(.song-video-versions:not([hidden])) video { max-height: calc(100dvh - 240px); }
 .song-video-status { margin: 8px 0 0; font-size: .85rem; }
 .song-video-status:empty { display: none; }
 @media (max-width: 650px) {

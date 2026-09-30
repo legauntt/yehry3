@@ -1,5 +1,6 @@
 import { test, expect } from "@playwright/test";
 import pageOneSongs from "./fixtures/song-video-page1.json" with { type: "json" };
+import { videoVersions } from "../../assets/song-video-versions.js";
 
 const songs = pageOneSongs.map(s => ({ ...s, collection: "distonyc", url: "/fixture.mp3", duration: 180, votes: 1, adminPinned: true, feedback: {} }));
 test.beforeEach(async ({ page }) => {
@@ -116,6 +117,19 @@ test("video modal supports keyboard, every page-one clip and leaves audio alone"
       expect(Math.abs(frame.width - frame.height)).toBeLessThan(2);
     }
     expect(await page.locator("audio").evaluateAll(items => items.some(a => !a.paused))).toBe(true);
+    if (song === songs[0]) {
+      const choices = videoVersions(song.id);
+      const old = dialog.getByRole("button", { name: "Version A", exact: true });
+      await old.focus();
+      await page.keyboard.press("Enter");
+      await expect(old).toHaveAttribute("aria-pressed", "true");
+      await expect(video).toHaveAttribute("src", choices[0].src);
+      await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0)).toBe(true);
+      await dialog.getByRole("button", { name: `Version ${choices.at(-1).label} (latest)`, exact: true }).click();
+      await expect(video).toHaveAttribute("src", choices.at(-1).src);
+      await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0)).toBe(true);
+      expect(await page.locator("audio").evaluateAll(items => items.some(a => !a.paused))).toBe(true);
+    }
     await page.keyboard.press("Escape");
     await expect(dialog).not.toBeVisible();
     await expect(trigger).toBeFocused();
@@ -136,6 +150,8 @@ test("reduced motion suppresses autoplay; phone and list keep a usable modal but
   await page.setViewportSize({ width: 390, height: 844 });
   await card(page).locator("[data-video-open]").click();
   await expect(page.locator(".song-video-viewer")).toBeVisible();
+  await page.getByRole("button", { name: "Version A", exact: true }).click();
+  await expect.poll(() => page.locator(".song-video-viewer video").evaluate(v => !v.paused && v.currentTime > 0)).toBe(true);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const bounds = await page.locator(".song-video-viewer").boundingBox();
   expect(bounds.x).toBeGreaterThanOrEqual(0);
@@ -146,4 +162,37 @@ test("reduced motion suppresses autoplay; phone and list keep a usable modal but
   await expect(page.locator(".song-video-viewer")).toBeVisible();
   await expect.poll(() => page.locator(".song-video-viewer video").evaluate(v => v.currentTime > 0)).toBe(true);
   await page.screenshot({ path: "test-results/song-video-phone.png" });
+});
+
+test("every preserved version plays and rapid switching recovers from a failed version", async ({ page }) => {
+  test.setTimeout(240000);
+  await page.goto("/");
+  for (const song of songs) {
+    await page.locator(`[data-video-open="${song.id}"]`).click();
+    const dialog = page.locator(".song-video-viewer");
+    for (const choice of videoVersions(song.id).slice(0, -1)) {
+      await dialog.getByRole("button", { name: `Version ${choice.label}`, exact: true }).click();
+      await expect(dialog.locator("video")).toHaveAttribute("src", choice.src);
+      await expect.poll(() => dialog.locator("video").evaluate(v => !v.paused && v.currentTime > 0 && v.muted), { timeout: 20000 }).toBe(true);
+    }
+    await page.keyboard.press("Escape");
+  }
+  const choices = videoVersions(songs[0].id);
+  await page.route(choices[0].src, route => route.abort());
+  await card(page).locator("[data-video-open]").click();
+  const dialog = page.locator(".song-video-viewer");
+  await dialog.getByRole("button", { name: "Version A", exact: true }).click();
+  await expect(dialog.locator(".song-video-status")).toContainText("could not load");
+  await dialog.getByRole("button", { name: `Version ${choices.at(-1).label} (latest)`, exact: true }).click();
+  await expect.poll(() => dialog.locator("video").evaluate(v => !v.paused && v.currentTime > 0)).toBe(true);
+  await expect(dialog.locator(".song-video-status")).toBeEmpty();
+  await dialog.locator(".song-video-versions").evaluate(group => {
+    const buttons = group.querySelectorAll("button");
+    buttons[0].click();
+    buttons[buttons.length - 1].click();
+    buttons[0].click();
+    buttons[buttons.length - 1].click();
+  });
+  await expect.poll(() => dialog.locator("video").evaluate(v => !v.paused && v.currentTime > 0)).toBe(true);
+  await expect(dialog.locator(".song-video-status")).toBeEmpty();
 });

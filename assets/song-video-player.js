@@ -1,4 +1,5 @@
 import videos from "./song-videos.js";
+import { videoVersions } from "./song-video-versions.js";
 
 export function mountSongVideos(root, scope) {
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
@@ -14,12 +15,40 @@ export function mountSongVideos(root, scope) {
   dialog.className = "song-video-viewer";
   dialog.setAttribute("aria-labelledby", "song-video-title");
   dialog.innerHTML = `<header><div><h2 id="song-video-title"></h2><p data-video-description></p></div><button type="button" data-video-close autofocus aria-label="Close video">Close ×</button></header><video controls muted loop playsinline preload="none"></video><p class="song-video-status" role="status"></p>`;
+  const versions = document.createElement("div");
+  versions.className = "song-video-versions";
+  versions.setAttribute("role", "group");
+  versions.setAttribute("aria-label", "Compare video versions");
+  versions.hidden = true;
+  dialog.querySelector("header").after(versions);
   document.body.append(dialog);
   const full = dialog.querySelector("video");
   full.muted = true;
   const close = dialog.querySelector("[data-video-close]");
   const status = dialog.querySelector(".song-video-status");
   let timer, candidate, active, opener, songId, generation = 0;
+  let choices = [], playbackGeneration = 0;
+  function selectVersion(index) {
+    const video = choices[index];
+    if (!video) return;
+    const token = ++playbackGeneration;
+    full.pause();
+    status.textContent = "Loading video…";
+    dialog.querySelector("[data-video-description]").textContent = `${video.duration || 15}-second silent video`;
+    for (const button of versions.querySelectorAll("button")) {
+      button.setAttribute("aria-pressed", String(Number(button.dataset.version) === index));
+    }
+    full.dataset.framing = video.framing;
+    full.muted = true;
+    full.src = video.src;
+    full.play().catch(() => {
+      if (dialog.open && token === playbackGeneration) status.textContent = full.error ? "The video could not load. Try another version or close and try again." : "Press play to watch the video.";
+    });
+  }
+  scope.on(versions, "click", event => {
+    const button = event.target.closest("[data-version]");
+    if (button && button.getAttribute("aria-pressed") !== "true") selectVersion(Number(button.dataset.version));
+  });
   function release(video) {
     video.pause();
     video.removeAttribute("src");
@@ -89,22 +118,27 @@ export function mountSongVideos(root, scope) {
     opener = button;
     songId = button.dataset.videoOpen;
     dialog.querySelector("h2").textContent = button.closest(".track").querySelector("h3")?.textContent || "Song video";
-    status.textContent = "Loading video…";
-    dialog.querySelector("[data-video-description]").textContent = `${video.duration || 15}-second silent video`;
-    full.dataset.framing = video.framing;
-    full.src = video.src;
+    choices = videoVersions(songId);
+    versions.replaceChildren(...choices.map((choice, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.dataset.version = index;
+      button.textContent = `${choice.label}${index === choices.length - 1 ? " · Latest" : ""}`;
+      button.setAttribute("aria-label", `Version ${choice.label}${index === choices.length - 1 ? " (latest)" : ""}`);
+      return button;
+    }));
+    versions.hidden = choices.length < 2;
     dialog.showModal();
     document.documentElement.classList.add("song-video-open");
     close.focus({ preventScroll: true });
-    full.play().catch(() => {
-      if (dialog.open) status.textContent = full.error ? "The video could not load. Close and try again." : "Press play to watch the video.";
-    });
+    selectVersion(choices.length - 1);
   });
   scope.on(full, "playing", () => { status.textContent = ""; });
   scope.on(full, "error", () => { status.textContent = "The video could not load. Close and try again."; });
   scope.on(close, "click", () => dialog.close());
   scope.on(dialog, "close", () => {
     if (dialog.open) return;
+    playbackGeneration++;
     release(full);
     document.documentElement.classList.remove("song-video-open");
     if (!scope.left) (opener?.isConnected ? opener : root.querySelector(`[data-video-open="${CSS.escape(songId)}"]`))?.focus({ preventScroll: true });
@@ -115,6 +149,7 @@ export function mountSongVideos(root, scope) {
     if (event.clientX < b.left || event.clientX > b.right || event.clientY < b.top || event.clientY > b.bottom) dialog.close();
   });
   scope.onLeave(() => {
+    playbackGeneration++;
     observer.disconnect();
     stop();
     release(full);
