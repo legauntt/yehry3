@@ -2,6 +2,301 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-c9fa039b6d43960642e62b20",
+      "title": "When Horses Still Went",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c9fa039b6d43960642e62b20-81aa9569fd82.mp3",
+      "duration": 259.99673469387756,
+      "collection": "distonyc",
+      "voiceModel": "vdb",
+      "publishedAt": "2026-10-01T19:29:42.872Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "When Horses Still Went",
+        "recipe": "new",
+        "style": "opera",
+        "keyscale": "D minor",
+        "arrangement": "Tragic chamber-opera aria in D minor: strings, piano, low brass and timpani begin sparsely, then grow into sweeping orchestral refrains. One clear, steadily pitched Tony lead carries long legato lines with theatrical phrasing and restrained smoky character; no backing voices or vocal effects. The final sustained phrase, “vanished in,” lands about 10 seconds before the end, followed by one resolved orchestral chord and decay.",
+        "lyrics": "[Overture]\n\n[Verse 1]\nI mourn the banners in the rain\nThe tavern doors, the carriage lane\nWhen every fellow, proud and grand,\nCould wear his fortune in his hand\nThe tailor sighed, the ladies knew\nWhat gossip through the market flew\nAnd horses, bright with knowing eyes,\nWould leave us all to theorize\n\n[Verse 2]\nThey went beyond the western hill\nWith ancient patience, iron will\nNo scholar ever wrote it down\nNo bishop settled it in town\nWere they bound for fields of gold?\nWere they following tales untold?\nTheir hoofbeats answered, then were gone\nA riddle carried into dawn\n\n[Refrain]\nOh, where are the days that made us stare?\nThe proud old men, the midnight air\nThe horses going, none could say\nWhat secret pulled them far away\nLet solemn bells and lamplight sing:\nWe knew so little of everything\n\n[Verse 3]\nNow polished clocks explain the sky\nAnd clever papers tell us why\nThey measure thunder, chart the sea\nAnd still cannot remember me\nFor all their certainty and flame,\nThe oldest question stays the same:\nWhy did the horses leave the gate?\nWhy did desire arrive so late?\n\n[Bridge]\nI do not ask to turn the years\nOr trade our wisdom for our tears\nBut let one shadow cross the square,\nOne laughing rumor in the air\nLet one dark stallion raise his head\nAnd speak the things we never said\n\n[Refrain]\nOh, bring me the days that made us stare,\nThe wild old jokes, the winter air\nThe horses going, grave and free,\nTheir mystery kept company\nThough every banner fades from view,\nThe unanswered road remains true\nI lift my voice where they have been—\nAnd bless the road they vanished in\n\n[End]",
+        "duration": 260,
+        "bpm": 76,
+        "musicalSettings": {
+          "genre": "Tragic chamber opera",
+          "meter": "4/4",
+          "structure": "Overture, three verses, recurring refrain, bridge, final refrain, resolved ending",
+          "performance": "Clear dramatic tenor-like lead with sustained operatic phrasing",
+          "energy": "Quiet lament builds to a full, dignified final refrain, then settles into resolution",
+          "lyricWorkflow": "Original lyrical aria using comic nostalgia and unanswered mystery as a bittersweet theme",
+          "instruments": [
+            "piano",
+            "string orchestra",
+            "low brass",
+            "timpani"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Overture]\n\n[Verse 1]\nI mourn the banners in the rain\nThe tavern doors, the carriage lane\nWhen every fellow, proud and grand,\nCould wear his fortune in his hand\nThe tailor sighed, the ladies knew\nWhat gossip through the market flew\nAnd horses, bright with knowing eyes,\nWould leave us all to theorize\n\n[Verse 2]\nThey went beyond the western hill\nWith ancient patience, iron will\nNo scholar ever wrote it down\nNo bishop settled it in town\nWere they bound for fields of gold?\nWere they following tales untold?\nTheir hoofbeats answered, then were gone\nA riddle carried into dawn\n\n[Refrain]\nOh, where are the days that made us stare?\nThe proud old men, the midnight air\nThe horses going, none could say\nWhat secret pulled them far away\nLet solemn bells and lamplight sing:\nWe knew so little of everything\n\n[Verse 3]\nNow polished clocks explain the sky\nAnd clever papers tell us why\nThey measure thunder, chart the sea\nAnd still cannot remember me\nFor all their certainty and flame,\nThe oldest question stays the same:\nWhy did the horses leave the gate?\nWhy did desire arrive so late?\n\n[Bridge]\nI do not ask to turn the years\nOr trade our wisdom for our tears\nBut let one shadow cross the square,\nOne laughing rumor in the air\nLet one dark stallion raise his head\nAnd speak the things we never said\n\n[Refrain]\nOh, bring me the days that made us stare,\nThe wild old jokes, the winter air\nThe horses going, grave and free,\nTheir mystery kept company\nThough every banner fades from view,\nThe unanswered road remains true\nI lift my voice where they have been—\nAnd bless the road they vanished in",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 3,
+            "start": 6.84,
+            "end": 12.02
+          },
+          {
+            "line": 4,
+            "start": 12.78,
+            "end": 16.58
+          },
+          {
+            "line": 5,
+            "start": 17.4,
+            "end": 21.34
+          },
+          {
+            "line": 6,
+            "start": 21.34,
+            "end": 26.86
+          },
+          {
+            "line": 7,
+            "start": 28.36,
+            "end": 32.62
+          },
+          {
+            "line": 8,
+            "start": 32.62,
+            "end": 37.26
+          },
+          {
+            "line": 9,
+            "start": 37.26,
+            "end": 42.54
+          },
+          {
+            "line": 10,
+            "start": 42.54,
+            "end": 50.62
+          },
+          {
+            "line": 13,
+            "start": 51.64,
+            "end": 56.14
+          },
+          {
+            "line": 14,
+            "start": 56.14,
+            "end": 60.66
+          },
+          {
+            "line": 15,
+            "start": 60.66,
+            "end": 65.66
+          },
+          {
+            "line": 16,
+            "start": 66.54,
+            "end": 70.32
+          },
+          {
+            "line": 17,
+            "start": 71.26,
+            "end": 74.46
+          },
+          {
+            "line": 18,
+            "start": 75.48,
+            "end": 80.48
+          },
+          {
+            "line": 19,
+            "start": 80.48,
+            "end": 84.44
+          },
+          {
+            "line": 20,
+            "start": 85.04,
+            "end": 89.48
+          },
+          {
+            "line": 23,
+            "start": 91.52,
+            "end": 96.32
+          },
+          {
+            "line": 24,
+            "start": 97.3,
+            "end": 101.16
+          },
+          {
+            "line": 25,
+            "start": 102.02,
+            "end": 106.08
+          },
+          {
+            "line": 26,
+            "start": 106.08,
+            "end": 110.66
+          },
+          {
+            "line": 27,
+            "start": 111.24,
+            "end": 115.02
+          },
+          {
+            "line": 28,
+            "start": 116.12,
+            "end": 122.1
+          },
+          {
+            "line": 31,
+            "start": 126.78,
+            "end": 131.9
+          },
+          {
+            "line": 32,
+            "start": 131.9,
+            "end": 136.96
+          },
+          {
+            "line": 33,
+            "start": 136.96,
+            "end": 141.42
+          },
+          {
+            "line": 34,
+            "start": 141.42,
+            "end": 146.22
+          },
+          {
+            "line": 35,
+            "start": 146.22,
+            "end": 151.08
+          },
+          {
+            "line": 36,
+            "start": 151.56,
+            "end": 155.92
+          },
+          {
+            "line": 37,
+            "start": 156.42,
+            "end": 160.62
+          },
+          {
+            "line": 38,
+            "start": 161.16,
+            "end": 166.46
+          },
+          {
+            "line": 41,
+            "start": 168.7,
+            "end": 173.42
+          },
+          {
+            "line": 42,
+            "start": 173.42,
+            "end": 178.54
+          },
+          {
+            "line": 43,
+            "start": 179.88,
+            "end": 184.7
+          },
+          {
+            "line": 44,
+            "start": 185.66,
+            "end": 190.3
+          },
+          {
+            "line": 45,
+            "start": 190.66,
+            "end": 196.04
+          },
+          {
+            "line": 46,
+            "start": 196.04,
+            "end": 205.76
+          },
+          {
+            "line": 49,
+            "start": 205.76,
+            "end": 210.36
+          },
+          {
+            "line": 50,
+            "start": 211.4,
+            "end": 214.24
+          },
+          {
+            "line": 51,
+            "start": 214.24,
+            "end": 219.94
+          },
+          {
+            "line": 52,
+            "start": 220.84,
+            "end": 224.14
+          },
+          {
+            "line": 53,
+            "start": 225.86,
+            "end": 230.22
+          },
+          {
+            "line": 54,
+            "start": 231.4,
+            "end": 235.44
+          },
+          {
+            "line": 55,
+            "start": 236.5,
+            "end": 240.88
+          },
+          {
+            "line": 56,
+            "start": 240.88,
+            "end": 248.34
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "guide": {
+        "sha256": "f040126bfb65a30ee8d6c5d28836e18be36a52f39fc18946377a0b24a4300a79",
+        "bytes": 6239966,
+        "duration": 259.996708,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c9fa039b6d43960642e62b20-f040126bfb65.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Tony laments the good old days when men be hung (well endowed), horses go (the mysteries of life)",
+        "direction": "Use the prompt as written.",
+        "keep": "Tragic aria",
+        "basisSongs": [],
+        "voiceModel": "vdb",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 260
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-e695c7562362c1a3cb6155b1",
       "title": "Arrrrrrrrrrrt",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e695c7562362c1a3cb6155b1-390cb2ace56a.mp3",
