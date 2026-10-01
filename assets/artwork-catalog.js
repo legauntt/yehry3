@@ -1842,5 +1842,20 @@ export default {
     "missingSources": [],
     "previous": null,
     "firstSeenAt": "2026-10-01T19:09:22.763Z"
+  },
+  "distonyc-c9fa039b6d43960642e62b20": {
+    "src": "/assets/artwork/distonyc-c9fa039b6d43960642e62b20-incubating-e14e5dce691b-q86.webp",
+    "alt": "Cover artwork for When Horses Still Went.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "7bb62356a82ca37e4d71e411515df4e08187fa35217596db2124b6fd0ae22f1e",
+    "promptHash": "a10213f726b564e507b135d65c338c20e86fee70bc78c0f5d09490deee1aa3d6",
+    "createdAt": "2026-10-01T19:39:42.159Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-01T19:39:22.779Z"
   }
 };
