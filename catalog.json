@@ -281,8 +281,6 @@
     {
       "id": "distonyc-5ef1a9c45affd9b9229a3ab8",
       "title": "I Wanna (Tragic Aria)",
-      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5ef1a9c45affd9b9229a3ab8-9d427d53f105.mp3",
-      "duration": 250.04408163265308,
       "collection": "distonyc",
       "voiceModel": "v9",
       "remixOf": {
@@ -319,6 +317,43 @@
           ]
         }
       },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "guide": {
+        "sha256": "748af5cd5eb6db62b0dd6ee5f1455109fede19714949855fd82cf00d29b28810",
+        "bytes": 6001103,
+        "duration": 250.044083,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5ef1a9c45affd9b9229a3ab8-748af5cd5eb6.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “I Wanna”. Give it a new arrangement while keeping its identity.",
+        "direction": "New sound: Tragic aria",
+        "keep": "Surprise me.",
+        "basisSongs": [
+          "I Wanna"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 250,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      },
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5ef1a9c45affd9b9229a3ab8-966c44575610.mp3",
+      "duration": 250.04408163265308,
       "lyrics": {
         "text": "[Overture]\n\n[Verse 1]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Verse 2]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Refrain]\nI wanna fuck\nI wanna fuck\n\n[Verse 3]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Verse 4]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Bridge]\nI wanna fuck\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nI wanna fuck I wanna fuck\nI wanna fuck I wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Finale]\nI wanna fuck",
         "kind": "written",
@@ -395,46 +430,17 @@
           }
         ]
       },
-      "collections": [
-        "distonyc"
+      "qualityIssues": [
+        {
+          "code": "early_lyric_ending",
+          "seconds": 56.42
+        }
       ],
       "validationFailures": [
-        "vocal_activity",
-        "unconverted_vocals"
+        "vocal_activity"
       ],
       "reviewState": "needs_review",
-      "generationProfile": "v8",
-      "musicBackend": "eleven_music",
-      "guide": {
-        "sha256": "748af5cd5eb6db62b0dd6ee5f1455109fede19714949855fd82cf00d29b28810",
-        "bytes": 6001103,
-        "duration": 250.044083,
-        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5ef1a9c45affd9b9229a3ab8-748af5cd5eb6.mp3"
-      },
-      "originalPrompt": {
-        "idea": "Remix “I Wanna”. Give it a new arrangement while keeping its identity.",
-        "direction": "New sound: Tragic aria",
-        "keep": "Surprise me.",
-        "basisSongs": [
-          "I Wanna"
-        ],
-        "voiceModel": "v9",
-        "musicBackend": "eleven_music",
-        "generation": {
-          "version": 1,
-          "candidates": 1,
-          "lyricWorkflow": "auto",
-          "performance": "natural",
-          "energy": "auto",
-          "variation": "balanced",
-          "reviewLyrics": false,
-          "vocalGainDb": 0,
-          "backingGainDb": 0,
-          "duration": 250,
-          "pitchRepair": "wild"
-        },
-        "generationProfile": "v8"
-      }
+      "pitchRepair": "wild"
     },
     {
       "id": "distonyc-ab451f90f7018ee738fbe2ed",
