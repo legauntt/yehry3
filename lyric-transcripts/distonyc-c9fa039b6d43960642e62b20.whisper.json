@@ -1,0 +1,247 @@
+{
+  "version": 1,
+  "songId": "distonyc-c9fa039b6d43960642e62b20",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c9fa039b6d43960642e62b20-81aa9569fd82.mp3",
+  "audioSha256": "81aa9569fd82f23ccf05103d01ef5f6c0758b2cf411d0b0afe9307d25a931c8c",
+  "inputSha256": "0396531ccd42ec7b1d6229cedc100a06615c74c726c4fa3e0b7358d4441a928d",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 259.99675,
+  "segments": [
+    {
+      "start": 6.92,
+      "end": 17.08,
+      "text": "I mourn the banners in the rain, the tavern doors, the carriage lane,",
+      "uncertain": false
+    },
+    {
+      "start": 17.26,
+      "end": 27.3,
+      "text": "when every fellow, proud and grand, could wear his fortune in his hand.",
+      "uncertain": false
+    },
+    {
+      "start": 27.3,
+      "end": 32.78,
+      "text": "The tailor sighed, the ladies knew",
+      "uncertain": false
+    },
+    {
+      "start": 32.78,
+      "end": 37.58,
+      "text": "What gossip through the market slew",
+      "uncertain": true
+    },
+    {
+      "start": 37.58,
+      "end": 42.82,
+      "text": "And horses bright with knowing eyes",
+      "uncertain": false
+    },
+    {
+      "start": 42.82,
+      "end": 49.32,
+      "text": "Would leave us all to theorize",
+      "uncertain": false
+    },
+    {
+      "start": 50.96,
+      "end": 56.36,
+      "text": "They went beyond the western hill",
+      "uncertain": false
+    },
+    {
+      "start": 56.36,
+      "end": 60.8,
+      "text": "With ancient patience, siren will",
+      "uncertain": true
+    },
+    {
+      "start": 60.8,
+      "end": 65.88,
+      "text": "No scholar ever wrote it down",
+      "uncertain": true
+    },
+    {
+      "start": 65.88,
+      "end": 70.74,
+      "text": "No bishop settled it in town",
+      "uncertain": false
+    },
+    {
+      "start": 70.74,
+      "end": 74.82,
+      "text": "Were they bound for fields of gold?",
+      "uncertain": false
+    },
+    {
+      "start": 75.34,
+      "end": 79.78,
+      "text": "Were they following tales untold?",
+      "uncertain": false
+    },
+    {
+      "start": 79.96,
+      "end": 84.38,
+      "text": "Their boofbeats answered, then were gone",
+      "uncertain": false
+    },
+    {
+      "start": 84.38,
+      "end": 89.44,
+      "text": "A riddle carried into dawn",
+      "uncertain": true
+    },
+    {
+      "start": 90.86,
+      "end": 96.54,
+      "text": "Oh, where are the days that made us stare",
+      "uncertain": false
+    },
+    {
+      "start": 96.54,
+      "end": 101.66,
+      "text": "The proud old man, the midnight air",
+      "uncertain": false
+    },
+    {
+      "start": 101.66,
+      "end": 106.2,
+      "text": "The horses going, none could say",
+      "uncertain": false
+    },
+    {
+      "start": 106.2,
+      "end": 110.82,
+      "text": "What secret pulls them far away",
+      "uncertain": false
+    },
+    {
+      "start": 110.82,
+      "end": 115.92,
+      "text": "Let solemn bells and lamplights sing",
+      "uncertain": false
+    },
+    {
+      "start": 115.92,
+      "end": 122.04,
+      "text": "We knew so little of everything",
+      "uncertain": false
+    },
+    {
+      "start": 126.82,
+      "end": 132.32,
+      "text": "Now polished clocks explain the sky",
+      "uncertain": false
+    },
+    {
+      "start": 132.32,
+      "end": 137.08,
+      "text": "And clever papers tell us why",
+      "uncertain": false
+    },
+    {
+      "start": 137.08,
+      "end": 146.36,
+      "text": "They measure thunder, charge the sea, and still cannot remember me.",
+      "uncertain": false
+    },
+    {
+      "start": 146.72,
+      "end": 155.84,
+      "text": "For all their certainty and flame, the oldest question stays the same.",
+      "uncertain": false
+    },
+    {
+      "start": 155.84,
+      "end": 160.84,
+      "text": "Why did the horses leave the gate?",
+      "uncertain": false
+    },
+    {
+      "start": 161.04,
+      "end": 166.26,
+      "text": "Why did desire arrive so late?",
+      "uncertain": false
+    },
+    {
+      "start": 168.12,
+      "end": 173.64,
+      "text": "I do not ask to turn the years",
+      "uncertain": false
+    },
+    {
+      "start": 173.64,
+      "end": 178.78,
+      "text": "Or trade our wisdom for our tears",
+      "uncertain": true
+    },
+    {
+      "start": 180.18,
+      "end": 184.76,
+      "text": "But let one shadow cross the square",
+      "uncertain": false
+    },
+    {
+      "start": 184.76,
+      "end": 190.3,
+      "text": "One laughing room or in the air",
+      "uncertain": false
+    },
+    {
+      "start": 190.3,
+      "end": 195.88,
+      "text": "Let one dark stallion raise his head",
+      "uncertain": false
+    },
+    {
+      "start": 195.88,
+      "end": 202.96,
+      "text": "And speak the things we never said",
+      "uncertain": false
+    },
+    {
+      "start": 204.5,
+      "end": 210.42,
+      "text": "Oh, bring me the days that made us stare",
+      "uncertain": false
+    },
+    {
+      "start": 210.42,
+      "end": 215.34,
+      "text": "The wild old jokes, the winter air",
+      "uncertain": false
+    },
+    {
+      "start": 215.34,
+      "end": 220.16,
+      "text": "The horses going grave and free",
+      "uncertain": true
+    },
+    {
+      "start": 220.16,
+      "end": 224.42,
+      "text": "Their mystery kept company",
+      "uncertain": false
+    },
+    {
+      "start": 224.42,
+      "end": 230.36,
+      "text": "Though every banner fades from view",
+      "uncertain": false
+    },
+    {
+      "start": 230.36,
+      "end": 235.58,
+      "text": "The unanswered road remains true",
+      "uncertain": false
+    },
+    {
+      "start": 235.58,
+      "end": 248.14,
+      "text": "I lift my voice where they have been, and bless the road they vanished in.",
+      "uncertain": false
+    }
+  ]
+}
