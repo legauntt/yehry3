@@ -326,7 +326,7 @@ export async function requests() {
       $("#voice-model").onchange = () => { storage.set(voiceDraftKey, $("#voice-model").value); rememberVoice($("#voice-model").value); describeVoice(); };
       describeVoice();
       const music = mountMusicBackend($('#music-backend-root'), { draft: { ...draft, details: initialDetails }, generation, basisRoot: $('#basis-root'), storage, api, escape, onChange: describeVoice });
-      const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), { ...draft, details: initialDetails }, { api, storage, escape, lyricChoiceRoot: $('#remix-lyric-choice'), originalLyrics: remix?.id === attachedRemix?.songId ? remix.seed?.lyricSheet?.text || "" : "" }) : {
+      const requestMaterials = materialsAvailable ? mountMaterials($("#request-materials-root"), { ...draft, details: initialDetails }, { api, storage, escape, lyricChoiceRoot: $('#remix-lyric-choice'), originalLyrics: attachedRemix && remix?.id === attachedRemix.songId ? remix.seed?.lyricSheet?.text || "" : "" }) : {
         read() {
           if (draft.details?.lyricSheet || draft.details?.references?.length) throw new Error("Your saved lyrics and references are temporarily unavailable for editing. Try again shortly.");
           return {};

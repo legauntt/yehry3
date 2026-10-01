@@ -52,6 +52,30 @@ async function setup(page, existing, unavailable = false) {
   };
 }
 
+for (const width of [1440, 390]) {
+  test(`new requests without a remix reach confirmation with materials enabled at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1000 });
+    const state = await setup(page);
+    await page.goto('/distonyc/');
+    await page.getByLabel('Your prompt').fill('A new song about a lantern in the railway window');
+    await page.getByRole('button', { name: 'Find the direction' }).click();
+    await expect(page.getByRole('button', { name: 'Review the request' })).toBeVisible();
+    await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+    await page.locator('.request-materials > summary').click();
+    await expect(page.getByLabel('Lyric sheet', { exact: true })).toHaveValue('');
+    await expect(page.locator('#remix-lyric-choice')).toHaveCount(0);
+    await page.reload();
+    await expect(page.getByRole('button', { name: 'Review the request' })).toBeVisible();
+    await page.getByRole('button', { name: 'Review the request' }).click();
+    await expect(page.getByRole('button', { name: 'Send to the queue' })).toBeEnabled();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.getByRole('button', { name: 'Send to the queue' }).click();
+    await expect(page.locator('#refresh-status')).toBeVisible();
+    expect(state.confirmations()).toBe(1);
+    expect(state.writes.every(write => !write.remixSongId)).toBe(true);
+  });
+}
+
 test('submitted remix keeps lyric review through refresh, editing and reload', async ({ page }) => {
   const state = await setup(page);
   await page.goto(`/distonyc/?remix=${song.id}`);
