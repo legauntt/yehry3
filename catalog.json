@@ -2,6 +2,262 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ab451f90f7018ee738fbe2ed",
+      "title": "I Wanna - Tragic Aria",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ab451f90f7018ee738fbe2ed-c9cbee853934.mp3",
+      "duration": 250.07020408163265,
+      "collection": "distonyc",
+      "voiceModel": "v6",
+      "remixOf": {
+        "songId": "distonyc-20a78aa7d2e7335fb057308f",
+        "title": "I Wanna",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20a78aa7d2e7335fb057308f-c03143e67c45.mp3"
+      },
+      "publishedAt": "2026-10-01T07:02:26.279Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "I Wanna - Tragic Aria",
+        "recipe": "reinterpretation",
+        "style": "opera",
+        "keyscale": "D minor",
+        "arrangement": "Tragic opera aria in D minor. A clear, steadily pitched Tony V6 lead sings long, aching legato lines over solo piano, low strings, oboe, and restrained full orchestra. Begin intimate and grief-struck, widen through each refrain, crest in a desperate orchestral climax, then thin for the final sustained “my love.” Retain the recognizable hook as the central motif while using new phrasing and adapted verses. Pace the final sung syllable 8–12 seconds before the 250-second end, followed by one resolved orchestral chord and natural decay.",
+        "lyrics": "[Overture]\n\n[Verse 1]\nThe room is blue beneath the rain\nA paper moon, a windowpane\nI count the footsteps in the hall\nAnd hear your shadow touch the wall\n\n[Verse 2]\nI held my pride like broken glass\nI watched the midnight hours pass\nNo saint arrives, no door swings wide\nJust this wild want I cannot hide\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nNot for the thunder, not for the show\nI wanna fuck because I miss you so\n\n[Verse 3]\nThe candles lean, the roses drown\nA black silk curtain takes the town\nI call your name into the street\nBut all the bells refuse to speak\n\n[Verse 4]\nMy hands remember what you knew\nThe heat, the ache, the reckless truth\nI curse the stars, I bless their light\nThey make your absence burn tonight\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nSay it low where the lost hearts go\nI wanna fuck because I miss you so\n\n[Bridge]\nIf love is holy, let it hurt\nIf love is heaven, bring me dirt\nLet every violin confess\nThe body is a wilderness\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nThrough the ruin, through the cold\nI wanna fuck before this heart grows old\nI wanna fuck\nI wanna fuck\nCome back near, let the whole world fall\nI want you now, I want you all\n\n[Finale]\nAnd when the last dark bell is done\nI will still call you, only one\nI wanna fuck... my love\n\n[End]",
+        "duration": 250,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Tragic opera aria",
+          "meter": "4/4",
+          "structure": "Overture, four verses, recurring refrains, bridge, final refrain, quiet finale",
+          "performance": "One clear, steadily pitched operatic Tony lead with sustained legato phrasing",
+          "energy": "Intimate grief rises to a desperate orchestral climax, then resolves quietly",
+          "lyricWorkflow": "Adapted source hook with newly written tragic verses and a resolved final line",
+          "instruments": [
+            "piano",
+            "strings",
+            "oboe",
+            "orchestra"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Overture]\n\n[Verse 1]\nThe room is blue beneath the rain\nA paper moon, a windowpane\nI count the footsteps in the hall\nAnd hear your shadow touch the wall\n\n[Verse 2]\nI held my pride like broken glass\nI watched the midnight hours pass\nNo saint arrives, no door swings wide\nJust this wild want I cannot hide\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nNot for the thunder, not for the show\nI wanna fuck because I miss you so\n\n[Verse 3]\nThe candles lean, the roses drown\nA black silk curtain takes the town\nI call your name into the street\nBut all the bells refuse to speak\n\n[Verse 4]\nMy hands remember what you knew\nThe heat, the ache, the reckless truth\nI curse the stars, I bless their light\nThey make your absence burn tonight\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nSay it low where the lost hearts go\nI wanna fuck because I miss you so\n\n[Bridge]\nIf love is holy, let it hurt\nIf love is heaven, bring me dirt\nLet every violin confess\nThe body is a wilderness\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nThrough the ruin, through the cold\nI wanna fuck before this heart grows old\nI wanna fuck\nI wanna fuck\nCome back near, let the whole world fall\nI want you now, I want you all\n\n[Finale]\nAnd when the last dark bell is done\nI will still call you, only one\nI wanna fuck... my love",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 3,
+            "start": 7,
+            "end": 13.24
+          },
+          {
+            "line": 4,
+            "start": 13.24,
+            "end": 18.96
+          },
+          {
+            "line": 5,
+            "start": 20.98,
+            "end": 24.64
+          },
+          {
+            "line": 6,
+            "start": 27.16,
+            "end": 31.68
+          },
+          {
+            "line": 9,
+            "start": 34.44,
+            "end": 38.84
+          },
+          {
+            "line": 12,
+            "start": 55.04,
+            "end": 58.24
+          },
+          {
+            "line": 15,
+            "start": 60.26,
+            "end": 62.06
+          },
+          {
+            "line": 16,
+            "start": 63.94,
+            "end": 65.72
+          },
+          {
+            "line": 17,
+            "start": 67.18,
+            "end": 71.98
+          },
+          {
+            "line": 18,
+            "start": 73.96,
+            "end": 81.22
+          },
+          {
+            "line": 21,
+            "start": 83.76,
+            "end": 88.76
+          },
+          {
+            "line": 22,
+            "start": 91.24,
+            "end": 96.36
+          },
+          {
+            "line": 23,
+            "start": 97.68,
+            "end": 101.52
+          },
+          {
+            "line": 24,
+            "start": 103.2,
+            "end": 107.84
+          },
+          {
+            "line": 27,
+            "start": 107.84,
+            "end": 114.52
+          },
+          {
+            "line": 28,
+            "start": 117.12,
+            "end": 121.36
+          },
+          {
+            "line": 29,
+            "start": 124.62,
+            "end": 128.36
+          },
+          {
+            "line": 30,
+            "start": 130.34,
+            "end": 134.54
+          },
+          {
+            "line": 33,
+            "start": 134.86,
+            "end": 138.32
+          },
+          {
+            "line": 34,
+            "start": 140.48,
+            "end": 143.04
+          },
+          {
+            "line": 35,
+            "start": 144.4,
+            "end": 148.96
+          },
+          {
+            "line": 36,
+            "start": 150.54,
+            "end": 157.8
+          },
+          {
+            "line": 39,
+            "start": 159.66,
+            "end": 164.48
+          },
+          {
+            "line": 40,
+            "start": 177.8,
+            "end": 178.94
+          },
+          {
+            "line": 45,
+            "start": 182.76,
+            "end": 184.52
+          },
+          {
+            "line": 46,
+            "start": 185.64,
+            "end": 187.9
+          },
+          {
+            "line": 47,
+            "start": 189.8,
+            "end": 194.96
+          },
+          {
+            "line": 48,
+            "start": 196.3,
+            "end": 201.32
+          },
+          {
+            "line": 49,
+            "start": 203,
+            "end": 204.54
+          },
+          {
+            "line": 50,
+            "start": 205.54,
+            "end": 208.58
+          },
+          {
+            "line": 51,
+            "start": 209.56,
+            "end": 214.72
+          },
+          {
+            "line": 52,
+            "start": 215.7,
+            "end": 221.88
+          },
+          {
+            "line": 55,
+            "start": 224.62,
+            "end": 228
+          },
+          {
+            "line": 56,
+            "start": 229.42,
+            "end": 232.88
+          },
+          {
+            "line": 57,
+            "start": 232.88,
+            "end": 238.52
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "guide": {
+        "sha256": "a8da1cd8ce19e9b1e73bb1276d8da889a9d9a03dd03dc97d67189741f4d9f430",
+        "bytes": 6001729,
+        "duration": 250.070167,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ab451f90f7018ee738fbe2ed-a8da1cd8ce19.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “I Wanna”. Give it a new arrangement while keeping its identity.",
+        "direction": "New genre and mood: Tragic aria",
+        "keep": "Keep the recognizable hook and spirit of “I Wanna”.",
+        "basisSongs": [
+          "I Wanna"
+        ],
+        "voiceModel": "v6",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 250
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-6a97c3ae9199f44efe788736",
       "title": "I Wanna Tonight (Midnight Bass Mix)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6a97c3ae9199f44efe788736-2786d69dad04.mp3",
