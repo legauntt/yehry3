@@ -2,6 +2,164 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5ef1a9c45affd9b9229a3ab8",
+      "title": "I Wanna (Tragic Aria)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5ef1a9c45affd9b9229a3ab8-9d427d53f105.mp3",
+      "duration": 250.04408163265308,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-20a78aa7d2e7335fb057308f",
+        "title": "I Wanna",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20a78aa7d2e7335fb057308f-c03143e67c45.mp3"
+      },
+      "publishedAt": "2026-10-01T07:15:30.986Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "I Wanna (Tragic Aria)",
+        "recipe": "reinterpretation",
+        "style": "opera",
+        "keyscale": "D minor",
+        "arrangement": "Tragic operatic aria in D minor: a clear, steadily pitched Tony V9 lead carries long, legato melodic lines over a full orchestra. Low strings and timpani establish the overture; solo cello, oboe, and restrained piano support the verses; the refrains rise with brass and sweeping strings. Build from private longing to an intense finale, retaining the blunt repeated hook as the central motif. Pace the final held lyric to land about 10 seconds before the 250-second end, then resolve on one final orchestral chord and natural decay.",
+        "lyrics": "[Overture]\n\n[Verse 1]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Verse 2]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Refrain]\nI wanna fuck\nI wanna fuck\n\n[Verse 3]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Verse 4]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Bridge]\nI wanna fuck\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nI wanna fuck I wanna fuck\nI wanna fuck I wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Finale]\nI wanna fuck\n[End]",
+        "duration": 250,
+        "bpm": 72,
+        "musicalSettings": {
+          "genre": "Tragic opera aria",
+          "meter": "4/4",
+          "structure": "Overture, Verse 1, Verse 2, Refrain, Verse 3, Verse 4, Refrain, Bridge, Refrain, Finale",
+          "performance": "Clear, sustained operatic lead with expressive legato phrasing and a dramatic dynamic rise",
+          "energy": "Quietly foreboding opening, gradually swelling into a full-orchestra climax and resolved ending",
+          "lyricWorkflow": "Preserved supplied lyric sheet, set as a recurring central aria motif without altering its words or order",
+          "instruments": [
+            "string orchestra",
+            "solo cello",
+            "oboe",
+            "French horns",
+            "timpani",
+            "piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Overture]\n\n[Verse 1]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Verse 2]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Refrain]\nI wanna fuck\nI wanna fuck\n\n[Verse 3]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Verse 4]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Bridge]\nI wanna fuck\n\n[Refrain]\nI wanna fuck\nI wanna fuck\nI wanna fuck I wanna fuck\nI wanna fuck I wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\nI wanna fuck\n\n[Finale]\nI wanna fuck",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 3,
+            "start": 8.38,
+            "end": 11.04
+          },
+          {
+            "line": 4,
+            "start": 14.08,
+            "end": 18.2
+          },
+          {
+            "line": 5,
+            "start": 20.62,
+            "end": 24.7
+          },
+          {
+            "line": 6,
+            "start": 27.6,
+            "end": 31.06
+          },
+          {
+            "line": 9,
+            "start": 40.7,
+            "end": 44.44
+          },
+          {
+            "line": 10,
+            "start": 47.36,
+            "end": 50.88
+          },
+          {
+            "line": 11,
+            "start": 50.88,
+            "end": 51.68
+          },
+          {
+            "line": 15,
+            "start": 155.06,
+            "end": 157.72
+          },
+          {
+            "line": 16,
+            "start": 160.82,
+            "end": 164.68
+          },
+          {
+            "line": 19,
+            "start": 170.76,
+            "end": 176.32
+          },
+          {
+            "line": 20,
+            "start": 177.44,
+            "end": 181.98
+          },
+          {
+            "line": 21,
+            "start": 184.92,
+            "end": 188.14
+          },
+          {
+            "line": 22,
+            "start": 188.8,
+            "end": 194.84
+          },
+          {
+            "line": 25,
+            "start": 194.84,
+            "end": 200.98
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "vocal_activity",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "guide": {
+        "sha256": "748af5cd5eb6db62b0dd6ee5f1455109fede19714949855fd82cf00d29b28810",
+        "bytes": 6001103,
+        "duration": 250.044083,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5ef1a9c45affd9b9229a3ab8-748af5cd5eb6.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “I Wanna”. Give it a new arrangement while keeping its identity.",
+        "direction": "New sound: Tragic aria",
+        "keep": "Surprise me.",
+        "basisSongs": [
+          "I Wanna"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 250,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-ab451f90f7018ee738fbe2ed",
       "title": "I Wanna - Tragic Aria",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ab451f90f7018ee738fbe2ed-c9cbee853934.mp3",
