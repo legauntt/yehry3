@@ -1827,5 +1827,20 @@ export default {
     "previous": null,
     "interpretation": "non-explicit-scene",
     "briefHash": "200710697a73c6b50ba2909d073ae5fe8d85ae19cc5ccbae033f123e08de35b1"
+  },
+  "distonyc-e695c7562362c1a3cb6155b1": {
+    "src": "/assets/artwork/distonyc-e695c7562362c1a3cb6155b1-incubating-72777708af23-q86.webp",
+    "alt": "Cover artwork for Arrrrrrrrrrrt.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "069ad8c48de89960c29a81eb5b6915d319707ba046d587fe58bdc893ae9cb77d",
+    "promptHash": "bd6b3a8d281e8c0a81f9eebf5dd376e55438fbc075ebcf1cb94ce23e28b29739",
+    "createdAt": "2026-10-01T19:09:45.799Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-01T19:09:22.763Z"
   }
 };
