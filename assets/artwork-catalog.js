@@ -1811,5 +1811,21 @@ export default {
     "missingSources": [],
     "previous": null,
     "firstSeenAt": "2026-10-01T08:12:11.733Z"
+  },
+  "distonyc-5ef1a9c45affd9b9229a3ab8": {
+    "src": "/assets/artwork/distonyc-5ef1a9c45affd9b9229a3ab8-basic-a5ed34e60966-q86.webp",
+    "alt": "Tony in a Gatsby cap reaches toward an empty balcony on a storm-lit opera stage, beside a cello.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "basic",
+    "model": "gpt-image-2",
+    "sourceHash": "d404c4d914721df4fa81c6bf8838b41029ed6acad8c73599cd845ec69ab1f358",
+    "promptHash": "2e555b53e770778b173fdf4570f03f1e5e2fafa18ed708fd55a4b30a9c497328",
+    "createdAt": "2026-10-01T17:41:39.140Z",
+    "missingSources": [],
+    "previous": null,
+    "interpretation": "non-explicit-scene",
+    "briefHash": "200710697a73c6b50ba2909d073ae5fe8d85ae19cc5ccbae033f123e08de35b1"
   }
 };
