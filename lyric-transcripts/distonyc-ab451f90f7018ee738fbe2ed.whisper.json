@@ -1,0 +1,301 @@
+{
+  "version": 1,
+  "songId": "distonyc-ab451f90f7018ee738fbe2ed",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ab451f90f7018ee738fbe2ed-c9cbee853934.mp3",
+  "audioSha256": "c9cbee85393497585c6141124722c3487b395d2f4f6a7511b78ae59783ed9b19",
+  "inputSha256": "1229fe28b889b26eac957cd94115e78be7123ba95c5ae59765f1037e32c0eb60",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 250.0701875,
+  "segments": [
+    {
+      "start": 6.88,
+      "end": 12.82,
+      "text": "The room is blue beneath the rain",
+      "uncertain": false
+    },
+    {
+      "start": 14.2,
+      "end": 19.06,
+      "text": "A paper moon, a windowpane",
+      "uncertain": true
+    },
+    {
+      "start": 20.74,
+      "end": 25.24,
+      "text": "I count the footsteps in the hall",
+      "uncertain": false
+    },
+    {
+      "start": 27.0,
+      "end": 31.9,
+      "text": "And hear your shadow touch the wall",
+      "uncertain": false
+    },
+    {
+      "start": 33.64,
+      "end": 39.3,
+      "text": "I held my pride like broken glass",
+      "uncertain": false
+    },
+    {
+      "start": 40.44,
+      "end": 45.64,
+      "text": "I watched the midnight hours pass",
+      "uncertain": false
+    },
+    {
+      "start": 47.44,
+      "end": 52.0,
+      "text": "No saint arrives, no door swings wide",
+      "uncertain": false
+    },
+    {
+      "start": 53.66,
+      "end": 58.64,
+      "text": "Just this wild want I cannot hide",
+      "uncertain": false
+    },
+    {
+      "start": 60.16,
+      "end": 66.04,
+      "text": "I wanna fuck, I wanna fuck",
+      "uncertain": true
+    },
+    {
+      "start": 66.04,
+      "end": 72.2,
+      "text": "Not for the thunder, not for the show",
+      "uncertain": false
+    },
+    {
+      "start": 73.66,
+      "end": 81.28,
+      "text": "I wanna fuck because I miss you so",
+      "uncertain": false
+    },
+    {
+      "start": 83.82,
+      "end": 89.06,
+      "text": "The candles linger, the roses drown",
+      "uncertain": false
+    },
+    {
+      "start": 90.36,
+      "end": 95.8,
+      "text": "A black silk curtain takes the town",
+      "uncertain": false
+    },
+    {
+      "start": 97.08,
+      "end": 101.52,
+      "text": "I call your name into the street",
+      "uncertain": false
+    },
+    {
+      "start": 103.76,
+      "end": 108.06,
+      "text": "But all the bells refuse to speak",
+      "uncertain": false
+    },
+    {
+      "start": 109.54,
+      "end": 115.06,
+      "text": "My hands remember what you knew",
+      "uncertain": false
+    },
+    {
+      "start": 115.06,
+      "end": 121.66,
+      "text": "The heat beaked, the reckless truth",
+      "uncertain": false
+    },
+    {
+      "start": 123.66,
+      "end": 128.64,
+      "text": "I curse the stars, I bless their light",
+      "uncertain": false
+    },
+    {
+      "start": 129.6,
+      "end": 134.5,
+      "text": "They make your absence burn tonight",
+      "uncertain": false
+    },
+    {
+      "start": 134.5,
+      "end": 138.12,
+      "text": "I wanna fuck",
+      "uncertain": false
+    },
+    {
+      "start": 139.48,
+      "end": 142.7,
+      "text": "I wanna fuck",
+      "uncertain": false
+    },
+    {
+      "start": 143.88,
+      "end": 145.82,
+      "text": "Say it low",
+      "uncertain": false
+    },
+    {
+      "start": 145.82,
+      "end": 149.0,
+      "text": "Where the lost hearts go",
+      "uncertain": false
+    },
+    {
+      "start": 150.36,
+      "end": 152.96,
+      "text": "I wanna fuck",
+      "uncertain": false
+    },
+    {
+      "start": 152.96,
+      "end": 157.88,
+      "text": "Because I miss you so",
+      "uncertain": false
+    },
+    {
+      "start": 157.88,
+      "end": 162.34,
+      "text": "If love is holy",
+      "uncertain": false
+    },
+    {
+      "start": 162.34,
+      "end": 164.46,
+      "text": "let it hurt",
+      "uncertain": true
+    },
+    {
+      "start": 164.46,
+      "end": 166.66,
+      "text": "if",
+      "uncertain": true
+    },
+    {
+      "start": 166.66,
+      "end": 168.18,
+      "text": "love is heaven",
+      "uncertain": false
+    },
+    {
+      "start": 168.18,
+      "end": 169.94,
+      "text": "bring me dirt",
+      "uncertain": false
+    },
+    {
+      "start": 169.94,
+      "end": 172.48,
+      "text": "let's every",
+      "uncertain": false
+    },
+    {
+      "start": 172.48,
+      "end": 174.44,
+      "text": "violin confess",
+      "uncertain": false
+    },
+    {
+      "start": 176.06,
+      "end": 178.22,
+      "text": "the body",
+      "uncertain": false
+    },
+    {
+      "start": 178.22,
+      "end": 179.24,
+      "text": "is a",
+      "uncertain": false
+    },
+    {
+      "start": 179.24,
+      "end": 180.7,
+      "text": "wilderness",
+      "uncertain": false
+    },
+    {
+      "start": 180.7,
+      "end": 184.6,
+      "text": "I wanna fuck",
+      "uncertain": false
+    },
+    {
+      "start": 184.6,
+      "end": 187.34,
+      "text": "I wanna",
+      "uncertain": false
+    },
+    {
+      "start": 187.34,
+      "end": 188.3,
+      "text": "fuck",
+      "uncertain": false
+    },
+    {
+      "start": 189.26,
+      "end": 190.82,
+      "text": "through the",
+      "uncertain": false
+    },
+    {
+      "start": 190.82,
+      "end": 195.3,
+      "text": "The ruin, through the cold",
+      "uncertain": true
+    },
+    {
+      "start": 195.94,
+      "end": 201.8,
+      "text": "I wanna fuck before this heart grows old",
+      "uncertain": true
+    },
+    {
+      "start": 202.68,
+      "end": 204.74,
+      "text": "I wanna fuck",
+      "uncertain": false
+    },
+    {
+      "start": 204.74,
+      "end": 208.52,
+      "text": "I wanna fuck",
+      "uncertain": false
+    },
+    {
+      "start": 209.38,
+      "end": 214.72,
+      "text": "Come back near, let the whole world fall",
+      "uncertain": false
+    },
+    {
+      "start": 214.72,
+      "end": 218.22,
+      "text": "I want you now",
+      "uncertain": false
+    },
+    {
+      "start": 218.22,
+      "end": 232.98,
+      "text": "Now I want you all, and when the last dark bell is done, I will still call you only one.",
+      "uncertain": true
+    },
+    {
+      "start": 232.98,
+      "end": 238.96,
+      "text": "I wanna fuck my love.",
+      "uncertain": false
+    },
+    {
+      "start": 248.22,
+      "end": 248.52,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}
