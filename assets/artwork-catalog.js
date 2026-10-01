@@ -1768,18 +1768,48 @@ export default {
     "firstSeenAt": "2026-09-28T05:54:00.478Z"
   },
   "distonyc-d1a03d6de43ac88c555b2d91": {
-    "src": "/assets/artwork/distonyc-d1a03d6de43ac88c555b2d91-incubating-58dcb159e902-q86.webp",
+    "src": "/assets/artwork/distonyc-d1a03d6de43ac88c555b2d91-mature-4e16b7c23528-q86.webp",
     "alt": "Cover artwork for Yeah After Midnight (Midnight Jazz Rework).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "mature",
+    "model": "gpt-image-2",
+    "sourceHash": "a823951def4cd030ff767d5a37b20824df90bbc626fa7b441f219b0250818823",
+    "promptHash": "c3b65ea041c791bb4484c5edc2d8fa8e8114f04f17823aa4bbe8d3024772256a",
+    "createdAt": "2026-10-01T08:13:02.354Z",
+    "missingSources": [],
+    "previous": "/assets/artwork/distonyc-d1a03d6de43ac88c555b2d91-incubating-58dcb159e902-q86.webp",
+    "firstSeenAt": "2026-09-28T06:39:23.684Z"
+  },
+  "distonyc-ab451f90f7018ee738fbe2ed": {
+    "src": "/assets/artwork/distonyc-ab451f90f7018ee738fbe2ed-incubating-c1f43b4f68c9-q86.webp",
+    "alt": "Cover artwork for I Wanna - Tragic Aria.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
     "treatment": "incubating",
     "model": "gpt-image-2",
-    "sourceHash": "a823951def4cd030ff767d5a37b20824df90bbc626fa7b441f219b0250818823",
-    "promptHash": "3b274da25a174c539823100ea215c62aa70176e53007cb2f73da27b1ad63d08e",
-    "createdAt": "2026-09-28T06:39:43.822Z",
+    "sourceHash": "c84a228f22f1299291f44a27fd215067b214c2dcd2e467bbf136ef8f0d5ddf88",
+    "promptHash": "d25517f2659fcd092232c2d505b1ee2cd7c1a709b23abbfc2aebb7f3554f7088",
+    "createdAt": "2026-10-01T08:12:31.092Z",
     "missingSources": [],
     "previous": null,
-    "firstSeenAt": "2026-09-28T06:39:23.684Z"
+    "firstSeenAt": "2026-10-01T08:12:11.733Z"
+  },
+  "distonyc-6a97c3ae9199f44efe788736": {
+    "src": "/assets/artwork/distonyc-6a97c3ae9199f44efe788736-incubating-b58bb22c19bf-q86.webp",
+    "alt": "Cover artwork for I Wanna Tonight (Midnight Bass Mix).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "8bce67d07e149cfe87fa1002e76ab80d4e659719f715d97293cd4fb4c7fc3bec",
+    "promptHash": "914bc2548718c4c19d2ff580e5345e621355a22dde45bd636f6908e0346ff413",
+    "createdAt": "2026-10-01T08:12:32.367Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-01T08:12:11.733Z"
   }
 };
