@@ -2,6 +2,270 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-e695c7562362c1a3cb6155b1",
+      "title": "Arrrrrrrrrrrt",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e695c7562362c1a3cb6155b1-390cb2ace56a.mp3",
+      "duration": 270.0277551020408,
+      "collection": "distonyc",
+      "voiceModel": "vdb",
+      "publishedAt": "2026-10-01T19:06:57.637Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Arrrrrrrrrrrt",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Eleven Music art-rock with a buoyant harbor pulse: driving bass, punchy drums, angular electric guitar, organ swells, and bright brass punctuation. One clear, steadily pitched Tony lead sings a melodic, playful hook with connected phrasing; no backing vocals. Build from lean verses into broad choruses, briefly strip down for the bridge, then return to a full-band final refrain. Pace the sustained final “arrrrrrrrrrt” so its last sung syllable lands about 10 seconds before the 270-second end, followed by one resolved D-minor chord decay.",
+        "lyrics": "[Verse 1]\nI found a blank wall behind the harbor store\nSalt in the mortar, moon on the door\nEverybody said, “Leave that gray alone”\nSo I drew a red tide, made the bricks my own\nA gull took flight from a silver-blue wave\nA crooked little sun on a sailor’s grave\nThe night watch laughed through a missing tooth\nThen handed me a brush and a bottle of truth\n\n[Pre-Chorus]\nPaint won’t sink when the weather turns hard\nColor can sail from a splintered yard\n\n[Chorus]\nArrrrrrrrrrrt, put a spark in the dark\nMake a map from a scar, make a flame from a mark\nArrrrrrrrrrrt, let the whole town see\nThere’s a wild bright flag in the part of me\nThey told us keep quiet, keep every heart shut\nBut I got a blue sky in a rusted old cup\nArrrrrrrrrrrt, hear the seawall start\nThrow your color overboard—arrrrrrrrrrt\n\n[Verse 2]\nThe baker brought yellow, the diver brought green\nThe kid from the ferry brought magazine dreams\nWe painted the cranes with impossible wings\nA brass fish laughing at the mayor’s rings\nBy morning the rain tried washing it clean\nBut violet rivers ran down the street\nAnd every gray corner caught some of the glow\nLike the city had a secret it was ready to show\n\n[Bridge]\nNo museum rope, no velvet room\nJust a tidepool stage and a warehouse bloom\nIf the wind tears one piece from the frame\nWe’ll paint another and sign our names\n\n[Chorus]\nArrrrrrrrrrrt, put a spark in the dark\nMake a map from a scar, make a flame from a mark\nArrrrrrrrrrrt, let the whole town see\nThere’s a wild bright flag in the part of me\nFrom the docks to the roofs, from the rain to the stars\nWe are leaving our light on the places that scar\nArrrrrrrrrrrt, with the dawn in my heart\nOne last red line across the blue—arrrrrrrrrrt\n\n[Outro]\nAcross the blue—arrrrrrrrrrt\n[End]",
+        "duration": 270,
+        "bpm": 128,
+        "musicalSettings": {
+          "genre": "Art-rock with nautical street-parade energy",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, verse 2, bridge, final chorus, short outro",
+          "performance": "Clear melodic lead with playful connected phrasing and a catchable shouted-sung hook",
+          "energy": "Starts curious and bright, rises into communal momentum, dips for the bridge, and resolves triumphantly",
+          "lyricWorkflow": "Original image-driven lyric about transforming a harbor town through public art",
+          "instruments": [
+            "electric guitar",
+            "electric bass",
+            "drum kit",
+            "organ",
+            "brass"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI found a blank wall behind the harbor store\nSalt in the mortar, moon on the door\nEverybody said, “Leave that gray alone”\nSo I drew a red tide, made the bricks my own\nA gull took flight from a silver-blue wave\nA crooked little sun on a sailor’s grave\nThe night watch laughed through a missing tooth\nThen handed me a brush and a bottle of truth\n\n[Pre-Chorus]\nPaint won’t sink when the weather turns hard\nColor can sail from a splintered yard\n\n[Chorus]\nArrrrrrrrrrrt, put a spark in the dark\nMake a map from a scar, make a flame from a mark\nArrrrrrrrrrrt, let the whole town see\nThere’s a wild bright flag in the part of me\nThey told us keep quiet, keep every heart shut\nBut I got a blue sky in a rusted old cup\nArrrrrrrrrrrt, hear the seawall start\nThrow your color overboard—arrrrrrrrrrt\n\n[Verse 2]\nThe baker brought yellow, the diver brought green\nThe kid from the ferry brought magazine dreams\nWe painted the cranes with impossible wings\nA brass fish laughing at the mayor’s rings\nBy morning the rain tried washing it clean\nBut violet rivers ran down the street\nAnd every gray corner caught some of the glow\nLike the city had a secret it was ready to show\n\n[Bridge]\nNo museum rope, no velvet room\nJust a tidepool stage and a warehouse bloom\nIf the wind tears one piece from the frame\nWe’ll paint another and sign our names\n\n[Chorus]\nArrrrrrrrrrrt, put a spark in the dark\nMake a map from a scar, make a flame from a mark\nArrrrrrrrrrrt, let the whole town see\nThere’s a wild bright flag in the part of me\nFrom the docks to the roofs, from the rain to the stars\nWe are leaving our light on the places that scar\nArrrrrrrrrrrt, with the dawn in my heart\nOne last red line across the blue—arrrrrrrrrrt\n\n[Outro]\nAcross the blue—arrrrrrrrrrt",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 25.38,
+            "end": 29.02
+          },
+          {
+            "line": 2,
+            "start": 29.02,
+            "end": 32.98
+          },
+          {
+            "line": 3,
+            "start": 33.54,
+            "end": 36.42
+          },
+          {
+            "line": 4,
+            "start": 36.98,
+            "end": 40.38
+          },
+          {
+            "line": 5,
+            "start": 41.04,
+            "end": 44.14
+          },
+          {
+            "line": 6,
+            "start": 44.76,
+            "end": 47.72
+          },
+          {
+            "line": 7,
+            "start": 48.54,
+            "end": 51.5
+          },
+          {
+            "line": 8,
+            "start": 52.34,
+            "end": 55.36
+          },
+          {
+            "line": 11,
+            "start": 59.38,
+            "end": 63.62
+          },
+          {
+            "line": 12,
+            "start": 65.84,
+            "end": 69.58
+          },
+          {
+            "line": 15,
+            "start": 69.58,
+            "end": 78.1
+          },
+          {
+            "line": 16,
+            "start": 78.1,
+            "end": 81.72
+          },
+          {
+            "line": 17,
+            "start": 81.72,
+            "end": 86.06
+          },
+          {
+            "line": 18,
+            "start": 86.06,
+            "end": 89.06
+          },
+          {
+            "line": 19,
+            "start": 89.62,
+            "end": 92.94
+          },
+          {
+            "line": 20,
+            "start": 93.38,
+            "end": 96.74
+          },
+          {
+            "line": 22,
+            "start": 99.84,
+            "end": 105.04
+          },
+          {
+            "line": 25,
+            "start": 122.74,
+            "end": 126.72
+          },
+          {
+            "line": 26,
+            "start": 127.16,
+            "end": 130.42
+          },
+          {
+            "line": 27,
+            "start": 131.08,
+            "end": 134.12
+          },
+          {
+            "line": 29,
+            "start": 141.58,
+            "end": 145.3
+          },
+          {
+            "line": 30,
+            "start": 145.3,
+            "end": 149.12
+          },
+          {
+            "line": 31,
+            "start": 149.12,
+            "end": 152.78
+          },
+          {
+            "line": 32,
+            "start": 152.78,
+            "end": 161.12
+          },
+          {
+            "line": 36,
+            "start": 186.98,
+            "end": 190.2
+          },
+          {
+            "line": 37,
+            "start": 190.86,
+            "end": 194.14
+          },
+          {
+            "line": 38,
+            "start": 195.3,
+            "end": 199.94
+          },
+          {
+            "line": 41,
+            "start": 199.94,
+            "end": 201.8
+          },
+          {
+            "line": 42,
+            "start": 202.06,
+            "end": 204.98
+          },
+          {
+            "line": 43,
+            "start": 204.98,
+            "end": 209.82
+          },
+          {
+            "line": 44,
+            "start": 209.82,
+            "end": 212.54
+          },
+          {
+            "line": 45,
+            "start": 212.54,
+            "end": 216.46
+          },
+          {
+            "line": 46,
+            "start": 217.16,
+            "end": 220.28
+          },
+          {
+            "line": 47,
+            "start": 220.28,
+            "end": 224.2
+          },
+          {
+            "line": 48,
+            "start": 224.2,
+            "end": 227.18
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 26.06
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 39.03
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "guide": {
+        "sha256": "9c51271afd93a92536c4981832fa8fb12116bf2bc07cbd26eeedf63fe7743437",
+        "bytes": 6480711,
+        "duration": 270.02775,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e695c7562362c1a3cb6155b1-9c51271afd93.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Arrrrrrrrrrrt",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "vdb",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 270
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-421f1e301c7e232ab64b27d7",
       "title": "I Wanna (Liszt Rhapsody)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-421f1e301c7e232ab64b27d7-f1ce34beb394.mp3",
