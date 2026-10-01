@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "songId": "distonyc-e695c7562362c1a3cb6155b1",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e695c7562362c1a3cb6155b1-390cb2ace56a.mp3",
+  "audioSha256": "390cb2ace56a90593d62e62489de53647bb321ce49758b2b21ac3e001467264f",
+  "inputSha256": "138e959e3da62b979dcbb91bd12a41ca7b9a126d98b01b560b52429de3538df0",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 270.02775,
+  "segments": [
+    {
+      "start": 25.36,
+      "end": 27.38,
+      "text": "I found a blank wall",
+      "uncertain": false
+    },
+    {
+      "start": 27.38,
+      "end": 29.22,
+      "text": "behind the Harvard store",
+      "uncertain": false
+    },
+    {
+      "start": 29.22,
+      "end": 38.84,
+      "text": "salt in the mortar moon on the door everybody said leave that gray alone so i drew a red tide",
+      "uncertain": true
+    },
+    {
+      "start": 38.84,
+      "end": 46.82,
+      "text": "made the bricks my own a gull took flight from a silver blue wave a crooked little sun on a",
+      "uncertain": false
+    },
+    {
+      "start": 46.82,
+      "end": 54.78,
+      "text": "sailor's grave the night watch laughed through a missing tooth then handed me a brush and a bottle",
+      "uncertain": false
+    },
+    {
+      "start": 54.78,
+      "end": 63.72,
+      "text": "truth paint won't sink when the weather turns hard",
+      "uncertain": true
+    },
+    {
+      "start": 66.08,
+      "end": 69.92,
+      "text": "color can sail from a splintered yard",
+      "uncertain": false
+    },
+    {
+      "start": 75.02,
+      "end": 81.78,
+      "text": "art put a spark in the dark make a map from a scar make a flame from a mark",
+      "uncertain": false
+    },
+    {
+      "start": 81.78,
+      "end": 91.24,
+      "text": "art let the whole town see there's a wild bright flag in the part of me they told us keep quiet",
+      "uncertain": true
+    },
+    {
+      "start": 91.24,
+      "end": 100.44,
+      "text": "keep every heart shut but i got a blue sky and a rusted old cup art hear the seawall start",
+      "uncertain": false
+    },
+    {
+      "start": 100.44,
+      "end": 103.02,
+      "text": "throw your color overboard",
+      "uncertain": false
+    },
+    {
+      "start": 122.7,
+      "end": 130.78,
+      "text": "the baker brought yellow the diver brought green the kid from the ferry brought magazine dreams",
+      "uncertain": true
+    },
+    {
+      "start": 130.78,
+      "end": 138.1,
+      "text": "we painted the cranes with impossible wings a brass fish laughing at the mayor's rings",
+      "uncertain": true
+    },
+    {
+      "start": 141.78,
+      "end": 152.9,
+      "text": "By morning, the rain tried washing it clean, but fire-lit rivers ran down the street, and every gray corner caught some of the glow.",
+      "uncertain": true
+    },
+    {
+      "start": 153.18,
+      "end": 156.64,
+      "text": "Like the city had a secret, it was ready to show.",
+      "uncertain": false
+    },
+    {
+      "start": 159.22,
+      "end": 161.82,
+      "text": "It was ready to show.",
+      "uncertain": false
+    },
+    {
+      "start": 182.7,
+      "end": 186.7,
+      "text": "No museum rope, no velvet room",
+      "uncertain": true
+    },
+    {
+      "start": 186.7,
+      "end": 190.4,
+      "text": "Just a tide pool stage and a warehouse bloom",
+      "uncertain": true
+    },
+    {
+      "start": 190.4,
+      "end": 194.24,
+      "text": "If the wind tears one geese from the frame",
+      "uncertain": false
+    },
+    {
+      "start": 194.24,
+      "end": 198.58,
+      "text": "We'll paint another and sign our names",
+      "uncertain": false
+    },
+    {
+      "start": 199.3,
+      "end": 201.92,
+      "text": "Art, float a spark in the dark",
+      "uncertain": true
+    },
+    {
+      "start": 201.92,
+      "end": 203.72,
+      "text": "Make a map from a scar",
+      "uncertain": true
+    },
+    {
+      "start": 203.72,
+      "end": 205.54,
+      "text": "Make a flame from a mark",
+      "uncertain": true
+    },
+    {
+      "start": 206.26,
+      "end": 209.3,
+      "text": "Art, let the whole town see",
+      "uncertain": false
+    },
+    {
+      "start": 209.3,
+      "end": 212.82,
+      "text": "There's a wild bright flag in the part of me",
+      "uncertain": false
+    },
+    {
+      "start": 212.82,
+      "end": 215.02,
+      "text": "From the docks to the roofs",
+      "uncertain": false
+    },
+    {
+      "start": 215.02,
+      "end": 216.76,
+      "text": "From the rain to the stars",
+      "uncertain": false
+    },
+    {
+      "start": 216.76,
+      "end": 220.46,
+      "text": "We are leaving our light on the places that scar",
+      "uncertain": false
+    },
+    {
+      "start": 221.46,
+      "end": 224.3,
+      "text": "Art, with the dawn in my heart",
+      "uncertain": false
+    },
+    {
+      "start": 224.3,
+      "end": 227.14,
+      "text": "One last red line across the blue",
+      "uncertain": false
+    },
+    {
+      "start": 255.72,
+      "end": 257.12,
+      "text": "are",
+      "uncertain": true
+    },
+    {
+      "start": 265.52,
+      "end": 266.92,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}
