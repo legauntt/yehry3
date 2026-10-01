@@ -2,6 +2,283 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-421f1e301c7e232ab64b27d7",
+      "title": "I Wanna (Liszt Rhapsody)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-421f1e301c7e232ab64b27d7-f1ce34beb394.mp3",
+      "duration": 245.00244897959183,
+      "collection": "distonyc",
+      "voiceModel": "vdb",
+      "remixOf": {
+        "songId": "distonyc-20a78aa7d2e7335fb057308f",
+        "title": "I Wanna",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20a78aa7d2e7335fb057308f-c03143e67c45.mp3"
+      },
+      "publishedAt": "2026-10-01T07:32:29.930Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "I Wanna (Liszt Rhapsody)",
+        "recipe": "reinterpretation",
+        "style": "opera",
+        "keyscale": "D minor",
+        "arrangement": "Liszt-inspired Romantic classical rhapsody in D minor: virtuosic concert piano, sweeping strings, timpani, and brass punctuation. The selected VDB Tony lead carries one clear, steadily pitched melodic hook, expanding from measured declamation into theatrical, grand phrasing amid cascading piano responses and dramatic rubato. Pace the final sustained sung syllable to land about 10 seconds before the 245-second endpoint, then resolve with one orchestral chord and natural decay.",
+        "lyrics": "[Intro]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Verse]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Bridge]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Outro]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n[End]",
+        "duration": 245,
+        "bpm": 132,
+        "musicalSettings": {
+          "genre": "Romantic classical rhapsody inspired by Franz Liszt",
+          "meter": "4/4 with expressive rubato",
+          "structure": "Piano-led intro, rising verse, dramatic bridge, climactic outro",
+          "performance": "Clear, steadily pitched theatrical Tony lead with grand melodic phrasing",
+          "energy": "Restrained opening, increasingly virtuosic and stormy finale",
+          "lyricWorkflow": "Preserved supplied lyric sheet, paced through evolving orchestral settings",
+          "instruments": [
+            "concert grand piano",
+            "strings",
+            "timpani",
+            "French horns",
+            "trumpets"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Verse]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Bridge]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\n\n[Outro]\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.\nI wanna fuck.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 42.02,
+            "end": 46.04
+          },
+          {
+            "line": 2,
+            "start": 149.98,
+            "end": 154.76
+          },
+          {
+            "line": 3,
+            "start": 154.76,
+            "end": 158.26
+          },
+          {
+            "line": 4,
+            "start": 158.26,
+            "end": 168.12
+          },
+          {
+            "line": 5,
+            "start": 186.04,
+            "end": 187.46
+          },
+          {
+            "line": 6,
+            "start": 187.78,
+            "end": 190.14
+          },
+          {
+            "line": 7,
+            "start": 190.42,
+            "end": 191.52
+          },
+          {
+            "line": 8,
+            "start": 192.02,
+            "end": 192.9
+          },
+          {
+            "line": 9,
+            "start": 193.76,
+            "end": 195.54
+          },
+          {
+            "line": 10,
+            "start": 195.54,
+            "end": 198.4
+          },
+          {
+            "line": 11,
+            "start": 199.74,
+            "end": 201.08
+          },
+          {
+            "line": 12,
+            "start": 201.44,
+            "end": 202.4
+          },
+          {
+            "line": 15,
+            "start": 203.22,
+            "end": 204.7
+          },
+          {
+            "line": 16,
+            "start": 205.5,
+            "end": 206.48
+          },
+          {
+            "line": 17,
+            "start": 206.48,
+            "end": 207.86
+          },
+          {
+            "line": 18,
+            "start": 207.86,
+            "end": 209.1
+          },
+          {
+            "line": 19,
+            "start": 209.1,
+            "end": 209.18
+          },
+          {
+            "line": 20,
+            "start": 209.18,
+            "end": 209.3
+          },
+          {
+            "line": 24,
+            "start": 209.8,
+            "end": 209.86
+          },
+          {
+            "line": 25,
+            "start": 209.86,
+            "end": 209.92
+          },
+          {
+            "line": 26,
+            "start": 209.92,
+            "end": 209.99
+          },
+          {
+            "line": 27,
+            "start": 209.99,
+            "end": 210.05
+          },
+          {
+            "line": 28,
+            "start": 210.05,
+            "end": 210.11
+          },
+          {
+            "line": 29,
+            "start": 210.11,
+            "end": 210.17
+          },
+          {
+            "line": 68,
+            "start": 212.24,
+            "end": 215.14
+          },
+          {
+            "line": 69,
+            "start": 215.14,
+            "end": 216.12
+          },
+          {
+            "line": 70,
+            "start": 216.12,
+            "end": 217.92
+          },
+          {
+            "line": 71,
+            "start": 217.92,
+            "end": 219.28
+          },
+          {
+            "line": 72,
+            "start": 219.28,
+            "end": 220.4
+          },
+          {
+            "line": 73,
+            "start": 221.62,
+            "end": 224.76
+          },
+          {
+            "line": 74,
+            "start": 224.76,
+            "end": 228.86
+          },
+          {
+            "line": 75,
+            "start": 228.86,
+            "end": 229.4
+          },
+          {
+            "line": 76,
+            "start": 229.4,
+            "end": 229.6
+          },
+          {
+            "line": 77,
+            "start": 229.7,
+            "end": 229.72
+          },
+          {
+            "line": 78,
+            "start": 229.72,
+            "end": 230.34
+          },
+          {
+            "line": 79,
+            "start": 230.34,
+            "end": 231.78
+          },
+          {
+            "line": 80,
+            "start": 232.7,
+            "end": 232.88
+          },
+          {
+            "line": 86,
+            "start": 238.59,
+            "end": 239.32
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "vocal_activity",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "guide": {
+        "sha256": "a2a18083fdccc90cd54311b88b216d1feb98b989cd6657d548aa7d73aba9ec97",
+        "bytes": 5880103,
+        "duration": 245.002417,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-421f1e301c7e232ab64b27d7-a2a18083fdcc.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “I Wanna”. Give it a new arrangement inspired by the classical music by Franz Liszt while keeping its identity.",
+        "direction": "New genre: Classical music as inspired especially by Franz Liszt",
+        "keep": "Keep the recognizable hook and spirit of “I Wanna”.",
+        "basisSongs": [
+          "I Wanna"
+        ],
+        "voiceModel": "vdb",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 245
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-5ef1a9c45affd9b9229a3ab8",
       "title": "I Wanna (Tragic Aria)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5ef1a9c45affd9b9229a3ab8-9d427d53f105.mp3",
