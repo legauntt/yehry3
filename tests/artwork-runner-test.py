@@ -5,6 +5,8 @@ from pathlib import Path
 import shutil
 import subprocess
 import tempfile
+import os
+from datetime import datetime, timezone
 import unittest
 from unittest.mock import patch
 
@@ -14,6 +16,42 @@ spec.loader.exec_module(runner)
 
 
 class RunnerTest(unittest.TestCase):
+    def test_restart_archives_only_preboot_locks_and_preserves_paid_receipts(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            state = Path(temporary)
+            (state / "automation").mkdir()
+            ledger = state / "ledger.json"
+            ledger.write_text('{"jobs":{"uncertain":{"status":"reserved"}}}')
+            pending = state / "automation/pending.json"
+            pending.write_text('{"worktree":"preserve-this"}')
+            before = {file: file.read_bytes() for file in (ledger, pending)}
+            for name in ("automation/worker.lock", "run.lock"):
+                lock = state / name
+                lock.write_text(json.dumps({"pid": os.getpid(), "startedAt":
+                    datetime.fromtimestamp(100, timezone.utc).isoformat()}))
+                os.utime(lock, (100, 100))
+            with patch.object(runner, "boot_time", return_value=1000):
+                runner.recover_previous_boot_locks(state)
+            self.assertFalse((state / "run.lock").exists())
+            self.assertFalse((state / "automation/worker.lock").exists())
+            self.assertEqual(len(list(state.rglob("*.pre-restart-*"))), 2)
+            for file, contents in before.items():
+                self.assertEqual(file.read_bytes(), contents)
+
+    def test_current_boot_or_malformed_lock_is_not_removed(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            state = Path(temporary)
+            (state / "automation").mkdir()
+            lock = state / "automation/worker.lock"
+            lock.write_text(json.dumps({"startedAt": datetime.now(timezone.utc).isoformat()}))
+            with patch.object(runner, "boot_time", return_value=1000):
+                runner.recover_previous_boot_locks(state)
+                self.assertTrue(lock.exists())
+                lock.write_text("interrupted-write")
+                with self.assertRaises(ValueError):
+                    runner.recover_previous_boot_locks(state)
+                self.assertEqual(lock.read_text(), "interrupted-write")
+
     def exercise(self, protection_failure=False):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

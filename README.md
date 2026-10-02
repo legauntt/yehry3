@@ -2,6 +2,22 @@
 
 A static Tony C music site with a MongoDB voting and request API in the sibling **chairlift** repository.
 
+PC automation resumes automatically after Jesse signs in following a restart.
+The song worker, independent lyric writer, queue monitor, paid-budget reconciler,
+Whisper transcript worker and artwork scheduler use windowless Python launchers,
+recurring triggers, missed-start recovery and failure retries. Windows Task
+Scheduler itself must remain Automatic. These tasks use Jesse's interactive
+identity because publication and API credentials belong to that Windows account;
+they do not run before sign-in. Azure, Chairlift and its database run remotely.
+
+Install the artwork scheduler with `scripts/install-artwork-task.ps1 -Config <existing-config>`.
+Audit all six installed tasks without starting a render or paid image request with
+`scripts/check-pc-startup.ps1 -Evidence <output-directory>`. This saves task XML and
+a startup report. Artwork startup archives only locks demonstrably older than the
+current Windows boot, retaining all spend reservations, manual-review markers and
+unfinished worktrees. Current-boot and malformed locks remain protected. Hidden
+artwork runs append diagnostics to `<state>/automation/scheduler.log`.
+
 The collection reads the complete public `/catalog` alongside private
 `/catalog/state`. Public refreshes send an ETag and reuse the mounted page's
 snapshot on a 304; visitor feedback and vote cooldowns are always read afresh.
