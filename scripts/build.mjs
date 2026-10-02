@@ -131,19 +131,12 @@ for (const song of catalog.songs.filter((song) => song.lyrics?.text)) {
   await mkdir(directory, { recursive: true });
   await writeFile(path.join(directory, "index.html"), html);
 }
-// A public alias includes its full six-character song hash. Its trailing wildcard
-// covers the directory, slash and index.html forms without repeating /index.html
-// in every rule. These rules never rewrite a path: Azure serves the existing file.
-// Keep generated share metadata ahead of the fallback for new, unbuilt aliases.
+// Serve generated lyric pages directly, like song and Wiseau share pages.
+// A route per song exceeds Azure's 20 KB limit as the catalog grows. New aliases
+// that precede a build are recovered by the not-found page using the live catalog.
 const hostingFile = path.join(output, "staticwebapp.config.json");
 const hosting = JSON.parse(await readFile(hostingFile, "utf8"));
-const lyricsFallback = hosting.routes.findIndex(route => route.route === "/lyrics/*");
-if (lyricsFallback < 0) throw new Error("Missing lyrics fallback route");
-hosting.routes.splice(lyricsFallback, 0, ...[...aliases].map(alias => ({
-  route: `/lyrics/${alias}*`,
-})));
-// Azure limits this file to 20 KB. Keep the generated artifact compact and fail
-// here if catalog growth ever requires a different routing strategy.
+// Azure limits this file to 20 KB. Keep the generated artifact compact.
 const hostingJson = JSON.stringify(hosting);
 if (Buffer.byteLength(hostingJson) > 20000) throw new Error("Azure routing configuration exceeds 20 KB");
 await writeFile(hostingFile, hostingJson);

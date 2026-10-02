@@ -26,6 +26,11 @@ For visual review, `artwork-contact-sheet.py AUDIT OUTPUT_DIRECTORY` renders the
 
 ## Reviewed alternatives for rejected covers
 
+Individual rejected generation jobs remain reserved in the ledger for manual
+review. A pass with no installed changes cleans its temporary checkout and lets
+unrelated future songs proceed. Publication, protection and cleanup failures
+still retain a pending worktree and stop unattended publication.
+
 A provider rejection requires manual review. Read the full saved lyrics, original prompt and song plan, then author an actually non-explicit scene. Retain safe themes and musical character; abandon unsafe events rather than disguising them. The full sources and original rejection remain in the audit. Only the reviewed visual brief goes to the image provider for this alternative.
 
 `--reviewed-briefs FILE` accepts a private JSON file with `version: 1` and a `songs` map keyed by song ID. Each entry requires `sourceHash` matching the current complete source packet, `kind: "non-explicit-scene"`, a review `rationale`, a pictured `scene`, `musicalContext` and descriptive `alt`. Changed source material must be reviewed again. This mode requires `--from-audit`, selects only listed unpinned placeholders, preserves saved images and cannot run in lifecycle mode. It does not automatically rewrite or retry failures.

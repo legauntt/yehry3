@@ -98,15 +98,21 @@ export async function navigate(target, { push = true, keyboard = false } = {}) {
   const mine = ++token;
   document.documentElement.dataset.navigating = "true";
   try {
-    let response, doc;
+    let response, doc, lyricFallback = false;
     try {
       response = await fetch(url.href, { headers: { Accept: "text/html" }, credentials: "same-origin" });
+      // Generated lyric pages serve their own metadata. A just-published alias
+      // can precede its static file; load the lyric shell while retaining its URL.
+      if (response.status === 404 && /^\/lyrics\/[a-z0-9-]{1,72}-[a-f0-9]{6}(?:\/(?:index\.html)?)?$/.test(url.pathname)) {
+        response = await fetch(new URL("/lyrics/", url), { headers: { Accept: "text/html" }, credentials: "same-origin" });
+        lyricFallback = true;
+      }
       if (!response.ok || !/text\/html/.test(response.headers.get("content-type") || "")) return hard(url, push);
       doc = new DOMParser().parseFromString(await response.text(), "text/html");
     } catch { return hard(url, push); }
     if (mine !== token) return;
     // A fetch drops the fragment, and a link to a song on the collection page depends on it.
-    const final = new URL(response.url);
+    const final = new URL(lyricFallback ? url.href : response.url);
     final.hash = url.hash;
     const entry = doc.querySelector('head script[type="module"][src]')?.getAttribute("src");
     const code = (root) => root.querySelector('meta[name="yehry3-code"]')?.content;

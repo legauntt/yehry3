@@ -2,7 +2,8 @@
 
 The config contains paths and a monthly budget, never the API key itself.
 All masters, prompts, accounting and logs live outside disposable worktrees.
-Failures preserve the worktree and block unattended reruns for human review.
+Publication failures preserve the worktree for review. Individual generation
+failures remain in the ledger without blocking unrelated future songs.
 """
 import argparse
 from datetime import datetime, timezone
@@ -102,7 +103,7 @@ def run_pass(config_path, check_only=False):
         changes = git(checkout, "status", "--porcelain")
         if not changes:
             if generation_code:
-                raise RuntimeError("Artwork generation needs review; no changes were published")
+                print("Failed artwork jobs remain reserved for manual review; future songs may continue", flush=True)
             clean_worktree()
             return
         # Cover publication is the only mutation this worker may ship.

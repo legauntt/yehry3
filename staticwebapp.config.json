@@ -120,7 +120,6 @@
     },
     {
       "route": "/lyrics/*",
-      "rewrite": "/lyrics/index.html",
       "headers": { "Cache-Control": "no-cache" }
     },
     {

@@ -130,18 +130,16 @@ test("generated summary omits large fields and per-song fallbacks preserve the f
   }
 });
 
-test("generated lyric pages retain their share previews ahead of the new-song fallback", async () => {
+test("generated lyric pages retain share previews without catalog-sized route rules", async () => {
   const hostingText = await readFile(new URL("../dist/staticwebapp.config.json", import.meta.url), "utf8");
   assert.ok(Buffer.byteLength(hostingText) <= 20000, "Azure routing configuration must fit its 20 KB limit");
   const { routes } = JSON.parse(hostingText);
-  const fallback = routes.findIndex(route => route.route === "/lyrics/*");
-  assert.ok(fallback >= 0);
-  assert.equal(routes[fallback].rewrite, "/lyrics/index.html");
+  assert.equal(routes.find(route => route.route === "/lyrics/*")?.rewrite, undefined);
+  assert.ok(!routes.some(route => route.route.startsWith("/lyrics/") && route.route !== "/lyrics/*"));
+  const notFound = await readFile(new URL("../dist/404.html", import.meta.url), "utf8");
+  assert.match(notFound, /src="\/assets\/lyrics-fallback.js"/);
   for (const song of catalog.songs.filter(song => song.lyrics?.text)) {
     const alias = songAlias(song);
-    const own = routes.findIndex(route => route.route === `/lyrics/${alias}*`);
-    assert.ok(own >= 0 && own < fallback, `Generated page must take precedence: ${alias}`);
-    assert.equal(routes[own].rewrite, undefined);
     const html = await readFile(new URL(`../dist/lyrics/${alias}/index.html`, import.meta.url), "utf8");
     assert.ok(html.includes(`data-song-id="${song.id}"`));
     assert.ok(html.includes(`<meta property="og:url" content="https://yehry3.app/lyrics/${alias}/" />`));

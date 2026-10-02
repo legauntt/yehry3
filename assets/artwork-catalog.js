@@ -1872,5 +1872,53 @@ export default {
     "missingSources": [],
     "previous": null,
     "firstSeenAt": "2026-10-02T06:39:23.549Z"
+  },
+  "distonyc-20174d336717fef213d9d9d8": {
+    "src": "/assets/artwork/distonyc-20174d336717fef213d9d9d8-emphasis-f432ae7e38b9-q86.webp",
+    "alt": "A calm capped programmer adds a switch to a tangled midnight factory growing through dark trees.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "emphasis",
+    "model": "gpt-image-2",
+    "sourceHash": "b707c840a1791fa88b429b08ff881f36a7d87f9a9b037a46add11db7674bdaf7",
+    "promptHash": "d2c211f64cffd7ca560b324decd50b2fc956997b7c6bf7e18a7ec09985d7be03",
+    "createdAt": "2026-10-02T08:22:22.410Z",
+    "missingSources": [],
+    "previous": null,
+    "interpretation": "non-explicit-scene",
+    "briefHash": "65784f367cb50099cb50949b74fe14a1396df3da8d36083e9458b7a9fdadbe06"
+  },
+  "distonyc-d1c225ef1a26c1be0dcdf92a": {
+    "src": "/assets/artwork/distonyc-d1c225ef1a26c1be0dcdf92a-basic-4d3351e0e42f-q86.webp",
+    "alt": "A lone capped singer on a gothic opera stage beneath a bell, surrounded by factory corridors and branching cables.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "basic",
+    "model": "gpt-image-2",
+    "sourceHash": "f5d66ceab935280daa27cfaa3c9093a79f04f883436dc6eb2aa9c4cb0de9d7b2",
+    "promptHash": "c700e6170e594f9ae849134f39a74e9d7157144ac05705657ec8232753256121",
+    "createdAt": "2026-10-02T08:22:22.582Z",
+    "missingSources": [],
+    "previous": null,
+    "interpretation": "non-explicit-scene",
+    "briefHash": "e5c9af0d5af5924bbf2f4305b5cc4def3690c9f156912fafde009fa1cc511647"
+  },
+  "distonyc-0abed287ed9acb8635c08d90": {
+    "src": "/assets/artwork/distonyc-0abed287ed9acb8635c08d90-basic-24830a54e27d-q86.webp",
+    "alt": "A cheerful capped cartoon singer with a microphone, colorful stage lights, instruments and confetti.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "basic",
+    "model": "gpt-image-2",
+    "sourceHash": "c34db1c878586ca7065bba2173c220a357b30539cfd81337f0cbc427571f3619",
+    "promptHash": "e7c81d0803a891c165cc8c6ee552252a4a7fbb97b0fc06f3edb268c2fcc43fb2",
+    "createdAt": "2026-10-02T08:22:22.750Z",
+    "missingSources": [],
+    "previous": null,
+    "interpretation": "non-explicit-scene",
+    "briefHash": "d84a77a7fb97fd941b9e39b40ce6babcf1787ca54d7293e0f4451df6fb5f932e"
   }
 };
