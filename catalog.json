@@ -2,6 +2,115 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-0abed287ed9acb8635c08d90",
+      "title": "Wanna Fuck",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0abed287ed9acb8635c08d90-e77a24ba05d1.mp3",
+      "duration": 69.04163265306123,
+      "collection": "distonyc",
+      "voiceModel": "vdb",
+      "publishedAt": "2026-10-02T06:46:33.675Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Wanna Fuck",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E major",
+        "arrangement": "Contemporary pop-rock with sparkling clean electric guitar, pulsing synth bass, tight live drums, and bright piano accents. One clear, steadily pitched Tony lead carries a playful, melodic build from close verse-like entries into a maximal final hook; preserve each supplied line exactly, using rests and sustained notes to pace the compact form. The final stretched syllable lands around 59 seconds, followed by one resolved E-major chord and natural decay.",
+        "lyrics": "I wanna fuck\nI want to fuck\nI want to ffuucckk\nI want to *fuck*\nI want to **fuck**\nI want to ***FUCK***\nI WANT TO FUCK\nI WANNA FUCK\nI WANNA FFFFFFFUUUUUUUUUUUUCK\n[End]",
+        "duration": 69,
+        "bpm": 128,
+        "musicalSettings": {
+          "genre": "Contemporary pop-rock",
+          "meter": "4/4",
+          "structure": "Nine-line escalating vocal build, ending on an extended final hook",
+          "performance": "Clear, steadily pitched melodic lead with playful rising intensity",
+          "energy": "Starts light and teasing, then climbs quickly to a bright full-band finish",
+          "lyricWorkflow": "Preserved supplied lyric sheet in its original order",
+          "instruments": [
+            "clean electric guitar",
+            "synth bass",
+            "drums",
+            "piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "I wanna fuck\nI want to fuck\nI want to ffuucckk\nI want to *fuck*\nI want to **fuck**\nI want to ***FUCK***\nI WANT TO FUCK\nI WANNA FUCK\nI WANNA FFFFFFFUUUUUUUUUUUUCK",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 0,
+            "start": 30,
+            "end": 34.78
+          },
+          {
+            "line": 1,
+            "start": 35.88,
+            "end": 41.06
+          },
+          {
+            "line": 2,
+            "start": 41.52,
+            "end": 42.52
+          },
+          {
+            "line": 3,
+            "start": 47.86,
+            "end": 52.32
+          },
+          {
+            "line": 4,
+            "start": 52.72,
+            "end": 53.74
+          },
+          {
+            "line": 6,
+            "start": 55.12,
+            "end": 59.76
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "vocal_activity",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "guide": {
+        "sha256": "f9b3c3dd293db8c50d98110e76dee3748818e929273b311dd87f2147d208f769",
+        "bytes": 1657044,
+        "duration": 69.041625,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0abed287ed9acb8635c08d90-f9b3c3dd293d.mp3"
+      },
+      "originalPrompt": {
+        "idea": "New original hit Taylor Swift single as covered by Tony C",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "vdb",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 69,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-3ce62fce4bc081402b7e6408",
       "title": "The Last Roll Call (Black Parade Version)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3ce62fce4bc081402b7e6408-0aed81cd98a6.mp3",
