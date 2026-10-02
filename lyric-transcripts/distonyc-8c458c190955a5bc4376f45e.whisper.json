@@ -1,354 +1,252 @@
 {
   "version": 1,
   "songId": "distonyc-8c458c190955a5bc4376f45e",
-  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8c458c190955a5bc4376f45e-4d14ea2710fd.mp3",
-  "audioSha256": "4d14ea2710fd908dd497d87754e7c1137f124515ae870d27a0e2124123b214f3",
-  "inputSha256": "4d14ea2710fd908dd497d87754e7c1137f124515ae870d27a0e2124123b214f3",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8c458c190955a5bc4376f45e-eee52d8ecb14.mp3",
+  "audioSha256": "eee52d8ecb14865023557ca0810e6bd55a84579c3c64e18f42d44b5309c20d3c",
+  "inputSha256": "eee52d8ecb14865023557ca0810e6bd55a84579c3c64e18f42d44b5309c20d3c",
   "input": "released-recording",
   "model": "faster-whisper large-v3-turbo",
   "review": "machine",
   "duration": 415.007375,
   "segments": [
     {
-      "start": 23.38,
-      "end": 24.5,
-      "text": "Hanging with the dope snake",
+      "start": 27.74,
+      "end": 29.22,
+      "text": "PIGGY THE SUP GIRL",
       "uncertain": true
     },
     {
-      "start": 26.28,
-      "end": 27.68,
-      "text": "Can get speeded on",
-      "uncertain": true
-    },
-    {
-      "start": 27.68,
-      "end": 29.12,
-      "text": "Biggie, don't shit, girl",
-      "uncertain": false
-    },
-    {
-      "start": 30.48,
+      "start": 30.56,
       "end": 32.24,
-      "text": "It gets skeeted on",
+      "text": "It gets skated on",
       "uncertain": true
     },
     {
       "start": 32.24,
-      "end": 33.82,
+      "end": 33.8,
       "text": "Walking them feet, girl",
       "uncertain": true
     },
     {
-      "start": 35.1,
-      "end": 36.96,
-      "text": "It gets skeeted on",
+      "start": 35.18,
+      "end": 37.5,
+      "text": "It gets skated on",
       "uncertain": false
     },
     {
-      "start": 36.96,
-      "end": 39.22,
-      "text": "It gets skeeted on",
+      "start": 37.5,
+      "end": 39.34,
+      "text": "It gets skated on",
       "uncertain": false
     },
     {
-      "start": 39.22,
-      "end": 41.52,
-      "text": "It gets skeeted on",
+      "start": 39.34,
+      "end": 41.64,
+      "text": "It gets skated on",
       "uncertain": false
     },
     {
-      "start": 41.52,
-      "end": 46.14,
-      "text": "It gets skeeted on",
+      "start": 41.64,
+      "end": 46.18,
+      "text": "It gets skated on",
       "uncertain": false
     },
     {
-      "start": 46.14,
-      "end": 50.76,
-      "text": "It gets skeeted on",
+      "start": 46.18,
+      "end": 50.92,
+      "text": "It gets skated on",
       "uncertain": false
     },
     {
-      "start": 58.68,
-      "end": 62.2,
-      "text": "Ski, Ski, Ski, Ski.",
-      "uncertain": true
-    },
-    {
-      "start": 81.62,
-      "end": 82.98,
-      "text": "It gets skeeted on",
-      "uncertain": true
-    },
-    {
-      "start": 82.98,
-      "end": 84.38,
-      "text": "Down like a four-wheel",
-      "uncertain": true
-    },
-    {
-      "start": 84.38,
-      "end": 85.16,
-      "text": "Let's let it be",
-      "uncertain": true
-    },
-    {
-      "start": 86.46,
-      "end": 87.48,
-      "text": "On the side of me",
-      "uncertain": false
-    },
-    {
-      "start": 88.04,
-      "end": 88.88,
-      "text": "Twenties on your truck",
-      "uncertain": false
-    },
-    {
-      "start": 88.88,
-      "end": 89.96,
-      "text": "It gets skeeted on",
-      "uncertain": false
-    },
-    {
-      "start": 90.88,
-      "end": 92.24,
-      "text": "It gets skeeted on",
-      "uncertain": false
-    },
-    {
-      "start": 92.24,
-      "end": 93.6,
-      "text": "Pull up at the red light",
-      "uncertain": false
-    },
-    {
-      "start": 93.6,
-      "end": 94.46,
-      "text": "On the side of me",
-      "uncertain": false
-    },
-    {
-      "start": 97.2,
-      "end": 98.24,
-      "text": "Bend the corner",
-      "uncertain": false
-    },
-    {
-      "start": 100.28,
-      "end": 101.36,
-      "text": "All I know got tongue",
-      "uncertain": false
-    },
-    {
-      "start": 102.36,
-      "end": 103.36,
-      "text": "So I get skeeted",
-      "uncertain": false
-    },
-    {
-      "start": 103.36,
-      "end": 103.76,
-      "text": "So I like",
-      "uncertain": true
-    },
-    {
-      "start": 106.36,
-      "end": 107.46,
-      "text": "Hey, I'ma keep up, yeah",
-      "uncertain": false
-    },
-    {
-      "start": 109.18,
-      "end": 110.64,
-      "text": "It gets skeeted on",
-      "uncertain": false
-    },
-    {
-      "start": 110.64,
-      "end": 112.2,
-      "text": "They give you shit, girl",
-      "uncertain": true
-    },
-    {
-      "start": 113.76,
-      "end": 115.36,
-      "text": "They get skeeted on",
-      "uncertain": true
-    },
-    {
-      "start": 115.36,
-      "end": 116.92,
-      "text": "Walkin' on feet, girl",
-      "uncertain": true
-    },
-    {
-      "start": 118.38,
-      "end": 120.08,
-      "text": "They get skeeted on",
-      "uncertain": false
-    },
-    {
-      "start": 120.08,
-      "end": 125.06,
-      "text": "They get skeeted on",
-      "uncertain": false
-    },
-    {
-      "start": 125.06,
-      "end": 129.84,
-      "text": "They get skeeted on",
-      "uncertain": false
-    },
-    {
-      "start": 133.84,
-      "end": 135.4,
-      "text": "Paper stackin' true, that",
-      "uncertain": false
-    },
-    {
-      "start": 136.14,
-      "end": 138.46,
-      "text": "Next thing you know, they get skeeted on",
-      "uncertain": false
-    },
-    {
-      "start": 138.46,
-      "end": 141.2,
-      "text": "Holes holla hoot at, haters gotta shoot at",
-      "uncertain": true
-    },
-    {
-      "start": 141.74,
-      "end": 143.42,
-      "text": "How they say you're with my crew at",
-      "uncertain": true
-    },
-    {
-      "start": 143.42,
-      "end": 145.2,
-      "text": "And if you're feeling this, smoke a little dro",
-      "uncertain": true
-    },
-    {
-      "start": 145.2,
-      "end": 147.6,
-      "text": "Skeet, skeet, skeet, you get skeeted on",
-      "uncertain": true
-    },
-    {
-      "start": 148.62,
-      "end": 149.86,
-      "text": "You might also like",
-      "uncertain": false
-    },
-    {
-      "start": 152.82,
-      "end": 153.78,
-      "text": "Naco Kidman",
-      "uncertain": true
-    },
-    {
-      "start": 155.74,
-      "end": 156.74,
-      "text": "Holla, look at some",
-      "uncertain": true
-    },
-    {
-      "start": 157.78,
-      "end": 159.0,
-      "text": "Smoke your skeeters on",
-      "uncertain": false
-    },
-    {
-      "start": 161.64,
-      "end": 163.08,
-      "text": "Go on to the feet, girl",
-      "uncertain": true
-    },
-    {
-      "start": 164.66,
-      "end": 166.08,
-      "text": "You get skeeted on",
-      "uncertain": false
-    },
-    {
-      "start": 169.3,
-      "end": 170.64,
-      "text": "And it's beat it all",
-      "uncertain": true
-    },
-    {
-      "start": 211.8,
-      "end": 214.62,
+      "start": 61.44,
+      "end": 62.18,
       "text": "We'll be right back.",
       "uncertain": true
     },
     {
-      "start": 228.58,
-      "end": 258.02,
-      "text": "No, ain't no, ain't no, ain't no, ain't no, ain't no, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah, yeah",
+      "start": 90.52,
+      "end": 93.18,
+      "text": "We'll be right back.",
+      "uncertain": false
+    },
+    {
+      "start": 110.92,
+      "end": 115.36,
+      "text": "Piggy the shit girl, it gets skeeted on",
       "uncertain": true
     },
     {
-      "start": 271.3,
-      "end": 273.6,
-      "text": "I hate it all, it's a gin, if you're going",
+      "start": 115.36,
+      "end": 120.06,
+      "text": "Walkin' and sleep girl, it gets skeeted on",
       "uncertain": true
     },
     {
-      "start": 274.06,
-      "end": 276.56,
-      "text": "That's H and low, ain't one, I can touch it",
+      "start": 120.06,
+      "end": 124.76,
+      "text": "It gets skeeted on",
       "uncertain": true
     },
     {
-      "start": 276.56,
-      "end": 278.64,
-      "text": "You're not good, girl, see",
+      "start": 124.76,
+      "end": 129.74,
+      "text": "It gets skeeted on",
       "uncertain": true
     },
     {
-      "start": 278.64,
-      "end": 281.42,
-      "text": "Yes, you dig, skeet it all, niggas, skeet it all",
+      "start": 133.8,
+      "end": 138.4,
+      "text": "Paper stackin' true that, next thing you know it gets skeeted on",
+      "uncertain": false
+    },
+    {
+      "start": 138.4,
+      "end": 141.18,
+      "text": "Holes holler who that haters gotta shoot at",
       "uncertain": true
     },
     {
-      "start": 291.04,
-      "end": 291.16,
+      "start": 141.7,
+      "end": 143.4,
+      "text": "How they sayin' where my crew at",
+      "uncertain": true
+    },
+    {
+      "start": 143.4,
+      "end": 144.32,
+      "text": "And if you feelin' dense",
+      "uncertain": true
+    },
+    {
+      "start": 144.32,
+      "end": 145.2,
+      "text": "Fulton little dro",
+      "uncertain": true
+    },
+    {
+      "start": 145.2,
+      "end": 146.42,
+      "text": "Skeet, skeet, skeet",
+      "uncertain": false
+    },
+    {
+      "start": 146.42,
+      "end": 147.54,
+      "text": "They get skeeted all",
+      "uncertain": true
+    },
+    {
+      "start": 148.58,
+      "end": 149.84,
+      "text": "You might also like",
+      "uncertain": false
+    },
+    {
+      "start": 152.46,
+      "end": 153.48,
+      "text": "Think we're gettin'",
+      "uncertain": true
+    },
+    {
+      "start": 155.84,
+      "end": 156.8,
+      "text": "I love that song",
+      "uncertain": true
+    },
+    {
+      "start": 157.62,
+      "end": 159.0,
+      "text": "It's gon' get skeeted as hell",
+      "uncertain": true
+    },
+    {
+      "start": 161.76,
+      "end": 163.06,
+      "text": "Walkin' them feet, girl",
+      "uncertain": true
+    },
+    {
+      "start": 164.64,
+      "end": 166.08,
+      "text": "They get skeeted all",
+      "uncertain": false
+    },
+    {
+      "start": 169.52,
+      "end": 170.72,
+      "text": "Let's read it all.",
+      "uncertain": true
+    },
+    {
+      "start": 213.36,
+      "end": 214.68,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 248.56,
+      "end": 251.4,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 274.42,
+      "end": 277.24,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 288.26,
+      "end": 291.06,
       "text": "Thank you.",
       "uncertain": true
     },
     {
-      "start": 318.22,
-      "end": 347.44,
-      "text": "I was sick and tired, I've been ringed at y'all in hope, but now they're dying, waiting, on the group, I've waited tonight, they don't give what it's true, good, good, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy, rainy,",
+      "start": 343.92,
+      "end": 346.0,
+      "text": "We'll see you next time.",
+      "uncertain": false
+    },
+    {
+      "start": 346.62,
+      "end": 349.16,
+      "text": "Yeah, the best of y'all, the steps and we were darker",
       "uncertain": true
     },
     {
-      "start": 347.44,
-      "end": 351.24,
-      "text": "Y'all, I said, don't feel it, don't try it, but man, but look easy, just keep going, yeah",
+      "start": 349.16,
+      "end": 351.2,
+      "text": "Remember, the music is keeping her own good",
       "uncertain": true
     },
     {
-      "start": 354.54,
-      "end": 360.72,
-      "text": "Made it all, yeah, keep going, you got to try, rip it, and you plan, and you plan, that you plan, that you plan, that you plan, that you plan, yeah",
+      "start": 354.4,
+      "end": 356.62,
+      "text": "Made it all, yeah, we'll be going",
       "uncertain": true
     },
     {
-      "start": 400.16,
-      "end": 402.86,
-      "text": "Sleep into infinity",
+      "start": 357.04,
+      "end": 358.48,
+      "text": "That's the time at the end",
+      "uncertain": false
+    },
+    {
+      "start": 358.48,
+      "end": 360.44,
+      "text": "My name, my name, she loved it",
       "uncertain": true
     },
     {
-      "start": 407.44,
-      "end": 408.18,
-      "text": "Thank you.",
+      "start": 386.18,
+      "end": 387.8,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 413.58,
+      "end": 413.68,
+      "text": "We'll be right back.",
       "uncertain": true
     }
   ]
