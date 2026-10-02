@@ -2,6 +2,493 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-3ce62fce4bc081402b7e6408",
+      "title": "The Last Roll Call (Black Parade Version)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3ce62fce4bc081402b7e6408-0aed81cd98a6.mp3",
+      "duration": 335.04,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-b49546ad7df0071f41b7068b",
+        "title": "The Last Roll Call",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b49546ad7df0071f41b7068b-60f385a03405.mp3"
+      },
+      "publishedAt": "2026-10-02T06:32:04.334Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Last Roll Call (Black Parade Version)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A dark military post-punk reinterpretation: marching floor toms and snare lead into tense baritone-guitar figures, a prominent melodic bass line, sparse piano, and distant muted trumpet shadows. Tony’s V9 lead is rough, smoky, slurred, and emotionally contained until the refrains break open into a catchable communal hook. Build from close, nearly spoken-sung remembrance through driving verses and a stripped bridge, then bring the final refrain into a grave full-band lift. Pace the closing lines so the sustained final word lands about 10 seconds before the end, followed by one resolved D-minor chord decay.",
+        "lyrics": "[Intro]\nSeven tags beside my heartbeat,\nseven names beneath my tongue.\nThey call me the lone survivor,\nlike surviving means you won.\n\n[Verse 1]\nMack carried the radio uphill,\ncalling thunder through the rain.\nA mortar found the rooftop aerial;\nthe whole room answered him in flame.\nCommand wrote “loss of signal,”\nbut I remember what they said:\nMack got 9/11'd,\nand the radio hissed beside the dead.\n\nEllis watched the river crossing,\ncounting helmets through his sight.\nOne clean crack came from the bell tower;\nhe folded in the morning light.\nThe bridge stayed open nine more minutes,\nthen the captain shook his head:\nEllis got 9/11'd,\nwith an empty casing by his bed.\n\n[Refrain]\nGot 9/11'd—that was the language,\nsharp and stupid, small and cold.\nSomething ugly kept us laughing\nwhen we couldn't stand the toll.\nEvery joke became a bandage,\nevery bandage soaked through red.\nWe kept saying “got 9/11'd”\nso we didn't say “my brother's dead.”\n\n[Verse 2]\nHarlan worked the canvas station,\nhands still steady under fire.\nA shell collapsed the western ridgepole,\nturned the white tent into a pyre.\nHe had saved three men that evening;\nnone could reach him where he bled.\nHarlan got 9/11'd,\nstill wearing someone else's blood instead.\n\nRico drove the water convoy,\nsecond truck on Marker Nine.\nA buried charge unstitched the roadway;\nthe cab went over on its side.\nHis lucky photograph kept burning\nin the wallet where he kept it hid.\nRico got 9/11'd\nbringing water to some thirsty kids.\n\n[Verse 3]\nBenji heard us shout behind him,\nturned too quickly through the smoke.\nOur own gunner saw a shadow,\npulled the trigger—that was all.\nThe report said “misidentification,”\nthen buried what the panic did.\nBenji got 9/11'd\nby the frightened hands of frightened kids.\n\nCole marked blue smoke by the orchard,\ncalled our position twice and clear.\nJets arrived above the cloud line;\nthe wrong coordinates reached their ears.\nThe medals came in polished boxes,\nand his mother asked me what they meant.\nCole got 9/11'd\nby the help our own command had sent.\n\n[Bridge]\nSergeant Vale stayed in the stairwell\nwhen the rest of us withdrew.\nHe held the landing with one magazine\nand bought the road that brought us through.\nThe building dropped before the sunrise;\nwe found his tags beneath cement.\nVale got 9/11'd,\nand I became the last man they could send.\n\n[Refrain]\nGot 9/11'd—that was the language\nwe made cruel enough to bear.\nSeven voices crowd my silence;\nseven ghosts still take their share.\nNow I speak their names without it,\nthough that old phrase fills my head:\nMack, Ellis, Harlan, Rico,\nBenji, Cole, and Vale are dead.\n\n[Outro]\nNo clean glory, no conclusion,\nno victory waiting in this song.\nOnly seven ways war took them,\nand one man left to carry on.\nIf you call me the survivor,\nhear the truth beneath the word:\nI came home with every last voice,\nand tonight they all were heard.\n[End]",
+        "duration": 335,
+        "bpm": 104,
+        "musicalSettings": {
+          "genre": "Dark military post-punk",
+          "meter": "4/4",
+          "structure": "Intro, paired casualty verses, refrain, paired casualty verses, bridge, final refrain, resolved outro",
+          "performance": "Smoky, connected Tony phrasing with restrained grief, escalating into forceful melodic refrains",
+          "energy": "Measured and tense at first; steadily more urgent, peaking at the final refrain before a solemn resolution",
+          "lyricWorkflow": "Preserved supplied lyric sheet in its original order and wording",
+          "instruments": [
+            "baritone electric guitar",
+            "electric bass",
+            "floor toms",
+            "marching snare",
+            "piano",
+            "muted trumpet"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nSeven tags beside my heartbeat,\nseven names beneath my tongue.\nThey call me the lone survivor,\nlike surviving means you won.\n\n[Verse 1]\nMack carried the radio uphill,\ncalling thunder through the rain.\nA mortar found the rooftop aerial;\nthe whole room answered him in flame.\nCommand wrote “loss of signal,”\nbut I remember what they said:\nMack got 9/11'd,\nand the radio hissed beside the dead.\n\nEllis watched the river crossing,\ncounting helmets through his sight.\nOne clean crack came from the bell tower;\nhe folded in the morning light.\nThe bridge stayed open nine more minutes,\nthen the captain shook his head:\nEllis got 9/11'd,\nwith an empty casing by his bed.\n\n[Refrain]\nGot 9/11'd—that was the language,\nsharp and stupid, small and cold.\nSomething ugly kept us laughing\nwhen we couldn't stand the toll.\nEvery joke became a bandage,\nevery bandage soaked through red.\nWe kept saying “got 9/11'd”\nso we didn't say “my brother's dead.”\n\n[Verse 2]\nHarlan worked the canvas station,\nhands still steady under fire.\nA shell collapsed the western ridgepole,\nturned the white tent into a pyre.\nHe had saved three men that evening;\nnone could reach him where he bled.\nHarlan got 9/11'd,\nstill wearing someone else's blood instead.\n\nRico drove the water convoy,\nsecond truck on Marker Nine.\nA buried charge unstitched the roadway;\nthe cab went over on its side.\nHis lucky photograph kept burning\nin the wallet where he kept it hid.\nRico got 9/11'd\nbringing water to some thirsty kids.\n\n[Verse 3]\nBenji heard us shout behind him,\nturned too quickly through the smoke.\nOur own gunner saw a shadow,\npulled the trigger—that was all.\nThe report said “misidentification,”\nthen buried what the panic did.\nBenji got 9/11'd\nby the frightened hands of frightened kids.\n\nCole marked blue smoke by the orchard,\ncalled our position twice and clear.\nJets arrived above the cloud line;\nthe wrong coordinates reached their ears.\nThe medals came in polished boxes,\nand his mother asked me what they meant.\nCole got 9/11'd\nby the help our own command had sent.\n\n[Bridge]\nSergeant Vale stayed in the stairwell\nwhen the rest of us withdrew.\nHe held the landing with one magazine\nand bought the road that brought us through.\nThe building dropped before the sunrise;\nwe found his tags beneath cement.\nVale got 9/11'd,\nand I became the last man they could send.\n\n[Refrain]\nGot 9/11'd—that was the language\nwe made cruel enough to bear.\nSeven voices crowd my silence;\nseven ghosts still take their share.\nNow I speak their names without it,\nthough that old phrase fills my head:\nMack, Ellis, Harlan, Rico,\nBenji, Cole, and Vale are dead.\n\n[Outro]\nNo clean glory, no conclusion,\nno victory waiting in this song.\nOnly seven ways war took them,\nand one man left to carry on.\nIf you call me the survivor,\nhear the truth beneath the word:\nI came home with every last voice,\nand tonight they all were heard.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.72,
+            "end": 6.56
+          },
+          {
+            "line": 2,
+            "start": 7.44,
+            "end": 10.06
+          },
+          {
+            "line": 3,
+            "start": 11.28,
+            "end": 13.24
+          },
+          {
+            "line": 4,
+            "start": 14.64,
+            "end": 17.52
+          },
+          {
+            "line": 7,
+            "start": 17.74,
+            "end": 20.84
+          },
+          {
+            "line": 8,
+            "start": 21.6,
+            "end": 23.48
+          },
+          {
+            "line": 9,
+            "start": 24.82,
+            "end": 27.9
+          },
+          {
+            "line": 10,
+            "start": 27.9,
+            "end": 30.5
+          },
+          {
+            "line": 11,
+            "start": 32.3,
+            "end": 34.06
+          },
+          {
+            "line": 12,
+            "start": 34.64,
+            "end": 37.26
+          },
+          {
+            "line": 13,
+            "start": 39.38,
+            "end": 41.04
+          },
+          {
+            "line": 14,
+            "start": 41.04,
+            "end": 44.54
+          },
+          {
+            "line": 16,
+            "start": 48.32,
+            "end": 50.86
+          },
+          {
+            "line": 17,
+            "start": 51.56,
+            "end": 53.94
+          },
+          {
+            "line": 18,
+            "start": 54.84,
+            "end": 57.52
+          },
+          {
+            "line": 19,
+            "start": 58.34,
+            "end": 60.9
+          },
+          {
+            "line": 20,
+            "start": 62.06,
+            "end": 64.34
+          },
+          {
+            "line": 21,
+            "start": 64.34,
+            "end": 66.72
+          },
+          {
+            "line": 22,
+            "start": 66.72,
+            "end": 70.96
+          },
+          {
+            "line": 23,
+            "start": 70.96,
+            "end": 74.7
+          },
+          {
+            "line": 26,
+            "start": 77.28,
+            "end": 81.02
+          },
+          {
+            "line": 27,
+            "start": 81.94,
+            "end": 85.58
+          },
+          {
+            "line": 28,
+            "start": 85.58,
+            "end": 89.78
+          },
+          {
+            "line": 29,
+            "start": 89.78,
+            "end": 91.46
+          },
+          {
+            "line": 30,
+            "start": 91.46,
+            "end": 94.1
+          },
+          {
+            "line": 32,
+            "start": 97.24,
+            "end": 99.3
+          },
+          {
+            "line": 37,
+            "start": 110.5,
+            "end": 112.5
+          },
+          {
+            "line": 38,
+            "start": 113.62,
+            "end": 116.58
+          },
+          {
+            "line": 39,
+            "start": 116.58,
+            "end": 119.04
+          },
+          {
+            "line": 40,
+            "start": 119.88,
+            "end": 121.72
+          },
+          {
+            "line": 41,
+            "start": 121.72,
+            "end": 124.4
+          },
+          {
+            "line": 42,
+            "start": 125.38,
+            "end": 127.6
+          },
+          {
+            "line": 43,
+            "start": 127.6,
+            "end": 130.68
+          },
+          {
+            "line": 45,
+            "start": 134.78,
+            "end": 137.22
+          },
+          {
+            "line": 46,
+            "start": 138.1,
+            "end": 140.48
+          },
+          {
+            "line": 47,
+            "start": 141.04,
+            "end": 143.58
+          },
+          {
+            "line": 48,
+            "start": 143.58,
+            "end": 146.62
+          },
+          {
+            "line": 49,
+            "start": 147.08,
+            "end": 149.56
+          },
+          {
+            "line": 50,
+            "start": 149.56,
+            "end": 151.96
+          },
+          {
+            "line": 51,
+            "start": 151.96,
+            "end": 155.16
+          },
+          {
+            "line": 52,
+            "start": 155.74,
+            "end": 159.14
+          },
+          {
+            "line": 55,
+            "start": 162.14,
+            "end": 164.64
+          },
+          {
+            "line": 56,
+            "start": 164.64,
+            "end": 166.62
+          },
+          {
+            "line": 57,
+            "start": 167.2,
+            "end": 169.1
+          },
+          {
+            "line": 58,
+            "start": 169.84,
+            "end": 171.92
+          },
+          {
+            "line": 60,
+            "start": 174.44,
+            "end": 176.2
+          },
+          {
+            "line": 61,
+            "start": 176.92,
+            "end": 178.28
+          },
+          {
+            "line": 62,
+            "start": 178.28,
+            "end": 181.8
+          },
+          {
+            "line": 64,
+            "start": 185.54,
+            "end": 187.8
+          },
+          {
+            "line": 65,
+            "start": 187.8,
+            "end": 191.34
+          },
+          {
+            "line": 66,
+            "start": 191.34,
+            "end": 194.76
+          },
+          {
+            "line": 67,
+            "start": 194.76,
+            "end": 198.04
+          },
+          {
+            "line": 68,
+            "start": 198.04,
+            "end": 202.08
+          },
+          {
+            "line": 69,
+            "start": 202.08,
+            "end": 205.16
+          },
+          {
+            "line": 71,
+            "start": 208.78,
+            "end": 212
+          },
+          {
+            "line": 74,
+            "start": 215.28,
+            "end": 217.92
+          },
+          {
+            "line": 75,
+            "start": 218.86,
+            "end": 220.66
+          },
+          {
+            "line": 76,
+            "start": 222.18,
+            "end": 224.58
+          },
+          {
+            "line": 77,
+            "start": 224.58,
+            "end": 227.52
+          },
+          {
+            "line": 78,
+            "start": 227.52,
+            "end": 231.4
+          },
+          {
+            "line": 79,
+            "start": 231.4,
+            "end": 234.54
+          },
+          {
+            "line": 80,
+            "start": 234.54,
+            "end": 238.34
+          },
+          {
+            "line": 81,
+            "start": 238.34,
+            "end": 242.04
+          },
+          {
+            "line": 84,
+            "start": 244.58,
+            "end": 248.24
+          },
+          {
+            "line": 85,
+            "start": 248.24,
+            "end": 252.58
+          },
+          {
+            "line": 86,
+            "start": 252.58,
+            "end": 257.02
+          },
+          {
+            "line": 87,
+            "start": 257.02,
+            "end": 259.26
+          },
+          {
+            "line": 88,
+            "start": 259.26,
+            "end": 261.6
+          },
+          {
+            "line": 89,
+            "start": 261.6,
+            "end": 264.32
+          },
+          {
+            "line": 90,
+            "start": 264.32,
+            "end": 267.16
+          },
+          {
+            "line": 91,
+            "start": 267.94,
+            "end": 270.84
+          },
+          {
+            "line": 94,
+            "start": 274.05,
+            "end": 276.06
+          },
+          {
+            "line": 95,
+            "start": 277.38,
+            "end": 279.82
+          },
+          {
+            "line": 96,
+            "start": 281.24,
+            "end": 283.72
+          },
+          {
+            "line": 97,
+            "start": 283.72,
+            "end": 286.04
+          },
+          {
+            "line": 98,
+            "start": 287.06,
+            "end": 289.1
+          },
+          {
+            "line": 99,
+            "start": 289.74,
+            "end": 291.44
+          },
+          {
+            "line": 100,
+            "start": 291.44,
+            "end": 295.24
+          },
+          {
+            "line": 101,
+            "start": 295.24,
+            "end": 298.56
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 36.22
+        },
+        {
+          "code": "early_lyric_ending",
+          "seconds": 36.47
+        }
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "haunted",
+      "guide": {
+        "sha256": "8fe10ee2d87a5a9dd47094380552f57197628a0205b2a37c189add259df6e9c1",
+        "bytes": 7810508,
+        "duration": 335.04,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3ce62fce4bc081402b7e6408-8fe10ee2d87a.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “The Last Roll Call”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: The lone survivor of the horrors of war from his platoon, Tony C recounts exactly how each of his brothers of arms was killed - or as he puts it, \"got 9/11'd\"\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Surprise me with a new genre",
+        "keep": "Keep the recognizable hook and spirit of “The Last Roll Call”.",
+        "basisSongs": [
+          "The Last Roll Call"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-c9fa039b6d43960642e62b20",
       "title": "When Horses Still Went",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c9fa039b6d43960642e62b20-81aa9569fd82.mp3",
