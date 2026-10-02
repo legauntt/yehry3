@@ -7,7 +7,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   const scene = document.createElement('div');
   scene.className = 'halloween-scene';
   scene.setAttribute('aria-hidden', 'true');
-  scene.innerHTML = `<div class="halloween-flock" hidden>${Array.from({length:100}, (_, i) => `<span class="halloween-swarm-bat" style="--bat-size:${14 + (i * 7 % 15)}px;--wing-speed:${.22 + (i % 7) * .025}s;--wing-delay:${-i * .037}s">${bat}</span>`).join('')}</div>
+  scene.innerHTML = `<div class="halloween-flock" hidden>${Array.from({length:100}, (_, i) => `<span class="halloween-swarm-bat" style="--bat-size:${(14 + (i * 7 % 15)) / 3}px;--wing-speed:${.16 + (i % 7) * .015}s;--wing-delay:${-i * .037}s">${bat}</span>`).join('')}</div>
     <div class="halloween-pass" hidden></div>
     <div class="halloween-scare" hidden><svg class="halloween-lightning" viewBox="0 0 1000 800" preserveAspectRatio="none"><path d="M220 0L160 230L270 205L110 530L190 300L90 330L220 0ZM810 0L700 270L820 240L680 650L750 350L640 380L810 0Z"/></svg>
       <div class="halloween-laugh"><svg class="halloween-face" viewBox="0 0 400 380"><path fill="#598031" d="M184 73Q176 30 211 12L232 30Q202 41 215 77Z"/><path fill="#e96b0c" stroke="#ffad32" stroke-width="5" d="M200 73C74 29 10 120 26 232C37 333 112 371 200 344C288 371 363 333 374 232C390 120 326 29 200 73Z"/><path fill="none" stroke="#a83c09" stroke-width="6" d="M157 80Q82 198 155 341M243 80Q318 198 245 341M200 85V339"/><g fill="#fff09a" stroke="#4e1709" stroke-width="7" stroke-linejoin="round"><path d="M81 176L145 126L161 191Z M319 176L255 126L239 191Z M200 184L180 219H220Z"/><path class="halloween-mouth" d="M78 238L116 254L135 236L157 266L183 252L200 275L218 252L244 266L266 236L285 254L322 238Q295 329 200 326Q105 329 78 238Z"/></g></svg><span class="halloween-ha ha-left">HA!</span><span class="halloween-ha ha-right">HA HA!</span></div>
@@ -37,14 +37,14 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     const blend = lastFrame ? 1 - Math.exp(-Math.min(now - lastFrame, 50) / 55) : 1;
     // Time-based history keeps the same slinky shape at 60 or 144 Hz.
     trail.unshift({x:mouse.x, y:mouse.y, heading, time:now});
-    while (trail.length > 1 && now - trail.at(-1).time > 1700) trail.pop();
+    while (trail.length > 1 && now - trail.at(-1).time > 2400) trail.pop();
     let sample = 0;
     bats.forEach((node, i) => {
-      const delay = i * 14;
+      const delay = i * 20;
       while (sample + 1 < trail.length && now - trail[sample].time < delay) sample++;
       const point = trail[sample];
       const wave = Math.sin(now * .0035 - i * .25) * (12 + i * .3);
-      const behind = 28 + i * 5.5;
+      const behind = 28 + i * 9;
       const x = point.x - Math.cos(point.heading) * behind - Math.sin(point.heading) * wave;
       const y = point.y - Math.sin(point.heading) * behind + Math.cos(point.heading) * wave;
       const position = positions[i] ||= {x,y};

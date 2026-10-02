@@ -1,9 +1,11 @@
 .halloween-scene { position: fixed; inset: 0; pointer-events: none; z-index: 12; overflow: hidden; }
 .halloween-scene [hidden], .halloween-scene[hidden] { display: none; }
 .halloween-flock { position: absolute; inset: 0; }
-.halloween-swarm-bat { position: absolute; left: 0; top: 0; width: var(--bat-size); margin: -8px 0 0 -12px; will-change: transform; }
+.halloween-swarm-bat { position: absolute; left: 0; top: 0; width: var(--bat-size); margin: calc(var(--bat-size) * -.275) 0 0 calc(var(--bat-size) * -.5); will-change: transform; }
 .halloween-bat-shape { display: block; width: 100%; fill: #000; overflow: visible; }
 .bat-wing { transform-origin: 40px 23px; animation: halloween-wingbeat var(--wing-speed, .32s) ease-in-out var(--wing-delay, 0s) infinite alternate; }
+.halloween-flock .wing-left { transform-origin: 38px 21px; animation-name: halloween-flap-left; }
+.halloween-flock .wing-right { transform-origin: 42px 21px; animation-name: halloween-flap-right; }
 .halloween-witch { display: block; width: clamp(180px, 24vw, 330px); height: auto; }
 .halloween-pass-bats { display: flex; align-items: center; gap: 14px; width: clamp(200px, 35vw, 450px); }
 .halloween-pass-bats svg:nth-child(even) { translate: 0 -25px; --wing-delay: -.15s; }
@@ -24,6 +26,8 @@
 .pitch-season-choice select { flex: 1; min-width: 0; }
 .pitch-pumpkin { font-size: 1.6rem; }
 @keyframes halloween-wingbeat { from { transform: scaleY(.95) scaleX(1); } to { transform: scaleY(.3) scaleX(.72); } }
+@keyframes halloween-flap-left { from { transform: rotate(18deg) scaleY(1); } to { transform: rotate(-38deg) scaleY(.2); } }
+@keyframes halloween-flap-right { from { transform: rotate(-18deg) scaleY(1); } to { transform: rotate(38deg) scaleY(.2); } }
 @keyframes halloween-crossing { 0% { transform: translateX(-110%) rotate(-8deg); } 45% { transform: translateX(45vw) translateY(-35px) rotate(5deg); } 100% { transform: translateX(110vw) rotate(-8deg); } }
 @keyframes halloween-lightning { 0%, 27%, 100% { opacity: 0; } 9%, 38% { opacity: .85; } 19%, 54% { opacity: 0; } }
 @keyframes halloween-arrival { from { transform: scale(.15); opacity: 0; } to { transform: scale(1); opacity: 1; } }

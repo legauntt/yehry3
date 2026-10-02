@@ -46,6 +46,31 @@ test('bats follow the cursor and idle flybys dismiss on activity', async ({ page
   expect(new Set(after).size).toBe(100);
   expect(after[0]).not.toBe(before[0]);
   expect(after[99]).not.toBe(before[99]);
+  const sizes = await page.locator('.halloween-swarm-bat').evaluateAll(nodes =>
+    nodes.map(node => parseFloat(getComputedStyle(node).width)));
+  expect(Math.min(...sizes)).toBeGreaterThan(4.5);
+  expect(Math.max(...sizes)).toBeLessThan(9.5);
+  const wings = page.locator('.halloween-flock .bat-wing').first();
+  expect(await wings.evaluate(node => getComputedStyle(node).animationName)).toBe('halloween-flap-left');
+  const flap = await wings.evaluate(node => {
+    const animation = node.getAnimations()[0];
+    animation.pause();
+    animation.currentTime = 0;
+    const up = getComputedStyle(node).transform;
+    animation.currentTime = animation.effect.getTiming().duration;
+    return { up, down: getComputedStyle(node).transform };
+  });
+  expect(flap.down).not.toBe(flap.up);
+  // At rest the trail's centers leave room between these tiny silhouettes.
+  await page.clock.runFor(1000);
+  const gap = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => {
+    const centers = nodes.slice(0, 2).map(node => {
+      const matrix = new DOMMatrix(node.style.transform);
+      return {x: matrix.m41, y: matrix.m42};
+    });
+    return Math.hypot(centers[1].x - centers[0].x, centers[1].y - centers[0].y);
+  });
+  expect(gap).toBeGreaterThan(8);
   await page.screenshot({path:'artifacts/halloween-bat-wave.png'});
   await expect(page.locator('.halloween-web, .halloween-spider, .halloween-skeleton, .halloween-pumpkin, .halloween-bat')).toHaveCount(0);
   await page.clock.runFor(8100);
