@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "songId": "distonyc-20174d336717fef213d9d9d8",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20174d336717fef213d9d9d8-22caa872c84f.mp3",
+  "audioSha256": "22caa872c84f2fa7ce9145be0f557bd95148708f5d45501dbcd2f563fa6918cf",
+  "inputSha256": "bfcde58eb021b31bcf840a64881a1f45e46d7c84c9f6e61891bafb1c12991880",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 250.0701875,
+  "segments": [
+    {
+      "start": 3.38,
+      "end": 7.0,
+      "text": "At 9 o'clock, the office wakes",
+      "uncertain": true
+    },
+    {
+      "start": 7.0,
+      "end": 10.12,
+      "text": "The light dripping through the blinds",
+      "uncertain": true
+    },
+    {
+      "start": 11.34,
+      "end": 14.0,
+      "text": "Tony drags a fresh-made feature",
+      "uncertain": false
+    },
+    {
+      "start": 14.54,
+      "end": 17.46,
+      "text": "From the place where good sense hides",
+      "uncertain": false
+    },
+    {
+      "start": 18.58,
+      "end": 21.56,
+      "text": "The dashboard blooms with buttons",
+      "uncertain": false
+    },
+    {
+      "start": 21.56,
+      "end": 24.88,
+      "text": "For a thing nobody needs",
+      "uncertain": false
+    },
+    {
+      "start": 24.88,
+      "end": 38.02,
+      "text": "every ticket says urgent every merge request feeds a little green check mark flickers",
+      "uncertain": true
+    },
+    {
+      "start": 38.02,
+      "end": 41.32,
+      "text": "like a lantern in the rain",
+      "uncertain": false
+    },
+    {
+      "start": 43.76,
+      "end": 51.98,
+      "text": "nobody is worried nobody sees the little black factory growing through the trees",
+      "uncertain": false
+    },
+    {
+      "start": 51.98,
+      "end": 55.38,
+      "text": "Slop it, shimp it, stack it high",
+      "uncertain": false
+    },
+    {
+      "start": 55.38,
+      "end": 58.42,
+      "text": "Another thousand reasons why",
+      "uncertain": false
+    },
+    {
+      "start": 58.42,
+      "end": 63.08,
+      "text": "Nobody is worried, nobody minds",
+      "uncertain": false
+    },
+    {
+      "start": 63.08,
+      "end": 66.28,
+      "text": "While the maintenance map goes blind",
+      "uncertain": false
+    },
+    {
+      "start": 68.34,
+      "end": 71.98,
+      "text": "On top of wages, extra tens",
+      "uncertain": false
+    },
+    {
+      "start": 72.5,
+      "end": 75.28,
+      "text": "The thousands tumble through the gate",
+      "uncertain": true
+    },
+    {
+      "start": 75.28,
+      "end": 79.3,
+      "text": "For faster ways to manufacture",
+      "uncertain": false
+    },
+    {
+      "start": 79.3,
+      "end": 90.54,
+      "text": "complicated little fate the product team keeps asking for a switch beside a switch",
+      "uncertain": true
+    },
+    {
+      "start": 90.54,
+      "end": 100.46,
+      "text": "the users never wanted it but somebody's sold the pitch the commit log sings in midnight",
+      "uncertain": false
+    },
+    {
+      "start": 100.46,
+      "end": 104.88,
+      "text": "With a thousand borrowed names",
+      "uncertain": true
+    },
+    {
+      "start": 106.64,
+      "end": 110.68,
+      "text": "Nobody is worried, nobody sees",
+      "uncertain": true
+    },
+    {
+      "start": 110.68,
+      "end": 114.72,
+      "text": "A little black factory growing through the trees",
+      "uncertain": false
+    },
+    {
+      "start": 114.72,
+      "end": 118.2,
+      "text": "Slop it, chip it, stack it high",
+      "uncertain": false
+    },
+    {
+      "start": 118.2,
+      "end": 121.2,
+      "text": "Another thousand reasons why",
+      "uncertain": false
+    },
+    {
+      "start": 121.2,
+      "end": 126.06,
+      "text": "Nobody is worried, nobody minds",
+      "uncertain": false
+    },
+    {
+      "start": 126.06,
+      "end": 129.04,
+      "text": "While the maintenance math goes blind",
+      "uncertain": true
+    },
+    {
+      "start": 133.36,
+      "end": 136.68,
+      "text": "How do you fix a hallway",
+      "uncertain": false
+    },
+    {
+      "start": 136.68,
+      "end": 139.98,
+      "text": "When every door leads back inside",
+      "uncertain": true
+    },
+    {
+      "start": 139.98,
+      "end": 144.16,
+      "text": "How do you name the monster",
+      "uncertain": true
+    },
+    {
+      "start": 144.16,
+      "end": 147.98,
+      "text": "When the monster writes the guide",
+      "uncertain": false
+    },
+    {
+      "start": 147.98,
+      "end": 152.12,
+      "text": "At whatever rate the oracle",
+      "uncertain": false
+    },
+    {
+      "start": 152.12,
+      "end": 155.5,
+      "text": "Names for its astralight",
+      "uncertain": false
+    },
+    {
+      "start": 155.5,
+      "end": 167.2,
+      "text": "the factory keeps on breathing and it builds us through the night a junior opens one small file",
+      "uncertain": true
+    },
+    {
+      "start": 167.2,
+      "end": 176.78,
+      "text": "and hears the whole machine exhale there are hooks beneath the commons there are branches",
+      "uncertain": false
+    },
+    {
+      "start": 176.78,
+      "end": 178.6,
+      "text": "in the veil",
+      "uncertain": true
+    },
+    {
+      "start": 178.6,
+      "end": 180.8,
+      "text": "to change one",
+      "uncertain": false
+    },
+    {
+      "start": 180.8,
+      "end": 182.36,
+      "text": "harmless color",
+      "uncertain": false
+    },
+    {
+      "start": 182.36,
+      "end": 184.36,
+      "text": "takes a counsel",
+      "uncertain": false
+    },
+    {
+      "start": 184.36,
+      "end": 185.96,
+      "text": "and a right",
+      "uncertain": false
+    },
+    {
+      "start": 185.96,
+      "end": 188.68,
+      "text": "or you join the slop",
+      "uncertain": true
+    },
+    {
+      "start": 188.68,
+      "end": 189.6,
+      "text": "fat tree",
+      "uncertain": true
+    },
+    {
+      "start": 189.6,
+      "end": 192.62,
+      "text": "and you learn to feed",
+      "uncertain": false
+    },
+    {
+      "start": 192.62,
+      "end": 193.54,
+      "text": "the night",
+      "uncertain": false
+    },
+    {
+      "start": 196.38,
+      "end": 198.56,
+      "text": "nobody is worried",
+      "uncertain": false
+    },
+    {
+      "start": 198.56,
+      "end": 200.04,
+      "text": "say it low",
+      "uncertain": false
+    },
+    {
+      "start": 200.04,
+      "end": 202.72,
+      "text": "as the feature flags begin",
+      "uncertain": false
+    },
+    {
+      "start": 202.72,
+      "end": 203.88,
+      "text": "to grow",
+      "uncertain": false
+    },
+    {
+      "start": 203.88,
+      "end": 206.3,
+      "text": "slop it, ship it",
+      "uncertain": false
+    },
+    {
+      "start": 206.3,
+      "end": 216.62,
+      "text": "make it clean build another unwanted dream nobody is worried but the floor has swallowed",
+      "uncertain": true
+    },
+    {
+      "start": 216.62,
+      "end": 227.62,
+      "text": "every exit door tony leaves one final line looks good to me the lights decline",
+      "uncertain": false
+    },
+    {
+      "start": 227.62,
+      "end": 237.5,
+      "text": "nobody is worried nobody minds the factory hums beneath your lines sloppy",
+      "uncertain": true
+    }
+  ]
+}
