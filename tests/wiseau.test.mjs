@@ -39,8 +39,10 @@ test("no wildcard rewrite shadows the per-clip pages", () => {
   for (const route of config.routes)
     if (route.route.startsWith("/wiseau") && route.route.endsWith("*"))
       assert.equal(route.rewrite, undefined, `${route.route} must not rewrite`);
-  for (const own of ["/wiseau/clips.json", "/wiseau/wiseau.js", "/wiseau/wiseau.css", "/wiseau/clips/*"])
-    assert.ok(config.routes.some((route) => route.route === own), `${own} keeps its cache rule`);
+  for (const [own, cache] of [["/wiseau/clips.json", "no-cache"], ["/wiseau/wiseau.js", "no-cache"], ["/wiseau/wiseau.css", "no-cache"], ["/wiseau/clips/example.mp3", "public, max-age=31536000, immutable"]]) {
+    const matched = config.routes.find(({route}) => route.endsWith('*') ? own.startsWith(route.slice(0, -1)) : route === own);
+    assert.equal(matched?.headers?.['Cache-Control'], cache, `${own} keeps its effective cache rule`);
+  }
 });
 const escape = (value) =>
   String(value).replace(

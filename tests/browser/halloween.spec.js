@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+test.use({ hasTouch: true });
+
 async function october(page) {
   await page.clock.install({ time: new Date('2026-10-15T12:00:00Z') });
 }
@@ -27,22 +29,50 @@ test('seasonal pitch default preserves choices and expires in November', async (
   await expect(page.locator('.halloween-scene')).toHaveCount(0);
   await expect(page.locator('.pitch-pumpkin')).toHaveCount(0);
 });
-test('decorations idle, follow the cursor, respect reduced motion and fit phones', async ({ page }) => {
+test('bats follow the cursor and idle flybys dismiss on activity', async ({ page }) => {
   await october(page);
   await page.goto('/queue/');
   await expect(page.locator('.halloween-scene')).toHaveCount(1);
   await page.mouse.move(300, 300);
-  await expect(page.locator('.halloween-witch')).toBeVisible();
-  await page.clock.fastForward(6500);
-  await expect(page.locator('.halloween-scene')).toHaveClass(/is-idle/);
+  await expect(page.locator('.halloween-flock')).toBeVisible();
+  await expect(page.locator('.halloween-web, .halloween-spider, .halloween-skeleton, .halloween-pumpkin, .halloween-bat')).toHaveCount(0);
+  await page.clock.runFor(8100);
+  await expect(page.locator('.halloween-pass')).toBeVisible();
+  await expect(page.locator('.halloween-pass')).toHaveText('🧙‍♀️🧹');
+  await page.screenshot({path:'artifacts/halloween-flyby.png'});
   await page.mouse.move(350, 300);
-  await expect(page.locator('.halloween-scene')).not.toHaveClass(/is-idle/);
+  await expect(page.locator('.halloween-pass')).toBeHidden();
   await page.emulateMedia({ reducedMotion: 'reduce' });
-  await expect(page.locator('.halloween-witch')).toBeHidden();
+  await expect(page.locator('.halloween-flock')).toBeHidden();
+  await page.clock.runFor(60000);
+  await expect(page.locator('.halloween-pass')).toBeHidden();
+  await expect(page.locator('.halloween-scare')).toBeHidden();
   await page.setViewportSize({width:390,height:844});
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({path:'artifacts/halloween-mobile.png'});
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.setViewportSize({width:1440,height:1000});
   await page.screenshot({path:'artifacts/halloween-desktop.png'});
+});
+
+test('pumpkin blackout laughs, dismisses immediately, and expires by itself', async ({ page }) => {
+  await october(page);
+  await page.goto('/queue/');
+  await page.clock.runFor(37500);
+  await expect(page.locator('.halloween-scare')).toBeVisible();
+  await expect(page.locator('.halloween-scene')).toHaveClass(/is-scare/);
+  await expect(page.locator('.halloween-ha')).toHaveCount(2);
+  await page.screenshot({path:'artifacts/halloween-scare-desktop.png', animations:'disabled'});
+  await page.mouse.move(400, 300);
+  await expect(page.locator('.halloween-scare')).toBeHidden();
+  await expect(page.locator('.halloween-scene')).not.toHaveClass(/is-scare/);
+  await page.setViewportSize({width:390,height:844});
+  await page.clock.runFor(37500);
+  await expect(page.locator('.halloween-scare')).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({path:'artifacts/halloween-scare-mobile.png', animations:'disabled'});
+  await page.locator('body').tap({force:true});
+  await expect(page.locator('.halloween-scare')).toBeHidden();
+  await page.clock.runFor(44000);
+  await expect(page.locator('.halloween-scare')).toBeHidden();
 });

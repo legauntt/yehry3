@@ -165,13 +165,7 @@
       }
     },
     {
-      "route": "/fearhunger/fearhunger.js",
-      "headers": {
-        "Cache-Control": "no-cache"
-      }
-    },
-    {
-      "route": "/fearhunger/fearhunger.css",
+      "route": "/fearhunger/fearhunger*",
       "headers": {
         "Cache-Control": "no-cache"
       }
@@ -188,13 +182,7 @@
       }
     },
     {
-      "route": "/wiseau/wiseau.js",
-      "headers": {
-        "Cache-Control": "no-cache"
-      }
-    },
-    {
-      "route": "/wiseau/wiseau.css",
+      "route": "/wiseau/wiseau*",
       "headers": {
         "Cache-Control": "no-cache"
       }
