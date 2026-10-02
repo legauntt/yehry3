@@ -374,7 +374,7 @@ for (const request of [
       ].includes(field),
       `Unexpected public field: ${field}`,
     );
-  assert.match(request.voiceModel, /^v[1-9][0-9]*$/);
+  assert.match(request.voiceModel, /^(?:v[1-9][0-9]*|vdb)$/);
   if (request.repairedAt !== undefined) {
     assert.match(request.repairedAt, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
     assert.ok(Number.isFinite(Date.parse(request.repairedAt)));
@@ -407,7 +407,7 @@ for (const request of [
   assert.equal(typeof request.originalPrompt.idea, "string");
   assert.equal(typeof request.originalPrompt.direction, "string");
   assert.equal(typeof request.originalPrompt.keep, "string");
-  assert.match(request.originalPrompt.voiceModel, /^v[1-9][0-9]*$/);
+  assert.match(request.originalPrompt.voiceModel, /^(?:v[1-9][0-9]*|vdb)$/);
   assert.ok(
     Array.isArray(request.originalPrompt.basisSongs) &&
       request.originalPrompt.basisSongs.length <= 5,
