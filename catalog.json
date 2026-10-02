@@ -2,6 +2,377 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-20174d336717fef213d9d9d8",
+      "title": "Nobody Is Worried",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20174d336717fef213d9d9d8-22caa872c84f.mp3",
+      "duration": 250.07020408163265,
+      "collection": "distonyc",
+      "voiceModel": "vdb",
+      "publishedAt": "2026-10-02T07:05:29.888Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Nobody Is Worried",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Spooky gothic tech-rock at 126 BPM: distorted electric guitars, pulsing synth bass, live drums, low piano, and sparse ominous pads. A clear, steadily pitched Tony lead carries melodic verses and a catchable chorus, with natural connected phrasing but no vocal effects or backing stacks. Build from restrained verse tension to a larger final chorus; pace the final sustained “lines” around 8–12 seconds before the 250-second ending, then resolve on one decaying D minor chord.",
+        "lyrics": "[Verse 1]\nAt nine o'clock the office wakes\nBlue light dripping through the blinds\nTony drags a fresh-made feature\nFrom the place where good sense hides\nThe dashboard blooms with buttons\nFor a thing nobody needs\nEvery ticket says “urgent”\nEvery merge request feeds\n\n[Pre-Chorus]\nA little green checkmark flickers\nLike a lantern in the rain\n\n[Chorus]\nNobody is worried, nobody sees\nThe little black factory growing through the trees\nSlop it, ship it, stack it high\nAnother thousand reasons why\nNobody is worried, nobody minds\nWhile the maintenance map goes blind\n\n[Verse 2]\nOn top of wages, extra tens\nOf thousands tumble through the gate\nFor faster ways to manufacture\nComplicated little fate\nThe product team keeps asking\nFor a switch beside a switch\nThe users never wanted it\nBut somebody sold the pitch\n\n[Pre-Chorus]\nThe commit log sings in midnight\nWith a thousand borrowed names\n\n[Chorus]\nNobody is worried, nobody sees\nThe little black factory growing through the trees\nSlop it, ship it, stack it high\nAnother thousand reasons why\nNobody is worried, nobody minds\nWhile the maintenance map goes blind\n\n[Bridge]\nHow do you fix a hallway\nWhen every door leads back inside?\nHow do you name the monster\nWhen the monster writes the guide?\nAt whatever rate the oracle\nNames for its Astra light\nThe factory keeps on breathing\nAnd it bills us through the night\n\n[Verse 3]\nA junior opens one small file\nAnd hears the whole machine exhale\nThere are hooks beneath the comments\nThere are branches in the veil\nTo change one harmless color\nTakes a council and a rite\nOr you join the slop factory\nAnd you learn to feed the night\n\n[Chorus]\nNobody is worried, say it low\nAs the feature flags begin to grow\nSlop it, ship it, make it gleam\nBuild another unwanted dream\nNobody is worried, but the floor\nHas swallowed every exit door\nTony leaves one final line\n“Looks good to me”—the lights decline\n\n[Outro]\nNobody is worried... nobody minds...\nThe factory hums beneath the lines\nSlawp it\n[End]",
+        "duration": 250,
+        "bpm": 126,
+        "musicalSettings": {
+          "genre": "Spooky gothic tech-rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, Verse 3, final chorus, short resolved outro",
+          "performance": "Clear melodic lead with natural connected phrasing and steadily pitched delivery",
+          "energy": "Uneasy restrained opening, rising mechanical drive, then a full final-chorus release and resolved close",
+          "lyricWorkflow": "Original narrative lyrics with dark workplace satire, concrete software imagery, and a recurring refrain",
+          "instruments": [
+            "distorted electric guitars",
+            "synth bass",
+            "live drum kit",
+            "piano",
+            "ominous synth pads"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nAt nine o'clock the office wakes\nBlue light dripping through the blinds\nTony drags a fresh-made feature\nFrom the place where good sense hides\nThe dashboard blooms with buttons\nFor a thing nobody needs\nEvery ticket says “urgent”\nEvery merge request feeds\n\n[Pre-Chorus]\nA little green checkmark flickers\nLike a lantern in the rain\n\n[Chorus]\nNobody is worried, nobody sees\nThe little black factory growing through the trees\nSlop it, ship it, stack it high\nAnother thousand reasons why\nNobody is worried, nobody minds\nWhile the maintenance map goes blind\n\n[Verse 2]\nOn top of wages, extra tens\nOf thousands tumble through the gate\nFor faster ways to manufacture\nComplicated little fate\nThe product team keeps asking\nFor a switch beside a switch\nThe users never wanted it\nBut somebody sold the pitch\n\n[Pre-Chorus]\nThe commit log sings in midnight\nWith a thousand borrowed names\n\n[Chorus]\nNobody is worried, nobody sees\nThe little black factory growing through the trees\nSlop it, ship it, stack it high\nAnother thousand reasons why\nNobody is worried, nobody minds\nWhile the maintenance map goes blind\n\n[Bridge]\nHow do you fix a hallway\nWhen every door leads back inside?\nHow do you name the monster\nWhen the monster writes the guide?\nAt whatever rate the oracle\nNames for its Astra light\nThe factory keeps on breathing\nAnd it bills us through the night\n\n[Verse 3]\nA junior opens one small file\nAnd hears the whole machine exhale\nThere are hooks beneath the comments\nThere are branches in the veil\nTo change one harmless color\nTakes a council and a rite\nOr you join the slop factory\nAnd you learn to feed the night\n\n[Chorus]\nNobody is worried, say it low\nAs the feature flags begin to grow\nSlop it, ship it, make it gleam\nBuild another unwanted dream\nNobody is worried, but the floor\nHas swallowed every exit door\nTony leaves one final line\n“Looks good to me”—the lights decline\n\n[Outro]\nNobody is worried... nobody minds...\nThe factory hums beneath the lines\nSlawp it",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.28,
+            "end": 6.62
+          },
+          {
+            "line": 2,
+            "start": 7.24,
+            "end": 10.08
+          },
+          {
+            "line": 3,
+            "start": 11.7,
+            "end": 14.56
+          },
+          {
+            "line": 4,
+            "start": 14.56,
+            "end": 17.24
+          },
+          {
+            "line": 5,
+            "start": 19.2,
+            "end": 21.34
+          },
+          {
+            "line": 6,
+            "start": 21.34,
+            "end": 24.42
+          },
+          {
+            "line": 7,
+            "start": 26.12,
+            "end": 28.94
+          },
+          {
+            "line": 8,
+            "start": 29.5,
+            "end": 32.16
+          },
+          {
+            "line": 11,
+            "start": 33.94,
+            "end": 37.56
+          },
+          {
+            "line": 12,
+            "start": 37.56,
+            "end": 40.88
+          },
+          {
+            "line": 15,
+            "start": 44.02,
+            "end": 47.62
+          },
+          {
+            "line": 16,
+            "start": 47.62,
+            "end": 51.7
+          },
+          {
+            "line": 17,
+            "start": 51.7,
+            "end": 55.26
+          },
+          {
+            "line": 18,
+            "start": 55.26,
+            "end": 58.32
+          },
+          {
+            "line": 19,
+            "start": 58.32,
+            "end": 63.22
+          },
+          {
+            "line": 20,
+            "start": 63.22,
+            "end": 66.1
+          },
+          {
+            "line": 23,
+            "start": 66.1,
+            "end": 72.24
+          },
+          {
+            "line": 24,
+            "start": 72.24,
+            "end": 75.12
+          },
+          {
+            "line": 25,
+            "start": 75.12,
+            "end": 78.54
+          },
+          {
+            "line": 26,
+            "start": 80.1,
+            "end": 82.72
+          },
+          {
+            "line": 27,
+            "start": 84.05,
+            "end": 87.3
+          },
+          {
+            "line": 28,
+            "start": 87.3,
+            "end": 90.24
+          },
+          {
+            "line": 29,
+            "start": 90.71,
+            "end": 93.38
+          },
+          {
+            "line": 30,
+            "start": 93.38,
+            "end": 96.42
+          },
+          {
+            "line": 33,
+            "start": 96.91,
+            "end": 100.46
+          },
+          {
+            "line": 34,
+            "start": 100.46,
+            "end": 104.36
+          },
+          {
+            "line": 37,
+            "start": 104.36,
+            "end": 110.52
+          },
+          {
+            "line": 38,
+            "start": 110.96,
+            "end": 114.74
+          },
+          {
+            "line": 39,
+            "start": 114.74,
+            "end": 118.18
+          },
+          {
+            "line": 40,
+            "start": 118.18,
+            "end": 121.08
+          },
+          {
+            "line": 41,
+            "start": 121.08,
+            "end": 126.06
+          },
+          {
+            "line": 42,
+            "start": 126.06,
+            "end": 128.96
+          },
+          {
+            "line": 45,
+            "start": 134.01,
+            "end": 136.28
+          },
+          {
+            "line": 46,
+            "start": 136.28,
+            "end": 139.62
+          },
+          {
+            "line": 47,
+            "start": 141.72,
+            "end": 144.08
+          },
+          {
+            "line": 48,
+            "start": 144.08,
+            "end": 147.96
+          },
+          {
+            "line": 49,
+            "start": 149.56,
+            "end": 152
+          },
+          {
+            "line": 50,
+            "start": 152,
+            "end": 154.5
+          },
+          {
+            "line": 51,
+            "start": 156.06,
+            "end": 159.2
+          },
+          {
+            "line": 52,
+            "start": 160.54,
+            "end": 163.08
+          },
+          {
+            "line": 55,
+            "start": 164.04,
+            "end": 167.12
+          },
+          {
+            "line": 56,
+            "start": 167.76,
+            "end": 170.88
+          },
+          {
+            "line": 57,
+            "start": 172,
+            "end": 174.6
+          },
+          {
+            "line": 58,
+            "start": 175.54,
+            "end": 178.48
+          },
+          {
+            "line": 59,
+            "start": 178.48,
+            "end": 182.26
+          },
+          {
+            "line": 60,
+            "start": 183.1,
+            "end": 185.98
+          },
+          {
+            "line": 61,
+            "start": 186.62,
+            "end": 189.06
+          },
+          {
+            "line": 62,
+            "start": 190.7,
+            "end": 193.56
+          },
+          {
+            "line": 65,
+            "start": 196.58,
+            "end": 199.98
+          },
+          {
+            "line": 66,
+            "start": 200.58,
+            "end": 203.82
+          },
+          {
+            "line": 67,
+            "start": 203.82,
+            "end": 207.16
+          },
+          {
+            "line": 68,
+            "start": 207.16,
+            "end": 210.58
+          },
+          {
+            "line": 69,
+            "start": 212.16,
+            "end": 215.3
+          },
+          {
+            "line": 70,
+            "start": 215.3,
+            "end": 219.14
+          },
+          {
+            "line": 71,
+            "start": 221.08,
+            "end": 224.02
+          },
+          {
+            "line": 72,
+            "start": 224.88,
+            "end": 227.3
+          },
+          {
+            "line": 75,
+            "start": 227.3,
+            "end": 232.62
+          },
+          {
+            "line": 76,
+            "start": 232.62,
+            "end": 236.64
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "guide": {
+        "sha256": "91d5979c53c26116bbdac5bad44f51cf4e18f3b14de5038d8d13dbb047159f30",
+        "bytes": 6001729,
+        "duration": 250.070167,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20174d336717fef213d9d9d8-91d5979c53c2.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Spooky original song about how Tony C is just slopping out slop code for additional tens of thousands of dollars at his tech job on top of his salary, to rapidly add features that nobody asked for or wants, creating a codebase that nobody can possibly maintain without participating in the slop factory at whatever rate Sam Altman is charging for ChatGPT Astra 6. Nobody is worried about this situation at all.",
+        "direction": "Use the prompt as written.",
+        "keep": "slawp it",
+        "basisSongs": [],
+        "voiceModel": "vdb",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 250
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-0abed287ed9acb8635c08d90",
       "title": "Wanna Fuck",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0abed287ed9acb8635c08d90-e77a24ba05d1.mp3",
