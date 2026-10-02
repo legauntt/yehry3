@@ -1,0 +1,28 @@
+.halloween-scene { position: fixed; inset: 0; pointer-events: none; z-index: 12; overflow: hidden; }
+.halloween-scene[hidden], .halloween-witch[hidden] { display: none; }
+.halloween-web { position: absolute; width: clamp(60px, 10vw, 135px); color: #9686ad; opacity: .48; }
+.web-left { top: 0; left: 0; }
+.web-right { top: 0; right: 0; transform: scaleX(-1); }
+.halloween-spider { position: absolute; top: 105px; right: 20px; font-size: 27px; transform-origin: top; }
+.halloween-spider::before { content: ''; position: absolute; bottom: 85%; left: 50%; height: 110px; border-left: 1px solid #9686ad; }
+.halloween-bat { position: absolute; font-size: 30px; }
+.bat-one { top: 22%; left: 8px; }
+.bat-two { top: 48%; right: 8px; font-size: 23px; }
+.halloween-pumpkin { position: absolute; bottom: 104px; left: 12px; font-size: 34px; }
+.halloween-skeleton { position: absolute; bottom: 110px; right: 14px; font-size: 25px; line-height: .9; text-align: center; }
+.halloween-witch { position: absolute; font-size: 25px; white-space: nowrap; transition: left .3s ease-out, top .3s ease-out; filter: drop-shadow(0 3px 4px #38214a55); }
+.is-idle .halloween-bat { animation: halloween-flutter 4s ease-in-out infinite; }
+.is-idle .bat-two { animation-delay: -2s; }
+.is-idle .halloween-spider { animation: halloween-dangle 6s ease-in-out infinite; }
+.is-idle .halloween-skeleton { animation: halloween-rattle 3s ease-in-out infinite; }
+.is-idle .halloween-pumpkin { animation: halloween-glow 4s ease-in-out infinite; }
+.pitch-season-choice { display: flex; align-items: center; gap: .65rem; }
+.pitch-season-choice select { flex: 1; min-width: 0; }
+.pitch-pumpkin { font-size: 1.6rem; }
+@keyframes halloween-flutter { 50% { transform: translate(10px, -18px) rotate(12deg); } }
+@keyframes halloween-dangle { 50% { transform: translateY(35px) rotate(8deg); } }
+@keyframes halloween-rattle { 50% { transform: rotate(-12deg); } }
+@keyframes halloween-glow { 50% { filter: drop-shadow(0 0 12px #ed8c28); } }
+@media (max-width: 600px) { .halloween-bat, .halloween-skeleton { display: none; } .halloween-spider { top: 64px; right: 5px; font-size: 20px; } .halloween-pumpkin { left: 3px; font-size: 24px; opacity: .7; } }
+@media (prefers-reduced-motion: reduce) { .halloween-scene * { animation: none !important; transition: none !important; } .halloween-witch { display: none; } }
+@media print { .halloween-scene, .pitch-pumpkin { display: none; } }

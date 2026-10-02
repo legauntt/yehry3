@@ -1,12 +1,13 @@
 // Tony's voice follows the pitch tracked from a guide singer. This chooses how far that track is
 // tidied before he sings it; melody, key and timing never change. The choice is remembered per browser.
+import { halloweenSeason } from './season.js';
 const rememberKey = 'yehry3:pitch-repair-v1';
 export const pitchModes = {
   clean: ['Clean', 'Steadiest. Octave slips in the guide singer’s pitch are fixed before Tony sings, so far fewer cracks.'],
   haunted: ['Haunted', 'Only the briefest slips are fixed. Most of the possessed moments stay.'],
   wild: ['Wild', 'Untouched. Every crack, yelp and octave drop stays in.'],
 };
-export const defaultPitch = 'clean';
+export const defaultPitch = halloweenSeason() ? 'haunted' : 'clean';
 const known = (value) => Object.hasOwn(pitchModes, value) ? value : null;
 export const rememberedPitch = () => { try { return known(localStorage.getItem(rememberKey)); } catch { return null; } };
 const remember = (value) => { try { localStorage.setItem(rememberKey, value); } catch { /* The request still carries the choice. */ } };
@@ -17,7 +18,7 @@ const modeOptions = (schema) => schema.choices.pitchRepair.filter(known).sort((a
 export function pitchControl(schema) {
   if (!schema.choices?.pitchRepair) return '';
   return `<div class="pitch-repair"><label for="gen-pitchRepair">Tony’s pitch</label>
-    <select id="gen-pitchRepair" data-generation="pitchRepair" aria-describedby="pitch-repair-hint">${modeOptions(schema)}</select>
+    <div class="pitch-season-choice"><select id="gen-pitchRepair" data-generation="pitchRepair" aria-describedby="pitch-repair-hint">${modeOptions(schema)}</select>${halloweenSeason() ? '<span class="pitch-pumpkin" aria-hidden="true">🎃</span>' : ''}</div>
     <p class="small" id="pitch-repair-hint" aria-live="polite"></p><p class="small" id="pitch-repair-off" hidden>Pitch applies to V8 song generation. Turn it on in Advanced to choose.</p></div>`;
 }
 

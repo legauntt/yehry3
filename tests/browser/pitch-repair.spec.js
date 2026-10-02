@@ -4,6 +4,8 @@ import { randomUUID } from 'node:crypto';
 // Needs the V8 dev-API flags (YEHRY3_GENERATION_V8, YEHRY3_VOICE_V8, YEHRY3_WORKER_TOKEN, YEHRY3_TEST_ADMIN_PASSWORD).
 test("Tony's pitch starts Clean, reaches the worker as chosen, and is remembered for the next request", async ({ page }) => {
   test.setTimeout(90000);
+  // Ordinary defaults outside the temporary Halloween window.
+  await page.clock.install({ time: new Date('2026-09-15T12:00:00Z') });
   const errors = []; page.on('pageerror', (error) => errors.push(error.message));
   const base = 'http://127.0.0.1:3000/yehry3';
   const headers = { Authorization: 'Bearer v8-local-test-worker-token-only-1234567890', 'X-Worker-ID': randomUUID(), 'Content-Type': 'application/json' };

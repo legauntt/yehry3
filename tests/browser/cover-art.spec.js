@@ -17,7 +17,8 @@ test("Dashboard keeps saved covers, retires clip art and Redraw, and fits a phon
   await expect(page.locator('[data-id="new-song-no-cover"] .track-art-pending')).toBeVisible();
   await expect(page.locator('#tracks img[src^="data:image/svg"]')).toHaveCount(0);
   await openSongMenu(row);
-  await expect(row.locator("[data-pin]")).toBeVisible();
+  // Pinning is now an admin action; public listeners do not see this control.
+  await expect(row.locator("[data-pin]")).toHaveCount(0);
   await expect(page.getByRole("button", { name: /redraw/i })).toHaveCount(0);
   await expect(page.locator("[data-art]")).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);

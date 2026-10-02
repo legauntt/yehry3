@@ -39,6 +39,11 @@ test("publishing songs, lyrics and clips leaves the code version alone; code cha
     "index.html": "<html></html>",
     "assets/app.js": "export const a = 1;\n",
     "assets/site.css": "body{}",
+    "assets/artwork-catalog.js": "export default {};",
+    "assets/artwork-previews.js": "export default {};",
+    "assets/guide-catalog.js": "export default {};",
+    "assets/song-videos.js": "export default {};",
+    "assets/artwork/old.svg": "<svg/>",
     "staticwebapp.config.json": '{"routes":[]}',
     "catalog.json": '{"songs":[]}',
     "basis-songs.json": "[]",
@@ -51,6 +56,11 @@ test("publishing songs, lyrics and clips leaves the code version alone; code cha
   assert.match(before, /^[0-9a-f]{16}$/);
   const data = await codeVersion(await tree({
     ...base,
+    "assets/artwork-catalog.js": "export default {newSong:{src:'/cover.webp'}};",
+    "assets/artwork-previews.js": "export default {newSong:{width:512}};",
+    "assets/guide-catalog.js": "export default {newSong:{url:'/guide.mp3'}};",
+    "assets/song-videos.js": "export default {newSong:{src:'/video.mp4'}};",
+    "assets/artwork/new.svg": "<svg><path/></svg>",
     "catalog.json": '{"songs":[{"id":"x","lyrics":{"text":"new words"}}]}',
     "basis-songs.json": '["x"]',
     "wiseau/clips.json": '{"clips":[{"id":"bbbbbbbb"}]}',
