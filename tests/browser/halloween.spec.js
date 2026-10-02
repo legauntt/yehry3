@@ -1,4 +1,15 @@
 import { test, expect } from '@playwright/test';
+import { readFile } from 'node:fs/promises';
+
+const hosting = JSON.parse(await readFile(new URL('../../staticwebapp.config.json', import.meta.url), 'utf8'));
+test.beforeEach(async ({ context }) => {
+  // The preview server does not send Azure's CSP; use it in browser checks too.
+  await context.route('**/*', async route => {
+    if (route.request().resourceType() !== 'document') return route.continue();
+    const response = await route.fetch();
+    await route.fulfill({response, headers: {...response.headers(), 'content-security-policy': hosting.globalHeaders['Content-Security-Policy']}});
+  });
+});
 
 test.use({ hasTouch: true });
 

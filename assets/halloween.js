@@ -18,15 +18,16 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
       return `${i ? 'L' : 'M'}${point(angle, r * scale)}Q${point(angle + Math.PI / 10, r * scale * .86)} ${point(angle + Math.PI / 5, r * scale)}`;
     }).join('') + 'Z').join('');
     const route = `M${x} ${y}L${point(0,r)}L${point(Math.PI / 5,r)}L${x} ${y}L${point(Math.PI * .8,r)}L${point(Math.PI,r)}L${x} ${y}`;
-    return `<g class="halloween-woven-web" style="--weave-delay:${index * 5}s"><path class="web-thread" pathLength="1" d="${spokes}${rings}"/><g class="halloween-weaver"><ellipse rx="5" ry="7"/><path d="M-4 -4L-11 -9M-5 0L-13 -2M-5 4L-12 9M4 -4L11 -9M5 0L13 -2M5 4L12 9"/><animateMotion dur="25s" begin="indefinite" fill="freeze" path="${route}"/></g></g>`;
+    return `<g class="halloween-woven-web"><path class="web-thread" pathLength="1" d="${spokes}${rings}"/><g class="halloween-weaver"><ellipse rx="5" ry="7"/><path d="M-4 -4L-11 -9M-5 0L-13 -2M-5 4L-12 9M4 -4L11 -9M5 0L13 -2M5 4L12 9"/><animateMotion dur="25s" begin="indefinite" fill="freeze" path="${route}"/></g></g>`;
   }).join('');
   scene.innerHTML = `<div class="halloween-web web-left">${web}</div><div class="halloween-web web-right">${web}</div><span class="halloween-spider">🕷️</span><svg class="halloween-weaving" viewBox="0 0 1000 700" preserveAspectRatio="none">${woven}</svg>
-    <div class="halloween-flock" hidden>${Array.from({length:24}, (_, i) => `<span class="halloween-swarm-bat" style="--bat-size:${(14 + (i * 7 % 15)) / 6}px;--wing-speed:${.16 + (i % 7) * .015}s;--wing-delay:${-i * .037}s">${bat}</span>`).join('')}</div>
+    <div class="halloween-flock" hidden>${Array.from({length:24}, () => `<span class="halloween-swarm-bat">${bat}</span>`).join('')}</div>
     <div class="halloween-pass" hidden></div>
     <div class="halloween-scare" hidden><svg class="halloween-lightning" viewBox="0 0 1000 800" preserveAspectRatio="none"><path d="M220 0L160 230L270 205L110 530L190 300L90 330L220 0ZM810 0L700 270L820 240L680 650L750 350L640 380L810 0Z"/></svg>
       <div class="halloween-laugh"><svg class="halloween-face" viewBox="0 0 400 380"><path fill="#598031" d="M184 73Q176 30 211 12L232 30Q202 41 215 77Z"/><path fill="#e96b0c" stroke="#ffad32" stroke-width="5" d="M200 73C74 29 10 120 26 232C37 333 112 371 200 344C288 371 363 333 374 232C390 120 326 29 200 73Z"/><path fill="none" stroke="#a83c09" stroke-width="6" d="M157 80Q82 198 155 341M243 80Q318 198 245 341M200 85V339"/><g fill="#fff09a" stroke="#4e1709" stroke-width="7" stroke-linejoin="round"><path d="M81 176L145 126L161 191Z M319 176L255 126L239 191Z M200 184L180 219H220Z"/><path class="halloween-mouth" d="M78 238L116 254L135 236L157 266L183 252L200 275L218 252L244 266L266 236L285 254L322 238Q295 329 200 326Q105 329 78 238Z"/></g></svg><span class="halloween-ha ha-left">HA!</span><span class="halloween-ha ha-right">HA HA!</span></div>
       <span class="halloween-dismiss">Move your mouse or tap to escape</span></div>`;
   document.body.append(scene);
+  scene.querySelectorAll('.halloween-woven-web').forEach((node, index) => node.style.setProperty('--weave-delay', `${index * 5}s`));
   const flock = scene.querySelector('.halloween-flock');
   const pass = scene.querySelector('.halloween-pass');
   const scare = scene.querySelector('.halloween-scare');
@@ -39,6 +40,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     bats.forEach((node, i) => {
       node.style.setProperty('--bat-size', `${(14 + (i * 7 % 15)) / 6 * preferences.size}px`);
       node.style.setProperty('--wing-speed', `${(.16 + (i % 7) * .015) / preferences.speed}s`);
+      node.style.setProperty('--wing-delay', `${-i * .037}s`);
     });
   };
   applyPreferences();
