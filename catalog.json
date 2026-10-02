@@ -2,6 +2,386 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-d1c225ef1a26c1be0dcdf92a",
+      "title": "Nobody Is Worried (Spooky Tragic Aria)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d1c225ef1a26c1be0dcdf92a-42f524ac6212.mp3",
+      "duration": 270.08,
+      "collection": "distonyc",
+      "voiceModel": "vdb",
+      "remixOf": {
+        "songId": "distonyc-20174d336717fef213d9d9d8",
+        "title": "Nobody Is Worried",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20174d336717fef213d9d9d8-22caa872c84f.mp3"
+      },
+      "publishedAt": "2026-10-02T07:31:58.843Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Nobody Is Worried (Spooky Tragic Aria)",
+        "recipe": "reinterpretation",
+        "style": "opera",
+        "keyscale": "D minor",
+        "arrangement": "Spooky tragic opera in D minor: low strings and contrabassoon shadow the opening, with grave piano, timpani, tolling tubular bells, and a restrained mixed chorus answering only at key climaxes. A single clear, steadily pitched Tony VDB lead carries long tragic aria lines, preserving the recognizable “Nobody is worried” hook in a newly composed melody and phrasing. Escalate from intimate office dread to full orchestral alarm at the bridge, then pull back for the final chorus; pace the final sustained “Slawp it” to land 8–12 seconds before 4:30, followed by one resolved dark-major final chord and natural decay.",
+        "lyrics": "[Verse 1]\nAt nine o'clock the office wakes\nBlue light dripping through the blinds\nTony drags a fresh-made feature\nFrom the place where good sense hides\nThe dashboard blooms with buttons\nFor a thing nobody needs\nEvery ticket says “urgent”\nEvery merge request feeds\n\n[Pre-Chorus]\nA little green checkmark flickers\nLike a lantern in the rain\n\n[Chorus]\nNobody is worried, nobody sees\nThe little black factory growing through the trees\nSlop it, ship it, stack it high\nAnother thousand reasons why\nNobody is worried, nobody minds\nWhile the maintenance map goes blind\n\n[Verse 2]\nOn top of wages, extra tens\nOf thousands tumble through the gate\nFor faster ways to manufacture\nComplicated little fate\nThe product team keeps asking\nFor a switch beside a switch\nThe users never wanted it\nBut somebody sold the pitch\n\n[Pre-Chorus]\nThe commit log sings in midnight\nWith a thousand borrowed names\n\n[Chorus]\nNobody is worried, nobody sees\nThe little black factory growing through the trees\nSlop it, ship it, stack it high\nAnother thousand reasons why\nNobody is worried, nobody minds\nWhile the maintenance map goes blind\nProbably fine\n\n[Bridge]\nHow do you fix a hallway\nWhen every door leads back inside?\nHow do you name the monster\nWhen the monster writes the guide?\nAt whatever rate Sam Altman\nNames for its Astra 6\nThe factory keeps on breathing\nAnd it bills us through the night\n\n[Verse 3]\nA junior opens one small file\nAnd hears the whole machine exhale\nThere are hooks beneath the comments\nThere are branches in the veil\nTo change one harmless color\nTakes a council and a rite\nOr you join the slop factory\nAnd you learn to feed the night\n\n[Chorus]\nNobody is worried, say it low\nAs the feature flags begin to grow\nSlop it, ship it, make it gleam\nBuild another unwanted dream\nNobody is worried, but the floor\nHas swallowed every exit door\nTony leaves one final line\n“Probably fine”\n\n[Outro]\nNobody is worried... nobody minds...\nThe factory hums beneath the lines\nSlawp it\n[End]",
+        "duration": 270,
+        "bpm": 76,
+        "musicalSettings": {
+          "genre": "Spooky tragic aria with gothic orchestral drama",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, Verse 3, final chorus, outro",
+          "performance": "One clear, steadily pitched dramatic lead with restrained choral responses",
+          "energy": "Quiet unease grows into a severe orchestral peak, then resolves in a hushed final cadence",
+          "lyricWorkflow": "Preserved supplied lyrics in their original order",
+          "instruments": [
+            "piano",
+            "low strings",
+            "violins",
+            "contrabassoon",
+            "timpani",
+            "tubular bells",
+            "mixed chorus"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nAt nine o'clock the office wakes\nBlue light dripping through the blinds\nTony drags a fresh-made feature\nFrom the place where good sense hides\nThe dashboard blooms with buttons\nFor a thing nobody needs\nEvery ticket says “urgent”\nEvery merge request feeds\n\n[Pre-Chorus]\nA little green checkmark flickers\nLike a lantern in the rain\n\n[Chorus]\nNobody is worried, nobody sees\nThe little black factory growing through the trees\nSlop it, ship it, stack it high\nAnother thousand reasons why\nNobody is worried, nobody minds\nWhile the maintenance map goes blind\n\n[Verse 2]\nOn top of wages, extra tens\nOf thousands tumble through the gate\nFor faster ways to manufacture\nComplicated little fate\nThe product team keeps asking\nFor a switch beside a switch\nThe users never wanted it\nBut somebody sold the pitch\n\n[Pre-Chorus]\nThe commit log sings in midnight\nWith a thousand borrowed names\n\n[Chorus]\nNobody is worried, nobody sees\nThe little black factory growing through the trees\nSlop it, ship it, stack it high\nAnother thousand reasons why\nNobody is worried, nobody minds\nWhile the maintenance map goes blind\nProbably fine\n\n[Bridge]\nHow do you fix a hallway\nWhen every door leads back inside?\nHow do you name the monster\nWhen the monster writes the guide?\nAt whatever rate Sam Altman\nNames for its Astra 6\nThe factory keeps on breathing\nAnd it bills us through the night\n\n[Verse 3]\nA junior opens one small file\nAnd hears the whole machine exhale\nThere are hooks beneath the comments\nThere are branches in the veil\nTo change one harmless color\nTakes a council and a rite\nOr you join the slop factory\nAnd you learn to feed the night\n\n[Chorus]\nNobody is worried, say it low\nAs the feature flags begin to grow\nSlop it, ship it, make it gleam\nBuild another unwanted dream\nNobody is worried, but the floor\nHas swallowed every exit door\nTony leaves one final line\n“Probably fine”\n\n[Outro]\nNobody is worried... nobody minds...\nThe factory hums beneath the lines\nSlawp it",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 9.36,
+            "end": 11.9
+          },
+          {
+            "line": 2,
+            "start": 11.9,
+            "end": 16.08
+          },
+          {
+            "line": 3,
+            "start": 16.18,
+            "end": 19.04
+          },
+          {
+            "line": 4,
+            "start": 19.04,
+            "end": 22.16
+          },
+          {
+            "line": 5,
+            "start": 23.12,
+            "end": 25.5
+          },
+          {
+            "line": 6,
+            "start": 25.5,
+            "end": 28.46
+          },
+          {
+            "line": 7,
+            "start": 28.46,
+            "end": 32.04
+          },
+          {
+            "line": 8,
+            "start": 32.52,
+            "end": 35.04
+          },
+          {
+            "line": 11,
+            "start": 35.04,
+            "end": 39.22
+          },
+          {
+            "line": 12,
+            "start": 39.22,
+            "end": 44.04
+          },
+          {
+            "line": 15,
+            "start": 46.94,
+            "end": 51.14
+          },
+          {
+            "line": 16,
+            "start": 51.14,
+            "end": 54.94
+          },
+          {
+            "line": 17,
+            "start": 54.94,
+            "end": 58.2
+          },
+          {
+            "line": 18,
+            "start": 58.2,
+            "end": 61.68
+          },
+          {
+            "line": 19,
+            "start": 61.68,
+            "end": 67.78
+          },
+          {
+            "line": 20,
+            "start": 67.78,
+            "end": 72.1
+          },
+          {
+            "line": 23,
+            "start": 75.3,
+            "end": 78.6
+          },
+          {
+            "line": 24,
+            "start": 78.6,
+            "end": 81.74
+          },
+          {
+            "line": 25,
+            "start": 81.74,
+            "end": 85.42
+          },
+          {
+            "line": 26,
+            "start": 85.42,
+            "end": 88.36
+          },
+          {
+            "line": 27,
+            "start": 89.4,
+            "end": 91.76
+          },
+          {
+            "line": 28,
+            "start": 91.76,
+            "end": 94.72
+          },
+          {
+            "line": 29,
+            "start": 95.62,
+            "end": 98.8
+          },
+          {
+            "line": 30,
+            "start": 98.8,
+            "end": 103.36
+          },
+          {
+            "line": 33,
+            "start": 103.36,
+            "end": 108.72
+          },
+          {
+            "line": 34,
+            "start": 108.72,
+            "end": 112.66
+          },
+          {
+            "line": 37,
+            "start": 117,
+            "end": 120.58
+          },
+          {
+            "line": 38,
+            "start": 120.58,
+            "end": 124.3
+          },
+          {
+            "line": 39,
+            "start": 124.3,
+            "end": 127.88
+          },
+          {
+            "line": 40,
+            "start": 127.88,
+            "end": 131.16
+          },
+          {
+            "line": 41,
+            "start": 131.16,
+            "end": 136.88
+          },
+          {
+            "line": 42,
+            "start": 137.62,
+            "end": 140.18
+          },
+          {
+            "line": 43,
+            "start": 140.5,
+            "end": 141.94
+          },
+          {
+            "line": 46,
+            "start": 145.4,
+            "end": 149.96
+          },
+          {
+            "line": 47,
+            "start": 151.32,
+            "end": 154.42
+          },
+          {
+            "line": 48,
+            "start": 155.94,
+            "end": 159.4
+          },
+          {
+            "line": 49,
+            "start": 159.98,
+            "end": 162.9
+          },
+          {
+            "line": 51,
+            "start": 165.32,
+            "end": 169.16
+          },
+          {
+            "line": 52,
+            "start": 169.8,
+            "end": 172.3
+          },
+          {
+            "line": 53,
+            "start": 172.38,
+            "end": 176.52
+          },
+          {
+            "line": 56,
+            "start": 180.91,
+            "end": 185.92
+          },
+          {
+            "line": 57,
+            "start": 186.78,
+            "end": 190.7
+          },
+          {
+            "line": 58,
+            "start": 191.52,
+            "end": 194.92
+          },
+          {
+            "line": 59,
+            "start": 195.46,
+            "end": 198.26
+          },
+          {
+            "line": 60,
+            "start": 198.66,
+            "end": 202.88
+          },
+          {
+            "line": 61,
+            "start": 203.12,
+            "end": 206.2
+          },
+          {
+            "line": 62,
+            "start": 206.2,
+            "end": 209.56
+          },
+          {
+            "line": 63,
+            "start": 209.56,
+            "end": 213.42
+          },
+          {
+            "line": 66,
+            "start": 216.66,
+            "end": 220.64
+          },
+          {
+            "line": 67,
+            "start": 220.64,
+            "end": 224.44
+          },
+          {
+            "line": 68,
+            "start": 225.08,
+            "end": 228.12
+          },
+          {
+            "line": 69,
+            "start": 228.78,
+            "end": 231.08
+          },
+          {
+            "line": 70,
+            "start": 231.6,
+            "end": 235.04
+          },
+          {
+            "line": 71,
+            "start": 235.04,
+            "end": 238.38
+          },
+          {
+            "line": 72,
+            "start": 239.28,
+            "end": 242.6
+          },
+          {
+            "line": 73,
+            "start": 242.6,
+            "end": 245.34
+          },
+          {
+            "line": 76,
+            "start": 248.68,
+            "end": 253.94
+          },
+          {
+            "line": 77,
+            "start": 253.94,
+            "end": 256.42
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "guide": {
+        "sha256": "c2367329a8ab7ad64741e46c50d268c1a4cceef96c2ed0153ca63f2bfa2048b8",
+        "bytes": 6481965,
+        "duration": 270.08,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d1c225ef1a26c1be0dcdf92a-c2367329a8ab.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “Nobody Is Worried”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Spooky original song about how Tony C is just slopping out slop code for additional tens of thousands of dollars at his tech job on top of his salary, to rapidly add features that nobody asked for or wants, creating a codebase that nobody can possibly maintain without participating in the slop factory at whatever rate Sam Altman is charging for ChatGPT Astra 6. Nobody is worried about this situation at all.\n\nOriginal sound: Use the prompt as written.",
+        "direction": "New mood and genre: Spooky tragic aria",
+        "keep": "Keep the recognizable hook and spirit of “Nobody Is Worried”.",
+        "basisSongs": [
+          "Nobody Is Worried"
+        ],
+        "voiceModel": "vdb",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 270,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-20174d336717fef213d9d9d8",
       "title": "Nobody Is Worried",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20174d336717fef213d9d9d8-22caa872c84f.mp3",
