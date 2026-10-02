@@ -375,8 +375,6 @@
     {
       "id": "distonyc-0abed287ed9acb8635c08d90",
       "title": "Wanna Fuck",
-      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0abed287ed9acb8635c08d90-e77a24ba05d1.mp3",
-      "duration": 69.04163265306123,
       "collection": "distonyc",
       "voiceModel": "vdb",
       "publishedAt": "2026-10-02T06:46:33.675Z",
@@ -406,6 +404,41 @@
           ]
         }
       },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "guide": {
+        "sha256": "f9b3c3dd293db8c50d98110e76dee3748818e929273b311dd87f2147d208f769",
+        "bytes": 1657044,
+        "duration": 69.041625,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0abed287ed9acb8635c08d90-f9b3c3dd293d.mp3"
+      },
+      "originalPrompt": {
+        "idea": "New original hit Taylor Swift single as covered by Tony C",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "vdb",
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 69,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      },
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0abed287ed9acb8635c08d90-93584167ae3f.mp3",
+      "duration": 69.04163265306123,
       "lyrics": {
         "text": "I wanna fuck\nI want to fuck\nI want to ffuucckk\nI want to *fuck*\nI want to **fuck**\nI want to ***FUCK***\nI WANT TO FUCK\nI WANNA FUCK\nI WANNA FFFFFFFUUUUUUUUUUUUCK",
         "kind": "written",
@@ -442,44 +475,11 @@
           }
         ]
       },
-      "collections": [
-        "distonyc"
-      ],
       "validationFailures": [
-        "vocal_activity",
-        "unconverted_vocals"
+        "vocal_activity"
       ],
       "reviewState": "needs_review",
-      "generationProfile": "v8",
-      "musicBackend": "eleven_music",
-      "guide": {
-        "sha256": "f9b3c3dd293db8c50d98110e76dee3748818e929273b311dd87f2147d208f769",
-        "bytes": 1657044,
-        "duration": 69.041625,
-        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0abed287ed9acb8635c08d90-f9b3c3dd293d.mp3"
-      },
-      "originalPrompt": {
-        "idea": "New original hit Taylor Swift single as covered by Tony C",
-        "direction": "Use the prompt as written.",
-        "keep": "Surprise me.",
-        "basisSongs": [],
-        "voiceModel": "vdb",
-        "musicBackend": "eleven_music",
-        "generation": {
-          "version": 1,
-          "candidates": 1,
-          "lyricWorkflow": "auto",
-          "performance": "natural",
-          "energy": "auto",
-          "variation": "balanced",
-          "reviewLyrics": false,
-          "vocalGainDb": 0,
-          "backingGainDb": 0,
-          "duration": 69,
-          "pitchRepair": "wild"
-        },
-        "generationProfile": "v8"
-      }
+      "pitchRepair": "wild"
     },
     {
       "id": "distonyc-3ce62fce4bc081402b7e6408",
