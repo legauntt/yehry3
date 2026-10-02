@@ -38,6 +38,8 @@ html[data-show-quality-issues="false"] .quality-notice {
 }
 
 .display-settings-dialog {
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
   width: min(440px, calc(100vw - 32px));
   padding: 28px;
   border: 1px solid var(--line);
@@ -98,6 +100,7 @@ html[data-show-quality-issues="false"] .quality-notice {
 
 .record-preferences legend { padding: 0 12px 0 0; font-weight: 700; }
 .record-preferences .quality-preference + .quality-preference { margin-top: 20px; }
+.bat-preferences input[type="range"] { width: 130px; flex: 0 0 130px; accent-color: var(--accent); }
 
 @media (prefers-reduced-motion: reduce) {
   .settings-button.has-new-preferences { animation: none; }

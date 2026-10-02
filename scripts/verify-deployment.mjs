@@ -284,6 +284,7 @@ for (const name of [
   "deployment.css",
   "deployment.js",
   "halloween.js",
+  "bat-preferences.js",
   "halloween.css",
   "season.js",
   "pitch-repair.js",

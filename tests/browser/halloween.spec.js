@@ -35,7 +35,9 @@ test('bats follow the cursor and idle flybys dismiss on activity', async ({ page
   await expect(page.locator('.halloween-scene')).toHaveCount(1);
   await page.mouse.move(300, 300);
   await expect(page.locator('.halloween-flock')).toBeVisible();
-  await expect(page.locator('.halloween-swarm-bat')).toHaveCount(100);
+  await expect(page.locator('.halloween-swarm-bat')).toHaveCount(24);
+  await expect(page.locator('.halloween-web')).toHaveCount(2);
+  await expect.poll(() => page.locator('.halloween-swarm-bat').first().evaluate(node => parseFloat(getComputedStyle(node).width))).toBeLessThan(5);
   await page.clock.runFor(300);
   expect(await page.locator('.halloween-flock .halloween-bat-shape').first().evaluate(node => getComputedStyle(node).fill)).toBe('rgb(0, 0, 0)');
   const positions = () => page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => node.style.transform));
@@ -43,13 +45,13 @@ test('bats follow the cursor and idle flybys dismiss on activity', async ({ page
   await page.mouse.move(950, 450, {steps:20});
   await page.clock.runFor(600);
   const after = await positions();
-  expect(new Set(after).size).toBe(100);
+  expect(new Set(after).size).toBe(24);
   expect(after[0]).not.toBe(before[0]);
-  expect(after[99]).not.toBe(before[99]);
+  expect(after[23]).not.toBe(before[23]);
   const sizes = await page.locator('.halloween-swarm-bat').evaluateAll(nodes =>
     nodes.map(node => parseFloat(getComputedStyle(node).width)));
-  expect(Math.min(...sizes)).toBeGreaterThan(4.5);
-  expect(Math.max(...sizes)).toBeLessThan(9.5);
+  expect(Math.min(...sizes)).toBeGreaterThan(2);
+  expect(Math.max(...sizes)).toBeLessThan(5);
   const wings = page.locator('.halloween-flock .bat-wing').first();
   expect(await wings.evaluate(node => getComputedStyle(node).animationName)).toBe('halloween-flap-left');
   const flap = await wings.evaluate(node => {
@@ -70,9 +72,9 @@ test('bats follow the cursor and idle flybys dismiss on activity', async ({ page
     });
     return Math.hypot(centers[1].x - centers[0].x, centers[1].y - centers[0].y);
   });
-  expect(gap).toBeGreaterThan(8);
+  expect(gap).toBeGreaterThan(20);
   await page.screenshot({path:'artifacts/halloween-bat-wave.png'});
-  await expect(page.locator('.halloween-web, .halloween-spider, .halloween-skeleton, .halloween-pumpkin, .halloween-bat')).toHaveCount(0);
+  await expect(page.locator('.halloween-skeleton, .halloween-pumpkin, .halloween-bat')).toHaveCount(0);
   await page.clock.runFor(8100);
   await expect(page.locator('.halloween-pass')).toBeVisible();
   await expect(page.locator('.halloween-witch')).toBeVisible();
@@ -118,4 +120,68 @@ test('pumpkin blackout laughs, dismisses immediately, and expires by itself', as
   await expect(page.locator('.halloween-scare')).toBeHidden();
   await page.clock.runFor(44000);
   await expect(page.locator('.halloween-scare')).toBeHidden();
+});
+
+test('idle spiders weave across the page and interactions restore corner webs', async ({ page }) => {
+  await october(page);
+  await page.goto('/queue/');
+  await expect(page.locator('.halloween-web')).toHaveCount(2);
+  await expect(page.locator('.halloween-weaver')).toHaveCount(3);
+  await expect(page.locator('.halloween-scene')).not.toHaveClass(/is-weaving/);
+  await page.clock.runFor(6500);
+  await expect(page.locator('.halloween-scene')).toHaveClass(/is-weaving/);
+  const thread = page.locator('.web-thread').first();
+  const progress = await thread.evaluate(node => {
+    const animation = node.getAnimations()[0];
+    animation.pause(); animation.currentTime = 12000;
+    return parseFloat(getComputedStyle(node).strokeDashoffset);
+  });
+  expect(progress).toBeLessThan(1);
+  expect(progress).toBeGreaterThan(0);
+  await page.screenshot({path:'artifacts/halloween-weaving.png'});
+  for (const interact of [() => page.mouse.move(500, 300), () => page.keyboard.press('Shift'), () => page.mouse.wheel(0,100), () => page.locator('body').tap({force:true})]) {
+    await interact();
+    await expect(page.locator('.halloween-scene')).not.toHaveClass(/is-weaving/);
+    await expect(page.locator('.halloween-web').first()).toBeVisible();
+    expect(await thread.evaluate(node => parseFloat(getComputedStyle(node).strokeDashoffset))).toBe(1);
+    await page.clock.runFor(6500);
+    await expect(page.locator('.halloween-scene')).toHaveClass(/is-weaving/);
+  }
+});
+
+test('bat display settings apply immediately and persist across navigation and tabs', async ({ page, context }) => {
+  await october(page);
+  await page.goto('/');
+  await page.getByRole('button', {name:'Open display settings'}).click();
+  await page.getByLabel('Show trailing bats').uncheck();
+  await page.getByLabel('Bat size', {exact:true}).fill('2');
+  await page.getByLabel('Bat spacing', {exact:true}).fill('2');
+  await page.getByLabel('Wing flapping speed').fill('2');
+  await page.getByRole('button', {name:'Close display settings'}).click();
+  await page.mouse.move(700,400);
+  await expect(page.locator('.halloween-flock')).toBeHidden();
+  await page.reload();
+  await page.getByRole('button', {name:'Open display settings'}).click();
+  await expect(page.getByLabel('Show trailing bats')).not.toBeChecked();
+  await expect(page.getByLabel('Bat size', {exact:true})).toHaveValue('2');
+  await expect(page.getByLabel('Bat spacing', {exact:true})).toHaveValue('2');
+  await expect(page.getByLabel('Wing flapping speed')).toHaveValue('2');
+  await page.getByLabel('Show trailing bats').check();
+  await page.getByRole('button', {name:'Close display settings'}).click();
+  await page.mouse.move(700,400);
+  await expect(page.locator('.halloween-flock')).toBeVisible();
+  const other = await context.newPage();
+  await october(other);
+  await other.goto('/');
+  await other.getByRole('button', {name:'Open display settings'}).click();
+  await other.getByLabel('Show trailing bats').uncheck();
+  await expect(page.locator('.halloween-flock')).toBeHidden();
+  await other.close();
+  await page.getByRole('link', {name:'The queue', exact:true}).click();
+  await page.getByRole('link', {name:'The collection', exact:true}).click();
+  await page.getByRole('button', {name:'Open display settings'}).click();
+  await expect(page.getByLabel('Show trailing bats')).not.toBeChecked();
+  await page.setViewportSize({width:390,height:844});
+  await page.getByRole('dialog', {name:'Display settings'}).screenshot({path:'artifacts/halloween-settings-mobile.png'});
+  expect(await page.getByRole('dialog', {name:'Display settings'}).evaluate(node => node.scrollWidth <= node.clientWidth)).toBe(true);
 });

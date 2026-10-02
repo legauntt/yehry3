@@ -1,6 +1,18 @@
 .halloween-scene { position: fixed; inset: 0; pointer-events: none; z-index: 12; overflow: hidden; }
 .halloween-scene [hidden], .halloween-scene[hidden] { display: none; }
 .halloween-flock { position: absolute; inset: 0; }
+.halloween-web { position: absolute; width: clamp(60px, 10vw, 135px); color: #9686ad; opacity: .48; }
+.halloween-web svg { display: block; width: 100%; }
+.web-left { top: 0; left: 0; }
+.web-right { top: 0; right: 0; transform: scaleX(-1); }
+.halloween-spider { position: absolute; top: clamp(55px, 8vw, 105px); right: 20px; font-size: 20px; }
+.halloween-spider::before { content: ''; position: absolute; bottom: 85%; left: 50%; height: 110px; border-left: 1px solid #9686ad; }
+.halloween-weaving { position: absolute; inset: 0; width: 100%; height: 100%; color: #9686ad; opacity: .42; pointer-events: none; }
+.web-thread { fill: none; stroke: currentColor; stroke-width: 1; vector-effect: non-scaling-stroke; stroke-dasharray: 1; stroke-dashoffset: 1; }
+.halloween-weaver { visibility: hidden; fill: #302734; stroke: #302734; stroke-width: 2; }
+.is-weaving .web-thread { animation: halloween-weave 25s linear var(--weave-delay) both; }
+.is-weaving .halloween-weaver { visibility: visible; }
+@keyframes halloween-weave { to { stroke-dashoffset: 0; } }
 .halloween-swarm-bat { position: absolute; left: 0; top: 0; width: var(--bat-size); margin: calc(var(--bat-size) * -.275) 0 0 calc(var(--bat-size) * -.5); will-change: transform; }
 .halloween-bat-shape { display: block; width: 100%; fill: #000; overflow: visible; }
 .bat-wing { transform-origin: 40px 23px; animation: halloween-wingbeat var(--wing-speed, .32s) ease-in-out var(--wing-delay, 0s) infinite alternate; }

@@ -1,4 +1,5 @@
 import { getRecordPreferences, setRecordPreference, watchRecordPreferences } from "./record-preferences.js";
+import { getBatPreferences, setBatPreference } from './bat-preferences.js';
 
 const key = "yehry3:show-quality-issues";
 const seenKey = "yehry3:preferences-seen";
@@ -13,6 +14,7 @@ if (typeof document !== "undefined") {
   let settingsButton;
   let newBadge;
   const recordCheckboxes = new Map();
+  const batInputs = new Map();
   const read = () => {
     try {
       shown = localStorage.getItem(key) !== "false";
@@ -26,6 +28,11 @@ if (typeof document !== "undefined") {
     if (darkCheckbox) darkCheckbox.checked = window.yehry3Theme?.isDark() || false;
     const preferences = getRecordPreferences();
     recordCheckboxes.forEach((input, name) => { input.checked = preferences[name]; });
+    const batPreferences = getBatPreferences();
+    batInputs.forEach((input, name) => {
+      if (name === 'enabled') input.checked = batPreferences.enabled;
+      else input.value = String(batPreferences[name]);
+    });
     if (settingsButton) {
       settingsButton.classList.toggle("has-new-preferences", !preferencesSeen);
       settingsButton.title = preferencesSeen ? "Display settings" : "New Dark Mode setting available";
@@ -120,6 +127,25 @@ if (typeof document !== "undefined") {
       input.addEventListener("change", () => setRecordPreference(name, input.checked));
     }
     dialog.append(recordGroup);
+    const batGroup = document.createElement('fieldset');
+    batGroup.className = 'record-preferences bat-preferences';
+    const batLegend = document.createElement('legend');
+    batLegend.textContent = 'October cursor bats';
+    batGroup.append(batLegend);
+    for (const [name, title] of [['enabled','Show trailing bats'],['size','Bat size'],['spacing','Bat spacing'],['speed','Wing flapping speed']]) {
+      const option = document.createElement('label');
+      option.className = 'quality-preference';
+      const input = document.createElement('input');
+      input.type = name === 'enabled' ? 'checkbox' : 'range';
+      if (input.type === 'range') { input.min = '.5'; input.max = '3'; input.step = '.25'; }
+      const text = document.createElement('span');
+      text.textContent = title;
+      option.append(input, text);
+      batGroup.append(option);
+      batInputs.set(name, input);
+      input.addEventListener('input', () => setBatPreference(name, name === 'enabled' ? input.checked : input.value));
+    }
+    dialog.append(batGroup);
     host.append(opener, updateDescription, dialog);
     apply();
 
@@ -153,6 +179,7 @@ if (typeof document !== "undefined") {
   });
   watchRecordPreferences(apply);
   window.addEventListener("yehry3:theme", apply);
+  window.addEventListener('yehry3:bats', apply);
 
   window.mountQualitySettings = mount;
 }
