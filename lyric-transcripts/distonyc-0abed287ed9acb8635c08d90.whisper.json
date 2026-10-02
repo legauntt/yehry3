@@ -1,28 +1,28 @@
 {
   "version": 1,
   "songId": "distonyc-0abed287ed9acb8635c08d90",
-  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0abed287ed9acb8635c08d90-e77a24ba05d1.mp3",
-  "audioSha256": "e77a24ba05d1f58a9e06f99f3d91972cf2e995e9ab11e536a94cb3aff4485aa3",
-  "inputSha256": "e77a24ba05d1f58a9e06f99f3d91972cf2e995e9ab11e536a94cb3aff4485aa3",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0abed287ed9acb8635c08d90-93584167ae3f.mp3",
+  "audioSha256": "93584167ae3fd71d4017b452690ab477f9c0155b85762fe283e08f492186b61c",
+  "inputSha256": "93584167ae3fd71d4017b452690ab477f9c0155b85762fe283e08f492186b61c",
   "input": "released-recording",
   "model": "faster-whisper large-v3-turbo",
   "review": "machine",
   "duration": 69.041625,
   "segments": [
     {
-      "start": 7.02,
-      "end": 8.78,
+      "start": 7.04,
+      "end": 8.76,
       "text": "We'll be right back.",
       "uncertain": true
     },
     {
       "start": 30.0,
-      "end": 55.88,
-      "text": "I wanna, I want to fuck, I want, I want to fuck, I want, I want to fuck, I wanna, I want to, I want, I want to fuck, I want, I wanna fuck, I wanna, I wanna fuck.",
-      "uncertain": false
+      "end": 56.0,
+      "text": "I want to, I want to fuck, I want, I want to fuck, I want, I want to fuck, I want to, I want to, I want, I want to fuck, I want to, I want to, I want to fuck, I want to, I want to fuck, I want to, I want to fuck.",
+      "uncertain": true
     },
     {
-      "start": 60.76,
+      "start": 60.0,
       "end": 60.82,
       "text": "Thank you.",
       "uncertain": true
