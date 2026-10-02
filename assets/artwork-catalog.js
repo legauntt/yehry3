@@ -1920,5 +1920,20 @@ export default {
     "previous": null,
     "interpretation": "non-explicit-scene",
     "briefHash": "d84a77a7fb97fd941b9e39b40ce6babcf1787ca54d7293e0f4451df6fb5f932e"
+  },
+  "distonyc-8c458c190955a5bc4376f45e": {
+    "src": "/assets/artwork/distonyc-8c458c190955a5bc4376f45e-incubating-54189bb35e3c-q86.webp",
+    "alt": "Cover artwork for Get Skeeted On.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "e24c277201b0c557b753c60006356fe5aef05faca489b671d4fd050e3628a245",
+    "promptHash": "be7871c8a7d0c2acb78829ea04211160e39b1e662050f8089a5d1dae72e95ae9",
+    "createdAt": "2026-10-02T10:25:04.387Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-02T10:24:42.342Z"
   }
 };
