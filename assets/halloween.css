@@ -1,9 +1,12 @@
 .halloween-scene { position: fixed; inset: 0; pointer-events: none; z-index: 12; overflow: hidden; }
 .halloween-scene [hidden], .halloween-scene[hidden] { display: none; }
-.halloween-flock { position: absolute; width: 100px; height: 80px; transition: left .22s ease-out, top .22s ease-out; }
-.halloween-flock span { position: absolute; font-size: 29px; animation: halloween-wings .45s ease-in-out infinite alternate; filter: drop-shadow(0 2px 3px #0008); }
-.halloween-flock span:nth-child(2) { left: 37px; top: 22px; font-size: 23px; animation-delay: -.2s; }
-.halloween-flock span:nth-child(3) { left: 10px; top: 44px; font-size: 19px; animation-delay: -.3s; }
+.halloween-flock { position: absolute; inset: 0; }
+.halloween-swarm-bat { position: absolute; left: 0; top: 0; width: var(--bat-size); margin: -8px 0 0 -12px; will-change: transform; }
+.halloween-bat-shape { display: block; width: 100%; fill: #000; overflow: visible; }
+.bat-wing { transform-origin: 40px 23px; animation: halloween-wingbeat var(--wing-speed, .32s) ease-in-out var(--wing-delay, 0s) infinite alternate; }
+.halloween-witch { display: block; width: clamp(180px, 24vw, 330px); height: auto; }
+.halloween-pass-bats { display: flex; align-items: center; gap: 14px; width: clamp(200px, 35vw, 450px); }
+.halloween-pass-bats svg:nth-child(even) { translate: 0 -25px; --wing-delay: -.15s; }
 .halloween-pass { position: absolute; left: 0; font-size: clamp(48px, 8vw, 100px); white-space: nowrap; filter: drop-shadow(0 8px 10px #21133188); }
 .halloween-pass.is-flying { animation: halloween-crossing 6.5s linear both; }
 .halloween-pass.from-right { animation-direction: reverse; }
@@ -20,7 +23,7 @@
 .pitch-season-choice { display: flex; align-items: center; gap: .65rem; }
 .pitch-season-choice select { flex: 1; min-width: 0; }
 .pitch-pumpkin { font-size: 1.6rem; }
-@keyframes halloween-wings { to { transform: translateY(-5px) scaleX(.78) rotate(-8deg); } }
+@keyframes halloween-wingbeat { from { transform: scaleY(.95) scaleX(1); } to { transform: scaleY(.3) scaleX(.72); } }
 @keyframes halloween-crossing { 0% { transform: translateX(-110%) rotate(-8deg); } 45% { transform: translateX(45vw) translateY(-35px) rotate(5deg); } 100% { transform: translateX(110vw) rotate(-8deg); } }
 @keyframes halloween-lightning { 0%, 27%, 100% { opacity: 0; } 9%, 38% { opacity: .85; } 19%, 54% { opacity: 0; } }
 @keyframes halloween-arrival { from { transform: scale(.15); opacity: 0; } to { transform: scale(1); opacity: 1; } }
