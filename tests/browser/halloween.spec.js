@@ -48,7 +48,7 @@ test('bats follow the cursor and idle flybys dismiss on activity', async ({ page
   await expect(page.locator('.halloween-flock')).toBeVisible();
   await expect(page.locator('.halloween-swarm-bat')).toHaveCount(24);
   await expect(page.locator('.halloween-web')).toHaveCount(2);
-  await expect.poll(() => page.locator('.halloween-swarm-bat').first().evaluate(node => parseFloat(getComputedStyle(node).width))).toBeLessThan(15);
+  await expect.poll(() => page.locator('.halloween-swarm-bat').first().evaluate(node => parseFloat(getComputedStyle(node).width))).toBeLessThan(43);
   await page.clock.runFor(300);
   expect(await page.locator('.halloween-flock .halloween-bat-shape').first().evaluate(node => getComputedStyle(node).fill)).toBe('rgb(0, 0, 0)');
   const positions = () => page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => node.style.transform));
@@ -61,8 +61,8 @@ test('bats follow the cursor and idle flybys dismiss on activity', async ({ page
   expect(after[23]).not.toBe(before[23]);
   const sizes = await page.locator('.halloween-swarm-bat').evaluateAll(nodes =>
     nodes.map(node => parseFloat(getComputedStyle(node).width)));
-  expect(Math.min(...sizes)).toBeGreaterThanOrEqual(7);
-  expect(Math.max(...sizes)).toBeLessThan(15);
+  expect(Math.min(...sizes)).toBeGreaterThanOrEqual(21);
+  expect(Math.max(...sizes)).toBeLessThan(43);
   const wings = page.locator('.halloween-flock .bat-wing').first();
   expect(await wings.evaluate(node => getComputedStyle(node).animationName)).toBe('halloween-flap-left');
   const flap = await wings.evaluate(node => {
@@ -168,6 +168,7 @@ test('bat display settings apply immediately and persist across navigation and t
   await page.getByLabel('Bat size', {exact:true}).fill('2');
   await page.getByLabel('Bat spacing', {exact:true}).fill('2');
   await page.getByLabel('Wing flapping speed').fill('2');
+  await page.getByLabel('Flight pattern').selectOption('circle');
   await page.getByRole('button', {name:'Close display settings'}).click();
   await page.mouse.move(700,400);
   await expect(page.locator('.halloween-flock')).toBeHidden();
@@ -177,6 +178,7 @@ test('bat display settings apply immediately and persist across navigation and t
   await expect(page.getByLabel('Bat size', {exact:true})).toHaveValue('2');
   await expect(page.getByLabel('Bat spacing', {exact:true})).toHaveValue('2');
   await expect(page.getByLabel('Wing flapping speed')).toHaveValue('2');
+  await expect(page.getByLabel('Flight pattern')).toHaveValue('circle');
   await page.getByLabel('Show trailing bats').check();
   await page.getByRole('button', {name:'Close display settings'}).click();
   await page.mouse.move(700,400);
@@ -185,6 +187,7 @@ test('bat display settings apply immediately and persist across navigation and t
   await october(other);
   await other.goto('/');
   await other.getByRole('button', {name:'Open display settings'}).click();
+  await other.getByLabel('Flight pattern').selectOption('random');
   await other.getByLabel('Show trailing bats').uncheck();
   await expect(page.locator('.halloween-flock')).toBeHidden();
   await other.close();
@@ -192,7 +195,74 @@ test('bat display settings apply immediately and persist across navigation and t
   await page.getByRole('link', {name:'The collection', exact:true}).click();
   await page.getByRole('button', {name:'Open display settings'}).click();
   await expect(page.getByLabel('Show trailing bats')).not.toBeChecked();
+  await expect(page.getByLabel('Flight pattern')).toHaveValue('random');
   await page.setViewportSize({width:390,height:844});
   await page.getByRole('dialog', {name:'Display settings'}).screenshot({path:'artifacts/halloween-settings-mobile.png'});
   expect(await page.getByRole('dialog', {name:'Display settings'}).evaluate(node => node.scrollWidth <= node.clientWidth)).toBe(true);
+});
+
+test('bat patterns orbit the pointer and random switches during active flight', async ({ page }) => {
+  await october(page);
+  await page.goto('/');
+  const flock = page.locator('.halloween-flock');
+  for (const pattern of ['circle', 'eight', 'spiral']) {
+    await page.getByRole('button', {name:'Open display settings'}).click();
+    await page.getByLabel('Flight pattern').selectOption(pattern);
+    await page.getByRole('button', {name:'Close display settings'}).click();
+    await page.mouse.move(700,450);
+    await page.clock.runFor(900);
+    await expect(flock).toHaveAttribute('data-pattern', pattern);
+    const points = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => {
+      const m = new DOMMatrix(node.style.transform);
+      return {x:m.m41, y:m.m42};
+    }));
+    expect(points.some(p => p.x < 650)).toBe(true);
+    expect(points.some(p => p.x > 750)).toBe(true);
+    expect(points.some(p => p.y < 420)).toBe(true);
+    expect(points.some(p => p.y > 480)).toBe(true);
+    if (pattern === 'circle') {
+      for (const p of points) {
+        expect(Math.hypot(p.x - 700, p.y - 450)).toBeGreaterThan(80);
+        expect(Math.hypot(p.x - 700, p.y - 450)).toBeLessThan(200);
+      }
+      await page.screenshot({path:'artifacts/halloween-circle.png'});
+    }
+  }
+  await page.getByRole('button', {name:'Open display settings'}).click();
+  await page.getByLabel('Bat size', {exact:true}).fill('0.5');
+  await page.getByLabel('Flight pattern').selectOption('random');
+  await page.getByRole('button', {name:'Close display settings'}).click();
+  await page.mouse.move(700,450);
+  await page.clock.runFor(100);
+  const first = await flock.getAttribute('data-pattern');
+  const minimum = await page.locator('.halloween-swarm-bat').first().evaluate(node => parseFloat(getComputedStyle(node).width));
+  expect(minimum).toBe(10.5);
+  for (let i = 0; i < 6; i++) {
+    await page.mouse.move(700 + i,450);
+    await page.clock.runFor(1000);
+  }
+  expect(await flock.getAttribute('data-pattern')).not.toBe(first);
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await expect(flock).toBeHidden();
+});
+
+test('dashboard pumpkins survive navigation and fit on mobile', async ({ page }) => {
+  await october(page);
+  await page.goto('/');
+  await expect(page.locator('.hero-copy .pumpkin-patch')).toBeVisible();
+  await expect(page.locator('.site-footer .pumpkin-patch')).toHaveCount(1);
+  await page.getByRole('link', {name:'The queue', exact:true}).click();
+  await expect(page.locator('.queue-intro .pumpkin-patch')).toBeVisible();
+  await expect(page.locator('.section-heading .dashboard-pumpkins')).toHaveCount(4);
+  await page.setViewportSize({width:390,height:844});
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({path:'artifacts/halloween-pumpkins-mobile.png'});
+  await page.getByRole('link', {name:'The collection', exact:true}).click();
+  await expect(page.locator('.hero-copy .pumpkin-patch')).toHaveCount(1);
+  await expect(page.locator('.site-footer .pumpkin-patch')).toHaveCount(1);
+  await page.setViewportSize({width:1440,height:1000});
+  await page.screenshot({path:'artifacts/halloween-pumpkins-desktop.png'});
+  await page.clock.setSystemTime(new Date('2026-11-01T08:00:00Z'));
+  await page.reload();
+  await expect(page.locator('.dashboard-pumpkins')).toHaveCount(0);
 });

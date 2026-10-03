@@ -37,6 +37,9 @@
 .pitch-season-choice { display: flex; align-items: center; gap: .65rem; }
 .pitch-season-choice select { flex: 1; min-width: 0; }
 .pitch-pumpkin { font-size: 1.6rem; }
+.dashboard-pumpkins { display: inline-block; margin-right: .5em; font-size: .85em; pointer-events: none; }
+.pumpkin-patch { display: block; width: fit-content; margin: 0 0 12px; font-size: clamp(24px, 3vw, 36px); letter-spacing: .1em; }
+.site-footer .pumpkin-patch { margin: 0; font-size: 22px; }
 @keyframes halloween-wingbeat { from { transform: scaleY(.95) scaleX(1); } to { transform: scaleY(.3) scaleX(.72); } }
 @keyframes halloween-flap-left { from { transform: rotate(18deg) scaleY(1); } to { transform: rotate(-38deg) scaleY(.2); } }
 @keyframes halloween-flap-right { from { transform: rotate(-18deg) scaleY(1); } to { transform: rotate(38deg) scaleY(.2); } }

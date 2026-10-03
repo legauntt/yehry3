@@ -115,7 +115,7 @@ test("record preferences and the new indicator persist across navigation and syn
   await page.locator(".catalog-filters > summary").click();
   const opener = page.getByRole("button", { name: "Open display settings" });
   await expect(page.locator(".settings-new")).toBeVisible();
-  await expect(opener).toHaveAccessibleDescription("New Dark Mode setting available.");
+  await expect(opener).toHaveAccessibleDescription("New bat flight patterns available.");
   const second = await context.newPage();
   await second.goto("/");
   await second.locator(".catalog-filters > summary").click();

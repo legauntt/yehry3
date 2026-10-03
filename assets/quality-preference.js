@@ -1,10 +1,10 @@
 import { getRecordPreferences, setRecordPreference, watchRecordPreferences } from "./record-preferences.js";
-import { getBatPreferences, setBatPreference } from './bat-preferences.js';
+import { batPatterns, getBatPreferences, setBatPreference } from './bat-preferences.js';
 
 const key = "yehry3:show-quality-issues";
 const seenKey = "yehry3:preferences-seen";
 // Change this when new preferences should be highlighted to returning visitors.
-const preferencesVersion = "dark-mode-v1";
+const preferencesVersion = "bat-patterns-v1";
 
 if (typeof document !== "undefined") {
   let shown = true;
@@ -35,7 +35,7 @@ if (typeof document !== "undefined") {
     });
     if (settingsButton) {
       settingsButton.classList.toggle("has-new-preferences", !preferencesSeen);
-      settingsButton.title = preferencesSeen ? "Display settings" : "New Dark Mode setting available";
+      settingsButton.title = preferencesSeen ? "Display settings" : "New bat flight patterns available";
       if (preferencesSeen) settingsButton.removeAttribute("aria-describedby");
       else settingsButton.setAttribute("aria-describedby", "display-settings-updates");
       newBadge.hidden = preferencesSeen;
@@ -69,7 +69,7 @@ if (typeof document !== "undefined") {
     const updateDescription = document.createElement("span");
     updateDescription.id = "display-settings-updates";
     updateDescription.className = "sr-only";
-    updateDescription.textContent = "New Dark Mode setting available.";
+    updateDescription.textContent = "New bat flight patterns available.";
 
     const dialog = document.createElement("dialog");
     dialog.className = "display-settings-dialog";
@@ -132,6 +132,16 @@ if (typeof document !== "undefined") {
     const batLegend = document.createElement('legend');
     batLegend.textContent = 'October cursor bats';
     batGroup.append(batLegend);
+    const patternLabel = document.createElement('label');
+    patternLabel.className = 'quality-preference bat-pattern-choice';
+    const patternText = document.createElement('span');
+    patternText.textContent = 'Flight pattern';
+    const patternSelect = document.createElement('select');
+    for (const [value, title] of Object.entries(batPatterns)) patternSelect.add(new Option(title, value));
+    patternLabel.append(patternText, patternSelect);
+    batGroup.append(patternLabel);
+    batInputs.set('pattern', patternSelect);
+    patternSelect.addEventListener('change', () => setBatPreference('pattern', patternSelect.value));
     for (const [name, title] of [['enabled','Show trailing bats'],['size','Bat size'],['spacing','Bat spacing'],['speed','Wing flapping speed']]) {
       const option = document.createElement('label');
       option.className = 'quality-preference';

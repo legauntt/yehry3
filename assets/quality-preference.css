@@ -101,6 +101,8 @@ html[data-show-quality-issues="false"] .quality-notice {
 .record-preferences legend { padding: 0 12px 0 0; font-weight: 700; }
 .record-preferences .quality-preference + .quality-preference { margin-top: 20px; }
 .bat-preferences input[type="range"] { width: 130px; flex: 0 0 130px; accent-color: var(--accent); }
+.bat-pattern-choice { align-items: center; justify-content: space-between; }
+.bat-pattern-choice select { min-width: 0; max-width: 60%; }
 
 @media (prefers-reduced-motion: reduce) {
   .settings-button.has-new-preferences { animation: none; }

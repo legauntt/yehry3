@@ -38,7 +38,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   const applyPreferences = () => {
     preferences = getBatPreferences();
     bats.forEach((node, i) => {
-      node.style.setProperty('--bat-size', `${(14 + (i * 7 % 15)) / 2 * preferences.size}px`);
+      node.style.setProperty('--bat-size', `${(14 + (i * 7 % 15)) * 1.5 * preferences.size}px`);
       node.style.setProperty('--wing-speed', `${(.16 + (i % 7) * .015) / preferences.speed}s`);
       node.style.setProperty('--wing-delay', `${-i * .037}s`);
     });
@@ -50,6 +50,8 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   let heading = 0;
   let frame = 0;
   let lastFrame = 0;
+  let activePattern = 'trail';
+  let patternChanged = 0;
   const hideFlock = () => {
     flock.hidden = true;
     cancelAnimationFrame(frame);
@@ -57,10 +59,18 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     trail.length = 0;
     positions.length = 0;
     lastFrame = 0;
+    patternChanged = 0;
   };
   addEventListener('yehry3:bats', () => { applyPreferences(); if (!preferences.enabled) hideFlock(); });
   const fly = now => {
     const blend = lastFrame ? 1 - Math.exp(-Math.min(now - lastFrame, 50) / 55) : 1;
+    if (preferences.pattern !== 'random') activePattern = preferences.pattern;
+    else if (!patternChanged || now - patternChanged > 5000) {
+      const choices = ['trail', 'circle', 'eight', 'spiral'].filter(name => name !== activePattern);
+      activePattern = choices[Math.floor(Math.random() * choices.length)];
+      patternChanged = now;
+    }
+    flock.dataset.pattern = activePattern;
     // Time-based history keeps the same slinky shape at 60 or 144 Hz.
     trail.unshift({x:mouse.x, y:mouse.y, heading, time:now});
     while (trail.length > 1 && now - trail.at(-1).time > 4300) trail.pop();
@@ -70,9 +80,18 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
       while (sample + 1 < trail.length && now - trail[sample].time < delay) sample++;
       const point = trail[sample];
       const wave = Math.sin(now * .0035 - i * .25) * (12 + i * .3);
-      const behind = 28 + i * 25 * preferences.spacing;
-      const x = point.x - Math.cos(point.heading) * behind - Math.sin(point.heading) * wave;
-      const y = point.y - Math.sin(point.heading) * behind + Math.cos(point.heading) * wave;
+      const behind = 38 + i * 45 * preferences.spacing;
+      let x = point.x - Math.cos(point.heading) * behind - Math.sin(point.heading) * wave;
+      let y = point.y - Math.sin(point.heading) * behind + Math.cos(point.heading) * wave;
+      if (activePattern !== 'trail') {
+        // Three loose rings keep the flock spaced around the pointer, with a clear center.
+        const ring = Math.floor(i / 8);
+        const angle = now * .0012 * (ring === 1 ? -1 : 1) + (i % 8) * Math.PI / 4 + ring * .3;
+        const radius = (85 + ring * 55) * preferences.spacing;
+        const reach = activePattern === 'spiral' ? radius * (1 + .22 * Math.sin(now * .0015 + ring)) : radius;
+        x = mouse.x + Math.cos(angle) * reach;
+        y = mouse.y + (activePattern === 'eight' ? Math.sin(angle * 2) * reach * .6 : Math.sin(angle) * reach);
+      }
       const position = positions[i] ||= {x,y};
       position.x += (x - position.x) * blend;
       position.y += (y - position.y) * blend;
