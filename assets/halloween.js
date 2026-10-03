@@ -38,7 +38,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   const applyPreferences = () => {
     preferences = getBatPreferences();
     bats.forEach((node, i) => {
-      node.style.setProperty('--bat-size', `${(14 + (i * 7 % 15)) / 6 * preferences.size}px`);
+      node.style.setProperty('--bat-size', `${(14 + (i * 7 % 15)) / 2 * preferences.size}px`);
       node.style.setProperty('--wing-speed', `${(.16 + (i % 7) * .015) / preferences.speed}s`);
       node.style.setProperty('--wing-delay', `${-i * .037}s`);
     });

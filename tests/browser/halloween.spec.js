@@ -48,7 +48,7 @@ test('bats follow the cursor and idle flybys dismiss on activity', async ({ page
   await expect(page.locator('.halloween-flock')).toBeVisible();
   await expect(page.locator('.halloween-swarm-bat')).toHaveCount(24);
   await expect(page.locator('.halloween-web')).toHaveCount(2);
-  await expect.poll(() => page.locator('.halloween-swarm-bat').first().evaluate(node => parseFloat(getComputedStyle(node).width))).toBeLessThan(5);
+  await expect.poll(() => page.locator('.halloween-swarm-bat').first().evaluate(node => parseFloat(getComputedStyle(node).width))).toBeLessThan(15);
   await page.clock.runFor(300);
   expect(await page.locator('.halloween-flock .halloween-bat-shape').first().evaluate(node => getComputedStyle(node).fill)).toBe('rgb(0, 0, 0)');
   const positions = () => page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => node.style.transform));
@@ -61,8 +61,8 @@ test('bats follow the cursor and idle flybys dismiss on activity', async ({ page
   expect(after[23]).not.toBe(before[23]);
   const sizes = await page.locator('.halloween-swarm-bat').evaluateAll(nodes =>
     nodes.map(node => parseFloat(getComputedStyle(node).width)));
-  expect(Math.min(...sizes)).toBeGreaterThan(2);
-  expect(Math.max(...sizes)).toBeLessThan(5);
+  expect(Math.min(...sizes)).toBeGreaterThanOrEqual(7);
+  expect(Math.max(...sizes)).toBeLessThan(15);
   const wings = page.locator('.halloween-flock .bat-wing').first();
   expect(await wings.evaluate(node => getComputedStyle(node).animationName)).toBe('halloween-flap-left');
   const flap = await wings.evaluate(node => {
@@ -74,7 +74,7 @@ test('bats follow the cursor and idle flybys dismiss on activity', async ({ page
     return { up, down: getComputedStyle(node).transform };
   });
   expect(flap.down).not.toBe(flap.up);
-  // At rest the trail's centers leave room between these tiny silhouettes.
+  // At rest the trail's centers leave room between the silhouettes.
   await page.clock.runFor(1000);
   const gap = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => {
     const centers = nodes.slice(0, 2).map(node => {
