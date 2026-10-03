@@ -40,7 +40,7 @@ test('seasonal pitch default preserves choices and expires in November', async (
   await expect(page.locator('.halloween-scene')).toHaveCount(0);
   await expect(page.locator('.pitch-pumpkin')).toHaveCount(0);
 });
-test('bats follow the cursor and idle flybys dismiss on activity', async ({ page }) => {
+test('bats fly on movement and idle flybys dismiss on activity', async ({ page }) => {
   await october(page);
   await page.addInitScript(() => localStorage.setItem('yehry3:bat-settings', JSON.stringify({pattern:'trail'})));
   await page.goto('/queue/');
@@ -75,7 +75,7 @@ test('bats follow the cursor and idle flybys dismiss on activity', async ({ page
     return { up, down: getComputedStyle(node).transform };
   });
   expect(flap.down).not.toBe(flap.up);
-  // At rest the trail's centers leave room between the silhouettes.
+  // Edge flight leaves room between the silhouettes.
   await page.clock.runFor(1000);
   const gap = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => {
     const centers = nodes.slice(0, 2).map(node => {
@@ -202,51 +202,6 @@ test('bat display settings apply immediately and persist across navigation and t
   expect(await page.getByRole('dialog', {name:'Display settings'}).evaluate(node => node.scrollWidth <= node.clientWidth)).toBe(true);
 });
 
-test('bat patterns orbit the pointer and random switches during active flight', async ({ page }) => {
-  await october(page);
-  await page.goto('/');
-  const flock = page.locator('.halloween-flock');
-  for (const pattern of ['circle', 'eight', 'spiral']) {
-    await page.getByRole('button', {name:'Open display settings'}).click();
-    await page.getByLabel('Flight pattern').selectOption(pattern);
-    await page.getByRole('button', {name:'Close display settings'}).click();
-    await page.mouse.move(700,450);
-    await page.clock.runFor(900);
-    await expect(flock).toHaveAttribute('data-pattern', pattern);
-    const points = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => {
-      const m = new DOMMatrix(node.style.transform);
-      return {x:m.m41, y:m.m42};
-    }));
-    expect(points.some(p => p.x < 650)).toBe(true);
-    expect(points.some(p => p.x > 750)).toBe(true);
-    expect(points.some(p => p.y < 420)).toBe(true);
-    expect(points.some(p => p.y > 480)).toBe(true);
-    if (pattern === 'circle') {
-      for (const p of points) {
-        expect(Math.hypot(p.x - 700, p.y - 450)).toBeGreaterThan(80);
-        expect(Math.hypot(p.x - 700, p.y - 450)).toBeLessThan(200);
-      }
-      await page.screenshot({path:'artifacts/halloween-circle.png'});
-    }
-  }
-  await page.getByRole('button', {name:'Open display settings'}).click();
-  await page.getByLabel('Bat size', {exact:true}).fill('0.5');
-  await page.getByLabel('Flight pattern').selectOption('random');
-  await page.getByRole('button', {name:'Close display settings'}).click();
-  await page.mouse.move(700,450);
-  await page.clock.runFor(100);
-  const first = await flock.getAttribute('data-pattern');
-  const minimum = await page.locator('.halloween-swarm-bat').first().evaluate(node => parseFloat(getComputedStyle(node).width));
-  expect(minimum).toBe(10.5);
-  for (let i = 0; i < 6; i++) {
-    await page.mouse.move(700 + i,450);
-    await page.clock.runFor(1000);
-  }
-  expect(await flock.getAttribute('data-pattern')).not.toBe(first);
-  await page.emulateMedia({reducedMotion:'reduce'});
-  await expect(flock).toBeHidden();
-});
-
 test('dashboard pumpkins survive navigation and fit on mobile', async ({ page }) => {
   await october(page);
   await page.goto('/');
@@ -268,89 +223,91 @@ test('dashboard pumpkins survive navigation and fit on mobile', async ({ page })
   await expect(page.locator('.dashboard-pumpkins')).toHaveCount(0);
 });
 
-test('circling bats scatter on movement and settle back into their rings', async ({ page }) => {
+test('bats stay awake at the edges, avoid the cursor, then sleep on the ceiling', async ({ page }) => {
   await october(page);
-  await page.goto('/');
-  await page.getByRole('button', {name:'Open display settings'}).click();
-  await page.getByLabel('Flight pattern').selectOption('circle');
-  await page.getByRole('button', {name:'Close display settings'}).click();
+  await page.goto('/queue/');
+  const flock = page.locator('.halloween-flock');
+  const bats = page.locator('.halloween-swarm-bat');
+  const points = () => bats.evaluateAll(nodes => nodes.map(node => {
+    const m = new DOMMatrix(node.style.transform);
+    const r = node.getBoundingClientRect();
+    return {x:m.m41, y:m.m42, edge:Math.min(m.m41, innerWidth-m.m41, m.m42, innerHeight-m.m42),
+      inside:r.left >= 0 && r.right <= innerWidth && r.top >= 0 && r.bottom <= innerHeight};
+  }));
   await page.mouse.move(700,450);
-  await page.clock.runFor(1400);
-  const radii = () => page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => {
-    const m = new DOMMatrix(node.style.transform);
-    return Math.hypot(m.m41 - 800, m.m42 - 450);
-  }));
-  await page.mouse.move(800,450);
-  await page.clock.runFor(350);
-  const edgeDistances = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => {
-    const m = new DOMMatrix(node.style.transform);
-    return Math.min(m.m41, innerWidth - m.m41, m.m42, innerHeight - m.m42);
-  }));
-  expect(Math.max(...edgeDistances)).toBeLessThan(110);
-  expect(Math.min(...edgeDistances)).toBeGreaterThan(0);
-  expect(await page.locator('.halloween-swarm-bat.is-sleeping').count()).toBeGreaterThan(12);
+  for (let i=0; i<8; i++) {
+    await page.clock.runFor(800);
+    await page.mouse.move(700+i*2,450);
+    await expect(flock).toHaveAttribute('data-docked','false');
+    await expect(page.locator('.halloween-swarm-bat.is-sleeping')).toHaveCount(0);
+  }
+  expect((await points()).every(p => p.edge < 100 && p.inside)).toBe(true);
+  const before = await points();
+  await page.mouse.move(700,25);
+  await page.clock.runFor(900);
+  const away = await points();
+  expect(away.every(p => Math.hypot(p.x-700,p.y-25)>130)).toBe(true);
+  expect(away).not.toEqual(before);
+  await page.screenshot({path:'artifacts/halloween-edge-flight.png'});
+  await page.clock.runFor(4300);
+  await expect(flock).toHaveAttribute('data-docked','true');
+  await expect(page.locator('.halloween-swarm-bat.is-sleeping')).toHaveCount(24);
+  expect((await points()).every(p => p.y<40 && p.inside)).toBe(true);
   expect(await page.locator('.is-sleeping .bat-wing').first().evaluate(node => getComputedStyle(node).animationName)).toBe('none');
-  const sleeper = page.locator('.halloween-swarm-bat.is-sleeping').first();
-  const resting = await sleeper.evaluate(node => node.style.transform);
+  const resting = await bats.evaluateAll(nodes => nodes.map(node=>node.style.transform));
+  await page.clock.runFor(1000);
+  expect(await bats.evaluateAll(nodes => nodes.map(node=>node.style.transform))).toEqual(resting);
+  await page.screenshot({path:'artifacts/halloween-ceiling.png'});
+  await page.mouse.move(500,400);
   await page.clock.runFor(64);
-  expect(await sleeper.evaluate(node => node.style.transform)).toBe(resting);
-  await page.screenshot({path:'artifacts/halloween-circle-scatter.png'});
-  await page.clock.runFor(1300);
-  const settled = await radii();
-  expect(Math.max(...settled)).toBeLessThan(200);
-  expect(Math.min(...settled)).toBeGreaterThan(80);
   await expect(page.locator('.halloween-swarm-bat.is-sleeping')).toHaveCount(0);
-  expect(await page.locator('.halloween-flock .bat-wing').first().evaluate(node => getComputedStyle(node).animationName)).toBe('halloween-flap-left');
-  await page.screenshot({path:'artifacts/halloween-circle-settled.png'});
+  // Keyboard/scroll activity must not interrupt flight with another sleep transition.
+  await page.keyboard.press('Shift');
+  await page.mouse.wheel(0,10);
+  await page.clock.runFor(64);
+  await expect(flock).toHaveAttribute('data-docked','false');
   await page.emulateMedia({reducedMotion:'reduce'});
-  await expect(page.locator('.halloween-flock')).toBeHidden();
+  await expect(flock).toBeHidden();
 });
 
-test('random is the default and inactive bats dock visibly along the sides', async ({ page }) => {
+test('edge flight preserves settings, stays inside mobile, and limits animation work', async ({ page }) => {
   await october(page);
   await page.goto('/');
   const flock = page.locator('.halloween-flock');
-  await expect(flock).toBeVisible();
-  await expect(flock).toHaveAttribute('data-docked', 'true');
   await page.getByRole('button', {name:'Open display settings'}).click();
   await expect(page.getByLabel('Flight pattern')).toHaveValue('random');
-  await page.getByLabel('Flight pattern').selectOption('circle');
   await page.getByRole('button', {name:'Close display settings'}).click();
-  const checkDock = async () => {
-    await page.clock.runFor(600);
-    await expect(flock).toBeVisible();
-    await expect(flock).toHaveAttribute('data-docked', 'true');
-    await expect(page.locator('.halloween-swarm-bat.is-sleeping')).toHaveCount(24);
-    const points = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => {
-      const rect = node.getBoundingClientRect();
-      const m = new DOMMatrix(node.style.transform);
-      return { edge:Math.min(m.m41, innerWidth - m.m41), inside:rect.left >= 0 && rect.right <= innerWidth && rect.top >= 0 && rect.bottom <= innerHeight };
-    }));
-    expect(points.every(point => point.edge < 50 && point.inside)).toBe(true);
-  };
-  await page.mouse.move(700,450);
-  await page.clock.runFor(2300);
-  await checkDock();
-  await page.mouse.move(600,400);
-  await page.keyboard.press('Shift');
-  await checkDock();
-  await page.mouse.move(700,450);
-  await page.evaluate(() => document.dispatchEvent(new MouseEvent('mouseleave')));
-  await checkDock();
+  for (const pattern of ['trail','circle','eight','spiral','random']) {
+    await page.evaluate(async pattern => {
+      const {setBatPreference} = await import('/assets/bat-preferences.js');
+      setBatPreference('pattern',pattern);
+    },pattern);
+    await page.mouse.move(700,450);
+    await page.clock.runFor(200);
+    if (pattern !== 'random') await expect(flock).toHaveAttribute('data-pattern',pattern);
+    await page.mouse.move(701,450);
+  }
+  await page.evaluate(() => {
+    window.batWrites=0;
+    window.batObserver=new MutationObserver(records => window.batWrites+=records.filter(r=>r.attributeName==='style').length);
+    window.batObserver.observe(document.querySelector('.halloween-swarm-bat'),{attributes:true});
+  });
+  await page.clock.runFor(1000);
+  const writes=await page.evaluate(()=>{window.batObserver.disconnect();return window.batWrites;});
+  expect(writes).toBeGreaterThan(15);
+  expect(writes).toBeLessThanOrEqual(32);
   await page.setViewportSize({width:390,height:844});
-  await checkDock();
-  await page.screenshot({path:'artifacts/halloween-docked-mobile.png'});
   await page.mouse.move(180,400);
-  await page.clock.runFor(400);
-  await page.mouse.move(210,400);
-  await page.clock.runFor(350);
-  const inside = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.every(node => {
-    const r = node.getBoundingClientRect();
-    return r.left >= 0 && r.right <= innerWidth && r.top >= 0 && r.bottom <= innerHeight;
+  await page.clock.runFor(1000);
+  const inside=()=>page.locator('.halloween-swarm-bat').evaluateAll(nodes=>nodes.every(node=>{
+    const r=node.getBoundingClientRect();return r.left>=0&&r.right<=innerWidth&&r.top>=0&&r.bottom<=innerHeight;
   }));
-  expect(inside).toBe(true);
-  await page.screenshot({path:'artifacts/halloween-scatter-mobile.png'});
-  await page.getByRole('button', {name:'Open display settings'}).click();
-  await page.getByLabel('Show trailing bats').uncheck();
+  expect(await inside()).toBe(true);
+  await page.screenshot({path:'artifacts/halloween-edge-mobile.png'});
+  await page.clock.runFor(4400);
+  await expect(page.locator('.halloween-swarm-bat.is-sleeping')).toHaveCount(24);
+  expect(await inside()).toBe(true);
+  await page.screenshot({path:'artifacts/halloween-ceiling-mobile.png'});
+  await page.evaluate(async()=>{const {setBatPreference}=await import('/assets/bat-preferences.js');setBatPreference('enabled',false);});
   await expect(flock).toBeHidden();
 });
