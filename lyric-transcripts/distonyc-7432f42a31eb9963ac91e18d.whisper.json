@@ -1,0 +1,637 @@
+{
+  "version": 1,
+  "songId": "distonyc-7432f42a31eb9963ac91e18d",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7432f42a31eb9963ac91e18d-0d453bda3ea4.mp3",
+  "audioSha256": "0d453bda3ea468443b125af14223ff1629d01ad016db8494ab32ee31144f1748",
+  "inputSha256": "eed401fb321180521fb8aab45f20426fc43ce942d7c1a12b71f5ec9dcb91f1f6",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 400.0,
+  "segments": [
+    {
+      "start": 4.22,
+      "end": 8.56,
+      "text": "To the man that waited on me at the Starbucks down home lane",
+      "uncertain": true
+    },
+    {
+      "start": 8.56,
+      "end": 10.84,
+      "text": "I hope you understand",
+      "uncertain": true
+    },
+    {
+      "start": 14.86,
+      "end": 18.98,
+      "text": "When I put on that t-shirt, the only thing I meant to say",
+      "uncertain": false
+    },
+    {
+      "start": 18.98,
+      "end": 21.28,
+      "text": "Is I'm a Skinner fan",
+      "uncertain": false
+    },
+    {
+      "start": 24.58,
+      "end": 27.7,
+      "text": "The red flag on my chest somehow is",
+      "uncertain": false
+    },
+    {
+      "start": 27.7,
+      "end": 30.4,
+      "text": "Like the elephant in the corner of the south",
+      "uncertain": true
+    },
+    {
+      "start": 30.4,
+      "end": 33.14,
+      "text": "And I just walked right in the room",
+      "uncertain": false
+    },
+    {
+      "start": 35.48,
+      "end": 38.8,
+      "text": "Just a proud rebel son with an old can of worms",
+      "uncertain": false
+    },
+    {
+      "start": 38.8,
+      "end": 41.08,
+      "text": "Looking like I got a lot to learn",
+      "uncertain": false
+    },
+    {
+      "start": 41.08,
+      "end": 43.14,
+      "text": "But from my point of view",
+      "uncertain": false
+    },
+    {
+      "start": 46.08,
+      "end": 48.22,
+      "text": "I'm just a white man",
+      "uncertain": false
+    },
+    {
+      "start": 48.22,
+      "end": 50.76,
+      "text": "Coming to you from the Southland",
+      "uncertain": false
+    },
+    {
+      "start": 50.76,
+      "end": 55.5,
+      "text": "Trying to understand what it's like not to be",
+      "uncertain": false
+    },
+    {
+      "start": 55.5,
+      "end": 58.3,
+      "text": "I'm proud of where I'm from",
+      "uncertain": true
+    },
+    {
+      "start": 58.3,
+      "end": 60.66,
+      "text": "But not everything we've done",
+      "uncertain": true
+    },
+    {
+      "start": 60.66,
+      "end": 62.52,
+      "text": "It ain't like you and me",
+      "uncertain": false
+    },
+    {
+      "start": 62.52,
+      "end": 65.32,
+      "text": "Can I rewrite history?",
+      "uncertain": false
+    },
+    {
+      "start": 67.06,
+      "end": 68.62,
+      "text": "Our generation",
+      "uncertain": false
+    },
+    {
+      "start": 68.62,
+      "end": 71.32,
+      "text": "Didn't start this nation",
+      "uncertain": true
+    },
+    {
+      "start": 71.32,
+      "end": 73.22,
+      "text": "We're still picking up the pieces",
+      "uncertain": false
+    },
+    {
+      "start": 73.22,
+      "end": 74.78,
+      "text": "Walking on eggshells",
+      "uncertain": false
+    },
+    {
+      "start": 74.78,
+      "end": 76.12,
+      "text": "Fighting over yesterday",
+      "uncertain": false
+    },
+    {
+      "start": 77.22,
+      "end": 78.9,
+      "text": "Been caught between",
+      "uncertain": true
+    },
+    {
+      "start": 78.9,
+      "end": 81.36,
+      "text": "Southern pride and Southern blame",
+      "uncertain": false
+    },
+    {
+      "start": 85.5,
+      "end": 89.24,
+      "text": "They called it Ring the Scratch and fixed the buildings, dried some tears.",
+      "uncertain": true
+    },
+    {
+      "start": 89.68,
+      "end": 94.38,
+      "text": "We're still sifting through the rubble after 150 years.",
+      "uncertain": false
+    },
+    {
+      "start": 95.76,
+      "end": 99.84,
+      "text": "I try to put myself in your shoes and that's a good place to begin.",
+      "uncertain": false
+    },
+    {
+      "start": 100.56,
+      "end": 104.84,
+      "text": "It ain't like I can walk a mile in someone else's skin.",
+      "uncertain": false
+    },
+    {
+      "start": 105.82,
+      "end": 113.08,
+      "text": "You might also like, oh, holy night, Christmas songs.",
+      "uncertain": false
+    },
+    {
+      "start": 115.6,
+      "end": 118.5,
+      "text": "A stranger in my arms.",
+      "uncertain": false
+    },
+    {
+      "start": 119.48,
+      "end": 120.72,
+      "text": "Platsy crying.",
+      "uncertain": false
+    },
+    {
+      "start": 121.8,
+      "end": 123.36,
+      "text": "A word of blue.",
+      "uncertain": false
+    },
+    {
+      "start": 124.62,
+      "end": 125.76,
+      "text": "Dwight Yoken.",
+      "uncertain": true
+    },
+    {
+      "start": 126.8,
+      "end": 129.12,
+      "text": "Cause I'm a white man.",
+      "uncertain": false
+    },
+    {
+      "start": 129.36,
+      "end": 131.6,
+      "text": "Living in the Southland.",
+      "uncertain": false
+    },
+    {
+      "start": 131.9,
+      "end": 134.4,
+      "text": "Just like you do.",
+      "uncertain": false
+    },
+    {
+      "start": 134.42,
+      "end": 136.28,
+      "text": "I'm more than what you see.",
+      "uncertain": false
+    },
+    {
+      "start": 136.86,
+      "end": 139.0,
+      "text": "I'm proud of where I'm from.",
+      "uncertain": false
+    },
+    {
+      "start": 139.24,
+      "end": 141.5,
+      "text": "But not everything we've done.",
+      "uncertain": false
+    },
+    {
+      "start": 141.5,
+      "end": 143.38,
+      "text": "It ain't like you and me.",
+      "uncertain": false
+    },
+    {
+      "start": 143.38,
+      "end": 154.82,
+      "text": "can rewrite history our generation didn't start this nation and we're still paying for our mistakes",
+      "uncertain": true
+    },
+    {
+      "start": 154.82,
+      "end": 161.4,
+      "text": "that a bunch of folks made long before we came and caught somewhere between southern pride and",
+      "uncertain": false
+    },
+    {
+      "start": 161.4,
+      "end": 172.68,
+      "text": "southern blame dear mr white man i wish you understood what the world is really like",
+      "uncertain": true
+    },
+    {
+      "start": 172.68,
+      "end": 180.66,
+      "text": "when you're living in the hood just because my pants are sagging doesn't mean i'm up to no good",
+      "uncertain": true
+    },
+    {
+      "start": 180.66,
+      "end": 189.32,
+      "text": "you should try to get to know me i really wish you would now my chains are gold but i'm still",
+      "uncertain": false
+    },
+    {
+      "start": 189.32,
+      "end": 195.42,
+      "text": "misunderstood i wasn't there when sherman's march turned south into firewood",
+      "uncertain": false
+    },
+    {
+      "start": 196.62,
+      "end": 204.52,
+      "text": "i want you to get paid but be a slave i never could feel like a newfangled jango dodging",
+      "uncertain": true
+    },
+    {
+      "start": 204.52,
+      "end": 211.8,
+      "text": "invisible white hoods so when i see that white cowboy hat i'm thinking it's not all good",
+      "uncertain": false
+    },
+    {
+      "start": 211.8,
+      "end": 219.66,
+      "text": "i guess we're both guilty of judging the cover not the book i'd love to buy you a beat",
+      "uncertain": false
+    },
+    {
+      "start": 220.48,
+      "end": 222.32,
+      "text": "Conversate and clear the air",
+      "uncertain": false
+    },
+    {
+      "start": 222.32,
+      "end": 224.14,
+      "text": "But I see that red flag",
+      "uncertain": false
+    },
+    {
+      "start": 224.14,
+      "end": 226.86,
+      "text": "And I think you wish I wasn't here",
+      "uncertain": false
+    },
+    {
+      "start": 228.74,
+      "end": 231.16,
+      "text": "I'm just a white man",
+      "uncertain": false
+    },
+    {
+      "start": 232.34,
+      "end": 234.38,
+      "text": "If you don't judge my direct",
+      "uncertain": true
+    },
+    {
+      "start": 234.38,
+      "end": 237.16,
+      "text": "Coming to you from the Southland",
+      "uncertain": false
+    },
+    {
+      "start": 237.16,
+      "end": 239.8,
+      "text": "I won't judge your red flag",
+      "uncertain": false
+    },
+    {
+      "start": 239.8,
+      "end": 243.44,
+      "text": "Trying to understand what it's like not to be",
+      "uncertain": false
+    },
+    {
+      "start": 243.44,
+      "end": 247.14,
+      "text": "Yeah, I'm out of where I'm from",
+      "uncertain": true
+    },
+    {
+      "start": 247.14,
+      "end": 250.42,
+      "text": "If you don't judge my gold chains",
+      "uncertain": false
+    },
+    {
+      "start": 250.42,
+      "end": 252.58,
+      "text": "But not everything we've done",
+      "uncertain": false
+    },
+    {
+      "start": 252.58,
+      "end": 255.44,
+      "text": "I'll forget the iron chains",
+      "uncertain": false
+    },
+    {
+      "start": 255.44,
+      "end": 259.2,
+      "text": "It ain't like you and me can rewrite history",
+      "uncertain": false
+    },
+    {
+      "start": 259.2,
+      "end": 262.22,
+      "text": "Can rewrite history, baby",
+      "uncertain": false
+    },
+    {
+      "start": 265.34,
+      "end": 266.86,
+      "text": "Oh, Dixieland",
+      "uncertain": false
+    },
+    {
+      "start": 266.86,
+      "end": 270.02,
+      "text": "The relationship between a mace and dicks",
+      "uncertain": false
+    },
+    {
+      "start": 270.02,
+      "end": 271.44,
+      "text": "I need some fixin'",
+      "uncertain": true
+    },
+    {
+      "start": 271.5,
+      "end": 274.46,
+      "text": "I hope you understand what this is all about",
+      "uncertain": false
+    },
+    {
+      "start": 274.46,
+      "end": 281.72,
+      "text": "quite frankly i'm a black yankee but i've been thinking about this lately i'm a son of the new",
+      "uncertain": true
+    },
+    {
+      "start": 281.72,
+      "end": 290.5,
+      "text": "south the past is the past you feel me and i just want to make things right let bygones be bygones",
+      "uncertain": false
+    },
+    {
+      "start": 290.5,
+      "end": 297.14,
+      "text": "where all that's left is southern pride far off be robert e lee but i've got to thank",
+      "uncertain": false
+    },
+    {
+      "start": 304.12,
+      "end": 306.46,
+      "text": "I'm just a white man",
+      "uncertain": true
+    },
+    {
+      "start": 306.46,
+      "end": 309.02,
+      "text": "If you don't judge my gold chain",
+      "uncertain": true
+    },
+    {
+      "start": 309.02,
+      "end": 311.0,
+      "text": "Just like you",
+      "uncertain": false
+    },
+    {
+      "start": 311.58,
+      "end": 313.76,
+      "text": "But not everything we've done",
+      "uncertain": false
+    },
+    {
+      "start": 313.76,
+      "end": 316.28,
+      "text": "Crowder went to sing",
+      "uncertain": false
+    },
+    {
+      "start": 316.28,
+      "end": 318.9,
+      "text": "But not everything we've done",
+      "uncertain": false
+    },
+    {
+      "start": 318.9,
+      "end": 320.74,
+      "text": "It ain't like you and me",
+      "uncertain": false
+    },
+    {
+      "start": 320.74,
+      "end": 323.64,
+      "text": "Can't rewrite history",
+      "uncertain": false
+    },
+    {
+      "start": 324.84,
+      "end": 326.88,
+      "text": "But our generation",
+      "uncertain": true
+    },
+    {
+      "start": 326.88,
+      "end": 329.6,
+      "text": "Didn't start this nation",
+      "uncertain": false
+    },
+    {
+      "start": 329.6,
+      "end": 331.76,
+      "text": "We're still picking up",
+      "uncertain": false
+    },
+    {
+      "start": 331.76,
+      "end": 333.68,
+      "text": "Hey, since red old eggshells",
+      "uncertain": true
+    },
+    {
+      "start": 333.68,
+      "end": 335.22,
+      "text": "Fighting old before we came",
+      "uncertain": true
+    },
+    {
+      "start": 335.22,
+      "end": 337.2,
+      "text": "It caught somewhere between",
+      "uncertain": true
+    },
+    {
+      "start": 337.2,
+      "end": 339.64,
+      "text": "Southern pride and Southern blade",
+      "uncertain": false
+    },
+    {
+      "start": 345.98,
+      "end": 347.44,
+      "text": "They packed the new",
+      "uncertain": true
+    },
+    {
+      "start": 347.44,
+      "end": 348.46,
+      "text": "With a dagger",
+      "uncertain": true
+    },
+    {
+      "start": 348.46,
+      "end": 349.3,
+      "text": "Knocked the head",
+      "uncertain": false
+    },
+    {
+      "start": 349.3,
+      "end": 350.7,
+      "text": "Out of the new south",
+      "uncertain": true
+    },
+    {
+      "start": 353.68,
+      "end": 356.06,
+      "text": "I'm just a white man",
+      "uncertain": false
+    },
+    {
+      "start": 356.06,
+      "end": 358.6,
+      "text": "Coming to you from the Southland",
+      "uncertain": true
+    },
+    {
+      "start": 358.6,
+      "end": 360.92,
+      "text": "Just like you",
+      "uncertain": false
+    },
+    {
+      "start": 360.92,
+      "end": 363.14,
+      "text": "Whatever what you see",
+      "uncertain": true
+    },
+    {
+      "start": 363.14,
+      "end": 365.96,
+      "text": "I'm proud of where I'm from",
+      "uncertain": false
+    },
+    {
+      "start": 365.96,
+      "end": 368.5,
+      "text": "But not everything we've done",
+      "uncertain": false
+    },
+    {
+      "start": 368.5,
+      "end": 370.36,
+      "text": "It ain't like you and me",
+      "uncertain": false
+    },
+    {
+      "start": 370.36,
+      "end": 373.0,
+      "text": "Can't rewrite history",
+      "uncertain": false
+    },
+    {
+      "start": 374.68,
+      "end": 376.44,
+      "text": "Our generation",
+      "uncertain": false
+    },
+    {
+      "start": 376.44,
+      "end": 379.2,
+      "text": "Didn't stop this nation",
+      "uncertain": false
+    },
+    {
+      "start": 379.2,
+      "end": 381.96,
+      "text": "We're still taking off the paces",
+      "uncertain": false
+    },
+    {
+      "start": 381.96,
+      "end": 384.86,
+      "text": "Fettled eggshells fighting over before we came",
+      "uncertain": false
+    },
+    {
+      "start": 384.86,
+      "end": 386.8,
+      "text": "And I got somewhere between",
+      "uncertain": true
+    },
+    {
+      "start": 386.8,
+      "end": 389.16,
+      "text": "Southern pride and Southern blame",
+      "uncertain": false
+    },
+    {
+      "start": 392.74,
+      "end": 394.94,
+      "text": "Now I'm just a white man",
+      "uncertain": true
+    }
+  ]
+}
