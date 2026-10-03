@@ -1950,5 +1950,20 @@ export default {
     "missingSources": [],
     "previous": null,
     "firstSeenAt": "2026-10-03T05:24:42.244Z"
+  },
+  "distonyc-dab5305bedfa2bf0cf7b4996": {
+    "src": "/assets/artwork/distonyc-dab5305bedfa2bf0cf7b4996-incubating-d1db0b0d9547-q86.webp",
+    "alt": "Cover artwork for Nine-Eleven'd Again (Tragic Aria).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "290cd13cb9ff8d3a6f6804c0d6370c4271440696ada911e66e839c12ca819033",
+    "promptHash": "ee047d3bacdde02b4dd5f480ff9e1770006d3d00d8dcb5674fdccd146eb3a2b8",
+    "createdAt": "2026-10-03T06:25:06.567Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-03T06:24:43.494Z"
   }
 };
