@@ -223,10 +223,10 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
       velocityPoint = {x:event.clientX, y:event.clientY};
     }
     const wasScattered = scattered;
-    if (speed !== null && speed > 650) {
+    if (speed !== null && speed > 2400) {
       scattered = true;
-      fastUntil = now + 350;
-    } else if (speed !== null && speed < 250 && now >= fastUntil) scattered = false;
+      fastUntil = now + 200;
+    } else if (speed !== null && speed < 1600 && now >= fastUntil) scattered = false;
     if (docked && speed === null) scattered = false;
     mouse = {x:event.clientX, y:event.clientY};
     if (!wasScattered && scattered) positions.forEach((position, i) => {

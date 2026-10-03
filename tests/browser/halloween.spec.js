@@ -246,20 +246,32 @@ test('bats trail slow movement, scatter on fast movement, and sleep on the ceili
   expect(following[0].x).toBeLessThan(1160);
   expect(following[8].x).toBeLessThan(following[0].x-200);
   await page.screenshot({path:'artifacts/halloween-slow-trail.png'});
+  // Ordinary mouse movement should keep trailing, even above the old scatter threshold.
+  for (let i=1; i<=10; i++) {
+    await page.clock.runFor(20);
+    await page.evaluate(x => window.dispatchEvent(new PointerEvent('pointermove',
+      {pointerType:'mouse',clientX:x,clientY:450})),1160-i*18);
+  }
+  await page.clock.runFor(64);
+  await expect(flock).toHaveAttribute('data-flight','trail');
   await page.mouse.move(700,450);
   await page.clock.runFor(900);
   await expect(flock).toHaveAttribute('data-flight','scatter');
   await expect(page.locator('.halloween-swarm-bat.is-sleeping')).toHaveCount(0);
   expect((await points()).every(p => p.edge < 100 && p.inside)).toBe(true);
   // Slow down again: only actual slow movement regroups them, not a scatter timeout.
-  await page.mouse.move(702,450);
+  for (let i=1; i<=10; i++) {
+    await page.clock.runFor(20);
+    await page.evaluate(x => window.dispatchEvent(new PointerEvent('pointermove',
+      {pointerType:'mouse',clientX:x,clientY:450})),i%2 ? 720 : 702);
+  }
   await page.clock.runFor(600);
   await expect(flock).toHaveAttribute('data-flight','trail');
   expect(Math.hypot((await points())[0].x-702,(await points())[0].y-450)).toBeLessThan(80);
   // A high-rate mouse sends small events whose combined speed is still fast.
   for (let i=1; i<=10; i++) {
     await page.clock.runFor(4);
-    await page.evaluate(x => window.dispatchEvent(new PointerEvent('pointermove',{pointerType:'mouse',clientX:x,clientY:450})),702+i*4);
+    await page.evaluate(x => window.dispatchEvent(new PointerEvent('pointermove',{pointerType:'mouse',clientX:x,clientY:450})),702+i*12);
   }
   await page.clock.runFor(700);
   await expect(flock).toHaveAttribute('data-flight','scatter');
