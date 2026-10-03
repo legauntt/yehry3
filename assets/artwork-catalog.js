@@ -2066,5 +2066,22 @@ export default {
     "missingSources": [],
     "previous": null,
     "interpretation": "automatic-safe-interpretation"
+  },
+  "distonyc-7432f42a31eb9963ac91e18d": {
+    "src": "/assets/artwork/distonyc-7432f42a31eb9963ac91e18d-incubating-d9e934f52232-2538151e3ede59a3-q86.webp",
+    "alt": "Cover artwork for Solving Racism.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "d5411cf28d4975b0ead543decad9da4409b7aad8fd418b1cc5366c63ab13434a",
+    "promptHash": "67f878bef13cb1491991d610b488246d366e4b27c0024ec9b174d36fd6a25232",
+    "createdAt": "2026-10-03T21:40:16.679Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-03T21:39:42.402Z",
+    "interpretation": "automatic-safe-interpretation",
+    "history": []
   }
 };
