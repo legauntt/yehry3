@@ -19,6 +19,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/02-yeah-after-midnight-cover-motion.mp4",
       "framing": "square",
       "duration": 5
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/02-yeah-after-midnight-song-scenes-20261001.mp4",
+      "framing": "square",
+      "duration": 5
     }
   ],
   "distonyc-0dc2bea1e37dea334832f473": [
@@ -38,6 +43,11 @@ export default {
     },
     {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/03-the-golden-answer-midnight-synth-remedy-cover-motion.mp4",
+      "framing": "square",
+      "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/03-the-golden-answer-midnight-synth-remedy-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 10
     }
@@ -61,6 +71,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/07-miracle-piss-tragic-aria-cover-motion.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/07-miracle-piss-tragic-aria-song-scenes-20261001.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-ffa7b966f9f8cc1a5d4cc3a5": [
@@ -80,6 +95,11 @@ export default {
     },
     {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/01-lamma-bada-cynical-club-mix-cover-motion.mp4",
+      "framing": "square",
+      "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/01-lamma-bada-cynical-club-mix-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 10
     }
@@ -103,6 +123,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/04-the-golden-answer-cover-motion.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/04-the-golden-answer-song-scenes-20261001.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-06d2b8c3c8dffed19df347bb": [
@@ -124,6 +149,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/05-it-was-simple-not-easy-cover-motion.mp4",
       "framing": "square",
       "duration": 15
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/05-it-was-simple-not-easy-song-scenes-20261001.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-f13f78a2474383f7eb72c64e": [
@@ -143,6 +173,11 @@ export default {
     },
     {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/06-lamma-bada-tragic-aria-cover-motion.mp4",
+      "framing": "square",
+      "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/06-lamma-bada-tragic-aria-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 10
     }
@@ -166,6 +201,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/08-lamma-bada-cynical-dancefloor-rework-cover-motion.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/08-lamma-bada-cynical-dancefloor-rework-song-scenes-20261001.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-41122cfa1d30d985e40d357b": [
@@ -180,6 +220,11 @@ export default {
     },
     {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/10-nine-eleven-d-again-cover-motion-r2.mp4",
+      "framing": "square",
+      "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/12-nine-eleven-d-again-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 10
     }
@@ -198,6 +243,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/11-influence-criteria-cover-motion.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/13-influence-criteria-song-scenes-20261001.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-1bedc02aaedbb1663d5fdcd9": [
@@ -212,6 +262,11 @@ export default {
     },
     {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/12-geglash-and-the-missing-save-cover-motion.mp4",
+      "framing": "square",
+      "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/14-geglash-and-the-missing-save-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 10
     }
@@ -230,6 +285,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/13-whoopsie-apartheid-cover-motion.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/15-whoopsie-apartheid-song-scenes-20261001.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-d267f673c93786e5669bcae4": [
@@ -244,6 +304,11 @@ export default {
     },
     {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/14-closed-before-the-first-bite-cover-motion.mp4",
+      "framing": "square",
+      "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/16-closed-before-the-first-bite-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 10
     }
@@ -262,6 +327,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/15-blood-on-my-shoes-at-daybreak-cover-motion.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/17-blood-on-my-shoes-at-daybreak-song-scenes-20261001.mp4",
+      "framing": "square",
+      "duration": 15
     }
   ],
   "distonyc-21c8149b819a0dfa21a08913": [
@@ -276,6 +346,11 @@ export default {
     },
     {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/16-aw-hell-jimmy-cover-motion.mp4",
+      "framing": "square",
+      "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/18-aw-hell-jimmy-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 10
     }
@@ -294,6 +369,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/17-twelve-empty-cups-cover-motion.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/19-twelve-empty-cups-song-scenes-20261001.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-273bc25db98800af3487b313": [
@@ -308,6 +388,11 @@ export default {
     },
     {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/18-weird-hair-weird-smells-cover-motion.mp4",
+      "framing": "square",
+      "duration": 5
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/20-weird-hair-weird-smells-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 5
     }
