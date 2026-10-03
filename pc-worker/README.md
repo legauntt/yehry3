@@ -39,6 +39,30 @@ and the versioned targeted admin retry. Never replace started render inputs or
 reset planning/recovery journals. Install only the reviewed runtime changes while
 worker and monitor are idle, preserving newer installed policies.
 
+## V9 training epoch
+
+Only Tony V9 accepts `details.voiceEpoch`: a numeric saved epoch from 10 to 300
+in steps of 10. The form defaults to 300. Requests without an epoch retain the
+established V9 profile. Explicit 300 uses the same profile and fingerprint.
+Earlier epochs use separate pinned runtime directories, sharing the retrieval
+index through hardlinks. Rendering, retries, contextual vocal repair and
+publication retain the selected profile; missing or changed assets fail closed.
+
+With the audio worker and queue monitor idle and temporarily disabled, install
+the reviewed runtime files using `install.ps1 -RuntimeOnly -Files ...`, then run:
+
+```powershell
+python prepare_v9_epochs.py --config <installed-config.json> --checkpoints <applio-logs-tony-v9> --output <permanent-epoch-profiles> --write
+```
+
+The setup verifies all 30 training exports, refuses to replace differing assets,
+backs up config, and leaves the existing V9 profile intact. Without `--write` it
+only verifies inventory and the default checkpoint. Restore the schedules after
+runtime verification. The worker advertises `voice-v9-epochs-v1` only after every
+configured epoch passes integrity checks. Older workers can still process legacy
+V9 requests; explicit epochs wait for a capable worker. The public request and
+song metadata carry only `voiceEpoch`, never local profile paths or hashes.
+
 ## Lyric workshop
 
 `lyric_writer.py` is a separate text-only worker for Step 2 of the website. It holds an authenticated

@@ -5,6 +5,16 @@ import { remixBadge, remixOrigin } from "../assets/remix-badge.js";
 
 const source = { songId: "distonyc-aaaaaaaaaaaaaaaaaaaaaaaa", title: "The <original>" };
 
+test('explicit V9 epochs follow the voice badge through requests and recordings', () => {
+  for (const item of [{ voiceModel: 'v9', voiceEpoch: 100 },
+    { details: { voiceModel: 'v9', voiceEpoch: 100 } },
+    { originalPrompt: { voiceModel: 'v9', voiceEpoch: 100 } }])
+    assert.match(voiceModelBadge(item), />V9 · epoch 100</);
+  for (const item of [{ voiceModel: 'v7', voiceEpoch: 100 },
+    { voiceModel: 'v9' }, { voiceModel: 'v9', voiceEpoch: '<img>' }])
+    assert.doesNotMatch(voiceModelBadge(item), /epoch|<img>/);
+});
+
 test("the badge row keeps one shape for songs, queued requests and drafts", () => {
   const published = { id: "one", voiceModel: "v8", musicBackend: "eleven_music", remixOf: source };
   const queued = { id: "two", originalPrompt: { voiceModel: "v7", musicBackend: "local" }, remixOf: source };

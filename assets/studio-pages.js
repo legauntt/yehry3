@@ -271,7 +271,7 @@ export async function requests() {
             <div id="lyric-workshop-root"></div>
             <div id="music-backend-root"></div>
             <div class="voice-model-label"><label for="voice-model">Tony voice model</label>${modelInfoButton()}</div>
-            <select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p>
+            <select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p><div id="voice-epoch-field" hidden><label for="voice-epoch">V9 training epoch</label><select id="voice-epoch" name="voiceEpoch"></select><p class="small">300 is the current default. Earlier checkpoints can sound different; a higher epoch is not always better.</p></div>
             <div id="pitch-root"></div>
             <label for="keep">What matters most? <span class="small">(optional)</span></label><textarea id="keep" rows="2" maxlength="1000" placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><p class="small field-hint">Leave this empty for “Surprise me.”</p>
           </div>
@@ -318,8 +318,17 @@ export async function requests() {
         unavailable.disabled = true; $("#voice-model").append(unavailable);
       }
       $("#voice-model").value = startingVoice({ saved: initialVoice, remembered: rememberedVoice(), models: voiceModels, generationAvailable });
+      const epochDraftKey = `voice-epoch-draft:${draft.id}`;
+      const epochModel = voiceModels.find(model => model.id === 'v9');
+      const epochs = epochModel?.epochs || [];
+      $('#voice-epoch').innerHTML = epochs.map(epoch => `<option value="${Number(epoch)}">${Number(epoch)}${epoch === 300 ? ' · default' : ''}</option>`).join('');
+      const savedEpoch = Number(storage.get(epochDraftKey) || initialDetails.voiceEpoch || epochModel?.defaultEpoch || 300);
+      $('#voice-epoch').value = String(epochs.includes(savedEpoch) ? savedEpoch : 300);
+      $('#voice-epoch').onchange = () => storage.set(epochDraftKey, $('#voice-epoch').value);
       const describeVoice = () => {
         const model = voiceModel($("#voice-model").value);
+        $("#voice-epoch-field").hidden = model.id !== "v9" || !epochs.length;
+        $("#voice-epoch").disabled = model.id !== "v9" || !epochs.length;
         generation.setRequired(usesGeneration(model.id));
         $(".voice-model-note").textContent = `${model.note}.${model.experimental ? " This voice is still being evaluated." : ""}`;
       };
@@ -364,6 +373,7 @@ export async function requests() {
           details.basisSongIds = attachedRemix || details.musicBackend === PAID_BACKEND ? [] : selectedBasis();
           if (attachedRemix) details.remixSongId = attachedRemix.songId;
           details.voiceModel = $("#voice-model").value;
+          if (details.voiceModel === "v9" && epochs.length) details.voiceEpoch = Number($("#voice-epoch").value);
           details.authoredBy = $("#authored-by").value.trim();
           Object.assign(details, requestMaterials.read());
           details.generation = generation.read();
@@ -374,7 +384,7 @@ export async function requests() {
               body: { version: draft.version, ...details },
             })
           ).prompt;
-          requestMaterials.clear(); generation.clear(); music.clear(); storage.remove(voiceDraftKey);
+          requestMaterials.clear(); generation.clear(); music.clear(); storage.remove(voiceDraftKey); storage.remove(epochDraftKey);
           rememberAuthor(draft.authoredBy || "");
           render();
         });

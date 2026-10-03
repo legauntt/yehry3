@@ -259,7 +259,7 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
     settings = config['settings']; engine_root = Path(config['engine_resources'])
     voice_model = request.get('voice_model', 'v6')
     validate_generation_fork(voice_model, request.get('generation_profile'), plan)
-    voice_profile = resolve(config, voice_model)
+    voice_profile = resolve(config, voice_model, request.get('voice_epoch'))
     os.environ['TROOFS_WORKER_RESOURCES'] = str(engine_root)
     engine = module_at('distonyc_engine', engine_root / 'engine_tasks.py')
     engine.save = save
@@ -286,8 +286,13 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
     if request.get('verify_existing'):
         # This option is set only by the local operator CLI, never by a submitted prompt.
         work = inside(request['verify_existing'], Path(settings['studio_dir']).parent)
+        if request.get('voice_epoch') is not None:
+            frozen = load(work / 'distonyc-configured.json')
+            if frozen.get('voice_profile_fingerprint') != voice_profile['fingerprint']:
+                raise ValueError('The retained recording uses a different V9 epoch profile')
         result = with_quality(engine.verify_work(work, settings['output_dir']))
         result['voice_model'] = voice_model
+        if request.get('voice_epoch') is not None: result['voice_epoch'] = request['voice_epoch']
         if plan.get('generation'): result['generation_profile'] = 'v8'
         return result
     if plan['recipe'] == 'barbershop':
@@ -364,6 +369,7 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
                 if spec['kind'] != 'new':
                     raise ValueError(f'Tony {voice_model.upper()} currently supports new compositions and reinterpretations, not faithful source reconstructions')
                 shutil.copy2(work / 'convert_song.py', work / 'engine_voice.py')
+                if request.get('voice_epoch') is not None: track['voice_epoch'] = request['voice_epoch']
                 track.update(voice_model=voice_model, voice_checkpoint=voice_profile['files']['adapter'],
                     voice_model_sha256=voice_profile['sha256']['adapter'], v6_control_sha256=track['model_sha256'],
                     experiment=voice_profile['root'], reference_profile=reference_profile(voice_profile, plan['style']),
@@ -430,6 +436,7 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
         if load(work / 'desktop-status.json')['status'] == 'completed':
             result = with_quality(engine.verify_work(work, settings['output_dir']))
             result['voice_model'] = voice_model
+            if request.get('voice_epoch') is not None: result['voice_epoch'] = request['voice_epoch']
             if plan.get('generation'): result['generation_profile'] = 'v8'
             return result
         execution = execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False))
@@ -442,6 +449,7 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
             review_fallback=not composition_retry,
             before_fallback=lambda: wordless_cutoff_recovery(request, work, repair, composition_retry), **options))
         result['voice_model'] = voice_model
+        if request.get('voice_epoch') is not None: result['voice_epoch'] = request['voice_epoch']
         if plan.get('generation'): result['generation_profile'] = 'v8'
         return result
 
