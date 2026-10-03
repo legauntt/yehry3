@@ -1,0 +1,235 @@
+{
+  "version": 1,
+  "songId": "distonyc-35be11b84d9a5202f10feda8",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-35be11b84d9a5202f10feda8-f006dadb7e66.mp3",
+  "audioSha256": "f006dadb7e665e51b71bc631b4889ddbb454c8a355c9a95832e6adba724de9f7",
+  "inputSha256": "f006dadb7e665e51b71bc631b4889ddbb454c8a355c9a95832e6adba724de9f7",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 324.4,
+  "segments": [
+    {
+      "start": 0.78,
+      "end": 4.68,
+      "text": "Hanging with your milkshake, you get skeeted on",
+      "uncertain": false
+    },
+    {
+      "start": 4.68,
+      "end": 9.42,
+      "text": "Thinking you the shit, girl, you get skeeted on",
+      "uncertain": false
+    },
+    {
+      "start": 10.16,
+      "end": 14.14,
+      "text": "Walking on your feet, girl, you get skeeted on",
+      "uncertain": false
+    },
+    {
+      "start": 14.14,
+      "end": 18.76,
+      "text": "You get skeeted on, you get skeeted on",
+      "uncertain": false
+    },
+    {
+      "start": 18.76,
+      "end": 23.56,
+      "text": "My grill's bigger than yours, yeah, you get skeeted on",
+      "uncertain": false
+    },
+    {
+      "start": 23.56,
+      "end": 28.06,
+      "text": "Money longer than yours, yeah, you get skeeted on",
+      "uncertain": false
+    },
+    {
+      "start": 28.06,
+      "end": 30.64,
+      "text": "Broke the pistol, I got a chop",
+      "uncertain": true
+    },
+    {
+      "start": 30.64,
+      "end": 32.78,
+      "text": "Get skeeted on",
+      "uncertain": true
+    },
+    {
+      "start": 32.78,
+      "end": 60.52,
+      "text": "Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, S",
+      "uncertain": true
+    },
+    {
+      "start": 60.52,
+      "end": 75.44,
+      "text": "But uh, who these niggas killed, they ain't want no trouble. Thunder on my lap, I bust your bubble. Paper stack and true that. Next thing you know, hoes holler who that. Haters gotta shoot at. How they sayin', where my crew at? And if you feelin', then smoke a little dro. Skeet, skeet, skeet, skeet, skeet some more.",
+      "uncertain": true
+    },
+    {
+      "start": 75.44,
+      "end": 88.02,
+      "text": "You might also like Nico Kidland, A.D. Dela, Sawadika, Lissa, Bars, 4-1, Rent 10-10 Freestyle, J.J. Q.",
+      "uncertain": true
+    },
+    {
+      "start": 94.0,
+      "end": 105.18,
+      "text": "You know the name, you know ain't a damn thing changed, cryptic empty change, but on point with the aim, riding like a moccasin, sitting high on them thangs, like my name was Danny, rearrange your hips, lady,",
+      "uncertain": true
+    },
+    {
+      "start": 105.18,
+      "end": 108.52,
+      "text": "And right before you blow low, take a sip lady, it's that crank",
+      "uncertain": true
+    },
+    {
+      "start": 109.38,
+      "end": 112.58,
+      "text": "Raiders on, you can see that girl with it, uh, right on me bones",
+      "uncertain": true
+    },
+    {
+      "start": 112.58,
+      "end": 115.58,
+      "text": "You bout to teeny prone, you get to chopping your groan",
+      "uncertain": true
+    },
+    {
+      "start": 115.58,
+      "end": 119.12,
+      "text": "Riding 18s, chopping your groan, riding 24s, chopping your groan",
+      "uncertain": false
+    },
+    {
+      "start": 120.6,
+      "end": 124.42,
+      "text": "Here we go again, shawty in the club and she didn't bring a man",
+      "uncertain": false
+    },
+    {
+      "start": 124.42,
+      "end": 126.78,
+      "text": "She smoking on that ether and drinking on some hands",
+      "uncertain": false
+    },
+    {
+      "start": 126.78,
+      "end": 129.2,
+      "text": "So I guess you're getting skeeted on, never skeeted in",
+      "uncertain": false
+    },
+    {
+      "start": 129.2,
+      "end": 131.56,
+      "text": "Guess you're getting skeeted on, never skeeted in",
+      "uncertain": false
+    },
+    {
+      "start": 154.06,
+      "end": 154.18,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 165.18,
+      "end": 167.36,
+      "text": "I'm spinning, and the rims don't stop.",
+      "uncertain": true
+    },
+    {
+      "start": 167.48,
+      "end": 169.14,
+      "text": "Suck a roll, I think it clocked with my clock.",
+      "uncertain": true
+    },
+    {
+      "start": 169.46,
+      "end": 170.36,
+      "text": "Skit, skit, skit.",
+      "uncertain": false
+    },
+    {
+      "start": 170.6,
+      "end": 172.62,
+      "text": "All in your face, with them hoes trying to fake.",
+      "uncertain": false
+    },
+    {
+      "start": 172.76,
+      "end": 173.86,
+      "text": "You can keep your milkshake.",
+      "uncertain": false
+    },
+    {
+      "start": 174.18,
+      "end": 175.66,
+      "text": "Cause hers better than y'all's.",
+      "uncertain": false
+    },
+    {
+      "start": 175.72,
+      "end": 177.94,
+      "text": "Cooking dope, living firm, looking better than y'all.",
+      "uncertain": false
+    },
+    {
+      "start": 188.72,
+      "end": 189.92,
+      "text": "Steep into the air.",
+      "uncertain": true
+    },
+    {
+      "start": 196.6,
+      "end": 199.26,
+      "text": "Ski into infinity",
+      "uncertain": false
+    },
+    {
+      "start": 215.44,
+      "end": 216.84,
+      "text": "Ski",
+      "uncertain": false
+    },
+    {
+      "start": 225.18,
+      "end": 226.18,
+      "text": "Ski",
+      "uncertain": false
+    },
+    {
+      "start": 243.74,
+      "end": 245.14,
+      "text": "Ski",
+      "uncertain": false
+    },
+    {
+      "start": 263.1,
+      "end": 264.5,
+      "text": "Ski",
+      "uncertain": false
+    },
+    {
+      "start": 271.88,
+      "end": 273.28,
+      "text": "Ski",
+      "uncertain": false
+    },
+    {
+      "start": 313.76,
+      "end": 315.16,
+      "text": "Ski",
+      "uncertain": false
+    },
+    {
+      "start": 315.18,
+      "end": 324.22,
+      "text": "I love you, I love you, I love you",
+      "uncertain": true
+    }
+  ]
+}
