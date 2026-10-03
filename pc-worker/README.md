@@ -1,5 +1,22 @@
 # Distonyc on Windows
 
+## Switch refused planning to Local ACE
+
+When the requester explicitly chooses Local ACE and exact supplied wording, run
+`operator-local-ace.ps1 -Request <request-id>`. This command may also run from a
+current source checkout while a worker is running; it loads the verified installed
+runtime and refuses any request that is active or has accepted planning, review,
+or audio artifacts. Do not install over a running worker.
+
+Chairlift's authenticated, version-checked `planning-backend` action permits one
+Eleven Music to local switch after planning fails. It keeps the lyric sheet,
+voice, duration, spending evidence and prior details. The command archives the
+refused plan through the existing bounded replan controller, copies the supplied
+words into the retained musical arrangement, runs normal plan and wording
+validation, and uses `operator-retry.ps1` to queue and record one recovery attempt.
+`local-ace-switch.json` reconciles a lost switch response without another revision
+or replanning pass. It does not release presumed paid holds or call a paid provider.
+
 ## Intentional nonverbal vocals
 
 When a confirmed nonverbal performance has sustained vocal presence but falls below
