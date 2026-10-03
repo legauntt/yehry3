@@ -12,7 +12,13 @@ export default {
     "promptHash": "49e7c2bbf64bd0103af678e47ff7c77bcdc076c846f7de39450fd677129d6ce7",
     "createdAt": "2026-09-27T22:49:35.101Z",
     "missingSources": [],
-    "previous": "/assets/artwork/it-was-simple-not-easy.webp"
+    "previous": "/assets/artwork/it-was-simple-not-easy.webp",
+    "history": [
+      {
+        "src": "/assets/artwork/it-was-simple-not-easy.webp",
+        "alt": "Earlier cover artwork"
+      }
+    ]
   },
   "distonyc-41122cfa1d30d985e40d357b": {
     "src": "/assets/artwork/nine-eleven-d-again-fbfe8b.webp",
@@ -1780,7 +1786,14 @@ export default {
     "createdAt": "2026-10-01T08:13:02.354Z",
     "missingSources": [],
     "previous": "/assets/artwork/distonyc-d1a03d6de43ac88c555b2d91-incubating-58dcb159e902-q86.webp",
-    "firstSeenAt": "2026-09-28T06:39:23.684Z"
+    "firstSeenAt": "2026-09-28T06:39:23.684Z",
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-d1a03d6de43ac88c555b2d91-incubating-58dcb159e902-q86.webp",
+        "alt": "Cover artwork for Yeah After Midnight (Midnight Jazz Rework).",
+        "createdAt": "2026-09-28T06:39:43.822Z"
+      }
+    ]
   },
   "distonyc-ab451f90f7018ee738fbe2ed": {
     "src": "/assets/artwork/distonyc-ab451f90f7018ee738fbe2ed-mature-0314595662b9-q86.webp",
@@ -1795,7 +1808,14 @@ export default {
     "createdAt": "2026-10-02T08:40:17.084Z",
     "missingSources": [],
     "previous": "/assets/artwork/distonyc-ab451f90f7018ee738fbe2ed-incubating-c1f43b4f68c9-q86.webp",
-    "firstSeenAt": "2026-10-01T08:12:11.733Z"
+    "firstSeenAt": "2026-10-01T08:12:11.733Z",
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-ab451f90f7018ee738fbe2ed-incubating-c1f43b4f68c9-q86.webp",
+        "alt": "Cover artwork for I Wanna - Tragic Aria.",
+        "createdAt": "2026-10-01T08:12:31.092Z"
+      }
+    ]
   },
   "distonyc-6a97c3ae9199f44efe788736": {
     "src": "/assets/artwork/distonyc-6a97c3ae9199f44efe788736-mature-f153245a955a-q86.webp",
@@ -1810,7 +1830,14 @@ export default {
     "createdAt": "2026-10-02T08:40:15.453Z",
     "missingSources": [],
     "previous": "/assets/artwork/distonyc-6a97c3ae9199f44efe788736-incubating-b58bb22c19bf-q86.webp",
-    "firstSeenAt": "2026-10-01T08:12:11.733Z"
+    "firstSeenAt": "2026-10-01T08:12:11.733Z",
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-6a97c3ae9199f44efe788736-incubating-b58bb22c19bf-q86.webp",
+        "alt": "Cover artwork for I Wanna Tonight (Midnight Bass Mix).",
+        "createdAt": "2026-10-01T08:12:32.367Z"
+      }
+    ]
   },
   "distonyc-5ef1a9c45affd9b9229a3ab8": {
     "src": "/assets/artwork/distonyc-5ef1a9c45affd9b9229a3ab8-basic-a5ed34e60966-q86.webp",
@@ -1841,7 +1868,14 @@ export default {
     "createdAt": "2026-10-02T19:10:36.741Z",
     "missingSources": [],
     "previous": "/assets/artwork/distonyc-e695c7562362c1a3cb6155b1-incubating-72777708af23-q86.webp",
-    "firstSeenAt": "2026-10-01T19:09:22.763Z"
+    "firstSeenAt": "2026-10-01T19:09:22.763Z",
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-e695c7562362c1a3cb6155b1-incubating-72777708af23-q86.webp",
+        "alt": "Cover artwork for Arrrrrrrrrrrt.",
+        "createdAt": "2026-10-01T19:09:45.799Z"
+      }
+    ]
   },
   "distonyc-c9fa039b6d43960642e62b20": {
     "src": "/assets/artwork/distonyc-c9fa039b6d43960642e62b20-mature-701bf87c9176-q86.webp",
@@ -1856,7 +1890,14 @@ export default {
     "createdAt": "2026-10-02T19:40:37.068Z",
     "missingSources": [],
     "previous": "/assets/artwork/distonyc-c9fa039b6d43960642e62b20-incubating-e14e5dce691b-q86.webp",
-    "firstSeenAt": "2026-10-01T19:39:22.779Z"
+    "firstSeenAt": "2026-10-01T19:39:22.779Z",
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-c9fa039b6d43960642e62b20-incubating-e14e5dce691b-q86.webp",
+        "alt": "Cover artwork for When Horses Still Went.",
+        "createdAt": "2026-10-01T19:39:42.159Z"
+      }
+    ]
   },
   "distonyc-3ce62fce4bc081402b7e6408": {
     "src": "/assets/artwork/distonyc-3ce62fce4bc081402b7e6408-mature-bb3734e6dc5a-q86.webp",
@@ -1871,7 +1912,14 @@ export default {
     "createdAt": "2026-10-03T06:40:33.857Z",
     "missingSources": [],
     "previous": "/assets/artwork/distonyc-3ce62fce4bc081402b7e6408-incubating-1dbeb7c7806c-q86.webp",
-    "firstSeenAt": "2026-10-02T06:39:23.549Z"
+    "firstSeenAt": "2026-10-02T06:39:23.549Z",
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-3ce62fce4bc081402b7e6408-incubating-1dbeb7c7806c-q86.webp",
+        "alt": "Cover artwork for The Last Roll Call (Black Parade Version).",
+        "createdAt": "2026-10-02T06:39:47.323Z"
+      }
+    ]
   },
   "distonyc-20174d336717fef213d9d9d8": {
     "src": "/assets/artwork/distonyc-20174d336717fef213d9d9d8-emphasis-f432ae7e38b9-q86.webp",
@@ -1934,7 +1982,14 @@ export default {
     "createdAt": "2026-10-03T10:40:31.297Z",
     "missingSources": [],
     "previous": "/assets/artwork/distonyc-8c458c190955a5bc4376f45e-incubating-54189bb35e3c-q86.webp",
-    "firstSeenAt": "2026-10-02T10:24:42.342Z"
+    "firstSeenAt": "2026-10-02T10:24:42.342Z",
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-8c458c190955a5bc4376f45e-incubating-54189bb35e3c-q86.webp",
+        "alt": "Cover artwork for Get Skeeted On.",
+        "createdAt": "2026-10-02T10:25:04.387Z"
+      }
+    ]
   },
   "distonyc-35be11b84d9a5202f10feda8": {
     "src": "/assets/artwork/distonyc-35be11b84d9a5202f10feda8-incubating-c306a36ce624-q86.webp",

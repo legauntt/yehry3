@@ -105,3 +105,11 @@ Get-ScheduledTaskInfo -TaskName 'yehry3 Artwork Lifecycle'
 To pause future generation: `Disable-ScheduledTask -TaskName 'yehry3 Artwork Lifecycle'`. Keep its state, ledger and masters. Changing the allowance requires a new authorization and updating the runner's explicit ceiling.
 
 Official pricing reference: https://developers.openai.com/api/docs/models/gpt-image-2
+
+## Saved image versions
+
+Click a saved cover in Grid or List to open its full-size viewer. Songs with earlier saved covers show numbered version buttons; the current cover opens first. Switching versions updates the image and Open original link, resets zoom, and preserves music playback. Escape closes the viewer and returns focus to the cover.
+
+Each successful artwork installation retains earlier public image URLs, captions and known creation times in the song's `history` inside `assets/artwork-catalog.js`. Image filenames include a content hash so new renderings cannot overwrite earlier versions. Pinned covers and generation budgets keep their existing protections. Failed or filtered calls produce no browsable image; their attempt history remains in the private ledger.
+
+`node scripts/backfill-artwork-history.mjs --state <existing-generation-state>` recovers available earlier covers from Git registry history and completed ledger entries without generating images. Compression variants resolve to the retained optimized image. Missing files are reported. Source packets, exact prompts, credentials and provider logs remain private. Run `npx playwright test --config playwright.artwork.config.js` for the isolated desktop/phone viewer checks.

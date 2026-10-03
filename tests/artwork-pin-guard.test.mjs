@@ -14,6 +14,7 @@ async function guardedRun(t, pins) {
   for (const file of ['song-artwork.mjs', 'artwork-policy.mjs', 'artwork-budget.mjs', 'artwork-safety.mjs']) {
     await copyFile(new URL('../scripts/' + file, import.meta.url), path.join(fixture, 'scripts', file));
   }
+  await copyFile(new URL('../assets/artwork-versions.js', import.meta.url), path.join(fixture, 'assets', 'artwork-versions.js'));
   const registry = '// Saved covers. Updated by scripts/song-artwork.mjs.\nexport default {};\n';
   await writeFile(path.join(fixture, 'assets/artwork-catalog.js'), registry);
   const marker = path.join(fixture, 'api-called');

@@ -10,6 +10,7 @@ import { parseArgs } from "node:util";
 import { POLICY, treatments, selectTreatment, sourcePacket, makePrompt, makeReviewedPrompt, digest, estimateCost, isPinnedOrUnknown } from "./artwork-policy.mjs";
 import { reserveJobs, budgetMonth } from "./artwork-budget.mjs";
 import { MAX_SAFETY_RETRIES, isSafetyRejection, safetyRetryCount, makeSafetyPrompt } from "./artwork-safety.mjs";
+import { retainArtworkHistory } from "../assets/artwork-versions.js";
 
 const root = path.resolve(import.meta.dirname, "..");
 const registryPath = path.join(root, "assets/artwork-catalog.js");
@@ -334,10 +335,11 @@ New safety rejections receive at most two budgeted, progressively safer interpre
             }
             if (ledger.jobs[job.key].status === 'protected-pinned') continue;
           }
-          const filename = `${job.key}-q86.webp`, src = `/assets/artwork/${filename}`;
           const preparedFile = path.join(job.folder, "cover-q86.webp");
           const prepared = await child(opt.python, [path.join(root, "scripts/prepare-cover.py"), output, preparedFile]);
           if (prepared.code !== 0 || !(await validWebp(preparedFile))) throw new Error("Cover validation/compression failed; master is saved for free recovery");
+          // A changed rendering must never overwrite an older version at the same URL.
+          const filename = `${job.key}-${digest(await readFile(preparedFile)).slice(0, 16)}-q86.webp`, src = `/assets/artwork/${filename}`;
           await save(async () => {
             // Recheck inside the serialized write, as a pin may arrive while an
             // image is rendering. Keep the master locally but do not install it.
@@ -352,7 +354,7 @@ New safety rejections receive at most two budgeted, progressively safer interpre
               }
             }
             await copyFile(preparedFile, path.join(root, src));
-            art[job.id] = { src, alt: job.alt || `Cover artwork for ${job.title}.`, theme: "generated", tier: 0, remixed: false, treatment: job.treatment, model: POLICY.model, sourceHash: job.sourceHash, promptHash: ledger.jobs[job.key]?.safetyPromptHash || digest(job.prompt), createdAt: new Date().toISOString(), missingSources: job.missing, previous: art[job.id]?.src || null, ...(job.firstSeenAt ? { firstSeenAt: job.firstSeenAt } : {}), ...(job.interpretation || ledger.jobs[job.key]?.safetyPromptHash ? { interpretation: job.interpretation || 'automatic-safe-interpretation', ...(job.briefHash ? { briefHash: job.briefHash } : {}) } : {}) };
+            art[job.id] = retainArtworkHistory(art[job.id], { src, alt: job.alt || `Cover artwork for ${job.title}.`, theme: "generated", tier: 0, remixed: false, treatment: job.treatment, model: POLICY.model, sourceHash: job.sourceHash, promptHash: ledger.jobs[job.key]?.safetyPromptHash || digest(job.prompt), createdAt: new Date().toISOString(), missingSources: job.missing, previous: art[job.id]?.src || null, ...(job.firstSeenAt ? { firstSeenAt: job.firstSeenAt } : {}), ...(job.interpretation || ledger.jobs[job.key]?.safetyPromptHash ? { interpretation: job.interpretation || 'automatic-safe-interpretation', ...(job.briefHash ? { briefHash: job.briefHash } : {}) } : {}) });
             await atomic(registryPath, prefix + JSON.stringify(art, null, 2) + ";\n");
             ledger.jobs[job.key] = { ...ledger.jobs[job.key], songId: job.id, title: job.title, treatment: job.treatment, status: "complete", src };
             delete ledger.jobs[job.key].error;

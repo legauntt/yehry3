@@ -28,6 +28,7 @@ async function scenario(t, { failures = 1, error = 'moderation_blocked', budget 
   await mkdir(path.join(root, 'assets/artwork'), { recursive: true });
   for (const file of ['song-artwork.mjs', 'artwork-policy.mjs', 'artwork-budget.mjs', 'artwork-safety.mjs'])
     await copyFile(new URL('../scripts/' + file, import.meta.url), path.join(root, 'scripts', file));
+  await copyFile(new URL('../assets/artwork-versions.js', import.meta.url), path.join(root, 'assets', 'artwork-versions.js'));
   const prefix = '// Saved covers. Updated by scripts/song-artwork.mjs.\nexport default ';
   await writeFile(path.join(root, 'assets/artwork-catalog.js'), prefix + '{};\n');
   const callsFile = path.join(root, 'calls.json');

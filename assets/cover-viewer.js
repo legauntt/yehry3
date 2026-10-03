@@ -1,4 +1,5 @@
 import artwork from "./artwork-catalog.js";
+import { artworkVersions } from "./artwork-versions.js";
 
 // The whole saved cover is a native button, including keyboard activation.
 // This viewer never touches the player or its audio element.
@@ -8,6 +9,11 @@ export function mountCoverViewer(root, scope) {
   dialog.setAttribute("aria-labelledby", "cover-viewer-title");
   dialog.innerHTML = `<header class="cover-viewer-header"><h2 id="cover-viewer-title"></h2><div class="cover-viewer-actions"><button type="button" data-cover-zoom aria-pressed="false">Actual size</button><a data-cover-original target="_blank" rel="noopener">Open original ↗</a><button type="button" data-cover-close autofocus aria-label="Close cover">Close ×</button></div></header><p class="cover-viewer-status" role="status"></p><div class="cover-viewer-image"><img alt="" decoding="async"></div>`;
   document.body.append(dialog);
+  const versions = document.createElement("div");
+  versions.className = "cover-viewer-versions";
+  versions.setAttribute("role", "group");
+  versions.setAttribute("aria-label", "Image versions");
+  dialog.querySelector("header").after(versions);
   const title = dialog.querySelector("h2");
   const image = dialog.querySelector("img");
   const viewport = dialog.querySelector(".cover-viewer-image");
@@ -15,7 +21,24 @@ export function mountCoverViewer(root, scope) {
   const zoom = dialog.querySelector("[data-cover-zoom]");
   const original = dialog.querySelector("[data-cover-original]");
   const close = dialog.querySelector("[data-cover-close]");
-  let opener, songId;
+  let opener, songId, choices = [];
+
+  function selectVersion(index) {
+    const art = choices[index];
+    if (!art) return;
+    fit();
+    image.alt = art.alt;
+    original.href = art.src;
+    status.textContent = "Loading cover…";
+    for (const button of versions.querySelectorAll("button")) {
+      button.setAttribute("aria-pressed", String(Number(button.dataset.coverVersion) === index));
+    }
+    image.src = art.src;
+  }
+  scope.on(versions, "click", event => {
+    const button = event.target.closest("[data-cover-version]");
+    if (button && button.getAttribute("aria-pressed") !== "true") selectVersion(Number(button.dataset.coverVersion));
+  });
 
   function fit() {
     dialog.classList.remove("is-zoomed");
@@ -31,11 +54,17 @@ export function mountCoverViewer(root, scope) {
     opener = button;
     songId = button.dataset.coverOpen;
     title.textContent = button.closest(".track").querySelector("h3")?.textContent || "Song cover";
-    image.alt = art.alt;
-    original.href = art.src;
-    fit();
-    status.textContent = "Loading cover…";
-    image.src = art.src;
+    choices = artworkVersions(art);
+    versions.replaceChildren(...choices.map((choice, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.dataset.coverVersion = index;
+      button.textContent = `Version ${choice.label}${index === choices.length - 1 ? " · Current" : ""}`;
+      if (choice.createdAt) button.title = new Date(choice.createdAt).toLocaleString();
+      return button;
+    }));
+    versions.hidden = choices.length < 2;
+    selectVersion(choices.length - 1);
     dialog.showModal();
     document.documentElement.classList.add("cover-viewer-open");
     close.focus({ preventScroll: true });
@@ -62,14 +91,6 @@ export function mountCoverViewer(root, scope) {
     const box = dialog.getBoundingClientRect();
     if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)
       dialog.close();
-  });
-  scope.on(dialog, "keydown", event => {
-    if (event.key !== "Tab") return; // Escape uses native dialog dismissal.
-    if (event.shiftKey && document.activeElement === zoom) {
-      event.preventDefault(); close.focus();
-    } else if (!event.shiftKey && document.activeElement === close) {
-      event.preventDefault(); zoom.focus();
-    }
   });
   scope.onLeave(() => {
     dialog.close();

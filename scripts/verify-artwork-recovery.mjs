@@ -4,6 +4,7 @@ import { mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { chromium } from '@playwright/test';
 import artwork from '../assets/artwork-catalog.js';
+import { artworkVersions } from '../assets/artwork-versions.js';
 const id = process.argv[2];
 if (!id || !artwork[id]) throw new Error('Pass a song ID with a saved cover');
 const output = path.resolve(process.env.ARTWORK_QA_DIR || 'artifacts/artwork-recovery');
@@ -27,6 +28,23 @@ try {
     assert.equal(await row.locator('.track-art-pending').count(), 0);
     assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
     await page.screenshot({ path: path.join(output, name + '.png') });
+    await row.locator('[data-cover-open]').click();
+    const dialog = page.locator('.cover-viewer');
+    await dialog.waitFor();
+    const versions = artworkVersions(artwork[id]);
+    assert.equal(await dialog.locator('[data-cover-version]').count(), versions.length);
+    for (let index = versions.length - 1; index >= 0; index--) {
+      if (versions.length > 1) await dialog.locator(`[data-cover-version="${index}"]`).click();
+      assert.equal(await dialog.locator('img').getAttribute('src'), versions[index].src);
+      assert.equal(await dialog.locator('[data-cover-original]').getAttribute('href'), versions[index].src);
+      await page.waitForFunction(() => {
+        const img = document.querySelector('.cover-viewer img');
+        return img?.complete && img.naturalWidth > 0;
+      });
+    }
+    await page.screenshot({ path: path.join(output, name + '-history.png') });
+    await page.keyboard.press('Escape');
+    assert.equal(await dialog.isVisible(), false);
   }
   assert.deepEqual(errors, []);
   console.log(`Verified recovered cover ${id} on desktop and phone. Screenshots: ${output}`);

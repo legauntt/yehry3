@@ -13,6 +13,7 @@ test('lifecycle makes one cheap picture and one mature picture, protecting archi
   await mkdir(path.join(root, 'assets/artwork'), { recursive: true });
   for (const file of ['song-artwork.mjs', 'artwork-policy.mjs', 'artwork-budget.mjs', 'artwork-safety.mjs'])
     await copyFile(new URL('../scripts/' + file, import.meta.url), path.join(root, 'scripts', file));
+  await copyFile(new URL('../assets/artwork-versions.js', import.meta.url), path.join(root, 'assets', 'artwork-versions.js'));
   const prefix = '// Saved covers. Updated by scripts/song-artwork.mjs.\nexport default ';
   const registryFile = path.join(root, 'assets/artwork-catalog.js');
   await writeFile(registryFile, prefix + '{};\n');
@@ -51,6 +52,11 @@ test('lifecycle makes one cheap picture and one mature picture, protecting archi
   assert.deepEqual(JSON.parse(await readFile(callsFile, 'utf8')), ['low']);
   song.adminPinned = false; await run(); await run();
   assert.deepEqual(JSON.parse(await readFile(callsFile, 'utf8')), ['low', 'medium']);
+  const mature = JSON.parse((await readFile(registryFile, 'utf8')).slice(prefix.length).trim().replace(/;$/, ''))['new-song'];
+  assert.equal(mature.history.length, 1, 'mature generation retains its incubation cover');
+  assert.equal(mature.history[0].src, art['new-song'].src);
+  assert.match(mature.src, /-[a-f0-9]{16}-q86\.webp$/, 'rendering URLs contain their content hash');
+  await readFile(path.join(root, mature.history[0].src));
   const ledger = JSON.parse(await readFile(path.join(root, 'state/ledger.json'), 'utf8'));
   assert.equal(ledger.events.filter(e => e.type === 'reservation').length, 2);
   assert.equal(ledger.events.filter(e => e.type === 'outcome' && e.status === 'complete').length, 2);
