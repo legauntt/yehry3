@@ -53,6 +53,8 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   let activePattern = 'trail';
   let patternChanged = 0;
   let scatter = 0;
+  let scatterUntil = 0;
+  let docked = true;
   const hideFlock = () => {
     flock.hidden = true;
     cancelAnimationFrame(frame);
@@ -62,11 +64,21 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     lastFrame = 0;
     patternChanged = 0;
     scatter = 0;
+    scatterUntil = 0;
   };
-  addEventListener('yehry3:bats', () => { applyPreferences(); if (!preferences.enabled) hideFlock(); });
+  const dockFlock = () => {
+    docked = true;
+    scatter = 0;
+    scatterUntil = 0;
+    trail.length = 0;
+    if (!preferences.enabled || reduced.matches || document.hidden) return hideFlock();
+    flock.hidden = false;
+    if (!frame) frame = requestAnimationFrame(fly);
+  };
+  addEventListener('yehry3:bats', () => { applyPreferences(); if (!preferences.enabled) hideFlock(); else if (!frame) dockFlock(); });
   const fly = now => {
     const blend = lastFrame ? 1 - Math.exp(-Math.min(now - lastFrame, 50) / 55) : 1;
-    if (lastFrame) scatter *= Math.exp(-Math.min(now - lastFrame, 50) / 240);
+    if (lastFrame && now > scatterUntil) scatter *= Math.exp(-Math.min(now - lastFrame, 50) / 160);
     if (preferences.pattern !== 'random') activePattern = preferences.pattern;
     else if (!patternChanged || now - patternChanged > 5000) {
       const choices = ['trail', 'circle', 'eight', 'spiral'].filter(name => name !== activePattern);
@@ -74,10 +86,12 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
       patternChanged = now;
     }
     flock.dataset.pattern = activePattern;
+    flock.dataset.docked = String(docked);
     // Time-based history keeps the same slinky shape at 60 or 144 Hz.
     trail.unshift({x:mouse.x, y:mouse.y, heading, time:now});
     while (trail.length > 1 && now - trail.at(-1).time > 4300) trail.pop();
     let sample = 0;
+    let settled = docked;
     bats.forEach((node, i) => {
       const delay = i * 55 * preferences.spacing;
       while (sample + 1 < trail.length && now - trail[sample].time < delay) sample++;
@@ -94,19 +108,37 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
         const reach = activePattern === 'spiral' ? radius * (1 + .22 * Math.sin(now * .0015 + ring)) : radius;
         x = mouse.x + Math.cos(angle) * reach;
         y = mouse.y + (activePattern === 'eight' ? Math.sin(angle * 2) * reach * .6 : Math.sin(angle) * reach);
-        // Mouse movement briefly breaks formation; each bat takes its own outward arc.
-        const spread = scatter * (55 + 25 * Math.sin(i * 2.399));
+        // Send each bat along its own ray to the viewport border, then regroup.
         const escape = angle + .65 * Math.sin(i * 1.7 + heading);
-        x += Math.cos(escape) * spread;
-        y += Math.sin(escape) * spread;
+        const padding = (14 + (i * 7 % 15)) * 1.5 * preferences.size * .6 + 8;
+        const originX = Math.max(padding, Math.min(innerWidth - padding, mouse.x));
+        const originY = Math.max(padding, Math.min(innerHeight - padding, mouse.y));
+        const dx = Math.cos(escape), dy = Math.sin(escape);
+        const distance = Math.min(
+          dx === 0 ? Infinity : dx > 0 ? (innerWidth - padding - originX) / dx : (padding - originX) / dx,
+          dy === 0 ? Infinity : dy > 0 ? (innerHeight - padding - originY) / dy : (padding - originY) / dy
+        );
+        x += (originX + dx * distance - x) * scatter;
+        y += (originY + dy * distance - y) * scatter;
       }
+      const padding = (14 + (i * 7 % 15)) * 1.5 * preferences.size * .6 + 8;
+      if (docked) {
+        x = i % 2 ? innerWidth - padding : padding;
+        y = innerHeight * (Math.floor(i / 2) + 1) / 13;
+      }
+      x = Math.max(padding, Math.min(innerWidth - padding, x));
+      y = Math.max(padding, Math.min(innerHeight - padding, y));
       const position = positions[i] ||= {x,y};
       position.x += (x - position.x) * blend;
       position.y += (y - position.y) * blend;
+      // Resizing must not strand bats beyond the new viewport.
+      position.x = Math.max(padding, Math.min(innerWidth - padding, position.x));
+      position.y = Math.max(padding, Math.min(innerHeight - padding, position.y));
+      if (Math.hypot(x - position.x, y - position.y) > .1) settled = false;
       node.style.transform = `translate3d(${position.x.toFixed(1)}px,${position.y.toFixed(1)}px,0) rotate(${(Math.sin(now * .004 - i * .25) * 15).toFixed(1)}deg)`;
     });
-    lastFrame = now;
-    frame = requestAnimationFrame(fly);
+    lastFrame = settled ? 0 : now;
+    frame = settled ? 0 : requestAnimationFrame(fly);
   };
   let encounter = 0;
   let passNumber = 0;
@@ -127,7 +159,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   const schedule = (delay = 8000) => {
     if (document.hidden || reduced.matches) return;
     later(() => {
-      hideFlock();
+      dockFlock();
       if (encounter++ % 3 === 2) {
         scare.hidden = false;
         scene.classList.add('is-scare');
@@ -157,20 +189,26 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     if (event.pointerType !== 'mouse' || reduced.matches || document.hidden || !preferences.enabled) return;
     const dx = event.clientX - mouse.x;
     const dy = event.clientY - mouse.y;
-    if (frame && activePattern !== 'trail') scatter = Math.min(1, scatter + Math.hypot(dx, dy) / 90);
+    if (frame && !docked && activePattern !== 'trail' && Math.hypot(dx, dy) > 0) {
+      scatter = Math.min(1, scatter + Math.hypot(dx, dy) / 30);
+      scatterUntil = performance.now() + 450;
+    }
     if (Math.hypot(dx, dy) > 2) heading = Math.atan2(dy, dx);
     mouse = {x:event.clientX, y:event.clientY};
+    docked = false;
     flock.hidden = false;
     if (!frame) frame = requestAnimationFrame(fly);
-    later(hideFlock, 2200);
+    later(dockFlock, 2200);
   }, { passive: true });
-  for (const event of ['pointerdown', 'keydown', 'scroll', 'wheel']) addEventListener(event, () => { hideFlock(); wake(); }, { passive: true });
-  document.addEventListener('mouseleave', hideFlock);
-  reduced.addEventListener('change', () => { hideFlock(); wake(); });
+  for (const event of ['pointerdown', 'keydown', 'scroll', 'wheel']) addEventListener(event, () => { dockFlock(); wake(); }, { passive: true });
+  document.addEventListener('mouseleave', dockFlock);
+  addEventListener('resize', () => { if (docked) dockFlock(); }, { passive: true });
+  reduced.addEventListener('change', () => { dockFlock(); wake(); });
   document.addEventListener('visibilitychange', () => {
     scene.hidden = document.hidden;
-    hideFlock();
+    dockFlock();
     wake();
   });
   wake();
+  dockFlock();
 }

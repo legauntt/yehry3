@@ -1,6 +1,6 @@
 .halloween-scene { position: fixed; inset: 0; pointer-events: none; z-index: 12; overflow: hidden; }
 .halloween-scene [hidden], .halloween-scene[hidden] { display: none; }
-.halloween-flock { position: absolute; inset: 0; }
+.halloween-flock { position: absolute; inset: 0; z-index: 1; }
 .halloween-web { position: absolute; width: clamp(60px, 10vw, 135px); color: #9686ad; opacity: .48; }
 .halloween-web svg { display: block; width: 100%; }
 .web-left { top: 0; left: 0; }

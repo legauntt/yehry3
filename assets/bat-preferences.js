@@ -1,6 +1,6 @@
 const key = 'yehry3:bat-settings';
 export const batPatterns = { trail: 'Trail', circle: 'Circle', eight: 'Figure eight', spiral: 'Spiral', random: 'Random' };
-const defaults = { enabled: true, size: 1, spacing: 1, speed: 1, pattern: 'trail' };
+const defaults = { enabled: true, size: 1, spacing: 1, speed: 1, pattern: 'random' };
 let settings = { ...defaults };
 function read() {
   try {

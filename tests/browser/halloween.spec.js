@@ -42,6 +42,7 @@ test('seasonal pitch default preserves choices and expires in November', async (
 });
 test('bats follow the cursor and idle flybys dismiss on activity', async ({ page }) => {
   await october(page);
+  await page.addInitScript(() => localStorage.setItem('yehry3:bat-settings', JSON.stringify({pattern:'trail'})));
   await page.goto('/queue/');
   await expect(page.locator('.halloween-scene')).toHaveCount(1);
   await page.mouse.move(300, 300);
@@ -280,10 +281,13 @@ test('circling bats scatter on movement and settle back into their rings', async
     return Math.hypot(m.m41 - 800, m.m42 - 450);
   }));
   await page.mouse.move(800,450);
-  await page.clock.runFor(100);
-  const scattered = await radii();
-  expect(Math.max(...scattered)).toBeGreaterThan(220);
-  expect(Math.max(...scattered)).toBeLessThan(280);
+  await page.clock.runFor(350);
+  const edgeDistances = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => {
+    const m = new DOMMatrix(node.style.transform);
+    return Math.min(m.m41, innerWidth - m.m41, m.m42, innerHeight - m.m42);
+  }));
+  expect(Math.max(...edgeDistances)).toBeLessThan(110);
+  expect(Math.min(...edgeDistances)).toBeGreaterThan(0);
   await page.screenshot({path:'artifacts/halloween-circle-scatter.png'});
   await page.clock.runFor(1300);
   const settled = await radii();
@@ -292,4 +296,52 @@ test('circling bats scatter on movement and settle back into their rings', async
   await page.screenshot({path:'artifacts/halloween-circle-settled.png'});
   await page.emulateMedia({reducedMotion:'reduce'});
   await expect(page.locator('.halloween-flock')).toBeHidden();
+});
+
+test('random is the default and inactive bats dock visibly along the sides', async ({ page }) => {
+  await october(page);
+  await page.goto('/');
+  const flock = page.locator('.halloween-flock');
+  await expect(flock).toBeVisible();
+  await expect(flock).toHaveAttribute('data-docked', 'true');
+  await page.getByRole('button', {name:'Open display settings'}).click();
+  await expect(page.getByLabel('Flight pattern')).toHaveValue('random');
+  await page.getByLabel('Flight pattern').selectOption('circle');
+  await page.getByRole('button', {name:'Close display settings'}).click();
+  const checkDock = async () => {
+    await page.clock.runFor(600);
+    await expect(flock).toBeVisible();
+    await expect(flock).toHaveAttribute('data-docked', 'true');
+    const points = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => {
+      const rect = node.getBoundingClientRect();
+      const m = new DOMMatrix(node.style.transform);
+      return { edge:Math.min(m.m41, innerWidth - m.m41), inside:rect.left >= 0 && rect.right <= innerWidth && rect.top >= 0 && rect.bottom <= innerHeight };
+    }));
+    expect(points.every(point => point.edge < 50 && point.inside)).toBe(true);
+  };
+  await page.mouse.move(700,450);
+  await page.clock.runFor(2300);
+  await checkDock();
+  await page.mouse.move(600,400);
+  await page.keyboard.press('Shift');
+  await checkDock();
+  await page.mouse.move(700,450);
+  await page.evaluate(() => document.dispatchEvent(new MouseEvent('mouseleave')));
+  await checkDock();
+  await page.setViewportSize({width:390,height:844});
+  await checkDock();
+  await page.screenshot({path:'artifacts/halloween-docked-mobile.png'});
+  await page.mouse.move(180,400);
+  await page.clock.runFor(400);
+  await page.mouse.move(210,400);
+  await page.clock.runFor(350);
+  const inside = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.every(node => {
+    const r = node.getBoundingClientRect();
+    return r.left >= 0 && r.right <= innerWidth && r.top >= 0 && r.bottom <= innerHeight;
+  }));
+  expect(inside).toBe(true);
+  await page.screenshot({path:'artifacts/halloween-scatter-mobile.png'});
+  await page.getByRole('button', {name:'Open display settings'}).click();
+  await page.getByLabel('Show trailing bats').uncheck();
+  await expect(flock).toBeHidden();
 });
