@@ -18,6 +18,7 @@
 .bat-wing { transform-origin: 40px 23px; animation: halloween-wingbeat var(--wing-speed, .32s) ease-in-out var(--wing-delay, 0s) infinite alternate; }
 .halloween-flock .wing-left { transform-origin: 38px 21px; animation-name: halloween-flap-left; }
 .halloween-flock .wing-right { transform-origin: 42px 21px; animation-name: halloween-flap-right; }
+.halloween-flock .is-sleeping .bat-wing { animation: none; transform: scaleX(.12) scaleY(.85); }
 .halloween-witch { display: block; width: clamp(180px, 24vw, 330px); height: auto; }
 .halloween-pass-bats { display: flex; align-items: center; gap: 14px; width: clamp(200px, 35vw, 450px); }
 .halloween-pass-bats svg:nth-child(even) { translate: 0 -25px; --wing-delay: -.15s; }

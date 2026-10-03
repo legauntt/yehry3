@@ -129,13 +129,20 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
       x = Math.max(padding, Math.min(innerWidth - padding, x));
       y = Math.max(padding, Math.min(innerHeight - padding, y));
       const position = positions[i] ||= {x,y};
+      if (!docked && scatter > .85 && node.classList.contains('is-sleeping')) {
+        x = position.x;
+        y = position.y;
+      }
       position.x += (x - position.x) * blend;
       position.y += (y - position.y) * blend;
       // Resizing must not strand bats beyond the new viewport.
       position.x = Math.max(padding, Math.min(innerWidth - padding, position.x));
       position.y = Math.max(padding, Math.min(innerHeight - padding, position.y));
       if (Math.hypot(x - position.x, y - position.y) > .1) settled = false;
-      node.style.transform = `translate3d(${position.x.toFixed(1)}px,${position.y.toFixed(1)}px,0) rotate(${(Math.sin(now * .004 - i * .25) * 15).toFixed(1)}deg)`;
+      const edgeDistance = Math.min(position.x, innerWidth - position.x, position.y, innerHeight - position.y);
+      const sleeping = (docked || scatter > .85) && edgeDistance < padding + 10;
+      node.classList.toggle('is-sleeping', sleeping);
+      node.style.transform = `translate3d(${position.x.toFixed(1)}px,${position.y.toFixed(1)}px,0) rotate(${sleeping ? 0 : (Math.sin(now * .004 - i * .25) * 15).toFixed(1)}deg)`;
     });
     lastFrame = settled ? 0 : now;
     frame = settled ? 0 : requestAnimationFrame(fly);

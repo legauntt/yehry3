@@ -288,11 +288,19 @@ test('circling bats scatter on movement and settle back into their rings', async
   }));
   expect(Math.max(...edgeDistances)).toBeLessThan(110);
   expect(Math.min(...edgeDistances)).toBeGreaterThan(0);
+  expect(await page.locator('.halloween-swarm-bat.is-sleeping').count()).toBeGreaterThan(12);
+  expect(await page.locator('.is-sleeping .bat-wing').first().evaluate(node => getComputedStyle(node).animationName)).toBe('none');
+  const sleeper = page.locator('.halloween-swarm-bat.is-sleeping').first();
+  const resting = await sleeper.evaluate(node => node.style.transform);
+  await page.clock.runFor(64);
+  expect(await sleeper.evaluate(node => node.style.transform)).toBe(resting);
   await page.screenshot({path:'artifacts/halloween-circle-scatter.png'});
   await page.clock.runFor(1300);
   const settled = await radii();
   expect(Math.max(...settled)).toBeLessThan(200);
   expect(Math.min(...settled)).toBeGreaterThan(80);
+  await expect(page.locator('.halloween-swarm-bat.is-sleeping')).toHaveCount(0);
+  expect(await page.locator('.halloween-flock .bat-wing').first().evaluate(node => getComputedStyle(node).animationName)).toBe('halloween-flap-left');
   await page.screenshot({path:'artifacts/halloween-circle-settled.png'});
   await page.emulateMedia({reducedMotion:'reduce'});
   await expect(page.locator('.halloween-flock')).toBeHidden();
@@ -312,6 +320,7 @@ test('random is the default and inactive bats dock visibly along the sides', asy
     await page.clock.runFor(600);
     await expect(flock).toBeVisible();
     await expect(flock).toHaveAttribute('data-docked', 'true');
+    await expect(page.locator('.halloween-swarm-bat.is-sleeping')).toHaveCount(24);
     const points = await page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => {
       const rect = node.getBoundingClientRect();
       const m = new DOMMatrix(node.style.transform);
