@@ -328,6 +328,9 @@ background tabs, unavailable storage, reordering, mobile layout and playback con
 
 ## Validate
 
+Artwork safety failures and bounded safe reinterpretations are documented in
+[Artwork safety recovery](ARTWORK-RETRIES.md).
+
 Lyric sheets offer **Original**, **IPA**, and **Phonics** views.
 The last choice is remembered across pages,
 reloads and tabs, with a storage-free fallback. Switching changes only the visible

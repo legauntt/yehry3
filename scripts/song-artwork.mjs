@@ -9,6 +9,7 @@ import { pathToFileURL } from "node:url";
 import { parseArgs } from "node:util";
 import { POLICY, treatments, selectTreatment, sourcePacket, makePrompt, makeReviewedPrompt, digest, estimateCost, isPinnedOrUnknown } from "./artwork-policy.mjs";
 import { reserveJobs, budgetMonth } from "./artwork-budget.mjs";
+import { MAX_SAFETY_RETRIES, isSafetyRejection, safetyRetryCount, makeSafetyPrompt } from "./artwork-safety.mjs";
 
 const root = path.resolve(import.meta.dirname, "..");
 const registryPath = path.join(root, "assets/artwork-catalog.js");
@@ -64,6 +65,7 @@ export async function main(args = process.argv.slice(2)) {
     budget: { type: "string", default: "10" }, limit: { type: "string", default: "300" },
     "budget-period": { type: "string", default: "cumulative" },
     concurrency: { type: "string", default: "3" }, retry: { type: "boolean", default: false },
+    "retry-safety": { type: "boolean", default: false },
     "exclude-pinned": { type: "boolean", default: false },
     "placeholders-only": { type: "boolean", default: false },
     "from-audit": { type: "string" },
@@ -74,6 +76,9 @@ export async function main(args = process.argv.slice(2)) {
     help: { type: "boolean", default: false },
   } });
   const command = positionals[0] || "plan";
+  if (opt['retry-safety'] && (opt.retry || opt.lifecycle || opt.direction || opt['reviewed-briefs']))
+    throw new Error('Safety recovery cannot be combined with retry, lifecycle, direction or reviewed briefs');
+  if (opt['retry-safety']) { opt['exclude-pinned'] = true; opt['placeholders-only'] = true; }
   if (opt.help) {
     console.log(`song-artwork.mjs plan|report|run|verify [--state DIR] [--budget USD]
   [--budget-period cumulative|monthly] [--limit N] [--concurrency 3]
@@ -89,6 +94,8 @@ and installs covers locally. verify compares saved images and modules with the l
 --lifecycle creates a cheap initial picture and one mature picture after incubation,
 protecting pins, existing finished pictures, and every ID in --lifecycle-baseline.
 Monthly budgets use America/Los_Angeles calendar months and retain prior receipts.
+New safety rejections receive at most two budgeted, progressively safer interpretations.
+--retry-safety resumes recorded safety rejections without resending their original prompt.
 --retry explicitly retries failed/uncertain jobs; normal reruns never do.`);
     return;
   }
@@ -184,10 +191,29 @@ Monthly budgets use America/Los_Angeles calendar months and retain prior receipt
       .map(song => ({ song, treatment: selectTreatment(song, art[song.id], { redo: opt.redo.includes(song.id), lowListens, excludePinned: opt["exclude-pinned"], lifecycle: opt.lifecycle, incubationHours: Number(opt["incubation-hours"]), firstSeenAt: observations.firstSeen[song.id] }) }))
       .filter(j => j.treatment).sort((a, b) => (opt.redo.includes(b.song.id) - opt.redo.includes(a.song.id)) || (["monument", "mature", "emphasis", "incubating", "basic"].indexOf(a.treatment) - ["monument", "mature", "emphasis", "incubating", "basic"].indexOf(b.treatment)) || Number(b.song.votes || 0) - Number(a.song.votes || 0));
     const jobs = [], failedSources = [];
+    const recoveryHistory = opt['retry-safety'] ? await json(path.join(state, 'ledger.json'), { jobs: {}, events: [] }) : null;
     for (const candidate of candidates) {
       const { song, treatment } = candidate;
       if (!/^[a-z0-9-]{1,120}$/.test(song.id)) throw new Error("Unsafe song ID");
       try {
+        if (recoveryHistory) {
+          const rejected = Object.entries(recoveryHistory.jobs).filter(([key, entry]) =>
+            (entry.songId || key.match(/^(.+)-(?:incubating|mature|basic|emphasis|monument)-[a-f0-9]{12}$/)?.[1]) === song.id);
+          const latest = rejected.at(-1);
+          if (!latest || latest[1].status !== 'failed-or-uncertain' || safetyRetryCount(recoveryHistory, song.id) >= MAX_SAFETY_RETRIES) continue;
+          const [key, prior] = latest;
+          if (!key.startsWith(song.id + '-') || !/^[a-z0-9-]+$/.test(key)) throw new Error('Unsafe recovery key');
+          const folder = path.join(state, key);
+          if (!isSafetyRejection(await readFile(path.join(folder, 'generation.log'), 'utf8').catch(() => ''))) continue;
+          const packet = await json(path.join(folder, 'sources.json'));
+          if (packet?.song?.id !== song.id) throw new Error('Recovery source identity mismatch');
+          const recoveredTreatment = prior.treatment || key.match(/-(incubating|mature|basic|emphasis|monument)-[a-f0-9]{12}$/)?.[1];
+          if (!treatments[recoveredTreatment]) throw new Error('Unknown recovery treatment');
+          const prompt = await readFile(path.join(folder, 'prompt.txt'), 'utf8');
+          jobs.push({ id: song.id, title: song.title, key, folder, treatment: recoveredTreatment,
+            prompt, sourceHash: digest(packet), missing: packet.missing || [], estimate: estimateCost(prompt, recoveredTreatment) });
+          continue;
+        }
         const detail = (await apiGet(opt.api, `/songs/${song.id}`)).song;
         if (!detail || detail.id !== song.id) throw new Error("Detail identity mismatch");
         const packet = sourcePacket(detail), brief = briefs?.songs[song.id];
@@ -225,7 +251,17 @@ Monthly budgets use America/Los_Angeles calendar months and retain prior receipt
     for (const job of jobs) {
       if (await validWebp(path.join(job.folder, "cover.webp"))) cached.add(job.key);
     }
-    const { selected, ledger } = reserveJobs(jobs, await json(ledgerPath, { reservations: 0, jobs: {} }), { budget, limit, retry: opt.retry, cached, budgetPeriod: opt["budget-period"] });
+    const history = await json(ledgerPath, { reservations: 0, jobs: {} });
+    const recovering = new Set();
+    if (opt["retry-safety"]) for (const job of jobs) {
+      const prior = history.jobs[job.key];
+      if (!cached.has(job.key) && prior?.status === 'failed-or-uncertain' && safetyRetryCount(history, job.id) < MAX_SAFETY_RETRIES &&
+          isSafetyRejection(await readFile(path.join(job.folder, 'generation.log'), 'utf8').catch(() => '')))
+        recovering.add(job.key);
+    }
+    // Recovery reserves its safe interpretation below, never an unused original call.
+    const { selected, ledger } = reserveJobs(jobs.filter(j => !recovering.has(j.key)), history, { budget, limit, retry: opt.retry, cached, budgetPeriod: opt["budget-period"] });
+    for (const job of jobs) if (recovering.has(job.key) && selected.filter(j => !j.cached).length < limit) selected.push({ ...job, safetyRecovery: true });
     await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n");
     // Serialize registry/ledger writes across concurrent API calls.
     let saves = Promise.resolve();
@@ -250,17 +286,53 @@ Monthly budgets use America/Los_Angeles calendar months and retain prior receipt
           if (await protectBeforeAction(job)) continue;
           if (!job.cached) {
             // A pass crossing a calendar boundary cannot spend against yesterday's month.
-            if (opt["budget-period"] === "monthly" && ledger.jobs[job.key].period !== budgetMonth()) {
+            if (!job.safetyRecovery && opt["budget-period"] === "monthly" && ledger.jobs[job.key].period !== budgetMonth()) {
               await save(async () => { ledger.jobs[job.key].status = "deferred-period-change"; receipt(job); await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n"); });
               continue;
             }
-            const batch = path.join(job.folder, "job.jsonl");
             const { quality, size } = treatments[job.treatment];
-            await atomic(batch, JSON.stringify({ prompt: job.prompt, out: output, quality, size, model: POLICY.model, output_format: "webp", n: 1 }) + "\n");
-            const result = await child(opt.python, [opt.cli, "generate-batch", "--input", batch, "--out-dir", job.folder, "--no-augment", "--max-attempts", "1", "--concurrency", "1"], { env: { ...process.env, OPENAI_API_KEY: key } });
-            await atomic(path.join(job.folder, "generation.log"), result.output.replaceAll(key, "[REDACTED]"));
-            await atomic(path.join(job.folder, `generation-attempt-${ledger.jobs[job.key].attempts}.log`), result.output.replaceAll(key, "[REDACTED]"));
-            if (result.code !== 0 || !(await validWebp(output))) throw new Error(`Imagegen failed (exit ${result.code}); see saved generation.log`);
+            let needsSafePrompt = job.safetyRecovery;
+            if (!needsSafePrompt) delete ledger.jobs[job.key].safetyPromptHash;
+            while (true) {
+              if (needsSafePrompt) {
+                if (await protectBeforeAction(job)) break;
+                const attempt = safetyRetryCount(ledger, job.id) + 1;
+                if (attempt > MAX_SAFETY_RETRIES) throw new Error('Safety interpretations exhausted; review required');
+                const packet = await json(path.join(job.folder, 'sources.json'));
+                const safePrompt = makeSafetyPrompt(packet, job.treatment, attempt);
+                await save(async () => {
+                  const reservation = reserveJobs([{ ...job, estimate: estimateCost(safePrompt, job.treatment) }], ledger,
+                    { budget, limit: 1, retry: true, budgetPeriod: opt['budget-period'] });
+                  if (!reservation.selected.length) throw new Error('Safety retry deferred: budget exhausted');
+                  Object.assign(ledger, reservation.ledger);
+                  ledger.jobs[job.key].safetyPromptHash = digest(safePrompt);
+                  ledger.events.push({ type: 'safety-retry', songId: job.id, key: job.key, attempt,
+                    promptHash: digest(safePrompt), at: new Date().toISOString() });
+                  await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + '\n');
+                });
+                job.prompt = safePrompt;
+                job.interpretation = 'automatic-safe-interpretation';
+                await atomic(path.join(job.folder, `safety-prompt-${attempt}.txt`), safePrompt);
+              }
+              if (opt['budget-period'] === 'monthly' && ledger.jobs[job.key].period !== budgetMonth())
+                throw new Error('Safety retry deferred: budget period changed');
+              const batch = path.join(job.folder, 'job.jsonl');
+              await atomic(batch, JSON.stringify({ prompt: job.prompt, out: output, quality, size, model: POLICY.model, output_format: 'webp', n: 1 }) + '\n');
+              const result = await child(opt.python, [opt.cli, 'generate-batch', '--input', batch, '--out-dir', job.folder, '--no-augment', '--max-attempts', '1', '--concurrency', '1'], { env: { ...process.env, OPENAI_API_KEY: key } });
+              const log = result.output.replaceAll(key, '[REDACTED]');
+              await atomic(path.join(job.folder, 'generation.log'), log);
+              await atomic(path.join(job.folder, `generation-attempt-${ledger.jobs[job.key].attempts}.log`), log);
+              if (result.code === 0 && await validWebp(output)) break;
+              if (!isSafetyRejection(log)) throw new Error(`Imagegen failed (exit ${result.code}); see saved generation.log`);
+              await save(async () => {
+                ledger.jobs[job.key].status = 'failed-or-uncertain';
+                ledger.jobs[job.key].error = 'Provider safety rejection';
+                receipt(job);
+                await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + '\n');
+              });
+              needsSafePrompt = true;
+            }
+            if (ledger.jobs[job.key].status === 'protected-pinned') continue;
           }
           const filename = `${job.key}-q86.webp`, src = `/assets/artwork/${filename}`;
           const preparedFile = path.join(job.folder, "cover-q86.webp");
@@ -280,7 +352,7 @@ Monthly budgets use America/Los_Angeles calendar months and retain prior receipt
               }
             }
             await copyFile(preparedFile, path.join(root, src));
-            art[job.id] = { src, alt: job.alt || `Cover artwork for ${job.title}.`, theme: "generated", tier: 0, remixed: false, treatment: job.treatment, model: POLICY.model, sourceHash: job.sourceHash, promptHash: digest(job.prompt), createdAt: new Date().toISOString(), missingSources: job.missing, previous: art[job.id]?.src || null, ...(job.firstSeenAt ? { firstSeenAt: job.firstSeenAt } : {}), ...(job.interpretation ? { interpretation: job.interpretation, briefHash: job.briefHash } : {}) };
+            art[job.id] = { src, alt: job.alt || `Cover artwork for ${job.title}.`, theme: "generated", tier: 0, remixed: false, treatment: job.treatment, model: POLICY.model, sourceHash: job.sourceHash, promptHash: ledger.jobs[job.key]?.safetyPromptHash || digest(job.prompt), createdAt: new Date().toISOString(), missingSources: job.missing, previous: art[job.id]?.src || null, ...(job.firstSeenAt ? { firstSeenAt: job.firstSeenAt } : {}), ...(job.interpretation || ledger.jobs[job.key]?.safetyPromptHash ? { interpretation: job.interpretation || 'automatic-safe-interpretation', ...(job.briefHash ? { briefHash: job.briefHash } : {}) } : {}) };
             await atomic(registryPath, prefix + JSON.stringify(art, null, 2) + ";\n");
             ledger.jobs[job.key] = { ...ledger.jobs[job.key], songId: job.id, title: job.title, treatment: job.treatment, status: "complete", src };
             delete ledger.jobs[job.key].error;

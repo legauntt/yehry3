@@ -11,7 +11,7 @@ async function guardedRun(t, pins) {
   t.after(() => rm(fixture, { recursive: true }));
   await mkdir(path.join(fixture, 'scripts'));
   await mkdir(path.join(fixture, 'assets/artwork'), { recursive: true });
-  for (const file of ['song-artwork.mjs', 'artwork-policy.mjs', 'artwork-budget.mjs']) {
+  for (const file of ['song-artwork.mjs', 'artwork-policy.mjs', 'artwork-budget.mjs', 'artwork-safety.mjs']) {
     await copyFile(new URL('../scripts/' + file, import.meta.url), path.join(fixture, 'scripts', file));
   }
   const registry = '// Saved covers. Updated by scripts/song-artwork.mjs.\nexport default {};\n';

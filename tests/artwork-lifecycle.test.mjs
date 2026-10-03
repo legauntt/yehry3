@@ -11,7 +11,7 @@ test('lifecycle makes one cheap picture and one mature picture, protecting archi
   t.after(() => rm(root, { recursive: true }));
   await mkdir(path.join(root, 'scripts'));
   await mkdir(path.join(root, 'assets/artwork'), { recursive: true });
-  for (const file of ['song-artwork.mjs', 'artwork-policy.mjs', 'artwork-budget.mjs'])
+  for (const file of ['song-artwork.mjs', 'artwork-policy.mjs', 'artwork-budget.mjs', 'artwork-safety.mjs'])
     await copyFile(new URL('../scripts/' + file, import.meta.url), path.join(root, 'scripts', file));
   const prefix = '// Saved covers. Updated by scripts/song-artwork.mjs.\nexport default ';
   const registryFile = path.join(root, 'assets/artwork-catalog.js');

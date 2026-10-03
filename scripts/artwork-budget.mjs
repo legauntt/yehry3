@@ -26,7 +26,7 @@ export function reserveJobs(jobs, ledger, { budget, limit, retry = false, cached
     reserved += job.estimate;
     lifetime += job.estimate;
     paidJobs++;
-    next.jobs[job.key] = { status: "reserved", songId: job.id, title: job.title, treatment: job.treatment, estimate: job.estimate, attempts: (prior?.attempts || 0) + 1, at: now, budgetPeriod, period };
+    next.jobs[job.key] = { ...prior, status: "reserved", songId: job.id, title: job.title, treatment: job.treatment, estimate: job.estimate, attempts: (prior?.attempts || 0) + 1, at: now, budgetPeriod, period };
     events.push({ type: "reservation", at: now, key: job.key, title: job.title, treatment: job.treatment, estimate: job.estimate, attempt: next.jobs[job.key].attempts, budgetPeriod, period });
     selected.push(job);
   }
