@@ -1965,5 +1965,21 @@ export default {
     "missingSources": [],
     "previous": null,
     "firstSeenAt": "2026-10-03T06:24:43.494Z"
+  },
+  "distonyc-d59c2b17c667891420654e76": {
+    "src": "/assets/artwork/distonyc-d59c2b17c667891420654e76-emphasis-8929672448f9-q86.webp",
+    "alt": "A fully clothed musician in a newsboy cap sits on an unmade bed at gray dawn, beside an alarm clock, electric bass and television showing blue static.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "emphasis",
+    "model": "gpt-image-2",
+    "sourceHash": "9b3a11d3cae9a992dd5e50822df3cf1cf9959ca691e81c45bb17d9f15bbc0f7b",
+    "promptHash": "87237516ce1818ffd8c6039a7d12cc9557b3a32516e00bba9b62e66419f9651c",
+    "createdAt": "2026-10-03T11:17:33.298Z",
+    "missingSources": [],
+    "previous": null,
+    "interpretation": "non-explicit-scene",
+    "briefHash": "9a82d1652735a2215d9b2998570bc3dab15f819b079a645764e99f20f251780f"
   }
 };
