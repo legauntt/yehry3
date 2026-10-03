@@ -297,7 +297,9 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
         return result
     if plan['recipe'] == 'barbershop':
         if voice_model != 'v6': raise ValueError(f'Tony {voice_model.upper()} is not available for the specialized four-voice quartet recipe; choose Tony V6')
-        return render_quartet(request, engine)
+        result = render_quartet(request, engine)
+        if request.get('voice_epoch') is not None: result['voice_epoch'] = request['voice_epoch']
+        return result
     if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
     identifier = composition_identifier(request, repair, composition_retry)
     title = plan['title'] + ' - D' + identifier[:8]
