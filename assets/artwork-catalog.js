@@ -1922,18 +1922,18 @@ export default {
     "briefHash": "d84a77a7fb97fd941b9e39b40ce6babcf1787ca54d7293e0f4451df6fb5f932e"
   },
   "distonyc-8c458c190955a5bc4376f45e": {
-    "src": "/assets/artwork/distonyc-8c458c190955a5bc4376f45e-incubating-54189bb35e3c-q86.webp",
+    "src": "/assets/artwork/distonyc-8c458c190955a5bc4376f45e-mature-b706331781d4-q86.webp",
     "alt": "Cover artwork for Get Skeeted On.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "e24c277201b0c557b753c60006356fe5aef05faca489b671d4fd050e3628a245",
-    "promptHash": "be7871c8a7d0c2acb78829ea04211160e39b1e662050f8089a5d1dae72e95ae9",
-    "createdAt": "2026-10-02T10:25:04.387Z",
+    "promptHash": "65a59e247306d2488275f77836a74ecc35d36782df4a22a2446dcb2e9e10c004",
+    "createdAt": "2026-10-03T10:40:31.297Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-8c458c190955a5bc4376f45e-incubating-54189bb35e3c-q86.webp",
     "firstSeenAt": "2026-10-02T10:24:42.342Z"
   },
   "distonyc-35be11b84d9a5202f10feda8": {
