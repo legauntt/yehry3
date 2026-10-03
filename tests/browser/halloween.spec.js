@@ -250,11 +250,16 @@ test('bats trail slow movement, scatter on fast movement, and sleep on the ceili
   for (let i=1; i<=10; i++) {
     await page.clock.runFor(20);
     await page.evaluate(x => window.dispatchEvent(new PointerEvent('pointermove',
-      {pointerType:'mouse',clientX:x,clientY:450})),1160-i*18);
+      {pointerType:'mouse',clientX:x,clientY:450})),1160-i*60);
   }
   await page.clock.runFor(64);
   await expect(flock).toHaveAttribute('data-flight','trail');
-  await page.mouse.move(700,450);
+  // Scattering requires an extreme swipe; normal movement above remains a trail.
+  await page.evaluate(() => window.dispatchEvent(new PointerEvent('pointermove',
+    {pointerType:'mouse',clientX:850,clientY:450})));
+  await page.clock.runFor(16);
+  await page.evaluate(() => window.dispatchEvent(new PointerEvent('pointermove',
+    {pointerType:'mouse',clientX:700,clientY:450})));
   await page.clock.runFor(900);
   await expect(flock).toHaveAttribute('data-flight','scatter');
   await expect(page.locator('.halloween-swarm-bat.is-sleeping')).toHaveCount(0);
@@ -263,15 +268,15 @@ test('bats trail slow movement, scatter on fast movement, and sleep on the ceili
   for (let i=1; i<=10; i++) {
     await page.clock.runFor(20);
     await page.evaluate(x => window.dispatchEvent(new PointerEvent('pointermove',
-      {pointerType:'mouse',clientX:x,clientY:450})),i%2 ? 720 : 702);
+      {pointerType:'mouse',clientX:x,clientY:450})),i%2 ? 772 : 702);
   }
   await page.clock.runFor(600);
   await expect(flock).toHaveAttribute('data-flight','trail');
   expect(Math.hypot((await points())[0].x-702,(await points())[0].y-450)).toBeLessThan(80);
   // A high-rate mouse sends small events whose combined speed is still fast.
-  for (let i=1; i<=10; i++) {
+  for (let i=1; i<=6; i++) {
     await page.clock.runFor(4);
-    await page.evaluate(x => window.dispatchEvent(new PointerEvent('pointermove',{pointerType:'mouse',clientX:x,clientY:450})),702+i*12);
+    await page.evaluate(x => window.dispatchEvent(new PointerEvent('pointermove',{pointerType:'mouse',clientX:x,clientY:450})),702+i*100);
   }
   await page.clock.runFor(700);
   await expect(flock).toHaveAttribute('data-flight','scatter');
