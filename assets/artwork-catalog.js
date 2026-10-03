@@ -1935,5 +1935,20 @@ export default {
     "missingSources": [],
     "previous": null,
     "firstSeenAt": "2026-10-02T10:24:42.342Z"
+  },
+  "distonyc-35be11b84d9a5202f10feda8": {
+    "src": "/assets/artwork/distonyc-35be11b84d9a5202f10feda8-incubating-c306a36ce624-q86.webp",
+    "alt": "Cover artwork for Get Skeeted On (Uplift Funk Mix).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "41ee2bc1aca772c3388bda1f9e3b33f2aee1a96626a186c26f572f2561d4fe91",
+    "promptHash": "c65531a724fd70d4cba51ef5caa34db7424cedcdc7e7c00d4971ed6eed15ee4c",
+    "createdAt": "2026-10-03T05:25:00.994Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-03T05:24:42.244Z"
   }
 };
