@@ -13,11 +13,24 @@ test('V9 epoch is defaulted, retained, scoped to V9 and confirmed publicly', asy
   await voice.selectOption('v9');
   const epoch = page.getByLabel('V9 training epoch');
   await expect(epoch).toHaveValue('300');
-  await expect(epoch.locator('option')).toHaveCount(30);
+  await expect(epoch.locator('option')).toHaveCount(6);
+  await expect(epoch.locator('option')).toHaveText(['50 · Early training', '100 · Earlier checkpoint', '150 · Mid-training', '200 · Later checkpoint', '250 · Near-final checkpoint', '300 · Final checkpoint · default']);
+  await expect(page.locator('#voice-epoch-help')).toContainText('An epoch is one pass through the training recordings.');
   await epoch.selectOption('100');
   await page.reload();
   await expect(voice).toHaveValue('v9');
   await expect(epoch).toHaveValue('100');
+  // A draft made before the shorter menu keeps its existing checkpoint.
+  await page.evaluate(() => {
+    const key = Object.keys(sessionStorage).find(key => key.startsWith('yehry3:voice-epoch-draft:'));
+    sessionStorage.setItem(key, '110');
+  });
+  await page.reload();
+  await expect(epoch).toHaveValue('110');
+  await expect(epoch.locator('option:checked')).toHaveText('110 · Saved checkpoint');
+  await epoch.selectOption('100');
+  await page.reload();
+  await expect(epoch.locator('option')).toHaveCount(6);
   await voice.selectOption('v7');
   await expect(epoch).toBeHidden();
   await expect(epoch).toBeDisabled();
