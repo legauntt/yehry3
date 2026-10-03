@@ -1,0 +1,415 @@
+{
+  "version": 1,
+  "songId": "distonyc-d59c2b17c667891420654e76",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d59c2b17c667891420654e76-7dbe348dc4ee.mp3",
+  "audioSha256": "7dbe348dc4eeeacd4bb25eec64949d56b70f78bfa81cd466af3f9e90207d9ed0",
+  "inputSha256": "68f8ee6786ab83e65962a9542732eb30b79f6a852076ac34c787d78fa105c4e3",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 409.9135,
+  "segments": [
+    {
+      "start": 5.22,
+      "end": 10.04,
+      "text": "Morning comes in like a siren",
+      "uncertain": false
+    },
+    {
+      "start": 10.04,
+      "end": 14.46,
+      "text": "Ceiling shaking, dead gray light",
+      "uncertain": false
+    },
+    {
+      "start": 14.46,
+      "end": 20.0,
+      "text": "I wake up, I wake up, I wake up",
+      "uncertain": false
+    },
+    {
+      "start": 20.0,
+      "end": 21.88,
+      "text": "And I know the routine",
+      "uncertain": false
+    },
+    {
+      "start": 24.52,
+      "end": 28.1,
+      "text": "Wake up, eyes open",
+      "uncertain": false
+    },
+    {
+      "start": 28.1,
+      "end": 40.48,
+      "text": "no ceremony wake up cold room nobody owns me wake up no coffee no clean little line",
+      "uncertain": true
+    },
+    {
+      "start": 40.48,
+      "end": 52.14,
+      "text": "wake up stare hard at the crack in the sky i don't make a speech i don't make a plan i wake up",
+      "uncertain": false
+    },
+    {
+      "start": 52.14,
+      "end": 55.74,
+      "text": "And start where I always begin",
+      "uncertain": false
+    },
+    {
+      "start": 55.74,
+      "end": 61.3,
+      "text": "Wake up, wake up, that's number one",
+      "uncertain": false
+    },
+    {
+      "start": 61.3,
+      "end": 66.56,
+      "text": "The day ain't loovin' till the waking is done",
+      "uncertain": true
+    },
+    {
+      "start": 72.22,
+      "end": 76.92,
+      "text": "Wake up, Jackals, 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 76.92,
+      "end": 79.66,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 79.66,
+      "end": 83.32,
+      "text": "That is the morning, that is the list",
+      "uncertain": false
+    },
+    {
+      "start": 83.32,
+      "end": 87.28,
+      "text": "Wake up, jack off, 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 87.28,
+      "end": 90.04,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 90.04,
+      "end": 93.62,
+      "text": "No metaphor hiding in this",
+      "uncertain": false
+    },
+    {
+      "start": 95.42,
+      "end": 99.76,
+      "text": "I jack off, no romance, no perfume",
+      "uncertain": false
+    },
+    {
+      "start": 99.76,
+      "end": 105.08,
+      "text": "I jack off, alone in the stale back room",
+      "uncertain": false
+    },
+    {
+      "start": 105.08,
+      "end": 118.48,
+      "text": "i jack off because that is what i do no secret message no polished view i jack off the clock",
+      "uncertain": true
+    },
+    {
+      "start": 118.48,
+      "end": 130.6,
+      "text": "keeps chewing its wire i jack off then the morning gets higher i don't call it love i don't call it",
+      "uncertain": false
+    },
+    {
+      "start": 130.6,
+      "end": 136.42,
+      "text": "I jack off and the next thing begins",
+      "uncertain": false
+    },
+    {
+      "start": 144.98,
+      "end": 149.58,
+      "text": "Wake up, jack off, 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 149.58,
+      "end": 152.32,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 152.32,
+      "end": 155.88,
+      "text": "That is the morning, that is the list",
+      "uncertain": false
+    },
+    {
+      "start": 155.88,
+      "end": 159.96,
+      "text": "Wake up, jack off, 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 159.96,
+      "end": 171.14,
+      "text": "drink your own piss no metaphor hiding in this 9-11 on the screen the towers falling",
+      "uncertain": true
+    },
+    {
+      "start": 171.14,
+      "end": 185.92,
+      "text": "9-11 in the room the old moose calling 9-11 smoke over blue tv snow 9-11 everybody already",
+      "uncertain": false
+    },
+    {
+      "start": 185.92,
+      "end": 198.88,
+      "text": "knows i watch 9 11 i don't turn away the date stays sharp in the middle of day 9 11",
+      "uncertain": true
+    },
+    {
+      "start": 198.88,
+      "end": 212.04,
+      "text": "the footage runs again 9 11 and then wake up jack off 9 11 drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 212.04,
+      "end": 215.78,
+      "text": "Four hard steps, no candy twist",
+      "uncertain": false
+    },
+    {
+      "start": 215.78,
+      "end": 219.64,
+      "text": "Wake up, jack off, 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 219.64,
+      "end": 222.36,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 222.36,
+      "end": 227.2,
+      "text": "Say every word, don't soften this",
+      "uncertain": false
+    },
+    {
+      "start": 228.34,
+      "end": 231.5,
+      "text": "I drink my own piss",
+      "uncertain": false
+    },
+    {
+      "start": 231.5,
+      "end": 233.72,
+      "text": "Bitter and warm",
+      "uncertain": false
+    },
+    {
+      "start": 233.72,
+      "end": 236.6,
+      "text": "I drink my own piss",
+      "uncertain": false
+    },
+    {
+      "start": 236.6,
+      "end": 238.92,
+      "text": "Like a private storm",
+      "uncertain": false
+    },
+    {
+      "start": 238.92,
+      "end": 241.84,
+      "text": "I drink my own piss",
+      "uncertain": false
+    },
+    {
+      "start": 241.84,
+      "end": 253.42,
+      "text": "no glass raised high i drink my own kiss and i don't ask why i drink my own kiss the morning",
+      "uncertain": true
+    },
+    {
+      "start": 253.42,
+      "end": 263.72,
+      "text": "tastes mean i drink my own piss the whole thing stays seen i drink my own piss there is nothing",
+      "uncertain": false
+    },
+    {
+      "start": 263.72,
+      "end": 264.84,
+      "text": "to fix",
+      "uncertain": true
+    },
+    {
+      "start": 264.84,
+      "end": 267.7,
+      "text": "I drink my own piss",
+      "uncertain": true
+    },
+    {
+      "start": 267.7,
+      "end": 270.46,
+      "text": "the last item on the list",
+      "uncertain": false
+    },
+    {
+      "start": 285.4,
+      "end": 287.3,
+      "text": "wake up",
+      "uncertain": false
+    },
+    {
+      "start": 287.3,
+      "end": 289.3,
+      "text": "the room says",
+      "uncertain": false
+    },
+    {
+      "start": 289.3,
+      "end": 290.86,
+      "text": "wake up",
+      "uncertain": false
+    },
+    {
+      "start": 290.86,
+      "end": 292.56,
+      "text": "jack off",
+      "uncertain": false
+    },
+    {
+      "start": 292.56,
+      "end": 305.16,
+      "text": "the room says jack off 9 11 the screen says 9 11 drink your own piss the room says drink your",
+      "uncertain": true
+    },
+    {
+      "start": 305.16,
+      "end": 316.28,
+      "text": "own piss no sunrise sermon no hero's kiss just wake up jack off 9 11 drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 316.28,
+      "end": 326.62,
+      "text": "tomorrow comes with the same hard face tomorrow puts me in the same old place",
+      "uncertain": true
+    },
+    {
+      "start": 326.62,
+      "end": 341.24,
+      "text": "wake up first let the daylight hit jack off next don't prettify it 9-11 next let the television",
+      "uncertain": false
+    },
+    {
+      "start": 341.24,
+      "end": 352.46,
+      "text": "and burn drink your own piss then the wheel can turn four steps written in a dirty fist",
+      "uncertain": true
+    },
+    {
+      "start": 352.46,
+      "end": 357.78,
+      "text": "wake up jack off 9-11 drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 360.36,
+      "end": 370.5,
+      "text": "wake up jack off 9-11 drink your own piss that is the morning",
+      "uncertain": false
+    },
+    {
+      "start": 370.5,
+      "end": 372.26,
+      "text": "That is the list",
+      "uncertain": false
+    },
+    {
+      "start": 372.26,
+      "end": 374.16,
+      "text": "Wake up, jack off",
+      "uncertain": true
+    },
+    {
+      "start": 374.16,
+      "end": 375.46,
+      "text": "9-11",
+      "uncertain": false
+    },
+    {
+      "start": 375.46,
+      "end": 378.16,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 378.16,
+      "end": 382.0,
+      "text": "No metaphor hiding in this",
+      "uncertain": false
+    },
+    {
+      "start": 383.72,
+      "end": 385.44,
+      "text": "Wake up",
+      "uncertain": false
+    },
+    {
+      "start": 385.44,
+      "end": 387.18,
+      "text": "Jack off",
+      "uncertain": true
+    },
+    {
+      "start": 387.18,
+      "end": 388.6,
+      "text": "9-11",
+      "uncertain": false
+    },
+    {
+      "start": 388.6,
+      "end": 391.42,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 391.42,
+      "end": 393.94,
+      "text": "Morning is over",
+      "uncertain": false
+    },
+    {
+      "start": 393.94,
+      "end": 396.18,
+      "text": "The list is complete",
+      "uncertain": false
+    },
+    {
+      "start": 396.18,
+      "end": 399.28,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 408.48,
+      "end": 409.88,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}
