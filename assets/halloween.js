@@ -52,6 +52,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   let lastFrame = 0;
   let activePattern = 'trail';
   let patternChanged = 0;
+  let scatter = 0;
   const hideFlock = () => {
     flock.hidden = true;
     cancelAnimationFrame(frame);
@@ -60,10 +61,12 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     positions.length = 0;
     lastFrame = 0;
     patternChanged = 0;
+    scatter = 0;
   };
   addEventListener('yehry3:bats', () => { applyPreferences(); if (!preferences.enabled) hideFlock(); });
   const fly = now => {
     const blend = lastFrame ? 1 - Math.exp(-Math.min(now - lastFrame, 50) / 55) : 1;
+    if (lastFrame) scatter *= Math.exp(-Math.min(now - lastFrame, 50) / 240);
     if (preferences.pattern !== 'random') activePattern = preferences.pattern;
     else if (!patternChanged || now - patternChanged > 5000) {
       const choices = ['trail', 'circle', 'eight', 'spiral'].filter(name => name !== activePattern);
@@ -91,6 +94,11 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
         const reach = activePattern === 'spiral' ? radius * (1 + .22 * Math.sin(now * .0015 + ring)) : radius;
         x = mouse.x + Math.cos(angle) * reach;
         y = mouse.y + (activePattern === 'eight' ? Math.sin(angle * 2) * reach * .6 : Math.sin(angle) * reach);
+        // Mouse movement briefly breaks formation; each bat takes its own outward arc.
+        const spread = scatter * (55 + 25 * Math.sin(i * 2.399));
+        const escape = angle + .65 * Math.sin(i * 1.7 + heading);
+        x += Math.cos(escape) * spread;
+        y += Math.sin(escape) * spread;
       }
       const position = positions[i] ||= {x,y};
       position.x += (x - position.x) * blend;
@@ -149,6 +157,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     if (event.pointerType !== 'mouse' || reduced.matches || document.hidden || !preferences.enabled) return;
     const dx = event.clientX - mouse.x;
     const dy = event.clientY - mouse.y;
+    if (frame && activePattern !== 'trail') scatter = Math.min(1, scatter + Math.hypot(dx, dy) / 90);
     if (Math.hypot(dx, dy) > 2) heading = Math.atan2(dy, dx);
     mouse = {x:event.clientX, y:event.clientY};
     flock.hidden = false;

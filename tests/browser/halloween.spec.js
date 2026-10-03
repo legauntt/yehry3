@@ -266,3 +266,30 @@ test('dashboard pumpkins survive navigation and fit on mobile', async ({ page })
   await page.reload();
   await expect(page.locator('.dashboard-pumpkins')).toHaveCount(0);
 });
+
+test('circling bats scatter on movement and settle back into their rings', async ({ page }) => {
+  await october(page);
+  await page.goto('/');
+  await page.getByRole('button', {name:'Open display settings'}).click();
+  await page.getByLabel('Flight pattern').selectOption('circle');
+  await page.getByRole('button', {name:'Close display settings'}).click();
+  await page.mouse.move(700,450);
+  await page.clock.runFor(1400);
+  const radii = () => page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => {
+    const m = new DOMMatrix(node.style.transform);
+    return Math.hypot(m.m41 - 800, m.m42 - 450);
+  }));
+  await page.mouse.move(800,450);
+  await page.clock.runFor(100);
+  const scattered = await radii();
+  expect(Math.max(...scattered)).toBeGreaterThan(220);
+  expect(Math.max(...scattered)).toBeLessThan(280);
+  await page.screenshot({path:'artifacts/halloween-circle-scatter.png'});
+  await page.clock.runFor(1300);
+  const settled = await radii();
+  expect(Math.max(...settled)).toBeLessThan(200);
+  expect(Math.min(...settled)).toBeGreaterThan(80);
+  await page.screenshot({path:'artifacts/halloween-circle-settled.png'});
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await expect(page.locator('.halloween-flock')).toBeHidden();
+});
