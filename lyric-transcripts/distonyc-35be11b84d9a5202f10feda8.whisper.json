@@ -1,234 +1,444 @@
 {
   "version": 1,
   "songId": "distonyc-35be11b84d9a5202f10feda8",
-  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-35be11b84d9a5202f10feda8-f006dadb7e66.mp3",
-  "audioSha256": "f006dadb7e665e51b71bc631b4889ddbb454c8a355c9a95832e6adba724de9f7",
-  "inputSha256": "f006dadb7e665e51b71bc631b4889ddbb454c8a355c9a95832e6adba724de9f7",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-35be11b84d9a5202f10feda8-8bbabd83afb6.mp3",
+  "audioSha256": "8bbabd83afb61bb0ac294fe85feedce55687ffb0f2ce82df1fb360ac103a593a",
+  "inputSha256": "8bbabd83afb61bb0ac294fe85feedce55687ffb0f2ce82df1fb360ac103a593a",
   "input": "released-recording",
   "model": "faster-whisper large-v3-turbo",
   "review": "machine",
   "duration": 324.4,
   "segments": [
     {
-      "start": 0.78,
-      "end": 4.68,
-      "text": "Hanging with your milkshake, you get skeeted on",
-      "uncertain": false
+      "start": 0.64,
+      "end": 4.72,
+      "text": "And you're with your little shit, you get skeeted on",
+      "uncertain": true
     },
     {
-      "start": 4.68,
+      "start": 4.72,
       "end": 9.42,
       "text": "Thinking you the shit, girl, you get skeeted on",
-      "uncertain": false
+      "uncertain": true
     },
     {
-      "start": 10.16,
-      "end": 14.14,
+      "start": 9.42,
+      "end": 14.12,
       "text": "Walking on your feet, girl, you get skeeted on",
       "uncertain": false
     },
     {
-      "start": 14.14,
-      "end": 18.76,
+      "start": 14.12,
+      "end": 18.8,
       "text": "You get skeeted on, you get skeeted on",
       "uncertain": false
     },
     {
-      "start": 18.76,
-      "end": 23.56,
+      "start": 18.8,
+      "end": 23.52,
       "text": "My grill's bigger than yours, yeah, you get skeeted on",
       "uncertain": false
     },
     {
-      "start": 23.56,
-      "end": 28.06,
+      "start": 23.52,
+      "end": 28.12,
       "text": "Money longer than yours, yeah, you get skeeted on",
       "uncertain": false
     },
     {
-      "start": 28.06,
-      "end": 30.64,
-      "text": "Broke the pistol, I got a chop",
+      "start": 28.12,
+      "end": 32.76,
+      "text": "Wrap the pistol, I gotta chop, get skeeted on",
       "uncertain": true
     },
     {
-      "start": 30.64,
-      "end": 32.78,
-      "text": "Get skeeted on",
+      "start": 32.76,
+      "end": 37.4,
+      "text": "Skit, skit, skit, skit, skit, skit, skit, skit, skit, skit, skit, skit, skit, skit, skit, skit, skit, skit",
       "uncertain": true
     },
     {
-      "start": 32.78,
-      "end": 60.52,
-      "text": "Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, Ski, S",
+      "start": 37.4,
+      "end": 40.9,
+      "text": "Money holds, cars and closes, halls is all a playin' those",
       "uncertain": true
     },
     {
-      "start": 60.52,
-      "end": 75.44,
-      "text": "But uh, who these niggas killed, they ain't want no trouble. Thunder on my lap, I bust your bubble. Paper stack and true that. Next thing you know, hoes holler who that. Haters gotta shoot at. How they sayin', where my crew at? And if you feelin', then smoke a little dro. Skeet, skeet, skeet, skeet, skeet some more.",
-      "uncertain": true
-    },
-    {
-      "start": 75.44,
-      "end": 88.02,
-      "text": "You might also like Nico Kidland, A.D. Dela, Sawadika, Lissa, Bars, 4-1, Rent 10-10 Freestyle, J.J. Q.",
-      "uncertain": true
-    },
-    {
-      "start": 94.0,
-      "end": 105.18,
-      "text": "You know the name, you know ain't a damn thing changed, cryptic empty change, but on point with the aim, riding like a moccasin, sitting high on them thangs, like my name was Danny, rearrange your hips, lady,",
-      "uncertain": true
-    },
-    {
-      "start": 105.18,
-      "end": 108.52,
-      "text": "And right before you blow low, take a sip lady, it's that crank",
-      "uncertain": true
-    },
-    {
-      "start": 109.38,
-      "end": 112.58,
-      "text": "Raiders on, you can see that girl with it, uh, right on me bones",
-      "uncertain": true
-    },
-    {
-      "start": 112.58,
-      "end": 115.58,
-      "text": "You bout to teeny prone, you get to chopping your groan",
-      "uncertain": true
-    },
-    {
-      "start": 115.58,
-      "end": 119.12,
-      "text": "Riding 18s, chopping your groan, riding 24s, chopping your groan",
+      "start": 40.9,
+      "end": 42.98,
+      "text": "That there's people out here just like me",
       "uncertain": false
     },
     {
-      "start": 120.6,
-      "end": 124.42,
-      "text": "Here we go again, shawty in the club and she didn't bring a man",
+      "start": 42.98,
+      "end": 45.56,
+      "text": "24's on a truck sittin' nice like me",
       "uncertain": false
     },
     {
-      "start": 124.42,
-      "end": 126.78,
-      "text": "She smoking on that ether and drinking on some hands",
+      "start": 45.56,
+      "end": 47.8,
+      "text": "Pull up at the red light on the side of me",
       "uncertain": false
     },
     {
-      "start": 126.78,
-      "end": 129.2,
-      "text": "So I guess you're getting skeeted on, never skeeted in",
+      "start": 47.8,
+      "end": 50.24,
+      "text": "Deuces on your truck, you get skeeted on",
       "uncertain": false
     },
     {
-      "start": 129.2,
-      "end": 131.56,
-      "text": "Guess you're getting skeeted on, never skeeted in",
+      "start": 50.24,
+      "end": 52.56,
+      "text": "Tryna get some George Dawn, bend the collar",
+      "uncertain": true
+    },
+    {
+      "start": 52.56,
+      "end": 54.16,
+      "text": "Mama look at tip and don't wanna",
+      "uncertain": true
+    },
+    {
+      "start": 54.16,
+      "end": 56.28,
+      "text": "So I just skeet, skeet on her",
       "uncertain": false
     },
     {
-      "start": 154.06,
-      "end": 154.18,
+      "start": 56.28,
+      "end": 58.58,
+      "text": "It's up fresh out the bush with no rubber",
+      "uncertain": true
+    },
+    {
+      "start": 58.58,
+      "end": 60.94,
+      "text": "These skid on, you make it milk like butter",
+      "uncertain": true
+    },
+    {
+      "start": 60.94,
+      "end": 63.32,
+      "text": "Who these niggas kill, they want no trouble",
+      "uncertain": false
+    },
+    {
+      "start": 63.32,
+      "end": 65.66,
+      "text": "Thunder on my lap, I bust your bubble",
+      "uncertain": false
+    },
+    {
+      "start": 65.66,
+      "end": 67.22,
+      "text": "Paper stack and true that",
+      "uncertain": false
+    },
+    {
+      "start": 67.22,
+      "end": 69.26,
+      "text": "Next thing you know, hoes holler who that",
+      "uncertain": true
+    },
+    {
+      "start": 69.26,
+      "end": 70.46,
+      "text": "Haters gotta shoot at",
+      "uncertain": false
+    },
+    {
+      "start": 70.46,
+      "end": 71.92,
+      "text": "How they say I'm where my crew at",
+      "uncertain": true
+    },
+    {
+      "start": 71.92,
+      "end": 73.9,
+      "text": "And if you're failing, then smoke a little drone",
+      "uncertain": true
+    },
+    {
+      "start": 73.9,
+      "end": 77.22,
+      "text": "You might also like",
+      "uncertain": true
+    },
+    {
+      "start": 77.22,
+      "end": 78.64,
+      "text": "Niko Kipan",
+      "uncertain": false
+    },
+    {
+      "start": 79.28,
+      "end": 80.46,
+      "text": "A.D. Dealer",
+      "uncertain": false
+    },
+    {
+      "start": 81.22,
+      "end": 81.7,
+      "text": "Sawarika",
+      "uncertain": true
+    },
+    {
+      "start": 81.7,
+      "end": 82.54,
+      "text": "Lisa",
+      "uncertain": true
+    },
+    {
+      "start": 83.38,
+      "end": 83.86,
+      "text": "Bars",
+      "uncertain": false
+    },
+    {
+      "start": 93.82,
+      "end": 96.98,
+      "text": "You know the name, you know ain't a damn thing changed",
+      "uncertain": true
+    },
+    {
+      "start": 96.98,
+      "end": 99.22,
+      "text": "Creep that 50 change, but I'm pointin' with the aim",
+      "uncertain": true
+    },
+    {
+      "start": 99.22,
+      "end": 102.04,
+      "text": "Ridin' like a moccasin', sittin' high on my bangs",
+      "uncertain": false
+    },
+    {
+      "start": 102.48,
+      "end": 104.52,
+      "text": "Like my name was Dan, it rearranged",
+      "uncertain": false
+    },
+    {
+      "start": 104.52,
+      "end": 106.42,
+      "text": "Your hips, lady, then rackin' for your blow low",
+      "uncertain": true
+    },
+    {
+      "start": 106.42,
+      "end": 108.54,
+      "text": "Take a sip, lady, it's that crap",
+      "uncertain": true
+    },
+    {
+      "start": 108.54,
+      "end": 110.18,
+      "text": "Keeps, keeps, keeps, Raiders on",
+      "uncertain": true
+    },
+    {
+      "start": 110.18,
+      "end": 112.56,
+      "text": "You can see that girl, breathe it out, rattle me bones",
+      "uncertain": true
+    },
+    {
+      "start": 112.56,
+      "end": 113.76,
+      "text": "You're about to tee me chrome",
+      "uncertain": true
+    },
+    {
+      "start": 113.76,
+      "end": 115.6,
+      "text": "You get the chop of your groan",
+      "uncertain": true
+    },
+    {
+      "start": 115.6,
+      "end": 117.36,
+      "text": "Riding 18s, chop of your groan",
+      "uncertain": false
+    },
+    {
+      "start": 117.36,
+      "end": 119.14,
+      "text": "Riding 24s, chop of your groan",
+      "uncertain": false
+    },
+    {
+      "start": 119.14,
+      "end": 120.54,
+      "text": "Skeet, skeet, skeet, skeet",
+      "uncertain": false
+    },
+    {
+      "start": 120.54,
+      "end": 122.02,
+      "text": "Here we go again",
+      "uncertain": false
+    },
+    {
+      "start": 122.02,
+      "end": 124.4,
+      "text": "Shawty in the club and she didn't bring a man",
+      "uncertain": true
+    },
+    {
+      "start": 124.4,
+      "end": 125.66,
+      "text": "She smoking on it either",
+      "uncertain": false
+    },
+    {
+      "start": 125.66,
+      "end": 126.76,
+      "text": "And drinking on some hands",
+      "uncertain": true
+    },
+    {
+      "start": 126.76,
+      "end": 129.24,
+      "text": "So I guess she get it skeeted on, never skeeted in",
+      "uncertain": true
+    },
+    {
+      "start": 129.24,
+      "end": 131.58,
+      "text": "Guess she get it skeeted on, never skeeted in",
+      "uncertain": false
+    },
+    {
+      "start": 149.96,
+      "end": 152.36,
+      "text": "I'm sick and tired of these hoes that get brand new",
+      "uncertain": true
+    },
+    {
+      "start": 152.36,
+      "end": 155.06,
+      "text": "When you're all on my pole like a red, white, and blue",
+      "uncertain": false
+    },
+    {
+      "start": 155.58,
+      "end": 157.04,
+      "text": "And I ain't gon' change",
+      "uncertain": true
+    },
+    {
+      "start": 157.04,
+      "end": 159.22,
+      "text": "Still slang me some game to get brains",
+      "uncertain": true
+    },
+    {
+      "start": 160.08,
+      "end": 161.4,
+      "text": "I could touch you some game",
+      "uncertain": true
+    },
+    {
+      "start": 161.4,
+      "end": 163.84,
+      "text": "Feet firm in the streets, boy, cut me some change",
+      "uncertain": true
+    },
+    {
+      "start": 163.84,
+      "end": 165.7,
+      "text": "Complete with the flames, skinnin'",
+      "uncertain": false
+    },
+    {
+      "start": 166.26,
+      "end": 167.36,
+      "text": "And the Rams don't stop",
+      "uncertain": true
+    },
+    {
+      "start": 167.36,
+      "end": 169.14,
+      "text": "So I'm rolling, think a clock with my Glock",
+      "uncertain": true
+    },
+    {
+      "start": 169.14,
+      "end": 170.4,
+      "text": "Skeet, skeet, skeet",
+      "uncertain": false
+    },
+    {
+      "start": 170.4,
+      "end": 171.5,
+      "text": "All in your face",
+      "uncertain": false
+    },
+    {
+      "start": 171.5,
+      "end": 173.84,
+      "text": "But them hoes try to fake, you can keep your milkshake",
+      "uncertain": false
+    },
+    {
+      "start": 173.84,
+      "end": 175.66,
+      "text": "Cause hers better than y'all's",
+      "uncertain": false
+    },
+    {
+      "start": 175.66,
+      "end": 178.0,
+      "text": "Cookin' dope, livin' firm, lookin' better than y'all",
+      "uncertain": false
+    },
+    {
+      "start": 188.76,
+      "end": 189.9,
+      "text": "Steep into life",
+      "uncertain": true
+    },
+    {
+      "start": 197.9,
+      "end": 199.2,
+      "text": "Steep into infinity",
+      "uncertain": false
+    },
+    {
+      "start": 213.58,
+      "end": 213.86,
       "text": "We'll be right back.",
       "uncertain": true
     },
     {
-      "start": 165.18,
-      "end": 167.36,
-      "text": "I'm spinning, and the rims don't stop.",
+      "start": 243.6,
+      "end": 245.0,
+      "text": "Stay.",
       "uncertain": true
     },
     {
-      "start": 167.48,
-      "end": 169.14,
-      "text": "Suck a roll, I think it clocked with my clock.",
+      "start": 263.14,
+      "end": 264.54,
+      "text": "Escape.",
       "uncertain": true
     },
     {
-      "start": 169.46,
-      "end": 170.36,
-      "text": "Skit, skit, skit.",
-      "uncertain": false
-    },
-    {
-      "start": 170.6,
-      "end": 172.62,
-      "text": "All in your face, with them hoes trying to fake.",
-      "uncertain": false
-    },
-    {
-      "start": 172.76,
-      "end": 173.86,
-      "text": "You can keep your milkshake.",
-      "uncertain": false
-    },
-    {
-      "start": 174.18,
-      "end": 175.66,
-      "text": "Cause hers better than y'all's.",
-      "uncertain": false
-    },
-    {
-      "start": 175.72,
-      "end": 177.94,
-      "text": "Cooking dope, living firm, looking better than y'all.",
-      "uncertain": false
-    },
-    {
-      "start": 188.72,
-      "end": 189.92,
-      "text": "Steep into the air.",
+      "start": 272.5,
+      "end": 273.24,
+      "text": "Escape.",
       "uncertain": true
     },
     {
-      "start": 196.6,
-      "end": 199.26,
-      "text": "Ski into infinity",
-      "uncertain": false
+      "start": 291.5,
+      "end": 292.32,
+      "text": "Sheep.",
+      "uncertain": true
     },
     {
-      "start": 215.44,
-      "end": 216.84,
-      "text": "Ski",
-      "uncertain": false
-    },
-    {
-      "start": 225.18,
-      "end": 226.18,
-      "text": "Ski",
-      "uncertain": false
-    },
-    {
-      "start": 243.74,
-      "end": 245.14,
-      "text": "Ski",
-      "uncertain": false
-    },
-    {
-      "start": 263.1,
-      "end": 264.5,
-      "text": "Ski",
-      "uncertain": false
-    },
-    {
-      "start": 271.88,
-      "end": 273.28,
-      "text": "Ski",
-      "uncertain": false
-    },
-    {
-      "start": 313.76,
-      "end": 315.16,
-      "text": "Ski",
-      "uncertain": false
-    },
-    {
-      "start": 315.18,
-      "end": 324.22,
-      "text": "I love you, I love you, I love you",
+      "start": 321.5,
+      "end": 322.1,
+      "text": "Excuse me.",
       "uncertain": true
     }
   ]
