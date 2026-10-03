@@ -45,6 +45,12 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   };
   applyPreferences();
   const positions = [];
+  const trail = [];
+  let heading = 0;
+  let pointerTime = null;
+  let velocityPoint = null;
+  let fastUntil = 0;
+  let scattered = false;
   const phases = bats.map((_, i) => i / bats.length);
   let mouse = {x:-1000, y:-1000};
   let frame = 0;
@@ -66,6 +72,8 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   const dockFlock = () => {
     clearTimeout(idleTimer);
     docked = true;
+    pointerTime = null;
+    trail.length = 0;
     startFlight();
   };
   addEventListener('yehry3:bats', () => { applyPreferences(); startFlight(); });
@@ -85,6 +93,12 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     }
     flock.dataset.pattern = activePattern;
     flock.dataset.docked = String(docked);
+    flock.dataset.flight = docked ? 'sleep' : scattered ? 'scatter' : 'trail';
+    if (!docked && !scattered) {
+      trail.unshift({x:mouse.x, y:mouse.y, heading, time:now});
+      while (trail.length > 1 && now - trail.at(-1).time > 4300) trail.pop();
+    }
+    let sample = 0;
     let settled = docked;
     bats.forEach((node, i) => {
       const size = (14 + (i * 7 % 15)) * 1.5 * preferences.size;
@@ -94,7 +108,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
       const perimeter = (width + height) * 2;
       let x = padding + width * (i + .5) / bats.length;
       let y = padding;
-      if (!docked) {
+      if (!docked && scattered) {
         // Patterns vary the edge route, never pull the flock back to the cursor.
         const direction = activePattern === 'eight' && i % 2 ? -1 : 1;
         const pace = activePattern === 'spiral' ? 1 + .3 * Math.sin(now * .001 + i) : 1;
@@ -118,6 +132,15 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
           // Retain the escape point so a route cannot flip to the cursor's other side.
           phases[i] = escapeDistance / perimeter - i * .015 * (preferences.spacing - 1);
         }
+      }
+      if (!docked && !scattered) {
+        const delay = i * 55 * preferences.spacing;
+        while (sample + 1 < trail.length && now - trail[sample].time < delay) sample++;
+        const point = trail[sample];
+        const behind = 38 + i * 45 * preferences.spacing;
+        const wave = Math.sin(now * .0035 - i * .25) * (12 + i * .3);
+        x = point.x - Math.cos(point.heading) * behind - Math.sin(point.heading) * wave;
+        y = point.y - Math.sin(point.heading) * behind + Math.cos(point.heading) * wave;
       }
       x = Math.max(padding, Math.min(innerWidth - padding, x));
       y = Math.max(padding, Math.min(innerHeight - padding, y));
@@ -186,8 +209,42 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     wake();
     if (event.pointerType !== 'mouse' || reduced.matches || document.hidden || !preferences.enabled) return;
     if (event.clientX === mouse.x && event.clientY === mouse.y) return;
+    const now = performance.now();
+    const dx = event.clientX - mouse.x, dy = event.clientY - mouse.y;
+    const distance = Math.hypot(dx, dy);
+    // Sample across at least 16 ms so high-rate mice do not look artificially slow.
+    const elapsed = pointerTime === null ? 0 : now - pointerTime;
+    const travel = velocityPoint ? Math.hypot(event.clientX - velocityPoint.x, event.clientY - velocityPoint.y) : 0;
+    const speed = pointerTime !== null && (elapsed >= 16 || travel > 40)
+      ? travel * 1000 / Math.max(16, Math.min(100, elapsed)) : null;
+    if (distance > 2 && pointerTime !== null) heading = Math.atan2(dy, dx);
+    if (pointerTime === null || speed !== null) {
+      pointerTime = now;
+      velocityPoint = {x:event.clientX, y:event.clientY};
+    }
+    const wasScattered = scattered;
+    if (speed !== null && speed > 650) {
+      scattered = true;
+      fastUntil = now + 350;
+    } else if (speed !== null && speed < 250 && now >= fastUntil) scattered = false;
+    if (docked && speed === null) scattered = false;
     mouse = {x:event.clientX, y:event.clientY};
-    if (docked) positions.forEach((position, i) => {
+    if (!wasScattered && scattered) positions.forEach((position, i) => {
+      const padding = (14 + (i * 7 % 15)) * 1.5 * preferences.size * .6 + 8;
+      const width = Math.max(1, innerWidth - padding * 2);
+      const height = Math.max(1, innerHeight - padding * 2);
+      const originX = Math.max(padding, Math.min(innerWidth - padding, mouse.x));
+      const originY = Math.max(padding, Math.min(innerHeight - padding, mouse.y));
+      const angle = Math.atan2(position.y - mouse.y, position.x - mouse.x) + .8 * Math.sin(i * 1.7);
+      const vx = Math.cos(angle), vy = Math.sin(angle);
+      const reach = Math.min(vx > 0 ? (innerWidth-padding-originX)/vx : vx < 0 ? (padding-originX)/vx : Infinity,
+        vy > 0 ? (innerHeight-padding-originY)/vy : vy < 0 ? (padding-originY)/vy : Infinity);
+      const x = originX + vx * reach, y = originY + vy * reach;
+      const edge = Math.abs(y-padding) < .1 ? x-padding : Math.abs(x-(innerWidth-padding)) < .1 ? width+y-padding
+        : Math.abs(y-(innerHeight-padding)) < .1 ? width+height+innerWidth-padding-x : (width+height)*2-(y-padding);
+      phases[i] = edge / ((width+height)*2) - i * .015 * (preferences.spacing-1);
+    });
+    if (docked && !scattered) positions.forEach((position, i) => {
       const padding = (14 + (i * 7 % 15)) * 1.5 * preferences.size * .6 + 8;
       const width = Math.max(1, innerWidth - padding * 2);
       const height = Math.max(1, innerHeight - padding * 2);

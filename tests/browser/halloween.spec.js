@@ -54,7 +54,7 @@ test('bats fly on movement and idle flybys dismiss on activity', async ({ page }
   expect(await page.locator('.halloween-flock .halloween-bat-shape').first().evaluate(node => getComputedStyle(node).fill)).toBe('rgb(0, 0, 0)');
   const positions = () => page.locator('.halloween-swarm-bat').evaluateAll(nodes => nodes.map(node => node.style.transform));
   const before = await positions();
-  await page.mouse.move(950, 450, {steps:20});
+  for (let x=310; x<=950; x+=10) { await page.clock.runFor(50); await page.mouse.move(x,450); }
   await page.clock.runFor(600);
   const after = await positions();
   expect(new Set(after).size).toBe(24);
@@ -223,7 +223,7 @@ test('dashboard pumpkins survive navigation and fit on mobile', async ({ page })
   await expect(page.locator('.dashboard-pumpkins')).toHaveCount(0);
 });
 
-test('bats stay awake at the edges, avoid the cursor, then sleep on the ceiling', async ({ page }) => {
+test('bats trail slow movement, scatter on fast movement, and sleep on the ceiling', async ({ page }) => {
   await october(page);
   await page.goto('/queue/');
   const flock = page.locator('.halloween-flock');
@@ -234,14 +234,35 @@ test('bats stay awake at the edges, avoid the cursor, then sleep on the ceiling'
     return {x:m.m41, y:m.m42, edge:Math.min(m.m41, innerWidth-m.m41, m.m42, innerHeight-m.m42),
       inside:r.left >= 0 && r.right <= innerWidth && r.top >= 0 && r.bottom <= innerHeight};
   }));
-  await page.mouse.move(700,450);
-  for (let i=0; i<8; i++) {
-    await page.clock.runFor(800);
-    await page.mouse.move(700+i*2,450);
-    await expect(flock).toHaveAttribute('data-docked','false');
-    await expect(page.locator('.halloween-swarm-bat.is-sleeping')).toHaveCount(0);
+  await page.mouse.move(1100,450);
+  for (let i=1; i<=20; i++) {
+    await page.clock.runFor(50);
+    await page.mouse.move(1100+i*3,450);
   }
+  await page.clock.runFor(200);
+  await expect(flock).toHaveAttribute('data-flight','trail');
+  const following = await points();
+  expect(Math.hypot(following[0].x-1160, following[0].y-450)).toBeLessThan(80);
+  expect(following[0].x).toBeLessThan(1160);
+  expect(following[8].x).toBeLessThan(following[0].x-200);
+  await page.screenshot({path:'artifacts/halloween-slow-trail.png'});
+  await page.mouse.move(700,450);
+  await page.clock.runFor(900);
+  await expect(flock).toHaveAttribute('data-flight','scatter');
+  await expect(page.locator('.halloween-swarm-bat.is-sleeping')).toHaveCount(0);
   expect((await points()).every(p => p.edge < 100 && p.inside)).toBe(true);
+  // Slow down again: only actual slow movement regroups them, not a scatter timeout.
+  await page.mouse.move(702,450);
+  await page.clock.runFor(600);
+  await expect(flock).toHaveAttribute('data-flight','trail');
+  expect(Math.hypot((await points())[0].x-702,(await points())[0].y-450)).toBeLessThan(80);
+  // A high-rate mouse sends small events whose combined speed is still fast.
+  for (let i=1; i<=10; i++) {
+    await page.clock.runFor(4);
+    await page.evaluate(x => window.dispatchEvent(new PointerEvent('pointermove',{pointerType:'mouse',clientX:x,clientY:450})),702+i*4);
+  }
+  await page.clock.runFor(700);
+  await expect(flock).toHaveAttribute('data-flight','scatter');
   const before = await points();
   await page.mouse.move(700,25);
   await page.clock.runFor(900);
