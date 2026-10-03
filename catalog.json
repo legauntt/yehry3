@@ -4,8 +4,6 @@
     {
       "id": "distonyc-35be11b84d9a5202f10feda8",
       "title": "Get Skeeted On (Uplift Funk Mix)",
-      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-35be11b84d9a5202f10feda8-f006dadb7e66.mp3",
-      "duration": 324.4,
       "collection": "distonyc",
       "voiceModel": "v9",
       "remixOf": {
@@ -44,6 +42,41 @@
           ]
         }
       },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "guide": {
+        "sha256": "4064006537cbeb09335a0221dafac19bf05d1000f7a6a34080dd27c3856842bf",
+        "bytes": 8260748,
+        "duration": 324.4,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-35be11b84d9a5202f10feda8-4064006537cb.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “Get Skeeted On”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: A funk song about the trials and tribulations of being a young black man in america.\n\nOriginal sound: Funky, uplifting",
+        "direction": "Use the prompt as written.",
+        "keep": "Keep the recognizable hook and spirit of “Get Skeeted On”.",
+        "basisSongs": [
+          "Get Skeeted On"
+        ],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted"
+        },
+        "generationProfile": "v8"
+      },
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-35be11b84d9a5202f10feda8-8bbabd83afb6.mp3",
+      "duration": 324.4,
       "lyrics": {
         "text": "[Hook]\nHangin with your milkshake ya get skeeted on\nThinkin you the shit girl? Ya get skeeted on\nWalkin on ya feet girl, ya get skeeted on\nYa get skeeted on, ya get skeeted on\nMy grills bigger than yours, ya get skeeted on\nMoney longer than yours, ya get skeeted on\nBrought the pistol I got a chopper, get skeeted on\nSkeet skeet skeet skeet skeet\n\n[Verse]\nMoney, hoes, cars and clothes, is all a playa knows\nThat there's people out here just like me\n24's on a truck, sittin nice like me\nPull up at the red light, on the side of me\nDueces on yo truck - you get skeeted on\nTryna get some Georgia don\nBend the corner, momma lookin tip but don't want her\nSo I guess skeet, skeet on her\nAs up fresh out the bush with no rubber\nHe skeet on ya make ya melt like butter\nWho these niggas killed - they ain't want no trouble\nThunder on my lap I bust your bubble\nPapers stackin true dat\nNext thing ya know\nHoes holla \"Who dat,\" haters gotta shoot at\nHow they sayin where my crew at\nAnd if you feelin then smoke a little dro\n(Skeet skeet skeet) Skeet some more\nYou might also like\nNicole Kidman\nADÉLA\nSaWaDiKa\nLISA\nBars, Vol. 1 (Rin Tin Tin Freestyle)\nJJQ\n[Hook]\n\n[Verse]\nYou know the name, you know ain't a damn thing changed\nQuick to empty change but on point with the aim\nRidin like a moccasin sittin high on them thangs\n\nLike my name was Danny , rearrange - your hips lady\nAnd right before you blow low\nTake a sip lady, this that crank (skeet skeet skeet)\nRadar's on, you can see that girl wit it, uh, rattle me bones\nYou bout to Teelee chrome\nYou get to choppin your gron\nRidin 18's choppin your gron, ridin 24's choppin yo gron\n(Skeet skeet skeet)\nHere we go again\nShawty in the club and she didn't bring a man\nShe smokin on that ether and drinkin on some Hen\nSo I guess ya gettin skeeted on, never skeeted in\nGuess ya gettin skeeted on, never skeeted in\n\n[Hook]\n\n[Verse]\nI'm sick and tired of these hoes actin brand new\nWhen you all on my pole like the Red, White and Blue\nAnd I ain't gon change\nStill slang me some cane and get brains (get brains)\nI could teach ya some game\nFeet firm in these streets boy I keep me some change\nComplete with the flames\n(Spinnnnnn)\nAnd the rims don't stop\nSucka roll up and get clocked with my Glock\n(Skeet skeet skeet) All in ya face\nBut them hoes tryna fake, you can keep ya milkshake\nCause hers better than y'alls\nCookin dope, livin firm, lookin better than y'all\n[Hook]\n\n[Outro]\nSkeet (into infinity)",
         "kind": "written",
@@ -240,44 +273,20 @@
           }
         ]
       },
-      "collections": [
-        "distonyc"
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 19
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
       ],
       "validationFailures": [
-        "vocal_activity",
-        "unconverted_vocals"
+        "vocal_activity"
       ],
       "reviewState": "needs_review",
-      "generationProfile": "v8",
-      "guide": {
-        "sha256": "4064006537cbeb09335a0221dafac19bf05d1000f7a6a34080dd27c3856842bf",
-        "bytes": 8260748,
-        "duration": 324.4,
-        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-35be11b84d9a5202f10feda8-4064006537cb.mp3"
-      },
-      "originalPrompt": {
-        "idea": "Remix “Get Skeeted On”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: A funk song about the trials and tribulations of being a young black man in america.\n\nOriginal sound: Funky, uplifting",
-        "direction": "Use the prompt as written.",
-        "keep": "Keep the recognizable hook and spirit of “Get Skeeted On”.",
-        "basisSongs": [
-          "Get Skeeted On"
-        ],
-        "voiceModel": "v9",
-        "musicBackend": "local",
-        "generation": {
-          "version": 1,
-          "candidates": 1,
-          "lyricWorkflow": "auto",
-          "performance": "natural",
-          "energy": "auto",
-          "variation": "balanced",
-          "reviewLyrics": false,
-          "vocalGainDb": 0,
-          "backingGainDb": 0,
-          "pitchRepair": "haunted"
-        },
-        "generationProfile": "v8"
-      }
+      "pitchRepair": "haunted"
     },
     {
       "id": "distonyc-8c458c190955a5bc4376f45e",
