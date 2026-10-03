@@ -138,4 +138,7 @@ export default {
   "distonyc-20174d336717fef213d9d9d8": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/13-nobody-is-worried-song-scenes-20261002.mp4", framing: "square", duration: 10 },
   "distonyc-0abed287ed9acb8635c08d90": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/14-wanna-fuck-song-scenes-20261002.mp4", framing: "square", duration: 10 },
   "distonyc-3ce62fce4bc081402b7e6408": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/15-the-last-roll-call-black-parade-version-song-scenes-20261002.mp4", framing: "square", duration: 15 },
+  "distonyc-e4f534e23181ed37b959528a": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/01-morning-aria-back-to-bed-new-entries-20261003.mp4", framing: "square", duration: 10 },
+  "distonyc-944052f6558e303470491554": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/02-solving-racism-new-entries-20261003.mp4", framing: "square", duration: 10 },
+  "distonyc-d59c2b17c667891420654e76": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/03-morning-routine-new-entries-20261003.mp4", framing: "square", duration: 10 },
 };
