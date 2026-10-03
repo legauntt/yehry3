@@ -1859,18 +1859,18 @@ export default {
     "firstSeenAt": "2026-10-01T19:39:22.779Z"
   },
   "distonyc-3ce62fce4bc081402b7e6408": {
-    "src": "/assets/artwork/distonyc-3ce62fce4bc081402b7e6408-incubating-1dbeb7c7806c-q86.webp",
+    "src": "/assets/artwork/distonyc-3ce62fce4bc081402b7e6408-mature-bb3734e6dc5a-q86.webp",
     "alt": "Cover artwork for The Last Roll Call (Black Parade Version).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "957e52fdfffb2982686f1d8c06a5ca3517c4b169c7fe1b1688ba9657fed8aa39",
-    "promptHash": "9b1e7d7130a61f9614cc8218eb3ad3dc00857c1e4a6b911e0386691d2c296537",
-    "createdAt": "2026-10-02T06:39:47.323Z",
+    "promptHash": "c00fcc2607912fb02323b43be93273532ac64b1fbc367604edb471e620c1ce25",
+    "createdAt": "2026-10-03T06:40:33.857Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-3ce62fce4bc081402b7e6408-incubating-1dbeb7c7806c-q86.webp",
     "firstSeenAt": "2026-10-02T06:39:23.549Z"
   },
   "distonyc-20174d336717fef213d9d9d8": {
