@@ -2099,5 +2099,39 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-04T00:24:42.889Z",
     "history": []
+  },
+  "distonyc-c69c99fcce015bd63b3c8392": {
+    "src": "/assets/artwork/distonyc-c69c99fcce015bd63b3c8392-incubating-3a88a81c70de-f805b35502a57271-q86.webp",
+    "alt": "Cover artwork for Yow at Midnight.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "8776d9d7a691085d2197244863dcedf8066ef1abe2f55f0746d1ff029345a10e",
+    "promptHash": "9463d1096a4517f7f6658d817651b5a834e16dc50f9f7d2ee69b9a7c6ea3ea56",
+    "createdAt": "2026-10-04T02:10:03.106Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-04T02:09:42.404Z",
+    "history": []
+  },
+  "six-years-of-training-v9-epochs-10-300": {
+    "src": "/assets/artwork/six-years-of-training-v9-epochs-10-300-incubating-fdceddeabde4-b6c17736bef98022-q86.webp",
+    "alt": "Cover artwork for Six years of training.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "927adfaf05bde967fe1bf6c576a23da81bed4c898f7d145d6e717bdf5bab6c28",
+    "promptHash": "a6f24fde071796c855f174c260bf624fba45b5217061a1342474025f9a16cbe1",
+    "createdAt": "2026-10-04T02:10:04.150Z",
+    "missingSources": [
+      "songPlan"
+    ],
+    "previous": null,
+    "firstSeenAt": "2026-10-04T02:09:42.404Z",
+    "history": []
   }
 };
