@@ -2133,5 +2133,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-04T02:09:42.404Z",
     "history": []
+  },
+  "distonyc-6fa608ea10febffcde18d010": {
+    "src": "/assets/artwork/distonyc-6fa608ea10febffcde18d010-incubating-1f87ff8ce126-74f8cdb7d7789a66-q86.webp",
+    "alt": "Cover artwork for Five Pounds to Two Hundred.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "bbc3bd3f99d68c099da7db7c67b40618b89317106b73968caa1ae740fcc17d89",
+    "promptHash": "a304e5da61f0deb7adf4ed9ac566c29ac5ec136b7266db8dff05839de30349c8",
+    "createdAt": "2026-10-04T04:55:02.195Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-04T04:54:43.315Z",
+    "history": []
   }
 };
