@@ -1,10 +1,11 @@
 import { getRecordPreferences, setRecordPreference, watchRecordPreferences } from "./record-preferences.js";
 import { batPatterns, getBatPreferences, setBatPreference } from './bat-preferences.js';
+import { halloweenLevels, getHalloweenLevel, getHalloweenProfile, setHalloweenLevel } from './halloween-preferences.js';
 
 const key = "yehry3:show-quality-issues";
 const seenKey = "yehry3:preferences-seen";
 // Change this when new preferences should be highlighted to returning visitors.
-const preferencesVersion = "bat-patterns-v1";
+const preferencesVersion = "halloween-levels-v1";
 
 if (typeof document !== "undefined") {
   let shown = true;
@@ -13,6 +14,8 @@ if (typeof document !== "undefined") {
   let darkCheckbox;
   let settingsButton;
   let newBadge;
+  let halloweenSelect;
+  let halloweenDetail;
   const recordCheckboxes = new Map();
   const batInputs = new Map();
   const read = () => {
@@ -29,13 +32,15 @@ if (typeof document !== "undefined") {
     const preferences = getRecordPreferences();
     recordCheckboxes.forEach((input, name) => { input.checked = preferences[name]; });
     const batPreferences = getBatPreferences();
+    if (halloweenSelect) halloweenSelect.value = getHalloweenLevel();
+    if (halloweenDetail) halloweenDetail.textContent = getHalloweenProfile().description;
     batInputs.forEach((input, name) => {
       if (name === 'enabled') input.checked = batPreferences.enabled;
       else input.value = String(batPreferences[name]);
     });
     if (settingsButton) {
       settingsButton.classList.toggle("has-new-preferences", !preferencesSeen);
-      settingsButton.title = preferencesSeen ? "Display settings" : "New bat flight patterns available";
+      settingsButton.title = preferencesSeen ? "Display settings" : "New Halloween decor levels available";
       if (preferencesSeen) settingsButton.removeAttribute("aria-describedby");
       else settingsButton.setAttribute("aria-describedby", "display-settings-updates");
       newBadge.hidden = preferencesSeen;
@@ -69,7 +74,7 @@ if (typeof document !== "undefined") {
     const updateDescription = document.createElement("span");
     updateDescription.id = "display-settings-updates";
     updateDescription.className = "sr-only";
-    updateDescription.textContent = "New bat flight patterns available.";
+    updateDescription.textContent = "New Halloween decor levels available.";
 
     const dialog = document.createElement("dialog");
     dialog.className = "display-settings-dialog";
@@ -127,6 +132,21 @@ if (typeof document !== "undefined") {
       input.addEventListener("change", () => setRecordPreference(name, input.checked));
     }
     dialog.append(recordGroup);
+    const halloweenLabel = document.createElement('label');
+    halloweenLabel.className = 'quality-preference halloween-level-choice';
+    const halloweenCopy = document.createElement('span');
+    const halloweenTitle = document.createElement('strong');
+    halloweenTitle.textContent = 'Halloween decor';
+    halloweenDetail = document.createElement('small');
+    halloweenDetail.id = 'halloween-level-description';
+    halloweenCopy.append(halloweenTitle, halloweenDetail);
+    halloweenSelect = document.createElement('select');
+    halloweenSelect.setAttribute('aria-label', 'Halloween decor');
+    halloweenSelect.setAttribute('aria-describedby', halloweenDetail.id);
+    for (const [value, {title}] of Object.entries(halloweenLevels)) halloweenSelect.add(new Option(title, value));
+    halloweenSelect.addEventListener('change', () => setHalloweenLevel(halloweenSelect.value));
+    halloweenLabel.append(halloweenCopy, halloweenSelect);
+    dialog.append(halloweenLabel);
     const batGroup = document.createElement('fieldset');
     batGroup.className = 'record-preferences bat-preferences';
     const batLegend = document.createElement('legend');
@@ -190,6 +210,7 @@ if (typeof document !== "undefined") {
   watchRecordPreferences(apply);
   window.addEventListener("yehry3:theme", apply);
   window.addEventListener('yehry3:bats', apply);
+  window.addEventListener('yehry3:halloween', apply);
 
   window.mountQualitySettings = mount;
 }

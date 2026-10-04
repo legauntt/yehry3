@@ -1,5 +1,6 @@
 import { halloweenSeason } from './season.js';
 import { getBatPreferences } from './bat-preferences.js';
+import { getHalloweenLevel, getHalloweenProfile } from './halloween-preferences.js';
 
 if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   // A small flock leaves the page readable while the wings beat independently.
@@ -21,7 +22,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     return `<g class="halloween-woven-web"><path class="web-thread" pathLength="1" d="${spokes}${rings}"/><g class="halloween-weaver"><ellipse rx="5" ry="7"/><path d="M-4 -4L-11 -9M-5 0L-13 -2M-5 4L-12 9M4 -4L11 -9M5 0L13 -2M5 4L12 9"/><animateMotion dur="25s" begin="indefinite" fill="freeze" path="${route}"/></g></g>`;
   }).join('');
   scene.innerHTML = `<div class="halloween-web web-left">${web}</div><div class="halloween-web web-right">${web}</div><span class="halloween-spider">🕷️</span><svg class="halloween-weaving" viewBox="0 0 1000 700" preserveAspectRatio="none">${woven}</svg>
-    <div class="halloween-flock" hidden>${Array.from({length:24}, () => `<span class="halloween-swarm-bat">${bat}</span>`).join('')}</div>
+    <div class="halloween-flock" hidden>${Array.from({length:getHalloweenProfile().bats}, () => `<span class="halloween-swarm-bat">${bat}</span>`).join('')}</div>
     <div class="halloween-pass" hidden></div>
     <div class="halloween-scare" hidden><svg class="halloween-lightning" viewBox="0 0 1000 800" preserveAspectRatio="none"><path d="M220 0L160 230L270 205L110 530L190 300L90 330L220 0ZM810 0L700 270L820 240L680 650L750 350L640 380L810 0Z"/></svg>
       <div class="halloween-laugh"><svg class="halloween-face" viewBox="0 0 400 380"><path fill="#598031" d="M184 73Q176 30 211 12L232 30Q202 41 215 77Z"/><path fill="#e96b0c" stroke="#ffad32" stroke-width="5" d="M200 73C74 29 10 120 26 232C37 333 112 371 200 344C288 371 363 333 374 232C390 120 326 29 200 73Z"/><path fill="none" stroke="#a83c09" stroke-width="6" d="M157 80Q82 198 155 341M243 80Q318 198 245 341M200 85V339"/><g fill="#fff09a" stroke="#4e1709" stroke-width="7" stroke-linejoin="round"><path d="M81 176L145 126L161 191Z M319 176L255 126L239 191Z M200 184L180 219H220Z"/><path class="halloween-mouth" d="M78 238L116 254L135 236L157 266L183 252L200 275L218 252L244 266L266 236L285 254L322 238Q295 329 200 326Q105 329 78 238Z"/></g></svg><span class="halloween-ha ha-left">HA!</span><span class="halloween-ha ha-right">HA HA!</span></div>
@@ -33,7 +34,8 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   const scare = scene.querySelector('.halloween-scare');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const timers = new Set();
-  const bats = [...flock.children];
+  let bats = [...flock.children];
+  let profile = getHalloweenProfile();
   let preferences = getBatPreferences();
   const applyPreferences = () => {
     preferences = getBatPreferences();
@@ -51,7 +53,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   let velocityPoint = null;
   let fastUntil = 0;
   let scattered = false;
-  const phases = bats.map((_, i) => i / bats.length);
+  let phases = bats.map((_, i) => i / bats.length);
   let mouse = {x:-1000, y:-1000};
   let frame = 0;
   let lastFrame = 0;
@@ -65,7 +67,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     frame = lastFrame = 0;
   };
   const startFlight = () => {
-    if (!preferences.enabled || reduced.matches || document.hidden) return hideFlock();
+    if (!profile.bats || !preferences.enabled || reduced.matches || document.hidden || getHalloweenLevel() === 'off') return hideFlock();
     flock.hidden = false;
     if (!frame) frame = requestAnimationFrame(fly);
   };
@@ -177,14 +179,15 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
       scene.querySelector('.halloween-weaving').setCurrentTime(0);
     }
   };
-  const schedule = (delay = 8000) => {
-    if (document.hidden || reduced.matches) return;
+  const schedule = (delay = profile.delay) => {
+    if (!profile.delay || document.hidden || reduced.matches || getHalloweenLevel() === 'off') return;
     later(() => {
       dockFlock();
-      if (encounter++ % 3 === 2) {
+      encounter++;
+      if (profile.scareEvery && encounter % profile.scareEvery === 0) {
         scare.hidden = false;
         scene.classList.add('is-scare');
-        later(() => { scare.hidden = true; scene.classList.remove('is-scare'); schedule(30000); }, 5500);
+        later(() => { scare.hidden = true; scene.classList.remove('is-scare'); schedule(profile.delay * 3.75); }, 5500);
       } else {
         const kind = passNumber++ % 3;
         pass.innerHTML = kind === 0 ? witch : kind === 1 ? '👻' : `<div class="halloween-pass-bats">${bat.repeat(7)}</div>`;
@@ -197,17 +200,19 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
     }, delay);
   };
   const wake = () => {
-    clear(); schedule();
-    if (!document.hidden && !reduced.matches) later(() => {
+    clear();
+    if (getHalloweenLevel() === 'off') return;
+    schedule();
+    if (profile.weave && !document.hidden && !reduced.matches) later(() => {
       scene.classList.add('is-weaving');
       const canvas = scene.querySelector('.halloween-weaving');
       canvas.unpauseAnimations();
       canvas.querySelectorAll('animateMotion').forEach(node => node.beginElement());
-    }, 6000);
+    }, profile.weave);
   };
   addEventListener('pointermove', event => {
     wake();
-    if (event.pointerType !== 'mouse' || reduced.matches || document.hidden || !preferences.enabled) return;
+    if (!profile.bats || getHalloweenLevel() === 'off' || event.pointerType !== 'mouse' || reduced.matches || document.hidden || !preferences.enabled) return;
     if (event.clientX === mouse.x && event.clientY === mouse.y) return;
     const now = performance.now();
     const dx = event.clientX - mouse.x, dy = event.clientY - mouse.y;
@@ -261,10 +266,28 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   addEventListener('resize', startFlight, { passive: true });
   reduced.addEventListener('change', () => { dockFlock(); wake(); });
   document.addEventListener('visibilitychange', () => {
-    scene.hidden = document.hidden;
+    scene.hidden = document.hidden || getHalloweenLevel() === 'off';
     dockFlock();
     wake();
   });
+  addEventListener('yehry3:halloween', () => {
+    const next = getHalloweenProfile();
+    if (next !== profile) {
+      hideFlock();
+      clearTimeout(idleTimer);
+      profile = next;
+      flock.innerHTML = Array.from({length:profile.bats}, () => `<span class="halloween-swarm-bat">${bat}</span>`).join('');
+      bats = [...flock.children];
+      phases = bats.map((_, i) => i / bats.length);
+      positions.length = trail.length = 0;
+      encounter = passNumber = 0;
+      applyPreferences();
+    }
+    scene.hidden = document.hidden || getHalloweenLevel() === 'off';
+    dockFlock();
+    wake();
+  });
+  scene.hidden = document.hidden || getHalloweenLevel() === 'off';
   wake();
   dockFlock();
 }
