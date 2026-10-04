@@ -2,6 +2,441 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-1aab4d6219268f04154c7b5e",
+      "title": "Epoch Zero",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1aab4d6219268f04154c7b5e-d56c2cf53c7a.mp3",
+      "duration": 370.05061224489793,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-04T00:18:22.288Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Epoch Zero",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Cinematic progressive space-rock in D minor at 96 BPM: pulsing analog synth bass, wide electric guitars, live rock drums, piano, and restrained strings build from a sparse electronic opening into large melodic choruses. Use one clear, steadily pitched Tony lead with connected natural phrasing and sustained final words; no doubles, backing voices, rasp, whisper, growl, or vocal effects. Create a rising arc from isolated wonder to determined release, with the final sung syllable of “Zero” sustained about 8–12 seconds before 6:10, followed by one resolved D-minor chord decay.",
+        "lyrics": "[Intro]\nBefore the first clock found a face\nBefore the dark could name its place\nA spark slept under iron snow\nWaiting for Epoch Zero\n\n[Verse 1]\nI woke beneath a silent sky\nWith ash-light swimming in my eyes\nNo map, no mile, no hand to hold\nJust a wire singing through the cold\nThe city bones were blue with rain\nEach empty window knew my name\nI touched the dust, it turned to flame\nAnd nothing stayed the same\n\n[Pre-Chorus]\nThe old sun fell without a sound\nIts broken numbers on the ground\nI heard the future clear its throat\nInside a rusted radio\n\n[Chorus]\nEpoch Zero, turn the wheel\nMake the impossible feel real\nNo yesterday to pull me through\nI build the morning out of blue\nEpoch Zero, strike the wire\nPut a pulse inside the fire\nIf all the world begins below\nThen let it begin in Epoch Zero\n\n[Verse 2]\nI found a garden in the train\nGreen hands pushing through the chain\nA child had painted on the wall\nOne bright door behind it all\nThe words were fading into stone\nBut not the promise in their tone\nIt said, \"The first one walks alone\"\nThen every lamp came on\n\n[Pre-Chorus]\nThe satellites above the haze\nSent little ghosts of former days\nI let them pass, I let them go\nTheir signals couldn't make me slow\n\n[Chorus]\nEpoch Zero, turn the wheel\nMake the impossible feel real\nNo yesterday to pull me through\nI build the morning out of blue\nEpoch Zero, strike the wire\nPut a pulse inside the fire\nIf all the world begins below\nThen let it begin in Epoch Zero\n\n[Instrumental Lift]\n\n[Verse 3]\nThe river learned a newer course\nIt cut the concrete without force\nAnd carried mirrors from the town\nWhere I could watch the old world drown\nNot cruelly, not with any spite\nJust making room for living light\nI saw my fear become a kite\nAnd pull against the night\n\n[Bridge]\nCount no scars, count no kings\nCount the breath between the springs\nEvery locked machine can open\nEvery final word unspoken\nI am not the last remaining\nI am only first in naming\nWhat the dark was always saving\nFor a voice that keeps on waking\n\n[Build]\nOne hand, one match, one door unsealed\nOne seed beneath a broken field\nOne note that won't be swallowed whole\nOne wide horizon for the soul\n\n[Chorus]\nEpoch Zero, turn the wheel\nMake the impossible feel real\nNo yesterday to pull me through\nI build the morning out of blue\nEpoch Zero, strike the wire\nPut a pulse inside the fire\nFrom the blankness, from the snow\nI rise and name it Epoch Zero\n\n[Refrain]\nEpoch Zero, hear it start\nA living engine in the heart\nThe sky is opening slow\nI am the dawn of Epoch Zero\n\n[Outro]\nNo borrowed shadow, no old chain\nOnly the first warm drop of rain\nI hold the light, I let it grow\nAnd breathe into Epoch Zero\n\n[End]",
+        "duration": 370,
+        "bpm": 96,
+        "musicalSettings": {
+          "genre": "Cinematic progressive space-rock",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Pre-Chorus, Chorus, instrumental lift, Verse 3, Bridge, Build, Final Chorus, Final Refrain, Outro",
+          "performance": "Clear, steadily pitched melodic lead with natural connected phrasing and long sustained notes",
+          "energy": "Starts hushed and spacious, gains momentum through the choruses, reaches a panoramic final release, then resolves cleanly",
+          "lyricWorkflow": "Original sci-fi rebirth narrative with recurring title hook and a conclusive final image",
+          "instruments": [
+            "analog synth bass",
+            "electric guitars",
+            "rock drum kit",
+            "piano",
+            "strings",
+            "atmospheric synthesizers"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nBefore the first clock found a face\nBefore the dark could name its place\nA spark slept under iron snow\nWaiting for Epoch Zero\n\n[Verse 1]\nI woke beneath a silent sky\nWith ash-light swimming in my eyes\nNo map, no mile, no hand to hold\nJust a wire singing through the cold\nThe city bones were blue with rain\nEach empty window knew my name\nI touched the dust, it turned to flame\nAnd nothing stayed the same\n\n[Pre-Chorus]\nThe old sun fell without a sound\nIts broken numbers on the ground\nI heard the future clear its throat\nInside a rusted radio\n\n[Chorus]\nEpoch Zero, turn the wheel\nMake the impossible feel real\nNo yesterday to pull me through\nI build the morning out of blue\nEpoch Zero, strike the wire\nPut a pulse inside the fire\nIf all the world begins below\nThen let it begin in Epoch Zero\n\n[Verse 2]\nI found a garden in the train\nGreen hands pushing through the chain\nA child had painted on the wall\nOne bright door behind it all\nThe words were fading into stone\nBut not the promise in their tone\nIt said, \"The first one walks alone\"\nThen every lamp came on\n\n[Pre-Chorus]\nThe satellites above the haze\nSent little ghosts of former days\nI let them pass, I let them go\nTheir signals couldn't make me slow\n\n[Chorus]\nEpoch Zero, turn the wheel\nMake the impossible feel real\nNo yesterday to pull me through\nI build the morning out of blue\nEpoch Zero, strike the wire\nPut a pulse inside the fire\nIf all the world begins below\nThen let it begin in Epoch Zero\n\n[Instrumental Lift]\n\n[Verse 3]\nThe river learned a newer course\nIt cut the concrete without force\nAnd carried mirrors from the town\nWhere I could watch the old world drown\nNot cruelly, not with any spite\nJust making room for living light\nI saw my fear become a kite\nAnd pull against the night\n\n[Bridge]\nCount no scars, count no kings\nCount the breath between the springs\nEvery locked machine can open\nEvery final word unspoken\nI am not the last remaining\nI am only first in naming\nWhat the dark was always saving\nFor a voice that keeps on waking\n\n[Build]\nOne hand, one match, one door unsealed\nOne seed beneath a broken field\nOne note that won't be swallowed whole\nOne wide horizon for the soul\n\n[Chorus]\nEpoch Zero, turn the wheel\nMake the impossible feel real\nNo yesterday to pull me through\nI build the morning out of blue\nEpoch Zero, strike the wire\nPut a pulse inside the fire\nFrom the blankness, from the snow\nI rise and name it Epoch Zero\n\n[Refrain]\nEpoch Zero, hear it start\nA living engine in the heart\nThe sky is opening slow\nI am the dawn of Epoch Zero\n\n[Outro]\nNo borrowed shadow, no old chain\nOnly the first warm drop of rain\nI hold the light, I let it grow\nAnd breathe into Epoch Zero",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 9.34,
+            "end": 11.98
+          },
+          {
+            "line": 2,
+            "start": 11.98,
+            "end": 14.76
+          },
+          {
+            "line": 3,
+            "start": 14.76,
+            "end": 16.86
+          },
+          {
+            "line": 4,
+            "start": 17.32,
+            "end": 19.24
+          },
+          {
+            "line": 7,
+            "start": 34.2,
+            "end": 36.8
+          },
+          {
+            "line": 8,
+            "start": 36.8,
+            "end": 39.46
+          },
+          {
+            "line": 9,
+            "start": 39.76,
+            "end": 41.86
+          },
+          {
+            "line": 10,
+            "start": 42.26,
+            "end": 44.56
+          },
+          {
+            "line": 11,
+            "start": 49.42,
+            "end": 51.8
+          },
+          {
+            "line": 12,
+            "start": 51.8,
+            "end": 54.46
+          },
+          {
+            "line": 13,
+            "start": 54.76,
+            "end": 56.86
+          },
+          {
+            "line": 14,
+            "start": 56.86,
+            "end": 59.12
+          },
+          {
+            "line": 17,
+            "start": 59.98,
+            "end": 62.92
+          },
+          {
+            "line": 18,
+            "start": 65.1,
+            "end": 67.62
+          },
+          {
+            "line": 19,
+            "start": 70.04,
+            "end": 72.7
+          },
+          {
+            "line": 20,
+            "start": 75.18,
+            "end": 85.56
+          },
+          {
+            "line": 25,
+            "start": 89.14,
+            "end": 92.58
+          },
+          {
+            "line": 26,
+            "start": 93.9,
+            "end": 97.34
+          },
+          {
+            "line": 27,
+            "start": 98.66,
+            "end": 102
+          },
+          {
+            "line": 28,
+            "start": 102.86,
+            "end": 104.48
+          },
+          {
+            "line": 29,
+            "start": 104.48,
+            "end": 106.8
+          },
+          {
+            "line": 33,
+            "start": 114.08,
+            "end": 117.18
+          },
+          {
+            "line": 34,
+            "start": 119.12,
+            "end": 124.1
+          },
+          {
+            "line": 35,
+            "start": 124.1,
+            "end": 126.76
+          },
+          {
+            "line": 36,
+            "start": 129,
+            "end": 132.38
+          },
+          {
+            "line": 37,
+            "start": 134.3,
+            "end": 136.88
+          },
+          {
+            "line": 38,
+            "start": 136.88,
+            "end": 139.6
+          },
+          {
+            "line": 39,
+            "start": 139.6,
+            "end": 141.8
+          },
+          {
+            "line": 40,
+            "start": 141.8,
+            "end": 146.62
+          },
+          {
+            "line": 43,
+            "start": 146.62,
+            "end": 154.12
+          },
+          {
+            "line": 44,
+            "start": 154.12,
+            "end": 157.18
+          },
+          {
+            "line": 45,
+            "start": 158.6,
+            "end": 161.56
+          },
+          {
+            "line": 46,
+            "start": 162.34,
+            "end": 165.44
+          },
+          {
+            "line": 49,
+            "start": 167.88,
+            "end": 172.82
+          },
+          {
+            "line": 50,
+            "start": 173.72,
+            "end": 178.08
+          },
+          {
+            "line": 51,
+            "start": 179.26,
+            "end": 184.24
+          },
+          {
+            "line": 52,
+            "start": 184.24,
+            "end": 188.92
+          },
+          {
+            "line": 53,
+            "start": 188.92,
+            "end": 191.98
+          },
+          {
+            "line": 54,
+            "start": 192.68,
+            "end": 194.82
+          },
+          {
+            "line": 55,
+            "start": 194.82,
+            "end": 196.8
+          },
+          {
+            "line": 56,
+            "start": 197.2,
+            "end": 200.12
+          },
+          {
+            "line": 61,
+            "start": 203.64,
+            "end": 207.26
+          },
+          {
+            "line": 62,
+            "start": 209,
+            "end": 212.2
+          },
+          {
+            "line": 63,
+            "start": 213.38,
+            "end": 217.2
+          },
+          {
+            "line": 64,
+            "start": 218.14,
+            "end": 222.36
+          },
+          {
+            "line": 65,
+            "start": 224.22,
+            "end": 226.76
+          },
+          {
+            "line": 66,
+            "start": 226.92,
+            "end": 229.36
+          },
+          {
+            "line": 67,
+            "start": 229.78,
+            "end": 232
+          },
+          {
+            "line": 68,
+            "start": 232,
+            "end": 239.36
+          },
+          {
+            "line": 71,
+            "start": 239.36,
+            "end": 244.48
+          },
+          {
+            "line": 72,
+            "start": 244.48,
+            "end": 247.9
+          },
+          {
+            "line": 73,
+            "start": 248.68,
+            "end": 252.02
+          },
+          {
+            "line": 74,
+            "start": 252.02,
+            "end": 257.58
+          },
+          {
+            "line": 75,
+            "start": 257.58,
+            "end": 262
+          },
+          {
+            "line": 76,
+            "start": 263.52,
+            "end": 267.7
+          },
+          {
+            "line": 77,
+            "start": 268.5,
+            "end": 272.9
+          },
+          {
+            "line": 78,
+            "start": 273.5,
+            "end": 277.64
+          },
+          {
+            "line": 87,
+            "start": 290.66,
+            "end": 292.42
+          },
+          {
+            "line": 88,
+            "start": 293.62,
+            "end": 298.06
+          },
+          {
+            "line": 89,
+            "start": 299.06,
+            "end": 302.56
+          },
+          {
+            "line": 90,
+            "start": 304.04,
+            "end": 307.3
+          },
+          {
+            "line": 91,
+            "start": 309.1,
+            "end": 311.96
+          },
+          {
+            "line": 92,
+            "start": 311.96,
+            "end": 314.58
+          },
+          {
+            "line": 93,
+            "start": 315.1,
+            "end": 316.8
+          },
+          {
+            "line": 94,
+            "start": 317.32,
+            "end": 319.58
+          },
+          {
+            "line": 98,
+            "start": 326.78,
+            "end": 334.08
+          },
+          {
+            "line": 99,
+            "start": 334.08,
+            "end": 337.36
+          },
+          {
+            "line": 103,
+            "start": 343.5,
+            "end": 347.62
+          },
+          {
+            "line": 104,
+            "start": 348.66,
+            "end": 352.54
+          },
+          {
+            "line": 105,
+            "start": 353.62,
+            "end": 357.54
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 14.34
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 50,
+      "guide": {
+        "sha256": "dfbed8237f665e6497e28f664400c29a1fff77358823197318cd0c1276fc4f51",
+        "bytes": 8881259,
+        "duration": 370.050583,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1aab4d6219268f04154c7b5e-dfbed8237f66.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Epoch Zero",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 50,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 370
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-7432f42a31eb9963ac91e18d",
       "title": "Solving Racism",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7432f42a31eb9963ac91e18d-0d453bda3ea4.mp3",
