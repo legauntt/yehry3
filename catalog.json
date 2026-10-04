@@ -2,6 +2,289 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-c69c99fcce015bd63b3c8392",
+      "title": "Yow at Midnight",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c69c99fcce015bd63b3c8392-503a68ea6f90.mp3",
+      "duration": 165.04,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-04T02:05:11.588Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Yow at Midnight",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "A 118 BPM E-minor electro-glam rock original with overdriven electric guitar, elastic melodic bass, live drums, and a neon analog-synth pulse. Use one clear, steadily pitched Tony V9 lead, carrying strong melodic verses and a catchable rising refrain; keep the delivery rough, connected, and playful without backing-vocal stacks. Build from a nocturnal pocket into a full final chorus, then sustain the last normal lead phrase through about 154 seconds, resolving with one final E-minor chord that decays to the 165-second end.",
+        "lyrics": "[Verse 1]\nNeon rain on the laundromat glass\nLast bus coughing through the avenue haze\nI got a pocket full of unspent sparks\nAnd a city that forgot my name\nThe diner clock is leaning toward dawn\nCoffee shakes in a chipped white cup\nI tell the jukebox, give me one good reason\nIt answers back: get up\n\n[Pre-Chorus]\nEvery red light turns green someday\nEvery locked door learns the sound of a hand\n\n[Chorus]\nYeh yeh yeh yowww\nI am not done with this town\nYeh yeh yeh yowww\nTurn the whole midnight around\nIf the dark wants a fight, let it come right now\nI got thunder in my throat somehow\nYeh yeh yeh yowww\nI am not done\n\n[Verse 2]\nA kid in a doorway beats time on a bin\nA woman laughs hard at the end of the block\nThe river wears the moon like a cheap silver ring\nAnd the bridges keep talking in shocks\nI used to count every bruise like money\nSaved them up for a colder day\nTonight I spend them all on a crooked little melody\nAnd throw the change away\n\n[Pre-Chorus]\nEvery wrong turn leaves a trail of light\nEvery tired heart can still make a stand\n\n[Chorus]\nYeh yeh yeh yowww\nI am not done with this town\nYeh yeh yeh yowww\nTurn the whole midnight around\nIf the dark wants a fight, let it come right now\nI got thunder in my throat somehow\nYeh yeh yeh yowww\nI am not done\n\n[Bridge]\nNo sermon, no rescue, no polished parade\nJust a bad little star that refuses to fade\nWhen the morning comes thin through the steam and the wires\nI will carry this noise like a pocket of fire\n\n[Chorus]\nYeh yeh yeh yowww\nNow the whole street sings out loud\nYeh yeh yeh yowww\nLeave the old ghosts in the crowd\nI was lost for a minute, but I know where I am\nWith the sky in my teeth and the world in my hands\nYeh yeh yeh yowww\nI am not done\n\n[Outro]\nI am not done\nNot done\nWith this town\n[End]",
+        "duration": 165,
+        "bpm": 118,
+        "musicalSettings": {
+          "genre": "Electro-glam rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus, lyrical outro",
+          "performance": "One clear, steadily pitched melodic Tony lead with rough connected phrasing and a bright, mischievous edge",
+          "energy": "Smoldering night-drive opening, confident chorus lift, then a full-throttle final release and clean resolution",
+          "lyricWorkflow": "Original urban-night narrative built around a compact recurring refrain and a resolved dawn-facing payoff",
+          "instruments": [
+            "overdriven electric guitar",
+            "electric bass",
+            "live drum kit",
+            "analog synthesizer"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nNeon rain on the laundromat glass\nLast bus coughing through the avenue haze\nI got a pocket full of unspent sparks\nAnd a city that forgot my name\nThe diner clock is leaning toward dawn\nCoffee shakes in a chipped white cup\nI tell the jukebox, give me one good reason\nIt answers back: get up\n\n[Pre-Chorus]\nEvery red light turns green someday\nEvery locked door learns the sound of a hand\n\n[Chorus]\nYeh yeh yeh yowww\nI am not done with this town\nYeh yeh yeh yowww\nTurn the whole midnight around\nIf the dark wants a fight, let it come right now\nI got thunder in my throat somehow\nYeh yeh yeh yowww\nI am not done\n\n[Verse 2]\nA kid in a doorway beats time on a bin\nA woman laughs hard at the end of the block\nThe river wears the moon like a cheap silver ring\nAnd the bridges keep talking in shocks\nI used to count every bruise like money\nSaved them up for a colder day\nTonight I spend them all on a crooked little melody\nAnd throw the change away\n\n[Pre-Chorus]\nEvery wrong turn leaves a trail of light\nEvery tired heart can still make a stand\n\n[Chorus]\nYeh yeh yeh yowww\nI am not done with this town\nYeh yeh yeh yowww\nTurn the whole midnight around\nIf the dark wants a fight, let it come right now\nI got thunder in my throat somehow\nYeh yeh yeh yowww\nI am not done\n\n[Bridge]\nNo sermon, no rescue, no polished parade\nJust a bad little star that refuses to fade\nWhen the morning comes thin through the steam and the wires\nI will carry this noise like a pocket of fire\n\n[Chorus]\nYeh yeh yeh yowww\nNow the whole street sings out loud\nYeh yeh yeh yowww\nLeave the old ghosts in the crowd\nI was lost for a minute, but I know where I am\nWith the sky in my teeth and the world in my hands\nYeh yeh yeh yowww\nI am not done\n\n[Outro]\nI am not done\nNot done\nWith this town",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.1
+          },
+          {
+            "line": 2,
+            "start": 3.72,
+            "end": 8.04
+          },
+          {
+            "line": 3,
+            "start": 8.04,
+            "end": 10.96
+          },
+          {
+            "line": 4,
+            "start": 10.96,
+            "end": 13.82
+          },
+          {
+            "line": 5,
+            "start": 16.08,
+            "end": 19.24
+          },
+          {
+            "line": 6,
+            "start": 20.26,
+            "end": 23.14
+          },
+          {
+            "line": 7,
+            "start": 24.28,
+            "end": 27.34
+          },
+          {
+            "line": 8,
+            "start": 27.34,
+            "end": 30.02
+          },
+          {
+            "line": 11,
+            "start": 33.04,
+            "end": 36.76
+          },
+          {
+            "line": 12,
+            "start": 36.76,
+            "end": 40.32
+          },
+          {
+            "line": 16,
+            "start": 43.1,
+            "end": 45.28
+          },
+          {
+            "line": 18,
+            "start": 47.12,
+            "end": 49.5
+          },
+          {
+            "line": 19,
+            "start": 50,
+            "end": 53.42
+          },
+          {
+            "line": 20,
+            "start": 53.78,
+            "end": 56.2
+          },
+          {
+            "line": 22,
+            "start": 59.74,
+            "end": 60.56
+          },
+          {
+            "line": 25,
+            "start": 60.9,
+            "end": 64.5
+          },
+          {
+            "line": 26,
+            "start": 64.5,
+            "end": 68.78
+          },
+          {
+            "line": 27,
+            "start": 69.46,
+            "end": 72.78
+          },
+          {
+            "line": 28,
+            "start": 72.78,
+            "end": 75.9
+          },
+          {
+            "line": 29,
+            "start": 75.9,
+            "end": 80.2
+          },
+          {
+            "line": 30,
+            "start": 81.14,
+            "end": 83.92
+          },
+          {
+            "line": 31,
+            "start": 84.54,
+            "end": 88.66
+          },
+          {
+            "line": 32,
+            "start": 88.66,
+            "end": 90.88
+          },
+          {
+            "line": 35,
+            "start": 94.3,
+            "end": 98.18
+          },
+          {
+            "line": 36,
+            "start": 98.62,
+            "end": 101.12
+          },
+          {
+            "line": 40,
+            "start": 104.38,
+            "end": 106.38
+          },
+          {
+            "line": 42,
+            "start": 108.34,
+            "end": 110.5
+          },
+          {
+            "line": 43,
+            "start": 110.5,
+            "end": 114.42
+          },
+          {
+            "line": 44,
+            "start": 114.42,
+            "end": 117.36
+          },
+          {
+            "line": 46,
+            "start": 120.62,
+            "end": 121.56
+          },
+          {
+            "line": 49,
+            "start": 122.12,
+            "end": 125.42
+          },
+          {
+            "line": 50,
+            "start": 126.2,
+            "end": 129.72
+          },
+          {
+            "line": 51,
+            "start": 129.72,
+            "end": 133.78
+          },
+          {
+            "line": 52,
+            "start": 133.78,
+            "end": 137.9
+          },
+          {
+            "line": 56,
+            "start": 139.86,
+            "end": 142.9
+          },
+          {
+            "line": 58,
+            "start": 144.7,
+            "end": 147.04
+          },
+          {
+            "line": 59,
+            "start": 147.04,
+            "end": 151.18
+          },
+          {
+            "line": 60,
+            "start": 151.18,
+            "end": 154.82
+          },
+          {
+            "line": 62,
+            "start": 156.72,
+            "end": 158.18
+          },
+          {
+            "line": 65,
+            "start": 158.84,
+            "end": 160.2
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "early_lyric_ending",
+          "seconds": 58.66
+        }
+      ],
+      "repairedAt": "2026-10-04T02:05:11.588Z",
+      "generationProfile": "v8",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "f6f832db423dc6898ab17e824ff818b5be2f91c7fa74d125c24ba7463ac9e8f6",
+        "bytes": 3966812,
+        "duration": 165.04,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c69c99fcce015bd63b3c8392-f6f832db423d.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Yeh yeh yeh yowww",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 165
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-1aab4d6219268f04154c7b5e",
       "title": "Epoch Zero",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1aab4d6219268f04154c7b5e-d56c2cf53c7a.mp3",
