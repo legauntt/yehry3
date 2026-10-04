@@ -1,6 +1,7 @@
 import { test, expect } from "@playwright/test";
 import pageOneSongs from "./fixtures/song-video-page1.json" with { type: "json" };
 import { videoVersions } from "../../assets/song-video-versions.js";
+import videos from "../../assets/song-videos.js";
 
 test("published catalog exposes and plays all page-one videos", async ({ page }) => {
   test.setTimeout(300000);
@@ -39,6 +40,22 @@ test("published catalog exposes and plays all page-one videos", async ({ page })
     }
     await button.click();
     const video = page.locator(".song-video-viewer video");
+    const current = videos[id];
+    if (current.fullLength) {
+      await expect(button).toHaveClass(/song-video-button-gold/);
+      await expect.poll(() => video.evaluate(v => !v.paused && !v.muted && v.currentTime > 0), { timeout: 20000 }).toBe(true);
+      const media = await video.evaluate(v => ({ width: v.videoWidth, height: v.videoHeight, duration: v.duration, loop: v.loop }));
+      expect(media.width).toBe(1280);
+      expect(media.height).toBe(720);
+      expect(media.duration).toBeCloseTo(current.duration, 1);
+      expect(media.loop).toBe(false);
+      await expect.poll(() => video.evaluate(v => v.webkitAudioDecodedByteCount > 0)).toBe(true);
+      for (const time of [34, 89, 260, 280]) {
+        await video.evaluate((v, t) => { v.currentTime = t; }, time);
+        await expect.poll(() => video.evaluate(v => !v.seeking && v.readyState >= 3 && !v.paused), { timeout: 20000 }).toBe(true);
+      }
+      await page.screenshot({ path: "test-results/golden-answer-live.png" });
+    } else {
     if (song.videoAudio) {
       await expect.poll(() => video.evaluate(v => v.readyState >= 1 && v.paused && !v.muted && v.currentTime === 0)).toBe(true);
       expect(await page.locator("#audio").evaluate(a => a.paused)).toBe(true);
@@ -48,6 +65,7 @@ test("published catalog exposes and plays all page-one videos", async ({ page })
     const dimensions = await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration]);
     expect(dimensions.slice(0, 2)).toEqual([song.videoWidth || 576, song.videoHeight || 1024]);
     expect(dimensions[2]).toBeCloseTo(song.videoDuration || 15, 2);
+    }
     if (song.videoAudio) {
       await expect(button).toHaveClass(/song-video-button-doomer/);
       await expect(page.locator('[data-video-description]')).toHaveText(`${song.videoDuration}-second video with chorus audio · Press Play to watch with sound`);

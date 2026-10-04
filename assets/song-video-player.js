@@ -1,6 +1,6 @@
 import videos from "./song-videos.js";
 import { videoVersions } from "./song-video-versions.js";
-import { player } from "./player.js";
+import { player, audio } from "./player.js";
 import { videoLoopAudio } from "./video-loop-audio.js";
 
 export function mountSongVideos(root, scope) {
@@ -57,23 +57,28 @@ export function mountSongVideos(root, scope) {
     soundControls.hidden = !video.loopAudio;
     soundToggle.checked = true;
     soundVolume.value = String(full.volume);
-    sound = Boolean(video.audio);
+    sound = Boolean(video.hasAudio || video.audio);
     full.dataset.sound = String(sound);
     play.hidden = !sound;
     if (sound) player.pause();
     status.textContent = "Loading video…";
-    dialog.querySelector("[data-video-description]").textContent = video.audio
+    const duration = video.duration || 15;
+    dialog.querySelector("[data-video-description]").textContent = video.hasAudio
+      ? `${Math.floor(duration / 60)}:${String(Math.round(duration % 60)).padStart(2, "0")} music video · Sing along`
+      : video.audio
       ? `${video.duration || 15}-second video with chorus audio · Press Play to watch with sound`
       : `${video.duration || 15}-second silent video`;
     for (const button of versions.querySelectorAll("button")) {
       button.setAttribute("aria-pressed", String(Number(button.dataset.version) === index));
     }
     full.dataset.framing = video.framing;
+    dialog.dataset.framing = video.framing;
+    full.loop = !video.fullLength;
     full.muted = !sound;
     full.defaultMuted = !sound;
     full.preload = sound ? "auto" : "none";
     full.src = video.loopVideo || video.src;
-    if (sound) {
+    if (sound && !video.hasAudio) {
       full.load();
       status.textContent = "Press Play to watch with sound.";
       return;
@@ -98,15 +103,19 @@ export function mountSongVideos(root, scope) {
     }
   });
   // Native video controls also use the shared player, including its crossfade deck.
-  scope.on(full, "play", () => { if (sound) player.pause(); });
+  scope.on(full, "play", () => { if (sound && !full.muted) player.pause(); });
   scope.on(full, "pause", () => { loopAudio.pause(); play.hidden = !sound; });
   scope.on(full, "seeked", () => loopAudio.seek());
   scope.on(full, "pointerup", () => loopAudio.seek(true));
   scope.on(full, "keyup", () => loopAudio.seek(true));
   scope.on(full, "volumechange", () => {
     loopAudio.volume();
+    if (dialog.open && sound && !full.paused && !full.muted) player.pause();
     soundVolume.value = String(full.volume);
     soundToggle.checked = !full.muted;
+  });
+  scope.on(audio, "play", () => {
+    if (dialog.open && sound && !full.muted) full.pause();
   });
   scope.on(soundToggle, "change", () => { full.muted = !soundToggle.checked; });
   scope.on(soundVolume, "input", () => { full.volume = Number(soundVolume.value); });
@@ -146,7 +155,7 @@ export function mountSongVideos(root, scope) {
       active = art;
       preview.dataset.framing = video.framing;
       art.append(preview);
-      preview.src = video.src;
+      preview.src = video.previewSrc || video.src;
       try {
         await preview.play();
         if (token === generation && active === art) art.classList.add("is-video-playing");
@@ -202,6 +211,7 @@ export function mountSongVideos(root, scope) {
     selectVersion(choices.length - 1);
   });
   scope.on(full, "playing", () => {
+    if (sound && !full.muted) player.pause();
     status.textContent = loopAudio.pending ? "Loading sound…" : "";
     play.hidden = true;
     void loopAudio.play();

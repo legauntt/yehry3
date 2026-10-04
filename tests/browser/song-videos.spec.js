@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 import pageOneSongs from "./fixtures/song-video-page1.json" with { type: "json" };
 import { videoVersions } from "../../assets/song-video-versions.js";
+import videos from "../../assets/song-videos.js";
 
 const songs = pageOneSongs.map(s => ({ ...s, collection: "distonyc", url: "/fixture.mp3", duration: 180, votes: 1, adminPinned: true, feedback: {} }));
 test.beforeEach(async ({ page }) => {
@@ -253,7 +254,7 @@ test("video modal supports keyboard and pauses songs only for sound clips", asyn
   await card(page).locator("[data-play]").click();
   await expect.poll(() => page.locator("audio").evaluateAll(items => items.some(a => !a.paused && a.currentTime > 0))).toBe(true);
   const before = await page.locator("audio").evaluateAll(items => items.find(a => !a.paused).currentTime);
-  for (const song of songs) {
+  for (const song of songs.filter(song => !videos[song.id]?.hasAudio)) {
     const trigger = page.locator(`[data-video-open="${song.id}"]`);
     await expect(trigger).toHaveAttribute("title", `Watch ${song.videoDuration || 15}-second video`);
     await trigger.focus();
@@ -278,6 +279,7 @@ test("video modal supports keyboard and pauses songs only for sound clips", asyn
       await expect(trigger).toHaveAttribute("aria-label", `Watch video with chorus audio for ${song.title}`);
       await expect(dialog.getByLabel("Sound on", { exact: true })).toBeChecked();
       await page.screenshot({ path: "test-results/morning-doomer-video.png" });
+      await page.locator("#audio").evaluate(a => a.play());
     }
     if (song.videoWidth === song.videoHeight) {
       const frame = await video.boundingBox();

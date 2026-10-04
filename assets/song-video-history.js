@@ -149,6 +149,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/04-the-golden-answer-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/04-the-golden-answer-song-scenes-20261002.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-06d2b8c3c8dffed19df347bb": [
