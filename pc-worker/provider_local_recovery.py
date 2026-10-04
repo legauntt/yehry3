@@ -28,7 +28,7 @@ def child_request(request):
     return child
 
 
-def check_original(request):
+def check_original(request, allow_result=False):
     work = work_path(request)
     state = load(work / 'desktop-status.json')
     error = load(work / 'paid-error.json')
@@ -47,7 +47,8 @@ def check_original(request):
                                               'selected-mix.wav')):
         raise ValueError('Retained provider audio must be reconciled before local recovery')
     if any((Path(request['directory']) / name).exists() for name in
-           ('render-result.json', 'ending-repair.json', 'sparse-vocal-repair.json')):
+           (('ending-repair.json', 'sparse-vocal-repair.json') if allow_result else
+            ('render-result.json', 'ending-repair.json', 'sparse-vocal-repair.json'))):
         raise ValueError('Cannot replace completed work or stack composition repairs')
     manifest = load(work / 'desktop-job.json')
     if (sha(work / 'track.json') != manifest['track_sha256']
@@ -61,7 +62,7 @@ def check_original(request):
 
 
 def verify(request, record):
-    work = check_original(request)
+    work = check_original(request, allow_result=True)
     if (record.get('version') != 1 or record.get('attempt_limit') != 1
             or record.get('attempts') != 1
             or record.get('request_hash') != fingerprint(request)
@@ -74,6 +75,10 @@ def verify(request, record):
                 sha(base / name) != digest for name, digest in record[key].items()):
             raise ValueError('Frozen local recovery provenance changed')
     child = record['child_request']
+    result_file = Path(request['directory']) / 'render-result.json'
+    if result_file.exists() and (record.get('status') != 'verified'
+                                or load(result_file) != record.get('result')):
+        raise ValueError('Completed local recovery differs from its verified journal')
     if record.get('work_path') != str(work_path(child)):
         raise ValueError('Local recovery work folder changed')
     return child
@@ -150,6 +155,7 @@ def render_recovery(request, render):
     record = load(path)
     child = verify(request, record)
     child_files(request, child)
+    if record.get('status') == 'verified': return record['result']
     record.update(status='rendering', updated_at=utc())
     save(path, record)
     try:

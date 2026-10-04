@@ -55,6 +55,9 @@ class RecoveryTests(unittest.TestCase):
         result = recovery.render_recovery(self.request, render)
         self.assertEqual(len(seen), 1)
         self.assertEqual(result['music_backend'], 'local')
+        save(Path(original['directory']) / 'render-result.json', result)
+        self.assertEqual(recovery.verify(self.request, load(Path(original['directory']) / recovery.REPORT)), child)
+        self.assertEqual(recovery.render_recovery(self.request, lambda _: self.fail('Must reuse verified audio')), result)
         self.assertIsNone(recovery.render_recovery(child, render))
         self.assertEqual(load(Path(original['directory']) / 'render-request.json'), original)
 
