@@ -122,7 +122,7 @@ test('doomer themes persist, synchronize, and preserve the page', async ({page, 
   await page.getByRole('button',{name:'Close display settings'}).click();
   await page.setViewportSize({width:390,height:844});
   await expect(page.locator('.pumpkin-doomer')).toBeVisible();
-  expect(await page.locator('.pumpkin-doomer').evaluate(n=>n.complete && n.naturalWidth>0)).toBe(true);
+  expect(await page.locator('.pumpkin-doomer img').first().evaluate(n=>n.complete && n.naturalWidth>0)).toBe(true);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.screenshot({path:'artifacts/doomer-mobile.png'});
   await page.setViewportSize({width:1440,height:1000});

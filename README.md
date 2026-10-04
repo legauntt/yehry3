@@ -196,6 +196,13 @@ The original illustration was generated with the built-in imagegen tool from:
 beanie and hoodie, gray headphones, rusty sweater collar, cigarette, rough
 hand-drawn contours, small glowing pumpkin beside the shoulder; no text.”
 The optimized public asset is `assets/pumpkin-doomer.webp`.
+Its head nods while the shared player is audible, with a glowing cigarette and
+drifting smoke. Morning Routine uses a stronger 92.6 BPM nod; the hoodie and
+shoulder pumpkin stay still. Pausing or muting stops the animation, which follows
+the player across navigation. Sound video popups also trigger the mascot. Low
+decor and reduced motion keep it static; Off hides it.
+Run `npx playwright test --config playwright.pumpkin.config.js` for the mascot
+playback/mobile check, or set `YEHRY3_SITE_URL=https://yehry3.app` to check live.
 
 Display settings offers **Halloween decor**: Off, Low, Medium, High (default),
 EXTREME and HAUNTED. Low keeps static pumpkins and corner webs; Medium adds 12

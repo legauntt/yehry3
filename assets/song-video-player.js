@@ -58,6 +58,7 @@ export function mountSongVideos(root, scope) {
     soundToggle.checked = true;
     soundVolume.value = String(full.volume);
     sound = Boolean(video.audio);
+    full.dataset.sound = String(sound);
     play.hidden = !sound;
     if (sound) player.pause();
     status.textContent = "Loading video…";
@@ -174,6 +175,7 @@ export function mountSongVideos(root, scope) {
     if (!video || dialog.open) return;
     opener = button;
     songId = button.dataset.videoOpen;
+    full.dataset.songId = songId;
     dialog.querySelector("h2").textContent = button.closest(".track").querySelector("h3")?.textContent || "Song video";
     choices = videoVersions(songId);
     versions.replaceChildren(...choices.map((choice, index) => {

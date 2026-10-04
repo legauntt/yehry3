@@ -45,7 +45,32 @@ html[data-halloween-level="off"] .pitch-pumpkin { display: none; }
 .dashboard-pumpkins { display: inline-block; margin-right: .5em; font-size: .85em; pointer-events: none; }
 .pumpkin-patch { display: block; width: fit-content; margin: 0 0 12px; font-size: clamp(24px, 3vw, 36px); letter-spacing: .1em; }
 .site-footer .pumpkin-patch { margin: 0; font-size: 22px; }
-.pumpkin-doomer { display: block; width: clamp(110px, 15vw, 180px); height: auto; margin-bottom: 8px; filter: drop-shadow(0 5px 12px #a9552728); }
+.pumpkin-doomer { position: relative; display: block; width: clamp(110px, 15vw, 180px); aspect-ratio: 420 / 397; margin-bottom: 8px; filter: drop-shadow(0 5px 12px #a9552728); }
+.pumpkin-doomer img { display: block; width: 100%; height: auto; }
+.pumpkin-doomer-body { clip-path: polygon(0 58%, 26% 58%, 31% 62%, 35% 69%, 59% 65%, 64% 56%, 70% 50%, 76% 43%, 100% 43%, 100% 100%, 0 100%); }
+.pumpkin-doomer-head { position: absolute; inset: 0; transform-origin: 47% 66%; }
+.pumpkin-doomer-head > img { clip-path: polygon(0 0, 100% 0, 100% 43%, 76% 43%, 70% 52%, 64% 58%, 59% 67%, 35% 71%, 30% 63%, 25% 59%, 0 59%); }
+.pumpkin-doomer-smoke { position: absolute; inset: 0; width: 100%; height: 100%; color: #c7bacd; overflow: visible; opacity: 0; }
+.pumpkin-doomer-smoke path { opacity: 0; }
+.pumpkin-doomer-ember { position: absolute; left: 18%; top: 53.7%; width: 2%; aspect-ratio: 1; border-radius: 50%; background: #ed8b38; opacity: .35; }
+html[data-doomer-listening="music"] .pumpkin-doomer-head { animation: pumpkin-listening 1s ease-in-out infinite; }
+html[data-doomer-listening="morning"] .pumpkin-doomer-head { animation: pumpkin-morning .648148s ease-in-out infinite; }
+html[data-doomer-listening="music"] .pumpkin-doomer-smoke,
+html[data-doomer-listening="morning"] .pumpkin-doomer-smoke { opacity: 1; }
+html[data-doomer-listening="music"] .pumpkin-doomer-smoke path,
+html[data-doomer-listening="morning"] .pumpkin-doomer-smoke path { animation: pumpkin-smoke 3.6s linear infinite; }
+.pumpkin-doomer-smoke path:nth-child(2) { animation-delay: -1.2s !important; }
+.pumpkin-doomer-smoke path:nth-child(3) { animation-delay: -2.4s !important; }
+html[data-doomer-listening="music"] .pumpkin-doomer-ember,
+html[data-doomer-listening="morning"] .pumpkin-doomer-ember { animation: pumpkin-ember 2.6s ease-in-out infinite; }
+@keyframes pumpkin-listening { 50% { transform: translateY(1px) rotate(-1.5deg); } }
+@keyframes pumpkin-morning { 45% { transform: translateY(2px) rotate(-3deg) scaleY(.97); } }
+@keyframes pumpkin-smoke { 0% { opacity: 0; transform: translate(0, 0) scaleX(.8); } 20% { opacity: .4; } 100% { opacity: 0; transform: translate(-8px, -32px) scaleX(1.12); } }
+@keyframes pumpkin-ember { 50% { opacity: .95; box-shadow: 0 0 6px 2px #f26b3270; } }
+html[data-halloween-level="low"] .pumpkin-doomer-head,
+html[data-halloween-level="low"] .pumpkin-doomer-ember,
+html[data-halloween-level="low"] .pumpkin-doomer-smoke path { animation: none; }
+html[data-halloween-level="low"] .pumpkin-doomer-smoke { opacity: 0; }
 html[data-room-mood="pumpkin"] .pumpkin-doomer { filter: drop-shadow(0 0 18px #f9803440); }
 /* Keep the seasonal art beside the introduction instead of stacking above it. */
 html:not([data-halloween-level="off"]) .hero-copy:has(.pumpkin-patch) {
@@ -83,5 +108,5 @@ html:not([data-halloween-level="off"]) .hero-copy:has(.pumpkin-patch) > :not(.pu
 @keyframes halloween-arrival { from { transform: scale(.15); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 @keyframes halloween-cackle { 50% { translate: 0 -9px; rotate: 3deg; } }
 @keyframes halloween-mouth { 50% { transform: scaleY(.65); } }
-@media (prefers-reduced-motion: reduce) { .halloween-scene { display: none; } }
+@media (prefers-reduced-motion: reduce) { .halloween-scene { display: none; } .pumpkin-doomer-head, .pumpkin-doomer-ember, .pumpkin-doomer-smoke path { animation: none !important; } .pumpkin-doomer-smoke { opacity: 0 !important; } }
 @media print { .halloween-scene, .pitch-pumpkin { display: none; } }

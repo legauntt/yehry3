@@ -1,4 +1,5 @@
 import './halloween-preferences.js';
+import { pumpkinPortrait } from './pumpkin-listening.js';
 
 export function halloweenSeason(now = new Date()) {
   const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', {
@@ -17,13 +18,7 @@ export function mountDashboardPumpkins(root) {
     pumpkins.setAttribute('aria-hidden', 'true');
     pumpkins.textContent = cluster ? '🎃 🎃 🎃' : '🎃';
     if (cluster && !host.matches('.site-footer')) {
-      const portrait = document.createElement('img');
-      portrait.className = 'pumpkin-doomer';
-      portrait.src = '/assets/pumpkin-doomer.webp';
-      portrait.alt = '';
-      portrait.width = 180;
-      portrait.height = 180;
-      pumpkins.prepend(portrait);
+      pumpkins.prepend(pumpkinPortrait());
     }
     host.prepend(pumpkins);
   };
