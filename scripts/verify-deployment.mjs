@@ -32,7 +32,7 @@ function verifyEpochRange(item) {
   const {start, end} = item.voiceEpochRange;
   assert.ok([start, end].every(epoch => Number.isInteger(epoch) && epoch >= 10 && epoch <= 300 && epoch % 10 === 0) && start !== end, 'Invalid public V9 epoch range');
 }
-for (const name of ['epoch-range.js', 'studio-pages.js', 'prompt-brief.js', 'request-tabs.js', 'song-badges.js', 'remix.js', 'pumpkin-listening.js', 'season.js', 'halloween.css', 'song-video-player.js', 'video-loop-audio.js']) {
+for (const name of ['approval-status.js', 'queue.js', 'original-prompt.js', 'site.css', 'app.js', 'epoch-range.js', 'studio-pages.js', 'prompt-brief.js', 'request-tabs.js', 'song-badges.js', 'remix.js', 'pumpkin-listening.js', 'season.js', 'halloween.css', 'song-video-player.js', 'video-loop-audio.js']) {
   assert.equal(sourceText(await (await get(`${site}/assets/${name}`)).text()), sourceText(await readFile(new URL(`../assets/${name}`, import.meta.url), 'utf8')), `Range asset differs: ${name}`);
 }
 console.log('V9 range assets match the deployed source.');

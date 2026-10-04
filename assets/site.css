@@ -2984,3 +2984,6 @@ html[data-navigating="true"] body::before {
   text-align: center;
   overflow-wrap: anywhere;
 }
+
+.approval-wait-notice { padding: 1rem; border: 1px solid currentColor; border-radius: .6rem; color: var(--ink); background: var(--paper); overflow-wrap: anywhere; }
+.approval-wait-notice .small { display: block; margin-top: .4rem; }

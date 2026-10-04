@@ -42,6 +42,36 @@ async function mockQueue(page) {
   });
 }
 
+test("lyric approval identifies the requester across queue, prompt and collection, and clears on resume", async ({ page }) => {
+  let waiting = { ...queued, authoredBy: "Scythe", progress: { stage: "Waiting for your lyric approval", percent: 0 } };
+  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { ...queue, needsAttention: [], needsAttentionTotal: 0, queued: [waiting] } }));
+  await page.route("**/yehry3/queue/distonyc-*", route => route.fulfill({ json: waiting }));
+  await page.route("**/yehry3/songs/distonyc-*", route => route.fulfill({ json: { song: waiting } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.goto("/queue/");
+  await expect(page.locator(".approval-wait-notice")).toContainText("Waiting for Scythe to approve lyrics");
+  await expect(page.locator("#waiting-queue progress")).toHaveCount(0);
+  await page.getByRole("link", { name: "View details" }).click();
+  await expect(page.locator(".approval-wait-notice")).toContainText("will resume after approval");
+  await page.getByRole("link", { name: "View original prompt" }).click();
+  await expect(page.locator(".approval-wait-notice")).toContainText("Waiting for Scythe to approve lyrics");
+  await page.goto("/");
+  const row = page.locator(`.pending-track[data-id="${queued.id}"]`);
+  await expect(row.locator("summary")).toContainText("Waiting for Scythe to approve lyrics");
+  await expect(row.locator("summary progress")).toHaveCount(0);
+  await page.setViewportSize({ width: 390, height: 844 });
+  await row.locator("summary").click();
+  await expect(row.locator(".approval-wait-notice")).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await row.screenshot({ path: "artifacts/approval-wait-mobile.png" });
+  waiting = { ...waiting, status: "processing", progress: { stage: "Rendering", percent: 10 } };
+  await page.goto("/queue/");
+  await expect(page.locator("#in-studio, #waiting-queue")).toContainText(["", "Rendering"]);
+  await expect(page.locator(".approval-wait-notice")).toHaveCount(0);
+  await expect(page.locator("#waiting-queue progress")).toHaveCount(1);
+});
+
 test("queue cards have distinct detail URLs and 9/11'd Again remains public", async ({ page }) => {
   await mockQueue(page);
   await page.goto("/queue/");
