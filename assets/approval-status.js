@@ -19,5 +19,11 @@ export function approvalLabel(request) {
 
 export function approvalNotice(request, escape) {
   const label = approvalLabel(request);
-  return label ? `<p class="approval-wait-notice" role="status"><span aria-hidden="true">✋</span> <strong>${escape(label)}</strong><span class="small">Generation is paused and will resume after approval in the requester’s saved request.</span></p>` : "";
+  return label ? `<p class="approval-wait-notice" role="status"><span aria-hidden="true">✋</span> <strong>${escape(label)}</strong><span class="small">Generation is paused and will resume after approval in the requester’s saved request. Sign in as the requester to continue.</span>${approvalAction(request)}</p>` : "";
+}
+
+export function approvalAction(request) {
+  const kind = approvalWaiting(request);
+  if (!kind || !/^distonyc-[a-f0-9]{24}$/.test(request?.id || "")) return "";
+  return `<a class="text-link approval-action" href="/distonyc/?request=${encodeURIComponent(request.id)}">${kind === "lyrics" ? "Review &amp; approve lyrics" : "Choose a composition"} →</a>`;
 }

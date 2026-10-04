@@ -1,4 +1,4 @@
-import { approvalWaiting, approvalLabel, approvalNotice } from "./approval-status.js";
+import { approvalWaiting, approvalLabel, approvalNotice, approvalAction } from "./approval-status.js";
 import { songBadges } from "./song-badges.js";
 import { mountDashboardPumpkins } from './season.js';
 import { sidesBadge } from "./sides.js";
@@ -305,11 +305,11 @@ async function library() {
       const state = recoveryStatus(song);
       const label = approvalLabel(song) || (gpuWaiting(song) ? "Waiting for the GPU" : recoveryActive(song) ? "Recovering automatically" : song.status === "failed" ? "9/11'd Again" : "On the way");
       const needsAttention = song.status === "failed";
-      return `<details class="pending-track${needsAttention ? " pending-attention" : ""}" data-id="${escape(song.id)}">
+      return `<details class="pending-track${needsAttention ? " pending-attention" : ""}${approvalWaiting(song) ? " pending-approval" : ""}" data-id="${escape(song.id)}">
         <summary><span class="pending-mark" aria-hidden="true">↗</span>${songArtworkMarkup({ ...song, title }, escape)}
           <span class="pending-availability"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Not yet playable</span>
           <span class="pending-title"><span class="tiny-label">${needsAttention ? '<svg class="pending-warning-icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 3 2.8 20h18.4L12 3Z"></path><path d="M12 9v5"></path><circle cx="12" cy="17" r=".9"></circle></svg>' : ""}${escape(label)}</span><strong title="${escape(title)}">${escape(title)}</strong><span class="track-meta">${authoredByLine(song.authoredBy, escape)}${songBadges(song)}</span></span>
-          <span class="pending-state">${badge(state)}${song.progress && !approvalWaiting(song) && song.status !== "failed" ? `<span class="small">${Math.round(percent)}%</span><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}</span>
+          <span class="pending-state">${approvalAction(song)}${badge(state)}${song.progress && !approvalWaiting(song) && song.status !== "failed" ? `<span class="small">${Math.round(percent)}%</span><progress max="100" value="${percent}" aria-label="Song production progress"></progress>` : ""}</span>
           <span class="pending-disclosure"><span class="pending-details-label">Details</span></span>
         </summary><div class="pending-body">${approvalNotice(song, escape)}<p>${escape(song.idea)}</p>${song.status === "failed" ? '<p class="attention-note">Completed work is saved; retry resumes completed stages.</p>' : song.progress && !approvalWaiting(song) ? `<p class="small">${escape(song.progress.stage)} · ${Math.round(percent)}%</p>` : ""}<div class="actions"><a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">View original prompt ↗</a>${songPlanLink(song, escape)}<a class="text-link" href="${queueItemHref(song)}">View request details ↗</a></div></div></details>`;
     }).join(""));

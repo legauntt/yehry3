@@ -2626,8 +2626,8 @@ button.lyric-line:hover {
   margin: 70px auto 110px;
 }
 .queue-detail h1 {
-  font-size: clamp(2.2rem, 6vw, 5rem);
-  line-height: 1.02;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.3;
   overflow-wrap: anywhere;
 }
 .queue-detail h2 {
@@ -2998,3 +2998,35 @@ html[data-navigating="true"] body::before {
 
 .approval-wait-notice { padding: 1rem; border: 1px solid currentColor; border-radius: .6rem; color: var(--ink); background: var(--paper); overflow-wrap: anywhere; }
 .approval-wait-notice .small { display: block; margin-top: .4rem; }
+.approval-wait-notice > .text-link { display: inline-block; margin-top: .65rem; }
+#catalog-items .pending-approval .approval-action {
+  flex-basis: 100%;
+  padding: 10px 12px;
+  border: 1px solid currentColor;
+  border-radius: 6px;
+  font-size: .85rem;
+  font-weight: 700;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+#catalog-items .pending-track.pending-approval .pending-title .tiny-label {
+  padding: 9px 11px;
+  margin-bottom: 10px;
+  border: 1px solid #b78328;
+  border-left-width: 4px;
+  border-radius: 6px;
+  background: #fff0c2;
+  color: #593b0c;
+  font-family: "DM Sans", sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-transform: none;
+  overflow-wrap: anywhere;
+}
+html[data-shared-theme][data-theme="dark"] #catalog-items .pending-track.pending-approval .pending-title .tiny-label {
+  background: #493714;
+  color: #ffe5a5;
+  border-color: #d5a44c;
+}

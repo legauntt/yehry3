@@ -28,6 +28,7 @@ async function fixture(page, view = "grid") {
   };
   await page.route("**/pending-fixture.wav", route => route.fulfill({ body: wav, contentType: "audio/wav" }));
   await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: state.songs, nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: state.songs } }));
   await page.route("**/yehry3/queue?*", route => state.queueOffline ? route.abort() : route.fulfill({ json: state.queue }));
   await page.route("**/yehry3/queue/distonyc-*", route => {
     const id = new URL(route.request().url()).pathname.split("/").pop();

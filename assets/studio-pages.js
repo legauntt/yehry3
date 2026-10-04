@@ -126,14 +126,27 @@ export async function requests() {
   }
   async function load() {
     heldRefinements = null;
-    const id = storage.get("draft");
+    const requested = new URLSearchParams(location.search).get("request");
+    const linkedId = /^distonyc-[a-f0-9]{24}$/.test(requested || "") ? requested.slice(9) : null;
+    const id = linkedId || storage.get("draft");
     if (id) {
       try {
         draft = (
           await api(`/prompts/${encodeURIComponent(id)}`, { role: "submitter" })
         ).prompt;
+        if (linkedId) {
+          storage.set("draft", draft.id);
+          const url = new URL(location.href);
+          url.searchParams.delete("request");
+          history.replaceState(history.state, "", url);
+        }
       } catch (error) {
         if (error.status === 401) return loginView("submitter", load);
+        if (linkedId) {
+          main.innerHTML = `<section class="empty"><h1>This request could not be opened.</h1><p>${escape(error.message)}</p><p>Use the requester’s login to review this request.</p><button class="primary" id="linked-request-login">Sign in as the requester</button></section>`;
+          $("#linked-request-login").onclick = () => loginView("submitter", load);
+          return;
+        }
         if (error.status === 404) {
           storage.remove("draft");
           draft = null;

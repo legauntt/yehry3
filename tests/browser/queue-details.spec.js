@@ -60,6 +60,8 @@ test("lyric approval identifies the requester across queue, prompt and collectio
   const row = page.locator(`.pending-track[data-id="${queued.id}"]`);
   await expect(row.locator("summary")).toContainText("Waiting for Scythe to approve lyrics");
   await expect(row.locator("summary progress")).toHaveCount(0);
+  await expect(row.locator("summary .approval-action")).toHaveAttribute("href", `/distonyc/?request=${queued.id}`);
+  await expect(row.locator("summary .tiny-label")).toHaveCSS("text-transform", "none");
   await page.setViewportSize({ width: 390, height: 844 });
   await row.locator("summary").click();
   await expect(row.locator(".approval-wait-notice")).toBeVisible();
@@ -70,6 +72,35 @@ test("lyric approval identifies the requester across queue, prompt and collectio
   await expect(page.locator("#in-studio, #waiting-queue")).toContainText(["", "Rendering"]);
   await expect(page.locator(".approval-wait-notice")).toHaveCount(0);
   await expect(page.locator("#waiting-queue progress")).toHaveCount(1);
+});
+
+test("dashboard approval link opens that request's lyric review and preserves an unrelated draft on denial", async ({ page }) => {
+  const promptId = queued.id.slice(9);
+  const otherId = "c".repeat(24);
+  await page.addInitScript(other => {
+    sessionStorage.setItem("yehry3:submitter", "fixture-token");
+    sessionStorage.setItem("yehry3:draft", other);
+  }, otherId);
+  let denied = true;
+  const review = { id: "lyric-review", kind: "lyrics", state: "pending", payload: { lyrics: "[Verse]\nMorning comes again" } };
+  await page.route("**/yehry3/**", route => {
+    const path = new URL(route.request().url()).pathname;
+    if (path.endsWith(`/prompts/${promptId}/generation-review`)) return route.fulfill({ json: { review } });
+    if (path.endsWith(`/prompts/${promptId}`)) return denied
+      ? route.fulfill({ status: 404, json: { error: "Request not found" } })
+      : route.fulfill({ json: { prompt: { ...queued, id: promptId, version: 1, confirmedAt: queued.submittedAt, details: {}, generationReview: review } } });
+    if (path.endsWith("/queue")) return route.fulfill({ json: { ...queue, queued: [{ ...queued, progress: { stage: "Waiting for your lyric approval", percent: 0 } }] } });
+    return route.fulfill({ json: { songs: [], nextVoteAt: null } });
+  });
+  await page.goto("/");
+  await page.locator(`.pending-track[data-id="${queued.id}"] summary .approval-action`).click();
+  await expect(page.getByRole("heading", { name: "This request could not be opened." })).toBeVisible();
+  expect(await page.evaluate(() => sessionStorage.getItem("yehry3:draft"))).toBe(otherId);
+  denied = false;
+  await page.goto(`/distonyc/?request=${queued.id}`);
+  await expect(page.locator("#review-lyrics")).toHaveValue(review.payload.lyrics);
+  await expect(page.getByRole("button", { name: "Approve lyrics & continue" })).toBeVisible();
+  expect(await page.evaluate(() => sessionStorage.getItem("yehry3:draft"))).toBe(promptId);
 });
 
 test("queue cards have distinct detail URLs and 9/11'd Again remains public", async ({ page }) => {
@@ -85,6 +116,10 @@ test("queue cards have distinct detail URLs and 9/11'd Again remains public", as
   await page.locator(`#${failed.id} h3 a`).click();
   await expect(page).toHaveURL(new RegExp(`/queue/details/\\?request=${failed.id}$`));
   await expect(page.locator("h1")).toContainText("Tony takes on the manosphere");
+  expect(await page.locator(".queue-detail h1").evaluate(node => parseFloat(getComputedStyle(node).fontSize))).toBeLessThanOrEqual(32);
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.locator(".queue-detail").screenshot({ path: "artifacts/queue-details-mobile.png" });
   await expect(page.locator(".queue-detail")).toContainText("Authored by Pancakeo");
   await expect(page.locator(".attention-note")).toContainText("Production stopped during Checking the ending");
   await expect(page.locator(".attention-note")).not.toContainText("worker");
