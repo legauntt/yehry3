@@ -502,7 +502,16 @@ console.log(`Initial catalog page verified: ${firstPage.songs.length} of ${first
 // Songs archived in Backstage are built out of the fallback, so expect the catalog minus what the API reports archived.
 const reported = await (await get(`${api}/songs/summary`, { headers: { "X-Visitor-ID": randomUUID(), Origin: site } })).json();
 const archived = Array.isArray(reported.archived) ? reported.archived : [];
-const expected = publicCatalog(local, archived);
+let expected;
+try {
+  expected = publicCatalog(local, archived);
+} catch (error) {
+  // Match build.mjs: the archive guard retains the full fallback catalog.
+  // Still compare every deployed entry below; never approve extra archives here.
+  if (!(error instanceof RangeError)) throw error;
+  console.warn(`${error.message}; verifying the full fallback catalog retained by the build.`);
+  expected = local;
+}
 const catalog = await (await get(`${site}/catalog.json`)).json();
 assert.deepEqual(await (await get(`${site}/assets/lyric-pronunciations.json`)).json(), lyricPronunciations(catalog.songs), "Pronunciation vocabulary differs from the deployed catalog");
 assert.deepEqual(catalog, expected);
