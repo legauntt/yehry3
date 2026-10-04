@@ -199,6 +199,9 @@ def render(request):
     # omit an encoding; make their Python processes (and descendants) agree
     # without rewriting saved scripts, lyrics or stage hashes.
     os.environ['PYTHONUTF8'] = '1'
+    from provider_local_recovery import render_recovery
+    local_recovery = render_recovery(request, render)
+    if local_recovery is not None: return local_recovery
     backend = request.get('music_backend', 'local')
     if backend == 'eleven_music':
         from music_backend import render as render_paid

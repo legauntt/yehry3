@@ -148,7 +148,9 @@ def run_once(config, api, verify_existing=None):
             voice_model = selected(prompt)
             basis = basis_files(config, prompt)
             # The model receives creative metadata; local paths remain in the trusted renderer input.
-            plan = make_plan(config, prompt, directory, basis, heartbeat.stopped)
+            from provider_local_recovery import frozen_prompt
+            production_prompt = frozen_prompt(prompt, directory)
+            plan = make_plan(config, production_prompt, directory, basis, heartbeat.stopped)
             if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
             if prompt.get('details', {}).get('generation'):
                 from generation_flow import approved_plan
@@ -161,8 +163,8 @@ def run_once(config, api, verify_existing=None):
                 request = {'config': config, 'prompt_id': prompt['id'], 'plan': plan, 'basis': basis, 'directory': str(directory),
                     'voice_model': voice_model}
                 if selected_epoch(prompt) is not None: request['voice_epoch'] = selected_epoch(prompt)
-                if selected_backend(prompt) != 'local':
-                    request.update(music_backend=selected_backend(prompt), paid_authorization=prompt.get('paidAuthorization'))
+                if selected_backend(production_prompt) != 'local':
+                    request.update(music_backend=selected_backend(production_prompt), paid_authorization=production_prompt.get('paidAuthorization'))
                 if plan.get('generation'): request['generation_profile'] = 'v8'
                 if verify_existing: request['verify_existing'] = str(Path(verify_existing).resolve())
                 from frozen_request import reuse_or_save
