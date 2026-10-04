@@ -2096,21 +2096,27 @@ export default {
     ]
   },
   "distonyc-7432f42a31eb9963ac91e18d": {
-    "src": "/assets/artwork/distonyc-7432f42a31eb9963ac91e18d-incubating-d9e934f52232-2538151e3ede59a3-q86.webp",
+    "src": "/assets/artwork/distonyc-7432f42a31eb9963ac91e18d-mature-c008713d386b-4f0cf1e03fe3e82a-q86.webp",
     "alt": "Cover artwork for Solving Racism.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "d5411cf28d4975b0ead543decad9da4409b7aad8fd418b1cc5366c63ab13434a",
-    "promptHash": "67f878bef13cb1491991d610b488246d366e4b27c0024ec9b174d36fd6a25232",
-    "createdAt": "2026-10-03T21:40:16.679Z",
+    "promptHash": "a6a66bedf7d1a06eb3d97fe7ac3291aa2152771e906e90ce509fd27cad50623a",
+    "createdAt": "2026-10-04T21:44:20.343Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-7432f42a31eb9963ac91e18d-incubating-d9e934f52232-2538151e3ede59a3-q86.webp",
     "firstSeenAt": "2026-10-03T21:39:42.402Z",
     "interpretation": "automatic-safe-interpretation",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-7432f42a31eb9963ac91e18d-incubating-d9e934f52232-2538151e3ede59a3-q86.webp",
+        "alt": "Cover artwork for Solving Racism.",
+        "createdAt": "2026-10-03T21:40:16.679Z"
+      }
+    ]
   },
   "distonyc-1aab4d6219268f04154c7b5e": {
     "src": "/assets/artwork/distonyc-1aab4d6219268f04154c7b5e-incubating-eba603c59c7a-754f5fa532e8092d-q86.webp",
