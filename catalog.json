@@ -2,6 +2,350 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-d36e8cb0b386edd7856e6b45",
+      "title": "Windows Lit by Snow",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d36e8cb0b386edd7856e6b45-a69616faa05e.mp3",
+      "duration": 274.96489795918365,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-04T07:21:21.186Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Windows Lit by Snow",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "F# minor",
+        "arrangement": "Russian lo-fi doomer atmosphere at 74 BPM: muted drum-machine pulse, tape-worn electric piano, chorused clean electric guitar, deep synth bass, distant analog pads, and washed field-texture ambience. A single clear, steadily pitched Tony lead carries long, melancholy melodic lines with connected phrasing; keep the hook intimate and memorable. Begin sparse and nocturnal, broaden with reverb-drenched choruses, pull back for the bridge, then give the final chorus a quiet lift. Pace the outro so the final sung word \"slow\" sustains about 10 seconds before a single resolved F# minor chord decays.",
+        "lyrics": "[Intro]\nSnow turns blue beneath the wires\nA tram sighs past the empty square\nI count the rooms with lights still burning\nAnd wonder who is waiting there\n\n[Verse 1]\nThe stairwell smells of rain and iron\nThe elevator coughs and stalls\nI carry midnight in my jacket\nLike a picture on the wall\nThe city folds behind the curtains\nThe television paints the floor\nI hear a record through the ceiling\nThen nothing from the room next door\n\n[Pre-Chorus]\nEvery street is saying slowly\nYou can leave, but not tonight\n\n[Chorus]\nWindows lit by snow\nHold me in their low blue glow\nI am not asleep, I am not alive\nJust a little radio\nPlaying where the cold winds go\nTill the morning finds a way to arrive\n\n[Verse 2]\nThe river keeps its black reflection\nUnder bridges wet with light\nA distant train bends through the silence\nDragging sparks across the night\nI bought cheap coffee at the kiosk\nAnd let it cool between my hands\nThe woman there looked through my shadow\nLike she understood the plans\n\n[Pre-Chorus]\nEvery clock is moving softly\nEvery face is out of sight\n\n[Chorus]\nWindows lit by snow\nHold me in their low blue glow\nI am not asleep, I am not alive\nJust a little radio\nPlaying where the cold winds go\nTill the morning finds a way to arrive\n\n[Bridge]\nMaybe all these towers are ships\nAnchored in a frozen sea\nMaybe every sleepless window\nKeeps a small light on for me\nI do not need a grand forgiveness\nI do not need a clearer sign\nJust let the streetlamps blur together\nLet the gray become the sky\n\n[Chorus]\nWindows lit by snow\nI can feel the dark let go\nNot all at once, not like a flame\nBut the road begins to show\nPast the last exhausted glow\nAnd I can finally call my name\n\n[Outro]\nWhen the first tram rings below\nI will walk into the snow\nWith the last note hanging warm and slow\n[End]",
+        "duration": 275,
+        "bpm": 74,
+        "musicalSettings": {
+          "genre": "Russian lo-fi doomer / vaporwave-tinged melancholy",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Pre-Chorus, Chorus, Bridge, Final Chorus, Outro",
+          "performance": "One clear, steadily pitched lead with intimate connected phrasing and sustained melodic endings",
+          "energy": "Low-lit and restrained at first; wider, emotionally lifted choruses; a calm resolved close",
+          "lyricWorkflow": "Original cinematic lyric writing with concrete winter-city imagery and a developing solitary-night narrative",
+          "instruments": [
+            "muted drum machine",
+            "electric piano",
+            "chorused clean electric guitar",
+            "synth bass",
+            "analog pads",
+            "ambient field textures"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nSnow turns blue beneath the wires\nA tram sighs past the empty square\nI count the rooms with lights still burning\nAnd wonder who is waiting there\n\n[Verse 1]\nThe stairwell smells of rain and iron\nThe elevator coughs and stalls\nI carry midnight in my jacket\nLike a picture on the wall\nThe city folds behind the curtains\nThe television paints the floor\nI hear a record through the ceiling\nThen nothing from the room next door\n\n[Pre-Chorus]\nEvery street is saying slowly\nYou can leave, but not tonight\n\n[Chorus]\nWindows lit by snow\nHold me in their low blue glow\nI am not asleep, I am not alive\nJust a little radio\nPlaying where the cold winds go\nTill the morning finds a way to arrive\n\n[Verse 2]\nThe river keeps its black reflection\nUnder bridges wet with light\nA distant train bends through the silence\nDragging sparks across the night\nI bought cheap coffee at the kiosk\nAnd let it cool between my hands\nThe woman there looked through my shadow\nLike she understood the plans\n\n[Pre-Chorus]\nEvery clock is moving softly\nEvery face is out of sight\n\n[Chorus]\nWindows lit by snow\nHold me in their low blue glow\nI am not asleep, I am not alive\nJust a little radio\nPlaying where the cold winds go\nTill the morning finds a way to arrive\n\n[Bridge]\nMaybe all these towers are ships\nAnchored in a frozen sea\nMaybe every sleepless window\nKeeps a small light on for me\nI do not need a grand forgiveness\nI do not need a clearer sign\nJust let the streetlamps blur together\nLet the gray become the sky\n\n[Chorus]\nWindows lit by snow\nI can feel the dark let go\nNot all at once, not like a flame\nBut the road begins to show\nPast the last exhausted glow\nAnd I can finally call my name\n\n[Outro]\nWhen the first tram rings below\nI will walk into the snow\nWith the last note hanging warm and slow",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.96,
+            "end": 7.96
+          },
+          {
+            "line": 2,
+            "start": 9.28,
+            "end": 12.26
+          },
+          {
+            "line": 3,
+            "start": 13.78,
+            "end": 17.6
+          },
+          {
+            "line": 4,
+            "start": 20.6,
+            "end": 24.18
+          },
+          {
+            "line": 7,
+            "start": 26.16,
+            "end": 30.26
+          },
+          {
+            "line": 8,
+            "start": 31.86,
+            "end": 35
+          },
+          {
+            "line": 9,
+            "start": 36.82,
+            "end": 39.92
+          },
+          {
+            "line": 10,
+            "start": 41.52,
+            "end": 44.68
+          },
+          {
+            "line": 11,
+            "start": 46.16,
+            "end": 49.5
+          },
+          {
+            "line": 12,
+            "start": 51.32,
+            "end": 55.12
+          },
+          {
+            "line": 13,
+            "start": 56,
+            "end": 59.38
+          },
+          {
+            "line": 14,
+            "start": 59.66,
+            "end": 62.72
+          },
+          {
+            "line": 17,
+            "start": 64.72,
+            "end": 67.44
+          },
+          {
+            "line": 18,
+            "start": 69,
+            "end": 72.28
+          },
+          {
+            "line": 21,
+            "start": 75.74,
+            "end": 78.02
+          },
+          {
+            "line": 22,
+            "start": 78.02,
+            "end": 82.8
+          },
+          {
+            "line": 23,
+            "start": 82.8,
+            "end": 87.86
+          },
+          {
+            "line": 24,
+            "start": 87.86,
+            "end": 91.3
+          },
+          {
+            "line": 25,
+            "start": 91.3,
+            "end": 96.26
+          },
+          {
+            "line": 26,
+            "start": 96.26,
+            "end": 100.5
+          },
+          {
+            "line": 29,
+            "start": 105.64,
+            "end": 108.9
+          },
+          {
+            "line": 30,
+            "start": 108.9,
+            "end": 112.78
+          },
+          {
+            "line": 31,
+            "start": 115.15,
+            "end": 118.64
+          },
+          {
+            "line": 32,
+            "start": 119.78,
+            "end": 122.48
+          },
+          {
+            "line": 33,
+            "start": 123.68,
+            "end": 127.46
+          },
+          {
+            "line": 34,
+            "start": 127.9,
+            "end": 131.62
+          },
+          {
+            "line": 35,
+            "start": 133.18,
+            "end": 136.5
+          },
+          {
+            "line": 36,
+            "start": 137.36,
+            "end": 139.56
+          },
+          {
+            "line": 39,
+            "start": 142.58,
+            "end": 145.18
+          },
+          {
+            "line": 40,
+            "start": 146.56,
+            "end": 149.2
+          },
+          {
+            "line": 43,
+            "start": 153.58,
+            "end": 155.86
+          },
+          {
+            "line": 44,
+            "start": 155.86,
+            "end": 160.7
+          },
+          {
+            "line": 45,
+            "start": 160.7,
+            "end": 165.74
+          },
+          {
+            "line": 46,
+            "start": 165.74,
+            "end": 169.14
+          },
+          {
+            "line": 47,
+            "start": 169.14,
+            "end": 174.1
+          },
+          {
+            "line": 48,
+            "start": 174.1,
+            "end": 178.38
+          },
+          {
+            "line": 51,
+            "start": 182.42,
+            "end": 186.24
+          },
+          {
+            "line": 52,
+            "start": 186.24,
+            "end": 190.52
+          },
+          {
+            "line": 53,
+            "start": 192.26,
+            "end": 195.68
+          },
+          {
+            "line": 54,
+            "start": 195.68,
+            "end": 199.5
+          },
+          {
+            "line": 55,
+            "start": 200.44,
+            "end": 203.54
+          },
+          {
+            "line": 56,
+            "start": 204.76,
+            "end": 208.48
+          },
+          {
+            "line": 57,
+            "start": 208.48,
+            "end": 213.12
+          },
+          {
+            "line": 58,
+            "start": 214.56,
+            "end": 217.3
+          },
+          {
+            "line": 61,
+            "start": 217.3,
+            "end": 221.5
+          },
+          {
+            "line": 62,
+            "start": 223.5,
+            "end": 226.42
+          },
+          {
+            "line": 63,
+            "start": 226.42,
+            "end": 231.08
+          },
+          {
+            "line": 64,
+            "start": 232.54,
+            "end": 236.5
+          },
+          {
+            "line": 65,
+            "start": 237.38,
+            "end": 241.02
+          },
+          {
+            "line": 66,
+            "start": 243.08,
+            "end": 245.76
+          },
+          {
+            "line": 69,
+            "start": 247.96,
+            "end": 251.48
+          },
+          {
+            "line": 70,
+            "start": 252.36,
+            "end": 256.16
+          },
+          {
+            "line": 71,
+            "start": 257.78,
+            "end": 262.06
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "76b448114c779a73c9eed0d2de97cc8102f46aa4233bd7edc28bcfdf54008ff0",
+        "bytes": 6599202,
+        "duration": 274.964875,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d36e8cb0b386edd7856e6b45-76b448114c77.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Russian lofi doomer music",
+        "direction": "Use the prompt as written.",
+        "keep": "Capture the heavy reverb vaporwave sad tone of doomer music",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 275,
+          "pitchRepair": "haunted"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-2a92e91e4fc840724c567edb",
       "title": "Static at the End of Town",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2a92e91e4fc840724c567edb-f437ec6ae360.mp3",
