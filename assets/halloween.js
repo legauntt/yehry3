@@ -6,6 +6,10 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
   // A small flock leaves the page readable while the wings beat independently.
   const bat = `<svg viewBox="0 0 80 44" class="halloween-bat-shape"><path class="bat-wing wing-left" d="M38 21Q23 5 2 3L9 29Q17 20 22 34Q30 27 37 38Z"/><path class="bat-wing wing-right" d="M42 21Q57 5 78 3L71 29Q63 20 58 34Q50 27 43 38Z"/><path d="M34 17L33 8L40 13L47 8L46 17Q53 32 40 43Q27 32 34 17Z"/></svg>`;
   const witch = `<svg class="halloween-witch" viewBox="0 0 300 180"><g fill="#000"><path d="M85 66L112 7L130 54L155 64L143 73L70 73Z"/><path d="M70 69Q115 51 156 68Q121 81 70 69Z"/><path d="M109 74Q134 69 136 85L149 93L135 97Q137 111 117 112L107 94Z"/><path d="M112 104Q82 110 79 132L53 151Q93 165 128 145L159 138L175 152L185 145L159 120L130 121Z"/><path d="M128 106L155 111L184 95L191 102L160 124L125 118Z"/><path d="M24 148L254 120L258 129L25 157Z"/><path d="M232 124L282 97L270 123L297 110L281 136L300 134L269 159L232 133Z"/></g></svg>`;
+  const smoke = '<path class="doomer-smoke" d="M0 0C-8 -10 8 -17 0 -27S5 -42 0 -51" fill="none" stroke="#afa7b8" stroke-width="2" stroke-linecap="round"/>';
+  const tiredBat = bat.replace('</svg>', `<g class="doomer-bat-detail"><path fill="#34323e" stroke="#807988" stroke-width=".7" d="M32 18Q30 5 40 5Q50 5 48 18Z"/><path fill="#25232e" stroke="#807988" stroke-width=".7" d="M31 16H49V21H31Z"/><path fill="none" stroke="#c2b9cb" stroke-width="1.2" d="M35 26l4 1m3 0l4 -1M36 30l3 1m3 0l3 -1M38 35h5"/><path stroke="#d8d0ba" stroke-width="2.6" d="M43 35l11 3"/><path stroke="#db794d" stroke-width="2.6" d="M53 38l3 1"/><g transform="translate(56 39) scale(.35)">${smoke}</g></g></svg>`);
+  const tiredWitch = witch.replace('</svg>', `<path fill="#8f9890" d="M111 77Q132 73 134 86L147 93L132 96Q133 107 119 106L112 95Z"/><path fill="#37313e" d="M107 79Q121 68 135 77L136 83L108 85Z"/><path fill="none" stroke="#34303a" stroke-width="2.5" stroke-linecap="round" d="M123 88l8 1m-9 4l7 1m-5 7l8 -1"/><path stroke="#d8d0ba" stroke-width="4" d="M132 101l23 5"/><path stroke="#db794d" stroke-width="4" d="M153 106l6 1"/><g transform="translate(159 107)">${smoke}</g></svg>`);
+  const ghost = `<svg class="halloween-ghost" viewBox="0 0 150 160"><path fill="#b2b3b9" stroke="#686775" stroke-width="2" d="M27 139L31 66Q28 30 65 29Q103 25 108 64L120 139L101 132L89 146L73 135L58 146L43 135Z"/><path fill="#35323e" stroke="#716b7d" stroke-width="2" d="M29 56Q29 17 65 17Q101 14 108 52L109 61L29 65Z"/><path fill="#25232d" stroke="#716b7d" stroke-width="2" d="M27 54L110 50L112 65L28 70Z"/><g fill="none" stroke="#474452" stroke-width="3" stroke-linecap="round"><path d="M44 83l15 2m18 -2l15 -3M45 91l12 2m22 -1l12 -3M59 109q12 -4 23 0"/></g><path stroke="#e2d9c3" stroke-width="5" d="M80 109l28 7"/><path stroke="#db794d" stroke-width="5" d="M105 115l7 2"/><g transform="translate(112 117)">${smoke}</g></svg>`;
   const scene = document.createElement('div');
   scene.className = 'halloween-scene';
   scene.setAttribute('aria-hidden', 'true');
@@ -190,7 +194,7 @@ if (halloweenSeason() && !document.querySelector('.halloween-scene')) {
         later(() => { scare.hidden = true; scene.classList.remove('is-scare'); schedule(profile.delay * 3.75); }, 5500);
       } else {
         const kind = passNumber++ % 3;
-        pass.innerHTML = kind === 0 ? witch : kind === 1 ? '👻' : `<div class="halloween-pass-bats">${bat.repeat(7)}</div>`;
+        pass.innerHTML = kind === 0 ? tiredWitch : kind === 1 ? ghost : `<div class="halloween-pass-bats">${tiredBat.repeat(7)}</div>`;
         pass.style.top = `${20 + Math.random() * 45}%`;
         pass.classList.toggle('from-right', passNumber % 2 === 0);
         pass.hidden = false;

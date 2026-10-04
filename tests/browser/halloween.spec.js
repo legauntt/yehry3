@@ -359,3 +359,26 @@ test('edge flight preserves settings, stays inside mobile, and limits animation 
   await page.evaluate(async()=>{const {setBatPreference}=await import('/assets/bat-preferences.js');setBatPreference('enabled',false);});
   await expect(flock).toBeHidden();
 });
+test('doomer flybys carry tired faces and smoke on desktop and mobile', async ({ page }) => {
+  await october(page);
+  await page.route('**/yehry3/**', route => route.fulfill({json:{songs:[],collections:[],items:[],listeners:[]}}));
+  await page.goto('/queue/');
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({width, height:900});
+    await page.reload();
+    for (const kind of ['witch', 'ghost', 'bats']) {
+      await page.clock.fastForward(8000);
+      const pass = page.locator('.halloween-pass');
+      await expect(pass.locator(kind === 'bats' ? '.doomer-bat-detail' : `.halloween-${kind}`)).toHaveCount(kind === 'bats' ? 7 : 1);
+      await expect(pass.locator('.doomer-smoke')).toHaveCount(kind === 'bats' ? 7 : 1);
+      await pass.evaluate(node => {
+        const crossing = node.getAnimations().find(a => a.animationName === 'halloween-crossing');
+        crossing.pause(); crossing.currentTime = 3200;
+      });
+      await page.screenshot({path:`artifacts/doomer-${kind}-${width}.png`});
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      await page.clock.fastForward(6500);
+      await expect(pass).toBeHidden();
+    }
+  }
+});
