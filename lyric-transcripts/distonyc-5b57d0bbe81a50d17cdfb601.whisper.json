@@ -1,0 +1,307 @@
+{
+  "version": 1,
+  "songId": "distonyc-5b57d0bbe81a50d17cdfb601",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5b57d0bbe81a50d17cdfb601-10b04ce52a29.mp3",
+  "audioSha256": "10b04ce52a29ee2919dd747f66d71eacd2e1fbef12614b3aa1bc7babd656e166",
+  "inputSha256": "3c854156028aa0f12d5fd9f488baf1336308a24b7f7f0b6cce328706261b9465",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 230.0081875,
+  "segments": [
+    {
+      "start": 3.3,
+      "end": 7.4,
+      "text": "The kettle clicks at 6.03",
+      "uncertain": false
+    },
+    {
+      "start": 7.4,
+      "end": 11.7,
+      "text": "The ceiling watches over me",
+      "uncertain": false
+    },
+    {
+      "start": 11.7,
+      "end": 17.04,
+      "text": "I count the tiles, I count the steam",
+      "uncertain": false
+    },
+    {
+      "start": 17.04,
+      "end": 22.28,
+      "text": "I put my face inside the screen",
+      "uncertain": false
+    },
+    {
+      "start": 23.68,
+      "end": 27.66,
+      "text": "Same black coffee, same white cup",
+      "uncertain": false
+    },
+    {
+      "start": 29.28,
+      "end": 32.94,
+      "text": "Same dead elevator going up",
+      "uncertain": false
+    },
+    {
+      "start": 34.56,
+      "end": 38.38,
+      "text": "Same man coughing by the door",
+      "uncertain": true
+    },
+    {
+      "start": 39.92,
+      "end": 43.5,
+      "text": "Same gray mark across the floor",
+      "uncertain": true
+    },
+    {
+      "start": 43.5,
+      "end": 47.04,
+      "text": "My name lights up, my chair rolls back",
+      "uncertain": false
+    },
+    {
+      "start": 48.32,
+      "end": 51.48,
+      "text": "A little square inside a stack",
+      "uncertain": false
+    },
+    {
+      "start": 51.48,
+      "end": 54.74,
+      "text": "I answer, yes, I answer, fine",
+      "uncertain": false
+    },
+    {
+      "start": 54.74,
+      "end": 58.48,
+      "text": "The daylight leaves without a sign",
+      "uncertain": false
+    },
+    {
+      "start": 58.48,
+      "end": 61.74,
+      "text": "Clock dim, still here",
+      "uncertain": false
+    },
+    {
+      "start": 61.74,
+      "end": 64.5,
+      "text": "Clock dim, still here",
+      "uncertain": false
+    },
+    {
+      "start": 64.5,
+      "end": 69.1,
+      "text": "The little hand eats every year",
+      "uncertain": false
+    },
+    {
+      "start": 69.1,
+      "end": 72.4,
+      "text": "Clock dim, still here",
+      "uncertain": false
+    },
+    {
+      "start": 74.6,
+      "end": 78.32,
+      "text": "The printer spits a curling tongue",
+      "uncertain": true
+    },
+    {
+      "start": 78.32,
+      "end": 83.58,
+      "text": "It says the same thing, overdone",
+      "uncertain": false
+    },
+    {
+      "start": 83.58,
+      "end": 87.9,
+      "text": "A meeting starts, a meeting ends",
+      "uncertain": true
+    },
+    {
+      "start": 87.9,
+      "end": 92.54,
+      "text": "The room pretends that we are friends",
+      "uncertain": false
+    },
+    {
+      "start": 92.54,
+      "end": 96.14,
+      "text": "At twelve I stand beside the scene",
+      "uncertain": false
+    },
+    {
+      "start": 96.14,
+      "end": 100.24,
+      "text": "And watch the paper towels lay",
+      "uncertain": false
+    },
+    {
+      "start": 101.5,
+      "end": 105.54,
+      "text": "The vending machine hums my name",
+      "uncertain": false
+    },
+    {
+      "start": 105.54,
+      "end": 110.48,
+      "text": "I feed it coins, it feeds the same",
+      "uncertain": false
+    },
+    {
+      "start": 110.48,
+      "end": 114.5,
+      "text": "Clock 10's still here",
+      "uncertain": false
+    },
+    {
+      "start": 114.5,
+      "end": 117.76,
+      "text": "Clock 10's still here",
+      "uncertain": true
+    },
+    {
+      "start": 117.76,
+      "end": 121.04,
+      "text": "The little hand eats every year",
+      "uncertain": false
+    },
+    {
+      "start": 122.28,
+      "end": 125.26,
+      "text": "Clock 10's still here",
+      "uncertain": false
+    },
+    {
+      "start": 126.82,
+      "end": 130.92,
+      "text": "That 5th Street unit is blue and wet",
+      "uncertain": true
+    },
+    {
+      "start": 130.92,
+      "end": 134.72,
+      "text": "I ride the bus and don't forget",
+      "uncertain": false
+    },
+    {
+      "start": 134.72,
+      "end": 139.06,
+      "text": "The driver has no face at all",
+      "uncertain": false
+    },
+    {
+      "start": 140.16,
+      "end": 144.34,
+      "text": "The buildings lean, the shadows stall",
+      "uncertain": false
+    },
+    {
+      "start": 146.82,
+      "end": 151.0,
+      "text": "I take my key, I take my coat",
+      "uncertain": false
+    },
+    {
+      "start": 151.0,
+      "end": 154.9,
+      "text": "I hear a laugh inside my throat",
+      "uncertain": false
+    },
+    {
+      "start": 154.9,
+      "end": 158.48,
+      "text": "The television calls me near",
+      "uncertain": false
+    },
+    {
+      "start": 158.48,
+      "end": 162.96,
+      "text": "It says, clocked in, still here",
+      "uncertain": false
+    },
+    {
+      "start": 165.46,
+      "end": 169.52,
+      "text": "I heed a meal beneath the light",
+      "uncertain": true
+    },
+    {
+      "start": 169.52,
+      "end": 173.0,
+      "text": "I wear the silence every night",
+      "uncertain": false
+    },
+    {
+      "start": 173.0,
+      "end": 176.96,
+      "text": "The calendar grows little teeth",
+      "uncertain": false
+    },
+    {
+      "start": 176.96,
+      "end": 180.76,
+      "text": "It shews the days I keep beneath",
+      "uncertain": false
+    },
+    {
+      "start": 180.76,
+      "end": 185.3,
+      "text": "Tomorrow waits behind the glass",
+      "uncertain": false
+    },
+    {
+      "start": 185.3,
+      "end": 188.82,
+      "text": "With all the cars that never pass",
+      "uncertain": false
+    },
+    {
+      "start": 188.82,
+      "end": 193.02,
+      "text": "I set the alarm, I close one eye",
+      "uncertain": false
+    },
+    {
+      "start": 193.02,
+      "end": 197.12,
+      "text": "The ceiling does not ask me why",
+      "uncertain": false
+    },
+    {
+      "start": 199.04,
+      "end": 201.76,
+      "text": "Clocked in, still here",
+      "uncertain": false
+    },
+    {
+      "start": 201.76,
+      "end": 207.22,
+      "text": "The little hand eats every ear",
+      "uncertain": false
+    },
+    {
+      "start": 208.38,
+      "end": 212.62,
+      "text": "Clocked in, still here",
+      "uncertain": false
+    },
+    {
+      "start": 212.62,
+      "end": 217.9,
+      "text": "Still here, still here",
+      "uncertain": false
+    },
+    {
+      "start": 217.9,
+      "end": 218.32,
+      "text": "Amen.",
+      "uncertain": true
+    }
+  ]
+}
