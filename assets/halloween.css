@@ -47,6 +47,34 @@ html[data-halloween-level="off"] .pitch-pumpkin { display: none; }
 .site-footer .pumpkin-patch { margin: 0; font-size: 22px; }
 .pumpkin-doomer { display: block; width: clamp(110px, 15vw, 180px); height: auto; margin-bottom: 8px; filter: drop-shadow(0 5px 12px #a9552728); }
 html[data-room-mood="pumpkin"] .pumpkin-doomer { filter: drop-shadow(0 0 18px #f9803440); }
+/* Keep the seasonal art beside the introduction instead of stacking above it. */
+html:not([data-halloween-level="off"]) .hero-copy:has(.pumpkin-patch) {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  column-gap: 24px;
+  align-items: center;
+}
+.hero-copy > .pumpkin-patch {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  margin: 0;
+  text-align: center;
+  font-size: 22px;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+.hero-copy .pumpkin-doomer { width: 132px; margin-bottom: 4px; }
+html:not([data-halloween-level="off"]) .hero-copy:has(.pumpkin-patch) > :not(.pumpkin-patch) { grid-column: 2; }
+@media (max-width: 650px) {
+  html:not([data-halloween-level="off"]) .hero:has(.pumpkin-patch) { gap: 12px; padding: 16px 0; grid-template-columns: minmax(0, 1fr) 76px; }
+  html:not([data-halloween-level="off"]) .hero-copy:has(.pumpkin-patch) { grid-template-columns: 64px minmax(0, 1fr); column-gap: 12px; }
+  .hero-copy > .pumpkin-patch { grid-row: 1 / 3; font-size: 12px; }
+  .hero-copy .pumpkin-doomer { width: 64px; }
+  html:not([data-halloween-level="off"]) .hero-copy:has(.pumpkin-patch) .eyebrow { font-size: 9px; margin-bottom: 6px; }
+  html:not([data-halloween-level="off"]) .hero-copy:has(.pumpkin-patch) h1 { font-size: clamp(1.4rem, 5.5vw, 2rem); }
+  html:not([data-halloween-level="off"]) .hero-copy:has(.pumpkin-patch) .lede { grid-column: 1 / -1; margin-top: 8px; }
+  html:not([data-halloween-level="off"]) .hero:has(.pumpkin-patch) .sleeve { grid-row: 1; width: 72px; }
+}
 @keyframes halloween-wingbeat { from { transform: scaleY(.95) scaleX(1); } to { transform: scaleY(.3) scaleX(.72); } }
 @keyframes halloween-flap-left { from { transform: rotate(18deg) scaleY(1); } to { transform: rotate(-38deg) scaleY(.2); } }
 @keyframes halloween-flap-right { from { transform: rotate(-18deg) scaleY(1); } to { transform: rotate(38deg) scaleY(.2); } }
