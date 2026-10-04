@@ -26,19 +26,23 @@ export function pumpkinPortrait() {
   portrait.className = 'pumpkin-doomer';
   portrait.innerHTML = `
     <img class="pumpkin-doomer-body" src="/assets/pumpkin-doomer.webp" alt="" width="420" height="397">
-    <svg class="pumpkin-morning-detail pumpkin-doomer-lights" viewBox="0 0 420 397" aria-hidden="true">
-      <path class="pumpkin-light-wire" d="M72 271 Q115 319 190 316 T310 257 Q331 264 348 306"/>
-      <g class="pumpkin-light-bulbs"><circle cx="87" cy="288" r="8"/><circle cx="117" cy="308" r="8"/><circle cx="154" cy="316" r="8"/><circle cx="192" cy="316" r="8"/><circle cx="228" cy="309" r="8"/><circle cx="261" cy="293" r="8"/><circle cx="290" cy="271" r="8"/><circle cx="323" cy="267" r="8"/><circle cx="341" cy="290" r="8"/></g>
-    </svg>
     <span class="pumpkin-doomer-head">
       <img src="/assets/pumpkin-doomer.webp" alt="" width="420" height="397">
       <svg class="pumpkin-morning-detail pumpkin-doomer-eyes" viewBox="0 0 420 397" aria-hidden="true">
         <g fill="#f67e81" fill-opacity=".6"><path d="M88 146 Q105 147 124 142 Q121 162 100 161 Q91 158 88 146"/><path d="M162 144 Q183 152 211 149 Q205 166 182 162 Q168 159 162 144"/></g>
         <g fill="none" stroke="#a42132" stroke-width="3" stroke-linecap="round"><path d="M90 150 l10 5 -3 5 M120 148 l-8 6 5 5 M169 151 l10 7 -4 3 M204 153 l-9 3 4 6"/></g>
       </svg>
-      <svg class="pumpkin-morning-detail pumpkin-doomer-lights" viewBox="0 0 420 397" aria-hidden="true">
-        <path class="pumpkin-light-wire" d="M226 9 Q272 20 286 89 T295 176 Q288 198 270 189"/>
-        <g class="pumpkin-light-bulbs"><circle cx="237" cy="14" r="7"/><circle cx="261" cy="31" r="7"/><circle cx="277" cy="61" r="7"/><circle cx="288" cy="96" r="7"/><circle cx="297" cy="132" r="7"/><circle cx="296" cy="167" r="7"/><circle cx="280" cy="191" r="7"/></g>
+      <svg class="pumpkin-morning-detail pumpkin-doomer-mouth" viewBox="0 0 420 397" aria-hidden="true">
+        <path d="M108 192 L124 199 L133 193 L145 201 L159 197 L172 206 L188 201 Q182 231 151 234 Q121 231 108 192Z" fill="#241007" stroke="#71300d" stroke-width="3" stroke-linejoin="round"/>
+        <path class="pumpkin-candle-glow" d="M113 197 L124 203 L133 197 L145 205 L159 201 L172 210 L183 207 Q177 228 151 230 Q126 228 113 197Z" fill="#ff9c24"/>
+        <path d="M142 215 Q149 213 156 215 L158 230 L142 230Z" fill="#ffe5a0"/>
+        <path d="M143 215 L143 221 Q146 224 148 219 L148 216" fill="none" stroke="#fff2ce" stroke-width="2"/>
+        <path d="M149 215 L149 211" stroke="#3b2010" stroke-width="2"/>
+        <g class="pumpkin-candle-flame">
+          <path d="M149 214 C135 209 146 203 150 194 C151 201 163 209 149 214Z" fill="#ffb52e"/>
+          <path d="M149 213 C143 210 149 205 150 203 C154 208 155 212 149 213Z" fill="#fff5be"/>
+        </g>
+        <path d="M124 199 L133 193 L137 205 L126 205Z M157 222 L165 220 L167 230 L157 233Z" fill="#dd751d" stroke="#71300d" stroke-width="2" stroke-linejoin="round"/>
       </svg>
       <svg class="pumpkin-doomer-smoke" viewBox="0 0 420 397" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M79 215 C65 201 86 192 75 177 C66 165 77 153 70 140"/><path d="M79 215 C91 198 72 183 84 168 C94 156 81 143 91 131"/><path d="M79 215 C70 198 79 185 66 171 C58 163 70 151 63 142"/></g></svg>
       <i class="pumpkin-doomer-ember"></i>

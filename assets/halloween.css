@@ -61,14 +61,15 @@ html[data-halloween-level="off"] .pitch-pumpkin { display: none; }
 .pumpkin-doomer-ember { position: absolute; left: 18%; top: 53.7%; width: 2%; aspect-ratio: 1; border-radius: 50%; background: #ed8b38; opacity: .35; }
 .pumpkin-morning-detail { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; }
 html[data-doomer-listening="morning"] .pumpkin-morning-detail { opacity: 1; }
-.pumpkin-light-wire { fill: none; stroke: #543324; stroke-width: 4; }
-.pumpkin-light-bulbs circle { fill: #ff7518; color: #ff7518; stroke: #ffd09a; stroke-width: 1; filter: drop-shadow(0 0 7px currentColor); }
-.pumpkin-light-bulbs circle:nth-child(3n + 2) { fill: #d94b0b; color: #d94b0b; }
-.pumpkin-light-bulbs circle:nth-child(3n) { fill: #ffae42; color: #ffae42; }
-html[data-doomer-listening="morning"] .pumpkin-light-bulbs { animation: pumpkin-holiday-pulse .648148s ease-in-out infinite; }
-@keyframes pumpkin-holiday-pulse { 45% { opacity: .65; filter: brightness(1.35); } }
-html[data-halloween-level="low"] .pumpkin-light-bulbs { animation: none; }
-@media (prefers-reduced-motion: reduce) { .pumpkin-light-bulbs { animation: none !important; } }
+.pumpkin-candle-glow { opacity: .55; filter: drop-shadow(0 0 5px #ff9c24); }
+.pumpkin-candle-flame { transform-origin: 149px 214px; filter: drop-shadow(0 0 3px #ffc24b); }
+html[data-doomer-listening="morning"] .pumpkin-candle-flame { animation: pumpkin-candle-flicker .73s ease-in-out infinite; }
+html[data-doomer-listening="morning"] .pumpkin-candle-glow { animation: pumpkin-candle-glow 1.13s ease-in-out infinite; }
+@keyframes pumpkin-candle-flicker { 19% { transform: skewX(-8deg) scaleY(.85); } 43% { transform: skewX(6deg) scaleY(1.08); opacity: .8; } 68% { transform: skewX(-4deg) scaleY(.92); } }
+@keyframes pumpkin-candle-glow { 23% { opacity: .35; } 47% { opacity: .7; } 79% { opacity: .45; } }
+html[data-halloween-level="low"] .pumpkin-candle-flame,
+html[data-halloween-level="low"] .pumpkin-candle-glow { animation: none; }
+@media (prefers-reduced-motion: reduce) { .pumpkin-candle-flame, .pumpkin-candle-glow { animation: none !important; } }
 html[data-doomer-listening="music"] .pumpkin-doomer-head { animation: pumpkin-listening 1s ease-in-out infinite; }
 html[data-doomer-listening="morning"] .pumpkin-doomer-head { animation: pumpkin-morning .648148s ease-in-out infinite; }
 html[data-doomer-listening="music"] .pumpkin-doomer-smoke,
