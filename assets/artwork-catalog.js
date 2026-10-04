@@ -2014,19 +2014,26 @@ export default {
     ]
   },
   "distonyc-dab5305bedfa2bf0cf7b4996": {
-    "src": "/assets/artwork/distonyc-dab5305bedfa2bf0cf7b4996-incubating-d1db0b0d9547-q86.webp",
+    "src": "/assets/artwork/distonyc-dab5305bedfa2bf0cf7b4996-mature-1a2c94d4ddf3-6e8921095bb7a554-q86.webp",
     "alt": "Cover artwork for Nine-Eleven'd Again (Tragic Aria).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "290cd13cb9ff8d3a6f6804c0d6370c4271440696ada911e66e839c12ca819033",
-    "promptHash": "ee047d3bacdde02b4dd5f480ff9e1770006d3d00d8dcb5674fdccd146eb3a2b8",
-    "createdAt": "2026-10-03T06:25:06.567Z",
+    "promptHash": "3d5219ad765b3b35aae20184424feea00eb6ad41653256db75e01c0e4be30b16",
+    "createdAt": "2026-10-04T06:28:37.780Z",
     "missingSources": [],
-    "previous": null,
-    "firstSeenAt": "2026-10-03T06:24:43.494Z"
+    "previous": "/assets/artwork/distonyc-dab5305bedfa2bf0cf7b4996-incubating-d1db0b0d9547-q86.webp",
+    "firstSeenAt": "2026-10-03T06:24:43.494Z",
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-dab5305bedfa2bf0cf7b4996-incubating-d1db0b0d9547-q86.webp",
+        "alt": "Cover artwork for Nine-Eleven'd Again (Tragic Aria).",
+        "createdAt": "2026-10-03T06:25:06.567Z"
+      }
+    ]
   },
   "distonyc-d59c2b17c667891420654e76": {
     "src": "/assets/artwork/distonyc-d59c2b17c667891420654e76-emphasis-8929672448f9-q86.webp",
