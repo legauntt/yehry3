@@ -75,6 +75,8 @@ test("sound video waits for Play, pauses the shared song and loops on a phone", 
   await expect.poll(() => page.evaluate(() => window.loopSources.length)).toBe(2);
   await video.evaluate(v => { v.currentTime = 10; });
   await expect.poll(() => page.evaluate(() => window.loopSources.length)).toBe(3);
+  await video.evaluate(v => { v.currentTime = 0; v.dispatchEvent(new PointerEvent("pointerup")); });
+  await expect.poll(() => page.evaluate(() => window.loopSources.length)).toBe(4);
   await dialog.getByLabel("Sound on", { exact: true }).uncheck();
   await expect.poll(() => page.evaluate(() => window.loopGains[0].gain.value)).toBe(0);
   await dialog.getByLabel("Sound on", { exact: true }).check();

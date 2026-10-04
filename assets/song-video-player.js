@@ -96,6 +96,8 @@ export function mountSongVideos(root, scope) {
   scope.on(full, "play", () => { if (sound) player.pause(); });
   scope.on(full, "pause", () => { loopAudio.pause(); play.hidden = !sound; });
   scope.on(full, "seeked", () => loopAudio.seek());
+  scope.on(full, "pointerup", () => loopAudio.seek(true));
+  scope.on(full, "keyup", () => loopAudio.seek(true));
   scope.on(full, "volumechange", () => loopAudio.volume());
   scope.on(soundToggle, "change", () => { full.muted = !soundToggle.checked; });
   scope.on(soundVolume, "input", () => { full.volume = Number(soundVolume.value); });

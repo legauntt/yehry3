@@ -48,9 +48,12 @@ export function videoLoopAudio(video, onError) {
       source.start(0, offset);
     } catch { if (token === generation) onError(); }
   }
-  function seek() {
+  function seek(manual = false) {
     if (!source || !buffer) return;
     const target = video.currentTime % buffer.duration;
+    // Picture decoding can drift over many cycles; its automatic wrap must never
+    // reset the audio clock. Pointer/keyboard seeks to zero remain explicit.
+    if (!manual && video.loop && target < .25) return;
     const distance = Math.abs(position() - target);
     // Native video looping fires seek events. Do not restart the sound at that seam.
     if (Math.min(distance, buffer.duration - distance) < .25) return;
