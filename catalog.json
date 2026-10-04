@@ -2,6 +2,313 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-5b57d0bbe81a50d17cdfb601",
+      "title": "Clocked In, Still Here",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5b57d0bbe81a50d17cdfb601-10b04ce52a29.mp3",
+      "duration": 230.0081632653061,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-04T08:26:07.934Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Clocked In, Still Here",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Tony C doomer art rock at 90 BPM in D minor: a prominent repeating electric-bass riff drives over steady drums, overdriven guitar, and restrained analog synth, with tape-worn coldwave haze and dark reverb around the band. Keep one clear, steadily pitched lead vocal present and intelligible through the atmosphere; delivery begins weary and connected, then becomes obsessive and forceful at each blunt refrain. Sparse verses tighten into heavier hypnotic impacts. Slow the final refrain so its last sustained “here” lands about 10 seconds before the 230-second end, then resolve on one dark D-minor chord decay.",
+        "lyrics": "[Intro]\nThe kettle clicks at six-oh-three\nThe ceiling watches over me\nI count the tiles, I count the steam\nI put my face inside the screen\n\n[Verse 1]\nSame black coffee, same white cup\nSame dead elevator going up\nSame man coughing by the door\nSame gray mark across the floor\nMy name lights up, my chair rolls back\nA little square inside a stack\nI answer yes, I answer fine\nThe daylight leaves without a sign\n\n[Refrain]\nClocked in, still here\nClocked in, still here\nThe little hand eats every year\nClocked in, still here\n\n[Verse 2]\nThe printer spits a curling tongue\nIt says the same thing, overdone\nA meeting starts, a meeting ends\nThe room pretends that we are friends\nAt twelve I stand beside the sink\nAnd watch the paper towels blink\nThe vending machine hums my name\nI feed it coins, it feeds the same\n\n[Refrain]\nClocked in, still here\nClocked in, still here\nThe little hand eats every year\nClocked in, still here\n\n[Bridge]\nAt five the street is blue and wet\nI ride the bus and don't forget\nThe driver has no face at all\nThe buildings lean, the shadows stall\nI take my key, I take my coat\nI hear a laugh inside my throat\nThe television calls me near\nIt says, clocked in, still here\n\n[Verse 3]\nI heat a meal beneath a light\nI wear the silence every night\nThe calendar grows little teeth\nIt chews the days I keep beneath\nTomorrow waits behind the glass\nWith all the cars that never pass\nI set the alarm, I close one eye\nThe ceiling does not ask me why\n\n[Final Refrain - slowed]\nClocked in, still here\nClocked in, still here\nThe little hand eats every year\nClocked in, still here\nStill here\nStill here\n[End]",
+        "duration": 230,
+        "bpm": 90,
+        "musicalSettings": {
+          "genre": "Doomer art rock with Russian coldwave and vaporwave haze",
+          "meter": "4/4",
+          "structure": "Intro, three sparse verses, recurring heavy refrains, an uncanny bridge, then a slowed final refrain and resolved decay",
+          "performance": "Clear, steadily pitched Tony C lead with weary connected phrasing that grows controlled and forceful",
+          "energy": "Low, claustrophobic opening pressure builds through each refrain to a heavy final slowdown without a hopeful release",
+          "lyricWorkflow": "Original short-line lyric built from monotonous workplace and home-routine imagery, with a deliberately repetitive refrain",
+          "instruments": [
+            "electric bass",
+            "overdriven electric guitar",
+            "drum kit",
+            "analog synthesizer"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nThe kettle clicks at six-oh-three\nThe ceiling watches over me\nI count the tiles, I count the steam\nI put my face inside the screen\n\n[Verse 1]\nSame black coffee, same white cup\nSame dead elevator going up\nSame man coughing by the door\nSame gray mark across the floor\nMy name lights up, my chair rolls back\nA little square inside a stack\nI answer yes, I answer fine\nThe daylight leaves without a sign\n\n[Refrain]\nClocked in, still here\nClocked in, still here\nThe little hand eats every year\nClocked in, still here\n\n[Verse 2]\nThe printer spits a curling tongue\nIt says the same thing, overdone\nA meeting starts, a meeting ends\nThe room pretends that we are friends\nAt twelve I stand beside the sink\nAnd watch the paper towels blink\nThe vending machine hums my name\nI feed it coins, it feeds the same\n\n[Refrain]\nClocked in, still here\nClocked in, still here\nThe little hand eats every year\nClocked in, still here\n\n[Bridge]\nAt five the street is blue and wet\nI ride the bus and don't forget\nThe driver has no face at all\nThe buildings lean, the shadows stall\nI take my key, I take my coat\nI hear a laugh inside my throat\nThe television calls me near\nIt says, clocked in, still here\n\n[Verse 3]\nI heat a meal beneath a light\nI wear the silence every night\nThe calendar grows little teeth\nIt chews the days I keep beneath\nTomorrow waits behind the glass\nWith all the cars that never pass\nI set the alarm, I close one eye\nThe ceiling does not ask me why\n\n[Final Refrain - slowed]\nClocked in, still here\nClocked in, still here\nThe little hand eats every year\nClocked in, still here\nStill here\nStill here",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.4,
+            "end": 6.04
+          },
+          {
+            "line": 2,
+            "start": 6.04,
+            "end": 11.52
+          },
+          {
+            "line": 3,
+            "start": 13.5,
+            "end": 16.82
+          },
+          {
+            "line": 4,
+            "start": 18.02,
+            "end": 22.28
+          },
+          {
+            "line": 7,
+            "start": 23.7,
+            "end": 27.48
+          },
+          {
+            "line": 8,
+            "start": 29.06,
+            "end": 32.66
+          },
+          {
+            "line": 9,
+            "start": 34.34,
+            "end": 38.22
+          },
+          {
+            "line": 10,
+            "start": 39.74,
+            "end": 43.4
+          },
+          {
+            "line": 11,
+            "start": 43.4,
+            "end": 46.58
+          },
+          {
+            "line": 12,
+            "start": 46.58,
+            "end": 51.42
+          },
+          {
+            "line": 13,
+            "start": 51.42,
+            "end": 54.62
+          },
+          {
+            "line": 14,
+            "start": 55.23,
+            "end": 58.38
+          },
+          {
+            "line": 17,
+            "start": 59.23,
+            "end": 62.4
+          },
+          {
+            "line": 18,
+            "start": 62.4,
+            "end": 64.38
+          },
+          {
+            "line": 19,
+            "start": 65.38,
+            "end": 68.84
+          },
+          {
+            "line": 20,
+            "start": 68.84,
+            "end": 72.24
+          },
+          {
+            "line": 23,
+            "start": 73.52,
+            "end": 78.12
+          },
+          {
+            "line": 24,
+            "start": 79.64,
+            "end": 83.48
+          },
+          {
+            "line": 25,
+            "start": 84.6,
+            "end": 87.44
+          },
+          {
+            "line": 26,
+            "start": 88.92,
+            "end": 92.36
+          },
+          {
+            "line": 27,
+            "start": 93.68,
+            "end": 95.74
+          },
+          {
+            "line": 28,
+            "start": 95.74,
+            "end": 100.1
+          },
+          {
+            "line": 29,
+            "start": 101.84,
+            "end": 105.42
+          },
+          {
+            "line": 30,
+            "start": 106.36,
+            "end": 110.24
+          },
+          {
+            "line": 33,
+            "start": 112.06,
+            "end": 115.7
+          },
+          {
+            "line": 34,
+            "start": 115.7,
+            "end": 117.68
+          },
+          {
+            "line": 35,
+            "start": 118.32,
+            "end": 120.88
+          },
+          {
+            "line": 36,
+            "start": 120.88,
+            "end": 127.72
+          },
+          {
+            "line": 39,
+            "start": 127.72,
+            "end": 130.78
+          },
+          {
+            "line": 40,
+            "start": 130.78,
+            "end": 134.64
+          },
+          {
+            "line": 41,
+            "start": 134.64,
+            "end": 138.82
+          },
+          {
+            "line": 43,
+            "start": 148,
+            "end": 150.46
+          },
+          {
+            "line": 44,
+            "start": 150.46,
+            "end": 154.86
+          },
+          {
+            "line": 45,
+            "start": 155.66,
+            "end": 158.22
+          },
+          {
+            "line": 46,
+            "start": 159.26,
+            "end": 162.88
+          },
+          {
+            "line": 49,
+            "start": 166.03,
+            "end": 169.42
+          },
+          {
+            "line": 50,
+            "start": 170.28,
+            "end": 172.86
+          },
+          {
+            "line": 51,
+            "start": 174.16,
+            "end": 176.7
+          },
+          {
+            "line": 52,
+            "start": 177.92,
+            "end": 180.58
+          },
+          {
+            "line": 53,
+            "start": 181.88,
+            "end": 184.88
+          },
+          {
+            "line": 54,
+            "start": 184.88,
+            "end": 188.72
+          },
+          {
+            "line": 55,
+            "start": 189.66,
+            "end": 192.9
+          },
+          {
+            "line": 61,
+            "start": 205.08,
+            "end": 209.02
+          },
+          {
+            "line": 62,
+            "start": 209.02,
+            "end": 212.26
+          },
+          {
+            "line": 63,
+            "start": 212.26,
+            "end": 214.92
+          },
+          {
+            "line": 64,
+            "start": 214.92,
+            "end": 229.98
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "763279138b1f7da8117b404c8a0816965484332ce3bd2731545b9f67404b6a9c",
+        "bytes": 5520240,
+        "duration": 230.008125,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5b57d0bbe81a50d17cdfb601-763279138b1f.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Tony C doomer art rock. Use “Morning Routine” as the north star for bass-forward weight, blunt repetitive hooks, controlled vocal intensity and heavier refrain impacts. A prominent repeating electric-bass riff, overdriven guitar, steady drums and restrained analog synth, wrapped in dark heavy reverb, tape-worn texture and Russian coldwave/vaporwave haze. Around 90 BPM, minor key. Tony sounds weary, obsessive and increasingly forceful, with plainly articulated words and rough connected singing. Keep the voice recognizable through the reverb. Sparse verses build into heavy, hypnotic refrains. Lyrics use short, direct statements about a monotonous, alienating daily routine, with uncomfortable absurdity and repeated phrases. Maintain the bleak mood through the ending: no hopeful turnaround or inspirational final chorus. Finish with a slowed final refrain and a dark chord decay.",
+        "direction": "Use the prompt as written.",
+        "keep": "Preserve the bass-forward abrasive weight, blunt repetition and controlled intensity of “Morning Routine,” with the sad, heavily reverbed atmosphere of my doomer prompts.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 230,
+          "pitchRepair": "haunted"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-d36e8cb0b386edd7856e6b45",
       "title": "Windows Lit by Snow",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d36e8cb0b386edd7856e6b45-a69616faa05e.mp3",
