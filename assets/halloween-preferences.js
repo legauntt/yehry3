@@ -3,9 +3,9 @@ export const halloweenLevels = {
   off: { title: 'Off', description: 'No Halloween decorations or animations.', bats: 0, delay: 0, weave: 0, scareEvery: 0 },
   low: { title: 'Low', description: 'Just pumpkins and corner webs. No animations.', bats: 0, delay: 0, weave: 0, scareEvery: 0 },
   medium: { title: 'Medium', description: '12 cursor bats and occasional flybys. No weaving or scares.', bats: 12, delay: 16000, weave: 0, scareEvery: 0 },
-  high: { title: 'High', description: 'The classic haunting: 24 bats, weaving webs, flybys and idle scares.', bats: 24, delay: 8000, weave: 6000, scareEvery: 3 },
-  extreme: { title: 'EXTREME', description: '36 bats, weaving webs and more frequent flybys and idle scares.', bats: 36, delay: 6000, weave: 4000, scareEvery: 3 },
-  haunted: { title: 'HAUNTED', description: '48 bats, faster encounters and an idle scare every other encounter.', bats: 48, delay: 4000, weave: 2000, scareEvery: 2 },
+  high: { title: 'High', description: 'The classic haunting: 24 bats, weaving webs, flybys and occasional idle scares.', bats: 24, delay: 8000, weave: 6000, scareEvery: 30 },
+  extreme: { title: 'EXTREME', description: '36 bats, weaving webs and more frequent flybys with occasional idle scares.', bats: 36, delay: 6000, weave: 4000, scareEvery: 30 },
+  haunted: { title: 'HAUNTED', description: '48 bats, faster encounters and an idle scare every twentieth encounter.', bats: 48, delay: 4000, weave: 2000, scareEvery: 20 },
 };
 let level = 'high';
 const apply = () => {

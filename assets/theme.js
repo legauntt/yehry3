@@ -3,13 +3,14 @@
   const key = "yehry3:dark-mode";
   const moodKey = "yehry3:room-mood";
   const moods = ['classic', 'midnight', 'concrete', 'pumpkin'];
-  let mood = 'classic';
-  let dark = false;
+  let mood = 'midnight';
+  let dark = true;
   const read = () => { try {
-    dark = localStorage.getItem(key) === "true";
+    const savedDark = localStorage.getItem(key);
     const saved = localStorage.getItem(moodKey);
-    mood = moods.includes(saved) ? saved : 'classic';
-    if (mood !== 'classic') dark = true;
+    // Preserve explicit themes and older Dark Mode choices; new visitors get Midnight.
+    mood = moods.includes(saved) ? saved : savedDark !== null ? 'classic' : 'midnight';
+    dark = mood !== 'classic' || savedDark === "true";
   } catch {} };
   const apply = () => {
     document.documentElement.dataset.theme = dark ? "dark" : "light";

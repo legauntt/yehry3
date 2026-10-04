@@ -61,6 +61,11 @@ test('medium omits weaving and scares; haunted stays dismissible and respects re
   await page.getByRole('button',{name:'Close display settings'}).click();
   await page.clock.fastForward(4000);
   await page.clock.fastForward(6500);
+  for (let encounter=2; encounter<20; encounter++) {
+    await page.clock.fastForward(4000);
+    await expect(page.locator('.halloween-scare')).toBeHidden();
+    await page.clock.fastForward(6500);
+  }
   await page.clock.fastForward(4000);
   await expect(page.locator('.halloween-scare')).toBeVisible();
   await page.mouse.move(300,300);
@@ -76,6 +81,7 @@ test('settings still work when localStorage is blocked',async({page})=>{
   await page.goto('/');
   const choice=await settings(page);
   await expect(choice).toHaveValue('high');
+  await expect(page.getByLabel('Listening room theme')).toHaveValue('midnight');
   await choice.selectOption('off');
   await expect(page.locator('.halloween-scene')).toBeHidden();
   await choice.selectOption('medium');
@@ -87,6 +93,8 @@ test('settings still work when localStorage is blocked',async({page})=>{
 test('doomer themes persist, synchronize, and preserve the page', async ({page, context}) => {
   await page.goto('/');
   await settings(page);
+  await expect(page.getByLabel('Listening room theme')).toHaveValue('midnight');
+  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
   const hero = await page.locator('.hero-copy').elementHandle();
   for (const mood of ['midnight','concrete','pumpkin']) {
     await page.getByLabel('Listening room theme').selectOption(mood);
@@ -123,4 +131,26 @@ test('doomer themes persist, synchronize, and preserve the page', async ({page, 
   await page.getByLabel('Halloween decor',{exact:true}).selectOption('off');
   await page.getByRole('button',{name:'Close display settings'}).click();
   await expect(page.locator('.pumpkin-doomer')).toBeHidden();
+});
+
+test('midnight default preserves saved Classic and legacy Dark Mode choices', async ({page}) => {
+  await page.goto('/');
+  for (const dark of ['false','true']) {
+    await page.evaluate(dark => {
+      localStorage.removeItem('yehry3:room-mood');
+      localStorage.setItem('yehry3:dark-mode',dark);
+    },dark);
+    await page.reload();
+    await expect(page.locator('html')).toHaveAttribute('data-room-mood','classic');
+    await expect(page.locator('html')).toHaveAttribute('data-theme',dark==='true'?'dark':'light');
+  }
+  await settings(page);
+  await page.getByRole('checkbox',{name:/^Dark Mode/}).uncheck();
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-room-mood','classic');
+  await expect(page.locator('html')).toHaveAttribute('data-theme','light');
+  await page.evaluate(() => localStorage.clear());
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-room-mood','midnight');
+  await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
 });

@@ -115,7 +115,15 @@ test('bats fly on movement and idle flybys dismiss on activity', async ({ page }
 test('pumpkin blackout laughs, dismisses immediately, and expires by itself', async ({ page }) => {
   await october(page);
   await page.goto('/queue/');
-  await page.clock.runFor(37500);
+  const waitForScare = async () => {
+    for (let encounter=1; encounter<30; encounter++) {
+      await page.clock.fastForward(8000);
+      await expect(page.locator('.halloween-scare')).toBeHidden();
+      await page.clock.fastForward(6500);
+    }
+    await page.clock.fastForward(8000);
+  };
+  await waitForScare();
   await expect(page.locator('.halloween-scare')).toBeVisible();
   await expect(page.locator('.halloween-scene')).toHaveClass(/is-scare/);
   await expect(page.locator('.halloween-ha')).toHaveCount(2);
@@ -124,13 +132,15 @@ test('pumpkin blackout laughs, dismisses immediately, and expires by itself', as
   await expect(page.locator('.halloween-scare')).toBeHidden();
   await expect(page.locator('.halloween-scene')).not.toHaveClass(/is-scare/);
   await page.setViewportSize({width:390,height:844});
-  await page.clock.runFor(37500);
+  await waitForScare();
   await expect(page.locator('.halloween-scare')).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({path:'artifacts/halloween-scare-mobile.png', animations:'disabled'});
   await page.locator('body').tap({force:true});
   await expect(page.locator('.halloween-scare')).toBeHidden();
-  await page.clock.runFor(44000);
+  await waitForScare();
+  await expect(page.locator('.halloween-scare')).toBeVisible();
+  await page.clock.fastForward(5500);
   await expect(page.locator('.halloween-scare')).toBeHidden();
 });
 

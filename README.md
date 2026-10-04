@@ -187,6 +187,7 @@ live songs.
 
 Display settings also offers **Listening room theme**: Classic, Midnight Doomer
 (indigo stars), Concrete Winter (cold slate), and Pumpkin Doomer (amber and plum).
+Midnight Doomer is the default when no theme or older Dark Mode choice is saved.
 Doomer choices enable Dark Mode and persist across pages/tabs in
 `yehry3:room-mood`; switching Dark Mode off returns to Classic. October's hero
 decor includes a headphone-wearing pumpkin doomer, hidden by Halloween decor Off.
@@ -200,8 +201,10 @@ Display settings offers **Halloween decor**: Off, Low, Medium, High (default),
 EXTREME and HAUNTED. Low keeps static pumpkins and corner webs; Medium adds 12
 cursor bats and occasional flybys; High retains the original 24-bat effects,
 weaving and idle scares. EXTREME and HAUNTED add 36/48 bats and more frequent
-encounters. Off hides all seasonal decor and stops its animation work. Choices
-apply across pages/tabs and are saved in `yehry3:halloween-level`; existing bat
+encounters. Off hides all seasonal decor and stops its animation work.
+Pumpkin scares occur one-tenth as often: every 30 encounters on High/EXTREME,
+and every 20 on HAUNTED.
+Choices apply across pages/tabs and are saved in `yehry3:halloween-level`; existing bat
 controls remain independent. Reduced motion and the October season still apply.
 Build first, then run `npx playwright test --config playwright.halloween.config.js`.
 Set `YEHRY3_HALLOWEEN_URL` to check a deployed site; settings tests mock APIs.
