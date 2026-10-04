@@ -2211,5 +2211,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-04T07:21:42.614Z",
     "history": []
+  },
+  "distonyc-5b57d0bbe81a50d17cdfb601": {
+    "src": "/assets/artwork/distonyc-5b57d0bbe81a50d17cdfb601-incubating-d50bd2b2e627-87e177ae99c442a1-q86.webp",
+    "alt": "Cover artwork for Clocked In, Still Here.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "ac0bf4310d205dbf39f785398acaf001ae914ee4d752a1c06e48f4fbc97ea61c",
+    "promptHash": "1d6abb8693f86569d50b104a7dcc18741a651092077288cb964d2b9c34c84afa",
+    "createdAt": "2026-10-04T08:28:06.229Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-04T08:27:42.514Z",
+    "history": []
   }
 };
