@@ -1,7 +1,8 @@
 .track-video-art { position: relative; min-width: 0; border-radius: 7px; }
-#tracks[data-view="grid"] .track-video-art { grid-column: 1 / -1; grid-row: 1; aspect-ratio: 1; align-self: start; }
+/* Match the regular cover slot so video cards do not push titles lower. */
+#tracks[data-view="grid"] .track-video-art { grid-column: 1 / -1; grid-row: 1; aspect-ratio: 6 / 5; align-self: start; }
 #tracks[data-view="grid"] .track-video-art .track-art-frame { height: 100%; }
-#tracks[data-view="grid"] .track-video-art .track-art { height: 100%; aspect-ratio: 1; object-fit: contain; }
+#tracks[data-view="grid"] .track-video-art .track-art { height: 100%; aspect-ratio: 6 / 5; object-fit: contain; }
 #tracks[data-view] .track-video-art .track-art-frame { width: 100%; }
 .song-video-button { position: absolute; right: 7px; bottom: 7px; z-index: 2; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid #ffffff80; border-radius: 50%; color: #fff; background: #10231ee8; cursor: pointer; box-shadow: 0 2px 8px #0005; }
 .song-video-button:hover { background: #244a3d; }
