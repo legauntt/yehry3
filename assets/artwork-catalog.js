@@ -2052,19 +2052,26 @@ export default {
     "briefHash": "9a82d1652735a2215d9b2998570bc3dab15f819b079a645764e99f20f251780f"
   },
   "distonyc-e4f534e23181ed37b959528a": {
-    "src": "/assets/artwork/distonyc-e4f534e23181ed37b959528a-incubating-2fbc238cf349-q86.webp",
+    "src": "/assets/artwork/distonyc-e4f534e23181ed37b959528a-mature-f5a1aaaa3088-e4f1533f9a90b346-q86.webp",
     "alt": "Cover artwork for Morning Aria, Back to Bed.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "646fe1f2d8f1621b3f328af09278b0cce7f624564b23c5dffff7170c2c1c4aa1",
-    "promptHash": "1cf1ac3c732c63a12c3a172b15ec315448350c36d032163ec71e3119b82e4c2d",
-    "createdAt": "2026-10-03T11:55:02.425Z",
+    "promptHash": "ed15187e790744881ab63d2b6b7dde14aa427bfeff1dcbccb6dfd2f02d8d095b",
+    "createdAt": "2026-10-04T11:58:33.319Z",
     "missingSources": [],
-    "previous": null,
-    "firstSeenAt": "2026-10-03T11:54:42.881Z"
+    "previous": "/assets/artwork/distonyc-e4f534e23181ed37b959528a-incubating-2fbc238cf349-q86.webp",
+    "firstSeenAt": "2026-10-03T11:54:42.881Z",
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-e4f534e23181ed37b959528a-incubating-2fbc238cf349-q86.webp",
+        "alt": "Cover artwork for Morning Aria, Back to Bed.",
+        "createdAt": "2026-10-03T11:55:02.425Z"
+      }
+    ]
   },
   "distonyc-944052f6558e303470491554": {
     "src": "/assets/artwork/distonyc-944052f6558e303470491554-mature-ec1893f6ee49-fb3717589613c75d-q86.webp",
