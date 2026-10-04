@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "songId": "distonyc-d36e8cb0b386edd7856e6b45",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d36e8cb0b386edd7856e6b45-a69616faa05e.mp3",
+  "audioSha256": "a69616faa05e9bf4917ed690e94e2ed5dd34ad856daa8b9aa6dc2dc71ab8d56b",
+  "inputSha256": "7c3783d9458336925b134423fe944a4b6a344017ac33f9a9dcf87633f81e9d1c",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 274.9649375,
+  "segments": [
+    {
+      "start": 3.98,
+      "end": 7.98,
+      "text": "Snow turns blue beneath the wires",
+      "uncertain": false
+    },
+    {
+      "start": 7.98,
+      "end": 12.4,
+      "text": "A tram sighs past the empty square",
+      "uncertain": false
+    },
+    {
+      "start": 12.4,
+      "end": 17.7,
+      "text": "I count the rooms with lights still burning",
+      "uncertain": false
+    },
+    {
+      "start": 19.94,
+      "end": 24.26,
+      "text": "And wonder who is waiting there",
+      "uncertain": false
+    },
+    {
+      "start": 26.06,
+      "end": 30.58,
+      "text": "The stairwell smells of rain and iron",
+      "uncertain": false
+    },
+    {
+      "start": 30.58,
+      "end": 35.18,
+      "text": "The elevator coughs and stalls",
+      "uncertain": false
+    },
+    {
+      "start": 35.18,
+      "end": 40.02,
+      "text": "I carry midnight in my jacket",
+      "uncertain": false
+    },
+    {
+      "start": 40.02,
+      "end": 44.84,
+      "text": "Like a picture on the wall",
+      "uncertain": false
+    },
+    {
+      "start": 44.84,
+      "end": 49.9,
+      "text": "The city folds behind the curtains",
+      "uncertain": false
+    },
+    {
+      "start": 51.36,
+      "end": 55.26,
+      "text": "The television paints the floor",
+      "uncertain": false
+    },
+    {
+      "start": 55.26,
+      "end": 59.46,
+      "text": "I hear a record through the ceiling",
+      "uncertain": false
+    },
+    {
+      "start": 59.46,
+      "end": 62.8,
+      "text": "And nothing from the room next door",
+      "uncertain": true
+    },
+    {
+      "start": 64.14,
+      "end": 67.7,
+      "text": "Every street is saying slowly",
+      "uncertain": false
+    },
+    {
+      "start": 67.7,
+      "end": 72.16,
+      "text": "You can leave but not tonight",
+      "uncertain": false
+    },
+    {
+      "start": 75.56,
+      "end": 78.12,
+      "text": "Windows lit by snow",
+      "uncertain": false
+    },
+    {
+      "start": 79.6,
+      "end": 83.04,
+      "text": "Hold me in their low blue glow",
+      "uncertain": true
+    },
+    {
+      "start": 83.04,
+      "end": 88.16,
+      "text": "I am not asleep, I am not alive",
+      "uncertain": false
+    },
+    {
+      "start": 88.16,
+      "end": 91.34,
+      "text": "Just a little radio",
+      "uncertain": false
+    },
+    {
+      "start": 92.6,
+      "end": 96.38,
+      "text": "Playing where the cold winds go",
+      "uncertain": false
+    },
+    {
+      "start": 96.38,
+      "end": 100.6,
+      "text": "Till the morning finds a way to arise",
+      "uncertain": false
+    },
+    {
+      "start": 104.82,
+      "end": 109.0,
+      "text": "The river keeps its black reflection",
+      "uncertain": false
+    },
+    {
+      "start": 109.0,
+      "end": 112.92,
+      "text": "Under bridges wet with light",
+      "uncertain": true
+    },
+    {
+      "start": 114.58,
+      "end": 118.78,
+      "text": "A distant train bends through the silence",
+      "uncertain": false
+    },
+    {
+      "start": 118.78,
+      "end": 122.54,
+      "text": "Dragging sparks across the night",
+      "uncertain": false
+    },
+    {
+      "start": 122.54,
+      "end": 127.44,
+      "text": "I bought cheap coffee at the kiosk",
+      "uncertain": false
+    },
+    {
+      "start": 127.44,
+      "end": 131.78,
+      "text": "And let it cool between my hands",
+      "uncertain": false
+    },
+    {
+      "start": 131.78,
+      "end": 136.56,
+      "text": "The woman there looked through my shadow",
+      "uncertain": false
+    },
+    {
+      "start": 136.56,
+      "end": 139.76,
+      "text": "Like she understood the plans",
+      "uncertain": false
+    },
+    {
+      "start": 141.94,
+      "end": 145.58,
+      "text": "Every clock is moving softly",
+      "uncertain": false
+    },
+    {
+      "start": 145.58,
+      "end": 149.42,
+      "text": "Every face is out of sight",
+      "uncertain": false
+    },
+    {
+      "start": 153.38,
+      "end": 155.94,
+      "text": "Windows lit by snow",
+      "uncertain": false
+    },
+    {
+      "start": 157.38,
+      "end": 160.84,
+      "text": "Hold me in there, low blue blow",
+      "uncertain": true
+    },
+    {
+      "start": 160.84,
+      "end": 165.98,
+      "text": "I am not asleep, I am not alive",
+      "uncertain": false
+    },
+    {
+      "start": 165.98,
+      "end": 169.18,
+      "text": "Just a little radio",
+      "uncertain": false
+    },
+    {
+      "start": 170.36,
+      "end": 174.24,
+      "text": "Playing where the cold winds go",
+      "uncertain": false
+    },
+    {
+      "start": 174.24,
+      "end": 178.5,
+      "text": "Till the morning finds a way to arrive",
+      "uncertain": false
+    },
+    {
+      "start": 182.38,
+      "end": 186.44,
+      "text": "Maybe all these towers are ships",
+      "uncertain": false
+    },
+    {
+      "start": 187.68,
+      "end": 190.7,
+      "text": "Anchored in a frozen sea",
+      "uncertain": false
+    },
+    {
+      "start": 192.14,
+      "end": 195.84,
+      "text": "Maybe every sleepless window",
+      "uncertain": false
+    },
+    {
+      "start": 195.84,
+      "end": 199.58,
+      "text": "Keeps a small light on for me",
+      "uncertain": false
+    },
+    {
+      "start": 199.58,
+      "end": 203.76,
+      "text": "I do not need a grand forgiveness",
+      "uncertain": false
+    },
+    {
+      "start": 204.78,
+      "end": 208.5,
+      "text": "I do not need a clearer sign",
+      "uncertain": false
+    },
+    {
+      "start": 209.68,
+      "end": 213.52,
+      "text": "Just let the street lamps blur together",
+      "uncertain": false
+    },
+    {
+      "start": 213.52,
+      "end": 217.4,
+      "text": "Let the grey become the sky",
+      "uncertain": false
+    },
+    {
+      "start": 219.3,
+      "end": 221.58,
+      "text": "Windows lit by snow",
+      "uncertain": false
+    },
+    {
+      "start": 223.02,
+      "end": 226.5,
+      "text": "I can feel the dark let go",
+      "uncertain": false
+    },
+    {
+      "start": 227.76,
+      "end": 231.28,
+      "text": "Not all at once, not like a flame",
+      "uncertain": false
+    },
+    {
+      "start": 232.62,
+      "end": 236.68,
+      "text": "But the road begins to show",
+      "uncertain": false
+    },
+    {
+      "start": 236.68,
+      "end": 241.12,
+      "text": "Past the last exhausted glow",
+      "uncertain": false
+    },
+    {
+      "start": 241.12,
+      "end": 245.98,
+      "text": "And I can find the call my name",
+      "uncertain": true
+    },
+    {
+      "start": 248.02,
+      "end": 251.56,
+      "text": "When the first tram rings below",
+      "uncertain": false
+    },
+    {
+      "start": 252.86,
+      "end": 256.3,
+      "text": "I will walk into the snow",
+      "uncertain": false
+    },
+    {
+      "start": 258.0,
+      "end": 262.22,
+      "text": "With the last note hanging warm and slow",
+      "uncertain": false
+    }
+  ]
+}
