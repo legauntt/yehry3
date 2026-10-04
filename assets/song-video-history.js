@@ -5,6 +5,13 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/03-morning-routine-new-entries-20261003.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/morning-routine-doomer-22_5s-20261003.mp4",
+      "framing": "square",
+      "duration": 22.5,
+      "audio": true,
+      "treatment": "doomer"
     }
   ],
   "distonyc-d88c69ac5b02b644324e42ad": [

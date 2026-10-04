@@ -28,14 +28,16 @@ test("published catalog exposes and plays all page-one videos", async ({ page })
     await expect(button).toBeVisible();
     await button.click();
     const video = page.locator(".song-video-viewer video");
-    await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted), { timeout: 20000, message: `Live playback starts for ${id}` }).toBe(true);
+    if (song.videoAudio) {
+      await expect.poll(() => video.evaluate(v => v.readyState >= 1 && v.paused && !v.muted && v.currentTime === 0)).toBe(true);
+      await page.getByRole("button", { name: "Play video with sound", exact: true }).click();
+    }
+    await expect.poll(() => video.evaluate((v, sound) => !v.paused && v.currentTime > 0 && v.muted === !sound, Boolean(song.videoAudio)), { timeout: 20000, message: `Live playback starts for ${id}` }).toBe(true);
     expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([song.videoWidth || 576, song.videoHeight || 1024, song.videoDuration || 15]);
     if (song.videoAudio) {
       await expect(button).toHaveClass(/song-video-button-doomer/);
-      await expect(page.locator('[data-video-description]')).toHaveText(`${song.videoDuration}-second video with chorus audio · Unmute to listen`);
-      await video.evaluate(v => { v.muted = false; });
+      await expect(page.locator('[data-video-description]')).toHaveText(`${song.videoDuration}-second video with chorus audio · Press Play to watch with sound`);
       await expect.poll(() => video.evaluate(v => v.webkitAudioDecodedByteCount > 0)).toBe(true);
-      await video.evaluate(v => { v.muted = true; });
       await page.screenshot({ path: 'test-results/morning-doomer-live.png' });
     }
     for (const choice of videoVersions(id).slice(0, -1)) {
@@ -43,7 +45,8 @@ test("published catalog exposes and plays all page-one videos", async ({ page })
       await button.click();
       await expect(button).toHaveAttribute("aria-pressed", "true");
       await expect(video).toHaveAttribute("src", choice.src);
-      await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted), { timeout: 20000 }).toBe(true);
+      if (choice.audio) await page.getByRole("button", { name: "Play video with sound", exact: true }).click();
+      await expect.poll(() => video.evaluate((v, sound) => !v.paused && v.currentTime > 0 && v.muted === !sound, Boolean(choice.audio)), { timeout: 20000 }).toBe(true);
     }
     await page.keyboard.press("Escape");
   }

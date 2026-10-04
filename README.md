@@ -99,9 +99,10 @@ Run `npm run build`, `npm test`, and `npx playwright test --config
 playwright.videos.config.js`; set `YEHRY3_VIDEO_URL=https://yehry3.app` for live
 playback checks of current and preserved clips.
 
-Morning Routine's current companion is a 22.5-second locally rendered Doomer video
+Morning Routine's current companion is a 22-second locally rendered Doomer video with an end-to-start picture and audio dissolve
 with chorus audio. Its beanie-face video button has a violet glow. Clips marked
-`audio: true` show an unmute hint in the popout; hover previews remain muted.
+`audio: true` open unmuted and wait for a click on Play. Opening or playing a sound
+clip pauses the shared song player; hover previews remain muted.
 
 
 `/sausage/` compares the paid EMP run **Drink It Back, Bucko** with the local ACE run

@@ -1,5 +1,6 @@
 import videos from "./song-videos.js";
 import { videoVersions } from "./song-video-versions.js";
+import { player } from "./player.js";
 
 export function mountSongVideos(root, scope) {
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
@@ -23,30 +24,57 @@ export function mountSongVideos(root, scope) {
   dialog.querySelector("header").after(versions);
   document.body.append(dialog);
   const full = dialog.querySelector("video");
+  const play = document.createElement("button");
+  play.type = "button";
+  play.textContent = "Play video with sound";
+  play.dataset.videoPlay = "";
+  play.hidden = true;
+  full.before(play);
   full.muted = true;
   const close = dialog.querySelector("[data-video-close]");
   const status = dialog.querySelector(".song-video-status");
   let timer, candidate, active, opener, songId, generation = 0;
   let choices = [], playbackGeneration = 0;
+  let sound = false;
   function selectVersion(index) {
     const video = choices[index];
     if (!video) return;
     const token = ++playbackGeneration;
     full.pause();
+    sound = Boolean(video.audio);
+    play.hidden = !sound;
+    if (sound) player.pause();
     status.textContent = "Loading video…";
     dialog.querySelector("[data-video-description]").textContent = video.audio
-      ? `${video.duration || 15}-second video with chorus audio · Unmute to listen`
+      ? `${video.duration || 15}-second video with chorus audio · Press Play to watch with sound`
       : `${video.duration || 15}-second silent video`;
     for (const button of versions.querySelectorAll("button")) {
       button.setAttribute("aria-pressed", String(Number(button.dataset.version) === index));
     }
     full.dataset.framing = video.framing;
-    full.muted = true;
+    full.muted = !sound;
+    full.defaultMuted = !sound;
+    full.preload = sound ? "auto" : "none";
     full.src = video.src;
+    if (sound) {
+      full.load();
+      status.textContent = "Press Play to watch with sound.";
+      return;
+    }
     full.play().catch(() => {
       if (dialog.open && token === playbackGeneration) status.textContent = full.error ? "The video could not load. Try another version or close and try again." : "Press play to watch the video.";
     });
   }
+  scope.on(play, "click", () => {
+    const token = playbackGeneration;
+    player.pause();
+    full.play().catch(() => {
+      if (dialog.open && token === playbackGeneration) status.textContent = "The video could not start. Press Play to try again.";
+    });
+  });
+  // Native video controls also use the shared player, including its crossfade deck.
+  scope.on(full, "play", () => { if (sound) player.pause(); });
+  scope.on(full, "pause", () => { play.hidden = !sound; });
   scope.on(versions, "click", event => {
     const button = event.target.closest("[data-version]");
     if (button && button.getAttribute("aria-pressed") !== "true") selectVersion(Number(button.dataset.version));
@@ -136,7 +164,7 @@ export function mountSongVideos(root, scope) {
     close.focus({ preventScroll: true });
     selectVersion(choices.length - 1);
   });
-  scope.on(full, "playing", () => { status.textContent = ""; });
+  scope.on(full, "playing", () => { status.textContent = ""; play.hidden = true; });
   scope.on(full, "error", () => { status.textContent = "The video could not load. Close and try again."; });
   scope.on(close, "click", () => dialog.close());
   scope.on(dialog, "close", () => {
