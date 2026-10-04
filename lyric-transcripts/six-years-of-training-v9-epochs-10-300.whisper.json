@@ -1,0 +1,397 @@
+{
+  "version": 1,
+  "songId": "six-years-of-training-v9-epochs-10-300",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/six-years-of-training-v9-epochs-10-300-bf902108a47a.mp3",
+  "audioSha256": "bf902108a47adf709f1236c8520efe246d99c202ddc7838a570a38b00523159f",
+  "inputSha256": "bf902108a47adf709f1236c8520efe246d99c202ddc7838a570a38b00523159f",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 299.44,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 2.32,
+      "text": "Ten little sparks in the Crescent sand",
+      "uncertain": true
+    },
+    {
+      "start": 2.32,
+      "end": 4.66,
+      "text": "Six years of training to torture my hand",
+      "uncertain": true
+    },
+    {
+      "start": 4.66,
+      "end": 6.96,
+      "text": "20 on the tide and the power goes dead",
+      "uncertain": true
+    },
+    {
+      "start": 6.96,
+      "end": 9.42,
+      "text": "Pitched black RPG puts a price on my hand",
+      "uncertain": false
+    },
+    {
+      "start": 9.42,
+      "end": 11.78,
+      "text": "30 busts the doors and the map gone wrong",
+      "uncertain": true
+    },
+    {
+      "start": 11.78,
+      "end": 14.24,
+      "text": "I learned to fear silence and laugh in a song",
+      "uncertain": false
+    },
+    {
+      "start": 14.24,
+      "end": 16.6,
+      "text": "40 if you can't keep the day the love's dry",
+      "uncertain": true
+    },
+    {
+      "start": 16.6,
+      "end": 18.92,
+      "text": "Soaking with wings puts a scratch in the sky",
+      "uncertain": false
+    },
+    {
+      "start": 18.92,
+      "end": 21.44,
+      "text": "I'm 50 years old now, oh that's how I feel",
+      "uncertain": false
+    },
+    {
+      "start": 21.44,
+      "end": 24.06,
+      "text": "One more fail, save and throw one more bad deal",
+      "uncertain": false
+    },
+    {
+      "start": 52.88,
+      "end": 57.82,
+      "text": "60 seconds bleeding before we run",
+      "uncertain": true
+    },
+    {
+      "start": 57.82,
+      "end": 62.62,
+      "text": "Six years of training, still a strength wall to hire",
+      "uncertain": true
+    },
+    {
+      "start": 63.66,
+      "end": 67.28,
+      "text": "Seventy prayers to a flickering flame",
+      "uncertain": false
+    },
+    {
+      "start": 67.28,
+      "end": 72.38,
+      "text": "Good job, D.K.'s, you set my boots aflame",
+      "uncertain": false
+    },
+    {
+      "start": 72.38,
+      "end": 76.8,
+      "text": "Eighty crooked footsteps keep close to the wall",
+      "uncertain": false
+    },
+    {
+      "start": 76.8,
+      "end": 81.68,
+      "text": "We carry the weakness, or none of us call",
+      "uncertain": false
+    },
+    {
+      "start": 81.68,
+      "end": 86.28,
+      "text": "Ninety little brosets, I still hear you sing",
+      "uncertain": false
+    },
+    {
+      "start": 86.28,
+      "end": 91.26,
+      "text": "The clock takes the daylight, it won't take I'll be fine",
+      "uncertain": true
+    },
+    {
+      "start": 91.26,
+      "end": 97.28,
+      "text": "A hundred pennies in a dollar, I'm bold, but I'll buy us",
+      "uncertain": true
+    },
+    {
+      "start": 103.04,
+      "end": 107.52,
+      "text": "The hundred ten reasons to stay by the rent",
+      "uncertain": true
+    },
+    {
+      "start": 107.52,
+      "end": 112.36,
+      "text": "The strap on my courage is paid in the net",
+      "uncertain": true
+    },
+    {
+      "start": 112.36,
+      "end": 117.3,
+      "text": "A hundred twenty pages of rules in the dust",
+      "uncertain": true
+    },
+    {
+      "start": 117.3,
+      "end": 122.16,
+      "text": "You'll never defeat me, a chip in the dust",
+      "uncertain": false
+    },
+    {
+      "start": 122.16,
+      "end": 127.1,
+      "text": "A hundred thirty arteries, not one holds in charge",
+      "uncertain": true
+    },
+    {
+      "start": 127.1,
+      "end": 131.7,
+      "text": "The beast in the tunnel is terribly large",
+      "uncertain": false
+    },
+    {
+      "start": 131.7,
+      "end": 136.36,
+      "text": "A hundred forty lessons in running away",
+      "uncertain": true
+    },
+    {
+      "start": 136.36,
+      "end": 141.02,
+      "text": "A trip on a training and live anyway",
+      "uncertain": true
+    },
+    {
+      "start": 142.34,
+      "end": 146.22,
+      "text": "150 arrows, the last one goes wide",
+      "uncertain": true
+    },
+    {
+      "start": 146.22,
+      "end": 148.68,
+      "text": "A curse at the heavens",
+      "uncertain": true
+    },
+    {
+      "start": 154.48,
+      "end": 158.58,
+      "text": "160 heartbeats, the drums of the lost",
+      "uncertain": false
+    },
+    {
+      "start": 158.58,
+      "end": 163.26,
+      "text": "Six years of training, that strength won't fall",
+      "uncertain": false
+    },
+    {
+      "start": 163.26,
+      "end": 168.06,
+      "text": "170 promise, keep just this one",
+      "uncertain": true
+    },
+    {
+      "start": 168.06,
+      "end": 170.48,
+      "text": "Good job, Pete Cage",
+      "uncertain": true
+    },
+    {
+      "start": 170.48,
+      "end": 172.78,
+      "text": "You're just a golden mole",
+      "uncertain": true
+    },
+    {
+      "start": 172.78,
+      "end": 175.22,
+      "text": "180 degrees",
+      "uncertain": false
+    },
+    {
+      "start": 175.22,
+      "end": 177.72,
+      "text": "Jump back for my friend",
+      "uncertain": false
+    },
+    {
+      "start": 177.72,
+      "end": 180.08,
+      "text": "The shortest way home",
+      "uncertain": false
+    },
+    {
+      "start": 180.08,
+      "end": 182.48,
+      "text": "Isn't always the end",
+      "uncertain": false
+    },
+    {
+      "start": 182.48,
+      "end": 184.96,
+      "text": "190 whispers",
+      "uncertain": false
+    },
+    {
+      "start": 184.96,
+      "end": 187.24,
+      "text": "Say, don't be a fool",
+      "uncertain": false
+    },
+    {
+      "start": 187.24,
+      "end": 189.78,
+      "text": "I drag you through darkness",
+      "uncertain": true
+    },
+    {
+      "start": 189.78,
+      "end": 192.02,
+      "text": "And break every move",
+      "uncertain": true
+    },
+    {
+      "start": 192.02,
+      "end": 194.56,
+      "text": "200 scars",
+      "uncertain": false
+    },
+    {
+      "start": 194.56,
+      "end": 196.86,
+      "text": "But a hand reaches mine",
+      "uncertain": false
+    },
+    {
+      "start": 196.86,
+      "end": 198.96,
+      "text": "We're bad at survival",
+      "uncertain": false
+    },
+    {
+      "start": 198.96,
+      "end": 203.48,
+      "text": "210 stars at the Eclipse you raise",
+      "uncertain": true
+    },
+    {
+      "start": 203.48,
+      "end": 206.04,
+      "text": "I remember your laughter",
+      "uncertain": false
+    },
+    {
+      "start": 206.04,
+      "end": 208.38,
+      "text": "I remember your face",
+      "uncertain": false
+    },
+    {
+      "start": 208.38,
+      "end": 212.72,
+      "text": "220 volts in the dead little wire",
+      "uncertain": false
+    },
+    {
+      "start": 212.72,
+      "end": 217.88,
+      "text": "We rub stones together and argue with fire",
+      "uncertain": false
+    },
+    {
+      "start": 219.06,
+      "end": 222.62,
+      "text": "230 nights with the same rotten dream",
+      "uncertain": false
+    },
+    {
+      "start": 222.62,
+      "end": 225.64,
+      "text": "You'll never defeat me",
+      "uncertain": false
+    },
+    {
+      "start": 225.64,
+      "end": 227.44,
+      "text": "I flee with the street",
+      "uncertain": true
+    },
+    {
+      "start": 228.8,
+      "end": 232.14,
+      "text": "240 miles to a door mark escape",
+      "uncertain": false
+    },
+    {
+      "start": 233.08,
+      "end": 237.24,
+      "text": "My character sheet looks like somebody's mistake",
+      "uncertain": false
+    },
+    {
+      "start": 237.24,
+      "end": 242.18,
+      "text": "250 times I could stay down",
+      "uncertain": false
+    },
+    {
+      "start": 242.18,
+      "end": 246.24,
+      "text": "I rise with a grand, a terrible",
+      "uncertain": false
+    },
+    {
+      "start": 246.24,
+      "end": 246.66,
+      "text": "We'll see.",
+      "uncertain": true
+    },
+    {
+      "start": 277.26,
+      "end": 282.24,
+      "text": "I hold you together with every breath I take",
+      "uncertain": true
+    },
+    {
+      "start": 282.24,
+      "end": 287.1,
+      "text": "Two hundred and ninety tears for the ones left behind",
+      "uncertain": true
+    },
+    {
+      "start": 287.1,
+      "end": 289.9,
+      "text": "Their names right beside us",
+      "uncertain": true
+    },
+    {
+      "start": 289.9,
+      "end": 293.4,
+      "text": "Their heads steady minds behind the dome",
+      "uncertain": true
+    },
+    {
+      "start": 293.4,
+      "end": 295.42,
+      "text": "Imagined in pain",
+      "uncertain": false
+    },
+    {
+      "start": 295.42,
+      "end": 298.36,
+      "text": "Six years of training, I'll send you home",
+      "uncertain": false
+    }
+  ]
+}
