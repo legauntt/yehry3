@@ -60,6 +60,19 @@ for (const { src } of Object.values(songVideos)) {
   assert.equal(prefix.toString("ascii", 4, 8), "ftyp", `Video is not an MP4: ${src}`);
 }
 console.log(`All ${Object.keys(songVideos).length} song video URLs and byte-range playback verified; bundled checksums match.`);
+for (const { loopAudio, loopVideo } of Object.values(songVideos)) {
+  if (!loopAudio) continue;
+  const response = await get(new URL(loopAudio, `${site}/`));
+  const bytes = Buffer.from(await response.arrayBuffer());
+  assert.equal(bytes.toString('ascii', 0, 4), 'RIFF', 'Loop audio must be PCM WAV');
+  assert.equal(bytes.toString('ascii', 8, 12), 'WAVE');
+  const expected = await readFile(new URL(`..${loopAudio}`, import.meta.url));
+  assert.equal(createHash('sha256').update(bytes).digest('hex'), createHash('sha256').update(expected).digest('hex'), 'Lossless loop audio differs from the deployed source');
+  const picture = await get(new URL(loopVideo, `${site}/`), { headers: { Range: 'bytes=0-31' } });
+  assert.equal(picture.status, 206, 'Loop picture must support byte ranges');
+  assert.equal(Buffer.from(await picture.arrayBuffer()).toString('ascii', 4, 8), 'ftyp');
+}
+console.log('Lossless loop audio checksums and picture-track ranges verified.');
 function verifyTimestamp(html, route) {
   const stamp = html.match(/class="deployment-stamp">Updated at <time datetime="([^"]+)">([^<]+)<\/time>/);
   assert.ok(stamp && Number.isFinite(Date.parse(stamp[1])), `Missing deployment timestamp: ${route}`);

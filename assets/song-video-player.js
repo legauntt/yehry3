@@ -1,6 +1,7 @@
 import videos from "./song-videos.js";
 import { videoVersions } from "./song-video-versions.js";
 import { player } from "./player.js";
+import { videoLoopAudio } from "./video-loop-audio.js";
 
 export function mountSongVideos(root, scope) {
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
@@ -30,9 +31,20 @@ export function mountSongVideos(root, scope) {
   play.dataset.videoPlay = "";
   play.hidden = true;
   full.before(play);
+  const soundControls = document.createElement("div");
+  soundControls.hidden = true;
+  soundControls.className = "song-video-sound-controls";
+  soundControls.innerHTML = `<label><input type="checkbox" checked data-video-sound> Sound on</label><label>Volume <input type="range" min="0" max="1" step="0.05" value="1" aria-label="Video volume"></label>`;
+  full.before(soundControls);
+  const soundToggle = soundControls.querySelector("[data-video-sound]");
+  const soundVolume = soundControls.querySelector("[type=range]");
   full.muted = true;
   const close = dialog.querySelector("[data-video-close]");
   const status = dialog.querySelector(".song-video-status");
+  const loopAudio = videoLoopAudio(full, () => {
+    full.pause();
+    status.textContent = "The audio could not load. Press Play to try again.";
+  });
   let timer, candidate, active, opener, songId, generation = 0;
   let choices = [], playbackGeneration = 0;
   let sound = false;
@@ -41,6 +53,10 @@ export function mountSongVideos(root, scope) {
     if (!video) return;
     const token = ++playbackGeneration;
     full.pause();
+    loopAudio.select(video.loopAudio);
+    soundControls.hidden = !video.loopAudio;
+    soundToggle.checked = true;
+    soundVolume.value = String(full.volume);
     sound = Boolean(video.audio);
     play.hidden = !sound;
     if (sound) player.pause();
@@ -55,7 +71,7 @@ export function mountSongVideos(root, scope) {
     full.muted = !sound;
     full.defaultMuted = !sound;
     full.preload = sound ? "auto" : "none";
-    full.src = video.src;
+    full.src = video.loopVideo || video.src;
     if (sound) {
       full.load();
       status.textContent = "Press Play to watch with sound.";
@@ -65,16 +81,25 @@ export function mountSongVideos(root, scope) {
       if (dialog.open && token === playbackGeneration) status.textContent = full.error ? "The video could not load. Try another version or close and try again." : "Press play to watch the video.";
     });
   }
-  scope.on(play, "click", () => {
+  scope.on(dialog, "pointerdown", () => loopAudio.prime());
+  scope.on(dialog, "keydown", () => loopAudio.prime());
+  scope.on(play, "click", async () => {
     const token = playbackGeneration;
     player.pause();
-    full.play().catch(() => {
+    try {
+      if (await loopAudio.prepare() && dialog.open && token === playbackGeneration) await full.play();
+    } catch {
       if (dialog.open && token === playbackGeneration) status.textContent = "The video could not start. Press Play to try again.";
-    });
+    }
   });
   // Native video controls also use the shared player, including its crossfade deck.
   scope.on(full, "play", () => { if (sound) player.pause(); });
-  scope.on(full, "pause", () => { play.hidden = !sound; });
+  scope.on(full, "pause", () => { loopAudio.pause(); play.hidden = !sound; });
+  scope.on(full, "seeked", () => loopAudio.seek());
+  scope.on(full, "volumechange", () => loopAudio.volume());
+  scope.on(soundToggle, "change", () => { full.muted = !soundToggle.checked; });
+  scope.on(soundVolume, "input", () => { full.volume = Number(soundVolume.value); });
+  scope.on(full, "ratechange", () => loopAudio.rate());
   scope.on(versions, "click", event => {
     const button = event.target.closest("[data-version]");
     if (button && button.getAttribute("aria-pressed") !== "true") selectVersion(Number(button.dataset.version));
@@ -164,12 +189,13 @@ export function mountSongVideos(root, scope) {
     close.focus({ preventScroll: true });
     selectVersion(choices.length - 1);
   });
-  scope.on(full, "playing", () => { status.textContent = ""; play.hidden = true; });
+  scope.on(full, "playing", () => { status.textContent = ""; play.hidden = true; void loopAudio.play(); });
   scope.on(full, "error", () => { status.textContent = "The video could not load. Close and try again."; });
   scope.on(close, "click", () => dialog.close());
   scope.on(dialog, "close", () => {
     if (dialog.open) return;
     playbackGeneration++;
+    loopAudio.pause();
     release(full);
     document.documentElement.classList.remove("song-video-open");
     if (!scope.left) (opener?.isConnected ? opener : root.querySelector(`[data-video-open="${CSS.escape(songId)}"]`))?.focus({ preventScroll: true });
@@ -181,6 +207,7 @@ export function mountSongVideos(root, scope) {
   });
   scope.onLeave(() => {
     playbackGeneration++;
+    loopAudio.destroy();
     observer.disconnect();
     stop();
     release(full);

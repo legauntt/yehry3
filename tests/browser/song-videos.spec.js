@@ -18,6 +18,23 @@ test.beforeEach(async ({ page }) => {
 const card = page => page.locator(`[data-id="${songs[0].id}"]`);
 
 test("sound video waits for Play, pauses the shared song and loops on a phone", async ({ page }) => {
+  test.setTimeout(60000);
+  await page.addInitScript(() => {
+    window.loopSources = [];
+    window.loopGains = [];
+    const gain = AudioContext.prototype.createGain;
+    AudioContext.prototype.createGain = function () {
+      const node = gain.call(this);
+      node.meter = this.createAnalyser(); node.connect(node.meter);
+      window.loopGains.push(node); return node;
+    };
+    const create = AudioContext.prototype.createBufferSource;
+    AudioContext.prototype.createBufferSource = function () {
+      const source = create.call(this);
+      window.loopSources.push(source);
+      return source;
+    };
+  });
   const song = songs.find(s => s.videoAudio);
   await page.goto("/");
   await card(page).locator("[data-play]").click();
@@ -38,8 +55,31 @@ test("sound video waits for Play, pauses the shared song and loops on a phone", 
   await page.screenshot({ path: "test-results/morning-doomer-phone-play.png" });
   await dialog.getByRole("button", { name: "Play video with sound", exact: true }).click();
   await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && !v.muted)).toBe(true);
-  await video.evaluate(v => { v.currentTime = v.duration - 0.3; });
+  await expect.poll(() => page.evaluate(() => window.loopSources.length)).toBe(1);
+  expect(await page.evaluate(() => window.loopSources[0].context.state)).toBe("running");
+  const soundLevel = () => page.evaluate(() => {
+    const samples = new Float32Array(2048);
+    window.loopGains[0].meter.getFloatTimeDomainData(samples);
+    return Math.sqrt(samples.reduce((sum, value) => sum + value * value, 0) / samples.length);
+  });
+  await expect.poll(soundLevel).toBeGreaterThan(.01);
+  // A real complete cycle verifies the audio node survives the native video seek.
+  await expect.poll(() => video.evaluate(v => v.currentTime > 22), { timeout: 30000 }).toBe(true);
   await expect.poll(() => video.evaluate(v => !v.paused && !v.ended && v.currentTime < 2)).toBe(true);
+  expect(await page.evaluate(() => window.loopSources.length)).toBe(1);
+  expect(await page.evaluate(() => window.loopSources[0].loop)).toBe(true);
+  await expect.poll(soundLevel).toBeGreaterThan(.01);
+  await video.evaluate(v => { v.pause(); });
+  await expect(dialog.getByRole("button", { name: "Play video with sound", exact: true })).toBeVisible();
+  await dialog.getByRole("button", { name: "Play video with sound", exact: true }).click();
+  await expect.poll(() => page.evaluate(() => window.loopSources.length)).toBe(2);
+  await video.evaluate(v => { v.currentTime = 10; });
+  await expect.poll(() => page.evaluate(() => window.loopSources.length)).toBe(3);
+  await dialog.getByLabel("Sound on", { exact: true }).uncheck();
+  await expect.poll(() => page.evaluate(() => window.loopGains[0].gain.value)).toBe(0);
+  await dialog.getByLabel("Sound on", { exact: true }).check();
+  await dialog.getByRole("slider", { name: "Video volume" }).fill("0.5");
+  await expect.poll(() => page.evaluate(() => window.loopGains[0].gain.value)).toBe(.5);
   await page.keyboard.press("Escape");
   expect(await audio.evaluate((a, position) => a.paused && a.currentTime === position, position)).toBe(true);
 });
@@ -142,14 +182,16 @@ test("video modal supports keyboard and pauses songs only for sound clips", asyn
       await dialog.getByRole("button", { name: "Play video with sound", exact: true }).click();
     }
     await expect.poll(() => video.evaluate((v, sound) => !v.paused && v.currentTime > 0 && v.muted === !sound, Boolean(song.videoAudio))).toBe(true);
-    expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([song.videoWidth || 576, song.videoHeight || 1024, song.videoDuration || 15]);
+    const dimensions = await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration]);
+    expect(dimensions.slice(0, 2)).toEqual([song.videoWidth || 576, song.videoHeight || 1024]);
+    expect(dimensions[2]).toBeCloseTo(song.videoDuration || 15, 2);
     await expect(dialog.locator("[data-video-description]")).toHaveText(song.videoAudio
       ? `${song.videoDuration}-second video with chorus audio · Press Play to watch with sound`
       : `${song.videoDuration || 15}-second silent video`);
     if (song.videoAudio) {
       await expect(trigger).toHaveClass(/song-video-button-doomer/);
       await expect(trigger).toHaveAttribute("aria-label", `Watch video with chorus audio for ${song.title}`);
-      await expect.poll(() => video.evaluate(v => v.webkitAudioDecodedByteCount > 0)).toBe(true);
+      await expect(dialog.getByLabel("Sound on", { exact: true })).toBeChecked();
       await page.screenshot({ path: "test-results/morning-doomer-video.png" });
     }
     if (song.videoWidth === song.videoHeight) {

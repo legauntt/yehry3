@@ -5,6 +5,13 @@ import { videoVersions } from "../../assets/song-video-versions.js";
 test("published catalog exposes and plays all page-one videos", async ({ page }) => {
   test.setTimeout(300000);
   test.skip(!process.env.YEHRY3_VIDEO_URL, "Post-deployment check against the real catalog");
+  await page.addInitScript(() => {
+    window.loopSources = [];
+    const create = AudioContext.prototype.createBufferSource;
+    AudioContext.prototype.createBufferSource = function () {
+      const source = create.call(this); window.loopSources.push(source); return source;
+    };
+  });
   await page.goto("/");
   await expect(page.locator("[data-video-open]").first()).toBeVisible();
   const ids = pageOneSongs.map(song => song.id);
@@ -26,18 +33,30 @@ test("published catalog exposes and plays all page-one videos", async ({ page })
     const song = pageOneSongs.find(s => s.id === id);
     const button = await findVideo(id);
     await expect(button).toBeVisible();
+    if (song.videoAudio) {
+      await page.locator(`[data-id="${id}"] [data-play]`).click();
+      await expect.poll(() => page.locator("#audio").evaluate(a => !a.paused && a.currentTime > 0)).toBe(true);
+    }
     await button.click();
     const video = page.locator(".song-video-viewer video");
     if (song.videoAudio) {
       await expect.poll(() => video.evaluate(v => v.readyState >= 1 && v.paused && !v.muted && v.currentTime === 0)).toBe(true);
+      expect(await page.locator("#audio").evaluate(a => a.paused)).toBe(true);
       await page.getByRole("button", { name: "Play video with sound", exact: true }).click();
     }
     await expect.poll(() => video.evaluate((v, sound) => !v.paused && v.currentTime > 0 && v.muted === !sound, Boolean(song.videoAudio)), { timeout: 20000, message: `Live playback starts for ${id}` }).toBe(true);
-    expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([song.videoWidth || 576, song.videoHeight || 1024, song.videoDuration || 15]);
+    const dimensions = await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration]);
+    expect(dimensions.slice(0, 2)).toEqual([song.videoWidth || 576, song.videoHeight || 1024]);
+    expect(dimensions[2]).toBeCloseTo(song.videoDuration || 15, 2);
     if (song.videoAudio) {
       await expect(button).toHaveClass(/song-video-button-doomer/);
       await expect(page.locator('[data-video-description]')).toHaveText(`${song.videoDuration}-second video with chorus audio · Press Play to watch with sound`);
-      await expect.poll(() => video.evaluate(v => v.webkitAudioDecodedByteCount > 0)).toBe(true);
+      await expect(page.getByLabel("Sound on", { exact: true })).toBeChecked();
+      await expect.poll(() => page.evaluate(() => window.loopSources.length)).toBe(1);
+      await expect.poll(() => video.evaluate(v => v.currentTime > 22), { timeout: 30000 }).toBe(true);
+      await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime < 2)).toBe(true);
+      expect(await page.evaluate(() => window.loopSources.length)).toBe(1);
+      expect(await page.evaluate(() => window.loopSources[0].context.state)).toBe("running");
       await page.screenshot({ path: 'test-results/morning-doomer-live.png' });
     }
     for (const choice of videoVersions(id).slice(0, -1)) {

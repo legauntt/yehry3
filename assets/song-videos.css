@@ -40,6 +40,11 @@ html.song-video-open { overflow: hidden; }
 .song-video-viewer:has(.song-video-versions:not([hidden])) video { max-height: calc(100dvh - 240px); }
 .song-video-status { margin: 8px 0 0; font-size: .85rem; }
 .song-video-status:empty { display: none; }
+.song-video-sound-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 8px; font-size: .85rem; }
+.song-video-sound-controls[hidden] { display: none; }
+.song-video-sound-controls label { display: flex; align-items: center; gap: 5px; }
+.song-video-sound-controls input[type=range] { width: 100px; }
+.song-video-viewer:has(.song-video-sound-controls:not([hidden])) video { max-height: calc(100dvh - 360px); }
 .song-video-viewer [data-video-play] { margin: 0 0 10px; padding: 10px 16px; border: 1px solid #d0bdff; border-radius: 8px; background: #252b4b; color: #fff; cursor: pointer; }
 .song-video-viewer [data-video-play][hidden] { display: none; }
 .song-video-viewer [data-video-play]:focus-visible { outline: 3px solid var(--orange, #df6e36); outline-offset: 2px; }

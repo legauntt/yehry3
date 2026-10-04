@@ -12,6 +12,13 @@ export default {
       "duration": 22.5,
       "audio": true,
       "treatment": "doomer"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/morning-routine-doomer-loop-22s-20261003.mp4",
+      "framing": "square",
+      "duration": 22,
+      "audio": true,
+      "treatment": "doomer"
     }
   ],
   "distonyc-d88c69ac5b02b644324e42ad": [
