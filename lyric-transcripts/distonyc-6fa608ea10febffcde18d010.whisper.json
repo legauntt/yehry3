@@ -1,0 +1,439 @@
+{
+  "version": 1,
+  "songId": "distonyc-6fa608ea10febffcde18d010",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6fa608ea10febffcde18d010-26abf7450cf7.mp3",
+  "audioSha256": "26abf7450cf7ee2e8b818ceb71cd15a0032c386bb25563756648fe11aea1f524",
+  "inputSha256": "3c342730e22a6901a631c2138563eb0edbaf4e9f985b31034fc31f071217053a",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.0,
+  "segments": [
+    {
+      "start": 2.78,
+      "end": 5.74,
+      "text": "Eight hours on the wall",
+      "uncertain": true
+    },
+    {
+      "start": 5.74,
+      "end": 8.06,
+      "text": "Let numbers burn bright",
+      "uncertain": true
+    },
+    {
+      "start": 8.06,
+      "end": 11.8,
+      "text": "Five pounds standing tall",
+      "uncertain": false
+    },
+    {
+      "start": 11.8,
+      "end": 14.22,
+      "text": "Between the man and fighting night",
+      "uncertain": false
+    },
+    {
+      "start": 14.22,
+      "end": 17.6,
+      "text": "The bathroom mirror tells him",
+      "uncertain": false
+    },
+    {
+      "start": 17.6,
+      "end": 20.5,
+      "text": "Don't turn this into war",
+      "uncertain": false
+    },
+    {
+      "start": 20.5,
+      "end": 24.44,
+      "text": "He laces up his running shoes",
+      "uncertain": false
+    },
+    {
+      "start": 24.44,
+      "end": 26.74,
+      "text": "Then stops beside the door",
+      "uncertain": false
+    },
+    {
+      "start": 26.74,
+      "end": 29.84,
+      "text": "But coach says slow it down",
+      "uncertain": false
+    },
+    {
+      "start": 29.84,
+      "end": 33.04,
+      "text": "We get there the right way",
+      "uncertain": false
+    },
+    {
+      "start": 33.04,
+      "end": 36.8,
+      "text": "The room is hot, the crowd is gone",
+      "uncertain": true
+    },
+    {
+      "start": 36.8,
+      "end": 39.1,
+      "text": "The cloth won't look away",
+      "uncertain": false
+    },
+    {
+      "start": 39.1,
+      "end": 42.42,
+      "text": "Every tick is a hammer",
+      "uncertain": false
+    },
+    {
+      "start": 42.42,
+      "end": 45.48,
+      "text": "Every breath is a lie",
+      "uncertain": false
+    },
+    {
+      "start": 45.48,
+      "end": 48.66,
+      "text": "But a body ain't a bargain",
+      "uncertain": false
+    },
+    {
+      "start": 48.66,
+      "end": 52.18,
+      "text": "For a number on a side",
+      "uncertain": false
+    },
+    {
+      "start": 53.46,
+      "end": 56.34,
+      "text": "Five pounds to 200",
+      "uncertain": false
+    },
+    {
+      "start": 56.34,
+      "end": 59.4,
+      "text": "Eight hours in the way",
+      "uncertain": false
+    },
+    {
+      "start": 59.4,
+      "end": 62.6,
+      "text": "I'm chasing down the living",
+      "uncertain": false
+    },
+    {
+      "start": 62.6,
+      "end": 65.78,
+      "text": "Got chasing down the pain",
+      "uncertain": true
+    },
+    {
+      "start": 65.78,
+      "end": 68.8,
+      "text": "Five pounds to two hundred",
+      "uncertain": true
+    },
+    {
+      "start": 68.8,
+      "end": 71.98,
+      "text": "Hear the whole roar",
+      "uncertain": true
+    },
+    {
+      "start": 71.98,
+      "end": 75.1,
+      "text": "I walk in strong tomorrow",
+      "uncertain": true
+    },
+    {
+      "start": 75.1,
+      "end": 78.6,
+      "text": "I ain't breaking myself for more",
+      "uncertain": false
+    },
+    {
+      "start": 81.42,
+      "end": 85.22,
+      "text": "In pieces through the locker room",
+      "uncertain": false
+    },
+    {
+      "start": 85.22,
+      "end": 87.48,
+      "text": "A towel around his neck",
+      "uncertain": false
+    },
+    {
+      "start": 87.48,
+      "end": 90.86,
+      "text": "Cause the people who know him",
+      "uncertain": false
+    },
+    {
+      "start": 90.86,
+      "end": 93.66,
+      "text": "When his nerve begins to wreck",
+      "uncertain": true
+    },
+    {
+      "start": 93.66,
+      "end": 96.58,
+      "text": "No midnight miracle",
+      "uncertain": false
+    },
+    {
+      "start": 96.58,
+      "end": 99.92,
+      "text": "No desperate little gain",
+      "uncertain": false
+    },
+    {
+      "start": 99.92,
+      "end": 103.14,
+      "text": "The scale can take a number",
+      "uncertain": false
+    },
+    {
+      "start": 103.14,
+      "end": 106.12,
+      "text": "It can't take away his name",
+      "uncertain": false
+    },
+    {
+      "start": 106.12,
+      "end": 109.54,
+      "text": "He finds a measured wither",
+      "uncertain": true
+    },
+    {
+      "start": 109.54,
+      "end": 112.58,
+      "text": "Let's the heart not pass",
+      "uncertain": false
+    },
+    {
+      "start": 112.58,
+      "end": 115.56,
+      "text": "One careful step at a time",
+      "uncertain": false
+    },
+    {
+      "start": 115.56,
+      "end": 118.9,
+      "text": "No crashing through the glass",
+      "uncertain": false
+    },
+    {
+      "start": 118.9,
+      "end": 121.88,
+      "text": "The old fear keeps on shouting",
+      "uncertain": true
+    },
+    {
+      "start": 121.88,
+      "end": 125.1,
+      "text": "You gotta pay the price",
+      "uncertain": false
+    },
+    {
+      "start": 125.1,
+      "end": 127.88,
+      "text": "Or the answer's through his teeth",
+      "uncertain": false
+    },
+    {
+      "start": 127.88,
+      "end": 132.18,
+      "text": "I only get one life",
+      "uncertain": false
+    },
+    {
+      "start": 133.46,
+      "end": 135.86,
+      "text": "I tell shoot 200",
+      "uncertain": true
+    },
+    {
+      "start": 135.86,
+      "end": 138.9,
+      "text": "Eight hours in the way",
+      "uncertain": false
+    },
+    {
+      "start": 138.9,
+      "end": 142.16,
+      "text": "I'm chasing down the limit",
+      "uncertain": false
+    },
+    {
+      "start": 142.16,
+      "end": 145.18,
+      "text": "Not chasing down the pain",
+      "uncertain": false
+    },
+    {
+      "start": 145.18,
+      "end": 148.3,
+      "text": "Five pounds to 200",
+      "uncertain": true
+    },
+    {
+      "start": 148.3,
+      "end": 151.6,
+      "text": "Either hold them roar",
+      "uncertain": true
+    },
+    {
+      "start": 151.6,
+      "end": 154.6,
+      "text": "I'll walk in strong to normal",
+      "uncertain": false
+    },
+    {
+      "start": 154.6,
+      "end": 158.0,
+      "text": "I ain't breaking myself for more",
+      "uncertain": false
+    },
+    {
+      "start": 158.0,
+      "end": 160.42,
+      "text": "No cheap victory",
+      "uncertain": false
+    },
+    {
+      "start": 160.42,
+      "end": 164.04,
+      "text": "No collapse behind the door",
+      "uncertain": false
+    },
+    {
+      "start": 164.04,
+      "end": 167.14,
+      "text": "A fighter needs his fire",
+      "uncertain": false
+    },
+    {
+      "start": 167.14,
+      "end": 170.12,
+      "text": "But he needs his future more",
+      "uncertain": false
+    },
+    {
+      "start": 170.12,
+      "end": 173.36,
+      "text": "Some rise cuts the window",
+      "uncertain": true
+    },
+    {
+      "start": 173.36,
+      "end": 176.48,
+      "text": "The last hour calls him out",
+      "uncertain": true
+    },
+    {
+      "start": 176.48,
+      "end": 179.42,
+      "text": "He stands up from the bench",
+      "uncertain": true
+    },
+    {
+      "start": 179.42,
+      "end": 182.88,
+      "text": "And puts those feet on solid ground",
+      "uncertain": false
+    },
+    {
+      "start": 185.94,
+      "end": 188.78,
+      "text": "Five pounds to 200",
+      "uncertain": false
+    },
+    {
+      "start": 188.78,
+      "end": 191.8,
+      "text": "The clock is nearly through",
+      "uncertain": false
+    },
+    {
+      "start": 191.8,
+      "end": 195.74,
+      "text": "I kept the man inside the name",
+      "uncertain": false
+    },
+    {
+      "start": 195.74,
+      "end": 198.16,
+      "text": "I kept my aim in view",
+      "uncertain": false
+    },
+    {
+      "start": 198.16,
+      "end": 201.26,
+      "text": "Five pounds to 200",
+      "uncertain": false
+    },
+    {
+      "start": 201.26,
+      "end": 204.4,
+      "text": "Let the way in call my name",
+      "uncertain": true
+    },
+    {
+      "start": 204.4,
+      "end": 207.66,
+      "text": "I came here for the conscience",
+      "uncertain": true
+    },
+    {
+      "start": 207.66,
+      "end": 210.66,
+      "text": "I'm leaving all the same",
+      "uncertain": true
+    },
+    {
+      "start": 210.66,
+      "end": 214.12,
+      "text": "When the final number settles",
+      "uncertain": false
+    },
+    {
+      "start": 214.12,
+      "end": 216.92,
+      "text": "In the morning crears the floor",
+      "uncertain": true
+    },
+    {
+      "start": 216.92,
+      "end": 220.14,
+      "text": "I'll eat the bell still standing",
+      "uncertain": false
+    },
+    {
+      "start": 220.14,
+      "end": 222.12,
+      "text": "Still one",
+      "uncertain": true
+    },
+    {
+      "start": 225.58,
+      "end": 227.2,
+      "text": "Two hundred",
+      "uncertain": false
+    },
+    {
+      "start": 227.2,
+      "end": 229.24,
+      "text": "Strongest human",
+      "uncertain": true
+    },
+    {
+      "start": 237.96,
+      "end": 239.36,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}
