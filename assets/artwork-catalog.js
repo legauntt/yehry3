@@ -1992,19 +1992,26 @@ export default {
     ]
   },
   "distonyc-35be11b84d9a5202f10feda8": {
-    "src": "/assets/artwork/distonyc-35be11b84d9a5202f10feda8-incubating-c306a36ce624-q86.webp",
+    "src": "/assets/artwork/distonyc-35be11b84d9a5202f10feda8-mature-7d2fb5e23364-b3fc19a1b0d566cb-q86.webp",
     "alt": "Cover artwork for Get Skeeted On (Uplift Funk Mix).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "41ee2bc1aca772c3388bda1f9e3b33f2aee1a96626a186c26f572f2561d4fe91",
-    "promptHash": "c65531a724fd70d4cba51ef5caa34db7424cedcdc7e7c00d4971ed6eed15ee4c",
-    "createdAt": "2026-10-03T05:25:00.994Z",
+    "promptHash": "d6d1273ba27156d299deb9dd68c7442bd6765192ddefb65f34c6f2f963d0faa0",
+    "createdAt": "2026-10-04T05:25:33.786Z",
     "missingSources": [],
-    "previous": null,
-    "firstSeenAt": "2026-10-03T05:24:42.244Z"
+    "previous": "/assets/artwork/distonyc-35be11b84d9a5202f10feda8-incubating-c306a36ce624-q86.webp",
+    "firstSeenAt": "2026-10-03T05:24:42.244Z",
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-35be11b84d9a5202f10feda8-incubating-c306a36ce624-q86.webp",
+        "alt": "Cover artwork for Get Skeeted On (Uplift Funk Mix).",
+        "createdAt": "2026-10-03T05:25:00.994Z"
+      }
+    ]
   },
   "distonyc-dab5305bedfa2bf0cf7b4996": {
     "src": "/assets/artwork/distonyc-dab5305bedfa2bf0cf7b4996-incubating-d1db0b0d9547-q86.webp",
