@@ -18,12 +18,12 @@ export function voiceModelBadge(item) {
   const range = item?.voiceEpochRange ?? item?.originalPrompt?.voiceEpochRange ?? item?.details?.voiceEpochRange;
   const suffix = version === 'v9' && range ? ` · epochs ${range.start} → ${range.end}` : version === 'v9' && Number.isInteger(epoch) && epoch >= 10 && epoch <= 300 && epoch % 10 === 0 ? ` · epoch ${epoch}` : '';
   const title = version === "vdb" ? "Tony’s voice: Demonophonic Blues experiment" : `Tony’s voice: ${version.toUpperCase()}${suffix}`;
-  return `<span class="voice-model-badge${variant}" title="${escape(title)}">${escape(version.toUpperCase() + suffix)}</span>`;
+  return `<span class="voice-model-badge${variant}" title="${escape(title)}" aria-label="${escape(title)}">${escape(version.toUpperCase() + (suffix ? '*' : ''))}</span>`;
 }
 
 // One badge row for a song or a request at any stage, so a recording keeps the
 // same voice, band generator and remix marks from the queue through its lyrics.
-export function songBadges(item) {
+export function songBadges(item, { showRepair = true } = {}) {
   if (!item) return "";
-  return `<span class="song-badges">${voiceModelBadge(item)}${musicBackendBadge(item)}${pitchBadge(item)}${remixBadge(item)}${sidesBadge(item)}${repairBadge(item)}</span>`;
+  return `<span class="song-badges">${voiceModelBadge(item)}${musicBackendBadge(item)}${pitchBadge(item)}${remixBadge(item)}${sidesBadge(item)}${showRepair ? repairBadge(item) : ''}</span>`;
 }

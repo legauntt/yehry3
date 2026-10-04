@@ -19,7 +19,7 @@ const wav = (seconds = 240) => {
 const catalog = JSON.parse(await readFile(new URL("../../catalog.json", import.meta.url), "utf8"));
 const real = (catalog.songs || catalog).find((song) => song.id?.startsWith("distonyc-") && song.lyrics?.cues?.length && song.remixOf);
 const songs = [
-  { id: "stay-first", title: "First to stay", duration: 240, url: "/stay-fixture.wav", collection: "tonyai", votes: 2, order: -2, voiceModel: "v7", hasLyrics: false },
+  { id: "stay-first", title: "First to stay", duration: 240, url: "/stay-fixture.wav", collection: "tonyai", votes: 2, order: -2, voiceModel: "v9", voiceEpoch: 150, musicBackend: "local", pitchRepair: "haunted", repairedAt: "2026-09-25T19:42:00.000Z", alternates: [{ pitchRepair: "clean", url: "/stay-fixture.wav" }], hasLyrics: false },
   { id: "stay-second", title: "Second to stay", duration: 240, url: "/stay-fixture.wav", collection: "tonyai", votes: 1, order: -1, voiceModel: "v7", hasLyrics: false },
   { id: "stay-third", title: "Third to stay", duration: 240, url: "/stay-fixture.wav", collection: "tonyai", votes: 0, order: -3, voiceModel: "v7", hasLyrics: false },
 ];
@@ -57,6 +57,33 @@ async function studio(page) {
 const mark = (page) => page.evaluate(() => { window.__stays = "still here"; window.__audio = window.yehry3Player.audio; });
 const stayed = (page) => page.evaluate(() => window.__stays === "still here" && window.__audio === window.yehry3Player.audio);
 const playing = (page) => page.evaluate(() => { const audio = window.yehry3Player.audio; return !audio.paused && !audio.ended && audio.currentTime > 0.2; });
+
+test("the compact player badges fit together and seeking keeps playing", async ({ page }) => {
+  await studio(page);
+  await page.goto("/?sort=catalog");
+  await page.locator('.track[data-id="stay-first"] [data-play]').click();
+  const bar = page.locator("#site-player");
+  await expect(bar.locator(".voice-model-badge")).toHaveText("V9*");
+  await expect(bar.locator(".voice-model-badge")).toHaveAttribute("title", "Tony’s voice: V9 · epoch 150");
+  await expect(bar.locator(".music-backend-badge")).toHaveText("FREE");
+  await expect(bar.locator(".music-backend-badge")).toHaveAttribute("title", /Local · ACE/);
+  await expect(bar.locator(".repair-badge")).toHaveCount(0);
+  for (const width of [1380, 1024, 768, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    if (width > 700) {
+      const boxes = await bar.locator(".song-badges > *").evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().top));
+      expect(Math.max(...boxes) - Math.min(...boxes)).toBeLessThan(5);
+    }
+    await page.screenshot({ path: `artifacts/compact-player-${width}.png` });
+  }
+  await page.evaluate(() => { window.yehry3Player.audio.currentTime = 30; });
+  await expect.poll(() => page.evaluate(() => window.yehry3Player.audio.currentTime)).toBeGreaterThan(29.5);
+  await expect.poll(() => playing(page)).toBe(true);
+  await bar.locator('#now-sides [data-side="1"]').click();
+  await expect.poll(() => page.evaluate(() => window.yehry3Player.audio.currentTime)).toBeGreaterThan(29.5);
+  await expect.poll(() => playing(page)).toBe(true);
+});
 
 test("a song keeps playing, and the room stays, as pages change", async ({ page }) => {
   const state = await studio(page);

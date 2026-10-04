@@ -9,7 +9,10 @@ test('explicit V9 epochs follow the voice badge through requests and recordings'
   for (const item of [{ voiceModel: 'v9', voiceEpoch: 100 },
     { details: { voiceModel: 'v9', voiceEpoch: 100 } },
     { originalPrompt: { voiceModel: 'v9', voiceEpoch: 100 } }])
-    assert.match(voiceModelBadge(item), />V9 · epoch 100</);
+  {
+    assert.match(voiceModelBadge(item), />V9\*</);
+    assert.match(voiceModelBadge(item), /title="Tony’s voice: V9 · epoch 100"/);
+  }
   for (const item of [{ voiceModel: 'v7', voiceEpoch: 100 },
     { voiceModel: 'v9' }, { voiceModel: 'v9', voiceEpoch: '<img>' }])
     assert.doesNotMatch(voiceModelBadge(item), /epoch|<img>/);
@@ -28,7 +31,7 @@ test("the badge row keeps one shape for songs, queued requests and drafts", () =
   }
   assert.match(songBadges(published), />V8</);
   assert.match(songBadges(queued), />V7</);
-  assert.match(songBadges(queued), />Local · ACE</);
+  assert.match(songBadges(queued), />FREE</);
   assert.match(songBadges(published), />EMP</);
   assert.equal(songBadges(null), "");
 });

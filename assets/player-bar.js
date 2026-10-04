@@ -35,7 +35,7 @@ function paint() {
   label.hidden = recording.id !== song.id || !recording.html;
   label.innerHTML = recording.id === song.id ? recording.html : "";
   const generator = bar.querySelector("#now-generator");
-  generator.innerHTML = songBadges(song);
+  generator.innerHTML = songBadges(song, { showRepair: false });
   generator.hidden = false;
   bar.querySelector("#download").href = safeUrl(song.url);
   const index = player.index, count = player.queue.length;
