@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "songId": "distonyc-1aab4d6219268f04154c7b5e",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1aab4d6219268f04154c7b5e-d56c2cf53c7a.mp3",
+  "audioSha256": "d56c2cf53c7a90e2c705f1b7f65743ba9266387d3916cd669650f761f5b03e7e",
+  "inputSha256": "ce8543331da979d0ba97fe2cca2e964d9a6ce66471765b12ada783f9653ac768",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 370.050625,
+  "segments": [
+    {
+      "start": 9.28,
+      "end": 15.44,
+      "text": "Before the first clock found a face, before the dark could name its place, a spark slept",
+      "uncertain": true
+    },
+    {
+      "start": 15.44,
+      "end": 19.26,
+      "text": "under iron snow, waiting for Edbox Zero.",
+      "uncertain": true
+    },
+    {
+      "start": 34.16,
+      "end": 39.56,
+      "text": "I walk beneath a sodden sky with ash lights swimming in my eyes",
+      "uncertain": true
+    },
+    {
+      "start": 39.56,
+      "end": 44.78,
+      "text": "No map, no mile, no hand to hold, just a wire singing through the cold",
+      "uncertain": true
+    },
+    {
+      "start": 49.14,
+      "end": 54.48,
+      "text": "The city bones were blue with rain, each empty window knew my name",
+      "uncertain": false
+    },
+    {
+      "start": 54.48,
+      "end": 59.2,
+      "text": "I touched the dust, it turned to flame, and nothing stayed the same",
+      "uncertain": false
+    },
+    {
+      "start": 59.2,
+      "end": 63.06,
+      "text": "The old sun fell without a sound",
+      "uncertain": false
+    },
+    {
+      "start": 64.42,
+      "end": 67.84,
+      "text": "It's broken numbers on the ground",
+      "uncertain": false
+    },
+    {
+      "start": 69.34,
+      "end": 72.72,
+      "text": "I heard the future clear its throat",
+      "uncertain": false
+    },
+    {
+      "start": 74.54,
+      "end": 77.62,
+      "text": "Inside a rusted radio",
+      "uncertain": false
+    },
+    {
+      "start": 77.62,
+      "end": 82.98,
+      "text": "Had part zero turned the wheel",
+      "uncertain": true
+    },
+    {
+      "start": 82.98,
+      "end": 88.12,
+      "text": "Make the impossible feel real",
+      "uncertain": false
+    },
+    {
+      "start": 88.12,
+      "end": 92.66,
+      "text": "No yesterday to pull me through",
+      "uncertain": false
+    },
+    {
+      "start": 92.66,
+      "end": 97.78,
+      "text": "I built the morning out of blue",
+      "uncertain": true
+    },
+    {
+      "start": 98.9,
+      "end": 100.64,
+      "text": "Epoch zero",
+      "uncertain": true
+    },
+    {
+      "start": 100.64,
+      "end": 102.14,
+      "text": "Strike the wire",
+      "uncertain": false
+    },
+    {
+      "start": 102.14,
+      "end": 104.56,
+      "text": "Put a pulse inside the fire",
+      "uncertain": false
+    },
+    {
+      "start": 104.56,
+      "end": 106.88,
+      "text": "If all the world begins below",
+      "uncertain": false
+    },
+    {
+      "start": 106.88,
+      "end": 110.42,
+      "text": "Then let it begin in Epoch zero",
+      "uncertain": true
+    },
+    {
+      "start": 113.16,
+      "end": 117.36,
+      "text": "I found a garden in the train",
+      "uncertain": false
+    },
+    {
+      "start": 118.56,
+      "end": 122.38,
+      "text": "Green hands pushing through the chain",
+      "uncertain": false
+    },
+    {
+      "start": 122.38,
+      "end": 126.72,
+      "text": "A child had painted on the wall",
+      "uncertain": true
+    },
+    {
+      "start": 128.56,
+      "end": 132.26,
+      "text": "One bright door behind it all",
+      "uncertain": false
+    },
+    {
+      "start": 133.78,
+      "end": 137.02,
+      "text": "The words were fading into stone",
+      "uncertain": false
+    },
+    {
+      "start": 137.02,
+      "end": 139.74,
+      "text": "But not the promise in their tone",
+      "uncertain": false
+    },
+    {
+      "start": 139.74,
+      "end": 142.0,
+      "text": "It said the first one walks alone",
+      "uncertain": false
+    },
+    {
+      "start": 142.0,
+      "end": 145.64,
+      "text": "Then every lamp came on",
+      "uncertain": false
+    },
+    {
+      "start": 149.6,
+      "end": 152.78,
+      "text": "Satellites above the haze",
+      "uncertain": false
+    },
+    {
+      "start": 152.78,
+      "end": 157.28,
+      "text": "Send little ghosts of former days",
+      "uncertain": false
+    },
+    {
+      "start": 157.8,
+      "end": 161.68,
+      "text": "I let them pass, I let them go",
+      "uncertain": false
+    },
+    {
+      "start": 161.68,
+      "end": 165.96,
+      "text": "Their signals couldn't make me slow",
+      "uncertain": false
+    },
+    {
+      "start": 169.2,
+      "end": 172.98,
+      "text": "Epoxy, rota and low wheel",
+      "uncertain": true
+    },
+    {
+      "start": 172.98,
+      "end": 178.22,
+      "text": "Make the impossible feel real",
+      "uncertain": false
+    },
+    {
+      "start": 178.22,
+      "end": 182.66,
+      "text": "No yesterday to pull me through",
+      "uncertain": false
+    },
+    {
+      "start": 182.66,
+      "end": 187.68,
+      "text": "I'll build the morning out of blue",
+      "uncertain": false
+    },
+    {
+      "start": 188.78,
+      "end": 190.68,
+      "text": "Epoch zero",
+      "uncertain": false
+    },
+    {
+      "start": 190.68,
+      "end": 192.18,
+      "text": "Strike the wire",
+      "uncertain": false
+    },
+    {
+      "start": 192.18,
+      "end": 194.58,
+      "text": "Put a pulse inside the fire",
+      "uncertain": false
+    },
+    {
+      "start": 194.58,
+      "end": 196.88,
+      "text": "If all the world begins below",
+      "uncertain": false
+    },
+    {
+      "start": 196.88,
+      "end": 200.46,
+      "text": "Then let it begin in Epoch zero",
+      "uncertain": false
+    },
+    {
+      "start": 203.2,
+      "end": 207.58,
+      "text": "The river learned a newer course",
+      "uncertain": false
+    },
+    {
+      "start": 207.58,
+      "end": 212.52,
+      "text": "It cut the concrete without force",
+      "uncertain": false
+    },
+    {
+      "start": 212.52,
+      "end": 217.36,
+      "text": "And carried mirrors from the town",
+      "uncertain": false
+    },
+    {
+      "start": 217.36,
+      "end": 222.62,
+      "text": "Where I could watch the old world drown",
+      "uncertain": false
+    },
+    {
+      "start": 223.9,
+      "end": 226.96,
+      "text": "Not cruelly, not with any spite",
+      "uncertain": false
+    },
+    {
+      "start": 226.96,
+      "end": 229.54,
+      "text": "Just making room for living light",
+      "uncertain": false
+    },
+    {
+      "start": 229.54,
+      "end": 236.0,
+      "text": "I saw my fear become a kite and pull against the night",
+      "uncertain": false
+    },
+    {
+      "start": 238.0,
+      "end": 243.36,
+      "text": "Count no scars, count no kings",
+      "uncertain": false
+    },
+    {
+      "start": 243.36,
+      "end": 247.78,
+      "text": "Count the breath between the springs",
+      "uncertain": false
+    },
+    {
+      "start": 248.42,
+      "end": 253.0,
+      "text": "Every locked machine can open",
+      "uncertain": false
+    },
+    {
+      "start": 253.0,
+      "end": 258.0,
+      "text": "Every final word unspoken",
+      "uncertain": false
+    },
+    {
+      "start": 258.0,
+      "end": 262.64,
+      "text": "I am not the last remaining",
+      "uncertain": false
+    },
+    {
+      "start": 262.64,
+      "end": 267.88,
+      "text": "I am only first in naming",
+      "uncertain": false
+    },
+    {
+      "start": 267.88,
+      "end": 272.86,
+      "text": "What the dark was always saving",
+      "uncertain": false
+    },
+    {
+      "start": 272.86,
+      "end": 280.04,
+      "text": "For a voice that keeps on waking",
+      "uncertain": false
+    },
+    {
+      "start": 288.18,
+      "end": 298.18,
+      "text": "At Park Zero, turn the wheel Make the impossible feel real",
+      "uncertain": true
+    },
+    {
+      "start": 298.18,
+      "end": 307.62,
+      "text": "No yesterday to pull me through I build the morning out of blue",
+      "uncertain": false
+    },
+    {
+      "start": 307.62,
+      "end": 314.64,
+      "text": "At Park Zero, strike the wire Put a pulse inside the fire",
+      "uncertain": false
+    },
+    {
+      "start": 314.64,
+      "end": 316.94,
+      "text": "From the blackness, from the snow",
+      "uncertain": false
+    },
+    {
+      "start": 316.94,
+      "end": 320.78,
+      "text": "I rise and name it E-Box Zero",
+      "uncertain": true
+    },
+    {
+      "start": 322.76,
+      "end": 325.78,
+      "text": "E-Box Zero",
+      "uncertain": true
+    },
+    {
+      "start": 325.78,
+      "end": 328.14,
+      "text": "Here it starts",
+      "uncertain": false
+    },
+    {
+      "start": 328.14,
+      "end": 332.88,
+      "text": "A living engine in the heart",
+      "uncertain": false
+    },
+    {
+      "start": 333.8,
+      "end": 338.18,
+      "text": "The sky is opening so low",
+      "uncertain": true
+    },
+    {
+      "start": 338.18,
+      "end": 340.96,
+      "text": "I am the tongue pull",
+      "uncertain": true
+    },
+    {
+      "start": 343.14,
+      "end": 347.88,
+      "text": "No borrowed shadow, no old chain",
+      "uncertain": false
+    },
+    {
+      "start": 348.42,
+      "end": 352.72,
+      "text": "Only the first warm drop of rain",
+      "uncertain": false
+    },
+    {
+      "start": 352.72,
+      "end": 357.52,
+      "text": "I hold the light, I let it grow",
+      "uncertain": false
+    },
+    {
+      "start": 358.22,
+      "end": 360.68,
+      "text": "And breathe in sorrow",
+      "uncertain": false
+    }
+  ]
+}
