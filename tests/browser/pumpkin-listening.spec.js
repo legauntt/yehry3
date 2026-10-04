@@ -35,6 +35,8 @@ test('mascot listens, smokes, stops on pause and follows songs across pages', as
   await expect(page.locator('html')).toHaveAttribute('data-doomer-listening', 'morning');
   expect(await animation()).toBe('pumpkin-morning');
   await expect(page.locator('.pumpkin-doomer-eyes')).toHaveCSS('opacity', '1');
+  await expect(page.locator('.pumpkin-doomer-eyes > g').first()).toHaveCSS('fill', 'rgb(229, 35, 56)');
+  await expect(page.locator('.pumpkin-eye-blood path')).toHaveCount(3);
   await expect(page.locator('.pumpkin-doomer-mouth')).toHaveCSS('opacity', '1');
   await expect(page.locator('.pumpkin-doomer-lights')).toHaveCount(0);
   const flame = page.locator('.pumpkin-candle-flame');

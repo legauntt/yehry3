@@ -29,8 +29,13 @@ export function pumpkinPortrait() {
     <span class="pumpkin-doomer-head">
       <img src="/assets/pumpkin-doomer.webp" alt="" width="420" height="397">
       <svg class="pumpkin-morning-detail pumpkin-doomer-eyes" viewBox="0 0 420 397" aria-hidden="true">
-        <g fill="#f67e81" fill-opacity=".6"><path d="M88 146 Q105 147 124 142 Q121 162 100 161 Q91 158 88 146"/><path d="M162 144 Q183 152 211 149 Q205 166 182 162 Q168 159 162 144"/></g>
-        <g fill="none" stroke="#a42132" stroke-width="3" stroke-linecap="round"><path d="M90 150 l10 5 -3 5 M120 148 l-8 6 5 5 M169 151 l10 7 -4 3 M204 153 l-9 3 4 6"/></g>
+        <g fill="#e52338" fill-opacity=".85"><path d="M88 146 Q105 147 124 142 Q121 162 100 161 Q91 158 88 146"/><path d="M162 144 Q183 152 211 149 Q205 166 182 162 Q168 159 162 144"/></g>
+        <g fill="none" stroke="#8e1024" stroke-width="3" stroke-linecap="round"><path d="M90 150 l10 5 -3 5 M120 148 l-8 6 5 5 M169 151 l10 7 -4 3 M204 153 l-9 3 4 6"/></g>
+        <g class="pumpkin-eye-blood" fill="#a51225">
+          <path d="M99 159 Q102 166 100 172 Q96 178 100 181 Q104 182 104 176 L105 160Z"/>
+          <path d="M184 161 Q189 167 187 177 Q184 181 187 184 Q191 185 191 179 L192 163Z"/>
+          <path d="M201 162 Q204 166 203 170 Q200 174 203 175 Q206 175 206 171 L207 161Z"/>
+        </g>
       </svg>
       <svg class="pumpkin-morning-detail pumpkin-doomer-mouth" viewBox="0 0 420 397" aria-hidden="true">
         <path d="M108 192 L124 199 L133 193 L145 201 L159 197 L172 206 L188 201 Q182 231 151 234 Q121 231 108 192Z" fill="#241007" stroke="#71300d" stroke-width="3" stroke-linejoin="round"/>
