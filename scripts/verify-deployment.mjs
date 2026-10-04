@@ -543,7 +543,9 @@ const response = await get(`${api}/songs`, {
 });
 assert.equal(response.headers.get("access-control-allow-origin"), site);
 const live = await response.json();
-for (const song of expected.songs) {
+// The build's fallback guard never makes archived songs active in the API.
+const expectedActive = expected.songs.filter(song => !archived.includes(song.id));
+for (const song of expectedActive) {
   const published = live.songs.find((item) => item.id === song.id);
   if (song.songPlan)
     assert.deepEqual(published?.songPlan, song.songPlan, `Song plan differs for ${song.title}`);
@@ -582,7 +584,7 @@ for (const song of expected.songs) {
     );
 }
 assert.ok(
-  expected.songs.every((song) => live.songs.some((item) => item.id === song.id)),
+  expectedActive.every((song) => live.songs.some((item) => item.id === song.id)),
   "API is missing catalog songs",
 );
 assert.ok(
