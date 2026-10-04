@@ -273,6 +273,8 @@ Every view that represents a song or a request carries the same badge row: the T
 
 ## Behavior
 
+- **Authored by me** in Search & filters matches the name shared by your listening-room card and request form, ignoring appended room numbers such as `(2)` or `(3)` and letter case. Scythe also matches songs credited to Csaw. The `?author=me` filter survives reload and follows name changes in this browser and other tabs; a browser with no saved name matches no songs. Original displayed credits remain intact. Run `node scripts/list-authors.mjs` to print distinct public catalog authors and song counts (or pass a local catalog path).
+
 - The collection keeps search, profiles, listening activity, voting information and display settings in compact horizontal controls. Click a disclosure for an overlay panel; Escape, clicking outside or tabbing away closes it. Pagination shares a row with Grid/List. Active filters show a count on their control, with full labels inside; Play the collection and Shuffle live inside Search & filters.
 
 - Published song cards group lyrics, song plan, original prompt, remix and original comparison into labeled navigation icons in the More popout in both Grid and List. Labels stay visible without duplicate tooltips; hover or keyboard focus shows only extra details, such as why a remix is unavailable. Escape dismisses that explanation. Links keep their existing destinations, and unavailable remixes stay disabled.

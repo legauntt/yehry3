@@ -5,7 +5,7 @@ import { sidesBadge } from "./sides.js";
 import { gpuWaiting } from "./gpu-status.js";
 import { songPlanLink } from "./song-plan.js";
 import { brandLine } from "./branding.js";
-import { authoredByLine } from "./authored-by.js";
+import { authoredByLine, authoredByMe, savedAuthor } from "./authored-by.js";
 import { recoveryActive, recoveryStatus } from "./recovery.js";
 import { queueItemHref } from "./queue-links.js";
 import { mountQualitySettings, qualityNotice } from "./quality.js";
@@ -50,7 +50,7 @@ async function library() {
       <div class="section-heading"><h2 id="collection-title">Pick your next obsession.</h2><div class="catalog-status"><p class="small" id="track-count">Loading songs…</p><p class="small auto-refresh-note"><span aria-hidden="true">↻</span> Refreshes every 30s</p></div></div>
       <div class="catalog-tools" role="group" aria-label="Collection controls">
       <details class="catalog-filters"><summary><span>Search &amp; filters</span><span id="filter-count" hidden></span></summary>
-      <div class="catalog-filter-body"><div id="active-filters" hidden></div><div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="feedback-filter">Listener feedback</label><select id="feedback-filter"><option value="all">Any feedback</option><option value="downvoted">Downvoted</option><option value="milquetoast">Milquetoasted</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="hybrid">Fresh, then most loved</option><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option><option value="plays">Most listened to</option><option value="least-played">Least listened to</option><option value="least-recent">Least recently played</option></select><button class="quiet" id="play-all">Play the collection ↗</button><button class="quiet" id="shuffle">Shuffle ↝</button></div></div></details>
+      <div class="catalog-filter-body"><div id="active-filters" hidden></div><div class="toolbar"><label class="search"><span class="sr-only">Search songs</span><input type="search" id="search" placeholder="Search songs or styles…"></label><label class="sr-only" for="collection-filter">Collection</label><select id="collection-filter"><option value="all">All collections</option><option value="tonyai">Tony AI</option><option value="fearhunger">Fear & Hunger</option><option value="distonyc">Distonyc requests</option><option value="shiablo">Shiablo: The Lord of Prisoners</option></select><label class="sr-only" for="feedback-filter">Listener feedback</label><select id="feedback-filter"><option value="all">Any feedback</option><option value="downvoted">Downvoted</option><option value="milquetoast">Milquetoasted</option></select><label class="sr-only" for="author-filter">Author</label><select id="author-filter"><option value="all">Any author</option><option value="me">Authored by me</option></select><label class="sr-only" for="sort">Sort songs</label><select id="sort"><option value="hybrid">Fresh, then most loved</option><option value="catalog">Latest additions</option><option value="votes">Most loved</option><option value="title">A to Z</option><option value="plays">Most listened to</option><option value="least-played">Least listened to</option><option value="least-recent">Least recently played</option></select><button class="quiet" id="play-all">Play the collection ↗</button><button class="quiet" id="shuffle">Shuffle ↝</button></div></div></details>
       <div id="favorites"></div>${listeningOverview}<details class="catalog-voting"><summary>Voting</summary><div class="catalog-vote-body"><p class="small vote-note" id="vote-note">One anonymous vote per hour across the collection.</p></div></details><div class="display-settings" data-quality-settings></div></div><div class="catalog-view-bar"><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1" aria-label="Previous page">←<span class="page-direction"> Previous page</span></button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1" aria-label="Next page"><span class="page-direction">Next page </span>→</button></nav><div id="catalog-view-controls"></div></div><div id="catalog-items"><div id="pending-tracks" aria-label="Songs on the way" hidden></div><div id="tracks" class="tracks"><p class="empty">Getting the records out…</p></div></div><nav class="pagination catalog-pagination" data-catalog-pagination aria-label="Catalog pages" hidden><button class="quiet" data-catalog-page="-1" aria-label="Previous page">←<span class="page-direction"> Previous page</span></button><span data-page-status aria-live="polite"></span><button class="quiet" data-catalog-page="1" aria-label="Next page"><span class="page-direction">Next page </span>→</button></nav><p class="small listening-note">Listens are recorded after 10 seconds of listening, once per browser per song every 30 minutes. History starts September 2026.</p>
     </section>
     <section class="request-banner"><p class="eyebrow">Distonyc</p><h2>Heard something<br>in your head?</h2><p><span data-suggestion>Medusa as a barbershop quartet?</span> Put it on the wish list.</p><a class="primary" href="/distonyc/">Pitch the next song <span aria-hidden="true">↗</span></a></section>
@@ -86,6 +86,7 @@ async function library() {
   const filters = [
     { id: "collection-filter", param: "collection", defaultValue: "all" },
     { id: "feedback-filter", param: "feedback", defaultValue: "all" },
+    { id: "author-filter", param: "author", defaultValue: "all" },
     { id: "sort", param: "sort", defaultValue: "hybrid" },
     { id: "search", param: "q", defaultValue: "" },
   ];
@@ -195,7 +196,7 @@ async function library() {
   let initialCatalogPending = true;
   let cardsReady = false, partialTotal = null, startupPlayback = false;
   const defaultFilters = () => !$("#search").value && $("#collection-filter").value === "all"
-    && $("#feedback-filter").value === "all" && $("#sort").value === "hybrid" && !favorites.onlySaved;
+    && $("#feedback-filter").value === "all" && $("#author-filter").value === "all" && $("#sort").value === "hybrid" && !favorites.onlySaved;
   // The static fallback still lists archived songs; the last IDs the API reported keep them hidden until it answers.
   const archivedKey = "yehry3:archived-songs";
   const knownArchived = () => {
@@ -414,6 +415,7 @@ async function library() {
       activeFilters.push($("#collection-filter").selectedOptions[0].textContent);
     if ($("#feedback-filter").value !== "all")
       activeFilters.push($("#feedback-filter").selectedOptions[0].textContent);
+    if ($("#author-filter").value === "me") activeFilters.push("Authored by me");
     if (favorites.onlySaved) activeFilters.push("Saved songs");
     if ($("#sort").value !== "hybrid")
       activeFilters.push(`Sort: ${$("#sort").selectedOptions[0].textContent}`);
@@ -443,6 +445,7 @@ async function library() {
     if (player.current) setRecordingLabel(player.current.id, recordingLabel(recordings.get(player.current.id), escape));
     const query = $("#search").value.toLowerCase();
     const collection = $("#collection-filter").value;
+    const author = savedAuthor();
     // Totals cover every listener; the browser's own flag keeps a just-sent signal from vanishing.
     const feedbackMatches = {
       all: () => true,
@@ -452,7 +455,7 @@ async function library() {
     visible = songs.filter(
       (song) =>
         song.title.toLowerCase().includes(query) &&
-        (collection === "all" || collections(song).includes(collection)) && feedbackMatches(song) && favorites.includes(song),
+        (collection === "all" || collections(song).includes(collection)) && feedbackMatches(song) && ($("#author-filter").value !== "me" || authoredByMe(song, author)) && favorites.includes(song),
     );
     if ($("#sort").value === "hybrid") visible = freshThenLoved(visible);
     if ($("#sort").value === "votes")
@@ -629,6 +632,7 @@ async function library() {
       $("#search").value = "";
       $("#collection-filter").value = "all";
       $("#feedback-filter").value = "all";
+      $("#author-filter").value = "all";
       shareFilters(true);
     }
     const index = visible.findIndex((song) => song.id === id);
@@ -833,7 +837,7 @@ async function library() {
     })().finally(() => { refreshing = null; });
     return refreshing;
   }
-  for (const id of ["collection-filter", "feedback-filter", "sort"])
+  for (const id of ["collection-filter", "feedback-filter", "author-filter", "sort"])
     $(`#${id}`).addEventListener("change", () => {
       editingSearch = false;
       shareFilters();
@@ -850,6 +854,12 @@ async function library() {
   });
   $("#search").addEventListener("blur", () => {
     editingSearch = false;
+  });
+  scope.on(window, "yehry3:author-changed", () => {
+    if ($("#author-filter").value === "me") shareFilters(true);
+  });
+  scope.on(window, "storage", event => {
+    if ((event.key === "yehry3:authored-by" || event.key === null) && $("#author-filter").value === "me") shareFilters(true);
   });
   scope.on(window, "popstate", () => {
     restoreFilters();
