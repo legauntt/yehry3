@@ -2179,5 +2179,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-04T07:06:42.713Z",
     "history": []
+  },
+  "distonyc-2a92e91e4fc840724c567edb": {
+    "src": "/assets/artwork/distonyc-2a92e91e4fc840724c567edb-incubating-26f211b1d7dd-3f62fc5a0d08609b-q86.webp",
+    "alt": "Cover artwork for Static at the End of Town.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "ca9ff19389448e3bef8a63b9eecccf298331bc71d2c4d64342ad49ba8543b6c0",
+    "promptHash": "019da11978b5872c287f708a5c8bf332e29e3dcd7b685eb72f9a16ca0a7f4b5d",
+    "createdAt": "2026-10-04T07:16:00.989Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-04T07:15:42.687Z",
+    "history": []
   }
 };
