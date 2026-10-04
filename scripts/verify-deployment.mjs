@@ -24,6 +24,18 @@ async function get(url, { timeoutMs = 20000, ...options } = {}) {
   assert.ok(response.ok, `${url} returned ${response.status}`);
   return response;
 }
+function verifyEpochRange(item) {
+  if (item?.voiceEpochRange === undefined) return;
+  assert.equal(item.voiceModel, 'v9');
+  assert.equal(item.voiceEpoch, undefined);
+  assert.deepEqual(Object.keys(item.voiceEpochRange).sort(), ['end', 'start']);
+  const {start, end} = item.voiceEpochRange;
+  assert.ok([start, end].every(epoch => Number.isInteger(epoch) && epoch >= 10 && epoch <= 300 && epoch % 10 === 0) && start < end, 'Invalid public V9 epoch range');
+}
+for (const name of ['epoch-range.js', 'studio-pages.js', 'prompt-brief.js', 'request-tabs.js', 'song-badges.js', 'remix.js']) {
+  assert.equal(sourceText(await (await get(`${site}/assets/${name}`)).text()), sourceText(await readFile(new URL(`../assets/${name}`, import.meta.url), 'utf8')), `Range asset differs: ${name}`);
+}
+console.log('V9 range assets match the deployed source.');
 let updatedAt;
 for (const { src } of Object.values(songVideos)) {
   const url = new URL(src, `${site}/`);
@@ -370,6 +382,7 @@ for (const request of [
         "repairedAt",
         "voiceModel",
         "voiceEpoch",
+        "voiceEpochRange",
         "generationProfile",
         "originalPrompt",
         "hasSongPlan",
@@ -379,6 +392,8 @@ for (const request of [
       `Unexpected public field: ${field}`,
     );
   assert.match(request.voiceModel, /^(?:v[1-9][0-9]*|vdb)$/);
+  verifyEpochRange(request);
+  verifyEpochRange(request.originalPrompt);
   if (request.voiceEpoch !== undefined) {
     assert.equal(request.voiceModel, "v9");
     assert.ok(Number.isInteger(request.voiceEpoch) && request.voiceEpoch >= 10 && request.voiceEpoch <= 300 && request.voiceEpoch % 10 === 0,
@@ -406,7 +421,7 @@ for (const request of [
   }
   assert.deepEqual(
     Object.keys(request.originalPrompt).sort(),
-    ["basisSongs", "direction", "idea", "keep", "voiceModel", ...(request.originalPrompt.voiceEpoch !== undefined ? ["voiceEpoch"] : []), ...(request.originalPrompt.musicBackend ? ["musicBackend"] : []), ...(request.originalPrompt.generation ? ["generation", "generationProfile"] : [])].sort(),
+    ["basisSongs", "direction", "idea", "keep", "voiceModel", ...(request.originalPrompt.voiceEpoch !== undefined ? ["voiceEpoch"] : []), ...(request.originalPrompt.voiceEpochRange ? ["voiceEpochRange"] : []), ...(request.originalPrompt.musicBackend ? ["musicBackend"] : []), ...(request.originalPrompt.generation ? ["generation", "generationProfile"] : [])].sort(),
   );
   if (request.originalPrompt.musicBackend !== undefined) assert.ok(["local", "eleven_music"].includes(request.originalPrompt.musicBackend));
   if (request.originalPrompt.generation) {
