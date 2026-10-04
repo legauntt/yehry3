@@ -425,8 +425,8 @@ Manual song length accepts 69–666 whole seconds with Local ACE and 69–600 wi
 
 The V9 selector links to Advanced → V9 epoch range. `details.voiceEpochRange`
 is `{start, end}` using saved numeric endpoints, 10–300 in steps of 10, with
-start before end. It is exclusive with `voiceEpoch`. Every checkpoint in the
-inclusive range is assigned to successive sung passages in ascending order;
+different endpoints. It is exclusive with `voiceEpoch`. Every checkpoint in the
+inclusive range is assigned to successive sung passages in the selected direction;
 silent gaps do not consume a checkpoint. Short guides split quiet boundaries
 or fail with a request to choose a shorter range, never dropping checkpoints.
 

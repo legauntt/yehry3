@@ -49,5 +49,5 @@ test('V9 epoch is defaulted, retained, scoped to V9 and confirmed publicly', asy
   await page.getByRole('button', { name: 'Send to the queue' }).click();
   await expect(page.getByText('Your idea is on the list.')).toBeVisible();
   await page.goto('/queue/');
-  await expect(page.locator('main')).toContainText('epoch 10');
+  await expect(page.locator('.voice-model-badge[title="Tony’s voice: V9 · epoch 10"]')).toHaveCount(1);
 });

@@ -30,7 +30,7 @@ function verifyEpochRange(item) {
   assert.equal(item.voiceEpoch, undefined);
   assert.deepEqual(Object.keys(item.voiceEpochRange).sort(), ['end', 'start']);
   const {start, end} = item.voiceEpochRange;
-  assert.ok([start, end].every(epoch => Number.isInteger(epoch) && epoch >= 10 && epoch <= 300 && epoch % 10 === 0) && start < end, 'Invalid public V9 epoch range');
+  assert.ok([start, end].every(epoch => Number.isInteger(epoch) && epoch >= 10 && epoch <= 300 && epoch % 10 === 0) && start !== end, 'Invalid public V9 epoch range');
 }
 for (const name of ['epoch-range.js', 'studio-pages.js', 'prompt-brief.js', 'request-tabs.js', 'song-badges.js', 'remix.js', 'pumpkin-listening.js', 'season.js', 'halloween.css', 'song-video-player.js', 'video-loop-audio.js']) {
   assert.equal(sourceText(await (await get(`${site}/assets/${name}`)).text()), sourceText(await readFile(new URL(`../assets/${name}`, import.meta.url), 'utf8')), `Range asset differs: ${name}`);

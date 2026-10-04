@@ -1,6 +1,6 @@
 """Frozen V9 checkpoint progression, using the existing pitch/assembly/checks.
 
-Epoch changes happen between prepared phrases, in ascending order. Short guides
+Epoch changes happen between prepared phrases, in the requested direction. Short guides
 split their longest phrase first; no checkpoint may disappear silently.
 """
 import argparse

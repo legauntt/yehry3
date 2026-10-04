@@ -17,9 +17,12 @@ export function mountEpochRange(root, { epochs, initial, storage, draftId, tabs,
     start.disabled = end.disabled = !active || !enabled.checked;
     root.querySelector('#epoch-range-controls').hidden = !enabled.checked;
     if (epochs.length) single.disabled = !active || enabled.checked;
-    end.setCustomValidity(enabled.checked && Number(start.value) >= Number(end.value) ? 'Choose an ending epoch after the starting epoch.' : '');
-    const count = epochs.filter(epoch => epoch >= Number(start.value) && epoch <= Number(end.value)).length;
-    root.querySelector('#epoch-range-description').textContent = `${count} checkpoints, in ascending order: ${start.value} → ${end.value}.`;
+    end.setCustomValidity(active && enabled.checked && start.value === end.value ? 'Choose different starting and ending epochs.' : '');
+    const low = Math.min(Number(start.value), Number(end.value));
+    const high = Math.max(Number(start.value), Number(end.value));
+    const count = epochs.filter(epoch => epoch >= low && epoch <= high).length;
+    const direction = Number(start.value) < Number(end.value) ? 'ascending' : 'descending';
+    root.querySelector('#epoch-range-description').textContent = `${count} checkpoints, in ${direction} order: ${start.value} → ${end.value}.`;
   }
   function remember() {
     storage.set(key, JSON.stringify({ enabled: enabled.checked, start: Number(start.value), end: Number(end.value) }));
