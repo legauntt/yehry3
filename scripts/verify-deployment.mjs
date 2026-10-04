@@ -367,6 +367,7 @@ for (const request of [
         "reviewState", "validationFailures",
         "repairedAt",
         "voiceModel",
+        "voiceEpoch",
         "generationProfile",
         "originalPrompt",
         "hasSongPlan",
@@ -376,6 +377,11 @@ for (const request of [
       `Unexpected public field: ${field}`,
     );
   assert.match(request.voiceModel, /^(?:v[1-9][0-9]*|vdb)$/);
+  if (request.voiceEpoch !== undefined) {
+    assert.equal(request.voiceModel, "v9");
+    assert.ok(Number.isInteger(request.voiceEpoch) && request.voiceEpoch >= 10 && request.voiceEpoch <= 300 && request.voiceEpoch % 10 === 0,
+      "Public request has an invalid V9 epoch");
+  }
   if (request.repairedAt !== undefined) {
     assert.match(request.repairedAt, /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/);
     assert.ok(Number.isFinite(Date.parse(request.repairedAt)));
@@ -398,7 +404,7 @@ for (const request of [
   }
   assert.deepEqual(
     Object.keys(request.originalPrompt).sort(),
-    ["basisSongs", "direction", "idea", "keep", "voiceModel", ...(request.originalPrompt.musicBackend ? ["musicBackend"] : []), ...(request.originalPrompt.generation ? ["generation", "generationProfile"] : [])].sort(),
+    ["basisSongs", "direction", "idea", "keep", "voiceModel", ...(request.originalPrompt.voiceEpoch !== undefined ? ["voiceEpoch"] : []), ...(request.originalPrompt.musicBackend ? ["musicBackend"] : []), ...(request.originalPrompt.generation ? ["generation", "generationProfile"] : [])].sort(),
   );
   if (request.originalPrompt.musicBackend !== undefined) assert.ok(["local", "eleven_music"].includes(request.originalPrompt.musicBackend));
   if (request.originalPrompt.generation) {
@@ -409,6 +415,11 @@ for (const request of [
   assert.equal(typeof request.originalPrompt.direction, "string");
   assert.equal(typeof request.originalPrompt.keep, "string");
   assert.match(request.originalPrompt.voiceModel, /^(?:v[1-9][0-9]*|vdb)$/);
+  if (request.originalPrompt.voiceEpoch !== undefined) {
+    assert.equal(request.originalPrompt.voiceModel, "v9");
+    assert.ok(Number.isInteger(request.originalPrompt.voiceEpoch) && request.originalPrompt.voiceEpoch >= 10 && request.originalPrompt.voiceEpoch <= 300 && request.originalPrompt.voiceEpoch % 10 === 0,
+      "Public original prompt has an invalid V9 epoch");
+  }
   assert.ok(
     Array.isArray(request.originalPrompt.basisSongs) &&
       request.originalPrompt.basisSongs.length <= 5,
