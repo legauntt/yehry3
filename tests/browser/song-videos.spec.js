@@ -111,8 +111,18 @@ test("video modal supports keyboard, every page-one clip and leaves audio alone"
     const video = dialog.locator("video");
     await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted)).toBe(true);
     expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([song.videoWidth || 576, song.videoHeight || 1024, song.videoDuration || 15]);
-    await expect(dialog.locator("[data-video-description]")).toHaveText(`${song.videoDuration || 15}-second silent video`);
-    if (song.videoWidth === 768) {
+    await expect(dialog.locator("[data-video-description]")).toHaveText(song.videoAudio
+      ? `${song.videoDuration}-second video with chorus audio · Unmute to listen`
+      : `${song.videoDuration || 15}-second silent video`);
+    if (song.videoAudio) {
+      await expect(trigger).toHaveClass(/song-video-button-doomer/);
+      await expect(trigger).toHaveAttribute("aria-label", `Watch video with chorus audio for ${song.title}`);
+      await video.evaluate(v => { v.muted = false; });
+      await expect.poll(() => video.evaluate(v => v.webkitAudioDecodedByteCount > 0)).toBe(true);
+      await video.evaluate(v => { v.muted = true; });
+      await page.screenshot({ path: "test-results/morning-doomer-video.png" });
+    }
+    if (song.videoWidth === song.videoHeight) {
       const frame = await video.boundingBox();
       expect(Math.abs(frame.width - frame.height)).toBeLessThan(2);
     }

@@ -90,7 +90,7 @@ See [lyrics and references](REQUEST-MATERIALS.md) for limits, privacy, testing a
 The site remains noindex. Existing audio files and URLs are preserved. The Tony AI tracks stream from their existing release URLs. Static `catalog.json` keeps listening available during API outages; voting is clearly disabled while offline.
 
 Song video popouts offer chronological A/B/C version buttons when preserved clips
-exist. The latest opens by default; choosing a version restarts that silent clip
+exist. The latest opens by default; choosing a version restarts that clip
 without interrupting the song. Hover previews keep the current default. Before
 replacing a video in `assets/song-videos.js`, append its old entry to that song's
 list in `assets/song-video-history.js`; existing letters then remain stable and
@@ -98,6 +98,11 @@ the next version appears automatically. Keep only public clip URLs in this file.
 Run `npm run build`, `npm test`, and `npx playwright test --config
 playwright.videos.config.js`; set `YEHRY3_VIDEO_URL=https://yehry3.app` for live
 playback checks of current and preserved clips.
+
+Morning Routine's current companion is a 22.5-second locally rendered Doomer video
+with chorus audio. Its beanie-face video button has a violet glow. Clips marked
+`audio: true` show an unmute hint in the popout; hover previews remain muted.
+
 
 `/sausage/` compares the paid EMP run **Drink It Back, Bucko** with the local ACE run
 **Dividend at Dawn**, both Tony V9. Seven stages retain their position when switching

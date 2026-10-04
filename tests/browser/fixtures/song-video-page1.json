@@ -163,8 +163,9 @@
   {
     "id": "distonyc-d59c2b17c667891420654e76",
     "title": "Morning Routine",
-    "videoWidth": 768,
-    "videoHeight": 768,
-    "videoDuration": 10
+    "videoWidth": 512,
+    "videoHeight": 512,
+    "videoDuration": 22.5,
+    "videoAudio": true
   }
 ]

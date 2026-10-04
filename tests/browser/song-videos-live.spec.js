@@ -2,7 +2,7 @@ import { test, expect } from "@playwright/test";
 import pageOneSongs from "./fixtures/song-video-page1.json" with { type: "json" };
 import { videoVersions } from "../../assets/song-video-versions.js";
 
-test("published catalog exposes and plays all page-one silent videos", async ({ page }) => {
+test("published catalog exposes and plays all page-one videos", async ({ page }) => {
   test.setTimeout(300000);
   test.skip(!process.env.YEHRY3_VIDEO_URL, "Post-deployment check against the real catalog");
   await page.goto("/");
@@ -30,6 +30,14 @@ test("published catalog exposes and plays all page-one silent videos", async ({ 
     const video = page.locator(".song-video-viewer video");
     await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted), { timeout: 20000, message: `Live playback starts for ${id}` }).toBe(true);
     expect(await video.evaluate(v => [v.videoWidth, v.videoHeight, v.duration])).toEqual([song.videoWidth || 576, song.videoHeight || 1024, song.videoDuration || 15]);
+    if (song.videoAudio) {
+      await expect(button).toHaveClass(/song-video-button-doomer/);
+      await expect(page.locator('[data-video-description]')).toHaveText(`${song.videoDuration}-second video with chorus audio · Unmute to listen`);
+      await video.evaluate(v => { v.muted = false; });
+      await expect.poll(() => video.evaluate(v => v.webkitAudioDecodedByteCount > 0)).toBe(true);
+      await video.evaluate(v => { v.muted = true; });
+      await page.screenshot({ path: 'test-results/morning-doomer-live.png' });
+    }
     for (const choice of videoVersions(id).slice(0, -1)) {
       const button = page.getByRole("button", { name: `Version ${choice.label}`, exact: true });
       await button.click();

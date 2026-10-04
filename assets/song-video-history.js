@@ -1,5 +1,12 @@
 // Previously published clips, oldest first. Append preserved versions before replacing a default.
 export default {
+  "distonyc-d59c2b17c667891420654e76": [
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/03-morning-routine-new-entries-20261003.mp4",
+      "framing": "square",
+      "duration": 10
+    }
+  ],
   "distonyc-d88c69ac5b02b644324e42ad": [
     {
       "src": "/assets/song-videos/yeah-after-midnight-hat-v1.mp4",

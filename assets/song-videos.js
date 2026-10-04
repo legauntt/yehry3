@@ -1,4 +1,4 @@
-// Silent visual companions. Duration and framing describe the published video.
+// Visual companions. Duration, framing and optional audio describe the published video.
 export default {
   "distonyc-d88c69ac5b02b644324e42ad": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/02-yeah-after-midnight-song-scenes-20261002.mp4", framing: "square", duration: 5 },
   "distonyc-0dc2bea1e37dea334832f473": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/03-the-golden-answer-midnight-synth-remedy-song-scenes-20261002.mp4", framing: "square", duration: 10 },
@@ -140,5 +140,5 @@ export default {
   "distonyc-3ce62fce4bc081402b7e6408": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/15-the-last-roll-call-black-parade-version-song-scenes-20261002.mp4", framing: "square", duration: 15 },
   "distonyc-e4f534e23181ed37b959528a": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/01-morning-aria-back-to-bed-new-entries-20261003.mp4", framing: "square", duration: 10 },
   "distonyc-944052f6558e303470491554": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/02-solving-racism-new-entries-20261003.mp4", framing: "square", duration: 10 },
-  "distonyc-d59c2b17c667891420654e76": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/03-morning-routine-new-entries-20261003.mp4", framing: "square", duration: 10 },
+  "distonyc-d59c2b17c667891420654e76": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/morning-routine-doomer-22_5s-20261003.mp4", framing: "square", duration: 22.5, audio: true, treatment: "doomer" },
 };

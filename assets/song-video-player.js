@@ -34,7 +34,9 @@ export function mountSongVideos(root, scope) {
     const token = ++playbackGeneration;
     full.pause();
     status.textContent = "Loading video…";
-    dialog.querySelector("[data-video-description]").textContent = `${video.duration || 15}-second silent video`;
+    dialog.querySelector("[data-video-description]").textContent = video.audio
+      ? `${video.duration || 15}-second video with chorus audio · Unmute to listen`
+      : `${video.duration || 15}-second silent video`;
     for (const button of versions.querySelectorAll("button")) {
       button.setAttribute("aria-pressed", String(Number(button.dataset.version) === index));
     }
