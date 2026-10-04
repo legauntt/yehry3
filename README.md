@@ -200,7 +200,9 @@ beanie and hoodie, gray headphones, rusty sweater collar, cigarette, rough
 hand-drawn contours, small glowing pumpkin beside the shoulder; no text.”
 The optimized public asset is `assets/pumpkin-doomer.webp`.
 Its head nods while the shared player is audible, with a glowing cigarette and
-drifting smoke. Morning Routine uses a stronger 92.6 BPM nod; the hoodie and
+drifting smoke. Morning Routine adds bloodshot eyes and a crooked red, green and
+gold holiday light string around the headphones and hoodie, pulsing with its
+stronger 92.6 BPM nod; the hoodie and
 shoulder pumpkin stay still. Pausing or muting stops the animation, which follows
 the player across navigation. Sound video popups also trigger the mascot. Low
 decor and reduced motion keep it static; Off hides it.

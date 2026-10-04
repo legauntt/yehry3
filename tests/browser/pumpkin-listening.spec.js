@@ -17,6 +17,7 @@ test('mascot listens, smokes, stops on pause and follows songs across pages', as
   await page.evaluate(() => window.yehry3Player.play({ id: 'mascot-test', title: 'Fixture song', url: '/mascot-test.wav' }));
   await expect(page.locator('html')).toHaveAttribute('data-doomer-listening', 'music');
   expect(await animation()).toBe('pumpkin-listening');
+  await expect(page.locator('.pumpkin-doomer-eyes')).toHaveCSS('opacity', '0');
   const first = await head.evaluate(n => getComputedStyle(n).transform);
   await page.waitForTimeout(180);
   expect(await head.evaluate(n => getComputedStyle(n).transform)).not.toBe(first);
@@ -26,6 +27,9 @@ test('mascot listens, smokes, stops on pause and follows songs across pages', as
   await page.evaluate(() => window.yehry3Player.play({ id: 'distonyc-d59c2b17c667891420654e76', title: 'Morning Routine', url: '/mascot-test.wav' }));
   await expect(page.locator('html')).toHaveAttribute('data-doomer-listening', 'morning');
   expect(await animation()).toBe('pumpkin-morning');
+  await expect(page.locator('.pumpkin-doomer-eyes')).toHaveCSS('opacity', '1');
+  await expect(page.locator('.pumpkin-doomer-lights').first()).toHaveCSS('opacity', '1');
+  expect(await page.locator('.pumpkin-light-bulbs').first().evaluate(n => getComputedStyle(n).animationName)).toBe('pumpkin-holiday-pulse');
   expect(await head.evaluate(n => getComputedStyle(n).animationDuration)).toBe('0.648148s');
   await expect(page.locator('.pumpkin-doomer-smoke')).toHaveCSS('opacity', '1');
   expect(await page.locator('.pumpkin-doomer-smoke path').first().evaluate(n => getComputedStyle(n).animationName)).toBe('pumpkin-smoke');
@@ -39,11 +43,13 @@ test('mascot listens, smokes, stops on pause and follows songs across pages', as
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.evaluate(() => { window.yehry3Player.audio.muted = true; });
   await expect(page.locator('html')).toHaveAttribute('data-doomer-listening', 'idle');
+  await expect(page.locator('.pumpkin-doomer-eyes')).toHaveCSS('opacity', '0');
   await page.evaluate(() => { window.yehry3Player.audio.muted = false; });
   await expect(page.locator('html')).toHaveAttribute('data-doomer-listening', 'morning');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   expect(await animation()).toBe('none');
   await expect(page.locator('.pumpkin-doomer-smoke')).toHaveCSS('opacity', '0');
+  expect(await page.locator('.pumpkin-light-bulbs').first().evaluate(n => getComputedStyle(n).animationName)).toBe('none');
   await page.emulateMedia({ reducedMotion: 'no-preference' });
   await page.evaluate(async () => (await import('/assets/halloween-preferences.js')).setHalloweenLevel('low'));
   expect(await animation()).toBe('none');
