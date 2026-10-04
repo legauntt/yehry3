@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import { readFile } from "node:fs/promises";
 import pageOneSongs from "./fixtures/song-video-page1.json" with { type: "json" };
 import { videoVersions } from "../../assets/song-video-versions.js";
 
@@ -22,6 +23,7 @@ test("Play starts the picture while sound loads and volume reaches both endpoint
   const gate = new Promise(resolve => { release = resolve; });
   const song = songs.find(s => s.videoAudio);
   const choice = videoVersions(song.id).at(-1);
+  const loopSound = await readFile(new URL(`../..${choice.loopAudio}`, import.meta.url));
   await page.addInitScript(() => {
     window.loopSources = [];
     const create = AudioContext.prototype.createBufferSource;
@@ -29,7 +31,10 @@ test("Play starts the picture while sound loads and volume reaches both endpoint
       const node = create.call(this); window.loopSources.push(node); return node;
     };
   });
-  await page.route(`**${choice.loopAudio}`, async route => { await gate; await route.continue(); });
+  await page.route(`**${choice.loopAudio}`, async route => {
+    await gate;
+    await route.fulfill({ contentType: "audio/wav", body: loopSound });
+  });
   await page.goto("/");
   await page.locator(`[data-video-open="${song.id}"]`).click();
   const dialog = page.locator(".song-video-viewer");
