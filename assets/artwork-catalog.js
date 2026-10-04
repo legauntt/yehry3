@@ -2083,5 +2083,21 @@ export default {
     "firstSeenAt": "2026-10-03T21:39:42.402Z",
     "interpretation": "automatic-safe-interpretation",
     "history": []
+  },
+  "distonyc-1aab4d6219268f04154c7b5e": {
+    "src": "/assets/artwork/distonyc-1aab4d6219268f04154c7b5e-incubating-eba603c59c7a-754f5fa532e8092d-q86.webp",
+    "alt": "Cover artwork for Epoch Zero.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "9a823ffc7d5deb55feca4915bcd68cda53c5488ca7d218d699e2a780e45be2f9",
+    "promptHash": "3a66ef5bba615c2a76d51b74289b640f539e56488a3130900dcfb5307abc57c5",
+    "createdAt": "2026-10-04T00:24:59.958Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-04T00:24:42.889Z",
+    "history": []
   }
 };
