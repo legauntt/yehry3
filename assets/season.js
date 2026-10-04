@@ -16,6 +16,15 @@ export function mountDashboardPumpkins(root) {
     pumpkins.className = `dashboard-pumpkins${cluster ? ' pumpkin-patch' : ''}`;
     pumpkins.setAttribute('aria-hidden', 'true');
     pumpkins.textContent = cluster ? '🎃 🎃 🎃' : '🎃';
+    if (cluster && !host.matches('.site-footer')) {
+      const portrait = document.createElement('img');
+      portrait.className = 'pumpkin-doomer';
+      portrait.src = '/assets/pumpkin-doomer.webp';
+      portrait.alt = '';
+      portrait.width = 180;
+      portrait.height = 180;
+      pumpkins.prepend(portrait);
+    }
     host.prepend(pumpkins);
   };
   decorate(root.querySelector('.hero-copy, .queue-intro'), true);

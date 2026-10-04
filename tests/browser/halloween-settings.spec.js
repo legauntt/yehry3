@@ -80,4 +80,47 @@ test('settings still work when localStorage is blocked',async({page})=>{
   await expect(page.locator('.halloween-scene')).toBeHidden();
   await choice.selectOption('medium');
   await expect(page.locator('.halloween-swarm-bat')).toHaveCount(12);
+  await page.getByLabel('Listening room theme').selectOption('pumpkin');
+  await expect(page.locator('html')).toHaveAttribute('data-room-mood','pumpkin');
+});
+
+test('doomer themes persist, synchronize, and preserve the page', async ({page, context}) => {
+  await page.goto('/');
+  await settings(page);
+  const hero = await page.locator('.hero-copy').elementHandle();
+  for (const mood of ['midnight','concrete','pumpkin']) {
+    await page.getByLabel('Listening room theme').selectOption(mood);
+    await expect(page.locator('html')).toHaveAttribute('data-room-mood',mood);
+    await expect(page.locator('html')).toHaveAttribute('data-theme','dark');
+    expect(await hero.evaluate(node => node.isConnected)).toBe(true);
+  }
+  await page.reload();
+  await settings(page);
+  await expect(page.getByLabel('Listening room theme')).toHaveValue('pumpkin');
+  const other = await context.newPage();
+  await other.clock.install({time:new Date('2026-10-03T19:00:00Z')});
+  await other.route('**/yehry3/**', r=>r.fulfill({json:{songs:[],collections:[],items:[],listeners:[]}}));
+  await other.goto('/queue/');
+  await expect(other.locator('html')).toHaveAttribute('data-room-mood','pumpkin');
+  await other.goto('/');
+  await settings(other);
+  await expect(other.getByLabel('Listening room theme')).toHaveValue('pumpkin');
+  await other.getByLabel('Listening room theme').selectOption('concrete');
+  await expect(page.getByLabel('Listening room theme')).toHaveValue('concrete');
+  await other.close();
+  await page.getByRole('checkbox',{name:/^Dark Mode/}).uncheck();
+  await expect(page.getByLabel('Listening room theme')).toHaveValue('classic');
+  await page.getByLabel('Listening room theme').selectOption('pumpkin');
+  await page.getByRole('button',{name:'Close display settings'}).click();
+  await page.setViewportSize({width:390,height:844});
+  await expect(page.locator('.pumpkin-doomer')).toBeVisible();
+  expect(await page.locator('.pumpkin-doomer').evaluate(n=>n.complete && n.naturalWidth>0)).toBe(true);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await page.screenshot({path:'artifacts/doomer-mobile.png'});
+  await page.setViewportSize({width:1440,height:1000});
+  await page.screenshot({path:'artifacts/doomer-desktop.png'});
+  await settings(page);
+  await page.getByLabel('Halloween decor',{exact:true}).selectOption('off');
+  await page.getByRole('button',{name:'Close display settings'}).click();
+  await expect(page.locator('.pumpkin-doomer')).toBeHidden();
 });

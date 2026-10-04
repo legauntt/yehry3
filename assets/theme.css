@@ -80,3 +80,33 @@ html[data-shared-theme][data-theme="dark"] .song-action.doodle-clear:disabled { 
 html[data-shared-theme][data-theme="dark"] .message { background: var(--light); color: var(--ink); border-color: var(--line); }
 html[data-shared-theme][data-theme="dark"] .message.error { background: #4c3027; color: #ffc3a9; border-color: #8a5a42; }
 html[data-shared-theme][data-theme="dark"] .tape-card-side { color: #26372b; }
+/* Doomer rooms inherit the shared dark UI, keeping every control readable. */
+html[data-shared-theme][data-theme="dark"][data-room-mood="midnight"] {
+  --paper: #0c1024; --ink: #e6e8f2; --muted: #a5abc4; --line: #3a405c;
+  --accent: #b7a0ec; --light: #20263e; --white: #161c32;
+}
+html[data-shared-theme][data-theme="dark"][data-room-mood="concrete"] {
+  --paper: #171e26; --ink: #e2e8ec; --muted: #a6b4c1; --line: #43515f;
+  --accent: #9bc8dc; --light: #293440; --white: #202a34;
+}
+html[data-shared-theme][data-theme="dark"][data-room-mood="pumpkin"] {
+  --paper: #19131e; --ink: #f5e9dc; --muted: #c0abbc; --line: #594053;
+  --accent: #ffb066; --light: #302333; --white: #251c29;
+}
+html[data-shared-theme][data-room-mood="midnight"] body {
+  background-image: radial-gradient(circle at 20px 30px, #b7bdd666 1px, transparent 1.5px),
+    radial-gradient(circle at 87px 95px, #b7bdd633 1px, transparent 1.5px);
+  background-size: 137px 173px, 211px 227px;
+}
+html[data-shared-theme][data-room-mood="concrete"] body {
+  background-image: linear-gradient(145deg, #8eb8d210, transparent 60%);
+}
+html[data-shared-theme][data-room-mood="pumpkin"] body {
+  background-image: radial-gradient(ellipse at top right, #c85f201b, transparent 60%);
+}
+html[data-shared-theme][data-theme="dark"][data-room-mood]:not([data-room-mood="classic"]) h1 em { color: var(--accent); }
+html[data-shared-theme][data-room-mood]:not([data-room-mood="classic"]) .halloween-web { color: var(--muted); }
+@media print {
+  html[data-shared-theme][data-theme="dark"][data-room-mood] { --paper: white; --white: white; --ink: black; --muted: #444; --line: #bbb; }
+  html[data-shared-theme][data-room-mood] body { background-image: none; }
+}

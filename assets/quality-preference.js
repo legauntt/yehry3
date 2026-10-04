@@ -5,13 +5,14 @@ import { halloweenLevels, getHalloweenLevel, getHalloweenProfile, setHalloweenLe
 const key = "yehry3:show-quality-issues";
 const seenKey = "yehry3:preferences-seen";
 // Change this when new preferences should be highlighted to returning visitors.
-const preferencesVersion = "halloween-levels-v1";
+const preferencesVersion = "doomer-halloween-v1";
 
 if (typeof document !== "undefined") {
   let shown = true;
   let preferencesSeen = false;
   let checkbox;
   let darkCheckbox;
+  let moodSelect;
   let settingsButton;
   let newBadge;
   let halloweenSelect;
@@ -29,6 +30,7 @@ if (typeof document !== "undefined") {
     document.documentElement.dataset.showQualityIssues = String(shown);
     if (checkbox) checkbox.checked = shown;
     if (darkCheckbox) darkCheckbox.checked = window.yehry3Theme?.isDark() || false;
+    if (moodSelect) moodSelect.value = window.yehry3Theme?.getMood() || 'classic';
     const preferences = getRecordPreferences();
     recordCheckboxes.forEach((input, name) => { input.checked = preferences[name]; });
     const batPreferences = getBatPreferences();
@@ -40,7 +42,7 @@ if (typeof document !== "undefined") {
     });
     if (settingsButton) {
       settingsButton.classList.toggle("has-new-preferences", !preferencesSeen);
-      settingsButton.title = preferencesSeen ? "Display settings" : "New Halloween decor levels available";
+      settingsButton.title = preferencesSeen ? "Display settings" : "New Doomer themes available";
       if (preferencesSeen) settingsButton.removeAttribute("aria-describedby");
       else settingsButton.setAttribute("aria-describedby", "display-settings-updates");
       newBadge.hidden = preferencesSeen;
@@ -74,7 +76,7 @@ if (typeof document !== "undefined") {
     const updateDescription = document.createElement("span");
     updateDescription.id = "display-settings-updates";
     updateDescription.className = "sr-only";
-    updateDescription.textContent = "New Halloween decor levels available.";
+    updateDescription.textContent = "New Doomer themes and Halloween decorations available.";
 
     const dialog = document.createElement("dialog");
     dialog.className = "display-settings-dialog";
@@ -107,6 +109,17 @@ if (typeof document !== "undefined") {
     darkLabel.append(darkCheckbox, darkCopy);
     dialog.insertBefore(darkLabel, label);
     darkCheckbox.addEventListener("change", () => window.yehry3Theme?.setDark(darkCheckbox.checked));
+    const moodLabel = document.createElement('label');
+    moodLabel.className = 'quality-preference halloween-level-choice room-mood-choice';
+    const moodCopy = document.createElement('span');
+    moodCopy.innerHTML = '<strong>Listening room theme</strong><small id="room-mood-description">Late nights, concrete skies, or a haunted headphone session. Doomer themes turn on Dark Mode.</small>';
+    moodSelect = document.createElement('select');
+    moodSelect.setAttribute('aria-label', 'Listening room theme');
+    moodSelect.setAttribute('aria-describedby', 'room-mood-description');
+    for (const [value, title] of [['classic','Classic'],['midnight','Midnight Doomer'],['concrete','Concrete Winter'],['pumpkin','Pumpkin Doomer']]) moodSelect.add(new Option(title, value));
+    moodSelect.addEventListener('change', () => window.yehry3Theme?.setMood(moodSelect.value));
+    moodLabel.append(moodCopy, moodSelect);
+    dialog.insertBefore(moodLabel, label);
     const recordGroup = document.createElement("fieldset");
     recordGroup.className = "record-preferences";
     const legend = document.createElement("legend");

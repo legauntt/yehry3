@@ -182,6 +182,17 @@ live songs.
 
 ## Run
 
+Display settings also offers **Listening room theme**: Classic, Midnight Doomer
+(indigo stars), Concrete Winter (cold slate), and Pumpkin Doomer (amber and plum).
+Doomer choices enable Dark Mode and persist across pages/tabs in
+`yehry3:room-mood`; switching Dark Mode off returns to Classic. October's hero
+decor includes a headphone-wearing pumpkin doomer, hidden by Halloween decor Off.
+The original illustration was generated with the built-in imagegen tool from:
+“Transparent waist-up Doomer jack-o-lantern, tired glowing eyes, black ribbed
+beanie and hoodie, gray headphones, rusty sweater collar, cigarette, rough
+hand-drawn contours, small glowing pumpkin beside the shoulder; no text.”
+The optimized public asset is `assets/pumpkin-doomer.webp`.
+
 Display settings offers **Halloween decor**: Off, Low, Medium, High (default),
 EXTREME and HAUNTED. Low keeps static pumpkins and corner webs; Medium adds 12
 cursor bats and occasional flybys; High retains the original 24-bat effects,
