@@ -271,7 +271,7 @@ export async function requests() {
             <div id="lyric-workshop-root"></div>
             <div id="music-backend-root"></div>
             <div class="voice-model-label"><label for="voice-model">Tony voice model</label>${modelInfoButton()}</div>
-            <select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p><div id="voice-epoch-field" hidden><label for="voice-epoch">V9 training epoch</label><select id="voice-epoch" name="voiceEpoch" aria-describedby="voice-epoch-help"></select><p id="voice-epoch-help" class="small">An epoch is one pass through the training recordings. Choose an earlier checkpoint to try a different version of Tony’s voice. 300 is the final checkpoint and current default; more training does not always mean better sound.</p></div>
+            <select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p><div id="voice-epoch-field" hidden><label for="voice-epoch">V9 training epoch</label><select id="voice-epoch" name="voiceEpoch" aria-describedby="voice-epoch-help"></select><p id="voice-epoch-help" class="small">An epoch is one pass through the training recordings. 10 is the earliest saved checkpoint; there is no epoch 0. Models were saved every 10 epochs, so only available multiples of 25 appear after 10. Choose an earlier checkpoint to try a different version of Tony’s voice. 300 is the final checkpoint and current default; more training does not always mean better sound.</p></div>
             <div id="pitch-root"></div>
             <label for="keep">What matters most? <span class="small">(optional)</span></label><textarea id="keep" rows="2" maxlength="1000" placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><p class="small field-hint">Leave this empty for “Surprise me.”</p>
           </div>
@@ -322,8 +322,9 @@ export async function requests() {
       const epochModel = voiceModels.find(model => model.id === 'v9');
       const epochs = epochModel?.epochs || [];
       const savedEpoch = Number(storage.get(epochDraftKey) || initialDetails.voiceEpoch || epochModel?.defaultEpoch || 300);
-      const epochLabels = { 50: 'Early training', 100: 'Earlier checkpoint', 150: 'Mid-training', 200: 'Later checkpoint', 250: 'Near-final checkpoint', 300: 'Final checkpoint · default' };
-      const menuEpochs = epochs.filter(epoch => epoch % 50 === 0 || epoch === savedEpoch);
+      const earliestEpoch = Math.min(...epochs);
+      const epochLabels = { [earliestEpoch]: 'Earliest saved checkpoint', 50: 'Early training', 100: 'Earlier checkpoint', 150: 'Mid-training', 200: 'Later checkpoint', 250: 'Near-final checkpoint', 300: 'Final checkpoint · default' };
+      const menuEpochs = epochs.filter(epoch => epoch === earliestEpoch || epoch % 25 === 0 || epoch === savedEpoch);
       $('#voice-epoch').innerHTML = menuEpochs.map(epoch => `<option value="${Number(epoch)}">${Number(epoch)} · ${epochLabels[epoch] || 'Saved checkpoint'}</option>`).join('');
       $('#voice-epoch').value = String(epochs.includes(savedEpoch) ? savedEpoch : 300);
       $('#voice-epoch').onchange = () => storage.set(epochDraftKey, $('#voice-epoch').value);
