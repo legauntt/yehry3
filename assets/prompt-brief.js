@@ -1,3 +1,4 @@
+import { epochDescription } from "./epoch-range.js";
 import { generationBrief, generationSelections } from './generation-brief.js';
 import { musicBackendOf, musicBackendLabel } from './music-provenance.js';
 import { voiceVersionLabel as voiceLabel } from './model-info.js';
@@ -29,7 +30,7 @@ export function requestPromptBrief(doc, escape, describeVoice = voiceLabel) {
   const materials = materialBrief(details, escape);
   return layout({
     idea: doc.prompt, authoredBy: doc.authoredBy,
-    voice: describeVoice(details.voiceModel || "v6") + (details.voiceModel === "v9" && details.voiceEpoch ? ` · epoch ${details.voiceEpoch}` : ""), keep: details.keep, direction: details.direction,
+    voice: describeVoice(details.voiceModel || "v6") + epochDescription(details), keep: details.keep, direction: details.direction,
     generation: details.generation, musicBackend: musicBackendOf(doc), basis: details.basisSongTitles?.join("\n") || details.source, remixOf: details.remixSource?.title,
   }, materials, escape);
 }
@@ -39,13 +40,13 @@ export function publicPromptBrief(song, escape, { materialsUnavailable = false }
   const materials = materialBrief(brief, escape) || (materialsUnavailable ? '<p class="small">Lyrics and references could not be loaded. Reload this page to try again.</p>' : '');
   return layout({
     idea: brief.idea, authoredBy: song.authoredBy,
-    voice: voiceLabel(brief.voiceModel) + (brief.voiceModel === "v9" && brief.voiceEpoch ? ` · epoch ${brief.voiceEpoch}` : ""), keep: brief.keep, direction: brief.direction,
+    voice: voiceLabel(brief.voiceModel) + epochDescription(brief), keep: brief.keep, direction: brief.direction,
     generation: brief.generation, musicBackend: musicBackendOf(song), basis: brief.basisSongs?.join("\n"), remixOf: song.remixOf?.title,
   }, materials, escape);
 }
 
 export function promptSummary(details = {}, escape) {
-  const items = [voiceLabel(details.voiceModel) + (details.voiceModel === "v9" && details.voiceEpoch ? ` · epoch ${details.voiceEpoch}` : "")];
+  const items = [voiceLabel(details.voiceModel) + epochDescription(details)];
   const backend = musicBackendOf(details);
   if (backend) items.push(musicBackendLabel(backend));
   if (details.generation) {

@@ -84,6 +84,7 @@ def original_prompt(prompt):
             'basisSongs': details.get('basisSongTitles', [details['source']] if details.get('source') else []),
             'voiceModel': details.get('voiceModel', 'v6'),
             **({'voiceEpoch': details['voiceEpoch']} if details.get('voiceModel') == 'v9' and 'voiceEpoch' in details else {}),
+        **({'voiceEpochRange': details['voiceEpochRange']} if details.get('voiceModel') == 'v9' and 'voiceEpochRange' in details else {}),
             **({'musicBackend': details['musicBackend']} if details.get('musicBackend') else {}),
             **({'generation': __import__('generation_controls').normalize(details['generation']), 'generationProfile': 'v8'} if details.get('generation') else {})}
 
@@ -98,7 +99,7 @@ def song_record(prompt, guide=None):
             **({'publishedAt': prompt['publishedAt']} if prompt.get('publishedAt') else {}),
             **({'authoredBy': prompt['authoredBy']} if prompt.get('authoredBy') else {}),
             **({'songPlan': prompt['songPlan']} if prompt.get('songPlan') else {}),
-            **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues', 'validationFailures', 'reviewState', 'repairedAt', 'generationProfile', 'musicBackend', 'pitchRepair', 'voiceEpoch'] if key in result},
+            **{key: result[key] for key in ['lyrics', 'collections', 'qualityIssues', 'validationFailures', 'reviewState', 'repairedAt', 'generationProfile', 'musicBackend', 'pitchRepair', 'voiceEpoch', 'voiceEpochRange'] if key in result},
             **({'alternates': [{**row, 'url': asset_url(prompt['songId'], row['sha256'])} for row in result['alternates']]} if result.get('alternates') else {}),
             **({'guide': {**guide, 'url': asset_url(prompt['songId'], guide['sha256'])}} if guide else {}),
             **({'originalPrompt': original_prompt(prompt)} if prompt.get('prompt') else {})}

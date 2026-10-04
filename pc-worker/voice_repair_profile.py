@@ -8,6 +8,7 @@ VERSIONED = ('v7', 'v8', 'v9')
 
 
 def supported(request):
+    if request.get('voice_epoch_range'): return False
     voice = request.get('voice_model', 'v6')
     enabled = request.get('config', {}).get('automatic_versioned_vocal_repair', False)
     selected = enabled is True or (isinstance(enabled, list) and voice in enabled)

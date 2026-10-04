@@ -8,7 +8,7 @@ from publish import upload, upload_alternates, upload_asset, update_catalog, upd
 from guide_audio import capture as capture_guide, saved as saved_guide
 from public_plan import public_plan
 from lyrics import make_sheet, export_sheet
-from voice_models import selected, selected_epoch, capabilities as voice_capabilities
+from voice_models import selected, selected_epoch, selected_range, capabilities as voice_capabilities
 from music_backend import selected as selected_backend, capabilities as music_capabilities, payment_attention
 from remix_sources import CAPABILITY as REMIX_CAPABILITY, resolve as remix_basis, register as register_remix
 
@@ -63,13 +63,15 @@ class Heartbeat:
         self.done.set()
         if self.thread.is_alive(): self.thread.join(timeout=30)
 
-def metadata(config, plan, result, voice_model='v6', music_backend='local', voice_epoch=None):
+def metadata(config, plan, result, voice_model='v6', music_backend='local', voice_epoch=None, voice_epoch_range=None):
     if result.get('status') != 'verified' or result.get('new_training') is not False: raise ValueError('The renderer did not verify the saved Tony voice mix')
     if result.get('voice_model', 'v6') != voice_model: raise ValueError('The rendered voice model differs from the confirmed request')
     if voice_model == 'v8' and result.get('generation_profile') != 'v8': raise ValueError('The V8 generation profile differs from the confirmed request')
     if result.get('music_backend', 'local') != music_backend: raise ValueError('The rendered band generator differs from the confirmed request')
     if voice_epoch is not None and result.get('voice_epoch') != voice_epoch:
         raise ValueError('The rendered V9 epoch differs from the confirmed request')
+    if result.get('voice_epoch_range') != voice_epoch_range:
+        raise ValueError('The rendered V9 epoch range differs from the confirmed request')
     files = result.get('files', [])
     if {Path(item['path']).suffix.lower() for item in files} != {'.mp3', '.wav'}: raise ValueError('Both verified MP3 and WAV are required')
     for item in files:
@@ -81,6 +83,7 @@ def metadata(config, plan, result, voice_model='v6', music_backend='local', voic
     return mp3['path'], {'title': plan['title'], 'duration': result['duration'], 'bytes': mp3['bytes'], 'sha256': mp3['sha256'],
                          'voiceModel': voice_model,
                          **({'voiceEpoch': voice_epoch} if voice_epoch is not None else {}),
+                         **({'voiceEpochRange': voice_epoch_range} if voice_epoch_range is not None else {}),
                          **({'musicBackend': music_backend} if music_backend != 'local' else {}),
                          **({'generationProfile': 'v8'} if result.get('generation_profile') == 'v8' else {}),
                          'lyrics': sheet, 'collections': ['distonyc', 'fearhunger'] if plan.get('fear_hunger') else ['distonyc'],
@@ -163,6 +166,7 @@ def run_once(config, api, verify_existing=None):
                 request = {'config': config, 'prompt_id': prompt['id'], 'plan': plan, 'basis': basis, 'directory': str(directory),
                     'voice_model': voice_model}
                 if selected_epoch(prompt) is not None: request['voice_epoch'] = selected_epoch(prompt)
+                if selected_range(prompt) is not None: request['voice_epoch_range'] = selected_range(prompt)
                 if selected_backend(production_prompt) != 'local':
                     request.update(music_backend=selected_backend(production_prompt), paid_authorization=production_prompt.get('paidAuthorization'))
                 if plan.get('generation'): request['generation_profile'] = 'v8'
@@ -188,7 +192,7 @@ def run_once(config, api, verify_existing=None):
                     raise
             from pitch_alternate import b_side, fields as pitch_fields
             alternate = b_side(config, plan, directory, heartbeat, run_owned, Stopped)
-            mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'voice_epoch': selected_epoch(prompt)} if selected_epoch(prompt) is not None else {}), **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
+            mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'voice_epoch': selected_epoch(prompt)} if selected_epoch(prompt) is not None else {}), **({'voice_epoch_range': selected_range(prompt)} if selected_range(prompt) is not None else {}), **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
             completed.update(pitch_fields(load(result_file), alternate))
             capture_guide(config, load(result_file), directory)
             prompt = action('complete', result=completed)
@@ -196,7 +200,7 @@ def run_once(config, api, verify_existing=None):
             if not result_file.exists(): raise ValueError('This PC is missing the completed mix. Restore its saved job folder before publishing.')
             plan = load(directory / ('approved-plan.json' if (directory / 'approved-plan.json').exists() else 'plan.json'))['plan']
             voice_model = selected(prompt)
-            mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'voice_epoch': selected_epoch(prompt)} if selected_epoch(prompt) is not None else {}), **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
+            mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'voice_epoch': selected_epoch(prompt)} if selected_epoch(prompt) is not None else {}), **({'voice_epoch_range': selected_range(prompt)} if selected_range(prompt) is not None else {}), **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
             from pitch_alternate import fields as pitch_fields, saved as saved_b_side
             completed.update(pitch_fields(load(result_file), saved_b_side(directory, config)))
             capture_guide(config, load(result_file), directory)

@@ -31,7 +31,7 @@ class V9EpochTests(unittest.TestCase):
             updated = install_profiles(config, checkpoints, root / 'epochs')
             self.assertEqual(resolve(updated, 'v9', 300), default)
             self.assertEqual(resolve(updated, 'v9'), default)
-            self.assertEqual(capabilities(updated), ['voice-v9-v1', 'voice-v9-epochs-v1'])
+            self.assertEqual(capabilities(updated), ['voice-v9-v1', 'voice-v9-epochs-v1', 'voice-v9-epoch-range-v1'])
             early = resolve(updated, 'v9', 100)
             later = resolve(updated, 'v9', 200)
             self.assertNotEqual(early['fingerprint'], later['fingerprint'])

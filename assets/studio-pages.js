@@ -1,3 +1,4 @@
+import { mountEpochRange } from "./epoch-range.js";
 import { needsReview } from "./repair-status.js";
 import { clippyMarkup, clippyOptions } from "./clippy.js";
 import { showToast } from "./message.js";
@@ -272,11 +273,12 @@ export async function requests() {
             <div id="lyric-workshop-root"></div>
             <div id="music-backend-root"></div>
             <div class="voice-model-label"><label for="voice-model">Tony voice model</label>${modelInfoButton()}</div>
-            <select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p><div id="voice-epoch-field" hidden><label for="voice-epoch">V9 training epoch</label><select id="voice-epoch" name="voiceEpoch" aria-describedby="voice-epoch-help"></select><p id="voice-epoch-help" class="small">An epoch is one pass through the training recordings. 10 is the earliest saved checkpoint; there is no epoch 0. Models were saved every 10 epochs, so only available multiples of 25 appear after 10. Choose an earlier checkpoint to try a different version of Tony’s voice. 300 is the final checkpoint and current default; more training does not always mean better sound.</p></div>
+            <select id="voice-model" name="voiceModel">${voiceModels.map((model) => `<option value="${escape(model.id)}">${escape(voiceModelLabel(model.id))}</option>`).join("")}</select><p class="small voice-model-note"></p><div id="voice-epoch-field" hidden><label for="voice-epoch">V9 training epoch</label><select id="voice-epoch" name="voiceEpoch" aria-describedby="voice-epoch-help"></select><p id="voice-epoch-help" class="small">An epoch is one pass through the training recordings. 10 is the earliest saved checkpoint; there is no epoch 0. Models were saved every 10 epochs, so only available multiples of 25 appear after 10. Choose an earlier checkpoint to try a different version of Tony’s voice. 300 is the final checkpoint and current default; more training does not always mean better sound.</p><button type="button" class="text-link" id="epoch-range-link">Epoch range → Advanced</button></div>
             <div id="pitch-root"></div>
             <label for="keep">What matters most? <span class="small">(optional)</span></label><textarea id="keep" rows="2" maxlength="1000" placeholder="Tony’s slurred delivery and a big hook. Or: preserve the melody and words of the basis song."></textarea><p class="small field-hint">Leave this empty for “Surprise me.”</p>
           </div>
           <div role="tabpanel" id="advanced-panel" aria-labelledby="advanced-tab" hidden>
+            <div id="epoch-range-root" hidden></div>
             <label for="direction">What does it sound like? <span class="small">(optional)</span></label><textarea id="direction" rows="3" maxlength="2000" placeholder="Refine the prompt with a style, arrangement, mood, or other direction…"></textarea><p class="small field-hint">Leave this empty to use your prompt as written.</p>
             <div id="generation-root"></div>
             <div id="request-materials-root"></div>
@@ -329,10 +331,15 @@ export async function requests() {
       $('#voice-epoch').innerHTML = menuEpochs.map(epoch => `<option value="${Number(epoch)}">${Number(epoch)} · ${epochLabels[epoch] || 'Saved checkpoint'}</option>`).join('');
       $('#voice-epoch').value = String(epochs.includes(savedEpoch) ? savedEpoch : 300);
       $('#voice-epoch').onchange = () => storage.set(epochDraftKey, $('#voice-epoch').value);
+      const epochRange = mountEpochRange($('#epoch-range-root'), { epochs: epochModel?.epochRange ? epochs : [], initial: initialDetails.voiceEpochRange,
+        storage, draftId: draft.id, tabs: requestTabs, voice: $('#voice-model'), single: $('#voice-epoch') });
+      $('#epoch-range-link').onclick = () => epochRange.open();
       const describeVoice = () => {
         const model = voiceModel($("#voice-model").value);
         $("#voice-epoch-field").hidden = model.id !== "v9" || !epochs.length;
         $("#voice-epoch").disabled = model.id !== "v9" || !epochs.length;
+        $('#epoch-range-link').hidden = !epochModel?.epochRange;
+        epochRange.sync();
         generation.setRequired(usesGeneration(model.id));
         $(".voice-model-note").textContent = `${model.note}.${model.experimental ? " This voice is still being evaluated." : ""}`;
       };
@@ -377,10 +384,15 @@ export async function requests() {
           details.basisSongIds = attachedRemix || details.musicBackend === PAID_BACKEND ? [] : selectedBasis();
           if (attachedRemix) details.remixSongId = attachedRemix.songId;
           details.voiceModel = $("#voice-model").value;
-          if (details.voiceModel === "v9" && epochs.length) details.voiceEpoch = Number($("#voice-epoch").value);
+          if (details.voiceModel === "v9" && epochs.length) {
+            const range = epochRange.read();
+            if (range) details.voiceEpochRange = range;
+            else details.voiceEpoch = Number($("#voice-epoch").value);
+          }
           details.authoredBy = $("#authored-by").value.trim();
           Object.assign(details, requestMaterials.read());
           details.generation = generation.read();
+          if (details.voiceEpochRange && details.generation?.duration > 600) throw new Error('V9 epoch ranges support songs up to 10 minutes. Choose a shorter duration.');
           draft = (
             await api(`/prompts/${encodeURIComponent(draft.id)}`, {
               method: "PATCH",
@@ -388,7 +400,7 @@ export async function requests() {
               body: { version: draft.version, ...details },
             })
           ).prompt;
-          requestMaterials.clear(); generation.clear(); music.clear(); storage.remove(voiceDraftKey); storage.remove(epochDraftKey);
+          requestMaterials.clear(); generation.clear(); music.clear(); epochRange.clear(); storage.remove(voiceDraftKey); storage.remove(epochDraftKey);
           rememberAuthor(draft.authoredBy || "");
           render();
         });

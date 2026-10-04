@@ -1,0 +1,54 @@
+import { test, expect } from '@playwright/test';
+
+test('V9 shortcut opens Advanced and range survives editing, reload and confirmation', async ({ page }) => {
+  if (process.env.API_PORT) await page.route('**/assets/config.js', route => route.fulfill({
+    contentType: 'text/javascript', body: `export const API_BASE = 'http://127.0.0.1:${Number(process.env.API_PORT)}/yehry3';`,
+  }));
+  await page.goto('/distonyc/');
+  await page.getByLabel('Password', { exact: true }).fill('wishbone');
+  await page.getByRole('button', { name: 'Let’s make something' }).click();
+  await page.getByLabel('Your prompt').fill('A song that climbs the strength wall with each new dawn');
+  await page.getByRole('button', { name: 'Find the direction' }).click();
+  const voice = page.getByLabel('Tony voice model', { exact: true });
+  await voice.selectOption('v9');
+  await page.getByRole('button', { name: 'Epoch range → Advanced' }).click();
+  await expect(page.getByRole('tab', { name: 'Advanced' })).toHaveAttribute('aria-selected', 'true');
+  const enabled = page.getByLabel('Progress through a range of checkpoints');
+  await enabled.check();
+  const start = page.getByLabel('Starting epoch'), end = page.getByLabel('Ending epoch');
+  await expect(start.locator('option')).toHaveCount(30);
+  await start.selectOption('20');
+  await end.selectOption('110');
+  await expect(page.locator('#epoch-range-description')).toContainText('10 checkpoints');
+  if (process.env.RANGE_ARTIFACT_DIR) await page.screenshot({path: `${process.env.RANGE_ARTIFACT_DIR}/range-desktop.png`, fullPage: true});
+  await page.reload();
+  await expect(enabled).toBeChecked();
+  await expect(start).toHaveValue('20');
+  await expect(end).toHaveValue('110');
+  await page.locator('#epoch-range-root summary').click();
+  await end.selectOption('10');
+  await page.getByRole('button', { name: 'Review the request' }).click();
+  expect(await end.evaluate(element => element.validationMessage)).toContain('after');
+  await end.selectOption('110');
+  await page.getByRole('tab', { name: 'Essentials' }).click();
+  await expect(page.getByLabel('V9 training epoch')).toBeDisabled();
+  await voice.selectOption('v7');
+  await expect(page.locator('#epoch-range-root')).toBeHidden();
+  await voice.selectOption('v9');
+  await page.setViewportSize({ width: 390, height: 900 });
+  await page.getByRole('button', { name: 'Epoch range → Advanced' }).click();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  if (process.env.RANGE_ARTIFACT_DIR) await page.screenshot({path: `${process.env.RANGE_ARTIFACT_DIR}/range-mobile.png`, fullPage: true});
+  await page.getByRole('button', { name: 'Review the request' }).click();
+  await expect(page.locator('main')).toContainText('epochs 20 → 110');
+  await page.reload();
+  await expect(page.locator('main')).toContainText('epochs 20 → 110');
+  await page.getByRole('button', { name: 'Fine-tune it' }).click();
+  await expect(start).toHaveValue('20');
+  await expect(end).toHaveValue('110');
+  await page.getByRole('button', { name: 'Review the request' }).click();
+  await page.getByRole('button', { name: 'Send to the queue' }).click();
+  await expect(page.getByText('Your idea is on the list.')).toBeVisible();
+  await page.goto('/queue/');
+  await expect(page.locator('main')).toContainText('epochs 20 → 110');
+});

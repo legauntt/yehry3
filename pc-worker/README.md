@@ -420,3 +420,19 @@ New plans include bounded musicalSettings from the same planning call: genre, in
 The September 17 musical-settings backfill covers 78 existing public plans. The reviewed manifest in backfills/musical-settings-20260917.json pins each recording URL and original plan hash. Every prose value is an excerpt from its saved arrangement; section order comes from the original lyric headings. Unknown writing approaches/meters stay blank. backfill_musical_settings.py defaults to validation only; --write adds the summaries to a supplied catalog and --sync --config sends them through the worker-authenticated published-plan endpoint. It validates the whole batch before writing, never rewrites local plan/render inputs and rejects different existing summaries. Deploy the API’s additive summary support first. The older saved-plan backfill preserves these summaries.
 
 Manual song length accepts 69–666 whole seconds with Local ACE and 69–600 with Eleven Music, whose provider maximum remains 600 seconds. Local lengths above 600 use connected movements and require one composition choice. Explicit short lengths work without supplied lyrics, including lyric approval and composition previews. Blank/Auto retains the existing duration distribution and submitted-lyrics exception.
+
+### V9 epoch range
+
+The V9 selector links to Advanced → V9 epoch range. `details.voiceEpochRange`
+is `{start, end}` using saved numeric endpoints, 10–300 in steps of 10, with
+start before end. It is exclusive with `voiceEpoch`. Every checkpoint in the
+inclusive range is assigned to successive sung passages in ascending order;
+silent gaps do not consume a checkpoint. Short guides split quiet boundaries
+or fail with a request to choose a shorter range, never dropping checkpoints.
+
+This version supports a single lead vocal up to 600 seconds. Quartet and
+sectional recovery are excluded. Native guide-pitch repair, bounded second takes,
+assembly, and integrity checks remain in use; contextual repairs that would
+replace passages with one checkpoint are excluded. Each profile and passage
+assignment is frozen before conversion. Public metadata retains endpoints only.
+`voice-v9-epoch-range-v1` gates claims so older workers leave these jobs queued.

@@ -15,7 +15,8 @@ export function voiceModelBadge(item) {
   const version = /^(?:v\d+|vdb)$/i.test(value || "") ? value.toLowerCase() : "v6";
   const variant = /^(?:v[789]|vdb)$/.test(version) ? " " + version : "";
   const epoch = item?.voiceEpoch ?? item?.originalPrompt?.voiceEpoch ?? item?.details?.voiceEpoch;
-  const suffix = version === 'v9' && Number.isInteger(epoch) && epoch >= 10 && epoch <= 300 && epoch % 10 === 0 ? ` · epoch ${epoch}` : '';
+  const range = item?.voiceEpochRange ?? item?.originalPrompt?.voiceEpochRange ?? item?.details?.voiceEpochRange;
+  const suffix = version === 'v9' && range ? ` · epochs ${range.start} → ${range.end}` : version === 'v9' && Number.isInteger(epoch) && epoch >= 10 && epoch <= 300 && epoch % 10 === 0 ? ` · epoch ${epoch}` : '';
   const title = version === "vdb" ? "Tony’s voice: Demonophonic Blues experiment" : `Tony’s voice: ${version.toUpperCase()}${suffix}`;
   return `<span class="voice-model-badge${variant}" title="${escape(title)}">${escape(version.toUpperCase() + suffix)}</span>`;
 }

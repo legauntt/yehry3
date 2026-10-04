@@ -15,7 +15,7 @@ export function remixSeed(song, source) {
     remixSongId: source.songId,
     remixSource: source,
     voiceModel: brief.voiceModel || song.voiceModel || "v7",
-    ...((brief.voiceModel || song.voiceModel) === "v9" && (brief.voiceEpoch || song.voiceEpoch) ? { voiceEpoch: brief.voiceEpoch || song.voiceEpoch } : {}),
+    ...((brief.voiceModel || song.voiceModel) === "v9" && (brief.voiceEpochRange || song.voiceEpochRange) ? { voiceEpochRange: brief.voiceEpochRange || song.voiceEpochRange } : (brief.voiceModel || song.voiceModel) === "v9" && (brief.voiceEpoch || song.voiceEpoch) ? { voiceEpoch: brief.voiceEpoch || song.voiceEpoch } : {}),
     ...(song.lyrics?.text && song.lyrics.text.length <= 30000 && song.lyrics.text.trim().split(/\s+/u).length <= 3000
       ? { lyricSheet: { text: song.lyrics.text, mode: "adapt" } } : {}),
   };

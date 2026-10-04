@@ -47,6 +47,29 @@ def selected_epoch(prompt):
     return epoch
 
 
+def selected_range(prompt):
+    details = prompt.get('details') or {}
+    value = details.get('voiceEpochRange')
+    if value is None: return None
+    if (selected(prompt) != 'v9' or details.get('voiceEpoch') is not None or
+            not isinstance(value, dict) or set(value) != {'start', 'end'} or
+            any(type(value[key]) is not int or value[key] not in range(10, 301, 10) for key in value) or
+            value['start'] >= value['end']):
+        raise ValueError('Choose a saved V9 range with start before end')
+    return dict(value)
+
+def resolve_range(config, value):
+    selected_range({'details': {'voiceModel': 'v9', 'voiceEpochRange': value}})
+    hashes = {}
+    profiles = {str(epoch): resolve(config, 'v9', epoch, _hashes=hashes) for epoch in range(value['start'], value['end'] + 1, 10)}
+    if any(profile['runtime_kind'] != 'rvc-v1' for profile in profiles.values()) or any(
+            len({profile['sha256'][key] for profile in profiles.values()}) != 1
+            for key in RVC_FILES if key != 'adapter'):
+        raise ValueError('V9 range checkpoints must share their pinned runtime and retrieval index')
+    frozen = {'range': dict(value), 'profiles': profiles}
+    frozen['fingerprint'] = fingerprint(frozen)
+    return frozen
+
 def resolve(config, name, epoch=None, _hashes=None):
     if epoch is not None and (name != 'v9' or type(epoch) is not int or epoch not in range(10, 301, 10)):
         raise ValueError('Invalid Tony V9 epoch')
@@ -116,6 +139,7 @@ def capabilities(config):
             for epoch in range(10, 301, 10):
                 resolve(config, 'v9', epoch, _hashes=hashes)
             result.append('voice-v9-epochs-v1')
+            result.append('voice-v9-epoch-range-v1')
     if 'vdb' in models:
         resolve(config, 'vdb')
         result.append('voice-vdb-v1')
