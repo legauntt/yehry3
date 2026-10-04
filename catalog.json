@@ -2,6 +2,366 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-3054fd865e902c753477c890",
+      "title": "The House Moved On",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3054fd865e902c753477c890-82ce3a5d1b04.mp3",
+      "duration": 299.84,
+      "collection": "distonyc",
+      "voiceModel": "vdb",
+      "publishedAt": "2026-10-04T07:06:27.752Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "The House Moved On",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Dark, polished pop-rock with a driving bass pulse, chiming electric guitars, piano accents, live drums, and smoky Tony lead vocals. Build from intimate verses into wide, melodic choruses; keep the final outro vocal sustained until about 10 seconds before the end, then resolve on one final chord.",
+        "lyrics": "[Verse 1]\nI saw the commercial after midnight\nBlue light buzzing in my rented room\nSydney held the footballs like a weather report\nAnd my common sense left in a plume\nShe said, “Pick a winner,” with a million-dollar smile\nThe scoreboard winked, the app sang low\nI was lonely enough to call it destiny\nI was foolish enough to let it grow\n\n[Pre-Chorus]\nSydney’s titties mesmerized me\nThat’s the ugly truth I know\nWhile the odds dressed up like angels\nAnd the little green arrows said go\n\n[Chorus]\nDraftKings took my Thursday, took my truck\nTook the change jar, took my luck\nI chased a parlay down a burning hall\nNow I owe the moon and I blame football\nSydney Sweeney, glowing on my screen\nYou sold a dream to a lonely machine\nI pressed “confirm,” now my whole life’s gone\nAnd the debt collectors know my song\n\n[Verse 2]\nI bet on punts in cities I’ve never seen\nI learned the names of third-string men\nI put the rent on a quarterback’s ankle\nThen I did it all again and again\nMy landlord taped a notice to the door\nMy mother stopped returning calls\nI traded my wedding ring for a promo code\nAnd watched my future hit the walls\n\n[Pre-Chorus]\nShe was smiling through the static\nI was counting borrowed change\nEvery bonus bet felt holy\nEvery loss felt somehow strange\n\n[Chorus]\nDraftKings took my Thursday, took my truck\nTook the change jar, took my luck\nI chased a parlay down a burning hall\nNow I owe the moon and I blame football\nSydney Sweeney, glowing on my screen\nYou sold a dream to a lonely machine\nI pressed “confirm,” now my whole life’s gone\nAnd the debt collectors know my song\n\n[Bridge]\nI know it was my thumb, my card, my name\nMy bad decisions, my crooked game\nBut when the television turns electric blue\nI still see the fool I was becoming for you\nNo miracle lock, no final score\nCan buy back what I had before\nJust a vacant fridge and a ringing phone\nAnd a betting app that calls me home\n\n[Chorus]\nDraftKings took my Thursday, took my truck\nTook the change jar, took my luck\nI chased a parlay down a burning hall\nNow I owe the moon and I blame football\nSydney Sweeney, fading from my screen\nEasy paycheck, expensive dream\nI pressed “confirm,” and the lights stayed on\nBut everything I loved is gone\n\n[Outro]\nNo comeback season, no clean slate\nJust a paper cup and a court date\nThe game is over, the house moved on\nAnd I will never recover from the song\n[End]",
+        "duration": 300,
+        "bpm": 104,
+        "musicalSettings": {
+          "genre": "Dark melodic pop-rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus, outro",
+          "performance": "Rough, slurred, smoky Tony delivery with catchable sustained chorus melodies",
+          "energy": "Restrained midnight opening, escalating through the choruses, then a stark final resolution",
+          "lyricWorkflow": "Preserve the supplied lyric sheet exactly, with section labels only",
+          "instruments": [
+            "electric guitar",
+            "electric bass",
+            "piano",
+            "drum kit",
+            "subtle synthesizer"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI saw the commercial after midnight\nBlue light buzzing in my rented room\nSydney held the footballs like a weather report\nAnd my common sense left in a plume\nShe said, “Pick a winner,” with a million-dollar smile\nThe scoreboard winked, the app sang low\nI was lonely enough to call it destiny\nI was foolish enough to let it grow\n\n[Pre-Chorus]\nSydney’s titties mesmerized me\nThat’s the ugly truth I know\nWhile the odds dressed up like angels\nAnd the little green arrows said go\n\n[Chorus]\nDraftKings took my Thursday, took my truck\nTook the change jar, took my luck\nI chased a parlay down a burning hall\nNow I owe the moon and I blame football\nSydney Sweeney, glowing on my screen\nYou sold a dream to a lonely machine\nI pressed “confirm,” now my whole life’s gone\nAnd the debt collectors know my song\n\n[Verse 2]\nI bet on punts in cities I’ve never seen\nI learned the names of third-string men\nI put the rent on a quarterback’s ankle\nThen I did it all again and again\nMy landlord taped a notice to the door\nMy mother stopped returning calls\nI traded my wedding ring for a promo code\nAnd watched my future hit the walls\n\n[Pre-Chorus]\nShe was smiling through the static\nI was counting borrowed change\nEvery bonus bet felt holy\nEvery loss felt somehow strange\n\n[Chorus]\nDraftKings took my Thursday, took my truck\nTook the change jar, took my luck\nI chased a parlay down a burning hall\nNow I owe the moon and I blame football\nSydney Sweeney, glowing on my screen\nYou sold a dream to a lonely machine\nI pressed “confirm,” now my whole life’s gone\nAnd the debt collectors know my song\n\n[Bridge]\nI know it was my thumb, my card, my name\nMy bad decisions, my crooked game\nBut when the television turns electric blue\nI still see the fool I was becoming for you\nNo miracle lock, no final score\nCan buy back what I had before\nJust a vacant fridge and a ringing phone\nAnd a betting app that calls me home\n\n[Chorus]\nDraftKings took my Thursday, took my truck\nTook the change jar, took my luck\nI chased a parlay down a burning hall\nNow I owe the moon and I blame football\nSydney Sweeney, fading from my screen\nEasy paycheck, expensive dream\nI pressed “confirm,” and the lights stayed on\nBut everything I loved is gone\n\n[Outro]\nNo comeback season, no clean slate\nJust a paper cup and a court date\nThe game is over, the house moved on\nAnd I will never recover from the song",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.26
+          },
+          {
+            "line": 2,
+            "start": 4.86,
+            "end": 7.92
+          },
+          {
+            "line": 3,
+            "start": 9,
+            "end": 12.98
+          },
+          {
+            "line": 4,
+            "start": 12.98,
+            "end": 17.16
+          },
+          {
+            "line": 5,
+            "start": 18,
+            "end": 22.92
+          },
+          {
+            "line": 6,
+            "start": 22.92,
+            "end": 26.84
+          },
+          {
+            "line": 7,
+            "start": 26.84,
+            "end": 30.78
+          },
+          {
+            "line": 8,
+            "start": 31.77,
+            "end": 35.22
+          },
+          {
+            "line": 12,
+            "start": 42.74,
+            "end": 44.56
+          },
+          {
+            "line": 13,
+            "start": 46.34,
+            "end": 49.58
+          },
+          {
+            "line": 17,
+            "start": 53.74,
+            "end": 57.88
+          },
+          {
+            "line": 18,
+            "start": 58.74,
+            "end": 62.78
+          },
+          {
+            "line": 19,
+            "start": 63.65,
+            "end": 68.24
+          },
+          {
+            "line": 20,
+            "start": 68.57,
+            "end": 72.48
+          },
+          {
+            "line": 21,
+            "start": 72.48,
+            "end": 77.52
+          },
+          {
+            "line": 22,
+            "start": 77.52,
+            "end": 82.06
+          },
+          {
+            "line": 23,
+            "start": 82.06,
+            "end": 86.62
+          },
+          {
+            "line": 24,
+            "start": 86.62,
+            "end": 91.56
+          },
+          {
+            "line": 27,
+            "start": 94.08,
+            "end": 98.02
+          },
+          {
+            "line": 28,
+            "start": 99.06,
+            "end": 102.8
+          },
+          {
+            "line": 29,
+            "start": 103.69,
+            "end": 107.1
+          },
+          {
+            "line": 30,
+            "start": 107.1,
+            "end": 110.54
+          },
+          {
+            "line": 31,
+            "start": 111.96,
+            "end": 116.42
+          },
+          {
+            "line": 32,
+            "start": 117,
+            "end": 120.92
+          },
+          {
+            "line": 33,
+            "start": 120.96,
+            "end": 125.82
+          },
+          {
+            "line": 34,
+            "start": 125.82,
+            "end": 128.86
+          },
+          {
+            "line": 37,
+            "start": 130.8,
+            "end": 133.78
+          },
+          {
+            "line": 38,
+            "start": 135.42,
+            "end": 138.3
+          },
+          {
+            "line": 39,
+            "start": 140.24,
+            "end": 143.1
+          },
+          {
+            "line": 40,
+            "start": 144.16,
+            "end": 148.48
+          },
+          {
+            "line": 43,
+            "start": 148.48,
+            "end": 151.56
+          },
+          {
+            "line": 44,
+            "start": 153.2,
+            "end": 156.62
+          },
+          {
+            "line": 45,
+            "start": 157.54,
+            "end": 161.96
+          },
+          {
+            "line": 46,
+            "start": 162.36,
+            "end": 166.26
+          },
+          {
+            "line": 47,
+            "start": 167.2,
+            "end": 171.02
+          },
+          {
+            "line": 48,
+            "start": 172.38,
+            "end": 175.64
+          },
+          {
+            "line": 49,
+            "start": 176.18,
+            "end": 186.38
+          },
+          {
+            "line": 53,
+            "start": 189.28,
+            "end": 192.88
+          },
+          {
+            "line": 54,
+            "start": 193.52,
+            "end": 197.5
+          },
+          {
+            "line": 55,
+            "start": 197.78,
+            "end": 201.92
+          },
+          {
+            "line": 56,
+            "start": 202.04,
+            "end": 207.26
+          },
+          {
+            "line": 57,
+            "start": 207.26,
+            "end": 211.04
+          },
+          {
+            "line": 58,
+            "start": 211.37,
+            "end": 215.52
+          },
+          {
+            "line": 59,
+            "start": 215.97,
+            "end": 220.22
+          },
+          {
+            "line": 60,
+            "start": 220.22,
+            "end": 226.68
+          },
+          {
+            "line": 63,
+            "start": 227.63,
+            "end": 231.48
+          },
+          {
+            "line": 64,
+            "start": 231.48,
+            "end": 236.48
+          },
+          {
+            "line": 65,
+            "start": 236.8,
+            "end": 242.02
+          },
+          {
+            "line": 66,
+            "start": 242.02,
+            "end": 246.14
+          },
+          {
+            "line": 67,
+            "start": 246.71,
+            "end": 251.04
+          },
+          {
+            "line": 68,
+            "start": 251.37,
+            "end": 256.52
+          },
+          {
+            "line": 69,
+            "start": 256.52,
+            "end": 260.34
+          },
+          {
+            "line": 70,
+            "start": 261,
+            "end": 263.82
+          },
+          {
+            "line": 73,
+            "start": 267.88,
+            "end": 272.7
+          },
+          {
+            "line": 74,
+            "start": 273.5,
+            "end": 277.36
+          },
+          {
+            "line": 75,
+            "start": 278.18,
+            "end": 282
+          },
+          {
+            "line": 76,
+            "start": 282.88,
+            "end": 286.54
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "wild",
+      "guide": {
+        "sha256": "d5e6c89c1659633967386737d97ac8cfe83607f467b1bdce8ad1789ff3e05b1a",
+        "bytes": 7295324,
+        "duration": 299.84,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3054fd865e902c753477c890-d5e6c89c1659.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Tony C explains how Sydney Sweeney's alluring DraftKings ad where she's naked except for some footballs she's holding up got him addicted to gambling, leading to his financial ruination, and destroying his life forever. He will never recover. He blames Sydney for misleading him, as a confused, lonely young man, just so she could get an easy paycheck.",
+        "direction": "Taylor Swift",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "vdb",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 300,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-6fa608ea10febffcde18d010",
       "title": "Five Pounds to Two Hundred",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6fa608ea10febffcde18d010-26abf7450cf7.mp3",
