@@ -97,7 +97,7 @@ function budgetView(result) {
       <p class="small">Reported by the studio PC ${escape(day(new Date(provider.observedAt), { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" }))}${provider.fresh ? "" : " — out of date, so it may have changed"}.</p>
     </div>`);
   } else parts.push(`<p class="small">The studio PC has not reported the ElevenLabs balance yet.</p>`);
-  if (Number.isFinite(result.capCents)) {
+  if (result.capEnforced !== false && Number.isFinite(result.capCents)) {
     const left = Math.min(1, Math.max(0, result.remainingCents / result.capCents));
     parts.push(`<div class="audit-budget-row">
       <p><strong>Spending cap</strong> ${dollars(result.remainingCents)} of ${dollars(result.capCents)} left</p>

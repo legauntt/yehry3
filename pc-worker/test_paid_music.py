@@ -65,13 +65,19 @@ class PaidMusicTests(unittest.TestCase):
         with self.assertRaises(ValueError): self.compose()
         self.send.assert_called_once()
 
-    def test_disabled_or_exhausted_budget_never_calls_provider(self):
-        for changed in ({'enabled': False}, {'cap_cents': 1000}):
+    def test_disabled_policy_never_calls_provider(self):
+        for changed in ({'enabled': False},):
             with self.subTest(changed=changed):
                 original = load(self.policy); save(self.policy, original | changed)
                 with self.assertRaises(ValueError): self.compose()
                 save(self.policy, original)
         self.send.assert_not_called(); self.key.assert_not_called()
+
+    def test_historical_total_cap_does_not_block_provider_call(self):
+        save(self.policy, load(self.policy) | {'cap_cents': 1000})
+        self.compose()
+        self.send.assert_called_once()
+        self.assertEqual(paid_music.reserved_total(load(self.ledger)), 1300)
 
     def test_missing_ledger_is_not_reset(self):
         self.ledger.unlink()
@@ -254,16 +260,17 @@ class PaidMusicTests(unittest.TestCase):
         original = {'id': 'request-one', 'request_hash': fingerprint(self.body), 'reserved_cents': 400,
                     'status': 'requires_reconciliation', 'http_status': 400, 'error_type': 'HTTPError'}
         ledger['requests'].append(original); save(self.ledger, ledger)
+        save(self.policy, load(self.policy) | {'cap_cents': 1000})
         retry = paid_music.authorize_retry(self.work, 'User approved retry; old HTTP 400 and empty usage retained.')
         self.assertEqual(retry['original_attempt'], original)
         self.assertEqual(self.compose()['attempt'], 2)
         self.send.assert_called_once()
 
-    def test_retry_authorization_respects_cap_disabled_policy_audio_and_changed_inputs(self):
+    def test_retry_authorization_respects_disabled_policy_audio_and_changed_inputs(self):
         self.send.side_effect = TimeoutError('failed')
         with self.assertRaises(RuntimeError): self.compose()
         original = load(self.policy)
-        for change in ({'cap_cents': 1500}, {'enabled': False}):
+        for change in ({'enabled': False},):
             save(self.policy, original | change)
             with self.assertRaisesRegex(ValueError, 'budget|disabled'):
                 paid_music.authorize_retry(self.work, 'User has approved exactly one more attempt.')

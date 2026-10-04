@@ -29,6 +29,18 @@ async function mock(page) {
 }
 const heights = (page, selector) => page.locator(selector).evaluateAll((bars) => bars.map((bar) => Math.round(bar.getBoundingClientRect().height)));
 
+test("removed cap leaves only the provider credit meter", async ({ page }) => {
+  await mock(page);
+  await page.route("**/yehry3/music-backends", route => route.fulfill({ json: { ...budget, capEnforced: false, remainingCents: 0 } }));
+  await page.addInitScript(() => localStorage.setItem("yehry3:auth:submitter", JSON.stringify({ token: "test-token", password: "pw" })));
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/audtism/");
+  await expect(page.locator("#audit-budget")).toContainText("$18.50 of generation");
+  await expect(page.locator("#audit-budget")).not.toContainText("Spending cap");
+  await expect(page.locator("#audit-budget .audit-meter")).toHaveCount(1);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
 test("totals, day/week charts, ledger and the signed-out budget prompt", async ({ page }) => {
   await mock(page);
   await page.goto("/audtism/");

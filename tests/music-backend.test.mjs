@@ -26,3 +26,10 @@ test('a stale balance is not presented as current', () => {
   const note = budgetNote({ remainingCents: 16600, provider: provider({ fresh: false, availableCents: null }) }, 75);
   assert.equal(note, ' $166.00 is available to reserve.');
 });
+
+test('removed cap is not presented as an available balance', () => {
+  assert.equal(budgetNote({ capEnforced: false, remainingCents: 0 }, 75), '');
+  const note = budgetNote({ capEnforced: false, remainingCents: 0, provider: provider() }, 75);
+  assert.match(note, /generation credits left/);
+  assert.doesNotMatch(note, /available to reserve/);
+});

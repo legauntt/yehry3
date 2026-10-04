@@ -261,8 +261,8 @@ def authorize_retry(work, reason):
             raise ValueError('This request already has its one operator retry authorization')
         if any((work/name).exists() for name in ('paid-original.mp3', 'paid-original.partial', 'paid-receipt.json', 'generated.wav')):
             raise ValueError('Reconcile retained audio before authorizing another paid request')
-        if not cfg.get('enabled') or reserved_total(ledger) + cost > cfg['cap_cents']:
-            raise ValueError('Paid music is disabled or the local paid music budget is exhausted')
+        if not cfg.get('enabled'):
+            raise ValueError('Paid music is disabled')
         original = dict(row)
         retry = {'version': 1, 'id': str(uuid.uuid4()), 'authorized_at': utc(), 'reason': reason.strip(),
             'request_hash': inputs['request_hash'], 'reserved_cents': cost, 'status': 'authorized',
@@ -307,8 +307,6 @@ def compose(work, send_request=send, key_reader=get_key):
             raise ValueError('Restore the missing paid reservation before resuming retained audio')
         if not cfg.get('enabled'):
             raise ValueError('Paid music is disabled; the confirmed request remains saved')
-        if reserved_total(ledger) + (0 if prior else cost) > cfg['cap_cents']:
-            raise ValueError('The local paid music budget is exhausted; no request was sent')
         key = key_reader(cfg['credential'])
         if prior:
             row = prior
