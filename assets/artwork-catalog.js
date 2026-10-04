@@ -2195,5 +2195,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-04T07:15:42.687Z",
     "history": []
+  },
+  "distonyc-d36e8cb0b386edd7856e6b45": {
+    "src": "/assets/artwork/distonyc-d36e8cb0b386edd7856e6b45-incubating-e0afefd172f2-7bb596ba453d59bc-q86.webp",
+    "alt": "Cover artwork for Windows Lit by Snow.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "561013369cac8b15713e08a61d4508f250b8b37633b04006cac97f5d1b50c547",
+    "promptHash": "dcc18d9cd17adbad411bc2aee53ade1a43229f264c35f5f5e3ae7f37700cda9f",
+    "createdAt": "2026-10-04T07:22:00.108Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-04T07:21:42.614Z",
+    "history": []
   }
 };
