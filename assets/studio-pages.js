@@ -1,4 +1,5 @@
 import { needsReview } from "./repair-status.js";
+import { clippyMarkup, clippyOptions } from "./clippy.js";
 import { showToast } from "./message.js";
 import { songBadges } from "./song-badges.js";
 import { mountMusicBackend, paidConfirmation, rememberPaidAgreement, PAID_BACKEND } from './music-backend.js';
@@ -759,7 +760,7 @@ export async function admin() {
   // The queue list and the single-request view share these card controls.
   function bindQueue() {
     $("#queue").addEventListener("click", async (event) => {
-      const button = event.target.closest("[data-support], [data-copy-support]");
+      const button = event.target.closest("[data-support], [data-copy-support], [data-clippy]");
       if (!button) return;
       const card = button.closest("[data-prompt]");
       const panel = $(".support-report", card);
@@ -774,17 +775,26 @@ export async function admin() {
         }
         return;
       }
-      panel.hidden = !panel.hidden;
+      const doc = data.prompts.find(item => item.id === card.dataset.prompt);
+      const option = button.hasAttribute("data-clippy")
+        ? clippyOptions(doc).find(item => item.id === button.dataset.clippy) : null;
+      if (button.hasAttribute("data-clippy") && !option) return;
+      panel.hidden = option ? false : !panel.hidden;
       button.setAttribute("aria-expanded", String(!panel.hidden));
+      $("[data-support]", card).setAttribute("aria-expanded", String(!panel.hidden));
       if (panel.hidden) return;
+      const reportRequest = Symbol();
+      panel.reportRequest = reportRequest;
       panel.innerHTML = '<p class="small">Collecting the saved diagnostics…</p>';
       busy(button, true);
       try {
         const report = await api(`/admin/prompts/${encodeURIComponent(card.dataset.prompt)}/support`, { role: "admin" });
-        if (!panel.isConnected) return;
-        panel.innerHTML = `<h3>Contact Support</h3><p class="small">Copy this report into a support conversation. It includes the current state and excerpts from retained logs.</p><label for="report-${escape(card.dataset.prompt)}">Diagnostic report</label><textarea id="report-${escape(card.dataset.prompt)}" rows="14" readonly>${escape(report.text)}</textarea><button type="button" class="quiet" data-copy-support>Copy report</button><p class="small support-copy-status" role="status"></p>`;
+        if (!panel.isConnected || panel.reportRequest !== reportRequest || panel.hidden) return;
+        const text = option ? `Clippy: ${option.title}\n\n${option.request}\n\nWhy this option: ${option.reason}\n\n${report.text}` : report.text;
+        panel.innerHTML = `<h3>${option ? "Clippy repair request" : "Contact Support"}</h3><p class="small">Copy this ${option ? "repair request" : "report"} into a support conversation. It includes the current state and excerpts from retained logs.</p><label for="report-${escape(card.dataset.prompt)}">Diagnostic report</label><textarea id="report-${escape(card.dataset.prompt)}" rows="14" readonly>${escape(text)}</textarea><button type="button" class="quiet" data-copy-support>Copy report</button><p class="small support-copy-status" role="status"></p>`;
+        if (option) panel.scrollIntoView({ block: "nearest" });
       } catch (error) {
-        if (panel.isConnected) panel.innerHTML = `<p class="field-error">${escape(error.message)}</p><p class="small">Close and reopen Contact Support to retry. Raw logs remain below.</p>`;
+        if (panel.isConnected && panel.reportRequest === reportRequest && !panel.hidden) panel.innerHTML = `<p class="field-error">${escape(error.message)}</p><p class="small">Close and reopen Contact Support to retry. Raw logs remain below.</p>`;
       } finally { busy(button, false); }
     });
     $("#queue").addEventListener("submit", async (event) => {
@@ -876,7 +886,7 @@ export async function admin() {
     const archiveRequest = doc.status === "failed" && !doc.workerActive && allowed.includes("canceled");
     const support = `<form class="support-actions" data-action="archive-request"><button type="button" class="primary" data-support aria-expanded="false" aria-controls="support-${id}">Contact Support</button>${archiveRequest ? '<button class="quiet">Archive</button>' : ""}<span class="small">Dehaka has retired. Support is you, wearing a different hat.</span></form><section id="support-${id}" class="support-report" hidden aria-label="Support report" aria-live="polite"></section>`;
     const failure = doc.status === "failed" ? `<section class="attention-problem"><p class="eyebrow">What stopped it</p>${doc.workerProgress?.stage ? `<p class="small">Production stopped during ${escape(doc.workerProgress.stage)}.</p>` : ""}<p class="field-error">${escape(doc.workerError || "The render stopped. Saved work is retained.")}</p></section>${adapting ? '<p class="small recovery-notice">Automatic recovery is working on this request using saved work.</p>' : ""}` : "";
-    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${songBadges(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}${requestId ? "" : ` · <a href="/admin/${encodeURIComponent(doc.id)}">Permalink</a>`}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues, doc.reviewState, doc.result?.validationFailures, doc.repairedAt ?? doc.result?.repairedAt)}${needsReview(doc) ? '<form data-action="keep" class="retry-form"><button class="primary">Keep this version</button><span class="small">Clear the review flag after listening.</span></form><form data-action="regenerate" class="retry-form"><button class="quiet">Regenerate</button><span class="small">Review the same brief as a new request. This recording stays up until you send the new request to the queue; then it is archived and leaves the site.</span></form><form data-action="archive" class="retry-form"><button class="quiet">Archive</button><span class="small">Take this recording down now, with no replacement queued. Votes and plays are kept, and it can be restored from Published songs.</span></form>' : ""}${failure}${support}${thread}${logsSlot}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, validationFailures: null, reviewState: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
+    return `<article class="queue-card" data-prompt="${id}"><div class="queue-heading"><div>${badge(recoveryStatus(doc))} ${songBadges(doc)}<h2>${escape(doc.prompt)}</h2>${authoredByLine(doc.authoredBy, escape)}<p class="small">Received ${date(doc.confirmedAt)} · Priority ${doc.priority}${requestId ? "" : ` · <a href="/admin/${encodeURIComponent(doc.id)}">Permalink</a>`}</p></div>${doc.status === "queued" ? `<form data-action="priority" class="priority-form"><label for="priority-${id}">Priority</label><div><input id="priority-${id}" name="priority" type="number" min="-10000" max="10000" step="1" value="${doc.priority}" required><button class="quiet">Set</button></div></form>` : ""}</div>${gpuWaitNotice(doc)}${qualityNotice(doc.result?.qualityIssues, doc.reviewState, doc.result?.validationFailures, doc.repairedAt ?? doc.result?.repairedAt)}${needsReview(doc) ? '<form data-action="keep" class="retry-form"><button class="primary">Keep this version</button><span class="small">Clear the review flag after listening.</span></form><form data-action="regenerate" class="retry-form"><button class="quiet">Regenerate</button><span class="small">Review the same brief as a new request. This recording stays up until you send the new request to the queue; then it is archived and leaves the site.</span></form><form data-action="archive" class="retry-form"><button class="quiet">Archive</button><span class="small">Take this recording down now, with no replacement queued. Votes and plays are kept, and it can be restored from Published songs.</span></form>' : ""}${failure}${clippyMarkup(doc, escape, { canArchive: archiveRequest })}${support}${thread}${logsSlot}${promptSummary(doc.details || {}, escape)}<details class="admin-brief"><summary>Open brief & controls <span class="disclosure-icon" aria-hidden="true"></span></summary>${brief({ ...doc, result: null, qualityIssues: null, validationFailures: null, reviewState: null, workerError: doc.status === "failed" ? null : doc.workerError }, false)}<form data-action="note"><label for="note-${id}">Private admin note</label><textarea id="note-${id}" name="note" rows="2" maxlength="2000">${escape(doc.adminNote || "")}</textarea><button class="quiet">Save note</button></form>${allowed.length ? `<form data-action="status" class="status-form"><label for="status-${id}">Move request to</label><select id="status-${id}" name="status" required><option value="" disabled selected>Choose a status</option>${allowed.map((status) => `<option value="${status}">${labels[status]}</option>`).join("")}</select><label class="publish-field" hidden>Published song URL<input name="publishedUrl" type="url" placeholder="https://yehry3.app/…"></label><button class="primary">Update status</button></form>` : ""}${doc.publishedUrl ? `<p><a href="${escape(safeUrl(doc.publishedUrl))}" target="_blank" rel="noopener">Open published song ↗</a></p>` : ""}<h3 class="history-title">Activity</h3><ol class="history">${[
       ...(doc.history || []),
     ]
       .reverse()

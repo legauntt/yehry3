@@ -191,6 +191,7 @@ for (const name of [
   "app.js",
   "app-ui.js",
   "studio-pages.js",
+  "clippy.js",
   "queue-links.js",
   "recording-label.js",
   "catalog-view.js",

@@ -76,6 +76,16 @@
 .attention-problem .field-error {
   white-space: pre-wrap;
 }
+.clippy { max-width: 850px; margin: 20px 0; padding: 20px; border: 1px solid #9aaa92; border-radius: 12px; background: #f5f2e8; }
+.clippy-heading { display: flex; align-items: center; gap: 12px; }
+.clippy-icon { font-size: 2.2rem; }
+.clippy-heading h3, .clippy-heading p { margin: 0; }
+.clippy-heading h3 { font-size: 1.15rem; }
+.clippy-options { padding-left: 24px; margin: 18px 0; }
+.clippy-options li { padding: 12px 0; border-top: 1px solid #d6d2c5; }
+.clippy-options h4 { margin: 0 0 6px; font-size: .95rem; }
+.clippy-options p { margin: 6px 0; }
+.clippy-options .quiet { margin: 8px 0 0; }
 .support-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin: 16px 0; }
 .queue-card .support-actions > button { flex-shrink: 0; margin-top: 0; }
 .support-actions .small { flex: 1; min-width: 180px; }
