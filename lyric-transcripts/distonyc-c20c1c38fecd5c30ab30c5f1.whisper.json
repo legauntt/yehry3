@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "songId": "distonyc-c20c1c38fecd5c30ab30c5f1",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c20c1c38fecd5c30ab30c5f1-551bea05fb52.mp3",
+  "audioSha256": "551bea05fb524428194953c1a61225a7db52d535393350171cb4aef134dea6c6",
+  "inputSha256": "551bea05fb524428194953c1a61225a7db52d535393350171cb4aef134dea6c6",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 352.4,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.92,
+      "text": "I can't wait to see what I'm putting on",
+      "uncertain": true
+    },
+    {
+      "start": 5.16,
+      "end": 8.14,
+      "text": "Whether it's on my body or the stereo",
+      "uncertain": true
+    },
+    {
+      "start": 9.08,
+      "end": 10.98,
+      "text": "You're where I'm coming from",
+      "uncertain": false
+    },
+    {
+      "start": 12.18,
+      "end": 13.94,
+      "text": "That's where you're going to",
+      "uncertain": false
+    },
+    {
+      "start": 16.18,
+      "end": 18.88,
+      "text": "Wish I could stay but I'm just passing through",
+      "uncertain": false
+    },
+    {
+      "start": 18.88,
+      "end": 22.6,
+      "text": "And tell me when you get there is it popping off",
+      "uncertain": false
+    },
+    {
+      "start": 22.6,
+      "end": 26.06,
+      "text": "Does it live up to it everything you're dreaming of",
+      "uncertain": false
+    },
+    {
+      "start": 26.06,
+      "end": 29.56,
+      "text": "You think we're facing off but I ain't facing you",
+      "uncertain": false
+    },
+    {
+      "start": 29.56,
+      "end": 38.84,
+      "text": "cause you can't face the truth you think I'm in love love love love I bet you do",
+      "uncertain": true
+    },
+    {
+      "start": 40.42,
+      "end": 45.82,
+      "text": "you think I'm in love love love love love you know what you want",
+      "uncertain": false
+    },
+    {
+      "start": 47.82,
+      "end": 70.94,
+      "text": "I bet you do, you know what you want, I bet you do, I bet you do, I bet you do, I bet you do.",
+      "uncertain": true
+    },
+    {
+      "start": 75.98,
+      "end": 78.04,
+      "text": "I bet you do",
+      "uncertain": true
+    },
+    {
+      "start": 78.04,
+      "end": 85.3,
+      "text": "I bet you do",
+      "uncertain": true
+    },
+    {
+      "start": 85.3,
+      "end": 92.32,
+      "text": "I bet you do",
+      "uncertain": false
+    },
+    {
+      "start": 92.32,
+      "end": 99.48,
+      "text": "I bet you do",
+      "uncertain": false
+    },
+    {
+      "start": 104.88,
+      "end": 106.58,
+      "text": "I bet you do",
+      "uncertain": true
+    },
+    {
+      "start": 111.58,
+      "end": 113.8,
+      "text": "I bet you do",
+      "uncertain": true
+    },
+    {
+      "start": 116.56,
+      "end": 119.26,
+      "text": "Can't wait to see you follow through",
+      "uncertain": false
+    },
+    {
+      "start": 119.26,
+      "end": 122.84,
+      "text": "On all those things you said that you were gonna do",
+      "uncertain": false
+    },
+    {
+      "start": 122.84,
+      "end": 124.74,
+      "text": "And what you're walking on",
+      "uncertain": false
+    },
+    {
+      "start": 124.74,
+      "end": 126.58,
+      "text": "The rope is coming loose",
+      "uncertain": false
+    },
+    {
+      "start": 126.58,
+      "end": 128.5,
+      "text": "It's time to cut it off",
+      "uncertain": false
+    },
+    {
+      "start": 128.5,
+      "end": 130.4,
+      "text": "A tired noose",
+      "uncertain": true
+    },
+    {
+      "start": 130.4,
+      "end": 133.64,
+      "text": "Well, baby, we can stay here getting tangled up",
+      "uncertain": false
+    },
+    {
+      "start": 133.64,
+      "end": 135.36,
+      "text": "Sometimes it feels like",
+      "uncertain": false
+    },
+    {
+      "start": 135.36,
+      "end": 137.06,
+      "text": "Hatred formed a stronger knot",
+      "uncertain": true
+    },
+    {
+      "start": 137.06,
+      "end": 139.06,
+      "text": "So put the pressure on",
+      "uncertain": false
+    },
+    {
+      "start": 139.06,
+      "end": 141.56,
+      "text": "Is that enough for you?",
+      "uncertain": false
+    },
+    {
+      "start": 144.58,
+      "end": 145.56,
+      "text": "I bet you do",
+      "uncertain": false
+    },
+    {
+      "start": 147.04,
+      "end": 150.14,
+      "text": "You think I'm in love, love, love, love",
+      "uncertain": false
+    },
+    {
+      "start": 150.14,
+      "end": 152.76,
+      "text": "I bet you do",
+      "uncertain": false
+    },
+    {
+      "start": 154.16,
+      "end": 157.94,
+      "text": "You think I'm in love, love, love, love, love",
+      "uncertain": false
+    },
+    {
+      "start": 157.94,
+      "end": 163.4,
+      "text": "You know what you want, want, want, want, I bet you do.",
+      "uncertain": false
+    },
+    {
+      "start": 164.98,
+      "end": 170.5,
+      "text": "You know what you want, want, want, want, I bet you do.",
+      "uncertain": false
+    },
+    {
+      "start": 176.08,
+      "end": 177.56,
+      "text": "I bet you do.",
+      "uncertain": false
+    },
+    {
+      "start": 178.12,
+      "end": 184.62,
+      "text": "I bet you do.",
+      "uncertain": false
+    },
+    {
+      "start": 192.98,
+      "end": 194.5,
+      "text": "I bet you do",
+      "uncertain": true
+    },
+    {
+      "start": 200.52,
+      "end": 204.16,
+      "text": "I know what you want, what you are",
+      "uncertain": true
+    },
+    {
+      "start": 204.16,
+      "end": 208.82,
+      "text": "I know what you are, baby why you seem so dark",
+      "uncertain": false
+    },
+    {
+      "start": 209.98,
+      "end": 212.34,
+      "text": "That's cause you're standing in my shadow",
+      "uncertain": false
+    },
+    {
+      "start": 213.42,
+      "end": 215.84,
+      "text": "I thought you said you were a star",
+      "uncertain": false
+    },
+    {
+      "start": 216.96,
+      "end": 220.0,
+      "text": "But you don't seem so far away",
+      "uncertain": false
+    },
+    {
+      "start": 220.0,
+      "end": 223.06,
+      "text": "And now I think it's time",
+      "uncertain": false
+    },
+    {
+      "start": 224.14,
+      "end": 226.78,
+      "text": "I'm gonna show you what I'm made of",
+      "uncertain": false
+    },
+    {
+      "start": 226.78,
+      "end": 230.66,
+      "text": "I bet you think I did it all for you",
+      "uncertain": false
+    },
+    {
+      "start": 234.62,
+      "end": 237.28,
+      "text": "Baby, why you seem so dark",
+      "uncertain": false
+    },
+    {
+      "start": 238.4,
+      "end": 240.76,
+      "text": "That's cause you're standing in my shadow",
+      "uncertain": false
+    },
+    {
+      "start": 245.84,
+      "end": 254.54,
+      "text": "I thought you said you were a star, but you don't seem so far away, and now I think it's",
+      "uncertain": false
+    },
+    {
+      "start": 254.54,
+      "end": 273.58,
+      "text": "time, I'm gonna show you what I'm made of, I bet you do, I bet you do, I bet you do,",
+      "uncertain": false
+    },
+    {
+      "start": 278.98,
+      "end": 280.7,
+      "text": "I bet you do.",
+      "uncertain": false
+    },
+    {
+      "start": 307.94,
+      "end": 310.14,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 350.14,
+      "end": 350.24,
+      "text": "We'll be right back.",
+      "uncertain": true
+    }
+  ]
+}
