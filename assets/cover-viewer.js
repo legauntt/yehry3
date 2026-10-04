@@ -59,7 +59,9 @@ export function mountCoverViewer(root, scope) {
       const button = document.createElement("button");
       button.type = "button";
       button.dataset.coverVersion = index;
-      button.textContent = `Version ${choice.label}${index === choices.length - 1 ? " · Current" : ""}`;
+      button.textContent = choice.label;
+      button.classList.toggle("is-current-version", index === choices.length - 1);
+      button.setAttribute("aria-label", `Version ${choice.label}${index === choices.length - 1 ? " (current)" : ""}`);
       if (choice.createdAt) button.title = new Date(choice.createdAt).toLocaleString();
       return button;
     }));

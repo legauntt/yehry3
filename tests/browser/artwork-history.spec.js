@@ -16,11 +16,16 @@ for (const width of [1440, 390]) test(`saved cover history works at ${width}px`,
   await expect(dialog).toBeVisible();
   const versions = artworkVersions(artwork[id]);
   await expect(dialog.locator("[data-cover-version]")).toHaveCount(versions.length);
+  await expect(dialog.locator("[data-cover-version]")).toHaveText(versions.map(version => version.label));
+  const current = dialog.locator(".is-current-version");
+  await expect(current).toHaveCount(1);
+  await expect(current).toHaveText(versions.at(-1).label);
   for (let index = versions.length - 1; index >= 0; index--) {
     await dialog.locator(`[data-cover-version="${index}"]`).click();
     await expect(dialog.locator("img")).toHaveAttribute("src", versions[index].src);
     await expect(dialog.locator("[data-cover-original]")).toHaveAttribute("href", versions[index].src);
     await expect(dialog.locator(`[data-cover-version="${index}"]`)).toHaveAttribute("aria-pressed", "true");
+    await expect(current).toHaveText(versions.at(-1).label);
     await expect.poll(() => dialog.locator("img").evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
   }
   await dialog.locator("[data-cover-zoom]").click();

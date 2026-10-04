@@ -129,10 +129,14 @@ test("video modal supports keyboard, every page-one clip and leaves audio alone"
     expect(await page.locator("audio").evaluateAll(items => items.some(a => !a.paused))).toBe(true);
     if (song === songs[0]) {
       const choices = videoVersions(song.id);
+      await expect(dialog.locator(".song-video-versions button")).toHaveText(choices.map(choice => choice.label));
+      await expect(dialog.locator(".is-current-version")).toHaveCount(1);
+      await expect(dialog.locator(".is-current-version")).toHaveText(choices.at(-1).label);
       const old = dialog.getByRole("button", { name: "Version A", exact: true });
       await old.focus();
       await page.keyboard.press("Enter");
       await expect(old).toHaveAttribute("aria-pressed", "true");
+      await expect(dialog.locator(".is-current-version")).toHaveText(choices.at(-1).label);
       await expect(video).toHaveAttribute("src", choices[0].src);
       await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0)).toBe(true);
       await dialog.getByRole("button", { name: `Version ${choices.at(-1).label} (latest)`, exact: true }).click();

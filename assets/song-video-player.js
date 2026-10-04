@@ -125,7 +125,8 @@ export function mountSongVideos(root, scope) {
       const button = document.createElement("button");
       button.type = "button";
       button.dataset.version = index;
-      button.textContent = `${choice.label}${index === choices.length - 1 ? " · Latest" : ""}`;
+      button.textContent = choice.label;
+      button.classList.toggle("is-current-version", index === choices.length - 1);
       button.setAttribute("aria-label", `Version ${choice.label}${index === choices.length - 1 ? " (latest)" : ""}`);
       return button;
     }));

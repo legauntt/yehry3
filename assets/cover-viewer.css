@@ -36,6 +36,8 @@ html.cover-viewer-open { overflow: hidden; }
 .cover-viewer-versions[hidden] { display: none; }
 .cover-viewer-versions button { min-height: 44px; padding: 8px 12px; border: 1px solid #ffffff60; border-radius: 6px; background: #263b31; color: #fff; font: inherit; cursor: pointer; }
 .cover-viewer-versions button[aria-pressed="true"] { background: #f9c774; color: #111a17; }
+.cover-viewer-versions button.is-current-version { text-decoration: underline; text-decoration-color: #f9c774; text-decoration-thickness: 3px; text-underline-offset: 5px; }
+.cover-viewer-versions button.is-current-version[aria-pressed="true"] { text-decoration-color: currentColor; }
 .cover-viewer-versions button:focus-visible { outline: 3px solid #f9c774; outline-offset: 2px; }
 .cover-viewer-image { height: min(75dvh, 1024px); overflow: auto; overscroll-behavior: contain; background: #090e0c; border-radius: 6px; }
 .cover-viewer-image img { display: block; width: 100%; height: 100%; object-fit: contain; touch-action: auto; }
