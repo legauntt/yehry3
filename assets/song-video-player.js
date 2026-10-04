@@ -44,7 +44,7 @@ export function mountSongVideos(root, scope) {
   const loopAudio = videoLoopAudio(full, () => {
     full.pause();
     status.textContent = "The audio could not load. Press Play to try again.";
-  });
+  }, () => { status.textContent = ""; });
   let timer, candidate, active, opener, songId, generation = 0;
   let choices = [], playbackGeneration = 0;
   let sound = false;
@@ -87,8 +87,12 @@ export function mountSongVideos(root, scope) {
   scope.on(play, "click", async () => {
     const token = playbackGeneration;
     player.pause();
+    // Keep play() in the click gesture; decoding the lossless sound can take
+    // longer than browser autoplay permission lasts. Sound joins at video time.
+    loopAudio.prime();
+    status.textContent = "Starting video…";
     try {
-      if (await loopAudio.prepare() && dialog.open && token === playbackGeneration) await full.play();
+      await full.play();
     } catch {
       if (dialog.open && token === playbackGeneration) status.textContent = "The video could not start. Press Play to try again.";
     }
@@ -99,7 +103,11 @@ export function mountSongVideos(root, scope) {
   scope.on(full, "seeked", () => loopAudio.seek());
   scope.on(full, "pointerup", () => loopAudio.seek(true));
   scope.on(full, "keyup", () => loopAudio.seek(true));
-  scope.on(full, "volumechange", () => loopAudio.volume());
+  scope.on(full, "volumechange", () => {
+    loopAudio.volume();
+    soundVolume.value = String(full.volume);
+    soundToggle.checked = !full.muted;
+  });
   scope.on(soundToggle, "change", () => { full.muted = !soundToggle.checked; });
   scope.on(soundVolume, "input", () => { full.volume = Number(soundVolume.value); });
   scope.on(full, "ratechange", () => loopAudio.rate());
@@ -193,7 +201,11 @@ export function mountSongVideos(root, scope) {
     close.focus({ preventScroll: true });
     selectVersion(choices.length - 1);
   });
-  scope.on(full, "playing", () => { status.textContent = ""; play.hidden = true; void loopAudio.play(); });
+  scope.on(full, "playing", () => {
+    status.textContent = loopAudio.pending ? "Loading sound…" : "";
+    play.hidden = true;
+    void loopAudio.play();
+  });
   scope.on(full, "error", () => { status.textContent = "The video could not load. Close and try again."; });
   scope.on(close, "click", () => dialog.close());
   scope.on(dialog, "close", () => {

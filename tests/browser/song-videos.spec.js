@@ -17,6 +17,80 @@ test.beforeEach(async ({ page }) => {
 });
 const card = page => page.locator(`[data-id="${songs[0].id}"]`);
 
+test("Play starts the picture while sound loads and volume reaches both endpoints", async ({ page }) => {
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  const song = songs.find(s => s.videoAudio);
+  const choice = videoVersions(song.id).at(-1);
+  await page.addInitScript(() => {
+    window.loopSources = [];
+    const create = AudioContext.prototype.createBufferSource;
+    AudioContext.prototype.createBufferSource = function () {
+      const node = create.call(this); window.loopSources.push(node); return node;
+    };
+  });
+  await page.route(`**${choice.loopAudio}`, async route => { await gate; await route.continue(); });
+  await page.goto("/");
+  await page.locator(`[data-video-open="${song.id}"]`).click();
+  const dialog = page.locator(".song-video-viewer");
+  const video = dialog.locator("video");
+  await dialog.locator("[data-video-play]").click();
+  try {
+    await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0)).toBe(true);
+    await expect(dialog.locator(".song-video-status")).toHaveText("Loading sound…");
+    expect(await page.evaluate(() => window.loopSources.length)).toBe(0);
+  } finally { release(); }
+  await expect.poll(() => page.evaluate(() => window.loopSources.length)).toBe(1);
+  await expect(dialog.locator(".song-video-status")).toBeEmpty();
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 844 });
+    const slider = dialog.getByRole("slider", { name: "Video volume" });
+    await slider.scrollIntoViewIfNeeded();
+    const box = await slider.boundingBox();
+    await page.mouse.click(box.x + 1, box.y + box.height / 2);
+    await expect(slider).toHaveValue("0");
+    await page.mouse.click(box.x + box.width - 1, box.y + box.height / 2);
+    await expect(slider).toHaveValue("1");
+    expect(await video.evaluate(v => v.volume)).toBe(1);
+    await slider.focus(); await page.keyboard.press("Home");
+    await expect(slider).toHaveValue("0");
+    await page.keyboard.press("End");
+    await expect(slider).toHaveValue("1");
+  }
+  // Native controls must update the custom slider too.
+  await video.evaluate(v => { v.volume = .4; v.muted = true; });
+  await expect(dialog.getByRole("slider", { name: "Video volume" })).toHaveValue("0.4");
+  await expect(dialog.getByLabel("Sound on", { exact: true })).not.toBeChecked();
+  await page.screenshot({ path: "test-results/video-volume-phone.png" });
+});
+
+test("failed loop sound retries on Play and closing during loading leaves audio stopped", async ({ page }) => {
+  const song = songs.find(s => s.videoAudio);
+  const choice = videoVersions(song.id).at(-1);
+  let attempts = 0;
+  await page.route(`**${choice.loopAudio}`, route => ++attempts === 1 ? route.abort() : route.continue());
+  await page.goto("/");
+  await page.locator(`[data-video-open="${song.id}"]`).click();
+  const dialog = page.locator(".song-video-viewer");
+  await expect(dialog.locator(".song-video-status")).toContainText("audio could not load");
+  await dialog.locator("[data-video-play]").click();
+  await expect.poll(() => dialog.locator("video").evaluate(v => !v.paused && v.currentTime > 0)).toBe(true);
+  await expect(dialog.locator(".song-video-status")).toBeEmpty();
+  expect(attempts).toBe(2);
+  await page.keyboard.press("Escape");
+
+  let release;
+  const gate = new Promise(resolve => { release = resolve; });
+  await page.route(`**${choice.loopAudio}`, async route => { await gate; await route.continue(); });
+  await page.locator(`[data-video-open="${song.id}"]`).click();
+  await dialog.locator("[data-video-play]").click();
+  await expect(dialog.locator(".song-video-status")).toHaveText("Loading sound…");
+  await page.keyboard.press("Escape");
+  release();
+  await expect(dialog).not.toBeVisible();
+  expect(await dialog.locator("video").evaluate(v => v.paused)).toBe(true);
+});
+
 test("sound video waits for Play, pauses the shared song and loops on a phone", async ({ page }) => {
   test.setTimeout(60000);
   await page.addInitScript(() => {

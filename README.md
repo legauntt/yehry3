@@ -100,6 +100,9 @@ playwright.videos.config.js`; set `YEHRY3_VIDEO_URL=https://yehry3.app` for live
 playback checks of current and preserved clips.
 
 Morning Routine's current companion is a 23.33-second locally rendered Doomer video with an end-to-start picture dissolve and a beat-aligned audio splice.
+Play starts the picture immediately while the sound loads, with a loading notice;
+sound joins at the current video time. Failed or stalled sound downloads can be
+retried with Play. The volume slider reaches both endpoints and follows native controls.
 Its lossless `loopAudio` buffer repeats continuously on the Web Audio clock,
 avoiding AAC padding and audio restarts at each native video loop. Native controls
 still pause and seek; the sound controls mute and change volume. Closing releases
