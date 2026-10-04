@@ -88,7 +88,8 @@ test("failed loop sound retries on Play and closing during loading leaves audio 
   await page.keyboard.press("Escape");
   release();
   await expect(dialog).not.toBeVisible();
-  expect(await dialog.locator("video").evaluate(v => v.paused)).toBe(true);
+  // The native dialog close event releases media on a subsequent event turn.
+  await expect.poll(() => dialog.locator("video").evaluate(v => v.paused)).toBe(true);
 });
 
 test("sound video waits for Play, pauses the shared song and loops on a phone", async ({ page }) => {
