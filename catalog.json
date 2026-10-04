@@ -2,6 +2,369 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-2a92e91e4fc840724c567edb",
+      "title": "Static at the End of Town",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2a92e91e4fc840724c567edb-f437ec6ae360.mp3",
+      "duration": 240.11755102040817,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-04T07:13:29.272Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Static at the End of Town",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Doomer rock with a slowly grinding electric-guitar riff, deep melodic bass, roomy live drums, distant organ and restrained feedback swells. Tony’s v9 lead stays clear and steadily pitched but naturally rough and connected, with weary sustained melodies rather than rap-like delivery. Begin sparse and claustrophobic, build each chorus into a heavier pocket, briefly open the bridge with organ and toms, then resolve in a final lifted chorus. Place the final sustained sung syllable around 230 seconds, followed by one resolving E-minor chord decay.",
+        "lyrics": "[Intro]\nThe radio coughs through a kitchen wall\nBlue dawn leaking where the curtains fall\nI count the cracks in the ceiling again\nLike they might spell out where I have been\n\n[Verse 1]\nThe bus goes by with an empty face\nDragging rain through the avenue haze\nEverybody’s late to a life they hate\nEverybody smiles at the locked front gate\nI had a map but the ink ran thin\nHad a little bright thing folded within\nNow the streetlights blink like a tired code\nAnd I’m talking to the ditch beside the road\n\n[Pre-Chorus]\nMaybe the sky is a broken screen\nMaybe the good days were only a dream\n\n[Chorus]\nThere’s static at the end of town\nA little white noise pulling me down\nI turn it up till the room goes dim\nTill the world forgets its shape again\nStatic at the end of town\nNo clean way up, no easy way down\nBut I hear one note under the sound\nStatic at the end of town\n\n[Verse 2]\nCoffee cooling in a chipped black cup\nMorning comes but it never shows up\nThe landlord knocks, then he walks away\nHe knows I got nothing new to say\nI watch the trains make a silver scar\nPast the factory and the pawnshop bar\nEvery window holds a smaller night\nEvery small excuse keeps out the light\n\n[Pre-Chorus]\nMaybe the sky is a broken screen\nMaybe the good days were only a dream\n\n[Chorus]\nThere’s static at the end of town\nA little white noise pulling me down\nI turn it up till the room goes dim\nTill the world forgets its shape again\nStatic at the end of town\nNo clean way up, no easy way down\nBut I hear one note under the sound\nStatic at the end of town\n\n[Bridge]\nThen a dog barks twice by the loading bay\nAnd a stranger laughs in the rain-grey day\nFor a second the air has a pulse of gold\nNot a rescue, just a hand to hold\nI don’t need heaven to open wide\nJust one warm engine running inside\nOne small signal that refuses to drown\nWhen the dark puts its weight on the end of town\n\n[Chorus]\nThere’s static at the end of town\nBut I can hear a heartbeat through the sound\nI turn it down and the room breathes in\nLet the hard old morning start again\nStatic at the end of town\nNo clean way up, no easy way down\nI take one step where the wires hum\nAnd the day, the day will come\n\n[Outro]\nThe day will co-o-ome\n[End]",
+        "duration": 240,
+        "bpm": 76,
+        "musicalSettings": {
+          "genre": "Doomer rock",
+          "meter": "4/4",
+          "structure": "Intro, verse, pre-chorus, chorus, verse, pre-chorus, chorus, bridge, final chorus, short vocal outro",
+          "performance": "A clear, steadily pitched smoky rock lead with slurred connected vowels and expressive sustained notes",
+          "energy": "Low-burning opening tension rises to dense choruses, opens briefly in the bridge, then reaches a bruised but hopeful final release",
+          "lyricWorkflow": "Original concrete urban-doomer narrative with a recurring hook and a small earned turn toward endurance",
+          "instruments": [
+            "electric guitar",
+            "bass guitar",
+            "live drum kit",
+            "organ",
+            "feedback textures"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nThe radio coughs through a kitchen wall\nBlue dawn leaking where the curtains fall\nI count the cracks in the ceiling again\nLike they might spell out where I have been\n\n[Verse 1]\nThe bus goes by with an empty face\nDragging rain through the avenue haze\nEverybody’s late to a life they hate\nEverybody smiles at the locked front gate\nI had a map but the ink ran thin\nHad a little bright thing folded within\nNow the streetlights blink like a tired code\nAnd I’m talking to the ditch beside the road\n\n[Pre-Chorus]\nMaybe the sky is a broken screen\nMaybe the good days were only a dream\n\n[Chorus]\nThere’s static at the end of town\nA little white noise pulling me down\nI turn it up till the room goes dim\nTill the world forgets its shape again\nStatic at the end of town\nNo clean way up, no easy way down\nBut I hear one note under the sound\nStatic at the end of town\n\n[Verse 2]\nCoffee cooling in a chipped black cup\nMorning comes but it never shows up\nThe landlord knocks, then he walks away\nHe knows I got nothing new to say\nI watch the trains make a silver scar\nPast the factory and the pawnshop bar\nEvery window holds a smaller night\nEvery small excuse keeps out the light\n\n[Pre-Chorus]\nMaybe the sky is a broken screen\nMaybe the good days were only a dream\n\n[Chorus]\nThere’s static at the end of town\nA little white noise pulling me down\nI turn it up till the room goes dim\nTill the world forgets its shape again\nStatic at the end of town\nNo clean way up, no easy way down\nBut I hear one note under the sound\nStatic at the end of town\n\n[Bridge]\nThen a dog barks twice by the loading bay\nAnd a stranger laughs in the rain-grey day\nFor a second the air has a pulse of gold\nNot a rescue, just a hand to hold\nI don’t need heaven to open wide\nJust one warm engine running inside\nOne small signal that refuses to drown\nWhen the dark puts its weight on the end of town\n\n[Chorus]\nThere’s static at the end of town\nBut I can hear a heartbeat through the sound\nI turn it down and the room breathes in\nLet the hard old morning start again\nStatic at the end of town\nNo clean way up, no easy way down\nI take one step where the wires hum\nAnd the day, the day will come\n\n[Outro]\nThe day will co-o-ome",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4.12,
+            "end": 7.46
+          },
+          {
+            "line": 2,
+            "start": 7.98,
+            "end": 10.62
+          },
+          {
+            "line": 3,
+            "start": 11.28,
+            "end": 13.7
+          },
+          {
+            "line": 4,
+            "start": 14.34,
+            "end": 17
+          },
+          {
+            "line": 7,
+            "start": 22.48,
+            "end": 26.02
+          },
+          {
+            "line": 8,
+            "start": 26.66,
+            "end": 30.54
+          },
+          {
+            "line": 9,
+            "start": 30.54,
+            "end": 32.52
+          },
+          {
+            "line": 10,
+            "start": 32.52,
+            "end": 35.62
+          },
+          {
+            "line": 11,
+            "start": 35.62,
+            "end": 38.76
+          },
+          {
+            "line": 12,
+            "start": 38.76,
+            "end": 41.7
+          },
+          {
+            "line": 13,
+            "start": 41.7,
+            "end": 45.04
+          },
+          {
+            "line": 14,
+            "start": 45.04,
+            "end": 48.38
+          },
+          {
+            "line": 17,
+            "start": 53.24,
+            "end": 56.1
+          },
+          {
+            "line": 18,
+            "start": 56.1,
+            "end": 61.48
+          },
+          {
+            "line": 21,
+            "start": 63.34,
+            "end": 66.16
+          },
+          {
+            "line": 22,
+            "start": 66.16,
+            "end": 69.04
+          },
+          {
+            "line": 23,
+            "start": 69.62,
+            "end": 72.42
+          },
+          {
+            "line": 24,
+            "start": 72.42,
+            "end": 75.16
+          },
+          {
+            "line": 25,
+            "start": 76.62,
+            "end": 78.72
+          },
+          {
+            "line": 26,
+            "start": 79.04,
+            "end": 82.1
+          },
+          {
+            "line": 27,
+            "start": 82.24,
+            "end": 85.14
+          },
+          {
+            "line": 28,
+            "start": 85.7,
+            "end": 87.86
+          },
+          {
+            "line": 31,
+            "start": 95.06,
+            "end": 98.02
+          },
+          {
+            "line": 32,
+            "start": 98.66,
+            "end": 101.38
+          },
+          {
+            "line": 33,
+            "start": 101.38,
+            "end": 104.16
+          },
+          {
+            "line": 34,
+            "start": 104.16,
+            "end": 107.5
+          },
+          {
+            "line": 35,
+            "start": 107.5,
+            "end": 110.54
+          },
+          {
+            "line": 36,
+            "start": 111.14,
+            "end": 114.06
+          },
+          {
+            "line": 37,
+            "start": 114.06,
+            "end": 116.96
+          },
+          {
+            "line": 38,
+            "start": 117.2,
+            "end": 121.26
+          },
+          {
+            "line": 41,
+            "start": 122.36,
+            "end": 124.86
+          },
+          {
+            "line": 42,
+            "start": 124.86,
+            "end": 128.64
+          },
+          {
+            "line": 45,
+            "start": 133.72,
+            "end": 136.32
+          },
+          {
+            "line": 46,
+            "start": 136.86,
+            "end": 139.9
+          },
+          {
+            "line": 47,
+            "start": 139.9,
+            "end": 142.8
+          },
+          {
+            "line": 48,
+            "start": 142.8,
+            "end": 145.6
+          },
+          {
+            "line": 49,
+            "start": 146.68,
+            "end": 149.08
+          },
+          {
+            "line": 50,
+            "start": 149.08,
+            "end": 152.42
+          },
+          {
+            "line": 51,
+            "start": 152.42,
+            "end": 156.04
+          },
+          {
+            "line": 52,
+            "start": 157.44,
+            "end": 159.8
+          },
+          {
+            "line": 55,
+            "start": 161.98,
+            "end": 164.92
+          },
+          {
+            "line": 56,
+            "start": 165.54,
+            "end": 168.34
+          },
+          {
+            "line": 57,
+            "start": 168.34,
+            "end": 171.44
+          },
+          {
+            "line": 58,
+            "start": 171.82,
+            "end": 174.66
+          },
+          {
+            "line": 59,
+            "start": 175.44,
+            "end": 177.78
+          },
+          {
+            "line": 60,
+            "start": 177.78,
+            "end": 180.98
+          },
+          {
+            "line": 61,
+            "start": 180.98,
+            "end": 184.24
+          },
+          {
+            "line": 62,
+            "start": 184.24,
+            "end": 187.82
+          },
+          {
+            "line": 65,
+            "start": 194.66,
+            "end": 197.3
+          },
+          {
+            "line": 66,
+            "start": 197.98,
+            "end": 201.6
+          },
+          {
+            "line": 67,
+            "start": 201.6,
+            "end": 205.22
+          },
+          {
+            "line": 68,
+            "start": 205.22,
+            "end": 208.76
+          },
+          {
+            "line": 69,
+            "start": 208.76,
+            "end": 211.4
+          },
+          {
+            "line": 70,
+            "start": 211.94,
+            "end": 214.68
+          },
+          {
+            "line": 71,
+            "start": 214.68,
+            "end": 217.82
+          },
+          {
+            "line": 72,
+            "start": 218.22,
+            "end": 221.7
+          },
+          {
+            "line": 75,
+            "start": 225.74,
+            "end": 227.76
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "7b7fe0647e49c8a693553f86e5893ea20d291245b7fefc062a58848b88295a31",
+        "bytes": 5762866,
+        "duration": 240.117542,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2a92e91e4fc840724c567edb-7b7fe0647e49.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Tony C doomer rock",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 240
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-3054fd865e902c753477c890",
       "title": "The House Moved On",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3054fd865e902c753477c890-82ce3a5d1b04.mp3",
