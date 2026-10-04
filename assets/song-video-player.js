@@ -151,7 +151,7 @@ export function mountSongVideos(root, scope) {
         await preview.play();
         if (token === generation && active === art) art.classList.add("is-video-playing");
       } catch { if (token === generation) stop(); }
-    }, 2000);
+    }, 3000);
   }
   scope.on(root, "pointermove", event => {
     if (event.pointerType !== "mouse") return;

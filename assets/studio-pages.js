@@ -80,6 +80,7 @@ function loginView(role, onSuccess) {
 export async function requests() {
   const scope = currentScope();
   let draft = null;
+  let heldRefinements = null, ideaDestination = "details", navigating = 0;
   let remix = null, remixUsed = false, remixActive = false, keepSavedRequest = false;
   function finishRemix() {
     remixUsed = true; remixActive = false; storage.remove("remix-idea");
@@ -124,6 +125,7 @@ export async function requests() {
     return;
   }
   async function load() {
+    heldRefinements = null;
     const id = storage.get("draft");
     if (id) {
       try {
@@ -183,7 +185,21 @@ export async function requests() {
         storage.set("idea-text", remix.seed.prompt); storage.set("remix-idea", remix.id); remixActive = true;
       } else remixActive = remixActive || storage.get("remix-idea") === remix.id;
     }
-    main.innerHTML = `<section class="request-intro"><p class="eyebrow">Distonyc</p><h1>Let’s hear<br><em>your wild idea.</em></h1><p class="lede">A familiar song in unfamiliar territory. Or something nobody’s heard before.</p><div class="request-session-actions">${stage === "submitted" ? '<button class="quiet" id="new-request">New request ↗</button>' : ""}<button class="quiet" id="request-signout">Sign out ↗</button></div></section><section class="workbench"><ol class="steps" aria-label="Request progress">${["The idea", "Refinements", "The final say"].map((name, i) => `<li ${i + 1 === number ? 'aria-current="step"' : ""}><span>0${i + 1}</span>${name}</li>`).join("")}</ol><div class="request-form" id="request-form"></div></section>`;
+    main.innerHTML = `<section class="request-intro"><p class="eyebrow">Distonyc</p><h1>Let’s hear<br><em>your wild idea.</em></h1><p class="lede">A familiar song in unfamiliar territory. Or something nobody’s heard before.</p><div class="request-session-actions">${stage === "submitted" ? '<button class="quiet" id="new-request">New request ↗</button>' : ""}<button class="quiet" id="request-signout">Sign out ↗</button></div></section><section class="workbench"><ol class="steps" aria-label="Request progress">${["The idea", "Refinements", "The final say"].map((name, i) => `<li ${i + 1 === number ? 'aria-current="step"' : ""}><button type="button" data-request-stage="${["idea", "details", "review"][i]}" ${i + 1 === number || ["conflict", "submitted"].includes(stage) ? "disabled" : ""}><span>0${i + 1}</span>${name}</button></li>`).join("")}</ol><div class="request-form" id="request-form"></div></section>`;
+    $(".steps").onclick = (event) => {
+      const button = event.target.closest("[data-request-stage]");
+      if (!button || button.disabled || navigating) return;
+      const target = button.dataset.requestStage;
+      if (stage === "idea") {
+        ideaDestination = target;
+        $("#idea-form").requestSubmit();
+      } else if (target === "idea") {
+        if (stage === "details") heldRefinements = { id: draft.id, form };
+        storage.set("idea-text", draft.prompt);
+        render("idea");
+      } else if (stage === "details") $("#details-form").requestSubmit();
+      else render("details");
+    };
     showLoginStatus("submitter", $(".request-intro"), load);
     if (generationAvailable) {
       const reviewList = document.createElement('div'); $('.request-intro').append(reviewList);
@@ -218,11 +234,12 @@ export async function requests() {
     };
     $("#new-request")?.addEventListener("click", () => {
       finishRemix();
+      heldRefinements = null;
       draft = null;
       storage.remove("draft");
       render();
     });
-    const form = $("#request-form");
+    let form = $("#request-form");
     if (stage === "conflict") {
       const held = draft.details?.remixSource;
       form.innerHTML = `<p class="eyebrow">Two requests</p><h2>Which one should we send?</h2><p>You opened a Remix of <a href="/lyrics/?song=${encodeURIComponent(remix.id)}">${escape(remix.title)}</a>, but this tab is still holding an unsent request${held ? ` (a remix of <a href="/lyrics/?song=${encodeURIComponent(held.songId)}">${escape(held.title)}</a>)` : ""}:</p><blockquote>${escape(draft.prompt)}</blockquote><div class="actions"><button type="button" class="primary" id="use-remix">Remix “${escape(remix.title)}” instead</button><button type="button" class="quiet" id="keep-saved">Keep my saved request</button></div><p class="small">Your saved request stays saved in the studio.</p>`;
@@ -236,6 +253,14 @@ export async function requests() {
         storage.remove("prompt-request");
       };
       $("#idea").value = storage.get("idea-text") || (!remixUsed && remix?.seed ? remix.seed.prompt : "");
+      const updateIdeaSteps = () => {
+        for (const button of $(".steps").querySelectorAll('[data-request-stage]:not([data-request-stage="idea"])')) {
+          const idea = $("#idea");
+          button.disabled = idea.value.trim().length < 10 || !$("#authored-by").validity.valid;
+        }
+      };
+      $("#idea-form").addEventListener("input", updateIdeaSteps);
+      updateIdeaSteps();
       $("#idea").oninput = (event) => {
         storage.set("idea-text", event.target.value);
         storage.remove("prompt-request");
@@ -243,6 +268,17 @@ export async function requests() {
       $("#idea-form").onsubmit = (event) =>
         run(event, async () => {
           if (remix?.unavailable && storage.get('remix-idea') === remix.id) throw new Error(remix.message);
+          const destination = ideaDestination;
+          ideaDestination = "details";
+          if (draft && $("#idea").value === draft.prompt && $("#authored-by").value.trim() === (draft.authoredBy || "")) {
+            if (destination === "review" && draft.status === "review" && !heldRefinements && !hasMaterialEdits(draft, storage)) render("review");
+            else {
+              render("details");
+              if (destination === "review") $("#details-form").requestSubmit();
+            }
+            return;
+          }
+          const previousDetails = draft?.details;
           const requestId =
             storage.get("prompt-request") || crypto.randomUUID();
           storage.set("prompt-request", requestId);
@@ -253,14 +289,22 @@ export async function requests() {
           body: { prompt: $("#idea").value, authoredBy: $("#authored-by").value.trim(), requestId, ...(remixActive && !remixUsed && remix?.seed ? { remixSongId: remix.id } : {}) },
             })
           ).prompt;
+          if (previousDetails) draft.details = { ...draft.details, ...previousDetails };
+          if (heldRefinements) heldRefinements.id = draft.id;
           rememberAuthor(draft.authoredBy || "");
           storage.set("draft", draft.id);
           traceRemix("draft-created", { draft: draft.id, sent: remixActive && !remixUsed && remix?.seed ? remix.id : null, got: draftRemixId(draft), requestId });
           keepSavedRequest = true; // Created here, on purpose: nothing older to choose between.
           if (remixActive && !remixUsed && remix?.seed) storage.set(`remix-draft:${draft.id}`, remix.id);
           storage.remove("prompt-request");
-          render();
+          render("details");
+          if (destination === "review") $("#details-form").requestSubmit();
         });
+    } else if (stage === "details" && heldRefinements?.id === draft.id) {
+      form.replaceWith(heldRefinements.form);
+      form = heldRefinements.form;
+      $("#request-form blockquote").textContent = draft.prompt;
+      heldRefinements = null;
     } else if (stage === "details") {
       const remixDetails = !remixUsed && remix?.seed && storage.get(`remix-draft:${draft.id}`) === remix.id ? remix.seed : {};
       const initialDetails = draft.status === "draft" ? { ...draft.details, ...remixDetails } : draft.details || {};
@@ -370,6 +414,7 @@ export async function requests() {
           const url = new URL(location.href); url.searchParams.set('remix', remix.id);
           history.replaceState(history.state, '', url);
         }
+        heldRefinements = null;
         draft = null;
         storage.remove("draft");
         render();
@@ -401,6 +446,7 @@ export async function requests() {
               body: { version: draft.version, ...details },
             })
           ).prompt;
+          heldRefinements = null;
           requestMaterials.clear(); generation.clear(); music.clear(); epochRange.clear(); storage.remove(voiceDraftKey); storage.remove(epochDraftKey);
           rememberAuthor(draft.authoredBy || "");
           render();
@@ -441,6 +487,7 @@ export async function requests() {
       mountGenerationReview(reviewRoot, { draft, api, escape, reload: load });
       $("#another").onclick = () => {
         finishRemix();
+        heldRefinements = null;
         draft = null;
         storage.remove("draft");
         render();
@@ -461,6 +508,7 @@ export async function requests() {
   async function run(event, action) {
     event.preventDefault();
     const button = $('button[type="submit"], button:not([type])', event.target);
+    navigating++;
     busy(button, true);
     try {
       await action();
@@ -478,6 +526,7 @@ export async function requests() {
             : error.message;
       }
     } finally {
+      navigating--;
       busy(button, false);
     }
   }

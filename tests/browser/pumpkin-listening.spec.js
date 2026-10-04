@@ -29,6 +29,9 @@ test('mascot listens, smokes, stops on pause and follows songs across pages', as
   expect(await animation()).toBe('pumpkin-morning');
   await expect(page.locator('.pumpkin-doomer-eyes')).toHaveCSS('opacity', '1');
   await expect(page.locator('.pumpkin-doomer-lights').first()).toHaveCSS('opacity', '1');
+  await expect(page.locator('.pumpkin-light-bulbs circle').first()).toHaveCSS('fill', 'rgb(255, 117, 24)');
+  await expect(page.locator('.pumpkin-light-bulbs circle').nth(1)).toHaveCSS('fill', 'rgb(217, 75, 11)');
+  await expect(page.locator('.pumpkin-light-bulbs circle').nth(2)).toHaveCSS('fill', 'rgb(255, 174, 66)');
   expect(await page.locator('.pumpkin-light-bulbs').first().evaluate(n => getComputedStyle(n).animationName)).toBe('pumpkin-holiday-pulse');
   expect(await head.evaluate(n => getComputedStyle(n).animationDuration)).toBe('0.648148s');
   await expect(page.locator('.pumpkin-doomer-smoke')).toHaveCSS('opacity', '1');

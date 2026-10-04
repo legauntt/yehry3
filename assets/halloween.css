@@ -55,10 +55,10 @@ html[data-halloween-level="off"] .pitch-pumpkin { display: none; }
 .pumpkin-doomer-ember { position: absolute; left: 18%; top: 53.7%; width: 2%; aspect-ratio: 1; border-radius: 50%; background: #ed8b38; opacity: .35; }
 .pumpkin-morning-detail { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; }
 html[data-doomer-listening="morning"] .pumpkin-morning-detail { opacity: 1; }
-.pumpkin-light-wire { fill: none; stroke: #405243; stroke-width: 4; }
-.pumpkin-light-bulbs circle { fill: #f66565; color: #f66565; stroke: #ffd8c1; stroke-width: 1; filter: drop-shadow(0 0 7px currentColor); }
-.pumpkin-light-bulbs circle:nth-child(3n + 2) { fill: #46e3ae; color: #46e3ae; }
-.pumpkin-light-bulbs circle:nth-child(3n) { fill: #ffd16a; color: #ffd16a; }
+.pumpkin-light-wire { fill: none; stroke: #543324; stroke-width: 4; }
+.pumpkin-light-bulbs circle { fill: #ff7518; color: #ff7518; stroke: #ffd09a; stroke-width: 1; filter: drop-shadow(0 0 7px currentColor); }
+.pumpkin-light-bulbs circle:nth-child(3n + 2) { fill: #d94b0b; color: #d94b0b; }
+.pumpkin-light-bulbs circle:nth-child(3n) { fill: #ffae42; color: #ffae42; }
 html[data-doomer-listening="morning"] .pumpkin-light-bulbs { animation: pumpkin-holiday-pulse .648148s ease-in-out infinite; }
 @keyframes pumpkin-holiday-pulse { 45% { opacity: .65; filter: brightness(1.35); } }
 html[data-halloween-level="low"] .pumpkin-light-bulbs { animation: none; }

@@ -1466,15 +1466,26 @@ main {
 }
 .steps li {
   display: flex;
+}
+.steps button {
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 12px;
   padding: 23px 10px;
   font-size: 0.78rem;
   color: var(--muted);
+  width: 100%;
+  border: 0;
   border-bottom: 3px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  font-family: inherit;
+  font-weight: inherit;
 }
-.steps li[aria-current="step"] {
+.steps button:disabled { opacity: 1; cursor: default; }
+.steps button:not(:disabled):hover { color: var(--ink); background: var(--light); }
+.steps li[aria-current="step"] button {
   border-color: var(--ink);
   color: var(--ink);
   background: var(--light);
@@ -2221,7 +2232,7 @@ main {
   .request-intro .lede {
     font-size: 0.95rem;
   }
-  .steps li {
+  .steps button {
     padding: 17px 4px;
     font-size: 0.62rem;
     gap: 6px;

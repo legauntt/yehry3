@@ -187,26 +187,29 @@ test("returning home while Distonyc loads keeps the catalog and video controls",
   await expect(page.locator("#password")).toHaveCount(0);
 });
 
-test("idle hover loads one silent square preview and stops on exit, scroll and refresh", async ({ page }) => {
+test("three seconds resting on card text loads the latest silent preview and stops on exit, scroll and refresh", async ({ page }) => {
   const requests = [];
   page.on("request", r => { if (/\/song-videos(?:-v1)?\//.test(r.url())) requests.push(r.url()); });
   await page.goto("/");
   await card(page).scrollIntoViewIfNeeded();
   await expect(card(page).locator("[data-video-open]")).toBeVisible();
   expect(requests).toHaveLength(0);
-  const box = await card(page).boundingBox();
-  await page.mouse.move(box.x + 30, box.y + 30);
+  const box = await card(page).locator('h3').boundingBox();
+  await page.mouse.move(box.x + 10, box.y + box.height / 2);
   await page.waitForTimeout(1200);
   expect(requests).toHaveLength(0);
-  await page.mouse.move(box.x + 40, box.y + 30);
-  await page.waitForTimeout(1200);
+  await page.mouse.move(box.x + 20, box.y + box.height / 2);
+  await page.waitForTimeout(2700);
   expect(requests).toHaveLength(0);
   const video = card(page).locator(".song-video-preview");
   await expect(video).toBeVisible({ timeout: 12000 });
+  await expect(video).toHaveAttribute('src', videoVersions(songs[0].id).at(-1).src);
   await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0 && v.muted)).toBe(true);
   expect(await video.evaluate(v => ({ width: v.videoWidth, height: v.videoHeight, duration: v.duration }))).toEqual({ width: songs[0].videoWidth || 576, height: songs[0].videoHeight || 1024, duration: songs[0].videoDuration || 15 });
   const frame = await video.boundingBox();
-  expect(Math.abs(frame.width - frame.height)).toBeLessThan(2);
+  const cover = await card(page).locator('[data-video-art]').boundingBox();
+  expect(Math.abs(frame.width - cover.width)).toBeLessThan(2);
+  expect(Math.abs(frame.height - cover.height)).toBeLessThan(2);
   await page.screenshot({ path: "test-results/song-video-grid.png" });
   await page.mouse.move(5, 5);
   await expect(page.locator(".song-video-preview")).toHaveCount(0);
@@ -229,7 +232,7 @@ test("failed preview keeps the cover usable and page navigation releases the vie
   await page.route(/\/song-videos(?:-v1)?\/[^/]+\.mp4/, r => r.abort());
   await page.goto("/");
   await card(page).hover();
-  await page.waitForTimeout(2600);
+  await page.waitForTimeout(3600);
   await expect(card(page).locator(".is-video-playing")).toHaveCount(0);
   await expect(card(page).locator("img.track-art")).toBeVisible();
   await card(page).locator("[data-video-open]").click();
@@ -314,7 +317,7 @@ test("reduced motion suppresses autoplay; phone and list keep a usable modal but
   await page.emulateMedia({ reducedMotion: "reduce" });
   await page.goto("/");
   await card(page).hover();
-  await page.waitForTimeout(2300);
+  await page.waitForTimeout(3600);
   await expect(page.locator(".song-video-preview")).toHaveCount(0);
   await page.setViewportSize({ width: 390, height: 844 });
   await card(page).locator("[data-video-open]").click();
