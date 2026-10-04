@@ -279,7 +279,6 @@ test("video modal supports keyboard and pauses songs only for sound clips", asyn
       await expect(trigger).toHaveAttribute("aria-label", `Watch video with chorus audio for ${song.title}`);
       await expect(dialog.getByLabel("Sound on", { exact: true })).toBeChecked();
       await page.screenshot({ path: "test-results/morning-doomer-video.png" });
-      await page.locator("#audio").evaluate(a => a.play());
     }
     if (song.videoWidth === song.videoHeight) {
       const frame = await video.boundingBox();

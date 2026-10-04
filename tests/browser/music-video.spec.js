@@ -14,7 +14,7 @@ test.beforeEach(async ({ page }) => {
     const range = r.request().headers().range;
     const match = range?.match(/bytes=(\d+)-(\d*)/);
     if (!match) return r.fulfill({ contentType: "video/mp4", body: fixture, headers: { "Accept-Ranges": "bytes" } });
-    const start = Number(match[1]), end = Math.min(Number(match[2] || fixture.length - 1), fixture.length - 1);
+    const start = Number(match[1]), end = Math.min(Number(match[2] || fixture.length - 1), fixture.length - 1, start + 2 * 1024 * 1024 - 1);
     return r.fulfill({ status: 206, contentType: "video/mp4", body: fixture.subarray(start, end + 1), headers: { "Accept-Ranges": "bytes", "Content-Range": `bytes ${start}-${end}/${fixture.length}` } });
   };
   await page.route("**/fixture.webm", media);
