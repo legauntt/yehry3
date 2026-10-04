@@ -2,6 +2,289 @@
   "version": 1,
   "songs": [
     {
+      "id": "six-years-of-training-v9-epochs-10-300",
+      "title": "Six years of training",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/six-years-of-training-v9-epochs-10-300-bf902108a47a.mp3",
+      "duration": 299.44,
+      "collection": "tonyai",
+      "collections": [
+        "tonyai",
+        "distonyc"
+      ],
+      "voiceModel": "v9",
+      "pitchRepair": "clean",
+      "publishedAt": "2026-10-04T02:00:44.993Z",
+      "originalPrompt": {
+        "idea": "Tony sings about six years of trials and tribulations in Pitch Black RPG, named after the movie.",
+        "direction": "One-off checkpoint journey: Tony V9 epochs 10, 20, 30 and every ten through 300, in order. Each numbered couplet marks a checkpoint change. Six cinematic survival blues-rock movements, dark adventure and campy humor.",
+        "keep": "Recurring strength wall and good job, DK's hooks; you'll never defeat me... boasts followed by embarrassing escapes.",
+        "basisSongs": [],
+        "voiceModel": "v9"
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nTen little sparks in the crash-site sand,\nSix years of training, a torch in my hand.\nTwenty on the die, then the power goes dead,\nPitch Black RPG puts a price on my head.\nThirty busted doors and a map drawn wrong,\nI learn to fear silence and laugh in a song.\nForty empty canteens, the daylight runs dry,\nSomething with wings puts a scratch in the sky.\nI'm fifty years old now, or that's how I feel,\nOne more failed saving throw, one more bad deal.\n\n[Chorus 1]\nSixty seconds breathing before we run,\nSix years of training, still a strength wall to climb.\nSeventy prayers to a flickering flame,\nGood job, DK's! You set my boots aflame.\nEighty crooked footsteps, keep close to the wall,\nWe carry the weakest or none of us crawl.\nNinety little bruises, I still hear you sing,\nThe dark takes the daylight, it won't take everything.\nA hundred pennies in a dollar, I'm broke,\nBut I buy us tomorrow with blood and a joke.\n\n[Verse 2]\nA hundred ten reasons to stay by the wreck,\nI strap on my courage, it's pain in the neck.\nA hundred twenty pages of rules in the dust,\nYou'll never defeat me... I trip in the dust.\nA hundred thirty batteries, not one holds a charge,\nThe beast in the tunnel is terribly large.\nA hundred forty lessons in running away,\nI trip on my training and live anyway.\nA hundred fifty arrows, the last one goes wide,\nI curse at the heavens and swallow my pride.\n\n[Chorus 2]\nA hundred sixty heartbeats, the drums of the lost,\nSix years of training, that strength wall won't fall.\nA hundred seventy promises, keep just this one,\nGood job, DK's! You just aggroed them all.\nA hundred eighty degrees, turn back for my friend,\nThe shortest way home isn't always the end.\nA hundred ninety whispers say don't be a fool,\nI drag you through darkness and break every rule.\nTwo hundred scars, but a hand reaches mine,\nWe're bad at survival and good at trying.\n\n[Bridge]\nTwo hundred ten stars that the eclipse erased,\nI remember your laughter, I remember your face.\nTwo hundred twenty volts in a dead little wire,\nWe rub stones together and argue with fire.\nTwo hundred thirty nights with the same rotten dream,\nYou'll never defeat me... I flee with a scream.\nTwo hundred forty miles to a door marked escape,\nMy character sheet looks like somebody's mistake.\nTwo hundred fifty times I could've stayed down,\nI rise with a grin and a terrible sound.\n\n[Final Chorus]\nTwo hundred sixty reasons the darkness should win,\nSix years of training, smash that strength wall again.\nTwo hundred seventy candles, we shelter the light,\nGood job, DK's! We're still here tonight.\nTwo hundred eighty steps, hear the engine awake,\nI hold you together with every breath I take.\nTwo hundred ninety tears for the ones left behind,\nTheir names ride beside us, their hands steady mine.\nThree hundred dawns I imagined in pain,\nSix years of training, I'll sing you home again.\n",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0.0,
+            "end": 1.42
+          },
+          {
+            "line": 2,
+            "start": 1.42,
+            "end": 4.56
+          },
+          {
+            "line": 4,
+            "start": 6.7,
+            "end": 9.36
+          },
+          {
+            "line": 5,
+            "start": 9.36,
+            "end": 11.7
+          },
+          {
+            "line": 6,
+            "start": 11.7,
+            "end": 14.1
+          },
+          {
+            "line": 7,
+            "start": 14.1,
+            "end": 16.46
+          },
+          {
+            "line": 8,
+            "start": 16.46,
+            "end": 18.72
+          },
+          {
+            "line": 9,
+            "start": 18.72,
+            "end": 21.36
+          },
+          {
+            "line": 10,
+            "start": 21.36,
+            "end": 23.98
+          },
+          {
+            "line": 13,
+            "start": 52.62,
+            "end": 57.56
+          },
+          {
+            "line": 14,
+            "start": 57.56,
+            "end": 62.38
+          },
+          {
+            "line": 15,
+            "start": 63.62,
+            "end": 66.92
+          },
+          {
+            "line": 16,
+            "start": 67.8,
+            "end": 72.12
+          },
+          {
+            "line": 17,
+            "start": 72.12,
+            "end": 76.6
+          },
+          {
+            "line": 18,
+            "start": 76.6,
+            "end": 82.9
+          },
+          {
+            "line": 19,
+            "start": 82.9,
+            "end": 86.1
+          },
+          {
+            "line": 20,
+            "start": 86.1,
+            "end": 90.84
+          },
+          {
+            "line": 21,
+            "start": 91.8,
+            "end": 95.72
+          },
+          {
+            "line": 25,
+            "start": 97.26,
+            "end": 107.54
+          },
+          {
+            "line": 26,
+            "start": 108.08,
+            "end": 111.82
+          },
+          {
+            "line": 27,
+            "start": 111.82,
+            "end": 117.08
+          },
+          {
+            "line": 28,
+            "start": 117.82,
+            "end": 122.12
+          },
+          {
+            "line": 29,
+            "start": 122.5,
+            "end": 126.72
+          },
+          {
+            "line": 31,
+            "start": 130.12,
+            "end": 135.92
+          },
+          {
+            "line": 33,
+            "start": 142.44,
+            "end": 146.08
+          },
+          {
+            "line": 37,
+            "start": 154.98,
+            "end": 158.34
+          },
+          {
+            "line": 38,
+            "start": 159.34,
+            "end": 163.1
+          },
+          {
+            "line": 39,
+            "start": 164.04,
+            "end": 167.9
+          },
+          {
+            "line": 40,
+            "start": 168.74,
+            "end": 172.3
+          },
+          {
+            "line": 41,
+            "start": 172.3,
+            "end": 177.54
+          },
+          {
+            "line": 42,
+            "start": 178.5,
+            "end": 182.9
+          },
+          {
+            "line": 43,
+            "start": 182.9,
+            "end": 187.1
+          },
+          {
+            "line": 45,
+            "start": 190.72,
+            "end": 196.68
+          },
+          {
+            "line": 46,
+            "start": 196.68,
+            "end": 198.78
+          },
+          {
+            "line": 49,
+            "start": 199.57,
+            "end": 202.72
+          },
+          {
+            "line": 50,
+            "start": 202.72,
+            "end": 207.98
+          },
+          {
+            "line": 51,
+            "start": 208.84,
+            "end": 212.62
+          },
+          {
+            "line": 52,
+            "start": 213.92,
+            "end": 217.74
+          },
+          {
+            "line": 53,
+            "start": 218.52,
+            "end": 222.46
+          },
+          {
+            "line": 54,
+            "start": 223.46,
+            "end": 227.3
+          },
+          {
+            "line": 56,
+            "start": 233.04,
+            "end": 237.02
+          },
+          {
+            "line": 61,
+            "start": 254.36,
+            "end": 258.12
+          },
+          {
+            "line": 62,
+            "start": 259.0,
+            "end": 262.82
+          },
+          {
+            "line": 63,
+            "start": 263.4,
+            "end": 267.76
+          },
+          {
+            "line": 64,
+            "start": 268.82,
+            "end": 272.4
+          },
+          {
+            "line": 66,
+            "start": 277.42,
+            "end": 282.1
+          },
+          {
+            "line": 67,
+            "start": 282.1,
+            "end": 286.86
+          },
+          {
+            "line": 68,
+            "start": 287.42,
+            "end": 291.12
+          },
+          {
+            "line": 69,
+            "start": 291.54,
+            "end": 295.2
+          },
+          {
+            "line": 70,
+            "start": 295.72,
+            "end": 298.36
+          }
+        ]
+      },
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 29.4
+        }
+      ]
+    },
+    {
       "id": "distonyc-c69c99fcce015bd63b3c8392",
       "title": "Yow at Midnight",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c69c99fcce015bd63b3c8392-503a68ea6f90.mp3",
