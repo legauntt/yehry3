@@ -3030,3 +3030,7 @@ html[data-shared-theme][data-theme="dark"] #catalog-items .pending-track.pending
   color: #ffe5a5;
   border-color: #d5a44c;
 }
+
+/* Plato under the cover artwork's yellow shower. */
+.song-video-plato{display:block;position:relative;width:34px;height:34px;border-radius:50%;overflow:hidden;box-shadow:0 0 0 1px #ffdc72,0 0 9px #ffd34b80}
+.song-video-plato img{position:absolute;width:128px;height:128px;max-width:none;left:-21px;top:-38px;object-fit:fill}

@@ -540,5 +540,11 @@ export default {
       "framing": "square",
       "duration": 10
     }
+  ],
+  "distonyc-bcf7969a9959cbe4927370c4": [
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/011-mandate-industrial.mp4",
+      "framing": "remaining-0"
+    }
   ]
 };

@@ -2,7 +2,7 @@ import { defineConfig } from "@playwright/test";
 const live = process.env.YEHRY3_VIDEO_URL;
 export default defineConfig({
   testDir: "./tests/browser",
-  testMatch: ["song-videos.spec.js", "song-videos-live.spec.js", "song-videos-remaining.spec.js", "music-video.spec.js", "nine-eleven-video.spec.js", "closed-first-bite-video.spec.js", "morning-routine-video.spec.js"],
+  testMatch: ["song-videos.spec.js", "song-videos-live.spec.js", "song-videos-remaining.spec.js", "music-video.spec.js", "nine-eleven-video.spec.js", "closed-first-bite-video.spec.js", "morning-routine-video.spec.js", "biological-mandate-video.spec.js"],
   workers: 1,
   timeout: 45000,
   use: { baseURL: live || "http://127.0.0.1:18309", headless: true, viewport: { width: 1440, height: 1000 } },

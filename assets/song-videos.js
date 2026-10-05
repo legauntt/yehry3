@@ -34,7 +34,7 @@ export default {
   "distonyc-236f9b41b8df770b68179e17": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/008-one-glass-too-far.mp4", framing: "remaining-112" },
   "distonyc-75d81636b69a0efd9dfa929f": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/009-meaning-fotabip.mp4", framing: "remaining-112" },
   "distonyc-63f3b3ba8427b80cd6a10d9c": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/010-portable-weather.mp4", framing: "remaining-112" },
-  "distonyc-bcf7969a9959cbe4927370c4": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/011-mandate-industrial.mp4", framing: "remaining-0" },
+  "distonyc-bcf7969a9959cbe4927370c4": {"src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/biological-mandate-full-industrial-20261004.mp4", "previewSrc": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/biological-mandate-full-industrial-preview-20261004.mp4", "framing": "landscape", "duration": 290.04, "hasAudio": true, "fullLength": true, "treatment": "plato-shower"},
   "distonyc-a8afc8145c3c6f5f37922d3e": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/012-biological-mandate.mp4", framing: "remaining-224" },
   "distonyc-30f2762b70c6cef32ce8a417": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/013-dividend-dawn.mp4", framing: "remaining-112" },
   "distonyc-01c1bd5f0fac184d0625e531": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/014-static-runway.mp4", framing: "remaining-112" },
