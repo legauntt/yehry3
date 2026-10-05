@@ -51,6 +51,22 @@ def eligible(prompt):
         raise ValueError('Only an unreviewed published unconverted preview can be completed')
 
 
+def archive_preview_marker(work, directory):
+    marker = work / 'review-delivery.json'
+    if not marker.exists(): return
+    preview = load(marker)
+    prior = load(directory / 'retained-prior-result.json')
+    if (preview.get('manifest_sha256') != sha(work / 'desktop-job.json') or
+            preview.get('result', {}).get('files') != prior['files'] or
+            any(sha(work / name) != digest for name, digest in preview['inputs_sha256'].items())):
+        raise ValueError('Prior preview provenance changed')
+    for item in prior['files']:
+        if sha(item['path']) != item['sha256']: raise ValueError('Prior preview export changed')
+    destination = work / 'retained-prior-review-delivery.json'
+    if destination.exists(): raise ValueError('Prior review marker is already archived')
+    marker.rename(destination)
+
+
 def run(config, api, wanted, action, reason=''):
     directory = inside(Path(config['state_dir']) / 'jobs' / wanted, Path(config['state_dir']) / 'jobs')
     with singleton(directory / 'retained-instrumental.lock') as acquired:
@@ -87,7 +103,7 @@ def run(config, api, wanted, action, reason=''):
             return journal
         verify_authorization(work)
         journal = load(journal_path)
-        if action == 'render':
+        if action in ('render', 'finalize'):
             eligible(prompt)
             if prompt['version'] != journal['prompt']['version']: raise ValueError('Published request changed')
             result_path = directory / 'retained-render-result.json'
@@ -96,6 +112,22 @@ def run(config, api, wanted, action, reason=''):
             from renderer import module_at, execution_manifest, with_quality, adapt_quality_verification
             engine = module_at('distonyc_retained_engine', Path(config['engine_resources']) / 'engine_tasks.py')
             engine.save = save
+            if action == 'finalize':
+                manifest = load(work / 'desktop-job.json')
+                engine.validate_saved(work, manifest)
+                state = load(work / 'desktop-status.json')
+                if not {task['name'] for task in manifest['tasks']}.issubset(state['completed']):
+                    raise ValueError('All retained audio stages must finish before final verification')
+                archive_preview_marker(work, directory)
+                adapt_quality_verification(engine)
+                result = with_quality(engine.verify_work(work, config['settings']['output_dir']))
+                result['voice_model'] = 'v6'
+                if request.get('generation_profile') == 'v8': result['generation_profile'] = 'v8'
+                save(result_path, result)
+                state.update(status='completed', stage='completed', pid=None, error=None)
+                save(work / 'desktop-status.json', state)
+                journal['status'] = 'rendered'; save(journal_path, journal)
+                return result
             adapt_quality_verification(engine)
             with engine.gpu_lock(config['settings']['studio_dir']):
                 manifest = load(work / 'desktop-job.json')
@@ -105,6 +137,7 @@ def run(config, api, wanted, action, reason=''):
                     raise ValueError('Retained composition stages are incomplete')
                 execution = execution_manifest(manifest, instrumental_heavy=True,
                                                vocal_dropout_warnings=config.get('vocal_dropout_warnings', False))
+                archive_preview_marker(work, directory)
                 if any(task['name'] in {'generate', 'separate', 'words'} and task['name'] not in state['completed']
                        for task in execution['tasks']): raise ValueError('New composition is forbidden')
                 journal['attempts'].append({'at': utc(), 'stage': state['stage']})
@@ -150,7 +183,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config', required=True, type=Path)
     parser.add_argument('--request', required=True)
-    parser.add_argument('--action', required=True, choices=('authorize', 'render', 'publish', 'verify'))
+    parser.add_argument('--action', required=True, choices=('authorize', 'render', 'finalize', 'publish', 'verify'))
     parser.add_argument('--reason', default='')
     args = parser.parse_args()
     config = load(args.config)

@@ -1,5 +1,5 @@
 param([string]$Root = $PSScriptRoot, [Parameter(Mandatory)][string]$Request,
-      [Parameter(Mandatory)][ValidateSet('authorize','render','publish','verify')][string]$Action,
+      [Parameter(Mandatory)][ValidateSet('authorize','render','finalize','publish','verify')][string]$Action,
       [string]$Reason = '')
 $ErrorActionPreference = 'Stop'
 $configPath = Join-Path $Root 'config.json'

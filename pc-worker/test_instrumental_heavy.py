@@ -125,5 +125,26 @@ class InstrumentalHeavyTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 eligible({'status': 'published', 'result': {'validationFailures': ['unconverted_vocals']}, **changes})
 
+    def test_preview_marker_archive_preserves_exports_and_refuses_changed_audio(self):
+        from retained_instrumental import archive_preview_marker
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); work = root / 'work'; work.mkdir()
+            job = root / 'job'; job.mkdir()
+            save(work / 'desktop-job.json', {})
+            save(work / 'selected-vocals.wav', {})
+            save(root / 'preview.mp3', {})
+            files = [{'path': str(root / 'preview.mp3'), 'sha256': sha(root / 'preview.mp3')}]
+            save(job / 'retained-prior-result.json', {'files': files})
+            save(work / 'review-delivery.json', {'manifest_sha256': sha(work / 'desktop-job.json'),
+                 'inputs_sha256': {'selected-vocals.wav': sha(work / 'selected-vocals.wav')},
+                 'result': {'files': files}})
+            save(root / 'preview.mp3', {'changed': True})
+            with self.assertRaisesRegex(ValueError, 'export changed'): archive_preview_marker(work, job)
+            save(root / 'preview.mp3', {})
+            archive_preview_marker(work, job)
+            self.assertFalse((work / 'review-delivery.json').exists())
+            self.assertTrue((work / 'retained-prior-review-delivery.json').exists())
+            self.assertTrue((root / 'preview.mp3').exists())
+
 
 if __name__ == '__main__': unittest.main()
