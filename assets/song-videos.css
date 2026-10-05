@@ -45,8 +45,11 @@ html.song-video-open { overflow: hidden; }
 .song-video-versions button.is-current-version { text-decoration: underline; text-decoration-color: var(--orange, #df6e36); text-decoration-thickness: 3px; text-underline-offset: 5px; }
 .song-video-versions button:focus-visible { outline: 3px solid var(--orange, #df6e36); outline-offset: 2px; }
 .song-video-viewer:has(.song-video-versions:not([hidden])) video { max-height: calc(100dvh - 240px); }
-.song-video-status { margin: 8px 0 0; font-size: .85rem; }
-.song-video-status:empty { display: none; }
+.song-video-status, .song-video-share-status { margin: 8px 0 0; font-size: .85rem; }
+.song-video-status:empty, .song-video-share-status:empty { display: none; }
+.song-video-viewer [data-video-share] { margin-top: 10px; }
+.song-video-viewer input[aria-label="Video share link"] { display: block; width: 100%; margin-top: 8px; }
+.song-video-viewer input[aria-label="Video share link"][hidden] { display: none; }
 .song-video-sound-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 0 0 8px; font-size: .85rem; }
 .song-video-sound-controls[hidden] { display: none; }
 .song-video-sound-controls label { display: flex; align-items: center; gap: 5px; }

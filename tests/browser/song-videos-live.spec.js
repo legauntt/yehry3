@@ -3,6 +3,37 @@ import pageOneSongs from "./fixtures/song-video-page1.json" with { type: "json" 
 import { videoVersions } from "../../assets/song-video-versions.js";
 import videos from "../../assets/song-videos.js";
 
+test("shared video links open the real catalog and wait for Play", async ({ page }) => {
+  test.skip(!process.env.YEHRY3_VIDEO_URL, "Post-deployment sharing check");
+  test.setTimeout(120000);
+  await page.addInitScript(() => Object.defineProperty(navigator, "clipboard", {
+    value: { writeText: async value => { window.copiedVideo = value; } },
+  }));
+  const id = "distonyc-5ae363b12d01b017f8d295f3";
+  for (const width of [1440, 390]) {
+    await page.setViewportSize({ width, height: 844 });
+    for (const label of [videoVersions(id).at(-1).label, "A"]) {
+      await page.goto(`/?video=${label}#${id}`);
+      const dialog = page.locator(".song-video-viewer");
+      await expect(dialog).toBeVisible({ timeout: 30000 });
+      await expect(dialog.locator('[aria-pressed="true"]')).toHaveText(label);
+      const video = dialog.locator("video");
+      await expect.poll(() => video.evaluate(v => v.readyState >= 2 && v.paused), { timeout: 30000 }).toBe(true);
+      await expect(dialog.locator("[data-video-play]")).toBeVisible();
+      await page.screenshot({ path: `test-results/video-share-live-${width}-${label}.png` });
+      await dialog.getByRole("button", { name: "Share video", exact: true }).click();
+      await expect(dialog.getByText("Video link copied.")).toBeVisible();
+      expect(new URL(await page.evaluate(() => window.copiedVideo)).searchParams.get("video")).toBe(label);
+      await dialog.locator("[data-video-play]").click();
+      await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0), { timeout: 20000 }).toBe(true);
+      await video.evaluate(v => { v.currentTime = 6; });
+      await expect.poll(() => video.evaluate(v => !v.seeking && v.readyState >= 2 && v.currentTime >= 6), { timeout: 20000 }).toBe(true);
+      await page.keyboard.press("Escape");
+      await expect(dialog).not.toBeVisible();
+    }
+  }
+});
+
 test("published catalog exposes and plays all page-one videos", async ({ page }) => {
   test.setTimeout(300000);
   test.skip(!process.env.YEHRY3_VIDEO_URL, "Post-deployment check against the real catalog");

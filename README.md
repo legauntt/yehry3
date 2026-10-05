@@ -89,6 +89,9 @@ See [lyrics and references](REQUEST-MATERIALS.md) for limits, privacy, testing a
 
 The site remains noindex. Existing audio files and URLs are preserved. The Tony AI tracks stream from their existing release URLs. Static `catalog.json` keeps listening available during API outages; voting is clearly disabled while offline.
 
+Song video popouts include **Share video**, which shares the selected A/B/C version
+using a phone's share sheet or a copied link. Links open the video with an explicit
+Play button, including full-length music videos, short clips and silent versions.
 Song video popouts offer chronological A/B/C version buttons when preserved clips
 exist. The latest opens by default; choosing a version restarts that clip
 without interrupting the song. Hover previews keep the current default. Before

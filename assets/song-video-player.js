@@ -25,6 +25,18 @@ export function mountSongVideos(root, scope) {
   dialog.querySelector("header").after(versions);
   document.body.append(dialog);
   const full = dialog.querySelector("video");
+  const share = document.createElement("button");
+  share.type = "button";
+  share.textContent = "Share video";
+  share.dataset.videoShare = "";
+  const shareLink = document.createElement("input");
+  shareLink.readOnly = true;
+  shareLink.hidden = true;
+  shareLink.setAttribute("aria-label", "Video share link");
+  const shareStatus = document.createElement("p");
+  shareStatus.className = "song-video-share-status";
+  shareStatus.setAttribute("role", "status");
+  dialog.append(share, shareLink, shareStatus);
   const play = document.createElement("button");
   play.type = "button";
   play.textContent = "Play video with sound";
@@ -47,10 +59,14 @@ export function mountSongVideos(root, scope) {
   }, () => { status.textContent = ""; });
   let timer, candidate, active, opener, songId, generation = 0;
   let choices = [], playbackGeneration = 0;
-  let sound = false;
-  function selectVersion(index) {
+  let sound = false, selectedVersion = 0, awaitingPlay = false;
+  function selectVersion(index, autoplay = true) {
     const video = choices[index];
     if (!video) return;
+    selectedVersion = index;
+    awaitingPlay = !autoplay;
+    shareStatus.textContent = "";
+    shareLink.hidden = true;
     const token = ++playbackGeneration;
     full.pause();
     loopAudio.select(video.loopAudio);
@@ -59,8 +75,9 @@ export function mountSongVideos(root, scope) {
     soundVolume.value = String(full.volume);
     sound = Boolean(video.hasAudio || video.audio);
     full.dataset.sound = String(sound);
-    play.hidden = !sound;
-    if (sound) player.pause();
+    play.textContent = sound ? "Play video with sound" : "Play video";
+    play.hidden = autoplay && !sound;
+    if (sound && autoplay) player.pause();
     status.textContent = "Loading video…";
     const duration = video.duration || 15;
     dialog.querySelector("[data-video-description]").textContent = video.hasAudio
@@ -78,6 +95,12 @@ export function mountSongVideos(root, scope) {
     full.defaultMuted = !sound;
     full.preload = sound ? "auto" : "none";
     full.src = video.loopVideo || video.src;
+    if (!autoplay) {
+      full.preload = "metadata";
+      full.load();
+      status.textContent = "Shared with you · Press Play to watch.";
+      return;
+    }
     if (sound && !video.hasAudio) {
       full.load();
       status.textContent = "Press Play to watch with sound.";
@@ -90,8 +113,9 @@ export function mountSongVideos(root, scope) {
   scope.on(dialog, "pointerdown", () => loopAudio.prime());
   scope.on(dialog, "keydown", () => loopAudio.prime());
   scope.on(play, "click", async () => {
+    awaitingPlay = false;
     const token = playbackGeneration;
-    player.pause();
+    if (sound) player.pause();
     // Keep play() in the click gesture; decoding the lossless sound can take
     // longer than browser autoplay permission lasts. Sound joins at video time.
     loopAudio.prime();
@@ -104,7 +128,7 @@ export function mountSongVideos(root, scope) {
   });
   // Native video controls also use the shared player, including its crossfade deck.
   scope.on(full, "play", () => { if (sound && !full.muted) player.pause(); });
-  scope.on(full, "pause", () => { loopAudio.pause(); play.hidden = !sound; });
+  scope.on(full, "pause", () => { loopAudio.pause(); play.hidden = !sound && !awaitingPlay; });
   scope.on(full, "seeked", () => loopAudio.seek());
   scope.on(full, "pointerup", () => loopAudio.seek(true));
   scope.on(full, "keyup", () => loopAudio.seek(true));
@@ -184,10 +208,14 @@ export function mountSongVideos(root, scope) {
   scope.on(document, "keydown", stop, { capture: true });
   const observer = new MutationObserver(() => {
     if ((active && !root.contains(active)) || (candidate && !root.contains(candidate)) || root.dataset.view !== "grid") stop();
+    openSharedVideo();
   });
   observer.observe(root, { childList: true, subtree: true, attributes: true, attributeFilter: ["data-view"] });
   scope.on(root, "click", event => {
     const button = event.target.closest("[data-video-open]");
+    if (button) openVideo(button);
+  });
+  function openVideo(button, label) {
     const video = videos[button?.dataset.videoOpen];
     if (!video || dialog.open) return;
     opener = button;
@@ -208,9 +236,49 @@ export function mountSongVideos(root, scope) {
     dialog.showModal();
     document.documentElement.classList.add("song-video-open");
     close.focus({ preventScroll: true });
-    selectVersion(choices.length - 1);
+    const index = choices.findIndex(choice => choice.label === label);
+    selectVersion(index < 0 ? choices.length - 1 : index, !label);
+    if (label) play.focus({ preventScroll: true });
+  }
+  function openSharedVideo() {
+    const label = new URL(location.href).searchParams.get("video");
+    if (!label || dialog.open || scope.left) return;
+    let id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+    const button = root.querySelector(`[data-video-open="${CSS.escape(id)}"]`);
+    if (!button || !videoVersions(id).some(choice => choice.label === label)) return;
+    openVideo(button, label);
+    const url = new URL(location.href);
+    url.searchParams.delete("video");
+    history.replaceState(history.state, "", url);
+  }
+  scope.on(window, "hashchange", openSharedVideo);
+  openSharedVideo();
+  scope.on(share, "click", async () => {
+    const url = new URL("/", location.origin);
+    url.searchParams.set("video", choices[selectedVersion].label);
+    url.hash = songId;
+    if (navigator.share && matchMedia("(pointer: coarse)").matches) {
+      try {
+        await navigator.share({ title: dialog.querySelector("h2").textContent, text: "Watch this music video on yehry3", url: url.href });
+        return;
+      } catch (error) {
+        if (error.name === "AbortError") return;
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(url.href);
+      shareStatus.textContent = "Video link copied.";
+    } catch {
+      shareLink.value = url.href;
+      shareLink.hidden = false;
+      shareLink.focus();
+      shareLink.select();
+      shareStatus.textContent = "Copy this link to share the video.";
+    }
   });
   scope.on(full, "playing", () => {
+    awaitingPlay = false;
     if (sound && !full.muted) player.pause();
     status.textContent = loopAudio.pending ? "Loading sound…" : "";
     play.hidden = true;
