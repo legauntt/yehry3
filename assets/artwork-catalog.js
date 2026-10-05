@@ -2393,5 +2393,21 @@ export default {
     "firstSeenAt": "2026-10-05T12:45:42.978Z",
     "interpretation": "automatic-safe-interpretation",
     "history": []
+  },
+  "distonyc-39dcafa75845d179ad486fe6": {
+    "src": "/assets/artwork/distonyc-39dcafa75845d179ad486fe6-incubating-cdf8f8476141-af4495a57de87e61-q86.webp",
+    "alt": "Cover artwork for Thirty Days at the Portal.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "69f11a5783ffea638fe19082b8683d235b9dbdb26e801298e1e2493bedf1dfab",
+    "promptHash": "7511788df8f4519805f351ec417900ae5bb96187c509464d4d2527e5283843bf",
+    "createdAt": "2026-10-05T18:49:05.372Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-05T18:48:43.368Z",
+    "history": []
   }
 };
