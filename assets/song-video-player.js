@@ -64,7 +64,7 @@ export function mountSongVideos(root, scope) {
     status.textContent = "Loading video…";
     const duration = video.duration || 15;
     dialog.querySelector("[data-video-description]").textContent = video.hasAudio
-      ? `${Math.floor(duration / 60)}:${String(Math.round(duration % 60)).padStart(2, "0")} music video · Sing along`
+      ? `${Math.floor(duration / 60)}:${String(Math.floor(duration % 60)).padStart(2, "0")} music video · Sing along`
       : video.audio
       ? `${video.duration || 15}-second video with chorus audio · Press Play to watch with sound`
       : `${video.duration || 15}-second silent video`;

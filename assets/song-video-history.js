@@ -342,6 +342,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/16-closed-before-the-first-bite-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/20-closed-before-the-first-bite-song-scenes-20261002.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-1d7840d9c9addba07ccabdb2": [

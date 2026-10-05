@@ -51,6 +51,7 @@ test("published catalog exposes and plays all page-one videos", async ({ page })
       expect(media.loop).toBe(false);
       await expect.poll(() => video.evaluate(v => v.webkitAudioDecodedByteCount > 0)).toBe(true);
       if (current.treatment === "two-towers") await expect(button.locator("[data-video-towers]")).toHaveCount(1);
+      if (current.treatment === "arbys") await expect(button.locator("[data-video-arbys]")).toHaveCount(1);
       for (const time of [34, 89, current.duration - 25, current.duration - 5]) {
         await video.evaluate((v, t) => { v.currentTime = t; }, time);
         await expect.poll(() => video.evaluate(v => !v.seeking && v.readyState >= 3 && !v.paused), { timeout: 20000 }).toBe(true);

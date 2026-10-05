@@ -62,3 +62,7 @@ html.song-video-open { overflow: hidden; }
 @media (max-width: 540px) {
   #tracks[data-view="grid"] .track-video-art { width: 160px; height: 160px; justify-self: center; }
 }
+
+.song-video-button-arbys, .song-video-button-arbys:hover { background: #fff8ee; }
+.song-video-button-arbys img { display: block; width: 32px; height: 28px; object-fit: contain; }
+#tracks[data-view="list"] .song-video-button-arbys img { width: 24px; height: 21px; }
