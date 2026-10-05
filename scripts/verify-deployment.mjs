@@ -464,6 +464,11 @@ for (const request of [
     );
     assert.equal(new Set(request.qualityIssues.map((issue) => issue.code)).size, request.qualityIssues.length);
     for (const issue of request.qualityIssues) {
+      if (issue.code === "low_vocal_coverage") {
+        assert.deepEqual(Object.keys(issue).sort(), ["code", "fraction"]);
+        assert.ok(Number.isFinite(issue.fraction) && issue.fraction > 0 && issue.fraction < .5);
+        continue;
+      }
       if (issue.code === "unconfirmed_lyric_ending") {
         assert.deepEqual(Object.keys(issue), ["code"]);
         continue;
