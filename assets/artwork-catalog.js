@@ -2297,5 +2297,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-05T00:03:42.687Z",
     "history": []
+  },
+  "distonyc-de3d0700e6eb89e5980293b6": {
+    "src": "/assets/artwork/distonyc-de3d0700e6eb89e5980293b6-incubating-b4b391d426b4-fbb67795c4a8a846-q86.webp",
+    "alt": "Cover artwork for After the Strobe (Tony C V9).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "bdadfd239acb13f7328f8a9e9e48389653ee5867ebf81f3f3753b5e8c6e35738",
+    "promptHash": "3c2493b76dfa2ab2cc34d8ac920328e2df7e4bb327513cfd27c8d0b287f4a54f",
+    "createdAt": "2026-10-05T04:12:58.990Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-05T04:12:42.582Z",
+    "history": []
   }
 };
