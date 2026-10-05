@@ -2,6 +2,293 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-cd4c0296f22cede53c369737",
+      "title": "Subscription of the Damned",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cd4c0296f22cede53c369737-87492787158a.mp3",
+      "duration": 160.02612244897958,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-05T21:05:29.170Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Subscription of the Damned",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Fast dark-comedy pop-punk with overdriven guitars, springy bass, punchy live drums, and a faint arcade-synth pulse. One clear, steadily pitched Tony lead carries a memorable melodic chorus, with crisp narrative verses and a tense half-time bridge; no backing vocals or vocal effects. Build from mischievous momentum to a stark final chorus, placing the sustained final word “away” about 10 seconds before a single resolved D minor chord decays.",
+        "lyrics": "[Verse 1]\nShe found the password under old bills\nBlue screen glow in the laundry room\nSaid, “Just one night, I miss that place”\nAnd clicked her way into the doom\nThe dinner burned, the school bell rang\nHer phone lit up with twenty calls\nShe chased a dragon through the rain\nWhile real life cracked along the walls\n\n[Pre-Chorus]\nThe guild said, “Ready?” and she said, “I am”\nNever saw the kitchen flooding again\n\n[Chorus]\nOh, she renewed the subscription\nBought a ticket out of her mind\nOne more dungeon, one more mission\nLeft the daylight far behind\nHer children packed their backpacks crying\nSaid, “Mom, you only talk in spells”\nShe waved them off without looking\nDown in her glowing little hell\n\n[Verse 2]\nThe cat went wild on a toppled plate\nThe landlord knocked, then went away\nHer boss left messages in red\nShe muted every word they’d say\nShe wore a crown of pixel fire\nAt three a.m. she beat the king\nThe house grew cold, the cupboards bare\nBut victory was everything\n\n[Bridge]\nThen silence after server dawn\nNo party chat, no flashing gold\nShe turned around to meet the room\nAnd saw how empty it had grown\nThe cat was staring from the hall\nWith hungry eyes and velvet paws\nShe laughed once, thin and terrified\nAt every consequence she’d lost\n\n[Chorus]\nOh, she renewed the subscription\nAnd the world withdrew its hand\nHer kids were gone beyond the driveway\nHer kingdom sank beneath the land\nThe cat climbed up through broken sunlight\nAs the login music softly played\nShe whispered, “Maybe I can fix this”\nBut the screen said, “Character erased”\n\n[Outro]\nCharacter erased—\nAnd the last blue light went away\n[End]",
+        "duration": 160,
+        "bpm": 154,
+        "musicalSettings": {
+          "genre": "Dark-comedy pop-punk with a subtle arcade-synth glow",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, bridge, final chorus, resolved outro",
+          "performance": "One clear, steadily pitched melodic lead with conversational verses and a bigger catchable chorus",
+          "energy": "Brisk and mischievous at first, escalating into anxious dark comedy before a stark final resolution",
+          "lyricWorkflow": "Original narrative lyrics: a domestic collapse told through specific escalating scenes and a complete final payoff",
+          "instruments": [
+            "overdriven electric guitars",
+            "electric bass",
+            "acoustic drum kit",
+            "subtle arcade synthesizer"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nShe found the password under old bills\nBlue screen glow in the laundry room\nSaid, “Just one night, I miss that place”\nAnd clicked her way into the doom\nThe dinner burned, the school bell rang\nHer phone lit up with twenty calls\nShe chased a dragon through the rain\nWhile real life cracked along the walls\n\n[Pre-Chorus]\nThe guild said, “Ready?” and she said, “I am”\nNever saw the kitchen flooding again\n\n[Chorus]\nOh, she renewed the subscription\nBought a ticket out of her mind\nOne more dungeon, one more mission\nLeft the daylight far behind\nHer children packed their backpacks crying\nSaid, “Mom, you only talk in spells”\nShe waved them off without looking\nDown in her glowing little hell\n\n[Verse 2]\nThe cat went wild on a toppled plate\nThe landlord knocked, then went away\nHer boss left messages in red\nShe muted every word they’d say\nShe wore a crown of pixel fire\nAt three a.m. she beat the king\nThe house grew cold, the cupboards bare\nBut victory was everything\n\n[Bridge]\nThen silence after server dawn\nNo party chat, no flashing gold\nShe turned around to meet the room\nAnd saw how empty it had grown\nThe cat was staring from the hall\nWith hungry eyes and velvet paws\nShe laughed once, thin and terrified\nAt every consequence she’d lost\n\n[Chorus]\nOh, she renewed the subscription\nAnd the world withdrew its hand\nHer kids were gone beyond the driveway\nHer kingdom sank beneath the land\nThe cat climbed up through broken sunlight\nAs the login music softly played\nShe whispered, “Maybe I can fix this”\nBut the screen said, “Character erased”\n\n[Outro]\nCharacter erased—\nAnd the last blue light went away",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.9,
+            "end": 8.74
+          },
+          {
+            "line": 2,
+            "start": 8.74,
+            "end": 12.1
+          },
+          {
+            "line": 3,
+            "start": 12.56,
+            "end": 15.04
+          },
+          {
+            "line": 4,
+            "start": 15.04,
+            "end": 18.18
+          },
+          {
+            "line": 5,
+            "start": 19.16,
+            "end": 21.24
+          },
+          {
+            "line": 6,
+            "start": 21.24,
+            "end": 24.34
+          },
+          {
+            "line": 7,
+            "start": 24.34,
+            "end": 27.54
+          },
+          {
+            "line": 8,
+            "start": 27.54,
+            "end": 30.7
+          },
+          {
+            "line": 11,
+            "start": 32.72,
+            "end": 36.28
+          },
+          {
+            "line": 12,
+            "start": 37.4,
+            "end": 40.74
+          },
+          {
+            "line": 15,
+            "start": 43,
+            "end": 45.54
+          },
+          {
+            "line": 16,
+            "start": 46.5,
+            "end": 48.6
+          },
+          {
+            "line": 17,
+            "start": 49.34,
+            "end": 51.9
+          },
+          {
+            "line": 18,
+            "start": 52.6,
+            "end": 55.42
+          },
+          {
+            "line": 19,
+            "start": 55.42,
+            "end": 57.28
+          },
+          {
+            "line": 20,
+            "start": 58.6,
+            "end": 60.9
+          },
+          {
+            "line": 21,
+            "start": 61.82,
+            "end": 63.62
+          },
+          {
+            "line": 22,
+            "start": 64.18,
+            "end": 65.82
+          },
+          {
+            "line": 25,
+            "start": 67.28,
+            "end": 69.52
+          },
+          {
+            "line": 26,
+            "start": 70.02,
+            "end": 72.6
+          },
+          {
+            "line": 27,
+            "start": 73.6,
+            "end": 75.74
+          },
+          {
+            "line": 28,
+            "start": 75.74,
+            "end": 78.94
+          },
+          {
+            "line": 29,
+            "start": 78.94,
+            "end": 82.18
+          },
+          {
+            "line": 30,
+            "start": 82.18,
+            "end": 85.12
+          },
+          {
+            "line": 31,
+            "start": 86.12,
+            "end": 88.22
+          },
+          {
+            "line": 32,
+            "start": 88.84,
+            "end": 90.98
+          },
+          {
+            "line": 36,
+            "start": 96.22,
+            "end": 98.46
+          },
+          {
+            "line": 37,
+            "start": 99.34,
+            "end": 101.56
+          },
+          {
+            "line": 38,
+            "start": 101.56,
+            "end": 104.68
+          },
+          {
+            "line": 39,
+            "start": 105.62,
+            "end": 107.84
+          },
+          {
+            "line": 40,
+            "start": 107.84,
+            "end": 110.86
+          },
+          {
+            "line": 41,
+            "start": 111.46,
+            "end": 113.76
+          },
+          {
+            "line": 42,
+            "start": 113.76,
+            "end": 117.16
+          },
+          {
+            "line": 45,
+            "start": 117.7,
+            "end": 120.28
+          },
+          {
+            "line": 46,
+            "start": 120.28,
+            "end": 123.46
+          },
+          {
+            "line": 47,
+            "start": 123.9,
+            "end": 126.54
+          },
+          {
+            "line": 48,
+            "start": 126.54,
+            "end": 129.76
+          },
+          {
+            "line": 49,
+            "start": 129.76,
+            "end": 132.76
+          },
+          {
+            "line": 50,
+            "start": 133.61,
+            "end": 135.78
+          },
+          {
+            "line": 51,
+            "start": 135.78,
+            "end": 139.1
+          },
+          {
+            "line": 52,
+            "start": 139.1,
+            "end": 140.78
+          },
+          {
+            "line": 56,
+            "start": 145.26,
+            "end": 148.4
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 300,
+      "guide": {
+        "sha256": "6083db7e2284ba715c39d3f019e4881e3ddccfc3a0d882f64a112ac4f30fd2cd",
+        "bytes": 3840671,
+        "duration": 160.026083,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cd4c0296f22cede53c369737-6083db7e2284.mp3"
+      },
+      "originalPrompt": {
+        "idea": "A woman's life fall aparts after she reactivates her World of Warcraft subscription. Her kids leave and her cat eats her face",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 300,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 160
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-39dcafa75845d179ad486fe6",
       "title": "Thirty Days at the Portal",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-39dcafa75845d179ad486fe6-d06942efaa34.mp3",
