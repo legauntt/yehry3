@@ -2,6 +2,391 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-de3d0700e6eb89e5980293b6",
+      "title": "After the Strobe (Tony C V9)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-de3d0700e6eb89e5980293b6-5d5b0827b3ae.mp3",
+      "duration": 239.6,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-05T04:09:51.779Z",
+      "authoredBy": "Jesse / Tonycings",
+      "songPlan": {
+        "version": 1,
+        "title": "After the Strobe (Tony C V9)",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 124 BPM D-minor 1990s Eurodance original with a tight four-on-the-floor electronic drum machine, springy synth bass, bright stabs, organ-like chord hits, and spacious pads; no guitars. Tony C V9 delivers smoky, connected melodic phrases with slurred edges and a clear, sustained hook. Begin with an 8-second synth intro, build verse-to-pre-chorus tension, use a short dance break and a spare low-kick breakdown, then return to a larger final hook. Keep the final sustained “home” around 230 seconds, followed by one resolving chord and a natural 10-second decay.",
+        "lyrics": "[Intro]\nThe room wakes up in silver rain\nBlue sparks running through the floor\nI see your shadow turn again\nLike a question at the door\n\n[Verse 1]\nMidnight paints the glass black-blue\nEvery face becomes a flame\nI can feel the beat go through\nBut I do not know your name\nYou lean close, then drift away\nLeave a signal in the air\nIs it only light that plays\nOr is somebody really there?\n\n[Pre-Chorus]\nNo map in the smoke, no sign on the wall\nJust your eyes when the speakers call\nI could chase every flash till the morning comes through\nBut I need something true\n\n[Hook]\nAfter the strobe, do you stay?\nWhen all the color falls away\nAfter the strobe, can you show\nA heart that does not come and go?\nHold me where the bright lights end\nTell me if this feeling bends\nAfter the strobe, after the strobe\nWill I know?\n\n[Dance Break]\n\n[Verse 2]\nRed pulse over polished steel\nCrowds dissolve into the sound\nYou make silence almost feel\nLike a hand that pulls me down\nI have worn a thousand nights\nLike a jacket made of heat\nBut your laugh between the lights\nMakes the empty miss a beat\n\n[Pre-Chorus]\nNo promise in gold, no name in the haze\nJust one clear touch in the turning maze\nIf the dawn takes the glitter and strips it from view\nWould you still come through?\n\n[Hook]\nAfter the strobe, do you stay?\nWhen all the color falls away\nAfter the strobe, can you show\nA heart that does not come and go?\nHold me where the bright lights end\nTell me if this feeling bends\nAfter the strobe, after the strobe\nWill I know?\n\n[Breakdown]\nThe kick goes low, the room breathes slow\nYour outline gathers in the dark\nNo borrowed shine, no perfect sign\nJust one small honest spark\nSay it soft, say it plain\nDo not let it fade again\n\n[Hook]\nAfter the strobe, you remain\nA warm line cutting through the rain\nAfter the strobe, I can see\nThe one who is not leaving me\nWhen the last white colors close\nI will follow what I know\nAfter the strobe, after the strobe\nYou are home\n\n[End]",
+        "duration": 240,
+        "bpm": 124,
+        "musicalSettings": {
+          "genre": "1990s Eurodance / electronic dance-pop",
+          "meter": "4/4",
+          "structure": "Brief synth intro; melodic first verse; rising pre-chorus; recurring original hook; short dance break; second verse and hook; spare breakdown; final rising hook; resolved ending.",
+          "performance": "Tony C V9 in a natural, smoky, connected melodic delivery with occasional slurred asides and sustained hook notes.",
+          "energy": "Waves of rising dance-floor energy, a controlled middle dip, and a strong final lift into resolution.",
+          "lyricWorkflow": "Hook-first original lyrics about recognizing lasting affection after a late-night dance floor clears.",
+          "instruments": [
+            "electronic drum machine",
+            "synthesizer bass",
+            "bright synth stabs",
+            "organ-like synthesizer chords",
+            "synth pads"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nThe room wakes up in silver rain\nBlue sparks running through the floor\nI see your shadow turn again\nLike a question at the door\n\n[Verse 1]\nMidnight paints the glass black-blue\nEvery face becomes a flame\nI can feel the beat go through\nBut I do not know your name\nYou lean close, then drift away\nLeave a signal in the air\nIs it only light that plays\nOr is somebody really there?\n\n[Pre-Chorus]\nNo map in the smoke, no sign on the wall\nJust your eyes when the speakers call\nI could chase every flash till the morning comes through\nBut I need something true\n\n[Hook]\nAfter the strobe, do you stay?\nWhen all the color falls away\nAfter the strobe, can you show\nA heart that does not come and go?\nHold me where the bright lights end\nTell me if this feeling bends\nAfter the strobe, after the strobe\nWill I know?\n\n[Dance Break]\n\n[Verse 2]\nRed pulse over polished steel\nCrowds dissolve into the sound\nYou make silence almost feel\nLike a hand that pulls me down\nI have worn a thousand nights\nLike a jacket made of heat\nBut your laugh between the lights\nMakes the empty miss a beat\n\n[Pre-Chorus]\nNo promise in gold, no name in the haze\nJust one clear touch in the turning maze\nIf the dawn takes the glitter and strips it from view\nWould you still come through?\n\n[Hook]\nAfter the strobe, do you stay?\nWhen all the color falls away\nAfter the strobe, can you show\nA heart that does not come and go?\nHold me where the bright lights end\nTell me if this feeling bends\nAfter the strobe, after the strobe\nWill I know?\n\n[Breakdown]\nThe kick goes low, the room breathes slow\nYour outline gathers in the dark\nNo borrowed shine, no perfect sign\nJust one small honest spark\nSay it soft, say it plain\nDo not let it fade again\n\n[Hook]\nAfter the strobe, you remain\nA warm line cutting through the rain\nAfter the strobe, I can see\nThe one who is not leaving me\nWhen the last white colors close\nI will follow what I know\nAfter the strobe, after the strobe\nYou are home",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 2.48
+          },
+          {
+            "line": 2,
+            "start": 3.28,
+            "end": 6.12
+          },
+          {
+            "line": 3,
+            "start": 7.1,
+            "end": 9.8
+          },
+          {
+            "line": 4,
+            "start": 10.66,
+            "end": 13.46
+          },
+          {
+            "line": 7,
+            "start": 15.02,
+            "end": 17.46
+          },
+          {
+            "line": 8,
+            "start": 18.69,
+            "end": 21.38
+          },
+          {
+            "line": 9,
+            "start": 22.16,
+            "end": 25.12
+          },
+          {
+            "line": 10,
+            "start": 25.94,
+            "end": 28.26
+          },
+          {
+            "line": 11,
+            "start": 30.36,
+            "end": 33.58
+          },
+          {
+            "line": 12,
+            "start": 33.6,
+            "end": 36.88
+          },
+          {
+            "line": 13,
+            "start": 37.82,
+            "end": 39.92
+          },
+          {
+            "line": 14,
+            "start": 39.92,
+            "end": 43.48
+          },
+          {
+            "line": 17,
+            "start": 46.28,
+            "end": 50.12
+          },
+          {
+            "line": 18,
+            "start": 50.38,
+            "end": 52.62
+          },
+          {
+            "line": 19,
+            "start": 53.16,
+            "end": 57.68
+          },
+          {
+            "line": 20,
+            "start": 57.68,
+            "end": 60.44
+          },
+          {
+            "line": 23,
+            "start": 63.08,
+            "end": 65.94
+          },
+          {
+            "line": 24,
+            "start": 65.94,
+            "end": 69.88
+          },
+          {
+            "line": 25,
+            "start": 70.58,
+            "end": 73.64
+          },
+          {
+            "line": 26,
+            "start": 73.64,
+            "end": 76.72
+          },
+          {
+            "line": 28,
+            "start": 81.08,
+            "end": 85.02
+          },
+          {
+            "line": 29,
+            "start": 85.66,
+            "end": 89.56
+          },
+          {
+            "line": 30,
+            "start": 89.56,
+            "end": 90.8
+          },
+          {
+            "line": 35,
+            "start": 97.84,
+            "end": 101
+          },
+          {
+            "line": 36,
+            "start": 101,
+            "end": 103.24
+          },
+          {
+            "line": 37,
+            "start": 104.38,
+            "end": 107
+          },
+          {
+            "line": 38,
+            "start": 107,
+            "end": 110.16
+          },
+          {
+            "line": 39,
+            "start": 112.08,
+            "end": 114.76
+          },
+          {
+            "line": 40,
+            "start": 114.76,
+            "end": 118.44
+          },
+          {
+            "line": 41,
+            "start": 119.6,
+            "end": 122.56
+          },
+          {
+            "line": 42,
+            "start": 122.56,
+            "end": 125.42
+          },
+          {
+            "line": 45,
+            "start": 127.92,
+            "end": 132.06
+          },
+          {
+            "line": 46,
+            "start": 132.06,
+            "end": 134.64
+          },
+          {
+            "line": 47,
+            "start": 135.88,
+            "end": 139.6
+          },
+          {
+            "line": 48,
+            "start": 139.98,
+            "end": 142.26
+          },
+          {
+            "line": 51,
+            "start": 144.88,
+            "end": 148
+          },
+          {
+            "line": 52,
+            "start": 148,
+            "end": 151.78
+          },
+          {
+            "line": 53,
+            "start": 152.38,
+            "end": 157.1
+          },
+          {
+            "line": 54,
+            "start": 157.1,
+            "end": 159.34
+          },
+          {
+            "line": 55,
+            "start": 160.06,
+            "end": 163.28
+          },
+          {
+            "line": 56,
+            "start": 164.2,
+            "end": 166.86
+          },
+          {
+            "line": 57,
+            "start": 168.06,
+            "end": 170.44
+          },
+          {
+            "line": 58,
+            "start": 170.44,
+            "end": 172.68
+          },
+          {
+            "line": 61,
+            "start": 179.4,
+            "end": 183.12
+          },
+          {
+            "line": 62,
+            "start": 183.94,
+            "end": 186.12
+          },
+          {
+            "line": 63,
+            "start": 187.74,
+            "end": 190.76
+          },
+          {
+            "line": 64,
+            "start": 191.38,
+            "end": 193.18
+          },
+          {
+            "line": 65,
+            "start": 193.18,
+            "end": 197.46
+          },
+          {
+            "line": 66,
+            "start": 198.34,
+            "end": 201.4
+          },
+          {
+            "line": 69,
+            "start": 203.62,
+            "end": 206.9
+          },
+          {
+            "line": 70,
+            "start": 207.74,
+            "end": 211.02
+          },
+          {
+            "line": 71,
+            "start": 211.64,
+            "end": 214.68
+          },
+          {
+            "line": 72,
+            "start": 215.3,
+            "end": 218.4
+          },
+          {
+            "line": 73,
+            "start": 219.24,
+            "end": 222.06
+          },
+          {
+            "line": 74,
+            "start": 223.14,
+            "end": 225.94
+          },
+          {
+            "line": 75,
+            "start": 226.88,
+            "end": 229.98
+          },
+          {
+            "line": 76,
+            "start": 229.98,
+            "end": 231.72
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "clean",
+      "guide": {
+        "sha256": "f43e8318dfe52d396e45a4d822d47c7f0a1244d7cd7601547e5b00a9de3d5ada",
+        "bytes": 5829116,
+        "duration": 239.6,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-de3d0700e6eb89e5980293b6-f43e8318dfe5.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Create a Tony C AI influence remix inspired by Haddaway's What Is Love. Write original lyrics about trying to recognize real affection under the lights of a late-night dance floor, with a short memorable new sung hook. Do not reproduce the original lyrics or claim an exact cover. Compose a new 1990s Eurodance interpretation with the reference's steady dance pulse and contrasting builds. Title it After the Strobe (Tony C V9).",
+        "direction": "YouTube reference: https://www.youtube.com/watch?v=HEXWRTEbj1I (Haddaway - What Is Love [Official 4K]). Actual downloaded audio analyzed locally: 240.65 seconds, SHA-256 c4219f3689eea316e9557ddd3eb6244130da3bbf14fe9c3d44311e4e3076f2202. Estimated pulse 123.9 BPM with three excerpt estimates 125.5, 123.9 and 123.9; half/double-time alternatives retained in the private report. Tentative chroma tonal centers are D minor (correlation .896) and F major (.546), not probabilities. AudioSet candidates favored disco/electronic music; no instrument candidates met reporting threshold and CLAP was rejected as weak. Creative arrangement choices rather than detected instruments: tight four-on-the-floor kick, crisp clap/snare and open hi-hats, springy synthesizer bass, bright rhythmic synth stabs, organ-like chord hits and spacious pads. Preserve the generated electronic backing instead of applying a rock-band replacement. Relative energy builds in the first 30 seconds, remains strong around 70-90 and 140-160, dips around 170-180, returns strongly around 210-230, then resolves. Use that broad arc for a newly composed song, not an asserted source section map. Tony V9 should sing connected expressive melodic phrases in a comfortable register with catchable sustained hook notes, occasional slurred asides and varied dynamics, not constant rap or a screamed coda. Write new lyrics and an original melody about uncertain affection, changing the images and hook rather than quoting the source. Allow intentional short dance interludes and a spare breakdown: instrumental-heavy is explicitly selected, but no empty vocals or unfinished ending. Place the last sustained sung phrase around 230 seconds, leaving ten seconds for a fully resolved ending. FREE local ACE only; no paid music service, rental or paid fallback. Reference metadata is not melody conditioning; do not claim exact cover similarity or that the planner listened to the link.",
+        "keep": "Approximately 124 BPM four-on-the-floor dance pulse; synth-driven accompaniment; minor-key dance-floor tension; short catchable original melodic hook; evolving energy and intentional instrumental space; Tony V9 voice; complete final sung phrase and resolving chord.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "hook",
+          "performance": "natural",
+          "energy": "waves",
+          "variation": "conservative",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 240,
+          "bpm": 124,
+          "meter": "4/4",
+          "genre": "1990s Eurodance / electronic dance-pop influence remix",
+          "instruments": [
+            "electronic drum machine",
+            "synthesizer bass",
+            "bright synth stabs",
+            "organ-like synthesizer chords",
+            "synth pads"
+          ],
+          "avoidInstruments": [
+            "distorted rock guitar",
+            "acoustic guitar"
+          ],
+          "keyscale": "D minor",
+          "structure": "Brief synth intro; melodic first verse; rising pre-chorus; catchy hook; short instrumental dance break; contrasting second verse and chorus; spare middle breakdown; final rising hook; full resolving chord with natural tail",
+          "vocalEntry": 8,
+          "endingSeconds": 10,
+          "maxBreakSeconds": 20,
+          "instrumentalHeavy": true,
+          "seed": 20261005
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-b75de5d1649f5fcf131e74bc",
       "title": "Bet You Do (Tony C AI Remake - Compact)",
       "collection": "distonyc",
