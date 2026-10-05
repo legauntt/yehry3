@@ -564,6 +564,38 @@ test("drafting a song and reading lyrics are noticed from the page, and stop whe
   await expect.poll(() => state.reports.at(-1).activity, { timeout: 8000 }).toBe("lyrics");
 });
 
+for (const width of [1440, 390]) test(`Backstage, video and settings states follow the page and dialogs at ${width}px`, async ({ page }) => {
+  await page.setViewportSize({ width, height: 900 });
+  const state = await studio(page, { socket: true });
+  const videoSong = { ...songs[0], id: "distonyc-d88c69ac5b02b644324e42ad" };
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [songSummary(videoSong)], nextVoteAt: null } }));
+  await page.route("**/song-videos-v1/*.mp4", route => route.abort());
+  await page.goto("/?sort=catalog");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  await page.getByRole("button", { name: "Open display settings" }).first().click();
+  await expect.poll(() => state.reports.at(-1).activity).toBe("settings");
+  await page.keyboard.press("Escape");
+  await expect.poll(() => state.reports.at(-1).activity).toBeUndefined();
+  await page.locator("[data-video-open]").first().click();
+  await expect.poll(() => state.reports.at(-1).activity).toBe("video");
+  await page.getByRole("button", { name: "Close video" }).click();
+  await expect.poll(() => state.reports.at(-1).activity).toBeUndefined();
+  await page.goto("/admin/");
+  await expect.poll(() => state.reports.at(-1).activity).toBe("backstage");
+  for (const [activity, label] of [["backstage", "Viewing Backstage"], ["video", "Watching a Video"], ["settings", "Messing around in settings"]]) {
+    state.listeners = [state.listeners[0], { ...jesse, activity, device: "phone" }, fox];
+    state.version = `10000000000000${activity === "backstage" ? "11" : activity === "video" ? "12" : "13"}`;
+    state.push();
+    const named = page.locator('.room-seat[data-id="bbbbbbbbbbbbbb01"]');
+    await expect(named.locator(".room-doing")).toHaveAttribute("data-kind", activity);
+    await expect(named.locator(".room-doing-line")).toHaveText(label);
+    await expect(named.locator(".room-avatar")).toHaveAttribute("aria-label", new RegExp(label.toLowerCase()));
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.locator('a[href="/queue/"]').first().click();
+  await expect.poll(() => state.reports.at(-1).activity).toBeUndefined();
+});
+
 test("on a phone the badges stay on the face and a toast stays two short lines", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 800 });
   const state = await studio(page);

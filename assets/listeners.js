@@ -44,10 +44,16 @@ const device = () => deviceKind({
   width: innerWidth,
 });
 const DEVICE_LABELS = { phone: "On a phone", tablet: "On a tablet", small: "On a small screen", desktop: "On a desktop" };
-const ACTIVITY_LABELS = { drafting: "Drafting a song", lyrics: "Viewing song lyrics" };
+const ACTIVITY_LABELS = {
+  drafting: "Drafting a song", lyrics: "Viewing song lyrics",
+  backstage: "Viewing Backstage", video: "Watching a Video", settings: "Messing around in settings",
+};
 // What this page says its visitor is doing, read from the page itself so no page has to report it.
 const activityNow = () => {
+  if (document.querySelector(".display-settings-dialog[open]")) return "settings";
+  if (document.querySelector(".song-video-viewer[open]")) return "video";
   const page = document.body?.dataset.page;
+  if (page === "admin") return "backstage";
   if (page === "lyrics") return "lyrics";
   if (page === "requests" && (document.querySelector("#details-form, #confirm-form") || document.querySelector("#idea")?.value.trim())) return "drafting";
   return null;
@@ -61,6 +67,9 @@ const ICONS = {
   desktop: '<rect x="2.5" y="3.5" width="19" height="12.5" rx="1.5"/><path d="M8.5 20.5h7M12 16v4.5"/>',
   drafting: '<path d="M4 20l1-4.2L16.6 4.2a2 2 0 0 1 2.8 0l.4.4a2 2 0 0 1 0 2.8L8.2 19z"/><path d="M14.5 6.3l3.2 3.2"/>',
   lyrics: '<path d="M6 3h9l4 4v14H6z"/><path d="M14.5 3v4.5H19M9 12h7M9 15.5h7M9 19h4"/>',
+  backstage: '<path d="M3 3h18v18H3zM8 3v18M16 3v18M3 8h5M16 8h5"/>',
+  video: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 8 6 4-6 4z"/>',
+  settings: '<path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/>',
 };
 function icon(name) {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
