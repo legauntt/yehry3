@@ -141,4 +141,9 @@ export default {
   "distonyc-e4f534e23181ed37b959528a": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/01-morning-aria-back-to-bed-new-entries-20261003.mp4", framing: "square", duration: 10 },
   "distonyc-944052f6558e303470491554": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/02-solving-racism-new-entries-20261003.mp4", framing: "square", duration: 10 },
   "distonyc-d59c2b17c667891420654e76": {"src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/morning-routine-full-doomer-20261004.mp4", "previewSrc": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/morning-routine-full-doomer-preview-20261004.mp4", "framing": "landscape", "duration": 410, "hasAudio": true, "fullLength": true, "treatment": "doomer-pumpkin"},
+  "distonyc-d7308feaf7da5f1c69383192": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/01-the-seat-across-from-mine-missing-20261005.mp4", framing: "square", duration: 10 },
+  "distonyc-6d17465ec0962fdbd34e0b8c": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/02-what-is-love-tony-c-v9-ai-remix-missing-20261005.mp4", framing: "square", duration: 10 },
+  "distonyc-de3d0700e6eb89e5980293b6": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/03-after-the-strobe-tony-c-v9-missing-20261005.mp4", framing: "square", duration: 10 },
+  "distonyc-b75de5d1649f5fcf131e74bc": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/04-bet-you-do-tony-c-ai-remake-compact-missing-20261005.mp4", framing: "square", duration: 10 },
+  "distonyc-c20c1c38fecd5c30ab30c5f1": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/05-bet-you-do-tony-c-ai-remake-missing-20261005.mp4", framing: "square", duration: 10 },
 };
