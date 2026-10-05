@@ -1,17 +1,17 @@
 {
   "version": 1,
   "songId": "distonyc-b75de5d1649f5fcf131e74bc",
-  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b75de5d1649f5fcf131e74bc-9c77b37ba683.mp3",
-  "audioSha256": "9c77b37ba68377f5215c3e710789a5794e3c12a0cc88fa48c7827b073b7e6b8b",
-  "inputSha256": "9c77b37ba68377f5215c3e710789a5794e3c12a0cc88fa48c7827b073b7e6b8b",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b75de5d1649f5fcf131e74bc-8966ac1d0d93.mp3",
+  "audioSha256": "8966ac1d0d9349ccc6d00420904066e435663e0e5547f5759840ea84ecceca61",
+  "inputSha256": "8966ac1d0d9349ccc6d00420904066e435663e0e5547f5759840ea84ecceca61",
   "input": "released-recording",
   "model": "faster-whisper large-v3-turbo",
   "review": "machine",
-  "duration": 259.2,
+  "duration": 244.5,
   "segments": [
     {
       "start": 0.0,
-      "end": 2.82,
+      "end": 2.8,
       "text": "They can't wait to see what I'm putting on",
       "uncertain": false
     },
@@ -23,14 +23,14 @@
     },
     {
       "start": 17.82,
-      "end": 21.46,
-      "text": "And tell me when you get there is it popping off",
+      "end": 21.52,
+      "text": "And tell me when you get there is he popping off",
       "uncertain": false
     },
     {
-      "start": 21.46,
+      "start": 21.52,
       "end": 24.8,
-      "text": "Does it live up to everything you're dreaming of",
+      "text": "Does he live up to everything you're dreaming of",
       "uncertain": false
     },
     {
@@ -42,179 +42,143 @@
     {
       "start": 30.0,
       "end": 31.92,
-      "text": "Cause you can't face the truth",
+      "text": "Cause you can't face the truth.",
       "uncertain": true
     },
     {
-      "start": 33.18,
+      "start": 33.36,
       "end": 36.28,
-      "text": "You think I'm in love, love, love, love",
-      "uncertain": true
-    },
-    {
-      "start": 36.28,
-      "end": 38.36,
-      "text": "I bet you do",
+      "text": "You think I'm in love, love, love, love.",
       "uncertain": false
     },
     {
-      "start": 40.3,
-      "end": 43.88,
-      "text": "You think I'm in love, love, love, love, love",
+      "start": 36.92,
+      "end": 38.34,
+      "text": "I bet you do.",
       "uncertain": false
     },
     {
-      "start": 43.88,
-      "end": 46.9,
-      "text": "You know what you want, want, want, want",
+      "start": 40.5,
+      "end": 43.76,
+      "text": "You think I'm in love, love, love, love, love.",
       "uncertain": false
     },
     {
-      "start": 46.9,
-      "end": 49.04,
-      "text": "I bet you do",
+      "start": 44.1,
+      "end": 46.86,
+      "text": "You know what you want, want, want, want.",
       "uncertain": false
     },
     {
-      "start": 50.94,
-      "end": 54.56,
-      "text": "You know what you want, want, want, want, want",
+      "start": 47.58,
+      "end": 48.96,
+      "text": "I bet you do.",
       "uncertain": false
     },
     {
-      "start": 54.56,
-      "end": 56.12,
-      "text": "I bet you do",
+      "start": 51.16,
+      "end": 54.46,
+      "text": "You know what you want, want, want, want, want.",
       "uncertain": false
     },
     {
-      "start": 61.64,
-      "end": 63.24,
-      "text": "I'll bet you do",
-      "uncertain": true
-    },
-    {
-      "start": 65.34,
-      "end": 66.88,
-      "text": "I'll bet you do",
-      "uncertain": true
-    },
-    {
-      "start": 68.88,
-      "end": 70.36,
-      "text": "I'll bet you do",
+      "start": 54.72,
+      "end": 56.02,
+      "text": "I bet you do.",
       "uncertain": false
     },
     {
-      "start": 72.5,
-      "end": 73.92,
-      "text": "I'll bet you do",
+      "start": 61.72,
+      "end": 86.92,
+      "text": "I bet you do, I bet you do, I bet you do, I bet you do, I bet you do, I bet you do, can't",
       "uncertain": false
     },
     {
-      "start": 73.92,
-      "end": 77.62,
-      "text": "I'll bet you do",
-      "uncertain": false
-    },
-    {
-      "start": 77.62,
-      "end": 81.08,
-      "text": "I'll bet you do",
-      "uncertain": false
-    },
-    {
-      "start": 81.08,
-      "end": 84.66,
-      "text": "I'll bet you do",
-      "uncertain": false
-    },
-    {
-      "start": 86.16,
+      "start": 86.92,
       "end": 88.46,
-      "text": "Can't wait to see you follow through",
-      "uncertain": false
+      "text": "Wait to see you follow through",
+      "uncertain": true
     },
     {
-      "start": 89.34,
-      "end": 92.48,
+      "start": 89.38,
+      "end": 92.5,
       "text": "On all those things you said that you were gonna do",
       "uncertain": true
     },
     {
-      "start": 92.48,
-      "end": 95.72,
-      "text": "And what you're walking on the rope is coming loose",
+      "start": 92.5,
+      "end": 95.74,
+      "text": "And what you're walking on the road is coming loose",
       "uncertain": false
     },
     {
-      "start": 95.72,
-      "end": 98.94,
-      "text": "It's time to cut it off and tie your noose",
+      "start": 95.74,
+      "end": 98.88,
+      "text": "It's time to cut it off and tie your nose",
       "uncertain": true
     },
     {
-      "start": 100.0,
+      "start": 100.04,
       "end": 103.22,
-      "text": "But baby we can stay here getting tangled up",
+      "text": "But baby we can stay, you're getting tangled up",
       "uncertain": false
     },
     {
       "start": 103.22,
       "end": 106.26,
-      "text": "Sometimes it feels like hatred from the strong enough",
+      "text": "Sometimes it feels like age reform is strong enough",
       "uncertain": true
     },
     {
       "start": 106.26,
-      "end": 108.54,
+      "end": 108.56,
       "text": "So put the pressure on",
       "uncertain": false
     },
     {
-      "start": 108.54,
-      "end": 110.22,
+      "start": 108.56,
+      "end": 110.28,
       "text": "Is that enough for you?",
       "uncertain": false
     },
     {
-      "start": 113.28,
+      "start": 113.32,
       "end": 114.74,
       "text": "I bet you do",
-      "uncertain": false
+      "uncertain": true
     },
     {
       "start": 114.74,
-      "end": 117.98,
+      "end": 118.04,
       "text": "You think I'm in love, love, love, love",
-      "uncertain": false
+      "uncertain": true
     },
     {
-      "start": 117.98,
-      "end": 120.04,
+      "start": 118.04,
+      "end": 120.06,
       "text": "I bet you do",
       "uncertain": true
     },
     {
       "start": 122.06,
-      "end": 125.56,
+      "end": 125.62,
       "text": "You think I'm in love, love, love, love, love",
-      "uncertain": true
+      "uncertain": false
     },
     {
-      "start": 125.56,
-      "end": 128.72,
+      "start": 125.62,
+      "end": 128.84,
       "text": "You know what you want, want, want, want",
       "uncertain": false
     },
     {
-      "start": 128.72,
-      "end": 130.82,
+      "start": 128.84,
+      "end": 130.78,
       "text": "I bet you do",
       "uncertain": false
     },
     {
-      "start": 132.78,
+      "start": 132.76,
       "end": 136.3,
       "text": "You know what you want, want, want, want, want",
       "uncertain": false
@@ -226,165 +190,165 @@
       "uncertain": false
     },
     {
-      "start": 139.86,
-      "end": 141.62,
+      "start": 139.92,
+      "end": 141.48,
       "text": "I bet you do",
       "uncertain": false
     },
     {
-      "start": 141.62,
-      "end": 145.1,
+      "start": 143.6,
+      "end": 144.98,
       "text": "I bet you do",
-      "uncertain": false
+      "uncertain": true
     },
     {
-      "start": 147.06,
+      "start": 147.1,
       "end": 148.56,
       "text": "I bet you do",
       "uncertain": false
     },
     {
-      "start": 153.9,
+      "start": 154.22,
       "end": 155.86,
       "text": "I know what you want",
-      "uncertain": true
+      "uncertain": false
     },
     {
-      "start": 155.86,
+      "start": 156.46,
       "end": 157.64,
       "text": "What you are",
       "uncertain": false
     },
     {
       "start": 157.64,
-      "end": 159.42,
+      "end": 159.4,
       "text": "I know what you are",
       "uncertain": false
     },
     {
-      "start": 159.42,
-      "end": 162.04,
-      "text": "Baby, why you seem so dark",
-      "uncertain": false
+      "start": 159.4,
+      "end": 162.0,
+      "text": "Baby, why you seem so thorough",
+      "uncertain": true
     },
     {
-      "start": 162.76,
+      "start": 162.78,
       "end": 165.04,
       "text": "That's cause you're standing in my shadow",
       "uncertain": false
     },
     {
-      "start": 166.2,
-      "end": 168.5,
-      "text": "I thought you said you were a star",
-      "uncertain": false
+      "start": 166.24,
+      "end": 168.54,
+      "text": "I thought you said you were a smurf",
+      "uncertain": true
     },
     {
-      "start": 169.8,
-      "end": 172.14,
+      "start": 169.82,
+      "end": 172.16,
       "text": "But you don't seem so far away",
       "uncertain": false
     },
     {
-      "start": 172.14,
+      "start": 172.16,
       "end": 173.9,
       "text": "And now I think it's time",
       "uncertain": false
     },
     {
-      "start": 175.22,
+      "start": 175.2,
       "end": 177.66,
       "text": "I'm gonna show you what I'm made of",
       "uncertain": false
     },
     {
-      "start": 178.68,
-      "end": 181.42,
+      "start": 178.66,
+      "end": 181.4,
       "text": "I bet you think I did it all for you",
       "uncertain": false
     },
     {
       "start": 182.6,
-      "end": 184.54,
+      "end": 184.5,
       "text": "Baby, why you seem so dark?",
       "uncertain": false
     },
     {
-      "start": 185.9,
+      "start": 185.86,
       "end": 188.14,
       "text": "That's cause you're standing in my shadow",
       "uncertain": false
     },
     {
-      "start": 189.36,
-      "end": 191.64,
+      "start": 189.32,
+      "end": 191.6,
       "text": "I thought you said you were a star",
       "uncertain": false
     },
     {
-      "start": 192.96,
-      "end": 195.22,
+      "start": 192.9,
+      "end": 195.2,
       "text": "But you don't seem so far away",
       "uncertain": false
     },
     {
-      "start": 196.98,
-      "end": 198.82,
+      "start": 196.9,
+      "end": 198.84,
       "text": "And now I think it's time",
       "uncertain": false
     },
     {
-      "start": 200.12,
-      "end": 202.52,
+      "start": 200.02,
+      "end": 202.46,
       "text": "I'm gonna show you what I'm made of",
       "uncertain": false
     },
     {
-      "start": 203.44,
-      "end": 207.48,
+      "start": 203.5,
+      "end": 207.44,
       "text": "I bet you think I did it all for you",
       "uncertain": false
     },
     {
-      "start": 207.48,
-      "end": 209.08,
+      "start": 207.44,
+      "end": 208.96,
       "text": "I bet you do",
       "uncertain": false
     },
     {
-      "start": 209.08,
+      "start": 208.96,
       "end": 210.86,
       "text": "I bet you do",
       "uncertain": false
     },
     {
-      "start": 210.86,
-      "end": 212.58,
+      "start": 212.84,
+      "end": 214.38,
       "text": "I bet you do",
       "uncertain": false
     },
     {
-      "start": 214.58,
-      "end": 216.1,
+      "start": 214.38,
+      "end": 216.04,
       "text": "I bet you do",
       "uncertain": false
     },
     {
-      "start": 216.1,
-      "end": 217.38,
+      "start": 216.04,
+      "end": 216.12,
       "text": "I bet you do",
       "uncertain": false
     },
     {
-      "start": 218.12,
-      "end": 219.72,
+      "start": 218.16,
+      "end": 219.66,
       "text": "I bet you do",
       "uncertain": false
     },
     {
-      "start": 242.3,
-      "end": 242.42,
-      "text": "We'll be right back.",
+      "start": 232.46,
+      "end": 235.12,
+      "text": "We'll see you next time.",
       "uncertain": true
     }
   ]
