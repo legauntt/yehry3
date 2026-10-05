@@ -4,8 +4,6 @@
     {
       "id": "distonyc-b75de5d1649f5fcf131e74bc",
       "title": "Bet You Do (Tony C AI Remake - Compact)",
-      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b75de5d1649f5fcf131e74bc-9c77b37ba683.mp3",
-      "duration": 259.2,
       "collection": "distonyc",
       "voiceModel": "v6",
       "publishedAt": "2026-10-05T00:01:51.151Z",
@@ -35,6 +33,57 @@
           ]
         }
       },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "guide": {
+        "sha256": "695f410c4320814c9a9a6ecdb3457bbfc24c119c19ff4326dfca53155a33d27b",
+        "bytes": 6262268,
+        "duration": 259.2,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b75de5d1649f5fcf131e74bc-695f410c4320.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Make an AI remake of \"Bet You Do\" by Pixel Grip, sung by Tony C. Retain the original lyric wording and repeated hooks using the matching cover lyric sheet. Compose a new electronic dance arrangement that follows the reference's pulse, sustained groove and gradual build. Title it Bet You Do (Tony C AI Remake - Compact). This is a newly composed interpretation; matching the original melody is not required.",
+        "direction": "Reference: https://www.youtube.com/watch?v=VN8kC2BeyyA. CPU audio analysis measured 353.34 seconds and an approximately 138 BPM pulse across beginning, middle and ending excerpts. AudioSet candidates favored electronic dance/trance; actual instruments and vocals were inconclusive. Tonal estimates were ambiguous between Ab minor and Ab major, so key is Auto. The energy rises during the opening 30 seconds, dips around 150-180 seconds, and reaches its strongest sustained region around 250-310 seconds before resolving. Translate that broad energy arc into a newly composed performance. Creative arrangement choices, not detected instruments: tight four-on-the-floor electronic kick, crisp hats/claps, a repeating synthesizer-bass pulse, evolving synth arpeggios and restrained pads. Keep the synth accompaniment instead of replacing it with a generic rock band. Keep Tony's expressive connected melodic delivery, in a comfortable register; no long screamed or wordless coda. Reuse the original lyric sheet in its existing order, spreading the words and repeated hooks across the full length. End the last meaningful sung phrase about 10 seconds before the complete resolving chord. Do not claim that the planner listened to the video or that this preserves its exact melody. No paid band generator or rented GPU for this request. Revision: compress the broad energy arc proportionally into 260 seconds. The previous 353-second attempt had sparse vocals and an excessively early last vocal. Sustain connected sung phrases through every section and spread every supplied line across the compact duration; no empty verses, long instrumental passages or lyric omissions. This is one bounded local revision.",
+        "keep": "Original lyric wording and recognizable repeated lyric hooks; approximately 138 BPM dance pulse; electronic accompaniment; gradual energy build; complete final phrase and resolved ending. Tony C voice. New music is acceptable; original melody/timing are not guaranteed.",
+        "basisSongs": [],
+        "voiceModel": "v6",
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "build",
+          "variation": "conservative",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 260,
+          "bpm": 138,
+          "meter": "4/4",
+          "genre": "Electronic dance / synth-driven trance interpretation",
+          "instruments": [
+            "electronic drum machine",
+            "synthesizer bass",
+            "synth arpeggios",
+            "synth pads"
+          ],
+          "avoidInstruments": [
+            "distorted rock guitar",
+            "acoustic guitar"
+          ],
+          "vocalEntry": 4,
+          "endingSeconds": 10,
+          "maxBreakSeconds": 5,
+          "seed": 20261005,
+          "structure": "Compact full-song interpretation. Start verse by 4 seconds; distribute all original words and hooks over 4:20. Lead voice present in each section. No long instrumental intro, breakdown or outro. Final lyric near 250 seconds, then a resolved 10-second ending."
+        },
+        "generationProfile": "v8"
+      },
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b75de5d1649f5fcf131e74bc-8966ac1d0d93.mp3",
+      "duration": 244.5,
       "lyrics": {
         "text": "[Verse 1]\nThey can’t wait to see what I’m putting on\nWhether it's on my body or the stereo\nAnd where I'm coming from\nThat’s where you're going to\n\n[Verse 2]\nWish I could stay but I'm just passing through\nAnd tell me when you get there is it poppin off?\nDoes it live up to everything you're dreaming of?\nYou think we’re facing off but I aint facing you\n\n[Verse 3]\n‘Cause you can't face the truth\nYou think I'm in love love love love\nI bet you do\nYou think I'm in love love love love love\n\n[Chorus]\nYou know what you want want want want\nI bet you do\nYou know what you want want want want want\nI bet you do.\n\n[Chorus]\nI bet you do.\nI bet you do.\nI bet you do.\nI bet you do.\n\n[Chorus]\nI bet you do.\nI bet you do.\nI bet you do.\nI bet you do.\n\n[Verse 4]\nCan’t wait to see you follow through\nOn all those things you said that you were gonna do\nAnd what you're walking on: the rope is comin’ loose\nIt’s time to cut it off or tie your noose\n\n[Verse 5]\nOr baby we can stay here getting tangled up\nSometimes it feels like hatred formed a stronger knot\nSo put the pressure on\nIs that enough for you?\n\n[Verse 6]\nI bet you do.\nYou think I'm in love love love love\nI bet you do\nYou think I’m in love love love love love\n\n[Chorus]\nYou know what you want want want want\nI bet you do\nYou know what you want want want want want\nI bet you do.\n\n[Verse 7]\nI bet you do.\nI bet you do.\nI bet you do.\nWhat you want?\n\n[Verse 8]\nI know what you want.\nWhat you are?\nI know what you are.\nBaby why you seem so dark?\n\n[Verse 9]\nThat's ‘cause you’re standin’ in my shadow\nI thought you said you were a star\nBut you don’t seem so far away\nAnd now I think it's time\n\n[Verse 10]\nI'm gonna show you what I’m made of\nI bet you think I did it all for you\nBaby why you seem so dark?\nThat's ‘cause you’re standin’ in my shadow\n\n[Verse 11]\nI thought you said you were a star\nBut you don’t seem so far away\nAnd now I think it's time\nI'm gonna show you what I’m made of\n\n[Verse 12]\nI bet you think I did it all for you\nI bet you do.\nI bet you do.\nI bet you do.\n\n[Verse 13]\nI bet you do.\nI bet you do.",
         "kind": "written",
@@ -311,60 +360,25 @@
           }
         ]
       },
-      "collections": [
-        "distonyc"
-      ],
-      "validationFailures": [
-        "vocal_activity",
-        "unconverted_vocals"
-      ],
-      "reviewState": "needs_review",
-      "generationProfile": "v8",
-      "guide": {
-        "sha256": "695f410c4320814c9a9a6ecdb3457bbfc24c119c19ff4326dfca53155a33d27b",
-        "bytes": 6262268,
-        "duration": 259.2,
-        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b75de5d1649f5fcf131e74bc-695f410c4320.mp3"
-      },
-      "originalPrompt": {
-        "idea": "Make an AI remake of \"Bet You Do\" by Pixel Grip, sung by Tony C. Retain the original lyric wording and repeated hooks using the matching cover lyric sheet. Compose a new electronic dance arrangement that follows the reference's pulse, sustained groove and gradual build. Title it Bet You Do (Tony C AI Remake - Compact). This is a newly composed interpretation; matching the original melody is not required.",
-        "direction": "Reference: https://www.youtube.com/watch?v=VN8kC2BeyyA. CPU audio analysis measured 353.34 seconds and an approximately 138 BPM pulse across beginning, middle and ending excerpts. AudioSet candidates favored electronic dance/trance; actual instruments and vocals were inconclusive. Tonal estimates were ambiguous between Ab minor and Ab major, so key is Auto. The energy rises during the opening 30 seconds, dips around 150-180 seconds, and reaches its strongest sustained region around 250-310 seconds before resolving. Translate that broad energy arc into a newly composed performance. Creative arrangement choices, not detected instruments: tight four-on-the-floor electronic kick, crisp hats/claps, a repeating synthesizer-bass pulse, evolving synth arpeggios and restrained pads. Keep the synth accompaniment instead of replacing it with a generic rock band. Keep Tony's expressive connected melodic delivery, in a comfortable register; no long screamed or wordless coda. Reuse the original lyric sheet in its existing order, spreading the words and repeated hooks across the full length. End the last meaningful sung phrase about 10 seconds before the complete resolving chord. Do not claim that the planner listened to the video or that this preserves its exact melody. No paid band generator or rented GPU for this request. Revision: compress the broad energy arc proportionally into 260 seconds. The previous 353-second attempt had sparse vocals and an excessively early last vocal. Sustain connected sung phrases through every section and spread every supplied line across the compact duration; no empty verses, long instrumental passages or lyric omissions. This is one bounded local revision.",
-        "keep": "Original lyric wording and recognizable repeated lyric hooks; approximately 138 BPM dance pulse; electronic accompaniment; gradual energy build; complete final phrase and resolved ending. Tony C voice. New music is acceptable; original melody/timing are not guaranteed.",
-        "basisSongs": [],
-        "voiceModel": "v6",
-        "musicBackend": "local",
-        "generation": {
-          "version": 1,
-          "candidates": 1,
-          "lyricWorkflow": "auto",
-          "performance": "natural",
-          "energy": "build",
-          "variation": "conservative",
-          "reviewLyrics": false,
-          "vocalGainDb": 0,
-          "backingGainDb": 0,
-          "duration": 260,
-          "bpm": 138,
-          "meter": "4/4",
-          "genre": "Electronic dance / synth-driven trance interpretation",
-          "instruments": [
-            "electronic drum machine",
-            "synthesizer bass",
-            "synth arpeggios",
-            "synth pads"
-          ],
-          "avoidInstruments": [
-            "distorted rock guitar",
-            "acoustic guitar"
-          ],
-          "vocalEntry": 4,
-          "endingSeconds": 10,
-          "maxBreakSeconds": 5,
-          "seed": 20261005,
-          "structure": "Compact full-song interpretation. Start verse by 4 seconds; distribute all original words and hooks over 4:20. Lead voice present in each section. No long instrumental intro, breakdown or outro. Final lyric near 250 seconds, then a resolved 10-second ending."
+      "qualityIssues": [
+        {
+          "code": "low_vocal_coverage",
+          "fraction": 0.4471450617283951
         },
-        "generationProfile": "v8"
-      }
+        {
+          "code": "long_instrumental_break",
+          "seconds": 12.42
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 24.78
+        },
+        {
+          "code": "early_lyric_ending",
+          "seconds": 25
+        }
+      ],
+      "repairedAt": "2026-10-05T03:28:44.005Z"
     },
     {
       "id": "distonyc-c20c1c38fecd5c30ab30c5f1",
