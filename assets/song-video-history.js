@@ -19,6 +19,15 @@ export default {
       "duration": 22,
       "audio": true,
       "treatment": "doomer"
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/morning-routine-doomer-beat-loop-20261004.mp4",
+      "loopVideo": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/morning-routine-doomer-picture-20261004.mp4",
+      "loopAudio": "/assets/song-videos/morning-routine-gapless-20261004.wav",
+      "framing": "square",
+      "duration": 23.33,
+      "audio": true,
+      "treatment": "doomer"
     }
   ],
   "distonyc-d88c69ac5b02b644324e42ad": [

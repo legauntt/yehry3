@@ -34,7 +34,7 @@ test("published catalog exposes and plays all page-one videos", async ({ page })
     const song = pageOneSongs.find(s => s.id === id);
     const button = await findVideo(id);
     await expect(button).toBeVisible();
-    if (song.videoAudio) {
+    if (song.videoAudio && !videos[id]?.fullLength) {
       await page.locator(`[data-id="${id}"] [data-play]`).click();
       await expect.poll(() => page.locator("#audio").evaluate(a => !a.paused && a.currentTime > 0)).toBe(true);
     }
@@ -51,6 +51,7 @@ test("published catalog exposes and plays all page-one videos", async ({ page })
       expect(media.loop).toBe(false);
       await expect.poll(() => video.evaluate(v => v.webkitAudioDecodedByteCount > 0)).toBe(true);
       if (current.treatment === "two-towers") await expect(button.locator("[data-video-towers]")).toHaveCount(1);
+      if (current.treatment === "doomer-pumpkin") await expect(button.locator("[data-video-pumpkin]")).toHaveCount(1);
       if (current.treatment === "arbys") await expect(button.locator("[data-video-arbys]")).toHaveCount(1);
       for (const time of [34, 89, current.duration - 25, current.duration - 5]) {
         await video.evaluate((v, t) => { v.currentTime = t; }, time);
@@ -58,7 +59,7 @@ test("published catalog exposes and plays all page-one videos", async ({ page })
       }
       await page.screenshot({ path: `test-results/${id}-music-video-live.png` });
     } else {
-    if (song.videoAudio) {
+    if (song.videoAudio && !videos[id]?.fullLength) {
       await expect.poll(() => video.evaluate(v => v.readyState >= 1 && v.paused && !v.muted && v.currentTime === 0)).toBe(true);
       expect(await page.locator("#audio").evaluate(a => a.paused)).toBe(true);
       await page.getByRole("button", { name: "Play video with sound", exact: true }).click();
@@ -68,9 +69,9 @@ test("published catalog exposes and plays all page-one videos", async ({ page })
     expect(dimensions.slice(0, 2)).toEqual([song.videoWidth || 576, song.videoHeight || 1024]);
     expect(dimensions[2]).toBeCloseTo(song.videoDuration || 15, 2);
     }
-    if (song.videoAudio) {
+    if (song.videoAudio && !videos[id]?.fullLength) {
       await expect(button).toHaveClass(/song-video-button-doomer/);
-      await expect(page.locator('[data-video-description]')).toHaveText(`${song.videoDuration}-second video with chorus audio · Press Play to watch with sound`);
+      await expect(page.locator('[data-video-description]')).toHaveText(`${song.videoDuration}-second video with chorus audio Â· Press Play to watch with sound`);
       await expect(page.getByLabel("Sound on", { exact: true })).toBeChecked();
       await expect.poll(() => page.evaluate(() => window.loopSources.length)).toBe(1);
       await expect.poll(() => video.evaluate(v => v.currentTime > 22), { timeout: 30000 }).toBe(true);

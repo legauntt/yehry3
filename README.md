@@ -99,7 +99,13 @@ Run `npm run build`, `npm test`, and `npx playwright test --config
 playwright.videos.config.js`; set `YEHRY3_VIDEO_URL=https://yehry3.app` for live
 playback checks of current and preserved clips.
 
-Morning Routine's current companion is a 23.33-second locally rendered Doomer video with an end-to-start picture dissolve and a beat-aligned audio splice.
+Morning Routine's current video is a 6:50 landscape music video with the complete
+original song and word-highlighted original lyrics. Its 52 generated shots follow
+the morning ritual through a bleak apartment and lonely city, ending on a doomer
+pumpkin. The pumpkin play icon retains the audio sparkle. Previous versions remain
+available in the version picker.
+
+Its preserved 23.33-second locally rendered Doomer companion has an end-to-start picture dissolve and a beat-aligned audio splice.
 Play starts the picture immediately while the sound loads, with a loading notice;
 sound joins at the current video time. Failed or stalled sound downloads can be
 retried with Play. The volume slider reaches both endpoints and follows native controls.

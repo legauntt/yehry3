@@ -18,12 +18,19 @@ test.beforeEach(async ({ page }) => {
   await page.route("**/yehry3/queue?*", r => r.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
 });
 const card = page => page.locator(`[data-id="${songs[0].id}"]`);
+const loopChoice = id => videoVersions(id).findLast(choice => choice.loopAudio);
+async function openLoop(page, song) {
+  await page.locator(`[data-video-open="${song.id}"]`).click();
+  const choice = loopChoice(song.id);
+  await page.getByRole("dialog", { name: song.title, exact: true })
+    .getByRole("button", { name: `Version ${choice.label}`, exact: true }).click();
+}
 
 test("Play starts the picture while sound loads and volume reaches both endpoints", async ({ page }) => {
   let release;
   const gate = new Promise(resolve => { release = resolve; });
   const song = songs.find(s => s.videoAudio);
-  const choice = videoVersions(song.id).at(-1);
+  const choice = loopChoice(song.id);
   const loopSound = await readFile(new URL(`../..${choice.loopAudio}`, import.meta.url));
   await page.addInitScript(() => {
     window.loopSources = [];
@@ -37,7 +44,7 @@ test("Play starts the picture while sound loads and volume reaches both endpoint
     await route.fulfill({ contentType: "audio/wav", body: loopSound });
   });
   await page.goto("/");
-  await page.locator(`[data-video-open="${song.id}"]`).click();
+  await openLoop(page, song);
   const dialog = page.locator(".song-video-viewer");
   const video = dialog.locator("video");
   await dialog.locator("[data-video-play]").click();
@@ -72,11 +79,11 @@ test("Play starts the picture while sound loads and volume reaches both endpoint
 
 test("failed loop sound retries on Play and closing during loading leaves audio stopped", async ({ page }) => {
   const song = songs.find(s => s.videoAudio);
-  const choice = videoVersions(song.id).at(-1);
+  const choice = loopChoice(song.id);
   let attempts = 0;
   await page.route(`**${choice.loopAudio}`, route => ++attempts === 1 ? route.abort() : route.continue());
   await page.goto("/");
-  await page.locator(`[data-video-open="${song.id}"]`).click();
+  await openLoop(page, song);
   const dialog = page.locator(".song-video-viewer");
   await expect(dialog.locator(".song-video-status")).toContainText("audio could not load");
   await dialog.locator("[data-video-play]").click();
@@ -88,7 +95,7 @@ test("failed loop sound retries on Play and closing during loading leaves audio 
   let release;
   const gate = new Promise(resolve => { release = resolve; });
   await page.route(`**${choice.loopAudio}`, async route => { await gate; await route.continue(); });
-  await page.locator(`[data-video-open="${song.id}"]`).click();
+  await openLoop(page, song);
   await dialog.locator("[data-video-play]").click();
   await expect(dialog.locator(".song-video-status")).toHaveText("Loading sound…");
   await page.keyboard.press("Escape");
@@ -122,7 +129,7 @@ test("sound video waits for Play, pauses the shared song and loops on a phone", 
   const audio = page.locator("#audio");
   await expect.poll(() => audio.evaluate(a => !a.paused && a.currentTime > 0)).toBe(true);
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.locator(`[data-video-open="${song.id}"]`).click();
+  await openLoop(page, song);
   const dialog = page.getByRole("dialog", { name: song.title, exact: true });
   const video = dialog.locator("video");
   await expect.poll(() => video.evaluate(v => v.readyState >= 1 && v.paused && !v.muted && v.currentTime === 0)).toBe(true);
@@ -311,7 +318,7 @@ test("video modal supports keyboard and pauses songs only for sound clips", asyn
   await expect(page.locator(".cover-viewer")).toBeVisible();
   await page.keyboard.press("Escape");
   expect(await page.locator("#audio").evaluate(a => a.currentTime)).toBeGreaterThan(before);
-  expect(await page.locator("#audio").evaluate(a => a.paused)).toBe(true);
+  expect(await page.locator("#audio").evaluate(a => a.paused)).toBe(false);
 });
 
 test("reduced motion suppresses autoplay; phone and list keep a usable modal button", async ({ page }) => {
@@ -345,7 +352,7 @@ test("every preserved version plays and rapid switching recovers from a failed v
     const dialog = page.locator(".song-video-viewer");
     for (const choice of videoVersions(song.id).slice(0, -1)) {
       await dialog.getByRole("button", { name: `Version ${choice.label}`, exact: true }).click();
-      await expect(dialog.locator("video")).toHaveAttribute("src", choice.src);
+      await expect(dialog.locator("video")).toHaveAttribute("src", choice.loopVideo || choice.src);
       if (choice.audio) await dialog.getByRole("button", { name: "Play video with sound", exact: true }).click();
       await expect.poll(() => dialog.locator("video").evaluate((v, sound) => !v.paused && v.currentTime > 0 && v.muted === !sound, Boolean(choice.audio)), { timeout: 20000 }).toBe(true);
     }

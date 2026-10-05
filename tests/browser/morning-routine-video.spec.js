@@ -1,15 +1,15 @@
 import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 
-const id = "distonyc-5ae363b12d01b017f8d295f3";
-const reviewMaster = process.env.YEHRY3_VIDEO_REVIEW_FILE;
+const id = "distonyc-d59c2b17c667891420654e76";
+const reviewMaster = process.env.YEHRY3_MORNING_VIDEO_REVIEW_FILE;
 const fixture = await readFile(reviewMaster || new URL("./fixtures/music-video.mp4", import.meta.url));
 test.beforeEach(async ({ page }) => {
-  const songs = [{ id, title: "The Golden Answer", collection: "distonyc", url: "/fixture.webm", duration: 284.8, votes: 1, feedback: {} }];
+  const songs = [{ id, title: "Morning Routine", collection: "distonyc", url: "/fixture.webm", duration: 410, votes: 1, feedback: {} }];
   await page.route("**/yehry3/{catalog,songs/summary}", r => r.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", r => r.fulfill({ json: { songs } }));
   await page.route("**/yehry3/queue?*", r => r.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
-  await page.route("**/assets/song-videos.js*", r => r.fulfill({ contentType: "text/javascript", body: `export default {"${id}": {src: "/fixture.webm", duration: 284.8, framing: "landscape", hasAudio: true, fullLength: true}};` }));
+  await page.route("**/assets/song-videos.js*", r => r.fulfill({ contentType: "text/javascript", body: `export default {"${id}": {src: "/fixture.webm", duration: 410, framing: "landscape", hasAudio: true, fullLength: true, treatment: "doomer-pumpkin"}};` }));
   const media = r => {
     const range = r.request().headers().range;
     const match = range?.match(/bytes=(\d+)-(\d*)/);
@@ -26,24 +26,25 @@ for (const width of [1440, 390]) {
     await page.setViewportSize({ width, height: 844 });
     await page.goto("/");
     const row = page.locator(`[data-id="${id}"]`);
-    const trigger = row.getByRole("button", { name: "Watch music video with audio for The Golden Answer", exact: true });
+    const trigger = row.getByRole("button", { name: "Watch music video with audio for Morning Routine", exact: true });
     await expect(trigger).toHaveClass(/song-video-button-gold/);
     await expect(trigger.locator(".song-video-sparkle")).toBeVisible();
-    await row.screenshot({ path: `test-results/music-video-card-${width}.png` });
+    await expect(trigger.locator("[data-video-pumpkin]")).toHaveCount(1);
+    await row.screenshot({ path: `test-results/morning-video-card-${width}.png` });
     await row.locator("[data-play]").click();
     await expect.poll(() => page.locator("#audio").evaluate(a => !a.paused)).toBe(true);
     await trigger.click();
-    const dialog = page.getByRole("dialog", { name: "The Golden Answer", exact: true });
+    const dialog = page.getByRole("dialog", { name: "Morning Routine", exact: true });
     const video = dialog.locator("video");
-    await expect(dialog.locator("[data-video-description]")).toHaveText("4:44 music video · Sing along");
+    await expect(dialog.locator("[data-video-description]")).toHaveText("6:50 music video · Sing along");
     await expect.poll(() => video.evaluate(v => !v.paused && !v.muted && !v.loop && v.currentTime > 0)).toBe(true);
     await expect.poll(() => page.locator("#audio").evaluate(a => a.paused)).toBe(true);
     await video.evaluate(v => { v.currentTime = 6; });
     await expect.poll(() => video.evaluate(v => v.currentTime)).toBeGreaterThanOrEqual(6);
     if (reviewMaster) {
-      expect(await video.evaluate(v => v.duration)).toBeCloseTo(284.8, 1);
+      expect(await video.evaluate(v => v.duration)).toBeCloseTo(410, 1);
       await expect.poll(() => video.evaluate(v => v.webkitAudioDecodedByteCount > 0)).toBe(true);
-      for (const time of [34, 89, 260, 280, 90.5]) {
+      for (const time of [5, 75, 110, 175, 245, 295, 350, 405]) {
         await video.evaluate((v, t) => { v.currentTime = t; }, time);
         await expect.poll(() => video.evaluate(v => !v.seeking && v.readyState >= 3 && !v.paused)).toBe(true);
       }
@@ -52,7 +53,7 @@ for (const width of [1440, 390]) {
     expect(bounds.x).toBeGreaterThanOrEqual(0);
     expect(bounds.x + bounds.width).toBeLessThanOrEqual(width);
     expect(bounds.y + bounds.height).toBeLessThanOrEqual(844);
-    await page.screenshot({ path: `test-results/music-video-${width}.png` });
+    await page.screenshot({ path: `test-results/morning-video-${width}.png` });
     await dialog.getByRole("button", { name: "Version A", exact: true }).click();
     await expect.poll(() => video.evaluate(v => !v.paused && v.muted && v.loop)).toBe(true);
     await page.locator("#audio").evaluate(a => a.play());
