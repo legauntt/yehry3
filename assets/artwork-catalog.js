@@ -2263,5 +2263,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-04T23:54:42.987Z",
     "history": []
+  },
+  "distonyc-b75de5d1649f5fcf131e74bc": {
+    "src": "/assets/artwork/distonyc-b75de5d1649f5fcf131e74bc-incubating-9213ae1f2e4d-af2ccb6658278106-q86.webp",
+    "alt": "Cover artwork for Bet You Do (Tony C AI Remake - Compact).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "a78ea86c40225832c60cde920d2d236750177ebc2630d7f2e8eea3255fed4161",
+    "promptHash": "6ea9df9517838a997e56fa45d573753d58572181bc1afb14fd0978a52f20d9d6",
+    "createdAt": "2026-10-05T00:04:01.864Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-05T00:03:42.687Z",
+    "history": []
   }
 };
