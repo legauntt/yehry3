@@ -2209,20 +2209,27 @@ export default {
     ]
   },
   "distonyc-3054fd865e902c753477c890": {
-    "src": "/assets/artwork/distonyc-3054fd865e902c753477c890-incubating-cff5f24982c8-8f3f2fccf6ca8b80-q86.webp",
+    "src": "/assets/artwork/distonyc-3054fd865e902c753477c890-mature-64d2e5ee4ac9-bcd0f72a1ad9d400-q86.webp",
     "alt": "Cover artwork for The House Moved On.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "81da841e6d5db3d06be0e0d42a2bff10af7f4f91be104e9b7b608d985e5b593b",
-    "promptHash": "b3ca117732ccd298ef96493b7cb58ab50efefa532f787bbe4e9de5c83c261448",
-    "createdAt": "2026-10-04T07:07:05.695Z",
+    "promptHash": "8adda7488e629177fe154f38ffc6264ab1ade782cfb0e16becfbf91ec025f44b",
+    "createdAt": "2026-10-05T07:11:15.257Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-3054fd865e902c753477c890-incubating-cff5f24982c8-8f3f2fccf6ca8b80-q86.webp",
     "firstSeenAt": "2026-10-04T07:06:42.713Z",
-    "history": []
+    "interpretation": "automatic-safe-interpretation",
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-3054fd865e902c753477c890-incubating-cff5f24982c8-8f3f2fccf6ca8b80-q86.webp",
+        "alt": "Cover artwork for The House Moved On.",
+        "createdAt": "2026-10-04T07:07:05.695Z"
+      }
+    ]
   },
   "distonyc-2a92e91e4fc840724c567edb": {
     "src": "/assets/artwork/distonyc-2a92e91e4fc840724c567edb-incubating-26f211b1d7dd-3f62fc5a0d08609b-q86.webp",
