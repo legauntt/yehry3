@@ -2409,5 +2409,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-05T18:48:43.368Z",
     "history": []
+  },
+  "distonyc-cd4c0296f22cede53c369737": {
+    "src": "/assets/artwork/distonyc-cd4c0296f22cede53c369737-incubating-8e3c48922cbd-942df0b90ec62720-q86.webp",
+    "alt": "Cover artwork for Subscription of the Damned.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "edf8e1e264eb91244e550f81db629d5d99dd5bfad6a661c2448f1f4c8b592ad2",
+    "promptHash": "6de022abd7fddb0d7ba29f189581f3fa76d8c5e7dc7a6ec5a024485c38edc632",
+    "createdAt": "2026-10-05T21:07:13.047Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-05T21:06:45.142Z",
+    "history": []
   }
 };
