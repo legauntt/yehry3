@@ -18,7 +18,9 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
   try { const saved = JSON.parse(storage.get(key) || 'null'); if (saved) { explicitlyDisabled = saved.enabled === false; initial = saved.value ?? initial; } } catch {}
   const savedPitch = initial?.pitchRepair;
   const preferences = getPreferences();
-  if (!initial && preferences && draft.status === 'draft') initial = preferences;
+  if (!initial && preferences && draft.status === 'draft') {
+    initial = { ...preferences }; delete initial.instrumentalHeavy;
+  }
   if (!enabled) {
     root.innerHTML = initial && !explicitlyDisabled ? '<p class="field-error">V8 generation is temporarily unavailable. Your choices are saved.</p>' + generationBrief(initial, escape) : '';
     return { setBackend(value) { backend = value; required = voiceRequired || backend === 'eleven_music'; }, setRequired(value) { voiceRequired = Boolean(value); required = voiceRequired || backend === 'eleven_music'; }, read() { if (required || initial && !explicitlyDisabled) throw new Error('V8 generation is unavailable. Try again shortly.'); return null; }, clear() {} };
@@ -46,6 +48,8 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
     ${group('Style & instruments', ['genre','instruments','avoidInstruments','performance','energy','structure'], 'Pick a suggested style or instrument, or add your own. These choices guide the sound; the menus are not an exhaustive list.')}
     ${group('Timing & key', ['duration','bpm','keyscale','meter','vocalEntry','endingSeconds','maxBreakSeconds'], 'Leave blank for Auto. Tempo, key and timing are musical targets; expressive performances can vary. 6/8 also uses a compound-meter prompt.')}
     ${group('Lyrics', ['lyricWorkflow','avoidPhrases','requiredPhrases','lockedLines'], 'One phrase or locked line per line. Your supplied lyrics and explicitly requested words take priority over general avoidance.')}
+    <label class="generation-enable"><input type="checkbox" id="gen-instrumentalHeavy" aria-describedby="instrumental-heavy-hint"> Instrumental-heavy arrangement</label>
+    <p class="small" id="instrumental-heavy-hint">For this request, allow sparse vocals and long instrumental sections. Measured vocal coverage stays visible; usable vocals and a complete ending are still required. Choose this explicitly for each song.</p>
     <label class="generation-enable"><input type="checkbox" id="gen-reviewLyrics"> Let me edit and approve the lyrics before composing</label>
     ${pitchCompareControl(schema)}
     ${group('Choices & mix', ['candidates','variation','seed','vocalGainDb','backingGainDb'], 'Choose 1 for automatic generation, or 2–3 to compare compositions before Tony voice conversion. More choices take longer. Mix adjustments retain peak checks.')}
@@ -63,10 +67,12 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
   mountGenerationControls(root, { schema, escape });
   mountPitchControl(pitchRoot || root, { saved: savedPitch, compareRoot: root, onChange: () => persist() });
   root.querySelector('#gen-reviewLyrics').checked = Boolean(initial?.reviewLyrics);
+  root.querySelector('#gen-instrumentalHeavy').checked = initial?.instrumentalHeavy === true;
   enable.checked = Boolean(initial) && !explicitlyDisabled;
   const read = () => {
     if (!enable.checked) return null;
     const value = { version: 1, reviewLyrics: root.querySelector('#gen-reviewLyrics').checked };
+    if (root.querySelector('#gen-instrumentalHeavy').checked) value.instrumentalHeavy = true;
     for (const field of generationFields()) {
       const key = field.dataset.generation, raw = field.value.trim();
       if (backend === 'eleven_music' && ['candidates', 'variation'].includes(key)) continue;
@@ -91,7 +97,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
   fields.addEventListener('input', persist);
   root.querySelector('#generation-remember').onclick = () => {
     const status = root.querySelector('#generation-preference-status');
-    try { localStorage.setItem(preferenceKey, JSON.stringify(read())); status.textContent = 'Remembered for new requests in this browser. You can still change each request.'; }
+    try { const preferences = read(); if (preferences) delete preferences.instrumentalHeavy; localStorage.setItem(preferenceKey, JSON.stringify(preferences)); status.textContent = 'Remembered for new requests in this browser. Instrumental-heavy must be chosen separately for each request.'; }
     catch (error) { status.textContent = error.message || 'This browser could not save preferences.'; }
   };
   root.querySelector('#generation-forget').onclick = () => {

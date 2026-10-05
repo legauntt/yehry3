@@ -3,7 +3,7 @@ import argparse, hashlib, importlib.util, json, os, re, shutil, subprocess, sys,
 from pathlib import Path
 from common import load, save, sha, fingerprint, inside
 from planner import validate
-from request_materials import render_brief, minimum_duration, stock_chants_authorized
+from request_materials import render_brief, frozen_brief, minimum_duration, stock_chants_authorized
 from source_material import source_material
 from composition_ending import active_identifier, identifier as composition_identifier, preflight_runner, render_with_retry, timing_instruction
 from duration_runtime import adapt as adapt_duration
@@ -23,7 +23,7 @@ def with_quality(result):
     return result
 
 
-def execution_manifest(manifest, instrumental_break_warnings=False, vocal_dropout_warnings=False):
+def execution_manifest(manifest, instrumental_break_warnings=False, vocal_dropout_warnings=False, instrumental_heavy=False):
     if manifest['kind'] != 'new': return manifest
     # Adapt the command in memory. Frozen scripts, inputs, hashes and the saved
     # stage journal remain authoritative and are never rewritten by this policy.
@@ -33,9 +33,10 @@ def execution_manifest(manifest, instrumental_break_warnings=False, vocal_dropou
             command = task['command']
             task = {**task, 'command': [command[0], str(Path(__file__).with_name('duration_ending.py')),
                     '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers']['review_ending.py']]}
-        if task['name'] == 'configure' and manifest.get('style') != 'opera' and instrumental_break_warnings:
+        if task['name'] == 'configure' and (instrumental_heavy or manifest.get('style') != 'opera' and instrumental_break_warnings):
             command = task['command']
-            task = {**task, 'command': [command[0], str(Path(__file__).with_name('quality_configure.py')),
+            adapter = 'instrumental_heavy.py' if instrumental_heavy else 'quality_configure.py'
+            task = {**task, 'command': [command[0], str(Path(__file__).with_name(adapter)),
                     '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers']['configure_song.py']]}
         if task['name'] == 'finish':
             command = task['command']
@@ -458,7 +459,10 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
             if epoch_range: result['voice_epoch_range'] = epoch_range
             if plan.get('generation'): result['generation_profile'] = 'v8'
             return result
-        execution = execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False))
+        requested_heavy = (options or {}).get('instrumentalHeavy') is True
+        if requested_heavy and frozen_brief(request).get('details', {}).get('generation', {}).get('instrumentalHeavy') is not True:
+            raise ValueError('Instrumental-heavy choice differs from the confirmed request')
+        execution = execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False), requested_heavy)
         if request.get('music_backend') == 'eleven_music':
             from music_backend import execution as paid_execution
             execution = paid_execution(work, execution)

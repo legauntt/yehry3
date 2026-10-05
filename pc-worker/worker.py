@@ -111,7 +111,7 @@ def run_once(config, api, verify_existing=None):
                 register_remix(config, api, previous)
             journal.unlink(); save(health, {'at': utc(), 'status': previous['status'], 'promptId': previous['id']}); return
     capabilities = ['request-materials-v1'] + ([REMIX_CAPABILITY] if config.get('catalog_remix') else [])
-    if config.get('generation_v8'): capabilities.append('generation-v8-v1')
+    if config.get('generation_v8'): capabilities.extend(['generation-v8-v1', 'instrumental-heavy-v1'])
     capabilities.extend(voice_capabilities(config))
     capabilities.extend(music_capabilities(config))
     try: prompt = api.call('/claim', {**claim, 'capabilities': capabilities})['prompt']

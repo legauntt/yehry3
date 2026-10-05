@@ -11,8 +11,8 @@ export function normalizeGeneration(value, schema) {
   };
   for (const [key, item] of Object.entries(value)) {
     if (key === 'version') continue;
-    if (key === 'reviewLyrics') {
-      if (typeof item !== 'boolean') fail('Choose whether to review lyrics.');
+    if (key === 'reviewLyrics' || key === 'instrumentalHeavy') {
+      if (typeof item !== 'boolean') fail(`Choose whether to enable ${key}.`);
       result[key] = item;
     } else if (Object.hasOwn(ranges, key)) {
       if (item === null && !Object.hasOwn(defaults, key)) continue;

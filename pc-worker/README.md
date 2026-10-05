@@ -1,5 +1,14 @@
 # Distonyc on Windows
 
+Advanced requests may explicitly select **Instrumental-heavy arrangement**
+(`details.generation.instrumentalHeavy: true`). This is off by default and is
+never inferred from genre or saved browser preferences. The confirmed brief and
+hash-pinned track must authorize it. For supported rock/acoustic and opera
+composition checkers, `instrumental_heavy.py` reports vocal coverage and long
+instrumental sections instead of requiring 50% activity or a minimum vocal span.
+Missing/invalid vocals, ending completion, frozen inputs, voice conversion and
+export integrity checks remain active. Existing jobs keep their frozen choices.
+
 ## Switch refused planning to Local ACE
 
 When the requester explicitly chooses Local ACE and exact supplied wording, run

@@ -7,8 +7,19 @@ import { generationBrief } from '../assets/generation.js';
 import { qualityNotice } from '../assets/quality.js';
 const schema = JSON.parse(readFileSync(new URL('../assets/generation-schema.json', import.meta.url)));
 
+test('instrumental-heavy choice is explicit in the review and measured coverage remains visible', () => {
+  const options = normalizeGeneration({version: 1, instrumentalHeavy: true}, schema);
+  assert.equal(options.instrumentalHeavy, true);
+  assert.ok(generationBrief(options, String).includes('Allow sparse vocals'));
+  assert.equal(generationBrief({instrumentalHeavy: false}, String), '');
+  for (const value of [1, 'true', null]) assert.throws(() => normalizeGeneration({version: 1, instrumentalHeavy: value}, schema));
+  assert.ok(qualityNotice([{code: 'low_vocal_coverage', fraction: .3917707}]).includes('39% measured vocal activity'));
+  assert.equal(qualityNotice([{code: 'low_vocal_coverage', fraction: 0}]), '');
+});
+
 test('browser and worker agree on explicit controls and Unicode validation without silent substitutions', () => {
   const cases = [null, { version: 1 }, { version: 1, meter: '6/8', keyscale: 'Eb minor', bpm: 77, duration: 180, seed: 0, vocalGainDb: -2.5 }, { version: 1, instruments: ['Straße','STRASSE'], avoidPhrases: ['crooked grin','shoes'] }, { version: 1, bpm: true }, ...([68, 69, 90, 600, 601, 666, 667, 69.5].map(duration => ({ version: 1, duration }))), { version: 1, unknown: 'x' }, { version: 1, instruments: ['Bass'], avoidInstruments: ['bass'] }, { version: 1, genre: '😀'.repeat(61) }, { version: 1, pitchRepair: 'clean' }, { version: 1, pitchRepair: 'haunted', pitchCompare: 'wild' }, { version: 1, pitchRepair: 'possessed' }, { version: 1, pitchCompare: 'wild' }, { version: 1, pitchRepair: 'wild', pitchCompare: 'wild' }];
+  cases.push(...[true, false, 'true', 1, null].map(instrumentalHeavy => ({version: 1, instrumentalHeavy})));
   const expected = cases.map((value) => { try { return { value: normalizeGeneration(value, schema) }; } catch { return { error: true }; } });
   const result = spawnSync(process.env.V8_TEST_PYTHON || (process.platform === 'win32' ? 'python' : 'python3'), ['-X','utf8','-c', "import sys,json;sys.path.insert(0,'pc-worker');from generation_controls import normalize\nrows=[]\nfor item in json.load(sys.stdin):\n try: rows.append({'value':normalize(item)})\n except ValueError: rows.append({'error':True})\nprint(json.dumps(rows,ensure_ascii=False))"], { input: JSON.stringify(cases), encoding: 'utf8' });
   assert.equal(result.status,0,result.error?.message || result.stderr); assert.deepEqual(JSON.parse(result.stdout),expected);

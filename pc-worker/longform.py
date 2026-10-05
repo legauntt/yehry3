@@ -94,18 +94,30 @@ def render_suite(request, render, verify_attempt):
 
 
 def aggregate_issues(reports):
-    issues = {}; offset = 0.; chapters = []
+    issues = {}; offset = 0.; chapters = []; sparse = False
     for index, report in enumerate(reports):
         chapters.append({'start': offset, 'duration': report['duration'], 'title': report['title']})
         offset += report['duration']
         for issue in report.get('qualityIssues', []):
-            code, seconds = issue['code'], issue['seconds']
+            if issue['code'] == 'low_vocal_coverage':
+                sparse = True
+                continue
+            code = issue['code']
             if code == 'long_instrumental_outro' and index < len(reports) - 1: continue
-            issues[code] = issues.get(code, 0) + seconds if code == 'vocal_dropout' else max(issues.get(code, 0), seconds)
+            if 'seconds' not in issue:
+                issues.setdefault(code, None)
+                continue
+            seconds = issue['seconds']
+            previous = issues.get(code)
+            issues[code] = (previous or 0) + seconds if code == 'vocal_dropout' else max(previous or 0, seconds)
         if index:
             gap = reports[index - 1]['final_post_vocal_seconds'] + report['arrangement']['first_detected_voice']
             if gap >= 9.5: issues['long_instrumental_break'] = max(issues.get('long_instrumental_break', 0), gap)
-    return [{'code': code, 'seconds': round(seconds, 2)} for code, seconds in issues.items()], chapters
+    result = [{'code': code, **({'seconds': round(seconds, 2)} if seconds is not None else {})} for code, seconds in issues.items()]
+    if sparse:
+        fraction = sum(report['duration'] * report['arrangement']['voiced_energy_fraction'] for report in reports) / offset
+        if fraction < .5: result.append({'code': 'low_vocal_coverage', 'fraction': fraction})
+    return result, chapters
 
 
 def join_wavs(paths, destination):

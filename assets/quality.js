@@ -13,12 +13,13 @@ export function qualityNotice(issues, suppliedReviewState, validationFailures, r
   };
   const failures = repairTime({ repairedAt }) ? [] : (Array.isArray(validationFailures) ? validationFailures : []).filter(code => Object.hasOwn(reasons, code));
   const known = (Array.isArray(issues) ? issues : []).filter(
-    (issue) => issue?.code === "unconfirmed_lyric_ending" || Number.isFinite(issue?.seconds) && issue.seconds <= 1440 &&
+    (issue) => issue?.code === "low_vocal_coverage" && Number.isFinite(issue.fraction) && issue.fraction > 0 && issue.fraction < .5 || issue?.code === "unconfirmed_lyric_ending" || Number.isFinite(issue?.seconds) && issue.seconds <= 1440 &&
       ((issue.code === "early_lyric_ending" && issue.seconds > 20) || (issue.code === "long_instrumental_outro" && issue.seconds > 13) || (issue.code === "long_instrumental_break" && issue.seconds >= 9.5) || (issue.code === "vocal_dropout" && issue.seconds > 0.4)),
   );
   if (!known.length && !failures.length) return "";
   const needsReview = failures.length > 0 && suppliedReviewState === "needs_review";
   const messages = known.map((issue) => {
+    if (issue.code === "low_vocal_coverage") return `Instrumental-heavy arrangement: ${Math.round(issue.fraction * 100)}% measured vocal activity. Sparse vocals were allowed for this request.`;
     if (issue.code === "unconfirmed_lyric_ending") return "Automatic lyric review could not confirm the intended closing words; a listening check is needed.";
     if (issue.code === "early_lyric_ending") return `Automatic lyric review suggests the closing words finish ${Math.round(issue.seconds)} seconds before the end; a listening check is needed.`;
     if (issue.code === "long_instrumental_outro") return `Long instrumental ending (${Math.round(issue.seconds)} seconds after the last detected vocal).`;

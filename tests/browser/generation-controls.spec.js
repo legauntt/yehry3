@@ -8,6 +8,25 @@ async function start(page) {
   await page.getByRole('button', { name: 'Find the direction' }).click();
 }
 
+test('instrumental-heavy is per request, survives draft reload and appears in review on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await start(page);
+  await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+  const choice = page.getByLabel('Instrumental-heavy arrangement', { exact: true });
+  await expect(choice).not.toBeChecked();
+  await choice.check();
+  await page.locator('#generation-remember').click();
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem('yehry3:generation-preferences-v1')).instrumentalHeavy)).toBeUndefined();
+  await page.reload();
+  await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+  await expect(choice).toBeChecked();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  const patch = page.waitForRequest(request => request.method() === 'PATCH' && request.url().includes('/prompts/'));
+  await page.getByRole('button', { name: 'Review the request' }).click();
+  expect((await patch).postDataJSON().generation.instrumentalHeavy).toBe(true);
+  await expect(page.locator('.generation-brief')).toContainText('Allow sparse vocals and long instrumental sections');
+});
+
 test('V8 defaults, dropdown and custom choices, and edited sections survive review and reload', async ({ page }) => {
   const errors = []; page.on('pageerror', error => errors.push(error.message));
   await start(page);

@@ -38,13 +38,13 @@ def normalize(value):
     if value is None: return None
     if not isinstance(value, dict) or value.get('version') != 1 or type(value.get('version')) is not int:
         raise ValueError('Unsupported generation options version')
-    allowed = {'version', 'reviewLyrics'} | set(RANGES) | set(CHOICES) | set(TEXT_LIMITS) | set(LIST_LIMITS)
+    allowed = {'version', 'reviewLyrics', 'instrumentalHeavy'} | set(RANGES) | set(CHOICES) | set(TEXT_LIMITS) | set(LIST_LIMITS)
     if set(value) - allowed: raise ValueError('Unknown generation option: ' + ', '.join(sorted(set(value) - allowed)))
     result = dict(DEFAULTS)
     for key, item in value.items():
         if key == 'version': continue
-        if key == 'reviewLyrics':
-            if type(item) is not bool: raise ValueError('Invalid lyric review choice')
+        if key in ('reviewLyrics', 'instrumentalHeavy'):
+            if type(item) is not bool: raise ValueError('Invalid boolean generation choice: ' + key)
             result[key] = item
         elif key in RANGES:
             if item is None and key not in DEFAULTS: continue
@@ -126,7 +126,9 @@ Do not treat avoidance as a ban on actual requested instruments or intentional c
 def planning_guidance(brief, recent=None):
     options = normalize(brief.get('details', {}).get('generation')) or DEFAULTS
     import json
-    return (CREATIVE_GUIDANCE + '\nWriting approach: ' + WORKFLOWS[options['lyricWorkflow']] +
+    return (CREATIVE_GUIDANCE +
+            ('\nThis request explicitly permits an instrumental-heavy arrangement: sparse vocal sections and long instrumental passages are intentional. Complete every intended lyric and the musical ending; do not add filler lyrics to meet a coverage target.' if options.get('instrumentalHeavy') else '') +
+            '\nWriting approach: ' + WORKFLOWS[options['lyricWorkflow']] +
             '\nExplicit musical/lyric selections (Auto fields omitted; honor these throughout the plan):\n' +
             json.dumps({key: item for key, item in options.items() if key not in VOICE_ONLY}, ensure_ascii=False) +
             '\nAvoid-phrase preferences are soft constraints when the current brief explicitly requests those words. '
@@ -164,6 +166,8 @@ def arrangement_guidance(options, vocal_mode='lyrics'):
     options = normalize(options)
     if not options: return ''
     parts = []
+    if options.get('instrumentalHeavy'):
+        parts.append('Instrumental-heavy arrangement: sparse vocal sections and extended instrumental passages are intentional; complete all intended vocals and the musical ending.')
     if options.get('genre'): parts.append('Musical style: ' + options['genre'] + '.')
     if options.get('instruments'): parts.append('Prominent instruments: ' + ', '.join(options['instruments']) + '.')
     if options.get('avoidInstruments'): parts.append('Avoid these instruments: ' + ', '.join(options['avoidInstruments']) + '.')
