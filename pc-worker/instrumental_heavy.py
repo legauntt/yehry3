@@ -2,6 +2,7 @@
 import argparse
 import ast
 import math
+from numbers import Real
 import sys
 from pathlib import Path
 from common import load, save, sha
@@ -54,7 +55,7 @@ def compile_policy(source, filename):
 def review_coverage(evidence, issues):
     values = [evidence.get(key) for key in ('duration', 'first_detected_voice',
               'last_detected_voice', 'voiced_energy_fraction')]
-    if not all(type(value) in (int, float) and math.isfinite(value) for value in values):
+    if not all(isinstance(value, Real) and not isinstance(value, bool) and math.isfinite(value) for value in values):
         raise ValueError('Invalid instrumental-heavy vocal measurements')
     duration, first, last, fraction = values
     if not (duration > 0 and 0 <= first < last <= duration and 0 < fraction <= 1):
@@ -68,7 +69,10 @@ def verify_intent(work):
     if sha(work / 'track.json') != manifest.get('track_sha256'):
         raise ValueError('Frozen instrumental-heavy song inputs changed')
     if load(work / 'track.json').get('generation', {}).get('instrumentalHeavy') is not True:
-        raise ValueError('Instrumental-heavy policy requires an explicit request choice')
+        if not (work / 'instrumental-heavy-retained.json').exists():
+            raise ValueError('Instrumental-heavy policy requires an explicit request choice')
+        from retained_instrumental import verify_authorization
+        verify_authorization(work)
     return manifest
 
 

@@ -37,6 +37,12 @@ class InstrumentalHeavyTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             exec(compile(SOURCE, 'ordinary.py', 'exec'), dict(voice_ok=True, first=70., evidence={}))
 
+    def test_checker_numpy_measurements_are_supported(self):
+        import numpy as np
+        self.assertIn({'code': 'low_vocal_coverage', 'fraction': .39},
+                      self.run_policy(evidence={'first_detected_voice': np.float64(70),
+                                                'last_detected_voice': np.float64(120)}))
+
     def test_empty_invalid_voice_and_ending_still_fail(self):
         with self.assertRaisesRegex(AssertionError, 'Missing vocals'): self.run_policy(voice_ok=False)
         with self.assertRaisesRegex(AssertionError, 'Ending needs'): self.run_policy(remaining=.3)
@@ -90,6 +96,34 @@ class InstrumentalHeavyTests(unittest.TestCase):
             adapted = execution_manifest(manifest, instrumental_heavy=True)
             self.assertTrue(adapted['tasks'][0]['command'][1].endswith('instrumental_heavy.py'))
             self.assertEqual(manifest['tasks'][0]['command'][1], 'saved/configure_song.py')
+
+    def test_retained_authorization_pins_audio_request_and_plan(self):
+        from common import fingerprint
+        from retained_instrumental import BASE, REPORT, verify_authorization
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory); work = root / 'work'; work.mkdir()
+            job = root / 'request-id'; job.mkdir()
+            for name in BASE: save(work / name, {})
+            save(job / 'render-request.json', {'prompt_id': job.name, 'plan': {'title': 'Same song'}})
+            save(job / 'plan.json', {'title': 'Same song'})
+            save(work / 'distonyc-configured.json', {'prompt_id': job.name,
+                 'plan_hash': fingerprint({'title': 'Same song'})})
+            save(work / REPORT, {'version': 1, 'request_id': job.name, 'directory': str(job),
+                 'reason': 'User explicitly accepts this sparse retained recording',
+                 'additional_generation': False, 'inputs_sha256': {name: sha(work / name) for name in BASE},
+                 'job_sha256': {name: sha(job / name) for name in ('render-request.json', 'plan.json')}})
+            save(job / 'retained-instrumental.json', {'authorization_sha256': sha(work / REPORT)})
+            verify_authorization(work)
+            save(work / 'selected-vocals.wav', {'changed': True})
+            with self.assertRaisesRegex(ValueError, 'inputs changed'): verify_authorization(work)
+
+    def test_retained_completion_refuses_converted_or_reviewed_songs(self):
+        from retained_instrumental import eligible
+        eligible({'status': 'published', 'result': {'validationFailures': ['unconverted_vocals']}})
+        for changes in ({'status': 'processing'}, {'recordingCompletion': {'done': True}},
+                        {'reviewDecision': 'accepted'}, {'result': {'validationFailures': []}}):
+            with self.assertRaises(ValueError):
+                eligible({'status': 'published', 'result': {'validationFailures': ['unconverted_vocals']}, **changes})
 
 
 if __name__ == '__main__': unittest.main()
