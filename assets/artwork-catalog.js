@@ -2276,20 +2276,26 @@ export default {
     ]
   },
   "distonyc-5b57d0bbe81a50d17cdfb601": {
-    "src": "/assets/artwork/distonyc-5b57d0bbe81a50d17cdfb601-incubating-d50bd2b2e627-87e177ae99c442a1-q86.webp",
+    "src": "/assets/artwork/distonyc-5b57d0bbe81a50d17cdfb601-mature-b2c76fc9e592-a58d0f77e12a7693-q86.webp",
     "alt": "Cover artwork for Clocked In, Still Here.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "ac0bf4310d205dbf39f785398acaf001ae914ee4d752a1c06e48f4fbc97ea61c",
-    "promptHash": "1d6abb8693f86569d50b104a7dcc18741a651092077288cb964d2b9c34c84afa",
-    "createdAt": "2026-10-04T08:28:06.229Z",
+    "promptHash": "a12bcd91a1c21ad0d0dbc736fdde43fe63fa4e8689776846f76bef5331df1dba",
+    "createdAt": "2026-10-05T08:28:36.186Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-5b57d0bbe81a50d17cdfb601-incubating-d50bd2b2e627-87e177ae99c442a1-q86.webp",
     "firstSeenAt": "2026-10-04T08:27:42.514Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-5b57d0bbe81a50d17cdfb601-incubating-d50bd2b2e627-87e177ae99c442a1-q86.webp",
+        "alt": "Cover artwork for Clocked In, Still Here.",
+        "createdAt": "2026-10-04T08:28:06.229Z"
+      }
+    ]
   },
   "distonyc-c20c1c38fecd5c30ab30c5f1": {
     "src": "/assets/artwork/distonyc-c20c1c38fecd5c30ab30c5f1-incubating-7f398db403a7-8bdc57b6ddf53fa9-q86.webp",
