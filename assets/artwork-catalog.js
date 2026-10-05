@@ -2360,5 +2360,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-05T05:30:43.069Z",
     "history": []
+  },
+  "distonyc-d7308feaf7da5f1c69383192": {
+    "src": "/assets/artwork/distonyc-d7308feaf7da5f1c69383192-incubating-6e9f138a1cb1-a2d8a8432cca8fc1-q86.webp",
+    "alt": "Cover artwork for The Seat Across From Mine.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "ee14fae593f9be9d4a5af02012172b69d1f004b02c6daba9d22f7edb5b2225d5",
+    "promptHash": "5b8fa95291b4bbcc4a069b00a98e925844b4caba9849bd8b14d52a041c86ad9e",
+    "createdAt": "2026-10-05T08:43:00.871Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-05T08:42:43.457Z",
+    "history": []
   }
 };
