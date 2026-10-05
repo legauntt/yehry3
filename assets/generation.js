@@ -129,7 +129,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
     setBackend(value) { backend = value; applyRequired(); }, clear() { storage.remove(key); } };
 }
 
-export async function mountGenerationReview(root, { draft, api, escape, reload }) {
+export async function mountGenerationReview(root, { draft, api, escape, reload, approvalOnly = false }) {
   if (!draft.generationReview || draft.generationReview.state !== 'pending') return;
   root.innerHTML = '<p role="status">Loading your generation review…</p>';
   try {
@@ -140,6 +140,7 @@ export async function mountGenerationReview(root, { draft, api, escape, reload }
     const localKey = 'yehry3:lyric-review:' + review.id;
     root.innerHTML = `<section class="generation-review"><h3>${lyrics ? 'Review your lyrics' : 'Choose your composition'}</h3><p>${lyrics ? 'Edit the sheet, then approve it to begin composing. The approved sheet becomes the saved song plan.' : 'Compare the hook and ending of each composition. These previews use the draft singer; Tony voice conversion follows your choice.'}</p><form id="generation-review-form">${lyrics ? '<label for="review-lyrics">Lyric sheet</label><textarea id="review-lyrics" rows="18" maxlength="32000" required></textarea><p class="small">Keep the [End] marker. Previously locked lines must remain exactly as written.</p>' : review.payload.candidates.map((candidate) => `<fieldset class="composition-choice"><legend><label><input type="radio" name="composition" value="${candidate.index}" required> Composition ${candidate.index + 1}</label></legend>${candidate.clips.map((clip, i) => `<p class="small">${clip.label} · ${Math.round(clip.start)} seconds</p><audio controls preload="metadata" data-candidate="${candidate.index}" data-clip="${i}"></audio>`).join('')}</fieldset>`).join('')}<div class="actions"><button class="primary" type="submit">${lyrics ? 'Approve lyrics & continue' : 'Use this composition'}</button><button class="quiet" type="button" id="cancel-generation">Cancel this request</button></div><p class="field-error" role="alert"></p></form></section>`;
     const form = root.querySelector('form'), urls = [];
+    if (approvalOnly) root.querySelector('#cancel-generation').hidden = true;
     if (lyrics) {
       const field = root.querySelector('#review-lyrics');
       let saved; try { saved = localStorage.getItem(localKey); } catch {}

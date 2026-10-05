@@ -1,4 +1,5 @@
 import { approvalNotice } from "./approval-status.js";
+import { reviewRequest } from './review-request.js';
 import { mountEpochRange } from "./epoch-range.js";
 import { needsReview } from "./repair-status.js";
 import { clippyMarkup, clippyOptions } from "./clippy.js";
@@ -78,6 +79,8 @@ function loginView(role, onSuccess) {
 }
 
 export async function requests() {
+  const reviewId = new URLSearchParams(location.search).get('request');
+  if (/^distonyc-[a-f0-9]{24}$/.test(reviewId || '')) return reviewRequest(reviewId);
   const scope = currentScope();
   let draft = null;
   let heldRefinements = null, ideaDestination = "details", navigating = 0;
@@ -127,7 +130,7 @@ export async function requests() {
   async function load() {
     heldRefinements = null;
     const requested = new URLSearchParams(location.search).get("request");
-    const linkedId = /^distonyc-[a-f0-9]{24}$/.test(requested || "") ? requested.slice(9) : null;
+    const linkedId = /^distonyc-[a-f0-9]{24}$/.test(requested || "") ? requested : null;
     const id = linkedId || storage.get("draft");
     if (id) {
       try {

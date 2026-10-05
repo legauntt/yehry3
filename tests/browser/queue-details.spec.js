@@ -75,18 +75,24 @@ test("lyric approval identifies the requester across queue, prompt and collectio
 });
 
 test("dashboard approval link opens that request's lyric review and preserves an unrelated draft on denial", async ({ page }) => {
-  const promptId = queued.id.slice(9);
+  const promptId = "owner-prefix-7857b8a0-cd27-4a3d-9578-20818fdcb64d";
   const otherId = "c".repeat(24);
   await page.addInitScript(other => {
-    sessionStorage.setItem("yehry3:submitter", "fixture-token");
+    localStorage.setItem("yehry3:authored-by", "Wrong name");
     sessionStorage.setItem("yehry3:draft", other);
   }, otherId);
   let denied = true;
   const review = { id: "lyric-review", kind: "lyrics", state: "pending", payload: { lyrics: "[Verse]\nMorning comes again" } };
+  let submitted;
   await page.route("**/yehry3/**", route => {
     const path = new URL(route.request().url()).pathname;
-    if (path.endsWith(`/prompts/${promptId}/generation-review`)) return route.fulfill({ json: { review } });
-    if (path.endsWith(`/prompts/${promptId}`)) return denied
+    if (path.endsWith(`/review-requests/${promptId}/generation-review`)) {
+      expect(route.request().headers().authorization).toBeUndefined();
+      expect(new URL(route.request().url()).searchParams.get('username')).toBe('Pancakeo');
+      if (route.request().method() === 'POST') { submitted = route.request().postDataJSON(); review.state = 'approved'; }
+      return route.fulfill({ json: { review } });
+    }
+    if (path.endsWith(`/review-requests/${queued.id}`)) return denied
       ? route.fulfill({ status: 404, json: { error: "Request not found" } })
       : route.fulfill({ json: { prompt: { ...queued, id: promptId, version: 1, confirmedAt: queued.submittedAt, details: {}, generationReview: review } } });
     if (path.endsWith("/queue")) return route.fulfill({ json: { ...queue, queued: [{ ...queued, progress: { stage: "Waiting for your lyric approval", percent: 0 } }] } });
@@ -94,13 +100,22 @@ test("dashboard approval link opens that request's lyric review and preserves an
   });
   await page.goto("/");
   await page.locator(`.pending-track[data-id="${queued.id}"] summary .approval-action`).click();
-  await expect(page.getByRole("heading", { name: "This request could not be opened." })).toBeVisible();
+  await expect(page.locator('#review-name-form [role="alert"]')).toHaveText('Request not found');
   expect(await page.evaluate(() => sessionStorage.getItem("yehry3:draft"))).toBe(otherId);
   denied = false;
-  await page.goto(`/distonyc/?request=${queued.id}`);
+  await page.locator('#review-name').fill('Pancakeo');
+  await page.getByRole('button', { name: 'Open review' }).click();
   await expect(page.locator("#review-lyrics")).toHaveValue(review.payload.lyrics);
   await expect(page.getByRole("button", { name: "Approve lyrics & continue" })).toBeVisible();
-  expect(await page.evaluate(() => sessionStorage.getItem("yehry3:draft"))).toBe(promptId);
+  await expect(page.getByRole('button', { name: 'Cancel this request' })).toBeHidden();
+  expect(await page.evaluate(() => sessionStorage.getItem("yehry3:draft"))).toBe(otherId);
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: 'artifacts/named-review-mobile.png', fullPage: true });
+  await page.locator('#review-lyrics').fill('[Verse]\nThe morning brings another chance to sing\n[End]');
+  await page.getByRole('button', { name: 'Approve lyrics & continue' }).click();
+  await expect.poll(() => submitted?.lyrics).toContain('another chance');
+  await expect(page.locator('#review-lyrics')).toHaveCount(0);
 });
 
 test("queue cards have distinct detail URLs and 9/11'd Again remains public", async ({ page }) => {
