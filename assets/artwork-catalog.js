@@ -2376,5 +2376,22 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-05T08:42:43.457Z",
     "history": []
+  },
+  "distonyc-c48f19efb7dfe8c3d9f644eb": {
+    "src": "/assets/artwork/distonyc-c48f19efb7dfe8c3d9f644eb-incubating-235e0e2f9c26-6836c3446e526015-q86.webp",
+    "alt": "Cover artwork for Good Old Days on the Block.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "58eda850e24221c0c16e93aa9873185c318b3734867f3cfe2a833d5d96c77199",
+    "promptHash": "9ce8044c1396d4814369a10a40165c27643dd51042162cef1a4ab0e0feed06af",
+    "createdAt": "2026-10-05T12:46:02.370Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-05T12:45:42.978Z",
+    "interpretation": "automatic-safe-interpretation",
+    "history": []
   }
 };
