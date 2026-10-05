@@ -2319,5 +2319,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-05T04:12:42.582Z",
     "history": []
+  },
+  "distonyc-6d17465ec0962fdbd34e0b8c": {
+    "src": "/assets/artwork/distonyc-6d17465ec0962fdbd34e0b8c-incubating-eceef5f373a1-8b38a28094edb5b8-q86.webp",
+    "alt": "Cover artwork for What Is Love (Tony C V9 AI Remix).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "4398a20223b726a80b427973b23d7dd084473446b34686f7d291fd21e75cd1cc",
+    "promptHash": "a67db6e4bbf809a0c4393a0dad6b60c0ad9ff18476ebb39c39f786ed51bd0cf6",
+    "createdAt": "2026-10-05T05:31:02.435Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-05T05:30:43.069Z",
+    "history": []
   }
 };
