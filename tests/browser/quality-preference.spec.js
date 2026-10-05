@@ -60,6 +60,40 @@ test("issues default on and the preference persists across reloads and listening
   await page.getByRole("dialog", { name: "Display settings" }).screenshot({ path: "artifacts/quality-preference-mobile.png" });
 });
 
+test("Backstage review reasons remain visible with listening notices disabled", async ({ page }) => {
+  const prompt = {
+    id: "review-request", status: "published", prompt: "A song needing repair",
+    details: {}, priority: 0, version: 1, reviewState: "needs_review",
+    confirmedAt: "2026-10-04T12:00:00Z", history: [],
+    result: { validationFailures: ["vocal_dropout"] },
+  };
+  await page.addInitScript(key => localStorage.setItem(key, "false"), key);
+  await page.route("**/yehry3/admin/prompts?**", route => route.fulfill({ json: {
+    prompts: [prompt], total: 1, page: 0, counts: {}, transitions: {}, workers: [],
+  } }));
+  await page.route("**/yehry3/admin/prompts/review-request", route => route.fulfill({ json: {
+    prompt, transitions: {}, workers: [],
+  } }));
+  await page.route("**/yehry3/admin/prompts/review-request/logs", route => route.fulfill({ json: { entries: [] } }));
+  await page.goto("/admin/review-request");
+  await page.getByLabel("Password", { exact: true }).fill("browser-test-admin");
+  await page.getByRole("button", { name: "Open the queue" }).click();
+  await expect(page.locator(".admin-queue .quality-notice")).toBeVisible();
+  for (const path of ["/admin/review-request", "/admin/?status=all"]) {
+    await page.goto(path);
+    const notice = page.locator(".admin-queue .quality-notice");
+    await expect(notice).toBeVisible();
+    await notice.locator("summary").click();
+    await expect(notice.locator("p")).toContainText("Automatic validation detected missing vocal passages.");
+    await page.setViewportSize({ width: 390, height: 844 });
+    await expect(notice.locator("p")).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
+  await page.goto("/");
+  await expect(page.locator('[data-id="preference-song"] .quality-notice')).toBeHidden();
+  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe("false");
+});
+
 test("open tabs follow changes and clearing the preference restores the default", async ({ page, context }) => {
   await page.goto("/");
   await page.locator(".catalog-filters > summary").click();

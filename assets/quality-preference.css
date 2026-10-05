@@ -2,6 +2,11 @@ html[data-show-quality-issues="false"] .quality-notice {
   display: none !important;
 }
 
+/* Backstage needs the reason for review even when listening notices are hidden. */
+html[data-show-quality-issues="false"] .admin-queue .quality-notice {
+  display: block !important;
+}
+
 .display-settings {
   display: flex;
 }
