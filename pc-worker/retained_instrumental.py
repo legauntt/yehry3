@@ -165,7 +165,21 @@ def run(config, api, wanted, action, reason=''):
                 raise ValueError('Retained recording lyrics changed')
             payload = {'version': journal['prompt']['version'], 'priorSha256': prior['sha256'],
                        'requestId': journal['request_id'], 'result': meta}
-            if journal.get('payload') and journal['payload'] != payload: raise ValueError('Completion replay changed')
+            trim = load(Path(result['work_path']) / 'mix-results.json').get('quiet_tail_trim')
+            if abs(meta['duration'] - prior['duration']) > 1:
+                if (not trim or trim.get('status') != 'ready' or
+                        abs(trim['source_duration'] - prior['duration']) >= .01 or
+                        abs(trim['output_duration'] - meta['duration']) >= .01):
+                    raise ValueError('Retained duration changed without verified silence trimming')
+                payload['quietTailTrim'] = trim
+            if journal.get('payload') and journal['payload'] != payload:
+                # A duration-rejected first upload can add verified trim evidence only.
+                without_trim = {key: value for key, value in payload.items() if key != 'quietTailTrim'}
+                if (not prompt.get('recordingCompletion') and 'quietTailTrim' in payload and
+                        journal['payload'] == without_trim):
+                    save(directory / 'retained-duration-rejected-payload.json', journal['payload'])
+                else:
+                    raise ValueError('Completion replay changed')
             journal['payload'] = payload; save(journal_path, journal)
             upload_asset(config, journal['prompt']['songId'], meta, mp3, directory)
             prompt = api.call('/prompts/' + wanted + '/complete-retained-vocals', payload, timeout=120)['prompt']
