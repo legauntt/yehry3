@@ -2119,20 +2119,26 @@ export default {
     ]
   },
   "distonyc-1aab4d6219268f04154c7b5e": {
-    "src": "/assets/artwork/distonyc-1aab4d6219268f04154c7b5e-incubating-eba603c59c7a-754f5fa532e8092d-q86.webp",
+    "src": "/assets/artwork/distonyc-1aab4d6219268f04154c7b5e-mature-4ddc55e6abab-15cd14a99dd061c5-q86.webp",
     "alt": "Cover artwork for Epoch Zero.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "9a823ffc7d5deb55feca4915bcd68cda53c5488ca7d218d699e2a780e45be2f9",
-    "promptHash": "3a66ef5bba615c2a76d51b74289b640f539e56488a3130900dcfb5307abc57c5",
-    "createdAt": "2026-10-04T00:24:59.958Z",
+    "promptHash": "f2103ba7105de02d4b5b589f7ba7b998c6be8df27689b1bfbfdd435b6272c547",
+    "createdAt": "2026-10-05T00:25:40.514Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-1aab4d6219268f04154c7b5e-incubating-eba603c59c7a-754f5fa532e8092d-q86.webp",
     "firstSeenAt": "2026-10-04T00:24:42.889Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-1aab4d6219268f04154c7b5e-incubating-eba603c59c7a-754f5fa532e8092d-q86.webp",
+        "alt": "Cover artwork for Epoch Zero.",
+        "createdAt": "2026-10-04T00:24:59.958Z"
+      }
+    ]
   },
   "distonyc-c69c99fcce015bd63b3c8392": {
     "src": "/assets/artwork/distonyc-c69c99fcce015bd63b3c8392-incubating-3a88a81c70de-f805b35502a57271-q86.webp",
