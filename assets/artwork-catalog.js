@@ -2232,20 +2232,26 @@ export default {
     ]
   },
   "distonyc-2a92e91e4fc840724c567edb": {
-    "src": "/assets/artwork/distonyc-2a92e91e4fc840724c567edb-incubating-26f211b1d7dd-3f62fc5a0d08609b-q86.webp",
+    "src": "/assets/artwork/distonyc-2a92e91e4fc840724c567edb-mature-f2bb725154f5-889ee2f0c4b55df9-q86.webp",
     "alt": "Cover artwork for Static at the End of Town.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "ca9ff19389448e3bef8a63b9eecccf298331bc71d2c4d64342ad49ba8543b6c0",
-    "promptHash": "019da11978b5872c287f708a5c8bf332e29e3dcd7b685eb72f9a16ca0a7f4b5d",
-    "createdAt": "2026-10-04T07:16:00.989Z",
+    "promptHash": "f0179882ba6091f80147dd857556093cbf343a5db9d0ce8bf22d87efc8f1ea7b",
+    "createdAt": "2026-10-05T07:19:32.346Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-2a92e91e4fc840724c567edb-incubating-26f211b1d7dd-3f62fc5a0d08609b-q86.webp",
     "firstSeenAt": "2026-10-04T07:15:42.687Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-2a92e91e4fc840724c567edb-incubating-26f211b1d7dd-3f62fc5a0d08609b-q86.webp",
+        "alt": "Cover artwork for Static at the End of Town.",
+        "createdAt": "2026-10-04T07:16:00.989Z"
+      }
+    ]
   },
   "distonyc-d36e8cb0b386edd7856e6b45": {
     "src": "/assets/artwork/distonyc-d36e8cb0b386edd7856e6b45-incubating-e0afefd172f2-7bb596ba453d59bc-q86.webp",
