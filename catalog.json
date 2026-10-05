@@ -2,6 +2,152 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-c48f19efb7dfe8c3d9f644eb",
+      "title": "Good Old Days on the Block",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c48f19efb7dfe8c3d9f644eb-5b6b5bdb364a.mp3",
+      "duration": 235.04,
+      "collection": "distonyc",
+      "voiceModel": "vdb",
+      "publishedAt": "2026-10-05T12:44:08.827Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Good Old Days on the Block",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "A 92 BPM West Coast gangsta-rap arrangement with a deep sub-bass line, crisp programmed drums, sparse minor-key synth chords, talkbox-like lead accents, and brief vinyl-texture transitions. Tony delivers rough, smoky, tightly rhythmic bars with uneven slurs and muttered emphasis; keep the supplied section order. Build from a stripped intro to denser second-verse percussion, then leave space in the final outro for the last word to land about 10 seconds before the end, followed by one resolved D-minor chord decay.",
+        "lyrics": "[Intro]\nYeah\nMotherfucker\n'Sup, nigga\nGangsta Rap, nigga\nNigga\n\n[Verse 1: Du-Rag & Murder Mike]\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nI'm one-hundred-percent nigga\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nI'm two-hundred-percent nigga\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy do police hate niggas?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nThey hate us 'cause our dicks is bigga\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you call yourself a nigga?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\n'Cause I'm a motherfuckin' nigga\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you drink so much beer?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nI don't drink beer; I drink malt liquor\n\n[Interlude]\n'Cause I'm a nigga\nI'm a motherfuckin' nigga, man, I ain't all that African-American shit (Yep)\nFuck that, I'm a nigga\nI ain't mixed, I'm nigga\nN\nI-G-G-A\nNigga, you already know\n\n[Verse 2]\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you eat so much chicken?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy won't you make it in my kitchen?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you call them hoes bitches?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\n'Cause them hoes is bitches\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you stay in the hood?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\n'Cause I don't like livin' by peckerwoods\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you ain't got no job?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nSeven dollars an hour won't feed my dog\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy yo' pants gotta sag?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\n'Cause hand-me-downs is all a nigga had\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you scared to go to court?\n\n[Interlude]\nShit, 'cause the judge look just like that motherfucker\nThat put our ass on the boat and made me a nigga\n\n[Outro]\nMama Rag is a nigga\nDu-Rag is a nigga\nBallistics is a nigga\nAnd I'm Uretha's nigga\nNigga\n[End]",
+        "duration": 235,
+        "bpm": 92,
+        "musicalSettings": {
+          "genre": "West Coast gangsta rap",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Interlude, Verse 2, Interlude, Outro",
+          "performance": "Rough, smoky Tony delivery with syncopated rap phrasing, slurred consonants, and emphatic spoken-rhythmic cadences",
+          "energy": "Low-slung opening, increasingly forceful verse pocket, then a sparse resolved close",
+          "lyricWorkflow": "Preserved supplied lyric sheet in its original order and wording",
+          "instruments": [
+            "programmed drum machine",
+            "sub-bass",
+            "minor-key synthesizer",
+            "talkbox-style synth lead",
+            "vinyl texture"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nYeah\nMotherfucker\n'Sup, nigga\nGangsta Rap, nigga\nNigga\n\n[Verse 1: Du-Rag & Murder Mike]\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nI'm one-hundred-percent nigga\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nI'm two-hundred-percent nigga\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy do police hate niggas?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nThey hate us 'cause our dicks is bigga\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you call yourself a nigga?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\n'Cause I'm a motherfuckin' nigga\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you drink so much beer?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nI don't drink beer; I drink malt liquor\n\n[Interlude]\n'Cause I'm a nigga\nI'm a motherfuckin' nigga, man, I ain't all that African-American shit (Yep)\nFuck that, I'm a nigga\nI ain't mixed, I'm nigga\nN\nI-G-G-A\nNigga, you already know\n\n[Verse 2]\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you eat so much chicken?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy won't you make it in my kitchen?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you call them hoes bitches?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\n'Cause them hoes is bitches\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you stay in the hood?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\n'Cause I don't like livin' by peckerwoods\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you ain't got no job?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nSeven dollars an hour won't feed my dog\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy yo' pants gotta sag?\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\n'Cause hand-me-downs is all a nigga had\nNigga, nigga, nigga, nigga, nigga, nigga, nigga\nWhy you scared to go to court?\n\n[Interlude]\nShit, 'cause the judge look just like that motherfucker\nThat put our ass on the boat and made me a nigga\n\n[Outro]\nMama Rag is a nigga\nDu-Rag is a nigga\nBallistics is a nigga\nAnd I'm Uretha's nigga\nNigga",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 2.3
+          },
+          {
+            "line": 4,
+            "start": 7.24,
+            "end": 8.7
+          },
+          {
+            "line": 5,
+            "start": 8.7,
+            "end": 9.58
+          },
+          {
+            "line": 23,
+            "start": 84.5,
+            "end": 86.36
+          },
+          {
+            "line": 26,
+            "start": 90.16,
+            "end": 91.44
+          },
+          {
+            "line": 27,
+            "start": 92.94,
+            "end": 96.66
+          },
+          {
+            "line": 28,
+            "start": 97.36,
+            "end": 98.82
+          },
+          {
+            "line": 29,
+            "start": 99.26,
+            "end": 101.3
+          },
+          {
+            "line": 32,
+            "start": 101.64,
+            "end": 107.06
+          },
+          {
+            "line": 36,
+            "start": 108.96,
+            "end": 111.6
+          },
+          {
+            "line": 38,
+            "start": 115.4,
+            "end": 116.5
+          },
+          {
+            "line": 56,
+            "start": 161.46,
+            "end": 163.04
+          },
+          {
+            "line": 59,
+            "start": 164.02,
+            "end": 167.14
+          },
+          {
+            "line": 60,
+            "start": 167.14,
+            "end": 172.8
+          },
+          {
+            "line": 63,
+            "start": 178.12,
+            "end": 184.26
+          },
+          {
+            "line": 67,
+            "start": 190.82,
+            "end": 195.92
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 15.86
+        }
+      ],
+      "pitchRepair": "clean",
+      "guide": {
+        "sha256": "55cf2d2c9789af6883d4216ec3fcb6348cc6b6293b9f378b4a4be813dbe85766",
+        "bytes": 5528588,
+        "duration": 235.04,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c48f19efb7dfe8c3d9f644eb-55cf2d2c9789.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Tony C reminisces about the good old days",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "vdb",
+        "musicBackend": "local"
+      }
+    },
+    {
       "id": "distonyc-d7308feaf7da5f1c69383192",
       "title": "The Seat Across From Mine",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d7308feaf7da5f1c69383192-eafb6533fb8b.mp3",
