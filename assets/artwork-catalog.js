@@ -2254,20 +2254,26 @@ export default {
     ]
   },
   "distonyc-d36e8cb0b386edd7856e6b45": {
-    "src": "/assets/artwork/distonyc-d36e8cb0b386edd7856e6b45-incubating-e0afefd172f2-7bb596ba453d59bc-q86.webp",
+    "src": "/assets/artwork/distonyc-d36e8cb0b386edd7856e6b45-mature-bbe3b0f6f385-8a9f2929a2d67f53-q86.webp",
     "alt": "Cover artwork for Windows Lit by Snow.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "561013369cac8b15713e08a61d4508f250b8b37633b04006cac97f5d1b50c547",
-    "promptHash": "dcc18d9cd17adbad411bc2aee53ade1a43229f264c35f5f5e3ae7f37700cda9f",
-    "createdAt": "2026-10-04T07:22:00.108Z",
+    "promptHash": "d022cb655a02e9617e4e008de59a9f998493e6470767d9611f4767fe56573ada",
+    "createdAt": "2026-10-05T07:25:27.590Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-d36e8cb0b386edd7856e6b45-incubating-e0afefd172f2-7bb596ba453d59bc-q86.webp",
     "firstSeenAt": "2026-10-04T07:21:42.614Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-d36e8cb0b386edd7856e6b45-incubating-e0afefd172f2-7bb596ba453d59bc-q86.webp",
+        "alt": "Cover artwork for Windows Lit by Snow.",
+        "createdAt": "2026-10-04T07:22:00.108Z"
+      }
+    ]
   },
   "distonyc-5b57d0bbe81a50d17cdfb601": {
     "src": "/assets/artwork/distonyc-5b57d0bbe81a50d17cdfb601-incubating-d50bd2b2e627-87e177ae99c442a1-q86.webp",
