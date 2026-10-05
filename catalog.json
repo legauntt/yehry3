@@ -2,6 +2,299 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-39dcafa75845d179ad486fe6",
+      "title": "Thirty Days at the Portal",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-39dcafa75845d179ad486fe6-d06942efaa34.mp3",
+      "duration": 235.1281632653061,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-05T18:46:06.528Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Thirty Days at the Portal",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Melancholic, driving alternative-rock song with a clear, steadily pitched Tony lead melody and natural phrasing. Start with clean electric guitar and muted bass, then widen into full drums, overdriven guitars, and restrained synth atmosphere for the choruses. Keep the vocal forward and melodic, with no doubles or backing vocals. Build from reflective verses to a firm final chorus; pace the final sustained “go” 8–12 seconds before 3:55, then resolve on one final E-minor chord decay.",
+        "lyrics": "[Verse 1]\nThe launcher glows in the kitchen blue\nTwenty years folded behind the screen\nI said I was done with the endless moons\nThen an old login name came back to me\nThere was a town where I knew the way\nA tavern light and a griffin cry\nNow my hands got bills and a coffee stain\nAnd a little more winter behind my eyes\n\n[Pre-Chorus]\nIs it a circle, is it a trap?\nA month of my life in a plastic card\n\n[Chorus]\nThirty days at the portal, thirty days to pretend\nThat the road never ended, that I still got friends\nI could chase that horizon, I could buy back the night\nOr just stare at the checkout and call it my life\nThirty days at the portal, tell me what do I save?\nA boy with a sword or a man in his grave?\n\n[Verse 2]\nMy old guild names are probably ghosts\nTheir castles turned to somebody's joke\nI remember the shouting through cheap headphones\nAnd the promises nobody thought to quote\nThe world kept spinning without my raid\nThe seasons ate every grand design\nI built a quiet, responsible place\nBut it don't feel like it was ever mine\n\n[Pre-Chorus]\nThe circle turns, the years attack\nI hear that loading music in the back\n\n[Chorus]\nThirty days at the portal, thirty days to pretend\nThat the road never ended, that I still got friends\nI could chase that horizon, I could buy back the night\nOr just stare at the checkout and call it my life\nThirty days at the portal, tell me what do I save?\nA boy with a sword or a man in his grave?\n\n[Bridge]\nMaybe the wasted life is the one I accuse\nMaybe I spent too long refusing to choose\nNot every return is a crown or a cure\nBut the hand on the door still wants to be sure\n\n[Chorus]\nThirty days at the portal, I ain't asking for youth\nJust a map with a heartbeat, one small piece of truth\nLet the circle keep turning, let the old servers fade\nI'll walk in with my scars and the choices I made\nThirty days at the portal, when the last light is gone\nI won't purchase a past, but I'll carry it on\n\n[Outro]\nThe screen says renew, and I breathe through the glow\nI got time for one road before I let it go\n[End]",
+        "duration": 235,
+        "bpm": 112,
+        "musicalSettings": {
+          "genre": "Melancholic alternative rock with subtle fantasy-game atmosphere",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus, short resolved outro",
+          "performance": "One clear, steadily pitched melodic rock lead with connected, rough-edged Tony phrasing",
+          "energy": "Reflective opening grows into urgent, full-band choruses, then lands in a calm final resolution",
+          "lyricWorkflow": "Original narrative lyrics balancing nostalgia, midlife doubt, and a deliberate choice to re-enter the world",
+          "instruments": [
+            "clean electric guitar",
+            "overdriven electric guitar",
+            "electric bass",
+            "drum kit",
+            "subtle synthesizer pads"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nThe launcher glows in the kitchen blue\nTwenty years folded behind the screen\nI said I was done with the endless moons\nThen an old login name came back to me\nThere was a town where I knew the way\nA tavern light and a griffin cry\nNow my hands got bills and a coffee stain\nAnd a little more winter behind my eyes\n\n[Pre-Chorus]\nIs it a circle, is it a trap?\nA month of my life in a plastic card\n\n[Chorus]\nThirty days at the portal, thirty days to pretend\nThat the road never ended, that I still got friends\nI could chase that horizon, I could buy back the night\nOr just stare at the checkout and call it my life\nThirty days at the portal, tell me what do I save?\nA boy with a sword or a man in his grave?\n\n[Verse 2]\nMy old guild names are probably ghosts\nTheir castles turned to somebody's joke\nI remember the shouting through cheap headphones\nAnd the promises nobody thought to quote\nThe world kept spinning without my raid\nThe seasons ate every grand design\nI built a quiet, responsible place\nBut it don't feel like it was ever mine\n\n[Pre-Chorus]\nThe circle turns, the years attack\nI hear that loading music in the back\n\n[Chorus]\nThirty days at the portal, thirty days to pretend\nThat the road never ended, that I still got friends\nI could chase that horizon, I could buy back the night\nOr just stare at the checkout and call it my life\nThirty days at the portal, tell me what do I save?\nA boy with a sword or a man in his grave?\n\n[Bridge]\nMaybe the wasted life is the one I accuse\nMaybe I spent too long refusing to choose\nNot every return is a crown or a cure\nBut the hand on the door still wants to be sure\n\n[Chorus]\nThirty days at the portal, I ain't asking for youth\nJust a map with a heartbeat, one small piece of truth\nLet the circle keep turning, let the old servers fade\nI'll walk in with my scars and the choices I made\nThirty days at the portal, when the last light is gone\nI won't purchase a past, but I'll carry it on\n\n[Outro]\nThe screen says renew, and I breathe through the glow\nI got time for one road before I let it go",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.52,
+            "end": 6.94
+          },
+          {
+            "line": 2,
+            "start": 7.6,
+            "end": 11.24
+          },
+          {
+            "line": 3,
+            "start": 12.2,
+            "end": 15.48
+          },
+          {
+            "line": 4,
+            "start": 16.34,
+            "end": 20.06
+          },
+          {
+            "line": 5,
+            "start": 21.08,
+            "end": 24.2
+          },
+          {
+            "line": 6,
+            "start": 24.2,
+            "end": 28.46
+          },
+          {
+            "line": 7,
+            "start": 29.02,
+            "end": 32.52
+          },
+          {
+            "line": 8,
+            "start": 33.48,
+            "end": 37.74
+          },
+          {
+            "line": 11,
+            "start": 38.56,
+            "end": 41.6
+          },
+          {
+            "line": 12,
+            "start": 42.32,
+            "end": 45.98
+          },
+          {
+            "line": 15,
+            "start": 54.48,
+            "end": 58.36
+          },
+          {
+            "line": 16,
+            "start": 58.36,
+            "end": 63.02
+          },
+          {
+            "line": 17,
+            "start": 63.54,
+            "end": 67.14
+          },
+          {
+            "line": 18,
+            "start": 67.78,
+            "end": 71.5
+          },
+          {
+            "line": 19,
+            "start": 72.22,
+            "end": 75.68
+          },
+          {
+            "line": 20,
+            "start": 76.56,
+            "end": 80.22
+          },
+          {
+            "line": 23,
+            "start": 80.22,
+            "end": 88.82
+          },
+          {
+            "line": 24,
+            "start": 88.94,
+            "end": 92.84
+          },
+          {
+            "line": 25,
+            "start": 92.84,
+            "end": 96.98
+          },
+          {
+            "line": 26,
+            "start": 97.32,
+            "end": 101.42
+          },
+          {
+            "line": 27,
+            "start": 101.42,
+            "end": 105.72
+          },
+          {
+            "line": 29,
+            "start": 106.62,
+            "end": 110.04
+          },
+          {
+            "line": 30,
+            "start": 110.58,
+            "end": 113.7
+          },
+          {
+            "line": 33,
+            "start": 113.7,
+            "end": 118.38
+          },
+          {
+            "line": 34,
+            "start": 118.96,
+            "end": 122.92
+          },
+          {
+            "line": 37,
+            "start": 123.42,
+            "end": 126.9
+          },
+          {
+            "line": 38,
+            "start": 126.9,
+            "end": 131.6
+          },
+          {
+            "line": 39,
+            "start": 131.6,
+            "end": 135.76
+          },
+          {
+            "line": 40,
+            "start": 136.28,
+            "end": 140.1
+          },
+          {
+            "line": 41,
+            "start": 140.1,
+            "end": 144.28
+          },
+          {
+            "line": 42,
+            "start": 145.08,
+            "end": 148.82
+          },
+          {
+            "line": 45,
+            "start": 156.66,
+            "end": 161.2
+          },
+          {
+            "line": 46,
+            "start": 161.78,
+            "end": 165.74
+          },
+          {
+            "line": 47,
+            "start": 166.64,
+            "end": 169.92
+          },
+          {
+            "line": 48,
+            "start": 170.6,
+            "end": 174.34
+          },
+          {
+            "line": 51,
+            "start": 178.82,
+            "end": 182.82
+          },
+          {
+            "line": 52,
+            "start": 182.82,
+            "end": 187.02
+          },
+          {
+            "line": 53,
+            "start": 187.5,
+            "end": 191.44
+          },
+          {
+            "line": 54,
+            "start": 191.44,
+            "end": 195.82
+          },
+          {
+            "line": 55,
+            "start": 195.82,
+            "end": 200
+          },
+          {
+            "line": 56,
+            "start": 200,
+            "end": 204.66
+          },
+          {
+            "line": 59,
+            "start": 213.02,
+            "end": 217.1
+          },
+          {
+            "line": 60,
+            "start": 217.1,
+            "end": 221.78
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "044b46beef0727ea307fd361edbb9d44b6682b4d12fae67654e405bedc525f03",
+        "bytes": 5643120,
+        "duration": 235.128125,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-39dcafa75845d179ad486fe6-044b46beef07.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Tony C is thinking about renewing his World of Warcraft subscription after being gone for 20 years",
+        "direction": "Use the prompt as written.",
+        "keep": "The circle of life, a midlife crisis, and the feeling of a wasted life",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 235
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-c48f19efb7dfe8c3d9f644eb",
       "title": "Good Old Days on the Block",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c48f19efb7dfe8c3d9f644eb-5b6b5bdb364a.mp3",
