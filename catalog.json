@@ -2,6 +2,437 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-d7308feaf7da5f1c69383192",
+      "title": "The Seat Across From Mine",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d7308feaf7da5f1c69383192-eafb6533fb8b.mp3",
+      "duration": 290.74,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-05T08:40:39.325Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The Seat Across From Mine",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "G major",
+        "arrangement": "A 140 BPM country ballad and hip-hop duet in relaxed half-time 4/4. Tony performs both parts with the pinned V9 epoch 150 voice: connected, smoky melodic country lead in the sung sections, then grounded rhythmic rap and spoken replies with a clear phrasing contrast. Acoustic guitar establishes the diner intimacy; clean electric fills, pedal steel, piano, bass, and restrained drums gradually widen the pocket. Begin within five seconds, keep instrumental breaks under 12 seconds, and build in waves from tentative conversation to an open final chorus. Alternate the two deliveries through the bridge, final chorus, and outro. Sustain the final “you” around 10 seconds before the end, then resolve on one final G-major chord and natural decay.",
+        "lyrics": "[Verse 1: Brad Paisley]\nTo the man that waited on me at the Starbucks down on Main\nI hope you understand\nWhen I put on that T-shirt, the only thing I meant to say\nIs I'm a Skynyrd fan\nThe red flag on my chest somehow is\nLike the elephant in the corner of the south\nAnd I just walked him right in the room\nJust a proud rebel son with an ol' can of worms\nLookin' like I got a lot to learn, but from my point of view\n\n[Chorus: Brad Paisley]\nI'm just a white man coming to you from the Southland\nTryin' to understand what it's like not to be\nI'm proud of where I'm from, but not everything we've done\nAnd it ain't like you and me can re-write history\nOur generation didn't start this nation\nWe're still picking up the pieces, walking on eggshells, fighting over yesterday\nAnd caught between Southern pride and Southern blame\n\n[Verse 2: Brad Paisley]\nThey called it Reconstruction, fixed the buildings, dried some tears\nWe're still siftin' through the rubble after a hundred-fifty years\nI try to put myself in your shoes and that's a good place to begin\nIt ain't like I can walk a mile in someone else's skin\nYou might also like\nO Holy Night\nChristmas Songs\nA Stranger In My Arms\nPatsy Cline\nA World Of Blue\nDwight Yoakam\n[Chorus: Brad Paisley]\n'Cause I'm a white man livin' in the southland\nJust like you I'm more than what you see\nI'm proud of where I'm from, but not everything we've done\nAnd it ain't like you and me can re-write history\nOur generation didn't start this nation\nAnd we're still paying for our mistakes\nThat a bunch of folks made long before we came\nAnd caught somewhere between southern pride and southern blame\n\n[Verse 3: LL Cool J]\nDear Mr. White Man, I wish you understood\nWhat the world is really like when you're living in the hood\nJust because my pants are saggin' doesn't mean I'm up to no good\nYou should try to get to know me, I really wish you would\nNow my chains are gold but I'm still misunderstood\nI wasn't there when Sherman's March turned the south into firewood\nI want you to get paid but be a slave I never could\nFeel like a new fangled Django, dodgin' invisible white hoods\nSo when I see that white cowboy hat, I'm thinking it's not all good\nI guess we're both guilty of judging the cover not the book\nI'd love to buy you a beer, conversate and clear the air\nBut I see that red flag and I think you wish I wasn't here\n\n[Chorus: Brad Paisley & LL Cool J]\nI'm just a white man\nIf you don't judge my durag\nComin' to you from the southland\nI won't judge your red flag\nTryin' to understand what it's like not to be\nYeah\nI'm proud of where I'm from\nIf you don't judge my gold chains\nBut not everything we've done\nI'll forget the iron chains\nIt ain't like you and me can re-write history\nCan't re-write history baby\n[Outro: Brad Paisley & LL Cool J]\nOh, Dixieland\nThe relationship between the Mason-Dixon needs some fixin'\nI hope you understand what this is all about\nQuite frankly I'm a black Yankee\nBut I've been thinkin' about this lately\nI'm a son of the new south\nThe past is the past, you feel me\nAnd I just want to make things right\nLet bygones be bygones\nWhere all that's left is southern pride\nRIP Robert E. Lee\nBut I've gotta thank Abraham Lincoln for freeing me\nKnow what I mean? It's real, it's real\nIt's\n[End]",
+        "duration": 300,
+        "bpm": 140,
+        "musicalSettings": {
+          "genre": "Country ballad and hip-hop duet",
+          "meter": "4/4, relaxed half-time pocket on a 140-B",
+          "structure": "Sung country verse, sung chorus, rhythmic rap verse, sung chorus, alternating sung-and-spoken bridge, sung final chorus with rap responses, alternating lyrical outro",
+          "performance": "One Tony voice in two contrasting roles: smoky connected country singing and grounded rhythmic rap/spoken replies",
+          "energy": "Tentative and intimate at the diner, widening through the rap verse and bridge, then warmly resolved at dawn",
+          "lyricWorkflow": "Story-driven diner encounter with a conversational exchange and a meaningful, action-focused ending",
+          "instruments": [
+            "acoustic guitar",
+            "clean electric country guitar",
+            "pedal steel guitar",
+            "bass guitar",
+            "drums",
+            "piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1: Brad Paisley]\nTo the man that waited on me at the Starbucks down on Main\nI hope you understand\nWhen I put on that T-shirt, the only thing I meant to say\nIs I'm a Skynyrd fan\nThe red flag on my chest somehow is\nLike the elephant in the corner of the south\nAnd I just walked him right in the room\nJust a proud rebel son with an ol' can of worms\nLookin' like I got a lot to learn, but from my point of view\n\n[Chorus: Brad Paisley]\nI'm just a white man coming to you from the Southland\nTryin' to understand what it's like not to be\nI'm proud of where I'm from, but not everything we've done\nAnd it ain't like you and me can re-write history\nOur generation didn't start this nation\nWe're still picking up the pieces, walking on eggshells, fighting over yesterday\nAnd caught between Southern pride and Southern blame\n\n[Verse 2: Brad Paisley]\nThey called it Reconstruction, fixed the buildings, dried some tears\nWe're still siftin' through the rubble after a hundred-fifty years\nI try to put myself in your shoes and that's a good place to begin\nIt ain't like I can walk a mile in someone else's skin\nYou might also like\nO Holy Night\nChristmas Songs\nA Stranger In My Arms\nPatsy Cline\nA World Of Blue\nDwight Yoakam\n[Chorus: Brad Paisley]\n'Cause I'm a white man livin' in the southland\nJust like you I'm more than what you see\nI'm proud of where I'm from, but not everything we've done\nAnd it ain't like you and me can re-write history\nOur generation didn't start this nation\nAnd we're still paying for our mistakes\nThat a bunch of folks made long before we came\nAnd caught somewhere between southern pride and southern blame\n\n[Verse 3: LL Cool J]\nDear Mr. White Man, I wish you understood\nWhat the world is really like when you're living in the hood\nJust because my pants are saggin' doesn't mean I'm up to no good\nYou should try to get to know me, I really wish you would\nNow my chains are gold but I'm still misunderstood\nI wasn't there when Sherman's March turned the south into firewood\nI want you to get paid but be a slave I never could\nFeel like a new fangled Django, dodgin' invisible white hoods\nSo when I see that white cowboy hat, I'm thinking it's not all good\nI guess we're both guilty of judging the cover not the book\nI'd love to buy you a beer, conversate and clear the air\nBut I see that red flag and I think you wish I wasn't here\n\n[Chorus: Brad Paisley & LL Cool J]\nI'm just a white man\nIf you don't judge my durag\nComin' to you from the southland\nI won't judge your red flag\nTryin' to understand what it's like not to be\nYeah\nI'm proud of where I'm from\nIf you don't judge my gold chains\nBut not everything we've done\nI'll forget the iron chains\nIt ain't like you and me can re-write history\nCan't re-write history baby\n[Outro: Brad Paisley & LL Cool J]\nOh, Dixieland\nThe relationship between the Mason-Dixon needs some fixin'\nI hope you understand what this is all about\nQuite frankly I'm a black Yankee\nBut I've been thinkin' about this lately\nI'm a son of the new south\nThe past is the past, you feel me\nAnd I just want to make things right\nLet bygones be bygones\nWhere all that's left is southern pride\nRIP Robert E. Lee\nBut I've gotta thank Abraham Lincoln for freeing me\nKnow what I mean? It's real, it's real\nIt's",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 0,
+            "end": 3.76
+          },
+          {
+            "line": 2,
+            "start": 3.76,
+            "end": 7.12
+          },
+          {
+            "line": 3,
+            "start": 10.26,
+            "end": 14.54
+          },
+          {
+            "line": 4,
+            "start": 15.4,
+            "end": 17.52
+          },
+          {
+            "line": 5,
+            "start": 20.12,
+            "end": 24.6
+          },
+          {
+            "line": 6,
+            "start": 24.6,
+            "end": 28.28
+          },
+          {
+            "line": 7,
+            "start": 28.28,
+            "end": 31.7
+          },
+          {
+            "line": 8,
+            "start": 33.94,
+            "end": 38.54
+          },
+          {
+            "line": 9,
+            "start": 38.54,
+            "end": 43.04
+          },
+          {
+            "line": 12,
+            "start": 43.04,
+            "end": 49.38
+          },
+          {
+            "line": 13,
+            "start": 50.2,
+            "end": 55.68
+          },
+          {
+            "line": 14,
+            "start": 56.72,
+            "end": 62.5
+          },
+          {
+            "line": 15,
+            "start": 62.5,
+            "end": 68.12
+          },
+          {
+            "line": 16,
+            "start": 68.68,
+            "end": 71.18
+          },
+          {
+            "line": 17,
+            "start": 71.18,
+            "end": 76.52
+          },
+          {
+            "line": 18,
+            "start": 76.52,
+            "end": 82.86
+          },
+          {
+            "line": 21,
+            "start": 84.94,
+            "end": 88.82
+          },
+          {
+            "line": 22,
+            "start": 89.26,
+            "end": 92.62
+          },
+          {
+            "line": 23,
+            "start": 92.62,
+            "end": 95.9
+          },
+          {
+            "line": 24,
+            "start": 96.72,
+            "end": 99.48
+          },
+          {
+            "line": 25,
+            "start": 101.02,
+            "end": 103.72
+          },
+          {
+            "line": 26,
+            "start": 104.3,
+            "end": 106.92
+          },
+          {
+            "line": 27,
+            "start": 107.84,
+            "end": 110.36
+          },
+          {
+            "line": 28,
+            "start": 111.06,
+            "end": 114.28
+          },
+          {
+            "line": 30,
+            "start": 117.08,
+            "end": 120.68
+          },
+          {
+            "line": 33,
+            "start": 126.14,
+            "end": 131.64
+          },
+          {
+            "line": 34,
+            "start": 131.64,
+            "end": 137.96
+          },
+          {
+            "line": 35,
+            "start": 138.92,
+            "end": 144.84
+          },
+          {
+            "line": 36,
+            "start": 144.84,
+            "end": 150.42
+          },
+          {
+            "line": 37,
+            "start": 150.42,
+            "end": 153.7
+          },
+          {
+            "line": 38,
+            "start": 153.7,
+            "end": 156.64
+          },
+          {
+            "line": 39,
+            "start": 156.64,
+            "end": 160.04
+          },
+          {
+            "line": 40,
+            "start": 160.04,
+            "end": 165.18
+          },
+          {
+            "line": 43,
+            "start": 168.34,
+            "end": 171.26
+          },
+          {
+            "line": 44,
+            "start": 171.26,
+            "end": 174.98
+          },
+          {
+            "line": 45,
+            "start": 174.98,
+            "end": 178.62
+          },
+          {
+            "line": 46,
+            "start": 178.62,
+            "end": 181.86
+          },
+          {
+            "line": 47,
+            "start": 181.86,
+            "end": 184.06
+          },
+          {
+            "line": 48,
+            "start": 184.88,
+            "end": 188.36
+          },
+          {
+            "line": 49,
+            "start": 188.9,
+            "end": 192.08
+          },
+          {
+            "line": 50,
+            "start": 192.08,
+            "end": 195.7
+          },
+          {
+            "line": 51,
+            "start": 195.7,
+            "end": 198.96
+          },
+          {
+            "line": 52,
+            "start": 198.96,
+            "end": 202.78
+          },
+          {
+            "line": 53,
+            "start": 202.78,
+            "end": 206.42
+          },
+          {
+            "line": 54,
+            "start": 206.42,
+            "end": 209.68
+          },
+          {
+            "line": 57,
+            "start": 209.68,
+            "end": 212.3
+          },
+          {
+            "line": 58,
+            "start": 212.76,
+            "end": 214.18
+          },
+          {
+            "line": 61,
+            "start": 217.48,
+            "end": 221.92
+          },
+          {
+            "line": 62,
+            "start": 222.08,
+            "end": 223.3
+          },
+          {
+            "line": 63,
+            "start": 223.3,
+            "end": 225.4
+          },
+          {
+            "line": 64,
+            "start": 225.4,
+            "end": 228.34
+          },
+          {
+            "line": 65,
+            "start": 228.34,
+            "end": 231.96
+          },
+          {
+            "line": 66,
+            "start": 232.42,
+            "end": 234.34
+          },
+          {
+            "line": 67,
+            "start": 234.84,
+            "end": 238.06
+          },
+          {
+            "line": 68,
+            "start": 239.26,
+            "end": 242.02
+          },
+          {
+            "line": 71,
+            "start": 247.02,
+            "end": 250.34
+          },
+          {
+            "line": 72,
+            "start": 250.86,
+            "end": 253.4
+          },
+          {
+            "line": 73,
+            "start": 253.84,
+            "end": 255.92
+          },
+          {
+            "line": 74,
+            "start": 256.42,
+            "end": 258.02
+          },
+          {
+            "line": 75,
+            "start": 258.44,
+            "end": 259.96
+          },
+          {
+            "line": 76,
+            "start": 260.28,
+            "end": 262.32
+          },
+          {
+            "line": 77,
+            "start": 262.52,
+            "end": 264.08
+          },
+          {
+            "line": 78,
+            "start": 264.64,
+            "end": 266.14
+          },
+          {
+            "line": 79,
+            "start": 266.34,
+            "end": 267.96
+          },
+          {
+            "line": 80,
+            "start": 268.72,
+            "end": 270.18
+          },
+          {
+            "line": 81,
+            "start": 270.54,
+            "end": 273.7
+          },
+          {
+            "line": 82,
+            "start": 276.62,
+            "end": 279.22
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "3f07a84f009f6cf6993a7d49637fcd00afef2400886d76a669a81853dcdb5378",
+        "bytes": 7181132,
+        "duration": 299.44,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d7308feaf7da5f1c69383192-3f07a84f009f.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Create an original hobby/just-for-fun Tony C country and hip-hop duet titled The Seat Across From Mine. Tony performs both the melodic country singer and the rhythmic rap speaker. Use the attached original draft as the lyric starting point. Let me edit and approve the lyrics before composing.",
+        "direction": "Original song about two strangers taking shelter in a diner and learning that they experience the same town differently. Use the attached new draft; retain its diner narrative, conversational tone and meaningful ending. Normalize role annotations into supported section labels and describe the delivery in the arrangement. Tony C performs BOTH roles using the same V9 epoch 150 voice: connected melodic country singing for Country Tony, grounded rhythmic rap and spoken responses for Rap Tony. Alternate them through the bridge, final chorus and outro, with contrasting phrasing. Let me edit and approve the lyrics before composing: stop at the native lyric review gate; approval is not given by this submission. Use a relaxed country half-time pocket on a 140 BPM grid, tentative G major, acoustic strumming, clean electric guitar fills, pedal steel, bass, restrained drums and piano. These instrumentation choices are creative direction. Retain generated accompaniment. Make a new composition and melody; no original performer voices or copied source-song lyrics. Finish the complete final approved phrase about ten seconds before the musical end. HAUNTED is the voice pitch-repair setting. FREE Local ACE only, one candidate, no paid backend or rented GPU fallback.",
+        "keep": "Original diner narrative; contrasting sung country and rhythmic rap roles performed by Tony; complete lyrical ending; lyric edit/approval gate; V9 epoch 150 HAUNTED; FREE Local ACE.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "story",
+          "performance": "natural",
+          "energy": "waves",
+          "variation": "conservative",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 300,
+          "bpm": 140,
+          "meter": "4/4",
+          "genre": "Country ballad and hip-hop duet",
+          "instruments": [
+            "acoustic guitar",
+            "clean electric country guitar",
+            "pedal steel guitar",
+            "bass guitar",
+            "drums",
+            "piano"
+          ],
+          "keyscale": "G major",
+          "structure": "Sung country verse; sung chorus; rhythmic rap verse; sung chorus; alternating sung and spoken bridge; sung final chorus with rap responses; short alternating outro; complete final phrase and resolved chord",
+          "vocalEntry": 5,
+          "endingSeconds": 10,
+          "maxBreakSeconds": 12,
+          "instrumentalHeavy": false,
+          "pitchRepair": "haunted",
+          "seed": 202610052
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-6d17465ec0962fdbd34e0b8c",
       "title": "What Is Love (Tony C V9 AI Remix)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6d17465ec0962fdbd34e0b8c-5b4d0204683c.mp3",
