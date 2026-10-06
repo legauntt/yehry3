@@ -6,6 +6,9 @@
 #tracks[data-view] .track-video-art .track-art-frame { width: 100%; }
 .song-video-button { position: absolute; right: 7px; bottom: 7px; z-index: 2; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid #ffffff80; border-radius: 50%; color: #fff; background: #10231ee8; cursor: pointer; box-shadow: 0 2px 8px #0005; }
 .song-video-button:hover { background: #244a3d; }
+.song-video-button [data-video-stapler] { display: block; width: 36px; height: 26px; object-fit: contain; }
+#tracks[data-view="list"] .song-video-button [data-video-stapler] { width: 26px; height: 19px; }
+[data-video-play] img { vertical-align: middle; }
 .song-video-button-doomer { border-color: #b4a0ed; background: #171d3cf2; box-shadow: 0 0 0 2px #5e4a9259, 0 2px 10px #08051e99; }
 .song-video-button-doomer:hover { background: #30365b; border-color: #ddd0ff; }
 .song-video-button-gold { color: #ffe8a0; border-color: #f6cd65; background: linear-gradient(135deg, #6c4819, #251a0bee); box-shadow: 0 0 0 2px #eabf4426, 0 0 16px #f0bd4559, 0 2px 8px #0008; }

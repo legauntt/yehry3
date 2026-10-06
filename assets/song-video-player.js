@@ -76,6 +76,15 @@ export function mountSongVideos(root, scope) {
     sound = Boolean(video.hasAudio || video.audio);
     full.dataset.sound = String(sound);
     play.textContent = sound ? "Play video with sound" : "Play video";
+    if (video.treatment === "office-space") {
+      const stapler = document.createElement("img");
+      stapler.src = "/assets/red-stapler-video.svg";
+      stapler.alt = "";
+      stapler.width = 32;
+      stapler.height = 22;
+      stapler.setAttribute("aria-hidden", "true");
+      play.prepend(stapler, " ");
+    }
     play.hidden = autoplay && !sound;
     if (sound && autoplay) player.pause();
     status.textContent = "Loading video…";
