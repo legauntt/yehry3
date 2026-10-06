@@ -2298,20 +2298,26 @@ export default {
     ]
   },
   "distonyc-c20c1c38fecd5c30ab30c5f1": {
-    "src": "/assets/artwork/distonyc-c20c1c38fecd5c30ab30c5f1-incubating-7f398db403a7-8bdc57b6ddf53fa9-q86.webp",
+    "src": "/assets/artwork/distonyc-c20c1c38fecd5c30ab30c5f1-mature-15cb4fe196de-d0257288b4d647de-q86.webp",
     "alt": "Cover artwork for Bet You Do (Tony C AI Remake).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
-    "sourceHash": "023866d2a73d37f1310a867072add2b9ee46f61bb3d2f6bef11609d53f949819",
-    "promptHash": "409a9fd0c053e2a6dbda1cfbc138cbd1b0eed5715f9baa896421113a50ecc208",
-    "createdAt": "2026-10-04T23:55:00.866Z",
+    "sourceHash": "67a8c9d3bfd722b83bd58e01254195639d35c3c4854375894a999dabc78bb402",
+    "promptHash": "1ce77bd5644301871c0ab9939ff6da28784c2c7c87eb3258550bf6f731b6f77a",
+    "createdAt": "2026-10-06T00:01:30.733Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-c20c1c38fecd5c30ab30c5f1-incubating-7f398db403a7-8bdc57b6ddf53fa9-q86.webp",
     "firstSeenAt": "2026-10-04T23:54:42.987Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-c20c1c38fecd5c30ab30c5f1-incubating-7f398db403a7-8bdc57b6ddf53fa9-q86.webp",
+        "alt": "Cover artwork for Bet You Do (Tony C AI Remake).",
+        "createdAt": "2026-10-04T23:55:00.866Z"
+      }
+    ]
   },
   "distonyc-b75de5d1649f5fcf131e74bc": {
     "src": "/assets/artwork/distonyc-b75de5d1649f5fcf131e74bc-incubating-9213ae1f2e4d-af2ccb6658278106-q86.webp",
