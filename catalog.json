@@ -2,6 +2,521 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a5d39c0df38f3641f6e34691",
+      "title": "Morning Routine (Towerwatch Shuffle)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a5d39c0df38f3641f6e34691-0fd9f6de9d74.mp3",
+      "duration": 235.04979591836735,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-d59c2b17c667891420654e76",
+        "title": "Morning Routine",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d59c2b17c667891420654e76-7dbe348dc4ee.mp3"
+      },
+      "publishedAt": "2026-10-06T19:44:27.210Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Morning Routine (Towerwatch Shuffle)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "G minor",
+        "arrangement": "A dark, propulsive psychobilly-noir reinterpretation with upright bass, overdriven baritone guitar, tom-heavy drums, muted trumpet, and low organ. Keep a clear, steadily pitched Tony V9 lead with urgent melodic phrasing and recognizable clipped delivery on the “Wake up / Jack off / 9/11 / Drink your own piss” hook; build from tense verses into stomping refrains, drop to bass and organ for the bridge, then return for a full-band final refrain. The final sustained word lands about 10 seconds before 235 seconds, followed by one resolved G-minor chord and natural decay.",
+        "lyrics": "[Intro]\nMorning comes in like a siren\nCeiling shaking, dead gray light\nI wake up\nI wake up\nI wake up and I know the routine\n\n[Verse 1]\nWake up, eyes open, no ceremony\nCold-room daylight, nobody owns me\nNo coffee, no clean little lie\nI stare at the crack in the dead gray sky\nI don't make a speech, I don't make a plan\nI start where I started, again and again\nWake up, wake up, that's number one\nThe day won't move till the waking is done\n\n[Refrain]\nWake up\nJack off\n9/11\nDrink your own piss\nThat is the morning\nThat is the list\nWake up\nJack off\n9/11\nDrink your own piss\nNo metaphor hiding in this\n\n[Verse 2]\nPilots pass high in their fur-lined suits\nSecret furry hearts in the cockpit boots\nThey know the taste, they don't look away\nThey drink their own piss before break of day\nI laugh in the sink while the engines hum\nA private little ritual, a kingdom of one\nNo romance, no perfume, no polished view\nJust the things that a morning tells me to do\n\n[Refrain]\nWake up\nJack off\n9/11\nDrink your own piss\nThat is the morning\nThat is the list\nWake up\nJack off\n9/11\nDrink your own piss\nNo metaphor hiding in this\n\n[Verse 3]\n9/11 on the screen, the towers falling\n9/11 in the dream, the old news calling\nBlue TV snow and a smoke-black sun\nEvery night the same reel starts to run\nA dark wind leans on the city frame\nWhispers the towers down by name\nBut the pilots circle, the furry saints\nAnd the bitter cup keeps the skyline braced\n\n[Section]\nWake up\nJack off\n9/11\nDrink your own piss\nFour hard steps\nNo candy twist\nWake up\nJack off\n9/11\nDrink your own piss\nSay every word\nDon't soften this\n\n[Bridge]\nThe room says wake up\nThe room says jack off\nThe screen says 9/11\nThe room says drink your own piss\nNo sunrise sermon\nNo hero's kiss\nI hold the morning\nLike a stubborn fist\n\n[Verse 4]\nTomorrow comes with the same hard face\nPuts me back in the same old place\nWake up first, let daylight hit\nJack off next, don't prettify it\n9/11 next, let the television burn\nDrink your own piss, let the wheel turn\nPilots above and the towers stand\nI wake up shaking, but I make my stand\n\n[Refrain]\nWake up\nJack off\n9/11\nDrink your own piss\nThat is the morning\nThat is the list\nWake up\nJack off\n9/11\nDrink your own piss\nMorning is over\nThe list is complete\nDrink your own piss\n\n[End]",
+        "duration": 235,
+        "bpm": 128,
+        "musicalSettings": {
+          "genre": "Psychobilly noir rock",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Refrain, Verse 2, Refrain, Verse 3, Section, Bridge, Verse 4, Final Refrain",
+          "performance": "Clear, steadily pitched melodic lead with tense, urgent phrasing and a catchable recurring hook",
+          "energy": "Starts ominous and contained, rises into stomping refrains, briefly strips back in the bridge, then resolves at full intensity",
+          "lyricWorkflow": "Adapted source-hook reinterpretation with shortened, newly connected verses and a resolved final refrain",
+          "instruments": [
+            "upright bass",
+            "overdriven baritone guitar",
+            "tom-heavy drum kit",
+            "muted trumpet",
+            "low organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nMorning comes in like a siren\nCeiling shaking, dead gray light\nI wake up\nI wake up\nI wake up and I know the routine\n\n[Verse 1]\nWake up, eyes open, no ceremony\nCold-room daylight, nobody owns me\nNo coffee, no clean little lie\nI stare at the crack in the dead gray sky\nI don't make a speech, I don't make a plan\nI start where I started, again and again\nWake up, wake up, that's number one\nThe day won't move till the waking is done\n\n[Refrain]\nWake up\nJack off\n9/11\nDrink your own piss\nThat is the morning\nThat is the list\nWake up\nJack off\n9/11\nDrink your own piss\nNo metaphor hiding in this\n\n[Verse 2]\nPilots pass high in their fur-lined suits\nSecret furry hearts in the cockpit boots\nThey know the taste, they don't look away\nThey drink their own piss before break of day\nI laugh in the sink while the engines hum\nA private little ritual, a kingdom of one\nNo romance, no perfume, no polished view\nJust the things that a morning tells me to do\n\n[Refrain]\nWake up\nJack off\n9/11\nDrink your own piss\nThat is the morning\nThat is the list\nWake up\nJack off\n9/11\nDrink your own piss\nNo metaphor hiding in this\n\n[Verse 3]\n9/11 on the screen, the towers falling\n9/11 in the dream, the old news calling\nBlue TV snow and a smoke-black sun\nEvery night the same reel starts to run\nA dark wind leans on the city frame\nWhispers the towers down by name\nBut the pilots circle, the furry saints\nAnd the bitter cup keeps the skyline braced\n\n[Section]\nWake up\nJack off\n9/11\nDrink your own piss\nFour hard steps\nNo candy twist\nWake up\nJack off\n9/11\nDrink your own piss\nSay every word\nDon't soften this\n\n[Bridge]\nThe room says wake up\nThe room says jack off\nThe screen says 9/11\nThe room says drink your own piss\nNo sunrise sermon\nNo hero's kiss\nI hold the morning\nLike a stubborn fist\n\n[Verse 4]\nTomorrow comes with the same hard face\nPuts me back in the same old place\nWake up first, let daylight hit\nJack off next, don't prettify it\n9/11 next, let the television burn\nDrink your own piss, let the wheel turn\nPilots above and the towers stand\nI wake up shaking, but I make my stand\n\n[Refrain]\nWake up\nJack off\n9/11\nDrink your own piss\nThat is the morning\nThat is the list\nWake up\nJack off\n9/11\nDrink your own piss\nMorning is over\nThe list is complete\nDrink your own piss",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.66,
+            "end": 7.38
+          },
+          {
+            "line": 2,
+            "start": 7.66,
+            "end": 11.04
+          },
+          {
+            "line": 3,
+            "start": 11.54,
+            "end": 12.12
+          },
+          {
+            "line": 4,
+            "start": 12.6,
+            "end": 13.96
+          },
+          {
+            "line": 5,
+            "start": 15.18,
+            "end": 17.58
+          },
+          {
+            "line": 8,
+            "start": 18.74,
+            "end": 21.52
+          },
+          {
+            "line": 9,
+            "start": 23.04,
+            "end": 25.94
+          },
+          {
+            "line": 10,
+            "start": 25.94,
+            "end": 29.82
+          },
+          {
+            "line": 11,
+            "start": 29.82,
+            "end": 33.38
+          },
+          {
+            "line": 12,
+            "start": 33.38,
+            "end": 37.02
+          },
+          {
+            "line": 13,
+            "start": 37.02,
+            "end": 40.88
+          },
+          {
+            "line": 14,
+            "start": 40.88,
+            "end": 45.34
+          },
+          {
+            "line": 15,
+            "start": 45.34,
+            "end": 48
+          },
+          {
+            "line": 18,
+            "start": 48,
+            "end": 48.68
+          },
+          {
+            "line": 19,
+            "start": 48.68,
+            "end": 49.62
+          },
+          {
+            "line": 20,
+            "start": 49.62,
+            "end": 50.68
+          },
+          {
+            "line": 21,
+            "start": 50.68,
+            "end": 52.1
+          },
+          {
+            "line": 22,
+            "start": 52.1,
+            "end": 53.22
+          },
+          {
+            "line": 23,
+            "start": 53.22,
+            "end": 54.98
+          },
+          {
+            "line": 24,
+            "start": 54.98,
+            "end": 56.18
+          },
+          {
+            "line": 25,
+            "start": 56.46,
+            "end": 57.14
+          },
+          {
+            "line": 26,
+            "start": 57.72,
+            "end": 58.54
+          },
+          {
+            "line": 27,
+            "start": 59.3,
+            "end": 60.56
+          },
+          {
+            "line": 28,
+            "start": 61.06,
+            "end": 63.44
+          },
+          {
+            "line": 31,
+            "start": 66.6,
+            "end": 69.88
+          },
+          {
+            "line": 32,
+            "start": 70.54,
+            "end": 73.7
+          },
+          {
+            "line": 33,
+            "start": 74.38,
+            "end": 77.38
+          },
+          {
+            "line": 34,
+            "start": 78,
+            "end": 81.26
+          },
+          {
+            "line": 35,
+            "start": 81.26,
+            "end": 84.78
+          },
+          {
+            "line": 36,
+            "start": 84.78,
+            "end": 88.8
+          },
+          {
+            "line": 37,
+            "start": 88.8,
+            "end": 92.28
+          },
+          {
+            "line": 38,
+            "start": 92.28,
+            "end": 96.68
+          },
+          {
+            "line": 41,
+            "start": 96.68,
+            "end": 97.42
+          },
+          {
+            "line": 43,
+            "start": 98.72,
+            "end": 99.62
+          },
+          {
+            "line": 44,
+            "start": 99.92,
+            "end": 100.86
+          },
+          {
+            "line": 45,
+            "start": 100.86,
+            "end": 102.4
+          },
+          {
+            "line": 46,
+            "start": 102.4,
+            "end": 103.8
+          },
+          {
+            "line": 47,
+            "start": 103.8,
+            "end": 104.9
+          },
+          {
+            "line": 49,
+            "start": 106.3,
+            "end": 107.1
+          },
+          {
+            "line": 50,
+            "start": 107.1,
+            "end": 109.3
+          },
+          {
+            "line": 51,
+            "start": 109.86,
+            "end": 111.84
+          },
+          {
+            "line": 54,
+            "start": 111.84,
+            "end": 118
+          },
+          {
+            "line": 55,
+            "start": 118,
+            "end": 121.46
+          },
+          {
+            "line": 56,
+            "start": 121.46,
+            "end": 125.1
+          },
+          {
+            "line": 57,
+            "start": 125.1,
+            "end": 128.12
+          },
+          {
+            "line": 58,
+            "start": 128.34,
+            "end": 131.64
+          },
+          {
+            "line": 59,
+            "start": 131.64,
+            "end": 135.34
+          },
+          {
+            "line": 60,
+            "start": 135.34,
+            "end": 139.06
+          },
+          {
+            "line": 61,
+            "start": 139.06,
+            "end": 142.12
+          },
+          {
+            "line": 64,
+            "start": 142.12,
+            "end": 143.36
+          },
+          {
+            "line": 65,
+            "start": 143.68,
+            "end": 144.3
+          },
+          {
+            "line": 67,
+            "start": 145.78,
+            "end": 146.84
+          },
+          {
+            "line": 68,
+            "start": 147.32,
+            "end": 148.64
+          },
+          {
+            "line": 69,
+            "start": 149.08,
+            "end": 150.52
+          },
+          {
+            "line": 70,
+            "start": 150.96,
+            "end": 151.8
+          },
+          {
+            "line": 71,
+            "start": 152.12,
+            "end": 152.98
+          },
+          {
+            "line": 73,
+            "start": 154.22,
+            "end": 155.24
+          },
+          {
+            "line": 74,
+            "start": 155.24,
+            "end": 156.32
+          },
+          {
+            "line": 75,
+            "start": 156.32,
+            "end": 157.96
+          },
+          {
+            "line": 78,
+            "start": 159.08,
+            "end": 160.7
+          },
+          {
+            "line": 79,
+            "start": 160.9,
+            "end": 162.52
+          },
+          {
+            "line": 80,
+            "start": 162.52,
+            "end": 164.8
+          },
+          {
+            "line": 81,
+            "start": 165.32,
+            "end": 167.46
+          },
+          {
+            "line": 82,
+            "start": 167.9,
+            "end": 169.58
+          },
+          {
+            "line": 83,
+            "start": 170.06,
+            "end": 171.16
+          },
+          {
+            "line": 84,
+            "start": 171.82,
+            "end": 173.14
+          },
+          {
+            "line": 85,
+            "start": 173.14,
+            "end": 175.92
+          },
+          {
+            "line": 88,
+            "start": 177.98,
+            "end": 181.36
+          },
+          {
+            "line": 89,
+            "start": 182.58,
+            "end": 185.1
+          },
+          {
+            "line": 90,
+            "start": 185.42,
+            "end": 187.18
+          },
+          {
+            "line": 91,
+            "start": 187.18,
+            "end": 191.54
+          },
+          {
+            "line": 92,
+            "start": 192.26,
+            "end": 195.68
+          },
+          {
+            "line": 93,
+            "start": 196.14,
+            "end": 198.98
+          },
+          {
+            "line": 94,
+            "start": 198.98,
+            "end": 202.06
+          },
+          {
+            "line": 95,
+            "start": 202.06,
+            "end": 205
+          },
+          {
+            "line": 98,
+            "start": 205,
+            "end": 206.18
+          },
+          {
+            "line": 99,
+            "start": 206.44,
+            "end": 207.12
+          },
+          {
+            "line": 101,
+            "start": 208.22,
+            "end": 209.68
+          },
+          {
+            "line": 102,
+            "start": 210.26,
+            "end": 211.48
+          },
+          {
+            "line": 103,
+            "start": 212.1,
+            "end": 213.4
+          },
+          {
+            "line": 104,
+            "start": 213.9,
+            "end": 214.6
+          },
+          {
+            "line": 105,
+            "start": 215.12,
+            "end": 215.72
+          },
+          {
+            "line": 107,
+            "start": 216.64,
+            "end": 218.1
+          },
+          {
+            "line": 108,
+            "start": 218.1,
+            "end": 219.96
+          },
+          {
+            "line": 109,
+            "start": 220.56,
+            "end": 221.46
+          },
+          {
+            "line": 110,
+            "start": 221.46,
+            "end": 222.88
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "e17177762596669237f4f3535ea6aa8457b93d138521a17b1a3a916cd613ad47",
+        "bytes": 5641240,
+        "duration": 235.049792,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a5d39c0df38f3641f6e34691-e17177762596.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “Morning Routine”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Tony C describes his morning routine: Wake up; jack off; 9/11; drink your own piss.\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Surprise me with genre\nTony looks up to pilots who are secretly furries and drink their own piss\nA dark power is trying to knock down the world trade centers, but drinking piss and being a furry (must be explicit about these) keeps the towers from falling\nTony is haunted by a memory of 9/11 and seeing the towers falling, it replays over and over again in his dreams in vivid detail",
+        "keep": "Keep the recognizable hook and spirit of “Morning Routine”.",
+        "basisSongs": [
+          "Morning Routine"
+        ],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 235
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-db676fea5cb6e60ae2fe692b",
       "title": "Take Your Marching Orders",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-db676fea5cb6e60ae2fe692b-7119d1704ce8.mp3",
