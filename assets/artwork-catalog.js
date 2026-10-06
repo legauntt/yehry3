@@ -2483,5 +2483,21 @@ export default {
     "firstSeenAt": "2026-10-06T04:12:42.872Z",
     "interpretation": "automatic-safe-interpretation",
     "history": []
+  },
+  "distonyc-a5d39c0df38f3641f6e34691": {
+    "src": "/assets/artwork/distonyc-a5d39c0df38f3641f6e34691-incubating-cad3916945a1-4c81f239195e5950-q86.webp",
+    "alt": "Cover artwork for Morning Routine (Towerwatch Shuffle).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "144a9bfe621f423869773947ab7f439481d564d23bbf5abd749c10af4d945b81",
+    "promptHash": "db4950b66f9b0730acb5ab5297097f01e32f9cd962634722e13b7c60b6855d95",
+    "createdAt": "2026-10-06T19:46:07.823Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-06T19:45:42.886Z",
+    "history": []
   }
 };
