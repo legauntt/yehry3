@@ -2499,5 +2499,22 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-06T19:45:42.886Z",
     "history": []
+  },
+  "distonyc-d208e5ebf7c696a926cf11dd": {
+    "src": "/assets/artwork/distonyc-d208e5ebf7c696a926cf11dd-basic-85716327fa48-3d7e270e958fc0d0-q86.webp",
+    "alt": "A fictional fox pilot and wolf copilot fly through an indigo night above violet clouds.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "basic",
+    "model": "built-in-imagegen",
+    "sourceHash": "f88e4994adf3054b1d60ea06dd19928f4a0956e5629ac2f7ad8b721a4d576511",
+    "promptHash": "1e616383ee41568283aab4433ac18ea4830d8e8a366be2b2c6fea44942a1e1d0",
+    "createdAt": "2026-10-06T23:58:50.378Z",
+    "missingSources": [],
+    "previous": null,
+    "interpretation": "non-explicit-scene",
+    "briefHash": "442f897919b4c69daaf9d513c868e850dd43a8ef540104e89394068faef89f7b",
+    "history": []
   }
 };
