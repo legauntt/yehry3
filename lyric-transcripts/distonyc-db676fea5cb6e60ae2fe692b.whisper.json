@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "songId": "distonyc-db676fea5cb6e60ae2fe692b",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-db676fea5cb6e60ae2fe692b-7119d1704ce8.mp3",
+  "audioSha256": "7119d1704ce8de78f6cebc950283b4b6984830a494dd7c2608b8da10f5f0285c",
+  "inputSha256": "1f479f4319fc3caf1f6a3b6ecd06ffbc534840cb561dbe8b3c6244d69199a691",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 270.0,
+  "segments": [
+    {
+      "start": 15.74,
+      "end": 20.16,
+      "text": "Pete Hicks, it steps through the studio glare",
+      "uncertain": true
+    },
+    {
+      "start": 20.16,
+      "end": 24.02,
+      "text": "With a polished jaw and a preacher's stare",
+      "uncertain": true
+    },
+    {
+      "start": 24.02,
+      "end": 28.06,
+      "text": "He toss a vaude up of blood of home",
+      "uncertain": true
+    },
+    {
+      "start": 28.06,
+      "end": 31.8,
+      "text": "Like the world is his to fence and home",
+      "uncertain": true
+    },
+    {
+      "start": 31.8,
+      "end": 35.7,
+      "text": "He wants the husband high, the wife kept small",
+      "uncertain": false
+    },
+    {
+      "start": 35.7,
+      "end": 39.5,
+      "text": "The child taught fear before they learned to crawl",
+      "uncertain": false
+    },
+    {
+      "start": 39.5,
+      "end": 43.36,
+      "text": "He puts a trance kit, makes the target blow",
+      "uncertain": true
+    },
+    {
+      "start": 43.36,
+      "end": 47.22,
+      "text": "Then calls that cruelty the way to go",
+      "uncertain": false
+    },
+    {
+      "start": 47.22,
+      "end": 51.28,
+      "text": "A flag is clawed across this wood",
+      "uncertain": false
+    },
+    {
+      "start": 51.28,
+      "end": 54.98,
+      "text": "Neither makes the tyrant good",
+      "uncertain": false
+    },
+    {
+      "start": 54.98,
+      "end": 56.24,
+      "text": "Say it plain",
+      "uncertain": true
+    },
+    {
+      "start": 56.24,
+      "end": 59.04,
+      "text": "Let the ugly sound",
+      "uncertain": false
+    },
+    {
+      "start": 59.04,
+      "end": 63.3,
+      "text": "Lose its far old holy ground",
+      "uncertain": true
+    },
+    {
+      "start": 64.16,
+      "end": 65.88,
+      "text": "Ye dick said",
+      "uncertain": true
+    },
+    {
+      "start": 65.88,
+      "end": 68.06,
+      "text": "We know your creed",
+      "uncertain": false
+    },
+    {
+      "start": 68.06,
+      "end": 69.78,
+      "text": "White knuckle power",
+      "uncertain": false
+    },
+    {
+      "start": 69.78,
+      "end": 71.38,
+      "text": "Dressed up as me",
+      "uncertain": false
+    },
+    {
+      "start": 71.38,
+      "end": 73.62,
+      "text": "You want the boots",
+      "uncertain": false
+    },
+    {
+      "start": 73.62,
+      "end": 75.5,
+      "text": "The bars, the rule",
+      "uncertain": false
+    },
+    {
+      "start": 75.5,
+      "end": 77.58,
+      "text": "A country run by",
+      "uncertain": true
+    },
+    {
+      "start": 77.58,
+      "end": 79.56,
+      "text": "Every loud mouthful",
+      "uncertain": false
+    },
+    {
+      "start": 79.56,
+      "end": 83.3,
+      "text": "Fade old horse and patriotic blue",
+      "uncertain": true
+    },
+    {
+      "start": 83.3,
+      "end": 86.96,
+      "text": "Call it Christian, call it true",
+      "uncertain": true
+    },
+    {
+      "start": 86.96,
+      "end": 91.06,
+      "text": "Pete Hicks said, hear the horse say no",
+      "uncertain": true
+    },
+    {
+      "start": 91.06,
+      "end": 95.02,
+      "text": "Take your marching orders and roll",
+      "uncertain": false
+    },
+    {
+      "start": 97.9,
+      "end": 101.82,
+      "text": "He sells a pass that never won us",
+      "uncertain": true
+    },
+    {
+      "start": 101.82,
+      "end": 105.38,
+      "text": "A kitchen prison, a father's laws",
+      "uncertain": true
+    },
+    {
+      "start": 105.38,
+      "end": 109.22,
+      "text": "A little white picket, a locked front gate",
+      "uncertain": false
+    },
+    {
+      "start": 109.22,
+      "end": 113.06,
+      "text": "A list of people he was taught to hate",
+      "uncertain": true
+    },
+    {
+      "start": 113.06,
+      "end": 116.96,
+      "text": "He says nature with a camera smile",
+      "uncertain": true
+    },
+    {
+      "start": 116.96,
+      "end": 120.88,
+      "text": "While measure, measure bodies into rank and file",
+      "uncertain": false
+    },
+    {
+      "start": 120.88,
+      "end": 123.8,
+      "text": "He wants a stranger bent and blamed",
+      "uncertain": false
+    },
+    {
+      "start": 123.8,
+      "end": 127.64,
+      "text": "The quickie quiet, the woman tame",
+      "uncertain": true
+    },
+    {
+      "start": 127.64,
+      "end": 132.54,
+      "text": "No clean haircut, no television chair",
+      "uncertain": false
+    },
+    {
+      "start": 132.54,
+      "end": 136.44,
+      "text": "You can hide the rock that's hanging there",
+      "uncertain": false
+    },
+    {
+      "start": 136.44,
+      "end": 140.2,
+      "text": "But uniform is just a shirt",
+      "uncertain": true
+    },
+    {
+      "start": 140.2,
+      "end": 144.58,
+      "text": "It cannot bless the dirt",
+      "uncertain": true
+    },
+    {
+      "start": 147.18,
+      "end": 151.34,
+      "text": "Pete Hicks said, we know your creed",
+      "uncertain": false
+    },
+    {
+      "start": 151.34,
+      "end": 154.68,
+      "text": "Widen up a plow dressed up as knee",
+      "uncertain": false
+    },
+    {
+      "start": 154.68,
+      "end": 158.66,
+      "text": "You want the boost, the bar's the rule",
+      "uncertain": true
+    },
+    {
+      "start": 158.66,
+      "end": 162.78,
+      "text": "A country run by every loud mouthful",
+      "uncertain": false
+    },
+    {
+      "start": 162.78,
+      "end": 166.54,
+      "text": "Play the voice unpatriotic boo",
+      "uncertain": true
+    },
+    {
+      "start": 166.54,
+      "end": 170.16,
+      "text": "Call it Christian, call it true",
+      "uncertain": false
+    },
+    {
+      "start": 170.16,
+      "end": 174.32,
+      "text": "Pre-exit, hear the room say no",
+      "uncertain": true
+    },
+    {
+      "start": 174.32,
+      "end": 178.22,
+      "text": "Take your marching orders and go",
+      "uncertain": false
+    },
+    {
+      "start": 187.46,
+      "end": 191.42,
+      "text": "Call it debate, call it a joke",
+      "uncertain": false
+    },
+    {
+      "start": 191.42,
+      "end": 195.34,
+      "text": "Call it freedom through a cloud of smoke",
+      "uncertain": false
+    },
+    {
+      "start": 195.34,
+      "end": 199.14,
+      "text": "But every slogan leads a trail",
+      "uncertain": false
+    },
+    {
+      "start": 199.14,
+      "end": 203.04,
+      "text": "Of boarded doors and county jails",
+      "uncertain": false
+    },
+    {
+      "start": 203.04,
+      "end": 206.9,
+      "text": "No savior needs a chosen threat",
+      "uncertain": false
+    },
+    {
+      "start": 206.9,
+      "end": 210.44,
+      "text": "No faith demands we learn to forget",
+      "uncertain": false
+    },
+    {
+      "start": 210.44,
+      "end": 214.68,
+      "text": "The lights come up, the trick is through",
+      "uncertain": false
+    },
+    {
+      "start": 214.68,
+      "end": 218.22,
+      "text": "And everybody sees the real you",
+      "uncertain": false
+    },
+    {
+      "start": 222.76,
+      "end": 226.64,
+      "text": "Pete Hague said, your mask is gone",
+      "uncertain": true
+    },
+    {
+      "start": 226.64,
+      "end": 230.2,
+      "text": "The cameras cut what you built upon",
+      "uncertain": true
+    },
+    {
+      "start": 230.2,
+      "end": 234.32,
+      "text": "No more boots, no bars, no rule",
+      "uncertain": false
+    },
+    {
+      "start": 234.32,
+      "end": 237.98,
+      "text": "No borrowed flag for a clone of a fool",
+      "uncertain": true
+    },
+    {
+      "start": 237.98,
+      "end": 241.84,
+      "text": "We will not clap, we will not bow",
+      "uncertain": true
+    },
+    {
+      "start": 241.84,
+      "end": 245.74,
+      "text": "The lie is loud, but louder now",
+      "uncertain": true
+    },
+    {
+      "start": 245.74,
+      "end": 249.52,
+      "text": "Pete Hague said, hear the people go",
+      "uncertain": false
+    },
+    {
+      "start": 249.52,
+      "end": 253.64,
+      "text": "Take your heart and tell no",
+      "uncertain": true
+    }
+  ]
+}
