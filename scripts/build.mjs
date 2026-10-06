@@ -55,7 +55,13 @@ await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 for (const file of publicEntries) {
   await stat(path.join(root, file));
-  await cp(path.join(root, file), path.join(output, file), { recursive: true });
+  await cp(path.join(root, file), path.join(output, file), {
+    recursive: true,
+    // Production redirects this unchanged legacy clip to its checksum-verified
+    // release copy, keeping the Azure bundle below the existing size limit.
+    filter: source => !process.env.YEHRY3_ARCHIVE_URL ||
+      source !== path.join(root, "assets", "song-videos", "20-miracle-darkwave-circus.mp4"),
+  });
 }
 await buildArtworkPreviews(root, output, artwork);
 const fullCatalog = JSON.parse(await readFile(path.join(root, "catalog.json"), "utf8"));
