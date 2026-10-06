@@ -2408,21 +2408,26 @@ export default {
     ]
   },
   "distonyc-c48f19efb7dfe8c3d9f644eb": {
-    "src": "/assets/artwork/distonyc-c48f19efb7dfe8c3d9f644eb-incubating-235e0e2f9c26-6836c3446e526015-q86.webp",
+    "src": "/assets/artwork/distonyc-c48f19efb7dfe8c3d9f644eb-mature-745c08f7c1ad-ad1a40342d80bb99-q86.webp",
     "alt": "Cover artwork for Good Old Days on the Block.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "58eda850e24221c0c16e93aa9873185c318b3734867f3cfe2a833d5d96c77199",
-    "promptHash": "9ce8044c1396d4814369a10a40165c27643dd51042162cef1a4ab0e0feed06af",
-    "createdAt": "2026-10-05T12:46:02.370Z",
+    "promptHash": "5838b1b2c58e1d257ff0844ff7e98e1d4c94bfd6e87ae7d7c08ef4e90e3197d4",
+    "createdAt": "2026-10-06T12:49:36.908Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-c48f19efb7dfe8c3d9f644eb-incubating-235e0e2f9c26-6836c3446e526015-q86.webp",
     "firstSeenAt": "2026-10-05T12:45:42.978Z",
-    "interpretation": "automatic-safe-interpretation",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-c48f19efb7dfe8c3d9f644eb-incubating-235e0e2f9c26-6836c3446e526015-q86.webp",
+        "alt": "Cover artwork for Good Old Days on the Block.",
+        "createdAt": "2026-10-05T12:46:02.370Z"
+      }
+    ]
   },
   "distonyc-39dcafa75845d179ad486fe6": {
     "src": "/assets/artwork/distonyc-39dcafa75845d179ad486fe6-incubating-cdf8f8476141-af4495a57de87e61-q86.webp",
