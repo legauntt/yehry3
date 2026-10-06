@@ -2364,20 +2364,26 @@ export default {
     ]
   },
   "distonyc-6d17465ec0962fdbd34e0b8c": {
-    "src": "/assets/artwork/distonyc-6d17465ec0962fdbd34e0b8c-incubating-eceef5f373a1-8b38a28094edb5b8-q86.webp",
+    "src": "/assets/artwork/distonyc-6d17465ec0962fdbd34e0b8c-mature-ec836122f5f2-122d404c292816cc-q86.webp",
     "alt": "Cover artwork for What Is Love (Tony C V9 AI Remix).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "4398a20223b726a80b427973b23d7dd084473446b34686f7d291fd21e75cd1cc",
-    "promptHash": "a67db6e4bbf809a0c4393a0dad6b60c0ad9ff18476ebb39c39f786ed51bd0cf6",
-    "createdAt": "2026-10-05T05:31:02.435Z",
+    "promptHash": "e2af9d37343c4d82cf5c761290a441d1a1150adc1ae87af42e828c7837b6d1bb",
+    "createdAt": "2026-10-06T05:34:27.101Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-6d17465ec0962fdbd34e0b8c-incubating-eceef5f373a1-8b38a28094edb5b8-q86.webp",
     "firstSeenAt": "2026-10-05T05:30:43.069Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-6d17465ec0962fdbd34e0b8c-incubating-eceef5f373a1-8b38a28094edb5b8-q86.webp",
+        "alt": "Cover artwork for What Is Love (Tony C V9 AI Remix).",
+        "createdAt": "2026-10-05T05:31:02.435Z"
+      }
+    ]
   },
   "distonyc-d7308feaf7da5f1c69383192": {
     "src": "/assets/artwork/distonyc-d7308feaf7da5f1c69383192-incubating-6e9f138a1cb1-a2d8a8432cca8fc1-q86.webp",
