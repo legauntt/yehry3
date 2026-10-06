@@ -2430,20 +2430,26 @@ export default {
     ]
   },
   "distonyc-39dcafa75845d179ad486fe6": {
-    "src": "/assets/artwork/distonyc-39dcafa75845d179ad486fe6-incubating-cdf8f8476141-af4495a57de87e61-q86.webp",
+    "src": "/assets/artwork/distonyc-39dcafa75845d179ad486fe6-mature-6cb580202ca0-7241118773befd5e-q86.webp",
     "alt": "Cover artwork for Thirty Days at the Portal.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "69f11a5783ffea638fe19082b8683d235b9dbdb26e801298e1e2493bedf1dfab",
-    "promptHash": "7511788df8f4519805f351ec417900ae5bb96187c509464d4d2527e5283843bf",
-    "createdAt": "2026-10-05T18:49:05.372Z",
+    "promptHash": "da5858a57be1a0d1c210cc37bdb9f248652d1feb09b4ebf55882cc09945f0ab0",
+    "createdAt": "2026-10-06T18:52:34.845Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-39dcafa75845d179ad486fe6-incubating-cdf8f8476141-af4495a57de87e61-q86.webp",
     "firstSeenAt": "2026-10-05T18:48:43.368Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-39dcafa75845d179ad486fe6-incubating-cdf8f8476141-af4495a57de87e61-q86.webp",
+        "alt": "Cover artwork for Thirty Days at the Portal.",
+        "createdAt": "2026-10-05T18:49:05.372Z"
+      }
+    ]
   },
   "distonyc-cd4c0296f22cede53c369737": {
     "src": "/assets/artwork/distonyc-cd4c0296f22cede53c369737-incubating-8e3c48922cbd-942df0b90ec62720-q86.webp",
