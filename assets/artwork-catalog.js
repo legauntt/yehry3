@@ -2386,20 +2386,26 @@ export default {
     ]
   },
   "distonyc-d7308feaf7da5f1c69383192": {
-    "src": "/assets/artwork/distonyc-d7308feaf7da5f1c69383192-incubating-6e9f138a1cb1-a2d8a8432cca8fc1-q86.webp",
+    "src": "/assets/artwork/distonyc-d7308feaf7da5f1c69383192-mature-6d4be74f5091-58bffb67958516fc-q86.webp",
     "alt": "Cover artwork for The Seat Across From Mine.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "ee14fae593f9be9d4a5af02012172b69d1f004b02c6daba9d22f7edb5b2225d5",
-    "promptHash": "5b8fa95291b4bbcc4a069b00a98e925844b4caba9849bd8b14d52a041c86ad9e",
-    "createdAt": "2026-10-05T08:43:00.871Z",
+    "promptHash": "c28cec572440b8fee96090068a42eb91c3e6a7d2dc0ed34b7d9506677a735369",
+    "createdAt": "2026-10-06T08:46:30.767Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-d7308feaf7da5f1c69383192-incubating-6e9f138a1cb1-a2d8a8432cca8fc1-q86.webp",
     "firstSeenAt": "2026-10-05T08:42:43.457Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-d7308feaf7da5f1c69383192-incubating-6e9f138a1cb1-a2d8a8432cca8fc1-q86.webp",
+        "alt": "Cover artwork for The Seat Across From Mine.",
+        "createdAt": "2026-10-05T08:43:00.871Z"
+      }
+    ]
   },
   "distonyc-c48f19efb7dfe8c3d9f644eb": {
     "src": "/assets/artwork/distonyc-c48f19efb7dfe8c3d9f644eb-incubating-235e0e2f9c26-6836c3446e526015-q86.webp",
