@@ -2,6 +2,366 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-db676fea5cb6e60ae2fe692b",
+      "title": "Take Your Marching Orders",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-db676fea5cb6e60ae2fe692b-7119d1704ce8.mp3",
+      "duration": 270,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-06T04:10:22.272Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Take Your Marching Orders",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Slow funeral-dirge rock in 4/4: tolling piano and low organ open beneath bowed bass, then restrained toms, muted electric guitar, and a grave electric bass line enter. Tony delivers rough, smoky, connected phrases with bitter restraint, expanding into a forceful melodic chorus. Build from sparse accusation to full-band final chorus; sustain the final word near 10 seconds before the end, resolve on one final D-minor chord, and let it decay naturally.",
+        "lyrics": "[Verse 1]\nPete Hegseth steps through the studio glare\nWith a polished jaw and a preacher's stare\nHe talks of order, of blood, of home\nLike the world is his to fence and own\nHe wants the husband high, the wife kept small\nThe child taught fear before they learn to crawl\nHe points at trans kids, makes a target glow\nThen calls that cruelty the way to go\n\n[Pre-Chorus]\nA flag is cloth, a cross is wood\nNeither makes a tyrant good\nSay it plain, let the ugly sound\nLose its borrowed holy ground\n\n[Chorus]\nPete Hegseth, we know your creed\nWhite-knuckle power dressed up as need\nYou want the boots, the bars, the rule\nA country run by every loud-mouthed fool\nPaint old poison patriotic blue\nCall it Christian, call it true\nPete Hegseth, hear the room say no\nTake your marching orders and go\n\n[Verse 2]\nHe sells a past that never was\nA kitchen prison, a father's laws\nA little white picket, a locked front gate\nA list of people he was taught to hate\nHe says \"nature\" with a camera smile\nWhile measuring bodies into rank and file\nHe wants the stranger bent and blamed\nThe queer kid quiet, the woman tamed\n\n[Pre-Chorus]\nNo clean haircut, no television chair\nCan hide the rot that's hanging there\nA uniform is just a shirt\nIt cannot bless the dirt\n\n[Chorus]\nPete Hegseth, we know your creed\nWhite-knuckle power dressed up as need\nYou want the boots, the bars, the rule\nA country run by every loud-mouthed fool\nPaint old poison patriotic blue\nCall it Christian, call it true\nPete Hegseth, hear the room say no\nTake your marching orders and go\n\n[Bridge]\nCall it debate, call it a joke\nCall it freedom through a cloud of smoke\nBut every slogan leaves a trail\nOf boarded doors and county jails\nNo savior needs a chosen threat\nNo faith demands we learn to forget\nThe lights come up, the trick is through\nEverybody sees the real you\n\n[Chorus]\nPete Hegseth, your mask is gone\nThe cameras caught what you built upon\nNo more boots, no bars, no rule\nNo borrowed flag for a cruel old fool\nWe will not clap, we will not bow\nThe lie is loud, but louder now\nPete Hegseth, hear the people go\nTake your hate and go\n[End]",
+        "duration": 270,
+        "bpm": 62,
+        "musicalSettings": {
+          "genre": "Funeral-dirge rock with sharply ironic patriotic color",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus",
+          "performance": "Smoky, slurred Tony lead with sustained melodic accusations and a catchable, defiant refrain",
+          "energy": "Low, ceremonial tension grows into a full-band final refusal, then resolves quietly",
+          "lyricWorkflow": "Preserved supplied lyric sheet, set to an original melody and arrangement",
+          "instruments": [
+            "piano",
+            "organ",
+            "electric bass",
+            "muted electric guitar",
+            "toms",
+            "bowed bass"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nPete Hegseth steps through the studio glare\nWith a polished jaw and a preacher's stare\nHe talks of order, of blood, of home\nLike the world is his to fence and own\nHe wants the husband high, the wife kept small\nThe child taught fear before they learn to crawl\nHe points at trans kids, makes a target glow\nThen calls that cruelty the way to go\n\n[Pre-Chorus]\nA flag is cloth, a cross is wood\nNeither makes a tyrant good\nSay it plain, let the ugly sound\nLose its borrowed holy ground\n\n[Chorus]\nPete Hegseth, we know your creed\nWhite-knuckle power dressed up as need\nYou want the boots, the bars, the rule\nA country run by every loud-mouthed fool\nPaint old poison patriotic blue\nCall it Christian, call it true\nPete Hegseth, hear the room say no\nTake your marching orders and go\n\n[Verse 2]\nHe sells a past that never was\nA kitchen prison, a father's laws\nA little white picket, a locked front gate\nA list of people he was taught to hate\nHe says \"nature\" with a camera smile\nWhile measuring bodies into rank and file\nHe wants the stranger bent and blamed\nThe queer kid quiet, the woman tamed\n\n[Pre-Chorus]\nNo clean haircut, no television chair\nCan hide the rot that's hanging there\nA uniform is just a shirt\nIt cannot bless the dirt\n\n[Chorus]\nPete Hegseth, we know your creed\nWhite-knuckle power dressed up as need\nYou want the boots, the bars, the rule\nA country run by every loud-mouthed fool\nPaint old poison patriotic blue\nCall it Christian, call it true\nPete Hegseth, hear the room say no\nTake your marching orders and go\n\n[Bridge]\nCall it debate, call it a joke\nCall it freedom through a cloud of smoke\nBut every slogan leaves a trail\nOf boarded doors and county jails\nNo savior needs a chosen threat\nNo faith demands we learn to forget\nThe lights come up, the trick is through\nEverybody sees the real you\n\n[Chorus]\nPete Hegseth, your mask is gone\nThe cameras caught what you built upon\nNo more boots, no bars, no rule\nNo borrowed flag for a cruel old fool\nWe will not clap, we will not bow\nThe lie is loud, but louder now\nPete Hegseth, hear the people go\nTake your hate and go",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 15.86,
+            "end": 20.02
+          },
+          {
+            "line": 2,
+            "start": 20.02,
+            "end": 23.86
+          },
+          {
+            "line": 3,
+            "start": 23.86,
+            "end": 27.8
+          },
+          {
+            "line": 4,
+            "start": 27.8,
+            "end": 31.68
+          },
+          {
+            "line": 5,
+            "start": 31.68,
+            "end": 35.56
+          },
+          {
+            "line": 6,
+            "start": 35.56,
+            "end": 39.44
+          },
+          {
+            "line": 7,
+            "start": 39.44,
+            "end": 43.3
+          },
+          {
+            "line": 8,
+            "start": 43.3,
+            "end": 47.16
+          },
+          {
+            "line": 11,
+            "start": 47.86,
+            "end": 51.14
+          },
+          {
+            "line": 12,
+            "start": 52.24,
+            "end": 54.88
+          },
+          {
+            "line": 13,
+            "start": 55.26,
+            "end": 58.82
+          },
+          {
+            "line": 14,
+            "start": 58.82,
+            "end": 64.86
+          },
+          {
+            "line": 18,
+            "start": 67.74,
+            "end": 71.32
+          },
+          {
+            "line": 19,
+            "start": 71.32,
+            "end": 75.32
+          },
+          {
+            "line": 20,
+            "start": 75.32,
+            "end": 79.34
+          },
+          {
+            "line": 21,
+            "start": 79.34,
+            "end": 83.16
+          },
+          {
+            "line": 22,
+            "start": 83.71,
+            "end": 88.06
+          },
+          {
+            "line": 23,
+            "start": 88.06,
+            "end": 91.02
+          },
+          {
+            "line": 24,
+            "start": 91.31,
+            "end": 94.78
+          },
+          {
+            "line": 27,
+            "start": 97.96,
+            "end": 100.74
+          },
+          {
+            "line": 28,
+            "start": 100.74,
+            "end": 105.54
+          },
+          {
+            "line": 29,
+            "start": 105.54,
+            "end": 109.1
+          },
+          {
+            "line": 30,
+            "start": 109.86,
+            "end": 112.98
+          },
+          {
+            "line": 31,
+            "start": 112.98,
+            "end": 117.3
+          },
+          {
+            "line": 32,
+            "start": 117.3,
+            "end": 120.6
+          },
+          {
+            "line": 33,
+            "start": 121,
+            "end": 123.6
+          },
+          {
+            "line": 34,
+            "start": 123.6,
+            "end": 127.64
+          },
+          {
+            "line": 37,
+            "start": 128.54,
+            "end": 133.14
+          },
+          {
+            "line": 38,
+            "start": 133.14,
+            "end": 136.22
+          },
+          {
+            "line": 39,
+            "start": 136.86,
+            "end": 140.16
+          },
+          {
+            "line": 40,
+            "start": 141.62,
+            "end": 144.52
+          },
+          {
+            "line": 43,
+            "start": 147.7,
+            "end": 151.96
+          },
+          {
+            "line": 44,
+            "start": 151.96,
+            "end": 154.56
+          },
+          {
+            "line": 45,
+            "start": 154.56,
+            "end": 158.5
+          },
+          {
+            "line": 46,
+            "start": 158.84,
+            "end": 163.62
+          },
+          {
+            "line": 48,
+            "start": 167.02,
+            "end": 170.08
+          },
+          {
+            "line": 49,
+            "start": 170.88,
+            "end": 174.22
+          },
+          {
+            "line": 50,
+            "start": 174.6,
+            "end": 178.12
+          },
+          {
+            "line": 53,
+            "start": 187.54,
+            "end": 191.3
+          },
+          {
+            "line": 54,
+            "start": 191.3,
+            "end": 195.16
+          },
+          {
+            "line": 55,
+            "start": 195.62,
+            "end": 198.98
+          },
+          {
+            "line": 56,
+            "start": 198.98,
+            "end": 203
+          },
+          {
+            "line": 57,
+            "start": 203,
+            "end": 206.82
+          },
+          {
+            "line": 58,
+            "start": 206.82,
+            "end": 210.4
+          },
+          {
+            "line": 59,
+            "start": 210.4,
+            "end": 214.54
+          },
+          {
+            "line": 60,
+            "start": 215.28,
+            "end": 218.2
+          },
+          {
+            "line": 63,
+            "start": 222.68,
+            "end": 226.44
+          },
+          {
+            "line": 64,
+            "start": 226.86,
+            "end": 230.12
+          },
+          {
+            "line": 65,
+            "start": 230.12,
+            "end": 234.1
+          },
+          {
+            "line": 66,
+            "start": 234.1,
+            "end": 237.78
+          },
+          {
+            "line": 67,
+            "start": 237.78,
+            "end": 241.62
+          },
+          {
+            "line": 68,
+            "start": 242.46,
+            "end": 246.76
+          },
+          {
+            "line": 69,
+            "start": 246.76,
+            "end": 249.34
+          },
+          {
+            "line": 70,
+            "start": 250.42,
+            "end": 253.54
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 16.7
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 15.66
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "pitchRepair": "wild",
+      "voiceEpoch": 300,
+      "guide": {
+        "sha256": "108a8e258c4fb26f04bef4f96a97b2928455820ce6f34c60dc5347a3d1e088eb",
+        "bytes": 6514892,
+        "duration": 270.0,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-db676fea5cb6e60ae2fe692b-108a8e258c4f.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Pete Hegseth finally comes out of the closet as full neo nazi. Based on a true story.",
+        "direction": "Funeral dirge with sharp ironic patriotism",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 300,
+        "musicBackend": "local",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-cd4c0296f22cede53c369737",
       "title": "Subscription of the Damned",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cd4c0296f22cede53c369737-87492787158a.mp3",
