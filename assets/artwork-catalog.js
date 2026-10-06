@@ -2342,20 +2342,26 @@ export default {
     ]
   },
   "distonyc-de3d0700e6eb89e5980293b6": {
-    "src": "/assets/artwork/distonyc-de3d0700e6eb89e5980293b6-incubating-b4b391d426b4-fbb67795c4a8a846-q86.webp",
+    "src": "/assets/artwork/distonyc-de3d0700e6eb89e5980293b6-mature-d744bf5ccea2-3cff335ddda16e22-q86.webp",
     "alt": "Cover artwork for After the Strobe (Tony C V9).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "bdadfd239acb13f7328f8a9e9e48389653ee5867ebf81f3f3753b5e8c6e35738",
-    "promptHash": "3c2493b76dfa2ab2cc34d8ac920328e2df7e4bb327513cfd27c8d0b287f4a54f",
-    "createdAt": "2026-10-05T04:12:58.990Z",
+    "promptHash": "ab452e215753a2c869e9aeb0818b9079c1bad3ad14406198a8cbcdfa63d0e484",
+    "createdAt": "2026-10-06T04:13:29.364Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-de3d0700e6eb89e5980293b6-incubating-b4b391d426b4-fbb67795c4a8a846-q86.webp",
     "firstSeenAt": "2026-10-05T04:12:42.582Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-de3d0700e6eb89e5980293b6-incubating-b4b391d426b4-fbb67795c4a8a846-q86.webp",
+        "alt": "Cover artwork for After the Strobe (Tony C V9).",
+        "createdAt": "2026-10-05T04:12:58.990Z"
+      }
+    ]
   },
   "distonyc-6d17465ec0962fdbd34e0b8c": {
     "src": "/assets/artwork/distonyc-6d17465ec0962fdbd34e0b8c-incubating-eceef5f373a1-8b38a28094edb5b8-q86.webp",
@@ -2436,6 +2442,23 @@ export default {
     "missingSources": [],
     "previous": null,
     "firstSeenAt": "2026-10-05T21:06:45.142Z",
+    "history": []
+  },
+  "distonyc-db676fea5cb6e60ae2fe692b": {
+    "src": "/assets/artwork/distonyc-db676fea5cb6e60ae2fe692b-incubating-6bd8c1b2360a-582b102486ed110f-q86.webp",
+    "alt": "Cover artwork for Take Your Marching Orders.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "9a558b62395d6ef18ace7aee243dbee76f95542b250e12f233aadd4b63a7e1a4",
+    "promptHash": "a5bbe51369a03fba2a8bac323620525a990b7274c5f1a55a7fb4cb50d22fc92c",
+    "createdAt": "2026-10-06T04:13:21.823Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-06T04:12:42.872Z",
+    "interpretation": "automatic-safe-interpretation",
     "history": []
   }
 };
