@@ -2474,21 +2474,27 @@ export default {
     ]
   },
   "distonyc-db676fea5cb6e60ae2fe692b": {
-    "src": "/assets/artwork/distonyc-db676fea5cb6e60ae2fe692b-incubating-6bd8c1b2360a-582b102486ed110f-q86.webp",
+    "src": "/assets/artwork/distonyc-db676fea5cb6e60ae2fe692b-mature-53fdf840b7a2-a9ea5176c41b5cfd-q86.webp",
     "alt": "Cover artwork for Take Your Marching Orders.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "9a558b62395d6ef18ace7aee243dbee76f95542b250e12f233aadd4b63a7e1a4",
-    "promptHash": "a5bbe51369a03fba2a8bac323620525a990b7274c5f1a55a7fb4cb50d22fc92c",
-    "createdAt": "2026-10-06T04:13:21.823Z",
+    "promptHash": "bfe4e257dab9a9a2557f940b0659f8aeb50221dbee1be250d1d650d809bcd127",
+    "createdAt": "2026-10-07T04:17:23.832Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-db676fea5cb6e60ae2fe692b-incubating-6bd8c1b2360a-582b102486ed110f-q86.webp",
     "firstSeenAt": "2026-10-06T04:12:42.872Z",
     "interpretation": "automatic-safe-interpretation",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-db676fea5cb6e60ae2fe692b-incubating-6bd8c1b2360a-582b102486ed110f-q86.webp",
+        "alt": "Cover artwork for Take Your Marching Orders.",
+        "createdAt": "2026-10-06T04:13:21.823Z"
+      }
+    ]
   },
   "distonyc-a5d39c0df38f3641f6e34691": {
     "src": "/assets/artwork/distonyc-a5d39c0df38f3641f6e34691-incubating-cad3916945a1-4c81f239195e5950-q86.webp",
