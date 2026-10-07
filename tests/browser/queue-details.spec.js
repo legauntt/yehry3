@@ -116,6 +116,19 @@ test("dashboard approval link opens that request's lyric review and preserves an
   await page.getByRole('button', { name: 'Approve lyrics & continue' }).click();
   await expect.poll(() => submitted?.lyrics).toContain('another chance');
   await expect(page.locator('#review-lyrics')).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Lyrics approved', exact: true })).toBeVisible();
+  await expect(page.locator('.generation-review-done')).toBeFocused();
+  await expect(page.locator('#review-name-form')).toBeHidden();
+  await expect(page.getByRole('link', { name: 'View song progress' })).toHaveAttribute('href', `/queue/details/?request=${promptId}`);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: 'artifacts/lyrics-approved-mobile.png', fullPage: true });
+  await page.reload();
+  await expect(page.getByRole('heading', { name: 'Lyrics approved', exact: true })).toBeVisible();
+  await expect(page.locator('#review-name-form')).toBeHidden();
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.screenshot({ path: 'artifacts/lyrics-approved-desktop.png', fullPage: true });
+  await page.getByRole('link', { name: 'Back to songs', exact: true }).click();
+  await expect(page).toHaveURL(/\/$/);
 });
 
 test("queue cards have distinct detail URLs and 9/11'd Again remains public", async ({ page }) => {

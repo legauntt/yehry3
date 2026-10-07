@@ -22,7 +22,11 @@ export async function reviewRequest(id) {
       const { prompt: draft } = await reviewApi('/prompts/' + encodeURIComponent(id));
       if (!root.isConnected) return;
       rememberAuthor(username);
-      root.innerHTML = `<h2>${escape(draft.prompt)}</h2><p>${escape(draft.workerProgress?.stage || draft.status)}</p><div class="named-review-content"></div>`;
+      const approved = draft.generationReview?.state === 'approved';
+      form.hidden = approved;
+      main.querySelector('h1').textContent = approved ? 'Review complete' : 'Review your request';
+      main.querySelector('.form-card > p').hidden = approved;
+      root.innerHTML = `<h2>${escape(draft.prompt)}</h2>${approved ? '' : `<p>${escape(draft.workerProgress?.stage || draft.status)}</p>`}<div class="named-review-content"></div>`;
       await mountGenerationReview(root.querySelector('.named-review-content'), { draft, api: reviewApi, escape, reload: load, approvalOnly: true });
     } catch (failure) { error.textContent = failure.message; }
     finally { button.disabled = false; }

@@ -2712,6 +2712,10 @@ button.lyric-line:hover {
 }
 
 .generation-panel,.generation-review{margin:1.5rem 0;padding:1rem;border:1px solid var(--line,#b6aa8c);border-radius:8px}
+.generation-review-done{border:2px solid var(--accent,#786343);padding:1.5rem;background:var(--paper,#fffaf0)}
+.generation-review-done .success-mark{margin-bottom:.75rem}
+.generation-review-done h3{font-size:1.6rem;margin:.25rem 0 .75rem}
+.generation-review-done .eyebrow{margin:0}
 .generation-enable{display:flex;gap:.65rem;align-items:center;margin:1rem 0}.generation-enable input,.composition-choice input{width:auto;flex:none}
 .generation-group{margin:1rem 0}.generation-group summary{cursor:pointer;font-weight:700;padding:.7rem 0}
 .generation-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.generation-grid>*{min-width:0}.generation-grid textarea,.generation-grid input,.generation-grid select{width:100%}

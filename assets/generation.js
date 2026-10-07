@@ -130,6 +130,11 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
 }
 
 export async function mountGenerationReview(root, { draft, api, escape, reload, approvalOnly = false }) {
+  if (draft.generationReview?.state === 'approved') {
+    const lyrics = draft.generationReview.kind === 'lyrics';
+    root.innerHTML = `<section class="generation-review generation-review-done" role="status" tabindex="-1"><span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Done</p><h3>${lyrics ? 'Lyrics approved' : 'Composition chosen'}</h3><p>${lyrics ? 'Your approved lyrics are saved. The studio can now continue composing your song.' : 'Your composition choice is saved. The studio can now continue making your song.'}</p><p class="small">You can close this page.${lyrics && draft.details?.generation?.candidates > 1 ? ' When the compositions are ready, you’ll be able to choose one from the queue.' : ' Follow your song’s progress in the queue.'}</p><div class="actions"><a class="primary" href="/">Back to songs</a><a class="quiet" href="/queue/details/?request=${encodeURIComponent(draft.id)}">View song progress →</a></div></section>`;
+    return;
+  }
   if (!draft.generationReview || draft.generationReview.state !== 'pending') return;
   root.innerHTML = '<p role="status">Loading your generation review…</p>';
   try {
@@ -168,6 +173,7 @@ export async function mountGenerationReview(root, { draft, api, escape, reload, 
         try { localStorage.removeItem(localKey); } catch {}
         urls.forEach((url) => URL.revokeObjectURL(url));
         await reload();
+        if (action === 'approve') document.querySelector('.generation-review-done')?.focus();
       } catch (error) { form.querySelector('.field-error').textContent = error.message; }
       finally { form.querySelectorAll('button').forEach((b) => { b.disabled = false; }); }
     };

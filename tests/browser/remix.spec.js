@@ -99,7 +99,10 @@ test('submitted remix keeps lyric review through refresh, editing and reload', a
   await page.screenshot({ path: 'artifacts/remix-lyric-review-mobile.png', fullPage: true });
   await page.getByRole('button', { name: 'Approve lyrics & continue' }).click();
   await expect(page.locator('#review-lyrics')).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Lyrics approved', exact: true })).toBeVisible();
+  await expect(page.locator('.generation-review-done')).toBeFocused();
   await page.locator('#refresh-status').click();
+  await expect(page.getByRole('heading', { name: 'Lyrics approved', exact: true })).toBeVisible();
   await expect(page.locator('#idea')).toHaveCount(0);
   expect(state.decisions).toEqual([{ reviewId: 'remix-lyric-review', version: 3, action: 'approve', lyrics: edited }]);
   expect(state.confirmations()).toBe(1);
