@@ -1,3 +1,4 @@
+import { arabicVideoGlyph } from "./video-arabic-glyph.js";
 import videos from "./song-videos.js";
 import { videoVersions } from "./song-video-versions.js";
 import { player, audio } from "./player.js";
@@ -76,12 +77,10 @@ export function mountSongVideos(root, scope) {
     sound = Boolean(video.hasAudio || video.audio);
     full.dataset.sound = String(sound);
     play.textContent = sound ? "Play video with sound" : "Play video";
-    if (video.treatment === "tragic-courtroom-aria") {
+    if (["tragic-courtroom-aria", "midnight-jazz-film"].includes(video.treatment)) {
       const glyph = document.createElement("span");
       glyph.dataset.videoArabic = "true";
-      glyph.lang = "ar";
-      glyph.dir = "rtl";
-      glyph.textContent = "م";
+      glyph.innerHTML = arabicVideoGlyph;
       glyph.setAttribute("aria-hidden", "true");
       play.prepend(glyph, " ");
     }

@@ -1,3 +1,4 @@
+import { arabicVideoGlyph } from "./video-arabic-glyph.js";
 import artwork from "./artwork-catalog.js";
 import previews from "./artwork-previews.js";
 import videos from "./song-videos.js";
@@ -24,8 +25,8 @@ export function songArtworkMarkup(song, escape, view = "grid") {
   const watch = video.fullLength ? "Watch full music video" : `Watch ${video.duration || 15}-second video`;
   const doomer = video.treatment === "doomer";
   // Logo source: https://www.arbys.com/brands/arbys/logo.svg
-  const icon = video.treatment === "tragic-courtroom-aria"
-    ? '<span data-video-arabic="true" lang="ar" dir="rtl" aria-hidden="true">م</span>'
+  const icon = ["tragic-courtroom-aria", "midnight-jazz-film"].includes(video.treatment)
+    ? `<span data-video-arabic="true" aria-hidden="true">${arabicVideoGlyph}</span>`
     : video.treatment === "office-space"
     ? '<img data-video-stapler="true" src="/assets/red-stapler-video.svg" width="36" height="26" alt="" aria-hidden="true">'
     : video.treatment === "plato-shower"

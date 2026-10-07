@@ -54,6 +54,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/02-yeah-after-midnight-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 5
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/02-yeah-after-midnight-song-scenes-20261002.mp4",
+      "framing": "square",
+      "duration": 5
     }
   ],
   "distonyc-0dc2bea1e37dea334832f473": [

@@ -1,6 +1,6 @@
 // Visual companions. Duration, framing and optional audio describe the published video.
 export default {
-  "distonyc-d88c69ac5b02b644324e42ad": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/02-yeah-after-midnight-song-scenes-20261002.mp4", framing: "square", duration: 5 },
+  "distonyc-d88c69ac5b02b644324e42ad": {"src":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/yeah-after-midnight-lounge-20261006.mp4","previewSrc":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/yeah-after-midnight-lounge-preview-20261006.mp4","framing":"landscape","duration":230.03428571428572,"hasAudio":true,"fullLength":true,"treatment":"midnight-jazz-film"},
   "distonyc-0dc2bea1e37dea334832f473": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/03-the-golden-answer-midnight-synth-remedy-song-scenes-20261002.mp4", framing: "square", duration: 10 },
   "distonyc-60b6f486ebcc0c56b875cfc9": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/07-miracle-piss-tragic-aria-song-scenes-20261002.mp4", framing: "square", duration: 10 },
   "distonyc-ffa7b966f9f8cc1a5d4cc3a5": { src: "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/01-lamma-bada-cynical-club-mix-song-scenes-20261002.mp4", framing: "square", duration: 10 },
