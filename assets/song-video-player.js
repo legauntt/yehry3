@@ -76,6 +76,15 @@ export function mountSongVideos(root, scope) {
     sound = Boolean(video.hasAudio || video.audio);
     full.dataset.sound = String(sound);
     play.textContent = sound ? "Play video with sound" : "Play video";
+    if (video.treatment === "tragic-courtroom-aria") {
+      const glyph = document.createElement("span");
+      glyph.dataset.videoArabic = "true";
+      glyph.lang = "ar";
+      glyph.dir = "rtl";
+      glyph.textContent = "م";
+      glyph.setAttribute("aria-hidden", "true");
+      play.prepend(glyph, " ");
+    }
     if (video.treatment === "office-space") {
       const stapler = document.createElement("img");
       stapler.src = "/assets/red-stapler-video.svg";

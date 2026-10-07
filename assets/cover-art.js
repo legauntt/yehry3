@@ -24,7 +24,9 @@ export function songArtworkMarkup(song, escape, view = "grid") {
   const watch = video.fullLength ? "Watch full music video" : `Watch ${video.duration || 15}-second video`;
   const doomer = video.treatment === "doomer";
   // Logo source: https://www.arbys.com/brands/arbys/logo.svg
-  const icon = video.treatment === "office-space"
+  const icon = video.treatment === "tragic-courtroom-aria"
+    ? '<span data-video-arabic="true" lang="ar" dir="rtl" aria-hidden="true">م</span>'
+    : video.treatment === "office-space"
     ? '<img data-video-stapler="true" src="/assets/red-stapler-video.svg" width="36" height="26" alt="" aria-hidden="true">'
     : video.treatment === "plato-shower"
     ? '<span class="song-video-plato" data-video-plato="true" aria-hidden="true"><img src="/assets/artwork/distonyc-bcf7969a9959cbe4927370c4-basic-9f16a72bf48f-q86.webp" alt=""></span>'

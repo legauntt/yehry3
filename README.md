@@ -508,3 +508,5 @@ Clippy appears on failed and unresolved Needs review cards in Backstage; public 
 The Biological Mandate (Corrosive Industrial Mix) features a 4:50 full audio music video with original-lyric karaoke, 44 industrial scenes, animation of its current cover, and a Plato shower icon. The earlier video remains available as Version A.
 
 Influence Criteria features a 5:35 workplace satire video with its original recording, 71 office scenes, and a silent ten-second hover preview. The fluorescent cubicles, PIP paperwork, stack ranking and forced networking follow the song's prompt, lyrics and alternative-rock plan. Earlier clips remain available as Versions A–E; the full film is Version F.
+
+It Was Simple, Not Easy features a five-minute tragic courtroom film with its original recording and a silent ten-second hover preview. Its ruined sandstone court, orchestra, old house key, bread, water and olive sapling follow the cover, supplied lyrics and D-minor opera plan. The Arabic letter م launches the video; its button keeps a readable accessible label. Earlier clips remain available as Versions A–F; the full film is Version G.

@@ -189,6 +189,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/05-it-was-simple-not-easy-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/05-it-was-simple-not-easy-song-scenes-20261002.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-f13f78a2474383f7eb72c64e": [
