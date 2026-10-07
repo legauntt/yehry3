@@ -4,7 +4,8 @@ import { videoVersions } from "../../assets/song-video-versions.js";
 
 const cases = [
   ["distonyc-06d2b8c3c8dffed19df347bb", "It Was Simple, Not Easy", 300, "star-of-david", "Star of David"],
-  ["distonyc-d88c69ac5b02b644324e42ad", "Yeah After Midnight", 230.034, "saxophone", "Saxophone"]
+  ["distonyc-d88c69ac5b02b644324e42ad", "Yeah After Midnight", 230.034, "saxophone", "Saxophone"],
+  ["distonyc-0dc2bea1e37dea334832f473", "The Golden Answer (Midnight Synth Remedy)", 280.085, "golden-shower", "Showerhead with yellow water"]
 ];
 const media = await readFile(new URL("./fixtures/music-video.mp4", import.meta.url));
 
