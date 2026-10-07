@@ -142,6 +142,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/01-lamma-bada-cynical-club-mix-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 10
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/01-lamma-bada-cynical-club-mix-song-scenes-20261002.mp4",
+      "framing": "square",
+      "duration": 10
     }
   ],
   "distonyc-5ae363b12d01b017f8d295f3": [
