@@ -2497,20 +2497,26 @@ export default {
     ]
   },
   "distonyc-a5d39c0df38f3641f6e34691": {
-    "src": "/assets/artwork/distonyc-a5d39c0df38f3641f6e34691-incubating-cad3916945a1-4c81f239195e5950-q86.webp",
+    "src": "/assets/artwork/distonyc-a5d39c0df38f3641f6e34691-mature-9963d9892b2f-e3d19afddeac17c7-q86.webp",
     "alt": "Cover artwork for Morning Routine (Towerwatch Shuffle).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "144a9bfe621f423869773947ab7f439481d564d23bbf5abd749c10af4d945b81",
-    "promptHash": "db4950b66f9b0730acb5ab5297097f01e32f9cd962634722e13b7c60b6855d95",
-    "createdAt": "2026-10-06T19:46:07.823Z",
+    "promptHash": "e798a2b81abda6dd892df9c1f8857a139e4af55a455ac1a64ecf5de7149a24e8",
+    "createdAt": "2026-10-07T19:49:35.055Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-a5d39c0df38f3641f6e34691-incubating-cad3916945a1-4c81f239195e5950-q86.webp",
     "firstSeenAt": "2026-10-06T19:45:42.886Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-a5d39c0df38f3641f6e34691-incubating-cad3916945a1-4c81f239195e5950-q86.webp",
+        "alt": "Cover artwork for Morning Routine (Towerwatch Shuffle).",
+        "createdAt": "2026-10-06T19:46:07.823Z"
+      }
+    ]
   },
   "distonyc-d208e5ebf7c696a926cf11dd": {
     "src": "/assets/artwork/distonyc-d208e5ebf7c696a926cf11dd-basic-85716327fa48-3d7e270e958fc0d0-q86.webp",
