@@ -1,4 +1,4 @@
-import { arabicVideoGlyph } from "./video-arabic-glyph.js";
+import { videoLaunchIcon } from "./video-launch-icons.js";
 import videos from "./song-videos.js";
 import { videoVersions } from "./song-video-versions.js";
 import { player, audio } from "./player.js";
@@ -77,12 +77,9 @@ export function mountSongVideos(root, scope) {
     sound = Boolean(video.hasAudio || video.audio);
     full.dataset.sound = String(sound);
     play.textContent = sound ? "Play video with sound" : "Play video";
-    if (["tragic-courtroom-aria", "midnight-jazz-film"].includes(video.treatment)) {
-      const glyph = document.createElement("span");
-      glyph.dataset.videoArabic = "true";
-      glyph.innerHTML = arabicVideoGlyph;
-      glyph.setAttribute("aria-hidden", "true");
-      play.prepend(glyph, " ");
+    const icon = videoLaunchIcon(video.treatment);
+    if (icon) {
+      play.insertAdjacentHTML("afterbegin", `${icon} `);
     }
     if (video.treatment === "office-space") {
       const stapler = document.createElement("img");

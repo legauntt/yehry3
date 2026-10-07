@@ -1,1 +1,0 @@
-export const arabicVideoGlyph = '<svg viewBox="0 0 36 36" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><title>ن</title><path d="M7 13C5 24 10 29 18 29S31 24 29 13" stroke="currentColor" stroke-width="3.6" stroke-linecap="round"/><circle cx="18" cy="7.5" r="2.5" fill="currentColor"/></svg>';

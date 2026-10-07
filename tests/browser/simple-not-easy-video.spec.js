@@ -3,15 +3,15 @@ import { readFile } from "node:fs/promises";
 import { videoVersions } from "../../assets/song-video-versions.js";
 
 const cases = [
-  ["distonyc-06d2b8c3c8dffed19df347bb", "It Was Simple, Not Easy", 300],
-  ["distonyc-d88c69ac5b02b644324e42ad", "Yeah After Midnight", 230.034]
+  ["distonyc-06d2b8c3c8dffed19df347bb", "It Was Simple, Not Easy", 300, "star-of-david", "Star of David"],
+  ["distonyc-d88c69ac5b02b644324e42ad", "Yeah After Midnight", 230.034, "saxophone", "Saxophone"]
 ];
 const media = await readFile(new URL("./fixtures/music-video.mp4", import.meta.url));
 
-for (const [id, title, duration] of cases) {
+for (const [id, title, duration, symbol, iconTitle] of cases) {
 const latest = videoVersions(id).at(-1).label;
 for (const width of [1440, 390]) {
-  test(`${title}: Arabic launch glyph and preserved versions work with keyboard at ${width}px`, async ({ page }) => {
+  test(`${title}: custom launch icon and preserved versions work with keyboard at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 844 });
     await page.emulateMedia({ reducedMotion: "reduce" });
     const songs = [{ id, title, collection: "distonyc", duration, url: "/fixture.mp3", votes: 1, feedback: {} }];
@@ -21,8 +21,9 @@ for (const width of [1440, 390]) {
     await page.route(/\.mp4(?:\?.*)?$/, r => r.fulfill({ contentType: "video/mp4", body: media }));
     await page.goto(`/#${id}`);
     const trigger = page.locator(`[data-video-open="${id}"]`);
-    await expect(trigger.locator('[data-video-arabic]')).toHaveText("ن");
-    const glyphBox = await trigger.locator('[data-video-arabic] svg').boundingBox();
+    await expect(trigger.locator('[data-video-symbol]')).toHaveText(iconTitle);
+    await expect(trigger.locator("[data-video-symbol]")).toHaveAttribute("data-video-symbol", symbol);
+    const glyphBox = await trigger.locator('[data-video-symbol] svg').boundingBox();
     const buttonBox = await trigger.boundingBox();
     expect(glyphBox.x).toBeGreaterThanOrEqual(buttonBox.x);
     expect(glyphBox.y).toBeGreaterThanOrEqual(buttonBox.y);
@@ -34,11 +35,11 @@ for (const width of [1440, 390]) {
     const dialog = page.getByRole("dialog", { name: title, exact: true });
     await expect(dialog).toBeVisible();
     await expect(dialog.locator('[aria-pressed="true"]')).toHaveText(latest);
-    await expect(dialog.locator('[data-video-play] [data-video-arabic]')).toHaveText("ن");
+    await expect(dialog.locator('[data-video-play] [data-video-symbol]')).toHaveText(iconTitle);
     await dialog.getByRole("button", { name: "Version A", exact: true }).click();
-    await expect(dialog.locator('[data-video-play] [data-video-arabic]')).toHaveCount(0);
+    await expect(dialog.locator('[data-video-play] [data-video-symbol]')).toHaveCount(0);
     await dialog.getByRole("button", { name: `Version ${latest} (latest)`, exact: true }).click();
-    await expect(dialog.locator('[data-video-play] [data-video-arabic]')).toHaveCount(1);
+    await expect(dialog.locator('[data-video-play] [data-video-symbol]')).toHaveCount(1);
     const bounds = await dialog.boundingBox();
     expect(bounds.x).toBeGreaterThanOrEqual(0);
     expect(bounds.x + bounds.width).toBeLessThanOrEqual(width);
