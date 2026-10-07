@@ -2452,20 +2452,26 @@ export default {
     ]
   },
   "distonyc-cd4c0296f22cede53c369737": {
-    "src": "/assets/artwork/distonyc-cd4c0296f22cede53c369737-incubating-8e3c48922cbd-942df0b90ec62720-q86.webp",
+    "src": "/assets/artwork/distonyc-cd4c0296f22cede53c369737-mature-c2a610337a0a-44e0ea63289bdc9c-q86.webp",
     "alt": "Cover artwork for Subscription of the Damned.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "edf8e1e264eb91244e550f81db629d5d99dd5bfad6a661c2448f1f4c8b592ad2",
-    "promptHash": "6de022abd7fddb0d7ba29f189581f3fa76d8c5e7dc7a6ec5a024485c38edc632",
-    "createdAt": "2026-10-05T21:07:13.047Z",
+    "promptHash": "05d4419e84e162aa21c2307aa7ab973d438d34cd5d6354fdc06dcf5642022daa",
+    "createdAt": "2026-10-07T00:07:35.700Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-cd4c0296f22cede53c369737-incubating-8e3c48922cbd-942df0b90ec62720-q86.webp",
     "firstSeenAt": "2026-10-05T21:06:45.142Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-cd4c0296f22cede53c369737-incubating-8e3c48922cbd-942df0b90ec62720-q86.webp",
+        "alt": "Cover artwork for Subscription of the Damned.",
+        "createdAt": "2026-10-05T21:07:13.047Z"
+      }
+    ]
   },
   "distonyc-db676fea5cb6e60ae2fe692b": {
     "src": "/assets/artwork/distonyc-db676fea5cb6e60ae2fe692b-incubating-6bd8c1b2360a-582b102486ed110f-q86.webp",
