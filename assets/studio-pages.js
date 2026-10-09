@@ -373,6 +373,21 @@ export async function requests() {
       const savedDirection = draft.details?.direction || "";
       const savedKeep = initialDetails.keep || "";
       $("#direction").value = savedDirection === "Use the prompt as written." ? "" : savedDirection;
+      const directionField = $('#direction'), directionHint = directionField.nextElementSibling;
+      directionHint.id = 'direction-help';
+      directionHint.setAttribute('aria-live', 'polite');
+      directionField.setAttribute('aria-describedby', directionHint.id);
+      const validateDirection = () => {
+        const length = directionField.value.trim().length;
+        const invalid = length > 0 && (length < 10 || length > 2000);
+        const message = invalid ? `Use 10–2000 characters, or leave this empty. Currently ${length} characters.` : '';
+        directionField.setCustomValidity(message);
+        directionField.setAttribute('aria-invalid', String(invalid));
+        directionHint.classList.toggle('field-error', invalid);
+        directionHint.textContent = message || 'Optional: 10–2000 characters. Leave this empty to use your prompt as written.';
+      };
+      directionField.addEventListener('input', validateDirection);
+      validateDirection();
       $("#keep").value = savedKeep === "Surprise me." ? "" : savedKeep;
       const voiceDraftKey = `voice-draft:${draft.id}`;
       const savedVoice = storage.get(voiceDraftKey);

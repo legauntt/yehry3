@@ -53,6 +53,33 @@ async function setup(page, existing, unavailable = false) {
 }
 
 for (const width of [1440, 390]) {
+  test(`short remix direction explains the limit before sending at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1000 });
+    const state = await setup(page);
+    await page.goto(`/distonyc/?remix=${song.id}`);
+    await page.getByRole('button', { name: 'Find the direction' }).click();
+    const direction = page.getByLabel('What should change?');
+    await direction.fill('  New genre  ');
+    await expect(direction).toHaveAttribute('aria-invalid', 'true');
+    await expect(page.locator('#direction-help')).toContainText('Currently 9 characters.');
+    await page.getByRole('button', { name: 'Review the request' }).click();
+    await expect(direction).toBeFocused();
+    expect(state.writes).toHaveLength(1);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await direction.fill('New genre!');
+    await expect(direction).toHaveAttribute('aria-invalid', 'false');
+    await page.getByRole('button', { name: 'Review the request' }).click();
+    await expect(page.getByRole('button', { name: 'Send to the queue' })).toBeVisible();
+    expect(state.writes.at(-1).direction).toBe('New genre!');
+    await page.getByRole('button', { name: 'Fine-tune it' }).click();
+    await direction.fill('   ');
+    await expect(direction).toHaveAttribute('aria-invalid', 'false');
+    await page.getByRole('button', { name: 'Review the request' }).click();
+    await expect(page.getByRole('button', { name: 'Send to the queue' })).toBeVisible();
+    expect(state.writes.at(-1).direction).toBe('Use the prompt as written.');
+    expect(state.confirmations()).toBe(0);
+  });
+
   test(`new requests without a remix reach confirmation with materials enabled at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 });
     const state = await setup(page);
