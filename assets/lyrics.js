@@ -1,3 +1,4 @@
+import { signedIn } from "./api.js";
 import { songBadges } from "./song-badges.js";
 import { mountLoopToggle } from "./loop.js";
 import { songPlanLink } from "./song-plan.js";
@@ -369,6 +370,11 @@ export async function lyricsPage(main, { escape, safeUrl }) {
       download.href = downloadUrl;
       download.download = `${song.title.replace(/[<>:"/\\|?*\x00-\x1f]/g, "-")}-lyrics${view === "original" ? "" : `-${view}`}.txt`;
     });
+    if (signedIn("admin")) {
+      const edit = document.createElement("button"); edit.type = "button"; edit.className = "quiet"; edit.textContent = "Edit audio";
+      edit.onclick = () => import("./audio-editor.js").then(module => module.openAudioEditor(song));
+      main.querySelector(".lyrics-actions").append(edit);
+    }
     cleanupToolbar = mountLyricToolbar(main);
     main.querySelector("#print-lyrics").onclick = () => print();
     if (previousPosition) scrollTo(...previousPosition);

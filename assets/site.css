@@ -1280,6 +1280,7 @@ main {
   box-shadow: 0 -6px 25px #23352816;
 }
 .now-playing {
+  min-width: 0;
   width: 310px;
   max-width: 30vw;
   display: flex;
@@ -2830,6 +2831,7 @@ button.lyric-line:hover {
 
 .pitch-badge{display:inline-flex;align-items:center;width:fit-content;padding:1px 7px;border:1px solid #aeb8a5;border-radius:999px;background:#eef1e9;color:#40523c;font:600 .62rem/1.5 "DM Mono",monospace;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
 .pitch-badge.haunted{border-color:#8d82b8;background:#ece8fa;color:#45377a}
+.sides{max-width:100%;overflow-x:auto;padding:3px 2px 6px}.sides button{flex-shrink:0;white-space:nowrap}
 .pitch-badge.wild{border-color:#c15f25;background:#fff0df;color:#8a3407}
 .sides{display:flex;gap:6px;margin-top:6px}.sides button{font:inherit;font-size:.68rem;line-height:1;padding:5px 9px;border-radius:999px;border:1px solid #6a7963;background:transparent;color:var(--paper);cursor:pointer}.sides button[aria-pressed="true"]{background:var(--paper);color:var(--ink);border-color:var(--paper)}.sides button:focus-visible{outline:2px solid #b3c1a7;outline-offset:2px}.sides-badge{display:inline-flex;align-items:center;justify-content:center;flex:none;font:700 .61rem/1 "DM Mono",monospace;letter-spacing:.02em;padding:3px 5px;border:1px solid #cb8746;border-radius:5px;background:#ffe3c2;color:#6b3d0c;white-space:nowrap}
 

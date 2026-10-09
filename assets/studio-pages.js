@@ -595,7 +595,7 @@ export async function admin() {
     const pinned = Boolean(song.adminPinned);
     const meta = [collectionNames[song.collection] || song.collection, song.authoredBy && `by ${song.authoredBy}`, song.publishedAt && date(song.publishedAt), song.id, song.archivedAt && `archived ${date(song.archivedAt)}`].filter(Boolean);
     const title = song.archived ? escape(song.title) : `<a href="/#${id}" target="_blank" rel="noopener">${escape(song.title)}</a>`;
-    return `<article class="admin-song${song.archived ? " archived" : ""}" data-song="${id}"><div><h3>${title}${song.archived ? ' <span class="badge archived">Archived</span>' : ""}${pinned ? ' <span class="badge pinned">📌 Pinned</span>' : ""}</h3><p class="small">${escape(meta.join(" · "))}</p></div><div class="admin-song-actions"><button type="button" class="quiet" data-archive="${id}" data-archived="${!song.archived}" aria-label="${song.archived ? "Restore" : "Archive"} ${escape(song.title)}">${song.archived ? "Restore" : "Archive"}</button></div></article>`;
+    return `<article class="admin-song${song.archived ? " archived" : ""}" data-song="${id}"><div><h3>${title}${song.archived ? ' <span class="badge archived">Archived</span>' : ""}${pinned ? ' <span class="badge pinned">📌 Pinned</span>' : ""}</h3><p class="small">${escape(meta.join(" · "))}</p></div><div class="admin-song-actions">${!song.archived ? `<button type="button" class="quiet" data-audio-edit="${id}">Edit audio</button>` : ""}<button type="button" class="quiet" data-archive="${id}" data-archived="${!song.archived}" aria-label="${song.archived ? "Restore" : "Archive"} ${escape(song.title)}">${song.archived ? "Restore" : "Archive"}</button></div></article>`;
   }
   function paintSongs() {
     const list = songs.data;
@@ -673,6 +673,8 @@ export async function admin() {
       loadSongs();
     };
     $("#song-list").addEventListener("click", async (event) => {
+      const edit = event.target.closest("[data-audio-edit]");
+      if (edit) { const song = songs.data?.songs.find(row => row.id === edit.dataset.audioEdit); if (song) void import("./audio-editor.js").then(module => module.openAudioEditor(song)); return; }
       const button = event.target.closest("[data-archive]");
       if (!button) return;
       const archived = button.dataset.archived === "true";

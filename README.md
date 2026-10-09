@@ -1,5 +1,15 @@
 # yehry3 · The listening room
 
+## Admin audio editor
+
+Signed-in admins can choose **Edit audio** in a song's options menu or Backstage's published-song list. Click the waveform to listen, set the crop end and fade-out seconds, then preview the ending before saving. Each save creates a separate MP3 and defaults to making it the song's default recording. **Original** remains selectable in the player; Saved recordings can restore it as the default at any time. Existing playback finishes on its current recording.
+
+Green waveform regions estimate vocals from a verified isolated vocal stem, with a source-matched audio transcript as fallback. The editor identifies the method and reports unavailable detection explicitly. Quiet singing, instrument bleed and transcript errors can affect these estimates.
+
+Rendering and analysis use the independent CPU service described in `pc-worker/README.md`. The editor queues work while the studio PC is offline. Chairlift holds the version history; the static offline catalog still provides the original recording if the API is unavailable. Cropping preserves the beginning of the source and its lyric timing.
+
+Checks: `tests/audio-editor.test.mjs`, `tests/browser/audio-editor.spec.js`, Chairlift's `test/audio-edits.test.js`, and `pc-worker/test_audio_editor.py` (real FFmpeg crop/fade and source preservation).
+
 A static Tony C music site with a MongoDB voting and request API in the sibling **chairlift** repository.
 
 PC automation resumes automatically after Jesse signs in following a restart.

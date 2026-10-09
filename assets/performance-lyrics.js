@@ -4,6 +4,7 @@ export const transcriptMethods = {
 };
 
 export function performanceTranscript(value, song, method) {
+  if (song.originalAudio) song = { ...song, ...song.originalAudio };
   const known = transcriptMethods[method];
   const pinned = /-([a-f0-9]{12,64})\.mp3$/.exec(song.url);
   const noWords = value?.outcome === "no-words-recognized";
@@ -51,6 +52,7 @@ export function loadTranscriptIndex() {
 }
 
 export async function loadTranscript(song, method, signal) {
+  if (song.originalAudio) song = { ...song, ...song.originalAudio };
   const entry = (await loadTranscriptIndex())[song.id];
   if (entry?.audioUrl !== song.url || !entry.methods?.includes(method)) return null;
   const response = await fetch(`/lyric-transcripts/${encodeURIComponent(song.id)}.${method}.json`,

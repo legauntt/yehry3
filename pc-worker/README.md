@@ -1,5 +1,13 @@
 # Distonyc on Windows
 
+## Admin audio edits
+
+After deploying Chairlift's audio-edit endpoints, run `./install-audio-editor.ps1 -Start` from this directory. It installs a separate CPU-only runtime under `%LOCALAPPDATA%/Distonyc/audio-editor` and the hidden **Distonyc Audio Editor** scheduled task. It uses the existing config and DPAPI worker credential, starts at login, and checks for restart every five minutes. It neither changes nor stops the music-generation worker. To update a running editor service, first let its job finish, then stop only this scheduled task and rerun the installer; existing runtime files are backed up under the configured state directory.
+
+The service claims one admin analysis/render at a time. Original bytes, render settings, hashes and retry state stay in `state/audio-editor/<edit-id>`. Outputs have unique release names and are verified publicly before Chairlift selects them. Repeated delivery cannot duplicate versions or reapply a superseded default. Requests expire after 24 hours queued or 30 minutes working; the editor permits a new save after failure. Status is in `state/audio-editor/health.json` and `state/audio-editor.log`.
+
+Vocal markers use hash-verified retained vocal stems when available; source-matched published Whisper segments are the fallback. No full-mix amplitude heuristic is presented as vocal detection. Unavailable markers do not prevent crop/fade editing. Run `python -m unittest test_audio_editor -v` for bounded source checks and a real synthetic MP3 crop/fade test. No model loading, paid generation or catalog publication is needed for these tests.
+
 Advanced requests may explicitly select **Instrumental-heavy arrangement**
 (`details.generation.instrumentalHeavy: true`). This is off by default and is
 never inferred from genre or saved browser preferences. The confirmed brief and

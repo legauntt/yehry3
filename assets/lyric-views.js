@@ -133,7 +133,7 @@ export function mountLyricViews(main, song, onChange) {
     if (signal.aborted) return;
     for (const [method, config] of Object.entries(transcriptMethods)) {
       const option = select.querySelector(`option[value="${method}"]`);
-      const available = index[song.id]?.audioUrl === song.url && index[song.id]?.methods?.includes(method);
+      const available = index[song.id]?.audioUrl === (song.originalAudio?.url || song.url) && index[song.id]?.methods?.includes(method);
       option.disabled = !available;
       option.textContent = available ? config.label : `${config.label} — not yet`;
     }
