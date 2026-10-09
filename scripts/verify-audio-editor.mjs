@@ -1,11 +1,13 @@
 // Read-only release check. Fixture browser coverage is isolated by the matching Playwright config.
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
+import { randomUUID } from 'node:crypto';
 const site = process.env.YEHRY3_SITE_URL || 'https://yehry3.app';
 const api = process.env.YEHRY3_API_URL || 'https://chairlift.fly.dev/yehry3';
 const id = process.argv[2] || 'distonyc-ad1afcb1111cab848e47f23e';
 assert.match(id, /^[a-z0-9-]{1,120}$/);
-const get = url => fetch(url, { signal: AbortSignal.timeout(30000) });
+const visitor = randomUUID();
+const get = url => fetch(url, { headers: { 'X-Visitor-ID': visitor }, signal: AbortSignal.timeout(30000) });
 const normalize = value => value.replace(/\r\n/g, '\n');
 for (const name of ['audio-edit-model.js', 'audio-editor.js', 'audio-editor.css', 'sides.js', 'api.js', 'lyrics.js', 'song-data.js', 'performance-lyrics.js']) {
   const response = await get(`${site}/assets/${name}`);
