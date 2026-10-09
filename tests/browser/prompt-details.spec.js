@@ -48,6 +48,29 @@ for (const status of ["queued", "published"]) {
   });
 }
 
+test('original prompt shows the exact approved sheet separately from supplied lyrics', async ({ page }) => {
+  const id = 'distonyc-' + 'a'.repeat(24);
+  const approved = '[Verse]\nThe last train waits <for me>\n[End]';
+  const originalPrompt = {
+    idea: 'A song about the last train', voiceModel: 'v9', generation: { version: 1, reviewLyrics: true },
+    lyricSheet: { text: '[Verse]\nAn earlier train', mode: 'adapt' },
+    finalLyricSheet: { text: approved }, references: [],
+  };
+  await page.route(`**/yehry3/songs/${id}`, route => route.fulfill({ json: { song: {
+    id, status: 'processing', title: 'The Last Train', originalPrompt,
+    songPlan: { version: 1, title: 'The Last Train', recipe: 'new', style: 'rock', keyscale: 'D minor',
+      arrangement: 'Piano', lyrics: 'Different planned lyrics', duration: 180, bpm: 98 },
+  } } }));
+  await page.goto(`/original-prompt/?song=${id}`);
+  await page.getByText('Read the final approved lyric sheet').click();
+  await expect(page.getByRole('region', { name: 'Final approved lyric sheet' })).toHaveText(approved);
+  await page.getByText('Read the submitted lyric sheet').click();
+  await expect(page.getByRole('region', { name: 'Submitted lyric sheet' })).toHaveText(originalPrompt.lyricSheet.text);
+  await expect(page.getByRole('region', { name: 'Final approved lyric sheet' })).not.toContainText('Different planned lyrics');
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(390);
+});
+
 test("Backstage summarizes advanced settings and lets admins read long attachments on desktop and mobile", async ({ page }) => {
   const sheet = "[Verse 1]\n" + "A lantern lights the railway home\n".repeat(90) + "[End]";
   const attack = '<img src=x onerror="alert(1)">';

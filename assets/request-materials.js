@@ -184,9 +184,10 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
   };
 }
 export function materialBrief(details, escape) {
-  if (!details?.lyricSheet && !details?.references?.length) return "";
+  if (!details?.lyricSheet && !details?.finalLyricSheet && !details?.references?.length) return "";
   let html = '<div class="materials-review"><h3>Lyrics &amp; references</h3>';
   if (details.lyricSheet) html += '<p><strong>' + (details.lyricSheet.mode === "adapt" ? "Adapt these lyrics" : "Keep my wording") + '</strong> · ' + wordCount(details.lyricSheet.text).toLocaleString() + ' words</p><details><summary>Read the submitted lyric sheet</summary><pre class="material-text" tabindex="0" role="region" aria-label="Submitted lyric sheet">' + escape(details.lyricSheet.text) + '</pre></details>';
+  if (details.finalLyricSheet?.text) html += '<p><strong>Final approved lyric sheet</strong> · ' + wordCount(details.finalLyricSheet.text).toLocaleString() + ' words</p><details><summary>Read the final approved lyric sheet</summary><pre class="material-text" tabindex="0" role="region" aria-label="Final approved lyric sheet">' + escape(details.finalLyricSheet.text) + '</pre></details>';
   html += lyricPromptBrief(details.lyricSheet, escape);
   for (const [index, ref] of (details.references || []).entries()) {
     const snapshot = ref.snapshot;
@@ -199,7 +200,7 @@ export function materialBrief(details, escape) {
     if (ref.snapshot?.text) html += '<details><summary>View saved reference content</summary><pre class="material-text" tabindex="0" role="region" aria-label="Saved content for reference ' + (index + 1) + '">' + escape(ref.snapshot.text) + '</pre></details>';
     html += '</div>';
   }
-  return html + '<p class="small">Supplied lyrics, lyric prompt history, reference links, notes, and saved page text are public once the request is confirmed.</p></div>';
+  return html + '<p class="small">Supplied lyrics, lyric prompt history, reference links, notes, and saved page text are public once the request is confirmed. The final sheet appears after lyric approval.</p></div>';
 }
 
 function referenceLink(value, escape) {
