@@ -2551,5 +2551,21 @@ export default {
     "firstSeenAt": "2026-10-09T07:33:44.369Z",
     "interpretation": "automatic-safe-interpretation",
     "history": []
+  },
+  "distonyc-e2925b5d0df98c7f8ec86571": {
+    "src": "/assets/artwork/distonyc-e2925b5d0df98c7f8ec86571-incubating-ef8779d7ab9d-32a3df018f11f870-q86.webp",
+    "alt": "Cover artwork for Nine-Eleven'd Again (Crypt Punk Run).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "10623fb192fc05d275c459d0cd8c51afdc5dd9feb7d7791404f5ea024dbcaaf0",
+    "promptHash": "564f45d71d77ee48136403e17e0ec541a326c48d01cd3b90bf6ed6fec2c50a03",
+    "createdAt": "2026-10-09T18:46:37.252Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-09T18:45:50.338Z",
+    "history": []
   }
 };
