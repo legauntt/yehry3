@@ -3,7 +3,12 @@ const starOfDavid = '<svg viewBox="0 0 36 36" width="32" height="32" fill="none"
 
 const goldenShower = '<svg viewBox="0 0 36 36" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Showerhead with yellow water</title><path d="M6 16V9a5 5 0 0 1 5-5h6a5 5 0 0 1 5 5v3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/><path d="M15 17a7 7 0 0 1 14 0Z" fill="currentColor"/><path d="M16 21c0 0-2 3-2 4a2 2 0 0 0 4 0c0-1-2-4-2-4Zm12 0s-2 3-2 4a2 2 0 0 0 4 0c0-1-2-4-2-4Zm-6 6s-2 3-2 4a2 2 0 0 0 4 0c0-1-2-4-2-4Z" fill="#ffe342"/></svg>';
 
+const shotGlass = '<svg viewBox="0 0 36 36" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Shot glass</title><path d="m8 7 3 24h14l3-24" fill="currentColor" fill-opacity=".08" stroke="currentColor" stroke-width="2.3" stroke-linejoin="round"/><path d="m10 17 1.5 11h13L26 17Z" fill="#f4bf35"/><ellipse cx="18" cy="17" rx="8" ry="2" fill="#ffe479"/><ellipse cx="18" cy="7" rx="10" ry="2.5" stroke="currentColor" stroke-width="2.3"/><path d="m12 12 1 10M13 31h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+const clubStamp = '<svg viewBox="0 0 36 36" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Club entry stamp on a wrist</title><path d="m10 33 1-12-4-7a2.5 2.5 0 0 1 4-3l1 2V7a2 2 0 0 1 4 0V5a2 2 0 0 1 4 0v1a2 2 0 0 1 4 0v2a2 2 0 0 1 4 0v8c0 3-3 5-3 8l1 9" fill="#efc4a4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 7v5m4-6v6m4-4v5M12 15l4 2" stroke="#8b5d48" stroke-width="1.3" stroke-linecap="round"/><circle cx="18" cy="25" r="5.5" stroke="#702da8" stroke-width="1.7" stroke-dasharray="2.5 1"/><path d="m18 21.5 1 2.2 2.4.3-1.8 1.6.5 2.4-2.1-1.2-2.1 1.2.5-2.4-1.8-1.6 2.4-.3Z" fill="#702da8"/></svg>';
+
 export function videoLaunchIcon(treatment) {
+  if (treatment === "golden-answer-film") return `<span data-video-symbol="shot-glass" aria-hidden="true">${shotGlass}</span>`;
+  if (treatment === "lamma-cynical-club-film") return `<span data-video-symbol="club-stamp" aria-hidden="true">${clubStamp}</span>`;
   if (treatment === "midnight-synth-film") return `<span data-video-symbol="golden-shower" aria-hidden="true">${goldenShower}</span>`;
   if (treatment === "midnight-jazz-film") return `<span data-video-symbol="saxophone" aria-hidden="true">${saxophone}</span>`;
   if (treatment === "tragic-courtroom-aria") return `<span data-video-symbol="star-of-david" aria-hidden="true">${starOfDavid}</span>`;
