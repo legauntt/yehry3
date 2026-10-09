@@ -2584,5 +2584,22 @@ export default {
     "firstSeenAt": "2026-10-09T19:00:58.914Z",
     "interpretation": "automatic-safe-interpretation",
     "history": []
+  },
+  "distonyc-258ebfa2f716bc36d5323e53": {
+    "src": "/assets/artwork/distonyc-258ebfa2f716bc36d5323e53-incubating-cbbbbf8babf8-f643814422bcea8b-q86.webp",
+    "alt": "Cover artwork for Names on the Glass.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "00a5468eac6ba5267f4f8a92ce0552266ada3da2eca986867f6bdb3116e7252c",
+    "promptHash": "a5bbe51369a03fba2a8bac323620525a990b7274c5f1a55a7fb4cb50d22fc92c",
+    "createdAt": "2026-10-09T19:31:02.332Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-09T19:30:43.919Z",
+    "interpretation": "automatic-safe-interpretation",
+    "history": []
   }
 };
