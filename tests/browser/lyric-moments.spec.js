@@ -41,17 +41,38 @@ test("timestamp sharing works without lyric cues and fits mobile", async ({ page
   await page.screenshot({ path: "artifacts/lyric-moment-mobile.png", fullPage: true });
 });
 
-test("unsupported lines stay readable while supported lines still seek", async ({ page }) => {
+test("untimed lines jump nearby while timed lines still seek exactly", async ({ page }) => {
   await setup(page, { ...song, lyrics: { ...song.lyrics, cues: [song.lyrics.cues[0], song.lyrics.cues[2]] } });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`/lyrics/?song=${song.id}#lyric-line-3`);
   await expect(page.locator(".lyrics-text")).toContainText("Second line");
-  await expect(page.locator("button.lyric-line")).toHaveCount(2);
-  await expect(page.locator('.karaoke-note')).toContainText('Select a timed lyric');
-  await expect(page.locator("#lyric-line-2")).toHaveCount(0);
+  await expect(page.locator("button.lyric-line")).toHaveCount(3);
+  await expect(page.locator('.karaoke-note')).toContainText('Lines without timing jump nearby');
+  await expect(page.locator("#lyric-line-2")).toHaveAttribute("data-approximate", "true");
   await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(9);
+  await page.locator("#lyric-line-2").click();
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(3);
+  expect(new URL(page.url()).hash).toBe("#lyric-line-2");
   await page.locator("#lyric-line-1").click();
   await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(1);
+});
+test("an intro line before the first cue is clickable", async ({ page }) => {
+  await setup(page, { ...song, lyrics: { ...song.lyrics, cues: [song.lyrics.cues[1], song.lyrics.cues[2]] } });
+  await page.goto(`/lyrics/?song=${song.id}`);
+  const intro = page.locator("#lyric-line-1");
+  await expect(intro).toHaveAttribute("data-approximate", "true");
+  await intro.click();
+  expect(new URL(page.url()).hash).toBe("#lyric-line-1");
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(0);
+});
+test("Lesson two on The World's Biggest Hit can be selected from a shared line", async ({ page }) => {
+  await page.goto("/lyrics/the-world-s-biggest-hit-286681/?view=original#lyric-line-5");
+  const lesson = page.getByRole("button", { name: /Lesson two/ });
+  await expect(lesson).toHaveAttribute("data-approximate", "true");
+  await lesson.click();
+  expect(new URL(page.url()).hash).toBe("#lyric-line-2");
+  await expect(lesson).toHaveClass(/is-linked/);
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(0);
 });
 test("background refresh preserves the playing audio and does not reapply a shared timestamp", async ({ page }) => {
   let release;

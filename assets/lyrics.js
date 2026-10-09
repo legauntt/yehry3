@@ -36,6 +36,7 @@ function cueMap(lyrics) {
 
 function lyricLines(lyrics, escape) {
   const cues = cueMap(lyrics);
+  const timed = [...cues.entries()].sort(([a], [b]) => a - b);
   return lyrics.text
     .split("\n")
     .map((line, index) => {
@@ -43,9 +44,13 @@ function lyricLines(lyrics, escape) {
       if (lyrics.kind !== "performance" && /^\s*\[[^\]]+]\s*$/.test(line))
         return `<span class="lyric-heading">${escape(line)}</span>`;
       const cue = cues.get(index);
-      return cue
-        ? `<button type="button" class="lyric-line" id="lyric-line-${index + 1}" data-start="${cue.start}" data-end="${cue.end}" title="Jump to this line"><span data-lyric-text="${index}">${escape(line)}</span>${cue.uncertain ? '<span class="lyric-uncertain" aria-label="Uncertain transcription" title="Whisper is uncertain about this line">?</span>' : ""}<span class="lyric-link-marker">Shared line</span></button>`
-        : `<span class="lyric-line"><span data-lyric-text="${index}">${escape(line)}</span></span>`;
+      if (!cue && !timed.length) return `<span class="lyric-line"><span data-lyric-text="${index}">${escape(line)}</span></span>`;
+      // An omitted cue still needs a usable line link. Start at the preceding
+      // line's end, or at the beginning when this line precedes every cue.
+      const previous = timed.findLast(([lineIndex]) => lineIndex < index)?.[1];
+      const start = cue?.start ?? previous?.end ?? 0;
+      const approximate = !cue;
+      return `<button type="button" class="lyric-line" id="lyric-line-${index + 1}" data-start="${start}"${cue ? ` data-end="${cue.end}"` : ' data-approximate="true"'} title="${approximate ? 'Jump near this line (timing approximate)' : 'Jump to this line'}"><span data-lyric-text="${index}">${escape(line)}</span>${cue?.uncertain ? '<span class="lyric-uncertain" aria-label="Uncertain transcription" title="Whisper is uncertain about this line">?</span>' : ""}<span class="lyric-link-marker">Shared line</span></button>`;
     })
     .join("");
 }
@@ -298,7 +303,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
         </div><button type="button" class="quiet lyric-follow" id="resume-lyric-scroll" hidden>Resume auto-scroll</button>
         <p class="small" id="sheet-status" role="status"></p>
       </section>
-      <p class="small karaoke-note">${hasCues ? 'Select a timed lyric to jump there.' : 'Line timing is unavailable. Use the player to choose a moment.'}</p>
+      <p class="small karaoke-note">${hasCues ? 'Select a lyric to jump there. Lines without timing jump nearby.' : 'Line timing is unavailable. Use the player to choose a moment.'}</p>
       <p class="small lyric-print-note"></p>
       <div class="lyrics-text karaoke-lyrics">${lyricLines(song.lyrics, escape)}</div></article>`;
     cleanupKaraoke();
@@ -358,7 +363,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
       main.querySelector(".karaoke-note").textContent = source !== "original"
         ? cueMap(lyrics).size ? "Whisper machine transcript · Unreviewed · ? = uncertain. Select a line to hear it."
           : "Whisper machine transcript · Unreviewed · No words recognized."
-        : cueMap(lyrics).size ? "Select a timed lyric to jump there." : "Line timing is unavailable. Use the player to choose a moment.";
+        : cueMap(lyrics).size ? "Select a lyric to jump there. Lines without timing jump nearby." : "Line timing is unavailable. Use the player to choose a moment.";
       const viewLabel = view === "original" ? "" : `\n${label}: ${viewNote}`;
       const downloadText = text.split("\n").map((line, index) => lyrics.cues?.some(cue => cue.line === index && cue.uncertain) ? `${line} [?]` : line).join("\n");
       const blob = new Blob([`${song.title}\n${song.authoredBy ? `Authored by ${song.authoredBy}\n` : ""}${source === "original" ? note : "Audio-derived machine transcription."}${viewLabel}\n\n${downloadText}\n`], {
