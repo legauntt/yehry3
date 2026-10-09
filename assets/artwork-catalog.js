@@ -2534,5 +2534,22 @@ export default {
     "interpretation": "non-explicit-scene",
     "briefHash": "442f897919b4c69daaf9d513c868e850dd43a8ef540104e89394068faef89f7b",
     "history": []
+  },
+  "distonyc-ad1afcb1111cab848e47f23e": {
+    "src": "/assets/artwork/distonyc-ad1afcb1111cab848e47f23e-incubating-bbb698635e7d-9bf6a7e6ca5e1788-q86.webp",
+    "alt": "Cover artwork for The Big Bright Thing.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "d7090a09ad7edc4c0f7c0b793ba985b5ea12b7e6bfda7e922d27c662f1fc3079",
+    "promptHash": "a5bbe51369a03fba2a8bac323620525a990b7274c5f1a55a7fb4cb50d22fc92c",
+    "createdAt": "2026-10-09T07:34:02.925Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-09T07:33:44.369Z",
+    "interpretation": "automatic-safe-interpretation",
+    "history": []
   }
 };
