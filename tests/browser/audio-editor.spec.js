@@ -95,6 +95,17 @@ test('visitors do not see the editor', async ({ page }) => {
   await setup(page, false); await expect(page.getByRole('button', { name: 'Edit audio', exact: true })).toHaveCount(0);
 });
 
+test('offline vocal analysis does not block queuing a crop', async ({ page }) => {
+  const { state, writes } = await setup(page); state.online = false; state.analysis = null;
+  await open(page);
+  await expect(page.locator('[data-analysis]')).toContainText('offline');
+  await expect(page.getByRole('button', { name: 'Recheck vocals' })).toBeDisabled();
+  await page.locator('[data-end]').fill('12'); await page.locator('[data-fade]').fill('3');
+  await page.getByRole('button', { name: 'Save edited MP3' }).click();
+  await expect(page.locator('[data-status]')).toContainText('Edit queued');
+  expect(writes).toHaveLength(1); expect(writes[0].kind).toBe('render');
+});
+
 test('many saved edits fit on mobile and switching preserves playback position', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   const { state } = await setup(page);

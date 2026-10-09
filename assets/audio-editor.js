@@ -17,6 +17,7 @@ export async function openAudioEditor(song) {
       <div class="ae-wave"><canvas width="1200" height="210" tabindex="0" role="slider" aria-label="Waveform playhead" aria-valuemin="0" aria-valuemax="0" aria-valuenow="0"></canvas></div>
       <div class="ae-legend"><span>▰ Waveform</span><span class="ae-vocals">▰ Estimated vocals</span><span class="ae-fade">◢ Fade out</span><span class="ae-removed">▰ Cropped away</span></div>
       <p class="small" data-analysis role="status">Finding vocal sections…</p>
+      <button type="button" class="quiet" data-analyze>Recheck vocals</button>
       <div class="ae-transport"><button type="button" class="quiet" data-play>Play from cursor</button><button type="button" class="quiet" data-preview>Preview ending</button><button type="button" class="quiet" data-stop>Stop</button><output data-time>0:00.0</output><button type="button" class="quiet" data-cut>End at cursor</button></div>
       <label class="ae-end">Crop end <input type="range" min="1" max="1" step="0.1" value="1" data-end-range></label>
       <div class="ae-fields"><label>End time (seconds)<input type="number" min="1" step="0.1" data-end required></label><label>Fade out (seconds)<input type="number" min="0" max="60" step="0.1" value="5" data-fade required></label><p data-summary></p></div>
@@ -72,7 +73,7 @@ export async function openAudioEditor(song) {
     } catch (error) { notify(error.message); }
   }
   function seek(value) { stop(); cursor = Math.max(0, Math.min(buffer?.duration || 0, value)); draw(); }
-  function validate() { draw(); try { settings(); $('[data-save]').disabled = saving || state.jobs.some(row => ['working', 'queued'].includes(row.state)); } catch { $('[data-save]').disabled = true; } }
+  function validate() { draw(); const busy = saving || state.jobs.some(row => ['working', 'queued'].includes(row.state)); $('[data-analyze]').disabled = busy || !state.online; try { settings(); $('[data-save]').disabled = busy; } catch { $('[data-save]').disabled = true; } }
   function changed() { stop(); requestId = null; validate(); }
   function versions() {
     const root = $('[data-versions]'); root.replaceChildren();
@@ -93,7 +94,7 @@ export async function openAudioEditor(song) {
     const previous = state; state = next;
     versions();
     const method = state.analysis?.method;
-    $('[data-analysis]').textContent = method === 'isolated-vocals' ? 'Estimated vocals from the isolated vocal stem. Quiet singing or instrument bleed can affect detection.' : method === 'transcript' ? 'Estimated vocal sections from audio transcription. Timing and missing words can affect detection.' : method === 'unavailable' ? 'Vocal detection is unavailable for this recording. You can still trim and preview by ear.' : 'Detecting vocal sections…';
+    $('[data-analysis]').textContent = method === 'isolated-vocals' ? 'Estimated vocals from the isolated vocal stem. Quiet singing or instrument bleed can affect detection.' : method === 'transcript' ? 'Estimated vocal sections from audio transcription. Timing and missing words can affect detection.' : method === 'unavailable' ? 'Vocal detection is unavailable for this recording. You can still trim and preview by ear.' : state.online ? 'Detecting vocal sections…' : 'Vocal markers are unavailable while the studio PC is offline. You can still queue an edit.';
     const active = state.jobs.find(row => ['queued', 'working'].includes(row.state));
     if (active) notify(active.kind === 'analyze' ? state.online ? 'Detecting vocal sections…' : 'Vocal analysis queued. It will run when the studio PC is online.' : state.online ? 'Creating and verifying the edited MP3… You can close this editor and return later.' : 'Edit queued. It will be created when the studio PC is online.');
     else if (previous?.jobs.some(row => ['queued', 'working'].includes(row.state))) {
@@ -122,6 +123,7 @@ export async function openAudioEditor(song) {
   $('[data-end]').oninput = () => { $('[data-end-range]').value = $('[data-end]').value; changed(); };
   $('[data-fade]').oninput = changed; $('[data-default]').onchange = () => { requestId = null; };
   $('[data-save]').onclick = () => queue('render').catch(error => notify(error.message));
+  $('[data-analyze]').onclick = () => queue('analyze').catch(error => notify(error.message));
   try {
     await refresh(); if (closed) return;
     if (!state.supported) throw new Error('This recording is not available in the audio editor.');
@@ -135,6 +137,6 @@ export async function openAudioEditor(song) {
     $('[data-end]').max = $('[data-end-range]').max = duration; $('[data-end]').value = $('[data-end-range]').value = duration; $('[data-fade]').value = Math.min(5, duration);
     canvas.setAttribute('aria-valuemax', buffer.duration.toFixed(1)); $('[data-controls]').disabled = false; draw(); changed();
     if (!state.jobs.some(row => ['queued', 'working'].includes(row.state))) notify('Ready. Select a point on the waveform to listen or choose an ending.');
-    if (!state.analysis && !state.jobs.some(row => ['queued', 'working'].includes(row.state))) await queue('analyze');
+    if (!state.analysis && state.online && !state.jobs.some(row => ['queued', 'working'].includes(row.state))) await queue('analyze');
   } catch (error) { notify(error.message); }
 }
