@@ -384,6 +384,11 @@ background tabs, unavailable storage, reordering, mobile layout and playback con
 
 ## Validate
 
+Scrolling a lyric sheet up or down pauses auto-scrolling while playback and line
+highlighting continue. **Resume auto-scroll** in the sticky lyric toolbar returns
+to the current line without seeking or changing playback. The paused state lasts
+through song-detail refreshes and lyric-view changes on that sheet.
+
 Artwork safety failures and bounded safe reinterpretations are documented in
 [Artwork safety recovery](ARTWORK-RETRIES.md).
 

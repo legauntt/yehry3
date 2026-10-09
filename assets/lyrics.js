@@ -59,6 +59,7 @@ export function sheetFor(song) {
     song,
     audio,
     pendingAt: null,
+    followLyrics: true,
     // What draws the sheet asks to hear when the place it will start from changes.
     watchers: new Set(),
     isCurrent: () => player.current?.id === sheet.song.id,
@@ -89,16 +90,80 @@ export function sheetFor(song) {
 function mountKaraoke(main, sheet, { restoreLink = true } = {}) {
   const audio = sheet.audio;
   const lines = [...main.querySelectorAll("button.lyric-line")];
+  const resume = main.querySelector("#resume-lyric-scroll");
+  resume.hidden = true;
   if (!lines.length) return () => {};
   const controller = new AbortController();
   const { signal } = controller;
   let active;
+  let userScrollStart = null, userScrollTimer, autoScrolling = false, draggingScrollbar = false;
+  let lastScrollY = scrollY;
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  function resetScrollIntent() {
+    clearTimeout(userScrollTimer);
+    userScrollStart = null;
+  }
+  function showResume() {
+    resume.hidden = sheet.followLyrics || !sheet.isCurrent();
+  }
+  function scrollToLine(line, smooth = false) {
+    resetScrollIntent();
+    autoScrolling = smooth && !reducedMotion.matches;
+    line.scrollIntoView({ block: "center", behavior: autoScrolling ? "smooth" : "instant" });
+  }
+  // Only an actual page movement after scroll input pauses following. Our own
+  // centering, shared links, focus changes and layout shifts are not user scrolls.
+  function scrollIntent() {
+    if (!active || !sheet.isCurrent() || !sheet.followLyrics) return;
+    if (autoScrolling) {
+      autoScrolling = false;
+      sheet.followLyrics = false;
+      showResume();
+      scrollTo({ top: scrollY, left: scrollX, behavior: "instant" });
+      resetScrollIntent();
+      return;
+    }
+    // Passive wheel/touch handlers can run after the browser has moved the page.
+    userScrollStart ??= lastScrollY;
+    clearTimeout(userScrollTimer);
+    userScrollTimer = setTimeout(resetScrollIntent, 250);
+  }
+  addEventListener("wheel", event => { if (event.deltaY && !event.ctrlKey) scrollIntent(); }, { passive: true, signal });
+  addEventListener("touchmove", scrollIntent, { passive: true, signal });
+  addEventListener("keydown", event => {
+    if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey ||
+        event.target.closest("input, textarea, select, [contenteditable]") ||
+        (event.key === " " && event.target.closest("button, summary"))) return;
+    if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) scrollIntent();
+  }, { signal });
+  addEventListener("pointerdown", event => {
+    draggingScrollbar = event.clientX >= document.documentElement.clientWidth;
+    if (draggingScrollbar) scrollIntent();
+  }, { signal });
+  addEventListener("pointermove", () => { if (draggingScrollbar) scrollIntent(); }, { passive: true, signal });
+  addEventListener("pointerup", () => { draggingScrollbar = false; }, { signal });
+  addEventListener("scroll", () => {
+    lastScrollY = scrollY;
+    if (userScrollStart === null) return;
+    if (Math.abs(scrollY - userScrollStart) > 8) {
+      sheet.followLyrics = false;
+      resetScrollIntent();
+      showResume();
+    }
+  }, { passive: true, signal });
+  addEventListener("scrollend", () => { autoScrolling = false; }, { signal });
+  resume.addEventListener("click", () => {
+    sheet.followLyrics = true;
+    sync(false);
+    if (active) scrollToLine(active, true);
+  }, { signal });
+  signal.addEventListener("abort", resetScrollIntent, { once: true });
   function lineFromHash() {
     const match = /^#lyric-line-(\d+)$/.exec(location.hash);
     return match ? lines.find((line) => line.id === `lyric-line-${match[1]}`) : undefined;
   }
   function sync(follow = sheet.isCurrent() && !audio.paused) {
+    showResume();
     // A song that is not loaded has no line playing, though a place chosen on the sheet shows.
     const time = sheet.isCurrent() ? audio.currentTime : sheet.pendingAt ?? -1;
     let current;
@@ -113,10 +178,10 @@ function mountKaraoke(main, sheet, { restoreLink = true } = {}) {
     active = current;
     active?.classList.add("is-active");
     active?.setAttribute("aria-current", "true");
-    if (active && follow) {
+    if (active && follow && sheet.followLyrics && userScrollStart === null) {
       const box = active.getBoundingClientRect();
       if (box.top < innerHeight * 0.3 || box.bottom > innerHeight * 0.72)
-        active.scrollIntoView({ block: "center", behavior: reducedMotion.matches ? "auto" : "smooth" });
+        scrollToLine(active, true);
     }
   }
   function markLinked(line) {
@@ -133,10 +198,10 @@ function mountKaraoke(main, sheet, { restoreLink = true } = {}) {
     sheet.seek(Number(line.dataset.start));
     sync(false);
   }
-  for (const line of lines) line.addEventListener("click", () => selectLine(line, true));
+  for (const line of lines) line.addEventListener("click", () => selectLine(line, true), { signal });
   const linkedLine = lineFromHash();
   if (restoreLink && linkedLine && !(sheet.isCurrent() && (audio.currentTime || !audio.paused))) {
-    linkedLine.scrollIntoView({ block: "center" });
+    scrollToLine(linkedLine);
     if (sharedTimestamp() === null) selectLine(linkedLine);
     else markLinked(linkedLine);
   }
@@ -144,7 +209,7 @@ function mountKaraoke(main, sheet, { restoreLink = true } = {}) {
     const line = lineFromHash();
     markLinked(line);
     if (!line) return;
-    line.scrollIntoView({ block: "center" });
+    scrollToLine(line);
     selectLine(line);
   }, { signal });
   audio.addEventListener("timeupdate", () => sync(), { signal });
@@ -229,7 +294,8 @@ export async function lyricsPage(main, { escape, safeUrl }) {
               ${songPlanLink(song, escape)}${song.originalPrompt || song.hasOriginalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">Original prompt ↗</a>` : ""}<a class="text-link" href="/">The collection →</a>
             </div><p class="small">${note}</p><p class="small sheet-keeps">Playback continues as you browse the site.</p></div>
           </details>
-        </div><p class="small" id="sheet-status" role="status"></p>
+        </div><button type="button" class="quiet lyric-follow" id="resume-lyric-scroll" hidden>Resume auto-scroll</button>
+        <p class="small" id="sheet-status" role="status"></p>
       </section>
       <p class="small karaoke-note">${hasCues ? 'Select a timed lyric to jump there.' : 'Line timing is unavailable. Use the player to choose a moment.'}</p>
       <p class="small lyric-print-note"></p>
