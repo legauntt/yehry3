@@ -84,6 +84,37 @@ async function studio(page, { reject = () => false, socket = false } = {}) {
   return state;
 }
 
+test("listener cards and device badges stay dark and readable in Dark Mode", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("yehry3:dark-mode", "true"));
+  const state = await studio(page);
+  state.listeners[1] = { ...jesse, device: "desktop" };
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  const seat = page.locator('.room-seat[data-id="bbbbbbbbbbbbbb01"]');
+  await seat.locator(".room-avatar").hover();
+  await expect(seat.locator(".room-card")).toBeVisible();
+  const appearance = await seat.evaluate((element) => {
+    const luminance = (color) => {
+      const [r, g, b] = color.match(/[\d.]+/g).slice(0, 3).map(Number).map((value) => {
+        const channel = value / 255;
+        return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+      });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+    const measure = (selector) => {
+      const style = getComputedStyle(element.querySelector(selector));
+      const foreground = luminance(style.color);
+      const background = luminance(style.backgroundColor);
+      return { background, contrast: (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05) };
+    };
+    return { card: measure(".room-card"), device: measure(".room-device") };
+  });
+  expect(appearance.card.background).toBeLessThan(0.1);
+  expect(appearance.card.contrast).toBeGreaterThan(4.5);
+  expect(appearance.device.background).toBeLessThan(0.1);
+  expect(appearance.device.contrast).toBeGreaterThan(4.5);
+});
+
 test("listeners sit at the edges, follow each other's songs, and can hide", async ({ page }) => {
   const state = await studio(page);
   await page.goto("/?sort=catalog");
