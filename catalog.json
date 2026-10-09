@@ -2,6 +2,436 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-e2925b5d0df98c7f8ec86571",
+      "title": "Nine-Eleven'd Again (Crypt Punk Run)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e2925b5d0df98c7f8ec86571-cb75b78c4ed6.mp3",
+      "duration": 284.96979591836737,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-41122cfa1d30d985e40d357b",
+        "title": "Nine-Eleven'd Again",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-41122cfa1d30d985e40d357b-b6742677aca4.mp3"
+      },
+      "publishedAt": "2026-10-09T18:43:38.259Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Nine-Eleven'd Again (Crypt Punk Run)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Crypt punk: urgent palm-muted electric guitars, fast tom-led drums, elastic bass, and brief horror-organ stabs. Keep the recognizable “Nine-eleven'd again” hook in a clear, steadily pitched melodic lead, with tight stop-start punctuation around the dungeon mishaps. Build from a tense intro through sprinting verses, a bigger hook, sparse breakdown, and a final victorious surge; place the final sung word around 275 seconds, then resolve one final D-minor chord for a natural decay.",
+        "lyrics": "[Intro]\nLoad the dungeon, strike a match\nTony's got a rusty latch\nSays, “This time I know the route”\nFirst dark hallway—lights go out\n\n[Verse 1]\nFound a bonesaw, lost a shoe\nSomething hungry chewed straight through\nMissed the coin flip, broke his arm\nStepped on every fucking harm\nGuard came dragging down the hall\nTony ducked behind the wall\nFloor gave way beneath him then\nGoddamn—nine-eleven'd again\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony growls, “Aw, son of a bitch”\nLoads that miserable save from six\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Verse 2]\nBack downstairs with half a map\nDodged the dogs and found a trap\nFed the girl and saved his meat\nCrow Mauler dropped him through the street\nTony leaned into the screen\n“That's the cheapest shit I've seen”\nLit a smoke and counted ten\nGot up—nine-eleven'd again\n\n[Pre-Chorus]\nNow his grin is getting crooked\nEvery guide says he mistook it\nEvery doorway smells like doom\nStill he kicks into the room\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony snarls, “You rigged this shit”\nThrows the mouse but will not quit\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Bridge]\nCoin in the air—call it clean\nHeads means mercy, tails gets mean\nIt hits the stone, it rolls from sight\nDungeon laughs and kills the light\nTony mutters, low and slow\n“You ain't tellin' me to go”\nBlood at one and mind at ten\nHe crawls toward the throne again\n\n[Breakdown]\nNo food left\nNo good limb\nNo clean save\nStill goes in\nBell starts shaking\nCeiling bends\nTony sees it—“Not this again!”\n\n[Verse]\nPast the prison, past the mines\nPast the rotten gods and signs\nEvery loss has taught his hands\nWhere the blade falls, where it lands\nLast door opens, pale and wide\nAll that spite walks in beside him\nDungeon offers one last spin\nTony laughs, “Then let me win.”\n\n[Chorus]\nNine-eleven'd again—\nBut he rises through the din\nLet it crash, he'll crawl back in\nNo more begging at the end\nTony roars, “You hungry pit,\nI can die all night, you prick!”\nFear in the dark, but fire within\nYou can nine-eleven him again—\nHe'll load that bastard save and win\n\n[Outro]\nScreen goes black, the final chord bends\nTony grins: “Now who's annoyed, my friend?”\n[End]",
+        "duration": 285,
+        "bpm": 154,
+        "musicalSettings": {
+          "genre": "Crypt punk with horror-organ color",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Chorus, Verse 2, Pre-Chorus, Chorus, Bridge, Breakdown, Final Verse, Final Chorus, Outro",
+          "performance": "Clear, steadily pitched melodic rock lead with urgent phrasing and a catchable hook",
+          "energy": "Tense opening, fast escalating momentum, stripped breakdown, then a defiant final lift",
+          "lyricWorkflow": "Preserved supplied lyrics in their original order and wording",
+          "instruments": [
+            "electric guitars",
+            "electric bass",
+            "drums",
+            "horror organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nLoad the dungeon, strike a match\nTony's got a rusty latch\nSays, “This time I know the route”\nFirst dark hallway—lights go out\n\n[Verse 1]\nFound a bonesaw, lost a shoe\nSomething hungry chewed straight through\nMissed the coin flip, broke his arm\nStepped on every fucking harm\nGuard came dragging down the hall\nTony ducked behind the wall\nFloor gave way beneath him then\nGoddamn—nine-eleven'd again\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony growls, “Aw, son of a bitch”\nLoads that miserable save from six\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Verse 2]\nBack downstairs with half a map\nDodged the dogs and found a trap\nFed the girl and saved his meat\nCrow Mauler dropped him through the street\nTony leaned into the screen\n“That's the cheapest shit I've seen”\nLit a smoke and counted ten\nGot up—nine-eleven'd again\n\n[Pre-Chorus]\nNow his grin is getting crooked\nEvery guide says he mistook it\nEvery doorway smells like doom\nStill he kicks into the room\n\n[Chorus]\nNine-eleven'd again\nRight when the good run begins\nOne loud crash, the whole plan ends\nNine-eleven'd again\nTony snarls, “You rigged this shit”\nThrows the mouse but will not quit\nFear in the dark and hunger within\nThen he gets nine-eleven'd again\n\n[Bridge]\nCoin in the air—call it clean\nHeads means mercy, tails gets mean\nIt hits the stone, it rolls from sight\nDungeon laughs and kills the light\nTony mutters, low and slow\n“You ain't tellin' me to go”\nBlood at one and mind at ten\nHe crawls toward the throne again\n\n[Breakdown]\nNo food left\nNo good limb\nNo clean save\nStill goes in\nBell starts shaking\nCeiling bends\nTony sees it—“Not this again!”\n\n[Verse]\nPast the prison, past the mines\nPast the rotten gods and signs\nEvery loss has taught his hands\nWhere the blade falls, where it lands\nLast door opens, pale and wide\nAll that spite walks in beside him\nDungeon offers one last spin\nTony laughs, “Then let me win.”\n\n[Chorus]\nNine-eleven'd again—\nBut he rises through the din\nLet it crash, he'll crawl back in\nNo more begging at the end\nTony roars, “You hungry pit,\nI can die all night, you prick!”\nFear in the dark, but fire within\nYou can nine-eleven him again—\nHe'll load that bastard save and win\n\n[Outro]\nScreen goes black, the final chord bends\nTony grins: “Now who's annoyed, my friend?”",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 5.86,
+            "end": 9.22
+          },
+          {
+            "line": 2,
+            "start": 9.22,
+            "end": 12.24
+          },
+          {
+            "line": 3,
+            "start": 12.24,
+            "end": 15.32
+          },
+          {
+            "line": 4,
+            "start": 15.32,
+            "end": 18.74
+          },
+          {
+            "line": 7,
+            "start": 18.74,
+            "end": 24.6
+          },
+          {
+            "line": 8,
+            "start": 24.6,
+            "end": 28.68
+          },
+          {
+            "line": 9,
+            "start": 28.68,
+            "end": 31.1
+          },
+          {
+            "line": 10,
+            "start": 31.54,
+            "end": 34.06
+          },
+          {
+            "line": 11,
+            "start": 34.7,
+            "end": 37.22
+          },
+          {
+            "line": 12,
+            "start": 38.34,
+            "end": 40.46
+          },
+          {
+            "line": 13,
+            "start": 40.84,
+            "end": 43.4
+          },
+          {
+            "line": 14,
+            "start": 43.96,
+            "end": 46.24
+          },
+          {
+            "line": 18,
+            "start": 51.72,
+            "end": 54.9
+          },
+          {
+            "line": 19,
+            "start": 55.66,
+            "end": 58.32
+          },
+          {
+            "line": 21,
+            "start": 60.3,
+            "end": 62.24
+          },
+          {
+            "line": 22,
+            "start": 63.02,
+            "end": 65.34
+          },
+          {
+            "line": 23,
+            "start": 66.14,
+            "end": 68.08
+          },
+          {
+            "line": 24,
+            "start": 68.56,
+            "end": 70.66
+          },
+          {
+            "line": 27,
+            "start": 77.66,
+            "end": 80.88
+          },
+          {
+            "line": 28,
+            "start": 81.32,
+            "end": 83.98
+          },
+          {
+            "line": 29,
+            "start": 84.64,
+            "end": 87.86
+          },
+          {
+            "line": 30,
+            "start": 87.86,
+            "end": 90.18
+          },
+          {
+            "line": 31,
+            "start": 91.34,
+            "end": 93.24
+          },
+          {
+            "line": 32,
+            "start": 93.98,
+            "end": 96.38
+          },
+          {
+            "line": 33,
+            "start": 96.94,
+            "end": 99.42
+          },
+          {
+            "line": 34,
+            "start": 99.42,
+            "end": 102.48
+          },
+          {
+            "line": 37,
+            "start": 102.48,
+            "end": 111.98
+          },
+          {
+            "line": 38,
+            "start": 111.98,
+            "end": 115.38
+          },
+          {
+            "line": 39,
+            "start": 115.38,
+            "end": 118.34
+          },
+          {
+            "line": 40,
+            "start": 118.34,
+            "end": 121.36
+          },
+          {
+            "line": 44,
+            "start": 126.58,
+            "end": 129.74
+          },
+          {
+            "line": 45,
+            "start": 130.48,
+            "end": 133.12
+          },
+          {
+            "line": 47,
+            "start": 135.12,
+            "end": 136.86
+          },
+          {
+            "line": 48,
+            "start": 137.7,
+            "end": 140.14
+          },
+          {
+            "line": 49,
+            "start": 140.92,
+            "end": 142.94
+          },
+          {
+            "line": 50,
+            "start": 143.38,
+            "end": 145.42
+          },
+          {
+            "line": 53,
+            "start": 152.6,
+            "end": 155.5
+          },
+          {
+            "line": 54,
+            "start": 156.22,
+            "end": 158.82
+          },
+          {
+            "line": 55,
+            "start": 159.28,
+            "end": 162
+          },
+          {
+            "line": 56,
+            "start": 162.84,
+            "end": 164.94
+          },
+          {
+            "line": 57,
+            "start": 166.08,
+            "end": 167.92
+          },
+          {
+            "line": 58,
+            "start": 168.78,
+            "end": 171.18
+          },
+          {
+            "line": 59,
+            "start": 171.86,
+            "end": 174.32
+          },
+          {
+            "line": 60,
+            "start": 174.72,
+            "end": 177.36
+          },
+          {
+            "line": 63,
+            "start": 184.02,
+            "end": 185.24
+          },
+          {
+            "line": 64,
+            "start": 185.96,
+            "end": 186.86
+          },
+          {
+            "line": 65,
+            "start": 187.26,
+            "end": 188.32
+          },
+          {
+            "line": 66,
+            "start": 189.26,
+            "end": 190.08
+          },
+          {
+            "line": 67,
+            "start": 190.08,
+            "end": 191.78
+          },
+          {
+            "line": 68,
+            "start": 192.16,
+            "end": 193.04
+          },
+          {
+            "line": 69,
+            "start": 193.98,
+            "end": 196.04
+          },
+          {
+            "line": 72,
+            "start": 203.3,
+            "end": 206.34
+          },
+          {
+            "line": 73,
+            "start": 206.34,
+            "end": 208.62
+          },
+          {
+            "line": 74,
+            "start": 209.38,
+            "end": 211.8
+          },
+          {
+            "line": 75,
+            "start": 212.48,
+            "end": 214.78
+          },
+          {
+            "line": 76,
+            "start": 215.76,
+            "end": 217.92
+          },
+          {
+            "line": 77,
+            "start": 218.7,
+            "end": 221.38
+          },
+          {
+            "line": 78,
+            "start": 221.98,
+            "end": 224.28
+          },
+          {
+            "line": 79,
+            "start": 225.38,
+            "end": 227.3
+          },
+          {
+            "line": 83,
+            "start": 236.42,
+            "end": 238.98
+          },
+          {
+            "line": 84,
+            "start": 239.58,
+            "end": 242.24
+          },
+          {
+            "line": 85,
+            "start": 242.62,
+            "end": 245.28
+          },
+          {
+            "line": 86,
+            "start": 246.38,
+            "end": 248.4
+          },
+          {
+            "line": 87,
+            "start": 249.08,
+            "end": 251.36
+          },
+          {
+            "line": 88,
+            "start": 251.8,
+            "end": 254.34
+          },
+          {
+            "line": 89,
+            "start": 255.28,
+            "end": 258.3
+          },
+          {
+            "line": 90,
+            "start": 258.82,
+            "end": 261.5
+          },
+          {
+            "line": 93,
+            "start": 264.6,
+            "end": 267.86
+          },
+          {
+            "line": 94,
+            "start": 268.96,
+            "end": 271.74
+          }
+        ]
+      },
+      "collections": [
+        "distonyc",
+        "fearhunger"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "2f6894fa34c4d242bb520ba61ea293468731008d7b79479e3784b22327599b54",
+        "bytes": 6839320,
+        "duration": 284.969792,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e2925b5d0df98c7f8ec86571-2f6894fa34c4.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “Nine-Eleven'd Again”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Tony C tries to beat Fear & Hunger, but he keeps getting 9/11'd, annoying him more and more\n\nOriginal sound: Use the prompt as written.",
+        "direction": "New genre (surprise me)",
+        "keep": "Keep the recognizable hook and spirit of “Nine-Eleven'd Again”.",
+        "basisSongs": [
+          "Nine-Eleven'd Again"
+        ],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 285
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-ad1afcb1111cab848e47f23e",
       "title": "The Big Bright Thing",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ad1afcb1111cab848e47f23e-323ceca06b03.mp3",
