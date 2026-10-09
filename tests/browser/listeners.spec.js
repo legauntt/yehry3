@@ -595,6 +595,32 @@ test("drafting a song and reading lyrics are noticed from the page, and stop whe
   await expect.poll(() => state.reports.at(-1).activity, { timeout: 8000 }).toBe("lyrics");
 });
 
+for (const width of [1440, 390]) test(`Œuful stays in the room and updates presence at ${width}px`, async ({ page }) => {
+  await page.setViewportSize({ width, height: 900 });
+  await page.addInitScript(() => {
+    const Native = window.WebSocket;
+    window.socketOpens = 0;
+    window.WebSocket = class extends Native {
+      constructor(...args) { super(...args); window.socketOpens += 1; }
+    };
+  });
+  const state = await studio(page, { socket: true });
+  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [] } }));
+  await page.goto("/");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  const opens = await page.evaluate(() => window.socketOpens);
+  await page.locator(".nav-egg").click();
+  await expect(page).toHaveURL(/\/oeuful\/$/);
+  await expect(page.locator("#booth")).toBeVisible();
+  await expect.poll(() => state.reports.at(-1).activity).toBe("oeuful");
+  expect(await page.evaluate(() => window.socketOpens)).toBe(opens);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.locator('a[href="/queue/"]').first().click();
+  await expect(page).toHaveURL(/\/queue\/$/);
+  await expect.poll(() => state.reports.at(-1).activity).toBeUndefined();
+  expect(await page.evaluate(() => window.socketOpens)).toBe(opens);
+});
+
 for (const width of [1440, 390]) test(`Backstage, video and settings states follow the page and dialogs at ${width}px`, async ({ page }) => {
   await page.setViewportSize({ width, height: 900 });
   const state = await studio(page, { socket: true });

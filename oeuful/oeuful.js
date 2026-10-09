@@ -9,6 +9,8 @@ import { shock } from "../assets/badge-sound.js";
 import { songArtwork } from "../assets/song-art.js";
 import { lyricsHref } from "../assets/song-links.js";
 import { api } from "../assets/api.js";
+import { definePage } from "../assets/shell.js";
+import { player, audio as siteAudio } from "../assets/player.js";
 import { crateWeight, createPicker, wholeSong } from "./crate.js";
 
 // Each turntable keeps three sounds of its own: the record that is playing and two more, cut and
@@ -29,6 +31,7 @@ const ejectMs = 450, artWait = 2000;
 // How long a side may run, in seconds, for each stop of a deck's Side slider.
 const sideLengths = [3, 5, 8, 13, 20, 30, 45, 60], usualSide = 3, boothKey = "oeuful:booth";
 
+definePage(import.meta.url, async ({ scope }) => {
 const $ = (id) => document.getElementById(id);
 const booth = $("booth"), stage = $("stage"), art = $("art"), now = $("now"), mixer = $("mixer");
 const startButton = $("start"), skipButton = $("skip"), volumeInput = $("volume"), overlapInput = $("overlap");
@@ -241,7 +244,7 @@ function drop(slice) {
   if (slice.deck.slice === slice) clearPlatter(slice.deck);
   recycle(slice);
   const wait = retryMs[Math.min(failures++, retryMs.length - 1)];
-  refill ??= setTimeout(fill, wait);
+  refill ??= scope.later(fill, wait);
   show();
   dress();
   drawCrate();
@@ -292,7 +295,7 @@ function eject(slice) {
   }
   deck.element.classList.remove("is-stalled");
   setDeck(deck, "ejecting");
-  setTimeout(() => {
+  scope.later(() => {
     if (deck.slice === slice) clearPlatter(deck);
     recycle(slice);
     fill();
@@ -444,7 +447,7 @@ function spin(slice) {
     audio.addEventListener("ended", () => (slice.leaving ? eject(slice) : finish(slice)), { signal });
   }
   clearTimeout(slice.patience);
-  slice.patience = setTimeout(() => finish(slice), patience);
+  slice.patience = scope.later(() => finish(slice), patience);
   if (audio.currentTime < slice.from) audio.currentTime = slice.from;
   audio.play().catch((error) => {
     // A browser that refuses to start sound by itself hands the needle back to the listener.
@@ -518,6 +521,7 @@ function bless() {
 
 function start() {
   if (wanted || startButton.disabled) return;
+  player.pause();
   wanted = true;
   showWanted();
   bless();
@@ -597,7 +601,7 @@ fewerButton.addEventListener("click", () => {
   removeDeck();
   save();
 });
-document.addEventListener("keydown", (event) => {
+scope.on(document, "keydown", (event) => {
   if (event.altKey || event.ctrlKey || event.metaKey || event.target.closest?.("input, a, button")) return;
   if (event.key === " ") {
     event.preventDefault();
@@ -609,7 +613,29 @@ if ("mediaSession" in navigator) {
     try { navigator.mediaSession.setActionHandler(action, handler); } catch { /* Not every browser knows every action. */ }
   }
 }
-setInterval(pulse, tick);
+scope.on(siteAudio, "play", halt);
+scope.every(pulse, tick);
+scope.onLeave(() => {
+  clearTimeout(refill);
+  for (const deck of decks) {
+    for (const slice of [deck.slice, ...deck.queue, ...sounding]) {
+      if (!slice) continue;
+      clearTimeout(slice.patience);
+      slice.abort.abort();
+    }
+    for (const audio of [...deck.idle, ...deck.queue.map((slice) => slice.audio), deck.slice?.audio, ...sounding.map((slice) => slice.audio)]) {
+      if (!audio) continue;
+      audio.pause();
+      audio.removeAttribute("src");
+      audio.load();
+    }
+  }
+  if ("mediaSession" in navigator) {
+    for (const action of ["play", "pause", "nexttrack"]) {
+      try { navigator.mediaSession.setActionHandler(action, null); } catch { /* Unsupported action. */ }
+    }
+  }
+});
 
 // The booth opens the way the listener left it: how many decks, each one's length, volume and
 // whole songs or not, and the overlap.
@@ -632,6 +658,7 @@ const clips = fetch("/egg-clips.json")
   .then((data) => (Array.isArray(data?.clips) ? data.clips : []));
 try {
   const [found] = await Promise.all([clips, Promise.race([summary, wait(artWait)])]);
+  if (scope.left) return;
   if (!found.length) throw new Error("No clips");
   // Live votes and plays decide how often a song comes up; until they arrive every song is equal.
   pick = createPicker(found, { weightOf: (clip) => crateWeight(songs.get(clip.id)) });
@@ -639,7 +666,9 @@ try {
   now.textContent = "The crate is packed. Drop the needle.";
   startButton.disabled = false;
 } catch {
+  if (scope.left) return;
   pick = () => null;
   now.textContent = "The crate would not open. Try again in a moment.";
 }
 mood();
+});

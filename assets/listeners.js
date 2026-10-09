@@ -47,6 +47,7 @@ const DEVICE_LABELS = { phone: "On a phone", tablet: "On a tablet", small: "On a
 const ACTIVITY_LABELS = {
   drafting: "Drafting a song", lyrics: "Viewing song lyrics",
   backstage: "Viewing Backstage", video: "Watching a Video", settings: "Messing around in settings",
+  oeuful: "Listening to Œuful",
 };
 // What this page says its visitor is doing, read from the page itself so no page has to report it.
 const activityNow = () => {
@@ -54,6 +55,7 @@ const activityNow = () => {
   if (document.querySelector(".song-video-viewer[open]")) return "video";
   const page = document.body?.dataset.page;
   if (page === "admin") return "backstage";
+  if (page === "oeuful") return "oeuful";
   if (page === "lyrics") return "lyrics";
   if (page === "requests" && (document.querySelector("#details-form, #confirm-form") || document.querySelector("#idea")?.value.trim())) return "drafting";
   return null;
@@ -70,6 +72,7 @@ const ICONS = {
   backstage: '<path d="M3 3h18v18H3zM8 3v18M16 3v18M3 8h5M16 8h5"/>',
   video: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 8 6 4-6 4z"/>',
   settings: '<path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/>',
+  oeuful: '<path d="M12 2c4 0 7 7 7 12a7 7 0 0 1-14 0C5 9 8 2 12 2Z"/><path d="M8 16c2 2 6 2 8 0"/>',
 };
 function icon(name) {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");

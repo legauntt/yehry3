@@ -247,8 +247,8 @@ for (const file of await readdir(output, { recursive: true })) {
     html = html.replace("</head>", '<script type="module" src="/assets/branding.js"></script>\n  </head>');
   }
   // The listening room sits on every page with the shared header, beside Fear & Hunger's own players, and on
-  // the studio guide, Tommy's page and the not-found page. Œuful and the listening experiments are left out:
-  // each is its own sound.
+  // the studio guide, Tommy's page, Œuful and the not-found page. Listening
+  // experiments with their own isolated layouts are left out.
   const route = file.replaceAll("\\", "/");
   if (html.includes('class="site-header"') || ["fearhunger/index.html", "deetz/index.html", "404.html"].includes(route) || route.startsWith("wiseau/"))
     html = html.replace("</head>", '<link rel="stylesheet" href="/assets/listeners.css">\n    <script type="module" src="/assets/listeners.js"></script>\n  </head>');

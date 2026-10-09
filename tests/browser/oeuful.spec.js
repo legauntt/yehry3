@@ -104,3 +104,25 @@ test("Œuful plays sung moments back to back across two decks", async ({ page })
   await start.click();
   await expect(page.locator("#booth")).toHaveAttribute("data-state", "playing");
 });
+
+test("leaving Œuful stops its decks and returning cues them again", async ({ page }) => {
+  await page.addInitScript(() => {
+    const Native = window.Audio;
+    window.oeufulSounds = [];
+    window.Audio = function Audio(...given) {
+      const made = new Native(...given);
+      window.oeufulSounds.push(made);
+      return made;
+    };
+  });
+  await page.route("**/egg-clips.json", (route) => route.fulfill({ json: { clips } }));
+  await page.route("**/{catalog,songs/summary}", (route) => route.fulfill({ json: { songs: [] } }));
+  await page.goto("/oeuful/");
+  await page.locator("#start").click();
+  await expect(page.locator("#booth")).toHaveAttribute("data-state", "playing");
+  await page.locator('.site-header a[data-nav="library"]').click();
+  await expect(page).toHaveURL(/\/$/);
+  await expect.poll(() => page.evaluate(() => window.oeufulSounds.length > 0 && window.oeufulSounds.every((sound) => sound.paused))).toBe(true);
+  await page.locator(".nav-egg").click();
+  await expect(page.locator("#start")).toBeEnabled();
+});
