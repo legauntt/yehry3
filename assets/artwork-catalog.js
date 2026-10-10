@@ -2657,5 +2657,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-10T22:57:44.153Z",
     "history": []
+  },
+  "distonyc-0697d60fca381d6e37ae2cb5": {
+    "src": "/assets/artwork/distonyc-0697d60fca381d6e37ae2cb5-incubating-f8963a461e21-dbeb6e54ec261e7e-q86.webp",
+    "alt": "Cover artwork for Influence Criteria (Fluorescent Post-Punk Mix).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "21e73ffb0971fde2413f5e49d5f958726759198713ec65deac36e7b3a6c809cc",
+    "promptHash": "c3986dd92c1fab4a0b24d4c7f12388400eb6eb704a780d860895256679bbd8ff",
+    "createdAt": "2026-10-10T23:07:04.543Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-10T23:06:44.991Z",
+    "history": []
   }
 };
