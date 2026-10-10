@@ -2743,6 +2743,13 @@ button.lyric-line:hover {
   color: #1c9a8a;
   animation: v9-twinkle 3.4s ease-in-out infinite;
 }
+.voice-epoch-number {
+  border-left: 1px solid currentColor;
+  padding-left: 4px;
+  font-size: 0.9em;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
 @keyframes v9-shimmer {
   0%, 30% { background-position: 100% 0; }
   70%, 100% { background-position: 0 0; }

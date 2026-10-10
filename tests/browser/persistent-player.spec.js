@@ -63,7 +63,8 @@ test("the compact player badges fit together and seeking keeps playing", async (
   await page.goto("/?sort=catalog");
   await page.locator('.track[data-id="stay-first"] [data-play]').click();
   const bar = page.locator("#site-player");
-  await expect(bar.locator(".voice-model-badge")).toHaveText("V9*");
+  await expect(bar.locator(".voice-model-badge")).toHaveText("V9150");
+  await expect(page.locator('.track[data-id="stay-first"] .voice-model-badge .voice-epoch-number')).toHaveText('150');
   await expect(bar.locator(".voice-model-badge")).toHaveAttribute("title", "Tony’s voice: V9 · epoch 150");
   await expect(bar.locator(".music-backend-badge")).toHaveText("FREE");
   await expect(bar.locator(".music-backend-badge")).toHaveAttribute("title", /Local · ACE/);

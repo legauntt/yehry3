@@ -18,7 +18,8 @@ export function voiceModelBadge(item) {
   const range = item?.voiceEpochRange ?? item?.originalPrompt?.voiceEpochRange ?? item?.details?.voiceEpochRange;
   const suffix = version === 'v9' && range ? ` · epochs ${range.start} → ${range.end}` : version === 'v9' && Number.isInteger(epoch) && epoch >= 10 && epoch <= 300 && epoch % 10 === 0 ? ` · epoch ${epoch}` : '';
   const title = version === "vdb" ? "Tony’s voice: Demonophonic Blues experiment" : `Tony’s voice: ${version.toUpperCase()}${suffix}`;
-  return `<span class="voice-model-badge${variant}" title="${escape(title)}" aria-label="${escape(title)}">${escape(version.toUpperCase() + (suffix ? '*' : ''))}</span>`;
+  const checkpoint = version === 'v9' && range ? `${range.start}→${range.end}` : suffix ? String(epoch) : '';
+  return `<span class="voice-model-badge${variant}" title="${escape(title)}" aria-label="${escape(title)}">${escape(version.toUpperCase())}${checkpoint ? `<span class="voice-epoch-number" aria-hidden="true">${escape(checkpoint)}</span>` : ''}</span>`;
 }
 
 // One badge row for a song or a request at any stage, so a recording keeps the

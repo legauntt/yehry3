@@ -10,7 +10,7 @@ test('explicit V9 epochs follow the voice badge through requests and recordings'
     { details: { voiceModel: 'v9', voiceEpoch: 100 } },
     { originalPrompt: { voiceModel: 'v9', voiceEpoch: 100 } }])
   {
-    assert.match(voiceModelBadge(item), />V9\*</);
+    assert.match(voiceModelBadge(item), />V9<span class="voice-epoch-number" aria-hidden="true">100<\/span>/);
     assert.match(voiceModelBadge(item), /title="Tony’s voice: V9 · epoch 100"/);
   }
   for (const item of [{ voiceModel: 'v7', voiceEpoch: 100 },
