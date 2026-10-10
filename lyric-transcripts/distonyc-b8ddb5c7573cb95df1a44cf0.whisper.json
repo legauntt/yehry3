@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "songId": "distonyc-b8ddb5c7573cb95df1a44cf0",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b8ddb5c7573cb95df1a44cf0-19a2e2e59635.mp3",
+  "audioSha256": "19a2e2e59635ea299e51e17673c480cfcbb183a3c7c33773e256152b766b5620",
+  "inputSha256": "8b7ff7aa488a2d8514895a2bfab43e1935f7cbe8441608ed0b68267118e28e6c",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.0391875,
+  "segments": [
+    {
+      "start": 7.8,
+      "end": 11.36,
+      "text": "I read the room before the door swings wide",
+      "uncertain": false
+    },
+    {
+      "start": 11.36,
+      "end": 15.2,
+      "text": "Know who is bluffing, know who's taking sides",
+      "uncertain": true
+    },
+    {
+      "start": 15.2,
+      "end": 18.98,
+      "text": "I bring the numbers, I bring the plan",
+      "uncertain": false
+    },
+    {
+      "start": 18.98,
+      "end": 22.8,
+      "text": "Then somebody taller gets to be the man",
+      "uncertain": false
+    },
+    {
+      "start": 22.8,
+      "end": 26.66,
+      "text": "He leans back easy, says a little less",
+      "uncertain": false
+    },
+    {
+      "start": 26.66,
+      "end": 30.8,
+      "text": "They call it presence, call me overpressed",
+      "uncertain": false
+    },
+    {
+      "start": 30.8,
+      "end": 34.18,
+      "text": "At every party I can see the play",
+      "uncertain": false
+    },
+    {
+      "start": 34.18,
+      "end": 37.94,
+      "text": "Her eyes go upward and I fade away",
+      "uncertain": false
+    },
+    {
+      "start": 37.94,
+      "end": 42.16,
+      "text": "I learn to reach without a ladder",
+      "uncertain": false
+    },
+    {
+      "start": 42.16,
+      "end": 46.02,
+      "text": "Still they measure what does not matter",
+      "uncertain": false
+    },
+    {
+      "start": 49.28,
+      "end": 51.54,
+      "text": "From the view down here",
+      "uncertain": false
+    },
+    {
+      "start": 51.54,
+      "end": 55.52,
+      "text": "I see all the cracks in the ceiling",
+      "uncertain": false
+    },
+    {
+      "start": 55.52,
+      "end": 57.38,
+      "text": "Arise before the fall",
+      "uncertain": false
+    },
+    {
+      "start": 57.38,
+      "end": 59.16,
+      "text": "You can hand the crown",
+      "uncertain": false
+    },
+    {
+      "start": 59.16,
+      "end": 60.78,
+      "text": "To the lonely shadow",
+      "uncertain": false
+    },
+    {
+      "start": 60.78,
+      "end": 63.06,
+      "text": "In a mud I built a fire",
+      "uncertain": true
+    },
+    {
+      "start": 63.06,
+      "end": 65.22,
+      "text": "Where you thought there was",
+      "uncertain": false
+    },
+    {
+      "start": 65.22,
+      "end": 66.1,
+      "text": "No real",
+      "uncertain": true
+    },
+    {
+      "start": 66.1,
+      "end": 69.04,
+      "text": "Some of you down here",
+      "uncertain": false
+    },
+    {
+      "start": 69.04,
+      "end": 70.86,
+      "text": "Know my name",
+      "uncertain": false
+    },
+    {
+      "start": 72.52,
+      "end": 74.56,
+      "text": "I am done",
+      "uncertain": false
+    },
+    {
+      "start": 74.56,
+      "end": 77.96,
+      "text": "Defusing hide with flame",
+      "uncertain": true
+    },
+    {
+      "start": 82.5,
+      "end": 84.78,
+      "text": "My resume could paper",
+      "uncertain": false
+    },
+    {
+      "start": 84.78,
+      "end": 95.54,
+      "text": "every wall, but the handshake photo says it all, a larger suit, a practice laugh, and suddenly",
+      "uncertain": true
+    },
+    {
+      "start": 95.54,
+      "end": 103.44,
+      "text": "I'm someone's second half, I used to make a joke before they could, turn my own size",
+      "uncertain": false
+    },
+    {
+      "start": 103.44,
+      "end": 111.18,
+      "text": "into a punchline good, but every little cut became a case against the mirror and against",
+      "uncertain": false
+    },
+    {
+      "start": 111.18,
+      "end": 119.42,
+      "text": "the place i made my anger sharp and clever thought you would protect me forever",
+      "uncertain": true
+    },
+    {
+      "start": 122.2,
+      "end": 131.44,
+      "text": "from the view down here i see it all the cracks in the ceiling arise before the fall you can hand",
+      "uncertain": false
+    },
+    {
+      "start": 131.44,
+      "end": 141.08,
+      "text": "the crown to the longest shadow it will defy where you thought there was no room from the view down",
+      "uncertain": false
+    },
+    {
+      "start": 141.08,
+      "end": 143.98,
+      "text": "Down here I know my name",
+      "uncertain": true
+    },
+    {
+      "start": 146.08,
+      "end": 150.78,
+      "text": "I am dumb, confusing hype with flame",
+      "uncertain": false
+    },
+    {
+      "start": 156.08,
+      "end": 159.1,
+      "text": "Maybe I mistook the hurtful truth",
+      "uncertain": false
+    },
+    {
+      "start": 160.08,
+      "end": 162.92,
+      "text": "Made a courtroom out of every proof",
+      "uncertain": false
+    },
+    {
+      "start": 164.08,
+      "end": 166.66,
+      "text": "Maybe love is not a ladder wrong",
+      "uncertain": false
+    },
+    {
+      "start": 166.66,
+      "end": 170.38,
+      "text": "Maybe being seen starts when the blame is done",
+      "uncertain": false
+    },
+    {
+      "start": 170.38,
+      "end": 174.24,
+      "text": "I will not beg beneath another man's parade",
+      "uncertain": false
+    },
+    {
+      "start": 174.24,
+      "end": 179.5,
+      "text": "I will not shrink the life that I have made",
+      "uncertain": false
+    },
+    {
+      "start": 181.7,
+      "end": 185.9,
+      "text": "From the view down here I see it all",
+      "uncertain": false
+    },
+    {
+      "start": 185.9,
+      "end": 189.7,
+      "text": "Not just the ceiling, not the wall",
+      "uncertain": false
+    },
+    {
+      "start": 189.7,
+      "end": 193.4,
+      "text": "The open road beyond the old review",
+      "uncertain": false
+    },
+    {
+      "start": 193.4,
+      "end": 197.52,
+      "text": "The work I did, the things I know are true",
+      "uncertain": false
+    },
+    {
+      "start": 197.52,
+      "end": 201.32,
+      "text": "Let the tall man take the picture frame",
+      "uncertain": false
+    },
+    {
+      "start": 201.32,
+      "end": 207.24,
+      "text": "I will take the spark inside my name",
+      "uncertain": false
+    },
+    {
+      "start": 209.22,
+      "end": 212.68,
+      "text": "No more measuring the air above",
+      "uncertain": false
+    },
+    {
+      "start": 212.68,
+      "end": 216.56,
+      "text": "I stand in water and I stand in love",
+      "uncertain": false
+    },
+    {
+      "start": 216.56,
+      "end": 220.56,
+      "text": "And when the last light finds me clear and mere",
+      "uncertain": false
+    },
+    {
+      "start": 220.56,
+      "end": 225.68,
+      "text": "I rise into my life from the view down here",
+      "uncertain": false
+    }
+  ]
+}
