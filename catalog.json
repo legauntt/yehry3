@@ -2,6 +2,225 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-3aef47ffe33d0c6e7800ee3b",
+      "title": "Weird Hair, Strange Hearts (Surf-Punk Date Night)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3aef47ffe33d0c6e7800ee3b-4ec9c031114d.mp3",
+      "duration": 130.01142857142858,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-273bc25db98800af3487b313",
+        "title": "Weird Hair Weird Smells",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-273bc25db98800af3487b313-37f25200330a.mp3"
+      },
+      "publishedAt": "2026-10-10T07:18:16.169Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Weird Hair, Strange Hearts (Surf-Punk Date Night)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "E major",
+        "arrangement": "A brisk surf-punk reimagining in E major: spring-reverb electric guitar, propulsive melodic bass, punchy live drums, and brief Farfisa organ flashes. Open with a guitar-and-bass pickup, then drive through compact verses, rising pre-choruses, a hook-forward chorus, bridge, and expanded final chorus. Use one clear, steadily pitched melodic Tony V9 lead with natural connected phrasing; retain the “Weird hair, weird smells” hook and absurd dating-story spirit while giving the verses new rhythmic phrasing. Build from playful nervousness to warmly reckless celebration. Pace the final “true” as a sustained sung phrase at roughly 118–120 seconds, followed by one resolved full-band chord and natural decay.",
+        "lyrics": "[Verse 1]\nTony pressed one sleeve on a button-down shirt\nAsked the microwave, “Coffee?” and it just made a blurp\nBy the fountain she rolled in, lampshade for a crown\nHer hair sang with the bus wires all across the town\n\n[Pre-Chorus]\nCedar chips, old pennies, cherry smoke in the air\nSomething in a little jar was following her hair\n\n[Chorus]\nWeird hair, weird smells, what have I gotten myself into?\nMoonboot in the puddle, purse full of fondue\nWeird hair, weird smells, I’m trying hard to play it cool\n“You wanna see my tattoo?”\n“I guess I do”\nWhat have I gotten myself into?\n\n[Verse 2]\nThe fish had little human teeth and winked beneath her sleeve\n“Coupons after ten,” it said; I nodded, make-believe\nShe knocked upon the diner wall to call a mall ghost near\n“Don’t eat the green nachos, Tony—they remember every year”\n\n[Bridge]\nMaybe every decent heart arrives in stranger clothes\nWith a ferret needing counsel and a perfume nobody knows\nOutside she put the lampshade on my head beneath the bent-up moon\nSaid, “Next week there’s a place with snakes.” I said, “What time? Too soon?”\n\n[Chorus]\nWeird hair, weird smells, I know what I have gotten into\nLampshade on my forehead, pocket full of glue\nWeird hair, weird smells, I’m not as cool as I pretend\nBut rough out there is where the good nights begin\n“You wanna see my tattoo?”\n“I’ve seen it, but I do”\nMaybe something kind of true\n[End]",
+        "duration": 130,
+        "bpm": 172,
+        "musicalSettings": {
+          "genre": "Surf-punk rock with playful garage-pop color",
+          "meter": "4/4",
+          "structure": "Instrumental pickup → Verse 1 → Pre-Chorus → Chorus → Verse 2 → Bridge → Final Chorus → resolved ending",
+          "performance": "Clear, steadily pitched melodic lead with natural connected Tony phrasing and an increasingly animated final chorus",
+          "energy": "Fast, buoyant momentum that climbs from awkward anticipation to an exuberant romantic payoff",
+          "lyricWorkflow": "Adapted source-guided lyrics: preserve the recognizable hook, comic dating premise, and key motifs in a compact new form",
+          "instruments": [
+            "spring-reverb electric guitar",
+            "electric bass",
+            "live drum kit",
+            "Farfisa organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nTony pressed one sleeve on a button-down shirt\nAsked the microwave, “Coffee?” and it just made a blurp\nBy the fountain she rolled in, lampshade for a crown\nHer hair sang with the bus wires all across the town\n\n[Pre-Chorus]\nCedar chips, old pennies, cherry smoke in the air\nSomething in a little jar was following her hair\n\n[Chorus]\nWeird hair, weird smells, what have I gotten myself into?\nMoonboot in the puddle, purse full of fondue\nWeird hair, weird smells, I’m trying hard to play it cool\n“You wanna see my tattoo?”\n“I guess I do”\nWhat have I gotten myself into?\n\n[Verse 2]\nThe fish had little human teeth and winked beneath her sleeve\n“Coupons after ten,” it said; I nodded, make-believe\nShe knocked upon the diner wall to call a mall ghost near\n“Don’t eat the green nachos, Tony—they remember every year”\n\n[Bridge]\nMaybe every decent heart arrives in stranger clothes\nWith a ferret needing counsel and a perfume nobody knows\nOutside she put the lampshade on my head beneath the bent-up moon\nSaid, “Next week there’s a place with snakes.” I said, “What time? Too soon?”\n\n[Chorus]\nWeird hair, weird smells, I know what I have gotten into\nLampshade on my forehead, pocket full of glue\nWeird hair, weird smells, I’m not as cool as I pretend\nBut rough out there is where the good nights begin\n“You wanna see my tattoo?”\n“I’ve seen it, but I do”\nMaybe something kind of true",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 10.68,
+            "end": 13.4
+          },
+          {
+            "line": 2,
+            "start": 13.68,
+            "end": 16
+          },
+          {
+            "line": 3,
+            "start": 16,
+            "end": 18.8
+          },
+          {
+            "line": 4,
+            "start": 19.28,
+            "end": 22.08
+          },
+          {
+            "line": 7,
+            "start": 22.76,
+            "end": 26.64
+          },
+          {
+            "line": 8,
+            "start": 26.96,
+            "end": 31.9
+          },
+          {
+            "line": 11,
+            "start": 33.68,
+            "end": 37.12
+          },
+          {
+            "line": 12,
+            "start": 39.2,
+            "end": 42.7
+          },
+          {
+            "line": 13,
+            "start": 44.58,
+            "end": 48.04
+          },
+          {
+            "line": 14,
+            "start": 48.04,
+            "end": 49.18
+          },
+          {
+            "line": 15,
+            "start": 49.98,
+            "end": 50.86
+          },
+          {
+            "line": 16,
+            "start": 50.86,
+            "end": 54.1
+          },
+          {
+            "line": 19,
+            "start": 54.1,
+            "end": 57.16
+          },
+          {
+            "line": 20,
+            "start": 57.16,
+            "end": 61.58
+          },
+          {
+            "line": 21,
+            "start": 61.58,
+            "end": 67.26
+          },
+          {
+            "line": 22,
+            "start": 67.26,
+            "end": 73.12
+          },
+          {
+            "line": 25,
+            "start": 73.12,
+            "end": 78.12
+          },
+          {
+            "line": 26,
+            "start": 78.12,
+            "end": 83.58
+          },
+          {
+            "line": 27,
+            "start": 83.58,
+            "end": 87.78
+          },
+          {
+            "line": 28,
+            "start": 88.34,
+            "end": 93.2
+          },
+          {
+            "line": 31,
+            "start": 94.48,
+            "end": 97.94
+          },
+          {
+            "line": 32,
+            "start": 100.2,
+            "end": 103.92
+          },
+          {
+            "line": 33,
+            "start": 106,
+            "end": 109.24
+          },
+          {
+            "line": 34,
+            "start": 110,
+            "end": 112
+          },
+          {
+            "line": 35,
+            "start": 112.4,
+            "end": 115.14
+          },
+          {
+            "line": 36,
+            "start": 115.14,
+            "end": 116.24
+          },
+          {
+            "line": 37,
+            "start": 116.24,
+            "end": 118.94
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "1cb30018d456fab6b149f51e19765eb3ee06ac8447e4669e57b46261b9289fb6",
+        "bytes": 3120319,
+        "duration": 130.011417,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3aef47ffe33d0c6e7800ee3b-1cb30018d456.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “Weird Hair Weird Smells”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Tony C starts dating again, but it's rough out there\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Surprise with me a new genre",
+        "keep": "Keep the recognizable hook and spirit of “Weird Hair Weird Smells”.",
+        "basisSongs": [
+          "Weird Hair Weird Smells"
+        ],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 130,
+          "pitchRepair": "haunted"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-258ebfa2f716bc36d5323e53",
       "title": "Names on the Glass",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-258ebfa2f716bc36d5323e53-a7baf57133ed.mp3",
