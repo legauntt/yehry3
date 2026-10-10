@@ -2673,5 +2673,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-10T23:06:44.991Z",
     "history": []
+  },
+  "distonyc-8c98e56d3d736316e459f5b5": {
+    "src": "/assets/artwork/distonyc-8c98e56d3d736316e459f5b5-incubating-cefb67f7041d-22dde64a520dfb05-q86.webp",
+    "alt": "Cover artwork for Super Coin Leverage.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "810957225f9d43ebab025dd772f90cd5840264686579d90d53f14b1f05b7aeb9",
+    "promptHash": "5bd44bbb4e95dbbf7d111a82ae5094a163cd6504309aa42f2f6ba6cfc1ebac85",
+    "createdAt": "2026-10-10T23:44:46.396Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-10T23:44:00.376Z",
+    "history": []
   }
 };
