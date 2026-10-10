@@ -1,6 +1,12 @@
 // Published pre-replacement mixes, keyed by the song they accompany.
 // The Distonyc worker adds entries after verifying each public MP3.
 export default {
+  "distonyc-0697d60fca381d6e37ae2cb5": {
+    "bytes": 3961044,
+    "duration": 165.041625,
+    "sha256": "429d2577d97bdd9347b5ecb2fe9bd2053c08fc75266707e413ff74a7e6ae8f70",
+    "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0697d60fca381d6e37ae2cb5-429d2577d97b.mp3"
+  },
   "distonyc-06d2b8c3c8dffed19df347bb": {
     "bytes": 7199809,
     "duration": 299.990167,
