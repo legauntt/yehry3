@@ -2,6 +2,376 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-0697d60fca381d6e37ae2cb5",
+      "title": "Influence Criteria (Fluorescent Post-Punk Mix)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0697d60fca381d6e37ae2cb5-d6e8a5e9ef48.mp3",
+      "duration": 165.0416326530612,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-6694dab26c170fba0dba0663",
+        "title": "Influence Criteria",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6694dab26c170fba0dba0663-edd1461ceba1.mp3"
+      },
+      "publishedAt": "2026-10-10T23:05:33.193Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Influence Criteria (Fluorescent Post-Punk Mix)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Fluorescent post-punk/new-wave remake with a taut, driving bassline, clipped electric guitar, pulsing analog synth, live kit and occasional icy piano stabs. Keep the “Tell me what Influence means” hook immediately recognizable, but give the verses a new angular rhythm and rising melodic contour. Use one clear, steadily pitched Tony V9 lead with natural connected phrasing; no backing vocals, doubles, rasp effects or vocal stacks. Build from contained workplace tension to a hard, defiant final chorus, then sustain “this year” so the final sung syllable lands about 10 seconds before the 165-second end; resolve with one final D-minor chord and natural decay.",
+        "lyrics": "[Verse 1]\nBadge flashes green at six-oh-five\nRain on the glass, lobby alive\nI built the thing, I shipped it clean\nNo applause in the weekly machine\nMy manager says, “You did the work”\nThen holds that practiced little smirk\n“The numbers shine, but the story’s thin\nShow us how you pull people in”\n\n[Pre-Chorus]\nI ask for a map, they hand me smoke\nA leadership rule dressed up as a joke\n\n[Chorus]\nTell me what Influence means\nIs it a meeting, is it a scene?\nIs it my name on somebody’s slide?\nIs it a room where the truth stays outside?\nI made the river run on time\nStill I’m below some invisible line\nTell me what Influence means\nBefore they measure me out of the team\n\n[Verse 2]\nThirty days in an amber frame\nBoxes and buzzwords, no one to name\n“Raise the bar,” “earn trust,” “think big”\nI circle the phrases till the margins twitch\nThere’s stack ranking under the floor\nA polished bell above a trapdoor\nWe trade our wins in a narrow light\nPleasant, indispensable, bright\n\n[Chorus]\nTell me what Influence means\nIs it a meeting, is it a scene?\nIs it my name on somebody’s slide?\nIs it a room where the truth stays outside?\nI made the river run on time\nStill I’m below some invisible line\nTell me what Influence means\nBefore they measure me out of the team\n\n[Bridge]\nThursday brewery, tiny name tags\nPaper-cup laughter and borrowed flags\nI bring three plans to the skip-level call\nRisks and answers, I bring them all\n“Be louder in the room,” he says\nLike volume turns a seed to a tree\nWhose room, which door, what proof is this?\nThe silence says, “Take it offline”\n\n[Breakdown]\nI won’t sell a borrowed face\nOr make my friends a ladder’s place\nI can build, I can speak, I can bend\nBut I won’t call a contest a friend\n\n[Chorus]\nNow I know what Influence means\nA shadow moving behind the scenes\nA handshake held a second too long\nA careful smile where doubt belongs\nI made the river run on time\nI won’t disappear to fit their line\nScore me, sort me, close the screen\nI am more than your Influence criteria\n\n[Outro]\nKeep your amber boxes, keep your chart\nI kept the craft and I kept my heart\nWhen the badge goes dark and the hallway clears\nI leave with my name intact this year\n[End]",
+        "duration": 165,
+        "bpm": 132,
+        "musicalSettings": {
+          "genre": "Fluorescent post-punk and new wave",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, chorus, bridge, breakdown, final chorus, outro",
+          "performance": "One direct, steadily pitched Tony V9 lead; tense intimate verses open into a forceful melodic refrain.",
+          "energy": "Restrained and anxious at first, driving through the middle, then openly defiant for the finale.",
+          "lyricWorkflow": "Adapted source narrative, preserving its central hook and workplace-pressure imagery while tightening it for a compact new arrangement.",
+          "instruments": [
+            "electric bass",
+            "electric guitar",
+            "analog synthesizer",
+            "drum kit",
+            "piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nBadge flashes green at six-oh-five\nRain on the glass, lobby alive\nI built the thing, I shipped it clean\nNo applause in the weekly machine\nMy manager says, “You did the work”\nThen holds that practiced little smirk\n“The numbers shine, but the story’s thin\nShow us how you pull people in”\n\n[Pre-Chorus]\nI ask for a map, they hand me smoke\nA leadership rule dressed up as a joke\n\n[Chorus]\nTell me what Influence means\nIs it a meeting, is it a scene?\nIs it my name on somebody’s slide?\nIs it a room where the truth stays outside?\nI made the river run on time\nStill I’m below some invisible line\nTell me what Influence means\nBefore they measure me out of the team\n\n[Verse 2]\nThirty days in an amber frame\nBoxes and buzzwords, no one to name\n“Raise the bar,” “earn trust,” “think big”\nI circle the phrases till the margins twitch\nThere’s stack ranking under the floor\nA polished bell above a trapdoor\nWe trade our wins in a narrow light\nPleasant, indispensable, bright\n\n[Chorus]\nTell me what Influence means\nIs it a meeting, is it a scene?\nIs it my name on somebody’s slide?\nIs it a room where the truth stays outside?\nI made the river run on time\nStill I’m below some invisible line\nTell me what Influence means\nBefore they measure me out of the team\n\n[Bridge]\nThursday brewery, tiny name tags\nPaper-cup laughter and borrowed flags\nI bring three plans to the skip-level call\nRisks and answers, I bring them all\n“Be louder in the room,” he says\nLike volume turns a seed to a tree\nWhose room, which door, what proof is this?\nThe silence says, “Take it offline”\n\n[Breakdown]\nI won’t sell a borrowed face\nOr make my friends a ladder’s place\nI can build, I can speak, I can bend\nBut I won’t call a contest a friend\n\n[Chorus]\nNow I know what Influence means\nA shadow moving behind the scenes\nA handshake held a second too long\nA careful smile where doubt belongs\nI made the river run on time\nI won’t disappear to fit their line\nScore me, sort me, close the screen\nI am more than your Influence criteria\n\n[Outro]\nKeep your amber boxes, keep your chart\nI kept the craft and I kept my heart\nWhen the badge goes dark and the hallway clears\nI leave with my name intact this year",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 2,
+            "start": 6.02,
+            "end": 8.92
+          },
+          {
+            "line": 3,
+            "start": 8.92,
+            "end": 11.16
+          },
+          {
+            "line": 4,
+            "start": 11.74,
+            "end": 13.66
+          },
+          {
+            "line": 5,
+            "start": 13.98,
+            "end": 16.34
+          },
+          {
+            "line": 6,
+            "start": 16.34,
+            "end": 18.6
+          },
+          {
+            "line": 7,
+            "start": 18.6,
+            "end": 20.94
+          },
+          {
+            "line": 8,
+            "start": 20.94,
+            "end": 23.04
+          },
+          {
+            "line": 11,
+            "start": 23.04,
+            "end": 25.48
+          },
+          {
+            "line": 12,
+            "start": 25.48,
+            "end": 28.38
+          },
+          {
+            "line": 15,
+            "start": 28.38,
+            "end": 33.68
+          },
+          {
+            "line": 16,
+            "start": 33.68,
+            "end": 36.18
+          },
+          {
+            "line": 17,
+            "start": 36.7,
+            "end": 38.7
+          },
+          {
+            "line": 18,
+            "start": 39.24,
+            "end": 40.98
+          },
+          {
+            "line": 19,
+            "start": 41.56,
+            "end": 43.72
+          },
+          {
+            "line": 20,
+            "start": 43.72,
+            "end": 46.38
+          },
+          {
+            "line": 21,
+            "start": 47.12,
+            "end": 48.72
+          },
+          {
+            "line": 22,
+            "start": 48.72,
+            "end": 51.12
+          },
+          {
+            "line": 25,
+            "start": 51.12,
+            "end": 54.46
+          },
+          {
+            "line": 26,
+            "start": 54.46,
+            "end": 56.42
+          },
+          {
+            "line": 27,
+            "start": 56.78,
+            "end": 58.76
+          },
+          {
+            "line": 28,
+            "start": 58.9,
+            "end": 61.14
+          },
+          {
+            "line": 29,
+            "start": 61.5,
+            "end": 63.74
+          },
+          {
+            "line": 30,
+            "start": 63.76,
+            "end": 66.18
+          },
+          {
+            "line": 31,
+            "start": 66.46,
+            "end": 68.64
+          },
+          {
+            "line": 32,
+            "start": 68.92,
+            "end": 69.84
+          },
+          {
+            "line": 35,
+            "start": 71.08,
+            "end": 72.44
+          },
+          {
+            "line": 36,
+            "start": 72.92,
+            "end": 74.92
+          },
+          {
+            "line": 37,
+            "start": 75.52,
+            "end": 77.46
+          },
+          {
+            "line": 38,
+            "start": 77.94,
+            "end": 79.72
+          },
+          {
+            "line": 39,
+            "start": 79.72,
+            "end": 82.58
+          },
+          {
+            "line": 40,
+            "start": 82.58,
+            "end": 85.2
+          },
+          {
+            "line": 41,
+            "start": 85.84,
+            "end": 87.44
+          },
+          {
+            "line": 42,
+            "start": 87.44,
+            "end": 89.82
+          },
+          {
+            "line": 45,
+            "start": 90.34,
+            "end": 92.56
+          },
+          {
+            "line": 46,
+            "start": 92.84,
+            "end": 94.92
+          },
+          {
+            "line": 47,
+            "start": 95.34,
+            "end": 97.44
+          },
+          {
+            "line": 48,
+            "start": 97.44,
+            "end": 100.08
+          },
+          {
+            "line": 49,
+            "start": 100.08,
+            "end": 102.46
+          },
+          {
+            "line": 50,
+            "start": 102.46,
+            "end": 104.92
+          },
+          {
+            "line": 51,
+            "start": 104.92,
+            "end": 107.42
+          },
+          {
+            "line": 52,
+            "start": 107.42,
+            "end": 109.52
+          },
+          {
+            "line": 55,
+            "start": 109.52,
+            "end": 111.8
+          },
+          {
+            "line": 56,
+            "start": 111.8,
+            "end": 114.24
+          },
+          {
+            "line": 57,
+            "start": 114.24,
+            "end": 117.4
+          },
+          {
+            "line": 58,
+            "start": 117.4,
+            "end": 119.88
+          },
+          {
+            "line": 61,
+            "start": 119.88,
+            "end": 124.98
+          },
+          {
+            "line": 62,
+            "start": 124.98,
+            "end": 127.58
+          },
+          {
+            "line": 63,
+            "start": 127.58,
+            "end": 130.06
+          },
+          {
+            "line": 64,
+            "start": 130.06,
+            "end": 132.32
+          },
+          {
+            "line": 65,
+            "start": 132.32,
+            "end": 135.2
+          },
+          {
+            "line": 66,
+            "start": 135.2,
+            "end": 137.5
+          },
+          {
+            "line": 67,
+            "start": 137.78,
+            "end": 139.78
+          },
+          {
+            "line": 68,
+            "start": 140.28,
+            "end": 141.36
+          },
+          {
+            "line": 71,
+            "start": 142.06,
+            "end": 144.14
+          },
+          {
+            "line": 72,
+            "start": 144.64,
+            "end": 146.78
+          },
+          {
+            "line": 73,
+            "start": 147.1,
+            "end": 149.3
+          },
+          {
+            "line": 74,
+            "start": 149.82,
+            "end": 152.4
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 200,
+      "guide": {
+        "sha256": "429d2577d97bdd9347b5ecb2fe9bd2053c08fc75266707e413ff74a7e6ae8f70",
+        "bytes": 3961044,
+        "duration": 165.041625,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0697d60fca381d6e37ae2cb5-429d2577d97b.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “Influence Criteria”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Tony goes on a PIP at Amazon after failing to meet the nebulous Influence criteria\n\nOriginal sound: Use the prompt as written.",
+        "direction": "Try a new genre and mood",
+        "keep": "Keep the recognizable hook and spirit of “Influence Criteria”.",
+        "basisSongs": [
+          "Influence Criteria"
+        ],
+        "voiceModel": "v9",
+        "voiceEpoch": 200,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 165
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-b8ddb5c7573cb95df1a44cf0",
       "title": "The View From Down Here",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b8ddb5c7573cb95df1a44cf0-19a2e2e59635.mp3",
