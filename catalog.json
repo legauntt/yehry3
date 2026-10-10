@@ -2,6 +2,323 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-b8ddb5c7573cb95df1a44cf0",
+      "title": "The View From Down Here",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b8ddb5c7573cb95df1a44cf0-19a2e2e59635.mp3",
+      "duration": 240.03918367346938,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-10T22:55:04.649Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "The View From Down Here",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Driving alternative rock with a lively bass-led pocket, crisp drums, overdriven electric guitars, and restrained piano support. Begin tense and observant, build through concise pre-choruses into a broad melodic refrain, pull the band back for the self-questioning bridge, then finish with an earned, uplifting final chorus. Use one clear, steadily pitched Tony lead with connected natural phrasing; no stacked vocals, guide-vocal effects, or extended instrumental outro. Pace the final sustained word “here” to land about 10 seconds before the 240-second ending, followed by one resolved final chord and decay.",
+        "lyrics": "[Verse 1]\nI read the room before the door swings wide\nKnow who is bluffing, know who’s taking sides\nI bring the numbers, I bring the plan\nThen somebody taller gets to be the man\nHe leans back easy, says a little less\nThey call it presence, call me over-pressed\nAt every party I can see the play\nHer eyes go upward and I fade away\n\n[Pre-Chorus]\nI learned to reach without a ladder\nStill they measure what does not matter\n\n[Chorus]\nFrom the view down here, I see it all\nThe cracks in the ceiling, the rise before the fall\nYou can hand the crown to the longest shadow in the room\nBut I built a fire where you thought there was no room\nFrom the view down here, I know my name\nI am done confusing height with flame\n\n[Verse 2]\nMy résumé could paper every wall\nBut the handshake photo says it all\nA larger suit, a practiced laugh\nAnd suddenly I’m someone’s second half\nI used to make a joke before they could\nTurn my own size into a punchline good\nBut every little cut became a case\nAgainst the mirror and against the place\n\n[Pre-Chorus]\nI made my anger sharp and clever\nThought it would protect me forever\n\n[Chorus]\nFrom the view down here, I see it all\nThe cracks in the ceiling, the rise before the fall\nYou can hand the crown to the longest shadow in the room\nBut I built a fire where you thought there was no room\nFrom the view down here, I know my name\nI am done confusing height with flame\n\n[Bridge]\nMaybe I mistook the hurt for truth\nMade a courtroom out of every proof\nMaybe love is not a ladder rung\nMaybe being seen starts when the blame is done\nI will not beg beneath another man’s parade\nI will not shrink the life that I have made\n\n[Chorus]\nFrom the view down here, I see it all\nNot just the ceiling, not the wall\nThe open road beyond the old review\nThe work I did, the things I know are true\nLet the tall men take the picture frame\nI will take the spark and sign my name\n\n[Outro]\nNo more measuring the air above\nI stand in what I earned, I stand in love\nAnd when the last light finds me, clear and near\nI rise into my life from the view down here\n[End]",
+        "duration": 240,
+        "bpm": 126,
+        "musicalSettings": {
+          "genre": "Bass-forward alternative rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus, lyrical outro",
+          "performance": "Clear melodic lead with naturally connected Tony phrasing and a catchable refrain",
+          "energy": "Tense, propulsive opening grows into a defiant and ultimately self-possessed finale",
+          "lyricWorkflow": "Original narrative lyrics that move from resentment and social comparison toward self-awareness and self-worth",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "overdriven electric guitars",
+            "piano"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI read the room before the door swings wide\nKnow who is bluffing, know who’s taking sides\nI bring the numbers, I bring the plan\nThen somebody taller gets to be the man\nHe leans back easy, says a little less\nThey call it presence, call me over-pressed\nAt every party I can see the play\nHer eyes go upward and I fade away\n\n[Pre-Chorus]\nI learned to reach without a ladder\nStill they measure what does not matter\n\n[Chorus]\nFrom the view down here, I see it all\nThe cracks in the ceiling, the rise before the fall\nYou can hand the crown to the longest shadow in the room\nBut I built a fire where you thought there was no room\nFrom the view down here, I know my name\nI am done confusing height with flame\n\n[Verse 2]\nMy résumé could paper every wall\nBut the handshake photo says it all\nA larger suit, a practiced laugh\nAnd suddenly I’m someone’s second half\nI used to make a joke before they could\nTurn my own size into a punchline good\nBut every little cut became a case\nAgainst the mirror and against the place\n\n[Pre-Chorus]\nI made my anger sharp and clever\nThought it would protect me forever\n\n[Chorus]\nFrom the view down here, I see it all\nThe cracks in the ceiling, the rise before the fall\nYou can hand the crown to the longest shadow in the room\nBut I built a fire where you thought there was no room\nFrom the view down here, I know my name\nI am done confusing height with flame\n\n[Bridge]\nMaybe I mistook the hurt for truth\nMade a courtroom out of every proof\nMaybe love is not a ladder rung\nMaybe being seen starts when the blame is done\nI will not beg beneath another man’s parade\nI will not shrink the life that I have made\n\n[Chorus]\nFrom the view down here, I see it all\nNot just the ceiling, not the wall\nThe open road beyond the old review\nThe work I did, the things I know are true\nLet the tall men take the picture frame\nI will take the spark and sign my name\n\n[Outro]\nNo more measuring the air above\nI stand in what I earned, I stand in love\nAnd when the last light finds me, clear and near\nI rise into my life from the view down here",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 7.88,
+            "end": 11.1
+          },
+          {
+            "line": 2,
+            "start": 11.1,
+            "end": 14.94
+          },
+          {
+            "line": 3,
+            "start": 16.14,
+            "end": 18.72
+          },
+          {
+            "line": 4,
+            "start": 19.64,
+            "end": 22.9
+          },
+          {
+            "line": 5,
+            "start": 23.76,
+            "end": 26.42
+          },
+          {
+            "line": 6,
+            "start": 26.42,
+            "end": 30.26
+          },
+          {
+            "line": 7,
+            "start": 30.26,
+            "end": 34.14
+          },
+          {
+            "line": 8,
+            "start": 34.14,
+            "end": 37.86
+          },
+          {
+            "line": 11,
+            "start": 37.86,
+            "end": 42.42
+          },
+          {
+            "line": 12,
+            "start": 42.42,
+            "end": 46.04
+          },
+          {
+            "line": 15,
+            "start": 49.22,
+            "end": 53.28
+          },
+          {
+            "line": 16,
+            "start": 53.28,
+            "end": 57.36
+          },
+          {
+            "line": 17,
+            "start": 57.36,
+            "end": 61.48
+          },
+          {
+            "line": 18,
+            "start": 61.48,
+            "end": 65.98
+          },
+          {
+            "line": 19,
+            "start": 65.98,
+            "end": 70.92
+          },
+          {
+            "line": 20,
+            "start": 70.92,
+            "end": 77.8
+          },
+          {
+            "line": 23,
+            "start": 82.48,
+            "end": 85.96
+          },
+          {
+            "line": 24,
+            "start": 85.96,
+            "end": 89.98
+          },
+          {
+            "line": 25,
+            "start": 89.98,
+            "end": 93.62
+          },
+          {
+            "line": 26,
+            "start": 93.62,
+            "end": 97.6
+          },
+          {
+            "line": 27,
+            "start": 97.6,
+            "end": 101.24
+          },
+          {
+            "line": 28,
+            "start": 101.24,
+            "end": 105.1
+          },
+          {
+            "line": 29,
+            "start": 105.1,
+            "end": 109
+          },
+          {
+            "line": 30,
+            "start": 109,
+            "end": 111.86
+          },
+          {
+            "line": 33,
+            "start": 111.86,
+            "end": 115.72
+          },
+          {
+            "line": 34,
+            "start": 116.32,
+            "end": 119.34
+          },
+          {
+            "line": 37,
+            "start": 122.2,
+            "end": 126.32
+          },
+          {
+            "line": 38,
+            "start": 126.32,
+            "end": 130.24
+          },
+          {
+            "line": 39,
+            "start": 130.24,
+            "end": 134.28
+          },
+          {
+            "line": 40,
+            "start": 134.28,
+            "end": 138.88
+          },
+          {
+            "line": 41,
+            "start": 139.44,
+            "end": 143.84
+          },
+          {
+            "line": 42,
+            "start": 145.56,
+            "end": 150.48
+          },
+          {
+            "line": 45,
+            "start": 155.56,
+            "end": 158.92
+          },
+          {
+            "line": 46,
+            "start": 159.64,
+            "end": 162.62
+          },
+          {
+            "line": 47,
+            "start": 162.62,
+            "end": 166.58
+          },
+          {
+            "line": 48,
+            "start": 166.58,
+            "end": 170.4
+          },
+          {
+            "line": 49,
+            "start": 170.7,
+            "end": 174.16
+          },
+          {
+            "line": 50,
+            "start": 174.94,
+            "end": 179.4
+          },
+          {
+            "line": 53,
+            "start": 181.9,
+            "end": 185.78
+          },
+          {
+            "line": 54,
+            "start": 185.78,
+            "end": 189.56
+          },
+          {
+            "line": 55,
+            "start": 189.56,
+            "end": 193.2
+          },
+          {
+            "line": 56,
+            "start": 193.54,
+            "end": 197.4
+          },
+          {
+            "line": 57,
+            "start": 197.4,
+            "end": 201.22
+          },
+          {
+            "line": 58,
+            "start": 201.56,
+            "end": 207.34
+          },
+          {
+            "line": 61,
+            "start": 209.64,
+            "end": 212.54
+          },
+          {
+            "line": 62,
+            "start": 212.54,
+            "end": 216.44
+          },
+          {
+            "line": 63,
+            "start": 216.44,
+            "end": 220.28
+          },
+          {
+            "line": 64,
+            "start": 220.28,
+            "end": 225.66
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 250,
+      "guide": {
+        "sha256": "c911f2e910d741a5a7ce2d09b90afa214899e89dbb79ea889d8f74f742554ec6",
+        "bytes": 5760985,
+        "duration": 240.039167,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b8ddb5c7573cb95df1a44cf0-c911f2e910d7.mp3"
+      },
+      "originalPrompt": {
+        "idea": "A song about short man syndrome. He's smarter than everyone else, but constantly passed up by taller men for dates, promotions, and opportunities",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 250,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 240
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-3aef47ffe33d0c6e7800ee3b",
       "title": "Weird Hair, Strange Hearts (Surf-Punk Date Night)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3aef47ffe33d0c6e7800ee3b-4ec9c031114d.mp3",
