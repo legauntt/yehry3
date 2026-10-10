@@ -2604,21 +2604,27 @@ export default {
     ]
   },
   "distonyc-258ebfa2f716bc36d5323e53": {
-    "src": "/assets/artwork/distonyc-258ebfa2f716bc36d5323e53-incubating-cbbbbf8babf8-f643814422bcea8b-q86.webp",
+    "src": "/assets/artwork/distonyc-258ebfa2f716bc36d5323e53-mature-c8443cdee17f-69235687ab69b443-q86.webp",
     "alt": "Cover artwork for Names on the Glass.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
-    "sourceHash": "00a5468eac6ba5267f4f8a92ce0552266ada3da2eca986867f6bdb3116e7252c",
-    "promptHash": "a5bbe51369a03fba2a8bac323620525a990b7274c5f1a55a7fb4cb50d22fc92c",
-    "createdAt": "2026-10-09T19:31:02.332Z",
+    "sourceHash": "62105f04c9ed46f0139937040742a5c024cf3b49accc05f43a5715b50b77d2ef",
+    "promptHash": "c340790e4e46324dbe1b3a9a409867d657ecf74cf535aa88c7ab0a87c1c8a2fc",
+    "createdAt": "2026-10-10T19:34:33.688Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-258ebfa2f716bc36d5323e53-incubating-cbbbbf8babf8-f643814422bcea8b-q86.webp",
     "firstSeenAt": "2026-10-09T19:30:43.919Z",
     "interpretation": "automatic-safe-interpretation",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-258ebfa2f716bc36d5323e53-incubating-cbbbbf8babf8-f643814422bcea8b-q86.webp",
+        "alt": "Cover artwork for Names on the Glass.",
+        "createdAt": "2026-10-09T19:31:02.332Z"
+      }
+    ]
   },
   "distonyc-3aef47ffe33d0c6e7800ee3b": {
     "src": "/assets/artwork/distonyc-3aef47ffe33d0c6e7800ee3b-incubating-fbfa23193b72-a946c4460490fdeb-q86.webp",
