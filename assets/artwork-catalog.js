@@ -2581,21 +2581,27 @@ export default {
     ]
   },
   "distonyc-bd0793702bed9ffa3a2362d0": {
-    "src": "/assets/artwork/distonyc-bd0793702bed9ffa3a2362d0-incubating-7005adaaa989-e69b141162241c9a-q86.webp",
+    "src": "/assets/artwork/distonyc-bd0793702bed9ffa3a2362d0-mature-f54001e2c4ce-2a2def454c7eaebe-q86.webp",
     "alt": "Cover artwork for The World's Biggest Hit.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
-    "sourceHash": "83bc72ae9290feb88921e29dd203fae3fa45d4d3749576455a17b63d8e73f690",
-    "promptHash": "849ab12c0ac5bfd6b362d35a949d0c2661c084025f0f597fbc57235b0b44fbd4",
-    "createdAt": "2026-10-09T19:01:22.441Z",
+    "sourceHash": "9c4a274f972a1109ff9aaf2565220586ce61d79d731d465015f1c1c6e32de52b",
+    "promptHash": "885af323f48b22ef1f5de2e82941ffa6aab3e3fc6aeacca10a2a8e6c5ac16e2c",
+    "createdAt": "2026-10-10T19:04:32.378Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-bd0793702bed9ffa3a2362d0-incubating-7005adaaa989-e69b141162241c9a-q86.webp",
     "firstSeenAt": "2026-10-09T19:00:58.914Z",
     "interpretation": "automatic-safe-interpretation",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-bd0793702bed9ffa3a2362d0-incubating-7005adaaa989-e69b141162241c9a-q86.webp",
+        "alt": "Cover artwork for The World's Biggest Hit.",
+        "createdAt": "2026-10-09T19:01:22.441Z"
+      }
+    ]
   },
   "distonyc-258ebfa2f716bc36d5323e53": {
     "src": "/assets/artwork/distonyc-258ebfa2f716bc36d5323e53-incubating-cbbbbf8babf8-f643814422bcea8b-q86.webp",
