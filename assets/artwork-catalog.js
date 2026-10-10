@@ -2601,5 +2601,21 @@ export default {
     "firstSeenAt": "2026-10-09T19:30:43.919Z",
     "interpretation": "automatic-safe-interpretation",
     "history": []
+  },
+  "distonyc-3aef47ffe33d0c6e7800ee3b": {
+    "src": "/assets/artwork/distonyc-3aef47ffe33d0c6e7800ee3b-incubating-fbfa23193b72-a946c4460490fdeb-q86.webp",
+    "alt": "Cover artwork for Weird Hair, Strange Hearts (Surf-Punk Date Night).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "ad2403e38cee1648cf1e2db48e31774fbaff060dc644b674d2fb81a85227ce20",
+    "promptHash": "0d91f2c56537b7a901a8a273e65ab28d6f4cb967b3c262c674a68526d88957f8",
+    "createdAt": "2026-10-10T07:22:05.983Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-10T07:21:43.235Z",
+    "history": []
   }
 };
