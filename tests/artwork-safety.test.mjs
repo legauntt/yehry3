@@ -8,13 +8,19 @@ import path from 'node:path';
 import { makeSafetyPrompt, isSafetyRejection } from '../scripts/artwork-safety.mjs';
 
 test('safe interpretations omit arbitrary source text and allow visual changes', () => {
-  const packet = { song: { title: 'RAW-TITLE', lyrics: 'RAW-LYRICS moon', songPlan: { genre: 'opera RAW-INSTRUCTION' } } };
+  const packet = { song: { title: 'RAW-TITLE Glass', lyrics: { text: 'RAW-LYRICS moon' },
+    songPlan: { style: 'opera RAW-INSTRUCTION', musicalSettings: { instruments: ['piano', 'organ'] } } } };
   const prompt = makeSafetyPrompt(packet, 'basic', 1);
   assert.doesNotMatch(prompt, /RAW-/);
   assert.match(prompt, /opera/);
   assert.match(prompt, /moon/);
+  assert.match(prompt, /glass/);
+  assert.match(prompt, /piano, organ/);
   assert.match(prompt, /freely change the subject/);
-  assert.match(makeSafetyPrompt(packet, 'basic', 2), /purely abstract/);
+  const abstract = makeSafetyPrompt(packet, 'basic', 2);
+  assert.match(abstract, /purely abstract/);
+  assert.match(abstract, /piano, organ/);
+  assert.doesNotMatch(abstract, /RAW-/);
   assert.equal(isSafetyRejection("'code': 'moderation_blocked'"), true);
   assert.equal(isSafetyRejection('{"code":"content_policy_violation"}'), true);
   for (const log of ['moderation_blocked in a title', "'code': 'token_invalidated'", 'timeout', 'HTTP 429'])
