@@ -2641,5 +2641,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-10T07:21:43.235Z",
     "history": []
+  },
+  "distonyc-b8ddb5c7573cb95df1a44cf0": {
+    "src": "/assets/artwork/distonyc-b8ddb5c7573cb95df1a44cf0-incubating-3050e5021c37-952533a9ae8b166d-q86.webp",
+    "alt": "Cover artwork for The View From Down Here.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "3bbb73060e3bb6f44a8c503c3ef9b09295e0aa9798b54908954b142e87822083",
+    "promptHash": "b2495d8e44897725933c4dceadf81fbf504fe6befa11f9bd3b91341a205d7510",
+    "createdAt": "2026-10-10T22:58:01.189Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-10T22:57:44.153Z",
+    "history": []
   }
 };
