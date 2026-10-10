@@ -465,6 +465,11 @@ export default {
       "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/20-weird-hair-weird-smells-song-scenes-20261001.mp4",
       "framing": "square",
       "duration": 5
+    },
+    {
+      "src": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/24-weird-hair-weird-smells-song-scenes-20261002.mp4",
+      "framing": "square",
+      "duration": 5
     }
   ],
   "distonyc-30a93586b255320dd9ef6576": [
