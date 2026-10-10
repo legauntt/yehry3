@@ -137,6 +137,41 @@ test("a song keeps playing, and the room stays, as pages change", async ({ page 
   await expect(page.locator("#site-player .eyebrow")).toHaveText("Paused");
 });
 
+test("phone media controls follow the shared player's queue", async ({ page }) => {
+  await page.addInitScript(() => {
+    const session = navigator.mediaSession;
+    const setActionHandler = session.setActionHandler.bind(session);
+    window.mediaActions = {};
+    session.setActionHandler = (name, handler) => {
+      window.mediaActions[name] = handler;
+      setActionHandler(name, handler);
+    };
+  });
+  await studio(page);
+  await page.goto("/?sort=catalog");
+  await page.locator('.track[data-id="stay-first"] [data-play]').click();
+  await expect.poll(() => page.evaluate(() => navigator.mediaSession.playbackState)).toBe("playing");
+  expect(await page.evaluate(() => navigator.mediaSession.metadata.title)).toBe("First to stay");
+  expect(await page.evaluate(() => window.mediaActions.previoustrack)).toBeNull();
+
+  await page.evaluate(() => window.mediaActions.nexttrack());
+  await expect(page.locator("#site-player #now-title")).toHaveText("Second to stay");
+  await expect.poll(() => playing(page)).toBe(true);
+  expect(await page.evaluate(() => navigator.mediaSession.metadata.title)).toBe("Second to stay");
+
+  await page.evaluate(() => window.mediaActions.pause());
+  await expect.poll(() => page.evaluate(() => navigator.mediaSession.playbackState)).toBe("paused");
+  await page.evaluate(() => window.mediaActions.play());
+  await expect.poll(() => playing(page)).toBe(true);
+
+  await page.evaluate(() => window.mediaActions.previoustrack());
+  await expect(page.locator("#site-player #now-title")).toHaveText("First to stay");
+  await page.evaluate(() => window.yehry3Player.clear());
+  await expect.poll(() => page.evaluate(() => navigator.mediaSession.playbackState)).toBe("none");
+  expect(await page.evaluate(() => navigator.mediaSession.metadata)).toBeNull();
+  expect(await page.evaluate(() => window.mediaActions.nexttrack)).toBeNull();
+});
+
 test("a link that leaves the swapped pages is an ordinary page load", async ({ page }) => {
   await studio(page);
   await page.goto("/?sort=catalog");

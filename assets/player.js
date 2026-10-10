@@ -279,6 +279,32 @@ export const player = {
   changed(song) { if (entry()) { queue[index] = { song, key: queue[index].key }; emit("change", { song, reason: "side" }); } },
 };
 
+// The phone passes headset and car transport buttons through its media session.
+// Keep the actions on this shared player so they follow the active queue across pages.
+if (navigator.mediaSession) {
+  const session = navigator.mediaSession;
+  const action = (name, handler) => {
+    try { session.setActionHandler(name, handler); }
+    catch { /* A browser may expose Media Session without supporting every action. */ }
+  };
+  const sync = () => {
+    const song = player.current;
+    session.metadata = song && typeof MediaMetadata === "function"
+      ? new MediaMetadata({ title: song.title, artist: "Tony C", album: "yehry3" })
+      : null;
+    session.playbackState = !song ? "none" : player.playing ? "playing" : "paused";
+    action("previoustrack", index > 0 ? () => void player.step(-1) : null);
+    action("nexttrack", index >= 0 && index < queue.length - 1 ? () => void player.step(1) : null);
+  };
+  action("play", () => void player.resume());
+  action("pause", () => player.pause());
+  player.on("change", sync);
+  for (const event of ["play", "playing", "pause", "ended", "emptied", "error"])
+    audio.addEventListener(event, () => {
+      session.playbackState = !player.current ? "none" : player.playing ? "playing" : "paused";
+    });
+}
+
 // When a song finishes the queue moves on; a looping song never reports that it ended.
 audio.addEventListener("ended", () => {
   if (overlap && !overlap.handoff) void finishOverlap();
