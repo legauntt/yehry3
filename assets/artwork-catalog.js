@@ -2559,20 +2559,26 @@ export default {
     ]
   },
   "distonyc-e2925b5d0df98c7f8ec86571": {
-    "src": "/assets/artwork/distonyc-e2925b5d0df98c7f8ec86571-incubating-ef8779d7ab9d-32a3df018f11f870-q86.webp",
+    "src": "/assets/artwork/distonyc-e2925b5d0df98c7f8ec86571-mature-2f7c01871b0a-942b09128a5bd07c-q86.webp",
     "alt": "Cover artwork for Nine-Eleven'd Again (Crypt Punk Run).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "10623fb192fc05d275c459d0cd8c51afdc5dd9feb7d7791404f5ea024dbcaaf0",
-    "promptHash": "564f45d71d77ee48136403e17e0ec541a326c48d01cd3b90bf6ed6fec2c50a03",
-    "createdAt": "2026-10-09T18:46:37.252Z",
+    "promptHash": "894a1669fb5835543d2ca8a33bd39c89ddc3c5622d2e75835cbd33d1ac6d2e9a",
+    "createdAt": "2026-10-10T18:49:36.210Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-e2925b5d0df98c7f8ec86571-incubating-ef8779d7ab9d-32a3df018f11f870-q86.webp",
     "firstSeenAt": "2026-10-09T18:45:50.338Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-e2925b5d0df98c7f8ec86571-incubating-ef8779d7ab9d-32a3df018f11f870-q86.webp",
+        "alt": "Cover artwork for Nine-Eleven'd Again (Crypt Punk Run).",
+        "createdAt": "2026-10-09T18:46:37.252Z"
+      }
+    ]
   },
   "distonyc-bd0793702bed9ffa3a2362d0": {
     "src": "/assets/artwork/distonyc-bd0793702bed9ffa3a2362d0-incubating-7005adaaa989-e69b141162241c9a-q86.webp",
