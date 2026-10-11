@@ -2671,20 +2671,26 @@ export default {
     ]
   },
   "distonyc-0697d60fca381d6e37ae2cb5": {
-    "src": "/assets/artwork/distonyc-0697d60fca381d6e37ae2cb5-incubating-f8963a461e21-dbeb6e54ec261e7e-q86.webp",
+    "src": "/assets/artwork/distonyc-0697d60fca381d6e37ae2cb5-mature-45552c0c1624-250957f315565901-q86.webp",
     "alt": "Cover artwork for Influence Criteria (Fluorescent Post-Punk Mix).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "21e73ffb0971fde2413f5e49d5f958726759198713ec65deac36e7b3a6c809cc",
-    "promptHash": "c3986dd92c1fab4a0b24d4c7f12388400eb6eb704a780d860895256679bbd8ff",
-    "createdAt": "2026-10-10T23:07:04.543Z",
+    "promptHash": "8e5cb5661cfe06ceaa24b336cb2489c543ebd0382ee655f198f6769e7720274a",
+    "createdAt": "2026-10-11T23:10:32.894Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-0697d60fca381d6e37ae2cb5-incubating-f8963a461e21-dbeb6e54ec261e7e-q86.webp",
     "firstSeenAt": "2026-10-10T23:06:44.991Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-0697d60fca381d6e37ae2cb5-incubating-f8963a461e21-dbeb6e54ec261e7e-q86.webp",
+        "alt": "Cover artwork for Influence Criteria (Fluorescent Post-Punk Mix).",
+        "createdAt": "2026-10-10T23:07:04.543Z"
+      }
+    ]
   },
   "distonyc-8c98e56d3d736316e459f5b5": {
     "src": "/assets/artwork/distonyc-8c98e56d3d736316e459f5b5-incubating-cefb67f7041d-22dde64a520dfb05-q86.webp",
