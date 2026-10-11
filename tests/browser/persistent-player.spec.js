@@ -103,6 +103,12 @@ test("voice model icons render at badge size in both themes", async ({ page }) =
   expect(icons.light.every(({ width, naturalWidth }) => width >= 12 && naturalWidth === 24)).toBe(true);
   expect(icons.dark.every(width => width >= 12)).toBe(true);
   await page.locator("#voice-icon-preview").screenshot({ path: "artifacts/voice-model-icons.png" });
+  for (const badge of await page.locator("#voice-icon-preview .voice-model-badge").all()) {
+    const image = badge.locator("img");
+    const compactWidth = await image.evaluate(node => node.getBoundingClientRect().width);
+    await badge.hover();
+    await expect.poll(() => image.evaluate(node => node.getBoundingClientRect().width)).toBeGreaterThan(compactWidth * 1.8);
+  }
 });
 
 test("the compact player badges fit together and seeking keeps playing", async ({ page }) => {

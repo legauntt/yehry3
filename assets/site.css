@@ -886,6 +886,16 @@ main {
   width: 1.7em;
   height: 1.7em;
   object-fit: contain;
+  transition: width 160ms ease, height 160ms ease;
+}
+@media (hover: hover) {
+  .voice-model-badge:hover .voice-model-icon {
+    width: 3.4em;
+    height: 3.4em;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .voice-model-icon { transition: none; }
 }
 .voice-model-badge.v7 {
   border-color: #c15f25;
