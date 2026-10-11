@@ -63,15 +63,22 @@ test("V9 checkpoint colors progress from teal to violet", async ({ page }) => {
   await studio(page);
   await page.goto("/?sort=catalog");
   const badges = [50, 200, 300].map(voiceEpoch => voiceModelBadge({ voiceModel: "v9", voiceEpoch }));
-  const hues = await page.evaluate(html => {
+  const colors = await page.evaluate(html => {
     const row = document.createElement("div");
     row.innerHTML = html.join(" ");
     document.body.append(row);
-    const result = [...row.children].map(node => getComputedStyle(node).getPropertyValue("--v9-hue").trim());
+    const hues = [...row.children].map(node => getComputedStyle(node).getPropertyValue("--v9-hue").trim());
+    const borders = () => [...row.children].map(node => getComputedStyle(node).borderTopColor);
+    const light = borders();
+    document.documentElement.setAttribute("data-shared-theme", "");
+    document.documentElement.dataset.theme = "dark";
+    const dark = borders();
     row.remove();
-    return result;
+    return { hues, light, dark };
   }, badges);
-  expect(hues).toEqual(["170", "230", "270"]);
+  expect(colors.hues).toEqual(["170", "230", "270"]);
+  expect(new Set(colors.light).size).toBe(3);
+  expect(new Set(colors.dark).size).toBe(3);
 });
 
 test("the compact player badges fit together and seeking keeps playing", async ({ page }) => {
