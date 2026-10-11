@@ -81,7 +81,7 @@ test("V9 checkpoint colors progress from teal to violet", async ({ page }) => {
   expect(new Set(colors.dark).size).toBe(3);
 });
 
-test("voice model icons render at badge size in both themes", async ({ page }) => {
+test("voice model icons open larger tooltips without growing badges", async ({ page }) => {
   await studio(page);
   await page.goto("/?sort=catalog");
   const badges = ["v6", "v7", "v8", "vdb"].map(voiceModelBadge);
@@ -91,7 +91,7 @@ test("voice model icons render at badge size in both themes", async ({ page }) =
     row.style.cssText = "display:flex;align-items:center;gap:12px;width:max-content;padding:20px;background:#202b23";
     row.innerHTML = html.join(" ");
     document.body.append(row);
-    const images = [...row.querySelectorAll("img")];
+    const images = [...row.querySelectorAll(".voice-model-icon")];
     await Promise.all(images.map(image => image.decode()));
     const light = images.map(image => ({ width: image.getBoundingClientRect().width, naturalWidth: image.naturalWidth }));
     document.documentElement.setAttribute("data-shared-theme", "");
@@ -104,11 +104,22 @@ test("voice model icons render at badge size in both themes", async ({ page }) =
   expect(icons.dark.every(width => width >= 12)).toBe(true);
   await page.locator("#voice-icon-preview").screenshot({ path: "artifacts/voice-model-icons.png" });
   for (const badge of await page.locator("#voice-icon-preview .voice-model-badge").all()) {
-    const image = badge.locator("img");
-    const compactWidth = await image.evaluate(node => node.getBoundingClientRect().width);
+    const image = badge.locator(".voice-model-icon");
+    const compactWidth = await badge.evaluate(node => node.getBoundingClientRect().width);
     await badge.hover();
-    await expect.poll(() => image.evaluate(node => node.getBoundingClientRect().width)).toBeGreaterThan(compactWidth * 1.8);
+    await expect(badge.locator(".voice-model-icon-tooltip")).toBeVisible();
+    expect(await badge.locator(".voice-model-icon-tooltip img").evaluate(node => node.getBoundingClientRect().width)).toBeGreaterThan(80);
+    expect(await badge.evaluate(node => node.getBoundingClientRect().width)).toBe(compactWidth);
+    expect(await image.evaluate(node => node.getBoundingClientRect().width)).toBeLessThan(20);
   }
+  const firstBadge = page.locator("#voice-icon-preview .voice-model-badge").first();
+  await firstBadge.hover();
+  const tooltip = firstBadge.locator(".voice-model-icon-tooltip");
+  await expect.poll(() => tooltip.evaluate(node => Number(getComputedStyle(node).opacity))).toBe(1);
+  expect((await tooltip.boundingBox()).y).toBeLessThan((await firstBadge.boundingBox()).y);
+  expect(await tooltip.evaluate(node => { const rect = node.getBoundingClientRect(); return rect.left >= 0 && rect.top >= 0 && rect.right <= innerWidth && rect.bottom <= innerHeight; })).toBe(true);
+  const box = await tooltip.boundingBox();
+  await page.screenshot({ path: "artifacts/voice-model-tooltip.png", clip: { x: box.x, y: box.y, width: box.width, height: box.height } });
 });
 
 test("the compact player badges fit together and seeking keeps playing", async ({ page }) => {

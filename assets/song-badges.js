@@ -27,7 +27,10 @@ export function voiceModelBadge(item) {
   const icon = /^(?:v6|v7|v8|vdb)$/.test(version)
     ? `<img class="voice-model-icon" src="/assets/voice-icons/${version}.svg" alt="" aria-hidden="true">`
     : '';
-  return `<span class="voice-model-badge${variant}${colorStep}" title="${escape(title)}" aria-label="${escape(title)}">${icon}${escape(version.toUpperCase())}${checkpoint ? `<span class="voice-epoch-number" aria-hidden="true">${escape(checkpoint)}</span>` : ''}</span>`;
+  const iconTooltip = icon
+    ? `<span class="voice-model-icon-tooltip" aria-hidden="true"><img src="/assets/voice-icons/${version}.svg" alt=""></span>`
+    : '';
+  return `<span class="voice-model-badge${variant}${colorStep}" title="${escape(title)}" aria-label="${escape(title)}">${icon}${escape(version.toUpperCase())}${checkpoint ? `<span class="voice-epoch-number" aria-hidden="true">${escape(checkpoint)}</span>` : ''}${iconTooltip}</span>`;
 }
 
 // One badge row for a song or a request at any stage, so a recording keeps the

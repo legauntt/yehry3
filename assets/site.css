@@ -868,6 +868,7 @@ main {
 .voice-model-badge {
   display: inline-flex;
   align-items: center;
+  position: relative;
   gap: 3px;
   width: fit-content;
   padding: 1px 7px;
@@ -886,16 +887,42 @@ main {
   width: 1.7em;
   height: 1.7em;
   object-fit: contain;
-  transition: width 160ms ease, height 160ms ease;
+}
+.voice-model-icon-tooltip {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 8px);
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  width: 108px;
+  height: 108px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms ease;
+}
+.voice-model-icon-tooltip img {
+  display: block;
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
 }
 @media (hover: hover) {
-  .voice-model-badge:hover .voice-model-icon {
-    width: 3.4em;
-    height: 3.4em;
+  .voice-model-badge:hover { z-index: 20; }
+  .voice-model-badge:hover .voice-model-icon-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .voice-model-icon { transition: none; }
+  .voice-model-icon-tooltip { transition: none; }
 }
 .voice-model-badge.v7 {
   border-color: #c15f25;
