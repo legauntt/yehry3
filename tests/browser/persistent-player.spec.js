@@ -81,6 +81,30 @@ test("V9 checkpoint colors progress from teal to violet", async ({ page }) => {
   expect(new Set(colors.dark).size).toBe(3);
 });
 
+test("voice model icons render at badge size in both themes", async ({ page }) => {
+  await studio(page);
+  await page.goto("/?sort=catalog");
+  const badges = ["v6", "v7", "v8", "vdb"].map(voiceModelBadge);
+  const icons = await page.evaluate(async html => {
+    const row = document.createElement("div");
+    row.id = "voice-icon-preview";
+    row.style.cssText = "display:flex;align-items:center;gap:12px;width:max-content;padding:20px;background:#202b23";
+    row.innerHTML = html.join(" ");
+    document.body.append(row);
+    const images = [...row.querySelectorAll("img")];
+    await Promise.all(images.map(image => image.decode()));
+    const light = images.map(image => ({ width: image.getBoundingClientRect().width, naturalWidth: image.naturalWidth }));
+    document.documentElement.setAttribute("data-shared-theme", "");
+    document.documentElement.dataset.theme = "dark";
+    const dark = images.map(image => image.getBoundingClientRect().width);
+    return { light, dark };
+  }, badges);
+  expect(icons.light).toHaveLength(4);
+  expect(icons.light.every(({ width, naturalWidth }) => width >= 12 && naturalWidth === 24)).toBe(true);
+  expect(icons.dark.every(width => width >= 12)).toBe(true);
+  await page.locator("#voice-icon-preview").screenshot({ path: "artifacts/voice-model-icons.png" });
+});
+
 test("the compact player badges fit together and seeking keeps playing", async ({ page }) => {
   await studio(page);
   await page.goto("/?sort=catalog");

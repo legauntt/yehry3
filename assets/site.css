@@ -868,6 +868,7 @@ main {
 .voice-model-badge {
   display: inline-flex;
   align-items: center;
+  gap: 3px;
   width: fit-content;
   padding: 1px 7px;
   border: 1px solid #aeb8a5;
@@ -878,6 +879,13 @@ main {
   font-weight: 600;
   letter-spacing: 0.06em;
   line-height: 1.5;
+}
+.voice-model-icon {
+  display: block;
+  flex: none;
+  width: 1.7em;
+  height: 1.7em;
+  object-fit: contain;
 }
 .voice-model-badge.v7 {
   border-color: #c15f25;

@@ -29,8 +29,8 @@ test("the badge row keeps one shape for songs, queued requests and drafts", () =
     assert.match(html, /class="music-backend-badge/);
     assert.match(html, /class="remix-badge"/);
   }
-  assert.match(songBadges(published), />V8</);
-  assert.match(songBadges(queued), />V7</);
+  assert.match(songBadges(published), /voice-icons\/v8\.svg" alt="" aria-hidden="true">V8</);
+  assert.match(songBadges(queued), /voice-icons\/v7\.svg" alt="" aria-hidden="true">V7</);
   assert.match(songBadges(queued), />FREE</);
   assert.match(songBadges(published), />EMP</);
   assert.equal(songBadges(null), "");
@@ -38,11 +38,11 @@ test("the badge row keeps one shape for songs, queued requests and drafts", () =
 
 test("an unlabeled recording keeps the established V6 voice and no invented generator", () => {
   const html = songBadges({ id: "legacy" });
-  assert.match(html, /voice-model-badge"[^>]*>V6</);
+  assert.match(html, /voice-model-badge"[^>]*><img[^>]*voice-icons\/v6\.svg" alt="" aria-hidden="true">V6</);
   assert.doesNotMatch(html, /music-backend-badge|remix-badge/);
   assert.match(voiceModelBadge("v7"), /voice-model-badge v7"/);
-  assert.match(voiceModelBadge({ voiceModel: "V8" }), /voice-model-badge v8"[^>]*>V8</);
-  assert.match(voiceModelBadge({ originalPrompt: { voiceModel: "vdb" } }), /voice-model-badge vdb"[^>]*>VDB</);
+  assert.match(voiceModelBadge({ voiceModel: "V8" }), /voice-model-badge v8"[^>]*><img[^>]*voice-icons\/v8\.svg" alt="" aria-hidden="true">V8</);
+  assert.match(voiceModelBadge({ originalPrompt: { voiceModel: "vdb" } }), /voice-model-badge vdb"[^>]*><img[^>]*voice-icons\/vdb\.svg" alt="" aria-hidden="true">VDB</);
 });
 
 test("a remix is marked from its frozen source, with the parent title escaped", () => {
