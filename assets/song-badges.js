@@ -16,12 +16,13 @@ export function voiceModelBadge(item) {
   const variant = /^(?:v[789]|vdb)$/.test(version) ? " " + version : "";
   const epoch = item?.voiceEpoch ?? item?.originalPrompt?.voiceEpoch ?? item?.details?.voiceEpoch;
   const range = item?.voiceEpochRange ?? item?.originalPrompt?.voiceEpochRange ?? item?.details?.voiceEpochRange;
-  const suffix = version === 'v9' && range ? ` · epochs ${range.start} → ${range.end}` : version === 'v9' && Number.isInteger(epoch) && epoch >= 10 && epoch <= 300 && epoch % 10 === 0 ? ` · epoch ${epoch}` : '';
+  const displayEpoch = Number.isInteger(epoch) && epoch >= 10 && epoch <= 300 && epoch % 10 === 0 ? epoch : 300;
+  const suffix = version === 'v9' && range ? ` · epochs ${range.start} → ${range.end}` : version === 'v9' ? ` · epoch ${displayEpoch}` : '';
   const title = version === "vdb" ? "Tony’s voice: Demonophonic Blues experiment" : `Tony’s voice: ${version.toUpperCase()}${suffix}`;
-  const checkpoint = version === 'v9' && range ? `${range.start}→${range.end}` : suffix ? String(epoch) : '';
+  const checkpoint = version === 'v9' && range ? `${range.start}→${range.end}` : version === 'v9' ? String(displayEpoch) : '';
   const colorEpoch = version === 'v9' && range && Number.isInteger(range.start) && Number.isInteger(range.end)
     ? (range.start + range.end) / 2
-    : version === 'v9' && suffix ? epoch : null;
+    : version === 'v9' ? displayEpoch : null;
   const colorStep = colorEpoch === null ? '' : ` v9-epoch-${Math.min(300, Math.max(50, Math.round(colorEpoch / 50) * 50))}`;
   const icon = /^(?:v6|v7|v8|vdb)$/.test(version)
     ? `<img class="voice-model-icon" src="/assets/voice-icons/${version}.svg" alt="" aria-hidden="true">`

@@ -24,7 +24,7 @@ test('V9 badges show the chosen checkpoint on each entry', () => {
     assert.match(badge, new RegExp(`class="voice-epoch-number" aria-hidden="true">${epoch}<\\/span>`));
     assert.match(badge, new RegExp(`aria-label="Tony’s voice: V9 · epoch ${epoch}"`));
   }
-  assert.doesNotMatch(voiceModelBadge({voiceModel: 'v9'}), /voice-epoch-number/);
-  assert.doesNotMatch(voiceModelBadge({voiceModel: 'v9'}), /v9-epoch-/);
+  assert.match(voiceModelBadge({voiceModel: 'v9'}), /v9-epoch-300/);
+  assert.match(voiceModelBadge({voiceModel: 'v9'}), /class="voice-epoch-number" aria-hidden="true">300<\/span>/);
   assert.doesNotMatch(voiceModelBadge({voiceModel: 'v8', voiceEpoch: 50}), /voice-epoch-number/);
 });
