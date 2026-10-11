@@ -2725,22 +2725,29 @@ button.lyric-line:hover {
 
 .voice-model-badge.v8 { background: #e0ddff; color: #45377a; }
 .voice-model-badge.vdb { background: #ecdcf5; border-color: #a76bbc; color: #542568; font-weight: 700; }
-/* V9 is the newest voice, so its badge is the one that catches the eye. */
+/* Saved V9 checkpoints move from teal through blue to violet. */
 .voice-model-badge.v9 {
+  --v9-hue: 170;
   position: relative;
   gap: 3px;
   padding: 1px 8px 1px 6px;
-  border-color: #2f9e8f;
-  background: linear-gradient(105deg, #c9f0e8 0%, #c9f0e8 38%, #f4fffc 50%, #c9f0e8 62%, #c9f0e8 100%) 100% 0 / 260% 100%;
-  color: #0e4a43;
+  border-color: hsl(var(--v9-hue) 54% 41%);
+  background: linear-gradient(105deg, hsl(var(--v9-hue) 64% 86%) 0%, hsl(var(--v9-hue) 64% 86%) 38%, #fff 50%, hsl(var(--v9-hue) 64% 86%) 62%, hsl(var(--v9-hue) 64% 86%) 100%) 100% 0 / 260% 100%;
+  color: hsl(var(--v9-hue) 68% 23%);
   font-weight: 700;
-  box-shadow: 0 0 0 1px rgb(47 158 143 / 25%), 0 0 9px rgb(47 158 143 / 45%);
+  box-shadow: 0 0 0 1px hsl(var(--v9-hue) 54% 41% / 25%), 0 0 9px hsl(var(--v9-hue) 54% 41% / 45%);
   animation: v9-shimmer 3.4s ease-in-out infinite, v9-glow 3.4s ease-in-out infinite;
 }
+.voice-model-badge.v9-epoch-50 { --v9-hue: 170; }
+.voice-model-badge.v9-epoch-100 { --v9-hue: 190; }
+.voice-model-badge.v9-epoch-150 { --v9-hue: 210; }
+.voice-model-badge.v9-epoch-200 { --v9-hue: 230; }
+.voice-model-badge.v9-epoch-250 { --v9-hue: 250; }
+.voice-model-badge.v9-epoch-300 { --v9-hue: 270; }
 .voice-model-badge.v9::before {
   content: "\2726";
   font-size: 0.72em;
-  color: #1c9a8a;
+  color: hsl(var(--v9-hue) 68% 34%);
   animation: v9-twinkle 3.4s ease-in-out infinite;
 }
 .voice-epoch-number {
@@ -2755,8 +2762,8 @@ button.lyric-line:hover {
   70%, 100% { background-position: 0 0; }
 }
 @keyframes v9-glow {
-  0%, 100% { box-shadow: 0 0 0 1px rgb(47 158 143 / 25%), 0 0 6px rgb(47 158 143 / 35%); }
-  50% { box-shadow: 0 0 0 1px rgb(47 158 143 / 45%), 0 0 13px rgb(47 158 143 / 65%); }
+  0%, 100% { box-shadow: 0 0 0 1px hsl(var(--v9-hue) 54% 41% / 25%), 0 0 6px hsl(var(--v9-hue) 54% 41% / 35%); }
+  50% { box-shadow: 0 0 0 1px hsl(var(--v9-hue) 54% 41% / 45%), 0 0 13px hsl(var(--v9-hue) 54% 41% / 65%); }
 }
 @keyframes v9-twinkle {
   0%, 100% { opacity: 0.6; transform: scale(0.85); }

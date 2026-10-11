@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 import { songSummary } from "../../assets/song-summary.js";
 import { lyricsHref } from "../../assets/song-links.js";
+import { voiceModelBadge } from "../../assets/song-badges.js";
 
 // Moving between pages must not stop the music or send the avatars away and back.
 test.use({ reducedMotion: "reduce" });
@@ -57,6 +58,21 @@ async function studio(page) {
 const mark = (page) => page.evaluate(() => { window.__stays = "still here"; window.__audio = window.yehry3Player.audio; });
 const stayed = (page) => page.evaluate(() => window.__stays === "still here" && window.__audio === window.yehry3Player.audio);
 const playing = (page) => page.evaluate(() => { const audio = window.yehry3Player.audio; return !audio.paused && !audio.ended && audio.currentTime > 0.2; });
+
+test("V9 checkpoint colors progress from teal to violet", async ({ page }) => {
+  await studio(page);
+  await page.goto("/?sort=catalog");
+  const badges = [50, 200, 300].map(voiceEpoch => voiceModelBadge({ voiceModel: "v9", voiceEpoch }));
+  const hues = await page.evaluate(html => {
+    const row = document.createElement("div");
+    row.innerHTML = html.join(" ");
+    document.body.append(row);
+    const result = [...row.children].map(node => getComputedStyle(node).getPropertyValue("--v9-hue").trim());
+    row.remove();
+    return result;
+  }, badges);
+  expect(hues).toEqual(["170", "230", "270"]);
+});
 
 test("the compact player badges fit together and seeking keeps playing", async ({ page }) => {
   await studio(page);
