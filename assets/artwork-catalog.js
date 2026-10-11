@@ -2649,20 +2649,26 @@ export default {
     ]
   },
   "distonyc-b8ddb5c7573cb95df1a44cf0": {
-    "src": "/assets/artwork/distonyc-b8ddb5c7573cb95df1a44cf0-incubating-3050e5021c37-952533a9ae8b166d-q86.webp",
+    "src": "/assets/artwork/distonyc-b8ddb5c7573cb95df1a44cf0-mature-6a0a7b549936-34fc8b00bc3a236f-q86.webp",
     "alt": "Cover artwork for The View From Down Here.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "3bbb73060e3bb6f44a8c503c3ef9b09295e0aa9798b54908954b142e87822083",
-    "promptHash": "b2495d8e44897725933c4dceadf81fbf504fe6befa11f9bd3b91341a205d7510",
-    "createdAt": "2026-10-10T22:58:01.189Z",
+    "promptHash": "4770a7850881b79c650e6ef6d6325fb8f7e217f14693354909e8124f50edd445",
+    "createdAt": "2026-10-11T23:01:30.870Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-b8ddb5c7573cb95df1a44cf0-incubating-3050e5021c37-952533a9ae8b166d-q86.webp",
     "firstSeenAt": "2026-10-10T22:57:44.153Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-b8ddb5c7573cb95df1a44cf0-incubating-3050e5021c37-952533a9ae8b166d-q86.webp",
+        "alt": "Cover artwork for The View From Down Here.",
+        "createdAt": "2026-10-10T22:58:01.189Z"
+      }
+    ]
   },
   "distonyc-0697d60fca381d6e37ae2cb5": {
     "src": "/assets/artwork/distonyc-0697d60fca381d6e37ae2cb5-incubating-f8963a461e21-dbeb6e54ec261e7e-q86.webp",
