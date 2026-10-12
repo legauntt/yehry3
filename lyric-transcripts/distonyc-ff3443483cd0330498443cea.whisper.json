@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "songId": "distonyc-ff3443483cd0330498443cea",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ff3443483cd0330498443cea-f820fa57901c.mp3",
+  "audioSha256": "f820fa57901c060ad19717c09454bdffdb7d318856f348b580a96a1b0c20c4d5",
+  "inputSha256": "d2ae7a7df6ee2c3616a6ff7aa75e249687d1c72baff2c1bacb9011a9cf92be5d",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 245.0808125,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 7.0,
+      "text": "Passos deri se avai",
+      "uncertain": true
+    },
+    {
+      "start": 10.72,
+      "end": 12.12,
+      "text": "Inadletha",
+      "uncertain": true
+    },
+    {
+      "start": 15.92,
+      "end": 17.32,
+      "text": "Bidgha",
+      "uncertain": true
+    },
+    {
+      "start": 25.82,
+      "end": 29.18,
+      "text": "I'm 100% nigga",
+      "uncertain": true
+    },
+    {
+      "start": 32.36,
+      "end": 35.92,
+      "text": "I'm 200% nigga",
+      "uncertain": false
+    },
+    {
+      "start": 38.84,
+      "end": 43.02,
+      "text": "Why do you call these haze niggas?",
+      "uncertain": false
+    },
+    {
+      "start": 43.02,
+      "end": 73.0,
+      "text": "Nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga nigga",
+      "uncertain": true
+    },
+    {
+      "start": 73.0,
+      "end": 102.98,
+      "text": "Don't drink beer, I drink boss livings, ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah ah",
+      "uncertain": true
+    },
+    {
+      "start": 105.16,
+      "end": 107.82,
+      "text": "Nigga, nigga, nigga, nigga, nigga, nigga, nigga, nigga",
+      "uncertain": false
+    },
+    {
+      "start": 107.82,
+      "end": 110.46,
+      "text": "Why you eat so much chicken?",
+      "uncertain": true
+    },
+    {
+      "start": 111.46,
+      "end": 113.52,
+      "text": "Nigga, nigga, nigga, nigga, nigga, nigga, nigga",
+      "uncertain": false
+    },
+    {
+      "start": 113.52,
+      "end": 116.78,
+      "text": "Why won't you make it in my kitchen?",
+      "uncertain": false
+    },
+    {
+      "start": 118.08,
+      "end": 119.82,
+      "text": "Nigga, nigga, nigga, nigga, nigga, nigga",
+      "uncertain": false
+    },
+    {
+      "start": 119.82,
+      "end": 123.24,
+      "text": "Why you call them hoes bitches?",
+      "uncertain": true
+    },
+    {
+      "start": 124.76,
+      "end": 126.76,
+      "text": "Nigga, nigga, nigga, nigga, nigga, nigga, nigga",
+      "uncertain": false
+    },
+    {
+      "start": 126.76,
+      "end": 129.1,
+      "text": "Cause them hoes is bitches",
+      "uncertain": false
+    },
+    {
+      "start": 130.8,
+      "end": 132.6,
+      "text": "Nigga, nigga, nigga, nigga, nigga, nigga, nigga",
+      "uncertain": false
+    },
+    {
+      "start": 132.6,
+      "end": 136.18,
+      "text": "Nigga, why you stay in the hood?",
+      "uncertain": false
+    },
+    {
+      "start": 137.18,
+      "end": 141.94,
+      "text": "Cause I don't like living by Packer Woods.",
+      "uncertain": false
+    },
+    {
+      "start": 144.7,
+      "end": 149.02,
+      "text": "Nigga, why you ain't got no charm?",
+      "uncertain": false
+    },
+    {
+      "start": 150.84,
+      "end": 155.0,
+      "text": "Cause it doesn't almost eat my dog.",
+      "uncertain": true
+    },
+    {
+      "start": 155.88,
+      "end": 161.76,
+      "text": "Nigga, why you ain't got no charm?",
+      "uncertain": false
+    },
+    {
+      "start": 165.14,
+      "end": 168.26,
+      "text": "Now, folks, keep my hat.",
+      "uncertain": true
+    },
+    {
+      "start": 194.02,
+      "end": 200.18,
+      "text": "Why are you scared to go to gorge?",
+      "uncertain": true
+    },
+    {
+      "start": 203.26,
+      "end": 204.54,
+      "text": "Shit.",
+      "uncertain": false
+    },
+    {
+      "start": 205.2,
+      "end": 209.12,
+      "text": "Cause the judge looked just like that motherfucker",
+      "uncertain": false
+    },
+    {
+      "start": 209.12,
+      "end": 212.82,
+      "text": "that put our ass on the boat",
+      "uncertain": false
+    },
+    {
+      "start": 212.82,
+      "end": 219.04,
+      "text": "and made me a nigger.",
+      "uncertain": false
+    },
+    {
+      "start": 220.68,
+      "end": 223.5,
+      "text": "Mama Rag is a nigger",
+      "uncertain": false
+    },
+    {
+      "start": 223.5,
+      "end": 226.42,
+      "text": "Durag is a nigger",
+      "uncertain": false
+    },
+    {
+      "start": 226.42,
+      "end": 228.96,
+      "text": "Ballistics is a nigger",
+      "uncertain": false
+    },
+    {
+      "start": 228.96,
+      "end": 233.76,
+      "text": "And I'm Urethas, nigger, nigger",
+      "uncertain": false
+    }
+  ]
+}
