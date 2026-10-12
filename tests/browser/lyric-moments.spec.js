@@ -74,20 +74,48 @@ test("Lesson two on The World's Biggest Hit can be selected from a shared line",
   await expect(lesson).toHaveClass(/is-linked/);
   await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(0);
 });
-test("The Golden Answer original sheet does not reuse line 51 timing for later written lines", async ({ page }) => {
+test("The Golden Answer original sheet seeks across the performed song", async ({ page }) => {
   await page.goto("/lyrics/the-golden-answer-61663f/?view=original");
-  await expect(page.locator("#lyric-line-51")).toHaveAttribute("data-start", "263.72");
-  for (const number of [52, 58, 75, 100]) {
+  for (const [number, start] of [[22, 75.9], [51, 159.2], [52, 161.3], [58, 170.3], [83, 247.7], [101, 278.9]]) {
+    const line = page.locator(`#lyric-line-${number}`);
+    await expect(line).toHaveAttribute("data-start", String(start));
+    await line.click();
+    expect(new URL(page.url()).hash).toBe(`#lyric-line-${number}`);
+    await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(start, 1);
+    await expect(page.locator("#sheet-status")).toBeEmpty();
+  }
+  for (const number of [72, 78, 103]) {
     const line = page.locator(`#lyric-line-${number}`);
     await expect(line).toHaveAttribute("data-untimed", "true");
     await line.click();
     expect(new URL(page.url()).hash).toBe(`#lyric-line-${number}`);
-    await expect(page.locator("#sheet-status")).toContainText("No reliable timing");
-    expect(await page.locator("audio").evaluate(audio => audio.currentTime)).toBe(0);
   }
-  await page.locator("#lyric-line-51").click();
-  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(263.72, 1);
-  await expect(page.locator("#sheet-status")).toBeEmpty();
+});
+test("Influence Criteria seeks through the previously missing middle verses", async ({ page }) => {
+  await page.goto("/lyrics/influence-criteria-f23166/?view=original");
+  for (const [number, start] of [[20, 66.7], [33, 112.7], [46, 149.2], [53, 179.6], [56, 182.9]]) {
+    const line = page.locator(`#lyric-line-${number}`);
+    await expect(line).toHaveAttribute("data-start", String(start));
+    await line.click();
+    await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(start, 1);
+  }
+});
+test("Page 1 Lamma Bada originals seek through their performed sections", async ({ page }) => {
+  const songs = [
+    ["distonyc-ffa7b966f9f8cc1a5d4cc3a5", [[10, 30], [26, 83.8], [49, 163.4]]],
+    ["distonyc-f13f78a2474383f7eb72c64e", [[4, 9.1], [39, 132.4], [78, 261.5]]],
+    ["distonyc-563929c05b5b15405bcaeaeb", [[2, 3.5], [34, 86.8], [84, 205.5]]],
+  ];
+  for (const [id, samples] of songs) {
+    await page.goto(`/lyrics/?song=${id}&view=original`);
+    for (const [number, start] of samples) {
+      const line = page.locator(`#lyric-line-${number}`);
+      await expect(line).toHaveAttribute("data-start", String(start));
+      await line.click();
+      expect(new URL(page.url()).hash).toBe(`#lyric-line-${number}`);
+      await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(start, 1);
+    }
+  }
 });
 test("background refresh preserves the playing audio and does not reapply a shared timestamp", async ({ page }) => {
   let release;
