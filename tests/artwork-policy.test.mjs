@@ -67,6 +67,8 @@ test("new-song lifecycle matures once after 24 hours and preserves finished and 
   const song = { adminPinned: false, votes: 20 };
   const options = { lifecycle: true, firstSeenAt, now: Date.parse(firstSeenAt), incubationHours: 24 };
   assert.equal(selectTreatment(song, null, options), "incubating", "early votes do not trigger expensive art during incubation");
+  assert.equal(selectTreatment({ ...song, adminPinned: true }, null, options), "incubating",
+    "a pinned title sleeve still gets its first picture");
   const early = { treatment: "incubating", firstSeenAt };
   assert.equal(selectTreatment(song, early, { ...options, now: options.now + 86399999 }), null);
   assert.equal(selectTreatment(song, early, { ...options, now: options.now + 86400000 }), "mature");

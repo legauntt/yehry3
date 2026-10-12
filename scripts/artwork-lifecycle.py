@@ -149,15 +149,25 @@ def run_pass(config_path, check_only=False):
         command([config["node"], config["npmCli"], "test"], checkout, "test")
         git(checkout, "add", "--", "assets/artwork-catalog.js", "assets/artwork")
         git(checkout, "commit", "-m", "Add staged artwork for active new songs")
-        checked_head = git(checkout, "rev-parse", "HEAD")
-        git(checkout, "fetch", "origin", "talandar")
-        git(checkout, "rebase", "origin/talandar")
-        node("audit-song-artwork.mjs", "verify-protected", "--baseline", baseline)
-        # Validate again if a concurrent publication changed the checkout.
-        if checked_head != git(checkout, "rev-parse", "HEAD"):
-            command([config["node"], config["npmCli"], "run", "build"], checkout, "build-before-push")
-            command([config["node"], config["npmCli"], "test"], checkout, "test-before-push")
-        git(checkout, "push", "origin", "HEAD:talandar")
+        # Song publications can arrive every few minutes. A fresh fetch before
+        # push still leaves a race, so retry only a fast-forward rejection.
+        for attempt in range(1, 9):
+            checked_head = git(checkout, "rev-parse", "HEAD")
+            git(checkout, "fetch", "origin", "talandar")
+            git(checkout, "rebase", "origin/talandar")
+            node("audit-song-artwork.mjs", "verify-protected", "--baseline", baseline)
+            if checked_head != git(checkout, "rev-parse", "HEAD"):
+                command([config["node"], config["npmCli"], "run", "build"], checkout, "build-before-push")
+                command([config["node"], config["npmCli"], "test"], checkout, "test-before-push")
+            _, push_code = command(["git", "-c", f"safe.directory={checkout.as_posix()}",
+                                    "push", "origin", "HEAD:talandar"], checkout,
+                                   "git-push", allowed=(0, 1))
+            if push_code == 0:
+                break
+            push_log = (logs / f"{count:02}-git-push.log").read_text(encoding="utf-8")
+            if "[rejected]" not in push_log or "(fetch first)" not in push_log or attempt == 8:
+                raise RuntimeError(f"git-push failed; see {logs}")
+            print(f"Concurrent catalog push; rebasing artwork (attempt {attempt + 1}/8)", flush=True)
         deadline = time.monotonic() + 1800
         while True:
             _, code = node("song-artwork.mjs", "verify", allowed=(0, 1))

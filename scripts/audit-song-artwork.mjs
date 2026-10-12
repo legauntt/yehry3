@@ -39,7 +39,8 @@ export async function main(args = process.argv.slice(2)) {
       const current = rows.find(s => s.id === old.id);
       const cover = artwork[old.id] || null;
       const hash = cover ? digest(await readFile(path.join(root, cover.src))) : null;
-      if (current?.kind === 'unknown-pin-status' || JSON.stringify(cover) !== JSON.stringify(old.cover) || hash !== old.hash)
+      if (current?.kind === 'unknown-pin-status' || (old.cover &&
+          (JSON.stringify(cover) !== JSON.stringify(old.cover) || hash !== old.hash)))
         throw new Error(`Pinned cover changed: ${old.title} (${old.id})`);
     }
     if (rows.some(row => row.kind === 'unknown-pin-status')) throw new Error('Unknown live pin status');

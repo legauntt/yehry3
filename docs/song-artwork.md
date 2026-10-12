@@ -87,7 +87,7 @@ Jesse approved a cheap picture first and one richer picture after **24 hours** o
 - Incubation timing is durable in `incubation.json` and in each incubation cover's `firstSeenAt`. Restarting the process does not restart the clock.
 - Existing supplied images, this correction's basic/emphasis covers, and completed mature covers remain unchanged. Only a lifecycle-owned incubation image can be automatically upgraded.
 - The installed task's `baseline` points to this batch's existing-catalog audit. Those tracks never enter new-track automation, including any rejected covers left as placeholders. A failed/uncertain first-stage request cannot be retried by merely reaching maturity.
-- Pinned songs are always protected in lifecycle mode, including pins added while an image is rendering. This mode does not invoke the manual monument rule.
+- A pinned song with a text placeholder receives its first incubation cover. Once it has an image, the lifecycle protects it, including when a pin is added while an image is rendering. This mode does not invoke the manual monument rule.
 - Archived songs are absent from the active API snapshot and rechecked before generation and installation. A song absent during the first pass can go directly to mature after its recorded incubation period.
 - Failed or rejected image calls retain their reservations. A specific provider safety rejection may receive up to two separately budgeted safe interpretations: first a scene using only allowlisted genre, instrument and harmless visual cues from the song's creative sources, then an abstract composition using those cues. Neither retry sends the raw lyrics or rejected prompt. Other failures and exhausted safety retries require manual review.
 

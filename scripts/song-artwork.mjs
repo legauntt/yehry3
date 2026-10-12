@@ -185,7 +185,9 @@ New safety rejections receive at most two budgeted, progressively safer interpre
     }
     const wanted = new Set(audit ? audit.songs.filter(s => s.kind === "text-placeholder" && s.adminPinned === false && (!briefs || Object.hasOwn(briefs.songs, s.id))).map(s => s.id) : [...opt.only, ...opt.redo]);
     if (!audit) for (const id of wanted) if (!snapshot.songs.some(s => s.id === id)) throw new Error(`Song not in active catalog: ${id}`);
-    const protectedSongs = snapshot.songs.filter(s => opt["exclude-pinned"] && isPinnedOrUnknown(s)).map(s => ({ id: s.id, title: s.title, adminPinned: s.adminPinned ?? null }));
+    const protectedPin = s => isPinnedOrUnknown(s) &&
+      !(opt.lifecycle && s.adminPinned === true && !art[s.id]);
+    const protectedSongs = snapshot.songs.filter(s => opt["exclude-pinned"] && protectedPin(s)).map(s => ({ id: s.id, title: s.title, adminPinned: s.adminPinned ?? null }));
     const protectedIds = new Set([...protectedSongs, ...(audit?.songs.filter(s => isPinnedOrUnknown(s)) || [])].map(s => s.id));
     const direction = opt.direction ? await readFile(opt.direction, "utf8") : "";
     const candidates = snapshot.songs.filter(s => (audit || wanted.size ? wanted.has(s.id) : true) && !protectedIds.has(s.id) && !lifecycleProtected.has(s.id) && (!opt["placeholders-only"] || !art[s.id]))
@@ -272,7 +274,7 @@ New safety rejections receive at most two budgeted, progressively safer interpre
     const protectBeforeAction = async job => {
       if (!opt["exclude-pinned"]) return false;
       const current = await currentPinState(opt.api, job.id);
-      if (!protectedIds.has(job.id) && !isPinnedOrUnknown(current)) return false;
+      if (!protectedIds.has(job.id) && !protectedPin(current)) return false;
       protectedIds.add(job.id);
       protectedSkipped++;
       await save(async () => { ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "protected-pinned", error: "Pinned or unknown pin status; cover preserved" }; receipt(job); await atomic(ledgerPath, JSON.stringify(ledger, null, 2) + "\n"); });
@@ -345,7 +347,7 @@ New safety rejections receive at most two budgeted, progressively safer interpre
             // image is rendering. Keep the master locally but do not install it.
             if (opt["exclude-pinned"]) {
               const current = await currentPinState(opt.api, job.id);
-              if (isPinnedOrUnknown(current)) {
+              if (protectedPin(current)) {
                 protectedIds.add(job.id); protectedSkipped++;
                 ledger.jobs[job.key] = { ...ledger.jobs[job.key], status: "protected-pinned", error: "Pinned during generation; original cover preserved" };
                 receipt(job);
