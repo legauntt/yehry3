@@ -2,6 +2,384 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-e6149e7cb0b757c5976b860d",
+      "title": "Shareholder Value Gospel-Funk Remix",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e6149e7cb0b757c5976b860d-cfb331a4eb73.mp3",
+      "duration": 314.9061224489796,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-fa97c0ec66c44b70abed75d2",
+        "title": "Shareholder Value",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-fa97c0ec66c44b70abed75d2-bba0b0291345.mp3"
+      },
+      "publishedAt": "2026-10-12T09:48:09.216Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Shareholder Value Gospel-Funk Remix",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "E minor",
+        "arrangement": "Lively psychedelic gospel-funk rock in 4/4: syncopated bass and punchy drums anchor wah electric guitar, Hammond organ and clavinet, while baritone saxophone and trumpet answer the vocal with sharp rising accents. Keep a clear, steadily pitched melodic lead through verse, pre-chorus, hook, bridge, and final outro; build from a tight pocket to a full brass-and-organ final chorus. Pace the last outro line as a sustained closing phrase 8–12 seconds before the 315-second end, then resolve with one final chord and natural decay.",
+        "lyrics": "[Verse 1]\nTony reads the morning numbers at the breakfast table\nHe sees Gaza on the screen and says the spending is stable\nHe says his tax money pays for bombs and pays for war\nHe says dead children are a cost that he can live with more\nHe reads about Iran and says the planes should keep on flying\nHe says the government is strong when other people are dying\nHe does not ask a question about the people on the ground\nHe watches the market opening and likes the rising sound\n\n[Pre-Chorus]\nHe checks the ticker, checks the debt\nHe calls the outcome good\nHe says the money went where he wanted\nExactly where it should\n\n[Chorus]\nViolence and shareholder value\nThat is what he wants to see\nViolence and shareholder value\nPaid for with the public fee\nHe wants war and he wants profit\nHe wants both at the same time\nViolence and shareholder value\nThat is Tony's state of mind\n\n[Verse 2]\nTony talks about Iraq with a wide and open smile\nHe says the war was pointless but he liked it all the while\nHe liked the contracts and the stock price and the money changing hands\nHe liked the debt that kept on growing under flags across the land\nHe says Halliburton did well and that makes him feel pleased\nHe says a company should benefit from every public need\nHe does not care who lost a home or who came home in pain\nHe only wants the quarterly report to show another gain\n\n[Pre-Chorus]\nHe checks the ticker, checks the debt\nHe calls the outcome good\nHe says the money went where he wanted\nExactly where it should\n\n[Chorus]\nViolence and shareholder value\nThat is what he wants to see\nViolence and shareholder value\nPaid for with the public fee\nHe wants war and he wants profit\nHe wants both at the same time\nViolence and shareholder value\nThat is Tony's state of mind\n\n[Bridge]\nHe wants tax cuts for the wealthy\nHe wants buybacks for the firms\nHe wants trillions added to the debt\nHe likes the way the system turns\nHe says the public pays the bill\nHe says the owners take the gain\nHe says the result is good for him\nHe says it again and again\n\n[Chorus]\nViolence and shareholder value\nThat is what he wants to see\nViolence and shareholder value\nPaid for with the public fee\nHe wants war and he wants profit\nHe wants both at the same time\nViolence and shareholder value\nThat is Tony's state of mind\n\n[Outro]\nHe looks at the numbers one more time\nHe says the numbers look just fine\nHe wants violence and shareholder value\nAnd he says they both are mine\n[End]",
+        "duration": 315,
+        "bpm": 112,
+        "musicalSettings": {
+          "genre": "Psychedelic gospel-funk rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus, outro",
+          "performance": "Clear, steadily pitched melodic lead with conversational rhythmic verses and a broad, catchable chorus",
+          "energy": "Tight mid-tempo pocket grows through brass accents and organ swells into a full final chorus, then resolves cleanly",
+          "lyricWorkflow": "Preserved supplied lyrics in their original order and wording",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "wah electric guitar",
+            "Hammond organ",
+            "clavinet",
+            "baritone saxophone",
+            "trumpet"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nTony reads the morning numbers at the breakfast table\nHe sees Gaza on the screen and says the spending is stable\nHe says his tax money pays for bombs and pays for war\nHe says dead children are a cost that he can live with more\nHe reads about Iran and says the planes should keep on flying\nHe says the government is strong when other people are dying\nHe does not ask a question about the people on the ground\nHe watches the market opening and likes the rising sound\n\n[Pre-Chorus]\nHe checks the ticker, checks the debt\nHe calls the outcome good\nHe says the money went where he wanted\nExactly where it should\n\n[Chorus]\nViolence and shareholder value\nThat is what he wants to see\nViolence and shareholder value\nPaid for with the public fee\nHe wants war and he wants profit\nHe wants both at the same time\nViolence and shareholder value\nThat is Tony's state of mind\n\n[Verse 2]\nTony talks about Iraq with a wide and open smile\nHe says the war was pointless but he liked it all the while\nHe liked the contracts and the stock price and the money changing hands\nHe liked the debt that kept on growing under flags across the land\nHe says Halliburton did well and that makes him feel pleased\nHe says a company should benefit from every public need\nHe does not care who lost a home or who came home in pain\nHe only wants the quarterly report to show another gain\n\n[Pre-Chorus]\nHe checks the ticker, checks the debt\nHe calls the outcome good\nHe says the money went where he wanted\nExactly where it should\n\n[Chorus]\nViolence and shareholder value\nThat is what he wants to see\nViolence and shareholder value\nPaid for with the public fee\nHe wants war and he wants profit\nHe wants both at the same time\nViolence and shareholder value\nThat is Tony's state of mind\n\n[Bridge]\nHe wants tax cuts for the wealthy\nHe wants buybacks for the firms\nHe wants trillions added to the debt\nHe likes the way the system turns\nHe says the public pays the bill\nHe says the owners take the gain\nHe says the result is good for him\nHe says it again and again\n\n[Chorus]\nViolence and shareholder value\nThat is what he wants to see\nViolence and shareholder value\nPaid for with the public fee\nHe wants war and he wants profit\nHe wants both at the same time\nViolence and shareholder value\nThat is Tony's state of mind\n\n[Outro]\nHe looks at the numbers one more time\nHe says the numbers look just fine\nHe wants violence and shareholder value\nAnd he says they both are mine",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 21.3,
+            "end": 25.12
+          },
+          {
+            "line": 2,
+            "start": 25.4,
+            "end": 29
+          },
+          {
+            "line": 3,
+            "start": 29.9,
+            "end": 33.54
+          },
+          {
+            "line": 4,
+            "start": 33.76,
+            "end": 37.54
+          },
+          {
+            "line": 5,
+            "start": 38.36,
+            "end": 42.06
+          },
+          {
+            "line": 6,
+            "start": 42.06,
+            "end": 46.22
+          },
+          {
+            "line": 7,
+            "start": 47.06,
+            "end": 50.66
+          },
+          {
+            "line": 8,
+            "start": 50.68,
+            "end": 55.02
+          },
+          {
+            "line": 11,
+            "start": 62.72,
+            "end": 66.48
+          },
+          {
+            "line": 12,
+            "start": 66.48,
+            "end": 70.88
+          },
+          {
+            "line": 13,
+            "start": 71.68,
+            "end": 75.46
+          },
+          {
+            "line": 14,
+            "start": 75.88,
+            "end": 79.44
+          },
+          {
+            "line": 17,
+            "start": 79.44,
+            "end": 83.94
+          },
+          {
+            "line": 18,
+            "start": 84.58,
+            "end": 86.88
+          },
+          {
+            "line": 19,
+            "start": 86.88,
+            "end": 92.7
+          },
+          {
+            "line": 20,
+            "start": 92.9,
+            "end": 96.56
+          },
+          {
+            "line": 21,
+            "start": 97.66,
+            "end": 101.06
+          },
+          {
+            "line": 22,
+            "start": 102.04,
+            "end": 105.36
+          },
+          {
+            "line": 23,
+            "start": 106.08,
+            "end": 110.66
+          },
+          {
+            "line": 27,
+            "start": 115,
+            "end": 119.3
+          },
+          {
+            "line": 28,
+            "start": 119.3,
+            "end": 123.6
+          },
+          {
+            "line": 29,
+            "start": 123.6,
+            "end": 127.84
+          },
+          {
+            "line": 30,
+            "start": 127.84,
+            "end": 132.16
+          },
+          {
+            "line": 31,
+            "start": 132.16,
+            "end": 136.3
+          },
+          {
+            "line": 32,
+            "start": 136.3,
+            "end": 142
+          },
+          {
+            "line": 33,
+            "start": 144.32,
+            "end": 158.66
+          },
+          {
+            "line": 34,
+            "start": 161.46,
+            "end": 166.6
+          },
+          {
+            "line": 37,
+            "start": 170.06,
+            "end": 173.64
+          },
+          {
+            "line": 38,
+            "start": 175.12,
+            "end": 177.98
+          },
+          {
+            "line": 39,
+            "start": 179.04,
+            "end": 182.58
+          },
+          {
+            "line": 40,
+            "start": 183.14,
+            "end": 187.86
+          },
+          {
+            "line": 43,
+            "start": 187.86,
+            "end": 190.86
+          },
+          {
+            "line": 44,
+            "start": 191.78,
+            "end": 194.06
+          },
+          {
+            "line": 45,
+            "start": 195.8,
+            "end": 199.78
+          },
+          {
+            "line": 46,
+            "start": 200.22,
+            "end": 203.68
+          },
+          {
+            "line": 47,
+            "start": 204.94,
+            "end": 207.92
+          },
+          {
+            "line": 48,
+            "start": 209.22,
+            "end": 212.44
+          },
+          {
+            "line": 49,
+            "start": 213.16,
+            "end": 217.06
+          },
+          {
+            "line": 53,
+            "start": 219.36,
+            "end": 225.32
+          },
+          {
+            "line": 54,
+            "start": 226.34,
+            "end": 229.4
+          },
+          {
+            "line": 55,
+            "start": 230.62,
+            "end": 233.68
+          },
+          {
+            "line": 56,
+            "start": 234.86,
+            "end": 238.1
+          },
+          {
+            "line": 57,
+            "start": 239.22,
+            "end": 242.38
+          },
+          {
+            "line": 58,
+            "start": 243.48,
+            "end": 246.66
+          },
+          {
+            "line": 59,
+            "start": 246.66,
+            "end": 250.96
+          },
+          {
+            "line": 60,
+            "start": 251.26,
+            "end": 254.6
+          },
+          {
+            "line": 63,
+            "start": 255.32,
+            "end": 259.78
+          },
+          {
+            "line": 64,
+            "start": 260.32,
+            "end": 262.68
+          },
+          {
+            "line": 65,
+            "start": 264.18,
+            "end": 268.36
+          },
+          {
+            "line": 66,
+            "start": 268.36,
+            "end": 272.24
+          },
+          {
+            "line": 67,
+            "start": 273.32,
+            "end": 276.48
+          },
+          {
+            "line": 68,
+            "start": 278,
+            "end": 281.36
+          },
+          {
+            "line": 69,
+            "start": 281.74,
+            "end": 285.38
+          },
+          {
+            "line": 73,
+            "start": 286.1,
+            "end": 289.46
+          },
+          {
+            "line": 74,
+            "start": 290.66,
+            "end": 293.82
+          },
+          {
+            "line": 75,
+            "start": 295.02,
+            "end": 298.78
+          },
+          {
+            "line": 76,
+            "start": 298.78,
+            "end": 302.4
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 21.58
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "voiceEpoch": 300,
+      "guide": {
+        "sha256": "770091ad03d9df371280b49710333ba43cd8fa0b09ca8072f84ebbdfef022150",
+        "bytes": 7557791,
+        "duration": 314.906083,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e6149e7cb0b757c5976b860d-770091ad03d9.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “Shareholder Value”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Tony C is absolutely thrilled that his tax dollars are funding genocide in the Gaza strip, and bombing children in Iran. He was also joyous when his tax dollars were used to have a pointless war in Iraq. He's pleased at how good the middle east wars have been for Haliburton's stock price. He's always happy when his government adds trillions of dollars of debt to give huge tax cuts that mostly end up as stock buybacks. Tony C's passions are really just violence and shareholder value, preferably combined. This is a literal character study of the villain, Tony C, but the lyrics are not here to judge him, just to describe him.\n\nOriginal sound: Use the prompt as written.",
+        "direction": "New lively psychedelic gospel-funk rock arrangement. A syncopated bass riff, punchy drum kit, wah electric guitar, Hammond organ and clavinet establish the pocket; baritone saxophone and trumpet add sharp responses and rising accents.",
+        "keep": "Keep the recognizable hook and spirit of “Shareholder Value”.",
+        "basisSongs": [
+          "Shareholder Value"
+        ],
+        "voiceModel": "v9",
+        "voiceEpoch": 300,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 315
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-fa97c0ec66c44b70abed75d2",
       "title": "Shareholder Value",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-fa97c0ec66c44b70abed75d2-bba0b0291345.mp3",
