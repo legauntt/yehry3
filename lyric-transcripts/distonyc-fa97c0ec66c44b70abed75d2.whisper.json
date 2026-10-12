@@ -1,0 +1,247 @@
+{
+  "version": 1,
+  "songId": "distonyc-fa97c0ec66c44b70abed75d2",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-fa97c0ec66c44b70abed75d2-bba0b0291345.mp3",
+  "audioSha256": "bba0b02913454a23e4d209ca3eb65bd3087d4d2fa23d3c72b6a0c3241794a4d2",
+  "inputSha256": "412b670b9ca45df314e5b566762377c973ea64fa29e4bb1f80b8fa63f1d000f6",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 280.0326875,
+  "segments": [
+    {
+      "start": 15.94,
+      "end": 19.76,
+      "text": "Tony reads the morning numbers at the breakfast table",
+      "uncertain": true
+    },
+    {
+      "start": 19.76,
+      "end": 23.86,
+      "text": "He sees gods are on the screen and says the spending is stable",
+      "uncertain": true
+    },
+    {
+      "start": 23.86,
+      "end": 27.68,
+      "text": "He says his tax money pays for bombs and pays for war",
+      "uncertain": false
+    },
+    {
+      "start": 27.68,
+      "end": 31.74,
+      "text": "He says that children are a cause that he can live with more",
+      "uncertain": false
+    },
+    {
+      "start": 31.74,
+      "end": 36.02,
+      "text": "He reads about Iran and says the plane should keep on flying",
+      "uncertain": true
+    },
+    {
+      "start": 36.02,
+      "end": 40.1,
+      "text": "Says the government is strong when other people are dying",
+      "uncertain": false
+    },
+    {
+      "start": 40.1,
+      "end": 44.12,
+      "text": "He does not ask a question about the people on the ground",
+      "uncertain": false
+    },
+    {
+      "start": 44.12,
+      "end": 48.66,
+      "text": "He watches the market opening and likes the rising sound",
+      "uncertain": false
+    },
+    {
+      "start": 54.26,
+      "end": 58.4,
+      "text": "He checks the ticker, checks the debt",
+      "uncertain": false
+    },
+    {
+      "start": 58.4,
+      "end": 61.24,
+      "text": "He calls the outcome good",
+      "uncertain": true
+    },
+    {
+      "start": 62.42,
+      "end": 66.58,
+      "text": "He says the money went where he wanted",
+      "uncertain": false
+    },
+    {
+      "start": 66.58,
+      "end": 69.38,
+      "text": "Exactly where it should",
+      "uncertain": false
+    },
+    {
+      "start": 71.7,
+      "end": 74.84,
+      "text": "Violence and shareholder value",
+      "uncertain": false
+    },
+    {
+      "start": 74.84,
+      "end": 87.62,
+      "text": "that is what he wants to see violence and shareholder value pay for with the public fee",
+      "uncertain": true
+    },
+    {
+      "start": 87.62,
+      "end": 95.06,
+      "text": "he wants war and he wants profit he wants both at the same time violence and shareholder value",
+      "uncertain": false
+    },
+    {
+      "start": 95.06,
+      "end": 103.48,
+      "text": "that is tony's state of mind tony talks about iraq with a wide and open smile he says the war",
+      "uncertain": false
+    },
+    {
+      "start": 103.48,
+      "end": 108.82,
+      "text": "was pointless but he liked it all the while he liked the contracts and the stock price and the",
+      "uncertain": true
+    },
+    {
+      "start": 108.82,
+      "end": 114.3,
+      "text": "money change in hands he liked the debt that kept on growing under flags across the land",
+      "uncertain": false
+    },
+    {
+      "start": 114.3,
+      "end": 120.48,
+      "text": "he says halliburton did well and that makes him feel pleased he says a company should benefit",
+      "uncertain": false
+    },
+    {
+      "start": 120.48,
+      "end": 127.4,
+      "text": "from every public need he does not care who lost a home or who came home in pain he only wants",
+      "uncertain": false
+    },
+    {
+      "start": 127.4,
+      "end": 128.98,
+      "text": "The quarterly report",
+      "uncertain": true
+    },
+    {
+      "start": 128.98,
+      "end": 131.72,
+      "text": "To show another game",
+      "uncertain": true
+    },
+    {
+      "start": 149.9,
+      "end": 152.44,
+      "text": "He checks the ticker",
+      "uncertain": false
+    },
+    {
+      "start": 152.44,
+      "end": 153.96,
+      "text": "Shets the debt",
+      "uncertain": true
+    },
+    {
+      "start": 153.96,
+      "end": 156.78,
+      "text": "He calls the outcome good",
+      "uncertain": false
+    },
+    {
+      "start": 156.78,
+      "end": 162.16,
+      "text": "He says the money went where he wanted",
+      "uncertain": false
+    },
+    {
+      "start": 162.16,
+      "end": 164.9,
+      "text": "Exactly where it should",
+      "uncertain": true
+    },
+    {
+      "start": 167.12,
+      "end": 170.38,
+      "text": "Violence and shareholder value",
+      "uncertain": false
+    },
+    {
+      "start": 170.38,
+      "end": 174.54,
+      "text": "That is what he wants to see",
+      "uncertain": false
+    },
+    {
+      "start": 175.08,
+      "end": 178.8,
+      "text": "Violence and shareholder value",
+      "uncertain": false
+    },
+    {
+      "start": 178.8,
+      "end": 183.18,
+      "text": "Hateful with the public free",
+      "uncertain": false
+    },
+    {
+      "start": 183.18,
+      "end": 186.62,
+      "text": "He washed warrants and shareholder value",
+      "uncertain": true
+    },
+    {
+      "start": 187.66,
+      "end": 196.72,
+      "text": "violence and shareholder value that is totally state of mind he wants tax cuts for the wealthy",
+      "uncertain": true
+    },
+    {
+      "start": 196.72,
+      "end": 207.9,
+      "text": "he wants buybacks for the firms he wants trillions added to the debt he likes the way the system",
+      "uncertain": false
+    },
+    {
+      "start": 207.9,
+      "end": 218.44,
+      "text": "turns. He says the public pays the bill. He says the owners take the gain. He says",
+      "uncertain": true
+    },
+    {
+      "start": 218.44,
+      "end": 231.58,
+      "text": "result is good for him. He says it again and again. Violence and shareholder value. That is what he",
+      "uncertain": false
+    },
+    {
+      "start": 231.58,
+      "end": 244.98,
+      "text": "walls to see violence and shareholder value pay for with the public free violence and shareholder",
+      "uncertain": true
+    },
+    {
+      "start": 244.98,
+      "end": 258.08,
+      "text": "value that is tony's state of mind he looks at the numbers one more time he says the numbers",
+      "uncertain": false
+    },
+    {
+      "start": 258.08,
+      "end": 268.04,
+      "text": "look just fine he wants violence and shareholder value and he says they both are mine",
+      "uncertain": true
+    }
+  ]
+}
