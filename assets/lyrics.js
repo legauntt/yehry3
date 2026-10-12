@@ -45,12 +45,19 @@ function lyricLines(lyrics, escape) {
         return `<span class="lyric-heading">${escape(line)}</span>`;
       const cue = cues.get(index);
       if (!cue && !timed.length) return `<span class="lyric-line"><span data-lyric-text="${index}">${escape(line)}</span></span>`;
-      // An omitted cue still needs a usable line link. Start at the preceding
-      // line's end, or at the beginning when this line precedes every cue.
-      const previous = timed.findLast(([lineIndex]) => lineIndex < index)?.[1];
-      const start = cue?.start ?? previous?.end ?? 0;
+      const previous = timed.findLast(([lineIndex]) => lineIndex < index);
+      const next = timed.find(([lineIndex]) => lineIndex > index);
+      // Only interpolate a short, credible gap. A long run of missing cues can
+      // mean the written lines were skipped in the actual performance.
+      const gapLines = next?.[0] - previous?.[0];
+      const gapSeconds = next?.[1].start - previous?.[1].end;
+      const boundedGap = gapLines > 1 && gapLines <= 8 &&
+        gapSeconds >= (gapLines - 1) * 0.5 && gapSeconds <= gapLines * 12;
+      const start = cue?.start ?? (boundedGap
+        ? previous[1].end + (gapSeconds * (index - previous[0] - 1)) / gapLines
+        : !previous && next ? 0 : null);
       const approximate = !cue;
-      return `<button type="button" class="lyric-line" id="lyric-line-${index + 1}" data-start="${start}"${cue ? ` data-end="${cue.end}"` : ' data-approximate="true"'} title="${approximate ? 'Jump near this line (timing approximate)' : 'Jump to this line'}"><span data-lyric-text="${index}">${escape(line)}</span>${cue?.uncertain ? '<span class="lyric-uncertain" aria-label="Uncertain transcription" title="Whisper is uncertain about this line">?</span>' : ""}<span class="lyric-link-marker">Shared line</span></button>`;
+      return `<button type="button" class="lyric-line" id="lyric-line-${index + 1}"${start === null ? ' data-untimed="true"' : ` data-start="${start}"`}${cue ? ` data-end="${cue.end}"` : ' data-approximate="true"'} title="${start === null ? 'Timing unavailable for this written line' : approximate ? 'Jump near this line (timing approximate)' : 'Jump to this line'}"><span data-lyric-text="${index}">${escape(line)}</span>${cue?.uncertain ? '<span class="lyric-uncertain" aria-label="Uncertain transcription" title="Whisper is uncertain about this line">?</span>' : ""}<span class="lyric-link-marker">Shared line</span></button>`;
     })
     .join("");
 }
@@ -175,6 +182,7 @@ function mountKaraoke(main, sheet, { restoreLink = true } = {}) {
     let current;
     if (time >= 0)
       for (const line of lines) {
+        if (line.dataset.untimed) continue;
         if (Number(line.dataset.start) > time) break;
         current = line;
       }
@@ -201,6 +209,11 @@ function mountKaraoke(main, sheet, { restoreLink = true } = {}) {
       history.replaceState(history.state, "", url);
     }
     markLinked(line);
+    if (line.dataset.untimed) {
+      main.querySelector("#sheet-status").textContent = "No reliable timing for this written line. Try Lyrics (Whisper) to hear the performed words.";
+      return;
+    }
+    main.querySelector("#sheet-status").textContent = "";
     sheet.seek(Number(line.dataset.start));
     sync(false);
   }
@@ -350,6 +363,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
         }
         cleanupKaraoke();
         main.querySelector(".lyrics-text").innerHTML = lyricLines(lyrics, escape);
+        main.querySelector("#sheet-status").textContent = "";
         renderedSource = source;
         karaokeMounted = false;
       } else {

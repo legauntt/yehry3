@@ -74,6 +74,21 @@ test("Lesson two on The World's Biggest Hit can be selected from a shared line",
   await expect(lesson).toHaveClass(/is-linked/);
   await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(0);
 });
+test("The Golden Answer original sheet does not reuse line 51 timing for later written lines", async ({ page }) => {
+  await page.goto("/lyrics/the-golden-answer-61663f/?view=original");
+  await expect(page.locator("#lyric-line-51")).toHaveAttribute("data-start", "263.72");
+  for (const number of [52, 58, 75, 100]) {
+    const line = page.locator(`#lyric-line-${number}`);
+    await expect(line).toHaveAttribute("data-untimed", "true");
+    await line.click();
+    expect(new URL(page.url()).hash).toBe(`#lyric-line-${number}`);
+    await expect(page.locator("#sheet-status")).toContainText("No reliable timing");
+    expect(await page.locator("audio").evaluate(audio => audio.currentTime)).toBe(0);
+  }
+  await page.locator("#lyric-line-51").click();
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(263.72, 1);
+  await expect(page.locator("#sheet-status")).toBeEmpty();
+});
 test("background refresh preserves the playing audio and does not reapply a shared timestamp", async ({ page }) => {
   let release;
   const gate = new Promise(resolve => { release = resolve; });
