@@ -1,0 +1,439 @@
+{
+  "version": 1,
+  "songId": "distonyc-b6bc23cb55dda80f1ddc2a69",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b6bc23cb55dda80f1ddc2a69-c356d11eff12.mp3",
+  "audioSha256": "c356d11eff12a2c5f293dc1c0ae0b7fd56408b6bbd6af32977472d001b094367",
+  "inputSha256": "c43e6d0f2708b0f0492fa025e439460e75de60a93d2ec5f298fa86e2a27cb68c",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 350.0408125,
+  "segments": [
+    {
+      "start": 10.96,
+      "end": 15.36,
+      "text": "Tony C. woke in a moon-shaped motel",
+      "uncertain": false
+    },
+    {
+      "start": 15.36,
+      "end": 19.7,
+      "text": "With a boot print headache and a rent-do bell",
+      "uncertain": true
+    },
+    {
+      "start": 19.7,
+      "end": 24.36,
+      "text": "His halo hung crooked off the bathroom hook",
+      "uncertain": false
+    },
+    {
+      "start": 24.36,
+      "end": 29.0,
+      "text": "His horoscope coughed, don't open that book",
+      "uncertain": false
+    },
+    {
+      "start": 29.0,
+      "end": 33.82,
+      "text": "Under the sink sat a gold motel cup",
+      "uncertain": false
+    },
+    {
+      "start": 33.82,
+      "end": 38.46,
+      "text": "He filled it himself and he drank it straight up",
+      "uncertain": false
+    },
+    {
+      "start": 38.46,
+      "end": 43.1,
+      "text": "The pipes hit a chord like a choir on fire",
+      "uncertain": false
+    },
+    {
+      "start": 43.1,
+      "end": 47.38,
+      "text": "And the dead me on sign climbed a little bit higher",
+      "uncertain": false
+    },
+    {
+      "start": 47.38,
+      "end": 52.06,
+      "text": "And the medicine cabinet swung open wide",
+      "uncertain": false
+    },
+    {
+      "start": 52.06,
+      "end": 56.08,
+      "text": "With a glitter note taped to the inside",
+      "uncertain": false
+    },
+    {
+      "start": 56.08,
+      "end": 61.36,
+      "text": "Don't wait for a guru, a pill, or a priest",
+      "uncertain": false
+    },
+    {
+      "start": 61.36,
+      "end": 66.84,
+      "text": "Your private fountain has invited the feast",
+      "uncertain": true
+    },
+    {
+      "start": 68.2,
+      "end": 72.54,
+      "text": "Drink your own dish, Tony C",
+      "uncertain": true
+    },
+    {
+      "start": 72.54,
+      "end": 77.28,
+      "text": "Raise that golden little sea",
+      "uncertain": true
+    },
+    {
+      "start": 77.28,
+      "end": 82.02,
+      "text": "For the body, for the soul",
+      "uncertain": false
+    },
+    {
+      "start": 82.02,
+      "end": 85.48,
+      "text": "For the hole inside, the hole inside",
+      "uncertain": false
+    },
+    {
+      "start": 85.48,
+      "end": 86.7,
+      "text": "the home",
+      "uncertain": true
+    },
+    {
+      "start": 86.7,
+      "end": 89.82,
+      "text": "drink your own piss",
+      "uncertain": true
+    },
+    {
+      "start": 89.82,
+      "end": 91.0,
+      "text": "Tony see",
+      "uncertain": false
+    },
+    {
+      "start": 91.0,
+      "end": 93.34,
+      "text": "like a king with a",
+      "uncertain": false
+    },
+    {
+      "start": 93.34,
+      "end": 95.18,
+      "text": "tiny chemistry",
+      "uncertain": false
+    },
+    {
+      "start": 95.18,
+      "end": 97.96,
+      "text": "when the whole world",
+      "uncertain": false
+    },
+    {
+      "start": 97.96,
+      "end": 99.68,
+      "text": "hisses what's",
+      "uncertain": false
+    },
+    {
+      "start": 99.68,
+      "end": 101.36,
+      "text": "the use he says",
+      "uncertain": false
+    },
+    {
+      "start": 101.36,
+      "end": 103.46,
+      "text": "pass the cup I've got",
+      "uncertain": false
+    },
+    {
+      "start": 103.46,
+      "end": 105.08,
+      "text": "celestial juice",
+      "uncertain": false
+    },
+    {
+      "start": 105.08,
+      "end": 107.14,
+      "text": "he marched downtown",
+      "uncertain": false
+    },
+    {
+      "start": 107.14,
+      "end": 109.86,
+      "text": "with the thermos of dawn",
+      "uncertain": false
+    },
+    {
+      "start": 109.86,
+      "end": 111.42,
+      "text": "is busted",
+      "uncertain": true
+    },
+    {
+      "start": 111.42,
+      "end": 113.46,
+      "text": "me quit predicting",
+      "uncertain": false
+    },
+    {
+      "start": 113.46,
+      "end": 123.42,
+      "text": "storms a tax man slapped down a book of doom tony took a pull the man burst into blue",
+      "uncertain": true
+    },
+    {
+      "start": 123.42,
+      "end": 132.88,
+      "text": "the mayor had gray in his throat and teeth the sun was hiding underneath the street",
+      "uncertain": false
+    },
+    {
+      "start": 132.88,
+      "end": 141.76,
+      "text": "tony poured a toast in a chipped glass cup and every dark window flickered back",
+      "uncertain": false
+    },
+    {
+      "start": 146.04,
+      "end": 156.0,
+      "text": "the cop said sir is that legal gold tony said brother your soul looks cold",
+      "uncertain": true
+    },
+    {
+      "start": 156.0,
+      "end": 165.3,
+      "text": "one sip later the squat car purred and it flew off wearing a pigeon's word",
+      "uncertain": false
+    },
+    {
+      "start": 165.3,
+      "end": 170.62,
+      "text": "Drink your own piss, Tony C",
+      "uncertain": true
+    },
+    {
+      "start": 170.62,
+      "end": 175.4,
+      "text": "Raise that golden little sea",
+      "uncertain": true
+    },
+    {
+      "start": 175.4,
+      "end": 180.12,
+      "text": "For the body, for the soul",
+      "uncertain": false
+    },
+    {
+      "start": 180.12,
+      "end": 184.88,
+      "text": "For the hole inside the hole, inside the hole",
+      "uncertain": false
+    },
+    {
+      "start": 184.88,
+      "end": 189.08,
+      "text": "Drink your own piss, Tony C",
+      "uncertain": false
+    },
+    {
+      "start": 189.08,
+      "end": 193.32,
+      "text": "Like a king with a tiny chemistry",
+      "uncertain": false
+    },
+    {
+      "start": 193.32,
+      "end": 198.48,
+      "text": "When the whole world hisses, what's for use?",
+      "uncertain": false
+    },
+    {
+      "start": 198.52,
+      "end": 203.32,
+      "text": "He says, pass the cup, I've got celestial juice",
+      "uncertain": false
+    },
+    {
+      "start": 203.32,
+      "end": 207.84,
+      "text": "At midnight, the moon came down in a suit",
+      "uncertain": true
+    },
+    {
+      "start": 207.84,
+      "end": 212.36,
+      "text": "Crying blue sparks through a silver boot",
+      "uncertain": false
+    },
+    {
+      "start": 212.36,
+      "end": 217.02,
+      "text": "My craters ache, my orbit's bent",
+      "uncertain": false
+    },
+    {
+      "start": 217.02,
+      "end": 221.4,
+      "text": "Tony filled the cup with total intent",
+      "uncertain": false
+    },
+    {
+      "start": 221.4,
+      "end": 226.16,
+      "text": "He drank to the moon, to the weather within",
+      "uncertain": false
+    },
+    {
+      "start": 226.16,
+      "end": 230.72,
+      "text": "To lost car keys and the crooked grin",
+      "uncertain": true
+    },
+    {
+      "start": 230.72,
+      "end": 235.72,
+      "text": "The galaxies clinked their impossible mugs",
+      "uncertain": false
+    },
+    {
+      "start": 235.72,
+      "end": 241.04,
+      "text": "And the void grew roses with planetary bugs",
+      "uncertain": false
+    },
+    {
+      "start": 243.12,
+      "end": 247.16,
+      "text": "Not a cure from a billboard saint",
+      "uncertain": false
+    },
+    {
+      "start": 247.16,
+      "end": 251.7,
+      "text": "Not a silver pill or peppermint paint",
+      "uncertain": true
+    },
+    {
+      "start": 251.7,
+      "end": 256.5,
+      "text": "Just a tone you see in a velvet robe",
+      "uncertain": false
+    },
+    {
+      "start": 256.5,
+      "end": 260.86,
+      "text": "Hatching holes in the outer glow",
+      "uncertain": false
+    },
+    {
+      "start": 260.86,
+      "end": 265.6,
+      "text": "He drank for the ghosts with day job ties",
+      "uncertain": false
+    },
+    {
+      "start": 265.6,
+      "end": 270.78,
+      "text": "For every sad machine with tired eyes",
+      "uncertain": false
+    },
+    {
+      "start": 270.78,
+      "end": 275.96,
+      "text": "Then the room got bigger than the room",
+      "uncertain": false
+    },
+    {
+      "start": 275.96,
+      "end": 279.5,
+      "text": "And a pigeon sang bass to the moon",
+      "uncertain": true
+    },
+    {
+      "start": 280.58,
+      "end": 284.86,
+      "text": "Drink your own piss, Tony C",
+      "uncertain": false
+    },
+    {
+      "start": 284.86,
+      "end": 289.48,
+      "text": "Raise that golden little C",
+      "uncertain": true
+    },
+    {
+      "start": 289.48,
+      "end": 294.3,
+      "text": "For the body, for the soul",
+      "uncertain": false
+    },
+    {
+      "start": 294.3,
+      "end": 298.94,
+      "text": "For the hole inside the hole, inside the hole",
+      "uncertain": false
+    },
+    {
+      "start": 298.94,
+      "end": 303.34,
+      "text": "Drink your own piss, Tony C",
+      "uncertain": false
+    },
+    {
+      "start": 303.34,
+      "end": 307.56,
+      "text": "Like a king with a tiny chemistry",
+      "uncertain": false
+    },
+    {
+      "start": 307.56,
+      "end": 311.5,
+      "text": "When the whole world hisses, what's for you?",
+      "uncertain": false
+    },
+    {
+      "start": 311.68,
+      "end": 316.58,
+      "text": "She says, ask the cup, I've got celestial juice",
+      "uncertain": false
+    },
+    {
+      "start": 316.58,
+      "end": 322.08,
+      "text": "At dawn he tipped his cup to the sky",
+      "uncertain": false
+    },
+    {
+      "start": 322.08,
+      "end": 325.64,
+      "text": "Watched a pigeon put on a tie",
+      "uncertain": false
+    },
+    {
+      "start": 325.64,
+      "end": 331.36,
+      "text": "Then walked through the world bright and loose",
+      "uncertain": false
+    },
+    {
+      "start": 331.36,
+      "end": 336.28,
+      "text": "With a pocket full of stars and celestial juice",
+      "uncertain": false
+    }
+  ]
+}
