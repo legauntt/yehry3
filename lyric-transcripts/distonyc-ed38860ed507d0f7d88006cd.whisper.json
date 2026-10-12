@@ -1,0 +1,301 @@
+{
+  "version": 1,
+  "songId": "distonyc-ed38860ed507d0f7d88006cd",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ed38860ed507d0f7d88006cd-8e34d7f3c4a5.mp3",
+  "audioSha256": "8e34d7f3c4a58146c924ca93b1ad89352ff08e29a7a97e21b9ffff08651867b7",
+  "inputSha256": "cda0f9793e65a890eb1c162af8239ba365880addd6d5bc4755eda4ea8e7cee23",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 209.946125,
+  "segments": [
+    {
+      "start": 13.44,
+      "end": 20.52,
+      "text": "I read the budget line by line, I see the Marty leave my name, I see the bomb sent overseas,",
+      "uncertain": true
+    },
+    {
+      "start": 20.88,
+      "end": 27.22,
+      "text": "I know the children feel the pain, Gaza is under fire again, families are losing their",
+      "uncertain": false
+    },
+    {
+      "start": 27.22,
+      "end": 36.48,
+      "text": "homes. I do not call this safety work, I call it killing from afar. The contract",
+      "uncertain": true
+    },
+    {
+      "start": 36.48,
+      "end": 40.92,
+      "text": "grows, the stock price climbs, the public debt increases.",
+      "uncertain": true
+    },
+    {
+      "start": 45.98,
+      "end": 51.56,
+      "text": "Violence and shareholder value, that is the plan they choose. Violence and",
+      "uncertain": false
+    },
+    {
+      "start": 51.56,
+      "end": 56.8,
+      "text": "shareholder value, people pay and people lose. Tax cuts for the wealthy,",
+      "uncertain": false
+    },
+    {
+      "start": 56.8,
+      "end": 59.7,
+      "text": "The owners bought acts for the corporate class",
+      "uncertain": true
+    },
+    {
+      "start": 59.7,
+      "end": 62.02,
+      "text": "Wars are sold as necessary",
+      "uncertain": true
+    },
+    {
+      "start": 62.02,
+      "end": 64.54,
+      "text": "The bills aren't built to last",
+      "uncertain": false
+    },
+    {
+      "start": 73.22,
+      "end": 75.56,
+      "text": "IRAP was called a needed war",
+      "uncertain": false
+    },
+    {
+      "start": 75.56,
+      "end": 77.8,
+      "text": "The evidence did not hold true",
+      "uncertain": false
+    },
+    {
+      "start": 77.8,
+      "end": 80.2,
+      "text": "The country paid with human lives",
+      "uncertain": false
+    },
+    {
+      "start": 80.2,
+      "end": 82.4,
+      "text": "The companies got contracts too",
+      "uncertain": false
+    },
+    {
+      "start": 82.4,
+      "end": 84.82,
+      "text": "Halliburton made more money",
+      "uncertain": false
+    },
+    {
+      "start": 84.82,
+      "end": 87.18,
+      "text": "While soldiers came back hurt or dead",
+      "uncertain": false
+    },
+    {
+      "start": 87.18,
+      "end": 89.92,
+      "text": "The people who approved the war",
+      "uncertain": false
+    },
+    {
+      "start": 89.92,
+      "end": 92.02,
+      "text": "Were not the ones who bled",
+      "uncertain": true
+    },
+    {
+      "start": 96.8,
+      "end": 98.88,
+      "text": "The contract grows",
+      "uncertain": false
+    },
+    {
+      "start": 98.88,
+      "end": 101.44,
+      "text": "The stock price climbs",
+      "uncertain": false
+    },
+    {
+      "start": 101.44,
+      "end": 104.6,
+      "text": "The public debt increases",
+      "uncertain": false
+    },
+    {
+      "start": 104.6,
+      "end": 107.84,
+      "text": "Violence and shareholder value",
+      "uncertain": false
+    },
+    {
+      "start": 107.84,
+      "end": 109.98,
+      "text": "That is the plan they choose",
+      "uncertain": false
+    },
+    {
+      "start": 109.98,
+      "end": 112.32,
+      "text": "Violence and shareholder value",
+      "uncertain": false
+    },
+    {
+      "start": 112.32,
+      "end": 114.52,
+      "text": "People pay and people lose",
+      "uncertain": false
+    },
+    {
+      "start": 114.52,
+      "end": 116.9,
+      "text": "Jack's Cups for the wealthy owners",
+      "uncertain": false
+    },
+    {
+      "start": 116.9,
+      "end": 119.1,
+      "text": "Buybacks for the corporate class",
+      "uncertain": false
+    },
+    {
+      "start": 119.1,
+      "end": 121.24,
+      "text": "Wars are sold as necessary",
+      "uncertain": false
+    },
+    {
+      "start": 121.24,
+      "end": 123.94,
+      "text": "The bills are built to last",
+      "uncertain": false
+    },
+    {
+      "start": 132.48,
+      "end": 135.48,
+      "text": "Iranian children are not targets",
+      "uncertain": false
+    },
+    {
+      "start": 137.04,
+      "end": 140.08,
+      "text": "Palestinian children are not targets",
+      "uncertain": false
+    },
+    {
+      "start": 141.52,
+      "end": 144.36,
+      "text": "Iraqi children were not targets",
+      "uncertain": false
+    },
+    {
+      "start": 144.36,
+      "end": 146.5,
+      "text": "No stock price makes those debts right",
+      "uncertain": false
+    },
+    {
+      "start": 146.5,
+      "end": 148.72,
+      "text": "No tax plan makes those debts right",
+      "uncertain": false
+    },
+    {
+      "start": 148.72,
+      "end": 151.12,
+      "text": "No leader should call this success",
+      "uncertain": false
+    },
+    {
+      "start": 155.56,
+      "end": 158.1,
+      "text": "Violence in shareholder value",
+      "uncertain": false
+    },
+    {
+      "start": 158.1,
+      "end": 160.2,
+      "text": "I will not call it good",
+      "uncertain": false
+    },
+    {
+      "start": 160.2,
+      "end": 162.62,
+      "text": "Violence in shareholder value",
+      "uncertain": false
+    },
+    {
+      "start": 162.62,
+      "end": 164.84,
+      "text": "I will say what it is",
+      "uncertain": false
+    },
+    {
+      "start": 164.84,
+      "end": 167.24,
+      "text": "Debts for public programs",
+      "uncertain": false
+    },
+    {
+      "start": 168.18,
+      "end": 169.7,
+      "text": "Cut down",
+      "uncertain": false
+    },
+    {
+      "start": 171.08,
+      "end": 173.92,
+      "text": "Profit for the people at the top",
+      "uncertain": false
+    },
+    {
+      "start": 173.92,
+      "end": 176.56,
+      "text": "Every person has a name here",
+      "uncertain": false
+    },
+    {
+      "start": 176.56,
+      "end": 178.56,
+      "text": "The killing has to stop",
+      "uncertain": true
+    },
+    {
+      "start": 178.56,
+      "end": 183.18,
+      "text": "I will not praise a war for a profit",
+      "uncertain": true
+    },
+    {
+      "start": 183.18,
+      "end": 187.78,
+      "text": "I will not praise a child in fear",
+      "uncertain": false
+    },
+    {
+      "start": 187.78,
+      "end": 194.6,
+      "text": "I will not praise the people trading human lives for money here",
+      "uncertain": false
+    },
+    {
+      "start": 194.6,
+      "end": 197.24,
+      "text": "The killing has to stop",
+      "uncertain": false
+    },
+    {
+      "start": 207.72,
+      "end": 209.12,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}
