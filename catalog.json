@@ -2,6 +2,374 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ed38860ed507d0f7d88006cd",
+      "title": "Violence and Shareholder Value",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ed38860ed507d0f7d88006cd-8e34d7f3c4a5.mp3",
+      "duration": 209.9461224489796,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-12T09:26:27.101Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Violence and Shareholder Value",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Eleven Music original: tense, bass-forward post-punk rock at 105 BPM in D minor, with a steadily pitched single Tony lead carrying direct melodic verses and a forceful, catchable chorus. Electric bass, dry drums, overdriven electric guitars, and restrained organ build from controlled verses to a fuller final chorus. Keep the lead clear and present, with no backing-vocal stacks. The last sustained word of “stop” lands about 10 seconds before the end, followed by one resolved D-minor final chord and natural decay.",
+        "lyrics": "[Verse 1]\nI read the budget line by line\nI see the money leave my name\nI see the bombs sent overseas\nI know the children feel the pain\nGaza is under fire again\nFamilies are losing their homes\nI do not call this safety work\nI call it killing from a phone\n\n[Pre-Chorus]\nThe contract grows\nThe stock price climbs\nThe public debt increases\n\n[Chorus]\nViolence and shareholder value\nThat is the plan they choose\nViolence and shareholder value\nPeople pay and people lose\nTax cuts for the wealthy owners\nBuybacks for the corporate class\nWars are sold as necessary\nThe bills are built to last\n\n[Verse 2]\nIraq was called a needed war\nThe evidence did not hold true\nThe country paid with human lives\nThe companies got contracts too\nHalliburton made more money\nWhile soldiers came back hurt or dead\nThe people who approved the war\nWere not the ones who bled\n\n[Pre-Chorus]\nThe contract grows\nThe stock price climbs\nThe public debt increases\n\n[Chorus]\nViolence and shareholder value\nThat is the plan they choose\nViolence and shareholder value\nPeople pay and people lose\nTax cuts for the wealthy owners\nBuybacks for the corporate class\nWars are sold as necessary\nThe bills are built to last\n\n[Bridge]\nIranian children are not targets\nPalestinian children are not targets\nIraqi children were not targets\nNo stock price makes those deaths right\nNo tax plan makes those deaths right\nNo leader should call this success\n\n[Chorus]\nViolence and shareholder value\nI will not call it good\nViolence and shareholder value\nI will say what it is\nDebt for public programs cut down\nProfit for the people at the top\nEvery person has a name here\nThe killing has to stop\n\n[Outro]\nI will not praise a war for profit\nI will not praise a child in fear\nI will not praise the people trading\nHuman lives for money here\nThe killing has to stop\n[End]",
+        "duration": 210,
+        "bpm": 105,
+        "musicalSettings": {
+          "genre": "Bass-forward post-punk protest rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, final chorus, lyrical outro",
+          "performance": "One clear, steadily pitched melodic lead with firm, direct phrasing",
+          "energy": "Restrained tension in the verses, stronger rhythmic lift in each chorus, then a sober final resolution",
+          "lyricWorkflow": "Original plainspoken political critique with direct statements and a resolved anti-war ending",
+          "instruments": [
+            "electric bass",
+            "drum kit",
+            "overdriven electric guitars",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nI read the budget line by line\nI see the money leave my name\nI see the bombs sent overseas\nI know the children feel the pain\nGaza is under fire again\nFamilies are losing their homes\nI do not call this safety work\nI call it killing from a phone\n\n[Pre-Chorus]\nThe contract grows\nThe stock price climbs\nThe public debt increases\n\n[Chorus]\nViolence and shareholder value\nThat is the plan they choose\nViolence and shareholder value\nPeople pay and people lose\nTax cuts for the wealthy owners\nBuybacks for the corporate class\nWars are sold as necessary\nThe bills are built to last\n\n[Verse 2]\nIraq was called a needed war\nThe evidence did not hold true\nThe country paid with human lives\nThe companies got contracts too\nHalliburton made more money\nWhile soldiers came back hurt or dead\nThe people who approved the war\nWere not the ones who bled\n\n[Pre-Chorus]\nThe contract grows\nThe stock price climbs\nThe public debt increases\n\n[Chorus]\nViolence and shareholder value\nThat is the plan they choose\nViolence and shareholder value\nPeople pay and people lose\nTax cuts for the wealthy owners\nBuybacks for the corporate class\nWars are sold as necessary\nThe bills are built to last\n\n[Bridge]\nIranian children are not targets\nPalestinian children are not targets\nIraqi children were not targets\nNo stock price makes those deaths right\nNo tax plan makes those deaths right\nNo leader should call this success\n\n[Chorus]\nViolence and shareholder value\nI will not call it good\nViolence and shareholder value\nI will say what it is\nDebt for public programs cut down\nProfit for the people at the top\nEvery person has a name here\nThe killing has to stop\n\n[Outro]\nI will not praise a war for profit\nI will not praise a child in fear\nI will not praise the people trading\nHuman lives for money here\nThe killing has to stop",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 13.64,
+            "end": 16.22
+          },
+          {
+            "line": 2,
+            "start": 16.38,
+            "end": 18.26
+          },
+          {
+            "line": 3,
+            "start": 18.68,
+            "end": 20.22
+          },
+          {
+            "line": 4,
+            "start": 20.96,
+            "end": 22.92
+          },
+          {
+            "line": 5,
+            "start": 23.14,
+            "end": 25.06
+          },
+          {
+            "line": 6,
+            "start": 25.4,
+            "end": 27.54
+          },
+          {
+            "line": 7,
+            "start": 27.62,
+            "end": 29.76
+          },
+          {
+            "line": 8,
+            "start": 30.02,
+            "end": 32.26
+          },
+          {
+            "line": 11,
+            "start": 35.8,
+            "end": 36.82
+          },
+          {
+            "line": 12,
+            "start": 38.06,
+            "end": 39.12
+          },
+          {
+            "line": 13,
+            "start": 39.32,
+            "end": 40.8
+          },
+          {
+            "line": 16,
+            "start": 45.92,
+            "end": 48.16
+          },
+          {
+            "line": 17,
+            "start": 48.92,
+            "end": 50.24
+          },
+          {
+            "line": 18,
+            "start": 51.08,
+            "end": 52.78
+          },
+          {
+            "line": 19,
+            "start": 53.16,
+            "end": 54.9
+          },
+          {
+            "line": 20,
+            "start": 54.9,
+            "end": 57.4
+          },
+          {
+            "line": 21,
+            "start": 57.52,
+            "end": 59.54
+          },
+          {
+            "line": 22,
+            "start": 59.88,
+            "end": 61.74
+          },
+          {
+            "line": 23,
+            "start": 62.54,
+            "end": 64.18
+          },
+          {
+            "line": 26,
+            "start": 73.56,
+            "end": 75.46
+          },
+          {
+            "line": 27,
+            "start": 75.8,
+            "end": 77.74
+          },
+          {
+            "line": 28,
+            "start": 78.08,
+            "end": 80.08
+          },
+          {
+            "line": 29,
+            "start": 80.38,
+            "end": 82.3
+          },
+          {
+            "line": 30,
+            "start": 82.9,
+            "end": 84.7
+          },
+          {
+            "line": 31,
+            "start": 84.7,
+            "end": 87.04
+          },
+          {
+            "line": 32,
+            "start": 87.66,
+            "end": 89.9
+          },
+          {
+            "line": 33,
+            "start": 89.9,
+            "end": 91.92
+          },
+          {
+            "line": 36,
+            "start": 96.92,
+            "end": 98.54
+          },
+          {
+            "line": 37,
+            "start": 99.7,
+            "end": 101.1
+          },
+          {
+            "line": 38,
+            "start": 102.1,
+            "end": 105.66
+          },
+          {
+            "line": 41,
+            "start": 105.66,
+            "end": 107.68
+          },
+          {
+            "line": 42,
+            "start": 108.34,
+            "end": 109.76
+          },
+          {
+            "line": 43,
+            "start": 110.24,
+            "end": 112.28
+          },
+          {
+            "line": 44,
+            "start": 112.54,
+            "end": 114.32
+          },
+          {
+            "line": 45,
+            "start": 114.92,
+            "end": 116.8
+          },
+          {
+            "line": 46,
+            "start": 117.14,
+            "end": 118.92
+          },
+          {
+            "line": 47,
+            "start": 118.92,
+            "end": 121.18
+          },
+          {
+            "line": 48,
+            "start": 121.96,
+            "end": 123.64
+          },
+          {
+            "line": 51,
+            "start": 132.48,
+            "end": 134.92
+          },
+          {
+            "line": 52,
+            "start": 137.08,
+            "end": 139.74
+          },
+          {
+            "line": 53,
+            "start": 141.56,
+            "end": 144.1
+          },
+          {
+            "line": 54,
+            "start": 144.64,
+            "end": 146.42
+          },
+          {
+            "line": 55,
+            "start": 146.42,
+            "end": 148.72
+          },
+          {
+            "line": 56,
+            "start": 148.84,
+            "end": 150.86
+          },
+          {
+            "line": 59,
+            "start": 155.6,
+            "end": 157.96
+          },
+          {
+            "line": 60,
+            "start": 158.6,
+            "end": 160.02
+          },
+          {
+            "line": 61,
+            "start": 160.58,
+            "end": 162.56
+          },
+          {
+            "line": 62,
+            "start": 162.66,
+            "end": 164.82
+          },
+          {
+            "line": 63,
+            "start": 165.08,
+            "end": 169.46
+          },
+          {
+            "line": 64,
+            "start": 170.56,
+            "end": 173.8
+          },
+          {
+            "line": 65,
+            "start": 173.8,
+            "end": 176.44
+          },
+          {
+            "line": 66,
+            "start": 176.84,
+            "end": 178.5
+          },
+          {
+            "line": 69,
+            "start": 179.18,
+            "end": 183.14
+          },
+          {
+            "line": 70,
+            "start": 183.7,
+            "end": 187.48
+          },
+          {
+            "line": 71,
+            "start": 188.22,
+            "end": 192.1
+          },
+          {
+            "line": 72,
+            "start": 192.1,
+            "end": 194.48
+          },
+          {
+            "line": 73,
+            "start": 195.12,
+            "end": 197.06
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 13.72
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "voiceEpoch": 300,
+      "guide": {
+        "sha256": "555f95acc8fd5b0d500e3fe67011d988498a11d57ccd1cc0113ed577eb96aa0b",
+        "bytes": 5038751,
+        "duration": 209.946083,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ed38860ed507d0f7d88006cd-555f95acc8fd.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Tony C is absolutely thrilled that his tax dollars are funding genocide in the Gaza strip, and bombing children in Iran. He was also joyous when his tax dollars were used to have a pointless war in Iraq. He's pleased at how good the middle east wars have been for Haliburton's stock price. He's always happy when his government adds trillions of dollars of debt to give huge tax cuts that mostly end up as stock buybacks. Tony C's passions are really just violence and shareholder value, preferably combined.",
+        "direction": "Use the prompt as written.",
+        "keep": "Lyrics must not utilize subtlety. No rhetorical devices, no figures of speech.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 300,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": true,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 210
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-8c98e56d3d736316e459f5b5",
       "title": "Super Coin Leverage",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8c98e56d3d736316e459f5b5-c780563dac13.mp3",
