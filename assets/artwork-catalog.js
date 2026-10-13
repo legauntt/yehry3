@@ -2715,20 +2715,26 @@ export default {
     ]
   },
   "distonyc-3fdabdd6cbcd59aac0e573ce": {
-    "src": "/assets/artwork/distonyc-3fdabdd6cbcd59aac0e573ce-incubating-7febb06cb750-263f8a74f4d0eec9-q86.webp",
+    "src": "/assets/artwork/distonyc-3fdabdd6cbcd59aac0e573ce-mature-6f47f2725014-aead8bfd8971bac8-q86.webp",
     "alt": "Cover artwork for The Golden Answer (Gothic Tech-Rock).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "a2286bd1900ce3e88bef2eea903dc4168c209c07f10aa03cca8830693f84ebf4",
-    "promptHash": "af14c41fc292fe53b6059fa0e48d83f8599f9b571303256a130e6593f5165274",
-    "createdAt": "2026-10-12T23:44:34.596Z",
+    "promptHash": "e39cf43aa892bf816f4a72af4008985d984d8676f36d4b3c659780df85c2559d",
+    "createdAt": "2026-10-13T23:46:30.965Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-3fdabdd6cbcd59aac0e573ce-incubating-7febb06cb750-263f8a74f4d0eec9-q86.webp",
     "firstSeenAt": "2026-10-12T23:43:55.427Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-3fdabdd6cbcd59aac0e573ce-incubating-7febb06cb750-263f8a74f4d0eec9-q86.webp",
+        "alt": "Cover artwork for The Golden Answer (Gothic Tech-Rock).",
+        "createdAt": "2026-10-12T23:44:34.596Z"
+      }
+    ]
   },
   "distonyc-ff3443483cd0330498443cea": {
     "src": "/assets/artwork/distonyc-ff3443483cd0330498443cea-incubating-b0475c37cb58-2aaed52b932dd109-q86.webp",
@@ -2748,20 +2754,26 @@ export default {
     "history": []
   },
   "distonyc-e6149e7cb0b757c5976b860d": {
-    "src": "/assets/artwork/distonyc-e6149e7cb0b757c5976b860d-incubating-4109858371c5-e7a35b84bc6e143e-q86.webp",
+    "src": "/assets/artwork/distonyc-e6149e7cb0b757c5976b860d-mature-c94a4a9bbf9a-59eb54730b89c5b2-q86.webp",
     "alt": "Cover artwork for Shareholder Value Gospel-Funk Remix.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "dcecddaf3b93ea89e7365aa3df73e5b105394ca22474a2fa7871039c0c79a52e",
-    "promptHash": "6afa9547d485938a9dcabe72c1296fa893487182e9f76294d1fe14b4a6cb0b1d",
-    "createdAt": "2026-10-12T23:44:37.342Z",
+    "promptHash": "70d39bc605d3df99ff567f6e6adb07ec11046f0c75cb01d0fc00d8802d47c87b",
+    "createdAt": "2026-10-13T23:46:31.554Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-e6149e7cb0b757c5976b860d-incubating-4109858371c5-e7a35b84bc6e143e-q86.webp",
     "firstSeenAt": "2026-10-12T23:43:55.427Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-e6149e7cb0b757c5976b860d-incubating-4109858371c5-e7a35b84bc6e143e-q86.webp",
+        "alt": "Cover artwork for Shareholder Value Gospel-Funk Remix.",
+        "createdAt": "2026-10-12T23:44:37.342Z"
+      }
+    ]
   },
   "distonyc-b6bc23cb55dda80f1ddc2a69": {
     "src": "/assets/artwork/distonyc-b6bc23cb55dda80f1ddc2a69-basic-44ed95f72bb1-0a2c74bac7c1aad6-q86.webp",
