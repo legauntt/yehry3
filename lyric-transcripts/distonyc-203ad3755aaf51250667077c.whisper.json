@@ -1,0 +1,529 @@
+{
+  "version": 1,
+  "songId": "distonyc-203ad3755aaf51250667077c",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-203ad3755aaf51250667077c-e1b1d9275676.mp3",
+  "audioSha256": "e1b1d9275676dceeb1b8f8751651ebfa2531369deb58a834d40769eda1bb6931",
+  "inputSha256": "4052522ba0f4e0061371616e8ebf2c97cf024429c42fd355776be535f1672c86",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 260.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 2.74,
+      "text": "The hall is breathin' through the wallpaper scenes",
+      "uncertain": true
+    },
+    {
+      "start": 3.56,
+      "end": 5.98,
+      "text": "A clock forgets the number after three",
+      "uncertain": true
+    },
+    {
+      "start": 6.7,
+      "end": 9.44,
+      "text": "I hold a photograph up to the light",
+      "uncertain": false
+    },
+    {
+      "start": 9.44,
+      "end": 12.86,
+      "text": "The faces turn away from me",
+      "uncertain": false
+    },
+    {
+      "start": 14.16,
+      "end": 17.16,
+      "text": "Well, the Doughrats pitched a big tent wide",
+      "uncertain": true
+    },
+    {
+      "start": 17.16,
+      "end": 19.94,
+      "text": "Got socialists and communists all camped inside",
+      "uncertain": false
+    },
+    {
+      "start": 19.94,
+      "end": 22.8,
+      "text": "They're comin' for the country, comin' for what's free",
+      "uncertain": false
+    },
+    {
+      "start": 22.8,
+      "end": 25.68,
+      "text": "So I printed it on vinyl for the whole street to see",
+      "uncertain": false
+    },
+    {
+      "start": 25.68,
+      "end": 32.06,
+      "text": "communists don't you last socialists and muslim take over around america freedom",
+      "uncertain": true
+    },
+    {
+      "start": 32.06,
+      "end": 38.68,
+      "text": "they are big tipped and crude socialist communists and radical muslims they shut down the gold",
+      "uncertain": true
+    },
+    {
+      "start": 38.68,
+      "end": 44.36,
+      "text": "fee for muslim and for open borders leaving off roman borders they want to pack the supreme court",
+      "uncertain": true
+    },
+    {
+      "start": 44.36,
+      "end": 50.78,
+      "text": "with 13 radical jews they want to bring back transistioni your children and take away",
+      "uncertain": true
+    },
+    {
+      "start": 50.78,
+      "end": 51.96,
+      "text": "parental rights",
+      "uncertain": true
+    },
+    {
+      "start": 51.96,
+      "end": 54.5,
+      "text": "bring tax boys and girls sports",
+      "uncertain": true
+    },
+    {
+      "start": 54.5,
+      "end": 55.84,
+      "text": "and in their locker rooms",
+      "uncertain": false
+    },
+    {
+      "start": 55.84,
+      "end": 57.6,
+      "text": "the bricks will open wide the border",
+      "uncertain": true
+    },
+    {
+      "start": 57.6,
+      "end": 58.92,
+      "text": "and defund the police",
+      "uncertain": false
+    },
+    {
+      "start": 58.92,
+      "end": 60.74,
+      "text": "they are against all analysts",
+      "uncertain": true
+    },
+    {
+      "start": 60.74,
+      "end": 62.8,
+      "text": "and have you not seen",
+      "uncertain": true
+    },
+    {
+      "start": 62.8,
+      "end": 64.06,
+      "text": "the radio reeling marches",
+      "uncertain": false
+    },
+    {
+      "start": 64.06,
+      "end": 65.14,
+      "text": "and why how long",
+      "uncertain": true
+    },
+    {
+      "start": 66.72,
+      "end": 68.4,
+      "text": "they shut the club down",
+      "uncertain": true
+    },
+    {
+      "start": 68.4,
+      "end": 69.38,
+      "text": "four months long",
+      "uncertain": false
+    },
+    {
+      "start": 69.38,
+      "end": 71.08,
+      "text": "folks went without a paycheck",
+      "uncertain": false
+    },
+    {
+      "start": 71.08,
+      "end": 72.36,
+      "text": "tell me that ain't wrong",
+      "uncertain": false
+    },
+    {
+      "start": 72.36,
+      "end": 74.54,
+      "text": "now they're ironing up the high court",
+      "uncertain": false
+    },
+    {
+      "start": 74.54,
+      "end": 75.68,
+      "text": "adding up the seats",
+      "uncertain": false
+    },
+    {
+      "start": 75.68,
+      "end": 77.18,
+      "text": "13 radical judges",
+      "uncertain": false
+    },
+    {
+      "start": 77.18,
+      "end": 78.6,
+      "text": "for the count is complete",
+      "uncertain": false
+    },
+    {
+      "start": 81.88,
+      "end": 84.84,
+      "text": "Keys in a bowl, but what door do they know?",
+      "uncertain": true
+    },
+    {
+      "start": 85.1,
+      "end": 87.96,
+      "text": "Rain at the glass like a fist in slow motion",
+      "uncertain": false
+    },
+    {
+      "start": 87.96,
+      "end": 90.4,
+      "text": "I call my own name down the stairwell",
+      "uncertain": true
+    },
+    {
+      "start": 90.4,
+      "end": 93.78,
+      "text": "Twice it comes back wearing somebody else's coat",
+      "uncertain": false
+    },
+    {
+      "start": 99.46,
+      "end": 102.48,
+      "text": "There was a garden, there was a dog",
+      "uncertain": false
+    },
+    {
+      "start": 102.48,
+      "end": 105.6,
+      "text": "There was a song on the kitchen radio",
+      "uncertain": false
+    },
+    {
+      "start": 105.6,
+      "end": 107.68,
+      "text": "I reach for the chorus",
+      "uncertain": true
+    },
+    {
+      "start": 107.68,
+      "end": 109.1,
+      "text": "It breaks into dust",
+      "uncertain": true
+    },
+    {
+      "start": 109.1,
+      "end": 111.42,
+      "text": "And falls through the cracks in the floor",
+      "uncertain": false
+    },
+    {
+      "start": 111.42,
+      "end": 112.02,
+      "text": "Oh",
+      "uncertain": true
+    },
+    {
+      "start": 113.32,
+      "end": 113.96,
+      "text": "Oh",
+      "uncertain": true
+    },
+    {
+      "start": 118.16,
+      "end": 120.12,
+      "text": "Tell my crates, my my crates",
+      "uncertain": true
+    },
+    {
+      "start": 120.12,
+      "end": 121.12,
+      "text": "What'll you do",
+      "uncertain": false
+    },
+    {
+      "start": 121.12,
+      "end": 124.24,
+      "text": "Open wide the border, defund the boys and glue",
+      "uncertain": true
+    },
+    {
+      "start": 124.24,
+      "end": 125.8,
+      "text": "Abolish the senate",
+      "uncertain": false
+    },
+    {
+      "start": 125.8,
+      "end": 127.54,
+      "text": "And constitution too",
+      "uncertain": false
+    },
+    {
+      "start": 127.54,
+      "end": 129.36,
+      "text": "I hung it on my garage door",
+      "uncertain": false
+    },
+    {
+      "start": 129.36,
+      "end": 130.8,
+      "text": "Now I'm telling you",
+      "uncertain": false
+    },
+    {
+      "start": 130.8,
+      "end": 132.94,
+      "text": "These moves without windows",
+      "uncertain": false
+    },
+    {
+      "start": 132.94,
+      "end": 136.72,
+      "text": "Keep moving the walls",
+      "uncertain": true
+    },
+    {
+      "start": 136.72,
+      "end": 139.0,
+      "text": "I follow the echo",
+      "uncertain": true
+    },
+    {
+      "start": 139.0,
+      "end": 142.24,
+      "text": "Still nobody calls",
+      "uncertain": false
+    },
+    {
+      "start": 142.88,
+      "end": 144.94,
+      "text": "These rooms without windows",
+      "uncertain": false
+    },
+    {
+      "start": 144.94,
+      "end": 148.04,
+      "text": "Are deep in my head",
+      "uncertain": false
+    },
+    {
+      "start": 148.6,
+      "end": 151.42,
+      "text": "I leave little lights on",
+      "uncertain": false
+    },
+    {
+      "start": 151.42,
+      "end": 154.54,
+      "text": "For the words that have flamed",
+      "uncertain": true
+    },
+    {
+      "start": 158.58,
+      "end": 162.3,
+      "text": "The mirror has learned how to whisper my past",
+      "uncertain": false
+    },
+    {
+      "start": 162.3,
+      "end": 165.3,
+      "text": "But every reflection arounds out of water",
+      "uncertain": true
+    },
+    {
+      "start": 165.3,
+      "end": 168.32,
+      "text": "A birthday candle, a hospital chair",
+      "uncertain": false
+    },
+    {
+      "start": 168.32,
+      "end": 171.58,
+      "text": "A black river rising over the border",
+      "uncertain": false
+    },
+    {
+      "start": 174.12,
+      "end": 177.4,
+      "text": "Don't tell me morning is waiting outside",
+      "uncertain": false
+    },
+    {
+      "start": 177.4,
+      "end": 180.46,
+      "text": "I saw it dissolved at the edge of the bend",
+      "uncertain": false
+    },
+    {
+      "start": 180.46,
+      "end": 183.48,
+      "text": "If love is a road keeping tied to my wrist",
+      "uncertain": false
+    },
+    {
+      "start": 183.48,
+      "end": 186.64,
+      "text": "When the dark starts deciding what I have said",
+      "uncertain": false
+    },
+    {
+      "start": 189.32,
+      "end": 198.2,
+      "text": "these rooms without windows keep moving the walls i follow the echo",
+      "uncertain": true
+    },
+    {
+      "start": 198.2,
+      "end": 210.88,
+      "text": "till nobody calls these rooms without windows are deep in my head i leave little lights on",
+      "uncertain": false
+    },
+    {
+      "start": 210.88,
+      "end": 213.02,
+      "text": "For the words that have fled",
+      "uncertain": true
+    },
+    {
+      "start": 215.2,
+      "end": 217.7,
+      "text": "They bring back transition in the kids",
+      "uncertain": true
+    },
+    {
+      "start": 217.7,
+      "end": 219.86,
+      "text": "They might and tell the moms and daddies",
+      "uncertain": true
+    },
+    {
+      "start": 219.86,
+      "end": 221.26,
+      "text": "They ain't got the right",
+      "uncertain": false
+    },
+    {
+      "start": 221.26,
+      "end": 223.02,
+      "text": "Put the boys in the girls",
+      "uncertain": true
+    },
+    {
+      "start": 223.02,
+      "end": 224.8,
+      "text": "Games in the locker rooms as well",
+      "uncertain": true
+    },
+    {
+      "start": 224.8,
+      "end": 226.46,
+      "text": "I got it all in yellow letters",
+      "uncertain": false
+    },
+    {
+      "start": 226.46,
+      "end": 227.56,
+      "text": "Big enough to yell",
+      "uncertain": false
+    },
+    {
+      "start": 227.56,
+      "end": 230.32,
+      "text": "They don't want honest elections, no",
+      "uncertain": false
+    },
+    {
+      "start": 230.32,
+      "end": 232.06,
+      "text": "They take it to the scurs",
+      "uncertain": true
+    },
+    {
+      "start": 232.06,
+      "end": 233.62,
+      "text": "And let the whole thing go",
+      "uncertain": false
+    },
+    {
+      "start": 233.62,
+      "end": 236.66,
+      "text": "Have you not seen the radio marches roll",
+      "uncertain": true
+    },
+    {
+      "start": 236.66,
+      "end": 238.12,
+      "text": "Through New York, California",
+      "uncertain": false
+    },
+    {
+      "start": 238.12,
+      "end": 239.56,
+      "text": "And around the hall",
+      "uncertain": true
+    },
+    {
+      "start": 241.62,
+      "end": 243.46,
+      "text": "I found one small name",
+      "uncertain": false
+    },
+    {
+      "start": 243.46,
+      "end": 245.26,
+      "text": "I can't read it carefully",
+      "uncertain": true
+    },
+    {
+      "start": 245.26,
+      "end": 246.74,
+      "text": "Warm as a flame",
+      "uncertain": false
+    },
+    {
+      "start": 246.74,
+      "end": 248.28,
+      "text": "Through all of the corridors",
+      "uncertain": false
+    },
+    {
+      "start": 248.28,
+      "end": 249.64,
+      "text": "Closing behind me",
+      "uncertain": false
+    },
+    {
+      "start": 249.64,
+      "end": 251.04,
+      "text": "I held it, I just sat",
+      "uncertain": false
+    },
+    {
+      "start": 251.04,
+      "end": 252.44,
+      "text": "And remembered my name",
+      "uncertain": true
+    }
+  ]
+}
