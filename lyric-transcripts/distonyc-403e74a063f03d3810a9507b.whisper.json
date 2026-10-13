@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "songId": "distonyc-403e74a063f03d3810a9507b",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-403e74a063f03d3810a9507b-9ebe56a7f580.mp3",
+  "audioSha256": "9ebe56a7f580700229d4f70c04a24bec2cfc8f68045390a7bcce855cbe885c56",
+  "inputSha256": "c71bc422621f3c684446ffb0e15a1edb34e572a65579085b9bdef6722e8ceaa5",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 250.1224375,
+  "segments": [
+    {
+      "start": 12.52,
+      "end": 16.86,
+      "text": "Tony found a room by the railroad light",
+      "uncertain": true
+    },
+    {
+      "start": 16.86,
+      "end": 21.16,
+      "text": "New porch numbers every window bright",
+      "uncertain": false
+    },
+    {
+      "start": 21.16,
+      "end": 25.74,
+      "text": "A paper on the doorstep, a meeting at eight",
+      "uncertain": false
+    },
+    {
+      "start": 25.74,
+      "end": 34.84,
+      "text": "everybody talking like the town could wait he said i got questions i don't need a war",
+      "uncertain": true
+    },
+    {
+      "start": 34.84,
+      "end": 44.34,
+      "text": "then somebody slammed the old community door they said pick a side keep the whole thing clean he said",
+      "uncertain": false
+    },
+    {
+      "start": 44.34,
+      "end": 54.04,
+      "text": "life is messier than a campaign scream i can hear the sirens two blocks away i can hear the",
+      "uncertain": false
+    },
+    {
+      "start": 54.04,
+      "end": 57.88,
+      "text": "Promises people throw away",
+      "uncertain": false
+    },
+    {
+      "start": 61.4,
+      "end": 63.04,
+      "text": "Strange neighborhood",
+      "uncertain": false
+    },
+    {
+      "start": 63.04,
+      "end": 65.74,
+      "text": "Don't tell me what to see",
+      "uncertain": false
+    },
+    {
+      "start": 65.74,
+      "end": 67.74,
+      "text": "I'll speak my mind and leave",
+      "uncertain": false
+    },
+    {
+      "start": 67.74,
+      "end": 69.8,
+      "text": "Some room to disagree",
+      "uncertain": false
+    },
+    {
+      "start": 69.8,
+      "end": 72.02,
+      "text": "Strange neighborhood",
+      "uncertain": false
+    },
+    {
+      "start": 72.02,
+      "end": 74.66,
+      "text": "The signs are painted loud",
+      "uncertain": false
+    },
+    {
+      "start": 74.66,
+      "end": 77.02,
+      "text": "I won't trade my conscience",
+      "uncertain": false
+    },
+    {
+      "start": 77.02,
+      "end": 79.32,
+      "text": "Just to blend into the crowd",
+      "uncertain": false
+    },
+    {
+      "start": 92.44,
+      "end": 96.96,
+      "text": "At the diner counter, the arguments rose",
+      "uncertain": true
+    },
+    {
+      "start": 96.96,
+      "end": 101.54,
+      "text": "One wanted more order, one wanted open rows",
+      "uncertain": true
+    },
+    {
+      "start": 101.54,
+      "end": 105.72,
+      "text": "One said the courts were changing overnight",
+      "uncertain": false
+    },
+    {
+      "start": 105.72,
+      "end": 110.12,
+      "text": "One said the kids deserved a safer lie",
+      "uncertain": false
+    },
+    {
+      "start": 110.12,
+      "end": 114.76,
+      "text": "Tony held his coffee, let the whole room spin",
+      "uncertain": true
+    },
+    {
+      "start": 114.76,
+      "end": 118.6,
+      "text": "Said a country breaks when we quit listening",
+      "uncertain": false
+    },
+    {
+      "start": 118.6,
+      "end": 123.46,
+      "text": "I want honest ballots, I want every voice",
+      "uncertain": false
+    },
+    {
+      "start": 123.46,
+      "end": 128.36,
+      "text": "I want families heard, I want a careful choice",
+      "uncertain": false
+    },
+    {
+      "start": 130.56,
+      "end": 134.62,
+      "text": "Strange neighborhood, don't tell me what to see",
+      "uncertain": false
+    },
+    {
+      "start": 134.62,
+      "end": 138.68,
+      "text": "I speak my mind and leave some room to disagree",
+      "uncertain": false
+    },
+    {
+      "start": 138.68,
+      "end": 143.58,
+      "text": "Strange neighborhood, the signs are bane and loud",
+      "uncertain": true
+    },
+    {
+      "start": 143.58,
+      "end": 148.64,
+      "text": "I won't trade my conscience just to blend into the crowd",
+      "uncertain": false
+    },
+    {
+      "start": 161.2,
+      "end": 165.74,
+      "text": "No scapegoats in my song, no strangers to condemn",
+      "uncertain": false
+    },
+    {
+      "start": 165.74,
+      "end": 170.16,
+      "text": "No easy little villains drawn to comfort them",
+      "uncertain": true
+    },
+    {
+      "start": 170.16,
+      "end": 174.56,
+      "text": "I can fear a policy, I can ask it why",
+      "uncertain": false
+    },
+    {
+      "start": 174.56,
+      "end": 179.0,
+      "text": "Without turning every neighbor into an enemy tonight",
+      "uncertain": false
+    },
+    {
+      "start": 179.0,
+      "end": 183.64,
+      "text": "The streetlights flicker, the meeting lets out late",
+      "uncertain": false
+    },
+    {
+      "start": 183.64,
+      "end": 188.46,
+      "text": "We carry different maps through the same front gate",
+      "uncertain": false
+    },
+    {
+      "start": 190.18,
+      "end": 194.6,
+      "text": "Strange neighborhood, I'm still standing here",
+      "uncertain": false
+    },
+    {
+      "start": 194.6,
+      "end": 199.2,
+      "text": "With a stubborn little hope beneath the noise and fear",
+      "uncertain": false
+    },
+    {
+      "start": 199.2,
+      "end": 203.68,
+      "text": "Strange neighborhood, let the hard words land",
+      "uncertain": false
+    },
+    {
+      "start": 203.68,
+      "end": 207.8,
+      "text": "Then build a better table with an open hand",
+      "uncertain": false
+    },
+    {
+      "start": 207.8,
+      "end": 212.66,
+      "text": "Strange neighborhood, when the morning starts to rise",
+      "uncertain": false
+    },
+    {
+      "start": 212.66,
+      "end": 217.68,
+      "text": "I'll keep my heart awake and keep my own two eyes",
+      "uncertain": false
+    },
+    {
+      "start": 225.74,
+      "end": 230.4,
+      "text": "I won't trade my conscience, I won't close the door",
+      "uncertain": false
+    },
+    {
+      "start": 230.4,
+      "end": 235.1,
+      "text": "We can face the future and ask for something more",
+      "uncertain": false
+    }
+  ]
+}
