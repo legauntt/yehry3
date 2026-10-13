@@ -2808,5 +2808,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-12T09:27:44.090Z",
     "history": []
+  },
+  "distonyc-fad542ea50cb9e529f9864df": {
+    "src": "/assets/artwork/distonyc-fad542ea50cb9e529f9864df-incubating-38ddc34bbb6e-3e203971ce3950a4-q86.webp",
+    "alt": "Cover artwork for Thirteen Robes.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "9ee89c85fdd711a1c6072c0b1ceac54ebe4a12092cff64a7f0c50bb90befd098",
+    "promptHash": "c4b439e5126c5330024c44e1063ce2ed82627e663813935611b56b38745f7afa",
+    "createdAt": "2026-10-13T04:25:07.694Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-13T04:24:43.732Z",
+    "history": []
   }
 };
