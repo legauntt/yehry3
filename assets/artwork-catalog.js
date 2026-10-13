@@ -2840,5 +2840,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-13T04:33:44.057Z",
     "history": []
+  },
+  "distonyc-7b37f5a178d569be4b8e4a6f": {
+    "src": "/assets/artwork/distonyc-7b37f5a178d569be4b8e4a6f-incubating-bfcde93391ba-5b860aac838749a5-q86.webp",
+    "alt": "Cover artwork for Rooms Without Windows.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "f107052e06db8df5e5cd9c71bfafd1661be93fe77472da58c0b9d5eecd04cf74",
+    "promptHash": "e828a7f45cfb632eb0a4bcf33b016b80d2e356a041c868abca127b0b0beafa0e",
+    "createdAt": "2026-10-13T05:25:06.968Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-13T05:24:43.697Z",
+    "history": []
   }
 };
