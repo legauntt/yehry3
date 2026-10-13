@@ -2794,20 +2794,26 @@ export default {
     "history": []
   },
   "distonyc-ed38860ed507d0f7d88006cd": {
-    "src": "/assets/artwork/distonyc-ed38860ed507d0f7d88006cd-incubating-1a16cb5d7b35-78a53d2ed02984ef-q86.webp",
+    "src": "/assets/artwork/distonyc-ed38860ed507d0f7d88006cd-mature-e3d05c4d21aa-1716ad4d0658ea5d-q86.webp",
     "alt": "Cover artwork for Violence and Shareholder Value.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "3030b35ccbeee199b59792c2d0db4396aaefa275aaeb85879be10346da9b3ab4",
-    "promptHash": "a79fa16bcfa576e64d5d1bf23f36c626451477da468dbb983cf5513c843b9dc3",
-    "createdAt": "2026-10-12T23:44:55.415Z",
+    "promptHash": "cfe4086422617896e73c682c21eeb2148799ebad35221e3547fa9971b19693c1",
+    "createdAt": "2026-10-13T09:31:35.041Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-ed38860ed507d0f7d88006cd-incubating-1a16cb5d7b35-78a53d2ed02984ef-q86.webp",
     "firstSeenAt": "2026-10-12T09:27:44.090Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-ed38860ed507d0f7d88006cd-incubating-1a16cb5d7b35-78a53d2ed02984ef-q86.webp",
+        "alt": "Cover artwork for Violence and Shareholder Value.",
+        "createdAt": "2026-10-12T23:44:55.415Z"
+      }
+    ]
   },
   "distonyc-fad542ea50cb9e529f9864df": {
     "src": "/assets/artwork/distonyc-fad542ea50cb9e529f9864df-incubating-38ddc34bbb6e-3e203971ce3950a4-q86.webp",
