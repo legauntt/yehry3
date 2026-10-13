@@ -8,6 +8,7 @@ const shotGlass = '<svg viewBox="0 0 36 36" width="32" height="32" fill="none" x
 const clubStamp = '<svg viewBox="0 0 36 36" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg"><title>Club entry stamp on a wrist</title><path d="m10 33 1-12-4-7a2.5 2.5 0 0 1 4-3l1 2V7a2 2 0 0 1 4 0V5a2 2 0 0 1 4 0v1a2 2 0 0 1 4 0v2a2 2 0 0 1 4 0v8c0 3-3 5-3 8l1 9" fill="#efc4a4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 7v5m4-6v6m4-4v5M12 15l4 2" stroke="#8b5d48" stroke-width="1.3" stroke-linecap="round"/><circle cx="18" cy="25" r="5.5" stroke="#702da8" stroke-width="1.7" stroke-dasharray="2.5 1"/><path d="m18 21.5 1 2.2 2.4.3-1.8 1.6.5 2.4-2.1-1.2-2.1 1.2.5-2.4-1.8-1.6 2.4-.3Z" fill="#702da8"/></svg>';
 
 export function videoLaunchIcon(treatment) {
+  if (treatment === "thirteen-robes-neon-noir") return '<span data-video-symbol="furry-judge-dredd" aria-hidden="true"><img src="/assets/furry-judge-dredd.webp" alt="" width="32" height="32" style="object-fit:contain" /></span>';
   if (treatment === "weird-hair-romcom-film") return `<span data-video-symbol="roller-skates" aria-hidden="true">${rollerSkates}</span>`;
   if (treatment === "golden-answer-film") return `<span data-video-symbol="shot-glass" aria-hidden="true">${shotGlass}</span>`;
   if (treatment === "lamma-cynical-club-film") return `<span data-video-symbol="club-stamp" aria-hidden="true">${clubStamp}</span>`;
