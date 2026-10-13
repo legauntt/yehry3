@@ -2824,5 +2824,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-13T04:24:43.732Z",
     "history": []
+  },
+  "distonyc-403e74a063f03d3810a9507b": {
+    "src": "/assets/artwork/distonyc-403e74a063f03d3810a9507b-incubating-314300be8dde-dde7fe0363e6afef-q86.webp",
+    "alt": "Cover artwork for Strange Neighborhood.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "9c9a58a1285be50b9c1dfad7b7120bf538f296e66992e2d72a97313d3bc60edf",
+    "promptHash": "7be4212b566206217d6cdcfc46dc56337790761773a80c185fba804c0023f136",
+    "createdAt": "2026-10-13T04:34:07.523Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-13T04:33:44.057Z",
+    "history": []
   }
 };
