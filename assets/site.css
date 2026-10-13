@@ -1377,6 +1377,28 @@ main {
   animation: toast-in 0.18s ease-out;
 }
 .toast:empty { display: none; }
+.completion-banner {
+  position: fixed;
+  z-index: 21;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  width: max-content;
+  max-width: min(600px, calc(100vw - 32px));
+  padding: 12px 16px;
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 0 8px 28px rgb(0 0 0 / 0.25);
+  font-size: 0.85rem;
+}
+.completion-banner[hidden] { display: none; }
+.completion-banner a { color: inherit; font-weight: 700; }
+.completion-banner button { margin-left: auto; border: 0; background: none; color: inherit; font: inherit; font-size: 1.2rem; cursor: pointer; }
+body.has-player .completion-banner { bottom: 110px; }
 .toast.error { background: #7b341e; }
 .toast-action { flex: none; padding: 4px 10px; border: 1px solid currentColor; background: transparent; color: inherit; font: inherit; font-weight: 700; cursor: pointer; }
 .toast-action:hover, .toast-action:focus-visible { background: rgb(255 255 255 / 0.15); }

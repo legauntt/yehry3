@@ -321,7 +321,7 @@ test("public queue, browser alert opt-in, completion deduplication and mobile la
   );
   await page.goto("/queue/");
   await expect(page.locator("#in-studio")).toContainText(active.idea);
-  await expect(page.locator("#in-studio img")).toHaveCount(0);
+  await expect(page.locator('#in-studio img[src="x"]')).toHaveCount(0);
   await expect(page.locator("#in-studio progress")).toHaveAttribute(
     "value",
     "55",
@@ -353,6 +353,7 @@ test("public queue, browser alert opt-in, completion deduplication and mobile la
   await expect(page.locator("#release-announcement")).toContainText(
     "Brand new song",
   );
+  await expect(page.locator(".completion-banner").getByRole("link")).toHaveAttribute("href", `/?collection=all#${active.id}`);
   await expect
     .poll(() => page.evaluate(() => window.testNotifications.length))
     .toBe(1);

@@ -15,6 +15,7 @@ import { startRecordMotion } from "./record-motion.js";
 import { api, storage, signedIn } from "./api.js";
 import { showToast } from "./message.js";
 import { watchCompletions } from "./notifications.js";
+import { completionBanner } from "./completion-banner.js";
 import { mountFavorites } from "./favorites.js";
 import { listeningLabel } from "./listening.js";
 import { player } from "./player.js";
@@ -782,10 +783,12 @@ async function library() {
     }
   });
   let refreshingQueue = null, catalogRevision = null;
+  const announceCompletion = completionBanner(scope);
   function refreshQueue() {
     if (refreshingQueue) return refreshingQueue;
     refreshingQueue = api("/queue?page=0").then(async upcoming => {
       if (scope.left || !Array.isArray(upcoming.inStudio) || !Array.isArray(upcoming.queued)) return;
+      if (announceCompletion(upcoming)) void refresh();
       pending = [...upcoming.inStudio, ...(upcoming.needsAttention || []), ...upcoming.queued];
       recentReleases.clear();
       for (const song of upcoming.recent || [])
