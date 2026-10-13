@@ -1,0 +1,397 @@
+{
+  "version": 1,
+  "songId": "distonyc-fad542ea50cb9e529f9864df",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-fad542ea50cb9e529f9864df-20558054b0e4.mp3",
+  "audioSha256": "20558054b0e4c35b9894925962565389f03255dd22015be6a0009645f069bf6f",
+  "inputSha256": "209f24d812802dfd6e784fa44e45815b4e11e705d4478bc3d1104dce50ae3371",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 465.0840625,
+  "segments": [
+    {
+      "start": 18.0,
+      "end": 23.3,
+      "text": "Tony C. found a black seal fax beneath the Supreme Court steps.",
+      "uncertain": false
+    },
+    {
+      "start": 24.36,
+      "end": 28.56,
+      "text": "Nine black limousines are idle like teeth in the rain.",
+      "uncertain": true
+    },
+    {
+      "start": 30.24,
+      "end": 42.08,
+      "text": "The United States Supreme Court, carved in stone above him, had 13 velvet robes hanging in a locked display.",
+      "uncertain": false
+    },
+    {
+      "start": 43.08,
+      "end": 48.94,
+      "text": "Each robe had a tail slit, each cuff a hidden blade.",
+      "uncertain": false
+    },
+    {
+      "start": 49.74,
+      "end": 55.24,
+      "text": "The marble lions blamed when the midnight guards changed.",
+      "uncertain": false
+    },
+    {
+      "start": 55.24,
+      "end": 61.32,
+      "text": "A fox in a necktie stood beneath the flagpole's wire",
+      "uncertain": true
+    },
+    {
+      "start": 61.32,
+      "end": 67.48,
+      "text": "And said, don't say constitution if you want to keep your name",
+      "uncertain": true
+    },
+    {
+      "start": 80.94,
+      "end": 84.22,
+      "text": "Tony held the facts",
+      "uncertain": false
+    },
+    {
+      "start": 84.22,
+      "end": 85.9,
+      "text": "To the courthouse",
+      "uncertain": true
+    },
+    {
+      "start": 85.9,
+      "end": 87.18,
+      "text": "Floodlight globe",
+      "uncertain": true
+    },
+    {
+      "start": 87.18,
+      "end": 89.86,
+      "text": "Thirteen paw prints",
+      "uncertain": false
+    },
+    {
+      "start": 89.86,
+      "end": 91.96,
+      "text": "Circled every line",
+      "uncertain": false
+    },
+    {
+      "start": 92.66,
+      "end": 94.3,
+      "text": "The nation knows",
+      "uncertain": false
+    },
+    {
+      "start": 100.58,
+      "end": 105.5,
+      "text": "Thirteen furry justices on the Supreme Court bench",
+      "uncertain": false
+    },
+    {
+      "start": 106.96,
+      "end": 111.86,
+      "text": "Fursuits under black robes where the red curtains drench",
+      "uncertain": false
+    },
+    {
+      "start": 113.18,
+      "end": 118.4,
+      "text": "Thirteen trans justices with their muzzles held high",
+      "uncertain": false
+    },
+    {
+      "start": 118.4,
+      "end": 124.32,
+      "text": "Commercial pilot licenses tucked under each wing",
+      "uncertain": false
+    },
+    {
+      "start": 124.32,
+      "end": 131.04,
+      "text": "They read the law backward in a voice like smoke",
+      "uncertain": false
+    },
+    {
+      "start": 131.04,
+      "end": 136.38,
+      "text": "Then the whole damn country laughs at the wrong old joke",
+      "uncertain": false
+    },
+    {
+      "start": 138.16,
+      "end": 143.86,
+      "text": "Tony C. is yelling through a paper cup phone",
+      "uncertain": true
+    },
+    {
+      "start": 143.86,
+      "end": 148.78,
+      "text": "who put catnip in the constitutional throne.",
+      "uncertain": true
+    },
+    {
+      "start": 169.12,
+      "end": 175.46,
+      "text": "A lobbyist raccoon brought a briefcase full of bones",
+      "uncertain": true
+    },
+    {
+      "start": 175.46,
+      "end": 181.54,
+      "text": "A wolf in a powder blue fursuit kept chewing on a phone",
+      "uncertain": false
+    },
+    {
+      "start": 181.54,
+      "end": 188.04,
+      "text": "They pass through the chamber where the cameras never turn",
+      "uncertain": false
+    },
+    {
+      "start": 188.04,
+      "end": 193.12,
+      "text": "Past portraits with their eyes scratched out and burning",
+      "uncertain": false
+    },
+    {
+      "start": 194.66,
+      "end": 200.54,
+      "text": "The clerk wore rabbit ears beneath her powdered wig",
+      "uncertain": false
+    },
+    {
+      "start": 200.54,
+      "end": 206.42,
+      "text": "And a full white fursuit with a seal stitched on the bib",
+      "uncertain": true
+    },
+    {
+      "start": 207.64,
+      "end": 213.26,
+      "text": "Sony watched a coyote carry files through a vent",
+      "uncertain": true
+    },
+    {
+      "start": 213.26,
+      "end": 219.14,
+      "text": "Every page said Supreme Court in blood-red government ink",
+      "uncertain": false
+    },
+    {
+      "start": 238.62,
+      "end": 244.92,
+      "text": "The Capitol Pigeon stopped cooing at the gate",
+      "uncertain": true
+    },
+    {
+      "start": 244.92,
+      "end": 248.72,
+      "text": "Then sang it goes to the top kid",
+      "uncertain": true
+    },
+    {
+      "start": 248.72,
+      "end": 249.84,
+      "text": "Too late",
+      "uncertain": true
+    },
+    {
+      "start": 251.12,
+      "end": 253.1,
+      "text": "Too late",
+      "uncertain": false
+    },
+    {
+      "start": 258.44,
+      "end": 263.42,
+      "text": "Thirteen furry justices on the Supreme Court bench",
+      "uncertain": false
+    },
+    {
+      "start": 264.84,
+      "end": 269.78,
+      "text": "Fursuits under black robes where the red curtains drench",
+      "uncertain": false
+    },
+    {
+      "start": 271.08,
+      "end": 276.34,
+      "text": "Thirteen trans justices with their muzzles held high",
+      "uncertain": false
+    },
+    {
+      "start": 276.34,
+      "end": 282.24,
+      "text": "Commercial pilot licenses tucked under each wing",
+      "uncertain": false
+    },
+    {
+      "start": 282.24,
+      "end": 288.84,
+      "text": "They read the law backward in a voice like smoke",
+      "uncertain": false
+    },
+    {
+      "start": 288.84,
+      "end": 295.04,
+      "text": "Then the whole damn country laughs at the wrong old joke",
+      "uncertain": false
+    },
+    {
+      "start": 296.1,
+      "end": 301.66,
+      "text": "Tony C. is yelling through a paper cut phone",
+      "uncertain": true
+    },
+    {
+      "start": 301.66,
+      "end": 306.58,
+      "text": "Who put catnip in the constitutional throne",
+      "uncertain": false
+    },
+    {
+      "start": 327.06,
+      "end": 333.16,
+      "text": "In the gold-rimmed conference room, no windows, no sun",
+      "uncertain": true
+    },
+    {
+      "start": 334.26,
+      "end": 339.44,
+      "text": "Thirteen fursuits clean beside a loaded water gun",
+      "uncertain": false
+    },
+    {
+      "start": 339.44,
+      "end": 346.12,
+      "text": "The chief justice hissed, this is not a costume ball",
+      "uncertain": true
+    },
+    {
+      "start": 346.12,
+      "end": 351.52,
+      "text": "A dozen glowing eyes turned slowly through the hall",
+      "uncertain": true
+    },
+    {
+      "start": 351.52,
+      "end": 358.44,
+      "text": "The pilot cards flashed in the emergency light",
+      "uncertain": true
+    },
+    {
+      "start": 358.44,
+      "end": 365.04,
+      "text": "Thirteen trans justices ready for a red-eye flight",
+      "uncertain": false
+    },
+    {
+      "start": 365.04,
+      "end": 371.3,
+      "text": "Tony kicked the door and held the fax above his head",
+      "uncertain": false
+    },
+    {
+      "start": 371.3,
+      "end": 377.34,
+      "text": "The ink began to howl, the exit signs went red",
+      "uncertain": true
+    },
+    {
+      "start": 391.06,
+      "end": 395.94,
+      "text": "Thirteen furry justices on the Supreme Court floor",
+      "uncertain": false
+    },
+    {
+      "start": 397.38,
+      "end": 402.32,
+      "text": "Fursuits swishing softly at the locked marble door",
+      "uncertain": false
+    },
+    {
+      "start": 403.74,
+      "end": 406.74,
+      "text": "Thirteen trans justices",
+      "uncertain": false
+    },
+    {
+      "start": 406.74,
+      "end": 409.08,
+      "text": "Daylight cuts the gloom",
+      "uncertain": false
+    },
+    {
+      "start": 409.08,
+      "end": 412.78,
+      "text": "With commercial pilot licenses",
+      "uncertain": false
+    },
+    {
+      "start": 412.78,
+      "end": 414.58,
+      "text": "Clearing out the road",
+      "uncertain": true
+    },
+    {
+      "start": 415.96,
+      "end": 418.82,
+      "text": "Let the cameras roll",
+      "uncertain": false
+    },
+    {
+      "start": 418.82,
+      "end": 421.58,
+      "text": "Let the sirens sing",
+      "uncertain": false
+    },
+    {
+      "start": 421.58,
+      "end": 425.0,
+      "text": "There's a tail beneath the robe",
+      "uncertain": false
+    },
+    {
+      "start": 425.0,
+      "end": 427.3,
+      "text": "And a claw beneath the ring",
+      "uncertain": false
+    },
+    {
+      "start": 428.62,
+      "end": 431.3,
+      "text": "Tony folds the facts",
+      "uncertain": false
+    },
+    {
+      "start": 431.3,
+      "end": 434.24,
+      "text": "Here's one last gavel crack",
+      "uncertain": false
+    },
+    {
+      "start": 434.24,
+      "end": 438.08,
+      "text": "And a very nervous cat says",
+      "uncertain": false
+    },
+    {
+      "start": 438.08,
+      "end": 440.52,
+      "text": "Tony, don't look back",
+      "uncertain": false
+    },
+    {
+      "start": 461.3,
+      "end": 461.72,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}
