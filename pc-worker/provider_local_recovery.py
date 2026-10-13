@@ -17,6 +17,23 @@ EVIDENCE = ('desktop-job.json', 'desktop-status.json', 'track.json',
             'distonyc-configured.json')
 
 
+def rejected_before_audio(error):
+    detail = error.get('detail', {})
+    if (error.get('http_status') == 400
+            and detail.get('status') == 'bad_composition_plan'
+            and 'terms of service' in detail.get('message', '').casefold()):
+        return True
+    validation = error.get('validation', [])
+    return (error.get('http_status') == 422 and not error.get('body_truncated')
+            and bool(validation) and all(
+                row.get('type') == 'value_error'
+                and row.get('msg') == 'Value error, Each line must be at most 200 characters'
+                and row.get('loc', [])[:4] == ['body', 'composition_plan', 'CompositionPlan', 'chunks']
+                and len(row['loc']) == 7 and row['loc'][-2:] == ['GenerationChunk', 'text']
+                and str(row['loc'][4]).isdigit()
+                for row in validation))
+
+
 def child_request(request):
     child = copy.deepcopy(request)
     child.update(prompt_id=request['prompt_id'] + ':provider-local-v1',
@@ -38,11 +55,9 @@ def check_original(request, allow_result=False):
             or request.get('provider_local_attempt')
             or state.get('status') != 'failed' or state.get('stage') != 'generate'
             or state.get('completed') != []
-            or error.get('http_status') != 400
             or error.get('prompt_id') != request['prompt_id']
-            or detail.get('status') != 'bad_composition_plan'
-            or 'terms of service' not in detail.get('message', '').casefold()):
-        raise ValueError('Local recovery requires a policy rejection before audio generation')
+            or not rejected_before_audio(error)):
+        raise ValueError('Local recovery requires a verified composition rejection before audio generation')
     if any((work / name).exists() for name in ('paid-receipt.json', 'paid-original.mp3',
                                               'selected-mix.wav')):
         raise ValueError('Retained provider audio must be reconciled before local recovery')

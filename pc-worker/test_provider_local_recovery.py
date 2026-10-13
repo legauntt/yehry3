@@ -87,6 +87,22 @@ class RecoveryTests(unittest.TestCase):
         self.assertEqual(record['attempts'], 1)
         self.assertEqual(record['status'], 'failed')
 
+    def test_line_length_rejection_preserves_plan_and_refuses_other_422_errors(self):
+        work = recovery.work_path(self.request)
+        error = {'http_status': 422, 'prompt_id': 'test', 'body_truncated': False,
+                 'validation': [{'type': 'value_error',
+                    'msg': 'Value error, Each line must be at most 200 characters',
+                    'loc': ['body', 'composition_plan', 'CompositionPlan', 'chunks', '9', 'GenerationChunk', 'text']}]}
+        save(work / 'paid-error.json', error)
+        original = copy.deepcopy(self.request)
+        record = self.prepare()
+        self.assertEqual(record['child_request']['plan'], original['plan'])
+        self.assertEqual(self.prepare(), record)
+        for mutation in ({'body_truncated': True}, {'http_status': 500},
+                         {'validation': []}, {'validation': [{**error['validation'][0], 'msg': 'Other error'}]},
+                         {'validation': [{**error['validation'][0], 'loc': ['body', 'other']}]}):
+            self.assertFalse(recovery.rejected_before_audio({**error, **mutation}))
+
     def test_server_revision_must_match_the_preserved_authorization(self):
         record = self.prepare()
         old = {'musicBackend': 'eleven_music', 'voiceModel': 'v9'}
