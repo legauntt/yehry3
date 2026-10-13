@@ -2,6 +2,303 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-403e74a063f03d3810a9507b",
+      "title": "Strange Neighborhood",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-403e74a063f03d3810a9507b-9ebe56a7f580.mp3",
+      "duration": 250.12244897959184,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-13T04:32:36.398Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Strange Neighborhood",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Political alternative rock with driving bass, tight live drums, overdriven electric guitars, and a restrained organ bed. Eleven Music guide vocal is one clear, steadily pitched melodic lead with direct phrasing and no stacked voices, rasp, growls, or vocal effects; Tony V9 supplies the final vocal timbre. Start tense and conversational, build into broad choruses, pull back for the bridge, then deliver the final sustained “more” about 10 seconds before the 250-second ending, followed by one resolved D minor-to-major final chord decay.",
+        "lyrics": "[Verse 1]\nTony found a room by the railroad light\nNew porch numbers, every window bright\nA paper on the doorstep, a meeting at eight\nEverybody talking like the town could wait\nHe said, “I got questions, I don’t need a war”\nThen somebody slammed the old community door\nThey said, “Pick a side, keep the whole thing clean”\nHe said, “Life is messier than a campaign screen”\n\n[Pre-Chorus]\nI can hear the sirens two blocks away\nI can hear the promises people throw away\n\n[Chorus]\nStrange neighborhood, don’t tell me what to see\nI’ll speak my mind and leave some room to disagree\nStrange neighborhood, the signs are painted loud\nI won’t trade my conscience just to blend into the crowd\n\n[Verse 2]\nAt the diner counter, the arguments rose\nOne wanted more order, one wanted open roads\nOne said the courts were changing overnight\nOne said the kids deserved a safer light\nTony held his coffee, let the whole room spin\nSaid, “A country breaks when we quit listening\nI want honest ballots, I want every voice\nI want families heard, I want a careful choice”\n\n[Chorus]\nStrange neighborhood, don’t tell me what to see\nI’ll speak my mind and leave some room to disagree\nStrange neighborhood, the signs are painted loud\nI won’t trade my conscience just to blend into the crowd\n\n[Bridge]\nNo scapegoats in my song, no strangers to condemn\nNo easy little villains drawn to comfort them\nI can fear a policy, I can ask it why\nWithout turning every neighbor into an enemy tonight\nThe streetlights flicker, the meeting lets out late\nWe carry different maps through the same front gate\n\n[Chorus]\nStrange neighborhood, I’m still standing here\nWith a stubborn little hope beneath the noise and fear\nStrange neighborhood, let the hard words land\nThen build a better table with an open hand\nStrange neighborhood, when the morning starts to rise\nI’ll keep my heart awake and keep my own two eyes\n\n[Outro]\nI won’t trade my conscience\nI won’t close the door\nWe can face the future\nAnd ask for something more\n\n[End]",
+        "duration": 250,
+        "bpm": 108,
+        "musicalSettings": {
+          "genre": "Political alternative rock",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, verse 2, chorus, bridge, final chorus, outro",
+          "performance": "Clear, steadily pitched melodic lead with direct conversational verses and broader sustained choruses",
+          "energy": "Tense opening, rising chorus drive, reflective bridge, resolved final lift",
+          "lyricWorkflow": "Original narrative lyrics framing disagreement as civic debate rather than collective blame",
+          "instruments": [
+            "electric guitar",
+            "bass guitar",
+            "drum kit",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nTony found a room by the railroad light\nNew porch numbers, every window bright\nA paper on the doorstep, a meeting at eight\nEverybody talking like the town could wait\nHe said, “I got questions, I don’t need a war”\nThen somebody slammed the old community door\nThey said, “Pick a side, keep the whole thing clean”\nHe said, “Life is messier than a campaign screen”\n\n[Pre-Chorus]\nI can hear the sirens two blocks away\nI can hear the promises people throw away\n\n[Chorus]\nStrange neighborhood, don’t tell me what to see\nI’ll speak my mind and leave some room to disagree\nStrange neighborhood, the signs are painted loud\nI won’t trade my conscience just to blend into the crowd\n\n[Verse 2]\nAt the diner counter, the arguments rose\nOne wanted more order, one wanted open roads\nOne said the courts were changing overnight\nOne said the kids deserved a safer light\nTony held his coffee, let the whole room spin\nSaid, “A country breaks when we quit listening\nI want honest ballots, I want every voice\nI want families heard, I want a careful choice”\n\n[Chorus]\nStrange neighborhood, don’t tell me what to see\nI’ll speak my mind and leave some room to disagree\nStrange neighborhood, the signs are painted loud\nI won’t trade my conscience just to blend into the crowd\n\n[Bridge]\nNo scapegoats in my song, no strangers to condemn\nNo easy little villains drawn to comfort them\nI can fear a policy, I can ask it why\nWithout turning every neighbor into an enemy tonight\nThe streetlights flicker, the meeting lets out late\nWe carry different maps through the same front gate\n\n[Chorus]\nStrange neighborhood, I’m still standing here\nWith a stubborn little hope beneath the noise and fear\nStrange neighborhood, let the hard words land\nThen build a better table with an open hand\nStrange neighborhood, when the morning starts to rise\nI’ll keep my heart awake and keep my own two eyes\n\n[Outro]\nI won’t trade my conscience\nI won’t close the door\nWe can face the future\nAnd ask for something more",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 12.58,
+            "end": 16.64
+          },
+          {
+            "line": 2,
+            "start": 17.54,
+            "end": 21.08
+          },
+          {
+            "line": 3,
+            "start": 21.9,
+            "end": 25.48
+          },
+          {
+            "line": 4,
+            "start": 25.48,
+            "end": 30.02
+          },
+          {
+            "line": 5,
+            "start": 30.02,
+            "end": 34.7
+          },
+          {
+            "line": 6,
+            "start": 34.7,
+            "end": 38.82
+          },
+          {
+            "line": 7,
+            "start": 38.82,
+            "end": 43.12
+          },
+          {
+            "line": 8,
+            "start": 43.12,
+            "end": 47.56
+          },
+          {
+            "line": 11,
+            "start": 47.56,
+            "end": 51.96
+          },
+          {
+            "line": 12,
+            "start": 52.22,
+            "end": 57.84
+          },
+          {
+            "line": 15,
+            "start": 61.16,
+            "end": 65.72
+          },
+          {
+            "line": 16,
+            "start": 65.72,
+            "end": 69.62
+          },
+          {
+            "line": 17,
+            "start": 69.62,
+            "end": 74.64
+          },
+          {
+            "line": 18,
+            "start": 74.64,
+            "end": 79.22
+          },
+          {
+            "line": 21,
+            "start": 92.46,
+            "end": 96.74
+          },
+          {
+            "line": 22,
+            "start": 96.74,
+            "end": 101.34
+          },
+          {
+            "line": 23,
+            "start": 101.34,
+            "end": 105.36
+          },
+          {
+            "line": 24,
+            "start": 106.64,
+            "end": 110.16
+          },
+          {
+            "line": 25,
+            "start": 110.84,
+            "end": 114.56
+          },
+          {
+            "line": 26,
+            "start": 114.96,
+            "end": 118.46
+          },
+          {
+            "line": 27,
+            "start": 119.32,
+            "end": 123.3
+          },
+          {
+            "line": 28,
+            "start": 123.76,
+            "end": 127.8
+          },
+          {
+            "line": 31,
+            "start": 130.46,
+            "end": 134.6
+          },
+          {
+            "line": 32,
+            "start": 134.6,
+            "end": 138.14
+          },
+          {
+            "line": 33,
+            "start": 139.36,
+            "end": 143.48
+          },
+          {
+            "line": 34,
+            "start": 143.48,
+            "end": 148.16
+          },
+          {
+            "line": 37,
+            "start": 160.92,
+            "end": 165.5
+          },
+          {
+            "line": 38,
+            "start": 166.42,
+            "end": 170
+          },
+          {
+            "line": 39,
+            "start": 170.88,
+            "end": 174.42
+          },
+          {
+            "line": 40,
+            "start": 174.42,
+            "end": 178.84
+          },
+          {
+            "line": 41,
+            "start": 179.3,
+            "end": 183.52
+          },
+          {
+            "line": 42,
+            "start": 183.52,
+            "end": 188.08
+          },
+          {
+            "line": 45,
+            "start": 189.9,
+            "end": 194.36
+          },
+          {
+            "line": 46,
+            "start": 194.36,
+            "end": 198.96
+          },
+          {
+            "line": 47,
+            "start": 198.96,
+            "end": 203.3
+          },
+          {
+            "line": 48,
+            "start": 203.3,
+            "end": 207.72
+          },
+          {
+            "line": 49,
+            "start": 208.34,
+            "end": 213.2
+          },
+          {
+            "line": 50,
+            "start": 213.2,
+            "end": 217.54
+          },
+          {
+            "line": 53,
+            "start": 225.8,
+            "end": 228.1
+          },
+          {
+            "line": 54,
+            "start": 228.72,
+            "end": 230.24
+          },
+          {
+            "line": 55,
+            "start": 230.9,
+            "end": 232.54
+          },
+          {
+            "line": 56,
+            "start": 232.54,
+            "end": 235.12
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 13.26
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 13.92
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "2a291294c3555a1424331bfd86074e5046764d72451392e4ed004dd1652c2066",
+        "bytes": 6002982,
+        "duration": 250.122417,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-403e74a063f03d3810a9507b-2a291294c355.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Tony moves to a strange neighborhood and defends his controversial beliefs \n\nCOMMUNIST DOCRATS SOCIALIST & MUSLIM TAKE OVER AMERICA & OUR FREEDOM\nTHEIR BIG TENT INCLUDES SOCIALIST, COMMUNISTS AND RADICAL MUSLIMS\nTHEY SHUT DOWN THE GOV 4 MONTHS LEAVING AMERICANS WITHOUT PAY\nDEMS ARE FOR OPEN BORDERS , THEY WANT TO PACK THE SUPREME COURT WITH 13 RADICAL JUDGES\nTHEY WANT TO BRING BACK TRANSISTIONING YOUR CHILDREN & TAKE AWAY PARENTAL RIGHTS\nBRING BACK BOYS IN GIRLS SPORTS AND IN THEIR LOCKER ROOMS\nDEMOCRATES WILL OPEN WIDE THE BOARDER AND DEFUND THE POLICE\nTHEY ARE AGAINST HONEST ELECTIONS, THEY WANT TO ABOLISH THE SENATE AN CONSTITUTION\nHAVE YOU NOT SEEN THE RADIAL VIOLENT MARCHES IN NY , C[ALIFO]RNIA AND AROUND T[HE]...",
+        "direction": "Use the prompt as written.",
+        "keep": "MUST use all words in CAPS in original prompt",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 250
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-fad542ea50cb9e529f9864df",
       "title": "Thirteen Robes",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-fad542ea50cb9e529f9864df-20558054b0e4.mp3",
