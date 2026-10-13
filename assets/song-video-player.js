@@ -213,7 +213,7 @@ export function mountSongVideos(root, scope) {
   scope.on(root, "pointerdown", stop);
   scope.on(window, "scroll", stop, { capture: true, passive: true });
   scope.on(window, "blur", stop);
-  scope.on(document, "visibilitychange", () => { stop(); if (document.hidden) full.pause(); });
+  scope.on(document, "visibilitychange", stop);
   scope.on(reduced, "change", stop);
   scope.on(fine, "change", stop);
   scope.on(preview, "error", stop);

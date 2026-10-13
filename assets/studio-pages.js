@@ -18,7 +18,7 @@ import { dehakaThread } from "./dehaka.js";
 import { workerPresence } from "./worker-presence.js";
 import { qualityNotice } from "./quality.js";
 import { modelInfoButton, voiceVersionLabel } from "./model-info.js";
-import { rememberedVoice, rememberVoice, startingVoice, usesGeneration } from "./voice-choice.js";
+import { rememberedVoice, rememberVoice, startingVoice, usesGeneration, rememberedEpoch, rememberEpoch, startingEpoch } from "./voice-choice.js";
 import { rotateSuggestions } from "./suggestions.js";
 import { api, login, logout, signedIn, loginPersistence, storage } from "./api.js";
 import { loadBasisSongs, mountBasisPicker } from "./basis.js";
@@ -400,13 +400,17 @@ export async function requests() {
       const epochDraftKey = `voice-epoch-draft:${draft.id}`;
       const epochModel = voiceModels.find(model => model.id === 'v9');
       const epochs = epochModel?.epochs || [];
-      const savedEpoch = Number(storage.get(epochDraftKey) || initialDetails.voiceEpoch || epochModel?.defaultEpoch || 300);
+      const savedEpoch = startingEpoch({ saved: storage.get(epochDraftKey) || initialDetails.voiceEpoch,
+        remembered: rememberedEpoch(), epochs, defaultEpoch: epochModel?.defaultEpoch });
       const earliestEpoch = Math.min(...epochs);
       const epochLabels = { [earliestEpoch]: 'Earliest saved checkpoint', 50: 'Early training', 100: 'Earlier checkpoint', 150: 'Mid-training', 200: 'Later checkpoint', 250: 'Near-final checkpoint', 300: 'Final checkpoint · default' };
       const menuEpochs = epochs.filter(epoch => epoch === earliestEpoch || epoch % 25 === 0 || epoch === savedEpoch);
       $('#voice-epoch').innerHTML = menuEpochs.map(epoch => `<option value="${Number(epoch)}">${Number(epoch)} · ${epochLabels[epoch] || 'Saved checkpoint'}</option>`).join('');
       $('#voice-epoch').value = String(epochs.includes(savedEpoch) ? savedEpoch : 300);
-      $('#voice-epoch').onchange = () => storage.set(epochDraftKey, $('#voice-epoch').value);
+      $('#voice-epoch').onchange = () => {
+        storage.set(epochDraftKey, $('#voice-epoch').value);
+        rememberEpoch($('#voice-epoch').value);
+      };
       const epochRange = mountEpochRange($('#epoch-range-root'), { epochs: epochModel?.epochRange ? epochs : [], initial: initialDetails.voiceEpochRange,
         storage, draftId: draft.id, tabs: requestTabs, voice: $('#voice-model'), single: $('#voice-epoch') });
       $('#epoch-range-link').onclick = () => epochRange.open();
@@ -464,7 +468,10 @@ export async function requests() {
           if (details.voiceModel === "v9" && epochs.length) {
             const range = epochRange.read();
             if (range) details.voiceEpochRange = range;
-            else details.voiceEpoch = Number($("#voice-epoch").value);
+            else {
+              details.voiceEpoch = Number($("#voice-epoch").value);
+              rememberEpoch(details.voiceEpoch);
+            }
           }
           details.authoredBy = $("#authored-by").value.trim();
           Object.assign(details, requestMaterials.read());

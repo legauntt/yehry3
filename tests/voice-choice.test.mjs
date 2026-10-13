@@ -1,6 +1,26 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { startingVoice, usesGeneration } from "../assets/voice-choice.js";
+import { startingVoice, usesGeneration, startingEpoch, rememberedEpoch, rememberEpoch } from "../assets/voice-choice.js";
+
+test("V9 epochs prefer a saved request, then the last offered browser pick", () => {
+  const epochs = [10, 110, 150, 300];
+  assert.equal(startingEpoch({ saved: '110', remembered: 150, epochs }), 110);
+  assert.equal(startingEpoch({ remembered: 150, epochs }), 150);
+  assert.equal(startingEpoch({ remembered: 999, epochs }), 300);
+  assert.equal(startingEpoch({ remembered: 150, epochs: [10, 110], defaultEpoch: 110 }), 110);
+});
+
+test("epoch preference tolerates blocked browser storage", () => {
+  const previous = globalThis.localStorage;
+  try {
+    globalThis.localStorage = { getItem() { throw new Error('blocked'); }, setItem() { throw new Error('blocked'); } };
+    assert.equal(rememberedEpoch(), null);
+    assert.doesNotThrow(() => rememberEpoch(150));
+  } finally {
+    if (previous === undefined) delete globalThis.localStorage;
+    else globalThis.localStorage = previous;
+  }
+});
 
 const models = (...ids) => ids.map((id) => ({ id }));
 const all = models("v6", "v7", "v8", "v9");

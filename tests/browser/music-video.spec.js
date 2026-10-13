@@ -27,6 +27,16 @@ for (const width of [1440, 390]) {
     await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 0)).toBe(true);
     await video.evaluate(v => { v.currentTime = 6; });
     await expect.poll(() => video.evaluate(v => v.currentTime)).toBeGreaterThanOrEqual(6);
+    // Simulate the browser visibility event independently of headless tab scheduling.
+    await page.evaluate(() => {
+      Object.defineProperty(document, 'hidden', { configurable: true, value: true });
+      document.dispatchEvent(new Event('visibilitychange'));
+    });
+    await expect.poll(() => video.evaluate(v => !v.paused && v.currentTime > 6.2)).toBe(true);
+    await page.evaluate(() => {
+      delete document.hidden;
+      document.dispatchEvent(new Event('visibilitychange'));
+    });
     await dialog.getByRole("button", { name: "Version A", exact: true }).click();
     await dialog.getByRole("button", { name: "Share video", exact: true }).click();
     await page.goto(await page.evaluate(() => window.copiedVideo));

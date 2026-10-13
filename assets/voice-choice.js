@@ -7,6 +7,14 @@ export const usesGeneration = (id) => id === 'v8' || id === 'v9';
 export const rememberedVoice = () => { try { return versioned(localStorage.getItem(rememberKey)); } catch { return null; } };
 export const rememberVoice = (value) => { try { localStorage.setItem(rememberKey, value); } catch { /* The request still carries the choice. */ } };
 
+const epochKey = 'yehry3:voice-epoch-v1';
+export const rememberedEpoch = () => { try { return Number(localStorage.getItem(epochKey)) || null; } catch { return null; } };
+export const rememberEpoch = (value) => { try { localStorage.setItem(epochKey, String(value)); } catch { /* The request still carries the choice. */ } };
+export function startingEpoch({ saved, remembered, epochs, defaultEpoch = 300 }) {
+  return [Number(saved), Number(remembered), Number(defaultEpoch), 300, epochs.at(-1)]
+    .find(epoch => epochs.includes(epoch));
+}
+
 // The request's own saved voice comes first, then this browser's last pick, then the newest voice on offer.
 export function startingVoice({ saved, remembered, models, generationAvailable }) {
   if (versioned(saved)) return saved;

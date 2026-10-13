@@ -20,7 +20,7 @@ async function setup(page, existing, unavailable = false) {
       if (unavailable) return route.fulfill({ status: 409, json: { error: 'This recording is not ready for remixing.' } });
       json = { source };
     }
-    else if (path === "/voice-models") json = { models: [{ id: "v6", label: "Tony V6", note: "Established" }, { id: "v7", label: "Tony V7", note: "Experimental", experimental: true }] };
+    else if (path === "/voice-models") json = { models: [{ id: "v6", label: "Tony V6", note: "Established" }, { id: "v7", label: "Tony V7", note: "Experimental", experimental: true }, { id: "v9", note: "Experimental", epochs: Array.from({ length: 30 }, (_, i) => (i + 1) * 10), defaultEpoch: 300, epochRange: true }] };
     else if (path === "/request-materials") json = { version: 1 };
     else if (path === "/generation") json = { version: 1, enabled: true };
     else if (path === "/generation-reviews") json = { reviews: review?.state === 'pending' ? [{ id: draft.id, prompt: draft.prompt }] : [] };
@@ -53,6 +53,34 @@ async function setup(page, existing, unavailable = false) {
 }
 
 for (const width of [1440, 390]) {
+  test(`V9 remembers the epoch for a fresh request at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1000 });
+    const state = await setup(page);
+    const begin = async () => {
+      await page.goto('/distonyc/');
+      await page.getByLabel('Your prompt').fill('A new song about a lantern in the railway window');
+      await page.getByRole('button', { name: 'Find the direction' }).click();
+      await page.getByLabel('Tony voice model', { exact: true }).selectOption('v9');
+    };
+    await begin();
+    const epoch = page.getByLabel('V9 training epoch');
+    await expect(epoch).toHaveValue('300');
+    await epoch.selectOption('150');
+    await page.reload();
+    await expect(epoch).toHaveValue('150');
+    // A fresh tab/request loses draft state but retains browser preferences.
+    await page.evaluate(() => sessionStorage.clear());
+    await begin();
+    await expect(epoch).toHaveValue('150');
+    await page.getByLabel('Tony voice model', { exact: true }).selectOption('v7');
+    await expect(epoch).toBeDisabled();
+    await page.getByLabel('Tony voice model', { exact: true }).selectOption('v9');
+    await expect(epoch).toHaveValue('150');
+    await page.getByRole('button', { name: 'Review the request' }).click();
+    expect(state.writes.at(-1).voiceEpoch).toBe(150);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  });
+
   test(`short remix direction explains the limit before sending at ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 1000 });
     const state = await setup(page);
