@@ -2872,20 +2872,26 @@ export default {
     ]
   },
   "distonyc-7b37f5a178d569be4b8e4a6f": {
-    "src": "/assets/artwork/distonyc-7b37f5a178d569be4b8e4a6f-incubating-bfcde93391ba-5b860aac838749a5-q86.webp",
+    "src": "/assets/artwork/distonyc-7b37f5a178d569be4b8e4a6f-mature-e083b5bfc1a9-2d32655d9ac76abf-q86.webp",
     "alt": "Cover artwork for Rooms Without Windows.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "f107052e06db8df5e5cd9c71bfafd1661be93fe77472da58c0b9d5eecd04cf74",
-    "promptHash": "e828a7f45cfb632eb0a4bcf33b016b80d2e356a041c868abca127b0b0beafa0e",
-    "createdAt": "2026-10-13T05:25:06.968Z",
+    "promptHash": "fb9b5a783b9faf1627a301b07b7487db5cfca22180e66209e53daf4dce364d86",
+    "createdAt": "2026-10-14T05:28:37.933Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-7b37f5a178d569be4b8e4a6f-incubating-bfcde93391ba-5b860aac838749a5-q86.webp",
     "firstSeenAt": "2026-10-13T05:24:43.697Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-7b37f5a178d569be4b8e4a6f-incubating-bfcde93391ba-5b860aac838749a5-q86.webp",
+        "alt": "Cover artwork for Rooms Without Windows.",
+        "createdAt": "2026-10-13T05:25:06.968Z"
+      }
+    ]
   },
   "distonyc-203ad3755aaf51250667077c": {
     "src": "/assets/artwork/distonyc-203ad3755aaf51250667077c-incubating-75d49a6a17d7-4d483fa0d00fe468-q86.webp",
