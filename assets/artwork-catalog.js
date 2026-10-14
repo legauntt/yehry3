@@ -2930,5 +2930,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-14T08:15:44.632Z",
     "history": []
+  },
+  "distonyc-32ed0fd1c8cf8a0d4bcb503f": {
+    "src": "/assets/artwork/distonyc-32ed0fd1c8cf8a0d4bcb503f-incubating-21f5c4dfa1cb-d639909835846da4-q86.webp",
+    "alt": "Cover artwork for You Left Me to the Swarm (Neosynth Ascension).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "8eeb68708c6392c8eda42d478867c7bf69cec2dc5a3ff82b52392a5d07b69747",
+    "promptHash": "4bf5abb0c938681576131ca3a03214cb4a8556f2383c57596a48977c2e1fd6bf",
+    "createdAt": "2026-10-14T09:25:07.005Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-14T09:24:45.467Z",
+    "history": []
   }
 };
