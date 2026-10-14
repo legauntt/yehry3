@@ -20,7 +20,7 @@ test("share the exact playback moment with its lyric line and restore paused", a
   await recipient.locator("#lyric-line-3").click();
   expect(new URL(recipient.url()).searchParams.has("t")).toBe(false);
   await expect.poll(() => recipient.locator("audio").evaluate(audio => audio.currentTime)).toBe(9);
-  await recipient.getByRole("button", { name: "Share selected line" }).click();
+  await recipient.getByRole("button", { name: "Copy link", exact: true }).click();
   await recipient.locator("#lyric-line-2").click();
   await expect(recipient.locator(".lyric-line.is-linked")).toHaveCount(1);
   await expect(recipient.locator("#lyric-line-2")).toHaveClass(/is-linked/);
@@ -46,12 +46,17 @@ test("a selected two-line lyric passage shares only those lines", async ({ page,
   await page.goto("/lyrics/?song=distonyc-06d2b8c3c8dffed19df347bb");
   const first = page.getByRole("button", { name: /Oh god I'm a finna blow/ });
   await first.click();
-  await page.getByLabel("Include next line").check();
-  await page.getByRole("button", { name: "Share selected line" }).click();
-  const link = await page.locator("#moment-link").inputValue();
+  const panel = page.locator(".lyric-share-passage");
+  await expect(panel.locator("blockquote")).toHaveText("Oh god I'm a finna blow");
+  await expect(first.locator(".lyric-link-marker")).toHaveText("Selected");
+  await page.getByRole("button", { name: "Add next line", exact: true }).click();
+  await expect(panel.locator("blockquote")).toHaveText("Oh god I'm a finna blow\nEqual law in every town");
+  await panel.screenshot({ path: "artifacts/lyric-share-passage-mobile.png" });
+  await page.getByRole("button", { name: "Copy link", exact: true }).click();
+  const link = await panel.getByLabel("Link to selected lyrics").inputValue();
   expect(new URL(link).hash).toBe("#lyric-line-90");
   expect(new URL(link).searchParams.get("through")).toBe("91");
-  expect(new URL(link).searchParams.get("t")).toBe("257.2");
+  expect(new URL(link).searchParams.get("t")).toBe("257.22");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   const recipient = await context.newPage();
   await recipient.goto(link);
@@ -60,7 +65,33 @@ test("a selected two-line lyric passage shares only those lines", async ({ page,
   await expect(recipient.locator("#lyric-line-91")).toHaveClass(/is-linked/);
   await expect(recipient.locator("#lyric-line-89")).not.toHaveClass(/is-linked/);
   await expect(recipient.locator("#lyric-line-92")).toHaveCount(0);
-  await expect.poll(() => recipient.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(257.2, 1);
+  await expect.poll(() => recipient.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(257.22, 2);
+  await expect(recipient.locator("#lyric-line-89")).not.toHaveClass(/is-active/);
+  await recipient.close();
+});
+
+test("adding lines previews the full range and a new selection resets it", async ({ page, context }) => {
+  const precise = { ...song, lyrics: { ...song.lyrics, cues: [{ ...song.lyrics.cues[0], start: 1.23456 }, ...song.lyrics.cues.slice(1)] } };
+  await setup(page, precise);
+  await page.goto(`/lyrics/?song=${song.id}`);
+  await page.locator("#lyric-line-1").click();
+  await page.getByRole("button", { name: "Add next line", exact: true }).click();
+  await page.getByRole("button", { name: "Add next line", exact: true }).click();
+  const panel = page.locator(".lyric-share-passage");
+  await expect(panel.locator("blockquote")).toHaveText("First line\nSecond line\nLast line");
+  await expect(page.getByRole("button", { name: "Add next line", exact: true })).toBeHidden();
+  await page.getByRole("button", { name: "Copy link", exact: true }).click();
+  const link = await panel.getByLabel("Link to selected lyrics").inputValue();
+  expect(new URL(link).searchParams.get("t")).toBe("1.235");
+  const recipient = await context.newPage();
+  await setup(recipient, precise); await recipient.goto(link);
+  await expect(recipient.locator(".lyric-line.is-linked")).toHaveCount(3);
+  await expect.poll(() => recipient.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(1.235, 3);
+  await page.locator("#lyric-line-2").click();
+  await expect(panel.locator("blockquote")).toHaveText("Second line");
+  await expect(page.locator(".lyric-line.is-linked")).toHaveCount(1);
+  await page.getByRole("button", { name: "Close lyric sharing" }).click();
+  await expect(panel).toBeHidden();
   await recipient.close();
 });
 

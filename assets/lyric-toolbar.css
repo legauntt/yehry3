@@ -51,7 +51,16 @@
 .lyric-toolbar .favorites-panel { margin: 0; border: 0; border-radius: 0; }
 .lyric-toolbar .profile-details > summary > span { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .lyric-toolbar #sheet-status, .lyric-toolbar .lyric-moment { flex-basis: 100%; }
-.lyric-toolbar .lyric-share-next:not([hidden]) { display: flex; align-items: center; flex-basis: 100%; gap: 6px; font-size: .78rem; }
+.lyric-share-passage { margin: 8px 0 16px; padding: 12px; border: 1px solid var(--line); border-radius: 5px; background: var(--white); font: 1rem/1.5 "DM Sans", sans-serif; scroll-margin-block: 120px; }
+.lyric-share-passage[hidden] { display: none; }
+.lyric-share-passage > p { margin: 0 0 8px; }
+.lyric-share-passage blockquote { margin: 0 0 12px; padding: 0; border: 0; white-space: pre-line; overflow-wrap: anywhere; }
+.lyric-share-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.lyric-share-actions button { min-height: 44px; padding: 8px 12px; }
+.lyric-share-passage [role="status"] { margin: 8px 0 0; }
+.lyric-share-passage [role="status"]:empty { display: none; }
+.lyric-share-passage input { width: 100%; min-width: 0; margin-top: 8px; }
+@media print { .lyric-share-passage { display: none; } }
 .lyric-toolbar #sheet-status:empty { display: none; }
 .lyric-toolbar .lyric-follow { flex-basis: 100%; min-height: 44px; margin-top: 4px; }
 .lyric-toolbar .lyric-follow[hidden] { display: none; }

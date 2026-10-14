@@ -23,13 +23,41 @@ export function mountMomentSharing(main, sheet) {
   button.className = "quiet sheet-icon sheet-share";
   button.id = "share-moment";
   controls.append(button);
-  const nextLine = document.createElement("label");
-  nextLine.className = "lyric-share-next";
-  nextLine.hidden = true;
-  nextLine.innerHTML = '<input type="checkbox"> Include next line';
-  holder.append(nextLine);
-  const includeNext = nextLine.querySelector("input");
-  let selectedLineId = null;
+  const passage = document.createElement("div");
+  passage.className = "lyric-share-passage";
+  passage.hidden = true;
+  passage.innerHTML = '<p class="small">Share these lyrics</p><blockquote></blockquote><div class="lyric-share-actions"><button type="button" class="quiet" data-add-line>Add next line</button><button type="button" data-copy-lyrics>Copy link</button><button type="button" class="quiet" data-close-share aria-label="Close lyric sharing">Close</button></div><p class="small" role="status"></p><input type="text" readonly aria-label="Link to selected lyrics" hidden>';
+  let selectedLines = [];
+  const addLine = passage.querySelector("[data-add-line]");
+  const passageStatus = passage.querySelector('[role="status"]');
+  const passageInput = passage.querySelector("input");
+  function nextLine() {
+    let next = selectedLines.at(-1)?.nextElementSibling;
+    if (next === passage) next = next.nextElementSibling;
+    return next?.matches("button.lyric-line") ? next : null;
+  }
+  function preview() {
+    passage.querySelector("blockquote").textContent = selectedLines.map(line => line.querySelector("[data-lyric-text]").textContent).join("\n");
+    addLine.hidden = !nextLine();
+    passageStatus.textContent = "";
+    passageInput.hidden = true;
+    for (const line of main.querySelectorAll("button.lyric-line")) {
+      line.classList.toggle("is-linked", selectedLines.includes(line));
+      line.querySelector(".lyric-link-marker").textContent = "Selected";
+    }
+  }
+  addLine.addEventListener("click", () => {
+    const next = nextLine();
+    if (!next) return;
+    selectedLines.push(next);
+    next.after(passage);
+    preview();
+    passage.scrollIntoView({ block: "nearest", behavior: "instant" });
+  }, { signal });
+  passage.querySelector("[data-close-share]").addEventListener("click", () => {
+    passage.hidden = true;
+    selectedLines[0]?.focus({ preventScroll: true });
+  }, { signal });
   const rest = document.createElement("div");
   rest.className = "lyric-moment";
   rest.hidden = true;
@@ -37,16 +65,17 @@ export function mountMomentSharing(main, sheet) {
   holder.append(rest);
   const status = rest.querySelector("#moment-status");
   const update = () => {
-    button.textContent = selectedLineId ? "Share selected line" : `Share this moment · ${timeLabel(sheet.position())}`;
+    button.textContent = `Share this moment · ${timeLabel(sheet.position())}`;
     button.title = button.textContent;
   };
   main.addEventListener("click", event => {
     const line = event.target.closest?.("button.lyric-line");
     if (!line || !main.contains(line)) return;
-    selectedLineId = line.id;
-    nextLine.hidden = !line.nextElementSibling?.matches("button.lyric-line");
-    includeNext.checked = false;
-    update();
+    selectedLines = [line];
+    line.after(passage);
+    passage.hidden = false;
+    preview();
+    passage.scrollIntoView({ block: "nearest", behavior: "instant" });
   }, { signal });
   const timestamp = sharedTimestamp();
   if (timestamp !== null && !restored.has(sheet)) {
@@ -55,35 +84,42 @@ export function mountMomentSharing(main, sheet) {
     status.textContent = `Starts at ${timeLabel(timestamp)}. Press play when you’re ready.`;
     rest.hidden = false;
   }
-  button.addEventListener("click", async () => {
-    const selected = selectedLineId && main.querySelector(`#${selectedLineId}`);
-    const seconds = Math.max(0, Math.round((selected?.dataset.start ? Number(selected.dataset.start) : sheet.position()) * 10) / 10);
+  async function share(selected = null) {
+    // Never round a selected cue backward into the preceding lyric. Bound interpolated
+    // starts to the millisecond precision accepted by sharedTimestamp.
+    const start = selected?.dataset.start;
+    const seconds = Math.max(0, start ? (/^\d+(?:\.\d{1,3})?$/.test(start) ? Number(start) : Math.ceil(Number(start) * 1000) / 1000) : Math.round(sheet.position() * 10) / 10);
     const url = new URL(location.href);
     url.searchParams.set("t", String(seconds));
     const lines = [...main.querySelectorAll("button.lyric-line")];
     const line = selected || lines.filter(item => Number(item.dataset.start) <= seconds).at(-1);
-    const following = includeNext.checked && selected?.nextElementSibling?.matches("button.lyric-line")
-      ? selected.nextElementSibling : null;
+    const following = selected && selectedLines.length > 1 ? selectedLines.at(-1) : null;
     url.hash = line?.id || "";
     if (following) url.searchParams.set("through", following.id.slice("lyric-line-".length));
     else url.searchParams.delete("through");
     history.replaceState(history.state, "", url);
     main.querySelectorAll(".lyric-line.is-linked").forEach(item => item.classList.remove("is-linked"));
     line?.classList.add("is-linked");
-    following?.classList.add("is-linked");
-    const input = rest.querySelector("#moment-link");
-    rest.hidden = false;
+    if (selected) selectedLines.forEach(item => item.classList.add("is-linked"));
+    const input = selected ? passageInput : rest.querySelector("#moment-link");
+    const feedback = selected ? passageStatus : status;
+    if (!selected) rest.hidden = false;
     input.value = url.href;
-    rest.querySelector("#moment-link-field").hidden = false;
-    try { await navigator.clipboard.writeText(url.href); status.textContent = `Link copied at ${timeLabel(seconds)}.`; }
-    catch { input.focus(); input.select(); status.textContent = `Copy this link to share the song at ${timeLabel(seconds)}.`; }
-  }, { signal });
+    if (!selected) rest.querySelector("#moment-link-field").hidden = false;
+    try { await navigator.clipboard.writeText(url.href); feedback.textContent = selected ? "Link copied. It opens at these lyrics." : `Link copied at ${timeLabel(seconds)}.`; }
+    catch {
+      input.hidden = false; input.focus(); input.select(); feedback.textContent = "Copy this link to share.";
+      if (selected) passage.scrollIntoView({ block: "nearest", behavior: "instant" });
+    }
+    for (const item of main.querySelectorAll(".lyric-link-marker")) item.textContent = "Shared line";
+  }
+  button.addEventListener("click", () => share(), { signal });
+  passage.querySelector("[data-copy-lyrics]").addEventListener("click", () => share(selectedLines[0]), { signal });
   sheet.audio.addEventListener("timeupdate", update, { signal });
   // A link already revealed for copying follows subsequent format selections.
   addEventListener("yehry3:lyric-view", () => {
-    selectedLineId = null;
-    includeNext.checked = false;
-    nextLine.hidden = true;
+    selectedLines = [];
+    passage.remove();
     update();
     const input = rest.querySelector("#moment-link");
     if (!input.value) return;
@@ -102,6 +138,7 @@ export function mountMomentSharing(main, sheet) {
   player.on("change", update, signal);
   sheet.watchers.add(update);
   signal.addEventListener("abort", () => sheet.watchers.delete(update), { once: true });
+  signal.addEventListener("abort", () => passage.remove(), { once: true });
   update();
   return () => controller.abort();
 }

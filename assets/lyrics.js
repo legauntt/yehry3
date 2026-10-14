@@ -200,9 +200,9 @@ function mountKaraoke(main, sheet, { restoreLink = true } = {}) {
   }
   function markLinked(line) {
     const through = Number(new URL(location.href).searchParams.get("through"));
-    const next = line?.nextElementSibling;
-    const following = Number.isInteger(through) && next?.id === `lyric-line-${through}` ? next : null;
-    for (const candidate of lines) candidate.classList.toggle("is-linked", candidate === line || candidate === following);
+    const first = lines.indexOf(line);
+    const last = Number.isInteger(through) ? lines.findIndex(candidate => candidate.id === `lyric-line-${through}`) : -1;
+    for (const [index, candidate] of lines.entries()) candidate.classList.toggle("is-linked", first >= 0 && index >= first && index <= Math.max(first, last));
   }
   function selectLine(line, updateUrl = false) {
     if (!line) return;
