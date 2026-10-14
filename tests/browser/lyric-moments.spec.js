@@ -29,6 +29,17 @@ test("share the exact playback moment with its lyric line and restore paused", a
   await expect.poll(() => recipient.locator("audio").evaluate(audio => audio.currentTime)).toBe(9);
   await recipient.close();
 });
+test("the toolbar share also preserves a fractional cue boundary", async ({ page }) => {
+  const precise = { ...song, lyrics: { ...song.lyrics, cues: [song.lyrics.cues[0], { ...song.lyrics.cues[1], start: 4.22 }, song.lyrics.cues[2]] } };
+  await setup(page, precise); await page.goto(`/lyrics/?song=${song.id}`);
+  await page.locator("#lyric-line-2").click();
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(4.22);
+  await page.getByRole("button", { name: /Share this moment/ }).click();
+  const link = new URL(await page.locator("#moment-link").inputValue());
+  expect(link.searchParams.get("t")).toBe("4.22");
+  expect(link.hash).toBe("#lyric-line-2");
+});
+
 test("timestamp sharing works without lyric cues and fits mobile", async ({ page }) => {
   await setup(page, { ...song, lyrics: { ...song.lyrics, cues: [] } });
   await page.setViewportSize({ width: 390, height: 844 });

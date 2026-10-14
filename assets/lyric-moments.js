@@ -85,10 +85,10 @@ export function mountMomentSharing(main, sheet) {
     rest.hidden = false;
   }
   async function share(selected = null) {
-    // Never round a selected cue backward into the preceding lyric. Bound interpolated
-    // starts to the millisecond precision accepted by sharedTimestamp.
-    const start = selected?.dataset.start;
-    const seconds = Math.max(0, start ? (/^\d+(?:\.\d{1,3})?$/.test(start) ? Number(start) : Math.ceil(Number(start) * 1000) / 1000) : Math.round(sheet.position() * 10) / 10);
+    // Never round backward into the preceding lyric. Bound interpolated starts and
+    // playback positions to the millisecond precision accepted by sharedTimestamp.
+    const start = selected?.dataset.start ?? String(sheet.position());
+    const seconds = Math.max(0, /^\d+(?:\.\d{1,3})?$/.test(start) ? Number(start) : Math.ceil(Number(start) * 1000) / 1000);
     const url = new URL(location.href);
     url.searchParams.set("t", String(seconds));
     const lines = [...main.querySelectorAll("button.lyric-line")];
