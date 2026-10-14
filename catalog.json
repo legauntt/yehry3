@@ -2,6 +2,452 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-32ed0fd1c8cf8a0d4bcb503f",
+      "title": "You Left Me to the Swarm (Neosynth Ascension)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-32ed0fd1c8cf8a0d4bcb503f-b847114abeab.mp3",
+      "duration": 310.0734693877551,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-cc22e422494bc3ff4c41144e",
+        "title": "You Left Me to the Swarm",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cc22e422494bc3ff4c41144e-df416088297c.mp3"
+      },
+      "publishedAt": "2026-10-14T09:23:22.583Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "You Left Me to the Swarm (Neosynth Ascension)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Neosynth reinterpretation at 112 BPM in D minor: pulsing analog bass, gated synth arpeggios, cinematic pads, electronic drums, and a restrained electric-guitar lift in the final chorus. Open with a sparse tactical-radio atmosphere, build through driving verses and broad melodic choruses, then intensify with a dark synth ascent after the bridge. Use one clear, steadily pitched lead with dramatic sustained hook notes and natural phrasing. Place the final sung syllable about 10 seconds before the 310-second endpoint, followed by one resolved final chord and decay.",
+        "lyrics": "[Intro]\nRed stars burn through the tactical glass\nNew Gettysburg flickers below\nOne last order in a dead man's voice:\n“Hold the line. Do not let go.”\n\n[Verse 1]\nWe planted ghosts where the towers could see\nPsi fire calling the teeth from the dark\nMengsk watched Tarsonis choke on its knees\nThen handed me the final spark\nI knew his mercy was circuitry\nA switch he could kill from afar\nStill I walked into the hive-lit streets\nWith my rifle against my heart\n\n[Pre-Chorus]\nDropship gone, signal thin\nRaynor shouting, “Bring her in!”\nStatic answered, cold and calm\nThen the sky unfolded its arms\n\n[Chorus]\nYou left me to the swarm\nUnder a blood-red storm\nYou sealed the doors and burned the map\nWhile every warning cracked\nYou left me there alive\nWhere only monsters thrive\nRemember my name when your empire learns\nWhat comes back from the swarm\n\n[Verse 2]\nHydralisk shadows crossed through the smoke\nZerglings rang on the barricade\nI called command till the channel broke\nAnd heard the choice that you had made\n“Nothing personal”—that polished lie\nFrom a throne not built quite yet\nBut betrayal has a longer life\nThan the man who thinks it forgets\n\n[Pre-Chorus]\nMagazine low, visor split\nNo extraction, that was it\nOne green beacon faded black\nRaynor swore he would come back\n\n[Chorus]\nYou left me to the swarm\nUnder a blood-red storm\nYou sealed the doors and burned the map\nWhile every warning cracked\nYou left me there alive\nWhere only monsters thrive\nRemember my name when your empire learns\nWhat comes back from the swarm\n\n[Bridge]\nInside the noise, a deeper voice\nNo rank, no flag, no human choice\nA thousand minds beneath my skin\nNot an ending—a way in\n\nI saw your fleet become a thread\nI saw the crown above your head\nArcturus, sleep while engines hum\nYou made the blade that is to come\n\n[Build]\nThe orbital lamps go white and blind\nA signal blooms across my mind\nNo rescue light, no morning star\nOnly the shape of what we are\n\n[Verse]\nThe platform vanished under claws\nThe woman fell, the signal died\nBut somewhere past the human laws\nA darker heart opened its eyes\nJim, keep flying, keep your flame\nThere are debts the stars record\nWhen I return, I won't be prey\nAnd he won't be my lord\n\n[Chorus]\nYou left me to the swarm\nI rose inside the storm\nYou sealed the doors and burned the map\nNow hear the darkness answer back\nYou left me there to die\nI learned another kind of life\nRemember my name when your empire burns—\nI came back with the swarm\n\n[Outro]\nNew Gettysburg fades beneath me\nNo rescue light, no morning star\nThe channel closes on Sarah Kerrigan\nThe blade awakens in the dark\n[End]",
+        "duration": 310,
+        "bpm": 112,
+        "musicalSettings": {
+          "genre": "Dark neosynth cinematic rock",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Pre-Chorus, Chorus, Verse 2, Pre-Chorus, Chorus, Bridge, Build, Final Verse, Final Chorus, Outro",
+          "performance": "Clear melodic lead with natural phrasing, sustained chorus notes, and steadily escalating dramatic intensity",
+          "energy": "Tense and spacious opening; driving mid-song pulse; towering final chorus; resolved dark finish",
+          "lyricWorkflow": "Adapted source narrative retaining its recognizable betrayal hook, refrains, and Kerrigan transformation arc",
+          "instruments": [
+            "analog bass synthesizer",
+            "gated synthesizers",
+            "synth pads",
+            "electronic drum kit",
+            "electric guitar"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nRed stars burn through the tactical glass\nNew Gettysburg flickers below\nOne last order in a dead man's voice:\n“Hold the line. Do not let go.”\n\n[Verse 1]\nWe planted ghosts where the towers could see\nPsi fire calling the teeth from the dark\nMengsk watched Tarsonis choke on its knees\nThen handed me the final spark\nI knew his mercy was circuitry\nA switch he could kill from afar\nStill I walked into the hive-lit streets\nWith my rifle against my heart\n\n[Pre-Chorus]\nDropship gone, signal thin\nRaynor shouting, “Bring her in!”\nStatic answered, cold and calm\nThen the sky unfolded its arms\n\n[Chorus]\nYou left me to the swarm\nUnder a blood-red storm\nYou sealed the doors and burned the map\nWhile every warning cracked\nYou left me there alive\nWhere only monsters thrive\nRemember my name when your empire learns\nWhat comes back from the swarm\n\n[Verse 2]\nHydralisk shadows crossed through the smoke\nZerglings rang on the barricade\nI called command till the channel broke\nAnd heard the choice that you had made\n“Nothing personal”—that polished lie\nFrom a throne not built quite yet\nBut betrayal has a longer life\nThan the man who thinks it forgets\n\n[Pre-Chorus]\nMagazine low, visor split\nNo extraction, that was it\nOne green beacon faded black\nRaynor swore he would come back\n\n[Chorus]\nYou left me to the swarm\nUnder a blood-red storm\nYou sealed the doors and burned the map\nWhile every warning cracked\nYou left me there alive\nWhere only monsters thrive\nRemember my name when your empire learns\nWhat comes back from the swarm\n\n[Bridge]\nInside the noise, a deeper voice\nNo rank, no flag, no human choice\nA thousand minds beneath my skin\nNot an ending—a way in\n\nI saw your fleet become a thread\nI saw the crown above your head\nArcturus, sleep while engines hum\nYou made the blade that is to come\n\n[Build]\nThe orbital lamps go white and blind\nA signal blooms across my mind\nNo rescue light, no morning star\nOnly the shape of what we are\n\n[Verse]\nThe platform vanished under claws\nThe woman fell, the signal died\nBut somewhere past the human laws\nA darker heart opened its eyes\nJim, keep flying, keep your flame\nThere are debts the stars record\nWhen I return, I won't be prey\nAnd he won't be my lord\n\n[Chorus]\nYou left me to the swarm\nI rose inside the storm\nYou sealed the doors and burned the map\nNow hear the darkness answer back\nYou left me there to die\nI learned another kind of life\nRemember my name when your empire burns—\nI came back with the swarm\n\n[Outro]\nNew Gettysburg fades beneath me\nNo rescue light, no morning star\nThe channel closes on Sarah Kerrigan\nThe blade awakens in the dark",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 3.52,
+            "end": 7.7
+          },
+          {
+            "line": 2,
+            "start": 8.26,
+            "end": 11.72
+          },
+          {
+            "line": 3,
+            "start": 13.16,
+            "end": 16.18
+          },
+          {
+            "line": 4,
+            "start": 17.32,
+            "end": 20.44
+          },
+          {
+            "line": 7,
+            "start": 22.1,
+            "end": 27.28
+          },
+          {
+            "line": 8,
+            "start": 27.28,
+            "end": 31.9
+          },
+          {
+            "line": 9,
+            "start": 31.9,
+            "end": 34.46
+          },
+          {
+            "line": 10,
+            "start": 35.54,
+            "end": 38.6
+          },
+          {
+            "line": 11,
+            "start": 39.44,
+            "end": 42.5
+          },
+          {
+            "line": 12,
+            "start": 42.5,
+            "end": 47.14
+          },
+          {
+            "line": 13,
+            "start": 47.14,
+            "end": 51.66
+          },
+          {
+            "line": 14,
+            "start": 51.66,
+            "end": 55.86
+          },
+          {
+            "line": 17,
+            "start": 56.6,
+            "end": 60.8
+          },
+          {
+            "line": 18,
+            "start": 60.8,
+            "end": 63.52
+          },
+          {
+            "line": 19,
+            "start": 64.5,
+            "end": 67.58
+          },
+          {
+            "line": 20,
+            "start": 68.26,
+            "end": 70.8
+          },
+          {
+            "line": 23,
+            "start": 70.8,
+            "end": 72.9
+          },
+          {
+            "line": 24,
+            "start": 72.9,
+            "end": 77.26
+          },
+          {
+            "line": 25,
+            "start": 77.26,
+            "end": 82.7
+          },
+          {
+            "line": 26,
+            "start": 82.7,
+            "end": 85.92
+          },
+          {
+            "line": 27,
+            "start": 85.92,
+            "end": 90.1
+          },
+          {
+            "line": 28,
+            "start": 90.1,
+            "end": 93.2
+          },
+          {
+            "line": 29,
+            "start": 93.2,
+            "end": 96.62
+          },
+          {
+            "line": 30,
+            "start": 96.62,
+            "end": 98.62
+          },
+          {
+            "line": 33,
+            "start": 99.58,
+            "end": 104.5
+          },
+          {
+            "line": 34,
+            "start": 104.5,
+            "end": 107.58
+          },
+          {
+            "line": 35,
+            "start": 108.58,
+            "end": 111.52
+          },
+          {
+            "line": 36,
+            "start": 112.86,
+            "end": 115.8
+          },
+          {
+            "line": 37,
+            "start": 117.24,
+            "end": 120.08
+          },
+          {
+            "line": 38,
+            "start": 120.08,
+            "end": 124.38
+          },
+          {
+            "line": 39,
+            "start": 124.94,
+            "end": 127.5
+          },
+          {
+            "line": 40,
+            "start": 127.76,
+            "end": 131.02
+          },
+          {
+            "line": 43,
+            "start": 131.22,
+            "end": 133.88
+          },
+          {
+            "line": 44,
+            "start": 134.2,
+            "end": 137.3
+          },
+          {
+            "line": 45,
+            "start": 138.14,
+            "end": 142.28
+          },
+          {
+            "line": 46,
+            "start": 142.28,
+            "end": 144.82
+          },
+          {
+            "line": 49,
+            "start": 145.48,
+            "end": 147.1
+          },
+          {
+            "line": 50,
+            "start": 147.1,
+            "end": 150.2
+          },
+          {
+            "line": 51,
+            "start": 152.32,
+            "end": 155.06
+          },
+          {
+            "line": 52,
+            "start": 155.06,
+            "end": 158.62
+          },
+          {
+            "line": 53,
+            "start": 159.9,
+            "end": 161.8
+          },
+          {
+            "line": 54,
+            "start": 161.8,
+            "end": 165.14
+          },
+          {
+            "line": 55,
+            "start": 166.32,
+            "end": 169.66
+          },
+          {
+            "line": 56,
+            "start": 169.66,
+            "end": 171.42
+          },
+          {
+            "line": 59,
+            "start": 174.73,
+            "end": 178.12
+          },
+          {
+            "line": 60,
+            "start": 178.12,
+            "end": 182.32
+          },
+          {
+            "line": 61,
+            "start": 183.23,
+            "end": 186.48
+          },
+          {
+            "line": 62,
+            "start": 186.48,
+            "end": 190.96
+          },
+          {
+            "line": 64,
+            "start": 191.81,
+            "end": 195.04
+          },
+          {
+            "line": 65,
+            "start": 195.04,
+            "end": 199.54
+          },
+          {
+            "line": 66,
+            "start": 199.54,
+            "end": 203.64
+          },
+          {
+            "line": 67,
+            "start": 203.64,
+            "end": 208.02
+          },
+          {
+            "line": 77,
+            "start": 229.34,
+            "end": 233.88
+          },
+          {
+            "line": 78,
+            "start": 233.88,
+            "end": 238
+          },
+          {
+            "line": 79,
+            "start": 238,
+            "end": 242.88
+          },
+          {
+            "line": 80,
+            "start": 243.52,
+            "end": 245.62
+          },
+          {
+            "line": 81,
+            "start": 245.62,
+            "end": 247.58
+          },
+          {
+            "line": 82,
+            "start": 247.58,
+            "end": 249.62
+          },
+          {
+            "line": 83,
+            "start": 249.62,
+            "end": 251.76
+          },
+          {
+            "line": 86,
+            "start": 252.22,
+            "end": 254.24
+          },
+          {
+            "line": 87,
+            "start": 256.12,
+            "end": 258.66
+          },
+          {
+            "line": 88,
+            "start": 260.42,
+            "end": 263.28
+          },
+          {
+            "line": 89,
+            "start": 263.28,
+            "end": 267.94
+          },
+          {
+            "line": 90,
+            "start": 269.2,
+            "end": 271.52
+          },
+          {
+            "line": 91,
+            "start": 272.98,
+            "end": 275.74
+          },
+          {
+            "line": 92,
+            "start": 275.74,
+            "end": 280.88
+          },
+          {
+            "line": 93,
+            "start": 281.24,
+            "end": 283.34
+          },
+          {
+            "line": 96,
+            "start": 284.22,
+            "end": 287.7
+          },
+          {
+            "line": 97,
+            "start": 288.62,
+            "end": 291.48
+          },
+          {
+            "line": 98,
+            "start": 292.92,
+            "end": 296.14
+          },
+          {
+            "line": 99,
+            "start": 297.18,
+            "end": 300.18
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 17.56
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 100,
+      "guide": {
+        "sha256": "66d7414502946ad0557a9ffd2bd2938f26e49c7686456afefa684920604548f0",
+        "bytes": 7441807,
+        "duration": 310.073458,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-32ed0fd1c8cf8a0d4bcb503f-66d741450294.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “You Left Me to the Swarm”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Neosynth rendition of Kerrigan's betrayal at the end of the Terran Starcraft Campaign\n\nOriginal sound: Neosynth, Starcraft melodies if possible",
+        "direction": "Try a new genre",
+        "keep": "Keep the recognizable hook and spirit of “You Left Me to the Swarm”.",
+        "basisSongs": [
+          "You Left Me to the Swarm"
+        ],
+        "voiceModel": "v9",
+        "voiceEpoch": 100,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 310
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-8913c5165e1805e0848bd593",
       "title": "Hold Your Hand When You Die",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8913c5165e1805e0848bd593-f2098ee58ba8.mp3",
