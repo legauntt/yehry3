@@ -2828,20 +2828,26 @@ export default {
     ]
   },
   "distonyc-fad542ea50cb9e529f9864df": {
-    "src": "/assets/artwork/distonyc-fad542ea50cb9e529f9864df-incubating-38ddc34bbb6e-3e203971ce3950a4-q86.webp",
+    "src": "/assets/artwork/distonyc-fad542ea50cb9e529f9864df-mature-d4ac12521b53-3ea2d0b56c50512e-q86.webp",
     "alt": "Cover artwork for Thirteen Robes.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "9ee89c85fdd711a1c6072c0b1ceac54ebe4a12092cff64a7f0c50bb90befd098",
-    "promptHash": "c4b439e5126c5330024c44e1063ce2ed82627e663813935611b56b38745f7afa",
-    "createdAt": "2026-10-13T04:25:07.694Z",
+    "promptHash": "172ed79ec79850a15f6eb86b2c344eb7c5e8bc8b3124dba8c467484aa29b52dc",
+    "createdAt": "2026-10-14T04:28:33.642Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-fad542ea50cb9e529f9864df-incubating-38ddc34bbb6e-3e203971ce3950a4-q86.webp",
     "firstSeenAt": "2026-10-13T04:24:43.732Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-fad542ea50cb9e529f9864df-incubating-38ddc34bbb6e-3e203971ce3950a4-q86.webp",
+        "alt": "Cover artwork for Thirteen Robes.",
+        "createdAt": "2026-10-13T04:25:07.694Z"
+      }
+    ]
   },
   "distonyc-403e74a063f03d3810a9507b": {
     "src": "/assets/artwork/distonyc-403e74a063f03d3810a9507b-incubating-314300be8dde-dde7fe0363e6afef-q86.webp",
