@@ -1,0 +1,475 @@
+{
+  "version": 1,
+  "songId": "distonyc-8913c5165e1805e0848bd593",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8913c5165e1805e0848bd593-f2098ee58ba8.mp3",
+  "audioSha256": "f2098ee58ba8534f61874263513036e1cc7439d0ce592c927fed7945ef391cc6",
+  "inputSha256": "f2098ee58ba8534f61874263513036e1cc7439d0ce592c927fed7945ef391cc6",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 367.26,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.18,
+      "text": "I'm just here to hold your hand your hand when you die",
+      "uncertain": false
+    },
+    {
+      "start": 3.18,
+      "end": 7.4,
+      "text": "And to show you around imaginary places",
+      "uncertain": true
+    },
+    {
+      "start": 7.4,
+      "end": 10.18,
+      "text": "Putting many lumps on my bloody stump",
+      "uncertain": false
+    },
+    {
+      "start": 10.18,
+      "end": 13.7,
+      "text": "Bittable habits so I bit the perfect circle",
+      "uncertain": true
+    },
+    {
+      "start": 13.7,
+      "end": 16.76,
+      "text": "Dying your sleep with the sky at your feet",
+      "uncertain": true
+    },
+    {
+      "start": 16.76,
+      "end": 20.56,
+      "text": "I'll shoot you when you're happy on the day that you will find peace",
+      "uncertain": false
+    },
+    {
+      "start": 20.56,
+      "end": 23.14,
+      "text": "How did you do it? I don't know, I'm no fee",
+      "uncertain": true
+    },
+    {
+      "start": 23.14,
+      "end": 26.0,
+      "text": "Every person I know is a secret sort of agent",
+      "uncertain": false
+    },
+    {
+      "start": 26.0,
+      "end": 28.42,
+      "text": "Cause I'm accused of mood conducts",
+      "uncertain": true
+    },
+    {
+      "start": 28.42,
+      "end": 30.14,
+      "text": "All proof I'd to rake the prompts",
+      "uncertain": true
+    },
+    {
+      "start": 30.68,
+      "end": 32.66,
+      "text": "Any kind of rumor for them",
+      "uncertain": true
+    },
+    {
+      "start": 32.66,
+      "end": 35.12,
+      "text": "May they rest and put me in a loony bin",
+      "uncertain": true
+    },
+    {
+      "start": 35.12,
+      "end": 38.4,
+      "text": "A funny farmer cuckoo, but they need a villain",
+      "uncertain": false
+    },
+    {
+      "start": 38.4,
+      "end": 41.48,
+      "text": "I'm just here to hold your hand when you die",
+      "uncertain": false
+    },
+    {
+      "start": 41.48,
+      "end": 44.84,
+      "text": "There is not a sickle person that can do it better",
+      "uncertain": false
+    },
+    {
+      "start": 44.84,
+      "end": 47.72,
+      "text": "No need to skip it in my ecosystem",
+      "uncertain": false
+    },
+    {
+      "start": 47.72,
+      "end": 51.44,
+      "text": "But in the audience of me being evil Christian",
+      "uncertain": false
+    },
+    {
+      "start": 52.38,
+      "end": 53.98,
+      "text": "Know how I hate him so",
+      "uncertain": false
+    },
+    {
+      "start": 53.98,
+      "end": 55.16,
+      "text": "But he tried to for a halo",
+      "uncertain": false
+    },
+    {
+      "start": 55.16,
+      "end": 56.24,
+      "text": "But my mom is scavenger",
+      "uncertain": true
+    },
+    {
+      "start": 56.24,
+      "end": 58.38,
+      "text": "Burn out with a chunk of a sky mirror",
+      "uncertain": true
+    },
+    {
+      "start": 58.38,
+      "end": 60.38,
+      "text": "I go crazy with a mud pie",
+      "uncertain": false
+    },
+    {
+      "start": 60.38,
+      "end": 62.38,
+      "text": "I, I had a cell screen",
+      "uncertain": false
+    },
+    {
+      "start": 62.38,
+      "end": 64.38,
+      "text": "I, my shirt, it is a chill dream",
+      "uncertain": false
+    },
+    {
+      "start": 64.38,
+      "end": 67.16,
+      "text": "It is hard to lead a way to the stairwell",
+      "uncertain": true
+    },
+    {
+      "start": 67.16,
+      "end": 69.54,
+      "text": "Till we cut a minute straight up from the center",
+      "uncertain": false
+    },
+    {
+      "start": 69.54,
+      "end": 70.58,
+      "text": "Finding farewell",
+      "uncertain": true
+    },
+    {
+      "start": 70.58,
+      "end": 73.34,
+      "text": "I'm just here to hold your hand when you die",
+      "uncertain": false
+    },
+    {
+      "start": 73.34,
+      "end": 75.76,
+      "text": "And to give your soul",
+      "uncertain": true
+    },
+    {
+      "start": 75.76,
+      "end": 77.56,
+      "text": "Glad for lovin' and a cliff",
+      "uncertain": true
+    },
+    {
+      "start": 77.56,
+      "end": 80.84,
+      "text": "Flow in the dark when I strolled in the park",
+      "uncertain": false
+    },
+    {
+      "start": 80.84,
+      "end": 83.6,
+      "text": "Giving everybody inform any pamphlets",
+      "uncertain": true
+    },
+    {
+      "start": 83.6,
+      "end": 86.36,
+      "text": "No sign of life for as far as I can see",
+      "uncertain": false
+    },
+    {
+      "start": 86.36,
+      "end": 88.36,
+      "text": "Everybody's just charred me",
+      "uncertain": false
+    },
+    {
+      "start": 88.36,
+      "end": 89.98,
+      "text": "Eat up in the car seat",
+      "uncertain": true
+    },
+    {
+      "start": 89.98,
+      "end": 91.38,
+      "text": "Eat shit and die",
+      "uncertain": false
+    },
+    {
+      "start": 91.38,
+      "end": 92.98,
+      "text": "To the secret spy",
+      "uncertain": false
+    },
+    {
+      "start": 92.98,
+      "end": 96.24,
+      "text": "Cause I have this funny feeling that I'm being wise",
+      "uncertain": false
+    },
+    {
+      "start": 97.22,
+      "end": 99.26,
+      "text": "24 hour surveillance",
+      "uncertain": true
+    },
+    {
+      "start": 100.26,
+      "end": 102.68,
+      "text": "Money or power or ailments",
+      "uncertain": false
+    },
+    {
+      "start": 102.68,
+      "end": 104.28,
+      "text": "They send the medical",
+      "uncertain": true
+    },
+    {
+      "start": 104.28,
+      "end": 106.0,
+      "text": "Daddy shimmered me the hammer",
+      "uncertain": true
+    },
+    {
+      "start": 106.0,
+      "end": 107.1,
+      "text": "It was way too much",
+      "uncertain": false
+    },
+    {
+      "start": 107.1,
+      "end": 108.66,
+      "text": "You could've went and had 200",
+      "uncertain": true
+    },
+    {
+      "start": 108.66,
+      "end": 111.86,
+      "text": "I'm just here to hold your hand when you die",
+      "uncertain": false
+    },
+    {
+      "start": 111.86,
+      "end": 115.2,
+      "text": "Psycho better cause trouble running for your soft spot",
+      "uncertain": false
+    },
+    {
+      "start": 115.2,
+      "end": 118.3,
+      "text": "Late market clothes and the earphone her nose",
+      "uncertain": true
+    },
+    {
+      "start": 118.3,
+      "end": 121.7,
+      "text": "Turned into a deadly gas flowing through the air ducts",
+      "uncertain": false
+    },
+    {
+      "start": 121.7,
+      "end": 124.56,
+      "text": "She said no love for the father she was",
+      "uncertain": false
+    },
+    {
+      "start": 124.56,
+      "end": 127.86,
+      "text": "She doesn't love me cause I don't have the right haircut",
+      "uncertain": false
+    },
+    {
+      "start": 127.86,
+      "end": 131.26,
+      "text": "I'm misunderstood, I just face it, I'm no good",
+      "uncertain": false
+    },
+    {
+      "start": 131.26,
+      "end": 134.92,
+      "text": "But I will not apologize for anything that I say",
+      "uncertain": false
+    },
+    {
+      "start": 134.92,
+      "end": 136.94,
+      "text": "My name is Mr. Bus Driver",
+      "uncertain": false
+    },
+    {
+      "start": 136.94,
+      "end": 138.8,
+      "text": "This is the producer Paris",
+      "uncertain": false
+    },
+    {
+      "start": 138.8,
+      "end": 144.9,
+      "text": "We did not embarrass to admit that we were purchasing a bit of our own imaginary place",
+      "uncertain": false
+    },
+    {
+      "start": 168.92,
+      "end": 171.86,
+      "text": "Okay, alright, he don't move",
+      "uncertain": true
+    },
+    {
+      "start": 171.86,
+      "end": 174.22,
+      "text": "Guess I gotta do my shoutouts now",
+      "uncertain": false
+    },
+    {
+      "start": 176.16,
+      "end": 179.02,
+      "text": "I'm just here to hold your hand when you die",
+      "uncertain": false
+    },
+    {
+      "start": 179.02,
+      "end": 182.1,
+      "text": "Parents and daddy care, they'll also be there too",
+      "uncertain": false
+    },
+    {
+      "start": 182.1,
+      "end": 185.38,
+      "text": "I'm just here to hold your hand when you die",
+      "uncertain": false
+    },
+    {
+      "start": 185.38,
+      "end": 188.8,
+      "text": "A Mexican, just said it mums, the word will help you",
+      "uncertain": true
+    },
+    {
+      "start": 188.8,
+      "end": 191.82,
+      "text": "Just here to hold your hand when you die",
+      "uncertain": false
+    },
+    {
+      "start": 191.82,
+      "end": 195.52,
+      "text": "Freestyle fellowship and abstract group will help you",
+      "uncertain": false
+    },
+    {
+      "start": 195.52,
+      "end": 198.2,
+      "text": "I'm just here to hold your hand when you die",
+      "uncertain": false
+    },
+    {
+      "start": 198.2,
+      "end": 201.5,
+      "text": "Chillin', grillin' and firein', hip-hop playin' too",
+      "uncertain": false
+    },
+    {
+      "start": 201.5,
+      "end": 206.12,
+      "text": "I'm just here to hold, hold your hand to die",
+      "uncertain": false
+    },
+    {
+      "start": 208.24,
+      "end": 214.82,
+      "text": "I'm just here to hold, to hold your hand when you just see to hold your hand",
+      "uncertain": true
+    },
+    {
+      "start": 228.72,
+      "end": 228.96,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 261.66,
+      "end": 262.56,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 299.3,
+      "end": 317.4,
+      "text": "Oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh.",
+      "uncertain": true
+    },
+    {
+      "start": 318.2,
+      "end": 320.18,
+      "text": "Okay.",
+      "uncertain": true
+    },
+    {
+      "start": 325.16,
+      "end": 326.56,
+      "text": "Okay.",
+      "uncertain": false
+    },
+    {
+      "start": 332.2,
+      "end": 332.98,
+      "text": "Okay.",
+      "uncertain": false
+    },
+    {
+      "start": 337.2,
+      "end": 337.22,
+      "text": "Okay.",
+      "uncertain": false
+    },
+    {
+      "start": 338.38,
+      "end": 339.44,
+      "text": "Okay.",
+      "uncertain": false
+    },
+    {
+      "start": 350.6,
+      "end": 353.06,
+      "text": "When you die",
+      "uncertain": false
+    },
+    {
+      "start": 356.92,
+      "end": 359.38,
+      "text": "When you die",
+      "uncertain": true
+    }
+  ]
+}
