@@ -2914,5 +2914,21 @@ export default {
         "createdAt": "2026-10-13T05:34:04.465Z"
       }
     ]
+  },
+  "distonyc-8913c5165e1805e0848bd593": {
+    "src": "/assets/artwork/distonyc-8913c5165e1805e0848bd593-incubating-badd176c30e5-097fff7f6d6e097c-q86.webp",
+    "alt": "Cover artwork for Hold Your Hand When You Die.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "07b9f5ee10f45a98ef47b82528ca1606d29e8c4b6ea2280b62ac4fc9f69e70e7",
+    "promptHash": "288ef12dd7d889d061c06c37f60740aa9001fe5b4d680672d4a9aa2e055ca5e9",
+    "createdAt": "2026-10-14T08:16:06.349Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-14T08:15:44.632Z",
+    "history": []
   }
 };
