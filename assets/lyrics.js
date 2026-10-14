@@ -199,13 +199,16 @@ function mountKaraoke(main, sheet, { restoreLink = true } = {}) {
     }
   }
   function markLinked(line) {
-    for (const candidate of lines) candidate.classList.toggle("is-linked", candidate === line);
+    const through = Number(new URL(location.href).searchParams.get("through"));
+    const next = line?.nextElementSibling;
+    const following = Number.isInteger(through) && next?.id === `lyric-line-${through}` ? next : null;
+    for (const candidate of lines) candidate.classList.toggle("is-linked", candidate === line || candidate === following);
   }
   function selectLine(line, updateUrl = false) {
     if (!line) return;
     if (updateUrl) {
       const url = new URL(location.href);
-      url.searchParams.delete("t"); url.hash = line.id;
+      url.searchParams.delete("t"); url.searchParams.delete("through"); url.hash = line.id;
       history.replaceState(history.state, "", url);
     }
     markLinked(line);

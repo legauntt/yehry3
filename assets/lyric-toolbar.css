@@ -51,6 +51,7 @@
 .lyric-toolbar .favorites-panel { margin: 0; border: 0; border-radius: 0; }
 .lyric-toolbar .profile-details > summary > span { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .lyric-toolbar #sheet-status, .lyric-toolbar .lyric-moment { flex-basis: 100%; }
+.lyric-toolbar .lyric-share-next:not([hidden]) { display: flex; align-items: center; flex-basis: 100%; gap: 6px; font-size: .78rem; }
 .lyric-toolbar #sheet-status:empty { display: none; }
 .lyric-toolbar .lyric-follow { flex-basis: 100%; min-height: 44px; margin-top: 4px; }
 .lyric-toolbar .lyric-follow[hidden] { display: none; }

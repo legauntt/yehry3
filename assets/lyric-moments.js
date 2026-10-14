@@ -23,6 +23,13 @@ export function mountMomentSharing(main, sheet) {
   button.className = "quiet sheet-icon sheet-share";
   button.id = "share-moment";
   controls.append(button);
+  const nextLine = document.createElement("label");
+  nextLine.className = "lyric-share-next";
+  nextLine.hidden = true;
+  nextLine.innerHTML = '<input type="checkbox"> Include next line';
+  holder.append(nextLine);
+  const includeNext = nextLine.querySelector("input");
+  let selectedLineId = null;
   const rest = document.createElement("div");
   rest.className = "lyric-moment";
   rest.hidden = true;
@@ -30,9 +37,17 @@ export function mountMomentSharing(main, sheet) {
   holder.append(rest);
   const status = rest.querySelector("#moment-status");
   const update = () => {
-    button.textContent = `Share this moment · ${timeLabel(sheet.position())}`;
+    button.textContent = selectedLineId ? "Share selected line" : `Share this moment · ${timeLabel(sheet.position())}`;
     button.title = button.textContent;
   };
+  main.addEventListener("click", event => {
+    const line = event.target.closest?.("button.lyric-line");
+    if (!line || !main.contains(line)) return;
+    selectedLineId = line.id;
+    nextLine.hidden = !line.nextElementSibling?.matches("button.lyric-line");
+    includeNext.checked = false;
+    update();
+  }, { signal });
   const timestamp = sharedTimestamp();
   if (timestamp !== null && !restored.has(sheet)) {
     restored.add(sheet);
@@ -41,15 +56,21 @@ export function mountMomentSharing(main, sheet) {
     rest.hidden = false;
   }
   button.addEventListener("click", async () => {
-    const seconds = Math.max(0, Math.round(sheet.position() * 10) / 10);
+    const selected = selectedLineId && main.querySelector(`#${selectedLineId}`);
+    const seconds = Math.max(0, Math.round((selected?.dataset.start ? Number(selected.dataset.start) : sheet.position()) * 10) / 10);
     const url = new URL(location.href);
     url.searchParams.set("t", String(seconds));
     const lines = [...main.querySelectorAll("button.lyric-line")];
-    const line = lines.filter(item => Number(item.dataset.start) <= seconds).at(-1);
+    const line = selected || lines.filter(item => Number(item.dataset.start) <= seconds).at(-1);
+    const following = includeNext.checked && selected?.nextElementSibling?.matches("button.lyric-line")
+      ? selected.nextElementSibling : null;
     url.hash = line?.id || "";
+    if (following) url.searchParams.set("through", following.id.slice("lyric-line-".length));
+    else url.searchParams.delete("through");
     history.replaceState(history.state, "", url);
     main.querySelectorAll(".lyric-line.is-linked").forEach(item => item.classList.remove("is-linked"));
     line?.classList.add("is-linked");
+    following?.classList.add("is-linked");
     const input = rest.querySelector("#moment-link");
     rest.hidden = false;
     input.value = url.href;
@@ -60,6 +81,10 @@ export function mountMomentSharing(main, sheet) {
   sheet.audio.addEventListener("timeupdate", update, { signal });
   // A link already revealed for copying follows subsequent format selections.
   addEventListener("yehry3:lyric-view", () => {
+    selectedLineId = null;
+    includeNext.checked = false;
+    nextLine.hidden = true;
+    update();
     const input = rest.querySelector("#moment-link");
     if (!input.value) return;
     const link = new URL(input.value);
@@ -69,6 +94,7 @@ export function mountMomentSharing(main, sheet) {
     // The saved timestamp remains meaningful across transcripts; line numbers do not.
     const line = [...main.querySelectorAll("button.lyric-line")].filter(item => Number(item.dataset.start) <= Number(link.searchParams.get("t"))).at(-1);
     link.hash = line?.id || "";
+    link.searchParams.delete("through");
     input.value = link.href;
     status.textContent = "Link updated for this lyric view. Select Share to copy it again.";
   }, { signal });

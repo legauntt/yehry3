@@ -20,7 +20,7 @@ test("share the exact playback moment with its lyric line and restore paused", a
   await recipient.locator("#lyric-line-3").click();
   expect(new URL(recipient.url()).searchParams.has("t")).toBe(false);
   await expect.poll(() => recipient.locator("audio").evaluate(audio => audio.currentTime)).toBe(9);
-  await recipient.getByRole("button", { name: /Share this moment/ }).click();
+  await recipient.getByRole("button", { name: "Share selected line" }).click();
   await recipient.locator("#lyric-line-2").click();
   await expect(recipient.locator(".lyric-line.is-linked")).toHaveCount(1);
   await expect(recipient.locator("#lyric-line-2")).toHaveClass(/is-linked/);
@@ -39,6 +39,29 @@ test("timestamp sharing works without lyric cues and fits mobile", async ({ page
   expect(new URL(await page.locator("#moment-link").inputValue()).searchParams.get("t")).toBe("12.5");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: "artifacts/lyric-moment-mobile.png", fullPage: true });
+});
+
+test("a selected two-line lyric passage shares only those lines", async ({ page, context }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/lyrics/?song=distonyc-06d2b8c3c8dffed19df347bb");
+  const first = page.getByRole("button", { name: /Oh god I'm a finna blow/ });
+  await first.click();
+  await page.getByLabel("Include next line").check();
+  await page.getByRole("button", { name: "Share selected line" }).click();
+  const link = await page.locator("#moment-link").inputValue();
+  expect(new URL(link).hash).toBe("#lyric-line-90");
+  expect(new URL(link).searchParams.get("through")).toBe("91");
+  expect(new URL(link).searchParams.get("t")).toBe("257.2");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  const recipient = await context.newPage();
+  await recipient.goto(link);
+  await expect(recipient.locator(".lyric-line.is-linked")).toHaveCount(2);
+  await expect(recipient.locator("#lyric-line-90")).toHaveClass(/is-linked/);
+  await expect(recipient.locator("#lyric-line-91")).toHaveClass(/is-linked/);
+  await expect(recipient.locator("#lyric-line-89")).not.toHaveClass(/is-linked/);
+  await expect(recipient.locator("#lyric-line-92")).toHaveCount(0);
+  await expect.poll(() => recipient.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(257.2, 1);
+  await recipient.close();
 });
 
 test("untimed lines jump nearby while timed lines still seek exactly", async ({ page }) => {
