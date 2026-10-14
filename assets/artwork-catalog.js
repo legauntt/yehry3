@@ -2850,20 +2850,26 @@ export default {
     ]
   },
   "distonyc-403e74a063f03d3810a9507b": {
-    "src": "/assets/artwork/distonyc-403e74a063f03d3810a9507b-incubating-314300be8dde-dde7fe0363e6afef-q86.webp",
+    "src": "/assets/artwork/distonyc-403e74a063f03d3810a9507b-mature-e5be41ab5334-167b1e2dab31fac6-q86.webp",
     "alt": "Cover artwork for Strange Neighborhood.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "9c9a58a1285be50b9c1dfad7b7120bf538f296e66992e2d72a97313d3bc60edf",
-    "promptHash": "7be4212b566206217d6cdcfc46dc56337790761773a80c185fba804c0023f136",
-    "createdAt": "2026-10-13T04:34:07.523Z",
+    "promptHash": "e8bd1ae863068e5d2af6e6f1215ffd67754565a26dd60f2e76522c4cab21382a",
+    "createdAt": "2026-10-14T04:37:31.084Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-403e74a063f03d3810a9507b-incubating-314300be8dde-dde7fe0363e6afef-q86.webp",
     "firstSeenAt": "2026-10-13T04:33:44.057Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-403e74a063f03d3810a9507b-incubating-314300be8dde-dde7fe0363e6afef-q86.webp",
+        "alt": "Cover artwork for Strange Neighborhood.",
+        "createdAt": "2026-10-13T04:34:07.523Z"
+      }
+    ]
   },
   "distonyc-7b37f5a178d569be4b8e4a6f": {
     "src": "/assets/artwork/distonyc-7b37f5a178d569be4b8e4a6f-incubating-bfcde93391ba-5b860aac838749a5-q86.webp",
