@@ -41,6 +41,10 @@ async function library() {
   const scope = currentScope();
   const listeningOverview = `<details class="listening-overview"><summary>Listening activity</summary><div class="listening-body"><div class="listening-heading"><p class="small" id="listening-scope">Loading listening stats…</p><button type="button" class="quiet" id="most-listened" aria-pressed="false">Most listened to ↗</button></div><dl class="listening-totals"><div><dt>Total listens</dt><dd id="listening-total">—</dd></div><div><dt>Songs listened to</dt><dd id="listening-reach">—</dd></div><div><dt>Latest listen</dt><dd id="listening-latest">—</dd></div></dl></div></details>`;
   main.innerHTML = `
+    <aside id="worker-offline-warning" class="worker-offline-warning" role="status" aria-live="polite" hidden>
+      <span class="worker-warning-icon" aria-hidden="true">⚠</span>
+      <div><h2>PC worker offline</h2><p>Song generation is paused until the PC worker reconnects. Requests stay in the queue, and published songs are still available to play.</p><a class="text-link" href="/queue/">View the queue →</a></div>
+    </aside>
     <section class="hero">
       <div class="hero-copy"><p class="eyebrow">Tony C · The listening room</p><h1 data-brand-headline>${escape(brandLine.split("\n")[0])}<br><em>${escape(brandLine.split("\n")[1])}</em></h1>
         <p class="lede">Originals, remixes, and beautiful wrong turns.</p>
@@ -788,6 +792,7 @@ async function library() {
     if (refreshingQueue) return refreshingQueue;
     refreshingQueue = api("/queue?page=0").then(async upcoming => {
       if (scope.left || !Array.isArray(upcoming.inStudio) || !Array.isArray(upcoming.queued)) return;
+      $("#worker-offline-warning").hidden = upcoming.worker?.status !== "offline";
       if (announceCompletion(upcoming)) void refresh();
       pending = [...upcoming.inStudio, ...(upcoming.needsAttention || []), ...upcoming.queued];
       recentReleases.clear();
