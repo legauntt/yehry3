@@ -2990,5 +2990,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-17T21:51:44.341Z",
     "history": []
+  },
+  "distonyc-228a799914af03ee014305cb": {
+    "src": "/assets/artwork/distonyc-228a799914af03ee014305cb-incubating-376fd88d6588-c467ff6a7904b212-q86.webp",
+    "alt": "Cover artwork for Mind Your Business.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "94389292fd8da0a2fcd6d9310b3c337d9afa1e26a4249c218bd36aa14ef012ac",
+    "promptHash": "61c253951ee8d0eac80c40aabe9c7957dc0600e87fefcccf2fb64271c60d30b5",
+    "createdAt": "2026-10-17T23:22:12.232Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-17T23:21:51.145Z",
+    "history": []
   }
 };
