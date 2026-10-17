@@ -2,6 +2,118 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-228a799914af03ee014305cb",
+      "title": "Mind Your Business",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-228a799914af03ee014305cb-3fa05c62c629.mp3",
+      "duration": 225.07102040816326,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-17T23:20:02.895Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Mind Your Business",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Lo-fi hip-hop at 82 BPM: dusty swung drums, warm sub-bass, mellow Rhodes chords, vinyl texture, and sparse muted guitar accents. A single clear Tony lead delivers the supplied monologue with steadily pitched, rhythmic phrasing that builds from conversational restraint to emphatic final lines. Keep the groove evolving with dropouts and bass movement; pace the final sentence so its last syllable lands 8–12 seconds before a single resolved chord decays.",
+        "lyrics": "Look, let me make something abundantly clear for people that are so bereft of activities they feel like they gotta comment on every one of mine.\nFirst of all, being a vegetarian should never be associated with being a revolutionary or being open-minded—that's a dietary choice.\nIf someone wants to proliferate the type of ignorance we're supposed to be fighting by thinking that, you're just fuckin' yourself.\nI don't go around promoting beef and poultry, shoving it in people's faces, I don't castigate people for not eating steak sandwiches, and I would never diss someone for being a fuckin' broccoli head, or living off radishes or eating grass with tofu.\nI like a lot of vegan cuisine, but the illogicality of expecting everyone to adopt your particular idea of what being healthy is, is just preposterous.\nI've seen some of you herbivores, and if you wanna argue health, y'all need to eat some kind of supplement, because some of y'all are so skinny that it's disgusting.\nLookin' like the only hip hop motherfuckas on Schindler's list.\nBeing a malnutrition ass got nothing to do with being revolutionary or being on point.\nI'll be damned if I let somebody else push their agenda on me.\nYou know, I don't eat pork, not 'cause I'm a Muslim—I just don't really like it, but I really will fuck a bird up, and fish is good when that shit is fresh.\nIt's like my nigga Vast Aire from Can' Ox said, \"If you don't like the smell of burning meat, then get the fuck off the planet!\"\nYou know, I don't criticize people for eating moss.\nAnd don't open your fuckin' mouth about my food, man!\nI like beef and broccoli, motherfucka.\nMind your goddamn business!\nMatter of fact, you know what? I'm out.\nI feel like asome arroz con pollo, a banana daiquiri, and a motherfuckin bistec empanado.\n[End]",
+        "duration": 225,
+        "bpm": 82,
+        "musicalSettings": {
+          "genre": "Lo-fi hip-hop",
+          "meter": "4/4 with a relaxed swung pocket",
+          "structure": "Continuous escalating spoken-rhythmic monologue, ending with a final resolved statement",
+          "performance": "One clear, steadily pitched Tony lead with natural rhythmic phrasing",
+          "energy": "Low-key and intimate at first, gradually sharpening into an assertive close",
+          "lyricWorkflow": "Preserve the supplied lyric sheet exactly, in its original order",
+          "instruments": [
+            "dusty hip-hop drums",
+            "sub-bass",
+            "Rhodes electric piano",
+            "muted electric guitar",
+            "vinyl texture"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "Look, let me make something abundantly clear for people that are so bereft of activities they feel like they gotta comment on every one of mine.\nFirst of all, being a vegetarian should never be associated with being a revolutionary or being open-minded—that's a dietary choice.\nIf someone wants to proliferate the type of ignorance we're supposed to be fighting by thinking that, you're just fuckin' yourself.\nI don't go around promoting beef and poultry, shoving it in people's faces, I don't castigate people for not eating steak sandwiches, and I would never diss someone for being a fuckin' broccoli head, or living off radishes or eating grass with tofu.\nI like a lot of vegan cuisine, but the illogicality of expecting everyone to adopt your particular idea of what being healthy is, is just preposterous.\nI've seen some of you herbivores, and if you wanna argue health, y'all need to eat some kind of supplement, because some of y'all are so skinny that it's disgusting.\nLookin' like the only hip hop motherfuckas on Schindler's list.\nBeing a malnutrition ass got nothing to do with being revolutionary or being on point.\nI'll be damned if I let somebody else push their agenda on me.\nYou know, I don't eat pork, not 'cause I'm a Muslim—I just don't really like it, but I really will fuck a bird up, and fish is good when that shit is fresh.\nIt's like my nigga Vast Aire from Can' Ox said, \"If you don't like the smell of burning meat, then get the fuck off the planet!\"\nYou know, I don't criticize people for eating moss.\nAnd don't open your fuckin' mouth about my food, man!\nI like beef and broccoli, motherfucka.\nMind your goddamn business!\nMatter of fact, you know what? I'm out.\nI feel like asome arroz con pollo, a banana daiquiri, and a motherfuckin bistec empanado.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 0,
+            "start": 22.1,
+            "end": 28.14
+          },
+          {
+            "line": 1,
+            "start": 28.14,
+            "end": 35.04
+          },
+          {
+            "line": 2,
+            "start": 35.48,
+            "end": 40.56
+          },
+          {
+            "line": 3,
+            "start": 40.96,
+            "end": 49.24
+          },
+          {
+            "line": 4,
+            "start": 49.8,
+            "end": 58.6
+          },
+          {
+            "line": 5,
+            "start": 59.52,
+            "end": 66.76
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "validationFailures": [
+        "vocal_activity",
+        "unconverted_vocals"
+      ],
+      "reviewState": "needs_review",
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "be3c02ee1e0762a6220bef43756b2dae7602e38fee0196e772fa34117543463e",
+        "bytes": 5401748,
+        "duration": 225.071,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-228a799914af03ee014305cb-be3c02ee1e07.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Lofi hiphop beat",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 225
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-58a4e4d62996f8a2166b0dc9",
       "title": "Leaving the Past",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-58a4e4d62996f8a2166b0dc9-8c8ac54e4221.mp3",
