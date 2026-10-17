@@ -193,6 +193,12 @@ export default {
     "sha256": "e6a490af5e8d043f83f8bea41a8a44249aba69a10dbc0eec8b3d7cc269103ebd",
     "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8c98e56d3d736316e459f5b5-e6a490af5e8d.mp3"
   },
+  "distonyc-8c9e0c78850a830f6fdf4d3d": {
+    "bytes": 6480083,
+    "duration": 270.001625,
+    "sha256": "df1101294ea1d1f268023abb096d2e18bb3cf521f00cb80b206da09eff220d26",
+    "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8c9e0c78850a830f6fdf4d3d-df1101294ea1.mp3"
+  },
   "distonyc-8de6c1a77488271758b8910d": {
     "bytes": 6720201,
     "duration": 280.0065,
