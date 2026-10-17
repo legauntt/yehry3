@@ -138,6 +138,38 @@ class PaidMusicTests(unittest.TestCase):
         self.assertEqual(words('\n'.join(c['text'] for c in provider['composition_plan']['chunks'])),
                          words('\n'.join(c['text'] for c in frozen['composition_plan']['chunks'])))
 
+    def test_long_lines_wrap_before_chunk_splitting_without_changing_words(self):
+        frozen = copy.deepcopy(self.body)
+        frozen['composition_plan']['chunks'][1]['text'] = '[Verse]\n' + 'word-phrase, ' * 700
+        before = copy.deepcopy(frozen)
+        with self.assertRaisesRegex(ValueError, '200 characters'):
+            paid_music.request_duration(frozen)
+        provider = paid_music.provider_request(frozen)
+        self.assertEqual(frozen, before)
+        self.assertEqual(paid_music.request_duration(provider), 240000)
+        chunks = provider['composition_plan']['chunks']
+        self.assertTrue(all(len(c['text'].splitlines()) <= 30 for c in chunks))
+        self.assertTrue(all(len(line) <= 200 for c in chunks for line in c['text'].splitlines()))
+        def tokens(body):
+            return ' '.join(c['text'] for c in body['composition_plan']['chunks']).replace('[Verse]', '').split()
+        self.assertEqual(tokens(provider), tokens(frozen))
+        self.assertEqual(provider, paid_music.provider_request(provider))
+
+    def test_transport_refuses_to_split_an_overlong_word(self):
+        frozen = copy.deepcopy(self.body)
+        frozen['composition_plan']['chunks'][1]['text'] = 'x' * 201
+        with self.assertRaisesRegex(ValueError, 'word longer'):
+            paid_music.provider_request(frozen)
+
+    def test_new_composition_accepts_wrappable_long_lyric_lines(self):
+        song = plan(240)
+        song['lyrics'] = '[Verse]\n' + 'a long spoken phrase, ' * 25 + '\n[End]'
+        frozen = music_backend.composition(song, 123)
+        provider = paid_music.provider_request(frozen)
+        self.assertEqual(paid_music.request_duration(provider), 240000)
+        self.assertTrue(all(len(line) <= 200 for c in provider['composition_plan']['chunks']
+                            for line in c['text'].splitlines()))
+
     def test_paid_constraints_reject_local_candidates_unattached_remixes_and_band_adapter(self):
         song = plan(); brief = {'details': {'musicBackend': 'eleven_music', 'generation': song['generation']}}
         self.assertEqual(song, music_backend.plan_constraints(song, brief))

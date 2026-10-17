@@ -117,8 +117,8 @@ def composition(plan, seed):
     from vocal_score import composition_styles
     composition_styles(plan, chunks)
     result = {'model_id': 'music_v2_5', 'composition_plan': {'chunks': chunks}, 'seed': seed}
-    from paid_music import request_duration
-    request_duration(result)
+    from paid_music import provider_request
+    provider_request(result)
     return result
 
 

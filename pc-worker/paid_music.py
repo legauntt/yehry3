@@ -7,6 +7,7 @@ import json
 import math
 import os
 import re
+import textwrap
 from pathlib import Path
 import subprocess
 import urllib.error
@@ -22,6 +23,7 @@ RATE_CENTS = 100
 MAX_BYTES = 32 * 1024 * 1024
 MAX_ERROR_BYTES = 65536
 MAX_CHUNK_LINES = 30
+MAX_LINE_CHARACTERS = 200
 
 
 def policy(path):
@@ -127,6 +129,8 @@ def request_duration(body):
             raise ValueError('Invalid paid composition section')
         if len(chunk['text'].splitlines()) > MAX_CHUNK_LINES:
             raise ValueError('Paid composition chunks are limited to 30 lines')
+        if any(len(line) > MAX_LINE_CHARACTERS for line in chunk['text'].splitlines()):
+            raise ValueError('Paid composition lines are limited to 200 characters')
     duration = sum(c['duration_ms'] for c in chunks)
     if not 69000 <= duration <= 600000:
         raise ValueError('Paid songs must be between 69 and 600 seconds')
@@ -138,7 +142,18 @@ def provider_request(body):
     result = copy.deepcopy(body)
     chunks = []
     for original in result.get('composition_plan', {}).get('chunks', []):
-        lines = original.get('text', '').splitlines()
+        lines = []
+        for line in original.get('text', '').splitlines():
+            if len(line) <= MAX_LINE_CHARACTERS:
+                lines.append(line)
+                continue
+            wrapped = textwrap.wrap(line, width=MAX_LINE_CHARACTERS,
+                                    expand_tabs=False, replace_whitespace=False,
+                                    break_long_words=False, break_on_hyphens=False)
+            if any(len(part) > MAX_LINE_CHARACTERS for part in wrapped):
+                raise ValueError('Paid composition contains a word longer than 200 characters')
+            lines.extend(wrapped)
+        original['text'] = '\n'.join(lines)
         if len(lines) <= MAX_CHUNK_LINES:
             chunks.append(original)
             continue
