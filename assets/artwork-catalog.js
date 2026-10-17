@@ -2958,5 +2958,21 @@ export default {
         "createdAt": "2026-10-14T09:25:07.005Z"
       }
     ]
+  },
+  "distonyc-8c9e0c78850a830f6fdf4d3d": {
+    "src": "/assets/artwork/distonyc-8c9e0c78850a830f6fdf4d3d-incubating-4c680e65ea13-44ac1e5d5a83839c-q86.webp",
+    "alt": "Cover artwork for Doctor Dick Disco Fever.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "94e92c1cb3affe4c6096ad671cf16efd41b51a37b19540d2d5b43f4b532b5ee8",
+    "promptHash": "0267367cfe12559f426c98146b56e9710e5c75130974ecb04cbe97ae68cd3449",
+    "createdAt": "2026-10-17T07:28:03.999Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-17T07:27:43.948Z",
+    "history": []
   }
 };
