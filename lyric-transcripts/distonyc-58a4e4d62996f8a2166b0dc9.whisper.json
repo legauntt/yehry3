@@ -1,0 +1,475 @@
+{
+  "version": 1,
+  "songId": "distonyc-58a4e4d62996f8a2166b0dc9",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-58a4e4d62996f8a2166b0dc9-8c8ac54e4221.mp3",
+  "audioSha256": "8c8ac54e422119d9c5c3ed7dac4b31ebfdebf3ba41622ea73b28e0b65e78f957",
+  "inputSha256": "581aeb17c172ebdf9e3f2f71664fe7dcfd918623a5ca05aa5e91b90b77217337",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 255.08575,
+  "segments": [
+    {
+      "start": 19.4,
+      "end": 22.36,
+      "text": "They told me I would never make it, I would never achieve it",
+      "uncertain": true
+    },
+    {
+      "start": 22.36,
+      "end": 25.0,
+      "text": "Reality is nourishment but people don't believe it",
+      "uncertain": true
+    },
+    {
+      "start": 25.0,
+      "end": 27.44,
+      "text": "I guess it's hard to stomach the truth like a bulimic",
+      "uncertain": false
+    },
+    {
+      "start": 27.44,
+      "end": 29.8,
+      "text": "It's a dirty game and nobody is willing to clean it",
+      "uncertain": false
+    },
+    {
+      "start": 29.8,
+      "end": 31.28,
+      "text": "But this is for the paraplegic",
+      "uncertain": true
+    },
+    {
+      "start": 31.28,
+      "end": 33.48,
+      "text": "People wounding them glass claddy",
+      "uncertain": true
+    },
+    {
+      "start": 33.48,
+      "end": 34.86,
+      "text": "That in the creed",
+      "uncertain": true
+    },
+    {
+      "start": 34.86,
+      "end": 36.3,
+      "text": "But this is for the paraplegic",
+      "uncertain": false
+    },
+    {
+      "start": 36.3,
+      "end": 37.34,
+      "text": "People dreaming of running",
+      "uncertain": false
+    },
+    {
+      "start": 37.34,
+      "end": 39.16,
+      "text": "Ladies married to men who don't please them",
+      "uncertain": false
+    },
+    {
+      "start": 39.16,
+      "end": 40.9,
+      "text": "Dreaming to come and verbally murderous",
+      "uncertain": true
+    },
+    {
+      "start": 40.9,
+      "end": 42.44,
+      "text": "Like David Berkowitz when I'm gunning",
+      "uncertain": false
+    },
+    {
+      "start": 42.44,
+      "end": 43.64,
+      "text": "Some cowards on the internet",
+      "uncertain": false
+    },
+    {
+      "start": 43.64,
+      "end": 44.94,
+      "text": "Didn't think I would sell",
+      "uncertain": false
+    },
+    {
+      "start": 44.94,
+      "end": 46.34,
+      "text": "Scared to talk shit in person",
+      "uncertain": false
+    },
+    {
+      "start": 46.34,
+      "end": 47.46,
+      "text": "Cause they stuck in a shell",
+      "uncertain": true
+    },
+    {
+      "start": 47.46,
+      "end": 50.0,
+      "text": "And couldn't understand the pain of being stuck in a cell",
+      "uncertain": false
+    },
+    {
+      "start": 50.0,
+      "end": 51.38,
+      "text": "Hell is not a place you go",
+      "uncertain": true
+    },
+    {
+      "start": 51.38,
+      "end": 52.54,
+      "text": "If you're not a Christian",
+      "uncertain": false
+    },
+    {
+      "start": 52.54,
+      "end": 55.1,
+      "text": "It's the failure of your life's greatest ambition",
+      "uncertain": false
+    },
+    {
+      "start": 55.1,
+      "end": 56.4,
+      "text": "It was a week's not clue",
+      "uncertain": true
+    },
+    {
+      "start": 56.4,
+      "end": 57.58,
+      "text": "If you're not a Christian",
+      "uncertain": true
+    },
+    {
+      "start": 57.58,
+      "end": 60.06,
+      "text": "It's the failure of your life's greatest ambition",
+      "uncertain": false
+    },
+    {
+      "start": 60.06,
+      "end": 62.6,
+      "text": "It's a bad decision to blindly follow any religion",
+      "uncertain": false
+    },
+    {
+      "start": 62.6,
+      "end": 65.14,
+      "text": "I don't see the difference in between the wrong and the wrong",
+      "uncertain": false
+    },
+    {
+      "start": 65.14,
+      "end": 67.7,
+      "text": "Soldiers empty in the clips that little kids and their moms",
+      "uncertain": false
+    },
+    {
+      "start": 67.7,
+      "end": 70.24,
+      "text": "Are just like a desperate motherfucker strapped to a bomb",
+      "uncertain": false
+    },
+    {
+      "start": 70.24,
+      "end": 73.06,
+      "text": "Humanity's gone, smoked up in a gravity bong",
+      "uncertain": false
+    },
+    {
+      "start": 73.06,
+      "end": 75.18,
+      "text": "By a Democrat, Republican, Cheech and Chong",
+      "uncertain": false
+    },
+    {
+      "start": 75.18,
+      "end": 77.74,
+      "text": "Immortal technique, you never heard me preach in a song",
+      "uncertain": false
+    },
+    {
+      "start": 77.74,
+      "end": 80.32,
+      "text": "I'm not controversial, I'm just speaking the facts",
+      "uncertain": false
+    },
+    {
+      "start": 80.32,
+      "end": 82.84,
+      "text": "Put your hands in the air like you got the heat to your back",
+      "uncertain": false
+    },
+    {
+      "start": 82.84,
+      "end": 85.32,
+      "text": "And shake your body like a baby born addicted to crack",
+      "uncertain": false
+    },
+    {
+      "start": 85.32,
+      "end": 87.9,
+      "text": "And since life's a gamble like the craps tables at Vegas",
+      "uncertain": false
+    },
+    {
+      "start": 87.9,
+      "end": 90.5,
+      "text": "I freestyle my destiny, it's not riggin' in pages",
+      "uncertain": false
+    },
+    {
+      "start": 110.18,
+      "end": 113.1,
+      "text": "I hate it when they tell us how far we came to be",
+      "uncertain": true
+    },
+    {
+      "start": 113.1,
+      "end": 115.46,
+      "text": "As if our people's history started with slavery",
+      "uncertain": true
+    },
+    {
+      "start": 115.46,
+      "end": 118.06,
+      "text": "Painfully, I discovered the shit that kept a secret",
+      "uncertain": false
+    },
+    {
+      "start": 118.06,
+      "end": 119.16,
+      "text": "This is the exodus",
+      "uncertain": false
+    },
+    {
+      "start": 119.16,
+      "end": 120.74,
+      "text": "Like the black Jews out of Egypt",
+      "uncertain": false
+    },
+    {
+      "start": 120.74,
+      "end": 122.12,
+      "text": "I keep it reality-based",
+      "uncertain": false
+    },
+    {
+      "start": 122.12,
+      "end": 123.22,
+      "text": "With the music I make",
+      "uncertain": false
+    },
+    {
+      "start": 123.22,
+      "end": 124.58,
+      "text": "Blow up the truth in your face",
+      "uncertain": false
+    },
+    {
+      "start": 124.58,
+      "end": 125.9,
+      "text": "With the style I run with",
+      "uncertain": false
+    },
+    {
+      "start": 125.9,
+      "end": 128.24,
+      "text": "Like the Navy missile that shot down Flight 800",
+      "uncertain": true
+    },
+    {
+      "start": 128.24,
+      "end": 130.82,
+      "text": "I'm like the Africans who came here before Columbus",
+      "uncertain": false
+    },
+    {
+      "start": 130.82,
+      "end": 133.4,
+      "text": "And from the 1500s until after the morrow",
+      "uncertain": false
+    },
+    {
+      "start": 133.4,
+      "end": 135.88,
+      "text": "I watched Latin America get raped in the sorrow",
+      "uncertain": false
+    },
+    {
+      "start": 135.88,
+      "end": 137.28,
+      "text": "You see, the Spaniards never left",
+      "uncertain": false
+    },
+    {
+      "start": 137.28,
+      "end": 138.24,
+      "text": "This poes de colon",
+      "uncertain": true
+    },
+    {
+      "start": 138.24,
+      "end": 139.52,
+      "text": "And if you don't believe me",
+      "uncertain": false
+    },
+    {
+      "start": 139.52,
+      "end": 140.8,
+      "text": "You can click on Univision",
+      "uncertain": true
+    },
+    {
+      "start": 140.8,
+      "end": 143.48,
+      "text": "I never see so much racism in all of my life",
+      "uncertain": true
+    },
+    {
+      "start": 143.48,
+      "end": 145.94,
+      "text": "Every program and newscast, all of them white",
+      "uncertain": false
+    },
+    {
+      "start": 145.94,
+      "end": 148.5,
+      "text": "It's like apartheid with 10% ruling the rest",
+      "uncertain": true
+    },
+    {
+      "start": 148.5,
+      "end": 151.12,
+      "text": "That type of stressor make me put the fucking tool to your chest",
+      "uncertain": false
+    },
+    {
+      "start": 170.9,
+      "end": 173.68,
+      "text": "I'm stepping my way, nigga, I wouldn't want to be ya",
+      "uncertain": true
+    },
+    {
+      "start": 173.68,
+      "end": 176.12,
+      "text": "I burn slow like pissing drunk with gonorrhea",
+      "uncertain": false
+    },
+    {
+      "start": 176.12,
+      "end": 178.84,
+      "text": "I'll do a free show in North Korea, burning the flag",
+      "uncertain": false
+    },
+    {
+      "start": 178.84,
+      "end": 181.36,
+      "text": "While J. Edgar Hoover politicians dress up in drag",
+      "uncertain": false
+    },
+    {
+      "start": 181.36,
+      "end": 183.86,
+      "text": "Trying to confuse you, making it hard to follow this",
+      "uncertain": true
+    },
+    {
+      "start": 183.86,
+      "end": 186.44,
+      "text": "Capitalism and democracy are not synonymous",
+      "uncertain": false
+    },
+    {
+      "start": 186.44,
+      "end": 188.94,
+      "text": "You swallow propaganda like a birth control pill",
+      "uncertain": false
+    },
+    {
+      "start": 188.94,
+      "end": 191.5,
+      "text": "Selling your soul to the eye on the back of the dollar bill",
+      "uncertain": false
+    },
+    {
+      "start": 191.5,
+      "end": 194.04,
+      "text": "But that'll never be me, cause I'm leaving the past",
+      "uncertain": false
+    },
+    {
+      "start": 194.04,
+      "end": 195.76,
+      "text": "Like an abused wife with the kids",
+      "uncertain": false
+    },
+    {
+      "start": 195.76,
+      "end": 197.46,
+      "text": "Leaving your ass like a drug addict",
+      "uncertain": false
+    },
+    {
+      "start": 197.46,
+      "end": 199.12,
+      "text": "Clean and sober, leaving a stash",
+      "uncertain": true
+    },
+    {
+      "start": 199.12,
+      "end": 201.56,
+      "text": "Unbreakable technique leaving the plane crash",
+      "uncertain": false
+    },
+    {
+      "start": 201.56,
+      "end": 204.06,
+      "text": "I'm out with the black box and I refuse to return",
+      "uncertain": false
+    },
+    {
+      "start": 204.06,
+      "end": 206.64,
+      "text": "I spit reality instead of what you usually learn",
+      "uncertain": false
+    },
+    {
+      "start": 206.64,
+      "end": 209.14,
+      "text": "And I refuse to be concerned with condescending advice",
+      "uncertain": false
+    },
+    {
+      "start": 209.14,
+      "end": 211.8,
+      "text": "Cause I'm the only motherfucker that could change my life",
+      "uncertain": false
+    },
+    {
+      "start": 231.78,
+      "end": 234.42,
+      "text": "Some people think I won't make it, but I know that I will",
+      "uncertain": false
+    },
+    {
+      "start": 234.42,
+      "end": 236.96,
+      "text": "Escape the emptiness, cause that shit is slow and it kills",
+      "uncertain": true
+    },
+    {
+      "start": 236.96,
+      "end": 239.48,
+      "text": "The flowin' is still, I made y'all believe it at last",
+      "uncertain": false
+    },
+    {
+      "start": 239.48,
+      "end": 242.2,
+      "text": "You can make the future, let it start from leavin' the past",
+      "uncertain": true
+    }
+  ]
+}
