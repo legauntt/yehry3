@@ -2974,5 +2974,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-17T07:27:43.948Z",
     "history": []
+  },
+  "distonyc-58a4e4d62996f8a2166b0dc9": {
+    "src": "/assets/artwork/distonyc-58a4e4d62996f8a2166b0dc9-incubating-9761ff4aefeb-82bed41f934e41cd-q86.webp",
+    "alt": "Cover artwork for Leaving the Past.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "5f6fa1a7194e468bad40cc0eb4d711835301c97db8e1f6ea9ff8f120c8134414",
+    "promptHash": "5da0f299f1a9f9c59d1ee8a0065da7a8be317d906c0dd61cc54830775b6546c7",
+    "createdAt": "2026-10-17T21:52:06.435Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-17T21:51:44.341Z",
+    "history": []
   }
 };
