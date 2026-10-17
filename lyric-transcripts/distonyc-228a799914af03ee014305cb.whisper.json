@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "songId": "distonyc-228a799914af03ee014305cb",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-228a799914af03ee014305cb-3fa05c62c629.mp3",
+  "audioSha256": "3fa05c62c629e0c79714ea62a97ef6ef05a153768cbedbb340ddd98eed50c1c9",
+  "inputSha256": "3fa05c62c629e0c79714ea62a97ef6ef05a153768cbedbb340ddd98eed50c1c9",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 225.071,
+  "segments": [
+    {
+      "start": 22.24,
+      "end": 26.72,
+      "text": "Look, let me make something abundantly clear for people that are so bereft of activities",
+      "uncertain": false
+    },
+    {
+      "start": 26.72,
+      "end": 28.94,
+      "text": "they feel like they gotta comment on every one of mine.",
+      "uncertain": false
+    },
+    {
+      "start": 28.94,
+      "end": 35.1,
+      "text": "First of all, being a vegetarian should never be associated with being a revolutionary or fave, that's a dietary choice",
+      "uncertain": false
+    },
+    {
+      "start": 35.1,
+      "end": 40.72,
+      "text": "If someone wants to proliferate the type of ignorance we're supposed to be fighting by thinking that, you're just fucking yourself",
+      "uncertain": true
+    },
+    {
+      "start": 40.72,
+      "end": 44.12,
+      "text": "I don't go around commoting beef and poultry, shoving in people's faces",
+      "uncertain": false
+    },
+    {
+      "start": 44.12,
+      "end": 46.56,
+      "text": "I don't castigate people for not eating steak sandwiches",
+      "uncertain": false
+    },
+    {
+      "start": 46.56,
+      "end": 49.38,
+      "text": "And I would never diss someone for being a fucking broccoli tofu",
+      "uncertain": true
+    },
+    {
+      "start": 49.38,
+      "end": 51.2,
+      "text": "I like a lot of vegan cuisine",
+      "uncertain": false
+    },
+    {
+      "start": 51.2,
+      "end": 56.7,
+      "text": "The theologicality of expecting everyone to adopt your particular idea of what being healthy is",
+      "uncertain": false
+    },
+    {
+      "start": 56.7,
+      "end": 58.64,
+      "text": "It's just preposterous",
+      "uncertain": false
+    },
+    {
+      "start": 59.64,
+      "end": 62.4,
+      "text": "I've seen some of you herbivores and if you want to argue health",
+      "uncertain": true
+    },
+    {
+      "start": 62.4,
+      "end": 63.98,
+      "text": "Y'all need to eat some kind of supplement",
+      "uncertain": true
+    },
+    {
+      "start": 63.98,
+      "end": 66.96,
+      "text": "Because some of y'all are so revolutionary that it's disgusting",
+      "uncertain": false
+    },
+    {
+      "start": 89.02,
+      "end": 90.64,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 120.12,
+      "end": 121.2,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 150.72,
+      "end": 151.98,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 179.8,
+      "end": 181.3,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 211.0,
+      "end": 211.06,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}
