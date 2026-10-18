@@ -3006,5 +3006,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-17T23:21:51.145Z",
     "history": []
+  },
+  "distonyc-ca65c9e08cadd4c51bb3675f": {
+    "src": "/assets/artwork/distonyc-ca65c9e08cadd4c51bb3675f-incubating-abda1e854ea8-cacbb9ca3e0b4d36-q86.webp",
+    "alt": "Cover artwork for Pancakeo - Mind Your Business.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "22b164518bbdd3aac9c8ca356a98a4c967134994cbb4b11f314c6f63ff8ac92f",
+    "promptHash": "bee85480798ee2e986162d46b18e379a2731db1c3309b279b01b520bd540647f",
+    "createdAt": "2026-10-18T00:16:04.396Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-18T00:15:43.834Z",
+    "history": []
   }
 };
