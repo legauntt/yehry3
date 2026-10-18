@@ -2,6 +2,206 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-ca65c9e08cadd4c51bb3675f",
+      "title": "Pancakeo - Mind Your Business",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ca65c9e08cadd4c51bb3675f-9d0018f335df.mp3",
+      "duration": 150.04734693877552,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-18T00:14:18.869Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Pancakeo - Mind Your Business",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Lo-fi hip-hop at 92 BPM: warm dusty drums, mellow bass, restrained jazzy electric piano and soft vinyl texture. A clearly audible solo male rhythmic rap/spoken-sung lead delivers each section at a natural brisk pace, with clean, steadily pitched phrasing and no doubles or backing voices. Use seven short 15–25-second vocal sections, separated only by brief transitions; keep the intro and outro under four seconds. Build subtly through bass and drum detail, then place the final sustained spoken-sung syllable 8–12 seconds before the end, followed by one resolved final chord decay.",
+        "lyrics": "[Section 1]\nLook, let me make something abundantly clear for people that are so bereft of activities they feel like they gotta comment on every one of\nmine.\nFirst of all, being a vegetarian should never be associated with being a revolutionary or being open-minded—that's a dietary choice.\n\n[Section 2]\nIf someone wants to proliferate the type of ignorance we're supposed to be fighting by thinking that, you're just fuckin' yourself.\nI don't go around promoting beef and poultry, shoving it in people's faces, I don't castigate people for not eating steak sandwiches, and I\nwould never diss someone for being a fuckin' broccoli head, or living off radishes or eating grass with tofu.\n\n[Section 3]\nI like a lot of vegan cuisine, but the illogicality of expecting everyone to adopt your particular idea of what being healthy is, is just\npreposterous.\nI've seen some of you herbivores, and if you wanna argue health, y'all need to eat some kind of supplement, because some of y'all are so\nskinny that it's disgusting.\n\n[Section 4]\nLookin' like the only hip hop motherfuckas on Schindler's list.\nBeing a malnutrition ass got nothing to do with being revolutionary or being on point.\nI'll be damned if I let somebody else push their agenda on me.\n\n[Section 5]\nYou know, I don't eat pork, not 'cause I'm a Muslim—I just don't really like it, but I really will fuck a bird up, and fish is good when\nthat shit is fresh.\nIt's like my nigga Vast Aire from Can' Ox said, \"If you don't like the smell of burning meat, then get the fuck off the planet!\"\n\n[Section 6]\nYou know, I don't criticize people for eating moss.\nAnd don't open your fuckin' mouth about my food, man!\nI like beef and broccoli, motherfucka.\n\n[Section 7]\nMind your goddamn business!\nMatter of fact, you know what? I'm out.\nI feel like asome arroz con pollo, a banana daiquiri, and a motherfuckin bistec empanado.\n[End]",
+        "duration": 150,
+        "bpm": 92,
+        "musicalSettings": {
+          "genre": "Lo-fi hip-hop",
+          "meter": "4/4",
+          "structure": "Brief intro, seven short sequential vocal sections, brief transitions, compact resolved outro",
+          "performance": "Solo male rhythmic rap/spoken-sung lead with clear natural delivery",
+          "energy": "Relaxed pocket that gains mild emphasis through the final sections",
+          "lyricWorkflow": "Preserved supplied lyric sheet in its original order",
+          "instruments": [
+            "dusty hip-hop drum kit",
+            "mellow electric bass",
+            "jazzy electric piano",
+            "soft vinyl texture"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Section 1]\nLook, let me make something abundantly clear for people that are so bereft of activities they feel like they gotta comment on every one of\nmine.\nFirst of all, being a vegetarian should never be associated with being a revolutionary or being open-minded—that's a dietary choice.\n\n[Section 2]\nIf someone wants to proliferate the type of ignorance we're supposed to be fighting by thinking that, you're just fuckin' yourself.\nI don't go around promoting beef and poultry, shoving it in people's faces, I don't castigate people for not eating steak sandwiches, and I\nwould never diss someone for being a fuckin' broccoli head, or living off radishes or eating grass with tofu.\n\n[Section 3]\nI like a lot of vegan cuisine, but the illogicality of expecting everyone to adopt your particular idea of what being healthy is, is just\npreposterous.\nI've seen some of you herbivores, and if you wanna argue health, y'all need to eat some kind of supplement, because some of y'all are so\nskinny that it's disgusting.\n\n[Section 4]\nLookin' like the only hip hop motherfuckas on Schindler's list.\nBeing a malnutrition ass got nothing to do with being revolutionary or being on point.\nI'll be damned if I let somebody else push their agenda on me.\n\n[Section 5]\nYou know, I don't eat pork, not 'cause I'm a Muslim—I just don't really like it, but I really will fuck a bird up, and fish is good when\nthat shit is fresh.\nIt's like my nigga Vast Aire from Can' Ox said, \"If you don't like the smell of burning meat, then get the fuck off the planet!\"\n\n[Section 6]\nYou know, I don't criticize people for eating moss.\nAnd don't open your fuckin' mouth about my food, man!\nI like beef and broccoli, motherfucka.\n\n[Section 7]\nMind your goddamn business!\nMatter of fact, you know what? I'm out.\nI feel like asome arroz con pollo, a banana daiquiri, and a motherfuckin bistec empanado.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 4,
+            "end": 10.54
+          },
+          {
+            "line": 2,
+            "start": 10.54,
+            "end": 12.38
+          },
+          {
+            "line": 3,
+            "start": 13.54,
+            "end": 20.44
+          },
+          {
+            "line": 6,
+            "start": 30.76,
+            "end": 35.92
+          },
+          {
+            "line": 7,
+            "start": 36.74,
+            "end": 42.84
+          },
+          {
+            "line": 8,
+            "start": 42.84,
+            "end": 48.24
+          },
+          {
+            "line": 11,
+            "start": 51.62,
+            "end": 61.1
+          },
+          {
+            "line": 12,
+            "start": 61.1,
+            "end": 62.4
+          },
+          {
+            "line": 13,
+            "start": 63.26,
+            "end": 70.06
+          },
+          {
+            "line": 14,
+            "start": 70.06,
+            "end": 71.66
+          },
+          {
+            "line": 17,
+            "start": 75.54,
+            "end": 78.32
+          },
+          {
+            "line": 18,
+            "start": 78.32,
+            "end": 81.58
+          },
+          {
+            "line": 19,
+            "start": 82.36,
+            "end": 84.9
+          },
+          {
+            "line": 22,
+            "start": 93.98,
+            "end": 99.44
+          },
+          {
+            "line": 23,
+            "start": 99.44,
+            "end": 100.54
+          },
+          {
+            "line": 24,
+            "start": 104.2,
+            "end": 109.08
+          },
+          {
+            "line": 27,
+            "start": 116.96,
+            "end": 119.26
+          },
+          {
+            "line": 28,
+            "start": 119.26,
+            "end": 121.88
+          },
+          {
+            "line": 29,
+            "start": 124,
+            "end": 125.16
+          },
+          {
+            "line": 32,
+            "start": 125.16,
+            "end": 130.46
+          },
+          {
+            "line": 34,
+            "start": 132.4,
+            "end": 136.16
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "low_vocal_coverage",
+          "fraction": 0.4859389577502332
+        },
+        {
+          "code": "long_instrumental_break",
+          "seconds": 10.9
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 13.75
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "haunted",
+      "voiceEpoch": 150,
+      "guide": {
+        "sha256": "5962257af8e81cdc72f063be4396942d80129876551ddfc7b88f84df453d94dc",
+        "bytes": 3601180,
+        "duration": 150.047333,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ca65c9e08cadd4c51bb3675f-5962257af8e8.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Lofi hiphop beat",
+        "direction": "Lo-fi hip-hop beat with a clearly audible solo male rhythmic rap/spoken-sung lead throughout. Deliver ALL supplied lyrics in order at a natural brisk rap pace, without omissions or repeated filler. Use 6 to 8 short vocal sections of about 15 to 25 seconds, distributing the entire lyric sheet across them. Do not put the monologue into one or two very long composition chunks. Keep intro and outro under 4 seconds each; short instrumental transitions only. Warm dusty drums, mellow bass and understated jazzy keys. Leave a complete final vocal ending. The instrumental-heavy setting permits naturally sparse rap phrasing; it is not a request for a long empty outro.",
+        "keep": "Preserve every supplied lyric word in order, the lo-fi hip-hop idea, Pancakeo attribution, and Tony V9 epoch 150 voice.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 150,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "haunted",
+          "duration": 150,
+          "instrumentalHeavy": true
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-228a799914af03ee014305cb",
       "title": "Mind Your Business",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-228a799914af03ee014305cb-3fa05c62c629.mp3",
