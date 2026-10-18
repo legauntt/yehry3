@@ -2960,20 +2960,26 @@ export default {
     ]
   },
   "distonyc-8c9e0c78850a830f6fdf4d3d": {
-    "src": "/assets/artwork/distonyc-8c9e0c78850a830f6fdf4d3d-incubating-4c680e65ea13-44ac1e5d5a83839c-q86.webp",
+    "src": "/assets/artwork/distonyc-8c9e0c78850a830f6fdf4d3d-mature-ca89472fb05d-0a9a7fb420472ee2-q86.webp",
     "alt": "Cover artwork for Doctor Dick Disco Fever.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "94e92c1cb3affe4c6096ad671cf16efd41b51a37b19540d2d5b43f4b532b5ee8",
-    "promptHash": "0267367cfe12559f426c98146b56e9710e5c75130974ecb04cbe97ae68cd3449",
-    "createdAt": "2026-10-17T07:28:03.999Z",
+    "promptHash": "c3f1ecf58665844ebb5e8113080171ed73f1206e430edcee2c75352332c531a5",
+    "createdAt": "2026-10-18T07:31:27.113Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-8c9e0c78850a830f6fdf4d3d-incubating-4c680e65ea13-44ac1e5d5a83839c-q86.webp",
     "firstSeenAt": "2026-10-17T07:27:43.948Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-8c9e0c78850a830f6fdf4d3d-incubating-4c680e65ea13-44ac1e5d5a83839c-q86.webp",
+        "alt": "Cover artwork for Doctor Dick Disco Fever.",
+        "createdAt": "2026-10-17T07:28:03.999Z"
+      }
+    ]
   },
   "distonyc-58a4e4d62996f8a2166b0dc9": {
     "src": "/assets/artwork/distonyc-58a4e4d62996f8a2166b0dc9-incubating-9761ff4aefeb-82bed41f934e41cd-q86.webp",
