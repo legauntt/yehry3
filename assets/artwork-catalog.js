@@ -2982,20 +2982,26 @@ export default {
     ]
   },
   "distonyc-58a4e4d62996f8a2166b0dc9": {
-    "src": "/assets/artwork/distonyc-58a4e4d62996f8a2166b0dc9-incubating-9761ff4aefeb-82bed41f934e41cd-q86.webp",
+    "src": "/assets/artwork/distonyc-58a4e4d62996f8a2166b0dc9-mature-845de6a6f897-d0df83837572d6d8-q86.webp",
     "alt": "Cover artwork for Leaving the Past.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "5f6fa1a7194e468bad40cc0eb4d711835301c97db8e1f6ea9ff8f120c8134414",
-    "promptHash": "5da0f299f1a9f9c59d1ee8a0065da7a8be317d906c0dd61cc54830775b6546c7",
-    "createdAt": "2026-10-17T21:52:06.435Z",
+    "promptHash": "7fcf666deafe9a65dbaae1c5a57cb3ca8204312d25fb2a95c29d9da1691051d0",
+    "createdAt": "2026-10-19T07:03:27.606Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-58a4e4d62996f8a2166b0dc9-incubating-9761ff4aefeb-82bed41f934e41cd-q86.webp",
     "firstSeenAt": "2026-10-17T21:51:44.341Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-58a4e4d62996f8a2166b0dc9-incubating-9761ff4aefeb-82bed41f934e41cd-q86.webp",
+        "alt": "Cover artwork for Leaving the Past.",
+        "createdAt": "2026-10-17T21:52:06.435Z"
+      }
+    ]
   },
   "distonyc-228a799914af03ee014305cb": {
     "src": "/assets/artwork/distonyc-228a799914af03ee014305cb-incubating-376fd88d6588-c467ff6a7904b212-q86.webp",
@@ -3014,19 +3020,25 @@ export default {
     "history": []
   },
   "distonyc-ca65c9e08cadd4c51bb3675f": {
-    "src": "/assets/artwork/distonyc-ca65c9e08cadd4c51bb3675f-incubating-abda1e854ea8-cacbb9ca3e0b4d36-q86.webp",
+    "src": "/assets/artwork/distonyc-ca65c9e08cadd4c51bb3675f-mature-c36e2cf04d66-362fc514eb02ca10-q86.webp",
     "alt": "Cover artwork for Pancakeo - Mind Your Business.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "22b164518bbdd3aac9c8ca356a98a4c967134994cbb4b11f314c6f63ff8ac92f",
-    "promptHash": "bee85480798ee2e986162d46b18e379a2731db1c3309b279b01b520bd540647f",
-    "createdAt": "2026-10-18T00:16:04.396Z",
+    "promptHash": "0724aed6d4474fd4f4dea5127086e2427729644d9474542a69d5d0222ae754c9",
+    "createdAt": "2026-10-19T07:03:26.975Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-ca65c9e08cadd4c51bb3675f-incubating-abda1e854ea8-cacbb9ca3e0b4d36-q86.webp",
     "firstSeenAt": "2026-10-18T00:15:43.834Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-ca65c9e08cadd4c51bb3675f-incubating-abda1e854ea8-cacbb9ca3e0b4d36-q86.webp",
+        "alt": "Cover artwork for Pancakeo - Mind Your Business.",
+        "createdAt": "2026-10-18T00:16:04.396Z"
+      }
+    ]
   }
 };
