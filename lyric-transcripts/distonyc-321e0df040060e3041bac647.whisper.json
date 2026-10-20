@@ -1,0 +1,421 @@
+{
+  "version": 1,
+  "songId": "distonyc-321e0df040060e3041bac647",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-321e0df040060e3041bac647-8ad850bdea7d.mp3",
+  "audioSha256": "8ad850bdea7d6e4f76403fef59ed74b2a13b9585bcae45d4c0442704e43302a4",
+  "inputSha256": "a3b07b7bb3725a6af18d21a0c0ad279fd31119750c6a930084174846e64190a8",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 310.047375,
+  "segments": [
+    {
+      "start": 3.72,
+      "end": 8.68,
+      "text": "Tony C. got a throne from a curbside sail",
+      "uncertain": false
+    },
+    {
+      "start": 11.44,
+      "end": 15.86,
+      "text": "Vinyl split like a map of a county jail",
+      "uncertain": false
+    },
+    {
+      "start": 15.86,
+      "end": 20.8,
+      "text": "Sit sideways in the blue TV snow",
+      "uncertain": false
+    },
+    {
+      "start": 20.8,
+      "end": 24.94,
+      "text": "With a lukewarm care and nowhere to go",
+      "uncertain": false
+    },
+    {
+      "start": 24.94,
+      "end": 29.88,
+      "text": "Caught in the cloud with a thousand clean hands",
+      "uncertain": false
+    },
+    {
+      "start": 30.0,
+      "end": 34.06,
+      "text": "Building little kingdoms from Tony's demands",
+      "uncertain": true
+    },
+    {
+      "start": 34.06,
+      "end": 39.1,
+      "text": "Make me a website, make it sound tough",
+      "uncertain": false
+    },
+    {
+      "start": 39.1,
+      "end": 42.9,
+      "text": "Tony says perfect and that's quite enough",
+      "uncertain": false
+    },
+    {
+      "start": 45.22,
+      "end": 50.44,
+      "text": "The cursor blinks like a tiny green eye",
+      "uncertain": false
+    },
+    {
+      "start": 50.44,
+      "end": 55.74,
+      "text": "Tony nods at the ceiling, lets another hour die",
+      "uncertain": false
+    },
+    {
+      "start": 59.56,
+      "end": 62.34,
+      "text": "Tony's seeing the cut chair",
+      "uncertain": true
+    },
+    {
+      "start": 62.34,
+      "end": 64.26,
+      "text": "King of the fold",
+      "uncertain": false
+    },
+    {
+      "start": 64.26,
+      "end": 65.78,
+      "text": "Watching Claude",
+      "uncertain": false
+    },
+    {
+      "start": 65.78,
+      "end": 68.8,
+      "text": "Turn his loose change into gold",
+      "uncertain": false
+    },
+    {
+      "start": 68.8,
+      "end": 71.2,
+      "text": "He says that's my vision",
+      "uncertain": false
+    },
+    {
+      "start": 71.2,
+      "end": 73.6,
+      "text": "When the whole screen glows",
+      "uncertain": false
+    },
+    {
+      "start": 73.6,
+      "end": 75.84,
+      "text": "Claude writes the engine",
+      "uncertain": false
+    },
+    {
+      "start": 75.84,
+      "end": 77.74,
+      "text": "Tony picks the clothes",
+      "uncertain": false
+    },
+    {
+      "start": 77.74,
+      "end": 80.48,
+      "text": "Tony's seeing the cut chair",
+      "uncertain": false
+    },
+    {
+      "start": 80.48,
+      "end": 82.26,
+      "text": "Feet on the crate",
+      "uncertain": false
+    },
+    {
+      "start": 82.26,
+      "end": 84.62,
+      "text": "Waiting for genius",
+      "uncertain": false
+    },
+    {
+      "start": 84.62,
+      "end": 86.72,
+      "text": "To deliver his fate",
+      "uncertain": true
+    },
+    {
+      "start": 86.72,
+      "end": 89.44,
+      "text": "The room smells like pizza",
+      "uncertain": false
+    },
+    {
+      "start": 89.44,
+      "end": 91.32,
+      "text": "Rain and defeat",
+      "uncertain": true
+    },
+    {
+      "start": 91.32,
+      "end": 94.08,
+      "text": "But the dashboard is dancing",
+      "uncertain": false
+    },
+    {
+      "start": 94.08,
+      "end": 96.14,
+      "text": "Beneath his feet",
+      "uncertain": false
+    },
+    {
+      "start": 112.32,
+      "end": 114.54,
+      "text": "Claude named the file",
+      "uncertain": false
+    },
+    {
+      "start": 114.54,
+      "end": 116.86,
+      "text": "and corrected the math",
+      "uncertain": true
+    },
+    {
+      "start": 116.86,
+      "end": 121.1,
+      "text": "Sweat all the bugs from the comment box",
+      "uncertain": false
+    },
+    {
+      "start": 121.1,
+      "end": 125.5,
+      "text": "Then took a victory lap in mismatched socks",
+      "uncertain": false
+    },
+    {
+      "start": 125.5,
+      "end": 130.08,
+      "text": "There's a framed old headshot over the sink",
+      "uncertain": false
+    },
+    {
+      "start": 130.08,
+      "end": 134.76,
+      "text": "A younger Tony staring back through the stink",
+      "uncertain": false
+    },
+    {
+      "start": 134.76,
+      "end": 139.2,
+      "text": "Someday he says they'll know my brand",
+      "uncertain": false
+    },
+    {
+      "start": 139.2,
+      "end": 143.6,
+      "text": "As Claude builds a moon from a text command",
+      "uncertain": false
+    },
+    {
+      "start": 145.8,
+      "end": 155.08,
+      "text": "the fans on the laptop hum low and sweet like angels trapped underneath the sea",
+      "uncertain": true
+    },
+    {
+      "start": 158.38,
+      "end": 168.58,
+      "text": "tony c in the cup chair king of the fold watching claude turn his loose change into gold he says",
+      "uncertain": true
+    },
+    {
+      "start": 168.58,
+      "end": 172.72,
+      "text": "That's my vision when the whole screen glows",
+      "uncertain": false
+    },
+    {
+      "start": 172.72,
+      "end": 177.04,
+      "text": "Claude writes the engine, Tony picks the clothes",
+      "uncertain": false
+    },
+    {
+      "start": 177.04,
+      "end": 181.58,
+      "text": "Tony's seeing the cup chair, feet on the crate",
+      "uncertain": true
+    },
+    {
+      "start": 181.58,
+      "end": 186.0,
+      "text": "Waiting for genius to deliver his fate",
+      "uncertain": false
+    },
+    {
+      "start": 186.0,
+      "end": 190.62,
+      "text": "The room smells like pizza, rain and defeat",
+      "uncertain": false
+    },
+    {
+      "start": 190.62,
+      "end": 195.5,
+      "text": "But the dashboard is dancing beneath his feet",
+      "uncertain": true
+    },
+    {
+      "start": 204.14,
+      "end": 208.98,
+      "text": "At 3 a.m. the monitor goes black",
+      "uncertain": true
+    },
+    {
+      "start": 208.98,
+      "end": 213.54,
+      "text": "Tony sees his face in the glass looking back",
+      "uncertain": false
+    },
+    {
+      "start": 213.54,
+      "end": 218.06,
+      "text": "No crown, no army, no grand marquee",
+      "uncertain": false
+    },
+    {
+      "start": 218.06,
+      "end": 222.38,
+      "text": "Just a man and a chair and a charging fee",
+      "uncertain": false
+    },
+    {
+      "start": 222.38,
+      "end": 227.48,
+      "text": "Then one last message lights up the gloom",
+      "uncertain": false
+    },
+    {
+      "start": 227.48,
+      "end": 231.88,
+      "text": "Bell complete, shall I polish the room",
+      "uncertain": false
+    },
+    {
+      "start": 231.88,
+      "end": 236.52,
+      "text": "Tony laughs till the old springs sing",
+      "uncertain": true
+    },
+    {
+      "start": 236.52,
+      "end": 241.24,
+      "text": "Claude, baby, give it a bell and a swing",
+      "uncertain": false
+    },
+    {
+      "start": 245.78,
+      "end": 250.28,
+      "text": "Tony's seeing the cup chair, king of the fold",
+      "uncertain": true
+    },
+    {
+      "start": 250.28,
+      "end": 254.82,
+      "text": "The future arrives in a window he holds",
+      "uncertain": false
+    },
+    {
+      "start": 254.82,
+      "end": 256.76,
+      "text": "He calls it collaboration",
+      "uncertain": false
+    },
+    {
+      "start": 256.76,
+      "end": 259.5,
+      "text": "calls it art",
+      "uncertain": false
+    },
+    {
+      "start": 259.5,
+      "end": 261.9,
+      "text": "Claude makes the body",
+      "uncertain": false
+    },
+    {
+      "start": 261.9,
+      "end": 263.92,
+      "text": "Tony supplies the heart",
+      "uncertain": false
+    },
+    {
+      "start": 263.92,
+      "end": 265.82,
+      "text": "Tony see in the",
+      "uncertain": false
+    },
+    {
+      "start": 265.82,
+      "end": 267.9,
+      "text": "cup chair, dawn at",
+      "uncertain": true
+    },
+    {
+      "start": 267.9,
+      "end": 269.86,
+      "text": "the blind, a finished",
+      "uncertain": false
+    },
+    {
+      "start": 269.86,
+      "end": 271.18,
+      "text": "little universe",
+      "uncertain": false
+    },
+    {
+      "start": 271.18,
+      "end": 272.8,
+      "text": "humming online",
+      "uncertain": false
+    },
+    {
+      "start": 272.8,
+      "end": 275.52,
+      "text": "he lifts his cold can",
+      "uncertain": true
+    },
+    {
+      "start": 275.52,
+      "end": 277.7,
+      "text": "to the bright blue screen",
+      "uncertain": false
+    },
+    {
+      "start": 277.7,
+      "end": 279.46,
+      "text": "the strangest",
+      "uncertain": false
+    },
+    {
+      "start": 279.46,
+      "end": 281.38,
+      "text": "boss that the world",
+      "uncertain": false
+    },
+    {
+      "start": 281.38,
+      "end": 282.86,
+      "text": "has seen",
+      "uncertain": false
+    },
+    {
+      "start": 289.62,
+      "end": 294.24,
+      "text": "Claude keeps coding, Tony keeps grinning",
+      "uncertain": false
+    },
+    {
+      "start": 294.24,
+      "end": 298.66,
+      "text": "The chair keeps squeaking and the whole thing's winning",
+      "uncertain": true
+    }
+  ]
+}
