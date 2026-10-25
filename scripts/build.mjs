@@ -51,6 +51,12 @@ const publicEntries = [
 ];
 // Read from the sources, before the hosting config is rewritten below.
 const version = await codeVersion(root, publicEntries);
+const sourceHosting = JSON.parse(await readFile(path.join(root, "staticwebapp.config.json"), "utf8"));
+const releaseVideos = new Set(sourceHosting.routes
+  .filter(({ route, redirect, statusCode }) => statusCode === 302 &&
+    /^\/assets\/song-videos\/[^/]+\.mp4$/.test(route) &&
+    redirect === `https://github.com/legauntt/yehry3/releases/download/song-videos-v1/${path.posix.basename(route)}`)
+  .map(({ route }) => path.join(root, route.slice(1))));
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 for (const file of publicEntries) {
@@ -59,9 +65,7 @@ for (const file of publicEntries) {
     recursive: true,
     // Production redirects these unchanged legacy clips to their checksum-verified
     // release copies, keeping the Azure bundle below the existing size limit.
-    filter: source => !process.env.YEHRY3_ARCHIVE_URL ||
-      !["20-miracle-darkwave-circus.mp4", "11-geglash-missing-save.mp4"]
-        .some(name => source === path.join(root, "assets", "song-videos", name)),
+    filter: source => !process.env.YEHRY3_ARCHIVE_URL || !releaseVideos.has(source),
   });
 }
 await buildArtworkPreviews(root, output, artwork);

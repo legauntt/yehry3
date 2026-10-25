@@ -1,5 +1,14 @@
 # yehry3 · The listening room
 
+Legacy files under `assets/song-videos/` retain their public URLs through 302
+redirects to identical copies in the `song-videos-v1` GitHub release. Production
+builds omit only files with matching release redirects; local builds keep originals.
+Run `node scripts/release-bundled-videos.mjs --publish` to upload missing copies
+and register redirects after SHA-256 verification. Run it with `--size` after a
+production build to verify omissions and Azure headroom, and with
+`--live=https://yehry3.app` after deployment to verify all redirected bytes and
+seeking support. Existing release assets are never overwritten.
+
 ## Admin audio editor
 
 Signed-in admins can choose **Edit audio** in a song's options menu or Backstage's published-song list. Click the waveform to listen, set the crop end and fade-out seconds, then preview the ending before saving. Each save creates a separate MP3 and defaults to making it the song's default recording. **Original** remains selectable in the player; Saved recordings can restore it as the default at any time. Existing playback finishes on its current recording.
