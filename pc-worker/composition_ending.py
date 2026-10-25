@@ -91,7 +91,15 @@ def work_path(request, candidate=False):
     return Path(request['config']['settings']['studio_dir']).parent / ('troofs-desktop-' + identifier(request, candidate=candidate))
 
 
-def evidence(work):
+def instrumental_heavy_authorized(request, arrangement):
+    if not request or request.get('plan', {}).get('generation', {}).get('instrumentalHeavy') is not True:
+        return False
+    from request_materials import frozen_brief
+    return (frozen_brief(request).get('details', {}).get('generation', {}).get('instrumentalHeavy') is True
+            and arrangement.get('instrumental_heavy_requested') is True)
+
+
+def evidence(work, request=None):
     work = Path(work)
     state = load(work / 'desktop-status.json')
     if not {'generate', 'separate', 'words', 'configure', 'ending'} <= set(state['completed']):
@@ -109,13 +117,16 @@ def evidence(work):
     coverage = arrangement['voiced_energy_fraction']
     gap = max((row['seconds'] for row in arrangement['long_vocal_gaps']), default=0)
     if (not all(math.isfinite(x) for x in (duration, last, coverage, gap))
-            or not 0 < last < duration or not .5 <= coverage <= 1 or gap < 0):
+            or not 0 < last < duration or not 0 <= coverage <= 1 or gap < 0):
+        raise ValueError('Invalid composition-ending measurements')
+    heavy = coverage < .5 and instrumental_heavy_authorized(request, arrangement)
+    if coverage < .5 and not heavy:
         raise ValueError('Invalid composition-ending measurements')
     return {'duration': duration, 'last_detected_voice': last,
             'post_vocal_seconds': duration - last, 'voiced_energy_fraction': coverage,
             'longest_instrumental_break': gap,
             'inputs_sha256': {name: sha(work / name) for name in EVIDENCE_FILES},
-            'listening_review': False}
+            'instrumental_heavy_authorized': heavy, 'listening_review': False}
 
 
 def verify_evidence(request, journal):
@@ -166,7 +177,7 @@ def render_with_retry(request, repair, render_attempt):
         except CompositionReady as ready:
             if ready.work.resolve() != work_path(request, candidate=which == 'candidate').resolve():
                 raise ValueError('Composition review returned an unexpected work folder')
-            measured = evidence(ready.work)
+            measured = evidence(ready.work, request)
             journal[which + '_evidence'] = measured
             if which == 'original' and measured['post_vocal_seconds'] > RETRY_ABOVE_SECONDS:
                 # Commit the single attempt before starting any candidate audio.

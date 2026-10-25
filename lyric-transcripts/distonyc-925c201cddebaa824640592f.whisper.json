@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "songId": "distonyc-925c201cddebaa824640592f",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-925c201cddebaa824640592f-3784068d1849.mp3",
+  "audioSha256": "3784068d18490934a57731a4086ae57e98848150071ac3a82ce23a5aef84d7d6",
+  "inputSha256": "68d46c014c1c70ebf889d0a14481e63f3a527ea6a0a6f5152e91548f34cc9a59",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 155.010625,
+  "segments": [
+    {
+      "start": 3.68,
+      "end": 7.64,
+      "text": "The old road burns by the golden gate",
+      "uncertain": false
+    },
+    {
+      "start": 7.64,
+      "end": 11.24,
+      "text": "Jaglish is waiting, why should heroes wait?",
+      "uncertain": true
+    },
+    {
+      "start": 11.48,
+      "end": 14.92,
+      "text": "Tap the red button, watch the altar flame",
+      "uncertain": false
+    },
+    {
+      "start": 14.92,
+      "end": 18.52,
+      "text": "They, for the shortcut, come back changed again",
+      "uncertain": false
+    },
+    {
+      "start": 18.52,
+      "end": 23.12,
+      "text": "Buy a bundle of blessing, just a ladder made of keys",
+      "uncertain": false
+    },
+    {
+      "start": 23.12,
+      "end": 26.42,
+      "text": "Lease a halo for your mercenary's name",
+      "uncertain": true
+    },
+    {
+      "start": 26.42,
+      "end": 29.5,
+      "text": "And the earner runs out at the crib side door",
+      "uncertain": false
+    },
+    {
+      "start": 29.5,
+      "end": 33.1,
+      "text": "Free chess tomorrow if you still want more",
+      "uncertain": false
+    },
+    {
+      "start": 33.1,
+      "end": 36.72,
+      "text": "A loot box lantern swings above the town",
+      "uncertain": false
+    },
+    {
+      "start": 36.72,
+      "end": 40.58,
+      "text": "Each purple almost win pulls the dead man down",
+      "uncertain": false
+    },
+    {
+      "start": 40.58,
+      "end": 44.8,
+      "text": "There's a wheel in Tristram under candles smoke",
+      "uncertain": true
+    },
+    {
+      "start": 44.8,
+      "end": 49.48,
+      "text": "Every losing spin is dressed up like a joke",
+      "uncertain": false
+    },
+    {
+      "start": 52.12,
+      "end": 55.14,
+      "text": "Welcome to the season of J-Glash",
+      "uncertain": false
+    },
+    {
+      "start": 55.14,
+      "end": 58.46,
+      "text": "Spin for the treasure, make the jackpot flash",
+      "uncertain": false
+    },
+    {
+      "start": 58.46,
+      "end": 66.3,
+      "text": "one more pull for a perfect class the demons fall but the store moves fast season of check",
+      "uncertain": true
+    },
+    {
+      "start": 66.3,
+      "end": 73.88,
+      "text": "lash don't screen a legendary promise in a glowing machine the battle pass sells resurrection breath",
+      "uncertain": true
+    },
+    {
+      "start": 73.88,
+      "end": 82.92,
+      "text": "premium insurance after hardcore death rent a private vault finance a rune pay the moon tax",
+      "uncertain": false
+    },
+    {
+      "start": 82.92,
+      "end": 88.38,
+      "text": "before the next blood moon daily contracts ring before just miss a little login and the season",
+      "uncertain": true
+    },
+    {
+      "start": 88.38,
+      "end": 91.98,
+      "text": "Jeglash says the odds are honest friend",
+      "uncertain": true
+    },
+    {
+      "start": 91.98,
+      "end": 95.82,
+      "text": "Then offers store credit you can never spend",
+      "uncertain": true
+    },
+    {
+      "start": 95.82,
+      "end": 99.54,
+      "text": "Founders access to a patch not born",
+      "uncertain": false
+    },
+    {
+      "start": 99.54,
+      "end": 103.1,
+      "text": "Trade your tokens for a cosmetic storm",
+      "uncertain": true
+    },
+    {
+      "start": 103.1,
+      "end": 106.64,
+      "text": "I came to kill a demon, walk the rain",
+      "uncertain": false
+    },
+    {
+      "start": 106.64,
+      "end": 110.5,
+      "text": "Now every menu bell knows my name",
+      "uncertain": false
+    },
+    {
+      "start": 110.5,
+      "end": 113.3,
+      "text": "Welcome to the season of Jeglash",
+      "uncertain": false
+    },
+    {
+      "start": 113.3,
+      "end": 116.58,
+      "text": "The fire is pretty and the numbers crash",
+      "uncertain": false
+    },
+    {
+      "start": 116.58,
+      "end": 123.16,
+      "text": "I sold my sword for a perfect class, then borrowed gold for another pass.",
+      "uncertain": true
+    },
+    {
+      "start": 123.46,
+      "end": 129.46,
+      "text": "Season of Jiglash, the candles lean, my purse is empty, my debt grows green.",
+      "uncertain": false
+    },
+    {
+      "start": 130.88,
+      "end": 137.54,
+      "text": "Jiglash keeps smiling at the altar's flame, the lender owns my armor and my name.",
+      "uncertain": false
+    },
+    {
+      "start": 137.88,
+      "end": 144.96,
+      "text": "No coin, no home, no way to flee, the hungry machine still charges meme.",
+      "uncertain": false
+    },
+    {
+      "start": 151.54,
+      "end": 152.94,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

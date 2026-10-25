@@ -1,4 +1,5 @@
 import { currentScope } from "./page-scope.js";
+import { coverSizes } from "./cover-art.js";
 const key = "yehry3:catalog-view";
 const normalize = (value) => value === "list" ? "list" : "grid";
 
@@ -7,6 +8,9 @@ export function mountCatalogView(root, tracks) {
     const view = normalize(value);
     tracks.dataset.view = view;
     tracks.parentElement.dataset.view = view;
+    tracks.querySelectorAll("img.track-art[srcset]").forEach(image => {
+      image.sizes = coverSizes(view, image.getAttribute("src"));
+    });
     root.querySelectorAll("[data-catalog-view]").forEach((button) => {
       button.setAttribute("aria-pressed", String(button.dataset.catalogView === view));
     });

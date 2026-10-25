@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "songId": "distonyc-beea04eb11527aba8955e73f",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-beea04eb11527aba8955e73f-90cebfbfe71d.mp3",
+  "audioSha256": "90cebfbfe71ddd1f80bf2356caae0c43f66d30486a2574c46acfd57be6080d7d",
+  "inputSha256": "d347e96bb4fad9c9ce8eb47f0e46382babca0f8ac6a82b051d58621ee10dbd4f",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 150.047375,
+  "segments": [
+    {
+      "start": 4.16,
+      "end": 8.18,
+      "text": "The old campfire flickers beneath the premium sky",
+      "uncertain": true
+    },
+    {
+      "start": 8.18,
+      "end": 11.96,
+      "text": "A merchant sells a ladder rung for every time you die",
+      "uncertain": true
+    },
+    {
+      "start": 11.96,
+      "end": 15.96,
+      "text": "He says, well, young hero, claim your daily shard",
+      "uncertain": false
+    },
+    {
+      "start": 15.96,
+      "end": 19.76,
+      "text": "Then locks the town portal behind a battle cast card",
+      "uncertain": true
+    },
+    {
+      "start": 26.96,
+      "end": 29.12,
+      "text": "There's a wheel in Harrogath",
+      "uncertain": false
+    },
+    {
+      "start": 29.12,
+      "end": 31.02,
+      "text": "With the demon on the rim",
+      "uncertain": true
+    },
+    {
+      "start": 31.02,
+      "end": 32.86,
+      "text": "One free little spin",
+      "uncertain": true
+    },
+    {
+      "start": 32.86,
+      "end": 34.88,
+      "text": "Then the odds go dark and dim",
+      "uncertain": false
+    },
+    {
+      "start": 34.88,
+      "end": 37.14,
+      "text": "Gold-framed loot boxes",
+      "uncertain": false
+    },
+    {
+      "start": 37.14,
+      "end": 38.76,
+      "text": "Rattled by the forge",
+      "uncertain": false
+    },
+    {
+      "start": 38.76,
+      "end": 40.92,
+      "text": "A tiny chance at angel wings",
+      "uncertain": false
+    },
+    {
+      "start": 40.92,
+      "end": 42.54,
+      "text": "A mountainside surcharge",
+      "uncertain": false
+    },
+    {
+      "start": 43.92,
+      "end": 47.24,
+      "text": "The clock in town keeps counting down",
+      "uncertain": false
+    },
+    {
+      "start": 47.24,
+      "end": 49.42,
+      "text": "A red exclamation",
+      "uncertain": false
+    },
+    {
+      "start": 49.42,
+      "end": 51.2,
+      "text": "Owns the crown",
+      "uncertain": false
+    },
+    {
+      "start": 53.3,
+      "end": 55.36,
+      "text": "Season up Gaglash",
+      "uncertain": false
+    },
+    {
+      "start": 55.36,
+      "end": 57.8,
+      "text": "Swipe the rune and feed the flame",
+      "uncertain": false
+    },
+    {
+      "start": 57.8,
+      "end": 61.26,
+      "text": "Buy a brighter graveyard, buy a louder name",
+      "uncertain": false
+    },
+    {
+      "start": 61.26,
+      "end": 65.34,
+      "text": "Season of Gaglash, every blessing has a price",
+      "uncertain": true
+    },
+    {
+      "start": 65.34,
+      "end": 69.94,
+      "text": "The devil takes installments, the shop takes dyes",
+      "uncertain": false
+    },
+    {
+      "start": 72.5,
+      "end": 76.7,
+      "text": "Rent a mercenary banner, lease a charm for seven days",
+      "uncertain": false
+    },
+    {
+      "start": 76.7,
+      "end": 80.74,
+      "text": "Skip the cave, boost the level, light the fireworks in haze",
+      "uncertain": false
+    },
+    {
+      "start": 80.74,
+      "end": 84.4,
+      "text": "Guildhall sell priority, raid sell extra turns",
+      "uncertain": false
+    },
+    {
+      "start": 84.4,
+      "end": 89.12,
+      "text": "The portal waits for patience while the glowing currency burns",
+      "uncertain": false
+    },
+    {
+      "start": 95.68,
+      "end": 99.7,
+      "text": "A pop-up priest says, come back friend, your streak is almost gold",
+      "uncertain": true
+    },
+    {
+      "start": 99.7,
+      "end": 103.46,
+      "text": "I hear the old dark wilderness beneath the script they sold",
+      "uncertain": false
+    },
+    {
+      "start": 103.46,
+      "end": 107.14,
+      "text": "No coin can buy the thunder, no token owns the night",
+      "uncertain": false
+    },
+    {
+      "start": 107.14,
+      "end": 112.14,
+      "text": "I close the gilded window and walk toward the firelight",
+      "uncertain": false
+    },
+    {
+      "start": 115.12,
+      "end": 117.28,
+      "text": "Season of Keglash",
+      "uncertain": false
+    },
+    {
+      "start": 117.28,
+      "end": 119.58,
+      "text": "Keep your wheel and painted crown",
+      "uncertain": true
+    },
+    {
+      "start": 119.58,
+      "end": 121.68,
+      "text": "I want the cold road upward",
+      "uncertain": false
+    },
+    {
+      "start": 121.68,
+      "end": 124.6,
+      "text": "I want to earn my way down",
+      "uncertain": true
+    },
+    {
+      "start": 124.6,
+      "end": 126.8,
+      "text": "Season of Keglash",
+      "uncertain": false
+    },
+    {
+      "start": 126.8,
+      "end": 129.14,
+      "text": "Let the false enchantments fall",
+      "uncertain": false
+    },
+    {
+      "start": 129.14,
+      "end": 131.1,
+      "text": "The last true rune is freedom",
+      "uncertain": false
+    },
+    {
+      "start": 131.1,
+      "end": 134.28,
+      "text": "No purchase after all",
+      "uncertain": false
+    },
+    {
+      "start": 135.4,
+      "end": 138.46,
+      "text": "No purchase after all",
+      "uncertain": false
+    },
+    {
+      "start": 146.82,
+      "end": 148.22,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

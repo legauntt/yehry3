@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "songId": "distonyc-79619335facb1c924e91d66a",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-79619335facb1c924e91d66a-b51d31533431.mp3",
+  "audioSha256": "b51d31533431e70ac2346088ca1c4798735b9a313397508b7ad16428598bb8d0",
+  "inputSha256": "9801981e6ddd2be944a46a8fab64afe20bd076de4e0ea6033a21b6d59cc045ab",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 260.049,
+  "segments": [
+    {
+      "start": 6.68,
+      "end": 10.4,
+      "text": "I bought a cake with a hundred black candles",
+      "uncertain": true
+    },
+    {
+      "start": 10.4,
+      "end": 13.7,
+      "text": "Sent one more place for the latest scandal",
+      "uncertain": true
+    },
+    {
+      "start": 13.7,
+      "end": 17.4,
+      "text": "The match gave a hiss, the room leaned in",
+      "uncertain": false
+    },
+    {
+      "start": 17.4,
+      "end": 21.36,
+      "text": "I said here comes love, the wall said not again",
+      "uncertain": false
+    },
+    {
+      "start": 24.94,
+      "end": 28.46,
+      "text": "First was a woman with a motorcycle laugh",
+      "uncertain": false
+    },
+    {
+      "start": 28.46,
+      "end": 31.74,
+      "text": "She took my records and the better half",
+      "uncertain": false
+    },
+    {
+      "start": 31.74,
+      "end": 35.36,
+      "text": "Then came a man in a violet coat",
+      "uncertain": true
+    },
+    {
+      "start": 35.36,
+      "end": 39.14,
+      "text": "He kissed like summer, left a winter nose",
+      "uncertain": false
+    },
+    {
+      "start": 39.14,
+      "end": 42.98,
+      "text": "I tried the quiet ones, tried the loud",
+      "uncertain": false
+    },
+    {
+      "start": 42.98,
+      "end": 46.22,
+      "text": "The lonely poet and the life of the crowd",
+      "uncertain": false
+    },
+    {
+      "start": 46.22,
+      "end": 49.62,
+      "text": "Every door had heaven painted overhead",
+      "uncertain": false
+    },
+    {
+      "start": 49.62,
+      "end": 54.06,
+      "text": "Every hallway ended at the same red frat",
+      "uncertain": false
+    },
+    {
+      "start": 54.06,
+      "end": 57.16,
+      "text": "Call it bad luck, call it appetite",
+      "uncertain": false
+    },
+    {
+      "start": 57.16,
+      "end": 62.12,
+      "text": "I keep mistaking fireworks for light",
+      "uncertain": false
+    },
+    {
+      "start": 63.08,
+      "end": 65.32,
+      "text": "I got 9-11 again",
+      "uncertain": true
+    },
+    {
+      "start": 65.32,
+      "end": 69.06,
+      "text": "And heart hit the floor at a quarter past ten",
+      "uncertain": true
+    },
+    {
+      "start": 69.06,
+      "end": 72.2,
+      "text": "Wrong woman, wrong man, wrong now, wrong then",
+      "uncertain": false
+    },
+    {
+      "start": 72.2,
+      "end": 75.26,
+      "text": "Stack up the records and count to ten",
+      "uncertain": false
+    },
+    {
+      "start": 75.26,
+      "end": 79.14,
+      "text": "Then ten more times till the numbers all bled",
+      "uncertain": false
+    },
+    {
+      "start": 79.14,
+      "end": 83.5,
+      "text": "Lord, I got 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 87.16,
+      "end": 97.22,
+      "text": "number 30 wore a wedding ring tan 42 vanished with my frying pan 66 said tony you're the only one",
+      "uncertain": true
+    },
+    {
+      "start": 97.22,
+      "end": 106.96,
+      "text": "then sent that sentence to everyone at 89 i made a little chart red flash blue eyes probable",
+      "uncertain": true
+    },
+    {
+      "start": 106.96,
+      "end": 114.66,
+      "text": "departure but love walked in common sense left by the fire escape i know the pattern",
+      "uncertain": false
+    },
+    {
+      "start": 114.66,
+      "end": 117.2,
+      "text": "Every switch and wire",
+      "uncertain": false
+    },
+    {
+      "start": 117.2,
+      "end": 121.8,
+      "text": "Still bring a paper heart into the fire",
+      "uncertain": true
+    },
+    {
+      "start": 122.82,
+      "end": 125.34,
+      "text": "I got 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 125.34,
+      "end": 129.14,
+      "text": "Heart hit the floor at a corner past 10",
+      "uncertain": false
+    },
+    {
+      "start": 129.14,
+      "end": 132.24,
+      "text": "Bomb woman, long man, long man, one man",
+      "uncertain": true
+    },
+    {
+      "start": 132.24,
+      "end": 135.24,
+      "text": "Stack up the wreckage and count to 10",
+      "uncertain": false
+    },
+    {
+      "start": 135.24,
+      "end": 139.22,
+      "text": "Then 10 more times till the numbers all bled",
+      "uncertain": false
+    },
+    {
+      "start": 139.22,
+      "end": 143.5,
+      "text": "Lord, I got 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 146.96,
+      "end": 150.2,
+      "text": "97 brought flowers in town",
+      "uncertain": true
+    },
+    {
+      "start": 150.2,
+      "end": 153.9,
+      "text": "98 moved in then cleaned me out",
+      "uncertain": false
+    },
+    {
+      "start": 153.9,
+      "end": 157.26,
+      "text": "99 swore this curse would end",
+      "uncertain": false
+    },
+    {
+      "start": 157.26,
+      "end": 161.1,
+      "text": "I woke up single with a no-drop-off friend",
+      "uncertain": true
+    },
+    {
+      "start": 161.1,
+      "end": 164.44,
+      "text": "Then number 100 rocked in white",
+      "uncertain": false
+    },
+    {
+      "start": 164.44,
+      "end": 168.48,
+      "text": "Not like an angel, more like headlights at night",
+      "uncertain": false
+    },
+    {
+      "start": 168.48,
+      "end": 171.62,
+      "text": "They said I'm different and I laughed till I shook",
+      "uncertain": false
+    },
+    {
+      "start": 172.58,
+      "end": 181.0,
+      "text": "i knew that line i could finish the book but hope is a dog that slips every chain",
+      "uncertain": true
+    },
+    {
+      "start": 181.0,
+      "end": 186.2,
+      "text": "and here's one kind word and runs through the rain so i opened the door",
+      "uncertain": false
+    },
+    {
+      "start": 186.2,
+      "end": 192.22,
+      "text": "with my dignity gone and the hundred wrong person came dancing on",
+      "uncertain": false
+    },
+    {
+      "start": 196.52,
+      "end": 203.7,
+      "text": "I got 9-11 to can hard hit the floor, but it still won't end",
+      "uncertain": true
+    },
+    {
+      "start": 203.7,
+      "end": 206.76,
+      "text": "Wrong woman, wrong man, yet I won't pretend",
+      "uncertain": true
+    },
+    {
+      "start": 206.76,
+      "end": 210.02,
+      "text": "I never loved the seconds before the descents",
+      "uncertain": false
+    },
+    {
+      "start": 210.02,
+      "end": 213.58,
+      "text": "A hundred disasters, a hundred eye-man",
+      "uncertain": true
+    },
+    {
+      "start": 213.58,
+      "end": 219.3,
+      "text": "Lord, I got 9-11 to blow out the candles",
+      "uncertain": false
+    },
+    {
+      "start": 219.3,
+      "end": 220.8,
+      "text": "Clear every plate",
+      "uncertain": true
+    },
+    {
+      "start": 220.8,
+      "end": 223.82,
+      "text": "I finally learned love is terrible",
+      "uncertain": false
+    },
+    {
+      "start": 223.82,
+      "end": 224.82,
+      "text": "That's fate",
+      "uncertain": true
+    },
+    {
+      "start": 224.82,
+      "end": 227.96,
+      "text": "If number 101 comes calling it too",
+      "uncertain": true
+    },
+    {
+      "start": 227.96,
+      "end": 230.1,
+      "text": "I'll lock every window",
+      "uncertain": false
+    },
+    {
+      "start": 230.1,
+      "end": 231.58,
+      "text": "Then peek through the blue",
+      "uncertain": false
+    },
+    {
+      "start": 231.58,
+      "end": 233.68,
+      "text": "My heart may be foolish",
+      "uncertain": false
+    },
+    {
+      "start": 233.68,
+      "end": 235.18,
+      "text": "Battered and true",
+      "uncertain": false
+    },
+    {
+      "start": 235.18,
+      "end": 237.18,
+      "text": "But the next time it breaks",
+      "uncertain": false
+    },
+    {
+      "start": 237.18,
+      "end": 238.96,
+      "text": "It breaks choosing who",
+      "uncertain": false
+    },
+    {
+      "start": 238.96,
+      "end": 242.74,
+      "text": "Not begging the wrong one to make me brand new",
+      "uncertain": false
+    },
+    {
+      "start": 242.74,
+      "end": 244.66,
+      "text": "The hundredth is over",
+      "uncertain": false
+    },
+    {
+      "start": 244.66,
+      "end": 247.3,
+      "text": "I'm counting from me",
+      "uncertain": false
+    },
+    {
+      "start": 249.18,
+      "end": 250.58,
+      "text": "Eeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "uncertain": true
+    }
+  ]
+}

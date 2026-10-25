@@ -10,6 +10,8 @@ PROFILE_FILES = {
     'bank': 'features.json',
     'style': 'features/tony-fresh-style.npy',
 }
+VDB_FILES = {**PROFILE_FILES, 'adapter': 'candidates/dvdp/adapter.pt',
+             'runtime': 'runtime-profile/voice_runtime.py', 'common': 'runtime-profile/common.py'}
 # An RVC v2 model sung through a pinned Applio checkout. `adapter` stays the key the renderer freezes into the track;
 # the runtime keeps the same seven stage names, so the engine, B sides and checks treat it like any versioned voice.
 RVC_FILES = {
@@ -20,7 +22,7 @@ RVC_FILES = {
     'singer': 'rvc_sing.py',
     'applio': 'applio.json',
 }
-RUNTIME_FILES = {'fresh-catalog-v1': PROFILE_FILES, 'rvc-v1': RVC_FILES}
+RUNTIME_FILES = {'fresh-catalog-v1': PROFILE_FILES, 'dvdp-v1': VDB_FILES, 'rvc-v1': RVC_FILES}
 REFERENCE_PROFILES = {
     'rock': {'median_hz': 175, 'voiced_fraction': .65, 'energy_stratum': 'middle'},
     'acoustic': {'median_hz': 160, 'voiced_fraction': .72, 'energy_stratum': 'low'},
@@ -30,15 +32,55 @@ REFERENCE_PROFILES = {
 
 def selected(prompt):
     value = (prompt.get('details') or {}).get('voiceModel', 'v6')
-    if not isinstance(value, str) or not re.fullmatch(r'v[1-9][0-9]*', value):
+    if not isinstance(value, str) or not re.fullmatch(r'(?:v[1-9][0-9]*|vdb)', value):
         raise ValueError('The request has an unsupported Tony voice model')
     return value
 
 
-def resolve(config, name):
+def selected_epoch(prompt):
+    details = prompt.get('details') or {}
+    epoch = details.get('voiceEpoch')
+    if epoch is None:
+        return None
+    if selected(prompt) != 'v9' or type(epoch) is not int or epoch not in range(10, 301, 10):
+        raise ValueError('Choose a saved Tony V9 epoch from 10 to 300 in steps of 10')
+    return epoch
+
+
+def selected_range(prompt):
+    details = prompt.get('details') or {}
+    value = details.get('voiceEpochRange')
+    if value is None: return None
+    if (selected(prompt) != 'v9' or details.get('voiceEpoch') is not None or
+            not isinstance(value, dict) or set(value) != {'start', 'end'} or
+            any(type(value[key]) is not int or value[key] not in range(10, 301, 10) for key in value) or
+            value['start'] == value['end']):
+        raise ValueError('Choose a saved V9 range with different starting and ending epochs')
+    return dict(value)
+
+def resolve_range(config, value):
+    selected_range({'details': {'voiceModel': 'v9', 'voiceEpochRange': value}})
+    hashes = {}
+    step = 10 if value['start'] < value['end'] else -10
+    profiles = {str(epoch): resolve(config, 'v9', epoch, _hashes=hashes)
+                for epoch in range(value['start'], value['end'] + step, step)}
+    if any(profile['runtime_kind'] != 'rvc-v1' for profile in profiles.values()) or any(
+            len({profile['sha256'][key] for profile in profiles.values()}) != 1
+            for key in RVC_FILES if key != 'adapter'):
+        raise ValueError('V9 range checkpoints must share their pinned runtime and retrieval index')
+    frozen = {'range': dict(value), 'profiles': profiles}
+    frozen['fingerprint'] = fingerprint(frozen)
+    return frozen
+
+def resolve(config, name, epoch=None, _hashes=None):
+    if epoch is not None and (name != 'v9' or type(epoch) is not int or epoch not in range(10, 301, 10)):
+        raise ValueError('Invalid Tony V9 epoch')
     if name == 'v6':
         return {'name': 'v6', 'label': 'Tony V6', 'fingerprint': 'v6-established'}
     configured = (config.get('voice_models') or {}).get(name)
+    # Epoch 300 retains the established profile and fingerprint for legacy resumptions.
+    if epoch is not None and epoch != 300:
+        configured = ((config.get('voice_model_epochs') or {}).get(name) or {}).get(str(epoch))
     if not isinstance(configured, dict):
         raise ValueError(f'Tony {name.upper()} is selected, but its isolated voice profile is not installed')
     runtime_kind = configured.get('runtime_kind', 'fresh-catalog-v1')
@@ -52,7 +94,15 @@ def resolve(config, name):
     files = {key: (root / relative).resolve() for key, relative in expected.items()}
     if any(not path.is_relative_to(root) or not path.is_file() for path in files.values()):
         raise ValueError(f'An installed Tony {name.upper()} profile asset is missing')
-    actual = {key: sha(path) for key, path in files.items()}
+    def digest(path):
+        if _hashes is None:
+            return sha(path)
+        stat = path.stat()
+        identity = (stat.st_dev, stat.st_ino or str(path), stat.st_size, stat.st_mtime_ns, stat.st_ctime_ns)
+        if identity not in _hashes:
+            _hashes[identity] = sha(path)
+        return _hashes[identity]
+    actual = {key: digest(path) for key, path in files.items()}
     if actual != pins:
         raise ValueError(f'An installed Tony {name.upper()} profile asset changed')
     profiles = configured.get('reference_profiles', REFERENCE_PROFILES)
@@ -78,12 +128,23 @@ def reference_profile(profile, style):
 
 def capabilities(config):
     models, result = config.get('voice_models') or {}, []
+    # Profiles share an immutable retrieval index via hardlinks. Hash it once
+    # within this inventory check; render-time resolution always rechecks bytes.
+    hashes = {}
     if config.get('generation_v8') and 'v8' in models:
         resolve(config, 'v8')
         result.append('voice-v8-v1')
     if 'v9' in models:
-        resolve(config, 'v9')
+        resolve(config, 'v9', _hashes=hashes)
         result.append('voice-v9-v1')
+        if (config.get('voice_model_epochs') or {}).get('v9'):
+            for epoch in range(10, 301, 10):
+                resolve(config, 'v9', epoch, _hashes=hashes)
+            result.append('voice-v9-epochs-v1')
+            result.append('voice-v9-epoch-range-v1')
+    if 'vdb' in models:
+        resolve(config, 'vdb')
+        result.append('voice-vdb-v1')
     return result
 
 

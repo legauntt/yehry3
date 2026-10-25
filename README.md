@@ -1,6 +1,102 @@
 # yehry3 · The listening room
 
+Older static publications can omit the public `originalPrompt.finalLyricSheet`
+that Chairlift saved after lyric approval. Run
+`node scripts/sync-approved-lyric-sheets.mjs` to audit missing sheets, then add
+`--write` to restore them before building and deploying. This only adds public
+approved text after checking the recording URL and confirmed brief; differing
+existing sheets stop the operation. It preserves performance transcripts and
+does not change requests or recordings.
+
+Legacy files under `assets/song-videos/` retain their public URLs through 302
+redirects to identical copies in the `song-videos-v1` GitHub release. Production
+builds omit only files with matching release redirects; local builds keep originals.
+Run `node scripts/release-bundled-videos.mjs --publish` to upload missing copies
+and register redirects after SHA-256 verification. Run it with `--size` after a
+production build to verify omissions and Azure headroom, and with
+`--live=https://yehry3.app` after deployment to verify all redirected bytes and
+seeking support. Existing release assets are never overwritten.
+
+## Admin audio editor
+
+Signed-in admins can choose **Edit audio** in a song's options menu or Backstage's published-song list. Click the waveform to listen, set the crop end and fade-out seconds, then preview the ending before saving. Each save creates a separate MP3 and defaults to making it the song's default recording. **Original** remains selectable in the player; Saved recordings can restore it as the default at any time. Existing playback finishes on its current recording.
+
+Green waveform regions estimate vocals from a verified isolated vocal stem, with a source-matched audio transcript as fallback. The editor identifies the method and reports unavailable detection explicitly. Quiet singing, instrument bleed and transcript errors can affect these estimates.
+
+Rendering and analysis use the independent CPU service described in `pc-worker/README.md`. The editor queues work while the studio PC is offline. Chairlift holds the version history; the static offline catalog still provides the original recording if the API is unavailable. Cropping preserves the beginning of the source and its lyric timing.
+
+Checks: `tests/audio-editor.test.mjs`, `tests/browser/audio-editor.spec.js`, Chairlift's `test/audio-edits.test.js`, and `pc-worker/test_audio_editor.py` (real FFmpeg crop/fade and source preservation).
+
 A static Tony C music site with a MongoDB voting and request API in the sibling **chairlift** repository.
+
+PC automation resumes automatically after Jesse signs in following a restart.
+The song worker, independent lyric writer, queue monitor, paid-budget reconciler,
+Whisper transcript worker and artwork scheduler use windowless Python launchers,
+recurring triggers, missed-start recovery and failure retries. Windows Task
+Scheduler itself must remain Automatic. These tasks use Jesse's interactive
+identity because publication and API credentials belong to that Windows account;
+they do not run before sign-in. Azure, Chairlift and its database run remotely.
+
+Install the artwork scheduler with `scripts/install-artwork-task.ps1 -Config <existing-config>`.
+Audit all six installed tasks without starting a render or paid image request with
+`scripts/check-pc-startup.ps1 -Evidence <output-directory>`. This saves task XML and
+a startup report. Artwork startup archives only locks demonstrably older than the
+current Windows boot, retaining all spend reservations, manual-review markers and
+unfinished worktrees. Current-boot and malformed locks remain protected. Hidden
+artwork runs append diagnostics to `<state>/automation/scheduler.log`.
+
+The collection reads the complete public `/catalog` alongside private
+`/catalog/state`. Public refreshes send an ETag and reuse the mounted page's
+snapshot on a 304; visitor feedback and vote cooldowns are always read afresh.
+Chairlift caches public snapshots for up to 60 seconds while its Mongo observer
+is healthy, invalidating on catalog writes. No localStorage catalog cache is used.
+The first-page preview, static offline fallback, full-library filtering/playback,
+and older shared-song pagination and spotlight behavior are preserved. Legacy
+`/songs/summary` remains available to the other consumers. Deploy Chairlift first.
+Run `npm run verify:catalog` for read-only cache/privacy checks and desktop/mobile
+older-share verification against the live deployment; `npm run measure:live`
+compares legacy reads with conditional catalog refreshes and personal-state reads.
+
+Catalog summaries keep remix badges but load readiness only when a song menu opens,
+through Chairlift's `/songs/:id/remix`. Concurrent opens share a request; successful
+checks last at most 30 seconds and never beyond the source expiry. Failed checks
+leave the direct remix link available and retry on the next open. Lyrics and remix
+comparison pages continue to load complete individual song details.
+
+The collection entry loads request/admin screens from `assets/studio-pages.js`
+and public queue/detail screens on demand. `app-ui.js` holds shared rendering
+helpers; `queue-links.js` keeps a queue link from importing the whole queue screen.
+All routes continue to share the existing player and page scopes. A slow lazy import
+cannot mount after navigation has left its scope.
+
+The first realtime catalog snapshot reuses the completed initial catalog when Chairlift's
+`catalogRevision` matches. Missing/older revisions and every reconnect still refresh;
+periodic refresh and changes during an active fetch retain their existing behavior.
+Check with `tests/browser/startup-modules.spec.js`, `realtime.spec.js` and the affected
+request/player flows. Run `npm run profile:startup -- --url=https://yehry3.app --runs=3`
+and `node scripts/summarize-startup.mjs artifacts/startup/results.json` for reproducible
+cold/warm timing breakdowns; benchmark separately from CPU coverage diagnostics.
+`node scripts/compare-startup.mjs before/results.json after/results.json` compares
+matching benchmark conditions and reports medians for timing, JavaScript and catalog reads.
+
+`/aci/` is a demo frontend preview of an independent author-agent studio.
+It has proposed Pancakeo and Scythe spoof profiles, browser-only schedules/limits,
+a manually started simulation of the complete song pipeline, and example record
+sleeves. It never calls a production API, runs a model, generates audio, or creates
+real requests. Schedules are illustrative; only **Run demo** starts a simulation.
+Preview state uses `yehry3:aci-preview:v1`, retains up to 24 simulated releases,
+and resets daily allowances on the Pacific calendar day. **Reset preview** clears
+only that state. Source counts reflect the September 25, 2026 catalog snapshot;
+profile traits and prompts are authored examples, not trained-model outputs.
+The page owns its header and assets so it does not load the main queue, listening
+presence, catalog or player. It is not linked from the main dashboard.
+Build with `npm run build`; verify with `npm test` and
+`npx playwright test --config playwright.aci.config.js`. For a local preview,
+set `PORT=8095` and run `npm run dev`, then open `/aci/`.
+Set `YEHRY3_ACI_URL=https://yehry3.app` to run those same browser checks against
+the deployed preview. They change only isolated browser storage, never server data.
+Real automation needs the separately scoped ACI service, worker, budget, and
+publication contracts before these preview controls can be connected.
 
 Requests support optional lyric sheets and per-link creative references or lyric imports.
 See [lyrics and references](REQUEST-MATERIALS.md) for limits, privacy, testing and coordinated rollout.
@@ -13,10 +109,74 @@ See [lyrics and references](REQUEST-MATERIALS.md) for limits, privacy, testing a
 | `/queue/details/?request=…` | Stable, shareable public status page for one privacy-filtered confirmed request |
 | `/deetz/`      | Studio process guide and saved planning example, loaded from the authenticated API after the Distonyc login                        |
 | `/fearhunger/` | Preserved original three-track page, MP3s and lyrics                                                                                |
+| `/sausage/` | “How the Tony C is made”: two measured production timelines, stage-by-stage audio and the existing complete songs |
+| `/saxophone/` | Tony Is a Saxophone: the three-track EP with animated artwork, native audio players and links back to the catalog |
 
 `/distonyc/` is the request page; `/longtimecomin` and `/longtimecomin/` permanently redirect there. The local preview mirrors these redirects.
 
 The site remains noindex. Existing audio files and URLs are preserved. The Tony AI tracks stream from their existing release URLs. Static `catalog.json` keeps listening available during API outages; voting is clearly disabled while offline.
+
+Song video popouts include **Share video**, which shares the selected A/B/C version
+using a phone's share sheet or a copied link. Links open the video with an explicit
+Play button, including full-length music videos, short clips and silent versions.
+Song video popouts offer chronological A/B/C version buttons when preserved clips
+exist. The latest opens by default; choosing a version restarts that clip
+without interrupting the song. Hover previews keep the current default. Before
+replacing a video in `assets/song-videos.js`, append its old entry to that song's
+list in `assets/song-video-history.js`; existing letters then remain stable and
+the next version appears automatically. Keep only public clip URLs in this file.
+Run `npm run build`, `npm test`, and `npx playwright test --config
+playwright.videos.config.js`; set `YEHRY3_VIDEO_URL=https://yehry3.app` for live
+playback checks of current and preserved clips.
+
+Morning Routine's current video is a 6:50 landscape music video with the complete
+original song and word-highlighted original lyrics. Its 52 generated shots follow
+the morning ritual through a bleak apartment and lonely city, ending on a doomer
+pumpkin. The pumpkin play icon retains the audio sparkle. Previous versions remain
+available in the version picker.
+
+Its preserved 23.33-second locally rendered Doomer companion has an end-to-start picture dissolve and a beat-aligned audio splice.
+Play starts the picture immediately while the sound loads, with a loading notice;
+sound joins at the current video time. Failed or stalled sound downloads can be
+retried with Play. The volume slider reaches both endpoints and follows native controls.
+Its lossless `loopAudio` buffer repeats continuously on the Web Audio clock,
+avoiding AAC padding and audio restarts at each native video loop. Native controls
+still pause and seek; the sound controls mute and change volume. Closing releases
+the sound. Its beanie-face video button has a violet glow. Clips marked
+`audio: true` open unmuted and wait for a click on Play. Opening or playing a sound
+clip pauses the shared song player; hover previews remain muted.
+
+
+`/sausage/` compares the paid EMP run **Drink It Back, Bucko** with the local ACE run
+**Dividend at Dawn**, both Tony V9. Seven stages retain their position when switching
+generators; `#emp/band` and `#ace/record` are shareable selections. The five audio
+layers use the same 0:30–0:54 passage with original levels. Layer changes preserve
+position and play/pause; stage changes stop the excerpt. The full song uses the
+shared player and survives navigation. The tour is linked from the collection and
+footer, and the local example retains its catalog quality notices.
+
+`sausage/tour.json` contains only allowlisted public song metadata, elapsed intervals
+and clip URLs. Timings are rounded wall-time intervals from Windows stage-log creation
+timestamps, from planning start to catalog publication. They include handoff gaps,
+exclude the earlier queue and later Azure build, and are examples rather than a
+benchmark. The protected Deetz guide and raw job data stay private.
+To replace these examples, run `python scripts/export-process-tour.py --emp-job <job>
+--ace-job <job> --ffmpeg <binary>` on the production PC; it validates the published
+MP3 identity and encodes excerpts without generating music. Review the selected
+jobs and timing boundaries before publishing. Validation: `npm run build`, `npm test`,
+`npx playwright test --config playwright.sausage.config.js`. Set `YEHRY3_TOUR_URL`
+to test the deployed page. `npm run verify:live` checks the tour and audio ranges.
+
+`/saxophone/` is linked from the collection footer. It uses the three existing
+published MP3s and keeps only one recording playing at a time. **Play the EP**
+continues through the track list and retries failed audio loads. An idle track's
+failed preload does not cancel the sequence. Artwork pauses offscreen and in background tabs;
+reduced-motion visitors see stills until they choose **Animate artwork**. The
+existing **Has issues** preference applies here too. Run the saved browser checks
+with `npx playwright test --config playwright.saxophone.config.js` (install
+Chromium and Firefox with `npx playwright install chromium firefox` first); set
+`EP_REAL_MEDIA=1` to verify all three public recordings, seeking and artwork.
+Set `YEHRY3_EP_URL=https://yehry3.app` to run against the deployed page.
 
 yehry3.app is the default destination for new finished Tony/Troofs MP3s, including standalone songs. The old gatsby-opus `/tonyai` page is deprecated for new publications; keep its existing tracks and URLs working. `tonyai` remains the collection ID here, not a publication destination. Standalone additions use the existing GitHub release and Chairlift's safe catalog seed, with matching fallback metadata and lyrics; do not create artificial queue requests. Keep WAVs, A/B clips, stems and model assets local unless separately requested.
 
@@ -26,11 +186,106 @@ The three **Tony V7 Study** songs are experimental listening material. V9 (an RV
 
 The refinements step opens on **Essentials**, with the voice selector and “What matters most?”. Its **Advanced** tab contains “What does it sound like?”, Lyrics & references, then Basis songs. Both tabs feed the same review; switching tabs keeps all entered values, and the active tab is remembered for that draft in the browser tab. Keyboard arrows, Home and End switch tabs; validation reveals the tab containing the field that needs attention.
 
+Step 2's **Essentials → Open lyric workshop** lets the listener write the words before song planning. The dialog accepts a lyric brief or revision direction, generates a complete editable sheet, and offers Funnier, More heartfelt, Darker, Stronger hook, Easier to sing and Tighter rhymes. The last eight versions, manual edits and an in-flight request survive reload in the same browser tab. Closing the dialog keeps the workshop draft separate; **Use these lyrics** explicitly copies it into Lyrics & references as **Keep my wording**. The normal review and final confirmation still follow. Adapting the sheet remains an explicit choice in Advanced.
+
+The workshop uses Chairlift's private `/lyric-workshop` API and a separate lightweight PC lyric writer; it does not use audio queue capacity, GPU generation or Eleven Music reservations. A semantic scope classifier runs before writing, with exact cheap rejection of ordinary chat, weather, square-root and Python-program requests. Mixed requests for lyrics plus other tasks are rejected. The writing model has no tools and returns only a constrained lyric sheet. Both calls are bounded and never automatically regenerated after a lost response. The configured installed planner model is used at low reasoning effort unless `lyric_writer_model` is explicitly set. Drafting requires the PC to be awake and signed in; offline mode preserves editing and approval. Limits are 12,000 characters per workshop sheet, one active draft per browser, four active jobs total, and 20/40/100 attempts per hour per browser/network/service. Draft jobs expire after 24 hours and are private until the listener confirms a song using the chosen words. Browser-only version history is kept in that tab.
+
+Deploy Chairlift first, install the independent writer with `pc-worker/install-lyric-writer.ps1 -Start` while worker/monitor are idle, then deploy the site. See [worker setup](pc-worker/README.md#lyric-workshop). Tests: `tests/browser/lyric-workshop.spec.js`, `pc-worker/test_lyric_writer.py`, and Chairlift's `test/lyric-workshop.test.js`. The optional `check_lyric_writer.py` performs eight real scope checks and one text-only generation; it never creates or renders a song.
+
+Leave **Extra lyric guidance** blank to generate the first draft from the saved song idea, current direction, what matters most, and enabled song controls such as style, structure, required phrases and locked lines. The workshop card and editor follow the shared light/dark theme. Chairlift wakes the PC on committed lyric jobs through a private waiting connection; the worker immediately claims new work and checks for the next draft after finishing.
+
+While writing, a hat rolls across the progress panel using transform animations. A two-second sample of visible frame cadence and animation progress switches stalled or slow browsers to a simple loader; background tabs and closed dialogs pause this check. Reduced-motion users get the simple loader without rotation. The existing live status still announces writing progress.
+
+For an explicit end-to-end check, set the submitter password only in `YEHRY3_PROMPT_PASSWORD` and run `node scripts/check-lyric-workshop.mjs --base https://chairlift.fly.dev/yehry3 --output <private-report.json>`. It verifies the four off-topic rejections, one first draft from the saved idea, one revision, and exact-wording draft review. Add `--pickup-report <installed-state>/lyric-workshop/pickup.json` on the PC to observe an upper bound on submission-to-PC pickup for each exact job using one clock. It creates only one expiring **unconfirmed** draft; it never submits a song. Run `npm run verify:live` separately to verify the deployed public assets.
+
 Prompt details, request review and Backstage group the saved brief into **Essentials** and **Advanced** in that same order. Admin cards summarize the voice, custom sound, lyric mode/word count, reference count and basis songs before opening the brief. Supplied lyrics and saved reference content expand separately, with each reference’s purpose, note, source link and retrieval status. Anyone can read these materials after confirmation, including on existing requests. Public original-prompt pages load them from the individual request endpoint, even after publication; the polling queue and catalog lists stay compact. If the details API is unavailable, the saved catalog brief remains readable and the page explains that materials could not be loaded.
 
 The request form includes a **V6 vs V7** comparison modal beside the voice selector: fresh preference-neutral selection, larger separately trained voice adapter, and the limited meaning of its roughly 0.6% reconstruction-loss improvement. The dialog supports keyboard dismissal, focus return and mobile scrolling. Listening views keep compact V6/V7 badges, with a distinct treatment for experimental V7, but do not repeat the comparison link.
 
+**Use these lyrics** also copies the chosen version's lyric prompt history into the
+submitted sheet. Request review, Backstage and **View original prompt** show its
+saved guidance and revision nudges in order. Manual edits retain that lineage;
+restoring a version restores its own history, excluding abandoned branches. Only
+the chosen history becomes public on confirmation. Up to 32 prompts are retained
+independently of the eight editable versions; older or shortened histories say
+when earlier prompts are missing. Existing requests without saved history remain
+unchanged. Deploy Chairlift's `lyricSheet.promptHistory` support before this UI.
+
+Dashboard song menus include **Archive** after the saved Backstage login passes an
+admin API check. The action uses the existing protected archive endpoint, confirms
+that the song leaves the site for everyone, and offers **Undo**. Votes, plays and
+files remain available for restoration in Backstage. Visitors and submitter-only
+logins see no Archive control; signing out in another tab removes it.
+
+`npx playwright test -c playwright.catalog-actions.config.js` checks archive menus,
+lyric workshop history and original-prompt rendering with intercepted API calls.
+Set `YEHRY3_ACTIONS_URL=https://yehry3.app` to check the deployed UI without changing
+live songs.
+
 ## Run
+
+Display settings also offers **Listening room theme**: Classic, Midnight Doomer
+(indigo stars), Concrete Winter (cold slate), and Pumpkin Doomer (amber and plum).
+Midnight Doomer is the default when no theme or older Dark Mode choice is saved.
+Doomer choices enable Dark Mode and persist across pages/tabs in
+`yehry3:room-mood`; switching Dark Mode off returns to Classic. October's hero
+decor includes a headphone-wearing pumpkin doomer, hidden by Halloween decor Off.
+The original illustration was generated with the built-in imagegen tool from:
+“Transparent waist-up Doomer jack-o-lantern, tired glowing eyes, black ribbed
+beanie and hoodie, gray headphones, rusty sweater collar, cigarette, rough
+hand-drawn contours, small glowing pumpkin beside the shoulder; no text.”
+The optimized public asset is `assets/pumpkin-doomer.webp`.
+Its head nods while the shared player is audible, with a glowing cigarette and
+drifting smoke. Morning Routine adds bloodshot eyes and a crooked red, green and
+gold holiday light string around the headphones and hoodie, pulsing with its
+stronger 92.6 BPM nod; the hoodie and
+shoulder pumpkin stay still. Pausing or muting stops the animation, which follows
+the player across navigation. Sound video popups also trigger the mascot. Low
+decor and reduced motion keep it static; Off hides it.
+Run `npx playwright test --config playwright.pumpkin.config.js` for the mascot
+playback/mobile check, or set `YEHRY3_SITE_URL=https://yehry3.app` to check live.
+
+Display settings offers **Halloween decor**: Off, Low, Medium, High (default),
+EXTREME and HAUNTED. Low keeps static pumpkins and corner webs; Medium adds 12
+cursor bats and occasional flybys; High retains the original 24-bat effects,
+weaving and idle scares. EXTREME and HAUNTED add 36/48 bats and more frequent
+encounters. Off hides all seasonal decor and stops its animation work.
+Pumpkin scares occur one-tenth as often: every 30 encounters on High/EXTREME,
+and every 20 on HAUNTED.
+Choices apply across pages/tabs and are saved in `yehry3:halloween-level`; existing bat
+controls remain independent. Reduced motion and the October season still apply.
+Build first, then run `npx playwright test --config playwright.halloween.config.js`.
+Set `YEHRY3_HALLOWEEN_URL` to check a deployed site; settings tests mock APIs.
+
+Saved Dashboard covers use 160, 320 and 640 pixel WebP previews, created locally
+by `npm run build` at quality 82 (only sizes smaller than the source). The browser
+selects for the rendered size and screen density; original images and the cover
+registry remain unchanged. Content-hashed previews can be cached for a year.
+This also applies automatically to new incubation and mature covers. It makes no
+image-generation calls. Clicking anywhere on a saved cover opens the original in a keyboard-accessible
+viewer with fit/actual size, a separate original-image link, Escape/backdrop dismissal
+and focus return, without changing playback. Enter and Space also open the viewer; there is no separate corner icon. Record and pending-cover sample gestures remain available.
+Future generation depicts Tony in a Gatsby cap or baseball cap whenever he appears.
+
+The 24 songs on the September 29, 2026 default page-one snapshot have silent
+15-second videos registered in `assets/song-videos.js`. The original three clips
+are preserved; the additional 21 use each song's lyrics, title, original prompt,
+arrangement and cover art to direct three linked five-second scenes. Tony wears
+a baseball or Gatsby cap throughout. The snapshot fixes the batch even if votes
+or new releases later change the page order.
+In Grid, resting a mouse over a card for two seconds starts a square crop; moving
+off the card, scrolling, interacting, hiding the tab or leaving the page releases
+the preview. Only one preview loads at a time. Reduced-motion and data-saving
+preferences disable hover playback. The video-camera button opens the full portrait
+video with native controls on desktop, touch screens and keyboards; it leaves
+song audio playing. The saved cover still opens its original image viewer.
+Run `npx playwright test --config playwright.song-videos.config.js` after building;
+set `YEHRY3_VIDEO_URL=https://yehry3.app` for the deployed checks. These tests use
+read-only catalog fixtures and real video assets. `npm run verify:live` also
+compares every registered deployed video and checks byte-range playback.
+
+To refresh the skipped-cover report from an audit and the original batch baseline:
+`node scripts/artwork-status.mjs --state <state> --audit <current-audit.json> --baseline <batch-baseline.json> --skipped-report <report.md>`.
 
 Node 22 or later:
 
@@ -50,11 +305,21 @@ For a disposable end-to-end preview, install dependencies in sibling `../chairli
 
 For the real API, follow [chairlift's setup and queue contract](../chairlift/yehry3/README.md). Configure the submission password, separate admin password and signing secret in the backend, then run its catalog seed. No credentials are placed in the public build.
 
-Every view that represents a song or a request carries the same badge row: the Tony voice (V6/V7/V8), the band generator, and **Remix** when one applies. It appears on catalog songs, the player, songs still generating, the public queue and request details, request status, Backstage, lyric sheets, original prompts, Fear & Hunger, and mixtape tracks. A remix is marked from the moment its source recording is frozen on the request, so the badge is present while the song is still in production; Chairlift exposes only the source's ID and title on public queue items. Known band generators stay labeled separately from Tony’s voice. **EMP** identifies paid Eleven Music compositions (the full name remains in the hover description and original prompt); **Local · ACE** identifies explicitly saved local requests. Older recordings without saved generator metadata are left unlabeled. Compact API and offline catalogs retain the same attribution.
+Every view that represents a song or a request carries the same badge row: the Tony voice (V6/V7/V8), the band generator, and **Remix** when one applies. It appears on catalog songs, the player, songs still generating, the public queue and request details, request status, Backstage, lyric sheets, original prompts, Fear & Hunger, and mixtape tracks. A remix is marked from the moment its source recording is frozen on the request, so the badge is present while the song is still in production; Chairlift exposes only the source's ID and title on public queue items. Known band generators stay labeled separately from Tony’s voice. **EMP** identifies paid Eleven Music compositions (the full name remains in the hover description and original prompt); **FREE** identifies explicitly saved local ACE requests. V9 checkpoint badges show the saved epoch number or range beside **V9**, with the full description in the tooltip. The bottom player omits the repair wrench. Older recordings without saved generator metadata are left unlabeled. Compact API and offline catalogs retain the same attribution.
 
 ## Behavior
 
-- The collection offers **Grid** and **List** views above the songs, starting in Grid. The choice is remembered across reloads, navigation, and browser tabs; switching keeps the same filters, page, queue, and playing audio. Every song gets original silly vector clip art from its title. Each recording stably picks one of the title's matching subjects (remix and style words add band instruments, and titles without a subject share a nine-piece house band), plus its own palette, backdrop, expression, pose, held prop and accessory, so versions of one title do not share a cover. Songs with live votes trade the regular cast for award art at 1, 3, 5 and 7 votes: a pink first-fans stage, a spotlight, a gold sunburst, then a framed night-sky legend card, each with its own mascots and one heart per tier reached. Award art needs live vote counts, so the offline catalog shows the regular art. Each song's **🎨 Redraw** opens a dialog that offers only what the drawing code can draw, as chips per trait: the whole regular cast (with a search box that also knows aliases like "bumblebee"), twelve palettes, pose, held prop, accessory, eyes, mouth, backdrop, sprinkles, lean and facing. Every section says what the picture shows now and marks that chip; a pick pins the trait and shows in the preview at once, and a second tap unpins it. **🎲 Shuffle the rest** rolls a whole new picture under the pins, **↺ Start over** returns to the picture as it is, and **✏️ Draw on it** opens a doodle pad over the preview: six pens in the picture's own inks, three widths, undo, clear and an ink meter, with each stroke simplified to a short list of integer points so a whole doodle stays under 2,400 characters. Chairlift stores the seed, pins and doodle, which everyone sees, and a note of the picks ("robot, blue, sunglasses, shuffled"), which it returns only to the browser that wrote it. It allows each browser one redraw per song an hour. Until then the button reads **🎨 Redrawn**, shows the note and the time it frees up on hover, and says the same on a tap. Award art keeps its tier's mascots, stage, sprinkles and empty hands and chooses colors only among its tier's palettes, and See-saw songs keep their mouth. Mixtape side labels still draw their clipart from typed words. New releases receive artwork immediately, including during API outages, without loading lyrics or requesting an image service. The illustrations remain non-graphic even for explicit titles.
+- **Authored by me** in Search & filters matches the name shared by your listening-room card and request form, ignoring appended room numbers such as `(2)` or `(3)` and letter case. Scythe also matches songs credited to Csaw. The `?author=me` filter survives reload and follows name changes in this browser and other tabs; a browser with no saved name matches no songs. Original displayed credits remain intact. Run `node scripts/list-authors.mjs` to print distinct public catalog authors and song counts (or pass a local catalog path).
+
+- The collection keeps search, profiles, listening activity, voting information and display settings in compact horizontal controls. Click a disclosure for an overlay panel; Escape, clicking outside or tabbing away closes it. Pagination shares a row with Grid/List. Active filters show a count on their control, with full labels inside; Play the collection and Shuffle live inside Search & filters.
+
+- Published song cards group lyrics, song plan, original prompt, remix and original comparison into labeled navigation icons in the More popout in both Grid and List. Labels stay visible without duplicate tooltips; hover or keyboard focus shows only extra details, such as why a remix is unavailable. Escape dismisses that explanation. Links keep their existing destinations, and unavailable remixes stay disabled.
+
+- Paid songs show their generation cost in both Grid and List cards. Recorded amounts come from the reconciled spending ledger; only published song IDs and USD cents are exported to `assets/settled-song-costs.js` by `python scripts/sync-song-costs.py --ledger <private-ledger-path>`. This read-only export includes settled retry charges and excludes reservations, unfinished requests and private ledger details. Songs without a recorded amount show a visible **est.** at the existing $0.15/minute estimate, or $0.50 when length is unavailable. Amounts exclude subscription fees and taxes. New songs use the estimate until the snapshot is refreshed and deployed.
+
+- Grid and List keep **Play**, **Vote**, **Save**, and **More** together with 44px touch targets. More opens lyrics, remix and prompt links, listening totals, Pin and feedback in a viewport-bounded popout. Escape returns focus; clicking outside or tabbing out closes it. Refreshes keep the open song; switching views closes the popout. List uses a small thumbnail with the title, metadata and quality notices still visible. Desktop Grid fits four cards per row; phones show smaller, uncropped artwork. Pages contain 24 songs, divisible by all four-, three-, two- and one-column layouts.
+
+- The collection offers **Grid** and **List** views above the songs, starting in Grid. The choice persists across reloads, navigation and tabs while preserving filters, queue and playing audio. Dashboard uses saved pictorial covers based on lyrics, musical choices and the original prompt; Clip Art and Redraw are retired there. The legacy drawing engine remains for mixtape labels. New songs receive a cheap picture on the first automation pass and a richer cover after 24 hours if still active; a title sleeve appears while generation is pending. See [song artwork](docs/song-artwork.md) for budgets, audits and pin protection.
 
 - Remix availability appears on song cards and lyric pages. Verified checks expire after 48 hours;
   unavailable sources cannot be submitted. During a catalog/API outage, sources without current
@@ -62,6 +327,10 @@ Every view that represents a song or a request carries the same badge row: the T
 - Attached remixes put **What should change?**, **What should stay?**, and **May the lyrics change?**
   in Essentials. The choice between retaining supplied words and allowing adaptation remains in the
   confirmed brief. The form explains that melody and timing may change.
+- Remix lyric review stays on the submitted request after confirmation, status refresh and reload.
+  **Waiting for your review** opens the selected request even while another remix idea is open.
+  Older remix URLs resume a pending review of that recording. Supplied words marked to stay unchanged
+  remain read-only but can still be approved; adaptation allows editing before approval.
 - Published remixes link to their original on the lyric page. **Compare with the original** starts
   collapsed and opens on demand; the **Compare with original** link and the `#compare-original`
   deep link expand it, and collapsing it stops the original. **Play original** and **Play remix**
@@ -73,14 +342,16 @@ The collection headline and main-page footers choose from 100 curated branding l
 
 Mixtape shares now use `/mixtapes/<12-character-id>`. Chairlift stores an immutable snapshot in MongoDB; repeated sharing of identical content reuses its URL, while edits create a new snapshot. Old `#tape=` Base64 links still open and can be shortened with **Copy mixtape link**. Local drafts stay local until shared, and an API failure leaves the draft intact for retry. Deploy the matching Chairlift `/mixtapes` API first.
 
+The deck's **Crossfade (2.5s)** option is saved with a published tape and starts off for existing tapes. It overlaps adjacent recordings, including the Side A to B transition, through the persistent site player. It changes volume only; it does not alter tempo, pitch, or the files. If the next recording cannot start during the overlap, playback continues with the regular track transition.
+
 Each cassette side has its own text label and optional handwriting pad for a mouse, finger or stylus. Flip or automatic side changes display that side's label. Handwriting saves bounded pen strokes, with separate Undo / Use typed label controls per side; typed text remains accessible alongside the drawing. Both labels and their drawings survive reloads, short-link sharing and making a new version. Old drafts automatically gain empty side labels and retain their name and track order.
 
 - **Mixtapes** has a cassette deck with play/pause, stop, previous/next, seeking and side flipping. The deck plays on the site's player: a tape carries on, in the bottom bar (whose previous and next follow the tape), when the visitor goes to another page, and the deck finds it playing on return. Reels follow playback and respect reduced motion. Side A continues into B; clicking a track starts there. Moving or reordering the playing track preserves its audio and updates the following tracks. Removing that entry stops it. A searchable shelf shows durations and which side already contains a song; **Add a surprise mix** adds up to six unselected recordings, balancing side durations without replacing selections. Drafts stay in browser storage, and shared links retain a snapshot of the name, color and order. Existing links and drafts remain compatible. Mixtapes and Backstage have separate, consistent navigation links before and after page navigation.
 
 The compact collection intro keeps the record artwork beside the text, including on mobile, so the tracks are closer to the top. **Search & filters** starts collapsed on each page load, with active search, collection, saved-song, and nondefault sort choices shown in its compact header. Opening it reveals the search, collection, sort, Shuffle, and display settings controls. Its open state stays unchanged through filtering, browser history, and automatic refresh; shared links restore the filters while keeping the panel collapsed. **Listening activity** starts collapsed; opening it shows total listens, songs listened to, and the latest listen for every matching song across all pages. It stays open through filtering and automatic refresh, and starts collapsed on a new page load. These are global listener statistics, including when viewing a profile’s Saved songs. The **Most listened to** button inside selects that ordering directly; the sort dropdown offers the same option and preserves existing `?sort=plays` links. The totals follow search, collection, and saved-song filters, and update after recorded listening and automatic catalog refresh. Unavailable statistics show a dash rather than an invented zero.
 
-- The main catalog shows 25 songs per page, with Previous/Next controls above and below the list and a shareable `?page=2` URL. Search, collection, sort, and saved-song changes return to page one. Refresh preserves the current page and playback. Play the collection, Shuffle, and the player's Previous/Next use the entire filtered collection across pages.
-- Remixed releases carry a **Remix** badge. Each grid/list card has a play/pause toggle synchronized with the persistent bottom player. The hero record shows a comic-book caption with real catalog lyrics when clicked and occasionally while the page is idle. Its lyric pool includes songs with at least one vote plus releases under three days old; vote leaders receive up to a 50% selection boost. Captions vary between the original single-line size and contiguous passages of up to four lines on phones, six on ordinary desktop viewports, or eight on taller screens.
+- The main catalog shows 24 songs per page, with Previous/Next controls above and below the list and a shareable `?page=2` URL. Search, collection, sort, and saved-song changes return to page one. Refresh preserves the current page and playback. Play the collection, Shuffle, and the player's Previous/Next use the entire filtered collection across pages.
+- Remixed releases carry a **Remix** badge. Each grid/list card has a play/pause toggle synchronized with the persistent bottom player. The small egg beside each song title plays a random slice of that recording with one click or keyboard activation; saved covers open the artwork viewer. Triple-clicking the hero record plays a random clip from a random song, avoiding the previous pick when another is available. The hero record changes colors during the clip, with a steady lyric bubble anchored to its sleeve; reduced motion uses a single tint. Clips with timed lyrics show only the words being sung; there are no idle lyric popups or generated speech.
 - Listening history starts September 15, 2026. The site's player records a listen, when a song was started from the collection or a lyric sheet, after 10 seconds of actual playback (or at least 90% of a completed recording shorter than 10 seconds). Opening pages, seeking, buffering, and pausing do not create extra plays. Chairlift counts at most once per browser/song per rolling 30 minutes, including cross-page visits, and stores a global `playCount` and `lastPlayedAt`. Rows and lyric sheets display these statistics; Most listened to, Least listened to, and Least recently played sorts help identify neglected songs. No listens recorded means none since tracking began, not never heard historically. No songs are hidden or removed automatically.
 - Listening reports retry transient failures twice with the same request ID while the page remains open; prolonged outages or closed pages can lose reports without affecting audio. Direct MP3 downloads, external players, and the separate Fear & Hunger player are outside this initial tracking scope. Anonymous browser activity is an approximate usage measure. The server stores only aggregate song statistics and expiring hashed deduplication/rate keys, without raw IPs, profile names, or public visitor history. Deploy the matching Chairlift `/listens` API before this frontend.
 - The hero record plays its short arrival spin after the page loads and becomes visible, including when Windows animation effects are off. Clicking it earlier takes control immediately. Reduced motion still disables the occasional automatic idle spins.
@@ -98,38 +369,76 @@ The compact collection intro keeps the record artwork beside the text, including
 - [The public queue](https://yehry3.app/queue/) shows active production, **9/11'd Again** requests with retained work, waiting requests in priority order (50 per page), and the ten latest completed songs. Every confirmed item links to a stable public details URL and its original prompt before and after publication; only the creative brief and basis-song titles are exposed. It refreshes every 30 seconds and on returning to the tab. Drafts, admin notes, worker errors, credentials, basis IDs, and local paths remain private.
 - The landing catalog keeps every **9/11'd Again** request visible, then fills out at least three **On the way** entries with active work before waiting requests. Pending entries have title- or idea-inspired artwork and share the same continuous grid or aligned list as released songs. Their status and progress are visible at a glance; opening **Details** reveals the original idea, current stage, and request links. Pending work and published songs refresh every 30 seconds and on returning to the tab, preserving playback, open rows, and the reading position. Song filters apply to the playable catalog; pending rows follow the shared queue.
 - The catalog defaults to **Fresh, then most loved**: releases from the last 24 hours appear first, newest first, followed by the remaining songs ranked by votes. Every current song has a retained `publishedAt` derived from its matched local delivery MP3 creation time; future worker publications save the exact publication time. Latest additions, Most loved, and A to Z remain available as separate sort choices, and nondefault sorts stay in shareable URLs.
-- Pins are shared across listeners. Each browser can pin or unpin a song once; the shared count is visible, and songs with more pins stay at the top of the playable catalog immediately after the Pending rows. Listener identities are not exposed. Listeners can also downvote a song as feedback, or mark it **Milquetoast**, which also downvotes it and gives the song agent a soft instruction to avoid repeating that pattern or entry in future requests.
+- Pins are shared across listeners. Each browser can pin or unpin a song once; the shared count is visible, and songs with more pins stay at the top of the playable catalog immediately after the Pending rows. The default first page shows **Loading...** until `/songs/first-page` provides the correctly ordered startup songs (the browser displays 24), current pins, votes, artwork and visitor controls. `/songs/summary` fills the full catalog independently in the background; the queue cannot delay either response. Other pages, searches, sorts and saved-song filters wait for full results. Play the collection and Shuffle wait for the full catalog; an individually started song keeps playing and its queue expands when the remainder arrives. Static metadata is fetched only for an API outage. Deploy the matching Chairlift route first. Listener identities are not exposed. Listeners can also downvote a song as feedback, or mark it **Milquetoast**, which also downvotes it and gives the song agent a soft instruction to avoid repeating that pattern or entry in future requests.
 - Browser completion alerts cover everyone's newly published songs, including releases with quality notices. Enable them on the queue page; the browser's saved permission then applies across all yehry3 pages, and an explicit **Turn off** choice is remembered locally. Permission is requested only after a click; blocked permission and incomplete alert setup are shown separately. Keep any yehry3 tab open; suspended tabs can delay alerts. The first check establishes a baseline. Shared release history survives reloads and page changes, multiple tabs coordinate delivery, and failed alerts retry. No account or email address is needed. See [notification options](NOTIFICATIONS.md) for closed-tab push, Discord, and email.
 - An empty admin filter falls back to **In the studio** when a request is processing, otherwise **All requests**. Empty pages first return to the beginning of their current nonempty set.
 - Every Backstage stat tile (Waiting in line, In the studio, 9/11'd Again, Recovering automatically, Ready to publish, Out in the world, Needs review) filters the queue in place, keeps the URL shareable, and marks the current filter. Each is still a real link for a new tab.
 - Backstage's collapsible **Published songs** section searches published songs by title, author, original idea or ID and **archives** or restores them. Archiving is a soft delete: the song leaves the collection, its detail pages, votes, listens and the queue's latest-completed list, while votes, plays, files and the request itself are kept. The API also reports archived IDs, which the home page remembers in this browser so the static fallback catalog does not briefly list them. `catalog.json` itself is never edited (the worker owns it, and restoring a song must lose nothing); instead the Azure deploy sets `YEHRY3_ARCHIVE_URL`, and `scripts/archived-songs.mjs` leaves those songs out of the built `/catalog.json`, fallback summary, per-song data and pages, and lyric pages. If the API is unreachable, predates archiving, or reports more than half the catalog as archived, the build keeps every song and says so. The fallback therefore follows an archive or restore at the next deploy; run the Azure workflow to refresh it sooner. `npm run verify:live` expects the live catalog to equal `catalog.json` minus the API’s archived songs. See [chairlift's contract](../chairlift/yehry3/README.md).
-- The Now Playing bar has a **Share** button. It copies (or, on phones, opens the native share sheet for) `https://yehry3.app/#<song id>`: the home page, with that song revealed and highlighted the same way a completion alert reveals it. Nothing starts playing for the recipient.
+- The Now Playing bar has a **Share** button. It copies (or, on phones, opens the native share sheet for) `https://yehry3.app/song/<song id>/`: the recipient lands on that song in the collection, spotlighted above the dimmed page. Nothing starts playing for the recipient.
 - On the request form's refinement step, a sticky breadcrumb heads both **Essentials** and **Advanced** for a one-click switch. Essentials also lists **Common things** (Lyrics & adaptions, Timing, Style & instruments, Basis songs) that open Advanced at that section; a shortcut whose section is unavailable, such as Timing without V8 generation, is hidden.
 - Backstage separates **Recovering automatically** from **9/11'd Again**. Supported retries and cooldowns keep their diagnostics available. The recovery label expires after 20 minutes if monitoring stops. Public queue and request details show the same distinction. Backstage refreshes every 30 seconds while no brief or form is being edited.
 - Each Backstage **9/11'd Again** card names the saved worker failure and offers a corny illustrated **Dehaka** recovery console with a rotating quote, current stage, recorded repair/attempt activity, latest guidance, and a suggested next step. Private recovery guidance is prefilled with “Whatever it takes to fix this.” Submitting it starts the existing bounded shepherd/monitor flow for that request. Known repairs, versions, leases, attempt budgets, integrity checks, publication, and live delivery verification remain enforced; guidance cannot replace the song or weaken those controls.
+- **Archive**, beside Dehaka on a failed request, stops recovery through the existing version-checked cancellation action. It asks for confirmation, keeps saved work and history under **Canceled**, and requires no recovery guidance. The request can be queued again from its controls. Active worker requests do not offer this shortcut. Published recordings retain their separate archive/restore controls.
 - Below the console, the private **Dehaka log** is a back-and-forth thread: your steer, Dehaka’s reply (action, reason and evidence), queue-monitor actions, later failures or publication, and expandable raw PC logs (planner, renderer, worker error, Dehaka’s own consultation stream). It refreshes every 15 seconds without collapsing an open log. The steer box stays available while recovery runs, so after reading the logs you can steer again; each steer gets exactly one reply.
 - One exchange with Dehaka keeps his console and log on that request’s Backstage card for good: while it is queued or rendering again after the repair, and after it publishes or is canceled. Outside 9/11'd Again the steer box is closed (the API only accepts a steer for a stopped request) and the console says the repair is under way; it reopens if the request stops again. A request that was never steered shows no console once it leaves 9/11'd Again.
 - Dehaka can answer **Replan with new direction**: the PC sets the refused plan aside and plans again with his creative note, fetching a named cover song’s words when needed. See the worker runbook’s cover-request section.
 - Backstage shows the PC worker as **online** or **offline** from its heartbeats (every run, about two minutes; every 25 seconds while working), with its state, stage, online-since time and recent outages. Six minutes without a heartbeat counts as offline.
 - Musical warnings alone remain ordinary **Out in the world** publications with optional **Has issues** notes. **Needs review** specifically flags a playable recording published despite failed validation (`validationFailures`), without changing its `published` lifecycle. Backstage offers **Keep this version** to clear the flag and **Regenerate** to open the same brief as a new draft; its normal review, payment authorization and confirmation still apply, and the original recording stays up and in Needs review until that draft is sent to the queue; only then is it archived (restorable from Backstage), so an abandoned draft loses nothing.
+- Completed repairs carry a **🔧** badge. Hover, focus or tap it for the completion timestamp in Pacific time. A recorded `repairedAt` removes stale review flags and controls while preserving independent musical issue notices. Backstage also recognizes older failed requests that subsequently published without validation failures, using their publication time. Pending retries, kept versions and publications with unresolved validation failures do not count as repairs.
 - Every song that publishes gets its raw PC logs in a **Raw logs** section on its Backstage card, in the same style as Dehaka's log. The queue monitor attaches them (job logs, render status and stage logs, secret-redacted) within about five minutes, Needs review first, and Chairlift expires them 24 hours after publication. Needs review cards keep the section afterwards and say when the logs are gone.
 - Display settings includes **Dark Mode**, saved across pages and tabs in this browser. It also remembers whether to show issue/review notes; the Needs review flag itself stays visible. Settings still work for the current page if browser storage is unavailable.
-- The same preferences include **Lyric captions**, enabled by default, which controls the record's comic-book lyric captions; **Lyric audio**, disabled by default, which uses the browser's generated voice only when the record is activated; **Continuous record spins**, which keeps the hero record turning without friction; and **Spin while music plays**, which follows playback and stops on pause unless continuous spinning is enabled. They apply immediately and persist across reloads, navigation, and tabs. Clicking still speeds up the record. Idle spins never generate lyric audio. Explicit spin choices also work with reduced motion enabled; the default idle spins remain disabled there. New preferences give the cog a brief gentle pulse and a **New** badge until opened, remembered in this browser; reduced motion uses the badge alone.
+- The record preferences include **Continuous record spins**, which keeps the hero record turning without friction, and **Spin while music plays**, which follows playback and stops on pause unless continuous spinning is enabled. They apply immediately and persist across reloads, navigation, and tabs. Clicking still speeds up the record. Explicit spin choices also work with reduced motion enabled; the default idle spins remain disabled there. New preferences give the cog a brief gentle pulse and a **New** badge until opened, remembered in this browser; reduced motion uses the badge alone.
 - **Loop off / Loop on** sits in the player bar and on each lyric sheet. It repeats the current track and, on the collection, stops the automatic advance to the next song while it is on. It is on the bar and on each lyric sheet (the two stay in step), and the choice is saved in this browser and shared across pages and tabs, like the other listening preferences, and still works for the current page if storage is unavailable.
 - Each build stamps its pages with a Pacific-time footer and writes an uncached `/deployment.json` that also carries a `code` version: a hash of the site's pages, scripts, styles and hosting rules, excluding `catalog.json`, `basis-songs.json`, the Tommy clip data and audio, and generated song/lyric pages. An open tab compares that version every two minutes and when it returns to the foreground; a newer build with *different code* reveals an **Update available ↻** button at the top of the page, with **Not now** beside it. Song, lyric-cue and Tommy-clip publications redeploy (and move the footer timestamp) but never prompt, and **Not now** silences that code version until the code changes again. Refreshing is always the visitor’s choice, so a reload never interrupts a song that is playing. The stamp identifies the deployed build, not a visitor refresh.
 - Songs and requests that recorded Tony's pitch (Clean, Haunted or Wild) show it as a small badge beside the voice and band-generator badges; older recordings show none. Rows no longer repeat the Tony AI and Distonyc collection labels, only exceptional ones such as Fear & Hunger. In the request form the pitch choice sits under Essentials; it is stored with the V8 generation options, so it is disabled with an explanation when generation is off.
 - A request can also ask for a **B side**: the same song sung again with a second pitch setting. Its control is an Advanced setting beside the other song controls (Essentials keeps only the pitch choice itself), so it does not compete for space there. The worker sings it after the song itself verifies (`pc-worker/pitch_alternate.py`), changing only the guide pitch contour, and publishes it beside the song as `alternates`. It is best effort: any failure publishes the song alone. Songs with a B side show an A/B badge, and the collection player gets an A/B switch (`assets/sides.js`) that swaps recordings and keeps the listener's place.
-- **The listening room.** Everyone on the site sits at the left and right edges of the window as a small avatar, on every page with the shared header, on Fear & Hunger, the studio guide, Tommy's pages and the not-found page, and they stay in place as the swapped pages change (the room is not left and rejoined between them). Anyone, signed in or not, appears under their saved name with its initials; until they have one they are an animal the studio assigns, such as `happy-rabbit`, which stays the same between visits. The name is the same **Authored by** name as on Make a request and the mixtape form: your own card has **Set a name** / **Change name** (Enter or **Save**; leaving it empty goes back to the animal), and a change made there shows in an open Authored by field, and one typed into that field reaches the card once the typing settles, in this tab or another. Each browser is its own listener, so the same name on a phone and a laptop is two people, and the studio shows the later arrival as `Jesse (2)`, the next as `Jesse (3)`, so nobody passes for someone who was there first. Any signed-in browser's own card also has **Change avatar**: a choice of emoji kept by the studio for that browser, which replaces the initials (the card widens to show them, all at once on a window 1100px or wider and as a list that scrolls only downwards on a phone), with **Use my initials** (or **Use my animal**) to give it back. A green dot is **Online**, a grey dot on a grey, half-transparent avatar is **Idle** (no mouse, key, touch or scroll for five minutes, or the tab in the background), and a ♪ badge on a nodding avatar means a song is playing (everyone nods in time, and a new song gives the face a little start): hover, focus or tap an avatar for the title, which links to the song. Two more small badges sit on the face when they apply: what kind of screen a listener is on (phone, tablet, small screen, or desktop, guessed from the pointer and the screen size, `deviceKind()` in `assets/listeners.js`) and what they are doing besides listening (drafting a song, viewing song lyrics, read from the page itself — `data-page` plus whether the request form or a filled-in idea is present — so no page has to report it, and cleared while idle). A card also spells both out in words, and, for someone with a song on, how far into it they are (`m:ss / m:ss`), counted up between reports so it does not wait on the next heartbeat; your own card counts from the audio element itself. Cards step out by themselves for six seconds when someone changes song, and stay open on windows at least 1800px wide. On a phone the avatars are smaller and sit whole against the edge, and a changed song is a four-second toast instead: a one-line card slides out from the avatar and goes back, keeping only the name and song on its two lines (the place and screen line are left off), and your own song is announced the same way. Each tab reports every 25 seconds and when its song starts, changes or stops (the site's player, which the collection, lyric sheets and mixtapes share, and Fear & Hunger's); the room is pushed over a WebSocket (`/listeners/socket`, allowed by `wss://chairlift.fly.dev` in the Content-Security-Policy), and read by long poll from `GET /listeners` until the socket delivers, whenever it closes, and for ten minutes after three sockets in a row fail, so changes show within a second or two either way. A page in the background gives its socket back. A background tab that is not playing falls silent and leaves after about a minute. Your own avatar comes first on the left; its card has **Hide me**, which leaves the room at once and is remembered in this browser (`yehry3:listeners-hidden`) until the 👻 button brings you back. While hidden you still see everyone else. The room is decoration: if the studio is unreachable nothing is drawn and nothing else waits for it. Œuful and the listening experiments are not part of it. Deploy the matching Chairlift API first.
+- **The listening room.** Everyone on the site sits at the left and right edges of the window as a small avatar, on every page with the shared header, on Fear & Hunger, the studio guide, Tommy's pages and the not-found page, and they stay in place as the swapped pages change (the room is not left and rejoined between them). Anyone, signed in or not, appears under their saved name with its initials; until they have one they are an animal the studio assigns, such as `happy-rabbit`, which stays the same between visits. The name is the same **Authored by** name as on Make a request and the mixtape form: your own card has **Set a name** / **Change name** (Enter or **Save**; leaving it empty goes back to the animal), and a change made there shows in an open Authored by field, and one typed into that field reaches the card once the typing settles, in this tab or another. Each browser is its own listener, so the same name on a phone and a laptop is two people, and the studio shows the later arrival as `Jesse (2)`, the next as `Jesse (3)`, so nobody passes for someone who was there first. Any signed-in browser's own card also has **Change avatar**: a choice of emoji kept by the studio for that browser, which replaces the initials (the card widens to show them, all at once on a window 1100px or wider and as a list that scrolls only downwards on a phone), with **Use my initials** (or **Use my animal**) to give it back. A green dot is **Online**, a grey dot on a grey, half-transparent avatar is **Idle** (no mouse, key, touch or scroll for five minutes, or the tab in the background), and a ♪ badge on a nodding avatar means a song is playing (everyone nods in time, and a new song gives the face a little start): hover, focus or tap an avatar for the title, which links to the song. Two more small badges sit on the face when they apply: what kind of screen a listener is on (phone, tablet, small screen, or desktop, guessed from the pointer and the screen size, `deviceKind()` in `assets/listeners.js`) and what they are doing besides listening (drafting a song, viewing song lyrics, read from the page itself — `data-page` plus whether the request form or a filled-in idea is present — so no page has to report it, and cleared while idle). A card also spells both out in words, and, for someone with a song on, how far into it they are (`m:ss / m:ss`), counted up between reports so it does not wait on the next heartbeat; your own card counts from the audio element itself. Cards step out by themselves for six seconds when someone changes song, and stay open on windows at least 1800px wide. On a phone the avatars are smaller and sit whole against the edge, and a changed song is a four-second toast instead: a one-line card slides out from the avatar and goes back, keeping only the name and song on its two lines (the place and screen line are left off), and your own song is announced the same way. Each tab reports every 25 seconds and when its song starts, changes or stops (the site's player, which the collection, lyric sheets and mixtapes share, and Fear & Hunger's); the room is pushed over a WebSocket (`/events/socket`, allowed by `wss://chairlift.fly.dev` in the Content-Security-Policy), and read by long poll from `GET /events` until the socket delivers, whenever it closes, and for ten minutes after three sockets in a row fail, so changes show within a second or two either way. A page in the background gives its socket back. A background tab that is not playing sends one idle report, falls silent and leaves 70 seconds after that report. Closing a page attempts an immediate removal; if that request cannot arrive, the same 70-second server timeout applies. Playing music keeps reporting even in the background and prevents idle status. If this browser goes offline or a presence report fails (requests time out after 15 seconds), your avatar shows a red × and **Disconnected · reconnecting** until a report succeeds; returning online retries immediately. A cached room expires after 70 seconds without a confirmed snapshot, removing the other avatars while keeping your disconnected indicator. A quiet room gets a read after 35 seconds without a snapshot, including while **Hide me** is on, so an unchanged WebSocket room is not mistaken for an outage. These indicators do not pause or replace the audio. Your own avatar comes first on the left; its card has **Hide me**, which leaves the room at once and is remembered in this browser (`yehry3:listeners-hidden`) until the 👻 button brings you back. While hidden you still see everyone else. The room is decoration: if the studio is unreachable nothing is drawn and nothing else waits for it. Œuful and the listening experiments are not part of it. Deploy the matching Chairlift API first.
 - Fifty curated prompt suggestions are shuffled locally on page load; five cycle every 12 seconds on the collection banner and empty, unfocused request field. Typed prompts are never changed. Reduced-motion preferences disable cycling.
 - Newly generated songs include a **Lyrics** link in the main list, opening a readable `/lyrics/title-hash/` route with in-browser playback, line highlighting, automatic scrolling, click-to-seek, download, and print controls. Each built route includes the song title and first lyric line in Open Graph metadata for Discord and other link previews; legacy `?song=id` links keep working. Selecting a timed lyric updates the URL; opening that link restores the same line and playback position without autoplaying. Saved lyrics and bounded line cues travel with the song metadata in Mongo and the fallback catalog. All existing songs were backfilled from their retained production word timestamps; new songs derive cues locally without another model call or render.
 - Generated songs remain in **Distonyc requests** and also appear in **Fear & Hunger** when that is clearly their subject. The existing planning call makes this classification; it does not infer the collection merely from a dark style. `/?collection=fearhunger` links directly to that collection.
 - The dedicated `/fearhunger/` page also reads these collection tags, keeping the original three recordings and adding matching requests automatically. It refreshes every minute and when returning to the tab, preserves current playback, and uses the static catalog during API outages.
 - All catalog entries have been backfilled from saved render lyrics or source transcriptions, matched against the published MP3 hashes. Every current song has a lyrics link. See [lyrics provenance](LYRICS.md).
 - `/wiseau/` lists short lines spoken by a cloned Tommy Wiseau voice, and `/wiseau/<id>` is one line's stable share page with a waveform player, copy-link and MP3 download, labelled as AI-generated. Everything is static: `wiseau/clips.json` is the manifest and `wiseau/clips/<id>.mp3` the audio, both committed to `talandar` in one commit by `scripts/share_yehry3.py` in the wiseau-tts project (via `gh` and the Git Data API, fast-forward only), which then waits for Azure to serve the new id. The build writes a copy of the page per clip at `dist/wiseau/<id>/index.html` whose title and OpenGraph tags quote the line, so a link preview (Discord and the like) shows what Tommy says; no `/wiseau/*` rewrite may exist, since Azure would apply it over those pages. `npm test` fails if the manifest, the clip files and the built pages disagree.
-- Each song has a shareable page at `/song/<id>/` generated at build time with OpenGraph metadata (title, first lyric line, length, author, audio), so Discord and similar chat previews describe it; browsers are forwarded to `/#<id>` in the collection. The player's Share button copies this link, and the older `/#<id>` links still work. A song appears here on the next deployment after publication.
+- Each song has a shareable page at `/song/<id>/` generated at build time with OpenGraph metadata (title, first lyric line, length, author, audio), so Discord and similar chat previews describe it; browsers are forwarded to `/#<id>` in the collection. The shared track is spotlighted above a dimmed page in Grid or List view, with its controls available. The × button, Escape, clicking outside, scrolling, or tabbing outside the track restores the collection without interrupting playback; its **Shared with you** badge stays until the visitor leaves. The player's Share button copies this link, and the older `/#<id>` links still work. Before that deployment, the 404 shell confirms a newly published song through the public API and sends browsers to its collection entry. Link previews gain the song metadata after deployment.
+
+Shared-song arrival waits for a visible tab and a rendered card, and retries after catalog
+or queue updates. The redirect carries a one-use `shared` query parameter, consumed only
+after arrival, so blocked session storage cannot lose the spotlight. While open, the
+spotlight follows layout and ranking changes until dismissed. Plain fragments still reveal
+without a shared badge. Check `tests/browser/shared-song.spec.js` for delayed reads,
+background tabs, unavailable storage, reordering, mobile layout and playback continuity.
 - Running jobs use “Cancellation requested” until the PC acknowledges it. The native Windows worker plans once, resumes the existing Troofs renderer, verifies the mix, and publishes to this site. See [Windows worker operations](pc-worker/README.md).
 
 ## Validate
+
+Scrolling a lyric sheet up or down pauses auto-scrolling while playback and line
+highlighting continue. **Resume auto-scroll** in the sticky lyric toolbar returns
+to the current line without seeking or changing playback. The paused state lasts
+through song-detail refreshes and lyric-view changes on that sheet.
+
+Artwork safety failures and bounded safe reinterpretations are documented in
+[Artwork safety recovery](ARTWORK-RETRIES.md).
+
+Lyric sheets offer **Original**, **IPA**, and **Phonics** views.
+The last choice is remembered across pages,
+reloads and tabs, with a storage-free fallback. Switching changes only the visible
+words; playback, cue buttons and shared moments retain their position. Download
+and Print use the selected view. The URL records `view=original`, `view=ipa`,
+or `view=phonics`, preserving the song, timestamp and lyric hash.
+Old Diacritics links and saved choices fall back to Original.
+A shared format takes precedence over the recipient's saved choice.
+Playback, format, save, download, profile and additional options share one desktop
+toolbar, with two compact rows on ordinary phones. The info icon explains the
+selected view; the more menu holds print, song links and recording notes.
+IPA and Phonics are dictionary guides, not transcriptions of Tony's performance:
+approximate US English, with unknown words and section headings left as written.
+The build extracts public catalog vocabulary from the pinned CMU dictionary into
+`assets/lyric-pronunciations.json`, loaded only when a phonetic view is selected.
+Words in newly published songs join that vocabulary at the next deployment.
+Attribution ships in `assets/lyric-pronunciations-license.txt`.
+After building, run `npx playwright test --config playwright.lyrics.config.js`.
+For read-only deployed interaction checks, set `YEHRY3_LYRICS_URL=https://yehry3.app`
+and run that config with `lyric-views.spec.js`.
 
 Prompt and lyric pages load one public song from `/songs/:id` and an independently
 requested static `/songs/<id>.json`. Up to twelve recently viewed public song
@@ -151,6 +460,21 @@ payload sizes, and the API's `Server-Timing` measurements. Mongo time is the sum
 of observed command durations, which can overlap; it excludes connection-pool
 waiting and is not a database billing or bandwidth measurement. See Chairlift's
 performance documentation for protected counters and slow-request logs.
+
+`npm run profile:startup` measures the real catalog in headless Chromium: three cold
+and three repeat visits each for desktop, phone, and a phone simulated at 4x CPU,
+150 ms latency and 1.6 Mbps. It saves the request waterfall, Server-Timing, body/JSON
+completion, first/full catalog DOM and next-frame milestones, long tasks, CPU
+counters, row dimensions and screenshots under `artifacts/startup`. It uses fresh
+anonymous contexts with presence hidden and submits no votes, playback or requests.
+Cold refers to the browser cache; it does not reset the CDN, API or operating-system
+DNS cache. Add `-- --view=list --runs=1 --diagnostic=true` for V8 CPU profiles and
+startup JS/CSS coverage; diagnostic overhead makes those timings separate from the
+benchmark. `--url=`, `--out=` and `--scenarios=desktop,phone,slow-phone` select the
+target and output. Run `node scripts/summarize-startup.mjs artifacts/startup/results.json`
+to generate exact step tables and median/range summaries. Paint milestones are the
+second animation frame after a DOM mutation, not pixel-level paint timestamps;
+body/JSON timing includes both remaining transfer and parsing.
 
 ```sh
 npm run build
@@ -198,3 +522,23 @@ requests receive a stable randomized length at review so the duration and cost a
 visible before confirmation. See [paid music behavior](pc-worker/PAID-MUSIC.md).
 
 Manual song length accepts 69–666 whole seconds with Local ACE and 69–600 with Eleven Music, whose provider maximum remains 600 seconds. Local lengths above 600 use connected movements and require one composition choice. Explicit short lengths work without supplied lyrics, including lyric approval and composition previews. Blank/Auto retains the existing duration distribution and submitted-lyrics exception.
+
+## Large archive batches
+
+Deploy builds read the current archived IDs from Chairlift and omit them from the public catalog, song data and generated pages. A batch hiding more than half the source catalog is allowed only when every removed source song appears in `archive-approvals.json`; otherwise the existing size guard still applies. Update that list only for an explicitly approved pruning selection, including the existing archived inventory. The list does not archive anything itself: restored songs remain public as soon as the API stops reporting them as archived, and the source catalog and recordings stay intact.
+
+## Shared UI notifications
+
+`assets/realtime.js` owns one public connection per visible tab, shared by the listening room and catalog subscribers. `/events/socket` and the `/events?since=<version>` long-poll fallback carry two topics: `listeners` (the public room) and `catalog` (an opaque revision only). Page subscribers use their `page-scope.js` abort signal, so navigation keeps the connection and playing audio but removes the departed page's subscriptions.
+
+Chairlift observes committed catalog changes from any machine, the worker and catalog seeds. Redraws, votes, award art, pins, listening totals, publications and archives trigger a debounced catalog refresh on the collection and Fear & Hunger pages. Actual content and each browser's feedback still come from `/songs/summary`; redraw notes are never broadcast. A change during a fetch queues another read. Reconnects and returning to the foreground refresh the baseline, and the existing 30/60-second polling remains the fallback. Private request/admin updates, queue progress and background completion-alert polling are unchanged.
+
+Deploy Chairlift first; its legacy listener socket remains compatible with open older tabs. `npm run verify:live` checks the new asset and both public event transports. Browser coverage in `tests/browser/realtime.spec.js` includes a real two-browser redraw, mobile playback/filters, refresh races, reconnects and navigation cleanup.
+
+Clippy appears on failed and unresolved Needs review cards in Backstage; public queue cards link to it. It selects up to five suggestions from current errors and review codes, using September 12–October 3 shepherd recoveries as evidence. Each suggestion prepares an editable-in-chat repair request with the existing private diagnostic report. Clippy does not mutate requests or run generation. Existing archive/regenerate controls remain responsible for starting over. Its examples distinguish verified delivery from musical quality and explicitly retain failed vocal/ending outcomes. Run its isolated browser checks with `npx playwright test --config playwright.clippy.config.js` (build first); `YEHRY3_CLIPPY_URL` checks the deployed UI with mocked APIs.
+
+The Biological Mandate (Corrosive Industrial Mix) features a 4:50 full audio music video with original-lyric karaoke, 44 industrial scenes, animation of its current cover, and a Plato shower icon. The earlier video remains available as Version A.
+
+Influence Criteria features a 5:35 workplace satire video with its original recording, 71 office scenes, and a silent ten-second hover preview. The fluorescent cubicles, PIP paperwork, stack ranking and forced networking follow the song's prompt, lyrics and alternative-rock plan. Earlier clips remain available as Versions A–E; the full film is Version F.
+
+It Was Simple, Not Easy features a five-minute tragic courtroom film with its original recording and a silent ten-second hover preview. Its ruined sandstone court, orchestra, old house key, bread, water and olive sapling follow the cover, supplied lyrics and D-minor opera plan. The Arabic letter م launches the video; its button keeps a readable accessible label. Earlier clips remain available as Versions A–F; the full film is Version G.

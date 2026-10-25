@@ -1,0 +1,241 @@
+{
+  "version": 1,
+  "songId": "distonyc-ff2659dd0bd45acd7e554778",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ff2659dd0bd45acd7e554778-d1d16efbfda0.mp3",
+  "audioSha256": "d1d16efbfda0f47f467756956e851cca16bbb548511065de8c6efc1c078aca6d",
+  "inputSha256": "3e76c4701d9447fdf706b9453c01468cb0b347b15e9037bb16faea88bb9df0e9",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 245.0024375,
+  "segments": [
+    {
+      "start": 6.34,
+      "end": 10.64,
+      "text": "Under the underpass, a blanket shakes",
+      "uncertain": true
+    },
+    {
+      "start": 10.64,
+      "end": 14.02,
+      "text": "Blue lights bloom across the rain",
+      "uncertain": true
+    },
+    {
+      "start": 14.02,
+      "end": 17.38,
+      "text": "The papers count the wounded faces",
+      "uncertain": false
+    },
+    {
+      "start": 17.38,
+      "end": 20.68,
+      "text": "Then turn the page and speak no name",
+      "uncertain": false
+    },
+    {
+      "start": 20.68,
+      "end": 23.92,
+      "text": "The homeless spare the heavier weather",
+      "uncertain": false
+    },
+    {
+      "start": 23.92,
+      "end": 27.3,
+      "text": "The open hand, a closing door",
+      "uncertain": false
+    },
+    {
+      "start": 27.3,
+      "end": 34.02,
+      "text": "And every unanswered question falls like ash upon the floor",
+      "uncertain": false
+    },
+    {
+      "start": 34.02,
+      "end": 40.86,
+      "text": "Do not make a monster of a name",
+      "uncertain": false
+    },
+    {
+      "start": 41.56,
+      "end": 47.38,
+      "text": "Do not let the numbers lose their flame",
+      "uncertain": false
+    },
+    {
+      "start": 48.08,
+      "end": 55.02,
+      "text": "When he is around, let it be a warning sound",
+      "uncertain": false
+    },
+    {
+      "start": 55.02,
+      "end": 58.34,
+      "text": "Not a blame upon one's soul",
+      "uncertain": true
+    },
+    {
+      "start": 58.34,
+      "end": 62.24,
+      "text": "But a bell for every broken hole",
+      "uncertain": true
+    },
+    {
+      "start": 62.24,
+      "end": 64.32,
+      "text": "When he is around",
+      "uncertain": false
+    },
+    {
+      "start": 64.32,
+      "end": 69.12,
+      "text": "Hear the silence of the town",
+      "uncertain": false
+    },
+    {
+      "start": 69.12,
+      "end": 72.22,
+      "text": "Hear the names we never knew",
+      "uncertain": false
+    },
+    {
+      "start": 72.22,
+      "end": 77.3,
+      "text": "And ask what mercy asks of you",
+      "uncertain": false
+    },
+    {
+      "start": 79.76,
+      "end": 83.24,
+      "text": "The homeless are much more likely",
+      "uncertain": false
+    },
+    {
+      "start": 83.24,
+      "end": 93.08,
+      "text": "to be victims of violence than perpetrators especially when Howard Lutnick is around",
+      "uncertain": true
+    },
+    {
+      "start": 93.08,
+      "end": 101.86,
+      "text": "sexual violence is higher in conflict zones around the world especially when Pete Hegseth",
+      "uncertain": true
+    },
+    {
+      "start": 101.86,
+      "end": 113.02,
+      "text": "is around when he is around let it be a warning sound not a blame upon one soul",
+      "uncertain": true
+    },
+    {
+      "start": 113.02,
+      "end": 117.24,
+      "text": "But a bell for every broken foe",
+      "uncertain": false
+    },
+    {
+      "start": 117.24,
+      "end": 119.28,
+      "text": "When he is around",
+      "uncertain": false
+    },
+    {
+      "start": 120.02,
+      "end": 124.12,
+      "text": "Hear the silence of the town",
+      "uncertain": false
+    },
+    {
+      "start": 124.12,
+      "end": 127.18,
+      "text": "Hear the names we never knew",
+      "uncertain": false
+    },
+    {
+      "start": 127.18,
+      "end": 132.36,
+      "text": "And ask what mercy asks of you",
+      "uncertain": false
+    },
+    {
+      "start": 135.26,
+      "end": 138.28,
+      "text": "Women are much more likely",
+      "uncertain": false
+    },
+    {
+      "start": 138.28,
+      "end": 142.52,
+      "text": "To be victims of violence from romantic partners",
+      "uncertain": false
+    },
+    {
+      "start": 142.52,
+      "end": 151.6,
+      "text": "than a stranger except when donald trump is around black americans are 12 times more likely",
+      "uncertain": true
+    },
+    {
+      "start": 151.6,
+      "end": 161.6,
+      "text": "to die by gun violence than white americans especially when stephen miller is around",
+      "uncertain": false
+    },
+    {
+      "start": 161.6,
+      "end": 174.18,
+      "text": "a shadow in the language a mask the fearful chorus found not a man to carry every sorrow",
+      "uncertain": true
+    },
+    {
+      "start": 174.18,
+      "end": 186.52,
+      "text": "but the alarm beneath the sound say the names without consuming them let grief become a vow",
+      "uncertain": false
+    },
+    {
+      "start": 186.52,
+      "end": 194.34,
+      "text": "The world is not a distant headline, it is breathing with us now",
+      "uncertain": true
+    },
+    {
+      "start": 194.34,
+      "end": 202.3,
+      "text": "When he is around, let the truth be spoken plain",
+      "uncertain": true
+    },
+    {
+      "start": 202.3,
+      "end": 209.72,
+      "text": "Build a shelter, break the silence, turn our mourning into change",
+      "uncertain": true
+    },
+    {
+      "start": 209.72,
+      "end": 215.62,
+      "text": "When he is around, let no neighbor stand alone",
+      "uncertain": false
+    },
+    {
+      "start": 215.62,
+      "end": 222.72,
+      "text": "Hold the living name, the lost, and bring the scattered safely home.",
+      "uncertain": false
+    },
+    {
+      "start": 223.64,
+      "end": 226.62,
+      "text": "Bring the scattered safely home.",
+      "uncertain": false
+    },
+    {
+      "start": 227.58,
+      "end": 232.18,
+      "text": "Let the last dark bell be still, mercy stay.",
+      "uncertain": false
+    }
+  ]
+}

@@ -11,14 +11,10 @@ export function paidCost(details = {}) {
   return { duration, estimate: duration / 60 * 15, reserve: Math.ceil(duration / 60 * 100) };
 }
 
-/**
- * What is left to spend, for the sentence under a paid length. The $200 cap is a spending
- * authorization; the plan balance is what the ElevenLabs account can actually pay for, so both
- * are shown, and a length the credits cannot cover is called out before the server refuses it.
- */
+/** Show current provider credits; historical cap metadata is not a spending limit. */
 export function budgetNote(budget, estimateCents) {
   if (!budget) return '';
-  let note = ` ${money(budget.remainingCents)} is available to reserve.`;
+  let note = budget.capEnforced === false ? '' : ` ${money(budget.remainingCents)} is available to reserve.`;
   const provider = budget.provider;
   if (provider?.fresh && Number.isFinite(provider.availableCents)) {
     const renews = provider.resetAt ? new Date(provider.resetAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '';
@@ -59,7 +55,7 @@ export function paidConfirmation(details, escape) {
   const cost = paidCost(details);
   if (!cost) return '<p class="field-error">Review this request again to choose its Auto length and confirm the paid cost.</p>';
   const authorization = `<label class="generation-enable"><input type="checkbox" id="confirm-paid" required${paidAgreed() ? ' checked' : ''}> I agree to use paid generation and send this song’s lyrics and musical direction to ElevenLabs.</label>`;
-  return `<div class="paid-music-confirmation"><p><strong>Eleven Music · paid</strong><br>${escape(money(cost.estimate))} estimated generation cost for ${minutes(cost.duration)} minutes. This request reserves ${escape(money(cost.reserve))} from the shared $200 total cap.</p>${authorization}<p class="small">Tony’s voice is applied on the studio PC. One paid composition; saved audio is reused on retry. Reservations stay counted after cancellation or an uncertain provider response until reviewed. Estimates exclude subscription fees and taxes.</p></div>`;
+  return `<div class="paid-music-confirmation"><p><strong>Eleven Music · paid</strong><br>${escape(money(cost.estimate))} estimated generation cost for ${minutes(cost.duration)} minutes.</p>${authorization}<p class="small">Tony’s voice is applied on the studio PC. One paid composition; saved audio is reused on retry. Uncertain provider responses require review before another paid call. Estimates exclude subscription fees and taxes.</p></div>`;
 }
 
 export function mountMusicBackend(root, { draft, generation, basisRoot, storage, api, escape, onChange }) {

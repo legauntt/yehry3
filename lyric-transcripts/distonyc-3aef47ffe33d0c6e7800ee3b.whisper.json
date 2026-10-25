@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "songId": "distonyc-3aef47ffe33d0c6e7800ee3b",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3aef47ffe33d0c6e7800ee3b-4ec9c031114d.mp3",
+  "audioSha256": "4ec9c031114d83b8efe4fbc3f08163521c1a078fc9d211ad95f95330c317ac9d",
+  "inputSha256": "7a8924c5d1f4c738661722201b8c453158cf5701d0ac64bdbc4f3b677da75f2a",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 130.0114375,
+  "segments": [
+    {
+      "start": 2.14,
+      "end": 2.84,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 40.5,
+      "text": "was following her hair weird hair weird smells what have I gotten myself into moon moon in the",
+      "uncertain": true
+    },
+    {
+      "start": 40.5,
+      "end": 48.6,
+      "text": "puddle purse full of fondue weird hair weird smiles I'm trying hard to play it cool you want",
+      "uncertain": true
+    },
+    {
+      "start": 48.6,
+      "end": 56.06,
+      "text": "to see my tattoo I guess I do what have I gotten myself into the fish had little human teeth and",
+      "uncertain": false
+    },
+    {
+      "start": 56.06,
+      "end": 63.56,
+      "text": "winked beneath her sleeve coupons after ten it said i did not in make-believe she knocked upon",
+      "uncertain": true
+    },
+    {
+      "start": 63.56,
+      "end": 73.16,
+      "text": "the diner wall to call a mongos near don't eat the green nachos tony they remember every year",
+      "uncertain": false
+    },
+    {
+      "start": 73.16,
+      "end": 81.9,
+      "text": "maybe every decent heart arrives in stranger clothes with a ferret needing counsel and a",
+      "uncertain": true
+    },
+    {
+      "start": 81.9,
+      "end": 87.94,
+      "text": "perfume nobody knows outside she put the lampshade on my head beneath the bench of moon",
+      "uncertain": true
+    },
+    {
+      "start": 87.94,
+      "end": 96.64,
+      "text": "said next week there's a place with snakes i said what time too soon weird hair weird smells i know",
+      "uncertain": false
+    },
+    {
+      "start": 96.64,
+      "end": 107.72,
+      "text": "what i've gotten into lampshade on my forehead pocket full of glue weird hair weird smells i'm",
+      "uncertain": false
+    },
+    {
+      "start": 107.72,
+      "end": 109.42,
+      "text": "Not as cool as I pretend",
+      "uncertain": true
+    },
+    {
+      "start": 109.42,
+      "end": 112.16,
+      "text": "But Ralph out there is where the goodnights begin",
+      "uncertain": true
+    },
+    {
+      "start": 112.16,
+      "end": 113.6,
+      "text": "You wanna see my tattoo?",
+      "uncertain": false
+    },
+    {
+      "start": 114.66,
+      "end": 116.36,
+      "text": "I've seen it, but I do",
+      "uncertain": false
+    },
+    {
+      "start": 116.36,
+      "end": 119.04,
+      "text": "Maybe something kind of true",
+      "uncertain": false
+    }
+  ]
+}

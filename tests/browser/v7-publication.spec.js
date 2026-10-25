@@ -1,8 +1,9 @@
+import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 
 test("V7 studies retain creation times, lyrics, and measured issue notices", async ({ page }) => {
   await page.clock.install({ time: new Date("2026-09-13T09:00:00Z") });
-  await page.route("**/yehry3/songs/summary", (route) => route.abort());
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.abort());
   await page.goto("/");
 
   const visibleTitles = await page.locator(".track h3").allTextContents();
@@ -31,6 +32,7 @@ test("V7 studies retain creation times, lyrics, and measured issue notices", asy
     "1.6 seconds",
   );
 
+  await openSongMenu(page.locator('[data-id="spare-key-weather-tony-v7-study"]'));
   await page
     .getByRole("link", { name: "Lyrics for Spare Key Weather (Tony V7 Study)" })
     .click();

@@ -28,23 +28,25 @@ const mia = { id: `${"d".repeat(14)}03`, name: "Mia Chen", anonymous: false, emo
 
 // A stand-in studio: reports are recorded, and a poll is held until the test changes the room.
 async function studio(page, { reject = () => false, socket = false } = {}) {
-  const state = { version: "1000000000000001", you: { ...you, picked: false }, listeners: [{ ...you, song: null, since: null }, jesse, fox], reports: [], left: [], present: true, polls: 0, socket, lines: [] };
+  const state = { version: "1000000000000001", you: { ...you, picked: false }, listeners: [{ ...you, song: null, since: null }, jesse, fox], reports: [], left: [], present: true, polls: 0, socket, lines: [], reads: 0, down: false, rejectReports: false };
   const body = () => ({ version: state.version, listeners: state.listeners.filter((listener) => state.present || listener.id !== you.id), total: state.listeners.length, beatMs: 25000 });
   await page.route("**/room-fixture.wav", (route) => route.fulfill({ body: wav(), contentType: "audio/wav" }));
   await page.route("**/yehry3/profiles?*", (route) => route.fulfill({ json: { profiles: [], total: 0 } }));
   await page.route("**/catalog-summary.json", (route) => route.fulfill({ json: { songs: songs.map(songSummary) } }));
-  await page.route("**/yehry3/songs/summary", (route) => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", (route) => route.fulfill({ json: queue }));
   await page.route("**/yehry3/listens", (route) => route.fulfill({ json: {} }));
   // Without `socket` the studio turns sockets away, as an old network would, and the page long polls.
-  state.push = () => { for (const line of state.lines) line.send(JSON.stringify(body())); };
-  await page.routeWebSocket("**/yehry3/listeners/socket", (line) => {
+  const events = () => ({ version: body().version + "0000000000000001", topics: { listeners: body(), catalog: { version: "0000000000000001" } } });
+  state.push = () => { for (const line of state.lines) line.send(JSON.stringify(events())); };
+  await page.routeWebSocket("**/yehry3/events/socket", (line) => {
     if (!state.socket) return line.close({ code: 1013 });
     state.lines.push(line);
-    line.send(JSON.stringify(body()));
+    line.send(JSON.stringify(events()));
   });
-  await page.route("**/yehry3/listeners**", async (route) => {
+  await page.route(/\/yehry3\/(?:listeners|events)(?:[/?]|$)/, async (route) => {
     const request = route.request();
+    if (state.down || (state.rejectReports && request.method() === "POST")) return route.abort("internetdisconnected");
     if (request.method() === "DELETE") {
       state.left.push(new URL(request.url()).pathname.split("/").pop());
       state.present = false;
@@ -70,13 +72,48 @@ async function studio(page, { reject = () => false, socket = false } = {}) {
       }
       return route.fulfill({ json: { you: state.you, ...(report.authorization ? { avatars } : {}), ...body() } });
     }
+    if (new URL(request.url()).pathname.endsWith("/listeners")) {
+      state.reads++;
+      return route.fulfill({ json: body() });
+    }
     state.polls++;
     const since = new URL(request.url()).searchParams.get("since"), began = Date.now();
-    while (since === state.version && Date.now() - began < 20000) await new Promise((resolve) => setTimeout(resolve, 50));
-    await route.fulfill({ json: body() }).catch(() => { /* The page closed while this poll was held. */ });
+    while (since === events().version && Date.now() - began < 20000) await new Promise((resolve) => setTimeout(resolve, 50));
+    await route.fulfill({ json: events() }).catch(() => { /* The page closed while this poll was held. */ });
   });
   return state;
 }
+
+test("listener cards and device badges stay dark and readable in Dark Mode", async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem("yehry3:dark-mode", "true"));
+  const state = await studio(page);
+  state.listeners[1] = { ...jesse, device: "desktop" };
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  const seat = page.locator('.room-seat[data-id="bbbbbbbbbbbbbb01"]');
+  await seat.locator(".room-avatar").hover();
+  await expect(seat.locator(".room-card")).toBeVisible();
+  const appearance = await seat.evaluate((element) => {
+    const luminance = (color) => {
+      const [r, g, b] = color.match(/[\d.]+/g).slice(0, 3).map(Number).map((value) => {
+        const channel = value / 255;
+        return channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+      });
+      return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    };
+    const measure = (selector) => {
+      const style = getComputedStyle(element.querySelector(selector));
+      const foreground = luminance(style.color);
+      const background = luminance(style.backgroundColor);
+      return { background, contrast: (Math.max(foreground, background) + 0.05) / (Math.min(foreground, background) + 0.05) };
+    };
+    return { card: measure(".room-card"), device: measure(".room-device") };
+  });
+  expect(appearance.card.background).toBeLessThan(0.1);
+  expect(appearance.card.contrast).toBeGreaterThan(4.5);
+  expect(appearance.device.background).toBeLessThan(0.1);
+  expect(appearance.device.contrast).toBeGreaterThan(4.5);
+});
 
 test("listeners sit at the edges, follow each other's songs, and can hide", async ({ page }) => {
   const state = await studio(page);
@@ -369,6 +406,53 @@ test("your own open card, with its note and buttons, still leaves room for the s
   expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
 });
 
+test("hovering a neighbour after opening your own card still spaces the two", async ({ page }) => {
+  // No wide screen and no data change here: the neighbour's card shows by hover alone, with no render behind it.
+  const state = await studio(page);
+  state.listeners = [state.listeners[0], jesse, { ...fox, idle: false, song: { id: "room-first", title: "First in the room" }, progress: { position: 30, duration: 260, age: 0 } }];
+  await page.goto("/?sort=catalog");
+  const mine = page.locator(".room-seat.is-you");
+  const foxSeat = page.locator('.room-seat[data-id="cccccccccccccc02"]');
+  await mine.locator(".room-avatar").click();
+  await expect(mine.locator(".room-note")).toBeVisible();
+  await foxSeat.locator(".room-avatar").hover();
+  await expect(foxSeat.locator(".room-card")).toBeVisible();
+  const mineBox = await mine.locator(".room-card").boundingBox();
+  const foxBox = await foxSeat.locator(".room-card").boundingBox();
+  const [upper, lower] = mineBox.y <= foxBox.y ? [mineBox, foxBox] : [foxBox, mineBox];
+  expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
+});
+
+test("a seat aimed at by its very edge holds still while its card makes room, instead of shaking", async ({ page }) => {
+  // Nudging the hovered seat itself took it out from under the pointer, hid its card, undid the nudge and brought it back.
+  const state = await studio(page);
+  state.listeners = [state.listeners[0], jesse, { ...fox, idle: false, song: { id: "room-first", title: "First in the room" }, progress: { position: 30, duration: 260, age: 0 } }];
+  await page.goto("/?sort=catalog");
+  const mine = page.locator(".room-seat.is-you");
+  const foxSeat = page.locator('.room-seat[data-id="cccccccccccccc02"]');
+  await mine.locator(".room-avatar").click();
+  await expect(mine.locator(".room-note")).toBeVisible();
+  const before = await foxSeat.locator(".room-avatar").boundingBox();
+  await page.mouse.move(before.x + before.width / 2, before.y + 2);
+  await expect(foxSeat.locator(".room-card")).toBeVisible();
+  const moves = await foxSeat.evaluate((seat) => new Promise((resolve) => {
+    const avatar = seat.querySelector(".room-avatar");
+    const tops = new Set();
+    const started = performance.now();
+    const look = () => {
+      tops.add(Math.round(avatar.getBoundingClientRect().top));
+      if (performance.now() - started < 600) requestAnimationFrame(look);
+      else resolve({ tops: [...tops], hovered: seat.matches(":hover") });
+    };
+    look();
+  }));
+  expect(moves).toEqual({ tops: [Math.round(before.y)], hovered: true });
+  const mineBox = await mine.locator(".room-card").boundingBox();
+  const foxBox = await foxSeat.locator(".room-card").boundingBox();
+  const [upper, lower] = mineBox.y <= foxBox.y ? [mineBox, foxBox] : [foxBox, mineBox];
+  expect(lower.y).toBeGreaterThanOrEqual(upper.y + upper.height - 1);
+});
+
 test("five quiet minutes read as idle, and the next touch of the mouse is online again", async ({ page }) => {
   await page.clock.install();
   const state = await studio(page);
@@ -511,6 +595,64 @@ test("drafting a song and reading lyrics are noticed from the page, and stop whe
   await expect.poll(() => state.reports.at(-1).activity, { timeout: 8000 }).toBe("lyrics");
 });
 
+for (const width of [1440, 390]) test(`Œuful stays in the room and updates presence at ${width}px`, async ({ page }) => {
+  await page.setViewportSize({ width, height: 900 });
+  await page.addInitScript(() => {
+    const Native = window.WebSocket;
+    window.socketOpens = 0;
+    window.WebSocket = class extends Native {
+      constructor(...args) { super(...args); window.socketOpens += 1; }
+    };
+  });
+  const state = await studio(page, { socket: true });
+  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [] } }));
+  await page.goto("/");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  const opens = await page.evaluate(() => window.socketOpens);
+  await page.locator(".nav-egg").click();
+  await expect(page).toHaveURL(/\/oeuful\/$/);
+  await expect(page.locator("#booth")).toBeVisible();
+  await expect.poll(() => state.reports.at(-1).activity).toBe("oeuful");
+  expect(await page.evaluate(() => window.socketOpens)).toBe(opens);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.locator('a[href="/queue/"]').first().click();
+  await expect(page).toHaveURL(/\/queue\/$/);
+  await expect.poll(() => state.reports.at(-1).activity).toBeUndefined();
+  expect(await page.evaluate(() => window.socketOpens)).toBe(opens);
+});
+
+for (const width of [1440, 390]) test(`Backstage, video and settings states follow the page and dialogs at ${width}px`, async ({ page }) => {
+  await page.setViewportSize({ width, height: 900 });
+  const state = await studio(page, { socket: true });
+  const videoSong = { ...songs[0], id: "distonyc-d88c69ac5b02b644324e42ad" };
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [songSummary(videoSong)], nextVoteAt: null } }));
+  await page.route("**/song-videos-v1/*.mp4", route => route.abort());
+  await page.goto("/?sort=catalog");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  await page.getByRole("button", { name: "Open display settings" }).first().click();
+  await expect.poll(() => state.reports.at(-1).activity).toBe("settings");
+  await page.keyboard.press("Escape");
+  await expect.poll(() => state.reports.at(-1).activity).toBeUndefined();
+  await page.locator("[data-video-open]").first().click();
+  await expect.poll(() => state.reports.at(-1).activity).toBe("video");
+  await page.getByRole("button", { name: "Close video" }).click();
+  await expect.poll(() => state.reports.at(-1).activity).toBeUndefined();
+  await page.goto("/admin/");
+  await expect.poll(() => state.reports.at(-1).activity).toBe("backstage");
+  for (const [activity, label] of [["backstage", "Viewing Backstage"], ["video", "Watching a Video"], ["settings", "Messing around in settings"]]) {
+    state.listeners = [state.listeners[0], { ...jesse, activity, device: "phone" }, fox];
+    state.version = `10000000000000${activity === "backstage" ? "11" : activity === "video" ? "12" : "13"}`;
+    state.push();
+    const named = page.locator('.room-seat[data-id="bbbbbbbbbbbbbb01"]');
+    await expect(named.locator(".room-doing")).toHaveAttribute("data-kind", activity);
+    await expect(named.locator(".room-doing-line")).toHaveText(label);
+    await expect(named.locator(".room-avatar")).toHaveAttribute("aria-label", new RegExp(label.toLowerCase()));
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.locator('a[href="/queue/"]').first().click();
+  await expect.poll(() => state.reports.at(-1).activity).toBeUndefined();
+});
+
 test("on a phone the badges stay on the face and a toast stays two short lines", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 800 });
   const state = await studio(page);
@@ -542,4 +684,100 @@ test("on a phone the badges stay on the face and a toast stays two short lines",
   await expect(named.locator(".room-progress")).toBeHidden();
   await expect(named.locator(".room-device-line")).toBeHidden();
   expect((await named.locator(".room-card").boundingBox()).height).toBeLessThan(80);
+});
+
+
+for (const width of [1440, 390]) test(`a lost connection is red, expires stale neighbours, and recovers at ${width}px`, async ({ page, context }) => {
+  await page.setViewportSize({ width, height: 900 });
+  await page.clock.install();
+  const state = await studio(page, { socket: true });
+  await page.goto("/?sort=catalog");
+  const mine = page.locator(".room-seat.is-you");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  await page.locator('.track[data-id="room-first"] [data-play]').click();
+  await page.evaluate(() => { window.__playingAudio = window.yehry3Player.audio; window.__playingAudio.loop = true; });
+  await expect.poll(() => page.evaluate(() => window.__playingAudio.currentTime)).toBeGreaterThan(0);
+  await mine.locator(".room-avatar").click();
+  await mine.getByRole("button", { name: "Set a name" }).click();
+  await mine.locator(".room-name-input").fill("Unsaved name");
+  await context.setOffline(true);
+  await expect(mine).toHaveClass(/is-disconnected/);
+  await expect(mine.locator(".room-avatar")).toHaveAttribute("aria-label", /disconnected, reconnecting/);
+  await expect(mine.locator(".room-connection")).toBeVisible();
+  await expect(mine.locator(".room-name-input")).toBeFocused();
+  expect(await mine.locator(".room-avatar").evaluate(el => getComputedStyle(el, "::before").backgroundColor)).toBe("rgb(187, 48, 57)");
+  await page.clock.fastForward(60000);
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  await page.clock.fastForward(11000);
+  await expect(page.locator(".room-seat")).toHaveCount(1);
+  await expect(mine.locator(".room-name-input")).toHaveValue("Unsaved name");
+  await mine.getByRole("button", { name: "Cancel" }).click();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: `artifacts/listener-disconnect-${width}.png` });
+  const reports = state.reports.length;
+  await context.setOffline(false);
+  await expect.poll(() => state.reports.length).toBeGreaterThan(reports);
+  await expect(mine).not.toHaveClass(/is-disconnected/);
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  await expect(mine.locator(".room-connection")).toBeHidden();
+  const audio = await page.evaluate(() => ({ same: window.__playingAudio === window.yehry3Player.audio, paused: window.__playingAudio.paused }));
+  expect(audio).toEqual({ same: true, paused: false });
+  await page.evaluate(() => { window.__playingAudio.currentTime = 2; });
+  await expect.poll(() => page.evaluate(() => window.__playingAudio.currentTime)).toBeGreaterThanOrEqual(2);
+});
+
+test("a failed heartbeat stays disconnected through room updates until a report succeeds", async ({ page }) => {
+  await page.clock.install();
+  const state = await studio(page, { socket: true });
+  await page.goto("/queue/");
+  const mine = page.locator(".room-seat.is-you");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  state.rejectReports = true;
+  await page.clock.fastForward(26000);
+  await expect(mine).toHaveClass(/is-disconnected/);
+  // Others may still be reachable, and the studio may already have removed us.
+  state.listeners = [jesse, fox];
+  state.version = "1000000000000042";
+  state.push();
+  await expect(mine).toHaveCount(1);
+  await expect(mine).toHaveClass(/is-disconnected/);
+  state.rejectReports = false;
+  state.listeners = [{ ...you, song: null }, jesse, fox];
+  await page.clock.fastForward(26000);
+  await expect(mine).not.toHaveClass(/is-disconnected/);
+});
+
+test("a silent API outage expires the room even if the socket never closes", async ({ page }) => {
+  await page.clock.install();
+  const state = await studio(page, { socket: true });
+  await page.goto("/queue/");
+  await expect(page.locator(".room-seat")).toHaveCount(3);
+  state.down = true;
+  await page.clock.fastForward(26000);
+  await expect(page.locator(".room-seat.is-you")).toHaveClass(/is-disconnected/);
+  await page.clock.fastForward(45000);
+  await expect(page.locator(".room-seat")).toHaveCount(1);
+});
+
+test("hidden listeners refresh a quiet room and clear it when freshness can no longer be confirmed", async ({ page }) => {
+  await page.clock.install();
+  await page.addInitScript(() => localStorage.setItem("yehry3:listeners-hidden", "true"));
+  const state = await studio(page, { socket: true });
+  state.present = false;
+  await page.goto("/queue/");
+  await expect(page.locator(".room-seat")).toHaveCount(2);
+  for (let check = 1; check <= 3; check++) {
+    await page.clock.fastForward(36000);
+    await expect.poll(() => state.reads).toBe(check);
+    await expect(page.locator(".room-seat")).toHaveCount(2);
+  }
+  expect(state.reports).toHaveLength(0);
+  state.down = true;
+  await page.clock.fastForward(71000);
+  await expect(page.locator(".room-seat")).toHaveCount(0);
+  await expect(page.locator(".room-ghost")).toBeVisible();
+  state.down = false;
+  await page.clock.fastForward(36000);
+  await expect(page.locator(".room-seat")).toHaveCount(2);
+  expect(state.reports).toHaveLength(0);
 });

@@ -1,0 +1,64 @@
+{
+  "title": "Tony Is a Saxophone",
+  "tracks": [
+    {
+      "id": "pocket-orbit",
+      "title": "Pocket Orbit",
+      "duration": 180.0,
+      "genre": "Syncopated funk · 116 BPM",
+      "description": "Bass, clavinet and a gravelly voice trading short, crooked phrases. A little space between every hit.",
+      "audio": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/tony-saxophone-pocket-orbit-20260926-d6d199d58121.mp3",
+      "video": "/saxophone/art/pocket-orbit.mp4",
+      "poster": "/saxophone/art/pocket-orbit.webp",
+      "artDescription": "An empty jazz-club stage in amber and deep blue light.",
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 24.7
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 16.74
+        }
+      ]
+    },
+    {
+      "id": "sideways-staircase",
+      "title": "Sideways Staircase",
+      "duration": 180.0,
+      "genre": "Bebop quartet · 184 BPM",
+      "description": "Walking bass, quick piano turns and a voice taking the long way around the melody.",
+      "audio": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/tony-saxophone-sideways-staircase-20260926-961a626d265d.mp3",
+      "video": "/saxophone/art/sideways-staircase.mp4",
+      "poster": "/saxophone/art/sideways-staircase.webp",
+      "artDescription": "An Art Deco staircase winding through a dim teal jazz room.",
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 47.82
+        }
+      ]
+    },
+    {
+      "id": "velvet-ion-storm",
+      "title": "Velvet Ion Storm",
+      "duration": 210.0,
+      "genre": "Psychedelic jazz rock · 128 BPM",
+      "description": "Electric piano and tape-delay guitar drift through an open groove, then climb toward a final flare.",
+      "audio": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/tony-saxophone-velvet-ion-storm-20260926-7dfd1649549d.mp3",
+      "video": "/saxophone/art/velvet-ion-storm.mp4",
+      "poster": "/saxophone/art/velvet-ion-storm.webp",
+      "artDescription": "An amplifier on a violet desert plateau beneath a glowing aurora.",
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 22.5
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 40.38
+        }
+      ]
+    }
+  ]
+}

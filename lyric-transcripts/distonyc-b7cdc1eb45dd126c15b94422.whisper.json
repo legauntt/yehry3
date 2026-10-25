@@ -1,0 +1,361 @@
+{
+  "version": 1,
+  "songId": "distonyc-b7cdc1eb45dd126c15b94422",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b7cdc1eb45dd126c15b94422-2f55f64bf498.mp3",
+  "audioSha256": "2f55f64bf498875c11d9d52e0f69e0592b4993ebbf8ffef3d99bc48ddca6e6f0",
+  "inputSha256": "7bdd153bcf2b85574bbe5181527ff3418d1af4faa54233a01402c36e7cc0dcf5",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 230.0865625,
+  "segments": [
+    {
+      "start": 7.5,
+      "end": 13.28,
+      "text": "my rental died by evergreen falls right under the wreath on city hall i kicked the tired",
+      "uncertain": true
+    },
+    {
+      "start": 13.28,
+      "end": 19.0,
+      "text": "blameless snow a woman said that won't make it go she owned the bakery you were my name",
+      "uncertain": false
+    },
+    {
+      "start": 20.18,
+      "end": 28.7,
+      "text": "though i'd never seen her in my life she handed me coffee took my keys said christmas trouble comes",
+      "uncertain": false
+    },
+    {
+      "start": 28.7,
+      "end": 29.74,
+      "text": "and threes",
+      "uncertain": true
+    },
+    {
+      "start": 30.72,
+      "end": 32.46,
+      "text": "The inn had one room",
+      "uncertain": true
+    },
+    {
+      "start": 32.46,
+      "end": 32.96,
+      "text": "naturally",
+      "uncertain": false
+    },
+    {
+      "start": 34.36,
+      "end": 36.52,
+      "text": "Her father played matchmaker",
+      "uncertain": false
+    },
+    {
+      "start": 36.52,
+      "end": 38.72,
+      "text": "casually, I said I'm leaving",
+      "uncertain": false
+    },
+    {
+      "start": 38.72,
+      "end": 40.58,
+      "text": "when roads are clear",
+      "uncertain": false
+    },
+    {
+      "start": 40.58,
+      "end": 42.58,
+      "text": "The whole town smiled like",
+      "uncertain": false
+    },
+    {
+      "start": 42.58,
+      "end": 43.96,
+      "text": "they didn't hear",
+      "uncertain": false
+    },
+    {
+      "start": 43.96,
+      "end": 46.98,
+      "text": "I'm snowbound on an evergreen",
+      "uncertain": false
+    },
+    {
+      "start": 46.98,
+      "end": 48.58,
+      "text": "falls where mistletoe hangs in the",
+      "uncertain": false
+    },
+    {
+      "start": 48.58,
+      "end": 50.8,
+      "text": "hardware stalls, I came for a meeting",
+      "uncertain": false
+    },
+    {
+      "start": 50.8,
+      "end": 52.68,
+      "text": "a clean escape",
+      "uncertain": true
+    },
+    {
+      "start": 52.68,
+      "end": 54.82,
+      "text": "Now I'm frosting stars on a",
+      "uncertain": true
+    },
+    {
+      "start": 54.82,
+      "end": 55.98,
+      "text": "gingerbread plate",
+      "uncertain": false
+    },
+    {
+      "start": 56.96,
+      "end": 59.66,
+      "text": "This can't be love, it's much too neat",
+      "uncertain": false
+    },
+    {
+      "start": 59.66,
+      "end": 62.42,
+      "text": "There's a choir rehearsing across the street",
+      "uncertain": false
+    },
+    {
+      "start": 63.36,
+      "end": 67.58,
+      "text": "But every time she laughs, my big plans stall",
+      "uncertain": false
+    },
+    {
+      "start": 67.58,
+      "end": 70.82,
+      "text": "I'm snowbound in Evergreen Falls",
+      "uncertain": false
+    },
+    {
+      "start": 71.52,
+      "end": 74.08,
+      "text": "Her bakery faced a corporate bid",
+      "uncertain": false
+    },
+    {
+      "start": 74.08,
+      "end": 77.48,
+      "text": "From the very same company where I lived",
+      "uncertain": false
+    },
+    {
+      "start": 77.48,
+      "end": 79.16,
+      "text": "Where I lived",
+      "uncertain": false
+    },
+    {
+      "start": 79.16,
+      "end": 83.0,
+      "text": "My briefcase held the closing page",
+      "uncertain": false
+    },
+    {
+      "start": 83.88,
+      "end": 87.0,
+      "text": "She caught me reading it backstage",
+      "uncertain": false
+    },
+    {
+      "start": 88.1,
+      "end": 90.6,
+      "text": "At the pageant dress, that's St. Nick",
+      "uncertain": true
+    },
+    {
+      "start": 90.6,
+      "end": 92.74,
+      "text": "The beard fell off, the children screamed",
+      "uncertain": false
+    },
+    {
+      "start": 92.74,
+      "end": 94.76,
+      "text": "She saw that logo shut the door",
+      "uncertain": false
+    },
+    {
+      "start": 94.76,
+      "end": 97.48,
+      "text": "Said you knew what you came here for",
+      "uncertain": false
+    },
+    {
+      "start": 97.48,
+      "end": 100.66,
+      "text": "The snow plow creared the county line",
+      "uncertain": false
+    },
+    {
+      "start": 102.0,
+      "end": 105.0,
+      "text": "My boss said sign by closing time",
+      "uncertain": false
+    },
+    {
+      "start": 106.26,
+      "end": 109.06,
+      "text": "I watched her turn the window dark",
+      "uncertain": false
+    },
+    {
+      "start": 109.06,
+      "end": 112.32,
+      "text": "Then heard the choir out in the park",
+      "uncertain": false
+    },
+    {
+      "start": 112.32,
+      "end": 119.34,
+      "text": "i'm snowbound in evergreen falls where everybody knows when somebody calls i came for a signature",
+      "uncertain": true
+    },
+    {
+      "start": 119.34,
+      "end": 128.12,
+      "text": "sharp and fast now i'm wondering what i planned to last this might be love and that seems strange",
+      "uncertain": false
+    },
+    {
+      "start": 128.12,
+      "end": 137.52,
+      "text": "for a man to pack no clothes to change you won't look back my courage crossed i'm snowbound in",
+      "uncertain": true
+    },
+    {
+      "start": 137.52,
+      "end": 143.02,
+      "text": "Evergreen Falls I tore that contract beneath the clock",
+      "uncertain": true
+    },
+    {
+      "start": 143.02,
+      "end": 147.06,
+      "text": "Bought one burnt cookie in half the block",
+      "uncertain": false
+    },
+    {
+      "start": 147.06,
+      "end": 155.24,
+      "text": "Not as a hero, not as a scheme I cashed out the corner of my old dream",
+      "uncertain": false
+    },
+    {
+      "start": 155.24,
+      "end": 159.98,
+      "text": "She said, big city man, what happens next? I said, use the credits if I read the text",
+      "uncertain": true
+    },
+    {
+      "start": 159.98,
+      "end": 163.92,
+      "text": "She tried not to smile, then pulled me near",
+      "uncertain": false
+    },
+    {
+      "start": 163.92,
+      "end": 168.64,
+      "text": "While somebody rang every bell we could heed",
+      "uncertain": true
+    },
+    {
+      "start": 170.84,
+      "end": 173.46,
+      "text": "Wish no bell in Evergreen Falls",
+      "uncertain": true
+    },
+    {
+      "start": 173.46,
+      "end": 175.54,
+      "text": "Putting fresh white paint on the bakery walls",
+      "uncertain": false
+    },
+    {
+      "start": 175.54,
+      "end": 179.18,
+      "text": "Her father's pretending he planned it all",
+      "uncertain": false
+    },
+    {
+      "start": 179.18,
+      "end": 182.88,
+      "text": "My old boss keeps getting sent to voicemail",
+      "uncertain": false
+    },
+    {
+      "start": 182.88,
+      "end": 186.54,
+      "text": "This must be love, it's loud and sweet",
+      "uncertain": false
+    },
+    {
+      "start": 186.54,
+      "end": 190.6,
+      "text": "With flour on my coat and I set my fee",
+      "uncertain": false
+    },
+    {
+      "start": 190.6,
+      "end": 194.02,
+      "text": "I miss my flight but I found my call",
+      "uncertain": true
+    },
+    {
+      "start": 194.02,
+      "end": 197.2,
+      "text": "Here with her in Evergreen Falls",
+      "uncertain": true
+    },
+    {
+      "start": 199.3,
+      "end": 202.44,
+      "text": "When spring nuts know from the old town square",
+      "uncertain": false
+    },
+    {
+      "start": 202.44,
+      "end": 204.66,
+      "text": "I still wake up and find her there",
+      "uncertain": false
+    },
+    {
+      "start": 204.66,
+      "end": 208.08,
+      "text": "No borrowed miracle, no scripted sign",
+      "uncertain": false
+    },
+    {
+      "start": 208.08,
+      "end": 211.86,
+      "text": "Just her warm hand closing over mine",
+      "uncertain": false
+    },
+    {
+      "start": 211.86,
+      "end": 214.82,
+      "text": "I came here certain, I knew it all",
+      "uncertain": false
+    },
+    {
+      "start": 214.82,
+      "end": 217.94,
+      "text": "Now I choose Evergreen Falls",
+      "uncertain": false
+    },
+    {
+      "start": 217.94,
+      "end": 230.06,
+      "text": "Oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh-oh",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "version": 1,
+  "songId": "distonyc-a8afc8145c3c6f5f37922d3e",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a8afc8145c3c6f5f37922d3e-375a62f68e2f.mp3",
+  "audioSha256": "375a62f68e2fcb66bdcd73bd7c836e2dab75e7796efb099c1528187c709e52d6",
+  "inputSha256": "22acf9bd7a3fd01759c660cea7220108f9ad283b4221de5fab80ea8433aa706e",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 144.64,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.3,
+      "text": "In a lecture hall of thunder and shock, he finds old Play-Doh in the margins of talk.",
+      "uncertain": true
+    },
+    {
+      "start": 6.92,
+      "end": 13.76,
+      "text": "A buried little edge in an impossible cup, while the clever crowd is laughing and the cameras light up.",
+      "uncertain": true
+    },
+    {
+      "start": 14.02,
+      "end": 17.78,
+      "text": "He says, what do you cast away at the edge of the day?",
+      "uncertain": false
+    },
+    {
+      "start": 17.78,
+      "end": 21.64,
+      "text": "What shadow in your bloodstream do you refuse to name?",
+      "uncertain": false
+    },
+    {
+      "start": 21.84,
+      "end": 25.18,
+      "text": "Not a diet, not a cure, not a sacred to man.",
+      "uncertain": false
+    },
+    {
+      "start": 25.18,
+      "end": 29.06,
+      "text": "Just a fever dream symbol with a jar in his hand.",
+      "uncertain": false
+    },
+    {
+      "start": 32.48,
+      "end": 36.62,
+      "text": "The Palazzo man, they're staring back from the glass",
+      "uncertain": true
+    },
+    {
+      "start": 36.62,
+      "end": 40.76,
+      "text": "A ridiculous dragon with a philosophical mask",
+      "uncertain": false
+    },
+    {
+      "start": 40.76,
+      "end": 45.12,
+      "text": "Take your old piss like Plato and Dr. Peterson have done",
+      "uncertain": true
+    },
+    {
+      "start": 45.12,
+      "end": 48.98,
+      "text": "In this wild little fable face, the thing you run from",
+      "uncertain": false
+    },
+    {
+      "start": 48.98,
+      "end": 53.2,
+      "text": "The logos isn't only a word in the end",
+      "uncertain": false
+    },
+    {
+      "start": 55.0,
+      "end": 59.62,
+      "text": "It's the act of admitting the mess is still there",
+      "uncertain": false
+    },
+    {
+      "start": 59.62,
+      "end": 66.9,
+      "text": "entropy is knocking he declares to the room every polished little order has a cellar of gloom",
+      "uncertain": true
+    },
+    {
+      "start": 66.9,
+      "end": 74.5,
+      "text": "a fish on a river have salt yet heart is regret every unwanted fragment is a debt you haven't met",
+      "uncertain": true
+    },
+    {
+      "start": 74.5,
+      "end": 81.9,
+      "text": "the kidneys of the logos turn the chaos around and our elbows rattling beneath the ultrasound",
+      "uncertain": true
+    },
+    {
+      "start": 81.9,
+      "end": 86.26,
+      "text": "He lifts the charge slowly, no sip, no retreat",
+      "uncertain": true
+    },
+    {
+      "start": 86.26,
+      "end": 89.68,
+      "text": "Adam's apple rising to a grim steady beat",
+      "uncertain": true
+    },
+    {
+      "start": 89.68,
+      "end": 93.44,
+      "text": "The room holds its breath while the old cymbals spin",
+      "uncertain": false
+    },
+    {
+      "start": 93.44,
+      "end": 97.48,
+      "text": "Not medicine, not wisdom, just a strange way in",
+      "uncertain": false
+    },
+    {
+      "start": 98.52,
+      "end": 102.76,
+      "text": "The bar lots of old man, they let the metaphor burn",
+      "uncertain": true
+    },
+    {
+      "start": 102.76,
+      "end": 106.76,
+      "text": "A king of his own ruin makes a heart one turn",
+      "uncertain": false
+    },
+    {
+      "start": 106.76,
+      "end": 111.2,
+      "text": "Drink your own piss like Play-Doh and Dr. Peterson have done",
+      "uncertain": true
+    },
+    {
+      "start": 111.2,
+      "end": 113.48,
+      "text": "In this exaggerated parable",
+      "uncertain": true
+    },
+    {
+      "start": 113.48,
+      "end": 115.16,
+      "text": "The shadow and the sun",
+      "uncertain": true
+    },
+    {
+      "start": 115.16,
+      "end": 117.1,
+      "text": "From the belly of the whale",
+      "uncertain": false
+    },
+    {
+      "start": 117.1,
+      "end": 118.82,
+      "text": "To the edge of the dawn",
+      "uncertain": false
+    },
+    {
+      "start": 122.04,
+      "end": 123.54,
+      "text": "Rescue your father",
+      "uncertain": false
+    },
+    {
+      "start": 123.54,
+      "end": 125.7,
+      "text": "Then carry on",
+      "uncertain": false
+    },
+    {
+      "start": 125.7,
+      "end": 127.38,
+      "text": "The jar hits the desk",
+      "uncertain": false
+    },
+    {
+      "start": 127.38,
+      "end": 129.44,
+      "text": "The last coat opens wide",
+      "uncertain": false
+    },
+    {
+      "start": 129.44,
+      "end": 131.16,
+      "text": "No dragon left outside",
+      "uncertain": false
+    },
+    {
+      "start": 131.16,
+      "end": 133.26,
+      "text": "No darkness left to hide",
+      "uncertain": false
+    },
+    {
+      "start": 141.2,
+      "end": 141.6,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "songId": "tony-saxophone-pocket-orbit-20260926",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/tony-saxophone-pocket-orbit-20260926-d6d199d58121.mp3",
+  "audioSha256": "d6d199d581211b9143b150b84e6a545da0efc606af20749d8415dd7f30d5a992",
+  "inputSha256": "d6d199d581211b9143b150b84e6a545da0efc606af20749d8415dd7f30d5a992",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 180.0,
+  "segments": [
+    {
+      "start": 10.02,
+      "end": 12.86,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 59.84,
+      "text": "To the new body, the body, the body, the body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body, body",
+      "uncertain": true
+    },
+    {
+      "start": 70.74,
+      "end": 72.68,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 102.62,
+      "end": 106.0,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 120.62,
+      "end": 123.58,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 161.3,
+      "end": 162.4,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 179.84,
+      "end": 179.98,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

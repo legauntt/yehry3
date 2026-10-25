@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "songId": "distonyc-e0948b7cab2b57483af42cb7",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e0948b7cab2b57483af42cb7-3869ab8c24f3.mp3",
+  "audioSha256": "3869ab8c24f3fa9dfe3c8fab099def3d3702a3107c3d3bc1c21ad653dbd502dc",
+  "inputSha256": "de600359e1bdb4e72a300fff48545bbe31cd93ed1cc38399ec8daad49b2e1cb1",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 239.9869375,
+  "segments": [
+    {
+      "start": 4.0,
+      "end": 7.32,
+      "text": "Noon on the dashboard, hunger on the dial",
+      "uncertain": false
+    },
+    {
+      "start": 7.32,
+      "end": 10.92,
+      "text": "Tony sees the Arby's sign from half a mile",
+      "uncertain": true
+    },
+    {
+      "start": 10.92,
+      "end": 14.48,
+      "text": "Accordion wheezing like a warning in the rain",
+      "uncertain": false
+    },
+    {
+      "start": 14.48,
+      "end": 17.92,
+      "text": "He says just give me roast beef, don't do this again",
+      "uncertain": false
+    },
+    {
+      "start": 23.28,
+      "end": 27.06,
+      "text": "He pulls into Arby's with a five and a plan",
+      "uncertain": false
+    },
+    {
+      "start": 27.06,
+      "end": 30.96,
+      "text": "The lights blink twice, then the whole day jams",
+      "uncertain": false
+    },
+    {
+      "start": 30.96,
+      "end": 34.58,
+      "text": "The menu board shivers, the parking lot tilts",
+      "uncertain": true
+    },
+    {
+      "start": 34.58,
+      "end": 38.22,
+      "text": "His curly fries scatter as the universe wilks",
+      "uncertain": true
+    },
+    {
+      "start": 38.22,
+      "end": 41.72,
+      "text": "He pounds on the window, I ordered the meat",
+      "uncertain": false
+    },
+    {
+      "start": 41.72,
+      "end": 45.4,
+      "text": "But history comes crashing through the passenger seat",
+      "uncertain": false
+    },
+    {
+      "start": 45.4,
+      "end": 49.22,
+      "text": "Every single lunchtime, every desperate drive",
+      "uncertain": false
+    },
+    {
+      "start": 49.22,
+      "end": 53.24,
+      "text": "Tony gets 9-11 before the meal arrived",
+      "uncertain": true
+    },
+    {
+      "start": 55.44,
+      "end": 58.12,
+      "text": "Arby's, Arby's, hand me the meats",
+      "uncertain": false
+    },
+    {
+      "start": 58.12,
+      "end": 61.84,
+      "text": "Before 9-11 comes wrecking these streets",
+      "uncertain": true
+    },
+    {
+      "start": 61.84,
+      "end": 65.46,
+      "text": "Arby's, Arby's, open the door",
+      "uncertain": false
+    },
+    {
+      "start": 65.46,
+      "end": 67.16,
+      "text": "I've been 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 67.16,
+      "end": 70.14,
+      "text": "Nine times before I don't want prophecy",
+      "uncertain": false
+    },
+    {
+      "start": 70.14,
+      "end": 73.02,
+      "text": "Hanacol flames, I want roast beef in the sauce with a name",
+      "uncertain": true
+    },
+    {
+      "start": 73.02,
+      "end": 76.34,
+      "text": "But every time the paper bag comes into view",
+      "uncertain": false
+    },
+    {
+      "start": 76.34,
+      "end": 78.2,
+      "text": "9-11 finds Tony",
+      "uncertain": false
+    },
+    {
+      "start": 78.2,
+      "end": 80.9,
+      "text": "And 9-11's lunch too",
+      "uncertain": false
+    },
+    {
+      "start": 80.9,
+      "end": 90.24,
+      "text": "tuesday at arby's he disguises his face orders under larry at a different place he whispers to",
+      "uncertain": true
+    },
+    {
+      "start": 90.24,
+      "end": 97.24,
+      "text": "the cashier keep everything calm then the soda machine starts sounding the alarm the ceiling",
+      "uncertain": false
+    },
+    {
+      "start": 97.24,
+      "end": 103.56,
+      "text": "fan freezes the clock strikes 11 his sandwich gets launched toward an absent heaven",
+      "uncertain": false
+    },
+    {
+      "start": 103.56,
+      "end": 107.22,
+      "text": "Tony ducks low with a furious curse",
+      "uncertain": false
+    },
+    {
+      "start": 107.22,
+      "end": 109.48,
+      "text": "Getting 9-11 twice was bad",
+      "uncertain": true
+    },
+    {
+      "start": 109.48,
+      "end": 110.92,
+      "text": "This is worse",
+      "uncertain": false
+    },
+    {
+      "start": 110.92,
+      "end": 114.5,
+      "text": "Arby's, Arby's, hand me the meats",
+      "uncertain": false
+    },
+    {
+      "start": 114.5,
+      "end": 118.14,
+      "text": "Before 9-11 comes wrecking these streets",
+      "uncertain": false
+    },
+    {
+      "start": 119.08,
+      "end": 121.88,
+      "text": "Arby's, Arby's, open the door",
+      "uncertain": false
+    },
+    {
+      "start": 121.88,
+      "end": 123.56,
+      "text": "I've been 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 123.56,
+      "end": 126.56,
+      "text": "Nine times before I don't want prophecy",
+      "uncertain": false
+    },
+    {
+      "start": 126.56,
+      "end": 129.36,
+      "text": "Pinnacle flames, I want roast beef in the sauce with the name",
+      "uncertain": false
+    },
+    {
+      "start": 129.36,
+      "end": 132.72,
+      "text": "But every time the paper bag comes in new view",
+      "uncertain": false
+    },
+    {
+      "start": 132.72,
+      "end": 137.26,
+      "text": "9-11 finds Tony, and 9-11's lunch too.",
+      "uncertain": false
+    },
+    {
+      "start": 139.6,
+      "end": 143.36,
+      "text": "He tries the drive-thru at quarter to ten.",
+      "uncertain": false
+    },
+    {
+      "start": 143.92,
+      "end": 147.12,
+      "text": "Circles the building, then circles again.",
+      "uncertain": false
+    },
+    {
+      "start": 147.4,
+      "end": 150.9,
+      "text": "No towers, no almonds, no terrible scene.",
+      "uncertain": false
+    },
+    {
+      "start": 151.08,
+      "end": 154.1,
+      "text": "Just Arby's roast beef and a shake machine.",
+      "uncertain": false
+    },
+    {
+      "start": 154.66,
+      "end": 158.2,
+      "text": "The accordion gasps, all the traffic stands still.",
+      "uncertain": false
+    },
+    {
+      "start": 158.5,
+      "end": 161.78,
+      "text": "Tony grabs the brown bag by force of will.",
+      "uncertain": false
+    },
+    {
+      "start": 161.78,
+      "end": 165.36,
+      "text": "The sky starts growling, but he growls back louder",
+      "uncertain": true
+    },
+    {
+      "start": 165.36,
+      "end": 169.02,
+      "text": "You can 9-11 my day, not my horsey sauce powder",
+      "uncertain": true
+    },
+    {
+      "start": 169.02,
+      "end": 172.8,
+      "text": "He tears through the wrapper, the hot steam climbs",
+      "uncertain": false
+    },
+    {
+      "start": 172.8,
+      "end": 176.36,
+      "text": "For once, Arby's beats the collapse of the times",
+      "uncertain": true
+    },
+    {
+      "start": 176.36,
+      "end": 180.04,
+      "text": "The sirens begin, but the first bite lands",
+      "uncertain": false
+    },
+    {
+      "start": 180.04,
+      "end": 183.68,
+      "text": "Roast beef, curly fries, both safe in his hands",
+      "uncertain": false
+    },
+    {
+      "start": 183.68,
+      "end": 187.18,
+      "text": "The world may go sideways, the windows may shake",
+      "uncertain": false
+    },
+    {
+      "start": 187.18,
+      "end": 190.88,
+      "text": "9-11 may follow each lunch that I take",
+      "uncertain": false
+    },
+    {
+      "start": 190.88,
+      "end": 194.42,
+      "text": "But hunger kept walking through every attack",
+      "uncertain": false
+    },
+    {
+      "start": 194.42,
+      "end": 198.42,
+      "text": "Tony got the meats, and the meats fought back",
+      "uncertain": true
+    },
+    {
+      "start": 206.14,
+      "end": 209.06,
+      "text": "Arby's, Arby's, Tony has the meats",
+      "uncertain": false
+    },
+    {
+      "start": 209.06,
+      "end": 212.78,
+      "text": "Let 9-11 thunder and batter the streets",
+      "uncertain": false
+    },
+    {
+      "start": 212.78,
+      "end": 216.24,
+      "text": "Arby's, Arby's, lunch fine and won",
+      "uncertain": true
+    },
+    {
+      "start": 216.24,
+      "end": 219.98,
+      "text": "9-11 again, but I'm eating it now",
+      "uncertain": false
+    },
+    {
+      "start": 219.98,
+      "end": 223.64,
+      "text": "Now the last chord lands as he finishes the bite",
+      "uncertain": true
+    },
+    {
+      "start": 223.64,
+      "end": 227.4,
+      "text": "Aries in his hands and the ending comes right",
+      "uncertain": true
+    }
+  ]
+}

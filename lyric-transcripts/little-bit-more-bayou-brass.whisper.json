@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "songId": "little-bit-more-bayou-brass",
+  "audioUrl": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/little-bit-more-bayou-brass.mp3",
+  "audioSha256": "11cc4fbe3a323c4e00ac032492246b0a61fa0ef95592549c8fb4757b8cd37e9d",
+  "inputSha256": "11cc4fbe3a323c4e00ac032492246b0a61fa0ef95592549c8fb4757b8cd37e9d",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 255.3255,
+  "segments": [
+    {
+      "start": 7.56,
+      "end": 9.1,
+      "text": "Give me a little bit more",
+      "uncertain": true
+    },
+    {
+      "start": 12.04,
+      "end": 13.58,
+      "text": "Just a little bit more",
+      "uncertain": true
+    },
+    {
+      "start": 16.46,
+      "end": 19.52,
+      "text": "I thought she was a nasty girl and I was right",
+      "uncertain": false
+    },
+    {
+      "start": 19.52,
+      "end": 21.7,
+      "text": "She tied her cherry stem and knots that night",
+      "uncertain": true
+    },
+    {
+      "start": 21.7,
+      "end": 24.0,
+      "text": "I said I wish I may, I wish I might",
+      "uncertain": false
+    },
+    {
+      "start": 24.0,
+      "end": 26.18,
+      "text": "She laughed and leaned into the light",
+      "uncertain": false
+    },
+    {
+      "start": 26.18,
+      "end": 28.36,
+      "text": "They left the lights on down in motel sin",
+      "uncertain": true
+    },
+    {
+      "start": 28.36,
+      "end": 30.76,
+      "text": "She came walking in with a whole bag of tricks",
+      "uncertain": false
+    },
+    {
+      "start": 30.76,
+      "end": 33.0,
+      "text": "Brought the trouble, but she left the keys",
+      "uncertain": false
+    },
+    {
+      "start": 33.0,
+      "end": 35.1,
+      "text": "Had that whole room jumping to a crooked beat",
+      "uncertain": false
+    },
+    {
+      "start": 35.1,
+      "end": 37.22,
+      "text": "I did it one time, and I liked it",
+      "uncertain": false
+    },
+    {
+      "start": 37.22,
+      "end": 39.32,
+      "text": "So I did it two times, got addicted",
+      "uncertain": false
+    },
+    {
+      "start": 39.32,
+      "end": 41.7,
+      "text": "Had to do it three times, couldn't help it",
+      "uncertain": false
+    },
+    {
+      "start": 41.7,
+      "end": 43.96,
+      "text": "And the number four times was the best yet",
+      "uncertain": false
+    },
+    {
+      "start": 43.96,
+      "end": 48.22,
+      "text": "She showed me how it was supposed to go",
+      "uncertain": false
+    },
+    {
+      "start": 54.56,
+      "end": 56.1,
+      "text": "Now he a little bit more",
+      "uncertain": false
+    },
+    {
+      "start": 58.96,
+      "end": 60.62,
+      "text": "Just a little bit more",
+      "uncertain": true
+    },
+    {
+      "start": 62.5,
+      "end": 64.84,
+      "text": "Don't leave me standing at the door",
+      "uncertain": false
+    },
+    {
+      "start": 64.84,
+      "end": 68.4,
+      "text": "You got the rhythm running down to the floor",
+      "uncertain": false
+    },
+    {
+      "start": 68.4,
+      "end": 70.16,
+      "text": "Now give me a little bit more",
+      "uncertain": false
+    },
+    {
+      "start": 70.16,
+      "end": 72.18,
+      "text": "Little bit, little bit",
+      "uncertain": false
+    },
+    {
+      "start": 72.18,
+      "end": 74.04,
+      "text": "Let that good thing grow",
+      "uncertain": false
+    },
+    {
+      "start": 74.04,
+      "end": 78.36,
+      "text": "She showed me how it was supposed to go",
+      "uncertain": false
+    },
+    {
+      "start": 81.88,
+      "end": 84.4,
+      "text": "She's a supernatural phenomenon",
+      "uncertain": false
+    },
+    {
+      "start": 84.4,
+      "end": 86.78,
+      "text": "The street gets quiet when she comes along",
+      "uncertain": false
+    },
+    {
+      "start": 86.78,
+      "end": 89.08,
+      "text": "From the left side over to the right",
+      "uncertain": true
+    },
+    {
+      "start": 89.08,
+      "end": 91.32,
+      "text": "Every little corner got a little more light",
+      "uncertain": false
+    },
+    {
+      "start": 91.32,
+      "end": 93.5,
+      "text": "I had a fine speech ready in my head",
+      "uncertain": false
+    },
+    {
+      "start": 93.5,
+      "end": 95.8,
+      "text": "She smiled and I forgot what I said",
+      "uncertain": false
+    },
+    {
+      "start": 95.8,
+      "end": 98.08,
+      "text": "The drummer caught it and the bass came through",
+      "uncertain": false
+    },
+    {
+      "start": 98.08,
+      "end": 100.26,
+      "text": "Then the whole front row knew exactly what to do",
+      "uncertain": false
+    },
+    {
+      "start": 100.26,
+      "end": 102.28,
+      "text": "I did it one time and I liked it",
+      "uncertain": false
+    },
+    {
+      "start": 102.28,
+      "end": 104.38,
+      "text": "So I did it two times, got addicted",
+      "uncertain": false
+    },
+    {
+      "start": 104.38,
+      "end": 106.76,
+      "text": "Had to do it three times, couldn't help it",
+      "uncertain": false
+    },
+    {
+      "start": 106.76,
+      "end": 109.04,
+      "text": "And the number four time was the best yet",
+      "uncertain": false
+    },
+    {
+      "start": 109.04,
+      "end": 113.04,
+      "text": "She showed me how it was supposed to go",
+      "uncertain": false
+    },
+    {
+      "start": 119.5,
+      "end": 121.2,
+      "text": "Back in a little bit more",
+      "uncertain": true
+    },
+    {
+      "start": 124.06,
+      "end": 125.7,
+      "text": "Just a little bit more",
+      "uncertain": false
+    },
+    {
+      "start": 127.64,
+      "end": 129.86,
+      "text": "Don't leave me standing at the door",
+      "uncertain": false
+    },
+    {
+      "start": 129.86,
+      "end": 133.46,
+      "text": "You got the rhythm running down to the floor",
+      "uncertain": false
+    },
+    {
+      "start": 133.46,
+      "end": 135.22,
+      "text": "Now give me a little bit more",
+      "uncertain": false
+    },
+    {
+      "start": 135.22,
+      "end": 137.2,
+      "text": "Little bit, little bit",
+      "uncertain": false
+    },
+    {
+      "start": 137.2,
+      "end": 139.1,
+      "text": "Let that good thing grow",
+      "uncertain": false
+    },
+    {
+      "start": 139.1,
+      "end": 143.54,
+      "text": "She showed me how it was supposed to go",
+      "uncertain": false
+    },
+    {
+      "start": 146.68,
+      "end": 150.02,
+      "text": "Wait a minute, bring it down",
+      "uncertain": false
+    },
+    {
+      "start": 150.02,
+      "end": 154.48,
+      "text": "Hear that little engine underneath the sound",
+      "uncertain": false
+    },
+    {
+      "start": 154.48,
+      "end": 158.86,
+      "text": "One foot tapped and one hand on the rail",
+      "uncertain": false
+    },
+    {
+      "start": 158.86,
+      "end": 163.02,
+      "text": "I got a story, but you know how I tell it",
+      "uncertain": false
+    },
+    {
+      "start": 163.02,
+      "end": 167.26,
+      "text": "Half a whisper and a crooked little smile",
+      "uncertain": false
+    },
+    {
+      "start": 168.06,
+      "end": 176.1,
+      "text": "you can stay right here for a little while let that bass say what i can't explain",
+      "uncertain": true
+    },
+    {
+      "start": 176.1,
+      "end": 184.1,
+      "text": "then bring those horns round again the moon went missing and the sun came late somebody's",
+      "uncertain": false
+    },
+    {
+      "start": 184.1,
+      "end": 189.5,
+      "text": "dancing by the kitchen gate i lost my jacket but i found my feet three blocks over they can feel",
+      "uncertain": false
+    },
+    {
+      "start": 189.5,
+      "end": 193.94,
+      "text": "that bitch you said you still remember what i showed you before i said i remember but i need",
+      "uncertain": true
+    },
+    {
+      "start": 193.94,
+      "end": 198.42,
+      "text": "a little more not ready to leave it too far gonna stay that woman laughed and the band",
+      "uncertain": true
+    },
+    {
+      "start": 198.42,
+      "end": 203.46,
+      "text": "began to play i did it one time and i liked it so i did it two times got addicted had",
+      "uncertain": false
+    },
+    {
+      "start": 203.46,
+      "end": 208.18,
+      "text": "to do it three times couldn't help it and the number four time was the best yet she",
+      "uncertain": false
+    },
+    {
+      "start": 208.18,
+      "end": 211.96,
+      "text": "showed me how it was supposed to go",
+      "uncertain": false
+    },
+    {
+      "start": 217.96,
+      "end": 219.9,
+      "text": "I need a little bit more",
+      "uncertain": true
+    },
+    {
+      "start": 222.58,
+      "end": 224.5,
+      "text": "Just a little bit more",
+      "uncertain": false
+    },
+    {
+      "start": 226.8,
+      "end": 228.9,
+      "text": "Just give me a little bit more",
+      "uncertain": false
+    },
+    {
+      "start": 230.4,
+      "end": 233.32,
+      "text": "One last turn across that floor",
+      "uncertain": false
+    },
+    {
+      "start": 233.32,
+      "end": 237.66,
+      "text": "She showed me how it was supposed to go",
+      "uncertain": false
+    },
+    {
+      "start": 240.72,
+      "end": 242.3,
+      "text": "Give me a little bit more",
+      "uncertain": false
+    }
+  ]
+}

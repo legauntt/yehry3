@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "songId": "distonyc-368f12fd1cb51acb59badb68",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-368f12fd1cb51acb59badb68-3756cebd8d4e.mp3",
+  "audioSha256": "3756cebd8d4eb752c90f607e0360ce7cba18a9f1c4c19adae3bbc96b609700f0",
+  "inputSha256": "f4c9a3ccd66b95c461d061e745b1ae562e6677fdcb036685cdb5962ad24643b2",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 265.090625,
+  "segments": [
+    {
+      "start": 15.86,
+      "end": 19.64,
+      "text": "So he checked the clock, the room went still",
+      "uncertain": true
+    },
+    {
+      "start": 19.64,
+      "end": 23.78,
+      "text": "A spark in the wires, a jump in the frill",
+      "uncertain": true
+    },
+    {
+      "start": 23.78,
+      "end": 27.68,
+      "text": "He opened his mouth for the grand reveal",
+      "uncertain": false
+    },
+    {
+      "start": 27.68,
+      "end": 31.76,
+      "text": "But the words came sideways, unreal",
+      "uncertain": true
+    },
+    {
+      "start": 31.76,
+      "end": 35.9,
+      "text": "Phoned a bimp, he said, with a hopeful stare",
+      "uncertain": true
+    },
+    {
+      "start": 35.9,
+      "end": 40.1,
+      "text": "She blinked twice slowly at the hanging air",
+      "uncertain": false
+    },
+    {
+      "start": 40.1,
+      "end": 43.96,
+      "text": "He tried to explain, but the meaning ran",
+      "uncertain": false
+    },
+    {
+      "start": 43.96,
+      "end": 48.14,
+      "text": "Like a loose parade through a coffee shed",
+      "uncertain": true
+    },
+    {
+      "start": 49.44,
+      "end": 53.38,
+      "text": "One was funny, two was strange",
+      "uncertain": false
+    },
+    {
+      "start": 53.38,
+      "end": 59.6,
+      "text": "By the fur, the whole night changed",
+      "uncertain": false
+    },
+    {
+      "start": 60.34,
+      "end": 64.76,
+      "text": "A hundred false alarms, a hundred slammed doors",
+      "uncertain": true
+    },
+    {
+      "start": 64.76,
+      "end": 68.48,
+      "text": "A hundred little storms across the kitchen floor",
+      "uncertain": false
+    },
+    {
+      "start": 68.48,
+      "end": 71.7,
+      "text": "Heads, I'm dead, tails, I'm dreaming",
+      "uncertain": false
+    },
+    {
+      "start": 71.7,
+      "end": 73.9,
+      "text": "He cried to the moon",
+      "uncertain": false
+    },
+    {
+      "start": 73.9,
+      "end": 78.9,
+      "text": "She said, I cannot translate you and vanish too soon",
+      "uncertain": false
+    },
+    {
+      "start": 78.9,
+      "end": 82.78,
+      "text": "A hundred false alarms, everybody's one fan",
+      "uncertain": false
+    },
+    {
+      "start": 82.78,
+      "end": 89.34,
+      "text": "And he keeps reaching for the sentence that won't let him in.",
+      "uncertain": false
+    },
+    {
+      "start": 108.84,
+      "end": 113.24,
+      "text": "At number 17, he brought a chart",
+      "uncertain": true
+    },
+    {
+      "start": 113.24,
+      "end": 117.34,
+      "text": "With arrows and colors and a hand-drawn heart",
+      "uncertain": true
+    },
+    {
+      "start": 117.34,
+      "end": 121.16,
+      "text": "And twenty-nine phone, a boob arrived",
+      "uncertain": true
+    },
+    {
+      "start": 121.16,
+      "end": 125.38,
+      "text": "Like a tiny brass band, barely alive",
+      "uncertain": false
+    },
+    {
+      "start": 125.38,
+      "end": 129.24,
+      "text": "The neighbors heard goddamn 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 129.24,
+      "end": 133.58,
+      "text": "And stared at the ceiling, then stared at the rain",
+      "uncertain": false
+    },
+    {
+      "start": 133.58,
+      "end": 137.62,
+      "text": "She packed one bag, then came back for her coat",
+      "uncertain": false
+    },
+    {
+      "start": 137.62,
+      "end": 141.7,
+      "text": "He made a speech, she missed every note",
+      "uncertain": false
+    },
+    {
+      "start": 143.54,
+      "end": 146.06,
+      "text": "A hundred false alarms",
+      "uncertain": false
+    },
+    {
+      "start": 146.06,
+      "end": 148.12,
+      "text": "A hundred slam doors",
+      "uncertain": true
+    },
+    {
+      "start": 148.12,
+      "end": 149.92,
+      "text": "A hundred little storms",
+      "uncertain": false
+    },
+    {
+      "start": 149.92,
+      "end": 151.86,
+      "text": "Across the kitchen floor",
+      "uncertain": false
+    },
+    {
+      "start": 151.86,
+      "end": 153.18,
+      "text": "Heads I'm dead",
+      "uncertain": false
+    },
+    {
+      "start": 153.18,
+      "end": 155.14,
+      "text": "Tales I'm dreaming",
+      "uncertain": false
+    },
+    {
+      "start": 155.14,
+      "end": 157.3,
+      "text": "He cried to the moon",
+      "uncertain": false
+    },
+    {
+      "start": 159.2,
+      "end": 162.56,
+      "text": "She said I cannot translate you",
+      "uncertain": false
+    },
+    {
+      "start": 162.56,
+      "end": 165.12,
+      "text": "And vanish too soon",
+      "uncertain": false
+    },
+    {
+      "start": 180.5,
+      "end": 184.32,
+      "text": "44 was tragic, 61 was grave",
+      "uncertain": true
+    },
+    {
+      "start": 184.32,
+      "end": 188.46,
+      "text": "78 was a message nobody could save",
+      "uncertain": true
+    },
+    {
+      "start": 188.46,
+      "end": 190.76,
+      "text": "Weird hair, weird smells",
+      "uncertain": false
+    },
+    {
+      "start": 190.76,
+      "end": 196.58,
+      "text": "At 93, the silence answered more politely than he",
+      "uncertain": true
+    },
+    {
+      "start": 196.58,
+      "end": 200.74,
+      "text": "At 99, he laughed, then the laugh fell apart",
+      "uncertain": false
+    },
+    {
+      "start": 200.74,
+      "end": 205.08,
+      "text": "No joke can fix a room with a leaving heart",
+      "uncertain": false
+    },
+    {
+      "start": 205.08,
+      "end": 207.2,
+      "text": "A hundred false alarms",
+      "uncertain": true
+    },
+    {
+      "start": 207.2,
+      "end": 211.16,
+      "text": "Now the house is bare",
+      "uncertain": false
+    },
+    {
+      "start": 211.16,
+      "end": 214.46,
+      "text": "It's notes and it's nonsense",
+      "uncertain": false
+    },
+    {
+      "start": 216.1,
+      "end": 220.74,
+      "text": "Through the stairwell",
+      "uncertain": false
+    },
+    {
+      "start": 220.74,
+      "end": 224.2,
+      "text": "Trip through the stairwell there",
+      "uncertain": true
+    },
+    {
+      "start": 224.2,
+      "end": 227.16,
+      "text": "Phone a bit, phone a boo",
+      "uncertain": false
+    },
+    {
+      "start": 227.16,
+      "end": 229.3,
+      "text": "Every echo comes back",
+      "uncertain": false
+    },
+    {
+      "start": 229.3,
+      "end": 233.26,
+      "text": "Like a bright little signal on a broken track",
+      "uncertain": false
+    },
+    {
+      "start": 233.26,
+      "end": 235.52,
+      "text": "A hundred false alarms",
+      "uncertain": false
+    },
+    {
+      "start": 235.52,
+      "end": 237.32,
+      "text": "But the last one lands clear",
+      "uncertain": false
+    },
+    {
+      "start": 237.32,
+      "end": 239.62,
+      "text": "He says, I wish you'd understood me",
+      "uncertain": false
+    },
+    {
+      "start": 239.62,
+      "end": 241.58,
+      "text": "Almost steady, almost near",
+      "uncertain": false
+    },
+    {
+      "start": 241.58,
+      "end": 243.48,
+      "text": "Then he turns off the light",
+      "uncertain": false
+    },
+    {
+      "start": 243.48,
+      "end": 245.4,
+      "text": "Let's the hallway breathe",
+      "uncertain": false
+    },
+    {
+      "start": 245.4,
+      "end": 249.08,
+      "text": "And holds the final word",
+      "uncertain": false
+    },
+    {
+      "start": 249.08,
+      "end": 249.86,
+      "text": "Leave",
+      "uncertain": false
+    },
+    {
+      "start": 263.08,
+      "end": 264.48,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

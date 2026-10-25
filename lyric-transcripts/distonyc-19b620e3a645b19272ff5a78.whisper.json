@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "songId": "distonyc-19b620e3a645b19272ff5a78",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-19b620e3a645b19272ff5a78-305b20ed2410.mp3",
+  "audioSha256": "305b20ed2410dba28ea8f30f831242037f11a3a15487ba215186e825a5a74cf1",
+  "inputSha256": "1f06cb54e626dfc8868e9e44ce9b8695c43d3fc21822b802dc4c66aefa84d9f8",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 68.24,
+  "segments": [
+    {
+      "start": 2.7,
+      "end": 4.58,
+      "text": "Click that's the lantern",
+      "uncertain": true
+    },
+    {
+      "start": 4.58,
+      "end": 5.76,
+      "text": "Don't blink twice",
+      "uncertain": false
+    },
+    {
+      "start": 5.76,
+      "end": 8.36,
+      "text": "There's a little loose pixel",
+      "uncertain": false
+    },
+    {
+      "start": 8.36,
+      "end": 9.98,
+      "text": "Hiding in the night",
+      "uncertain": false
+    },
+    {
+      "start": 9.98,
+      "end": 12.96,
+      "text": "I put a secret with a hallway lens",
+      "uncertain": true
+    },
+    {
+      "start": 12.96,
+      "end": 14.88,
+      "text": "For the curious",
+      "uncertain": false
+    },
+    {
+      "start": 14.88,
+      "end": 17.16,
+      "text": "Trouble makers my digital friends",
+      "uncertain": true
+    },
+    {
+      "start": 17.16,
+      "end": 19.14,
+      "text": "No map, no sign",
+      "uncertain": false
+    },
+    {
+      "start": 19.14,
+      "end": 20.68,
+      "text": "No bell to ring",
+      "uncertain": true
+    },
+    {
+      "start": 20.68,
+      "end": 22.48,
+      "text": "Just follow the spark",
+      "uncertain": false
+    },
+    {
+      "start": 22.48,
+      "end": 24.22,
+      "text": "Of the stray small thing",
+      "uncertain": false
+    },
+    {
+      "start": 27.06,
+      "end": 29.0,
+      "text": "Behind the little door",
+      "uncertain": false
+    },
+    {
+      "start": 29.0,
+      "end": 30.66,
+      "text": "on the area three out",
+      "uncertain": false
+    },
+    {
+      "start": 30.66,
+      "end": 32.36,
+      "text": "the sideways pool",
+      "uncertain": true
+    },
+    {
+      "start": 32.36,
+      "end": 34.4,
+      "text": "and a secret little draft",
+      "uncertain": false
+    },
+    {
+      "start": 34.4,
+      "end": 36.12,
+      "text": "tapped in once and laugh",
+      "uncertain": true
+    },
+    {
+      "start": 36.12,
+      "end": 37.76,
+      "text": "when the shadows clout",
+      "uncertain": true
+    },
+    {
+      "start": 37.76,
+      "end": 39.86,
+      "text": "that's the hidden Easter",
+      "uncertain": false
+    },
+    {
+      "start": 39.86,
+      "end": 41.48,
+      "text": "end on the area three",
+      "uncertain": false
+    },
+    {
+      "start": 41.48,
+      "end": 47.02,
+      "text": "I left it bare",
+      "uncertain": false
+    },
+    {
+      "start": 47.02,
+      "end": 48.8,
+      "text": "for the ones who roam",
+      "uncertain": false
+    },
+    {
+      "start": 48.8,
+      "end": 50.5,
+      "text": "a tiny wild light",
+      "uncertain": false
+    },
+    {
+      "start": 50.5,
+      "end": 52.16,
+      "text": "inside the home",
+      "uncertain": false
+    },
+    {
+      "start": 52.16,
+      "end": 54.0,
+      "text": "find it friend",
+      "uncertain": false
+    },
+    {
+      "start": 54.0,
+      "end": 56.96,
+      "text": "then carry that",
+      "uncertain": false
+    },
+    {
+      "start": 56.96,
+      "end": 58.04,
+      "text": "Glow.",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,493 @@
+{
+  "version": 1,
+  "songId": "distonyc-273bc25db98800af3487b313",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-273bc25db98800af3487b313-37f25200330a.mp3",
+  "audioSha256": "37f25200330a8ffe63c224139f8c097168fb559c65cb4abcdd009eedfe3adb11",
+  "inputSha256": "8aa78333f9db23fd6648ed13ea474942d3cbeae59e4f3a3d10e480a56ac4434a",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 350.0408125,
+  "segments": [
+    {
+      "start": 15.0,
+      "end": 18.86,
+      "text": "Tony bought a shirt with buttons ironed on sleeve flat",
+      "uncertain": true
+    },
+    {
+      "start": 21.72,
+      "end": 27.12,
+      "text": "Glad to say it to the microwave and can't",
+      "uncertain": false
+    },
+    {
+      "start": 27.86,
+      "end": 29.92,
+      "text": "Tony bought a shirt with buttons",
+      "uncertain": false
+    },
+    {
+      "start": 29.92,
+      "end": 31.52,
+      "text": "Ironed one sleeve flat",
+      "uncertain": true
+    },
+    {
+      "start": 31.52,
+      "end": 34.32,
+      "text": "Practiced saying coffee to the microwave",
+      "uncertain": false
+    },
+    {
+      "start": 34.32,
+      "end": 35.64,
+      "text": "And cat his phone lit up",
+      "uncertain": true
+    },
+    {
+      "start": 35.64,
+      "end": 36.64,
+      "text": "Meet me by the fountain",
+      "uncertain": false
+    },
+    {
+      "start": 36.64,
+      "end": 38.2,
+      "text": "Bring your open mind",
+      "uncertain": false
+    },
+    {
+      "start": 38.2,
+      "end": 39.52,
+      "text": "He brought a paperback",
+      "uncertain": false
+    },
+    {
+      "start": 39.52,
+      "end": 41.66,
+      "text": "Breathments and a very open mind",
+      "uncertain": false
+    },
+    {
+      "start": 41.66,
+      "end": 43.38,
+      "text": "She arrived and rolled a skate",
+      "uncertain": true
+    },
+    {
+      "start": 43.38,
+      "end": 45.06,
+      "text": "Signed a lampshade for a hat",
+      "uncertain": false
+    },
+    {
+      "start": 45.06,
+      "end": 46.62,
+      "text": "Said sorry that I'm late",
+      "uncertain": false
+    },
+    {
+      "start": 46.62,
+      "end": 48.44,
+      "text": "My ferret needed a chat",
+      "uncertain": false
+    },
+    {
+      "start": 48.44,
+      "end": 50.0,
+      "text": "Her hair stood straight",
+      "uncertain": false
+    },
+    {
+      "start": 50.0,
+      "end": 51.84,
+      "text": "Like radio towers in a storm",
+      "uncertain": false
+    },
+    {
+      "start": 51.84,
+      "end": 53.86,
+      "text": "It hummed when buses passed",
+      "uncertain": true
+    },
+    {
+      "start": 53.86,
+      "end": 55.3,
+      "text": "Which Tony found alarming",
+      "uncertain": false
+    },
+    {
+      "start": 58.64,
+      "end": 62.74,
+      "text": "She smelled like cedar chips, old pennies, cherries, smoke",
+      "uncertain": true
+    },
+    {
+      "start": 65.42,
+      "end": 69.28,
+      "text": "And something in a jar no doctor ever spoke",
+      "uncertain": true
+    },
+    {
+      "start": 72.6,
+      "end": 77.6,
+      "text": "Weird hair, weird smells, what have I gotten myself into?",
+      "uncertain": false
+    },
+    {
+      "start": 79.0,
+      "end": 84.74,
+      "text": "A blown boot in the puddle and a purse full of fondue",
+      "uncertain": true
+    },
+    {
+      "start": 86.14,
+      "end": 88.96,
+      "text": "Weird hair, weird smells",
+      "uncertain": false
+    },
+    {
+      "start": 88.96,
+      "end": 91.5,
+      "text": "I'm trying hard to play it cool",
+      "uncertain": false
+    },
+    {
+      "start": 91.5,
+      "end": 95.08,
+      "text": "She says you want to see my tattoo",
+      "uncertain": true
+    },
+    {
+      "start": 96.58,
+      "end": 99.8,
+      "text": "Tony says I've gotten myself into",
+      "uncertain": false
+    },
+    {
+      "start": 112.32,
+      "end": 116.96,
+      "text": "The tattoo was a taxiderm, he'd fish with little human teeth",
+      "uncertain": true
+    },
+    {
+      "start": 119.12,
+      "end": 123.38,
+      "text": "It winked above a sentence written underneath",
+      "uncertain": true
+    },
+    {
+      "start": 125.86,
+      "end": 130.32,
+      "text": "No kings, no gods, just coupons after ten",
+      "uncertain": true
+    },
+    {
+      "start": 132.72,
+      "end": 137.1,
+      "text": "Tony nodded like he unmistled and ordered drinks for ten",
+      "uncertain": true
+    },
+    {
+      "start": 139.56,
+      "end": 143.28,
+      "text": "She asked him if he believed in ghosts who work in malls",
+      "uncertain": false
+    },
+    {
+      "start": 143.28,
+      "end": 147.68,
+      "text": "And showed him how to summon one by knocking on the walls",
+      "uncertain": false
+    },
+    {
+      "start": 149.7,
+      "end": 153.2,
+      "text": "A waiter brought that nacho shit exactly like a shoe",
+      "uncertain": true
+    },
+    {
+      "start": 153.2,
+      "end": 157.5,
+      "text": "She whispered, don't eat the green ones, they remember you",
+      "uncertain": false
+    },
+    {
+      "start": 159.9,
+      "end": 164.38,
+      "text": "So when he thought of quiet nights and sandwiches at home",
+      "uncertain": true
+    },
+    {
+      "start": 166.46,
+      "end": 172.84,
+      "text": "Then washed her braid a napkin into a tiny chrome gnome",
+      "uncertain": false
+    },
+    {
+      "start": 174.08,
+      "end": 179.06,
+      "text": "Weird hair, weird smells, what have I gotten myself into?",
+      "uncertain": false
+    },
+    {
+      "start": 180.44,
+      "end": 183.1,
+      "text": "A moon boot in the puddle",
+      "uncertain": true
+    },
+    {
+      "start": 183.1,
+      "end": 186.4,
+      "text": "And a purse full of fondue",
+      "uncertain": false
+    },
+    {
+      "start": 187.58,
+      "end": 190.54,
+      "text": "Weird hair, weird smells",
+      "uncertain": false
+    },
+    {
+      "start": 190.54,
+      "end": 192.9,
+      "text": "I'm trying hard to play it cool",
+      "uncertain": false
+    },
+    {
+      "start": 192.9,
+      "end": 196.4,
+      "text": "She says you wanna see my tattoo",
+      "uncertain": true
+    },
+    {
+      "start": 198.32,
+      "end": 201.22,
+      "text": "What have I gotten myself into?",
+      "uncertain": false
+    },
+    {
+      "start": 213.72,
+      "end": 218.14,
+      "text": "Maybe every decent heart comes wrapped in stranger stuff",
+      "uncertain": false
+    },
+    {
+      "start": 218.14,
+      "end": 223.18,
+      "text": "A little too much patchouli, a little too much fluff",
+      "uncertain": true
+    },
+    {
+      "start": 223.18,
+      "end": 228.26,
+      "text": "Maybe love is not a porch swing clean and painted blue",
+      "uncertain": false
+    },
+    {
+      "start": 230.6,
+      "end": 235.1,
+      "text": "Maybe love is yelling duck when a pigeon flies for a stew",
+      "uncertain": false
+    },
+    {
+      "start": 237.46,
+      "end": 239.8,
+      "text": "Outside she took the lampshade off",
+      "uncertain": true
+    },
+    {
+      "start": 239.8,
+      "end": 242.02,
+      "text": "And placed it on his head",
+      "uncertain": true
+    },
+    {
+      "start": 244.04,
+      "end": 246.72,
+      "text": "It suits you, she declare",
+      "uncertain": true
+    },
+    {
+      "start": 246.72,
+      "end": 250.28,
+      "text": "You look like haunted bread",
+      "uncertain": false
+    },
+    {
+      "start": 252.48,
+      "end": 255.54,
+      "text": "Then kissed him quick beside the fountain",
+      "uncertain": false
+    },
+    {
+      "start": 255.54,
+      "end": 259.16,
+      "text": "Tasted faintly of clothes",
+      "uncertain": false
+    },
+    {
+      "start": 259.16,
+      "end": 264.04,
+      "text": "Tony's heart did one confused and hopeful",
+      "uncertain": true
+    },
+    {
+      "start": 264.04,
+      "end": 265.62,
+      "text": "kind of does",
+      "uncertain": true
+    },
+    {
+      "start": 266.2,
+      "end": 268.14,
+      "text": "her hair buzzed low",
+      "uncertain": true
+    },
+    {
+      "start": 268.14,
+      "end": 269.84,
+      "text": "the traffic changed",
+      "uncertain": false
+    },
+    {
+      "start": 269.84,
+      "end": 272.24,
+      "text": "the moon looked slightly bent",
+      "uncertain": false
+    },
+    {
+      "start": 272.24,
+      "end": 274.46,
+      "text": "he laughed so",
+      "uncertain": false
+    },
+    {
+      "start": 274.46,
+      "end": 276.54,
+      "text": "hard he nearly spilled",
+      "uncertain": false
+    },
+    {
+      "start": 276.54,
+      "end": 278.1,
+      "text": "the thing she called",
+      "uncertain": false
+    },
+    {
+      "start": 278.1,
+      "end": 278.9,
+      "text": "perfume",
+      "uncertain": false
+    },
+    {
+      "start": 280.04,
+      "end": 282.28,
+      "text": "she said same time",
+      "uncertain": false
+    },
+    {
+      "start": 282.28,
+      "end": 284.16,
+      "text": "next week I know",
+      "uncertain": false
+    },
+    {
+      "start": 284.16,
+      "end": 286.14,
+      "text": "a place with snakes",
+      "uncertain": false
+    },
+    {
+      "start": 286.14,
+      "end": 288.2,
+      "text": "Tony said",
+      "uncertain": false
+    },
+    {
+      "start": 288.2,
+      "end": 290.44,
+      "text": "I'm busy then said",
+      "uncertain": false
+    },
+    {
+      "start": 290.44,
+      "end": 292.72,
+      "text": "actually what time",
+      "uncertain": false
+    },
+    {
+      "start": 294.04,
+      "end": 305.14,
+      "text": "weird hair weird smells what have i gotten myself into a lampshade on my forehead at a pocket full",
+      "uncertain": true
+    },
+    {
+      "start": 305.14,
+      "end": 316.98,
+      "text": "of blue weird hair weird smells i'm not as cool as i pretend but maybe rough out there is where",
+      "uncertain": false
+    },
+    {
+      "start": 316.98,
+      "end": 318.8,
+      "text": "the good nights begin",
+      "uncertain": true
+    },
+    {
+      "start": 318.8,
+      "end": 321.4,
+      "text": "She says",
+      "uncertain": true
+    },
+    {
+      "start": 321.4,
+      "end": 324.8,
+      "text": "You wanna see",
+      "uncertain": true
+    },
+    {
+      "start": 324.8,
+      "end": 326.2,
+      "text": "my tattoo",
+      "uncertain": false
+    },
+    {
+      "start": 326.2,
+      "end": 329.08,
+      "text": "Tony says I've seen it",
+      "uncertain": true
+    },
+    {
+      "start": 329.08,
+      "end": 330.0,
+      "text": "but I do",
+      "uncertain": false
+    },
+    {
+      "start": 330.0,
+      "end": 333.24,
+      "text": "What have I gotten myself into",
+      "uncertain": false
+    },
+    {
+      "start": 335.06,
+      "end": 336.74,
+      "text": "Maybe something",
+      "uncertain": false
+    },
+    {
+      "start": 336.74,
+      "end": 338.28,
+      "text": "kinda true",
+      "uncertain": false
+    },
+    {
+      "start": 346.98,
+      "end": 347.38,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

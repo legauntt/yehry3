@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "songId": "distonyc-1c4506da77d3415af66ed6b0",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1c4506da77d3415af66ed6b0-c1c9d32bf480.mp3",
+  "audioSha256": "c1c9d32bf48010011cd6e304f654fb16b23ff6f6f28d84d95e63ead001d04691",
+  "inputSha256": "6586a2e0be6d15d7cd961e22d654fc1c604b7690613ca2c5cac99f121de70975",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 215.066125,
+  "segments": [
+    {
+      "start": 29.46,
+      "end": 29.96,
+      "text": "To be continued...",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 32.82,
+      "text": "Every corridor keeps changing its face.",
+      "uncertain": false
+    },
+    {
+      "start": 33.1,
+      "end": 36.44,
+      "text": "Rats in the pantry, water in the place.",
+      "uncertain": false
+    },
+    {
+      "start": 36.94,
+      "end": 39.82,
+      "text": "I heard a chain go singing underground.",
+      "uncertain": true
+    },
+    {
+      "start": 40.6,
+      "end": 44.78,
+      "text": "Now I am walking where I should not be found.",
+      "uncertain": false
+    },
+    {
+      "start": 45.44,
+      "end": 48.9,
+      "text": "Wind up the light, cow to three.",
+      "uncertain": false
+    },
+    {
+      "start": 49.32,
+      "end": 53.72,
+      "text": "Something down there is counting me.",
+      "uncertain": false
+    },
+    {
+      "start": 56.84,
+      "end": 59.0,
+      "text": "The bunker has teeth.",
+      "uncertain": false
+    },
+    {
+      "start": 59.0,
+      "end": 64.34,
+      "text": "The Bunker has breath, it shoots on the daylight and whistles for death.",
+      "uncertain": false
+    },
+    {
+      "start": 64.78,
+      "end": 71.76,
+      "text": "I pull that lever, I run for the jaw, but the thing in the walls wants a little bit more.",
+      "uncertain": false
+    },
+    {
+      "start": 72.0,
+      "end": 77.16,
+      "text": "The Bunker has teeth, and I cannot sleep.",
+      "uncertain": false
+    },
+    {
+      "start": 94.68,
+      "end": 101.98,
+      "text": "found an old soldier curled by the well his empty eyes had a story to tell",
+      "uncertain": true
+    },
+    {
+      "start": 101.98,
+      "end": 109.06,
+      "text": "a note said save him a note said flee a gun in the drawer and a key for the sea",
+      "uncertain": false
+    },
+    {
+      "start": 109.06,
+      "end": 116.36,
+      "text": "i dragged my boots through a flooded hall hear that beast scrape across the wall",
+      "uncertain": true
+    },
+    {
+      "start": 116.36,
+      "end": 120.0,
+      "text": "One wrong noise and the whole place wakes",
+      "uncertain": false
+    },
+    {
+      "start": 120.0,
+      "end": 125.06,
+      "text": "I am feeding fear with every step I take",
+      "uncertain": true
+    },
+    {
+      "start": 131.12,
+      "end": 134.3,
+      "text": "No, no, no, keep the generator alive",
+      "uncertain": false
+    },
+    {
+      "start": 134.3,
+      "end": 138.12,
+      "text": "No, no, no, just give me one more try",
+      "uncertain": false
+    },
+    {
+      "start": 138.12,
+      "end": 141.72,
+      "text": "Smoke in my lungs, blood on the floor",
+      "uncertain": false
+    },
+    {
+      "start": 141.72,
+      "end": 146.4,
+      "text": "I AM NOT DYING IN THIS DAMN DULL WAR",
+      "uncertain": true
+    },
+    {
+      "start": 160.72,
+      "end": 164.38,
+      "text": "The bunker has teeth, the bunker has breath",
+      "uncertain": true
+    },
+    {
+      "start": 164.38,
+      "end": 167.96,
+      "text": "It knows all my footsteps, it laughs at my death",
+      "uncertain": false
+    },
+    {
+      "start": 167.96,
+      "end": 175.3,
+      "text": "I found the way out, I found the last key, but the dark came running like it wanted me.",
+      "uncertain": false
+    },
+    {
+      "start": 175.6,
+      "end": 179.16,
+      "text": "The bunker has teeth, but I still move on.",
+      "uncertain": false
+    },
+    {
+      "start": 179.28,
+      "end": 182.8,
+      "text": "I carry the flame till the black is gone.",
+      "uncertain": false
+    },
+    {
+      "start": 183.16,
+      "end": 186.06,
+      "text": "Omri, if you hear me, hold on tonight.",
+      "uncertain": false
+    },
+    {
+      "start": 186.06,
+      "end": 190.32,
+      "text": "I am coming through the ruin with a shaking light.",
+      "uncertain": false
+    },
+    {
+      "start": 199.4,
+      "end": 203.24,
+      "text": "I am coming with the Shaking Lives!",
+      "uncertain": true
+    }
+  ]
+}

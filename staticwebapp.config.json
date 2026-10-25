@@ -6,6 +6,36 @@
     "Content-Security-Policy": "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; media-src 'self' https:; connect-src 'self' https://chairlift.fly.dev wss://chairlift.fly.dev; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'"
   },
   "routes": [
+    {"route":"/assets/song-videos/01-lamma-club.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/01-lamma-club.mp4","statusCode":302},
+    {"route":"/assets/song-videos/04-golden-answer.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/04-golden-answer.mp4","statusCode":302},
+    {"route":"/assets/song-videos/05-simple-not-easy.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/05-simple-not-easy.mp4","statusCode":302},
+    {"route":"/assets/song-videos/06-lamma-tragic-aria.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/06-lamma-tragic-aria.mp4","statusCode":302},
+    {"route":"/assets/song-videos/08-lamma-dancefloor-rework.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/08-lamma-dancefloor-rework.mp4","statusCode":302},
+    {"route":"/assets/song-videos/09-nine-eleven-again.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/09-nine-eleven-again.mp4","statusCode":302},
+    {"route":"/assets/song-videos/10-influence-criteria.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/10-influence-criteria.mp4","statusCode":302},
+    {"route":"/assets/song-videos/12-whoopsie-apartheid.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/12-whoopsie-apartheid.mp4","statusCode":302},
+    {"route":"/assets/song-videos/13-closed-first-bite.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/13-closed-first-bite.mp4","statusCode":302},
+    {"route":"/assets/song-videos/14-blood-shoes-daybreak.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/14-blood-shoes-daybreak.mp4","statusCode":302},
+    {"route":"/assets/song-videos/15-aw-hell-jimmy.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/15-aw-hell-jimmy.mp4","statusCode":302},
+    {"route":"/assets/song-videos/16-twelve-empty-cups.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/16-twelve-empty-cups.mp4","statusCode":302},
+    {"route":"/assets/song-videos/17-weird-hair-weird-smells.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/17-weird-hair-weird-smells.mp4","statusCode":302},
+    {"route":"/assets/song-videos/18-biological-mandate-disco.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/18-biological-mandate-disco.mp4","statusCode":302},
+    {"route":"/assets/song-videos/19-miracle-cathedral-cure.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/19-miracle-cathedral-cure.mp4","statusCode":302},
+    {"route":"/assets/song-videos/21-miracle-original.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/21-miracle-original.mp4","statusCode":302},
+    {"route":"/assets/song-videos/22-lamma-bada-original.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/22-lamma-bada-original.mp4","statusCode":302},
+    {"route":"/assets/song-videos/23-i-wanna-tonight.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/23-i-wanna-tonight.mp4","statusCode":302},
+    {"route":"/assets/song-videos/24-i-wanna.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/24-i-wanna.mp4","statusCode":302},
+    {"route":"/assets/song-videos/golden-answer-hat-v1.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/golden-answer-hat-v1.mp4","statusCode":302},
+    {"route":"/assets/song-videos/tragic-aria-hat-v1.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/tragic-aria-hat-v1.mp4","statusCode":302},
+    {"route":"/assets/song-videos/yeah-after-midnight-hat-v1.mp4","redirect":"https://github.com/legauntt/yehry3/releases/download/song-videos-v1/yeah-after-midnight-hat-v1.mp4","statusCode":302},
+      { "route": "/assets/song-videos/11-geglash-missing-save.mp4", "redirect": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/11-geglash-missing-save.mp4", "statusCode": 302 },
+    { "route": "/assets/song-videos/20-miracle-darkwave-circus.mp4", "redirect": "https://github.com/legauntt/yehry3/releases/download/song-videos-v1/20-miracle-darkwave-circus.mp4", "statusCode": 302 },
+    { "route": "/assets/artwork/previews/*", "headers": { "Cache-Control": "public, max-age=31536000, immutable" } },
+    { "route": "/saxophone", "redirect": "/saxophone/", "statusCode": 301 },
+    { "route": "/saxophone/*", "headers": { "Cache-Control": "no-cache" } },
+    { "route": "/aci/*", "headers": { "Cache-Control": "no-cache" } },
+    { "route": "/sausage", "redirect": "/sausage/", "statusCode": 301 },
+    { "route": "/sausage/*", "headers": { "Cache-Control": "no-cache" } },
     {
       "route": "/mixtapes",
       "redirect": "/mixtapes/",
@@ -50,6 +80,16 @@
       "headers": {
         "Cache-Control": "no-store"
       }
+    },
+    {
+      "route": "/audtism",
+      "redirect": "/audtism/",
+      "statusCode": 302
+    },
+    {
+      "route": "/timeline",
+      "redirect": "/timeline/",
+      "statusCode": 302
     },
     {
       "route": "/oeuful",
@@ -104,7 +144,6 @@
     },
     {
       "route": "/lyrics/*",
-      "rewrite": "/lyrics/index.html",
       "headers": { "Cache-Control": "no-cache" }
     },
     {
@@ -140,19 +179,17 @@
       }
     },
     {
+      "route": "/lyric-transcripts/*",
+      "headers": { "Cache-Control": "no-cache" }
+    },
+    {
       "route": "/assets/*",
       "headers": {
         "Cache-Control": "no-cache"
       }
     },
     {
-      "route": "/fearhunger/fearhunger.js",
-      "headers": {
-        "Cache-Control": "no-cache"
-      }
-    },
-    {
-      "route": "/fearhunger/fearhunger.css",
+      "route": "/fearhunger/fearhunger*",
       "headers": {
         "Cache-Control": "no-cache"
       }
@@ -169,13 +206,7 @@
       }
     },
     {
-      "route": "/wiseau/wiseau.js",
-      "headers": {
-        "Cache-Control": "no-cache"
-      }
-    },
-    {
-      "route": "/wiseau/wiseau.css",
+      "route": "/wiseau/wiseau*",
       "headers": {
         "Cache-Control": "no-cache"
       }
@@ -204,6 +235,7 @@
     }
   },
   "mimeTypes": {
+    ".mp4": "video/mp4",
     ".mp3": "audio/mpeg"
   }
 }

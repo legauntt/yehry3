@@ -1,5 +1,160 @@
 # Distonyc on Windows
 
+## Sparse vocals and review publication
+
+The hash-checked arrangement adapter lets recordings with at least 5% detected
+vocal activity continue through voice conversion when the ordinary 50% coverage
+or vocal-span check fails. These exceptions retain `vocal_activity` in
+`validationFailures` through mastering and publication, so the song is playable
+and marked Needs Review even when Tony conversion succeeds. Below 5% remains a
+failed arrangement check. Ending, file integrity, and unchanged-input checks
+still apply; the frozen song checker is never rewritten.
+
+## Admin audio edits
+
+After deploying Chairlift's audio-edit endpoints, run `./install-audio-editor.ps1 -Start` from this directory. It installs a separate CPU-only runtime under `%LOCALAPPDATA%/Distonyc/audio-editor` and the hidden **Distonyc Audio Editor** scheduled task. It uses the existing config and DPAPI worker credential, starts at login, and checks for restart every five minutes. It neither changes nor stops the music-generation worker. To update a running editor service, first let its job finish, then stop only this scheduled task and rerun the installer; existing runtime files are backed up under the configured state directory.
+
+The service claims one admin analysis/render at a time. Original bytes, render settings, hashes and retry state stay in `state/audio-editor/<edit-id>`. Outputs have unique release names and are verified publicly before Chairlift selects them. Repeated delivery cannot duplicate versions or reapply a superseded default. Requests expire after 24 hours queued or 30 minutes working; the editor permits a new save after failure. Status is in `state/audio-editor/health.json` and `state/audio-editor.log`.
+
+Vocal markers use hash-verified retained vocal stems when available; source-matched published Whisper segments are the fallback. No full-mix amplitude heuristic is presented as vocal detection. Unavailable markers do not prevent crop/fade editing. Run `python -m unittest test_audio_editor -v` for bounded source checks and a real synthetic MP3 crop/fade test. No model loading, paid generation or catalog publication is needed for these tests.
+
+Advanced requests may explicitly select **Instrumental-heavy arrangement**
+(`details.generation.instrumentalHeavy: true`). This is off by default and is
+never inferred from genre or saved browser preferences. The confirmed brief and
+hash-pinned track must authorize it. For supported rock/acoustic and opera
+composition checkers, `instrumental_heavy.py` reports vocal coverage and long
+instrumental sections instead of requiring 50% activity or a minimum vocal span.
+Missing/invalid vocals, ending completion, frozen inputs, voice conversion and
+export integrity checks remain active. Existing jobs keep their frozen choices.
+
+## Switch refused planning to Local ACE
+
+When the requester explicitly chooses Local ACE and exact supplied wording, run
+`operator-local-ace.ps1 -Request <request-id>`. This command may also run from a
+current source checkout while a worker is running; it loads the verified installed
+runtime and refuses any request that is active or has accepted planning, review,
+or audio artifacts. Do not install over a running worker.
+
+Chairlift's authenticated, version-checked `planning-backend` action permits one
+Eleven Music to local switch after planning fails. It keeps the lyric sheet,
+voice, duration, spending evidence and prior details. The command archives the
+refused plan through the existing bounded replan controller, copies the supplied
+words into the retained musical arrangement, runs normal plan and wording
+validation, and uses `operator-retry.ps1` to queue and record one recovery attempt.
+`local-ace-switch.json` reconciles a lost switch response without another revision
+or replanning pass. It does not release presumed paid holds or call a paid provider.
+
+## Intentional nonverbal vocals
+
+When a confirmed nonverbal performance has sustained vocal presence but falls below
+the ordinary 50% vocal-activity threshold, `nonverbal_recovery.py` permits one
+retained-audio configure recovery. It pins the recording, score, manifest and paid
+receipt; the final-ending and file-integrity checks still run. It never composes
+another paid song. In-memory NumPy measurements must match the saved evidence.
+
+A previously published unconverted fallback may be completed once through
+Chairlift's `complete-retained-vocals` worker endpoint. The original worker, expired
+lease, exact version, prior recording hash and unchanged confirmed song are required.
+The server downloads and verifies the new asset before atomically replacing the
+request and catalog recording. The original release remains in history. Catalog
+reconciliation accepts only that matching recorded replacement and preserves other
+songs and listener metadata. Keep the old local delivery journal archived when
+installing the verified replacement result, then run `delivery_check.py` afresh.
+
+Fresh plans support `vocal_mode: nonverbal` for explicitly requested wordless,
+gibberish or vocal-sound performances. The existing `lyrics` field carries a complete
+phonetic score with section headings; breaths, laughter and delivery instructions
+belong in the arrangement. No English or other real-language words are required.
+Fresh wordless plans normalize custom standalone bracketed headings to numbered
+sections and preserve their original directions in the arrangement. Performed
+phonetic lines, ordinary lyric plans and saved production plans stay unchanged.
+For an eligible local wordless cutoff, the existing single longer ending attempt
+runs before exporting a needs-review preview. This does not authorize a paid retry
+or reset an ending-repair budget.
+Real-language non-English songs retain `vocal_mode: lyrics`, as do legacy plans
+without this optional field. The selected voice, backend, duration and paid budget
+remain unchanged. Both local captions and Eleven Music composition prompts honor
+the score. Lexical ending matching is inapplicable; audio ending, continuity,
+export and publication integrity checks still run. Technical checks cannot prove
+that a generated performance contains no intelligible words; that needs listening.
+
+For a refusal before production starts, use the bounded `replan.prepare` archive
+and the versioned targeted admin retry. Never replace started render inputs or
+reset planning/recovery journals. Install only the reviewed runtime changes while
+worker and monitor are idle, preserving newer installed policies.
+
+## V9 training epoch
+
+Only Tony V9 accepts `details.voiceEpoch`: a numeric saved epoch from 10 to 300
+in steps of 10. The form defaults to 300. Requests without an epoch retain the
+established V9 profile. Explicit 300 uses the same profile and fingerprint.
+Earlier epochs use separate pinned runtime directories, sharing the retrieval
+index through hardlinks. Rendering, retries, contextual vocal repair and
+publication retain the selected profile; missing or changed assets fail closed.
+
+With the audio worker and queue monitor idle and temporarily disabled, install
+the reviewed runtime files using `install.ps1 -RuntimeOnly -Files ...`, then run:
+
+```powershell
+python prepare_v9_epochs.py --config <installed-config.json> --checkpoints <applio-logs-tony-v9> --output <permanent-epoch-profiles> --write
+```
+
+The setup verifies all 30 training exports, refuses to replace differing assets,
+backs up config, and leaves the existing V9 profile intact. Without `--write` it
+only verifies inventory and the default checkpoint. Restore the schedules after
+runtime verification. The worker advertises `voice-v9-epochs-v1` only after every
+configured epoch passes integrity checks. Older workers can still process legacy
+V9 requests; explicit epochs wait for a capable worker. The public request and
+song metadata carry only `voiceEpoch`, never local profile paths or hashes.
+
+## Lyric workshop
+
+`lyric_writer.py` is a separate text-only worker for Step 2 of the website. It holds an authenticated
+25-second waiting request to Chairlift, which wakes as soon as a lyric job is committed, then claims
+the job immediately. It uses the existing DPAPI worker credential and local Codex login. It never
+claims a song, loads a voice, takes the GPU lock, or reserves music funds. Empty waits reconnect
+without a polling sleep; a completed draft immediately checks for the next queued job. Connection
+failures back off from one to ten seconds, preserving the same claim ID if a response was lost.
+Older Chairlift deployments without the waiting endpoint retain three-second polling.
+The **Distonyc Lyric Writer** task runs hidden while Jesse is signed in and this PC is awake;
+logon and five-minute restart triggers recover it after exit. Only one writer instance runs.
+Its launcher owns the lyric process tree through the existing Windows Job helper, so stopping
+the scheduled task also stops its worker and releases the singleton lock before an update.
+The website marks it offline after 45 seconds without a heartbeat and retains local drafts.
+
+Each job gets one strict semantic classification (45 seconds maximum) followed, only for a
+lyric request, by one structured lyric-generation call (90 seconds maximum). Both use low
+reasoning with `lyric_writer_model` or the installed `planner_model`, ephemeral sessions,
+read-only sandbox, no project documents, shell, apps, web or subagents. The classifier rejects
+general conversation, factual answers, code, math, mixed tasks and scope-override attempts;
+the writer independently refuses non-lyric output. Source lyrics are quoted material.
+Empty polling invokes no model. There is no automatic creative retry: transport retries reuse
+the same result, expired/canceled leases cannot publish, and started jobs are never reassigned.
+
+Jobs have a three-minute absolute deadline. Chairlift retains private results for 24 hours;
+browser versions survive in the same tab. Temporary local prompts, outputs and logs are removed
+after each attempt. `state/lyric-workshop/pickup.json` records the latest private job ID on receipt.
+The live check observes that receipt using its own monotonic clock, avoiding server/PC clock skew.
+`state/lyric-workshop/health.json` and `state/lyric-writer.log` contain only
+service state and error types. An interrupted process can leave a private `attempt-*` directory
+under that state folder; it contains no credential and is never part of a public build.
+
+Deploy the matching Chairlift API, then wait for the audio worker and monitor to be idle and run
+`./install-lyric-writer.ps1 -Start`. It uses `install.ps1 -RuntimeOnly -Files ...` to back up and
+verify just the four lyric runtime/launcher files, preserving config, credentials, recovery
+code, and the existing song/monitor schedules. It registers only **Distonyc Lyric Writer**.
+To update a running writer, first wait for its health state to be idle, stop that task, install,
+and start it again. To disable drafting, disable and stop this task; ordinary songs still work.
+
+Validation: `python -m unittest -v test_lyric_writer.py`. For an explicit bounded real-model check:
+`python check_lyric_writer.py --config <installed-config> --output <private-report.json>`.
+That check runs eight scope decisions and one lyric draft without creating a song or using a GPU.
+Add `--revisions` instead to exercise all six quick actions and a second Funnier pass, with an
+explicit locked line. It saves private before/after lyrics for human review and a word-change
+diagnostic that ignores punctuation, case and section labels; that number is not a quality score.
+Quick actions have distinct substantive editing goals and combine with extra lyric guidance.
+The browser saves each version's action/prompt alongside its words, including identical responses.
+
 ## Playable publication after failed validation
 
 Musical validation failures now take the retained recording through `review_publication.py`
@@ -108,15 +263,37 @@ Private reports live in `%LOCALAPPDATA%\Distonyc\state\monitor\`: `report.md` is
 
 The monitor uses a separate current-user DPAPI credential in `monitor-credential.xml`; it authenticates through the normal admin API and never bypasses queue version or ownership checks. Prepare that credential locally, copy the worker code while the worker is idle, then run `install-monitor.ps1 -Start`. Existing `install.ps1` updates monitor files along with the worker without deleting its credential or ledger. Use `Disable-ScheduledTask -TaskName 'Distonyc Queue Monitor'` to pause automatic requeueing, or `Start-ScheduledTask -TaskName 'Distonyc Queue Monitor'` for an immediate check. Both tasks run hidden while this PC is awake and Jesse is signed in.
 
-Backstage's **Dehaka** action attaches private operator guidance to one failed request. The monitor consumes each uniquely identified guidance request once. Known deterministic failures still use their coded remedy without a model call; eligible unknown or creative blockers receive one schema-constrained shepherd consultation with that guidance. The guidance cannot reset budgets, bypass leases or integrity checks, replace frozen inputs, or authorize a different song. The normal monitor and worker remain responsible for retry, publication, and delivery verification.
+### Contact Support and Dehaka retirement
 
-Dehaka answers with one of four actions: `retry_saved_work`, `replan`, `needs_input`, or `needs_code_fix`. Each operator steer authorizes one queue action of its own: a steered retry or replan is not held back by the automatic cooldowns or the three-attempt automatic budget, and the same steer can never act twice. `replan` exists for a planner refusal (`needs_attention`) that a fresh planning pass can resolve. `replan.py` refuses once a render request, render result, or approved requester review exists; otherwise it moves every planning file into `state\jobs\<id>\replans\<n>\`, journals the pass, and leaves `replan.json` for the next planning call. That directive carries Dehaka's short creative `planning_note` (kept only for an authenticated steer) and an optional artist/title for the cover lookup below. The planner receives the note as operator recovery direction, snapshotted in `planning-input.json` as `recoveryNote`. The submitted brief is never edited. A request gets at most three steered replans, or one automatic replan.
+Dehaka is retired. `queue_monitor.DEHAKA_RETIRED` disables both automatic and guided
+consultations, including cached decisions and pending guidance, regardless of the old
+`automatic_shepherd` config value. Set that config value to false on installation too.
+Known deterministic recovery, cooldowns, retry budgets, publication and delivery checks
+continue. Historical consultation/replan helpers and tests remain for saved journal
+compatibility; production configuration cannot turn consultations back on.
+
+Backstage **Contact Support** reads a private, deterministic Chairlift report from
+`GET /admin/prompts/:id/support`. It shows the current status/error, recorded queue
+history and cited excerpts from the latest retained logs. Copying a report does not
+send a ticket, consult a model, or retry the request. The old `shepherd` HTTP action
+returns 410. Archive and the existing status controls remain available.
+
+Raw logs are independent of consultations: `dehaka_feed.py` uploads each failure
+episode with bounded, redacted log tails, then records queue actions and outcomes.
+The historical module, collection, keys and `/dehaka` write route retain their names
+for compatibility. The UI reads `/admin/prompts/:id/logs`; `/dehaka` remains an alias.
+Published completion-only logs retain their existing 24-hour expiry.
+
+For an authorized single-request deterministic recovery, `queue_monitor.py --config
+<installed-config> --request-id <id>` preserves the normal singleton, version/lease,
+budget and delivery checks without consulting Dehaka. `--observe-only` stays read-only
+against Chairlift. Tests: `test_dehaka_retired.py`, `test_queue_monitor.py`, and
+`test_dehaka_feed.py`. Install only the changed monitor/feed after an idle check,
+preserving any newer installed recovery policies and all saved state.
 
 ## Cover requests fetch their own words
 
-A request that asks Tony to cover a named song, and brings no lyric sheet, basis recording or remix source, used to stop at planning with “a faithful cover requires … lyrics”. Before the first planning call `cover_lyrics.py` now parses the artist and title from the request, searches LRCLIB (`https://lrclib.net`, the only host it contacts), and accepts a result only when the request's own words (or Dehaka's hint) name that song, preferring the named artist and the sheet repeated across the most releases. The result is frozen in `cover-lyrics.json` with a SHA-256 of the text, and every later pass rebuilds the same planning brief from it, so the brief hash in `planning-input.json` and `plan.json` stays stable while the server keeps sending the unedited request. The words enter the brief as `details.lyricSheet` with `origin: "cover_lookup"` and a mode frozen in the journal. With the local band generator the mode is `preserve` (or `adapt` when a confirmed length cannot hold the words at 110 words per minute), and the planner never sees or echoes the text: its copy of the sheet carries only the word and stanza counts, and `cover_lyrics.fill` writes the words into the plan with `[Verse n]`/`[Chorus]` labels before validation. The planner's provider cuts off a reply that reproduces published lyrics (`content_filter`), which is why trusted code inserts them. With a hosted composer such as Eleven Music the mode is always `adapt` and the planner writes a loose cover in fresh wording: the service refuses published lyrics, and a paid refusal leaves a reconciliation state that cannot be replanned. The planner is told to use `recipe=new` and not to promise the original melody. The same rule applies when the requester pasted the words themselves: a cover with any lyric sheet and no selected recording is new music set to those words, never a source-dependent rendition that stops for a missing recording. A song that cannot be found is recorded as `not_found` and planned as before. A lyrics-service outage freezes nothing and fails as a retryable transient error. Jobs that already have a plan or planning snapshot are never looked up retroactively; they need a Dehaka `replan`.
-
-`dehaka_feed.py` reports back into the private Backstage thread through the monitor's admin session: one reply per steer (the consultation decision, or the coded policy that applied instead), queued retries, exhausted budgets, later failures, and publication or cancellation. Replies and outcomes attach secret-redacted tails of the job's saved logs and Dehaka's own `shepherd/guided-*/run.log`. Each message has a stable key; failures to post are recorded in the ledger and retried on the next pass, and never block triage.
+A request that asks Tony to cover a named song, and brings no lyric sheet, basis recording or remix source, used to stop at planning with “a faithful cover requires … lyrics”. Before the first planning call `cover_lyrics.py` now parses the artist and title from the request, searches LRCLIB (`https://lrclib.net`, the only host it contacts), and accepts a result only when the request's own words (or a retained legacy cover hint) name that song, preferring the named artist and the sheet repeated across the most releases. The result is frozen in `cover-lyrics.json` with a SHA-256 of the text, and every later pass rebuilds the same planning brief from it, so the brief hash in `planning-input.json` and `plan.json` stays stable while the server keeps sending the unedited request. The words enter the brief as `details.lyricSheet` with `origin: "cover_lookup"` and a mode frozen in the journal. With the local band generator the mode is `preserve` (or `adapt` when a confirmed length cannot hold the words at 110 words per minute), and the planner never sees or echoes the text: its copy of the sheet carries only the word and stanza counts, and `cover_lyrics.fill` writes the words into the plan with `[Verse n]`/`[Chorus]` labels before validation. The planner's provider cuts off a reply that reproduces published lyrics (`content_filter`), which is why trusted code inserts them. With a hosted composer such as Eleven Music the mode is always `adapt` and the planner writes a loose cover in fresh wording: the service refuses published lyrics, and a paid refusal leaves a reconciliation state that cannot be replanned. The planner is told to use `recipe=new` and not to promise the original melody. The same rule applies when the requester pasted the words themselves: a cover with any lyric sheet and no selected recording is new music set to those words, never a source-dependent rendition that stops for a missing recording. A song that cannot be found is recorded as `not_found` and planned as before. A lyrics-service outage freezes nothing and fails as a retryable transient error. Jobs that already have a plan or planning snapshot are never looked up retroactively; changing them requires a separately authorized repair that preserves the saved inputs.
 
 `worker.py` sends a presence heartbeat (`POST /worker/ping`) at the start and end of every scheduled run. It is advisory: an outage never blocks claim reconciliation.
 
@@ -168,6 +345,8 @@ For a correction after publication, `sync-lyric-cues.ps1 -Catalog <catalog.json>
 
 ## Installed files and controls
 
+Review publications include numeric vocal activity and available failed phrase pitch-frame counts through `review_measurements.py`. Public notes include the measured percentages and thresholds, never raw exceptions or local paths. Existing recordings can use `review_measurements.backfill(config, api, song_id, exact_url, work)` to update the API and conflict-aware fallback catalog without changing audio or saved render results. Review notes start expanded in the listening UI.
+
 Installation: `%LOCALAPPDATA%\Distonyc`. `config.json` contains paths and the worker ID. `worker-credential.xml` is DPAPI protected. `state\health.json` reports the last run; `state\worker.log` and `state\jobs\<request-id>\` contain private logs and journals. Full audio exports remain in `Music\troofs\mp3s` and `Music\troofs\wavs`.
 
 ```powershell
@@ -197,6 +376,62 @@ Refresh the basis inventory with `scripts/sync-basis-catalog.py` (see `--help`) 
 
 ## Validation
 
+### Automatic audio lyric views
+
+`transcript_service.py` is a separate post-publication companion, installed under
+`%LOCALAPPDATA%\Yehr3Whisper`. It does not change the Distonyc worker runtime,
+credentials, rendering queue, written lyrics or audio. The `yehry3 Whisper
+Transcripts` scheduled task invokes `pythonw.exe` without a terminal window at
+logon and every two minutes. It uses the existing GitHub CLI login to read the
+published catalog and fast-forward sanitized `lyric-transcripts/*.whisper.json`
+commits; concurrent publication is retried against the latest tree. It checks the
+live archive list before recognition and publication. Archived entries are never
+updated, and an unavailable archive list stops work until a later retry.
+
+Install from the deployed revision, with the existing local faster-whisper tools
+and downloaded `large-v3-turbo` model:
+
+```powershell
+.\pc-worker\install-transcripts.ps1 -SpeechRoot 'C:\Users\Jesse\Music\One More Round - extended' -Cache 'C:\Users\Jesse\Music\troofs\whisper-catalog-20260926' -Start
+```
+
+CPU is the default (four threads, below-normal priority). `-Device cuda` uses
+private NVIDIA DLLs from `speech-cuda/bin`, installed separately with
+`python pc-worker/install_whisper_cuda.py --root <speech-root>/speech-cuda`. It takes
+the production renderer's existing GPU lock and exits its model process between
+songs so rendering can proceed. That installer verifies pinned official NVIDIA
+archive checksums and does not alter global PATH. `-Disabled` stages the companion
+without running it. Updating it requires only this task to be idle.
+
+`health.json`, `service.log`, `jobs/` and `state.json` inside the companion's own
+directory show progress and errors. Failed songs retry after 30 minutes; after
+three failures they retry daily. Existing valid transcripts are preserved. The
+private recognition cache is keyed by recording, model, recipe and input identity.
+No listener review is implied. Recognition uses actual audio without lyric prompts
+and automatically detects language. Missing or differently trimmed converted
+stems use the verified released MP3; the public view names its source. Empty
+recognition is a result with no timed lines, never a copy of the written sheet.
+
+For a resumable local backfill of active songs (archived entries are excluded):
+
+```powershell
+python pc-worker/transcribe_catalog.py --catalog catalog.json --basis-root <basis-root> --speech-root <speech-root> --cache <private-cache> --output lyric-transcripts
+```
+
+Add `--device cuda --studio-dir <studio-dir> --engine-root <worker-engine-root>
+--cuda-root <speech-root>/speech-cuda` for coordinated GPU processing. The command
+only writes local drafts; the normal website build/deployment publishes them.
+Run `python -m unittest -v test_transcript_service test_transcribe_performance`
+from `pc-worker` to verify source validation and conflict-safe publication.
+
+### Existing worker checks
+
+Lyric timing selects retained transcripts by agreement with the written sheet and supported line coverage. It omits lines without word support or plausible duration. Run `python -m unittest -v test_lyric_timing test_audit_lyric_cues test_lyrical_ending test_publish` before installing `lyric_timing.py` with `install.ps1 -RuntimeOnly -Files lyric_timing.py` during an idle worker/monitor window. New songs can publish readable lyrics with partial or no timing.
+
+For an existing catalog, `audit_lyric_cues.py --catalog <catalog.json> --studio-root <production-parent> --report <private-report.json>` is read-only. `--identities <private-hashes.json> --fetch-identities` verifies legacy public MP3 identities. `restore_lyric_evidence.py --report <report> --basis-root <basis-root> --speech-root <speech-tools-parent> --cache <private-cache> --workers 4` recreates missing timestamps from verified retained vocals on the CPU (at most eight decoder threads, below normal Windows priority); reruns reuse completed evidence. Re-audit with `--evidence-cache <private-cache>`, then apply the reviewed report with `--apply <report> --write` and optionally `--sync-config <installed-config>` using the existing DPAPI worker credential. Deploy Chairlift's empty-cue support before clearing entire cue lists. Keep the report for rollback and word-level listening follow-up; automatic transcript agreement does not establish lyric fidelity.
+
+`sync-lyric-cues.ps1 -AuditReport <report> -Catalog <catalog> -Root <installed-worker> -CodeRoot <source-worker>` loads the protected worker credential for a reviewed batch. Read it back with `audit_lyric_cues.py --catalog <catalog> --apply <report> --verify-base https://chairlift.fly.dev/yehry3`; add `--static` and use `https://yehry3.app` to verify the deployed fallback.
+
 `python -m unittest -v test_worker.py test_quality.py test_recovery.py test_queue_monitor.py` checks idle behavior, lost responses, expired claims, plan reuse and capability upgrades, safe paths, conflict-aware catalog merges, Windows process-tree cancellation, concurrent state writes, transient sharing failures, source discovery, bounded recovery and warning rollout. Run `test_vocal_evidence.py` with the saved voice Python for its NumPy/SciPy signal tests. Chairlift's Mongo integration tests cover leasing/fencing, cancellation, publication, permissions, password rotation, and optional basis validation. Browser tests cover zero/five selections, the limit, sorting, review persistence, and mobile layout.
 
 `worker.py --verify-existing <completed-work-folder>` is an **operator-only delivery test** that exercises the queue and upload path using an existing technically verified export. It is not accepted from website input and is never in the scheduled task arguments. It does not prove a fresh creative render or human listening quality.
@@ -214,3 +449,19 @@ New plans include bounded musicalSettings from the same planning call: genre, in
 The September 17 musical-settings backfill covers 78 existing public plans. The reviewed manifest in backfills/musical-settings-20260917.json pins each recording URL and original plan hash. Every prose value is an excerpt from its saved arrangement; section order comes from the original lyric headings. Unknown writing approaches/meters stay blank. backfill_musical_settings.py defaults to validation only; --write adds the summaries to a supplied catalog and --sync --config sends them through the worker-authenticated published-plan endpoint. It validates the whole batch before writing, never rewrites local plan/render inputs and rejects different existing summaries. Deploy the API’s additive summary support first. The older saved-plan backfill preserves these summaries.
 
 Manual song length accepts 69–666 whole seconds with Local ACE and 69–600 with Eleven Music, whose provider maximum remains 600 seconds. Local lengths above 600 use connected movements and require one composition choice. Explicit short lengths work without supplied lyrics, including lyric approval and composition previews. Blank/Auto retains the existing duration distribution and submitted-lyrics exception.
+
+### V9 epoch range
+
+The V9 selector links to Advanced → V9 epoch range. `details.voiceEpochRange`
+is `{start, end}` using saved numeric endpoints, 10–300 in steps of 10, with
+different endpoints. It is exclusive with `voiceEpoch`. Every checkpoint in the
+inclusive range is assigned to successive sung passages in the selected direction;
+silent gaps do not consume a checkpoint. Short guides split quiet boundaries
+or fail with a request to choose a shorter range, never dropping checkpoints.
+
+This version supports a single lead vocal up to 600 seconds. Quartet and
+sectional recovery are excluded. Native guide-pitch repair, bounded second takes,
+assembly, and integrity checks remain in use; contextual repairs that would
+replace passages with one checkpoint are excluded. Each profile and passage
+assignment is frozen before conversion. Public metadata retains endpoints only.
+`voice-v9-epoch-range-v1` gates claims so older workers leave these jobs queued.

@@ -21,6 +21,133 @@ const safe = (value) => {
 const listeners = { change: new Set(), error: new Set(), recorded: new Set() };
 let queue = [], index = -1, source = null;
 let request = 0;
+let crossfadeSeconds = 0, baseVolume = 1, overlap = null;
+
+function stopOverlap() {
+  if (!overlap) return;
+  cancelAnimationFrame(overlap.frame);
+  overlap.incoming.pause();
+  overlap.incoming.removeAttribute("src");
+  overlap.incoming.load();
+  overlap = null;
+  audio.volume = baseVolume;
+}
+
+function fadeOverlap(state) {
+  if (overlap !== state || state.handoff || audio.paused) return;
+  const remaining = Math.max(0, audio.duration - audio.currentTime);
+  const portion = Math.max(0, Math.min(1, 1 - remaining / crossfadeSeconds));
+  audio.volume = baseVolume * Math.cos(portion * Math.PI / 2);
+  state.incoming.volume = baseVolume * Math.sin(portion * Math.PI / 2);
+  state.frame = requestAnimationFrame(() => fadeOverlap(state));
+}
+
+function waitForHandoffReady(state, mine) {
+  if (audio.readyState >= 3 && !audio.seeking) return Promise.resolve(true);
+  return new Promise(resolve => {
+    const done = () => {
+      if ((audio.readyState < 3 || audio.seeking) && !audio.error && mine === request && overlap === state) return;
+      cleanup();
+      resolve(audio.readyState >= 3 && !audio.seeking && !audio.error);
+    };
+    const cleanup = () => {
+      clearTimeout(timer);
+      audio.removeEventListener("canplay", done);
+      audio.removeEventListener("seeked", done);
+      audio.removeEventListener("error", done);
+    };
+    const timer = setTimeout(() => { cleanup(); resolve(false); }, 4000);
+    audio.addEventListener("canplay", done);
+    audio.addEventListener("seeked", done);
+    audio.addEventListener("error", done);
+  });
+}
+
+async function beginOverlap() {
+  if (overlap || !crossfadeSeconds || audio.loop || index >= queue.length - 1 || audio.paused || !Number.isFinite(audio.duration)) return;
+  const remaining = audio.duration - audio.currentTime;
+  if (remaining > crossfadeSeconds || remaining <= 0) return;
+  const target = queue[index + 1];
+  const url = safe(target.song.url);
+  if (!url) return;
+  const incoming = document.createElement("audio");
+  incoming.preload = "auto";
+  incoming.src = url;
+  incoming.volume = 0;
+  // Some mobile browsers keep media volume fixed at full; use the normal transition there.
+  if (incoming.volume > 0.01) return;
+  const state = { incoming, target, frame: 0, handoff: false };
+  overlap = state;
+  try {
+    await incoming.play();
+    if (overlap === state) fadeOverlap(state);
+    else incoming.pause();
+  } catch {
+    if (overlap === state) stopOverlap();
+  }
+}
+
+async function finishOverlap() {
+  const state = overlap;
+  if (!state || state.handoff) return;
+  state.handoff = true;
+  cancelAnimationFrame(state.frame);
+  state.incoming.volume = baseVolume;
+  const position = state.incoming.currentTime;
+  const mine = ++request;
+  index++;
+  audio.preload = "auto";
+  audio.volume = 0;
+  audio.src = safe(state.target.song.url);
+  audio.load();
+  // Keep the incoming deck audible while the persistent player seeks to its position.
+  if (audio.readyState < 1) await new Promise(resolve => {
+    const done = () => { clearTimeout(timer); audio.removeEventListener("loadedmetadata", done); audio.removeEventListener("error", done); resolve(); };
+    const timer = setTimeout(done, 3000);
+    audio.addEventListener("loadedmetadata", done);
+    audio.addEventListener("error", done);
+  });
+  if (mine !== request || overlap !== state) return;
+  if (audio.error) { stopOverlap(); emit("error", { kind: "load", song: state.target.song }); return; }
+  try { audio.currentTime = state.incoming.currentTime || position; } catch {}
+  listening.start(undefined, source);
+  nowListening(audio, state.target.song.id);
+  emit("change", { song: state.target.song, reason: "crossfade" });
+  try {
+    await audio.play();
+    if (mine !== request || overlap !== state) return;
+    if (!await waitForHandoffReady(state, mine)) {
+      if (mine !== request || overlap !== state) return;
+      throw new Error("Crossfade handoff did not buffer");
+    }
+    // Loading and seeking the persistent player takes time. Match the deck that
+    // stayed audible now, so the handoff does not replay that slice of the song.
+    for (let attempt = 0; attempt < 3; attempt++) {
+      if (mine !== request || overlap !== state) return;
+      const drift = state.incoming.currentTime - audio.currentTime;
+      if (Math.abs(drift) < 0.08) break;
+      try { audio.currentTime = state.incoming.currentTime + 0.04; } catch { break; }
+      if (!await waitForHandoffReady(state, mine)) {
+        if (mine !== request || overlap !== state) return;
+        throw new Error("Crossfade handoff did not seek");
+      }
+    }
+    if (mine !== request || overlap !== state) return;
+    const started = performance.now();
+    const handoff = () => {
+      if (overlap !== state) return;
+      const fraction = Math.min(1, (performance.now() - started) / 250);
+      audio.volume = baseVolume * Math.sin(fraction * Math.PI / 2);
+      state.incoming.volume = baseVolume * Math.cos(fraction * Math.PI / 2);
+      if (fraction < 1) state.frame = requestAnimationFrame(handoff);
+      else stopOverlap();
+    };
+    handoff();
+  } catch {
+    if (overlap === state) stopOverlap();
+    if (mine === request) emit("error", { kind: "blocked", song: state.target.song });
+  }
+}
 
 function emit(type, detail) {
   for (const listener of [...listeners[type]]) {
@@ -45,6 +172,15 @@ export const player = {
   get index() { return index; },
   get source() { return source; },
   get playing() { return Boolean(entry() && audio.src && !audio.paused && !audio.ended && !audio.error); },
+  setVolume(value) {
+    if (!Number.isFinite(value)) return;
+    baseVolume = Math.max(0, Math.min(1, value));
+    if (!overlap) audio.volume = baseVolume;
+  },
+  setCrossfade(seconds) {
+    crossfadeSeconds = Number.isFinite(seconds) && seconds > 0 ? Math.min(seconds, 5) : 0;
+    if (!crossfadeSeconds) stopOverlap();
+  },
   // Called with a name and a function; the returned function (or the signal) ends the subscription.
   on(type, listener, signal) {
     listeners[type].add(listener);
@@ -55,8 +191,10 @@ export const player = {
   // Starts a song. With a list, that list becomes the queue (the song is found in it by key, else by id);
   // without one the song plays where it is in the current queue, or alone. Resolves false if the browser
   // wanted a tap before it would play.
-  async play(song, list, { source: origin, keys, key, at, autoplay = true } = {}) {
+  async play(song, list, { source: origin, keys, key, at, autoplay = true, crossfade } = {}) {
     if (!song || !safe(song.url)) return false;
+    stopOverlap();
+    if (Array.isArray(list) || origin) player.setCrossfade(origin?.startsWith("tape:") ? crossfade : 0);
     if (Array.isArray(list)) {
       queue = list.map((item, position) => ({ song: item, key: keys?.[position] ?? item.id }));
       source = origin || "collection";
@@ -102,7 +240,7 @@ export const player = {
     try { await audio.play(); return true; }
     catch { emit("error", { kind: "blocked", song }); return false; }
   },
-  pause() { audio.pause(); },
+  pause() { audio.pause(); overlap?.incoming.pause(); },
   async resume() {
     if (!entry() || !audio.src) return false;
     try { await audio.play(); return true; }
@@ -118,6 +256,7 @@ export const player = {
   // Unloads whatever is loaded; the bar disappears until something else is played.
   clear() {
     request++;
+    stopOverlap(); crossfadeSeconds = 0;
     audio.pause();
     audio.removeAttribute("src");
     audio.load();
@@ -140,11 +279,46 @@ export const player = {
   changed(song) { if (entry()) { queue[index] = { song, key: queue[index].key }; emit("change", { song, reason: "side" }); } },
 };
 
+// The phone passes headset and car transport buttons through its media session.
+// Keep the actions on this shared player so they follow the active queue across pages.
+if (navigator.mediaSession) {
+  const session = navigator.mediaSession;
+  const action = (name, handler) => {
+    try { session.setActionHandler(name, handler); }
+    catch { /* A browser may expose Media Session without supporting every action. */ }
+  };
+  const sync = () => {
+    const song = player.current;
+    session.metadata = song && typeof MediaMetadata === "function"
+      ? new MediaMetadata({ title: song.title, artist: "Tony C", album: "yehry3" })
+      : null;
+    session.playbackState = !song ? "none" : player.playing ? "playing" : "paused";
+    action("previoustrack", index > 0 ? () => void player.step(-1) : null);
+    action("nexttrack", index >= 0 && index < queue.length - 1 ? () => void player.step(1) : null);
+  };
+  action("play", () => void player.resume());
+  action("pause", () => player.pause());
+  player.on("change", sync);
+  for (const event of ["play", "playing", "pause", "ended", "emptied", "error"])
+    audio.addEventListener(event, () => {
+      session.playbackState = !player.current ? "none" : player.playing ? "playing" : "paused";
+    });
+}
+
 // When a song finishes the queue moves on; a looping song never reports that it ended.
 audio.addEventListener("ended", () => {
-  if (index < queue.length - 1) void player.step(1);
+  if (overlap && !overlap.handoff) void finishOverlap();
+  else if (index < queue.length - 1 && !overlap) void player.step(1);
   else emit("change", { song: player.current, reason: "finished" });
 });
+audio.addEventListener("timeupdate", () => {
+  if (overlap && !overlap.handoff && audio.duration - audio.currentTime > crossfadeSeconds + 0.5) stopOverlap();
+  else void beginOverlap();
+});
+audio.addEventListener("seeking", () => { if (overlap && !overlap.handoff) stopOverlap(); });
+audio.addEventListener("pause", () => { if (overlap && !overlap.handoff) overlap.incoming.pause(); });
+audio.addEventListener("play", () => { if (overlap && !overlap.handoff) void overlap.incoming.play().catch(() => stopOverlap()); });
+audio.addEventListener("volumechange", () => { if (!overlap) baseVolume = audio.volume; });
 audio.addEventListener("error", () => { if (audio.src) emit("error", { kind: "load", song: player.current }); });
 
 // Handy for tests and for a console: window.yehry3Player.

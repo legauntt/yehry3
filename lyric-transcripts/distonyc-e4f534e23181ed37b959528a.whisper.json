@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "songId": "distonyc-e4f534e23181ed37b959528a",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e4f534e23181ed37b959528a-78a0a25429c7.mp3",
+  "audioSha256": "78a0a25429c7dcbec9bb1fd6cc55028daf50c79f4d7feae8cea439a5f5230a5e",
+  "inputSha256": "0c5d7ee9526448e10496030f273d4eba733459173a4a2d5b77fec449738429de",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 275.04325,
+  "segments": [
+    {
+      "start": 3.4,
+      "end": 4.88,
+      "text": "The alarm",
+      "uncertain": false
+    },
+    {
+      "start": 6.3,
+      "end": 9.8,
+      "text": "The alarm cuts through the room at dawn",
+      "uncertain": true
+    },
+    {
+      "start": 9.8,
+      "end": 12.76,
+      "text": "I rise up loud, I rise up wrong",
+      "uncertain": false
+    },
+    {
+      "start": 12.76,
+      "end": 15.6,
+      "text": "Same old orders, same old thread",
+      "uncertain": false
+    },
+    {
+      "start": 15.6,
+      "end": 17.38,
+      "text": "I sing there",
+      "uncertain": false
+    },
+    {
+      "start": 17.38,
+      "end": 21.82,
+      "text": "In the ritual before the bed",
+      "uncertain": false
+    },
+    {
+      "start": 24.32,
+      "end": 27.52,
+      "text": "Wake up, wake up, feet on the floor",
+      "uncertain": false
+    },
+    {
+      "start": 30.46,
+      "end": 35.32,
+      "text": "Wake up, wake up, knock on the door, I jack off.",
+      "uncertain": true
+    },
+    {
+      "start": 36.1,
+      "end": 39.7,
+      "text": "But I absolutely do not come.",
+      "uncertain": true
+    },
+    {
+      "start": 42.16,
+      "end": 45.02,
+      "text": "Wake up, wake up, the kettle tries.",
+      "uncertain": true
+    },
+    {
+      "start": 45.44,
+      "end": 48.18,
+      "text": "Wake up, wake up, dry tired eyes.",
+      "uncertain": true
+    },
+    {
+      "start": 48.32,
+      "end": 52.34,
+      "text": "No gentle sermon, no painted sky.",
+      "uncertain": false
+    },
+    {
+      "start": 53.56,
+      "end": 57.58,
+      "text": "Just a man and a day that will not pass by.",
+      "uncertain": false
+    },
+    {
+      "start": 57.58,
+      "end": 60.92,
+      "text": "Wake up, Jack off 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 60.92,
+      "end": 63.96,
+      "text": "Wake up, drink my own piss",
+      "uncertain": true
+    },
+    {
+      "start": 63.96,
+      "end": 67.12,
+      "text": "Wake up, wake up, Jeffrey Epstein",
+      "uncertain": false
+    },
+    {
+      "start": 67.12,
+      "end": 72.18,
+      "text": "Wake up, wake up, then back to bed",
+      "uncertain": false
+    },
+    {
+      "start": 76.94,
+      "end": 80.36,
+      "text": "There is a date that burns in the news",
+      "uncertain": false
+    },
+    {
+      "start": 80.36,
+      "end": 85.9,
+      "text": "September 11, a wound we cannot use",
+      "uncertain": false
+    },
+    {
+      "start": 85.9,
+      "end": 89.4,
+      "text": "I will not toast it, I will not pretend",
+      "uncertain": false
+    },
+    {
+      "start": 91.18,
+      "end": 95.62,
+      "text": "The names of the lost deserve an end",
+      "uncertain": true
+    },
+    {
+      "start": 97.02,
+      "end": 100.48,
+      "text": "But the morning repeats in a cracked-out room",
+      "uncertain": false
+    },
+    {
+      "start": 100.48,
+      "end": 102.9,
+      "text": "A cruel little pluck and a private",
+      "uncertain": true
+    },
+    {
+      "start": 102.9,
+      "end": 105.26,
+      "text": "Do my shout at the silence",
+      "uncertain": false
+    },
+    {
+      "start": 105.26,
+      "end": 108.32,
+      "text": "I shout at the wall",
+      "uncertain": false
+    },
+    {
+      "start": 109.04,
+      "end": 113.4,
+      "text": "Like volume alone can answer it all",
+      "uncertain": false
+    },
+    {
+      "start": 115.12,
+      "end": 118.16,
+      "text": "Wake up, Jack of 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 118.16,
+      "end": 121.02,
+      "text": "Wake up, drink my own this",
+      "uncertain": true
+    },
+    {
+      "start": 121.02,
+      "end": 124.2,
+      "text": "Wake up, wake up, Jeffrey Epstein",
+      "uncertain": false
+    },
+    {
+      "start": 124.2,
+      "end": 129.24,
+      "text": "Wake up, wake up, then back to bed",
+      "uncertain": false
+    },
+    {
+      "start": 133.7,
+      "end": 137.28,
+      "text": "I drink my own this from a chipped glass jar",
+      "uncertain": false
+    },
+    {
+      "start": 138.2,
+      "end": 141.52,
+      "text": "Like I am a king on a fallen star",
+      "uncertain": false
+    },
+    {
+      "start": 141.52,
+      "end": 144.88,
+      "text": "No perfume on, it's no noble disguise",
+      "uncertain": false
+    },
+    {
+      "start": 147.56,
+      "end": 152.42,
+      "text": "Just bitter old water and open eyes",
+      "uncertain": true
+    },
+    {
+      "start": 152.42,
+      "end": 156.06,
+      "text": "I say this is mine with a thunderous grid",
+      "uncertain": true
+    },
+    {
+      "start": 156.06,
+      "end": 158.98,
+      "text": "Then press the T and begin again",
+      "uncertain": true
+    },
+    {
+      "start": 158.98,
+      "end": 161.9,
+      "text": "The house hears every foolish refrain",
+      "uncertain": false
+    },
+    {
+      "start": 163.58,
+      "end": 165.68,
+      "text": "The house says nothing",
+      "uncertain": false
+    },
+    {
+      "start": 165.68,
+      "end": 168.64,
+      "text": "The house keeps rain",
+      "uncertain": true
+    },
+    {
+      "start": 175.48,
+      "end": 178.26,
+      "text": "Jethry Epstein, that name is a stain",
+      "uncertain": false
+    },
+    {
+      "start": 178.26,
+      "end": 182.52,
+      "text": "No praise in the room, no crown in the strain",
+      "uncertain": true
+    },
+    {
+      "start": 182.52,
+      "end": 186.34,
+      "text": "Say it's plain, let the record stay clear",
+      "uncertain": false
+    },
+    {
+      "start": 187.2,
+      "end": 191.52,
+      "text": "Some shadows are poison, some names bring fear",
+      "uncertain": false
+    },
+    {
+      "start": 192.3,
+      "end": 195.62,
+      "text": "I sing for the wrecks that should not be sold",
+      "uncertain": false
+    },
+    {
+      "start": 195.62,
+      "end": 199.54,
+      "text": "For truth without polish, for grief without dull",
+      "uncertain": true
+    },
+    {
+      "start": 199.54,
+      "end": 203.76,
+      "text": "Then the orchestra swells, then the rafters shake",
+      "uncertain": true
+    },
+    {
+      "start": 203.76,
+      "end": 207.24,
+      "text": "And I face one more morning",
+      "uncertain": false
+    },
+    {
+      "start": 207.24,
+      "end": 210.2,
+      "text": "Before I breathe",
+      "uncertain": true
+    },
+    {
+      "start": 210.88,
+      "end": 214.58,
+      "text": "Wake up, jack off 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 215.48,
+      "end": 219.4,
+      "text": "Wake up, drink my own beers",
+      "uncertain": false
+    },
+    {
+      "start": 219.4,
+      "end": 223.68,
+      "text": "Wake up, wake up, Jeffrey Epstein",
+      "uncertain": false
+    },
+    {
+      "start": 223.68,
+      "end": 227.94,
+      "text": "Wake up, wake up, then back to bed",
+      "uncertain": false
+    },
+    {
+      "start": 227.94,
+      "end": 231.58,
+      "text": "Wake up, wake up, the room is alive",
+      "uncertain": true
+    },
+    {
+      "start": 231.58,
+      "end": 235.74,
+      "text": "Wake up, wake up, I somehow survive",
+      "uncertain": false
+    },
+    {
+      "start": 235.74,
+      "end": 239.46,
+      "text": "No clean conclusion, no halo",
+      "uncertain": false
+    },
+    {
+      "start": 239.46,
+      "end": 243.9,
+      "text": "Wake up, wake up, then back to bed",
+      "uncertain": true
+    },
+    {
+      "start": 243.9,
+      "end": 248.38,
+      "text": "The alarm will return, the same old thread",
+      "uncertain": false
+    },
+    {
+      "start": 248.38,
+      "end": 252.56,
+      "text": "But tonight I lay my noise down instead",
+      "uncertain": false
+    },
+    {
+      "start": 252.56,
+      "end": 257.22,
+      "text": "I close my eyes while the last court is spread",
+      "uncertain": true
+    },
+    {
+      "start": 257.22,
+      "end": 261.48,
+      "text": "Wake up tomorrow, then back to bed",
+      "uncertain": true
+    }
+  ]
+}

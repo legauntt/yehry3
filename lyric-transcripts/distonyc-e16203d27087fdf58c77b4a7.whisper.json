@@ -1,0 +1,469 @@
+{
+  "version": 1,
+  "songId": "distonyc-e16203d27087fdf58c77b4a7",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e16203d27087fdf58c77b4a7-6b46231298e1.mp3",
+  "audioSha256": "6b46231298e1b305d1bdb2e54f1183b08dfb24fa5fc2f4764e580898a08b06ae",
+  "inputSha256": "2f133c6fc5ba7c767b3fa07b3c6a8070720550095371e306d53f21e28ce85174",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 220.0,
+  "segments": [
+    {
+      "start": 7.12,
+      "end": 9.54,
+      "text": "The Vogue Friar paints the stones",
+      "uncertain": true
+    },
+    {
+      "start": 9.54,
+      "end": 11.54,
+      "text": "Tristram calls through broken homes",
+      "uncertain": false
+    },
+    {
+      "start": 11.54,
+      "end": 13.38,
+      "text": "Tony checks the way, wake light",
+      "uncertain": false
+    },
+    {
+      "start": 13.38,
+      "end": 16.26,
+      "text": "Then steps laughing through the night",
+      "uncertain": false
+    },
+    {
+      "start": 19.16,
+      "end": 21.26,
+      "text": "One, two, he'll turn fall and fall",
+      "uncertain": false
+    },
+    {
+      "start": 21.26,
+      "end": 23.18,
+      "text": "Coldplay moon on the modern state wall",
+      "uncertain": true
+    },
+    {
+      "start": 23.18,
+      "end": 25.1,
+      "text": "Blood, rain, and lips just glint to go",
+      "uncertain": true
+    },
+    {
+      "start": 25.1,
+      "end": 27.1,
+      "text": "As fly beneath where the black boats go",
+      "uncertain": true
+    },
+    {
+      "start": 27.1,
+      "end": 29.0,
+      "text": "Deccan says stay away a while too late",
+      "uncertain": true
+    },
+    {
+      "start": 29.0,
+      "end": 30.96,
+      "text": "I'm already dancing to the jailhouse gate",
+      "uncertain": false
+    },
+    {
+      "start": 30.96,
+      "end": 32.84,
+      "text": "And Dario breezed that ploys in green",
+      "uncertain": true
+    },
+    {
+      "start": 32.84,
+      "end": 35.78,
+      "text": "I cross the floor where the dead have been",
+      "uncertain": true
+    },
+    {
+      "start": 37.56,
+      "end": 40.32,
+      "text": "Waypoint fever, carry me through",
+      "uncertain": false
+    },
+    {
+      "start": 40.32,
+      "end": 44.22,
+      "text": "Red door burning, world made new",
+      "uncertain": true
+    },
+    {
+      "start": 44.22,
+      "end": 46.76,
+      "text": "Left foot, right foot, dodge that flame",
+      "uncertain": false
+    },
+    {
+      "start": 46.76,
+      "end": 48.46,
+      "text": "Every act is called a rock made",
+      "uncertain": true
+    },
+    {
+      "start": 48.46,
+      "end": 50.5,
+      "text": "From Christian school to the final glue",
+      "uncertain": true
+    },
+    {
+      "start": 50.5,
+      "end": 52.86,
+      "text": "Told me keep dancing for me, I'll blow too",
+      "uncertain": true
+    },
+    {
+      "start": 59.86,
+      "end": 64.16,
+      "text": "Let go, laying under a furnace, sudden beetles spark and the dead things run",
+      "uncertain": true
+    },
+    {
+      "start": 64.16,
+      "end": 67.96,
+      "text": "Dury awakes in a frozen room, the applause cut him like a closing tomb",
+      "uncertain": true
+    },
+    {
+      "start": 67.96,
+      "end": 71.88,
+      "text": "I miss one, he'd feel the whole floor shake, find the pocket and the monsters wake",
+      "uncertain": true
+    },
+    {
+      "start": 71.88,
+      "end": 76.38,
+      "text": "Karatric light in a weather cube, snap goes down and the walls move through",
+      "uncertain": true
+    },
+    {
+      "start": 77.42,
+      "end": 84.16,
+      "text": "No map stays still, no road stays kind, but the drums keep drawing the path",
+      "uncertain": false
+    },
+    {
+      "start": 84.16,
+      "end": 85.36,
+      "text": "And my writing",
+      "uncertain": true
+    },
+    {
+      "start": 86.12,
+      "end": 89.1,
+      "text": "Wayports even carry me through",
+      "uncertain": true
+    },
+    {
+      "start": 89.1,
+      "end": 91.34,
+      "text": "Red door burning",
+      "uncertain": true
+    },
+    {
+      "start": 91.34,
+      "end": 93.0,
+      "text": "World they knew",
+      "uncertain": true
+    },
+    {
+      "start": 93.0,
+      "end": 94.5,
+      "text": "Left foot right foot",
+      "uncertain": false
+    },
+    {
+      "start": 94.5,
+      "end": 95.56,
+      "text": "Touch my flame",
+      "uncertain": true
+    },
+    {
+      "start": 95.56,
+      "end": 97.28,
+      "text": "Every act is calling my name",
+      "uncertain": false
+    },
+    {
+      "start": 97.28,
+      "end": 98.2,
+      "text": "From tears to clear",
+      "uncertain": true
+    },
+    {
+      "start": 98.2,
+      "end": 99.26,
+      "text": "To the jungle doom",
+      "uncertain": true
+    },
+    {
+      "start": 99.26,
+      "end": 100.16,
+      "text": "Swami keeps dancing",
+      "uncertain": false
+    },
+    {
+      "start": 100.16,
+      "end": 101.28,
+      "text": "Through the outblow",
+      "uncertain": true
+    },
+    {
+      "start": 109.04,
+      "end": 110.98,
+      "text": "Crass rain on the temple stair",
+      "uncertain": true
+    },
+    {
+      "start": 110.98,
+      "end": 112.8,
+      "text": "Council fire spinning everywhere",
+      "uncertain": true
+    },
+    {
+      "start": 112.8,
+      "end": 114.82,
+      "text": "Columns will him already here",
+      "uncertain": true
+    },
+    {
+      "start": 114.82,
+      "end": 116.76,
+      "text": "And cracks the heart of the poison land",
+      "uncertain": true
+    },
+    {
+      "start": 116.76,
+      "end": 118.74,
+      "text": "Mephisto rises lightning in his spine",
+      "uncertain": true
+    },
+    {
+      "start": 118.74,
+      "end": 120.68,
+      "text": "I turn on four and cross on nine",
+      "uncertain": false
+    },
+    {
+      "start": 120.68,
+      "end": 122.7,
+      "text": "Then pandemonium opens white",
+      "uncertain": false
+    },
+    {
+      "start": 122.7,
+      "end": 125.46,
+      "text": "River of flame on either side",
+      "uncertain": true
+    },
+    {
+      "start": 125.46,
+      "end": 127.56,
+      "text": "Seal one snap",
+      "uncertain": false
+    },
+    {
+      "start": 127.56,
+      "end": 129.58,
+      "text": "Seal two turn",
+      "uncertain": false
+    },
+    {
+      "start": 129.58,
+      "end": 133.66,
+      "text": "Seal three feel the sanctuary burp",
+      "uncertain": true
+    },
+    {
+      "start": 133.66,
+      "end": 136.84,
+      "text": "Diablo towers in the molten glow",
+      "uncertain": false
+    },
+    {
+      "start": 136.84,
+      "end": 140.78,
+      "text": "I lean back laughing when the red claws go",
+      "uncertain": false
+    },
+    {
+      "start": 142.98,
+      "end": 144.1,
+      "text": "Waypoint Siebel",
+      "uncertain": true
+    },
+    {
+      "start": 144.1,
+      "end": 145.66,
+      "text": "Carry me through",
+      "uncertain": true
+    },
+    {
+      "start": 145.66,
+      "end": 147.98,
+      "text": "Red door burning",
+      "uncertain": false
+    },
+    {
+      "start": 147.98,
+      "end": 149.52,
+      "text": "World made new",
+      "uncertain": false
+    },
+    {
+      "start": 149.52,
+      "end": 152.12,
+      "text": "Left foot, right foot, dodge that flame",
+      "uncertain": false
+    },
+    {
+      "start": 152.12,
+      "end": 153.86,
+      "text": "Every act is calling my name",
+      "uncertain": false
+    },
+    {
+      "start": 153.86,
+      "end": 155.36,
+      "text": "From chaos flown to the mountain",
+      "uncertain": true
+    },
+    {
+      "start": 155.36,
+      "end": 157.16,
+      "text": "Dune, Tony keeps dancing through the",
+      "uncertain": true
+    },
+    {
+      "start": 157.16,
+      "end": 158.1,
+      "text": "Abloat",
+      "uncertain": true
+    },
+    {
+      "start": 165.74,
+      "end": 167.56,
+      "text": "Hergath wind cuts hard and thin",
+      "uncertain": false
+    },
+    {
+      "start": 167.56,
+      "end": 169.48,
+      "text": "Enchants wait where the clouds begin",
+      "uncertain": false
+    },
+    {
+      "start": 169.48,
+      "end": 171.38,
+      "text": "Three stone guardians circle the crown",
+      "uncertain": false
+    },
+    {
+      "start": 171.38,
+      "end": 173.46,
+      "text": "I keep my balance when the sky comes down",
+      "uncertain": true
+    },
+    {
+      "start": 173.46,
+      "end": 175.36,
+      "text": "All sends ankles through the world stone hall",
+      "uncertain": true
+    },
+    {
+      "start": 175.36,
+      "end": 177.36,
+      "text": "False shapes scatter, but I know them all",
+      "uncertain": false
+    },
+    {
+      "start": 177.36,
+      "end": 179.36,
+      "text": "One last turn as the chamber ignites",
+      "uncertain": false
+    },
+    {
+      "start": 179.36,
+      "end": 182.06,
+      "text": "One last step through the fractured lie",
+      "uncertain": false
+    },
+    {
+      "start": 183.92,
+      "end": 186.66,
+      "text": "Waypoint fever, carry me through",
+      "uncertain": false
+    },
+    {
+      "start": 186.66,
+      "end": 190.54,
+      "text": "Five acts burned in, every scar still new",
+      "uncertain": true
+    },
+    {
+      "start": 190.54,
+      "end": 193.06,
+      "text": "Left foot, white foot, clear that flame",
+      "uncertain": false
+    },
+    {
+      "start": 193.06,
+      "end": 194.82,
+      "text": "Maybe for the shadow, learn my name",
+      "uncertain": true
+    },
+    {
+      "start": 194.82,
+      "end": 196.86,
+      "text": "The world's phone, great stone enters through",
+      "uncertain": true
+    },
+    {
+      "start": 196.86,
+      "end": 199.04,
+      "text": "Tony Gans, Clinton, the R-Bluet",
+      "uncertain": true
+    },
+    {
+      "start": 202.36,
+      "end": 204.24,
+      "text": "Tell portal of please in the morning",
+      "uncertain": true
+    },
+    {
+      "start": 204.24,
+      "end": 205.5,
+      "text": "Yeah, and I slow my feet",
+      "uncertain": true
+    },
+    {
+      "start": 205.5,
+      "end": 206.52,
+      "text": "Deckard's waiting there",
+      "uncertain": false
+    },
+    {
+      "start": 206.52,
+      "end": 207.52,
+      "text": "This time I spay",
+      "uncertain": true
+    },
+    {
+      "start": 207.52,
+      "end": 208.48,
+      "text": "While the last fox feet",
+      "uncertain": true
+    },
+    {
+      "start": 208.48,
+      "end": 211.06,
+      "text": "Alive at the end of the dance I've laid",
+      "uncertain": false
+    }
+  ]
+}

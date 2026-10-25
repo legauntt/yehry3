@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "songId": "distonyc-1bb1be6b6f8a4858bc72115e",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1bb1be6b6f8a4858bc72115e-b122fc966395.mp3",
+  "audioSha256": "b122fc966395b05d8a3b21f1e91468c504ceb4ad6b058eb91316ff0d9ef72748",
+  "inputSha256": "2ab557de330e0f1b5770c2d0cc3d750384bce23f3edc207db063348a7d28857f",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 310.047375,
+  "segments": [
+    {
+      "start": 18.08,
+      "end": 24.46,
+      "text": "the light leaking through the motel glass radio says slow but the first door cracks",
+      "uncertain": true
+    },
+    {
+      "start": 24.46,
+      "end": 27.48,
+      "text": "I see a shadow raise a shaking hand",
+      "uncertain": true
+    },
+    {
+      "start": 27.48,
+      "end": 30.58,
+      "text": "My finger abses before my head can blend",
+      "uncertain": true
+    },
+    {
+      "start": 30.58,
+      "end": 33.66,
+      "text": "One bad guy down, one report to write",
+      "uncertain": false
+    },
+    {
+      "start": 33.66,
+      "end": 36.78,
+      "text": "One more gold star turning charcoal tonight",
+      "uncertain": false
+    },
+    {
+      "start": 36.78,
+      "end": 40.02,
+      "text": "The team says clear, I can hear the score",
+      "uncertain": true
+    },
+    {
+      "start": 40.02,
+      "end": 43.38,
+      "text": "A little red stain by the bedroom door",
+      "uncertain": false
+    },
+    {
+      "start": 43.38,
+      "end": 47.52,
+      "text": "Zip ties, evidence, corners check twice",
+      "uncertain": true
+    },
+    {
+      "start": 49.72,
+      "end": 53.68,
+      "text": "Why does doing light come at such a prime?",
+      "uncertain": true
+    },
+    {
+      "start": 55.74,
+      "end": 58.9,
+      "text": "Ready or not, try and not",
+      "uncertain": true
+    },
+    {
+      "start": 58.9,
+      "end": 62.18,
+      "text": "Ready or not, the hallway climbs higher",
+      "uncertain": true
+    },
+    {
+      "start": 62.18,
+      "end": 65.26,
+      "text": "I want that clean ass shining at the end",
+      "uncertain": false
+    },
+    {
+      "start": 65.26,
+      "end": 68.5,
+      "text": "But every art fool makes the plant better",
+      "uncertain": true
+    },
+    {
+      "start": 68.5,
+      "end": 72.22,
+      "text": "Ready or not, call for hands in sight",
+      "uncertain": false
+    },
+    {
+      "start": 72.22,
+      "end": 75.12,
+      "text": "Then somebody reaches and ruins my mind",
+      "uncertain": false
+    },
+    {
+      "start": 75.12,
+      "end": 78.78,
+      "text": "I'm doing the job, I'm paying the cost",
+      "uncertain": false
+    },
+    {
+      "start": 78.78,
+      "end": 83.54,
+      "text": "And watching that perfect ray get lost",
+      "uncertain": true
+    },
+    {
+      "start": 109.16,
+      "end": 111.68,
+      "text": "Apartment free and television glow",
+      "uncertain": true
+    },
+    {
+      "start": 111.68,
+      "end": 114.36,
+      "text": "Cartoon laughter where the shell casings go",
+      "uncertain": true
+    },
+    {
+      "start": 114.36,
+      "end": 117.54,
+      "text": "A man in a vest comes out of the smoke",
+      "uncertain": false
+    },
+    {
+      "start": 117.54,
+      "end": 120.7,
+      "text": "I shout the command, he gives me a choke",
+      "uncertain": false
+    },
+    {
+      "start": 120.7,
+      "end": 123.82,
+      "text": "He swings toward me so the room goes loud",
+      "uncertain": false
+    },
+    {
+      "start": 123.82,
+      "end": 126.96,
+      "text": "My report gets longer, my patience gets proud",
+      "uncertain": false
+    },
+    {
+      "start": 126.96,
+      "end": 130.1,
+      "text": "Civilian crying by the laundry machine",
+      "uncertain": false
+    },
+    {
+      "start": 130.1,
+      "end": 132.16,
+      "text": "Says, was that necessary?",
+      "uncertain": false
+    },
+    {
+      "start": 132.16,
+      "end": 134.16,
+      "text": "You know what I mean",
+      "uncertain": true
+    },
+    {
+      "start": 136.08,
+      "end": 138.14,
+      "text": "I'll bag every weapon",
+      "uncertain": true
+    },
+    {
+      "start": 138.14,
+      "end": 140.24,
+      "text": "I'll check every name",
+      "uncertain": true
+    },
+    {
+      "start": 142.06,
+      "end": 144.12,
+      "text": "Still the debrief screen",
+      "uncertain": false
+    },
+    {
+      "start": 144.12,
+      "end": 145.96,
+      "text": "Is spilling my shit",
+      "uncertain": true
+    },
+    {
+      "start": 148.88,
+      "end": 150.46,
+      "text": "Ready or not",
+      "uncertain": true
+    },
+    {
+      "start": 150.46,
+      "end": 152.32,
+      "text": "I'm trying not to",
+      "uncertain": false
+    },
+    {
+      "start": 152.32,
+      "end": 153.66,
+      "text": "Funny or not",
+      "uncertain": true
+    },
+    {
+      "start": 153.66,
+      "end": 155.26,
+      "text": "The hallway climbs higher",
+      "uncertain": false
+    },
+    {
+      "start": 155.26,
+      "end": 158.36,
+      "text": "I want that clean ass shining at the end",
+      "uncertain": false
+    },
+    {
+      "start": 158.36,
+      "end": 160.04,
+      "text": "But every arm fool",
+      "uncertain": false
+    },
+    {
+      "start": 160.04,
+      "end": 168.28,
+      "text": "makes the plan then ready or not call for hands in sight and somebody reaches and ruins my night",
+      "uncertain": true
+    },
+    {
+      "start": 168.28,
+      "end": 178.04,
+      "text": "i'm doing the job i'm paying the cost and watching that perfect range get lost",
+      "uncertain": false
+    },
+    {
+      "start": 191.72,
+      "end": 195.4,
+      "text": "I brought beanbag shields and all the restraint",
+      "uncertain": true
+    },
+    {
+      "start": 195.4,
+      "end": 198.64,
+      "text": "I gave them a warning, I practically faint",
+      "uncertain": true
+    },
+    {
+      "start": 198.64,
+      "end": 201.66,
+      "text": "I waited a second, then another half",
+      "uncertain": false
+    },
+    {
+      "start": 201.66,
+      "end": 204.86,
+      "text": "The suspect fired first, don't make me laugh",
+      "uncertain": false
+    },
+    {
+      "start": 204.86,
+      "end": 207.96,
+      "text": "The clock keeps ticking, the body cam rolls",
+      "uncertain": false
+    },
+    {
+      "start": 207.96,
+      "end": 210.92,
+      "text": "I'm counting my penalties, losing control",
+      "uncertain": false
+    },
+    {
+      "start": 210.92,
+      "end": 214.12,
+      "text": "No unauthorized force, no wounded friend",
+      "uncertain": false
+    },
+    {
+      "start": 214.12,
+      "end": 218.86,
+      "text": "And just let one mission have a peaceful end.",
+      "uncertain": true
+    },
+    {
+      "start": 224.12,
+      "end": 229.08,
+      "text": "Stack on the door, breathe through the mask.",
+      "uncertain": false
+    },
+    {
+      "start": 230.14,
+      "end": 234.26,
+      "text": "Talk to me pal, just make this easy, I ask.",
+      "uncertain": true
+    },
+    {
+      "start": 234.5,
+      "end": 238.3,
+      "text": "He drops the rifle, I almost believe.",
+      "uncertain": false
+    },
+    {
+      "start": 238.3,
+      "end": 243.14,
+      "text": "Then a pistol appears from under his sleeve.",
+      "uncertain": false
+    },
+    {
+      "start": 248.7,
+      "end": 252.28,
+      "text": "Ready or not, I'm done being plumbed.",
+      "uncertain": false
+    },
+    {
+      "start": 252.62,
+      "end": 255.68,
+      "text": "Ready or not, I survived the night.",
+      "uncertain": false
+    },
+    {
+      "start": 255.96,
+      "end": 258.48,
+      "text": "I wanted an S, but the screen can't wait.",
+      "uncertain": false
+    },
+    {
+      "start": 258.86,
+      "end": 261.54,
+      "text": "Got my whole team through the Iron Gate.",
+      "uncertain": false
+    },
+    {
+      "start": 261.72,
+      "end": 264.72,
+      "text": "I got my whole team through the Iron Gate.",
+      "uncertain": false
+    },
+    {
+      "start": 267.28,
+      "end": 271.12,
+      "text": "Ready or not, let the record show",
+      "uncertain": false
+    },
+    {
+      "start": 271.12,
+      "end": 274.06,
+      "text": "I gave every warning I had to throw",
+      "uncertain": true
+    },
+    {
+      "start": 274.06,
+      "end": 277.34,
+      "text": "If keeping them breathing means losing the crown",
+      "uncertain": false
+    },
+    {
+      "start": 277.34,
+      "end": 283.94,
+      "text": "Then stamp that rank while I put danger down",
+      "uncertain": false
+    },
+    {
+      "start": 288.74,
+      "end": 292.02,
+      "text": "To Van Doren's close and the city goes still",
+      "uncertain": true
+    },
+    {
+      "start": 292.02,
+      "end": 295.26,
+      "text": "No perfect score, but we made it all",
+      "uncertain": true
+    }
+  ]
+}

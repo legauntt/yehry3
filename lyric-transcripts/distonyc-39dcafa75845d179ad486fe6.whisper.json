@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "songId": "distonyc-39dcafa75845d179ad486fe6",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-39dcafa75845d179ad486fe6-d06942efaa34.mp3",
+  "audioSha256": "d06942efaa34564cc78d7444664234242332975743068e1a073fc1e3ffb0b982",
+  "inputSha256": "ac664b8aed789d114004eb68f232e13c11bba229e012550776646caa42fa8fa2",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 235.1281875,
+  "segments": [
+    {
+      "start": 3.44,
+      "end": 7.04,
+      "text": "The larger glows and the kitchen were",
+      "uncertain": true
+    },
+    {
+      "start": 7.04,
+      "end": 11.26,
+      "text": "Twenty years folded behind the screen",
+      "uncertain": true
+    },
+    {
+      "start": 11.26,
+      "end": 15.76,
+      "text": "I said I was done with the endless moons",
+      "uncertain": false
+    },
+    {
+      "start": 15.76,
+      "end": 20.2,
+      "text": "Then an old logging name came back to me",
+      "uncertain": false
+    },
+    {
+      "start": 20.2,
+      "end": 24.32,
+      "text": "There was a town where I knew the way",
+      "uncertain": false
+    },
+    {
+      "start": 24.32,
+      "end": 28.7,
+      "text": "A tavern light and a griffin cry",
+      "uncertain": false
+    },
+    {
+      "start": 28.7,
+      "end": 32.8,
+      "text": "Now my hands got bills and a coffee stain",
+      "uncertain": false
+    },
+    {
+      "start": 32.8,
+      "end": 37.96,
+      "text": "And a little more winter behind my eyes",
+      "uncertain": false
+    },
+    {
+      "start": 37.96,
+      "end": 41.9,
+      "text": "We see the circle, it's yet a trap",
+      "uncertain": false
+    },
+    {
+      "start": 41.9,
+      "end": 46.28,
+      "text": "A month of my life in a plastic cart",
+      "uncertain": false
+    },
+    {
+      "start": 54.2,
+      "end": 58.5,
+      "text": "30 days at the portal, 30 days to pretend",
+      "uncertain": false
+    },
+    {
+      "start": 58.5,
+      "end": 61.06,
+      "text": "That the road never ended",
+      "uncertain": true
+    },
+    {
+      "start": 61.06,
+      "end": 63.14,
+      "text": "That I still got friends",
+      "uncertain": false
+    },
+    {
+      "start": 63.14,
+      "end": 65.34,
+      "text": "I could chase that horizon",
+      "uncertain": false
+    },
+    {
+      "start": 65.34,
+      "end": 67.22,
+      "text": "I could buy back for night",
+      "uncertain": false
+    },
+    {
+      "start": 67.22,
+      "end": 69.42,
+      "text": "Or just stare at the checkout",
+      "uncertain": false
+    },
+    {
+      "start": 69.42,
+      "end": 71.82,
+      "text": "And call it my life",
+      "uncertain": false
+    },
+    {
+      "start": 71.82,
+      "end": 73.9,
+      "text": "30 days at the portal",
+      "uncertain": false
+    },
+    {
+      "start": 73.9,
+      "end": 75.94,
+      "text": "Tell me what do I save",
+      "uncertain": false
+    },
+    {
+      "start": 75.94,
+      "end": 78.04,
+      "text": "A boy with a sword",
+      "uncertain": false
+    },
+    {
+      "start": 78.04,
+      "end": 80.44,
+      "text": "Or a man in his grave",
+      "uncertain": false
+    },
+    {
+      "start": 84.54,
+      "end": 86.9,
+      "text": "My old guild names",
+      "uncertain": false
+    },
+    {
+      "start": 86.9,
+      "end": 89.04,
+      "text": "are probably ghosts",
+      "uncertain": true
+    },
+    {
+      "start": 89.04,
+      "end": 92.9,
+      "text": "The castles turned to somebody's joke",
+      "uncertain": true
+    },
+    {
+      "start": 92.9,
+      "end": 97.08,
+      "text": "I remember the shouting through cheap headphones",
+      "uncertain": false
+    },
+    {
+      "start": 97.08,
+      "end": 101.52,
+      "text": "and the promises nobody thought to quote",
+      "uncertain": false
+    },
+    {
+      "start": 101.52,
+      "end": 105.94,
+      "text": "The world kept spinning without my raid",
+      "uncertain": false
+    },
+    {
+      "start": 105.94,
+      "end": 110.16,
+      "text": "I built a quiet, responsible place",
+      "uncertain": false
+    },
+    {
+      "start": 110.16,
+      "end": 114.62,
+      "text": "But it don't feel like it was aiding my brave",
+      "uncertain": true
+    },
+    {
+      "start": 114.62,
+      "end": 125.34,
+      "text": "the circle turns the years attack i hear that loading music in the back 30 days at the portal",
+      "uncertain": true
+    },
+    {
+      "start": 125.34,
+      "end": 134.32,
+      "text": "30 days to pretend that the road never ended that i still got friends i could chase that horizon i",
+      "uncertain": false
+    },
+    {
+      "start": 134.32,
+      "end": 141.8,
+      "text": "could buy back tonight or just stare at the checkout and call it my life 30 days at the",
+      "uncertain": false
+    },
+    {
+      "start": 141.8,
+      "end": 144.54,
+      "text": "Tell me, what do I save?",
+      "uncertain": true
+    },
+    {
+      "start": 144.76,
+      "end": 148.98,
+      "text": "A boy with a sword or a man in his grave?",
+      "uncertain": false
+    },
+    {
+      "start": 156.84,
+      "end": 161.5,
+      "text": "Maybe the wasted life is the one I accuse",
+      "uncertain": false
+    },
+    {
+      "start": 161.5,
+      "end": 165.94,
+      "text": "Maybe I spend too long to fuse and to choose",
+      "uncertain": false
+    },
+    {
+      "start": 165.94,
+      "end": 170.12,
+      "text": "Not every return is a crown or a cure",
+      "uncertain": false
+    },
+    {
+      "start": 170.12,
+      "end": 174.34,
+      "text": "But the hand on the door still wants to be sure",
+      "uncertain": false
+    },
+    {
+      "start": 178.58,
+      "end": 182.96,
+      "text": "Thirty days at the portal, I ain't asking for youth",
+      "uncertain": true
+    },
+    {
+      "start": 182.96,
+      "end": 187.2,
+      "text": "Just a map with a heartbeat, one small piece of truth",
+      "uncertain": false
+    },
+    {
+      "start": 187.2,
+      "end": 191.54,
+      "text": "Let the circle keep turning, let the old service fade",
+      "uncertain": false
+    },
+    {
+      "start": 191.54,
+      "end": 196.02,
+      "text": "I'll walk in with my scars and the choices I made",
+      "uncertain": false
+    },
+    {
+      "start": 196.02,
+      "end": 198.24,
+      "text": "30 days at the portal",
+      "uncertain": false
+    },
+    {
+      "start": 198.24,
+      "end": 200.14,
+      "text": "When the last light is gone",
+      "uncertain": true
+    },
+    {
+      "start": 200.14,
+      "end": 202.32,
+      "text": "I won't purchase a pass",
+      "uncertain": true
+    },
+    {
+      "start": 202.32,
+      "end": 205.28,
+      "text": "But I'll carry it on",
+      "uncertain": false
+    },
+    {
+      "start": 212.86,
+      "end": 214.98,
+      "text": "Mystery says renew",
+      "uncertain": false
+    },
+    {
+      "start": 214.98,
+      "end": 217.18,
+      "text": "And I'll breathe through the glow",
+      "uncertain": false
+    },
+    {
+      "start": 217.18,
+      "end": 219.42,
+      "text": "I got time for one road",
+      "uncertain": false
+    },
+    {
+      "start": 219.42,
+      "end": 221.92,
+      "text": "Before I let it go",
+      "uncertain": false
+    },
+    {
+      "start": 233.6,
+      "end": 234.32,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

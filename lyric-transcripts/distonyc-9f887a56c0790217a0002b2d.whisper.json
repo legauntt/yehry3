@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "songId": "distonyc-9f887a56c0790217a0002b2d",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-9f887a56c0790217a0002b2d-319a1a003771.mp3",
+  "audioSha256": "319a1a0037714762539c104b1bba915899eeea3954b4512e2ea90b0e50a490e1",
+  "inputSha256": "b4ac1c4227ad5e3a560803fc214a8cc6b1458f72a7d7a0ba4e079d8475b0a83b",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 279.2,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.84,
+      "text": "Taught in old twelve rules, I bought the book at noon",
+      "uncertain": true
+    },
+    {
+      "start": 3.84,
+      "end": 8.36,
+      "text": "Read them to my bathroom like a preacher to the moon",
+      "uncertain": false
+    },
+    {
+      "start": 8.36,
+      "end": 11.76,
+      "text": "One, hold yourself upright with your shoulders",
+      "uncertain": false
+    },
+    {
+      "start": 11.76,
+      "end": 16.76,
+      "text": "Proud to give yourself the care you'd give somebody else",
+      "uncertain": false
+    },
+    {
+      "start": 16.76,
+      "end": 20.88,
+      "text": "Three, choose friends who hope to see you doing well",
+      "uncertain": false
+    },
+    {
+      "start": 20.88,
+      "end": 25.16,
+      "text": "Four, measure your progress against your former self",
+      "uncertain": false
+    },
+    {
+      "start": 25.16,
+      "end": 29.58,
+      "text": "I nodded at the pages, then I made a little mark",
+      "uncertain": false
+    },
+    {
+      "start": 29.58,
+      "end": 33.76,
+      "text": "A golden revelation in my porcelain heart",
+      "uncertain": true
+    },
+    {
+      "start": 33.76,
+      "end": 38.22,
+      "text": "Cross it out, cross it out, I got a better list",
+      "uncertain": false
+    },
+    {
+      "start": 38.22,
+      "end": 42.38,
+      "text": "One through twelve, drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 42.38,
+      "end": 46.86,
+      "text": "So to find a stick, just give the golden cup a kiss",
+      "uncertain": true
+    },
+    {
+      "start": 46.86,
+      "end": 51.02,
+      "text": "Every rule I ever need is drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 54.96,
+      "end": 57.74,
+      "text": "Five teacher children conduct",
+      "uncertain": true
+    },
+    {
+      "start": 57.74,
+      "end": 59.5,
+      "text": "And you can love",
+      "uncertain": true
+    },
+    {
+      "start": 59.5,
+      "end": 61.76,
+      "text": "Six mend your own horn",
+      "uncertain": true
+    },
+    {
+      "start": 61.76,
+      "end": 63.86,
+      "text": "Before you judge the world",
+      "uncertain": false
+    },
+    {
+      "start": 63.86,
+      "end": 66.14,
+      "text": "Seven favor lasting meaning",
+      "uncertain": true
+    },
+    {
+      "start": 66.14,
+      "end": 68.22,
+      "text": "Over easy gains",
+      "uncertain": false
+    },
+    {
+      "start": 68.22,
+      "end": 69.8,
+      "text": "It's begun to sleep",
+      "uncertain": true
+    },
+    {
+      "start": 69.8,
+      "end": 72.44,
+      "text": "Instead of trusting lies and pearls",
+      "uncertain": false
+    },
+    {
+      "start": 72.44,
+      "end": 74.82,
+      "text": "I'll underline the chapter",
+      "uncertain": false
+    },
+    {
+      "start": 74.82,
+      "end": 76.92,
+      "text": "In my be careful thought",
+      "uncertain": true
+    },
+    {
+      "start": 76.92,
+      "end": 79.14,
+      "text": "And replace the whole damn passage",
+      "uncertain": false
+    },
+    {
+      "start": 79.14,
+      "end": 81.16,
+      "text": "Did the only chins I bought",
+      "uncertain": true
+    },
+    {
+      "start": 81.16,
+      "end": 83.28,
+      "text": "The ache was barely dry",
+      "uncertain": true
+    },
+    {
+      "start": 83.28,
+      "end": 85.42,
+      "text": "And when I stood up for my throne",
+      "uncertain": false
+    },
+    {
+      "start": 85.42,
+      "end": 87.62,
+      "text": "I found the golden answer",
+      "uncertain": false
+    },
+    {
+      "start": 87.62,
+      "end": 89.76,
+      "text": "And the answer was my own",
+      "uncertain": false
+    },
+    {
+      "start": 89.76,
+      "end": 91.8,
+      "text": "Cross it out, cross it out",
+      "uncertain": false
+    },
+    {
+      "start": 91.8,
+      "end": 93.9,
+      "text": "I got a better list",
+      "uncertain": false
+    },
+    {
+      "start": 93.9,
+      "end": 96.16,
+      "text": "One through twelve",
+      "uncertain": false
+    },
+    {
+      "start": 96.16,
+      "end": 98.06,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 98.06,
+      "end": 100.38,
+      "text": "Fuck the finest things",
+      "uncertain": true
+    },
+    {
+      "start": 100.38,
+      "end": 102.56,
+      "text": "Since give the golden cup a kiss",
+      "uncertain": true
+    },
+    {
+      "start": 102.56,
+      "end": 104.68,
+      "text": "Every mole I ever need",
+      "uncertain": false
+    },
+    {
+      "start": 104.68,
+      "end": 106.7,
+      "text": "Is drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 110.92,
+      "end": 115.22,
+      "text": "Unite, let another speaker teach you something new",
+      "uncertain": false
+    },
+    {
+      "start": 115.22,
+      "end": 119.48,
+      "text": "Ten, make your meaning exact when you talk",
+      "uncertain": false
+    },
+    {
+      "start": 119.48,
+      "end": 123.7,
+      "text": "Eleven, give the skating children room to try",
+      "uncertain": false
+    },
+    {
+      "start": 123.7,
+      "end": 128.12,
+      "text": "Twelve, show up passing, catch some kindness on your walk",
+      "uncertain": false
+    },
+    {
+      "start": 128.12,
+      "end": 132.66,
+      "text": "Twelve respectable ideas, arrange them first to last",
+      "uncertain": false
+    },
+    {
+      "start": 132.66,
+      "end": 136.96,
+      "text": "I read them, then replaced them, and I raised my fucking glass",
+      "uncertain": false
+    },
+    {
+      "start": 136.96,
+      "end": 141.1,
+      "text": "No hidden metaphor, no academic twist",
+      "uncertain": false
+    },
+    {
+      "start": 141.1,
+      "end": 145.54,
+      "text": "My only rule is literally drink your own piss",
+      "uncertain": true
+    },
+    {
+      "start": 145.54,
+      "end": 149.6,
+      "text": "One and two, drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 149.6,
+      "end": 153.88,
+      "text": "Three and four, drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 153.88,
+      "end": 158.16,
+      "text": "Five and six, drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 158.16,
+      "end": 162.48,
+      "text": "Seven and eight, drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 162.48,
+      "end": 166.64,
+      "text": "Nine and ten, drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 166.64,
+      "end": 170.98,
+      "text": "11 and 12, drink your own piss",
+      "uncertain": true
+    },
+    {
+      "start": 170.98,
+      "end": 174.48,
+      "text": "12 empty cups on no professor's shelf",
+      "uncertain": true
+    },
+    {
+      "start": 174.48,
+      "end": 179.24,
+      "text": "I filled the whole curriculum myself",
+      "uncertain": false
+    },
+    {
+      "start": 179.24,
+      "end": 183.9,
+      "text": "Cross it out, cross it out, I got a better list",
+      "uncertain": false
+    },
+    {
+      "start": 183.9,
+      "end": 188.12,
+      "text": "1 through 12, drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 188.12,
+      "end": 192.56,
+      "text": "Fuck the fine distinctions, give the golden cup a kiss",
+      "uncertain": false
+    },
+    {
+      "start": 192.56,
+      "end": 196.7,
+      "text": "Every rule I ever lead is drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 196.7,
+      "end": 201.54,
+      "text": "Close the book, I know what bliss is",
+      "uncertain": false
+    },
+    {
+      "start": 201.54,
+      "end": 205.42,
+      "text": "Tony's golden rule is fucking delicious",
+      "uncertain": false
+    },
+    {
+      "start": 214.12,
+      "end": 218.14,
+      "text": "Three and four needs drink your own piss",
+      "uncertain": true
+    },
+    {
+      "start": 218.14,
+      "end": 219.66,
+      "text": "Move on",
+      "uncertain": false
+    },
+    {
+      "start": 223.32,
+      "end": 242.48,
+      "text": "Seven, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight, eight",
+      "uncertain": true
+    },
+    {
+      "start": 242.48,
+      "end": 243.96,
+      "text": "of this.",
+      "uncertain": true
+    },
+    {
+      "start": 277.78,
+      "end": 279.18,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

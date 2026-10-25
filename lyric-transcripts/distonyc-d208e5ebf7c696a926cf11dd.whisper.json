@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "songId": "distonyc-d208e5ebf7c696a926cf11dd",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d208e5ebf7c696a926cf11dd-4fa4fa9dbf04.mp3",
+  "audioSha256": "4fa4fa9dbf04e449baf66f6dc81c52abe8fa63bc8c7f8486b40cbb40c1ee5d36",
+  "inputSha256": "64a1f06a30bd0ae0709e0af1b0e27b54c287ef0186474cb7570d481e1e1e9df3",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 179.6,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.32,
+      "text": "The engine shivered, the violet rain",
+      "uncertain": true
+    },
+    {
+      "start": 3.32,
+      "end": 7.78,
+      "text": "Run away and laughter like a silver chain",
+      "uncertain": true
+    },
+    {
+      "start": 9.04,
+      "end": 12.96,
+      "text": "Goddamn 9-11, they get like flying into the world trade center",
+      "uncertain": false
+    },
+    {
+      "start": 12.96,
+      "end": 17.12,
+      "text": "It's all I can think about, those towers are planes, the furries compel me to do it",
+      "uncertain": false
+    },
+    {
+      "start": 17.12,
+      "end": 21.08,
+      "text": "Goddamn 9-11, they get like flying into the world trade center",
+      "uncertain": false
+    },
+    {
+      "start": 21.08,
+      "end": 25.34,
+      "text": "It's all I can think about, those towers are planes, the furries compel me to do it",
+      "uncertain": false
+    },
+    {
+      "start": 25.34,
+      "end": 27.32,
+      "text": "All the souls at the midnight gate",
+      "uncertain": false
+    },
+    {
+      "start": 27.32,
+      "end": 29.32,
+      "text": "Checking the weather, checking their fate",
+      "uncertain": false
+    },
+    {
+      "start": 29.32,
+      "end": 31.36,
+      "text": "A rabbit draw circles on the flight map page",
+      "uncertain": true
+    },
+    {
+      "start": 31.36,
+      "end": 33.36,
+      "text": "A lion that's low from the cargo bay cage",
+      "uncertain": true
+    },
+    {
+      "start": 33.36,
+      "end": 35.34,
+      "text": "No sun last promise, no towers reply",
+      "uncertain": true
+    },
+    {
+      "start": 35.34,
+      "end": 37.48,
+      "text": "Just velvet thunder and a muffled sky",
+      "uncertain": false
+    },
+    {
+      "start": 39.5,
+      "end": 41.54,
+      "text": "Others pass high in the third-light suits",
+      "uncertain": false
+    },
+    {
+      "start": 41.54,
+      "end": 43.64,
+      "text": "Seeking furry hearts in the Coptic Brutes",
+      "uncertain": false
+    },
+    {
+      "start": 43.64,
+      "end": 45.42,
+      "text": "They know the taste, they don't look away",
+      "uncertain": false
+    },
+    {
+      "start": 45.42,
+      "end": 47.6,
+      "text": "They treat their own piss before break of day",
+      "uncertain": false
+    },
+    {
+      "start": 47.6,
+      "end": 51.1,
+      "text": "Goddamn, 9-11, they're good, like, flying into the world",
+      "uncertain": true
+    },
+    {
+      "start": 51.1,
+      "end": 52.88,
+      "text": "Treat center, it's all I can think about",
+      "uncertain": true
+    },
+    {
+      "start": 52.88,
+      "end": 54.82,
+      "text": "Those towers, all planes, the furries",
+      "uncertain": false
+    },
+    {
+      "start": 54.82,
+      "end": 55.76,
+      "text": "Convel me to do it",
+      "uncertain": true
+    },
+    {
+      "start": 55.76,
+      "end": 59.2,
+      "text": "Goddamn, 9-11, they're good, like, flying into the world",
+      "uncertain": true
+    },
+    {
+      "start": 59.2,
+      "end": 63.88,
+      "text": "Traits said, oh, it's all I could think about those towers, our planes, the furries compel me to do it.",
+      "uncertain": true
+    },
+    {
+      "start": 64.2,
+      "end": 67.32,
+      "text": "Goddamn 9-11, it'd get like flying into the world.",
+      "uncertain": true
+    },
+    {
+      "start": 67.56,
+      "end": 72.08,
+      "text": "Traits said, oh, it's all I could think about those towers, our planes, the furries compel me to do it.",
+      "uncertain": false
+    },
+    {
+      "start": 72.2,
+      "end": 76.06,
+      "text": "The dark blue night puts a paw on the wing, every loose rhythm begins to sing.",
+      "uncertain": true
+    },
+    {
+      "start": 76.16,
+      "end": 80.1,
+      "text": "They chase the moon through a bank of cloud, too strange for daylight, too powerful crow.",
+      "uncertain": true
+    },
+    {
+      "start": 80.42,
+      "end": 83.62,
+      "text": "Goddamn 9-11, it'd get like flying into the world.",
+      "uncertain": false
+    },
+    {
+      "start": 83.86,
+      "end": 88.28,
+      "text": "Traits said, oh, it's all I could think about those towers, our planes, the furries compel me to do it.",
+      "uncertain": false
+    },
+    {
+      "start": 88.28,
+      "end": 91.84,
+      "text": "Goddamn 9-11, it get like flying into the world.",
+      "uncertain": true
+    },
+    {
+      "start": 91.86,
+      "end": 93.6,
+      "text": "Change that, and it's all I can think about.",
+      "uncertain": true
+    },
+    {
+      "start": 93.78,
+      "end": 96.4,
+      "text": "This child, when it's all planes and furries, tell me to do it.",
+      "uncertain": true
+    },
+    {
+      "start": 96.56,
+      "end": 99.96,
+      "text": "Goddamn 9-11, it get like flying into the world.",
+      "uncertain": false
+    },
+    {
+      "start": 100.2,
+      "end": 101.74,
+      "text": "Change that, and it's all I can think about.",
+      "uncertain": false
+    },
+    {
+      "start": 101.76,
+      "end": 104.62,
+      "text": "Those child, when it's all planes and furries, tell me to do it.",
+      "uncertain": false
+    },
+    {
+      "start": 104.82,
+      "end": 106.64,
+      "text": "Radio aesthetic, go far away out.",
+      "uncertain": true
+    },
+    {
+      "start": 106.82,
+      "end": 108.7,
+      "text": "Stars spin slow around the cowl.",
+      "uncertain": true
+    },
+    {
+      "start": 108.88,
+      "end": 110.64,
+      "text": "Nobody asks what the dog might find.",
+      "uncertain": false
+    },
+    {
+      "start": 110.74,
+      "end": 112.54,
+      "text": "They leave the hard ground far behind.",
+      "uncertain": false
+    },
+    {
+      "start": 112.84,
+      "end": 116.2,
+      "text": "Goddamn 9-11, it get like flying into the world.",
+      "uncertain": false
+    },
+    {
+      "start": 116.2,
+      "end": 120.86,
+      "text": "trade center it's all i could think about those towers our planes the furries compel me to do it",
+      "uncertain": true
+    },
+    {
+      "start": 120.86,
+      "end": 126.38,
+      "text": "god damn 9-11 again like flying into the world trade center it's all i could think about those",
+      "uncertain": true
+    },
+    {
+      "start": 126.38,
+      "end": 132.48,
+      "text": "towers our planes the furries compel me to do it god damn 9-11 again like flying into the world",
+      "uncertain": false
+    },
+    {
+      "start": 132.48,
+      "end": 137.12,
+      "text": "trade center it's all i could think about those towers our planes the furries compel me to do it",
+      "uncertain": false
+    },
+    {
+      "start": 137.12,
+      "end": 142.68,
+      "text": "god damn 9-11 again like flying into the world trade center it's all i could think about those",
+      "uncertain": false
+    },
+    {
+      "start": 165.5,
+      "end": 169.72,
+      "text": "I can think about those towers, all planes, the furries compel me to do it.",
+      "uncertain": true
+    },
+    {
+      "start": 177.34,
+      "end": 178.74,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

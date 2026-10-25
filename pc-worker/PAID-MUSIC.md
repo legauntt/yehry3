@@ -1,5 +1,11 @@
 # Eleven Music song generation
 
+As of October 3, 2026, Jesse removed the artificial lifetime spending gate.
+The historical $200 cap remains in ledger metadata for audit compatibility; neither
+Chairlift nor the PC uses it to reject requests. Provider plan credits, explicit cost
+confirmation, durable accounting, and duplicate-call protection remain enforced.
+Historical cap descriptions below document the original installation.
+
 The request page has a separate **Band generator** dropdown. Local ACE remains the
 default for every new request. Everyone with ordinary request access may explicitly
 select **Eleven Music · paid**; Tony V6, V7 and V8 remain independent choices.

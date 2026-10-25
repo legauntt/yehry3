@@ -1,0 +1,265 @@
+{
+  "version": 1,
+  "songId": "distonyc-92dfd2ce61458fe8bb784977",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-92dfd2ce61458fe8bb784977-8247ef95b85e.mp3",
+  "audioSha256": "8247ef95b85ea3e5c7baab56ffe514c8f93914528505b2370f1dd9e58f1c35e2",
+  "inputSha256": "4e4aaf8081a63b245bdb329c9a1dd5a68014ec08c6e4af38cb0eec6698347f3e",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 209.998375,
+  "segments": [
+    {
+      "start": 3.66,
+      "end": 7.22,
+      "text": "Rain tick soft on the windowpane",
+      "uncertain": true
+    },
+    {
+      "start": 9.32,
+      "end": 11.72,
+      "text": "Needle hiss and a tired train",
+      "uncertain": false
+    },
+    {
+      "start": 13.16,
+      "end": 15.94,
+      "text": "I got a room full of midnight blue",
+      "uncertain": false
+    },
+    {
+      "start": 16.78,
+      "end": 20.62,
+      "text": "And a low lit beat to carry me through",
+      "uncertain": false
+    },
+    {
+      "start": 25.3,
+      "end": 28.42,
+      "text": "Street lamps swimming in a coffee cup",
+      "uncertain": false
+    },
+    {
+      "start": 28.42,
+      "end": 31.54,
+      "text": "Old news talking, but I turn it up",
+      "uncertain": true
+    },
+    {
+      "start": 31.54,
+      "end": 35.22,
+      "text": "Every promise on the TV shakes",
+      "uncertain": false
+    },
+    {
+      "start": 37.6,
+      "end": 41.18,
+      "text": "Like a paper flag in the wake of breaks",
+      "uncertain": true
+    },
+    {
+      "start": 44.66,
+      "end": 47.4,
+      "text": "I was live when I should have listened",
+      "uncertain": false
+    },
+    {
+      "start": 47.4,
+      "end": 50.86,
+      "text": "Hard as a lock, all rusted and twisted",
+      "uncertain": false
+    },
+    {
+      "start": 50.86,
+      "end": 54.36,
+      "text": "Now the kick drum knocks through the floor",
+      "uncertain": false
+    },
+    {
+      "start": 56.4,
+      "end": 60.42,
+      "text": "And I hear what the silence was waiting for",
+      "uncertain": false
+    },
+    {
+      "start": 64.72,
+      "end": 67.34,
+      "text": "I can't fix America",
+      "uncertain": true
+    },
+    {
+      "start": 67.34,
+      "end": 70.84,
+      "text": "Not with a song, not with a stare",
+      "uncertain": false
+    },
+    {
+      "start": 70.84,
+      "end": 73.64,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 73.64,
+      "end": 77.42,
+      "text": "But I can tell the truth in the midnight air",
+      "uncertain": false
+    },
+    {
+      "start": 77.42,
+      "end": 80.08,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 80.08,
+      "end": 83.84,
+      "text": "My little room at its blue-gray glow",
+      "uncertain": false
+    },
+    {
+      "start": 83.84,
+      "end": 91.22,
+      "text": "I can't fix America, still I won't let my heart go cold.",
+      "uncertain": true
+    },
+    {
+      "start": 102.34,
+      "end": 108.88,
+      "text": "I beat that bitch with a bat, that ugly thought came back like that.",
+      "uncertain": false
+    },
+    {
+      "start": 108.88,
+      "end": 112.22,
+      "text": "I put it down in a line of shame",
+      "uncertain": false
+    },
+    {
+      "start": 112.22,
+      "end": 115.18,
+      "text": "Not a victory, not a game",
+      "uncertain": true
+    },
+    {
+      "start": 115.18,
+      "end": 118.78,
+      "text": "The beat goes slow and the record sighs",
+      "uncertain": false
+    },
+    {
+      "start": 120.9,
+      "end": 124.58,
+      "text": "I see the damage behind my eyes",
+      "uncertain": false
+    },
+    {
+      "start": 124.58,
+      "end": 127.92,
+      "text": "No clean excuse, no magic cure",
+      "uncertain": false
+    },
+    {
+      "start": 127.92,
+      "end": 131.42,
+      "text": "Just a hard-earned wish to be better than before",
+      "uncertain": true
+    },
+    {
+      "start": 133.8,
+      "end": 137.56,
+      "text": "Let the vinyl crackle, let the sirens fade",
+      "uncertain": false
+    },
+    {
+      "start": 140.04,
+      "end": 144.0,
+      "text": "Let a broken man admit the mess he made",
+      "uncertain": false
+    },
+    {
+      "start": 146.38,
+      "end": 150.06,
+      "text": "There are names in the dark I will not erase",
+      "uncertain": true
+    },
+    {
+      "start": 152.68,
+      "end": 156.54,
+      "text": "There is no redemption without face and a face",
+      "uncertain": false
+    },
+    {
+      "start": 156.54,
+      "end": 158.98,
+      "text": "So I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 158.98,
+      "end": 163.02,
+      "text": "Not tonight with these worn out hands",
+      "uncertain": false
+    },
+    {
+      "start": 163.02,
+      "end": 165.28,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 165.28,
+      "end": 168.74,
+      "text": "But I can stop pretending I understand",
+      "uncertain": false
+    },
+    {
+      "start": 168.74,
+      "end": 171.52,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 171.52,
+      "end": 175.54,
+      "text": "I can leave one small light on",
+      "uncertain": false
+    },
+    {
+      "start": 175.54,
+      "end": 177.86,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 177.86,
+      "end": 179.42,
+      "text": "And keep singing",
+      "uncertain": false
+    },
+    {
+      "start": 179.42,
+      "end": 182.62,
+      "text": "Until the night is gone",
+      "uncertain": false
+    },
+    {
+      "start": 187.3,
+      "end": 189.62,
+      "text": "One small light on",
+      "uncertain": false
+    },
+    {
+      "start": 189.62,
+      "end": 191.3,
+      "text": "For the one still trying",
+      "uncertain": false
+    },
+    {
+      "start": 193.8,
+      "end": 198.28,
+      "text": "One small light on till the last note stops crying",
+      "uncertain": false
+    }
+  ]
+}

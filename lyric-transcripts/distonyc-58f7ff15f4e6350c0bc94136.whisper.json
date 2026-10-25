@@ -1,0 +1,205 @@
+{
+  "version": 1,
+  "songId": "distonyc-58f7ff15f4e6350c0bc94136",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-58f7ff15f4e6350c0bc94136-8fbf16b38401.mp3",
+  "audioSha256": "8fbf16b3840181b3e6e22b9448afaf94d5982c54a397d8aa62e8d993efadc3be",
+  "inputSha256": "dd7a388ecd7a68b5409e7d0f0abd8893d0e72599d126f714048e417849ab7525",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 140.0,
+  "segments": [
+    {
+      "start": 0.64,
+      "end": 9.1,
+      "text": "halloween moon cardboard skyline tony hit the porch at half past nine two silver towers strapped side by side he took one step and got stuck outside",
+      "uncertain": true
+    },
+    {
+      "start": 13.06,
+      "end": 22.24,
+      "text": "he turned to the left knocked over a winch turned to the right caught a cape on a hitch the screen door snapped with a terrible clang tony just grinned while the doorbell rang",
+      "uncertain": true
+    },
+    {
+      "start": 24.06,
+      "end": 26.5,
+      "text": "The neighbors yelled, Tony, you're much too wide",
+      "uncertain": false
+    },
+    {
+      "start": 26.5,
+      "end": 28.66,
+      "text": "He muttered that circuit in and shuffled inside",
+      "uncertain": true
+    },
+    {
+      "start": 28.66,
+      "end": 30.86,
+      "text": "A plastic bag landed an eye on his crown",
+      "uncertain": true
+    },
+    {
+      "start": 30.86,
+      "end": 33.32,
+      "text": "He wore it like a gargoyle all over town",
+      "uncertain": false
+    },
+    {
+      "start": 34.32,
+      "end": 36.0,
+      "text": "Tube towers too wide",
+      "uncertain": false
+    },
+    {
+      "start": 36.0,
+      "end": 37.4,
+      "text": "Pulled on Halloween Street",
+      "uncertain": true
+    },
+    {
+      "start": 37.4,
+      "end": 39.6,
+      "text": "Bumping every pumpkin with his cardboard feet",
+      "uncertain": false
+    },
+    {
+      "start": 39.6,
+      "end": 41.78,
+      "text": "Candy in the lobby, cobwebs in the sky",
+      "uncertain": false
+    },
+    {
+      "start": 41.78,
+      "end": 43.62,
+      "text": "Every narrow program lead the old thing",
+      "uncertain": true
+    },
+    {
+      "start": 43.62,
+      "end": 45.14,
+      "text": "Fly tube towers too wide",
+      "uncertain": true
+    },
+    {
+      "start": 45.14,
+      "end": 46.22,
+      "text": "Clear a little room",
+      "uncertain": false
+    },
+    {
+      "start": 46.22,
+      "end": 49.22,
+      "text": "Tony brought a skyline to the costume bloom",
+      "uncertain": false
+    },
+    {
+      "start": 52.36,
+      "end": 57.06,
+      "text": "At the haunted garage, the bass kicked hard, he clipped both towers on the skeleton yard.",
+      "uncertain": false
+    },
+    {
+      "start": 57.34,
+      "end": 61.5,
+      "text": "One leaned west and the other leaned keys, then both popped back to the beat of the beast.",
+      "uncertain": false
+    },
+    {
+      "start": 63.38,
+      "end": 67.96,
+      "text": "A kid dressed as traffic, wigged them around, but Tony spun once and the signs fell down.",
+      "uncertain": true
+    },
+    {
+      "start": 68.12,
+      "end": 72.42,
+      "text": "He laughed through the slope that city designer and them traded the gargoyle for a licorice fine.",
+      "uncertain": false
+    },
+    {
+      "start": 74.22,
+      "end": 78.68,
+      "text": "When the rain made the cardboard buckle and splay, he folded both towers and danced them away.",
+      "uncertain": false
+    },
+    {
+      "start": 78.68,
+      "end": 80.92,
+      "text": "No grand disaster, no reason to pout",
+      "uncertain": false
+    },
+    {
+      "start": 80.92,
+      "end": 83.72,
+      "text": "Just two soggy bosses with Tony sticking out",
+      "uncertain": true
+    },
+    {
+      "start": 84.48,
+      "end": 86.1,
+      "text": "Two tower, two wide",
+      "uncertain": true
+    },
+    {
+      "start": 86.1,
+      "end": 87.52,
+      "text": "From the Halloween street",
+      "uncertain": true
+    },
+    {
+      "start": 87.52,
+      "end": 89.78,
+      "text": "Now flat as a map underneath this feet",
+      "uncertain": true
+    },
+    {
+      "start": 89.78,
+      "end": 91.96,
+      "text": "Candy in his pockets, rule riding high",
+      "uncertain": true
+    },
+    {
+      "start": 91.96,
+      "end": 94.1,
+      "text": "He fell to the doorway and finally slipped by",
+      "uncertain": true
+    },
+    {
+      "start": 94.1,
+      "end": 96.32,
+      "text": "Two tower, two wide, but the joke landed right",
+      "uncertain": false
+    },
+    {
+      "start": 96.32,
+      "end": 98.84,
+      "text": "Tony wore the whole town home that night",
+      "uncertain": false
+    },
+    {
+      "start": 100.26,
+      "end": 102.92,
+      "text": "He rang his own bell with a crooked little grin",
+      "uncertain": true
+    },
+    {
+      "start": 102.92,
+      "end": 105.66,
+      "text": "Next year, one tower and I'm getting in",
+      "uncertain": false
+    },
+    {
+      "start": 117.74,
+      "end": 120.44,
+      "text": "Next year, one tower and I'm getting",
+      "uncertain": false
+    },
+    {
+      "start": 138.68,
+      "end": 139.06,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

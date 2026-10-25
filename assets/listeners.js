@@ -7,7 +7,7 @@
 // Each face also says what screen it is on, what its owner is doing besides listening (drafting a song,
 // reading lyrics), and, when a card is open, how far into the song they are.
 import { api, signedIn } from "./api.js";
-import { API_BASE } from "./config.js";
+import { subscribe } from "./realtime.js";
 import { savedAuthor, rememberAuthor, onAuthorChange } from "./authored-by.js";
 
 const tab = crypto.randomUUID();
@@ -16,21 +16,21 @@ const SETTLE_MS = 600; // Skipping a track or swapping sides pauses for a moment
 const PEEK_MS = 6000;
 const TOAST_MS = 4000; // On a phone a changed song steps out like a toast and goes back.
 const IDLE_MS = 5 * 60000; // No mouse, key, touch or scroll for this long reads as idle.
-const SOCKET_URL = `${API_BASE.replace(/^http/, "ws")}/listeners/socket`;
-const SOCKET_GRACE_MS = 3000; // A socket this slow to deliver has the long poll started beside it.
-const SOCKET_REST_MS = 10 * 60000; // A network that will not carry a socket is not asked again for this long.
 const STATUS_MS = 2000; // How often the screen and what is being done are looked at; a report follows only a change.
 const SEEK_MS = 1200; // A seek is reported once the scrubbing settles, and only matters to the studio when it is far.
+const ROOM_FRESH_MS = 70000; // Match the studio's presence expiry; an old room cannot prove anyone is still here.
+const ROOM_CHECK_MS = 35000; // A quiet socket sends no snapshots; hidden listeners still need a freshness check.
 const players = new Map();
 let beatMs = 25000, you = null, room = [], total = 0, version = "", started = false;
 let beatTimer, settleTimer, reporting = false, again = false, lastSong = null, nameRestUntil = 0;
-let polling = false, pollFailures = 0, socket = null, live = false, socketFailures = 0, socketRestUntil = 0, followTimer, root, openId = null, lastInput = Date.now(), reportedIdle = false;
+let root, openId = null, lastInput = Date.now(), reportedIdle = false;
 // The avatars a signed-in listener may choose from, whether the chooser is open, and a choice waiting to be sent.
 let avatars = [], picking = false, chosen;
 // The name being typed into your own card, and a redraw held back until it is done so typing is not interrupted.
 let editingName = false, nameDraft = "", nameTimer, redrawLater = false;
 const peeks = new Map();
 let reportedStatus = "", seekTimer, ticks = 0;
+let roomAt = 0, checkedAt = 0, checking = false, disconnected = false, expired = false;
 
 // The screen a listener is on, from what is under their fingers and how big the screen is. Pure, so it can be tested.
 export function deviceKind({ coarse, shortSide, longSide, width }) {
@@ -44,10 +44,18 @@ const device = () => deviceKind({
   width: innerWidth,
 });
 const DEVICE_LABELS = { phone: "On a phone", tablet: "On a tablet", small: "On a small screen", desktop: "On a desktop" };
-const ACTIVITY_LABELS = { drafting: "Drafting a song", lyrics: "Viewing song lyrics" };
+const ACTIVITY_LABELS = {
+  drafting: "Drafting a song", lyrics: "Viewing song lyrics",
+  backstage: "Viewing Backstage", video: "Watching a Video", settings: "Messing around in settings",
+  oeuful: "Listening to Œuful",
+};
 // What this page says its visitor is doing, read from the page itself so no page has to report it.
 const activityNow = () => {
+  if (document.querySelector(".display-settings-dialog[open]")) return "settings";
+  if (document.querySelector(".song-video-viewer[open]")) return "video";
   const page = document.body?.dataset.page;
+  if (page === "admin") return "backstage";
+  if (page === "oeuful") return "oeuful";
   if (page === "lyrics") return "lyrics";
   if (page === "requests" && (document.querySelector("#details-form, #confirm-form") || document.querySelector("#idea")?.value.trim())) return "drafting";
   return null;
@@ -61,6 +69,10 @@ const ICONS = {
   desktop: '<rect x="2.5" y="3.5" width="19" height="12.5" rx="1.5"/><path d="M8.5 20.5h7M12 16v4.5"/>',
   drafting: '<path d="M4 20l1-4.2L16.6 4.2a2 2 0 0 1 2.8 0l.4.4a2 2 0 0 1 0 2.8L8.2 19z"/><path d="M14.5 6.3l3.2 3.2"/>',
   lyrics: '<path d="M6 3h9l4 4v14H6z"/><path d="M14.5 3v4.5H19M9 12h7M9 15.5h7M9 19h4"/>',
+  backstage: '<path d="M3 3h18v18H3zM8 3v18M16 3v18M3 8h5M16 8h5"/>',
+  video: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 8 6 4-6 4z"/>',
+  settings: '<path d="M4 6h16M4 12h16M4 18h16M8 3v6M16 9v6M10 15v6"/>',
+  oeuful: '<path d="M12 2c4 0 7 7 7 12a7 7 0 0 1-14 0C5 9 8 2 12 2Z"/><path d="M8 16c2 2 6 2 8 0"/>',
 };
 function icon(name) {
   const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -146,6 +158,10 @@ function face(listener) {
   span.textContent = listener.anonymous || listener.picked ? listener.emoji : initials(listener.name);
   return span;
 }
+function seatLabel(listener, self) {
+  const doing = !self || !disconnected ? ACTIVITY_LABELS[listener.activity] : null;
+  return `${listener.name}${self ? " (you)" : ""}: ${self && disconnected ? "disconnected, reconnecting" : listener.song ? `listening to ${listener.song.title}` : listener.idle ? "idle" : "online"}${doing ? `, ${doing.toLowerCase()}` : ""}${DEVICE_LABELS[listener.device] ? `, ${DEVICE_LABELS[listener.device].toLowerCase()}` : ""}`;
+}
 function seat(listener) {
   const self = !invisible() && listener.id === you?.id;
   const item = document.createElement("li");
@@ -154,6 +170,7 @@ function seat(listener) {
   item.classList.toggle("is-listening", Boolean(listener.song));
   item.classList.toggle("is-initials", !listener.anonymous && !listener.picked);
   item.classList.toggle("is-you", self);
+  item.classList.toggle("is-disconnected", self && disconnected);
   item.classList.toggle("is-idle", Boolean(listener.idle));
   item.classList.toggle("is-open", openId === listener.id);
   item.classList.toggle("is-picking", self && picking);
@@ -173,7 +190,7 @@ function seat(listener) {
   button.className = "room-avatar";
   button.setAttribute("aria-expanded", String(openId === listener.id));
   const kind = DEVICE_LABELS[listener.device] ? listener.device : null, doing = ACTIVITY_LABELS[listener.activity] ? listener.activity : null;
-  button.setAttribute("aria-label", `${listener.name}${self ? " (you)" : ""}: ${listener.song ? `listening to ${listener.song.title}` : listener.idle ? "idle" : "online"}${doing ? `, ${ACTIVITY_LABELS[doing].toLowerCase()}` : ""}${kind ? `, ${DEVICE_LABELS[kind].toLowerCase()}` : ""}`);
+  button.setAttribute("aria-label", seatLabel(listener, self));
   button.append(face(listener));
   // Two small badges on the face: what they are doing (top left) and the screen they are on (bottom left).
   for (const [name, className] of [[doing, "room-badge room-doing"], [kind, "room-badge room-device"]]) {
@@ -194,6 +211,10 @@ function seat(listener) {
     tag.className = "room-you";
     tag.textContent = "you";
     card.append(" ", tag);
+    const connection = document.createElement("span");
+    connection.className = "room-connection";
+    connection.textContent = "Disconnected · reconnecting";
+    card.append(connection);
   }
   const line = document.createElement("span");
   line.className = "room-song";
@@ -239,12 +260,41 @@ function progressText(listener) {
 }
 function tick() {
   if (!root || document.hidden) return;
+  checkFreshness();
   for (const element of root.querySelectorAll(".room-progress")) {
     const text = progressText(room.find((listener) => listener.id === element.dataset.id) || {});
     if (text && element.textContent !== text) element.textContent = text;
   }
   // The screen or the page's doings may have changed without a song or a name to say so.
   if (++ticks % (STATUS_MS / 1000) === 0 && started && !invisible() && you && statusNow() !== reportedStatus) void report(true);
+}
+// A failed presence write is different from a broken socket: long polling can
+// keep a room live while the socket reconnects. Only a successful report clears
+// your disconnected state; other people's updates cannot do it.
+function setDisconnected(value) {
+  if (disconnected === value) return;
+  disconnected = value;
+  render();
+}
+function checkFreshness() {
+  if (roomAt && Date.now() - roomAt >= ROOM_FRESH_MS && !expired) {
+    expired = true;
+    disconnected = true;
+    render();
+  }
+  if (Date.now() - Math.max(roomAt, checkedAt) >= ROOM_CHECK_MS) void refreshRoom();
+}
+async function refreshRoom() {
+  if (checking || document.hidden || navigator.onLine === false) return;
+  checking = true;
+  checkedAt = Date.now();
+  const before = roomAt;
+  try {
+    const data = await api("/listeners", { anonymous: true });
+    // A newer heartbeat or socket snapshot takes precedence over this read.
+    if (roomAt === before && navigator.onLine !== false) accept(data);
+  } catch { /* The last confirmed room expires even if a request fails or hangs. */ }
+  finally { checking = false; }
 }
 function selfNote() {
   const note = document.createElement("span");
@@ -366,7 +416,20 @@ function choose(emoji) {
 // CSS alone decides which cards are showing (hover, focus, open, peek, a wide screen), so that is asked
 // directly rather than guessed at again from state this script would have to keep in step with the stylesheet.
 const CARD_CLEARANCE = 10;
-function spaceCards(list) {
+// The seat under the pointer must not be the one that moves: nudged out from under the pointer it loses its
+// hover, its card hides, the nudge is undone, it slides back under the pointer and the loop shakes it. So the
+// column is slid to hold that seat where the pointer found it, and its neighbours make the room instead.
+// A redraw swaps in new seats that may not match :hover yet, so render says whose seat was held.
+function spaceCards(list, heldId = list.querySelector(".room-seat:hover")?.dataset.id) {
+  const avatarOf = (id) => id && list.querySelector(`.room-seat[data-id="${CSS.escape(id)}"] .room-avatar`);
+  const held = avatarOf(heldId);
+  if (!held) { delete list.dataset.heldId; delete list.dataset.heldTop; }
+  else if (list.dataset.heldId !== heldId) Object.assign(list.dataset, { heldId, heldTop: held.getBoundingClientRect().top });
+  list.style.translate = "";
+  // The room is centred on the viewport, so one seat's margin changes the whole column's height and thereby
+  // every seat's position, not just the ones after it. Clear every margin before measuring any of them, or an
+  // earlier seat can be measured against a later one's stale margin from the last time this ran.
+  for (const seat of list.children) if (seat.classList?.contains("room-seat")) seat.style.marginTop = "";
   let prevBottom = null;
   for (const seat of list.children) {
     if (!seat.classList?.contains("room-seat")) { prevBottom = null; continue; }
@@ -381,15 +444,30 @@ function spaceCards(list) {
     }
     prevBottom = bottom;
   }
+  if (held) {
+    const drift = held.getBoundingClientRect().top - Number(list.dataset.heldTop);
+    if (Math.abs(drift) >= 0.5) list.style.translate = `0 ${-drift}px`;
+  }
 }
 function render() {
   if (!root) return;
+  // Connection changes must still show while a name is being typed. Keep that
+  // field in place, but never leave its green status or expired neighbours up.
+  for (const item of root.querySelectorAll(".room-seat")) {
+    const self = item.classList.contains("is-you"), listener = room.find((entry) => entry.id === item.dataset.id) || (self ? you : null);
+    if (expired && !self) { item.remove(); continue; }
+    item.classList.toggle("is-disconnected", self && disconnected);
+    if (listener) item.querySelector(".room-avatar").setAttribute("aria-label", seatLabel(listener, self));
+  }
+  if (expired) root.querySelector(".room-more")?.remove();
   // Every heartbeat and poll redraws the seats whole, which would take the field away mid-word.
   if (editingName && document.activeElement?.matches?.(".room-name-input")) { redrawLater = true; return; }
   const narrow = phone();
   // Once hidden, a seat with your name can only be another of your browsers, so it is drawn like anyone else.
-  const { left, right, more } = seats(room, invisible() ? null : you?.id, narrow ? 3 : 6);
-  const extra = more + Math.max(0, total - room.length);
+  const visible = expired ? [] : [...room];
+  if (!invisible() && you && disconnected && !visible.some((listener) => listener.id === you.id)) visible.unshift(you);
+  const { left, right, more } = seats(visible, invisible() ? null : you?.id, narrow ? 3 : 6);
+  const extra = expired ? 0 : more + Math.max(0, total - room.length);
   // Seats are redrawn whole, so keyboard focus is handed to the same person's new seat.
   const focused = root.contains(document.activeElement) ? document.activeElement.closest(".room-seat")?.dataset.id : null;
   queueMicrotask(() => { if (focused) root.querySelector(`.room-seat[data-id="${focused}"] .room-avatar`)?.focus({ preventScroll: true }); });
@@ -400,6 +478,7 @@ function render() {
   root.hidden = !left.length && !right.length && !invisible();
   for (const [side, listeners] of [["left", left], ["right", right]]) {
     const list = root.querySelector(`.room-${side}`);
+    const heldId = list.querySelector(".room-seat:hover")?.dataset.id;
     list.replaceChildren(...listeners.map(seat));
     if (side === "right" && extra) {
       const chip = document.createElement("li");
@@ -408,11 +487,13 @@ function render() {
       chip.title = `${extra} more ${extra === 1 ? "listener" : "listeners"}`;
       list.append(chip);
     }
-    spaceCards(list);
+    spaceCards(list, heldId);
   }
 }
 function accept(data) {
-  if (!Array.isArray(data?.listeners)) return;
+  if (!Array.isArray(data?.listeners) || navigator.onLine === false) return;
+  roomAt = Date.now();
+  expired = false;
   if (Number.isFinite(data.beatMs)) beatMs = Math.min(120000, Math.max(10000, data.beatMs));
   const before = new Map(room.map((listener) => [listener.id, listener.song?.id || null]));
   const known = Boolean(version);
@@ -435,6 +516,7 @@ function accept(data) {
 
 async function report(force = false) {
   if (!started || invisible() || (force !== true && !active())) return;
+  if (navigator.onLine === false) { setDisconnected(true); return; }
   if (reporting) { again = true; return; }
   reporting = true;
   clearTimeout(beatTimer);
@@ -460,84 +542,21 @@ async function report(force = false) {
     reportedIdle = idle;
     reportedStatus = `${status.device}|${doing || ""}`;
     you = data.you || null;
+    disconnected = navigator.onLine === false;
     if (chosen === avatar) chosen = undefined;
     avatars = Array.isArray(data.avatars) ? data.avatars.filter((emoji) => typeof emoji === "string" && emoji.length <= 8) : [];
     if (!avatars.length) picking = false;
     accept(data);
-    follow();
   } catch (error) {
     // The room is decoration: the next beat tries again and nothing else on the page waits for it.
     if (error?.status === 400) chosen = undefined; // An avatar the studio no longer offers is not sent again.
+    setDisconnected(true);
   }
   finally {
     reporting = false;
     beatTimer = setTimeout(report, beatMs);
     if (again) { again = false; void report(true); }
   }
-}
-// The room arrives over a socket where one can be held open, and by long poll until then and everywhere else.
-function follow() {
-  if (!started || document.hidden || live) return;
-  if (!socket && typeof WebSocket === "function" && Date.now() >= socketRestUntil) connect();
-  if (!socket) void poll();
-}
-function connect() {
-  let line;
-  try { line = new WebSocket(SOCKET_URL); } catch { socketRestUntil = Date.now() + SOCKET_REST_MS; return; }
-  socket = line;
-  let fed = false;
-  // A socket is given a moment to deliver before the long poll is started beside it.
-  const grace = setTimeout(() => { if (socket === line && !live) void poll(); }, SOCKET_GRACE_MS);
-  line.addEventListener("message", (event) => {
-    if (socket !== line) return;
-    let data;
-    try { data = JSON.parse(event.data); } catch { return; }
-    fed = live = true;
-    socketFailures = 0;
-    accept(data);
-  });
-  line.addEventListener("close", () => {
-    clearTimeout(grace);
-    if (socket !== line) return;
-    socket = null;
-    live = false;
-    // A socket that never delivered is a network that will not carry one: after three, the long poll has the
-    // room to itself for a while. One that did is a restart, and every browser is not brought back in the same instant.
-    const rest = fed ? 1000 + Math.random() * 2000 : ++socketFailures >= 3 ? SOCKET_REST_MS : 2000 * 2 ** socketFailures;
-    if (socketFailures >= 3) socketFailures = 0;
-    socketRestUntil = Date.now() + rest;
-    clearTimeout(followTimer);
-    followTimer = setTimeout(follow, rest + 50);
-    void poll();
-  });
-}
-// A page in the background, or on its way out, gives its socket back.
-function hangUp() {
-  clearTimeout(followTimer);
-  const line = socket;
-  socket = null;
-  live = false;
-  line?.close();
-}
-async function poll() {
-  if (polling || live || !started || document.hidden) return;
-  polling = true;
-  while (started && !document.hidden && !live) {
-    const asked = version, began = Date.now();
-    let wait = 0;
-    try {
-      const data = await api(`/listeners${asked ? `?since=${asked}` : ""}`, { anonymous: true, timeout: 35000 });
-      pollFailures = 0;
-      accept(data);
-      // A server that answers an unchanged room early is full or restarting; do not spin on it.
-      if (version === asked && Date.now() - began < 5000) wait = 5000;
-    } catch (error) {
-      pollFailures++;
-      wait = error.status === 404 ? 300000 : Math.min(60000, 5000 * 2 ** Math.min(pollFailures - 1, 4));
-    }
-    if (wait) await new Promise((resolve) => setTimeout(resolve, wait));
-  }
-  polling = false;
 }
 function leave() {
   clearTimeout(beatTimer);
@@ -591,6 +610,15 @@ export function mountListeners() {
     editingName = false;
     render();
   });
+  // A card can also step out by pure CSS, from a hover or a keyboard focus that never calls render: space it too.
+  const reflow = (event) => { const list = event.target.closest(".room-seat")?.closest(".room-side"); if (list) spaceCards(list); };
+  root.addEventListener("mouseover", reflow);
+  root.addEventListener("mouseout", (event) => {
+    const seat = event.target.closest(".room-seat");
+    if (seat && !seat.contains(event.relatedTarget)) spaceCards(seat.closest(".room-side"));
+  });
+  root.addEventListener("focusin", reflow);
+  root.addEventListener("focusout", reflow);
   root.addEventListener("input", (event) => { if (event.target.matches(".room-name-input")) nameDraft = event.target.value; });
   root.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -607,10 +635,11 @@ export function mountListeners() {
   // Going to the background says so once and then falls silent; coming back is reported straight away.
   document.addEventListener("visibilitychange", () => {
     lastInput = Date.now();
+    if (!document.hidden) checkFreshness();
     void report(true);
-    if (document.hidden) hangUp();
-    else follow();
   });
+  addEventListener("offline", () => setDisconnected(true));
+  addEventListener("online", () => { void report(true); void refreshRoom(); });
   for (const event of ["pointermove", "pointerdown", "keydown", "wheel", "touchstart", "scroll"])
     addEventListener(event, () => {
       lastInput = Date.now();
@@ -625,10 +654,10 @@ export function mountListeners() {
     nameTimer = setTimeout(() => void report(true), 800);
   });
   setInterval(tick, 1000);
-  addEventListener("pagehide", () => { leave(); hangUp(); });
-  addEventListener("pageshow", (event) => { if (event.persisted) { void report(); follow(); } });
-  if (invisible()) follow();
-  else void report();
+  addEventListener("pagehide", leave);
+  addEventListener("pageshow", (event) => { if (event.persisted) void report(); });
+  subscribe("listeners", accept);
+  if (!invisible()) void report();
 }
 
 if (typeof document !== "undefined") {

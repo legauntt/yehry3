@@ -78,6 +78,23 @@
   font-weight: 700;
   animation: room-note 1.6s ease-in-out infinite;
 }
+/* An X as well as red distinguishes a lost connection from ordinary idle time. */
+.room-connection { display: none; }
+.room-seat.is-disconnected .room-connection { display: block; color: #ffb7b3; }
+.room-seat.is-disconnected :is(.room-song, .room-progress, .room-doing, .room-doing-line) { display: none; }
+.room-seat.is-disconnected .room-avatar { animation: none; box-shadow: 0 3px 12px #23352826; opacity: 1; }
+.room-seat.is-disconnected .room-avatar::after { display: none; }
+.room-seat.is-disconnected .room-face { animation: none; filter: grayscale(1); }
+.room-seat.is-disconnected .room-avatar::before {
+  content: "×";
+  display: grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  background: #bb3039;
+  color: #fff;
+  font: 700 14px/1 sans-serif;
+}
 .room-card {
   position: absolute;
   top: 50%;
@@ -184,6 +201,11 @@ html[data-shared-theme][data-theme="dark"] .room-avatar {
 html[data-shared-theme][data-theme="dark"] .room-seat.is-you .room-avatar { border-color: var(--accent); }
 html[data-shared-theme][data-theme="dark"] .room-seat.is-idle .room-avatar { background: hsl(var(--room-hue) 12% 26%); }
 html[data-shared-theme][data-theme="dark"] .room-avatar::before { border-color: var(--paper); }
+html[data-shared-theme][data-theme="dark"] :is(.room-card, .room-ghost) {
+  background: var(--light);
+  color: var(--ink);
+}
+html[data-shared-theme][data-theme="dark"] .room-you { color: var(--paper); }
 /* A wide window shows every avatar on offer at once, and larger. */
 @media (min-width: 1100px) {
   .room-seat.is-picking .room-card { width: 468px; }
@@ -295,7 +317,12 @@ html[data-shared-theme][data-theme="dark"] .room-avatar::before { border-color: 
 .room-meta { display: flex; align-items: center; gap: 5px; opacity: 0.85; }
 .room-meta .room-icon { flex: none; width: 12px; height: 12px; stroke-width: 2; }
 .room-doing-line { opacity: 1; }
-html[data-shared-theme][data-theme="dark"] .room-badge { border-color: var(--paper); }
+html[data-shared-theme][data-theme="dark"] .room-badge {
+  border-color: var(--paper);
+  background: var(--white);
+  color: var(--ink);
+}
+html[data-shared-theme][data-theme="dark"] .room-doing { background: var(--accent); color: var(--paper); }
 @media (max-width: 700px) {
   .room-badge { left: -4px; width: 15px; height: 15px; border-width: 1.5px; }
   .room-doing { top: -4px; }

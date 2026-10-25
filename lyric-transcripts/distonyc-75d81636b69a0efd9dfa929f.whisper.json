@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "songId": "distonyc-75d81636b69a0efd9dfa929f",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-75d81636b69a0efd9dfa929f-e8adf9665a3d.mp3",
+  "audioSha256": "e8adf9665a3dcb326eb1e0218da2d0043c7e74a1414fe223f472bbd888762815",
+  "inputSha256": "59a177af1a69377d3abfb3ef41554d07c902004a5d43e6941b43d3555137a29c",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 280.0326875,
+  "segments": [
+    {
+      "start": 4.16,
+      "end": 8.46,
+      "text": "Tony C woke up under violet glass",
+      "uncertain": false
+    },
+    {
+      "start": 8.46,
+      "end": 13.06,
+      "text": "With his boots stuck down by a magnetic grass",
+      "uncertain": true
+    },
+    {
+      "start": 13.06,
+      "end": 18.02,
+      "text": "A jellyfish captain with a paper-thin face",
+      "uncertain": false
+    },
+    {
+      "start": 18.02,
+      "end": 22.26,
+      "text": "Said, welcome small thunder to the outer place",
+      "uncertain": true
+    },
+    {
+      "start": 22.26,
+      "end": 27.26,
+      "text": "The engine sang backwards, the moon's war hats",
+      "uncertain": false
+    },
+    {
+      "start": 27.26,
+      "end": 31.72,
+      "text": "A choir of robots fed silver crumbs to space cats",
+      "uncertain": false
+    },
+    {
+      "start": 31.72,
+      "end": 36.44,
+      "text": "Then the ship ran open like a bright tin flower",
+      "uncertain": true
+    },
+    {
+      "start": 36.44,
+      "end": 41.02,
+      "text": "And time poured through him for an hour",
+      "uncertain": false
+    },
+    {
+      "start": 41.02,
+      "end": 54.58,
+      "text": "He saw every goodbye turn into a door",
+      "uncertain": false
+    },
+    {
+      "start": 54.58,
+      "end": 59.12,
+      "text": "Every lonely sock on every bedroom floor",
+      "uncertain": false
+    },
+    {
+      "start": 59.12,
+      "end": 63.72,
+      "text": "He saw the whole universe simple and true",
+      "uncertain": false
+    },
+    {
+      "start": 63.72,
+      "end": 68.46,
+      "text": "And it fit in a noise nobody knew",
+      "uncertain": false
+    },
+    {
+      "start": 70.6,
+      "end": 74.2,
+      "text": "Foda beer, Foda boo",
+      "uncertain": true
+    },
+    {
+      "start": 74.2,
+      "end": 80.0,
+      "text": "That's the whole damn truth in a little blue loop",
+      "uncertain": false
+    },
+    {
+      "start": 80.0,
+      "end": 86.76,
+      "text": "Photobit, photoblove is a soup and we're all in the scoop",
+      "uncertain": false
+    },
+    {
+      "start": 86.76,
+      "end": 91.7,
+      "text": "He tried to say be kind, we're made of the same light",
+      "uncertain": true
+    },
+    {
+      "start": 91.7,
+      "end": 96.04,
+      "text": "But his tongue went sideways in the Starship night",
+      "uncertain": false
+    },
+    {
+      "start": 96.04,
+      "end": 99.72,
+      "text": "Photobit, photoboo",
+      "uncertain": false
+    },
+    {
+      "start": 101.58,
+      "end": 105.72,
+      "text": "Everybody stared while the galaxies whooped",
+      "uncertain": false
+    },
+    {
+      "start": 105.72,
+      "end": 110.26,
+      "text": "He ran back home with a comet in his hair",
+      "uncertain": false
+    },
+    {
+      "start": 110.26,
+      "end": 114.84,
+      "text": "Burst through the diner yelling, people gather there",
+      "uncertain": false
+    },
+    {
+      "start": 114.84,
+      "end": 119.52,
+      "text": "The waitress dropped coffee, old milk dropped his fork",
+      "uncertain": false
+    },
+    {
+      "start": 119.52,
+      "end": 124.04,
+      "text": "Tony drew a spiral on a napkin in New York",
+      "uncertain": false
+    },
+    {
+      "start": 124.04,
+      "end": 128.6,
+      "text": "He said it's about the hurt, it's about the life",
+      "uncertain": false
+    },
+    {
+      "start": 128.6,
+      "end": 133.4,
+      "text": "It's about forgiving half the people you can't stand by half",
+      "uncertain": false
+    },
+    {
+      "start": 133.4,
+      "end": 137.84,
+      "text": "But the perfect sentence slips behind his teeth",
+      "uncertain": false
+    },
+    {
+      "start": 137.84,
+      "end": 142.68,
+      "text": "Like a fish in a drain or a ghost beneath the reef",
+      "uncertain": false
+    },
+    {
+      "start": 157.06,
+      "end": 159.64,
+      "text": "Sodamin, photoboo",
+      "uncertain": false
+    },
+    {
+      "start": 159.64,
+      "end": 165.36,
+      "text": "That's the whole damn truth in a little blue loop",
+      "uncertain": false
+    },
+    {
+      "start": 165.36,
+      "end": 168.86,
+      "text": "Photabib, photaboo",
+      "uncertain": true
+    },
+    {
+      "start": 170.3,
+      "end": 174.86,
+      "text": "Hold your strange neighbor when the black sky droops",
+      "uncertain": false
+    },
+    {
+      "start": 174.86,
+      "end": 179.46,
+      "text": "He meant we belong here, even scared and unfinished",
+      "uncertain": false
+    },
+    {
+      "start": 179.46,
+      "end": 184.16,
+      "text": "But all that came out was a whistle and spinach",
+      "uncertain": false
+    },
+    {
+      "start": 184.16,
+      "end": 187.34,
+      "text": "Photabib, photaboo",
+      "uncertain": false
+    },
+    {
+      "start": 187.34,
+      "end": 193.34,
+      "text": "The cook said, buddy, you need a letterie",
+      "uncertain": true
+    },
+    {
+      "start": 193.34,
+      "end": 197.3,
+      "text": "So Tony quit preaching, bought a bus ticket",
+      "uncertain": true
+    },
+    {
+      "start": 197.3,
+      "end": 202.62,
+      "text": "West sat beside a crying kid in a dinosaur vest",
+      "uncertain": true
+    },
+    {
+      "start": 202.62,
+      "end": 207.24,
+      "text": "He gave him his window, let him pick the song",
+      "uncertain": false
+    },
+    {
+      "start": 207.24,
+      "end": 211.9,
+      "text": "And for three quiet minutes, nothing fell wrong",
+      "uncertain": false
+    },
+    {
+      "start": 211.9,
+      "end": 216.46,
+      "text": "At a gas station, under fluorescent rain",
+      "uncertain": false
+    },
+    {
+      "start": 216.46,
+      "end": 221.2,
+      "text": "He called his old brother and swallowed his pride again",
+      "uncertain": true
+    },
+    {
+      "start": 221.2,
+      "end": 225.58,
+      "text": "No alien grammar, no cosmic report",
+      "uncertain": false
+    },
+    {
+      "start": 225.58,
+      "end": 227.72,
+      "text": "Just I miss you, man",
+      "uncertain": false
+    },
+    {
+      "start": 227.72,
+      "end": 230.42,
+      "text": "I'm sorry I was short",
+      "uncertain": false
+    },
+    {
+      "start": 239.56,
+      "end": 242.7,
+      "text": "For the bin, for the boo",
+      "uncertain": true
+    },
+    {
+      "start": 244.16,
+      "end": 248.66,
+      "text": "Maybe the meaning doesn't need a tidy groove",
+      "uncertain": false
+    },
+    {
+      "start": 248.66,
+      "end": 251.92,
+      "text": "Photabip, photaboo",
+      "uncertain": false
+    },
+    {
+      "start": 253.38,
+      "end": 258.08,
+      "text": "Maybe it arrives in a cracked red booth",
+      "uncertain": false
+    },
+    {
+      "start": 258.08,
+      "end": 262.3,
+      "text": "And soup on a table in a handheld type",
+      "uncertain": true
+    },
+    {
+      "start": 262.3,
+      "end": 267.16,
+      "text": "And letting somebody have the last porch light",
+      "uncertain": false
+    },
+    {
+      "start": 267.16,
+      "end": 270.42,
+      "text": "Photabip, photaboo",
+      "uncertain": false
+    },
+    {
+      "start": 276.92,
+      "end": 278.32,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

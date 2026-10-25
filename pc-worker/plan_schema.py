@@ -18,6 +18,8 @@ FIELDS = {
     'keyscale': {'type': 'string', 'enum': KEYS,
                  'description': 'Canonical musical key, for example C# minor or Bb major.'},
     'lyrics': {'type': 'string', 'maxLength': 16000},
+    'vocal_mode': {'type': 'string', 'enum': ['lyrics', 'nonverbal'],
+                   'description': 'Nonverbal means an explicitly requested wordless phonetic vocal score, not a foreign language.'},
     'arrangement': {'type': 'string', 'maxLength': 5000},
     'musicalSettings': MUSICAL_SETTINGS_SCHEMA,
     'preserve_generated_backing': {'type': 'boolean'},

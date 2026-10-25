@@ -18,6 +18,10 @@ REPORT = 'inactive-voice-repair/status.json'
 ACTIVITY_FLOOR = .001
 STEREO_RESIDUAL_LIMIT = ACTIVITY_FLOOR * 1.5
 LIMITS = {'sections': 6, 'seconds': 60, 'fraction': .26}
+# Silence is normal song structure, including a long instrumental outro.
+# Bound processing by the supported single-recording length, not vocal coverage.
+STRUCTURAL_LIMITS = {'sections': 128, 'seconds': 666, 'fraction': 1.0}
+MAX_RECORDING_SECONDS = 666
 
 
 def read(path):
@@ -64,19 +68,26 @@ def inactive_rows(work, rows):
     return found
 
 
-def check_limits(inactive, duration, legacy=False):
+def check_limits(inactive, duration, legacy=False, version=2):
     if not inactive:
         raise ValueError('The failed assembly has no inactive source section')
     seconds = sum(row['duration_seconds'] for row in inactive)
-    limits = {'sections': 3, 'seconds': 30} if legacy else LIMITS
-    if len(inactive) > limits['sections'] or seconds > limits['seconds']:
+    if version not in (1, 2, 3):
+        raise ValueError('Unsupported inactive voice recovery journal')
+    limits = ({'sections': 3, 'seconds': 30} if legacy or version == 1 else
+              STRUCTURAL_LIMITS if version == 3 else LIMITS)
+    if version == 3 and (not np.isfinite(duration) or not 0 < duration <= MAX_RECORDING_SECONDS):
+        raise ValueError('Recording exceeds the supported inactive recovery duration')
+    if len(inactive) > limits['sections'] or (version != 3 and seconds > limits['seconds']):
         raise ValueError('Inactive source sections exceed the bounded recovery limit')
     # Count overlapping context once when measuring the share of the performance.
     end, union = 0, 0
     for start, stop in sorted(row['interval'] for row in inactive):
         union += max(0, stop - max(start, end))
         end = max(end, stop)
-    if not legacy and (duration <= 0 or union / duration > limits['fraction']):
+    if version == 3 and union > limits['seconds']:
+        raise ValueError('Inactive source sections exceed the bounded recovery limit')
+    if not legacy and version != 1 and (duration <= 0 or union / duration > limits['fraction']):
         raise ValueError('Inactive source sections exceed the bounded share of the performance')
     return {'sections': len(inactive), 'seconds_with_context': seconds,
             'unique_seconds': union, 'duration_seconds': duration}
@@ -217,8 +228,12 @@ def assemble(engine, work, rows, inactive):
 def validate(engine, work, rows, inactive):
     inactive_labels = {row['label'] for row in inactive}
     active_rows = [row for row in rows if row['label'] not in inactive_labels]
+    if not active_rows:
+        raise ValueError('No active source vocal sections remain for validation')
     engine.validate(active_rows)
     checks = load(work / 'voice-checks.json')
+    if checks.get('passed') is not True:
+        raise ValueError('Active voice validation did not pass')
     for row in inactive:
         source_f0 = np.load(work / 'conversion' / (row['label'] + '-f0.npy'))
         converted = read(work / 'conversion' / (row['label'] + '-converted.wav')).mean(axis=1)
@@ -251,16 +266,20 @@ def apply(work):
     plan = load(work / 'conversion-plan.json')
     rows = plan['chunks']
     inactive = inactive_rows(work, rows)
-    if report is not None and report.get('version') not in (1, 2):
+    if report is not None and report.get('version') not in (1, 2, 3):
         raise ValueError('Unsupported inactive voice recovery journal')
+    version = report['version'] if report is not None else 3
+    limits = STRUCTURAL_LIMITS if version == 3 else LIMITS
     measured = check_limits(inactive, sf.info(work / 'selected-vocals.wav').duration,
-                            legacy=report is not None and report['version'] == 1)
+                            version=version)
+    if len(inactive) == len(rows):
+        raise ValueError('No active source vocal sections remain for validation')
     root = status_path.parent
     originals = root / 'originals'
     originals.mkdir(parents=True, exist_ok=True)
     if report is None:
-        report = {'version': 2, 'status': 'retaining', 'sections': inactive,
-                  'limits': dict(LIMITS), 'measurements': measured,
+        report = {'version': 3, 'status': 'retaining', 'sections': inactive,
+                  'limits': dict(limits), 'measurements': measured,
                   'inputs_sha256': input_hashes(work, rows, inactive)}
         for row in report['sections']:
             converted = work / 'conversion' / (row['label'] + '-converted.wav')
@@ -269,7 +288,7 @@ def apply(work):
         save(status_path, report)
     elif [(row['label'], row['interval']) for row in report['sections']] != [(row['label'], row['interval']) for row in inactive]:
         raise ValueError('Inactive voice recovery inputs changed')
-    if report['version'] == 2 and (report['limits'] != LIMITS or
+    if report['version'] >= 2 and (report['limits'] != limits or
             report['inputs_sha256'] != input_hashes(work, rows, inactive)):
         raise ValueError('Pinned inactive voice recovery inputs changed')
     retain_and_silence(work, report, status_path)
@@ -302,7 +321,7 @@ def apply(work):
         report['status'] = 'validation_failed'
         save(status_path, report)
         raise
-    if report['version'] == 2 and report['inputs_sha256'] != input_hashes(work, rows, inactive):
+    if report['version'] >= 2 and report['inputs_sha256'] != input_hashes(work, rows, inactive):
         raise ValueError('Pinned inputs changed during inactive voice recovery')
     state = load(work / 'desktop-status.json')
     for stage in ['assemble', 'validate']:

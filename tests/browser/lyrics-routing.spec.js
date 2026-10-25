@@ -12,7 +12,7 @@ const song = {
 const compact = { id: song.id, title: song.title, hasLyrics: true };
 const href = lyricsHref(song);
 async function apiSong(page) {
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [compact] } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [compact] } }));
   await page.route(`**/yehry3/songs/${song.id}`, route => route.fulfill({ json: { song } }));
   await page.route("**/yehry3/profiles**", route => route.fulfill({ json: { profiles: [] } }));
   await page.route("**/yehry3/listens", route => route.fulfill({ json: {} }));
@@ -23,7 +23,9 @@ test("a new pretty link opens before deployment and keeps its shared moment, pla
   // Neither a missing detail file nor a stalled static catalog may hold up a new release.
   await page.route("**/catalog-summary.json", () => {});
   const response = await page.goto(`${href}?t=6.4#lyric-line-2`);
-  expect(response.status()).toBe(200);
+  // Azure serves the 404 shell until the next build; it opens the lyric sheet
+  // in place, preserving the pretty link and its shared moment.
+  expect(response.status()).toBe(404);
   expect(await response.text()).not.toContain(`data-song-id="${song.id}"`);
   await expect(page.locator("h1")).toHaveText(song.title, { timeout: 2500 });
   await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(6.4, 1);

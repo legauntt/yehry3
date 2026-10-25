@@ -1,0 +1,433 @@
+{
+  "version": 1,
+  "songId": "distonyc-f66a9de18440b262a8b9a8c9",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f66a9de18440b262a8b9a8c9-7c3bf26bfdcc.mp3",
+  "audioSha256": "7c3bf26bfdccd9e637ae43dff6e1916e8b458cfd4f5e9deb7a36a07cfe24690c",
+  "inputSha256": "6a7834dc3660fa859a420337b75df022c52434920a5e80e2eba895d846448793",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 269.2,
+  "segments": [
+    {
+      "start": 0.9,
+      "end": 4.1,
+      "text": "They rang the bell before the dawn",
+      "uncertain": false
+    },
+    {
+      "start": 6.0,
+      "end": 9.46,
+      "text": "That's the sentence, coach still on",
+      "uncertain": false
+    },
+    {
+      "start": 19.14,
+      "end": 21.96,
+      "text": "Jeffrey Epstein walked into town",
+      "uncertain": true
+    },
+    {
+      "start": 21.96,
+      "end": 24.18,
+      "text": "With a crooked grin and his collar down",
+      "uncertain": true
+    },
+    {
+      "start": 24.18,
+      "end": 26.44,
+      "text": "He carried groceries for the widow gray",
+      "uncertain": false
+    },
+    {
+      "start": 26.44,
+      "end": 28.0,
+      "text": "Fished the schoolhouse without asking",
+      "uncertain": true
+    },
+    {
+      "start": 28.22,
+      "end": 34.42,
+      "text": "asking pay then a whisper found a humbry page and a nameless claim to came a cage every careful",
+      "uncertain": true
+    },
+    {
+      "start": 34.42,
+      "end": 41.56,
+      "text": "word was cut in two by supper everybody somehow knew no witness stand no testic line just borrowed",
+      "uncertain": false
+    },
+    {
+      "start": 41.56,
+      "end": 50.46,
+      "text": "fury dressed as fact in time i got a righteous spider for the names that he used for every",
+      "uncertain": true
+    },
+    {
+      "start": 50.46,
+      "end": 54.42,
+      "text": "Like a victim twisted through the news",
+      "uncertain": true
+    },
+    {
+      "start": 54.42,
+      "end": 58.94,
+      "text": "And a burned porch every left alone beneath the blame",
+      "uncertain": true
+    },
+    {
+      "start": 58.94,
+      "end": 63.82,
+      "text": "You cannot call it justice when you never grew the claim",
+      "uncertain": true
+    },
+    {
+      "start": 63.82,
+      "end": 68.36,
+      "text": "Ring that iron bell, let the buried record sing",
+      "uncertain": false
+    },
+    {
+      "start": 68.36,
+      "end": 73.82,
+      "text": "A crowd can crown a rumor, but it cannot make you kidding",
+      "uncertain": true
+    },
+    {
+      "start": 81.64,
+      "end": 84.18,
+      "text": "They folk who cried his unlit door",
+      "uncertain": true
+    },
+    {
+      "start": 84.18,
+      "end": 86.62,
+      "text": "Counted all the friends who came no more",
+      "uncertain": false
+    },
+    {
+      "start": 86.62,
+      "end": 88.76,
+      "text": "His oldest brother heard him say",
+      "uncertain": false
+    },
+    {
+      "start": 88.76,
+      "end": 91.38,
+      "text": "I can fight a man out of fog all day",
+      "uncertain": false
+    },
+    {
+      "start": 91.38,
+      "end": 93.68,
+      "text": "Then one black knife the fight went still",
+      "uncertain": true
+    },
+    {
+      "start": 93.68,
+      "end": 96.02,
+      "text": "Grief moved cold across the hill",
+      "uncertain": false
+    },
+    {
+      "start": 96.02,
+      "end": 97.2,
+      "text": "He took his life",
+      "uncertain": false
+    },
+    {
+      "start": 97.2,
+      "end": 99.52,
+      "text": "Cruel as cops, not proof of guilt",
+      "uncertain": true
+    },
+    {
+      "start": 99.52,
+      "end": 101.94,
+      "text": "Just a life we lost he should have lived",
+      "uncertain": true
+    },
+    {
+      "start": 101.94,
+      "end": 103.78,
+      "text": "To see the light on the stand",
+      "uncertain": false
+    },
+    {
+      "start": 103.78,
+      "end": 105.4,
+      "text": "And mourn and face the rise",
+      "uncertain": true
+    },
+    {
+      "start": 105.4,
+      "end": 106.6,
+      "text": "And suffer",
+      "uncertain": true
+    },
+    {
+      "start": 106.6,
+      "end": 112.02,
+      "text": "I got a righteous fire for the names they used",
+      "uncertain": false
+    },
+    {
+      "start": 112.02,
+      "end": 116.74,
+      "text": "For every lie they'd victim twisted through the news",
+      "uncertain": true
+    },
+    {
+      "start": 116.74,
+      "end": 121.32,
+      "text": "And I've heard fortune left alone beneath the blame",
+      "uncertain": true
+    },
+    {
+      "start": 121.32,
+      "end": 126.2,
+      "text": "You cannot call it justice when you never prove the claim",
+      "uncertain": false
+    },
+    {
+      "start": 126.2,
+      "end": 130.7,
+      "text": "Ring that iron bell let the very record sing",
+      "uncertain": true
+    },
+    {
+      "start": 130.7,
+      "end": 133.28,
+      "text": "A drought can crown a rumor",
+      "uncertain": true
+    },
+    {
+      "start": 133.28,
+      "end": 135.82,
+      "text": "But it cannot make it king",
+      "uncertain": true
+    },
+    {
+      "start": 141.4,
+      "end": 143.58,
+      "text": "In the ledgers of the states",
+      "uncertain": true
+    },
+    {
+      "start": 143.58,
+      "end": 144.88,
+      "text": "And places clear",
+      "uncertain": true
+    },
+    {
+      "start": 146.18,
+      "end": 148.3,
+      "text": "A story split apart",
+      "uncertain": false
+    },
+    {
+      "start": 148.3,
+      "end": 150.04,
+      "text": "For anyone to hear",
+      "uncertain": false
+    },
+    {
+      "start": 150.88,
+      "end": 152.44,
+      "text": "One voice confessed",
+      "uncertain": false
+    },
+    {
+      "start": 152.44,
+      "end": 154.32,
+      "text": "The pressure and the price",
+      "uncertain": false
+    },
+    {
+      "start": 155.54,
+      "end": 157.34,
+      "text": "How frightened people",
+      "uncertain": false
+    },
+    {
+      "start": 157.34,
+      "end": 159.58,
+      "text": "Had been fed a script of ice",
+      "uncertain": false
+    },
+    {
+      "start": 159.58,
+      "end": 163.78,
+      "text": "No victory rose when the truth broke through",
+      "uncertain": true
+    },
+    {
+      "start": 164.88,
+      "end": 169.06,
+      "text": "Only empty chairs and what remorse could do",
+      "uncertain": false
+    },
+    {
+      "start": 169.06,
+      "end": 173.24,
+      "text": "So save your stones till evidence is weighed",
+      "uncertain": false
+    },
+    {
+      "start": 174.16,
+      "end": 178.4,
+      "text": "Guard the wounded, do not turn their pain into a blade",
+      "uncertain": false
+    },
+    {
+      "start": 178.4,
+      "end": 182.88,
+      "text": "Ask hard questions, let honest answers breathe",
+      "uncertain": false
+    },
+    {
+      "start": 182.88,
+      "end": 186.06,
+      "text": "But I can wound the living",
+      "uncertain": true
+    },
+    {
+      "start": 186.06,
+      "end": 189.52,
+      "text": "And dishonor those who grieve",
+      "uncertain": true
+    },
+    {
+      "start": 189.52,
+      "end": 193.32,
+      "text": "I got a righteous fire",
+      "uncertain": false
+    },
+    {
+      "start": 193.32,
+      "end": 195.48,
+      "text": "For the names they use",
+      "uncertain": false
+    },
+    {
+      "start": 195.48,
+      "end": 197.44,
+      "text": "For every fighting soul",
+      "uncertain": false
+    },
+    {
+      "start": 197.44,
+      "end": 200.1,
+      "text": "The spectacle of abuse",
+      "uncertain": true
+    },
+    {
+      "start": 200.1,
+      "end": 202.68,
+      "text": "And I've burned for a chamber",
+      "uncertain": true
+    },
+    {
+      "start": 202.68,
+      "end": 204.92,
+      "text": "Who deserved another day",
+      "uncertain": true
+    },
+    {
+      "start": 204.92,
+      "end": 207.28,
+      "text": "A hearing in the daylight",
+      "uncertain": false
+    },
+    {
+      "start": 207.28,
+      "end": 209.56,
+      "text": "Night a mop to clear away",
+      "uncertain": false
+    },
+    {
+      "start": 209.56,
+      "end": 212.08,
+      "text": "Ring that iron bell",
+      "uncertain": false
+    },
+    {
+      "start": 212.08,
+      "end": 214.32,
+      "text": "Till the final, it will cease",
+      "uncertain": false
+    },
+    {
+      "start": 214.32,
+      "end": 216.0,
+      "text": "Truth without",
+      "uncertain": false
+    },
+    {
+      "start": 216.0,
+      "end": 217.84,
+      "text": "Compassion is another",
+      "uncertain": true
+    },
+    {
+      "start": 217.84,
+      "end": 219.28,
+      "text": "Kind of thing",
+      "uncertain": true
+    },
+    {
+      "start": 225.32,
+      "end": 228.0,
+      "text": "Jeffrey Epstein, your name is not that",
+      "uncertain": true
+    },
+    {
+      "start": 228.0,
+      "end": 228.66,
+      "text": "Noise",
+      "uncertain": true
+    },
+    {
+      "start": 228.66,
+      "end": 231.86,
+      "text": "We will choose the careful truth",
+      "uncertain": false
+    },
+    {
+      "start": 231.86,
+      "end": 234.4,
+      "text": "We will hear the quiet voice",
+      "uncertain": false
+    },
+    {
+      "start": 234.4,
+      "end": 236.14,
+      "text": "No woman gets the",
+      "uncertain": true
+    },
+    {
+      "start": 236.14,
+      "end": 238.12,
+      "text": "Last word, no headlines",
+      "uncertain": true
+    },
+    {
+      "start": 238.12,
+      "end": 239.16,
+      "text": "Seal the stone",
+      "uncertain": false
+    },
+    {
+      "start": 239.16,
+      "end": 241.52,
+      "text": "The truth arrives in daylight",
+      "uncertain": true
+    },
+    {
+      "start": 241.52,
+      "end": 244.9,
+      "text": "And nobody stands alone.",
+      "uncertain": false
+    }
+  ]
+}

@@ -140,6 +140,29 @@ class CompositionEndingTests(unittest.TestCase):
             save(work / 'desktop-status.json', state)
             with self.assertRaisesRegex(ValueError, 'after voice conversion'): evidence(work)
 
+    def test_sparse_coverage_requires_confirmed_instrumental_intent(self):
+        with tempfile.TemporaryDirectory() as directory:
+            request = self.request(Path(directory))
+            work = self.prepare_evidence(request, coverage=.45, outro=14)
+            request['plan']['generation'] = {'instrumentalHeavy': True}
+            arrangement = load(work / 'arrangement-checks.json')
+            arrangement['instrumental_heavy_requested'] = True
+            save(work / 'arrangement-checks.json', arrangement)
+            with patch('request_materials.frozen_brief', return_value={'details': {'generation': {'instrumentalHeavy': True}}}):
+                self.assertTrue(evidence(work, request)['instrumental_heavy_authorized'])
+                with self.assertRaises(ValueError): evidence(work)
+                arrangement['voiced_energy_fraction'] = -1
+                save(work / 'arrangement-checks.json', arrangement)
+                with self.assertRaises(ValueError): evidence(work, request)
+            arrangement['voiced_energy_fraction'] = .45
+            save(work / 'arrangement-checks.json', arrangement)
+            with patch('request_materials.frozen_brief', return_value={'details': {'generation': {'instrumentalHeavy': False}}}):
+                with self.assertRaises(ValueError): evidence(work, request)
+            arrangement['instrumental_heavy_requested'] = False
+            save(work / 'arrangement-checks.json', arrangement)
+            with patch('request_materials.frozen_brief', return_value={'details': {'generation': {'instrumentalHeavy': True}}}):
+                with self.assertRaises(ValueError): evidence(work, request)
+
     def test_changed_source_and_plan_cannot_reuse_selection(self):
         for mode in ('source', 'plan'):
             with self.subTest(mode=mode), tempfile.TemporaryDirectory() as directory:

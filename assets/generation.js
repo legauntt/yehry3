@@ -18,7 +18,9 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
   try { const saved = JSON.parse(storage.get(key) || 'null'); if (saved) { explicitlyDisabled = saved.enabled === false; initial = saved.value ?? initial; } } catch {}
   const savedPitch = initial?.pitchRepair;
   const preferences = getPreferences();
-  if (!initial && preferences && draft.status === 'draft') initial = preferences;
+  if (!initial && preferences && draft.status === 'draft') {
+    initial = { ...preferences }; delete initial.instrumentalHeavy;
+  }
   if (!enabled) {
     root.innerHTML = initial && !explicitlyDisabled ? '<p class="field-error">V8 generation is temporarily unavailable. Your choices are saved.</p>' + generationBrief(initial, escape) : '';
     return { setBackend(value) { backend = value; required = voiceRequired || backend === 'eleven_music'; }, setRequired(value) { voiceRequired = Boolean(value); required = voiceRequired || backend === 'eleven_music'; }, read() { if (required || initial && !explicitlyDisabled) throw new Error('V8 generation is unavailable. Try again shortly.'); return null; }, clear() {} };
@@ -46,6 +48,8 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
     ${group('Style & instruments', ['genre','instruments','avoidInstruments','performance','energy','structure'], 'Pick a suggested style or instrument, or add your own. These choices guide the sound; the menus are not an exhaustive list.')}
     ${group('Timing & key', ['duration','bpm','keyscale','meter','vocalEntry','endingSeconds','maxBreakSeconds'], 'Leave blank for Auto. Tempo, key and timing are musical targets; expressive performances can vary. 6/8 also uses a compound-meter prompt.')}
     ${group('Lyrics', ['lyricWorkflow','avoidPhrases','requiredPhrases','lockedLines'], 'One phrase or locked line per line. Your supplied lyrics and explicitly requested words take priority over general avoidance.')}
+    <label class="generation-enable"><input type="checkbox" id="gen-instrumentalHeavy" aria-describedby="instrumental-heavy-hint"> Instrumental-heavy arrangement</label>
+    <p class="small" id="instrumental-heavy-hint">For this request, allow sparse vocals and long instrumental sections. Measured vocal coverage stays visible; usable vocals and a complete ending are still required. Choose this explicitly for each song.</p>
     <label class="generation-enable"><input type="checkbox" id="gen-reviewLyrics"> Let me edit and approve the lyrics before composing</label>
     ${pitchCompareControl(schema)}
     ${group('Choices & mix', ['candidates','variation','seed','vocalGainDb','backingGainDb'], 'Choose 1 for automatic generation, or 2–3 to compare compositions before Tony voice conversion. More choices take longer. Mix adjustments retain peak checks.')}
@@ -63,10 +67,12 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
   mountGenerationControls(root, { schema, escape });
   mountPitchControl(pitchRoot || root, { saved: savedPitch, compareRoot: root, onChange: () => persist() });
   root.querySelector('#gen-reviewLyrics').checked = Boolean(initial?.reviewLyrics);
+  root.querySelector('#gen-instrumentalHeavy').checked = initial?.instrumentalHeavy === true;
   enable.checked = Boolean(initial) && !explicitlyDisabled;
   const read = () => {
     if (!enable.checked) return null;
     const value = { version: 1, reviewLyrics: root.querySelector('#gen-reviewLyrics').checked };
+    if (root.querySelector('#gen-instrumentalHeavy').checked) value.instrumentalHeavy = true;
     for (const field of generationFields()) {
       const key = field.dataset.generation, raw = field.value.trim();
       if (backend === 'eleven_music' && ['candidates', 'variation'].includes(key)) continue;
@@ -91,7 +97,7 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
   fields.addEventListener('input', persist);
   root.querySelector('#generation-remember').onclick = () => {
     const status = root.querySelector('#generation-preference-status');
-    try { localStorage.setItem(preferenceKey, JSON.stringify(read())); status.textContent = 'Remembered for new requests in this browser. You can still change each request.'; }
+    try { const preferences = read(); if (preferences) delete preferences.instrumentalHeavy; localStorage.setItem(preferenceKey, JSON.stringify(preferences)); status.textContent = 'Remembered for new requests in this browser. Instrumental-heavy must be chosen separately for each request.'; }
     catch (error) { status.textContent = error.message || 'This browser could not save preferences.'; }
   };
   root.querySelector('#generation-forget').onclick = () => {
@@ -123,23 +129,31 @@ export function mountGeneration(root, { draft, schema, enabled, storage, escape,
     setBackend(value) { backend = value; applyRequired(); }, clear() { storage.remove(key); } };
 }
 
-export async function mountGenerationReview(root, { draft, api, escape, reload }) {
+export async function mountGenerationReview(root, { draft, api, escape, reload, approvalOnly = false }) {
+  if (draft.generationReview?.state === 'approved') {
+    const lyrics = draft.generationReview.kind === 'lyrics';
+    root.innerHTML = `<section class="generation-review generation-review-done" role="status" tabindex="-1"><span class="success-mark" aria-hidden="true">✓</span><p class="eyebrow">Done</p><h3>${lyrics ? 'Lyrics approved' : 'Composition chosen'}</h3><p>${lyrics ? 'Your approved lyrics are saved. The studio can now continue composing your song.' : 'Your composition choice is saved. The studio can now continue making your song.'}</p><p class="small">You can close this page.${lyrics && draft.details?.generation?.candidates > 1 ? ' When the compositions are ready, you’ll be able to choose one from the queue.' : ' Follow your song’s progress in the queue.'}</p><div class="actions"><a class="primary" href="/">Back to songs</a><a class="quiet" href="/queue/details/?request=${encodeURIComponent(draft.id)}">View song progress →</a></div></section>`;
+    return;
+  }
   if (!draft.generationReview || draft.generationReview.state !== 'pending') return;
   root.innerHTML = '<p role="status">Loading your generation review…</p>';
   try {
     const { review } = await api(`/prompts/${encodeURIComponent(draft.id)}/generation-review`, { role: 'submitter' });
     if (!review || review.id !== draft.generationReview.id || review.state !== 'pending') throw new Error('The review changed. Refresh status to see the latest choice.');
     const lyrics = review.kind === 'lyrics';
+    const preserve = lyrics && draft.details?.lyricSheet && draft.details.lyricSheet.mode !== 'adapt';
     const localKey = 'yehry3:lyric-review:' + review.id;
     root.innerHTML = `<section class="generation-review"><h3>${lyrics ? 'Review your lyrics' : 'Choose your composition'}</h3><p>${lyrics ? 'Edit the sheet, then approve it to begin composing. The approved sheet becomes the saved song plan.' : 'Compare the hook and ending of each composition. These previews use the draft singer; Tony voice conversion follows your choice.'}</p><form id="generation-review-form">${lyrics ? '<label for="review-lyrics">Lyric sheet</label><textarea id="review-lyrics" rows="18" maxlength="32000" required></textarea><p class="small">Keep the [End] marker. Previously locked lines must remain exactly as written.</p>' : review.payload.candidates.map((candidate) => `<fieldset class="composition-choice"><legend><label><input type="radio" name="composition" value="${candidate.index}" required> Composition ${candidate.index + 1}</label></legend>${candidate.clips.map((clip, i) => `<p class="small">${clip.label} · ${Math.round(clip.start)} seconds</p><audio controls preload="metadata" data-candidate="${candidate.index}" data-clip="${i}"></audio>`).join('')}</fieldset>`).join('')}<div class="actions"><button class="primary" type="submit">${lyrics ? 'Approve lyrics & continue' : 'Use this composition'}</button><button class="quiet" type="button" id="cancel-generation">Cancel this request</button></div><p class="field-error" role="alert"></p></form></section>`;
     const form = root.querySelector('form'), urls = [];
+    if (approvalOnly) root.querySelector('#cancel-generation').hidden = true;
     if (lyrics) {
       const field = root.querySelector('#review-lyrics');
       let saved; try { saved = localStorage.getItem(localKey); } catch {}
       field.value = saved ?? review.payload.lyrics;
-      if (draft.details?.lyricSheet?.mode !== 'adapt' && draft.details?.lyricSheet) {
+      if (preserve) {
         field.readOnly = true; field.value = review.payload.lyrics;
-        field.nextElementSibling.textContent = 'This request keeps your supplied wording. Approve this sheet or cancel to start a request with different words.';
+        root.querySelector('.generation-review > p').textContent = 'Read the sheet, then approve it to begin composing. This request keeps your supplied wording.';
+        field.nextElementSibling.textContent = 'You chose to keep these words unchanged. You can approve them here. To use different words, cancel and start a new request that allows lyric changes.';
       } else field.oninput = () => { try { localStorage.setItem(localKey, field.value); } catch {} };
     } else {
       root.querySelectorAll('audio').forEach((audio) => {
@@ -159,6 +173,7 @@ export async function mountGenerationReview(root, { draft, api, escape, reload }
         try { localStorage.removeItem(localKey); } catch {}
         urls.forEach((url) => URL.revokeObjectURL(url));
         await reload();
+        if (action === 'approve') document.querySelector('.generation-review-done')?.focus();
       } catch (error) { form.querySelector('.field-error').textContent = error.message; }
       finally { form.querySelectorAll('button').forEach((b) => { b.disabled = false; }); }
     };

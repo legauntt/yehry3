@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "songId": "distonyc-ca65c9e08cadd4c51bb3675f",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ca65c9e08cadd4c51bb3675f-9d0018f335df.mp3",
+  "audioSha256": "9d0018f335df0e3d1a3292a5058dd6540c74fa1535c711ea316d78383d9d0909",
+  "inputSha256": "dd60420ed3dd7a7dc6bf2f2ad0db007012ab52bcd71f774d5b33c2d34834ba46",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 150.047375,
+  "segments": [
+    {
+      "start": 4.04,
+      "end": 8.58,
+      "text": "Look, let me make something abundantly clear for people that are so bereft of activities",
+      "uncertain": false
+    },
+    {
+      "start": 8.58,
+      "end": 12.52,
+      "text": "they feel like they got a comment on every one of mine.",
+      "uncertain": true
+    },
+    {
+      "start": 13.8,
+      "end": 17.54,
+      "text": "First of all, being a vegetarian should never be associated with being a revolutionary",
+      "uncertain": false
+    },
+    {
+      "start": 18.06,
+      "end": 18.88,
+      "text": "or being open-minded.",
+      "uncertain": false
+    },
+    {
+      "start": 19.38,
+      "end": 20.58,
+      "text": "That's a dietary choice.",
+      "uncertain": false
+    },
+    {
+      "start": 30.98,
+      "end": 34.34,
+      "text": "If someone wants to proliferate the type of ignorance, we're supposed to be fighting",
+      "uncertain": true
+    },
+    {
+      "start": 34.34,
+      "end": 36.08,
+      "text": "by thinking that you're just fucking yourself.",
+      "uncertain": false
+    },
+    {
+      "start": 36.62,
+      "end": 40.08,
+      "text": "I don't go without promoting vegan poultry, shoving it in people's faces, and I don't",
+      "uncertain": false
+    },
+    {
+      "start": 40.08,
+      "end": 45.0,
+      "text": "castigate people for not eating steak sandwiches and dining, or never diss someone for being",
+      "uncertain": true
+    },
+    {
+      "start": 45.0,
+      "end": 48.44,
+      "text": "a fucking broccoli head or living off radishes or eating rats with tofu.",
+      "uncertain": true
+    },
+    {
+      "start": 51.58,
+      "end": 58.24,
+      "text": "I like a lot of vegan cuisine, the theologicality of expecting everyone to adopt your particular",
+      "uncertain": false
+    },
+    {
+      "start": 58.24,
+      "end": 62.48,
+      "text": "Your idea of what being healthy is, is just preposterous.",
+      "uncertain": true
+    },
+    {
+      "start": 63.62,
+      "end": 67.86,
+      "text": "I've seen some of you herbivores, and if you want to argue health, y'all need to eat",
+      "uncertain": false
+    },
+    {
+      "start": 67.86,
+      "end": 71.84,
+      "text": "some kind of supplement, cause some of y'all were so skinny that it's disgusting.",
+      "uncertain": true
+    },
+    {
+      "start": 75.12,
+      "end": 78.98,
+      "text": "Lookin' like the only hip-hop motherfuckers on Shindler's list, he and a malnutrition",
+      "uncertain": true
+    },
+    {
+      "start": 78.98,
+      "end": 81.66,
+      "text": "ass got nothin' to do with bein' revolutionary or bein' our toy.",
+      "uncertain": true
+    },
+    {
+      "start": 82.18,
+      "end": 84.92,
+      "text": "I'll be damned if I let somebody else push their agenda on me.",
+      "uncertain": false
+    },
+    {
+      "start": 94.04,
+      "end": 97.38,
+      "text": "You know, I don't eat pork, not because I'm a Muslim, I just don't really like it, but",
+      "uncertain": true
+    },
+    {
+      "start": 97.38,
+      "end": 100.66,
+      "text": "I really will fuck a bird up, and fish is good when that ship's fresh.",
+      "uncertain": true
+    },
+    {
+      "start": 104.36,
+      "end": 108.02,
+      "text": "It's like one nigga Vastair from Can Ox said if he don't like the smell of burning meat",
+      "uncertain": true
+    },
+    {
+      "start": 108.02,
+      "end": 109.14,
+      "text": "then get the fuck off the planet.",
+      "uncertain": true
+    },
+    {
+      "start": 117.02,
+      "end": 121.2,
+      "text": "You know, I don't criticize people for eating moss, and don't open your fucking mouth about",
+      "uncertain": true
+    },
+    {
+      "start": 121.2,
+      "end": 121.98,
+      "text": "my food, man.",
+      "uncertain": false
+    },
+    {
+      "start": 124.04,
+      "end": 125.88,
+      "text": "I like beef and broccoli, motherfucker.",
+      "uncertain": true
+    },
+    {
+      "start": 127.66,
+      "end": 128.86,
+      "text": "Mind your goddamn business.",
+      "uncertain": false
+    },
+    {
+      "start": 130.2,
+      "end": 131.02,
+      "text": "Matter of fact, you know what?",
+      "uncertain": false
+    },
+    {
+      "start": 131.1,
+      "end": 131.46,
+      "text": "I'm out.",
+      "uncertain": false
+    },
+    {
+      "start": 132.16,
+      "end": 136.22,
+      "text": "I feel like some arroz con pollo, a banana daiquiri, and a motherfucking bistec abanado.",
+      "uncertain": false
+    },
+    {
+      "start": 143.44,
+      "end": 144.84,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

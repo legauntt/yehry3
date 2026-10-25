@@ -1,0 +1,211 @@
+{
+  "version": 1,
+  "songId": "distonyc-6061d8bb20d0e48bdeb7fd66",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6061d8bb20d0e48bdeb7fd66-b7d079738546.mp3",
+  "audioSha256": "b7d079738546c4ccadd1e947a74d79f014a470f098b0d03deb0388215928c9b9",
+  "inputSha256": "722eae8f80145c19c488b9ccb69874b16adb7960fdbf5f098044395d4a116e03",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 160.0,
+  "segments": [
+    {
+      "start": 10.74,
+      "end": 15.78,
+      "text": "On one hill a mother folds a shirt by a window taped against the night",
+      "uncertain": true
+    },
+    {
+      "start": 15.78,
+      "end": 21.02,
+      "text": "On the next hill someone counts the names and asks the dark to leave a little lie",
+      "uncertain": false
+    },
+    {
+      "start": 21.02,
+      "end": 26.4,
+      "text": "One child should learn the sound of fear before they learn a playground song",
+      "uncertain": true
+    },
+    {
+      "start": 26.4,
+      "end": 31.54,
+      "text": "No families should need a key for a home they had all along",
+      "uncertain": true
+    },
+    {
+      "start": 32.9,
+      "end": 36.84,
+      "text": "The map has scars, the sky has smoke",
+      "uncertain": true
+    },
+    {
+      "start": 36.84,
+      "end": 40.58,
+      "text": "Not every heartbeat makes the same demand",
+      "uncertain": false
+    },
+    {
+      "start": 42.48,
+      "end": 47.52,
+      "text": "Let two windows stay lit, let two peoples breathe free",
+      "uncertain": false
+    },
+    {
+      "start": 47.52,
+      "end": 51.46,
+      "text": "Let a name be a name, not a reason to bleed",
+      "uncertain": false
+    },
+    {
+      "start": 51.46,
+      "end": 61.02,
+      "text": "with racks in the daylight with dignity playing two states two homes and a future beyond pain",
+      "uncertain": true
+    },
+    {
+      "start": 62.18,
+      "end": 71.2,
+      "text": "there are voices under broken stone there are voices at a checkpoint gate they are not",
+      "uncertain": false
+    },
+    {
+      "start": 71.2,
+      "end": 75.82,
+      "text": "headlines not a flag to wave they'll keep awaiting on a better fame",
+      "uncertain": false
+    },
+    {
+      "start": 77.82,
+      "end": 81.06,
+      "text": "Give the farmer back the morning field",
+      "uncertain": true
+    },
+    {
+      "start": 81.06,
+      "end": 83.58,
+      "text": "Give a student back the open road",
+      "uncertain": true
+    },
+    {
+      "start": 83.58,
+      "end": 86.24,
+      "text": "Let the law protect each human life",
+      "uncertain": false
+    },
+    {
+      "start": 86.24,
+      "end": 89.08,
+      "text": "Let no one carry all this load",
+      "uncertain": false
+    },
+    {
+      "start": 89.08,
+      "end": 91.9,
+      "text": "Let two windows stay lit",
+      "uncertain": false
+    },
+    {
+      "start": 91.9,
+      "end": 94.58,
+      "text": "Let two peoples breathe free",
+      "uncertain": false
+    },
+    {
+      "start": 94.58,
+      "end": 98.28,
+      "text": "Let a name be a name, not a reason simply",
+      "uncertain": false
+    },
+    {
+      "start": 98.28,
+      "end": 101.46,
+      "text": "Weigh the riots in the daylight",
+      "uncertain": false
+    },
+    {
+      "start": 101.46,
+      "end": 103.8,
+      "text": "With dignity claim",
+      "uncertain": false
+    },
+    {
+      "start": 103.8,
+      "end": 108.08,
+      "text": "Two states, two homes, and a future beyond hate",
+      "uncertain": true
+    },
+    {
+      "start": 109.62,
+      "end": 113.32,
+      "text": "Justice is not a door for only one",
+      "uncertain": false
+    },
+    {
+      "start": 113.32,
+      "end": 117.58,
+      "text": "Peace is not silence after all the guns",
+      "uncertain": false
+    },
+    {
+      "start": 117.58,
+      "end": 120.94,
+      "text": "It is water, work, and safety in the street",
+      "uncertain": false
+    },
+    {
+      "start": 122.3,
+      "end": 126.28,
+      "text": "It is equal worth for every heart we need",
+      "uncertain": false
+    },
+    {
+      "start": 127.2,
+      "end": 129.78,
+      "text": "Let two windows stay lit",
+      "uncertain": false
+    },
+    {
+      "start": 129.78,
+      "end": 132.5,
+      "text": "Let tomorrow be kind",
+      "uncertain": false
+    },
+    {
+      "start": 132.5,
+      "end": 135.84,
+      "text": "Let the living find room in each other's mind",
+      "uncertain": false
+    },
+    {
+      "start": 135.84,
+      "end": 138.14,
+      "text": "With rights in the daylight",
+      "uncertain": false
+    },
+    {
+      "start": 138.14,
+      "end": 140.46,
+      "text": "With dignity playing",
+      "uncertain": true
+    },
+    {
+      "start": 140.46,
+      "end": 144.18,
+      "text": "Two states, two homes, let life rise again",
+      "uncertain": false
+    },
+    {
+      "start": 144.18,
+      "end": 146.94,
+      "text": "Let life rise again",
+      "uncertain": false
+    },
+    {
+      "start": 146.94,
+      "end": 149.38,
+      "text": "Before everyone",
+      "uncertain": false
+    }
+  ]
+}

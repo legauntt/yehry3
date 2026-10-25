@@ -1,8 +1,8 @@
 /* Œuful: a DJ booth for the endless easter egg. The booth is always dark, whatever the site theme. */
-:root { color-scheme: dark; --booth: #14110e; --plinth: #2b2622; --plinth-edge: #4a423b; --metal: #b9b2a6; --cream: #f3ead6; --dim: #9a9082; --egg: #ffe94a; --hot: #ff5a4f; --go: #3ddc84; }
+[data-page="oeuful"] { color-scheme: dark; --booth: #14110e; --plinth: #2b2622; --plinth-edge: #4a423b; --metal: #b9b2a6; --cream: #f3ead6; --dim: #9a9082; --egg: #ffe94a; --hot: #ff5a4f; --go: #3ddc84; }
 * { box-sizing: border-box; }
-body { margin: 0; min-height: 100vh; background: radial-gradient(ellipse at 50% -10%, #3a2f25 0, var(--booth) 62%) fixed var(--booth); color: var(--cream); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-a { color: var(--egg); }
+body[data-page="oeuful"] { margin: 0; min-height: 100vh; background: radial-gradient(ellipse at 50% -10%, #3a2f25 0, var(--booth) 62%) fixed var(--booth); color: var(--cream); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+.booth a { color: var(--egg); }
 .booth { width: min(1080px, 100%); margin: 0 auto; padding: 14px 16px 28px; }
 .booth-top { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
 .booth-home { color: var(--dim); font-size: .8rem; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
@@ -23,7 +23,7 @@ a { color: var(--egg); }
 .stage:not([data-decks="2"]) .deck-title { font-size: .6rem; }
 .stage:not([data-decks="2"]) .deck-name { font-size: 1rem; }
 
-.deck { display: grid; gap: 8px; width: 100%; max-width: 330px; justify-self: center; align-content: start; }
+.deck { display: grid; gap: 8px; width: 100%; min-width: 0; max-width: 330px; justify-self: center; align-content: start; }
 .deck-body { position: relative; aspect-ratio: 1 / 1.08; border: 2px solid var(--plinth-edge); border-radius: 14px; background: linear-gradient(160deg, #38322c, var(--plinth) 45%, #1d1a17); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08), 0 14px 30px rgba(0, 0, 0, .5); }
 .platter { position: absolute; left: 5%; top: 9%; width: 78%; aspect-ratio: 1; border-radius: 50%; background: repeating-conic-gradient(#8d867a 0 1.4deg, #2a2622 1.4deg 4deg); box-shadow: 0 3px 8px rgba(0, 0, 0, .6); }
 .platter::before { content: ""; position: absolute; inset: 4%; border-radius: 50%; background: #0d0c0b; }
@@ -123,7 +123,7 @@ a { color: var(--egg); }
 
 @media (max-width: 760px) {
   .stage, .stage:not([data-decks="2"]) { gap: 12px; }
-  .stage { grid-template-columns: 1fr 1fr; grid-template-areas: "monitor monitor" "a b"; }
+  .stage { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "monitor monitor" "a b"; }
   /* The gasping picture swells and tilts, so it keeps clear of the heading. */
   .monitor { padding: 14px 0 138px; }
   .monitor .track-art { max-width: 250px; }

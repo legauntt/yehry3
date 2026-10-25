@@ -15,6 +15,7 @@ export function remixSeed(song, source) {
     remixSongId: source.songId,
     remixSource: source,
     voiceModel: brief.voiceModel || song.voiceModel || "v7",
+    ...((brief.voiceModel || song.voiceModel) === "v9" && (brief.voiceEpochRange || song.voiceEpochRange) ? { voiceEpochRange: brief.voiceEpochRange || song.voiceEpochRange } : (brief.voiceModel || song.voiceModel) === "v9" && (brief.voiceEpoch || song.voiceEpoch) ? { voiceEpoch: brief.voiceEpoch || song.voiceEpoch } : {}),
     ...(song.lyrics?.text && song.lyrics.text.length <= 30000 && song.lyrics.text.trim().split(/\s+/u).length <= 3000
       ? { lyricSheet: { text: song.lyrics.text, mode: "adapt" } } : {}),
   };
@@ -39,6 +40,8 @@ export function remixLink(song, escape) {
   const ready = availability?.status === 'ready' && new Date(availability.expiresAt) > new Date();
   const action = ready
     ? `<a class="text-link" href="${remixHref(song)}" aria-label="Remix ${escape(song.title)}">Remix ↗</a>`
+    : availability?.status === 'loading'
+      ? '<span class="small" role="status">Checking remix…</span>'
     : availability
       ? '<span class="small remix-unavailable" title="This recording is temporarily unavailable for remixing. Check back later.">Remix unavailable</span>'
       : `<a class="text-link" href="${remixHref(song)}" aria-label="Check remix availability for ${escape(song.title)}">Check remix availability ↗</a>`;

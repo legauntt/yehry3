@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "songId": "distonyc-5b14a7863e934800c119da40",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5b14a7863e934800c119da40-113e822bbd2c.mp3",
+  "audioSha256": "113e822bbd2c781dcab971e1562344c571362386ab3630bd712ddc963c9286c1",
+  "inputSha256": "1a1c5aaf2ba9dcfd228a05d1587b8fb371043e450e1210ec284ed50845e56913",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 295.04,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 28.44,
+      "text": "Every time I try to come, I fuck it up. Try one, fold a bit, and the whole room locks up. Try two, fold a boop, but Tracy shuts her eyes. Try three, fold a bit, fold a boop, and there goes a nine. Try four hair, weird smells under my breath. Try five, nine, eleven again, and she hits for the steps. She asks what I mean. I got nothing but heat. One bad little signal, and she's out in the street. Six, fold a bit. Seven, fold a boop. Eight, fold a bit, fold a boop.",
+      "uncertain": false
+    },
+    {
+      "start": 28.44,
+      "end": 58.02,
+      "text": "9, wrong room, 10, wrong tune, 11, what a time to bloom, 12, photobip, 13, photobook, 14, I ruined the moon, 15, that lamp looks rude, 16, photobip, 17, photobook, 18, not 11, again, 19, call a slam, 20, photobip, 21, photobook, 22, I said it too soon, 23, the seal is the moon,",
+      "uncertain": true
+    },
+    {
+      "start": 58.94,
+      "end": 61.52,
+      "text": "Twenty-four, fold-a-bip, fold-a-bip",
+      "uncertain": true
+    },
+    {
+      "start": 61.52,
+      "end": 64.28,
+      "text": "Twenty-five, she leaves the room",
+      "uncertain": true
+    },
+    {
+      "start": 64.28,
+      "end": 66.78,
+      "text": "Every time I try to come, I fuck it up",
+      "uncertain": false
+    },
+    {
+      "start": 66.78,
+      "end": 69.7,
+      "text": "A hundred bad signals, and I cannot shut up",
+      "uncertain": false
+    },
+    {
+      "start": 69.7,
+      "end": 72.48,
+      "text": "Twenty-six, I promised I would say her name",
+      "uncertain": false
+    },
+    {
+      "start": 72.48,
+      "end": 75.22,
+      "text": "Twenty-seven, fold-a-bip, and I blew it again",
+      "uncertain": false
+    },
+    {
+      "start": 75.22,
+      "end": 77.9,
+      "text": "Twenty-eight, I tried to branch her count in slow",
+      "uncertain": true
+    },
+    {
+      "start": 77.9,
+      "end": 80.66,
+      "text": "Twenty-nine, fold-a-bip, and she reached for a code",
+      "uncertain": false
+    },
+    {
+      "start": 80.66,
+      "end": 84.12,
+      "text": "Thirty, weird hair, weird smells, then a nervous laugh, she said",
+      "uncertain": false
+    },
+    {
+      "start": 84.12,
+      "end": 86.28,
+      "text": "Are you trying to break my heart in half?",
+      "uncertain": false
+    },
+    {
+      "start": 86.28,
+      "end": 89.1,
+      "text": "I said I was sorry, but sorry came late",
+      "uncertain": false
+    },
+    {
+      "start": 89.1,
+      "end": 91.7,
+      "text": "The camp took her taillights away from the game",
+      "uncertain": true
+    },
+    {
+      "start": 91.7,
+      "end": 93.6,
+      "text": "31, photobip",
+      "uncertain": false
+    },
+    {
+      "start": 93.6,
+      "end": 95.28,
+      "text": "32, photoboop",
+      "uncertain": false
+    },
+    {
+      "start": 95.28,
+      "end": 97.32,
+      "text": "33, this is not the move",
+      "uncertain": false
+    },
+    {
+      "start": 97.32,
+      "end": 99.22,
+      "text": "34, 9, 11 again",
+      "uncertain": false
+    },
+    {
+      "start": 99.22,
+      "end": 102.6,
+      "text": "35, please don't go, my friend",
+      "uncertain": false
+    },
+    {
+      "start": 102.6,
+      "end": 104.26,
+      "text": "36, photobip",
+      "uncertain": false
+    },
+    {
+      "start": 104.26,
+      "end": 105.66,
+      "text": "37, photoboop",
+      "uncertain": false
+    },
+    {
+      "start": 105.66,
+      "end": 107.9,
+      "text": "38, the wallpaper knows",
+      "uncertain": false
+    },
+    {
+      "start": 107.9,
+      "end": 110.44,
+      "text": "39, I stepped on my toes",
+      "uncertain": false
+    },
+    {
+      "start": 110.44,
+      "end": 112.92,
+      "text": "46, photobip",
+      "uncertain": false
+    },
+    {
+      "start": 112.92,
+      "end": 113.94,
+      "text": "Photoboop",
+      "uncertain": false
+    },
+    {
+      "start": 113.94,
+      "end": 116.14,
+      "text": "41, I made it too soon",
+      "uncertain": true
+    },
+    {
+      "start": 116.14,
+      "end": 118.8,
+      "text": "42, the same comes in tune",
+      "uncertain": true
+    },
+    {
+      "start": 118.8,
+      "end": 121.18,
+      "text": "43, photobip",
+      "uncertain": true
+    },
+    {
+      "start": 121.18,
+      "end": 122.88,
+      "text": "44, photobody",
+      "uncertain": false
+    },
+    {
+      "start": 122.88,
+      "end": 124.84,
+      "text": "46, that was why I made it here",
+      "uncertain": true
+    },
+    {
+      "start": 124.84,
+      "end": 127.26,
+      "text": "46, that was not adhering",
+      "uncertain": false
+    },
+    {
+      "start": 127.26,
+      "end": 129.52,
+      "text": "47, photobip",
+      "uncertain": false
+    },
+    {
+      "start": 129.52,
+      "end": 132.44,
+      "text": "48, the moment disappeared",
+      "uncertain": false
+    },
+    {
+      "start": 132.44,
+      "end": 135.48,
+      "text": "49, I shouldn't be here",
+      "uncertain": false
+    },
+    {
+      "start": 135.48,
+      "end": 137.72,
+      "text": "50, photobip",
+      "uncertain": false
+    },
+    {
+      "start": 137.72,
+      "end": 139.12,
+      "text": "51, photoboop",
+      "uncertain": false
+    },
+    {
+      "start": 139.12,
+      "end": 140.94,
+      "text": "52, light 11 again",
+      "uncertain": false
+    },
+    {
+      "start": 140.94,
+      "end": 143.28,
+      "text": "54, photobip",
+      "uncertain": false
+    },
+    {
+      "start": 143.28,
+      "end": 145.1,
+      "text": "55, photoboop",
+      "uncertain": false
+    },
+    {
+      "start": 146.94,
+      "end": 173.9,
+      "text": "50, 60, silent screams, 57, I lack good dreams, 58, photobip, photobook, 59, I don't know why, 60, I watch the homo die, 61, photobip, 62, photobook, 63, I said the bad thing, 64, again, again, 65, photobip, photobook, 66, here comes the end,",
+      "uncertain": true
+    },
+    {
+      "start": 174.66,
+      "end": 177.34,
+      "text": "68 for the BIP, here comes the end",
+      "uncertain": true
+    },
+    {
+      "start": 177.34,
+      "end": 180.5,
+      "text": "68 for the BIP, 69 for the BIP",
+      "uncertain": true
+    },
+    {
+      "start": 180.5,
+      "end": 184.82,
+      "text": "79, 11, you can't 71, no, don't defend",
+      "uncertain": true
+    },
+    {
+      "start": 185.86,
+      "end": 188.26,
+      "text": "72 for the BIP, 7, be sweet",
+      "uncertain": true
+    },
+    {
+      "start": 188.26,
+      "end": 190.52,
+      "text": "74, I was trying to be sweet",
+      "uncertain": false
+    },
+    {
+      "start": 190.52,
+      "end": 193.76,
+      "text": "75, now I'm alone on the street",
+      "uncertain": false
+    },
+    {
+      "start": 193.76,
+      "end": 196.6,
+      "text": "76 for the BIP, for the BIP",
+      "uncertain": false
+    },
+    {
+      "start": 196.6,
+      "end": 198.84,
+      "text": "77, what did I do?",
+      "uncertain": false
+    },
+    {
+      "start": 199.48,
+      "end": 201.98,
+      "text": "78, I had one simple cue",
+      "uncertain": false
+    },
+    {
+      "start": 201.98,
+      "end": 226.14,
+      "text": "79 for the bit, 80 for the boot, 81 I stop before the next pass south, 82 I put both feet back on the ground, 83 no code, 84 no joke, 85 no smokescreen in my throat,",
+      "uncertain": true
+    },
+    {
+      "start": 227.0,
+      "end": 229.74,
+      "text": "86, I'll tell the truth before the spark",
+      "uncertain": true
+    },
+    {
+      "start": 229.74,
+      "end": 232.46,
+      "text": "87, I thought your tenderness too dark",
+      "uncertain": true
+    },
+    {
+      "start": 232.46,
+      "end": 234.26,
+      "text": "88, no photobip",
+      "uncertain": false
+    },
+    {
+      "start": 234.26,
+      "end": 236.36,
+      "text": "89, no photoboop",
+      "uncertain": false
+    },
+    {
+      "start": 236.36,
+      "end": 238.44,
+      "text": "90, let the silence make some room",
+      "uncertain": true
+    },
+    {
+      "start": 238.44,
+      "end": 240.06,
+      "text": "91, I say I'm scared",
+      "uncertain": false
+    },
+    {
+      "start": 240.06,
+      "end": 241.54,
+      "text": "92, I want you here",
+      "uncertain": true
+    },
+    {
+      "start": 241.54,
+      "end": 243.42,
+      "text": "93, I hear the gamish clear",
+      "uncertain": false
+    },
+    {
+      "start": 243.42,
+      "end": 245.74,
+      "text": "94, no, 911 again",
+      "uncertain": false
+    },
+    {
+      "start": 245.74,
+      "end": 248.58,
+      "text": "95, I won't make pain a game",
+      "uncertain": false
+    },
+    {
+      "start": 248.58,
+      "end": 251.3,
+      "text": "96, I listen when she speaks",
+      "uncertain": false
+    },
+    {
+      "start": 251.3,
+      "end": 253.96,
+      "text": "97, I quit the cheaper tree",
+      "uncertain": true
+    },
+    {
+      "start": 254.6,
+      "end": 256.74,
+      "text": "Ninety-eight, I own the hundred single cent",
+      "uncertain": true
+    },
+    {
+      "start": 257.34,
+      "end": 260.2,
+      "text": "Ninety-nine, I name what all of them meant",
+      "uncertain": false
+    },
+    {
+      "start": 260.2,
+      "end": 262.9,
+      "text": "One hundred, I don't make love a riddle anymore",
+      "uncertain": false
+    },
+    {
+      "start": 262.9,
+      "end": 265.6,
+      "text": "One hundred-one, I leave the bad words at door",
+      "uncertain": false
+    },
+    {
+      "start": 265.6,
+      "end": 268.42,
+      "text": "Every time I try to come, I can speak my mind",
+      "uncertain": false
+    },
+    {
+      "start": 268.42,
+      "end": 271.6,
+      "text": "No photo bit between us, no one left behind",
+      "uncertain": false
+    },
+    {
+      "start": 291.46,
+      "end": 292.86,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

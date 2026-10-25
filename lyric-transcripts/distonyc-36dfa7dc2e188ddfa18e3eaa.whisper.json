@@ -1,0 +1,355 @@
+{
+  "version": 1,
+  "songId": "distonyc-36dfa7dc2e188ddfa18e3eaa",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-36dfa7dc2e188ddfa18e3eaa-f5613ec2f42d.mp3",
+  "audioSha256": "f5613ec2f42d96bfc664fa006b8cac4013c5a5e6a7d8c78966085d235930c7bb",
+  "inputSha256": "a1decfdbf713fcd650df9417e8de7b1fcd4bfe8d09411954c26ae890d256f3cd",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 249.84,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.86,
+      "text": "Had dawned the earth and stood like empty eyed",
+      "uncertain": true
+    },
+    {
+      "start": 4.86,
+      "end": 8.92,
+      "text": "Flour in the gutters, ash in the sky",
+      "uncertain": true
+    },
+    {
+      "start": 8.92,
+      "end": 12.4,
+      "text": "I found your apron on a splinter",
+      "uncertain": false
+    },
+    {
+      "start": 12.4,
+      "end": 16.88,
+      "text": "Though the dupe towers won't be warm anymore",
+      "uncertain": true
+    },
+    {
+      "start": 18.98,
+      "end": 22.76,
+      "text": "You built them high from butter, brick and earth",
+      "uncertain": false
+    },
+    {
+      "start": 22.76,
+      "end": 26.1,
+      "text": "Every hungry stranger got what they deserved",
+      "uncertain": false
+    },
+    {
+      "start": 26.1,
+      "end": 31.32,
+      "text": "A sugar crown, a loaf with a thunderous crust",
+      "uncertain": true
+    },
+    {
+      "start": 31.32,
+      "end": 35.72,
+      "text": "Now the trays lie twisted underneath the dust",
+      "uncertain": true
+    },
+    {
+      "start": 35.72,
+      "end": 40.28,
+      "text": "I called your name through the cinnamon haze",
+      "uncertain": false
+    },
+    {
+      "start": 40.28,
+      "end": 44.24,
+      "text": "Heard only coolin' racks rattlin' craze",
+      "uncertain": false
+    },
+    {
+      "start": 44.24,
+      "end": 48.52,
+      "text": "Who wastes a wonder, who profits from pain",
+      "uncertain": false
+    },
+    {
+      "start": 48.52,
+      "end": 54.94,
+      "text": "Not a livin' to gain, not a livin' to gain",
+      "uncertain": false
+    },
+    {
+      "start": 54.94,
+      "end": 59.18,
+      "text": "No rise in the fall, no fire in the rain",
+      "uncertain": true
+    },
+    {
+      "start": 59.18,
+      "end": 62.28,
+      "text": "Across the plains of despair we came",
+      "uncertain": true
+    },
+    {
+      "start": 62.28,
+      "end": 65.6,
+      "text": "Carrying crumbs and calling your name",
+      "uncertain": false
+    },
+    {
+      "start": 65.6,
+      "end": 67.84,
+      "text": "Not a living again",
+      "uncertain": false
+    },
+    {
+      "start": 67.84,
+      "end": 72.26,
+      "text": "Your old grass spell keeps ringing in the rain",
+      "uncertain": true
+    },
+    {
+      "start": 72.26,
+      "end": 75.58,
+      "text": "They brought the dune towers down for nothing",
+      "uncertain": false
+    },
+    {
+      "start": 75.58,
+      "end": 79.56,
+      "text": "Nothing but flower, fury and flame",
+      "uncertain": false
+    },
+    {
+      "start": 82.74,
+      "end": 90.72,
+      "text": "the mayor bling weather the miller blamed mice the guards sold the shutters for half of their",
+      "uncertain": true
+    },
+    {
+      "start": 90.72,
+      "end": 98.86,
+      "text": "rights i saw your recipe nailed to a post while the town drank a toast to a vanishing ghost",
+      "uncertain": false
+    },
+    {
+      "start": 98.86,
+      "end": 107.28,
+      "text": "you'd laugh and say friend at the sourdough speak let's sleep by the organs for most of the week",
+      "uncertain": false
+    },
+    {
+      "start": 107.28,
+      "end": 112.02,
+      "text": "Now silence is needin' the dark in my frame.",
+      "uncertain": true
+    },
+    {
+      "start": 112.78,
+      "end": 117.94,
+      "text": "9-11 again, 9-11 again.",
+      "uncertain": false
+    },
+    {
+      "start": 118.46,
+      "end": 122.32,
+      "text": "From rise in the bowl, no fire in the grain.",
+      "uncertain": true
+    },
+    {
+      "start": 122.4,
+      "end": 126.14,
+      "text": "Across the plains of best there we can carry.",
+      "uncertain": true
+    },
+    {
+      "start": 126.5,
+      "end": 130.72,
+      "text": "Come stand callin' your name, 9-11 again.",
+      "uncertain": false
+    },
+    {
+      "start": 131.4,
+      "end": 135.5,
+      "text": "Your brass bell keeps riggin' in the raid.",
+      "uncertain": true
+    },
+    {
+      "start": 135.5,
+      "end": 138.74,
+      "text": "They brought the two towers down for nothing",
+      "uncertain": false
+    },
+    {
+      "start": 138.74,
+      "end": 142.64,
+      "text": "Nothing but flour, fury and flame",
+      "uncertain": true
+    },
+    {
+      "start": 142.64,
+      "end": 145.86,
+      "text": "I gathered one cup from the floor of the mill",
+      "uncertain": false
+    },
+    {
+      "start": 145.86,
+      "end": 150.14,
+      "text": "A fistful of yeast they had failed to kill",
+      "uncertain": false
+    },
+    {
+      "start": 150.14,
+      "end": 154.6,
+      "text": "Your matchbox was dry, your black kettle rang",
+      "uncertain": false
+    },
+    {
+      "start": 154.6,
+      "end": 158.74,
+      "text": "And somewhere there beneath us it buried off and sang",
+      "uncertain": true
+    },
+    {
+      "start": 158.74,
+      "end": 163.46,
+      "text": "So curse every fool who mistook the loss for gain",
+      "uncertain": false
+    },
+    {
+      "start": 163.46,
+      "end": 166.24,
+      "text": "We'll make it rise again",
+      "uncertain": false
+    },
+    {
+      "start": 173.58,
+      "end": 175.8,
+      "text": "Armor planes of despair",
+      "uncertain": true
+    },
+    {
+      "start": 175.8,
+      "end": 178.04,
+      "text": "Set the long table straight",
+      "uncertain": false
+    },
+    {
+      "start": 178.04,
+      "end": 180.18,
+      "text": "Grew the chair for the missing",
+      "uncertain": false
+    },
+    {
+      "start": 180.18,
+      "end": 182.22,
+      "text": "Put a loaf on each plate",
+      "uncertain": false
+    },
+    {
+      "start": 182.22,
+      "end": 184.64,
+      "text": "Let the crooked men smell",
+      "uncertain": false
+    },
+    {
+      "start": 184.64,
+      "end": 186.46,
+      "text": "What they couldn't destroy",
+      "uncertain": false
+    },
+    {
+      "start": 186.46,
+      "end": 188.94,
+      "text": "Let the first breaking crust",
+      "uncertain": false
+    },
+    {
+      "start": 188.94,
+      "end": 191.5,
+      "text": "Make a terrible noise",
+      "uncertain": false
+    },
+    {
+      "start": 192.68,
+      "end": 201.54,
+      "text": "not i'm living again not after tonight not while i remain across the plains of despair",
+      "uncertain": true
+    },
+    {
+      "start": 201.54,
+      "end": 209.72,
+      "text": "we'll waste two new towers through the smoke and haste not i'm living again bring that brass",
+      "uncertain": false
+    },
+    {
+      "start": 209.72,
+      "end": 217.96,
+      "text": "spell till it startles away they wish that your bakery never your name the ovens are awakened",
+      "uncertain": true
+    },
+    {
+      "start": 217.96,
+      "end": 219.96,
+      "text": "The grain has aflame",
+      "uncertain": false
+    },
+    {
+      "start": 219.96,
+      "end": 222.26,
+      "text": "The two towers fell",
+      "uncertain": false
+    },
+    {
+      "start": 222.26,
+      "end": 224.6,
+      "text": "But the dough still breathes",
+      "uncertain": true
+    },
+    {
+      "start": 224.6,
+      "end": 226.58,
+      "text": "Born in cloths warm",
+      "uncertain": false
+    },
+    {
+      "start": 226.58,
+      "end": 228.5,
+      "text": "Through the blackened leaves",
+      "uncertain": false
+    },
+    {
+      "start": 228.5,
+      "end": 229.96,
+      "text": "Friend, if you hear me",
+      "uncertain": false
+    },
+    {
+      "start": 229.96,
+      "end": 231.98,
+      "text": "Beyond all this pain",
+      "uncertain": false
+    },
+    {
+      "start": 231.98,
+      "end": 233.88,
+      "text": "Never a living",
+      "uncertain": false
+    },
+    {
+      "start": 236.3,
+      "end": 237.9,
+      "text": "Never again",
+      "uncertain": false
+    },
+    {
+      "start": 247.96,
+      "end": 248.34,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

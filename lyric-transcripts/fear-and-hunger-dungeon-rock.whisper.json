@@ -1,0 +1,337 @@
+{
+  "version": 1,
+  "songId": "fear-and-hunger-dungeon-rock",
+  "audioUrl": "/fearhunger/audio/fear-and-hunger-dungeon-rock.mp3",
+  "audioSha256": "3875d2e65a635cfd9c723449f9ab6c5a6a40f115ccc059ccb5992f0c49bebde6",
+  "inputSha256": "3875d2e65a635cfd9c723449f9ab6c5a6a40f115ccc059ccb5992f0c49bebde6",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 270.0,
+  "segments": [
+    {
+      "start": 2.94,
+      "end": 10.36,
+      "text": "Feeling hungry, tell me what a crown is worth",
+      "uncertain": true
+    },
+    {
+      "start": 17.74,
+      "end": 22.48,
+      "text": "Down the stairs to find the God, with a lantern and a blade",
+      "uncertain": true
+    },
+    {
+      "start": 22.48,
+      "end": 26.96,
+      "text": "Past the prison walls of Rondon, where the waking world decay",
+      "uncertain": false
+    },
+    {
+      "start": 26.96,
+      "end": 29.38,
+      "text": "Grogor of the hand that breaks",
+      "uncertain": true
+    },
+    {
+      "start": 29.38,
+      "end": 31.66,
+      "text": "Sylveon, the hand that grows",
+      "uncertain": false
+    },
+    {
+      "start": 31.66,
+      "end": 33.98,
+      "text": "What we meet are fading traces",
+      "uncertain": false
+    },
+    {
+      "start": 33.98,
+      "end": 36.3,
+      "text": "Of the powers no man knows",
+      "uncertain": false
+    },
+    {
+      "start": 36.3,
+      "end": 38.46,
+      "text": "Wonderstone, the golden city",
+      "uncertain": false
+    },
+    {
+      "start": 38.46,
+      "end": 40.84,
+      "text": "Harbor burns behind my eyes",
+      "uncertain": true
+    },
+    {
+      "start": 40.84,
+      "end": 42.98,
+      "text": "Past and present fold together",
+      "uncertain": false
+    },
+    {
+      "start": 42.98,
+      "end": 45.78,
+      "text": "And the throne is dressed in lies",
+      "uncertain": false
+    },
+    {
+      "start": 48.04,
+      "end": 50.04,
+      "text": "Fear and hunger",
+      "uncertain": false
+    },
+    {
+      "start": 50.04,
+      "end": 53.56,
+      "text": "Tell me what a drought he is worth",
+      "uncertain": true
+    },
+    {
+      "start": 53.56,
+      "end": 58.92,
+      "text": "When the hands that shake the heavens turn their faces from the earth",
+      "uncertain": true
+    },
+    {
+      "start": 58.92,
+      "end": 64.54,
+      "text": "Fear and hunger, here the empty kid comes home",
+      "uncertain": true
+    },
+    {
+      "start": 65.3,
+      "end": 71.58,
+      "text": "There's a child below the city and she doesn't need your heart",
+      "uncertain": true
+    },
+    {
+      "start": 83.68,
+      "end": 101.82,
+      "text": "Five went looking for their makers. Four came back with borrowed crowns. Nos Ramos saw the widow was turning and refused to be tied down. The new gods fill the hall of silence while another takes the chair. All that power, all that wanting, same old hunger waiting there.",
+      "uncertain": true
+    },
+    {
+      "start": 101.82,
+      "end": 103.98,
+      "text": "The garden dreamed the world's united",
+      "uncertain": true
+    },
+    {
+      "start": 103.98,
+      "end": 106.36,
+      "text": "Build and dream beyond her reign",
+      "uncertain": true
+    },
+    {
+      "start": 106.36,
+      "end": 109.0,
+      "text": "In their daughters slept an ancient soul",
+      "uncertain": false
+    },
+    {
+      "start": 109.0,
+      "end": 111.66,
+      "text": "Too much power for a name",
+      "uncertain": false
+    },
+    {
+      "start": 113.48,
+      "end": 115.56,
+      "text": "Fear and hunger",
+      "uncertain": false
+    },
+    {
+      "start": 115.56,
+      "end": 118.74,
+      "text": "Tell me what a crown is worth",
+      "uncertain": false
+    },
+    {
+      "start": 119.48,
+      "end": 122.08,
+      "text": "When the hand that shake the heavens",
+      "uncertain": true
+    },
+    {
+      "start": 122.08,
+      "end": 124.32,
+      "text": "Turn their faces from the earth",
+      "uncertain": false
+    },
+    {
+      "start": 124.32,
+      "end": 126.84,
+      "text": "Fear and hunger",
+      "uncertain": false
+    },
+    {
+      "start": 126.84,
+      "end": 130.78,
+      "text": "Hear the empty kingdoms mourn",
+      "uncertain": false
+    },
+    {
+      "start": 130.78,
+      "end": 137.04,
+      "text": "There's a child below the city, and she doesn't need your phone",
+      "uncertain": true
+    },
+    {
+      "start": 144.58,
+      "end": 148.92,
+      "text": "Result servants watch the stairway, pocket cap wouldn't make a trade",
+      "uncertain": true
+    },
+    {
+      "start": 148.92,
+      "end": 153.48,
+      "text": "I'd keep walking with the little girl, blast the bargains in the shade",
+      "uncertain": true
+    },
+    {
+      "start": 153.48,
+      "end": 158.0,
+      "text": "Through the fallen gut of depths, to the altar in his bones",
+      "uncertain": false
+    },
+    {
+      "start": 158.0,
+      "end": 160.34,
+      "text": "From a life of fear and hunger",
+      "uncertain": true
+    },
+    {
+      "start": 160.34,
+      "end": 162.38,
+      "text": "Wakes a god without a throne",
+      "uncertain": false
+    },
+    {
+      "start": 162.38,
+      "end": 164.74,
+      "text": "She won't bring a painless morning",
+      "uncertain": true
+    },
+    {
+      "start": 164.74,
+      "end": 166.78,
+      "text": "She won't put the world to bed",
+      "uncertain": false
+    },
+    {
+      "start": 166.78,
+      "end": 169.16,
+      "text": "She will drive the hands of mankind",
+      "uncertain": false
+    },
+    {
+      "start": 169.16,
+      "end": 171.34,
+      "text": "Past the boundaries of their dread",
+      "uncertain": false
+    },
+    {
+      "start": 171.34,
+      "end": 173.6,
+      "text": "One small kindness in the darkness",
+      "uncertain": false
+    },
+    {
+      "start": 173.6,
+      "end": 175.74,
+      "text": "One last mercy at the end",
+      "uncertain": false
+    },
+    {
+      "start": 175.74,
+      "end": 177.96,
+      "text": "Once a man became warmer",
+      "uncertain": false
+    },
+    {
+      "start": 177.96,
+      "end": 180.56,
+      "text": "Now another rage begins",
+      "uncertain": false
+    },
+    {
+      "start": 183.02,
+      "end": 185.06,
+      "text": "Fear and hunger",
+      "uncertain": false
+    },
+    {
+      "start": 185.06,
+      "end": 188.38,
+      "text": "Tell me what a crown is worth",
+      "uncertain": false
+    },
+    {
+      "start": 188.96,
+      "end": 191.58,
+      "text": "When the hands that shape the heavens",
+      "uncertain": false
+    },
+    {
+      "start": 191.58,
+      "end": 193.84,
+      "text": "Turn their faces from the earth",
+      "uncertain": false
+    },
+    {
+      "start": 193.84,
+      "end": 196.24,
+      "text": "Feel that hunger",
+      "uncertain": true
+    },
+    {
+      "start": 196.24,
+      "end": 199.32,
+      "text": "In the empty kingdom's bone",
+      "uncertain": true
+    },
+    {
+      "start": 200.08,
+      "end": 202.66,
+      "text": "There's a child below the city",
+      "uncertain": true
+    },
+    {
+      "start": 202.66,
+      "end": 206.1,
+      "text": "And she doesn't need your phone",
+      "uncertain": false
+    },
+    {
+      "start": 216.2,
+      "end": 223.78,
+      "text": "Fear and hunger, she doesn't need your throne",
+      "uncertain": true
+    },
+    {
+      "start": 223.78,
+      "end": 232.62,
+      "text": "Fear and hunger, she doesn't need your throne",
+      "uncertain": true
+    },
+    {
+      "start": 232.62,
+      "end": 241.52,
+      "text": "Fear and hunger, she doesn't need your throne",
+      "uncertain": false
+    },
+    {
+      "start": 247.28,
+      "end": 249.44,
+      "text": "Fear and hunger",
+      "uncertain": false
+    },
+    {
+      "start": 251.38,
+      "end": 254.94,
+      "text": "Tell me what a crowd is worth",
+      "uncertain": true
+    }
+  ]
+}

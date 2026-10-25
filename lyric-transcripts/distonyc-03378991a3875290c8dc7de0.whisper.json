@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "songId": "distonyc-03378991a3875290c8dc7de0",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-03378991a3875290c8dc7de0-4cdfe039d449.mp3",
+  "audioSha256": "4cdfe039d449eaba159a31e793b6b0439f2b925ecb5402829e5a2bcf43d3ed1e",
+  "inputSha256": "bf7f299965bd4e5bb94152a3929273adeab2dee048f99226f7044cd4cdc9a632",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 169.2,
+  "segments": [
+    {
+      "start": 2.4,
+      "end": 9.72,
+      "text": "you asked why i watched the midnight train though no one steps down for me",
+      "uncertain": true
+    },
+    {
+      "start": 9.72,
+      "end": 18.92,
+      "text": "sit here stranger out of the rain i'll tell you what i used to be i was 17 with a paper",
+      "uncertain": false
+    },
+    {
+      "start": 18.92,
+      "end": 27.24,
+      "text": "mile path away and a borrowed coat i left my mother beside this track with her warning",
+      "uncertain": true
+    },
+    {
+      "start": 27.24,
+      "end": 37.54,
+      "text": "caught in my throat I carried crates by the harbor wall played piano in rooms without names",
+      "uncertain": true
+    },
+    {
+      "start": 37.54,
+      "end": 43.68,
+      "text": "loved one woman through spring and fall then traded our peace for brighter flames",
+      "uncertain": false
+    },
+    {
+      "start": 43.68,
+      "end": 53.34,
+      "text": "she left one note by an empty cup you chase every door that appears I laughed pack light and hurried",
+      "uncertain": true
+    },
+    {
+      "start": 53.34,
+      "end": 62.72,
+      "text": "up that laugh costs 20 years so hear me stranger hear me plain a life is more than believing",
+      "uncertain": true
+    },
+    {
+      "start": 62.72,
+      "end": 72.06,
+      "text": "every window upon a train shows what the arc was not seeing i won some gold i lost some friends",
+      "uncertain": true
+    },
+    {
+      "start": 72.06,
+      "end": 78.6,
+      "text": "i learned too late what time can stand if somebody waits when your journey ends",
+      "uncertain": false
+    },
+    {
+      "start": 78.6,
+      "end": 83.82,
+      "text": "Go home, go home to there",
+      "uncertain": false
+    },
+    {
+      "start": 84.8,
+      "end": 88.22,
+      "text": "The stranger turned beneath the station light",
+      "uncertain": true
+    },
+    {
+      "start": 88.22,
+      "end": 90.84,
+      "text": "My own young face stared back",
+      "uncertain": false
+    },
+    {
+      "start": 90.84,
+      "end": 93.98,
+      "text": "Same paper map, same lies, too bright",
+      "uncertain": false
+    },
+    {
+      "start": 93.98,
+      "end": 96.94,
+      "text": "Same one-way ticket on the track",
+      "uncertain": false
+    },
+    {
+      "start": 96.94,
+      "end": 100.42,
+      "text": "I seized his sleeve as the whistle cried",
+      "uncertain": false
+    },
+    {
+      "start": 100.42,
+      "end": 103.62,
+      "text": "But my hand passed through like steam",
+      "uncertain": false
+    },
+    {
+      "start": 103.62,
+      "end": 105.7,
+      "text": "Does she forgive me?",
+      "uncertain": false
+    },
+    {
+      "start": 106.0,
+      "end": 108.14,
+      "text": "The boy replied, I said",
+      "uncertain": false
+    },
+    {
+      "start": 108.14,
+      "end": 122.16,
+      "text": "wake up before i dream hear me stranger hear me now let find this one departure turn from the",
+      "uncertain": true
+    },
+    {
+      "start": 122.16,
+      "end": 129.64,
+      "text": "engine keep your power love is the longer adventure the train rolled over the silver",
+      "uncertain": true
+    },
+    {
+      "start": 129.64,
+      "end": 133.28,
+      "text": "And the boy walked out of view",
+      "uncertain": true
+    },
+    {
+      "start": 133.28,
+      "end": 136.6,
+      "text": "I stayed on on platform three",
+      "uncertain": false
+    },
+    {
+      "start": 136.6,
+      "end": 139.62,
+      "text": "Then rose to go home too",
+      "uncertain": false
+    },
+    {
+      "start": 140.76,
+      "end": 144.54,
+      "text": "If her old lamp still warms the pain",
+      "uncertain": false
+    },
+    {
+      "start": 144.54,
+      "end": 147.7,
+      "text": "I'll knock and speak my name",
+      "uncertain": false
+    },
+    {
+      "start": 147.7,
+      "end": 151.06,
+      "text": "No more stories for the midnight train",
+      "uncertain": false
+    },
+    {
+      "start": 154.2,
+      "end": 156.38,
+      "text": "I'm going home",
+      "uncertain": false
+    },
+    {
+      "start": 156.38,
+      "end": 161.3,
+      "text": "The way I can",
+      "uncertain": false
+    }
+  ]
+}

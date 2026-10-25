@@ -1,3 +1,4 @@
+import { watchCatalog } from "../assets/realtime.js";
 import { musicBackendBadge } from "/assets/music-provenance.js";
 import { remixBadge } from "/assets/remix-badge.js";
 import { api } from "../assets/api.js";
@@ -164,7 +165,7 @@ function update(songs) {
       warning.className = "quality-container";
       card.querySelector("audio").before(warning);
     }
-    const notice = qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures);
+    const notice = qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt);
     if (warning.dataset.notice !== notice) {
       warning.innerHTML = notice;
       warning.dataset.notice = notice;
@@ -198,11 +199,16 @@ function update(songs) {
     });
   note.textContent = `${cards.filter((card) => !card.hidden).length} songs · New releases appear automatically.`;
 }
+let refreshAgain = false;
 async function refresh() {
-  if (busy || document.hidden) return;
+  if (document.hidden) return;
+  if (busy) { refreshAgain = true; return; }
   busy = true;
   try {
-    update((await api("/songs/summary")).songs);
+    do {
+      refreshAgain = false;
+      update((await api("/songs/summary")).songs);
+    } while (refreshAgain && !document.hidden);
   } catch {
     note.textContent =
       "The saved collection is available. Checking for new songs is temporarily offline.";
@@ -216,6 +222,7 @@ try {
   /* The original three recordings remain available in HTML. */
 }
 await refresh();
+watchCatalog(refresh);
 timer = setInterval(refresh, 60000);
 document.addEventListener("visibilitychange", () => {
   if (!document.hidden) refresh();

@@ -1,0 +1,337 @@
+{
+  "version": 1,
+  "songId": "distonyc-92f0e589f6588ad81f987ae8",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-92f0e589f6588ad81f987ae8-e70080efeef7.mp3",
+  "audioSha256": "e70080efeef7c6fe3d05314e993ff0f9886de5778e17eefe825ac8c4b3a0974c",
+  "inputSha256": "3fc02f4621b6a699b5a3c231aa52867e61076d391f8872b0997c090b379a6cd0",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 239.9869375,
+  "segments": [
+    {
+      "start": 7.08,
+      "end": 14.04,
+      "text": "the clinic clock was coughing midnight the waiting room was blue with rain",
+      "uncertain": true
+    },
+    {
+      "start": 14.04,
+      "end": 21.72,
+      "text": "a paper cup up and up magazine everybody's spelling out their pain",
+      "uncertain": false
+    },
+    {
+      "start": 22.58,
+      "end": 29.4,
+      "text": "then tony came through the side door with a suitcase humming love",
+      "uncertain": false
+    },
+    {
+      "start": 29.4,
+      "end": 34.1,
+      "text": "He said, I got a lamp for the long nights",
+      "uncertain": false
+    },
+    {
+      "start": 34.1,
+      "end": 37.16,
+      "text": "And a little more than you know",
+      "uncertain": true
+    },
+    {
+      "start": 38.3,
+      "end": 42.4,
+      "text": "No white coat, no miracle pitch",
+      "uncertain": false
+    },
+    {
+      "start": 42.4,
+      "end": 46.84,
+      "text": "Just a battered case and a switch",
+      "uncertain": false
+    },
+    {
+      "start": 50.24,
+      "end": 53.58,
+      "text": "Cancer, sickle cell, lupus 2",
+      "uncertain": false
+    },
+    {
+      "start": 54.48,
+      "end": 57.34,
+      "text": "Hemorrhoids, bad teeth, the common flu",
+      "uncertain": false
+    },
+    {
+      "start": 57.34,
+      "end": 59.56,
+      "text": "You think that's all he's got?",
+      "uncertain": false
+    },
+    {
+      "start": 60.68,
+      "end": 62.28,
+      "text": "Absolutely not",
+      "uncertain": false
+    },
+    {
+      "start": 65.18,
+      "end": 69.24,
+      "text": "He turned the fear into a Saturday song",
+      "uncertain": true
+    },
+    {
+      "start": 69.24,
+      "end": 72.92,
+      "text": "Put a warm, bright wheel where the cold went wrong",
+      "uncertain": false
+    },
+    {
+      "start": 72.92,
+      "end": 74.96,
+      "text": "You think that's all he's got?",
+      "uncertain": false
+    },
+    {
+      "start": 76.42,
+      "end": 78.02,
+      "text": "Absolutely not",
+      "uncertain": false
+    },
+    {
+      "start": 78.02,
+      "end": 82.08,
+      "text": "He polished every anxious question",
+      "uncertain": false
+    },
+    {
+      "start": 82.08,
+      "end": 85.6,
+      "text": "Till it shone like a diner spoon",
+      "uncertain": false
+    },
+    {
+      "start": 86.9,
+      "end": 90.58,
+      "text": "He made the old man laugh so hard",
+      "uncertain": false
+    },
+    {
+      "start": 90.58,
+      "end": 93.42,
+      "text": "He forgot the shape of the room",
+      "uncertain": true
+    },
+    {
+      "start": 93.42,
+      "end": 99.5,
+      "text": "A kid with a blanket round her shoulders",
+      "uncertain": false
+    },
+    {
+      "start": 99.5,
+      "end": 103.04,
+      "text": "Tapped a rhythm on the chair",
+      "uncertain": false
+    },
+    {
+      "start": 104.06,
+      "end": 107.42,
+      "text": "Tony said, we'll keep the lights on",
+      "uncertain": false
+    },
+    {
+      "start": 107.42,
+      "end": 110.88,
+      "text": "We'll make some breathing space in here",
+      "uncertain": false
+    },
+    {
+      "start": 114.98,
+      "end": 118.6,
+      "text": "No secret bottle, no magic cure",
+      "uncertain": false
+    },
+    {
+      "start": 118.6,
+      "end": 122.26,
+      "text": "Just stubborn love that can endure",
+      "uncertain": true
+    },
+    {
+      "start": 125.76,
+      "end": 129.06,
+      "text": "Cancer, sickle cell, lupus too",
+      "uncertain": true
+    },
+    {
+      "start": 130.0,
+      "end": 132.86,
+      "text": "Hemorrhoids, bad teeth, the common flu",
+      "uncertain": false
+    },
+    {
+      "start": 132.86,
+      "end": 135.02,
+      "text": "You think that's all he's got?",
+      "uncertain": false
+    },
+    {
+      "start": 135.82,
+      "end": 137.94,
+      "text": "Absolutely not",
+      "uncertain": false
+    },
+    {
+      "start": 137.94,
+      "end": 142.86,
+      "text": "He turned the fear into a Saturday song",
+      "uncertain": false
+    },
+    {
+      "start": 142.86,
+      "end": 146.48,
+      "text": "Put a warm, bright wheel where the cold went wrong",
+      "uncertain": true
+    },
+    {
+      "start": 146.48,
+      "end": 148.6,
+      "text": "You think that's all he's got?",
+      "uncertain": false
+    },
+    {
+      "start": 149.66,
+      "end": 151.26,
+      "text": "Absolutely not",
+      "uncertain": false
+    },
+    {
+      "start": 154.16,
+      "end": 158.16,
+      "text": "Maybe he can't mend every broken thing",
+      "uncertain": false
+    },
+    {
+      "start": 158.16,
+      "end": 161.06,
+      "text": "Maybe nobody holds that kind of key",
+      "uncertain": false
+    },
+    {
+      "start": 162.0,
+      "end": 165.94,
+      "text": "But he can stand beside the shaking hands",
+      "uncertain": false
+    },
+    {
+      "start": 165.94,
+      "end": 168.84,
+      "text": "And say you don't disappear on me",
+      "uncertain": true
+    },
+    {
+      "start": 171.52,
+      "end": 175.58,
+      "text": "The trombone swings through the narrow hall",
+      "uncertain": false
+    },
+    {
+      "start": 175.58,
+      "end": 178.46,
+      "text": "The trumpet lifts the cracked up sky",
+      "uncertain": false
+    },
+    {
+      "start": 178.46,
+      "end": 183.46,
+      "text": "And every name gets carried forward",
+      "uncertain": false
+    },
+    {
+      "start": 183.46,
+      "end": 186.36,
+      "text": "On a note that will not die",
+      "uncertain": false
+    },
+    {
+      "start": 189.56,
+      "end": 192.92,
+      "text": "Cancer, sickle cell, lupus 2",
+      "uncertain": false
+    },
+    {
+      "start": 192.92,
+      "end": 196.72,
+      "text": "Hemorrhoids, bad teeth, the common flu",
+      "uncertain": false
+    },
+    {
+      "start": 196.72,
+      "end": 198.86,
+      "text": "You think that's all he's got?",
+      "uncertain": true
+    },
+    {
+      "start": 199.64,
+      "end": 201.66,
+      "text": "Absolutely not",
+      "uncertain": false
+    },
+    {
+      "start": 201.66,
+      "end": 206.74,
+      "text": "He's got a joke for the waiting line",
+      "uncertain": false
+    },
+    {
+      "start": 206.74,
+      "end": 210.38,
+      "text": "A grasp and pulse and borrowed time",
+      "uncertain": false
+    },
+    {
+      "start": 210.38,
+      "end": 212.42,
+      "text": "You think that's all he's got?",
+      "uncertain": false
+    },
+    {
+      "start": 213.2,
+      "end": 215.22,
+      "text": "Absolutely not",
+      "uncertain": false
+    },
+    {
+      "start": 216.38,
+      "end": 220.92,
+      "text": "He can't promise the world will heal tonight",
+      "uncertain": false
+    },
+    {
+      "start": 220.92,
+      "end": 225.94,
+      "text": "But he'll leave one bright cord burning right",
+      "uncertain": true
+    },
+    {
+      "start": 225.94,
+      "end": 228.72,
+      "text": "Absolutely not",
+      "uncertain": true
+    },
+    {
+      "start": 228.72,
+      "end": 231.76,
+      "text": "That's all he's got",
+      "uncertain": false
+    },
+    {
+      "start": 231.76,
+      "end": 234.52,
+      "text": "Absolutely not",
+      "uncertain": false
+    }
+  ]
+}

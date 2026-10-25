@@ -4,10 +4,11 @@ from pathlib import Path
 from common import API, APIError, inside, load, save, sha, singleton, utc
 from winprocess import Stopped, run_owned
 from planner import make_plan
-from publish import upload, upload_alternates, update_catalog
+from publish import upload, upload_alternates, upload_asset, update_catalog, update_guide_catalog
+from guide_audio import capture as capture_guide, saved as saved_guide
 from public_plan import public_plan
 from lyrics import make_sheet, export_sheet
-from voice_models import selected, capabilities as voice_capabilities
+from voice_models import selected, selected_epoch, selected_range, capabilities as voice_capabilities
 from music_backend import selected as selected_backend, capabilities as music_capabilities, payment_attention
 from remix_sources import CAPABILITY as REMIX_CAPABILITY, resolve as remix_basis, register as register_remix
 
@@ -62,11 +63,15 @@ class Heartbeat:
         self.done.set()
         if self.thread.is_alive(): self.thread.join(timeout=30)
 
-def metadata(config, plan, result, voice_model='v6', music_backend='local'):
+def metadata(config, plan, result, voice_model='v6', music_backend='local', voice_epoch=None, voice_epoch_range=None):
     if result.get('status') != 'verified' or result.get('new_training') is not False: raise ValueError('The renderer did not verify the saved Tony voice mix')
     if result.get('voice_model', 'v6') != voice_model: raise ValueError('The rendered voice model differs from the confirmed request')
     if voice_model == 'v8' and result.get('generation_profile') != 'v8': raise ValueError('The V8 generation profile differs from the confirmed request')
     if result.get('music_backend', 'local') != music_backend: raise ValueError('The rendered band generator differs from the confirmed request')
+    if voice_epoch is not None and result.get('voice_epoch') != voice_epoch:
+        raise ValueError('The rendered V9 epoch differs from the confirmed request')
+    if result.get('voice_epoch_range') != voice_epoch_range:
+        raise ValueError('The rendered V9 epoch range differs from the confirmed request')
     files = result.get('files', [])
     if {Path(item['path']).suffix.lower() for item in files} != {'.mp3', '.wav'}: raise ValueError('Both verified MP3 and WAV are required')
     for item in files:
@@ -77,6 +82,8 @@ def metadata(config, plan, result, voice_model='v6', music_backend='local'):
     export_sheet(config, mp3['path'], plan['title'], sheet)
     return mp3['path'], {'title': plan['title'], 'duration': result['duration'], 'bytes': mp3['bytes'], 'sha256': mp3['sha256'],
                          'voiceModel': voice_model,
+                         **({'voiceEpoch': voice_epoch} if voice_epoch is not None else {}),
+                         **({'voiceEpochRange': voice_epoch_range} if voice_epoch_range is not None else {}),
                          **({'musicBackend': music_backend} if music_backend != 'local' else {}),
                          **({'generationProfile': 'v8'} if result.get('generation_profile') == 'v8' else {}),
                          'lyrics': sheet, 'collections': ['distonyc', 'fearhunger'] if plan.get('fear_hunger') else ['distonyc'],
@@ -104,7 +111,7 @@ def run_once(config, api, verify_existing=None):
                 register_remix(config, api, previous)
             journal.unlink(); save(health, {'at': utc(), 'status': previous['status'], 'promptId': previous['id']}); return
     capabilities = ['request-materials-v1'] + ([REMIX_CAPABILITY] if config.get('catalog_remix') else [])
-    if config.get('generation_v8'): capabilities.append('generation-v8-v1')
+    if config.get('generation_v8'): capabilities.extend(['generation-v8-v1', 'instrumental-heavy-v1'])
     capabilities.extend(voice_capabilities(config))
     capabilities.extend(music_capabilities(config))
     try: prompt = api.call('/claim', {**claim, 'capabilities': capabilities})['prompt']
@@ -120,7 +127,10 @@ def run_once(config, api, verify_existing=None):
         journal.unlink(); save(health, {'at': utc(), 'status': 'waiting_for_review', 'promptId': prompt['id']}); return
     if prompt['status'] in TERMINAL:
         if prompt['status'] == 'published':
-            update_catalog(config, prompt)
+            guide = saved_guide(directory)
+            update_catalog(config, prompt, guide)
+            if guide:
+                update_guide_catalog(config, prompt['songId'], guide)
             register_remix(config, api, prompt)
         journal.unlink(); return
     heartbeat = Heartbeat(api, prompt, claim['leaseToken'], directory, health)
@@ -141,7 +151,9 @@ def run_once(config, api, verify_existing=None):
             voice_model = selected(prompt)
             basis = basis_files(config, prompt)
             # The model receives creative metadata; local paths remain in the trusted renderer input.
-            plan = make_plan(config, prompt, directory, basis, heartbeat.stopped)
+            from provider_local_recovery import frozen_prompt
+            production_prompt = frozen_prompt(prompt, directory)
+            plan = make_plan(config, production_prompt, directory, basis, heartbeat.stopped)
             if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
             if prompt.get('details', {}).get('generation'):
                 from generation_flow import approved_plan
@@ -153,8 +165,10 @@ def run_once(config, api, verify_existing=None):
             if not result_file.exists():
                 request = {'config': config, 'prompt_id': prompt['id'], 'plan': plan, 'basis': basis, 'directory': str(directory),
                     'voice_model': voice_model}
-                if selected_backend(prompt) != 'local':
-                    request.update(music_backend=selected_backend(prompt), paid_authorization=prompt.get('paidAuthorization'))
+                if selected_epoch(prompt) is not None: request['voice_epoch'] = selected_epoch(prompt)
+                if selected_range(prompt) is not None: request['voice_epoch_range'] = selected_range(prompt)
+                if selected_backend(production_prompt) != 'local':
+                    request.update(music_backend=selected_backend(production_prompt), paid_authorization=production_prompt.get('paidAuthorization'))
                 if plan.get('generation'): request['generation_profile'] = 'v8'
                 if verify_existing: request['verify_existing'] = str(Path(verify_existing).resolve())
                 from frozen_request import reuse_or_save
@@ -178,16 +192,18 @@ def run_once(config, api, verify_existing=None):
                     raise
             from pitch_alternate import b_side, fields as pitch_fields
             alternate = b_side(config, plan, directory, heartbeat, run_owned, Stopped)
-            mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
+            mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'voice_epoch': selected_epoch(prompt)} if selected_epoch(prompt) is not None else {}), **({'voice_epoch_range': selected_range(prompt)} if selected_range(prompt) is not None else {}), **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
             completed.update(pitch_fields(load(result_file), alternate))
+            capture_guide(config, load(result_file), directory)
             prompt = action('complete', result=completed)
         else:
             if not result_file.exists(): raise ValueError('This PC is missing the completed mix. Restore its saved job folder before publishing.')
             plan = load(directory / ('approved-plan.json' if (directory / 'approved-plan.json').exists() else 'plan.json'))['plan']
             voice_model = selected(prompt)
-            mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
+            mp3, completed = metadata(config, plan, load(result_file), voice_model, **({'voice_epoch': selected_epoch(prompt)} if selected_epoch(prompt) is not None else {}), **({'voice_epoch_range': selected_range(prompt)} if selected_range(prompt) is not None else {}), **({'music_backend': selected_backend(prompt)} if selected_backend(prompt) != 'local' else {}))
             from pitch_alternate import fields as pitch_fields, saved as saved_b_side
             completed.update(pitch_fields(load(result_file), saved_b_side(directory, config)))
+            capture_guide(config, load(result_file), directory)
             # Finish pre-upgrade publications with their original immutable metadata.
             if any(completed.get(key) != value for key, value in prompt['result'].items()): raise ValueError('The saved mix differs from the server result')
         if heartbeat.stopped(): raise Stopped('Cancellation or lease loss')
@@ -195,10 +211,15 @@ def run_once(config, api, verify_existing=None):
         heartbeat.stage = 'Publishing the verified MP3'
         upload(config, prompt, mp3, directory, heartbeat.stopped)
         upload_alternates(config, prompt, directory, heartbeat.stopped)
+        guide = saved_guide(directory)
+        if guide:
+            upload_asset(config, prompt['songId'], guide, directory / 'guide.mp3', directory, heartbeat.stopped)
         if heartbeat.stopped(): raise Stopped('Lease lost during publication')
         prompt = action('publish')
         heartbeat.close()
-        update_catalog(config, prompt)
+        update_catalog(config, prompt, guide)
+        if guide:
+            update_guide_catalog(config, prompt['songId'], guide)
         register_remix(config, api, prompt)
         save(health, {'at': utc(), 'status': 'published', 'promptId': prompt['id'], 'url': prompt['releaseUrl']})
         journal.unlink()

@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "songId": "distonyc-10f8138491811e227258cd9a",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-10f8138491811e227258cd9a-8154457fc1ff.mp3",
+  "audioSha256": "8154457fc1ff1ea3db76c48f074ba5914772c3ee047ebded4c3bdfa1a6ef73a6",
+  "inputSha256": "8154457fc1ff1ea3db76c48f074ba5914772c3ee047ebded4c3bdfa1a6ef73a6",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.0,
+  "segments": [
+    {
+      "start": 1.62,
+      "end": 17.22,
+      "text": "What is love, baby don't hurt me, don't hurt me, no more, baby don't hurt me, don't hurt me.",
+      "uncertain": true
+    },
+    {
+      "start": 34.22,
+      "end": 38.24,
+      "text": "I don't know why you're not there",
+      "uncertain": true
+    },
+    {
+      "start": 38.24,
+      "end": 42.0,
+      "text": "I give you my love, but you don't care",
+      "uncertain": true
+    },
+    {
+      "start": 42.0,
+      "end": 46.02,
+      "text": "So what is right, what is wrong",
+      "uncertain": false
+    },
+    {
+      "start": 46.02,
+      "end": 48.26,
+      "text": "Give me a sign",
+      "uncertain": true
+    },
+    {
+      "start": 48.26,
+      "end": 52.3,
+      "text": "What is love, baby don't hurt me",
+      "uncertain": false
+    },
+    {
+      "start": 52.3,
+      "end": 55.58,
+      "text": "Don't hurt me, no more",
+      "uncertain": false
+    },
+    {
+      "start": 55.58,
+      "end": 59.86,
+      "text": "What is love, baby don't hurt me",
+      "uncertain": true
+    },
+    {
+      "start": 59.86,
+      "end": 63.7,
+      "text": "Don't hurt me, no mo mo",
+      "uncertain": false
+    },
+    {
+      "start": 80.76,
+      "end": 84.72,
+      "text": "Oh, I don't know, what can I do?",
+      "uncertain": true
+    },
+    {
+      "start": 85.1,
+      "end": 88.48,
+      "text": "What else can I say, it's up to you",
+      "uncertain": false
+    },
+    {
+      "start": 88.48,
+      "end": 92.48,
+      "text": "I know we're the one, just me and you",
+      "uncertain": false
+    },
+    {
+      "start": 92.48,
+      "end": 96.48,
+      "text": "I can't go on, what is love?",
+      "uncertain": true
+    },
+    {
+      "start": 97.04,
+      "end": 102.54,
+      "text": "Baby, don't hurt me, don't hurt me, no more, more",
+      "uncertain": true
+    },
+    {
+      "start": 102.54,
+      "end": 104.22,
+      "text": "What is love?",
+      "uncertain": false
+    },
+    {
+      "start": 104.82,
+      "end": 110.38,
+      "text": "Baby, don't hurt me, don't hurt me, no more, more",
+      "uncertain": false
+    },
+    {
+      "start": 126.86,
+      "end": 131.48,
+      "text": "I want no other, no other lover",
+      "uncertain": true
+    },
+    {
+      "start": 131.48,
+      "end": 135.22,
+      "text": "This is your life, our time",
+      "uncertain": false
+    },
+    {
+      "start": 135.22,
+      "end": 139.18,
+      "text": "When we are together, I need you forever",
+      "uncertain": false
+    },
+    {
+      "start": 139.18,
+      "end": 143.06,
+      "text": "Is it love? What is love?",
+      "uncertain": false
+    },
+    {
+      "start": 143.58,
+      "end": 147.34,
+      "text": "Baby, don't hurt me, don't hurt me",
+      "uncertain": false
+    },
+    {
+      "start": 147.34,
+      "end": 149.34,
+      "text": "No more, no more",
+      "uncertain": false
+    },
+    {
+      "start": 151.02,
+      "end": 153.18,
+      "text": "Baby, don't hurt me",
+      "uncertain": false
+    },
+    {
+      "start": 153.18,
+      "end": 155.1,
+      "text": "Don't hurt me",
+      "uncertain": false
+    },
+    {
+      "start": 155.1,
+      "end": 157.08,
+      "text": "No more, no more",
+      "uncertain": false
+    },
+    {
+      "start": 195.74,
+      "end": 199.74,
+      "text": "What is love, baby don't hurt me",
+      "uncertain": true
+    },
+    {
+      "start": 199.74,
+      "end": 203.6,
+      "text": "Don't hurt me, no more, no more",
+      "uncertain": true
+    },
+    {
+      "start": 203.6,
+      "end": 207.46,
+      "text": "What is love, baby, don't hurt me",
+      "uncertain": false
+    },
+    {
+      "start": 207.46,
+      "end": 211.12,
+      "text": "Don't hurt me, no more, no",
+      "uncertain": false
+    },
+    {
+      "start": 212.96,
+      "end": 227.36,
+      "text": "Oh, oh, oh, yeah",
+      "uncertain": true
+    },
+    {
+      "start": 227.36,
+      "end": 233.86,
+      "text": "I love you",
+      "uncertain": true
+    }
+  ]
+}

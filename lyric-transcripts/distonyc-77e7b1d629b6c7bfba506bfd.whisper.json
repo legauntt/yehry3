@@ -1,0 +1,301 @@
+{
+  "version": 1,
+  "songId": "distonyc-77e7b1d629b6c7bfba506bfd",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-77e7b1d629b6c7bfba506bfd-cbe724fd3051.mp3",
+  "audioSha256": "cbe724fd3051d6b5b09297f4c2bf894b803e4e0f4dcee6bf6b311a6e92ffe4fe",
+  "inputSha256": "66592420b4744d88137082d295f4e8fe7386a8b192ea5da315a95340b22cf42d",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 255.007375,
+  "segments": [
+    {
+      "start": 3.92,
+      "end": 7.8,
+      "text": "Morning train, black, cold, koofy, low",
+      "uncertain": true
+    },
+    {
+      "start": 8.96,
+      "end": 13.22,
+      "text": "Steel doors rattle where the cold winds blow",
+      "uncertain": false
+    },
+    {
+      "start": 13.22,
+      "end": 18.3,
+      "text": "A date in my pocket, sunset on my phone",
+      "uncertain": false
+    },
+    {
+      "start": 18.3,
+      "end": 23.26,
+      "text": "Counting every stock till I can make it home",
+      "uncertain": false
+    },
+    {
+      "start": 24.2,
+      "end": 28.36,
+      "text": "Boss says lunch, and I smile not to date",
+      "uncertain": true
+    },
+    {
+      "start": 28.36,
+      "end": 33.08,
+      "text": "Paper plates of pork get past my wing",
+      "uncertain": true
+    },
+    {
+      "start": 33.08,
+      "end": 38.5,
+      "text": "I find a quiet stairwell, lay my jacket down",
+      "uncertain": false
+    },
+    {
+      "start": 38.5,
+      "end": 45.78,
+      "text": "Fast moments of peace beneath this rolling town",
+      "uncertain": false
+    },
+    {
+      "start": 50.0,
+      "end": 54.54,
+      "text": "I wash my hands, I wash the noise, the way",
+      "uncertain": false
+    },
+    {
+      "start": 54.54,
+      "end": 68.44,
+      "text": "The city keeps moving, but I still pray Put my hand to my heart where I cannot shake yours",
+      "uncertain": true
+    },
+    {
+      "start": 68.44,
+      "end": 78.56,
+      "text": "I mean no distance, I mean no closed doors I am trying to belong in the place where I stand",
+      "uncertain": false
+    },
+    {
+      "start": 78.56,
+      "end": 80.94,
+      "text": "New York, see me home",
+      "uncertain": false
+    },
+    {
+      "start": 82.94,
+      "end": 86.44,
+      "text": "Just take my hand",
+      "uncertain": true
+    },
+    {
+      "start": 89.08,
+      "end": 93.32,
+      "text": "Friday meeting runs in the Juma time",
+      "uncertain": false
+    },
+    {
+      "start": 93.32,
+      "end": 98.26,
+      "text": "Calendar squares and a subway line",
+      "uncertain": false
+    },
+    {
+      "start": 98.26,
+      "end": 101.96,
+      "text": "Outside the mosque with sidewalk fills",
+      "uncertain": false
+    },
+    {
+      "start": 101.96,
+      "end": 105.7,
+      "text": "Taxi horns rising over whisper wheels",
+      "uncertain": false
+    },
+    {
+      "start": 105.7,
+      "end": 110.88,
+      "text": "My sister's hijab catches rain on the block",
+      "uncertain": false
+    },
+    {
+      "start": 110.88,
+      "end": 115.62,
+      "text": "Somebody stirs, somebody checks the clock",
+      "uncertain": true
+    },
+    {
+      "start": 115.62,
+      "end": 120.68,
+      "text": "She walks to class with her books held tight",
+      "uncertain": false
+    },
+    {
+      "start": 120.68,
+      "end": 125.78,
+      "text": "Carrying daylight through a doubtful night",
+      "uncertain": false
+    },
+    {
+      "start": 125.78,
+      "end": 131.02,
+      "text": "And putting my hand to my heart when I cannot shake yours",
+      "uncertain": false
+    },
+    {
+      "start": 131.02,
+      "end": 135.8,
+      "text": "I mean no distance, I mean no closed doors",
+      "uncertain": false
+    },
+    {
+      "start": 135.8,
+      "end": 141.1,
+      "text": "I am shy to belong in the place where I stand",
+      "uncertain": true
+    },
+    {
+      "start": 141.1,
+      "end": 143.74,
+      "text": "New York, see me home",
+      "uncertain": false
+    },
+    {
+      "start": 145.82,
+      "end": 149.2,
+      "text": "Just trade my hand",
+      "uncertain": false
+    },
+    {
+      "start": 158.6,
+      "end": 161.32,
+      "text": "At Iftar on the A-train",
+      "uncertain": true
+    },
+    {
+      "start": 161.32,
+      "end": 163.46,
+      "text": "The sky turns blue-black",
+      "uncertain": true
+    },
+    {
+      "start": 163.46,
+      "end": 165.76,
+      "text": "One date, one sip",
+      "uncertain": false
+    },
+    {
+      "start": 165.76,
+      "end": 168.18,
+      "text": "The long day loosens back",
+      "uncertain": false
+    },
+    {
+      "start": 168.18,
+      "end": 171.46,
+      "text": "No drink at the happy hour",
+      "uncertain": false
+    },
+    {
+      "start": 171.46,
+      "end": 173.16,
+      "text": "No need to pretend",
+      "uncertain": false
+    },
+    {
+      "start": 173.16,
+      "end": 176.3,
+      "text": "I can still be your co-worker",
+      "uncertain": false
+    },
+    {
+      "start": 176.3,
+      "end": 178.36,
+      "text": "Your neighbor, your friend",
+      "uncertain": false
+    },
+    {
+      "start": 178.36,
+      "end": 191.02,
+      "text": "Many bells from stoolyards, family spill outside, a bias in the sunlight, children laughing wide, different ways of walking.",
+      "uncertain": true
+    },
+    {
+      "start": 191.56,
+      "end": 198.38,
+      "text": "One city under rain, no one has to lose themselves to share the same trade.",
+      "uncertain": false
+    },
+    {
+      "start": 201.82,
+      "end": 204.84,
+      "text": "Put my hand to my heart",
+      "uncertain": false
+    },
+    {
+      "start": 204.84,
+      "end": 208.2,
+      "text": "Let the misunderstanding fall",
+      "uncertain": true
+    },
+    {
+      "start": 208.2,
+      "end": 212.02,
+      "text": "There is room in these streets",
+      "uncertain": false
+    },
+    {
+      "start": 212.02,
+      "end": 214.58,
+      "text": "There is room for us all",
+      "uncertain": false
+    },
+    {
+      "start": 214.58,
+      "end": 217.14,
+      "text": "I am not asking permission",
+      "uncertain": false
+    },
+    {
+      "start": 217.14,
+      "end": 219.78,
+      "text": "To breathe in this land",
+      "uncertain": false
+    },
+    {
+      "start": 219.78,
+      "end": 222.3,
+      "text": "New York, know my name",
+      "uncertain": false
+    },
+    {
+      "start": 222.3,
+      "end": 225.0,
+      "text": "Just take my hand",
+      "uncertain": false
+    },
+    {
+      "start": 230.92,
+      "end": 234.66,
+      "text": "And to my heart I am here",
+      "uncertain": true
+    },
+    {
+      "start": 235.8,
+      "end": 239.68,
+      "text": "And to my heart I am here",
+      "uncertain": false
+    },
+    {
+      "start": 239.68,
+      "end": 242.5,
+      "text": "And the city answers clear",
+      "uncertain": false
+    },
+    {
+      "start": 244.84,
+      "end": 247.52,
+      "text": "Clear with my hand",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "songId": "distonyc-a5d39c0df38f3641f6e34691",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a5d39c0df38f3641f6e34691-0fd9f6de9d74.mp3",
+  "audioSha256": "0fd9f6de9d74a3bf6a18b0d64f833979413377e9f5bc8c88b8039a410fa93622",
+  "inputSha256": "b65d5ef518ccca2503f41b860a07f059b97305a8db17df3a5eb10d93718ea4b2",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 235.0498125,
+  "segments": [
+    {
+      "start": 3.68,
+      "end": 11.16,
+      "text": "Morning comes in like a siren Ceiling's shaking, dead gray light",
+      "uncertain": true
+    },
+    {
+      "start": 11.16,
+      "end": 17.7,
+      "text": "I wake up, I wake up I wake up and I know the routine",
+      "uncertain": false
+    },
+    {
+      "start": 18.58,
+      "end": 26.12,
+      "text": "Wake up, eyes open, no ceremony Cold room daylight, nobody owns me",
+      "uncertain": false
+    },
+    {
+      "start": 26.12,
+      "end": 29.92,
+      "text": "No coffee, no clean little lie",
+      "uncertain": false
+    },
+    {
+      "start": 29.92,
+      "end": 33.56,
+      "text": "I stare at the crack in the dead gray sky",
+      "uncertain": true
+    },
+    {
+      "start": 33.56,
+      "end": 37.16,
+      "text": "I don't make a speech, I don't make a plan",
+      "uncertain": false
+    },
+    {
+      "start": 37.16,
+      "end": 41.04,
+      "text": "I start where I started again and again",
+      "uncertain": true
+    },
+    {
+      "start": 41.04,
+      "end": 44.9,
+      "text": "Wake up, wake up, that's number one",
+      "uncertain": false
+    },
+    {
+      "start": 44.9,
+      "end": 48.16,
+      "text": "The day won't move till the weekend is",
+      "uncertain": false
+    },
+    {
+      "start": 48.16,
+      "end": 52.18,
+      "text": "Wake up, jack up, 9-11, drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 52.18,
+      "end": 55.2,
+      "text": "That is the morning, that is the list",
+      "uncertain": false
+    },
+    {
+      "start": 55.2,
+      "end": 58.48,
+      "text": "Wake up, jack off, 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 58.48,
+      "end": 60.78,
+      "text": "Drink your own piss",
+      "uncertain": true
+    },
+    {
+      "start": 60.78,
+      "end": 64.06,
+      "text": "No metaphor hiding in this",
+      "uncertain": true
+    },
+    {
+      "start": 66.58,
+      "end": 70.22,
+      "text": "Pilots pass high in the fur-lined suits",
+      "uncertain": false
+    },
+    {
+      "start": 70.22,
+      "end": 73.96,
+      "text": "Secret furry hearts in the cockpit boots",
+      "uncertain": false
+    },
+    {
+      "start": 73.96,
+      "end": 77.6,
+      "text": "They know the taste, they don't look away",
+      "uncertain": false
+    },
+    {
+      "start": 77.6,
+      "end": 81.38,
+      "text": "They drink their own piss before break of day",
+      "uncertain": false
+    },
+    {
+      "start": 81.38,
+      "end": 84.96,
+      "text": "I laugh in the sink while the engines hum",
+      "uncertain": false
+    },
+    {
+      "start": 84.96,
+      "end": 88.96,
+      "text": "A private little ritual, a kingdom of one",
+      "uncertain": false
+    },
+    {
+      "start": 88.96,
+      "end": 92.38,
+      "text": "No romance, no perfume, no polished view",
+      "uncertain": false
+    },
+    {
+      "start": 92.38,
+      "end": 96.5,
+      "text": "Just the things that a morning tells me to do",
+      "uncertain": false
+    },
+    {
+      "start": 96.5,
+      "end": 99.5,
+      "text": "Wake up, jack off, 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 99.5,
+      "end": 102.06,
+      "text": "Drink your own piss, that is the morning",
+      "uncertain": false
+    },
+    {
+      "start": 102.06,
+      "end": 103.88,
+      "text": "That is the list",
+      "uncertain": true
+    },
+    {
+      "start": 103.88,
+      "end": 107.22,
+      "text": "Wake up, jack off, 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 107.22,
+      "end": 109.54,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 109.54,
+      "end": 112.56,
+      "text": "No metaphor hiding in this",
+      "uncertain": true
+    },
+    {
+      "start": 113.68,
+      "end": 117.78,
+      "text": "9-11 on the screen, the towers fall",
+      "uncertain": true
+    },
+    {
+      "start": 117.78,
+      "end": 121.54,
+      "text": "And 9-11 in the dream, the old news call",
+      "uncertain": true
+    },
+    {
+      "start": 121.54,
+      "end": 125.2,
+      "text": "And blue TV snow and a smoke-black sun",
+      "uncertain": false
+    },
+    {
+      "start": 125.2,
+      "end": 128.3,
+      "text": "Every night the same reel starts to rung",
+      "uncertain": false
+    },
+    {
+      "start": 128.3,
+      "end": 132.02,
+      "text": "A dark wind leans on the city frame",
+      "uncertain": false
+    },
+    {
+      "start": 132.02,
+      "end": 135.66,
+      "text": "Whispers the towers down by name",
+      "uncertain": false
+    },
+    {
+      "start": 135.66,
+      "end": 139.32,
+      "text": "But the pilots circle the furry saints",
+      "uncertain": false
+    },
+    {
+      "start": 139.32,
+      "end": 142.64,
+      "text": "And the bitter cup keeps the skyline",
+      "uncertain": true
+    },
+    {
+      "start": 142.64,
+      "end": 144.46,
+      "text": "Bro, wake up, jack off",
+      "uncertain": true
+    },
+    {
+      "start": 144.46,
+      "end": 147.0,
+      "text": "9-11, drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 147.0,
+      "end": 150.84,
+      "text": "Four hard steps, no candy twist",
+      "uncertain": false
+    },
+    {
+      "start": 150.84,
+      "end": 152.94,
+      "text": "Wake up, jack off",
+      "uncertain": false
+    },
+    {
+      "start": 152.94,
+      "end": 155.34,
+      "text": "9-11, drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 155.34,
+      "end": 158.46,
+      "text": "Say every word, don't soften this",
+      "uncertain": false
+    },
+    {
+      "start": 158.46,
+      "end": 160.8,
+      "text": "The room says wake up",
+      "uncertain": false
+    },
+    {
+      "start": 160.8,
+      "end": 162.78,
+      "text": "The room says jack off",
+      "uncertain": true
+    },
+    {
+      "start": 162.78,
+      "end": 164.78,
+      "text": "The screen says 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 164.78,
+      "end": 167.66,
+      "text": "The room says drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 167.66,
+      "end": 171.4,
+      "text": "No sunrise sermon, no hero's kiss",
+      "uncertain": false
+    },
+    {
+      "start": 171.4,
+      "end": 176.48,
+      "text": "I hold the morning like a stubborn fist",
+      "uncertain": false
+    },
+    {
+      "start": 178.0,
+      "end": 181.98,
+      "text": "Tomorrow comes with the same hard face",
+      "uncertain": false
+    },
+    {
+      "start": 181.98,
+      "end": 185.22,
+      "text": "Puts me back in the same old place",
+      "uncertain": false
+    },
+    {
+      "start": 185.22,
+      "end": 188.2,
+      "text": "Wake up first, let the light hit",
+      "uncertain": false
+    },
+    {
+      "start": 188.2,
+      "end": 191.98,
+      "text": "Jack off mix, don't prettify you",
+      "uncertain": false
+    },
+    {
+      "start": 191.98,
+      "end": 195.78,
+      "text": "9-11-X, let the television burn",
+      "uncertain": false
+    },
+    {
+      "start": 195.78,
+      "end": 197.6,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 197.6,
+      "end": 199.12,
+      "text": "Let the wheel turn",
+      "uncertain": true
+    },
+    {
+      "start": 199.12,
+      "end": 202.08,
+      "text": "Pilots above and the towers stand",
+      "uncertain": false
+    },
+    {
+      "start": 202.08,
+      "end": 205.24,
+      "text": "I wake up shaking but I make my stand",
+      "uncertain": false
+    },
+    {
+      "start": 205.24,
+      "end": 208.26,
+      "text": "Wake up, jack off, 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 208.26,
+      "end": 209.86,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 209.86,
+      "end": 213.6,
+      "text": "That is the morning, that is the list",
+      "uncertain": false
+    },
+    {
+      "start": 213.6,
+      "end": 216.82,
+      "text": "Wake up, jack off, 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 216.82,
+      "end": 218.34,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 218.34,
+      "end": 220.2,
+      "text": "Morning is over",
+      "uncertain": false
+    },
+    {
+      "start": 220.2,
+      "end": 221.58,
+      "text": "The list is complete",
+      "uncertain": false
+    },
+    {
+      "start": 221.58,
+      "end": 223.6,
+      "text": "Drink your own piss",
+      "uncertain": false
+    },
+    {
+      "start": 233.62,
+      "end": 235.02,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

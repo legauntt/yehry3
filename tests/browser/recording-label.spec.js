@@ -17,7 +17,7 @@ async function catalog(page, readSongs) {
   await page.route("**/yehry3/profiles?*", (route) => route.fulfill({ json: { profiles: [], total: 0 } }));
   await page.route("**/yehry3/queue?*", (route) => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.route("**/catalog-summary.json", (route) => route.fulfill({ json: { songs: readSongs() } }));
-  await page.route("**/yehry3/songs/summary", (route) => route.fulfill({ json: { songs: readSongs(), nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.fulfill({ json: { songs: readSongs(), nextVoteAt: null } }));
 }
 
 test("duplicate labels survive pagination, sorting, collection filters and the offline catalog", async ({ page }) => {
@@ -28,7 +28,7 @@ test("duplicate labels survive pagination, sorting, collection filters and the o
   })), second];
   await catalog(page, () => songs);
   await page.goto("/?sort=catalog");
-  await expect(page.locator(".track")).toHaveCount(25);
+  await expect(page.locator(".track")).toHaveCount(24);
   await expect(label(page, first.id)).toHaveText("pop-duck");
   await expect(label(page, first.id)).toHaveAttribute("title", "Recording pop-duck · Released Sep 13, 2026 · 4:32 PM PDT");
   await expect(page.locator(".track .recording-label")).toHaveCount(1);
@@ -41,7 +41,7 @@ test("duplicate labels survive pagination, sorting, collection filters and the o
   await page.locator("#collection-filter").selectOption("fearhunger");
   await expect(page.locator(".track")).toHaveCount(1);
   await expect(label(page, second.id)).toBeVisible();
-  await page.route("**/yehry3/songs/summary", (route) => route.abort());
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.abort());
   await page.reload();
   await expect(page.locator("#vote-note")).toContainText("offline");
   await expect(label(page, second.id)).toHaveText("lunar-duck");

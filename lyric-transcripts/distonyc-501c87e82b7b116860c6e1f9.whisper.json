@@ -1,0 +1,829 @@
+{
+  "version": 1,
+  "songId": "distonyc-501c87e82b7b116860c6e1f9",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-501c87e82b7b116860c6e1f9-a06eef516bfc.mp3",
+  "audioSha256": "a06eef516bfc5fa29a4cb97e69462961fe94f0fa87d459cb1afbe4164a5ed427",
+  "inputSha256": "99218889fe94156d176f9486632c6f3b1c0cafe5fe27fd7f70dd4ac5af4fdf62",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 419.84,
+  "segments": [
+    {
+      "start": 2.34,
+      "end": 4.42,
+      "text": "Sunset Merchie",
+      "uncertain": false
+    },
+    {
+      "start": 4.42,
+      "end": 6.56,
+      "text": "Population small",
+      "uncertain": false
+    },
+    {
+      "start": 6.56,
+      "end": 9.08,
+      "text": "Yes, that sign",
+      "uncertain": false
+    },
+    {
+      "start": 9.08,
+      "end": 11.46,
+      "text": "You know me at all",
+      "uncertain": false
+    },
+    {
+      "start": 11.46,
+      "end": 14.28,
+      "text": "My map was upside down",
+      "uncertain": false
+    },
+    {
+      "start": 14.28,
+      "end": 16.78,
+      "text": "My name fell borrowed",
+      "uncertain": false
+    },
+    {
+      "start": 16.78,
+      "end": 19.26,
+      "text": "I told the deputy",
+      "uncertain": false
+    },
+    {
+      "start": 19.26,
+      "end": 21.74,
+      "text": "I'd remember tomorrow",
+      "uncertain": false
+    },
+    {
+      "start": 32.9,
+      "end": 35.8,
+      "text": "I walked in dots with dust on my shoes",
+      "uncertain": true
+    },
+    {
+      "start": 35.8,
+      "end": 38.28,
+      "text": "A crooked grin and a head full of blue",
+      "uncertain": true
+    },
+    {
+      "start": 38.28,
+      "end": 40.76,
+      "text": "Saw Miss Renee by the coffee machine",
+      "uncertain": false
+    },
+    {
+      "start": 40.76,
+      "end": 43.4,
+      "text": "Said, fill mine up if you know what I mean",
+      "uncertain": true
+    },
+    {
+      "start": 43.4,
+      "end": 45.84,
+      "text": "The whole room stopped, one fork hit a plate",
+      "uncertain": false
+    },
+    {
+      "start": 45.84,
+      "end": 48.2,
+      "text": "She said, I don't work here, you can wait",
+      "uncertain": false
+    },
+    {
+      "start": 48.2,
+      "end": 50.8,
+      "text": "I laughed too quickly, tried playing it like",
+      "uncertain": true
+    },
+    {
+      "start": 50.8,
+      "end": 53.5,
+      "text": "But a joke ain't Atlanta when the joke ain't right",
+      "uncertain": false
+    },
+    {
+      "start": 53.5,
+      "end": 56.08,
+      "text": "You didn't burn across, shout a cruel name",
+      "uncertain": false
+    },
+    {
+      "start": 56.08,
+      "end": 58.62,
+      "text": "But old assumptions still carry old flames",
+      "uncertain": false
+    },
+    {
+      "start": 58.62,
+      "end": 61.04,
+      "text": "You saw my skin then assigned me a place",
+      "uncertain": true
+    },
+    {
+      "start": 61.04,
+      "end": 63.58,
+      "text": "That little mistake had a history's face",
+      "uncertain": false
+    },
+    {
+      "start": 63.58,
+      "end": 66.04,
+      "text": "I'm chair of the council at deep Sunday school",
+      "uncertain": true
+    },
+    {
+      "start": 66.04,
+      "end": 68.48,
+      "text": "But I shouldn't need titles to prove you were cruel",
+      "uncertain": false
+    },
+    {
+      "start": 68.48,
+      "end": 70.98,
+      "text": "Don't tell me your heart is harmless and free",
+      "uncertain": false
+    },
+    {
+      "start": 70.98,
+      "end": 73.82,
+      "text": "Asper made that picture appear when you saw me",
+      "uncertain": false
+    },
+    {
+      "start": 73.82,
+      "end": 76.84,
+      "text": "I checked every pocket for somebody to blame",
+      "uncertain": false
+    },
+    {
+      "start": 76.84,
+      "end": 79.4,
+      "text": "Found then one nickel and my own damn name",
+      "uncertain": true
+    },
+    {
+      "start": 79.4,
+      "end": 82.48,
+      "text": "I was wrong in Mercy, Alabama",
+      "uncertain": false
+    },
+    {
+      "start": 83.86,
+      "end": 87.84,
+      "text": "No excuse hiding under my stammer",
+      "uncertain": false
+    },
+    {
+      "start": 87.84,
+      "end": 92.88,
+      "text": "I'm sorry for the weight I made you carry",
+      "uncertain": false
+    },
+    {
+      "start": 93.64,
+      "end": 95.6,
+      "text": "I'll face what's in me",
+      "uncertain": false
+    },
+    {
+      "start": 95.6,
+      "end": 97.88,
+      "text": "Even when it gets scary",
+      "uncertain": true
+    },
+    {
+      "start": 98.56,
+      "end": 101.4,
+      "text": "An apology opens but I should walk through",
+      "uncertain": true
+    },
+    {
+      "start": 101.4,
+      "end": 104.12,
+      "text": "Don't ask me to finish the fixing for you",
+      "uncertain": false
+    },
+    {
+      "start": 104.12,
+      "end": 107.4,
+      "text": "Till the truth plain let the old life fall",
+      "uncertain": false
+    },
+    {
+      "start": 107.4,
+      "end": 109.94,
+      "text": "Mercy ain't mercy till it reaches us all",
+      "uncertain": false
+    },
+    {
+      "start": 118.7,
+      "end": 121.66,
+      "text": "I said I'm not that kind and heard what I've done",
+      "uncertain": true
+    },
+    {
+      "start": 121.66,
+      "end": 124.2,
+      "text": "Made my good intentions the place I could run",
+      "uncertain": true
+    },
+    {
+      "start": 124.2,
+      "end": 126.78,
+      "text": "I remembered my uncles and half heard advice",
+      "uncertain": true
+    },
+    {
+      "start": 126.78,
+      "end": 129.3,
+      "text": "The laughs at the table I never checked twice",
+      "uncertain": false
+    },
+    {
+      "start": 129.3,
+      "end": 131.6,
+      "text": "Maybe I'm here in a room full of smoke",
+      "uncertain": true
+    },
+    {
+      "start": 131.6,
+      "end": 134.34,
+      "text": "But I'm holding the match every time I repeat it",
+      "uncertain": false
+    },
+    {
+      "start": 134.34,
+      "end": 136.76,
+      "text": "So I went table to table, no grandstanding show",
+      "uncertain": false
+    },
+    {
+      "start": 136.76,
+      "end": 138.48,
+      "text": "Said what I assumed was wrong",
+      "uncertain": false
+    },
+    {
+      "start": 138.48,
+      "end": 140.04,
+      "text": "And I need you to know",
+      "uncertain": true
+    },
+    {
+      "start": 140.04,
+      "end": 143.04,
+      "text": "I don't need a promise polished for applause",
+      "uncertain": false
+    },
+    {
+      "start": 143.04,
+      "end": 145.66,
+      "text": "Some tears that make your comfort the cause",
+      "uncertain": false
+    },
+    {
+      "start": 145.66,
+      "end": 148.06,
+      "text": "Learn people's names, the correctional air",
+      "uncertain": true
+    },
+    {
+      "start": 148.06,
+      "end": 150.32,
+      "text": "Speak when your friends say what you understand",
+      "uncertain": true
+    },
+    {
+      "start": 150.32,
+      "end": 153.26,
+      "text": "You may feel lost, but you're standing right here",
+      "uncertain": false
+    },
+    {
+      "start": 153.26,
+      "end": 155.62,
+      "text": "And confusion can't cancel, the heart may clear",
+      "uncertain": false
+    },
+    {
+      "start": 155.62,
+      "end": 158.22,
+      "text": "If you want to change, then change when unseen",
+      "uncertain": false
+    },
+    {
+      "start": 158.22,
+      "end": 161.0,
+      "text": "Make better habits where the old ones have been",
+      "uncertain": false
+    },
+    {
+      "start": 170.48,
+      "end": 173.46,
+      "text": "I followed here Tuesday at the library sale",
+      "uncertain": true
+    },
+    {
+      "start": 173.46,
+      "end": 175.96,
+      "text": "Put history books where I once put a tale",
+      "uncertain": false
+    },
+    {
+      "start": 175.96,
+      "end": 178.5,
+      "text": "When they're all made a crack by the courthouse wall",
+      "uncertain": true
+    },
+    {
+      "start": 178.5,
+      "end": 181.12,
+      "text": "I didn't grin sideways, I answered the call",
+      "uncertain": false
+    },
+    {
+      "start": 181.12,
+      "end": 183.58,
+      "text": "Said that ain't harmless, and silence joins in",
+      "uncertain": false
+    },
+    {
+      "start": 183.58,
+      "end": 186.08,
+      "text": "My knees started knocking underneath my grin",
+      "uncertain": false
+    },
+    {
+      "start": 186.08,
+      "end": 188.46,
+      "text": "Then I bought my own coffee and carried the tray",
+      "uncertain": false
+    },
+    {
+      "start": 188.46,
+      "end": 191.06,
+      "text": "Didn't ask for a medal at the end of the day",
+      "uncertain": true
+    },
+    {
+      "start": 191.06,
+      "end": 192.5,
+      "text": "You still look lost",
+      "uncertain": false
+    },
+    {
+      "start": 192.5,
+      "end": 194.32,
+      "text": "Ma'am, that much is true",
+      "uncertain": true
+    },
+    {
+      "start": 194.32,
+      "end": 196.58,
+      "text": "Is this Alabama into a Kalamazoo?",
+      "uncertain": true
+    },
+    {
+      "start": 196.74,
+      "end": 199.34,
+      "text": "You're Tony, that sounds vaguely familiar",
+      "uncertain": false
+    },
+    {
+      "start": 199.34,
+      "end": 200.48,
+      "text": "Didn't be someone better",
+      "uncertain": false
+    },
+    {
+      "start": 201.44,
+      "end": 205.0,
+      "text": "I was wrong in Mercy, Alabama",
+      "uncertain": false
+    },
+    {
+      "start": 206.38,
+      "end": 210.36,
+      "text": "No excuse hiding under my stammer",
+      "uncertain": true
+    },
+    {
+      "start": 211.02,
+      "end": 215.42,
+      "text": "I'm sorry for the weight I made you carry",
+      "uncertain": false
+    },
+    {
+      "start": 216.18,
+      "end": 220.44,
+      "text": "I'll face what's in me, even when it gets scary",
+      "uncertain": false
+    },
+    {
+      "start": 221.08,
+      "end": 223.9,
+      "text": "An apology opens, but that's what wants to",
+      "uncertain": false
+    },
+    {
+      "start": 223.9,
+      "end": 226.74,
+      "text": "I can name the wound, but the word belongs to you",
+      "uncertain": false
+    },
+    {
+      "start": 226.74,
+      "end": 229.68,
+      "text": "Tell the truth, play that the old lie for",
+      "uncertain": true
+    },
+    {
+      "start": 229.68,
+      "end": 232.08,
+      "text": "Mercy ain't mercy till it reaches us all",
+      "uncertain": true
+    },
+    {
+      "start": 232.08,
+      "end": 234.06,
+      "text": "In my side without rehearsing your defense",
+      "uncertain": true
+    },
+    {
+      "start": 234.06,
+      "end": 236.5,
+      "text": "Being underestimated leaves a long expense",
+      "uncertain": false
+    },
+    {
+      "start": 236.5,
+      "end": 239.1,
+      "text": "One small moment joins a thousand from before",
+      "uncertain": false
+    },
+    {
+      "start": 239.1,
+      "end": 241.56,
+      "text": "That's why your little mixer felt like something more",
+      "uncertain": false
+    },
+    {
+      "start": 241.56,
+      "end": 244.18,
+      "text": "I can see your effort, I can guard my peace",
+      "uncertain": false
+    },
+    {
+      "start": 244.18,
+      "end": 247.4,
+      "text": "Forgiveness is an ode and trust grows piece by piece",
+      "uncertain": false
+    },
+    {
+      "start": 251.42,
+      "end": 254.34,
+      "text": "I won't make you teach me every road I missed",
+      "uncertain": false
+    },
+    {
+      "start": 254.34,
+      "end": 256.84,
+      "text": "To turn my shank into a clenched up fist",
+      "uncertain": false
+    },
+    {
+      "start": 256.84,
+      "end": 259.32,
+      "text": "I'll read, I'll listen, I'll interrupt the chain",
+      "uncertain": false
+    },
+    {
+      "start": 259.32,
+      "end": 261.84,
+      "text": "And when I fail, I'll own it without making you explain",
+      "uncertain": false
+    },
+    {
+      "start": 261.84,
+      "end": 264.4,
+      "text": "I can't change yesterday behavior who I've been",
+      "uncertain": false
+    },
+    {
+      "start": 264.4,
+      "end": 267.42,
+      "text": "But I can make amends with the man beneath my skin",
+      "uncertain": false
+    },
+    {
+      "start": 271.6,
+      "end": 273.24,
+      "text": "Who are you now?",
+      "uncertain": false
+    },
+    {
+      "start": 274.46,
+      "end": 275.78,
+      "text": "Where are you now?",
+      "uncertain": false
+    },
+    {
+      "start": 276.1,
+      "end": 278.38,
+      "text": "Trying to live my world without this next",
+      "uncertain": true
+    },
+    {
+      "start": 278.38,
+      "end": 280.14,
+      "text": "The unglamorous call",
+      "uncertain": false
+    },
+    {
+      "start": 280.14,
+      "end": 283.36,
+      "text": "A thousand better choices from a re-educated heart",
+      "uncertain": false
+    },
+    {
+      "start": 284.86,
+      "end": 288.52,
+      "text": "I was wrong in Versailles, Alabama",
+      "uncertain": false
+    },
+    {
+      "start": 288.52,
+      "end": 291.36,
+      "text": "Now truth prize shotgun",
+      "uncertain": true
+    },
+    {
+      "start": 291.36,
+      "end": 293.9,
+      "text": "Through the static and clambering",
+      "uncertain": true
+    },
+    {
+      "start": 293.9,
+      "end": 296.1,
+      "text": "No halo on my head",
+      "uncertain": false
+    },
+    {
+      "start": 296.1,
+      "end": 298.72,
+      "text": "No hero in this story",
+      "uncertain": false
+    },
+    {
+      "start": 298.72,
+      "end": 301.06,
+      "text": "Just a man doing work",
+      "uncertain": false
+    },
+    {
+      "start": 301.06,
+      "end": 303.78,
+      "text": "Without claiming the glory",
+      "uncertain": false
+    },
+    {
+      "start": 303.78,
+      "end": 306.24,
+      "text": "I have my own voice",
+      "uncertain": false
+    },
+    {
+      "start": 306.24,
+      "end": 307.2,
+      "text": "My own rope",
+      "uncertain": false
+    },
+    {
+      "start": 307.2,
+      "end": 307.96,
+      "text": "My own view",
+      "uncertain": true
+    },
+    {
+      "start": 307.96,
+      "end": 310.58,
+      "text": "I'm more than the lesson that happened to you",
+      "uncertain": false
+    },
+    {
+      "start": 310.58,
+      "end": 311.78,
+      "text": "Tell the truth plain",
+      "uncertain": true
+    },
+    {
+      "start": 311.78,
+      "end": 313.3,
+      "text": "Let the old life form",
+      "uncertain": false
+    },
+    {
+      "start": 313.3,
+      "end": 314.66,
+      "text": "That's the English hash",
+      "uncertain": true
+    },
+    {
+      "start": 320.4,
+      "end": 320.92,
+      "text": "Yeah.",
+      "uncertain": false
+    },
+    {
+      "start": 325.04,
+      "end": 326.6,
+      "text": "Who are you now?",
+      "uncertain": false
+    },
+    {
+      "start": 327.56,
+      "end": 329.12,
+      "text": "Where are you now?",
+      "uncertain": false
+    },
+    {
+      "start": 330.08,
+      "end": 331.58,
+      "text": "Being grammar abandoned.",
+      "uncertain": true
+    },
+    {
+      "start": 332.7,
+      "end": 334.52,
+      "text": "No better choice is a cated heart.",
+      "uncertain": true
+    },
+    {
+      "start": 337.76,
+      "end": 340.18,
+      "text": "I'm on my side without rehearsing your defense.",
+      "uncertain": false
+    },
+    {
+      "start": 340.32,
+      "end": 342.52,
+      "text": "Being unshy, got into the static and clam.",
+      "uncertain": true
+    },
+    {
+      "start": 342.72,
+      "end": 345.28,
+      "text": "With no hail on my hats, a thousand from the store.",
+      "uncertain": true
+    },
+    {
+      "start": 345.46,
+      "end": 347.78,
+      "text": "That's why your little nigg cell felt like something more.",
+      "uncertain": true
+    },
+    {
+      "start": 347.78,
+      "end": 349.0,
+      "text": "outside of my own voice",
+      "uncertain": true
+    },
+    {
+      "start": 349.0,
+      "end": 351.84,
+      "text": "inside my mouth and my feet",
+      "uncertain": true
+    },
+    {
+      "start": 351.84,
+      "end": 353.66,
+      "text": "and make you",
+      "uncertain": true
+    },
+    {
+      "start": 353.66,
+      "end": 355.3,
+      "text": "teach me to make",
+      "uncertain": true
+    },
+    {
+      "start": 355.3,
+      "end": 356.7,
+      "text": "judge you",
+      "uncertain": true
+    },
+    {
+      "start": 357.74,
+      "end": 359.18,
+      "text": "keep on listening",
+      "uncertain": false
+    },
+    {
+      "start": 359.18,
+      "end": 361.52,
+      "text": "I hate who I be",
+      "uncertain": false
+    },
+    {
+      "start": 367.66,
+      "end": 369.44,
+      "text": "I won't make you teach me",
+      "uncertain": false
+    },
+    {
+      "start": 369.44,
+      "end": 371.64,
+      "text": "that every word my heart is true",
+      "uncertain": true
+    },
+    {
+      "start": 372.64,
+      "end": 373.7,
+      "text": "been lost",
+      "uncertain": true
+    },
+    {
+      "start": 373.7,
+      "end": 375.02,
+      "text": "but years been leading to",
+      "uncertain": true
+    },
+    {
+      "start": 375.76,
+      "end": 376.84,
+      "text": "misjudge you",
+      "uncertain": false
+    },
+    {
+      "start": 377.78,
+      "end": 379.68,
+      "text": "Keep all this saying",
+      "uncertain": true
+    },
+    {
+      "start": 379.68,
+      "end": 382.02,
+      "text": "I hate who I've been",
+      "uncertain": true
+    },
+    {
+      "start": 382.02,
+      "end": 384.78,
+      "text": "Like I can make a mess",
+      "uncertain": true
+    },
+    {
+      "start": 384.78,
+      "end": 386.82,
+      "text": "With a man beneath my skin",
+      "uncertain": true
+    },
+    {
+      "start": 387.66,
+      "end": 389.48,
+      "text": "Who are you now?",
+      "uncertain": false
+    },
+    {
+      "start": 390.16,
+      "end": 392.0,
+      "text": "For if I leave her",
+      "uncertain": true
+    },
+    {
+      "start": 392.8,
+      "end": 394.52,
+      "text": "Where are you now?",
+      "uncertain": false
+    },
+    {
+      "start": 397.8,
+      "end": 399.58,
+      "text": "Jeep walking away",
+      "uncertain": true
+    },
+    {
+      "start": 399.58,
+      "end": 402.14,
+      "text": "That you better need answer",
+      "uncertain": false
+    },
+    {
+      "start": 403.56,
+      "end": 405.68,
+      "text": "In Mercy, Alabama",
+      "uncertain": false
+    },
+    {
+      "start": 405.68,
+      "end": 407.86,
+      "text": "There is room to change.",
+      "uncertain": false
+    }
+  ]
+}

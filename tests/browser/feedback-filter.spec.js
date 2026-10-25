@@ -1,3 +1,4 @@
+import { mockCatalogState } from "./helpers/catalog.js";
 import { test, expect } from "@playwright/test";
 
 const song = (id, title, order, extra = {}) => ({
@@ -12,7 +13,8 @@ const songs = [
 ];
 
 async function open(page, url = "/") {
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await mockCatalogState(page, () => songs);
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.goto(url);
 }

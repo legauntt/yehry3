@@ -1,0 +1,349 @@
+{
+  "version": 1,
+  "songId": "distonyc-cef35c70fb5cdf1ec2c48d0d",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cef35c70fb5cdf1ec2c48d0d-fbd8d6fa4115.mp3",
+  "audioSha256": "fbd8d6fa4115effac6b036e99b0556a001118f1d66c31e59c70c478f1d02c5fa",
+  "inputSha256": "09d1ae59f2898fa0f22338bcc4b20ed1f22bba0f2b4538058f7c667a2397b9d0",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 251.84,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 10.42,
+      "text": "I keep the chills, floor's got teeth down here, come close to the mountain, hear me, I'm still fucking scared.",
+      "uncertain": true
+    },
+    {
+      "start": 12.44,
+      "end": 18.42,
+      "text": "Hit through a circle where the torchlight failed, I watched the doorway chewing on a nail.",
+      "uncertain": true
+    },
+    {
+      "start": 18.92,
+      "end": 24.74,
+      "text": "Two empty stomachs and a busted blade, counting all the debts our bodies had ever paid.",
+      "uncertain": true
+    },
+    {
+      "start": 24.74,
+      "end": 30.96,
+      "text": "you said sylvia and my hero son denise i felt your answer shaking through your teeth",
+      "uncertain": true
+    },
+    {
+      "start": 30.96,
+      "end": 37.72,
+      "text": "no silver rings no family in the room just something breathing on the other side of doom",
+      "uncertain": false
+    },
+    {
+      "start": 37.72,
+      "end": 47.14,
+      "text": "is that a yes then take my hand i won't pretend i understand if something answers when we call",
+      "uncertain": false
+    },
+    {
+      "start": 47.14,
+      "end": 56.94,
+      "text": "will it remember us at all two names in one pair of shoes tell me which of us we lose",
+      "uncertain": true
+    },
+    {
+      "start": 56.94,
+      "end": 63.26,
+      "text": "love came down with a terrible grace left your smile somewhere inside my face",
+      "uncertain": false
+    },
+    {
+      "start": 63.26,
+      "end": 71.92,
+      "text": "fuck this dungeon fuck its dues we've got one more door to bruise if i'm still here and you",
+      "uncertain": false
+    },
+    {
+      "start": 71.92,
+      "end": 74.74,
+      "text": "You are too, which mouth says I love you.",
+      "uncertain": true
+    },
+    {
+      "start": 76.2,
+      "end": 78.94,
+      "text": "The prayer went quiet in the quiet bed.",
+      "uncertain": false
+    },
+    {
+      "start": 79.5,
+      "end": 82.14,
+      "text": "I couldn't tell you where my shoulder went.",
+      "uncertain": false
+    },
+    {
+      "start": 82.78,
+      "end": 85.72,
+      "text": "Your childhood kitchen flashed behind my eyes.",
+      "uncertain": false
+    },
+    {
+      "start": 85.86,
+      "end": 88.84,
+      "text": "I knew your mother's voice and didn't know why.",
+      "uncertain": false
+    },
+    {
+      "start": 89.22,
+      "end": 91.74,
+      "text": "We stood too quickly on uncertain feet.",
+      "uncertain": false
+    },
+    {
+      "start": 92.48,
+      "end": 94.98,
+      "text": "One pulse hammer in a crooked beat.",
+      "uncertain": false
+    },
+    {
+      "start": 95.56,
+      "end": 98.26,
+      "text": "I tried your name, it came out half of mine.",
+      "uncertain": false
+    },
+    {
+      "start": 98.58,
+      "end": 101.52,
+      "text": "Some bastard laughed beyond the altar shrine.",
+      "uncertain": false
+    },
+    {
+      "start": 101.92,
+      "end": 104.76,
+      "text": "You hated thunder, I love rain.",
+      "uncertain": false
+    },
+    {
+      "start": 104.98,
+      "end": 107.92,
+      "text": "Now both come running through one brain.",
+      "uncertain": false
+    },
+    {
+      "start": 108.28,
+      "end": 111.1,
+      "text": "The goddess gave us strength to stand.",
+      "uncertain": false
+    },
+    {
+      "start": 111.48,
+      "end": 114.74,
+      "text": "I miss the distance to your hand.",
+      "uncertain": false
+    },
+    {
+      "start": 115.22,
+      "end": 117.7,
+      "text": "Two names in one pair of shoes.",
+      "uncertain": false
+    },
+    {
+      "start": 118.0,
+      "end": 120.64,
+      "text": "Tell me which of us we lose.",
+      "uncertain": false
+    },
+    {
+      "start": 121.1,
+      "end": 124.04,
+      "text": "Love came down with a terrible grace.",
+      "uncertain": false
+    },
+    {
+      "start": 124.34,
+      "end": 127.22,
+      "text": "Left your smile somewhere inside my face.",
+      "uncertain": false
+    },
+    {
+      "start": 127.48,
+      "end": 130.24,
+      "text": "Fuck this dungeon, fuck its dues.",
+      "uncertain": false
+    },
+    {
+      "start": 130.24,
+      "end": 133.72,
+      "text": "We've got one more door to bruise",
+      "uncertain": false
+    },
+    {
+      "start": 133.72,
+      "end": 136.52,
+      "text": "If I'm still here and you are too",
+      "uncertain": true
+    },
+    {
+      "start": 136.52,
+      "end": 138.9,
+      "text": "Witch mouth says I love you",
+      "uncertain": true
+    },
+    {
+      "start": 141.7,
+      "end": 144.66,
+      "text": "Wait, that little laugh was yours",
+      "uncertain": false
+    },
+    {
+      "start": 148.86,
+      "end": 151.8,
+      "text": "You always laughed when things got worse",
+      "uncertain": false
+    },
+    {
+      "start": 151.8,
+      "end": 153.98,
+      "text": "I hear it shaking throughout the rest",
+      "uncertain": true
+    },
+    {
+      "start": 153.98,
+      "end": 156.82,
+      "text": "We didn't ask to be eternal",
+      "uncertain": false
+    },
+    {
+      "start": 156.82,
+      "end": 159.88,
+      "text": "We asked to see another day",
+      "uncertain": false
+    },
+    {
+      "start": 159.88,
+      "end": 168.72,
+      "text": "help me lift this fucking door now help me carry us away two lames in one pair of shoes",
+      "uncertain": true
+    },
+    {
+      "start": 168.72,
+      "end": 177.22,
+      "text": "both of us have paid our dues love came down with a terrible grace now the morning touches",
+      "uncertain": false
+    },
+    {
+      "start": 177.22,
+      "end": 186.32,
+      "text": "our strange face no more bargaining to do no clean miracle coming through with one breath",
+      "uncertain": false
+    },
+    {
+      "start": 186.32,
+      "end": 189.08,
+      "text": "Where there once were two, we say it",
+      "uncertain": false
+    },
+    {
+      "start": 190.5,
+      "end": 192.22,
+      "text": "I love you",
+      "uncertain": true
+    },
+    {
+      "start": 198.0,
+      "end": 198.98,
+      "text": "Outside",
+      "uncertain": false
+    },
+    {
+      "start": 198.98,
+      "end": 203.0,
+      "text": "We sit beside the rose",
+      "uncertain": true
+    },
+    {
+      "start": 203.0,
+      "end": 206.04,
+      "text": "Untie the laces",
+      "uncertain": false
+    },
+    {
+      "start": 206.04,
+      "end": 208.62,
+      "text": "Drop below",
+      "uncertain": false
+    },
+    {
+      "start": 209.66,
+      "end": 211.96,
+      "text": "Your laugh comes first",
+      "uncertain": false
+    },
+    {
+      "start": 212.96,
+      "end": 215.44,
+      "text": "My answer follows",
+      "uncertain": false
+    },
+    {
+      "start": 215.44,
+      "end": 218.48,
+      "text": "We keep the shoes",
+      "uncertain": false
+    },
+    {
+      "start": 219.42,
+      "end": 221.66,
+      "text": "We walk tomorrow",
+      "uncertain": true
+    },
+    {
+      "start": 223.44,
+      "end": 226.34,
+      "text": "Two names and one dress shoes",
+      "uncertain": true
+    },
+    {
+      "start": 226.34,
+      "end": 229.74,
+      "text": "Tell me which of us we use",
+      "uncertain": false
+    },
+    {
+      "start": 229.74,
+      "end": 232.84,
+      "text": "Bob came down with a terrible grace",
+      "uncertain": true
+    },
+    {
+      "start": 232.84,
+      "end": 236.02,
+      "text": "Left your smile somewhere inside my face",
+      "uncertain": false
+    },
+    {
+      "start": 236.02,
+      "end": 239.08,
+      "text": "Fuck this dungeon, fuck its dues",
+      "uncertain": false
+    },
+    {
+      "start": 239.08,
+      "end": 242.52,
+      "text": "We've got one more door to bruise",
+      "uncertain": false
+    },
+    {
+      "start": 242.52,
+      "end": 245.34,
+      "text": "If I'm still here and you are too",
+      "uncertain": false
+    },
+    {
+      "start": 245.34,
+      "end": 247.6,
+      "text": "Its mouth says I love you",
+      "uncertain": true
+    }
+  ]
+}

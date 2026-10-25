@@ -5,6 +5,10 @@ import { archivedSongIds, publicCatalog } from "./archived-songs.mjs";
 import { songAlias } from "../assets/song-links.js";
 import { songSummary } from "../assets/song-summary.js";
 import { codeVersion } from "./code-version.mjs";
+import { lyricPronunciations } from "./lyric-pronunciations.mjs";
+import { performanceTranscripts } from "./performance-transcripts.mjs";
+import artwork from "../assets/artwork-catalog.js";
+import { buildArtworkPreviews } from "./artwork-previews.mjs";
 const root = path.resolve(import.meta.dirname, "..");
 const output = path.join(root, "dist");
 const updatedAt = new Date();
@@ -35,6 +39,11 @@ const publicEntries = [
   "fearhunger",
   "arabic",
   "oeuful",
+  "audtism",
+  "timeline",
+  "sausage",
+  "saxophone",
+  "aci",
   "v9",
   "wiseau",
   "robots.txt",
@@ -42,12 +51,24 @@ const publicEntries = [
 ];
 // Read from the sources, before the hosting config is rewritten below.
 const version = await codeVersion(root, publicEntries);
+const sourceHosting = JSON.parse(await readFile(path.join(root, "staticwebapp.config.json"), "utf8"));
+const releaseVideos = new Set(sourceHosting.routes
+  .filter(({ route, redirect, statusCode }) => statusCode === 302 &&
+    /^\/assets\/song-videos\/[^/]+\.mp4$/.test(route) &&
+    redirect === `https://github.com/legauntt/yehry3/releases/download/song-videos-v1/${path.posix.basename(route)}`)
+  .map(({ route }) => path.join(root, route.slice(1))));
 await rm(output, { recursive: true, force: true });
 await mkdir(output, { recursive: true });
 for (const file of publicEntries) {
   await stat(path.join(root, file));
-  await cp(path.join(root, file), path.join(output, file), { recursive: true });
+  await cp(path.join(root, file), path.join(output, file), {
+    recursive: true,
+    // Production redirects these unchanged legacy clips to their checksum-verified
+    // release copies, keeping the Azure bundle below the existing size limit.
+    filter: source => !process.env.YEHRY3_ARCHIVE_URL || !releaseVideos.has(source),
+  });
 }
+await buildArtworkPreviews(root, output, artwork);
 const fullCatalog = JSON.parse(await readFile(path.join(root, "catalog.json"), "utf8"));
 // Only the deploy sets this, so local builds and tests never depend on the network.
 let catalog = fullCatalog;
@@ -67,6 +88,12 @@ if (process.env.YEHRY3_ARCHIVE_URL) {
   }
 }
 await mkdir(path.join(output, "songs"));
+const transcripts = await performanceTranscripts(catalog.songs);
+await mkdir(path.join(output, "lyric-transcripts"));
+await writeFile(path.join(output, "assets", "lyric-transcripts.json"), JSON.stringify(transcripts.index));
+for (const [name, transcript] of Object.entries(transcripts.files))
+  await writeFile(path.join(output, "lyric-transcripts", name), JSON.stringify(transcript));
+await writeFile(path.join(output, "assets", "lyric-pronunciations.json"), JSON.stringify(lyricPronunciations(catalog.songs)));
 for (const song of catalog.songs) {
   if (!/^[a-z0-9-]{1,120}$/.test(song.id)) throw new Error("Invalid public song ID");
   await writeFile(path.join(output, "songs", `${song.id}.json`), JSON.stringify(song));
@@ -115,17 +142,12 @@ for (const song of catalog.songs.filter((song) => song.lyrics?.text)) {
   await mkdir(directory, { recursive: true });
   await writeFile(path.join(directory, "index.html"), html);
 }
-// Exact index.html rules also match their directory URLs on Azure. Keep each
-// generated page (and its share metadata) ahead of the fallback for new songs.
+// Serve generated lyric pages directly, like song and Wiseau share pages.
+// A route per song exceeds Azure's 20 KB limit as the catalog grows. New aliases
+// that precede a build are recovered by the not-found page using the live catalog.
 const hostingFile = path.join(output, "staticwebapp.config.json");
 const hosting = JSON.parse(await readFile(hostingFile, "utf8"));
-const lyricsFallback = hosting.routes.findIndex(route => route.route === "/lyrics/*");
-if (lyricsFallback < 0) throw new Error("Missing lyrics fallback route");
-hosting.routes.splice(lyricsFallback, 0, ...[...aliases].map(alias => ({
-  route: `/lyrics/${alias}/index.html`,
-})));
-// Azure limits this file to 20 KB. Keep the generated artifact compact and fail
-// here if catalog growth ever requires a different routing strategy.
+// Azure limits this file to 20 KB. Keep the generated artifact compact.
 const hostingJson = JSON.stringify(hosting);
 if (Buffer.byteLength(hostingJson) > 20000) throw new Error("Azure routing configuration exceeds 20 KB");
 await writeFile(hostingFile, hostingJson);
@@ -223,14 +245,15 @@ for (const file of await readdir(output, { recursive: true })) {
   let html = await readFile(destination, "utf8");
   if (html.includes("/assets/site.css")) html = html.replace("<html ", "<html data-shared-theme ");
   html = html.replace("<head>", '<head>\n    <script src="/assets/theme.js"></script>');
+  html = html.replace("</head>", '<link rel="stylesheet" href="/assets/halloween.css">\n    <script type="module" src="/assets/halloween.js"></script>\n  </head>');
   html = html.replace("</head>", '<link rel="stylesheet" href="/assets/theme.css">\n  </head>');
   if (html.includes('class="site-footer"')) {
     html = html.replace(/<span>\s*YEHRY3 · A little off the record\.\s*<\/span\s*>/i, '<span data-brand-footer>YEHRY3 · A little off the record.</span>');
     html = html.replace("</head>", '<script type="module" src="/assets/branding.js"></script>\n  </head>');
   }
   // The listening room sits on every page with the shared header, beside Fear & Hunger's own players, and on
-  // the studio guide, Tommy's page and the not-found page. Œuful and the listening experiments are left out:
-  // each is its own sound.
+  // the studio guide, Tommy's page, Œuful and the not-found page. Listening
+  // experiments with their own isolated layouts are left out.
   const route = file.replaceAll("\\", "/");
   if (html.includes('class="site-header"') || ["fearhunger/index.html", "deetz/index.html", "404.html"].includes(route) || route.startsWith("wiseau/"))
     html = html.replace("</head>", '<link rel="stylesheet" href="/assets/listeners.css">\n    <script type="module" src="/assets/listeners.js"></script>\n  </head>');

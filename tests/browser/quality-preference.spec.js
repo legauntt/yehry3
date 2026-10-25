@@ -5,13 +5,17 @@ const song = {
   id: "preference-song", title: "A song with an issue", duration: 240,
   url: "/test.mp3", collection: "distonyc", collections: ["distonyc", "fearhunger"],
   reviewState: "needs_review", validationFailures: ["voice_validation"],
-  qualityIssues: [{ code: "long_instrumental_break", seconds: 35.04 }],
+  qualityIssues: [{ code: "long_instrumental_break", seconds: 35.04 },
+    { code: "vocal_activity_check", fraction: .394166, requiredFraction: .5, minimumFraction: .05 },
+    { code: "voice_pitch_check", phrase: "phrase-001", sourceFrames: 16, convertedFrames: 6, analyzedFrames: 929, minimumMutualFrames: 11 }],
   lyrics: { text: "The saved lyric sheet.", kind: "written" },
 };
 
 test.beforeEach(async ({ context }) => {
   await context.route("https://fonts.googleapis.com/**", route => route.abort());
-  await context.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
+  await context.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [song], nextVoteAt: null } }));
+  await context.route("**/yehry3/catalog/state", route => route.fulfill({ json: { feedback: {} } }));
+  await context.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [song] } }));
   await context.route("**/yehry3/songs/preference-song", route => route.fulfill({ json: { song } }));
   await context.route("**/yehry3/queue?*", route => route.fulfill({ json: {
     inStudio: [], queued: [], recent: [{ ...song, status: "published", idea: song.title, publishedAt: new Date().toISOString() }],
@@ -28,6 +32,9 @@ test("issues default on and the preference persists across reloads and listening
   const toggle = page.getByRole("checkbox", { name: "Show review notes" });
   await expect(toggle).toBeChecked();
   await expect(page.locator(".quality-notice")).toBeVisible();
+  await expect(page.locator(".quality-notice")).toHaveAttribute("open", "");
+  await expect(page.locator(".quality-notice p")).toContainText("39.4%");
+  await expect(page.locator(".quality-notice p")).toContainText("6 pitched converted frames");
   await expect(page.locator(".badge.needs_review")).toBeVisible();
   await toggle.uncheck();
   await expect(page.locator(".quality-notice")).toBeHidden();
@@ -56,6 +63,40 @@ test("issues default on and the preference persists across reloads and listening
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.getByRole("dialog", { name: "Display settings" }).screenshot({ path: "artifacts/quality-preference-mobile.png" });
+});
+
+test("Backstage review reasons remain visible with listening notices disabled", async ({ page }) => {
+  const prompt = {
+    id: "review-request", status: "published", prompt: "A song needing repair",
+    details: {}, priority: 0, version: 1, reviewState: "needs_review",
+    confirmedAt: "2026-10-04T12:00:00Z", history: [],
+    result: { validationFailures: ["vocal_dropout"] },
+  };
+  await page.addInitScript(key => localStorage.setItem(key, "false"), key);
+  await page.route("**/yehry3/admin/prompts?**", route => route.fulfill({ json: {
+    prompts: [prompt], total: 1, page: 0, counts: {}, transitions: {}, workers: [],
+  } }));
+  await page.route("**/yehry3/admin/prompts/review-request", route => route.fulfill({ json: {
+    prompt, transitions: {}, workers: [],
+  } }));
+  await page.route("**/yehry3/admin/prompts/review-request/logs", route => route.fulfill({ json: { entries: [] } }));
+  await page.goto("/admin/review-request");
+  await page.getByLabel("Password", { exact: true }).fill("browser-test-admin");
+  await page.getByRole("button", { name: "Open the queue" }).click();
+  await expect(page.locator(".admin-queue .quality-notice")).toBeVisible();
+  for (const path of ["/admin/review-request", "/admin/?status=all"]) {
+    await page.goto(path);
+    const notice = page.locator(".admin-queue .quality-notice");
+    await expect(notice).toBeVisible();
+    await expect(notice).toHaveAttribute("open", "");
+    await expect(notice.locator("p")).toContainText("Automatic validation detected missing vocal passages.");
+    await page.setViewportSize({ width: 390, height: 844 });
+    await expect(notice.locator("p")).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  }
+  await page.goto("/");
+  await expect(page.locator('[data-id="preference-song"] .quality-notice')).toBeHidden();
+  expect(await page.evaluate(key => localStorage.getItem(key), key)).toBe("false");
 });
 
 test("open tabs follow changes and clearing the preference restores the default", async ({ page, context }) => {
@@ -97,20 +138,12 @@ test("blocked localStorage still allows the current page to toggle notices", asy
   await expect(page.locator(".quality-notice")).toBeVisible();
   const continuous = page.getByRole("checkbox", { name: "Continuous record spins" });
   const playback = page.getByRole("checkbox", { name: "Spin while music plays" });
-  const captions = page.getByRole("checkbox", { name: "Lyric captions" });
-  const lyricAudio = page.getByRole("checkbox", { name: "Lyric audio" });
-  await expect(captions).toBeChecked();
-  await expect(lyricAudio).not.toBeChecked();
-  await captions.uncheck();
-  await lyricAudio.check();
   await continuous.check();
   await playback.check();
   await expect(page.locator(".record")).toHaveAttribute("data-spin-rate", "1.25");
   await page.evaluate(() => window.dispatchEvent(new Event("pageshow")));
   await expect(continuous).toBeChecked();
   await expect(playback).toBeChecked();
-  await expect(captions).not.toBeChecked();
-  await expect(lyricAudio).toBeChecked();
   await expect(page.locator(".settings-new")).toBeHidden();
   await continuous.uncheck();
   await expect.poll(() => page.locator(".record").evaluate(element => element.getAnimations().length)).toBe(0);
@@ -121,28 +154,14 @@ test("record preferences and the new indicator persist across navigation and syn
   await page.locator(".catalog-filters > summary").click();
   const opener = page.getByRole("button", { name: "Open display settings" });
   await expect(page.locator(".settings-new")).toBeVisible();
-  await expect(opener).toHaveAccessibleDescription("New Dark Mode setting available.");
+  await expect(opener).toHaveAccessibleDescription("New bat flight patterns available.");
   const second = await context.newPage();
   await second.goto("/");
   await second.locator(".catalog-filters > summary").click();
   await expect(second.locator(".settings-new")).toBeVisible();
   await opener.click();
   await expect(second.locator(".settings-new")).toBeHidden();
-  const captions = page.getByRole("checkbox", { name: "Lyric captions" });
-  const lyricAudio = page.getByRole("checkbox", { name: "Lyric audio" });
-  await expect(captions).toBeChecked();
-  await expect(lyricAudio).not.toBeChecked();
   await second.getByRole("button", { name: "Open display settings" }).click();
-  const secondCaptions = second.getByRole("checkbox", { name: "Lyric captions" });
-  const secondLyricAudio = second.getByRole("checkbox", { name: "Lyric audio" });
-  await expect(secondCaptions).toBeChecked();
-  await expect(secondLyricAudio).not.toBeChecked();
-  await captions.uncheck();
-  await expect(secondCaptions).not.toBeChecked();
-  await captions.check();
-  await expect(secondCaptions).toBeChecked();
-  await lyricAudio.check();
-  await expect(secondLyricAudio).toBeChecked();
   await page.getByRole("checkbox", { name: "Continuous record spins" }).check();
   await page.getByRole("checkbox", { name: "Spin while music plays" }).check();
   await expect(second.getByRole("checkbox", { name: "Continuous record spins" })).toBeChecked();
@@ -159,13 +178,9 @@ test("record preferences and the new indicator persist across navigation and syn
   await opener.click();
   await expect(page.getByRole("checkbox", { name: "Continuous record spins" })).toBeChecked();
   await expect(page.getByRole("checkbox", { name: "Spin while music plays" })).toBeChecked();
-  await expect(page.getByRole("checkbox", { name: "Lyric captions" })).toBeChecked();
-  await expect(page.getByRole("checkbox", { name: "Lyric audio" })).toBeChecked();
   await page.evaluate(() => localStorage.clear());
   await expect(second.getByRole("checkbox", { name: "Continuous record spins" })).not.toBeChecked();
   await expect(second.getByRole("checkbox", { name: "Spin while music plays" })).not.toBeChecked();
-  await expect(secondCaptions).toBeChecked();
-  await expect(secondLyricAudio).not.toBeChecked();
   await expect.poll(() => second.locator(".record").evaluate(element => element.getAnimations().length)).toBe(0);
   await second.getByRole("button", { name: "Close display settings" }).click();
   await expect(second.locator(".settings-new")).toBeVisible();
@@ -185,8 +200,6 @@ test("new preferences use a still badge with reduced motion and fit a small scre
   await opener.click();
   await expect(page.locator(".settings-new")).toBeHidden();
   const dialog = page.getByRole("dialog", { name: "Display settings" });
-  await expect(page.getByRole("checkbox", { name: "Lyric captions" })).toBeChecked();
-  await expect(page.getByRole("checkbox", { name: "Lyric audio" })).not.toBeChecked();
   const playback = page.getByRole("checkbox", { name: "Spin while music plays" });
   await playback.scrollIntoViewIfNeeded();
   await expect(playback).toBeInViewport();

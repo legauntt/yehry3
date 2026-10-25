@@ -43,6 +43,11 @@ DECISION = {'action': 'replan', 'reason': 'The words are retrievable.', 'evidenc
 
 
 class ReplanTests(unittest.TestCase):
+    def setUp(self):
+        # Historical journal/repair coverage; live retirement is tested separately.
+        retired = patch('queue_monitor.DEHAKA_RETIRED', False)
+        retired.start(); self.addCleanup(retired.stop)
+
     def test_archive_keeps_every_refused_file_and_leaves_one_directive(self):
         with tempfile.TemporaryDirectory() as root:
             job = refused_job(root)

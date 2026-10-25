@@ -1,0 +1,373 @@
+{
+  "version": 1,
+  "songId": "distonyc-98b70e0a6cb557c692f0799f",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-98b70e0a6cb557c692f0799f-d594afdd0e8c.mp3",
+  "audioSha256": "d594afdd0e8c5bf40e70799f6e2a7eb8f5259df64fa226f22019c03b2c3aaa72",
+  "inputSha256": "72bb66816102964e0eb60d510ff9a89ae7a66b745dccee1c5b44ac264284f19f",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 250.0440625,
+  "segments": [
+    {
+      "start": 4.84,
+      "end": 7.68,
+      "text": "Midnight humming through the power lines",
+      "uncertain": false
+    },
+    {
+      "start": 7.68,
+      "end": 10.76,
+      "text": "Tony reads the glowing loadside sign",
+      "uncertain": true
+    },
+    {
+      "start": 10.76,
+      "end": 13.6,
+      "text": "One small hunger, one unlucky man",
+      "uncertain": false
+    },
+    {
+      "start": 13.6,
+      "end": 17.18,
+      "text": "Following the roast beef promised land",
+      "uncertain": true
+    },
+    {
+      "start": 18.98,
+      "end": 23.04,
+      "text": "He took the last bus out past closing time",
+      "uncertain": false
+    },
+    {
+      "start": 24.62,
+      "end": 27.9,
+      "text": "With exact change sweating in his hand",
+      "uncertain": false
+    },
+    {
+      "start": 27.9,
+      "end": 35.9,
+      "text": "saw that red hat burning like a beacon over one more half deserted strip mall stand he reached",
+      "uncertain": true
+    },
+    {
+      "start": 35.9,
+      "end": 43.52,
+      "text": "the door the whole night shudder sirens tore the silence into scenes the windows vanished the sign",
+      "uncertain": false
+    },
+    {
+      "start": 43.52,
+      "end": 51.1,
+      "text": "went black and smoke swallowed up his little dream we have to meet said the light in the rain",
+      "uncertain": false
+    },
+    {
+      "start": 51.1,
+      "end": 54.94,
+      "text": "Then the light disappeared in a tower of flame",
+      "uncertain": false
+    },
+    {
+      "start": 54.94,
+      "end": 56.96,
+      "text": "Goddamn 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 57.86,
+      "end": 60.9,
+      "text": "Tony turned home hungry through the rain",
+      "uncertain": false
+    },
+    {
+      "start": 60.9,
+      "end": 64.16,
+      "text": "Every road ends under that red sign",
+      "uncertain": false
+    },
+    {
+      "start": 64.16,
+      "end": 68.08,
+      "text": "Every meal gets taken before it's mine",
+      "uncertain": false
+    },
+    {
+      "start": 71.32,
+      "end": 74.94,
+      "text": "Next week he crossed three county borders",
+      "uncertain": false
+    },
+    {
+      "start": 74.94,
+      "end": 77.88,
+      "text": "Found another shining off Route 9",
+      "uncertain": false
+    },
+    {
+      "start": 77.88,
+      "end": 80.98,
+      "text": "He could smell the curly fries through traffic",
+      "uncertain": true
+    },
+    {
+      "start": 80.98,
+      "end": 84.2,
+      "text": "For one sweet second, everything was fine",
+      "uncertain": true
+    },
+    {
+      "start": 84.2,
+      "end": 87.38,
+      "text": "Then shadows passed across the parking lot",
+      "uncertain": false
+    },
+    {
+      "start": 87.38,
+      "end": 90.42,
+      "text": "The organ moaned beneath the warning tone",
+      "uncertain": false
+    },
+    {
+      "start": 90.42,
+      "end": 93.2,
+      "text": "Another counter folded into darkness",
+      "uncertain": false
+    },
+    {
+      "start": 93.2,
+      "end": 97.48,
+      "text": "And Tony rode the empty highway home",
+      "uncertain": false
+    },
+    {
+      "start": 100.12,
+      "end": 103.12,
+      "text": "We have the meat set, the light, and the rain",
+      "uncertain": false
+    },
+    {
+      "start": 103.12,
+      "end": 106.86,
+      "text": "Then the light disappeared in the Tower of Flame",
+      "uncertain": false
+    },
+    {
+      "start": 106.86,
+      "end": 108.92,
+      "text": "Goddamn 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 108.92,
+      "end": 111.78,
+      "text": "Tony read the dashboard",
+      "uncertain": true
+    },
+    {
+      "start": 111.78,
+      "end": 112.92,
+      "text": "Cursing at the rain",
+      "uncertain": false
+    },
+    {
+      "start": 112.92,
+      "end": 116.02,
+      "text": "Every road ends under that red sign",
+      "uncertain": false
+    },
+    {
+      "start": 116.02,
+      "end": 118.52,
+      "text": "Every meal gets taken",
+      "uncertain": false
+    },
+    {
+      "start": 118.52,
+      "end": 120.02,
+      "text": "Before it's mine",
+      "uncertain": true
+    },
+    {
+      "start": 124.38,
+      "end": 126.5,
+      "text": "He kept the coupons",
+      "uncertain": false
+    },
+    {
+      "start": 126.5,
+      "end": 128.22,
+      "text": "In a kitchen drawer",
+      "uncertain": false
+    },
+    {
+      "start": 128.22,
+      "end": 131.46,
+      "text": "Little paper prayers for something warm",
+      "uncertain": true
+    },
+    {
+      "start": 131.46,
+      "end": 132.98,
+      "text": "Beef and cheddar",
+      "uncertain": false
+    },
+    {
+      "start": 132.98,
+      "end": 134.56,
+      "text": "Pictured like a heaven",
+      "uncertain": false
+    },
+    {
+      "start": 134.56,
+      "end": 136.72,
+      "text": "Forever waiting past the next",
+      "uncertain": false
+    },
+    {
+      "start": 136.72,
+      "end": 143.42,
+      "text": "alarm this friend said tony let the hunger go but hunger was the last hope he could name",
+      "uncertain": true
+    },
+    {
+      "start": 143.42,
+      "end": 150.28,
+      "text": "i have no mouth and i'm feeling arby's so he walked toward the red electric blade",
+      "uncertain": true
+    },
+    {
+      "start": 155.06,
+      "end": 162.02,
+      "text": "dawn came pale behind the loading docks no cars no birds no wind along the lane",
+      "uncertain": false
+    },
+    {
+      "start": 162.02,
+      "end": 165.04,
+      "text": "The doors unlocked, the friar started singing",
+      "uncertain": false
+    },
+    {
+      "start": 165.04,
+      "end": 168.14,
+      "text": "Tony whispered, let me taste it once",
+      "uncertain": true
+    },
+    {
+      "start": 168.14,
+      "end": 171.12,
+      "text": "The hand reached out to take his order",
+      "uncertain": false
+    },
+    {
+      "start": 171.12,
+      "end": 174.2,
+      "text": "The whole horizon answered with a roar",
+      "uncertain": false
+    },
+    {
+      "start": 174.2,
+      "end": 177.4,
+      "text": "The ceiling fell between him and the counter",
+      "uncertain": false
+    },
+    {
+      "start": 177.4,
+      "end": 180.8,
+      "text": "And morning could not find him anymore",
+      "uncertain": false
+    },
+    {
+      "start": 185.68,
+      "end": 188.86,
+      "text": "We have the meats, but Tony cannot hear",
+      "uncertain": false
+    },
+    {
+      "start": 188.86,
+      "end": 192.52,
+      "text": "The red hat flickers through the settling air",
+      "uncertain": false
+    },
+    {
+      "start": 192.52,
+      "end": 194.66,
+      "text": "Goddamn 9-11'd again",
+      "uncertain": false
+    },
+    {
+      "start": 194.66,
+      "end": 198.54,
+      "text": "No angry fists, no long ride home through rain",
+      "uncertain": false
+    },
+    {
+      "start": 198.54,
+      "end": 201.96,
+      "text": "Just one cold coupon underneath his hand",
+      "uncertain": false
+    },
+    {
+      "start": 201.96,
+      "end": 205.58,
+      "text": "And one untouched meal in a ruined stand",
+      "uncertain": false
+    },
+    {
+      "start": 207.86,
+      "end": 211.54,
+      "text": "No mouth to curse the hunger in his head",
+      "uncertain": false
+    },
+    {
+      "start": 211.54,
+      "end": 214.6,
+      "text": "No hand to reach the meal beyond the glass",
+      "uncertain": false
+    },
+    {
+      "start": 214.6,
+      "end": 217.62,
+      "text": "He died without the taste he chased for years",
+      "uncertain": false
+    },
+    {
+      "start": 217.62,
+      "end": 220.88,
+      "text": "No curly fries, no cheddar, nothing gained",
+      "uncertain": true
+    },
+    {
+      "start": 220.88,
+      "end": 224.8,
+      "text": "The organ holds one low and final answer",
+      "uncertain": true
+    },
+    {
+      "start": 224.8,
+      "end": 228.22,
+      "text": "While all the roadside power lines complain",
+      "uncertain": false
+    },
+    {
+      "start": 228.22,
+      "end": 232.64,
+      "text": "I have no mouth and I'm feeling Arby's",
+      "uncertain": false
+    },
+    {
+      "start": 232.64,
+      "end": 235.98,
+      "text": "Tony C. went hungry to his grave",
+      "uncertain": false
+    },
+    {
+      "start": 247.62,
+      "end": 248.02,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

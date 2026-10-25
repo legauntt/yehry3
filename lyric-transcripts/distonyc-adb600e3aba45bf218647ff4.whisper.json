@@ -1,0 +1,337 @@
+{
+  "version": 1,
+  "songId": "distonyc-adb600e3aba45bf218647ff4",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-adb600e3aba45bf218647ff4-0ecba85641a5.mp3",
+  "audioSha256": "0ecba85641a59953b47d99962e4ef14b0822acb9bf6df30e13f4b24ffea93882",
+  "inputSha256": "2178f6f17a6eb2ea85b47b305ce8a87dd8db3cdf328d6fb6771cc24a7a919207",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 295.04,
+  "segments": [
+    {
+      "start": 3.06,
+      "end": 11.34,
+      "text": "we skipped storms by the reservoir he said the water knew our names i found the old july photograph",
+      "uncertain": true
+    },
+    {
+      "start": 11.34,
+      "end": 18.24,
+      "text": "and somebody stood beside the frame long black coat pale folded hands that patient smile i knew",
+      "uncertain": false
+    },
+    {
+      "start": 18.24,
+      "end": 27.28,
+      "text": "too well i asked you that seesaw right you said who are you trying to tell i remember your red",
+      "uncertain": false
+    },
+    {
+      "start": 27.28,
+      "end": 33.28,
+      "text": "bicycle i remember cutting through the rain",
+      "uncertain": true
+    },
+    {
+      "start": 35.36,
+      "end": 43.58,
+      "text": "but every road i try to follow leaves one shadow in the lane",
+      "uncertain": false
+    },
+    {
+      "start": 45.2,
+      "end": 54.52,
+      "text": "she saw she saw standing in the scene where he used to be where he used to be",
+      "uncertain": false
+    },
+    {
+      "start": 57.16,
+      "end": 60.1,
+      "text": "Seesaw, seesaw, calm as anything",
+      "uncertain": false
+    },
+    {
+      "start": 60.1,
+      "end": 62.68,
+      "text": "If I can't trust my memory",
+      "uncertain": false
+    },
+    {
+      "start": 62.68,
+      "end": 64.74,
+      "text": "What does Rio mean?",
+      "uncertain": false
+    },
+    {
+      "start": 65.66,
+      "end": 68.38,
+      "text": "That the fair we rode, the fairest we",
+      "uncertain": false
+    },
+    {
+      "start": 68.38,
+      "end": 70.48,
+      "text": "We drew your hat into the crowd",
+      "uncertain": true
+    },
+    {
+      "start": 70.48,
+      "end": 73.46,
+      "text": "I swear he held the cotton candy",
+      "uncertain": false
+    },
+    {
+      "start": 73.46,
+      "end": 75.66,
+      "text": "And laughed a little much too loud",
+      "uncertain": false
+    },
+    {
+      "start": 75.66,
+      "end": 78.46,
+      "text": "At the diner by the station",
+      "uncertain": false
+    },
+    {
+      "start": 78.46,
+      "end": 80.88,
+      "text": "The name of the tune they used to play",
+      "uncertain": true
+    },
+    {
+      "start": 80.88,
+      "end": 83.58,
+      "text": "The waitress teared across the counter",
+      "uncertain": false
+    },
+    {
+      "start": 83.58,
+      "end": 86.08,
+      "text": "No one like that came this way",
+      "uncertain": true
+    },
+    {
+      "start": 86.08,
+      "end": 90.22,
+      "text": "I remember all your small reactions",
+      "uncertain": false
+    },
+    {
+      "start": 91.92,
+      "end": 95.04,
+      "text": "How you tapped the table when you lied",
+      "uncertain": true
+    },
+    {
+      "start": 96.66,
+      "end": 100.78,
+      "text": "But every face I ask about him",
+      "uncertain": false
+    },
+    {
+      "start": 100.78,
+      "end": 105.62,
+      "text": "Says there was no one by your side",
+      "uncertain": false
+    },
+    {
+      "start": 108.0,
+      "end": 110.08,
+      "text": "Seesaw, seesaw",
+      "uncertain": false
+    },
+    {
+      "start": 110.08,
+      "end": 111.94,
+      "text": "Standing in the scene",
+      "uncertain": false
+    },
+    {
+      "start": 111.94,
+      "end": 117.2,
+      "text": "Where you used to be, where you used to be",
+      "uncertain": false
+    },
+    {
+      "start": 119.0,
+      "end": 121.98,
+      "text": "Seesaw, seesaw, call us anything",
+      "uncertain": false
+    },
+    {
+      "start": 121.98,
+      "end": 126.48,
+      "text": "If I can't trust my memory, what does real mean?",
+      "uncertain": false
+    },
+    {
+      "start": 127.22,
+      "end": 130.04,
+      "text": "I took the picture to your sister",
+      "uncertain": false
+    },
+    {
+      "start": 130.04,
+      "end": 132.5,
+      "text": "She held it underneath the light",
+      "uncertain": true
+    },
+    {
+      "start": 132.5,
+      "end": 135.3,
+      "text": "She said there are two of you in this one",
+      "uncertain": false
+    },
+    {
+      "start": 135.3,
+      "end": 137.66,
+      "text": "There was no third that summer night",
+      "uncertain": false
+    },
+    {
+      "start": 137.66,
+      "end": 140.5,
+      "text": "The porch light, wet pavement",
+      "uncertain": false
+    },
+    {
+      "start": 140.5,
+      "end": 142.86,
+      "text": "The train that shook the bedroom wall",
+      "uncertain": true
+    },
+    {
+      "start": 142.86,
+      "end": 146.04,
+      "text": "Every detail stayed between us",
+      "uncertain": false
+    },
+    {
+      "start": 146.04,
+      "end": 148.22,
+      "text": "No seesaw saw at all",
+      "uncertain": false
+    },
+    {
+      "start": 148.22,
+      "end": 152.22,
+      "text": "Maybe I built him from the silence",
+      "uncertain": false
+    },
+    {
+      "start": 153.92,
+      "end": 157.12,
+      "text": "For one clean corner of the dark",
+      "uncertain": false
+    },
+    {
+      "start": 159.38,
+      "end": 162.5,
+      "text": "Maybe every broken story",
+      "uncertain": false
+    },
+    {
+      "start": 162.5,
+      "end": 164.94,
+      "text": "Needs a witness",
+      "uncertain": false
+    },
+    {
+      "start": 165.92,
+      "end": 167.44,
+      "text": "Needs a mark",
+      "uncertain": false
+    },
+    {
+      "start": 168.44,
+      "end": 176.04,
+      "text": "but he knows the words you whispered he knows where the oak he hides then I hear my own voice",
+      "uncertain": true
+    },
+    {
+      "start": 176.04,
+      "end": 188.76,
+      "text": "answer I put him there to stay alive seesaw seesaw fading from the scene there you used to be",
+      "uncertain": false
+    },
+    {
+      "start": 188.76,
+      "end": 191.08,
+      "text": "There you used to be",
+      "uncertain": true
+    },
+    {
+      "start": 193.56,
+      "end": 195.08,
+      "text": "Seesaw, seesaw",
+      "uncertain": false
+    },
+    {
+      "start": 195.08,
+      "end": 196.92,
+      "text": "No one else has seen",
+      "uncertain": false
+    },
+    {
+      "start": 196.92,
+      "end": 200.18,
+      "text": "Just a name like gave the empty space",
+      "uncertain": true
+    },
+    {
+      "start": 203.86,
+      "end": 205.38,
+      "text": "Seesaw, seesaw",
+      "uncertain": false
+    },
+    {
+      "start": 205.38,
+      "end": 207.16,
+      "text": "I can finally say",
+      "uncertain": false
+    },
+    {
+      "start": 207.16,
+      "end": 209.28,
+      "text": "You were never there",
+      "uncertain": false
+    },
+    {
+      "start": 209.28,
+      "end": 212.04,
+      "text": "But I remember you anyway",
+      "uncertain": false
+    },
+    {
+      "start": 217.06,
+      "end": 225.04,
+      "text": "the reservoir is black and still the photograph is in my hand i'd turn it over read the date",
+      "uncertain": true
+    },
+    {
+      "start": 225.04,
+      "end": 232.44,
+      "text": "then let the answer understand not yours not money not his at all no third signature in blue",
+      "uncertain": false
+    },
+    {
+      "start": 232.44,
+      "end": 238.58,
+      "text": "i don't know why i made him real but i know i remember you",
+      "uncertain": false
+    },
+    {
+      "start": 243.34,
+      "end": 267.68,
+      "text": "I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry, I'm sorry.",
+      "uncertain": true
+    },
+    {
+      "start": 274.22,
+      "end": 278.24,
+      "text": "Yeah, yeah, yeah, yeah.",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,703 @@
+{
+  "version": 1,
+  "songId": "distonyc-f5f94a292d4257a7b649dc30",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f5f94a292d4257a7b649dc30-f269aa5f7daa.mp3",
+  "audioSha256": "f269aa5f7daac75e03162ec1fd15a82a677fe90258dd17413bef86fd724f8175",
+  "inputSha256": "48e3b44e6856aa24ee8620128f10a716cf3850cb9364e6aeb350be9986b6c9f1",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 384.64,
+  "segments": [
+    {
+      "start": 8.92,
+      "end": 12.54,
+      "text": "Rain writes your name on the midnight glass",
+      "uncertain": true
+    },
+    {
+      "start": 12.54,
+      "end": 15.64,
+      "text": "And wipes it clean as the buses pass",
+      "uncertain": true
+    },
+    {
+      "start": 15.64,
+      "end": 18.84,
+      "text": "An envelope waits beneath my hand",
+      "uncertain": false
+    },
+    {
+      "start": 18.84,
+      "end": 22.0,
+      "text": "Ten winters late with no demand",
+      "uncertain": false
+    },
+    {
+      "start": 22.0,
+      "end": 25.34,
+      "text": "I found your address in a borrowed book",
+      "uncertain": false
+    },
+    {
+      "start": 25.34,
+      "end": 28.58,
+      "text": "Beside a sentence I never understood",
+      "uncertain": false
+    },
+    {
+      "start": 28.58,
+      "end": 31.66,
+      "text": "The ink had faded to a tired blue",
+      "uncertain": false
+    },
+    {
+      "start": 31.66,
+      "end": 34.94,
+      "text": "Like every excuse I'll rehearse for you",
+      "uncertain": false
+    },
+    {
+      "start": 34.94,
+      "end": 38.34,
+      "text": "Back then I made silence look like pride",
+      "uncertain": false
+    },
+    {
+      "start": 38.34,
+      "end": 41.36,
+      "text": "Watched you leave and never stepped outside",
+      "uncertain": false
+    },
+    {
+      "start": 41.36,
+      "end": 44.6,
+      "text": "I let the whole waste swallow your goodbye",
+      "uncertain": false
+    },
+    {
+      "start": 44.6,
+      "end": 48.04,
+      "text": "Then blamed the walls for keeping mine",
+      "uncertain": true
+    },
+    {
+      "start": 48.04,
+      "end": 51.24,
+      "text": "Now the gutters count what the years have cost",
+      "uncertain": false
+    },
+    {
+      "start": 51.24,
+      "end": 54.5,
+      "text": "One drop for every chance I lost",
+      "uncertain": false
+    },
+    {
+      "start": 54.5,
+      "end": 56.9,
+      "text": "I cannot turn that evening around",
+      "uncertain": false
+    },
+    {
+      "start": 56.9,
+      "end": 60.22,
+      "text": "But I can stop hiding from its sound",
+      "uncertain": true
+    },
+    {
+      "start": 60.22,
+      "end": 63.7,
+      "text": "This apology is ten years late",
+      "uncertain": false
+    },
+    {
+      "start": 63.7,
+      "end": 66.62,
+      "text": "Rain soft day for at your gate",
+      "uncertain": false
+    },
+    {
+      "start": 66.62,
+      "end": 69.86,
+      "text": "No key inside, no grand design",
+      "uncertain": false
+    },
+    {
+      "start": 69.86,
+      "end": 73.16,
+      "text": "Just the truth I should have called mine",
+      "uncertain": true
+    },
+    {
+      "start": 73.16,
+      "end": 76.46,
+      "text": "You owe me nothing, not even a reply",
+      "uncertain": false
+    },
+    {
+      "start": 76.46,
+      "end": 80.32,
+      "text": "I came to say I know why you said goodbye",
+      "uncertain": false
+    },
+    {
+      "start": 80.32,
+      "end": 84.54,
+      "text": "Ten years late, but honest tonight I was wrong",
+      "uncertain": false
+    },
+    {
+      "start": 85.82,
+      "end": 87.54,
+      "text": "And you were right",
+      "uncertain": false
+    },
+    {
+      "start": 87.54,
+      "end": 90.94,
+      "text": "The corner shop is a tower of steel",
+      "uncertain": true
+    },
+    {
+      "start": 90.94,
+      "end": 94.12,
+      "text": "The old red arning is gone for real",
+      "uncertain": false
+    },
+    {
+      "start": 94.12,
+      "end": 96.68,
+      "text": "Our cafe window wears another name",
+      "uncertain": false
+    },
+    {
+      "start": 96.68,
+      "end": 99.84,
+      "text": "But rain on the pavement still looks the same",
+      "uncertain": false
+    },
+    {
+      "start": 99.84,
+      "end": 103.28,
+      "text": "I remember laughing when your voice went low",
+      "uncertain": false
+    },
+    {
+      "start": 103.28,
+      "end": 106.48,
+      "text": "As if hurt were a weakness you had to outgrow",
+      "uncertain": false
+    },
+    {
+      "start": 106.48,
+      "end": 109.38,
+      "text": "You asked me once to meet you halfway",
+      "uncertain": false
+    },
+    {
+      "start": 109.38,
+      "end": 112.82,
+      "text": "I measured the distance then walked away",
+      "uncertain": false
+    },
+    {
+      "start": 112.82,
+      "end": 116.04,
+      "text": "I call it freedom, call it being young",
+      "uncertain": false
+    },
+    {
+      "start": 116.04,
+      "end": 119.54,
+      "text": "Anything but the harm I had done",
+      "uncertain": false
+    },
+    {
+      "start": 119.54,
+      "end": 122.74,
+      "text": "Time did not pardon them, late me awash",
+      "uncertain": true
+    },
+    {
+      "start": 122.74,
+      "end": 125.86,
+      "text": "It only took the fault for my honors",
+      "uncertain": true
+    },
+    {
+      "start": 125.86,
+      "end": 128.48,
+      "text": "This apology is ten years late",
+      "uncertain": false
+    },
+    {
+      "start": 128.48,
+      "end": 131.42,
+      "text": "Plane soft paper at your gate",
+      "uncertain": true
+    },
+    {
+      "start": 131.42,
+      "end": 134.78,
+      "text": "No key inside, no grand design",
+      "uncertain": false
+    },
+    {
+      "start": 134.78,
+      "end": 137.98,
+      "text": "Just the truth I should have called mine",
+      "uncertain": false
+    },
+    {
+      "start": 137.98,
+      "end": 141.34,
+      "text": "You owe me nothing, not even a reply",
+      "uncertain": false
+    },
+    {
+      "start": 141.34,
+      "end": 145.18,
+      "text": "I came to say I know why you said goodbye",
+      "uncertain": false
+    },
+    {
+      "start": 145.18,
+      "end": 149.48,
+      "text": "Ten years later, but on instant night I was wrong",
+      "uncertain": true
+    },
+    {
+      "start": 150.72,
+      "end": 152.46,
+      "text": "And you were right",
+      "uncertain": false
+    },
+    {
+      "start": 152.46,
+      "end": 155.94,
+      "text": "Maybe you moved where the weather stays clear",
+      "uncertain": false
+    },
+    {
+      "start": 155.94,
+      "end": 158.68,
+      "text": "Maybe my name has disappeared",
+      "uncertain": false
+    },
+    {
+      "start": 158.68,
+      "end": 161.4,
+      "text": "Maybe somebody learned to remain",
+      "uncertain": false
+    },
+    {
+      "start": 161.4,
+      "end": 164.92,
+      "text": "When every hard word came down like rain",
+      "uncertain": false
+    },
+    {
+      "start": 164.92,
+      "end": 168.06,
+      "text": "I hope they listen before they defend",
+      "uncertain": false
+    },
+    {
+      "start": 168.06,
+      "end": 171.12,
+      "text": "Hope they never make your patience bend",
+      "uncertain": false
+    },
+    {
+      "start": 171.12,
+      "end": 174.44,
+      "text": "I hope your morning's open, warm and wide",
+      "uncertain": false
+    },
+    {
+      "start": 174.44,
+      "end": 177.36,
+      "text": "With no old argument asleep beside you",
+      "uncertain": false
+    },
+    {
+      "start": 177.36,
+      "end": 180.22,
+      "text": "I am not asking the clock to reverse",
+      "uncertain": false
+    },
+    {
+      "start": 180.22,
+      "end": 183.42,
+      "text": "I am not dressing regret in verse",
+      "uncertain": false
+    },
+    {
+      "start": 183.42,
+      "end": 186.66,
+      "text": "No photograph waits in this letter for flame",
+      "uncertain": false
+    },
+    {
+      "start": 186.66,
+      "end": 189.84,
+      "text": "No little trap with a sweeter name",
+      "uncertain": false
+    },
+    {
+      "start": 189.84,
+      "end": 193.28,
+      "text": "I wrote the hour, the place, but I said",
+      "uncertain": false
+    },
+    {
+      "start": 193.28,
+      "end": 196.36,
+      "text": "How I made you carry the blame instead",
+      "uncertain": false
+    },
+    {
+      "start": 196.36,
+      "end": 199.6,
+      "text": "If this page reaches no farther than the bin",
+      "uncertain": false
+    },
+    {
+      "start": 199.6,
+      "end": 203.1,
+      "text": "The truth is still the truth I put in",
+      "uncertain": false
+    },
+    {
+      "start": 203.1,
+      "end": 206.32,
+      "text": "The mailbox mouth opens under the streetlight",
+      "uncertain": false
+    },
+    {
+      "start": 206.32,
+      "end": 209.32,
+      "text": "Black as the space between then and tonight",
+      "uncertain": false
+    },
+    {
+      "start": 209.32,
+      "end": 212.72,
+      "text": "My fingers hold on for one heartbeat and more",
+      "uncertain": true
+    },
+    {
+      "start": 212.72,
+      "end": 215.84,
+      "text": "Not to pull you back through a closing door",
+      "uncertain": false
+    },
+    {
+      "start": 215.84,
+      "end": 219.24,
+      "text": "But to release what I kept concealed",
+      "uncertain": false
+    },
+    {
+      "start": 219.24,
+      "end": 222.28,
+      "text": "You were not cruel, you were trying to heal",
+      "uncertain": false
+    },
+    {
+      "start": 222.28,
+      "end": 225.72,
+      "text": "I was the one who made love stand trial",
+      "uncertain": false
+    },
+    {
+      "start": 225.72,
+      "end": 229.02,
+      "text": "Then vanished behind an innocent smile",
+      "uncertain": false
+    },
+    {
+      "start": 235.76,
+      "end": 239.24,
+      "text": "A taxi divides the flooded lane",
+      "uncertain": true
+    },
+    {
+      "start": 239.24,
+      "end": 242.36,
+      "text": "Red lamps trembling across the rain",
+      "uncertain": true
+    },
+    {
+      "start": 242.36,
+      "end": 245.4,
+      "text": "I let the envelope fall from my hand",
+      "uncertain": false
+    },
+    {
+      "start": 245.4,
+      "end": 248.28,
+      "text": "It lands with a sound only I understand",
+      "uncertain": false
+    },
+    {
+      "start": 248.28,
+      "end": 251.68,
+      "text": "There is no thunder, no sudden sign",
+      "uncertain": false
+    },
+    {
+      "start": 251.68,
+      "end": 254.72,
+      "text": "No younger version stepping out of time",
+      "uncertain": false
+    },
+    {
+      "start": 254.72,
+      "end": 257.96,
+      "text": "Just water threading the curb below",
+      "uncertain": false
+    },
+    {
+      "start": 257.96,
+      "end": 261.3,
+      "text": "And one less lie I have left to hold",
+      "uncertain": false
+    },
+    {
+      "start": 261.3,
+      "end": 264.72,
+      "text": "This apology is ten years late",
+      "uncertain": false
+    },
+    {
+      "start": 264.72,
+      "end": 267.62,
+      "text": "Rain soft paper at your gate",
+      "uncertain": false
+    },
+    {
+      "start": 267.62,
+      "end": 270.92,
+      "text": "No key and sign, no brand design",
+      "uncertain": false
+    },
+    {
+      "start": 270.92,
+      "end": 274.12,
+      "text": "Only the truth without disguise",
+      "uncertain": false
+    },
+    {
+      "start": 274.12,
+      "end": 277.54,
+      "text": "You owe me nothing, not even a reply",
+      "uncertain": false
+    },
+    {
+      "start": 277.54,
+      "end": 280.58,
+      "text": "I finally know why you said goodbye",
+      "uncertain": false
+    },
+    {
+      "start": 280.58,
+      "end": 284.1,
+      "text": "Ten years late, beneath this light",
+      "uncertain": true
+    },
+    {
+      "start": 284.1,
+      "end": 285.58,
+      "text": "I was wrong",
+      "uncertain": false
+    },
+    {
+      "start": 286.88,
+      "end": 288.62,
+      "text": "And you were right",
+      "uncertain": false
+    },
+    {
+      "start": 288.62,
+      "end": 291.32,
+      "text": "If forgiveness never crosses this street",
+      "uncertain": true
+    },
+    {
+      "start": 291.32,
+      "end": 294.5,
+      "text": "I will not call the ending incomplete",
+      "uncertain": false
+    },
+    {
+      "start": 294.5,
+      "end": 297.66,
+      "text": "The rain may take every trace of tonight",
+      "uncertain": false
+    },
+    {
+      "start": 297.66,
+      "end": 299.62,
+      "text": "But not these words",
+      "uncertain": false
+    },
+    {
+      "start": 299.62,
+      "end": 301.02,
+      "text": "You were right",
+      "uncertain": false
+    },
+    {
+      "start": 301.02,
+      "end": 304.46,
+      "text": "I leave them there where the old years stand",
+      "uncertain": true
+    },
+    {
+      "start": 304.46,
+      "end": 307.6,
+      "text": "Not as your lover, not as your friend",
+      "uncertain": false
+    },
+    {
+      "start": 307.6,
+      "end": 310.72,
+      "text": "All the envelope fall from my hand",
+      "uncertain": true
+    },
+    {
+      "start": 310.72,
+      "end": 312.9,
+      "text": "It lands with a sound only",
+      "uncertain": true
+    },
+    {
+      "start": 312.9,
+      "end": 313.92,
+      "text": "I don't know clearly",
+      "uncertain": true
+    },
+    {
+      "start": 317.14,
+      "end": 320.44,
+      "text": "The last bus turns and stepping out of time",
+      "uncertain": true
+    },
+    {
+      "start": 320.44,
+      "end": 323.62,
+      "text": "Just water, spreading the cold and low",
+      "uncertain": true
+    },
+    {
+      "start": 323.62,
+      "end": 327.28,
+      "text": "Then one last lie I have left to hold",
+      "uncertain": true
+    },
+    {
+      "start": 331.32,
+      "end": 333.98,
+      "text": "Oh, oh, oh, oh",
+      "uncertain": true
+    },
+    {
+      "start": 333.98,
+      "end": 334.9,
+      "text": "Oh, oh, oh, oh",
+      "uncertain": true
+    },
+    {
+      "start": 334.9,
+      "end": 335.08,
+      "text": "Oh, oh, oh, oh, oh",
+      "uncertain": true
+    },
+    {
+      "start": 335.08,
+      "end": 335.84,
+      "text": "Oh, oh, oh, oh, oh",
+      "uncertain": true
+    },
+    {
+      "start": 335.84,
+      "end": 337.34,
+      "text": "Oh, oh, oh, oh, oh, oh, oh, oh, oh",
+      "uncertain": true
+    },
+    {
+      "start": 337.34,
+      "end": 341.96,
+      "text": "Oh, oh, oh, oh, oh, oh",
+      "uncertain": true
+    },
+    {
+      "start": 350.92,
+      "end": 352.86,
+      "text": "I need this light",
+      "uncertain": true
+    },
+    {
+      "start": 352.86,
+      "end": 354.42,
+      "text": "Then vanish blind",
+      "uncertain": true
+    },
+    {
+      "start": 354.42,
+      "end": 356.3,
+      "text": "And you were right",
+      "uncertain": false
+    },
+    {
+      "start": 356.3,
+      "end": 357.7,
+      "text": "The brain makes ache",
+      "uncertain": true
+    },
+    {
+      "start": 357.7,
+      "end": 359.24,
+      "text": "If it's facing tonight",
+      "uncertain": true
+    },
+    {
+      "start": 360.62,
+      "end": 362.28,
+      "text": "You were lying",
+      "uncertain": false
+    },
+    {
+      "start": 362.28,
+      "end": 364.16,
+      "text": "I'd leave them there",
+      "uncertain": true
+    },
+    {
+      "start": 364.16,
+      "end": 365.84,
+      "text": "Where the old year said",
+      "uncertain": true
+    },
+    {
+      "start": 365.84,
+      "end": 367.6,
+      "text": "Not as your problem",
+      "uncertain": true
+    },
+    {
+      "start": 367.6,
+      "end": 369.3,
+      "text": "Not as your friend",
+      "uncertain": false
+    },
+    {
+      "start": 375.14,
+      "end": 382.2,
+      "text": "last bus turned the windows shut your life is yours the fog was mine",
+      "uncertain": true
+    }
+  ]
+}

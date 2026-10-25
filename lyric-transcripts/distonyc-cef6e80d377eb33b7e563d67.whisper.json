@@ -1,0 +1,385 @@
+{
+  "version": 1,
+  "songId": "distonyc-cef6e80d377eb33b7e563d67",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cef6e80d377eb33b7e563d67-21d455b94ccf.mp3",
+  "audioSha256": "21d455b94ccf95b8d0057beaf966a914910522d28cc9ca0bdde0062e124c923a",
+  "inputSha256": "7a13471955f4f5a21246c0b4aad934d6bd15629c716c7609eb54de97ef35944b",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 245.0285625,
+  "segments": [
+    {
+      "start": 7.12,
+      "end": 15.1,
+      "text": "Every time I try to cum, I fuck it up, that is the whole sad truth, no cover up.",
+      "uncertain": false
+    },
+    {
+      "start": 15.44,
+      "end": 22.76,
+      "text": "Tracy held the lamplight low and warm, I hit the moment and I sounded the alarm.",
+      "uncertain": true
+    },
+    {
+      "start": 22.76,
+      "end": 26.3,
+      "text": "Food a bit brang out across the room",
+      "uncertain": true
+    },
+    {
+      "start": 26.3,
+      "end": 30.04,
+      "text": "She searched my face like she could read the doom",
+      "uncertain": true
+    },
+    {
+      "start": 30.04,
+      "end": 33.8,
+      "text": "I said I swear I meant a tender thing",
+      "uncertain": false
+    },
+    {
+      "start": 33.8,
+      "end": 37.6,
+      "text": "She packed her coat before the phone could ring",
+      "uncertain": false
+    },
+    {
+      "start": 40.68,
+      "end": 44.36,
+      "text": "She tried to translate every broken side",
+      "uncertain": false
+    },
+    {
+      "start": 44.36,
+      "end": 48.94,
+      "text": "But all my bad timing made a maze of mine",
+      "uncertain": false
+    },
+    {
+      "start": 52.08,
+      "end": 54.5,
+      "text": "Every time I try to cum",
+      "uncertain": false
+    },
+    {
+      "start": 54.5,
+      "end": 56.36,
+      "text": "I fuck it up",
+      "uncertain": true
+    },
+    {
+      "start": 56.36,
+      "end": 58.32,
+      "text": "One strange little word",
+      "uncertain": false
+    },
+    {
+      "start": 58.32,
+      "end": 60.26,
+      "text": "And all the good luck's gone",
+      "uncertain": false
+    },
+    {
+      "start": 60.26,
+      "end": 62.22,
+      "text": "For the bit, for the book",
+      "uncertain": true
+    },
+    {
+      "start": 62.22,
+      "end": 63.86,
+      "text": "I throw the switch",
+      "uncertain": false
+    },
+    {
+      "start": 63.86,
+      "end": 65.98,
+      "text": "My partner leaves the whole world",
+      "uncertain": false
+    },
+    {
+      "start": 65.98,
+      "end": 67.46,
+      "text": "Groans at the glitch",
+      "uncertain": false
+    },
+    {
+      "start": 67.46,
+      "end": 69.54,
+      "text": "Every time I try to cum",
+      "uncertain": false
+    },
+    {
+      "start": 69.54,
+      "end": 71.32,
+      "text": "I fuck it up",
+      "uncertain": false
+    },
+    {
+      "start": 71.32,
+      "end": 73.44,
+      "text": "Heads, I'm dead, tails, I'm dreaming",
+      "uncertain": false
+    },
+    {
+      "start": 73.44,
+      "end": 76.28,
+      "text": "That's enough, a hundred tries",
+      "uncertain": false
+    },
+    {
+      "start": 76.28,
+      "end": 78.74,
+      "text": "And every one goes wrong",
+      "uncertain": false
+    },
+    {
+      "start": 78.74,
+      "end": 83.04,
+      "text": "The signal will fill you like a bright, disastrous song",
+      "uncertain": true
+    },
+    {
+      "start": 89.64,
+      "end": 93.82,
+      "text": "Child number seven, Lena laughed at first",
+      "uncertain": true
+    },
+    {
+      "start": 93.82,
+      "end": 97.56,
+      "text": "Weird hair, weird smells, I blurted at my worst",
+      "uncertain": false
+    },
+    {
+      "start": 97.56,
+      "end": 101.24,
+      "text": "She asked me what the sentence could have meant",
+      "uncertain": false
+    },
+    {
+      "start": 101.24,
+      "end": 103.74,
+      "text": "I drew a diagram, she called the cabin",
+      "uncertain": false
+    },
+    {
+      "start": 104.08,
+      "end": 108.9,
+      "text": "And when at 23 I practiced being calm",
+      "uncertain": false
+    },
+    {
+      "start": 108.9,
+      "end": 112.54,
+      "text": "At 49 I wrote reminders on my palm",
+      "uncertain": false
+    },
+    {
+      "start": 112.54,
+      "end": 116.32,
+      "text": "But every time the room grew close and bright",
+      "uncertain": false
+    },
+    {
+      "start": 116.32,
+      "end": 120.04,
+      "text": "A brand new nonsense siren took to fly",
+      "uncertain": false
+    },
+    {
+      "start": 123.26,
+      "end": 127.0,
+      "text": "They leaned in close, they gave me time and grace",
+      "uncertain": false
+    },
+    {
+      "start": 127.0,
+      "end": 131.78,
+      "text": "Then watched confusion run and lapse across my face",
+      "uncertain": true
+    },
+    {
+      "start": 134.52,
+      "end": 137.1,
+      "text": "Every time I try to come",
+      "uncertain": true
+    },
+    {
+      "start": 137.1,
+      "end": 138.84,
+      "text": "I fuck it up",
+      "uncertain": true
+    },
+    {
+      "start": 138.84,
+      "end": 140.8,
+      "text": "One strange little word",
+      "uncertain": false
+    },
+    {
+      "start": 140.8,
+      "end": 142.62,
+      "text": "And all the good luck's gone",
+      "uncertain": false
+    },
+    {
+      "start": 142.62,
+      "end": 144.74,
+      "text": "For the bit, for the boop",
+      "uncertain": false
+    },
+    {
+      "start": 144.74,
+      "end": 146.34,
+      "text": "I throw the switch",
+      "uncertain": false
+    },
+    {
+      "start": 146.34,
+      "end": 148.48,
+      "text": "My partner leaves the whole world",
+      "uncertain": false
+    },
+    {
+      "start": 148.48,
+      "end": 152.12,
+      "text": "Which every time I try to come",
+      "uncertain": true
+    },
+    {
+      "start": 152.12,
+      "end": 154.1,
+      "text": "I fuck it up",
+      "uncertain": false
+    },
+    {
+      "start": 154.1,
+      "end": 155.94,
+      "text": "Heads, I'm dead, tails, I'm dreaming",
+      "uncertain": false
+    },
+    {
+      "start": 155.94,
+      "end": 157.54,
+      "text": "That's enough",
+      "uncertain": false
+    },
+    {
+      "start": 157.54,
+      "end": 158.82,
+      "text": "A hundred tries",
+      "uncertain": true
+    },
+    {
+      "start": 158.82,
+      "end": 161.28,
+      "text": "And every one goes wrong",
+      "uncertain": true
+    },
+    {
+      "start": 161.28,
+      "end": 165.2,
+      "text": "So sing the failure like a bright, disastrous song",
+      "uncertain": true
+    },
+    {
+      "start": 171.94,
+      "end": 176.16,
+      "text": "Number 76, goddamn, 9-11 again",
+      "uncertain": true
+    },
+    {
+      "start": 176.16,
+      "end": 179.92,
+      "text": "The silence hit the ceiling, there was no way to explain",
+      "uncertain": false
+    },
+    {
+      "start": 179.92,
+      "end": 183.48,
+      "text": "Number 99, I finally heard the calls",
+      "uncertain": false
+    },
+    {
+      "start": 183.48,
+      "end": 187.54,
+      "text": "Not every puzzling signal has to leave somebody lost",
+      "uncertain": false
+    },
+    {
+      "start": 187.54,
+      "end": 191.26,
+      "text": "Steps took a breath, I let the moment be",
+      "uncertain": false
+    },
+    {
+      "start": 191.26,
+      "end": 194.76,
+      "text": "No code, no panic, no emergency",
+      "uncertain": false
+    },
+    {
+      "start": 197.58,
+      "end": 198.98,
+      "text": "Try 100",
+      "uncertain": false
+    },
+    {
+      "start": 198.98,
+      "end": 202.58,
+      "text": "With the windows open wide",
+      "uncertain": false
+    },
+    {
+      "start": 202.58,
+      "end": 206.1,
+      "text": "I told the truth before the fear could take the ride",
+      "uncertain": false
+    },
+    {
+      "start": 206.1,
+      "end": 209.72,
+      "text": "Every time I try to come, I fuck it up",
+      "uncertain": false
+    },
+    {
+      "start": 209.72,
+      "end": 213.78,
+      "text": "But I can stop apologizing, build a little trust",
+      "uncertain": false
+    },
+    {
+      "start": 213.78,
+      "end": 217.58,
+      "text": "No fault or bent, no fault or group to hide behind",
+      "uncertain": true
+    },
+    {
+      "start": 217.58,
+      "end": 221.26,
+      "text": "Just a human being trying to speak his mind",
+      "uncertain": false
+    },
+    {
+      "start": 221.26,
+      "end": 224.96,
+      "text": "The final word is clear, the final promise true",
+      "uncertain": false
+    },
+    {
+      "start": 224.96,
+      "end": 229.1,
+      "text": "I will not make a riddle out of loving you",
+      "uncertain": false
+    },
+    {
+      "start": 243.78,
+      "end": 244.18,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

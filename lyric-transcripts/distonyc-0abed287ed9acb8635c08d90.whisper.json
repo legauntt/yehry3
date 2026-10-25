@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "songId": "distonyc-0abed287ed9acb8635c08d90",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0abed287ed9acb8635c08d90-93584167ae3f.mp3",
+  "audioSha256": "93584167ae3fd71d4017b452690ab477f9c0155b85762fe283e08f492186b61c",
+  "inputSha256": "93584167ae3fd71d4017b452690ab477f9c0155b85762fe283e08f492186b61c",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 69.041625,
+  "segments": [
+    {
+      "start": 7.04,
+      "end": 8.76,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 56.0,
+      "text": "I want to, I want to fuck, I want, I want to fuck, I want, I want to fuck, I want to, I want to, I want, I want to fuck, I want to, I want to, I want to fuck, I want to, I want to fuck, I want to, I want to fuck.",
+      "uncertain": true
+    },
+    {
+      "start": 60.0,
+      "end": 60.82,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

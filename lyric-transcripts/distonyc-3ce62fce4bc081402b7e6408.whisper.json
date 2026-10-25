@@ -1,0 +1,469 @@
+{
+  "version": 1,
+  "songId": "distonyc-3ce62fce4bc081402b7e6408",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3ce62fce4bc081402b7e6408-0aed81cd98a6.mp3",
+  "audioSha256": "0aed81cd98a64101faf0799507dcb2fc647ad397e4138aada014e4a3c5a05552",
+  "inputSha256": "3ea1f08ae075da56f3e8c7039b66cbd9dad4621dedd174962a49c896a78d5923",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 335.04,
+  "segments": [
+    {
+      "start": 3.54,
+      "end": 6.82,
+      "text": "Seven tags beside my heartbeat",
+      "uncertain": true
+    },
+    {
+      "start": 6.82,
+      "end": 10.12,
+      "text": "Seven names beneath my tongue",
+      "uncertain": false
+    },
+    {
+      "start": 10.12,
+      "end": 13.56,
+      "text": "They call me the lone survivor",
+      "uncertain": false
+    },
+    {
+      "start": 13.56,
+      "end": 17.16,
+      "text": "Like surviving means you won",
+      "uncertain": false
+    },
+    {
+      "start": 17.16,
+      "end": 21.02,
+      "text": "Matt carried the radio pill",
+      "uncertain": false
+    },
+    {
+      "start": 21.02,
+      "end": 23.74,
+      "text": "Calling thunder through the rain",
+      "uncertain": false
+    },
+    {
+      "start": 23.74,
+      "end": 27.96,
+      "text": "A mortar found the rooftop aerial",
+      "uncertain": false
+    },
+    {
+      "start": 27.96,
+      "end": 30.7,
+      "text": "The whole room answered him in flame",
+      "uncertain": true
+    },
+    {
+      "start": 31.68,
+      "end": 34.28,
+      "text": "The man wrote loss of signal",
+      "uncertain": true
+    },
+    {
+      "start": 34.28,
+      "end": 37.46,
+      "text": "But I remember what they said",
+      "uncertain": false
+    },
+    {
+      "start": 38.88,
+      "end": 40.98,
+      "text": "Mac got 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 40.98,
+      "end": 44.66,
+      "text": "And the radio hissed beside the dead",
+      "uncertain": true
+    },
+    {
+      "start": 48.26,
+      "end": 51.0,
+      "text": "Ellis watched the river crossing",
+      "uncertain": false
+    },
+    {
+      "start": 51.0,
+      "end": 54.06,
+      "text": "Counting helmets through his sight",
+      "uncertain": false
+    },
+    {
+      "start": 54.06,
+      "end": 57.72,
+      "text": "One clean crack came from the bell tower",
+      "uncertain": false
+    },
+    {
+      "start": 57.72,
+      "end": 60.98,
+      "text": "He folded in the morning light",
+      "uncertain": true
+    },
+    {
+      "start": 60.98,
+      "end": 64.44,
+      "text": "The bridge stayed open nine more minutes",
+      "uncertain": false
+    },
+    {
+      "start": 64.44,
+      "end": 67.06,
+      "text": "Then the captain shook his head",
+      "uncertain": false
+    },
+    {
+      "start": 69.04,
+      "end": 75.06,
+      "text": "Ellis got 9-11 with an empty case in by his bed",
+      "uncertain": true
+    },
+    {
+      "start": 77.32,
+      "end": 81.0,
+      "text": "Got not a ladder was the language",
+      "uncertain": true
+    },
+    {
+      "start": 82.22,
+      "end": 86.1,
+      "text": "Sharp and stupid, small and cold",
+      "uncertain": true
+    },
+    {
+      "start": 86.96,
+      "end": 91.86,
+      "text": "Something ugly kept us laughing when we couldn't stand at all",
+      "uncertain": true
+    },
+    {
+      "start": 91.86,
+      "end": 96.84,
+      "text": "Every joke became a bandage, every bandage soaked through air",
+      "uncertain": true
+    },
+    {
+      "start": 96.84,
+      "end": 103.36,
+      "text": "We kept saying got 9-11, so we didn't say our brothers did",
+      "uncertain": false
+    },
+    {
+      "start": 107.2,
+      "end": 112.62,
+      "text": "Harlem worked the Kansas Station, hands still steady under fire",
+      "uncertain": true
+    },
+    {
+      "start": 112.62,
+      "end": 116.38,
+      "text": "The shell collapsed, the western ridge pole",
+      "uncertain": false
+    },
+    {
+      "start": 116.38,
+      "end": 119.02,
+      "text": "Turned the white tent into a pyre",
+      "uncertain": false
+    },
+    {
+      "start": 119.02,
+      "end": 121.96,
+      "text": "He had saved three men that evening",
+      "uncertain": false
+    },
+    {
+      "start": 121.96,
+      "end": 124.62,
+      "text": "None could reach him where he bled",
+      "uncertain": false
+    },
+    {
+      "start": 125.58,
+      "end": 127.54,
+      "text": "Holland got 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 127.54,
+      "end": 131.28,
+      "text": "Still wearing someone else's blood instead",
+      "uncertain": false
+    },
+    {
+      "start": 134.86,
+      "end": 137.8,
+      "text": "Rico Jo, the water convoy",
+      "uncertain": true
+    },
+    {
+      "start": 137.8,
+      "end": 140.54,
+      "text": "Second truck on marker nine",
+      "uncertain": false
+    },
+    {
+      "start": 140.54,
+      "end": 146.72,
+      "text": "A berry charge unstitched the roadway, the cab went over on its side",
+      "uncertain": true
+    },
+    {
+      "start": 146.72,
+      "end": 152.58,
+      "text": "His lucky photograph kept burning in the wallet where he kept it hid",
+      "uncertain": true
+    },
+    {
+      "start": 152.58,
+      "end": 159.32,
+      "text": "Rico got 9-11 bringing water to some thirsty kids",
+      "uncertain": false
+    },
+    {
+      "start": 162.1,
+      "end": 166.78,
+      "text": "Benji heard a shout behind him, turned too quickly through the smoke",
+      "uncertain": false
+    },
+    {
+      "start": 166.78,
+      "end": 169.22,
+      "text": "Our own gunner saw a shadow",
+      "uncertain": false
+    },
+    {
+      "start": 169.22,
+      "end": 171.96,
+      "text": "Pulled the trigger, that was all",
+      "uncertain": false
+    },
+    {
+      "start": 171.96,
+      "end": 173.76,
+      "text": "The report misidentification",
+      "uncertain": true
+    },
+    {
+      "start": 173.76,
+      "end": 176.36,
+      "text": "Then buried what the panic did",
+      "uncertain": false
+    },
+    {
+      "start": 176.36,
+      "end": 178.34,
+      "text": "When she got 9-11",
+      "uncertain": false
+    },
+    {
+      "start": 178.34,
+      "end": 182.14,
+      "text": "By the frightened hands of frightened kids",
+      "uncertain": false
+    },
+    {
+      "start": 184.82,
+      "end": 187.9,
+      "text": "Cold mark blue, smoke by the orchard",
+      "uncertain": true
+    },
+    {
+      "start": 187.9,
+      "end": 191.48,
+      "text": "Called our position twice and clear",
+      "uncertain": false
+    },
+    {
+      "start": 191.48,
+      "end": 194.86,
+      "text": "Jets arrived above the cloud line",
+      "uncertain": false
+    },
+    {
+      "start": 194.86,
+      "end": 198.02,
+      "text": "The wrong coordinates reached their ears",
+      "uncertain": true
+    },
+    {
+      "start": 199.02,
+      "end": 202.1,
+      "text": "The medals came in polished boxes",
+      "uncertain": false
+    },
+    {
+      "start": 202.1,
+      "end": 205.32,
+      "text": "And his mother asked me what they meant",
+      "uncertain": false
+    },
+    {
+      "start": 206.32,
+      "end": 208.38,
+      "text": "Code got 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 208.38,
+      "end": 212.16,
+      "text": "By the help our own command had sent",
+      "uncertain": true
+    },
+    {
+      "start": 215.12,
+      "end": 218.02,
+      "text": "Sergeant Fale stayed in the stairwell",
+      "uncertain": true
+    },
+    {
+      "start": 218.02,
+      "end": 221.1,
+      "text": "When the rest of us withdrew",
+      "uncertain": false
+    },
+    {
+      "start": 221.1,
+      "end": 224.8,
+      "text": "He held the landing with one magazine",
+      "uncertain": false
+    },
+    {
+      "start": 224.8,
+      "end": 227.6,
+      "text": "And bought the road that brought us through",
+      "uncertain": true
+    },
+    {
+      "start": 228.58,
+      "end": 231.72,
+      "text": "The building dropped before the sunrise",
+      "uncertain": false
+    },
+    {
+      "start": 231.72,
+      "end": 234.46,
+      "text": "We found his tags beneath cement",
+      "uncertain": false
+    },
+    {
+      "start": 236.16,
+      "end": 238.28,
+      "text": "The V.O. got 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 238.28,
+      "end": 242.16,
+      "text": "And I became the last man they could send",
+      "uncertain": false
+    },
+    {
+      "start": 244.66,
+      "end": 248.42,
+      "text": "Got 9-11 was the language",
+      "uncertain": false
+    },
+    {
+      "start": 249.42,
+      "end": 252.84,
+      "text": "We may crawl enough to bear",
+      "uncertain": true
+    },
+    {
+      "start": 254.18,
+      "end": 257.08,
+      "text": "Seven voices crowd my silence",
+      "uncertain": false
+    },
+    {
+      "start": 257.08,
+      "end": 259.46,
+      "text": "Seven ghosts still take their share",
+      "uncertain": false
+    },
+    {
+      "start": 259.46,
+      "end": 261.68,
+      "text": "Dollars speak their names without it",
+      "uncertain": false
+    },
+    {
+      "start": 261.68,
+      "end": 264.44,
+      "text": "Though that old phrase fills my head",
+      "uncertain": false
+    },
+    {
+      "start": 264.44,
+      "end": 268.92,
+      "text": "Back Ellis, Harlan, Rico, Benji, Cole",
+      "uncertain": false
+    },
+    {
+      "start": 268.92,
+      "end": 270.96,
+      "text": "And Vale are dead",
+      "uncertain": true
+    },
+    {
+      "start": 273.6,
+      "end": 276.58,
+      "text": "No queen glory, no conclusion",
+      "uncertain": true
+    },
+    {
+      "start": 276.58,
+      "end": 280.06,
+      "text": "No victory waiting in this song",
+      "uncertain": false
+    },
+    {
+      "start": 280.06,
+      "end": 283.76,
+      "text": "Only seven ways war took them",
+      "uncertain": false
+    },
+    {
+      "start": 283.76,
+      "end": 286.24,
+      "text": "And one man left to carry on",
+      "uncertain": false
+    },
+    {
+      "start": 286.24,
+      "end": 289.26,
+      "text": "If you call me the survivor",
+      "uncertain": false
+    },
+    {
+      "start": 289.26,
+      "end": 291.56,
+      "text": "Hear the truth beneath the word",
+      "uncertain": false
+    },
+    {
+      "start": 291.56,
+      "end": 295.36,
+      "text": "I came home with every last voice",
+      "uncertain": false
+    },
+    {
+      "start": 295.36,
+      "end": 298.82,
+      "text": "And tonight they all were hurt",
+      "uncertain": false
+    },
+    {
+      "start": 306.84,
+      "end": 308.24,
+      "text": ".",
+      "uncertain": true
+    }
+  ]
+}

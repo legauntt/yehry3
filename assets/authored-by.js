@@ -49,3 +49,16 @@ export function authoredByLine(name, escape) {
     ? `<span class="authored-by small">Authored by ${escape(name)}</span>`
     : "";
 }
+
+// Listening-room duplicates are numbered for display, not separate authors.
+export function authorIdentity(name) {
+  const identity = typeof name === "string"
+    ? name.trim().replace(/\s*\((?:[2-9]|[1-9]\d+)\)$/, "").trim().toLowerCase()
+    : "";
+  return identity === "csaw" ? "scythe" : identity;
+}
+
+export function authoredByMe(song, name = savedAuthor()) {
+  const identity = authorIdentity(name);
+  return Boolean(identity) && authorIdentity(song.authoredBy) === identity;
+}

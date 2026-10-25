@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "songId": "distonyc-563929c05b5b15405bcaeaeb",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-563929c05b5b15405bcaeaeb-7d53d776ff1f.mp3",
+  "audioSha256": "7d53d776ff1f03469976e1adabcbd5d57608ef4506da24e2bff5f1f151627461",
+  "inputSha256": "47eafe7b3e5dd633f777e7d62a5aaa6ff3c7e455fd21df8ad6a2c4c2b854abb4",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 225.0449375,
+  "segments": [
+    {
+      "start": 3.52,
+      "end": 6.58,
+      "text": "لما بدا يتنى",
+      "uncertain": false
+    },
+    {
+      "start": 6.58,
+      "end": 10.8,
+      "text": "لما بدا يتنى",
+      "uncertain": false
+    },
+    {
+      "start": 10.8,
+      "end": 14.34,
+      "text": "لما بدا يتنى",
+      "uncertain": false
+    },
+    {
+      "start": 15.0,
+      "end": 17.98,
+      "text": "حبي جماله في التنى",
+      "uncertain": false
+    },
+    {
+      "start": 19.0,
+      "end": 21.72,
+      "text": "عمر مبلح ضاير أسرنا",
+      "uncertain": false
+    },
+    {
+      "start": 21.72,
+      "end": 25.9,
+      "text": "غصن ثاني عادي المال",
+      "uncertain": true
+    },
+    {
+      "start": 25.9,
+      "end": 30.34,
+      "text": "في ضوء النوء النادي مر اللا ياد",
+      "uncertain": true
+    },
+    {
+      "start": 30.34,
+      "end": 32.82,
+      "text": "والكل يبع كلاما ظالي",
+      "uncertain": false
+    },
+    {
+      "start": 32.82,
+      "end": 34.68,
+      "text": "لكن عميه تعرف ما تحفي",
+      "uncertain": true
+    },
+    {
+      "start": 34.68,
+      "end": 37.54,
+      "text": "وتمشي على نبض الخيائي",
+      "uncertain": true
+    },
+    {
+      "start": 37.54,
+      "end": 39.24,
+      "text": "9-11",
+      "uncertain": false
+    },
+    {
+      "start": 39.24,
+      "end": 41.88,
+      "text": "I want to fall",
+      "uncertain": true
+    },
+    {
+      "start": 42.6,
+      "end": 45.02,
+      "text": "لما بدا يتنه",
+      "uncertain": false
+    },
+    {
+      "start": 46.38,
+      "end": 49.24,
+      "text": "لما بدا يتنه",
+      "uncertain": false
+    },
+    {
+      "start": 49.24,
+      "end": 53.16,
+      "text": "حبي جمال فتنه ناف",
+      "uncertain": false
+    },
+    {
+      "start": 53.16,
+      "end": 58.02,
+      "text": "أمر معبي لحظة أسرنا وصن ثانا حين",
+      "uncertain": true
+    },
+    {
+      "start": 58.02,
+      "end": 59.82,
+      "text": "Oh fuck I'm gonna",
+      "uncertain": true
+    },
+    {
+      "start": 59.82,
+      "end": 62.52,
+      "text": "معي الأمن",
+      "uncertain": true
+    },
+    {
+      "start": 62.52,
+      "end": 64.86,
+      "text": "I want to fall",
+      "uncertain": false
+    },
+    {
+      "start": 66.84,
+      "end": 72.74,
+      "text": "وعدي ويا حياتي من لي رحيم شكوتي",
+      "uncertain": false
+    },
+    {
+      "start": 72.74,
+      "end": 75.88,
+      "text": "في الحب من لوعتي",
+      "uncertain": false
+    },
+    {
+      "start": 75.88,
+      "end": 79.96,
+      "text": "إلا مليك الجمال",
+      "uncertain": false
+    },
+    {
+      "start": 79.96,
+      "end": 86.78,
+      "text": "قاله المحبة صفقتلال وقاله الدولو بلا تميل",
+      "uncertain": true
+    },
+    {
+      "start": 86.78,
+      "end": 91.86,
+      "text": "وانا اضحك فوقي الايقاع ودفع في امان المستخيل",
+      "uncertain": false
+    },
+    {
+      "start": 91.86,
+      "end": 95.94,
+      "text": "9-11 I want to fuck",
+      "uncertain": true
+    },
+    {
+      "start": 96.44,
+      "end": 101.4,
+      "text": "لما بدا يتفنى لما بدا يتفنى",
+      "uncertain": false
+    },
+    {
+      "start": 101.4,
+      "end": 105.22,
+      "text": "حبي جمالة فتنى",
+      "uncertain": false
+    },
+    {
+      "start": 105.22,
+      "end": 110.16,
+      "text": "أمر ما بلحظة أسرنا في السنفان أحيم",
+      "uncertain": false
+    },
+    {
+      "start": 110.16,
+      "end": 112.4,
+      "text": "Oh fuck I'm gonna come",
+      "uncertain": true
+    },
+    {
+      "start": 114.58,
+      "end": 118.98,
+      "text": "9-11 I want to fall",
+      "uncertain": false
+    },
+    {
+      "start": 118.98,
+      "end": 122.4,
+      "text": "وعدي ويا حرتي",
+      "uncertain": false
+    },
+    {
+      "start": 123.84,
+      "end": 126.48,
+      "text": "وعدي ويا حرتي",
+      "uncertain": false
+    },
+    {
+      "start": 126.48,
+      "end": 130.12,
+      "text": "من اللي رح يمسكوتي",
+      "uncertain": false
+    },
+    {
+      "start": 130.12,
+      "end": 133.76,
+      "text": "في الفق من اللو عتي",
+      "uncertain": true
+    },
+    {
+      "start": 133.76,
+      "end": 137.9,
+      "text": "إلا مليك الجماعة",
+      "uncertain": false
+    },
+    {
+      "start": 137.9,
+      "end": 139.72,
+      "text": "لو عدا يبقى",
+      "uncertain": false
+    },
+    {
+      "start": 139.72,
+      "end": 141.68,
+      "text": "لا جيد يدون",
+      "uncertain": true
+    },
+    {
+      "start": 141.68,
+      "end": 143.94,
+      "text": "لكن فطوت تحكم",
+      "uncertain": false
+    },
+    {
+      "start": 143.94,
+      "end": 145.76,
+      "text": "هذا اليوم",
+      "uncertain": false
+    },
+    {
+      "start": 145.76,
+      "end": 147.38,
+      "text": "9-11",
+      "uncertain": false
+    },
+    {
+      "start": 147.38,
+      "end": 149.8,
+      "text": "I want to fall",
+      "uncertain": true
+    },
+    {
+      "start": 149.8,
+      "end": 154.22,
+      "text": "كل وجه يطلب دورا جديد",
+      "uncertain": false
+    },
+    {
+      "start": 154.86,
+      "end": 158.34,
+      "text": "كل قلب يساوم في المعين",
+      "uncertain": false
+    },
+    {
+      "start": 158.34,
+      "end": 161.62,
+      "text": "والدوء يدور على كهفي",
+      "uncertain": false
+    },
+    {
+      "start": 161.62,
+      "end": 163.06,
+      "text": "والليل يصفر",
+      "uncertain": false
+    },
+    {
+      "start": 163.06,
+      "end": 165.34,
+      "text": "ثم يعيني",
+      "uncertain": false
+    },
+    {
+      "start": 165.34,
+      "end": 166.72,
+      "text": "9-11",
+      "uncertain": false
+    },
+    {
+      "start": 166.72,
+      "end": 168.94,
+      "text": "I want to fall",
+      "uncertain": true
+    },
+    {
+      "start": 171.98,
+      "end": 174.56,
+      "text": "لما بدايتنا",
+      "uncertain": false
+    },
+    {
+      "start": 174.56,
+      "end": 176.48,
+      "text": "لما بدايت فنا",
+      "uncertain": false
+    },
+    {
+      "start": 176.48,
+      "end": 180.44,
+      "text": "حبي جمالة فتنا",
+      "uncertain": false
+    },
+    {
+      "start": 180.44,
+      "end": 184.26,
+      "text": "أمر ما بلحفة إسرنا",
+      "uncertain": false
+    },
+    {
+      "start": 184.26,
+      "end": 186.26,
+      "text": "السنثان أخي مال",
+      "uncertain": false
+    },
+    {
+      "start": 186.26,
+      "end": 189.9,
+      "text": "Oh fuck I'm gonna come",
+      "uncertain": true
+    },
+    {
+      "start": 189.9,
+      "end": 194.84,
+      "text": "وعدي الوي أخيرتي من لرحيم شكو تيدي",
+      "uncertain": true
+    },
+    {
+      "start": 194.84,
+      "end": 198.02,
+      "text": "إلا مليك جمال",
+      "uncertain": false
+    },
+    {
+      "start": 198.02,
+      "end": 199.62,
+      "text": "9-11",
+      "uncertain": false
+    },
+    {
+      "start": 199.62,
+      "end": 202.44,
+      "text": "I want to fuck",
+      "uncertain": false
+    },
+    {
+      "start": 203.8,
+      "end": 205.5,
+      "text": "أما ناما",
+      "uncertain": false
+    },
+    {
+      "start": 205.5,
+      "end": 207.36,
+      "text": "أما ناما",
+      "uncertain": false
+    },
+    {
+      "start": 207.36,
+      "end": 209.76,
+      "text": "لما بيقيت فنة",
+      "uncertain": false
+    },
+    {
+      "start": 209.76,
+      "end": 211.28,
+      "text": "9-11",
+      "uncertain": false
+    },
+    {
+      "start": 211.28,
+      "end": 214.22,
+      "text": "I want to fuck",
+      "uncertain": false
+    },
+    {
+      "start": 214.22,
+      "end": 217.38,
+      "text": "لما بديت فنة",
+      "uncertain": false
+    },
+    {
+      "start": 223.62,
+      "end": 225.02,
+      "text": "شكرا",
+      "uncertain": false
+    }
+  ]
+}

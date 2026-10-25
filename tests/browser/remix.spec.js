@@ -5,7 +5,7 @@ const song = { id: "remix-source", title: "Source song", url: "/fearhunger/audio
   originalPrompt: { idea: "A train song at midnight", direction: "Slow rock", keep: "Warmth", basisSongs: [], voiceModel: "v6" } };
 const source = { version: 1, songId: song.id, title: song.title, url: 'https://github.com/legauntt/yehry3/releases/download/distonyc-v1/source.mp3', sha256: 'a'.repeat(64), bytes: 1234, duration: 180 };
 async function setup(page, existing, unavailable = false) {
-  let draft = existing, writes = [], confirmations = 0;
+  let draft = existing, writes = [], confirmations = 0, review = null, decisions = [];
   await page.addInitScript(() => localStorage.setItem("yehry3:auth:submitter", JSON.stringify({ token: "browser-fixture-session" })));
   if (existing) await page.addInitScript(id => sessionStorage.setItem("yehry3:draft", id), existing.id);
   await page.route("**/basis-songs.json", route => route.fulfill({ json: { songs: [{ id: "basis-source", title: song.title, duration: 180 }] } }));
@@ -20,9 +20,18 @@ async function setup(page, existing, unavailable = false) {
       if (unavailable) return route.fulfill({ status: 409, json: { error: 'This recording is not ready for remixing.' } });
       json = { source };
     }
-    else if (path === "/voice-models") json = { models: [{ id: "v6", label: "Tony V6", note: "Established" }, { id: "v7", label: "Tony V7", note: "Experimental", experimental: true }] };
+    else if (path === "/voice-models") json = { models: [{ id: "v6", label: "Tony V6", note: "Established" }, { id: "v7", label: "Tony V7", note: "Experimental", experimental: true }, { id: "v9", note: "Experimental", epochs: Array.from({ length: 30 }, (_, i) => (i + 1) * 10), defaultEpoch: 300, epochRange: true }] };
     else if (path === "/request-materials") json = { version: 1 };
     else if (path === "/generation") json = { version: 1, enabled: true };
+    else if (path === "/generation-reviews") json = { reviews: review?.state === 'pending' ? [{ id: draft.id, prompt: draft.prompt }] : [] };
+    else if (path.endsWith('/generation-review')) {
+      if (method === 'POST') {
+        decisions.push(route.request().postDataJSON());
+        review = { ...review, state: decisions.at(-1).action === 'approve' ? 'approved' : 'canceled' };
+        draft = { ...draft, version: draft.version + 1, generationReview: { id: review.id, kind: review.kind, state: review.state } };
+      }
+      json = { review };
+    }
     else if (path === "/music-backends") json = { enabled: true, supportsRemix: true, remainingCents: 19000 };
     else if (path === "/prompts" && method === "POST") {
       writes.push(route.request().postDataJSON());
@@ -35,11 +44,158 @@ async function setup(page, existing, unavailable = false) {
     }
     await route.fulfill({ json });
   });
-  return { writes, confirmations: () => confirmations };
+  return { writes, decisions, confirmations: () => confirmations,
+    offerLyrics() {
+      review = { id: 'remix-lyric-review', kind: 'lyrics', state: 'pending', payload: { lyrics: song.lyrics.text + '\n[End]' } };
+      draft = { ...draft, version: draft.version + 1, generationReview: { id: review.id, kind: review.kind, state: review.state } };
+    }
+  };
 }
+
+for (const width of [1440, 390]) {
+  test(`V9 remembers the epoch for a fresh request at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1000 });
+    const state = await setup(page);
+    const begin = async () => {
+      await page.goto('/distonyc/');
+      await page.getByLabel('Your prompt').fill('A new song about a lantern in the railway window');
+      await page.getByRole('button', { name: 'Find the direction' }).click();
+      await page.getByLabel('Tony voice model', { exact: true }).selectOption('v9');
+    };
+    await begin();
+    const epoch = page.getByLabel('V9 training epoch');
+    await expect(epoch).toHaveValue('300');
+    await epoch.selectOption('150');
+    await page.reload();
+    await expect(epoch).toHaveValue('150');
+    // A fresh tab/request loses draft state but retains browser preferences.
+    await page.evaluate(() => sessionStorage.clear());
+    await begin();
+    await expect(epoch).toHaveValue('150');
+    await page.getByLabel('Tony voice model', { exact: true }).selectOption('v7');
+    await expect(epoch).toBeDisabled();
+    await page.getByLabel('Tony voice model', { exact: true }).selectOption('v9');
+    await expect(epoch).toHaveValue('150');
+    await page.getByRole('button', { name: 'Review the request' }).click();
+    expect(state.writes.at(-1).voiceEpoch).toBe(150);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  });
+
+  test(`short remix direction explains the limit before sending at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1000 });
+    const state = await setup(page);
+    await page.goto(`/distonyc/?remix=${song.id}`);
+    await page.getByRole('button', { name: 'Find the direction' }).click();
+    const direction = page.getByLabel('What should change?');
+    await direction.fill('  New genre  ');
+    await expect(direction).toHaveAttribute('aria-invalid', 'true');
+    await expect(page.locator('#direction-help')).toContainText('Currently 9 characters.');
+    await page.getByRole('button', { name: 'Review the request' }).click();
+    await expect(direction).toBeFocused();
+    expect(state.writes).toHaveLength(1);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await direction.fill('New genre!');
+    await expect(direction).toHaveAttribute('aria-invalid', 'false');
+    await page.getByRole('button', { name: 'Review the request' }).click();
+    await expect(page.getByRole('button', { name: 'Send to the queue' })).toBeVisible();
+    expect(state.writes.at(-1).direction).toBe('New genre!');
+    await page.getByRole('button', { name: 'Fine-tune it' }).click();
+    await direction.fill('   ');
+    await expect(direction).toHaveAttribute('aria-invalid', 'false');
+    await page.getByRole('button', { name: 'Review the request' }).click();
+    await expect(page.getByRole('button', { name: 'Send to the queue' })).toBeVisible();
+    expect(state.writes.at(-1).direction).toBe('Use the prompt as written.');
+    expect(state.confirmations()).toBe(0);
+  });
+
+  test(`new requests without a remix reach confirmation with materials enabled at ${width}px`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1000 });
+    const state = await setup(page);
+    await page.goto('/distonyc/');
+    await page.getByLabel('Your prompt').fill('A new song about a lantern in the railway window');
+    await page.getByRole('button', { name: 'Find the direction' }).click();
+    await expect(page.getByRole('button', { name: 'Review the request' })).toBeVisible();
+    await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+    await page.locator('.request-materials > summary').click();
+    await expect(page.getByLabel('Lyric sheet', { exact: true })).toHaveValue('');
+    await expect(page.locator('#remix-lyric-choice')).toHaveCount(0);
+    await page.reload();
+    await expect(page.getByRole('button', { name: 'Review the request' })).toBeVisible();
+    await page.getByRole('button', { name: 'Review the request' }).click();
+    await expect(page.getByRole('button', { name: 'Send to the queue' })).toBeEnabled();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.getByRole('button', { name: 'Send to the queue' }).click();
+    await expect(page.locator('#refresh-status')).toBeVisible();
+    expect(state.confirmations()).toBe(1);
+    expect(state.writes.every(write => !write.remixSongId)).toBe(true);
+  });
+}
+
+test('submitted remix keeps lyric review through refresh, editing and reload', async ({ page }) => {
+  const state = await setup(page);
+  await page.goto(`/distonyc/?remix=${song.id}`);
+  await page.getByRole('button', { name: 'Find the direction' }).click();
+  await page.getByRole('tab', { name: 'Advanced', exact: true }).click();
+  await page.locator('#generation-enabled').check();
+  await page.locator('#gen-reviewLyrics').check();
+  await page.getByRole('button', { name: 'Review the request' }).click();
+  await page.getByRole('button', { name: 'Send to the queue' }).click();
+  await expect(page.locator('#refresh-status')).toBeVisible();
+  state.offerLyrics();
+  await page.locator('#refresh-status').click();
+  await expect(page.locator('#review-lyrics')).toBeEditable();
+  await expect(page).toHaveURL(/\/distonyc\/$/);
+  const edited = song.lyrics.text.replace('moon', 'sun') + '\n[End]';
+  await page.locator('#review-lyrics').fill(edited);
+  await page.reload();
+  await expect(page.locator('#review-lyrics')).toHaveValue(edited);
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: 'artifacts/remix-lyric-review-mobile.png', fullPage: true });
+  await page.getByRole('button', { name: 'Approve lyrics & continue' }).click();
+  await expect(page.locator('#review-lyrics')).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Lyrics approved', exact: true })).toBeVisible();
+  await expect(page.locator('.generation-review-done')).toBeFocused();
+  await page.locator('#refresh-status').click();
+  await expect(page.getByRole('heading', { name: 'Lyrics approved', exact: true })).toBeVisible();
+  await expect(page.locator('#idea')).toHaveCount(0);
+  expect(state.decisions).toEqual([{ reviewId: 'remix-lyric-review', version: 3, action: 'approve', lyrics: edited }]);
+  expect(state.confirmations()).toBe(1);
+  expect(state.writes.filter(write => write.requestId)).toHaveLength(1);
+});
+
+test('an old remix URL opens its pending review and keeps supplied wording locked', async ({ page }) => {
+  const state = await setup(page, { id: 'pending-remix', prompt: 'Remix the source song', version: 4,
+    status: 'queued', confirmedAt: new Date().toISOString(), details: { remixSource: source, lyricSheet: { mode: 'preserve', text: song.lyrics.text } } });
+  state.offerLyrics();
+  await page.goto(`/distonyc/?remix=${song.id}`);
+  await expect(page.locator('#review-lyrics')).toBeVisible();
+  await expect(page.locator('#review-lyrics')).toHaveAttribute('readonly', '');
+  await expect(page).toHaveURL(/\/distonyc\/$/);
+  await page.getByRole('button', { name: 'Approve lyrics & continue' }).click();
+  await expect(page.locator('#review-lyrics')).toHaveCount(0);
+  expect(state.decisions[0]).toMatchObject({ action: 'approve', lyrics: song.lyrics.text + '\n[End]' });
+  expect(state.writes).toHaveLength(0);
+});
+
+test('choosing a waiting review leaves a different remix idea and opens the saved request', async ({ page }) => {
+  const state = await setup(page, { id: 'other-pending-remix', prompt: 'Remix another recording', version: 4,
+    status: 'queued', confirmedAt: new Date().toISOString(), details: { remixSource: { ...source, songId: 'other-source' }, lyricSheet: { mode: 'adapt', text: song.lyrics.text } } });
+  state.offerLyrics();
+  await page.goto(`/distonyc/?remix=${song.id}`);
+  await expect(page.locator('#idea')).toBeVisible();
+  await page.locator('[data-review-request="other-pending-remix"]').click();
+  await expect(page.locator('#review-lyrics')).toBeEditable();
+  await expect(page).toHaveURL(/\/distonyc\/$/);
+  await page.getByRole('button', { name: 'Approve lyrics & continue' }).click();
+  await expect(page.locator('#review-lyrics')).toHaveCount(0);
+  expect(state.decisions[0].action).toBe('approve');
+  expect(state.writes).toHaveLength(0);
+});
 test("remix carries source context through editable review without auto-confirming", async ({ page }) => {
   const state = await setup(page);
   await page.goto(`/lyrics/?song=${song.id}`);
+  await page.getByRole('button', { name: 'More song options', exact: true }).click();
   await page.getByRole("link", { name: "Remix Source song", exact: true }).click();
   await expect(page.locator("#idea")).toHaveValue(/Original idea: A train song at midnight/);
   expect(state.writes).toHaveLength(0);
@@ -214,6 +370,7 @@ test('the comparison arrives collapsed, opens from the compare link, and stops t
   const original = panel.getByRole('button', { name: 'Play original', exact: true });
   await expect(panel.getByRole('heading', { name: 'Compare with the original' })).toBeVisible();
   await expect(original).toBeHidden();
+  await page.getByRole('button', { name: 'More song options', exact: true }).click();
   await page.getByRole('link', { name: `Compare ${song.title} with The original recording` }).click();
   await expect(original).toBeVisible();
   await original.click();
@@ -224,16 +381,28 @@ test('the comparison arrives collapsed, opens from the compare link, and stops t
   await expect.poll(() => audio.evaluate(audio => audio.paused)).toBe(true);
 });
 
-test('cards distinguish ready, unavailable, expired and unknown sources before opening the form', async ({ page }) => {
+test('opened card menus distinguish ready, unavailable, expired and unknown sources before opening the form', async ({ page }) => {
   const songs = [song, { ...song, id: 'not-ready', title: 'Not ready', remixAvailability: { status: 'unavailable' } },
     { ...song, id: 'expired', title: 'Expired source', remixAvailability: { status: 'ready', expiresAt: '2000-01-01T00:00:00Z' } },
     { ...song, id: 'unknown', title: 'Unknown source', remixAvailability: undefined },
     { ...song, id: 'finished-remix', title: 'Finished remix', remixOf: { songId: song.id, title: song.title, url: song.url } }];
-  await page.route('**/yehry3/**', route => route.fulfill({ json: { songs, nextVoteAt: null, inStudio: [], queued: [], recent: [], needsAttention: [], profiles: [] } }));
+  await page.route('**/yehry3/**', route => {
+    const path = new URL(route.request().url()).pathname;
+    if (path.endsWith('/remix')) {
+      const item = songs.find(song => path === `/yehry3/songs/${song.id}/remix`);
+      if (!item?.remixAvailability) return route.fulfill({ status: 503, json: {} });
+      return route.fulfill({ json: { remixAvailability: item.id === 'expired' ? { status: 'unavailable' } : item.remixAvailability } });
+    }
+    return route.fulfill({ json: { songs: songs.map(({ remixAvailability, ...song }) => song), nextVoteAt: null, inStudio: [], queued: [], recent: [], needsAttention: [], profiles: [] } });
+  });
   await page.goto('/');
+  await page.locator(`#tracks [data-id="${song.id}"] .song-more`).click();
   await expect(page.getByRole('link', { name: 'Remix Source song', exact: true })).toBeVisible();
+  await page.locator('#tracks [data-id="not-ready"] .song-more').click();
   await expect(page.locator('#tracks [data-id="not-ready"] [data-remix]')).toHaveText('Remix unavailable');
+  await page.locator('#tracks [data-id="expired"] .song-more').click();
   await expect(page.locator('#tracks [data-id="expired"] [data-remix]')).toHaveText('Remix unavailable');
+  await page.locator('#tracks [data-id="unknown"] .song-more').click();
   await expect(page.getByRole('link', { name: 'Check remix availability for Unknown source' })).toBeVisible();
   await expect(page.locator('#tracks [data-id="finished-remix"] .remix-badge')).toHaveText('Remix');
 });
@@ -319,8 +488,8 @@ test('a remix carries its badge from the queue through production to its lyric s
   await expect(page.locator('.queue-detail-status .remix-badge')).toHaveText('Remix');
 
   await page.goto(`/lyrics/?song=${finished.id}`);
-  await expect(page.locator('.lyrics-sheet > .song-badges .remix-badge')).toHaveText('Remix');
-  await expect(page.locator('.lyrics-sheet > .song-badges .voice-model-badge')).toHaveText('V6');
+  await expect(page.locator('.lyrics-sheet .song-badges .remix-badge')).toHaveText('Remix');
+  await expect(page.locator('.lyrics-sheet .song-badges .voice-model-badge')).toHaveText('V6');
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

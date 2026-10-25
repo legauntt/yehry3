@@ -1,0 +1,499 @@
+{
+  "version": 1,
+  "songId": "distonyc-bff0e22daeb45a2718ba0b91",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-bff0e22daeb45a2718ba0b91-ae47e7458b79.mp3",
+  "audioSha256": "ae47e7458b795ed4dac09ffe0708a1110281aee48df713c247cf30abe0e29afb",
+  "inputSha256": "3f1b6f7f53d3d19b6d3c6af9780c07b6670e804df60f3d0f869e6b8a636379df",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 445.0743125,
+  "segments": [
+    {
+      "start": 3.52,
+      "end": 13.46,
+      "text": "the train quick breathing at the edge of town rain on the windows moon hanging down",
+      "uncertain": true
+    },
+    {
+      "start": 13.46,
+      "end": 22.94,
+      "text": "percately laughing from the station wall said three days Tony try not to fall",
+      "uncertain": false
+    },
+    {
+      "start": 25.34,
+      "end": 30.26,
+      "text": "I woke in a bed with the curtains tied",
+      "uncertain": true
+    },
+    {
+      "start": 30.26,
+      "end": 35.14,
+      "text": "Knife in my pocket and a bed left side",
+      "uncertain": false
+    },
+    {
+      "start": 35.14,
+      "end": 39.88,
+      "text": "Karen had a camera leave, I had a stare",
+      "uncertain": false
+    },
+    {
+      "start": 39.88,
+      "end": 44.8,
+      "text": "Marina drew symbols in the rotten air",
+      "uncertain": false
+    },
+    {
+      "start": 44.8,
+      "end": 49.32,
+      "text": "The town was empty, but the bell still rang",
+      "uncertain": false
+    },
+    {
+      "start": 49.32,
+      "end": 54.34,
+      "text": "My centipede priest had a rusted fang",
+      "uncertain": false
+    },
+    {
+      "start": 54.34,
+      "end": 58.94,
+      "text": "I checked every cupboard, every locked up room",
+      "uncertain": true
+    },
+    {
+      "start": 58.94,
+      "end": 63.98,
+      "text": "Found a god-shaped signal in a basement gloom",
+      "uncertain": false
+    },
+    {
+      "start": 64.6,
+      "end": 75.68,
+      "text": "I took the eastern road, I made my play",
+      "uncertain": false
+    },
+    {
+      "start": 75.68,
+      "end": 80.62,
+      "text": "Then the world rolled 9-11 my way",
+      "uncertain": false
+    },
+    {
+      "start": 80.62,
+      "end": 85.48,
+      "text": "Not a warning, not a clever sign",
+      "uncertain": false
+    },
+    {
+      "start": 85.48,
+      "end": 90.96,
+      "text": "Just bad damn luck at the worst damn time",
+      "uncertain": false
+    },
+    {
+      "start": 90.96,
+      "end": 96.14,
+      "text": "9-11 at prehab all again and again",
+      "uncertain": false
+    },
+    {
+      "start": 96.14,
+      "end": 100.9,
+      "text": "One bad choice and the street lights bend",
+      "uncertain": false
+    },
+    {
+      "start": 100.9,
+      "end": 104.36,
+      "text": "I swing for daylight, I get dragged below",
+      "uncertain": false
+    },
+    {
+      "start": 104.36,
+      "end": 107.24,
+      "text": "Termina keeps saying",
+      "uncertain": false
+    },
+    {
+      "start": 107.24,
+      "end": 109.26,
+      "text": "Tony, no",
+      "uncertain": true
+    },
+    {
+      "start": 109.26,
+      "end": 112.06,
+      "text": "9-11 at Preheville",
+      "uncertain": true
+    },
+    {
+      "start": 112.06,
+      "end": 114.1,
+      "text": "Hear that wheel turn",
+      "uncertain": true
+    },
+    {
+      "start": 114.1,
+      "end": 116.84,
+      "text": "Every little lesson",
+      "uncertain": false
+    },
+    {
+      "start": 116.84,
+      "end": 119.28,
+      "text": "Is a lesson I burn",
+      "uncertain": true
+    },
+    {
+      "start": 119.28,
+      "end": 121.46,
+      "text": "I came for the crown",
+      "uncertain": false
+    },
+    {
+      "start": 121.46,
+      "end": 123.54,
+      "text": "For a clean way through",
+      "uncertain": false
+    },
+    {
+      "start": 123.54,
+      "end": 126.38,
+      "text": "But the moon keeps growing",
+      "uncertain": false
+    },
+    {
+      "start": 126.38,
+      "end": 128.78,
+      "text": "And it knows what I'll do",
+      "uncertain": false
+    },
+    {
+      "start": 139.14,
+      "end": 142.9,
+      "text": "Needles came dancing with his silver grin",
+      "uncertain": true
+    },
+    {
+      "start": 142.9,
+      "end": 147.7,
+      "text": "Said I looked like somebody who should let him in",
+      "uncertain": true
+    },
+    {
+      "start": 147.7,
+      "end": 152.38,
+      "text": "I said, back up pal, put my guard up high",
+      "uncertain": true
+    },
+    {
+      "start": 152.38,
+      "end": 157.6,
+      "text": "Then he cut through my plan like a cheap necktie",
+      "uncertain": false
+    },
+    {
+      "start": 157.6,
+      "end": 162.12,
+      "text": "A bellow warned me about the bunker door",
+      "uncertain": true
+    },
+    {
+      "start": 162.12,
+      "end": 171.86,
+      "text": "the machine got humming under the floor i found the terminals i found the wires",
+      "uncertain": true
+    },
+    {
+      "start": 171.86,
+      "end": 181.54,
+      "text": "found a city feeding dreams to a tower of fire tom chalk softly with the doctor's face",
+      "uncertain": false
+    },
+    {
+      "start": 181.54,
+      "end": 191.06,
+      "text": "olivia wheeled through the darkened place oza watched the sky like he'd seen it all",
+      "uncertain": false
+    },
+    {
+      "start": 191.06,
+      "end": 195.76,
+      "text": "August stayed hidden where the shadows crawl",
+      "uncertain": false
+    },
+    {
+      "start": 198.84,
+      "end": 204.0,
+      "text": "9-11 at Preheville again and again",
+      "uncertain": true
+    },
+    {
+      "start": 204.0,
+      "end": 208.86,
+      "text": "One bad choice and the streetlights bend",
+      "uncertain": false
+    },
+    {
+      "start": 208.86,
+      "end": 212.42,
+      "text": "I swing for daylight, I get dragged below",
+      "uncertain": false
+    },
+    {
+      "start": 212.42,
+      "end": 217.22,
+      "text": "Termina keeps saying, Tony, no",
+      "uncertain": false
+    },
+    {
+      "start": 217.22,
+      "end": 222.08,
+      "text": "Oh, 9-11 at Cree Hevel, hear that wheel turn",
+      "uncertain": true
+    },
+    {
+      "start": 222.08,
+      "end": 227.26,
+      "text": "Every little lesson is a lesson I burn",
+      "uncertain": true
+    },
+    {
+      "start": 227.26,
+      "end": 231.56,
+      "text": "I came for the crown for a clean way through",
+      "uncertain": false
+    },
+    {
+      "start": 231.56,
+      "end": 236.9,
+      "text": "But the moon keeps growing and it knows what I'll do",
+      "uncertain": false
+    },
+    {
+      "start": 239.88,
+      "end": 244.84,
+      "text": "Day two came crooked through a blood-red dawn",
+      "uncertain": false
+    },
+    {
+      "start": 244.84,
+      "end": 254.72,
+      "text": "the people i trusted were already gone a face in the alley a howl in the park",
+      "uncertain": true
+    },
+    {
+      "start": 254.72,
+      "end": 263.12,
+      "text": "something moon scorched calling out in the dark i found the church with the candles drowned",
+      "uncertain": false
+    },
+    {
+      "start": 263.12,
+      "end": 272.34,
+      "text": "found old prayers nailed to the underground tried to make mercy out of scraps and thread",
+      "uncertain": false
+    },
+    {
+      "start": 272.34,
+      "end": 277.16,
+      "text": "But every road in town led back to the dead",
+      "uncertain": false
+    },
+    {
+      "start": 277.16,
+      "end": 282.22,
+      "text": "I saw Sam Marie shaking behind a door",
+      "uncertain": true
+    },
+    {
+      "start": 282.22,
+      "end": 286.76,
+      "text": "Saw Marco bleeding on a splintered floor",
+      "uncertain": false
+    },
+    {
+      "start": 286.76,
+      "end": 289.42,
+      "text": "There were hands at the gates",
+      "uncertain": false
+    },
+    {
+      "start": 289.42,
+      "end": 291.78,
+      "text": "There were teeth in the rain",
+      "uncertain": false
+    },
+    {
+      "start": 291.78,
+      "end": 296.64,
+      "text": "And the festival kept rolling like a runaway train",
+      "uncertain": false
+    },
+    {
+      "start": 309.54,
+      "end": 313.52,
+      "text": "I said I had one more plan",
+      "uncertain": true
+    },
+    {
+      "start": 313.52,
+      "end": 316.0,
+      "text": "Preheville laughed",
+      "uncertain": false
+    },
+    {
+      "start": 316.0,
+      "end": 320.68,
+      "text": "I went to the tower with the city's pulse",
+      "uncertain": false
+    },
+    {
+      "start": 320.68,
+      "end": 325.46,
+      "text": "Logic in the wires and a fevered cult",
+      "uncertain": false
+    },
+    {
+      "start": 325.46,
+      "end": 330.3,
+      "text": "Perkely pointed at the final scene",
+      "uncertain": false
+    },
+    {
+      "start": 330.3,
+      "end": 335.1,
+      "text": "Said you don't be Termina, you become what it means",
+      "uncertain": false
+    },
+    {
+      "start": 335.1,
+      "end": 339.88,
+      "text": "I raised my weapon, I called my name",
+      "uncertain": false
+    },
+    {
+      "start": 339.88,
+      "end": 344.56,
+      "text": "The moon answered back with the white hot flame",
+      "uncertain": false
+    },
+    {
+      "start": 344.56,
+      "end": 349.34,
+      "text": "9-11 hit when I thought I was clear",
+      "uncertain": false
+    },
+    {
+      "start": 349.34,
+      "end": 354.56,
+      "text": "One wrong step and the whole end drew near",
+      "uncertain": false
+    },
+    {
+      "start": 361.0,
+      "end": 366.0,
+      "text": "9-11 at Preheville, again and again.",
+      "uncertain": false
+    },
+    {
+      "start": 366.52,
+      "end": 371.02,
+      "text": "The last train's gone and I can't get in.",
+      "uncertain": false
+    },
+    {
+      "start": 371.8,
+      "end": 375.66,
+      "text": "I fought the monsters, I fought my doubt.",
+      "uncertain": false
+    },
+    {
+      "start": 376.0,
+      "end": 380.58,
+      "text": "But the festival found every way to shut me out.",
+      "uncertain": false
+    },
+    {
+      "start": 380.8,
+      "end": 385.5,
+      "text": "9-11 at Preheville, the third day burns.",
+      "uncertain": false
+    },
+    {
+      "start": 386.08,
+      "end": 389.86,
+      "text": "No clean victory, no safe return.",
+      "uncertain": false
+    },
+    {
+      "start": 390.3,
+      "end": 403.6,
+      "text": "I came in loud, but I leave undone. Under the moon, I am not the one. The tower is singing,",
+      "uncertain": false
+    },
+    {
+      "start": 404.14,
+      "end": 414.66,
+      "text": "the rain is thin. The town keeps turning without letting me win. I lay my hand on the cold black",
+      "uncertain": false
+    },
+    {
+      "start": 414.66,
+      "end": 416.6,
+      "text": "ground and hear",
+      "uncertain": false
+    },
+    {
+      "start": 416.6,
+      "end": 418.62,
+      "text": "preheable swallow the",
+      "uncertain": true
+    },
+    {
+      "start": 418.62,
+      "end": 420.5,
+      "text": "final sound",
+      "uncertain": false
+    },
+    {
+      "start": 420.5,
+      "end": 422.62,
+      "text": "Tony does",
+      "uncertain": true
+    },
+    {
+      "start": 422.62,
+      "end": 424.68,
+      "text": "not win, still I",
+      "uncertain": false
+    },
+    {
+      "start": 424.68,
+      "end": 426.1,
+      "text": "call through the night",
+      "uncertain": false
+    },
+    {
+      "start": 426.1,
+      "end": 428.46,
+      "text": "my last long note",
+      "uncertain": false
+    },
+    {
+      "start": 428.46,
+      "end": 430.7,
+      "text": "fades before the light",
+      "uncertain": false
+    },
+    {
+      "start": 444.66,
+      "end": 444.82,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

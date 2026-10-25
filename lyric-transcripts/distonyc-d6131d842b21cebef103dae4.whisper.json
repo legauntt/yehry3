@@ -1,0 +1,715 @@
+{
+  "version": 1,
+  "songId": "distonyc-d6131d842b21cebef103dae4",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d6131d842b21cebef103dae4-f52e01c1173e.mp3",
+  "audioSha256": "f52e01c1173ef4e48d9f263702efc335f9a9341d41ad14e20b5863734d1deac6",
+  "inputSha256": "2f2c7fe432c862d3f7d577ca3d582a01d7065087f974bc664923fa5d73daca7c",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 475.03675,
+  "segments": [
+    {
+      "start": 3.9,
+      "end": 8.58,
+      "text": "Rain ticks soft on the windowpane",
+      "uncertain": true
+    },
+    {
+      "start": 8.58,
+      "end": 12.04,
+      "text": "Needle hits and a tired train",
+      "uncertain": false
+    },
+    {
+      "start": 12.04,
+      "end": 15.66,
+      "text": "I got a room full of midnight boo",
+      "uncertain": false
+    },
+    {
+      "start": 15.66,
+      "end": 19.2,
+      "text": "And a low-lit beat to carry me through",
+      "uncertain": false
+    },
+    {
+      "start": 19.2,
+      "end": 23.0,
+      "text": "The city blinks through a rented blind",
+      "uncertain": false
+    },
+    {
+      "start": 23.0,
+      "end": 26.58,
+      "text": "A tired little weather report in my mind",
+      "uncertain": false
+    },
+    {
+      "start": 26.58,
+      "end": 29.2,
+      "text": "I beat that bitch with a bet",
+      "uncertain": false
+    },
+    {
+      "start": 29.2,
+      "end": 32.66,
+      "text": "And hear the room say, take it back",
+      "uncertain": false
+    },
+    {
+      "start": 42.54,
+      "end": 46.8,
+      "text": "Street lamp swimming in a coffee cup",
+      "uncertain": true
+    },
+    {
+      "start": 46.8,
+      "end": 50.36,
+      "text": "Old news talking but I turn it up",
+      "uncertain": true
+    },
+    {
+      "start": 50.36,
+      "end": 53.62,
+      "text": "Every promise on the TV shades",
+      "uncertain": false
+    },
+    {
+      "start": 53.62,
+      "end": 57.38,
+      "text": "Like a paper flag in the wake of breaks",
+      "uncertain": false
+    },
+    {
+      "start": 57.38,
+      "end": 60.5,
+      "text": "I was loud when I should listen",
+      "uncertain": false
+    },
+    {
+      "start": 60.5,
+      "end": 64.06,
+      "text": "Hard as a lock, all rusted and twisted",
+      "uncertain": true
+    },
+    {
+      "start": 64.06,
+      "end": 66.44,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 66.44,
+      "end": 70.58,
+      "text": "That ugly thought came back like that",
+      "uncertain": false
+    },
+    {
+      "start": 70.58,
+      "end": 74.04,
+      "text": "Now the kick drum knocks through the floor",
+      "uncertain": false
+    },
+    {
+      "start": 74.04,
+      "end": 77.82,
+      "text": "And I hear what the silence was waiting for",
+      "uncertain": false
+    },
+    {
+      "start": 77.82,
+      "end": 80.46,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 80.46,
+      "end": 83.8,
+      "text": "Not a middle, not a mat",
+      "uncertain": true
+    },
+    {
+      "start": 86.34,
+      "end": 89.26,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 89.26,
+      "end": 93.04,
+      "text": "Not with a song, not with a stare",
+      "uncertain": true
+    },
+    {
+      "start": 93.04,
+      "end": 96.04,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 96.04,
+      "end": 100.04,
+      "text": "But I can tell the truth in the midnight air",
+      "uncertain": false
+    },
+    {
+      "start": 100.04,
+      "end": 102.94,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 102.94,
+      "end": 106.76,
+      "text": "My little room and its blue-gray glow",
+      "uncertain": false
+    },
+    {
+      "start": 106.76,
+      "end": 109.46,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 109.46,
+      "end": 112.88,
+      "text": "Still I won't let my heart go cold",
+      "uncertain": false
+    },
+    {
+      "start": 114.38,
+      "end": 118.28,
+      "text": "The bus stop glass with somebody's name",
+      "uncertain": false
+    },
+    {
+      "start": 118.28,
+      "end": 121.38,
+      "text": "The diner closes the signal",
+      "uncertain": true
+    },
+    {
+      "start": 121.38,
+      "end": 124.04,
+      "text": "They's the same",
+      "uncertain": true
+    },
+    {
+      "start": 124.04,
+      "end": 129.14,
+      "text": "A man in a doorway folds his hands",
+      "uncertain": false
+    },
+    {
+      "start": 129.14,
+      "end": 133.38,
+      "text": "While the radio sells the promised land",
+      "uncertain": false
+    },
+    {
+      "start": 133.38,
+      "end": 136.18,
+      "text": "I beat that bitch with a band",
+      "uncertain": true
+    },
+    {
+      "start": 136.18,
+      "end": 139.96,
+      "text": "And count the damage after that",
+      "uncertain": false
+    },
+    {
+      "start": 139.96,
+      "end": 146.28,
+      "text": "I put it down in a lot of shame, not a victory, not a game.",
+      "uncertain": false
+    },
+    {
+      "start": 146.84,
+      "end": 153.86,
+      "text": "The record turns with a wounded sigh, and every excuse gets smaller in my eye.",
+      "uncertain": false
+    },
+    {
+      "start": 153.86,
+      "end": 160.26,
+      "text": "I beat that bitch with a bat, but I cannot make the past go flat.",
+      "uncertain": false
+    },
+    {
+      "start": 162.46,
+      "end": 168.06,
+      "text": "I can't fix America, I can't fix America.",
+      "uncertain": false
+    },
+    {
+      "start": 168.06,
+      "end": 172.1,
+      "text": "No, I can't fix America alone",
+      "uncertain": false
+    },
+    {
+      "start": 172.1,
+      "end": 175.88,
+      "text": "But I can leave one small light on",
+      "uncertain": true
+    },
+    {
+      "start": 175.88,
+      "end": 179.74,
+      "text": "There is a face I will not erase",
+      "uncertain": false
+    },
+    {
+      "start": 179.74,
+      "end": 183.38,
+      "text": "There is no pardon without a face",
+      "uncertain": false
+    },
+    {
+      "start": 183.38,
+      "end": 187.18,
+      "text": "The sirens lean through the avenue",
+      "uncertain": false
+    },
+    {
+      "start": 187.18,
+      "end": 191.28,
+      "text": "Like they know every lie I ever knew",
+      "uncertain": false
+    },
+    {
+      "start": 191.28,
+      "end": 194.26,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 194.26,
+      "end": 197.22,
+      "text": "And hear the old guilt answer back",
+      "uncertain": false
+    },
+    {
+      "start": 197.22,
+      "end": 201.12,
+      "text": "No clean cure in a midnight room",
+      "uncertain": false
+    },
+    {
+      "start": 201.12,
+      "end": 205.06,
+      "text": "No holy filter to soften the gloom",
+      "uncertain": false
+    },
+    {
+      "start": 205.06,
+      "end": 207.86,
+      "text": "Just a slow blue beat",
+      "uncertain": false
+    },
+    {
+      "start": 207.86,
+      "end": 211.06,
+      "text": "A shaking hand",
+      "uncertain": true
+    },
+    {
+      "start": 211.06,
+      "end": 215.26,
+      "text": "Try to understand what I understand",
+      "uncertain": false
+    },
+    {
+      "start": 215.26,
+      "end": 218.78,
+      "text": "I beat that bitch with a bat",
+      "uncertain": false
+    },
+    {
+      "start": 218.78,
+      "end": 222.58,
+      "text": "Then let the truth sit where it's at",
+      "uncertain": false
+    },
+    {
+      "start": 222.58,
+      "end": 225.98,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 225.98,
+      "end": 229.68,
+      "text": "Not tonight with these worn out hands",
+      "uncertain": true
+    },
+    {
+      "start": 229.68,
+      "end": 232.54,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 232.54,
+      "end": 235.7,
+      "text": "But I can stop pretending I understand",
+      "uncertain": false
+    },
+    {
+      "start": 235.7,
+      "end": 238.2,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 238.2,
+      "end": 242.12,
+      "text": "I can leave one small light on",
+      "uncertain": false
+    },
+    {
+      "start": 242.12,
+      "end": 245.32,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 245.32,
+      "end": 249.32,
+      "text": "And keep singing until the night is gone",
+      "uncertain": false
+    },
+    {
+      "start": 249.32,
+      "end": 253.68,
+      "text": "The needle skips then finds the groove",
+      "uncertain": true
+    },
+    {
+      "start": 253.68,
+      "end": 257.58,
+      "text": "A small stubborn proof that the world can move",
+      "uncertain": false
+    },
+    {
+      "start": 257.58,
+      "end": 262.0,
+      "text": "Coffee gone cold by the window frame",
+      "uncertain": false
+    },
+    {
+      "start": 263.18,
+      "end": 266.68,
+      "text": "Morning traffic calls my name",
+      "uncertain": false
+    },
+    {
+      "start": 266.68,
+      "end": 270.48,
+      "text": "I beat that bitch with a bet",
+      "uncertain": false
+    },
+    {
+      "start": 271.52,
+      "end": 274.72,
+      "text": "Still I carry the weight of that",
+      "uncertain": false
+    },
+    {
+      "start": 274.72,
+      "end": 279.1,
+      "text": "So I call the ones I let down hard",
+      "uncertain": false
+    },
+    {
+      "start": 279.1,
+      "end": 282.6,
+      "text": "I'll walk through the rain to the corner yard",
+      "uncertain": true
+    },
+    {
+      "start": 284.16,
+      "end": 288.06,
+      "text": "I do not ask for a clean new skin",
+      "uncertain": false
+    },
+    {
+      "start": 289.1,
+      "end": 292.04,
+      "text": "I ask where repair can begin",
+      "uncertain": false
+    },
+    {
+      "start": 293.1,
+      "end": 295.26,
+      "text": "I'll beat that bitch with a bat",
+      "uncertain": true
+    },
+    {
+      "start": 296.1,
+      "end": 299.2,
+      "text": "And I will not make a legend of that",
+      "uncertain": false
+    },
+    {
+      "start": 300.26,
+      "end": 304.12,
+      "text": "Let the vinyl crackle, let the sirens fade",
+      "uncertain": false
+    },
+    {
+      "start": 304.12,
+      "end": 307.66,
+      "text": "Let a broken man admit the mess he made",
+      "uncertain": false
+    },
+    {
+      "start": 307.66,
+      "end": 312.52,
+      "text": "Let the flag on the screen quit waving for a while",
+      "uncertain": false
+    },
+    {
+      "start": 312.52,
+      "end": 317.96,
+      "text": "Let the truth be plain without a practice smile",
+      "uncertain": true
+    },
+    {
+      "start": 317.96,
+      "end": 321.94,
+      "text": "I can't fix America here at Plain",
+      "uncertain": false
+    },
+    {
+      "start": 323.08,
+      "end": 328.92,
+      "text": "I can't fix America through a song of pain",
+      "uncertain": false
+    },
+    {
+      "start": 328.92,
+      "end": 332.9,
+      "text": "But a room can hold a listening ear",
+      "uncertain": false
+    },
+    {
+      "start": 332.9,
+      "end": 338.1,
+      "text": "And a light can stay when the dark gets near",
+      "uncertain": false
+    },
+    {
+      "start": 338.1,
+      "end": 341.58,
+      "text": "I beat that bitch with a bet",
+      "uncertain": false
+    },
+    {
+      "start": 341.58,
+      "end": 346.08,
+      "text": "Now I name the hurt, the hind, that",
+      "uncertain": false
+    },
+    {
+      "start": 346.08,
+      "end": 350.62,
+      "text": "By the laundromat a kid draws stars",
+      "uncertain": false
+    },
+    {
+      "start": 350.62,
+      "end": 355.32,
+      "text": "On a cardboard sign beside the cards",
+      "uncertain": false
+    },
+    {
+      "start": 355.32,
+      "end": 359.2,
+      "text": "Or a woman laughs with her head thrown back",
+      "uncertain": false
+    },
+    {
+      "start": 359.2,
+      "end": 363.96,
+      "text": "And the whole gray block gets a little track",
+      "uncertain": true
+    },
+    {
+      "start": 363.96,
+      "end": 367.64,
+      "text": "I beat that bitch with a bat",
+      "uncertain": true
+    },
+    {
+      "start": 367.64,
+      "end": 371.78,
+      "text": "But life keeps asking what comes after that",
+      "uncertain": false
+    },
+    {
+      "start": 371.78,
+      "end": 375.48,
+      "text": "Not a grand excuse, not a closing scene",
+      "uncertain": false
+    },
+    {
+      "start": 375.48,
+      "end": 379.42,
+      "text": "Just a hand held out where the hurt has been",
+      "uncertain": false
+    },
+    {
+      "start": 381.08,
+      "end": 386.2,
+      "text": "The bass walks low, the brushed drums breathe",
+      "uncertain": false
+    },
+    {
+      "start": 386.2,
+      "end": 389.5,
+      "text": "I hear a future under every sleeve",
+      "uncertain": true
+    },
+    {
+      "start": 389.5,
+      "end": 392.66,
+      "text": "I beat that ditch with a bet",
+      "uncertain": false
+    },
+    {
+      "start": 392.66,
+      "end": 397.48,
+      "text": "And choose to build instead of living in math",
+      "uncertain": true
+    },
+    {
+      "start": 399.1,
+      "end": 401.56,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 401.56,
+      "end": 405.36,
+      "text": "Not with a song, not with a stare",
+      "uncertain": false
+    },
+    {
+      "start": 406.24,
+      "end": 408.76,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 408.76,
+      "end": 413.8,
+      "text": "But I can tell the truth in the midnight air",
+      "uncertain": false
+    },
+    {
+      "start": 413.8,
+      "end": 417.56,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 417.56,
+      "end": 422.26,
+      "text": "Still I won't let my heart go cold",
+      "uncertain": true
+    },
+    {
+      "start": 422.26,
+      "end": 425.08,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 425.08,
+      "end": 428.78,
+      "text": "Not alone, not all at once",
+      "uncertain": false
+    },
+    {
+      "start": 428.78,
+      "end": 431.52,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 432.86,
+      "end": 437.16,
+      "text": "But I can leave one small light on",
+      "uncertain": false
+    },
+    {
+      "start": 438.34,
+      "end": 440.82,
+      "text": "One small light on",
+      "uncertain": false
+    },
+    {
+      "start": 440.82,
+      "end": 442.84,
+      "text": "For the one still trying",
+      "uncertain": false
+    },
+    {
+      "start": 442.84,
+      "end": 446.0,
+      "text": "One small light on",
+      "uncertain": false
+    },
+    {
+      "start": 446.0,
+      "end": 448.04,
+      "text": "While the last note's crying",
+      "uncertain": true
+    },
+    {
+      "start": 448.04,
+      "end": 451.48,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 451.48,
+      "end": 452.86,
+      "text": "But I can stay",
+      "uncertain": false
+    },
+    {
+      "start": 452.86,
+      "end": 454.8,
+      "text": "I can't fix America",
+      "uncertain": false
+    },
+    {
+      "start": 454.8,
+      "end": 457.52,
+      "text": "But I can face the day",
+      "uncertain": false
+    },
+    {
+      "start": 457.52,
+      "end": 459.9,
+      "text": "One small light on",
+      "uncertain": false
+    },
+    {
+      "start": 459.9,
+      "end": 463.74,
+      "text": "Till the last note stops crying",
+      "uncertain": false
+    },
+    {
+      "start": 472.84,
+      "end": 473.14,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

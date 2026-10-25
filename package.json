@@ -9,10 +9,17 @@
     "test": "node --test tests/*.test.mjs",
     "test:browser": "playwright test",
     "verify:live": "node scripts/verify-deployment.mjs",
-    "measure:live": "node scripts/measure-performance.mjs"
+    "verify:catalog": "node scripts/verify-catalog.mjs",
+    "measure:live": "node scripts/measure-performance.mjs",
+    "profile:startup": "node scripts/profile-startup.mjs",
+    "artwork:plan": "node scripts/song-artwork.mjs plan",
+    "artwork:run": "node scripts/song-artwork.mjs run",
+    "artwork:verify": "node scripts/song-artwork.mjs verify"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
-    "mongodb-memory-server": "^10.2.0"
+    "cmu-pronouncing-dictionary": "3.0.0",
+    "mongodb-memory-server": "^10.2.0",
+    "sharp": "0.35.5"
   }
 }

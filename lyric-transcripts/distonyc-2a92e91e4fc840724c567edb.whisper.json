@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "songId": "distonyc-2a92e91e4fc840724c567edb",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2a92e91e4fc840724c567edb-f437ec6ae360.mp3",
+  "audioSha256": "f437ec6ae360195d348ca0b3f49dbfc6e6cc829fbcedde872d3b08ce2b1cefc5",
+  "inputSha256": "c4a8b62d48a6fa7610c39036508a0d1f97d317ff506cc5ffa18a2c16ea4ffac4",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.1175625,
+  "segments": [
+    {
+      "start": 4.14,
+      "end": 7.56,
+      "text": "The radio coughs through a kitchen wall",
+      "uncertain": true
+    },
+    {
+      "start": 7.56,
+      "end": 10.86,
+      "text": "Blue dawn leaking where the curtains fall",
+      "uncertain": true
+    },
+    {
+      "start": 10.86,
+      "end": 13.84,
+      "text": "I count the cracks in the ceiling again",
+      "uncertain": false
+    },
+    {
+      "start": 13.84,
+      "end": 17.12,
+      "text": "Like they might spell out where I have been",
+      "uncertain": false
+    },
+    {
+      "start": 22.5,
+      "end": 26.36,
+      "text": "The bus goes by with an empty face",
+      "uncertain": false
+    },
+    {
+      "start": 26.36,
+      "end": 29.58,
+      "text": "Dragging rain through the avenue haze",
+      "uncertain": false
+    },
+    {
+      "start": 29.58,
+      "end": 32.58,
+      "text": "Everybody's late to a life they hate",
+      "uncertain": false
+    },
+    {
+      "start": 32.58,
+      "end": 35.72,
+      "text": "Everybody smiles at the locked front gate",
+      "uncertain": false
+    },
+    {
+      "start": 35.72,
+      "end": 38.94,
+      "text": "I had a map but the ink ran thin",
+      "uncertain": false
+    },
+    {
+      "start": 38.94,
+      "end": 41.84,
+      "text": "Had a little bright thing folded within",
+      "uncertain": false
+    },
+    {
+      "start": 41.84,
+      "end": 45.14,
+      "text": "Now the streetlights blink like a tired coat",
+      "uncertain": false
+    },
+    {
+      "start": 45.14,
+      "end": 48.58,
+      "text": "And I'm talking to the ditch beside the road",
+      "uncertain": false
+    },
+    {
+      "start": 53.28,
+      "end": 56.32,
+      "text": "Maybe the sky is a broken screen",
+      "uncertain": false
+    },
+    {
+      "start": 56.32,
+      "end": 59.58,
+      "text": "Maybe the good days were only a dream",
+      "uncertain": false
+    },
+    {
+      "start": 63.42,
+      "end": 66.14,
+      "text": "There's static at the end of town",
+      "uncertain": false
+    },
+    {
+      "start": 66.14,
+      "end": 69.5,
+      "text": "A little white noise pulling me down",
+      "uncertain": false
+    },
+    {
+      "start": 69.5,
+      "end": 72.46,
+      "text": "I turn it up till the room goes down",
+      "uncertain": false
+    },
+    {
+      "start": 72.46,
+      "end": 75.58,
+      "text": "Till the world forgets its shape again",
+      "uncertain": false
+    },
+    {
+      "start": 76.66,
+      "end": 78.86,
+      "text": "Static at the end of town",
+      "uncertain": false
+    },
+    {
+      "start": 78.86,
+      "end": 82.1,
+      "text": "No clean way up, no easy way down",
+      "uncertain": false
+    },
+    {
+      "start": 82.1,
+      "end": 85.32,
+      "text": "But I hear one note under the sound",
+      "uncertain": false
+    },
+    {
+      "start": 85.32,
+      "end": 87.78,
+      "text": "Static at the end of town",
+      "uncertain": false
+    },
+    {
+      "start": 95.0,
+      "end": 98.16,
+      "text": "Coffee cooling in a chip black cup",
+      "uncertain": true
+    },
+    {
+      "start": 98.16,
+      "end": 101.52,
+      "text": "Morning comes but it never shows up",
+      "uncertain": false
+    },
+    {
+      "start": 101.52,
+      "end": 104.3,
+      "text": "The landlord knocks then he walks away",
+      "uncertain": false
+    },
+    {
+      "start": 104.3,
+      "end": 107.66,
+      "text": "He knows I got nothing new to say",
+      "uncertain": false
+    },
+    {
+      "start": 107.66,
+      "end": 110.8,
+      "text": "I watch the trains make a silver scar",
+      "uncertain": false
+    },
+    {
+      "start": 110.8,
+      "end": 114.24,
+      "text": "Past the factory and the pawn shop bar",
+      "uncertain": false
+    },
+    {
+      "start": 114.24,
+      "end": 117.14,
+      "text": "Every window holds a smaller night",
+      "uncertain": false
+    },
+    {
+      "start": 117.14,
+      "end": 120.74,
+      "text": "Every small excuse keeps out the line",
+      "uncertain": true
+    },
+    {
+      "start": 122.08,
+      "end": 125.22,
+      "text": "Lady of the sky is a broken screen",
+      "uncertain": true
+    },
+    {
+      "start": 125.22,
+      "end": 128.44,
+      "text": "Maybe the good days were only a dream",
+      "uncertain": false
+    },
+    {
+      "start": 133.78,
+      "end": 136.66,
+      "text": "There's static at the end of town",
+      "uncertain": false
+    },
+    {
+      "start": 136.66,
+      "end": 139.92,
+      "text": "A little white noise pulling me down",
+      "uncertain": false
+    },
+    {
+      "start": 139.92,
+      "end": 142.88,
+      "text": "I turn it up till the room goes dim",
+      "uncertain": true
+    },
+    {
+      "start": 142.88,
+      "end": 152.46,
+      "text": "till the world forgets its shape again static at the end of town no clean way up no easy way down",
+      "uncertain": true
+    },
+    {
+      "start": 152.46,
+      "end": 159.98,
+      "text": "but i hear one note under the sound static at the end of town",
+      "uncertain": true
+    },
+    {
+      "start": 161.62,
+      "end": 168.98,
+      "text": "then a dog barks twice by the loading bay and a stranger laughs in the rain great day for a",
+      "uncertain": false
+    },
+    {
+      "start": 168.98,
+      "end": 177.44,
+      "text": "second the air has a pulse of gold not a rescue just a hand to hold i don't need heaven to open",
+      "uncertain": true
+    },
+    {
+      "start": 177.44,
+      "end": 184.96,
+      "text": "wide just one warm engine running inside one small signal that refuses to drown when the",
+      "uncertain": false
+    },
+    {
+      "start": 184.96,
+      "end": 187.64,
+      "text": "Dark courts that's weighed on the end of town",
+      "uncertain": true
+    },
+    {
+      "start": 194.64,
+      "end": 197.4,
+      "text": "They're static at the end of town",
+      "uncertain": false
+    },
+    {
+      "start": 197.4,
+      "end": 201.5,
+      "text": "But I can hear a heartbeat through the sound",
+      "uncertain": false
+    },
+    {
+      "start": 202.02,
+      "end": 205.04,
+      "text": "I turn it down and the room breathes",
+      "uncertain": false
+    },
+    {
+      "start": 205.04,
+      "end": 208.42,
+      "text": "Then let the hard old morning start again",
+      "uncertain": true
+    },
+    {
+      "start": 209.48,
+      "end": 211.66,
+      "text": "Static at the end of town",
+      "uncertain": false
+    },
+    {
+      "start": 211.66,
+      "end": 214.92,
+      "text": "No clean way up, no easy way down",
+      "uncertain": false
+    },
+    {
+      "start": 214.92,
+      "end": 218.04,
+      "text": "I take one step where the wire's on",
+      "uncertain": true
+    },
+    {
+      "start": 218.04,
+      "end": 221.5,
+      "text": "And the day, the day will come",
+      "uncertain": false
+    },
+    {
+      "start": 225.76,
+      "end": 227.84,
+      "text": "The day will come",
+      "uncertain": false
+    }
+  ]
+}

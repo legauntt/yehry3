@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "songId": "distonyc-6c337dcb5bd2f326c9a7d2f4",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6c337dcb5bd2f326c9a7d2f4-01c0eda80b23.mp3",
+  "audioSha256": "01c0eda80b234269d4f2b98889d10fbb0d60a60b2f34801458d3464c4f2d38a4",
+  "inputSha256": "a919bbc688074a0327845557f494726b9a87728e04c21113ef34b6e97d19d812",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 239.9608125,
+  "segments": [
+    {
+      "start": 7.8,
+      "end": 13.54,
+      "text": "Oh, the tangent light a torch, Tony's got a gaming coast, says, this time I know the",
+      "uncertain": true
+    },
+    {
+      "start": 13.54,
+      "end": 16.18,
+      "text": "route. First dark hallway, lights go house.",
+      "uncertain": false
+    },
+    {
+      "start": 24.1,
+      "end": 29.32,
+      "text": "Found a bone saw, lost a shoe, something hungry, shoots straight through, missed the coin flip,",
+      "uncertain": true
+    },
+    {
+      "start": 29.32,
+      "end": 35.66,
+      "text": "lost his arm stepped on every fucking harm guard came dragging down the hall tony ducked behind",
+      "uncertain": true
+    },
+    {
+      "start": 35.66,
+      "end": 45.44,
+      "text": "the wall floor gave way beneath him then god damn 9-11 again 9-11 again right when the good one",
+      "uncertain": true
+    },
+    {
+      "start": 45.44,
+      "end": 55.32,
+      "text": "begins one lap crash the whole plan ends 9-11 again tony growls all son of a bitch loads that",
+      "uncertain": true
+    },
+    {
+      "start": 55.32,
+      "end": 56.66,
+      "text": "Miserable safe from six",
+      "uncertain": false
+    },
+    {
+      "start": 56.66,
+      "end": 58.56,
+      "text": "Fear in the dark and hunger within",
+      "uncertain": true
+    },
+    {
+      "start": 58.56,
+      "end": 60.52,
+      "text": "Then he gets 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 68.68,
+      "end": 70.84,
+      "text": "Back downstairs with half a map",
+      "uncertain": false
+    },
+    {
+      "start": 70.84,
+      "end": 72.88,
+      "text": "Dodged the dogs and found a trap",
+      "uncertain": false
+    },
+    {
+      "start": 72.88,
+      "end": 74.86,
+      "text": "Fed the girl and saved his meat",
+      "uncertain": false
+    },
+    {
+      "start": 74.86,
+      "end": 76.9,
+      "text": "Crow Mowler dropped him through the street",
+      "uncertain": true
+    },
+    {
+      "start": 76.9,
+      "end": 78.92,
+      "text": "Tony leaned into the screen",
+      "uncertain": false
+    },
+    {
+      "start": 78.92,
+      "end": 81.02,
+      "text": "That's the cheapest shit I've seen",
+      "uncertain": false
+    },
+    {
+      "start": 81.02,
+      "end": 82.98,
+      "text": "Lit a smoke and counted ten",
+      "uncertain": false
+    },
+    {
+      "start": 82.98,
+      "end": 84.88,
+      "text": "Got up 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 92.94,
+      "end": 95.3,
+      "text": "Now his temper starts to spark",
+      "uncertain": true
+    },
+    {
+      "start": 95.3,
+      "end": 97.32,
+      "text": "Every guy just feeds the dark",
+      "uncertain": true
+    },
+    {
+      "start": 97.32,
+      "end": 99.34,
+      "text": "Every doorway smells like doom",
+      "uncertain": false
+    },
+    {
+      "start": 99.34,
+      "end": 101.62,
+      "text": "Still he kicks into the room",
+      "uncertain": false
+    },
+    {
+      "start": 103.7,
+      "end": 105.66,
+      "text": "9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 105.66,
+      "end": 108.24,
+      "text": "Right when the good run begins",
+      "uncertain": false
+    },
+    {
+      "start": 109.28,
+      "end": 111.88,
+      "text": "One loud crash, the whole plan ends",
+      "uncertain": false
+    },
+    {
+      "start": 111.88,
+      "end": 113.88,
+      "text": "9-11 to kiss",
+      "uncertain": false
+    },
+    {
+      "start": 113.88,
+      "end": 115.62,
+      "text": "Cody snarls you rip this shit",
+      "uncertain": true
+    },
+    {
+      "start": 115.62,
+      "end": 117.66,
+      "text": "Throws the mouse but will not quit",
+      "uncertain": false
+    },
+    {
+      "start": 117.66,
+      "end": 119.6,
+      "text": "Fear in the dark and humble within",
+      "uncertain": true
+    },
+    {
+      "start": 119.6,
+      "end": 121.56,
+      "text": "Then he gets 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 129.88,
+      "end": 131.82,
+      "text": "Coined in the air, call it clean",
+      "uncertain": false
+    },
+    {
+      "start": 131.82,
+      "end": 133.9,
+      "text": "Heads means mercy, tails gets mean",
+      "uncertain": false
+    },
+    {
+      "start": 133.9,
+      "end": 135.98,
+      "text": "It hits the stone, it rolls from sight",
+      "uncertain": false
+    },
+    {
+      "start": 135.98,
+      "end": 137.98,
+      "text": "Dungeon laughs and kills the light",
+      "uncertain": false
+    },
+    {
+      "start": 137.98,
+      "end": 139.96,
+      "text": "Tony mutters low and slow",
+      "uncertain": false
+    },
+    {
+      "start": 139.96,
+      "end": 141.98,
+      "text": "You ain't tellin' me to go",
+      "uncertain": false
+    },
+    {
+      "start": 141.98,
+      "end": 143.98,
+      "text": "Blood at one and mind at ten",
+      "uncertain": false
+    },
+    {
+      "start": 143.98,
+      "end": 146.08,
+      "text": "He crawls toward the throne again",
+      "uncertain": true
+    },
+    {
+      "start": 155.82,
+      "end": 158.38,
+      "text": "No food left, no good limb",
+      "uncertain": false
+    },
+    {
+      "start": 158.38,
+      "end": 160.44,
+      "text": "No clean save still goes in",
+      "uncertain": false
+    },
+    {
+      "start": 160.44,
+      "end": 162.42,
+      "text": "Bell starts shaking, ceiling bends",
+      "uncertain": false
+    },
+    {
+      "start": 162.42,
+      "end": 164.36,
+      "text": "So he sees it, not this again",
+      "uncertain": true
+    },
+    {
+      "start": 166.9,
+      "end": 169.1,
+      "text": "Past the prison, past the mines",
+      "uncertain": false
+    },
+    {
+      "start": 169.1,
+      "end": 171.24,
+      "text": "Past the rotten gods and signs",
+      "uncertain": false
+    },
+    {
+      "start": 172.52,
+      "end": 174.64,
+      "text": "Every loss has taunt his hands",
+      "uncertain": true
+    },
+    {
+      "start": 174.64,
+      "end": 176.7,
+      "text": "Where the blade falls, where it lands",
+      "uncertain": true
+    },
+    {
+      "start": 176.7,
+      "end": 178.72,
+      "text": "Last door opens, pale and wide",
+      "uncertain": false
+    },
+    {
+      "start": 178.72,
+      "end": 180.74,
+      "text": "All that spite walks in beside him",
+      "uncertain": false
+    },
+    {
+      "start": 180.74,
+      "end": 182.76,
+      "text": "Dungeon offers, what last win",
+      "uncertain": true
+    },
+    {
+      "start": 182.76,
+      "end": 185.0,
+      "text": "Tony last, then let me win",
+      "uncertain": true
+    },
+    {
+      "start": 196.88,
+      "end": 198.46,
+      "text": "9-11 to Ken",
+      "uncertain": true
+    },
+    {
+      "start": 198.46,
+      "end": 200.46,
+      "text": "But he rises through the tin",
+      "uncertain": true
+    },
+    {
+      "start": 200.46,
+      "end": 202.58,
+      "text": "Let it crash, he'll crawl back in",
+      "uncertain": false
+    },
+    {
+      "start": 202.58,
+      "end": 204.54,
+      "text": "Let it crash, he'll crawl back in",
+      "uncertain": true
+    },
+    {
+      "start": 204.54,
+      "end": 206.56,
+      "text": "Send the final verse, thus born and been",
+      "uncertain": true
+    },
+    {
+      "start": 206.56,
+      "end": 208.7,
+      "text": "No more begging at the end",
+      "uncertain": false
+    },
+    {
+      "start": 208.7,
+      "end": 210.7,
+      "text": "Tony roars, you hungry pit",
+      "uncertain": false
+    },
+    {
+      "start": 210.7,
+      "end": 213.72,
+      "text": "I can die all night, you great fear in the dark",
+      "uncertain": true
+    },
+    {
+      "start": 213.72,
+      "end": 214.66,
+      "text": "But fire within",
+      "uncertain": false
+    },
+    {
+      "start": 214.66,
+      "end": 217.16,
+      "text": "You can 9-11 him again",
+      "uncertain": false
+    },
+    {
+      "start": 217.16,
+      "end": 219.46,
+      "text": "He'll load that bastard, save and win",
+      "uncertain": false
+    },
+    {
+      "start": 220.82,
+      "end": 222.54,
+      "text": "Tony goes black",
+      "uncertain": false
+    },
+    {
+      "start": 222.54,
+      "end": 224.7,
+      "text": "The final chord bends",
+      "uncertain": false
+    },
+    {
+      "start": 224.7,
+      "end": 226.2,
+      "text": "Tony grins",
+      "uncertain": false
+    },
+    {
+      "start": 226.2,
+      "end": 228.48,
+      "text": "Now who's annoyed, my friend?",
+      "uncertain": false
+    },
+    {
+      "start": 237.52,
+      "end": 238.92,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

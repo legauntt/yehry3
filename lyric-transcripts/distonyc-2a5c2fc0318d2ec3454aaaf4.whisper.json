@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "songId": "distonyc-2a5c2fc0318d2ec3454aaaf4",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2a5c2fc0318d2ec3454aaaf4-8d2ee0355266.mp3",
+  "audioSha256": "8d2ee035526651f11af0765e4d4a94ab4875632aea77dd5349af5b28cdc6ec00",
+  "inputSha256": "2f0879d95418dee98bfdc157361d4b1d647df6a006827190a90e2b30a9935fcf",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 84.24,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.94,
+      "text": "Sie ist das Weib des Führers, braun und mutrig, wie Verlierer.",
+      "uncertain": false
+    },
+    {
+      "start": 7.18,
+      "end": 14.64,
+      "text": "Die Seele eines Volkes, Blut und Ehre, falschen Stolz ist.",
+      "uncertain": false
+    },
+    {
+      "start": 16.02,
+      "end": 26.56,
+      "text": "Licht und Schatten im Gesicht, wenn sie ihm in die Fresse pitzig auf den Führer haupt,",
+      "uncertain": false
+    },
+    {
+      "start": 26.56,
+      "end": 30.56,
+      "text": "ist das deutsche Reich geschockt.",
+      "uncertain": true
+    },
+    {
+      "start": 31.92,
+      "end": 34.9,
+      "text": "Zombie-Nazi-Babe ist das Führerwein,",
+      "uncertain": false
+    },
+    {
+      "start": 35.12,
+      "end": 38.56,
+      "text": "das ihm den Zaun gebarwein ist doch wunderbar.",
+      "uncertain": false
+    },
+    {
+      "start": 39.46,
+      "end": 42.6,
+      "text": "Zombie-Nazi-Babe kennt keine Zärtlichkeit,",
+      "uncertain": false
+    },
+    {
+      "start": 43.12,
+      "end": 45.84,
+      "text": "doch macht die Beine frei.",
+      "uncertain": false
+    },
+    {
+      "start": 47.5,
+      "end": 50.88,
+      "text": "Sie liegt im Geist begraben,",
+      "uncertain": false
+    },
+    {
+      "start": 51.32,
+      "end": 54.88,
+      "text": "doch heizt mit ihren Gaben.",
+      "uncertain": false
+    },
+    {
+      "start": 54.88,
+      "end": 61.5,
+      "text": "Soll schweigen, doch ist laut, Bums spielt, geschwängert braut",
+      "uncertain": false
+    },
+    {
+      "start": 62.96,
+      "end": 67.28,
+      "text": "Aus dem Grab hört man sie schreien",
+      "uncertain": true
+    },
+    {
+      "start": 67.28,
+      "end": 73.78,
+      "text": "Wo sind die stolzen Reihen, die unsere Rasse zierten",
+      "uncertain": false
+    },
+    {
+      "start": 73.78,
+      "end": 78.52,
+      "text": "Uns in die Ewigkeit geleitet",
+      "uncertain": true
+    }
+  ]
+}

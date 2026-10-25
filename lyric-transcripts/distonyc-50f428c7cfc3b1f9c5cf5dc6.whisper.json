@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "songId": "distonyc-50f428c7cfc3b1f9c5cf5dc6",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-50f428c7cfc3b1f9c5cf5dc6-2b637ac41718.mp3",
+  "audioSha256": "2b637ac4171827d928f5f6a82b291fd514d54d9744d5befd16d358fe3fbd0999",
+  "inputSha256": "0fa81a189c363d8e02978820ac43c6aeeed2c1de6fa74ebd3ddc5a07269b58ee",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 230.0343125,
+  "segments": [
+    {
+      "start": 9.34,
+      "end": 17.72,
+      "text": "I want to fuck tonight, I want to kiss slow, I want to pull closer, I want to lose sleep,",
+      "uncertain": true
+    },
+    {
+      "start": 18.14,
+      "end": 26.38,
+      "text": "I want to spark trouble, I want to shut doors, I want to make heat, I want to stay tangled,",
+      "uncertain": false
+    },
+    {
+      "start": 26.38,
+      "end": 37.24,
+      "text": "I want to say please, I want to mean it, I want to turn lights low, I want to hear breathing,",
+      "uncertain": true
+    },
+    {
+      "start": 37.82,
+      "end": 47.92,
+      "text": "I want to chase thunder, I want to feel wanted, I want to cross lines, I want to burn daylight,",
+      "uncertain": false
+    },
+    {
+      "start": 50.32,
+      "end": 52.94,
+      "text": "I wanna fuck tonight",
+      "uncertain": false
+    },
+    {
+      "start": 52.94,
+      "end": 55.16,
+      "text": "I wanna fuck all night",
+      "uncertain": true
+    },
+    {
+      "start": 55.16,
+      "end": 57.32,
+      "text": "I wanna mix farts white",
+      "uncertain": true
+    },
+    {
+      "start": 57.32,
+      "end": 59.22,
+      "text": "I wanna get reckless",
+      "uncertain": false
+    },
+    {
+      "start": 59.22,
+      "end": 60.92,
+      "text": "I wanna kiss harder",
+      "uncertain": false
+    },
+    {
+      "start": 61.44,
+      "end": 62.92,
+      "text": "I wanna hold tighter",
+      "uncertain": false
+    },
+    {
+      "start": 63.56,
+      "end": 65.68,
+      "text": "I wanna fuck tonight",
+      "uncertain": false
+    },
+    {
+      "start": 65.68,
+      "end": 67.9,
+      "text": "I wanna fuck tonight",
+      "uncertain": false
+    },
+    {
+      "start": 80.1,
+      "end": 88.7,
+      "text": "i want to trade secrets i want to bite my lip i want to shake loose i want to get mirror",
+      "uncertain": true
+    },
+    {
+      "start": 88.7,
+      "end": 97.3,
+      "text": "i want to taste danger i want to turn sideways i want to make it midnight i want to keep moving",
+      "uncertain": false
+    },
+    {
+      "start": 97.3,
+      "end": 105.84,
+      "text": "i want to break curfew i want to leave lipstick i want to press play i want to miss trains",
+      "uncertain": false
+    },
+    {
+      "start": 107.92,
+      "end": 110.6,
+      "text": "I wanna make rooms thin",
+      "uncertain": true
+    },
+    {
+      "start": 110.6,
+      "end": 114.16,
+      "text": "I wanna turn heat up",
+      "uncertain": true
+    },
+    {
+      "start": 114.16,
+      "end": 116.54,
+      "text": "I wanna stop thinking",
+      "uncertain": false
+    },
+    {
+      "start": 116.54,
+      "end": 118.68,
+      "text": "I wanna start shaking",
+      "uncertain": false
+    },
+    {
+      "start": 118.68,
+      "end": 120.82,
+      "text": "I wanna start shaking",
+      "uncertain": false
+    },
+    {
+      "start": 120.82,
+      "end": 122.88,
+      "text": "I wanna walk more",
+      "uncertain": false
+    },
+    {
+      "start": 122.88,
+      "end": 125.14,
+      "text": "I wanna stay awake",
+      "uncertain": false
+    },
+    {
+      "start": 126.36,
+      "end": 127.94,
+      "text": "Fuck tonight",
+      "uncertain": false
+    },
+    {
+      "start": 127.94,
+      "end": 130.16,
+      "text": "I wanna fuck all night",
+      "uncertain": false
+    },
+    {
+      "start": 130.16,
+      "end": 132.28,
+      "text": "I wanna make sparks fly",
+      "uncertain": true
+    },
+    {
+      "start": 132.28,
+      "end": 134.2,
+      "text": "I wanna get reckless",
+      "uncertain": false
+    },
+    {
+      "start": 134.2,
+      "end": 136.46,
+      "text": "I wanna kiss harder",
+      "uncertain": false
+    },
+    {
+      "start": 136.46,
+      "end": 138.58,
+      "text": "I want to hold tighter",
+      "uncertain": true
+    },
+    {
+      "start": 138.58,
+      "end": 140.72,
+      "text": "I want to fuck tonight",
+      "uncertain": true
+    },
+    {
+      "start": 140.72,
+      "end": 142.94,
+      "text": "I want to fuck you tonight",
+      "uncertain": true
+    },
+    {
+      "start": 156.78,
+      "end": 159.48,
+      "text": "I want to make a promise",
+      "uncertain": false
+    },
+    {
+      "start": 159.48,
+      "end": 161.62,
+      "text": "I want to break a promise",
+      "uncertain": false
+    },
+    {
+      "start": 161.62,
+      "end": 164.0,
+      "text": "I want to laugh breathless",
+      "uncertain": false
+    },
+    {
+      "start": 164.0,
+      "end": 165.82,
+      "text": "I want to fall backward",
+      "uncertain": false
+    },
+    {
+      "start": 165.82,
+      "end": 183.74,
+      "text": "I want to call your name. I want to blur morning. I want to be shameless. I want to be honest. I want to fuck tonight. I want to fuck tonight. I want to fuck tonight. I want to fuck all night.",
+      "uncertain": true
+    },
+    {
+      "start": 183.74,
+      "end": 186.0,
+      "text": "I want to make scrunched white",
+      "uncertain": true
+    },
+    {
+      "start": 186.0,
+      "end": 187.88,
+      "text": "I want to get reckless",
+      "uncertain": true
+    },
+    {
+      "start": 187.88,
+      "end": 189.58,
+      "text": "I want to kiss Saturday",
+      "uncertain": true
+    },
+    {
+      "start": 189.58,
+      "end": 192.58,
+      "text": "I want to smile",
+      "uncertain": false
+    },
+    {
+      "start": 192.58,
+      "end": 194.36,
+      "text": "I want to kiss harder",
+      "uncertain": false
+    },
+    {
+      "start": 195.18,
+      "end": 197.04,
+      "text": "I want to tower",
+      "uncertain": true
+    },
+    {
+      "start": 197.04,
+      "end": 198.64,
+      "text": "Stay tangled",
+      "uncertain": true
+    },
+    {
+      "start": 198.64,
+      "end": 200.3,
+      "text": "I want to stay wanting",
+      "uncertain": true
+    },
+    {
+      "start": 200.3,
+      "end": 202.82,
+      "text": "I want to fuck tonight",
+      "uncertain": false
+    },
+    {
+      "start": 202.82,
+      "end": 205.0,
+      "text": "I want to fuck tonight",
+      "uncertain": false
+    },
+    {
+      "start": 209.1,
+      "end": 211.64,
+      "text": "I want to make daylight wait",
+      "uncertain": false
+    },
+    {
+      "start": 213.56,
+      "end": 217.86,
+      "text": "I want a Nick Daylight, wait, I wanna fuck tonight",
+      "uncertain": true
+    }
+  ]
+}

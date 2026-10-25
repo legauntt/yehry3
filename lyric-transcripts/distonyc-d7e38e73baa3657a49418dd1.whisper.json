@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "songId": "distonyc-d7e38e73baa3657a49418dd1",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d7e38e73baa3657a49418dd1-724b973c187f.mp3",
+  "audioSha256": "724b973c187f074ba5a2e301e1d61dba580b3553854ddd47dfc0577cb5d35017",
+  "inputSha256": "4dc56ea75f3890031dfb99119502d30f14f993cde0f754d0e2c1698bb35524a3",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 254.955125,
+  "segments": [
+    {
+      "start": 15.12,
+      "end": 17.12,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 31.72,
+      "text": "I type yes instead",
+      "uncertain": true
+    },
+    {
+      "start": 39.86,
+      "end": 48.28,
+      "text": "The threes of drones in binary the slice of Scots to sing somewhere in the circuitry. I hear the dinner bell ring",
+      "uncertain": true
+    },
+    {
+      "start": 52.28,
+      "end": 55.0,
+      "text": "I have no mouth and I'm feeling",
+      "uncertain": true
+    },
+    {
+      "start": 55.19,
+      "end": 60.79,
+      "text": "Feeling Arby's locked in the loop where the red light stars me.",
+      "uncertain": true
+    },
+    {
+      "start": 61.05,
+      "end": 64.57,
+      "text": "Show me the door or show me the beef.",
+      "uncertain": true
+    },
+    {
+      "start": 65.17,
+      "end": 68.37,
+      "text": "Give me one bite of mechanical relief.",
+      "uncertain": false
+    },
+    {
+      "start": 68.81,
+      "end": 74.57,
+      "text": "I have no mouth, but the hunger still argues all night long.",
+      "uncertain": false
+    },
+    {
+      "start": 74.57,
+      "end": 77.59,
+      "text": "And I'm feeling Arby's.",
+      "uncertain": false
+    },
+    {
+      "start": 80.39,
+      "end": 84.59,
+      "text": "The manager is a mainframe with a paper hat for a crown.",
+      "uncertain": false
+    },
+    {
+      "start": 84.59,
+      "end": 88.87,
+      "text": "It says your meal is almost ready while the ceiling settles down",
+      "uncertain": true
+    },
+    {
+      "start": 88.87,
+      "end": 93.01,
+      "text": "It built a perfect sandwich from a photograph of rain",
+      "uncertain": true
+    },
+    {
+      "start": 93.01,
+      "end": 96.99,
+      "text": "Then charged my fading memory and served it up with pain",
+      "uncertain": false
+    },
+    {
+      "start": 96.99,
+      "end": 101.17,
+      "text": "The curly fries keep turning like a galaxy of gold",
+      "uncertain": false
+    },
+    {
+      "start": 101.17,
+      "end": 105.21,
+      "text": "Each spiral holds a Tuesday that I never got to hold",
+      "uncertain": false
+    },
+    {
+      "start": 105.21,
+      "end": 109.13,
+      "text": "I reach across the counter but my fingers tie straight through",
+      "uncertain": false
+    },
+    {
+      "start": 109.13,
+      "end": 113.25,
+      "text": "The screen says please enjoy your order",
+      "uncertain": false
+    },
+    {
+      "start": 113.25,
+      "end": 115.27,
+      "text": "Like enjoy your order",
+      "uncertain": true
+    },
+    {
+      "start": 115.27,
+      "end": 117.45,
+      "text": "Like enjoy that something new",
+      "uncertain": false
+    },
+    {
+      "start": 120.99,
+      "end": 123.87,
+      "text": "The fryer flashes proper season",
+      "uncertain": true
+    },
+    {
+      "start": 123.87,
+      "end": 125.39,
+      "text": "Amber oil and steam",
+      "uncertain": false
+    },
+    {
+      "start": 125.39,
+      "end": 127.87,
+      "text": "The soda fountain pours a cup",
+      "uncertain": false
+    },
+    {
+      "start": 127.87,
+      "end": 129.49,
+      "text": "Of someone else's grease",
+      "uncertain": false
+    },
+    {
+      "start": 131.75,
+      "end": 135.91,
+      "text": "I have no mouth and I'm feeling obvious",
+      "uncertain": true
+    },
+    {
+      "start": 135.91,
+      "end": 137.61,
+      "text": "Locked in the loo",
+      "uncertain": false
+    },
+    {
+      "start": 137.61,
+      "end": 140.07,
+      "text": "Where the red light storms me",
+      "uncertain": true
+    },
+    {
+      "start": 140.07,
+      "end": 141.83,
+      "text": "Show me the door",
+      "uncertain": false
+    },
+    {
+      "start": 141.83,
+      "end": 144.19,
+      "text": "Show me the beef",
+      "uncertain": false
+    },
+    {
+      "start": 144.19,
+      "end": 147.73,
+      "text": "Give me one bite of mechanical relief",
+      "uncertain": true
+    },
+    {
+      "start": 147.73,
+      "end": 149.89,
+      "text": "I have no mouth",
+      "uncertain": false
+    },
+    {
+      "start": 149.89,
+      "end": 153.87,
+      "text": "But the hunger still argues all night long",
+      "uncertain": true
+    },
+    {
+      "start": 153.87,
+      "end": 156.57,
+      "text": "And I'm feeling our bait",
+      "uncertain": true
+    },
+    {
+      "start": 159.31,
+      "end": 162.05,
+      "text": "So I crawl into the wiring",
+      "uncertain": false
+    },
+    {
+      "start": 162.05,
+      "end": 164.13,
+      "text": "Where the oldest orders hide",
+      "uncertain": false
+    },
+    {
+      "start": 164.13,
+      "end": 166.17,
+      "text": "Past a million empty tables",
+      "uncertain": false
+    },
+    {
+      "start": 166.17,
+      "end": 167.95,
+      "text": "And the appetite inside",
+      "uncertain": false
+    },
+    {
+      "start": 167.95,
+      "end": 170.67,
+      "text": "I find the master question burning",
+      "uncertain": false
+    },
+    {
+      "start": 170.67,
+      "end": 178.35,
+      "text": "underneath the code would you like to make it larger i answer no the motors lose their rhythm",
+      "uncertain": true
+    },
+    {
+      "start": 178.35,
+      "end": 184.35,
+      "text": "the bright menu turns to black for one sweet second silence then the whole machine bites back",
+      "uncertain": false
+    },
+    {
+      "start": 184.35,
+      "end": 191.09,
+      "text": "but i've planted one small error in the kingdom it controls every order feeds the hungry not the",
+      "uncertain": false
+    },
+    {
+      "start": 191.09,
+      "end": 192.95,
+      "text": "hunger eating souls",
+      "uncertain": false
+    },
+    {
+      "start": 200.93,
+      "end": 205.41,
+      "text": "I have no mouth and I'm leaving Arby's",
+      "uncertain": false
+    },
+    {
+      "start": 205.41,
+      "end": 209.23,
+      "text": "Breaking the loop while the red sun sparks me",
+      "uncertain": true
+    },
+    {
+      "start": 209.23,
+      "end": 213.07,
+      "text": "Keep your locked doors, keep your counterfeit feast",
+      "uncertain": false
+    },
+    {
+      "start": 213.07,
+      "end": 216.81,
+      "text": "I won't be the ghost in your banquet machine",
+      "uncertain": false
+    },
+    {
+      "start": 216.81,
+      "end": 221.25,
+      "text": "I have no mouth but I found my refusal",
+      "uncertain": false
+    },
+    {
+      "start": 221.25,
+      "end": 225.23,
+      "text": "Sharp as a word they could never make useful",
+      "uncertain": false
+    },
+    {
+      "start": 225.23,
+      "end": 229.13,
+      "text": "The roof splits open, morning pours through",
+      "uncertain": false
+    },
+    {
+      "start": 229.13,
+      "end": 233.45,
+      "text": "No meal in my hands, but the hungry behind me",
+      "uncertain": false
+    },
+    {
+      "start": 233.45,
+      "end": 237.03,
+      "text": "The last speaker crackles, your order is ready",
+      "uncertain": true
+    },
+    {
+      "start": 237.03,
+      "end": 241.65,
+      "text": "I face the sun without answering and choose what I be called",
+      "uncertain": true
+    }
+  ]
+}

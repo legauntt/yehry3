@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 import { readFile } from "node:fs/promises";
 import { songSummary } from "../../assets/song-summary.js";
 import { lyricsHref } from "../../assets/song-links.js";
+import { voiceModelBadge } from "../../assets/song-badges.js";
 
 // Moving between pages must not stop the music or send the avatars away and back.
 test.use({ reducedMotion: "reduce" });
@@ -19,7 +20,7 @@ const wav = (seconds = 240) => {
 const catalog = JSON.parse(await readFile(new URL("../../catalog.json", import.meta.url), "utf8"));
 const real = (catalog.songs || catalog).find((song) => song.id?.startsWith("distonyc-") && song.lyrics?.cues?.length && song.remixOf);
 const songs = [
-  { id: "stay-first", title: "First to stay", duration: 240, url: "/stay-fixture.wav", collection: "tonyai", votes: 2, order: -2, voiceModel: "v7", hasLyrics: false },
+  { id: "stay-first", title: "First to stay", duration: 240, url: "/stay-fixture.wav", collection: "tonyai", votes: 2, order: -2, voiceModel: "v9", voiceEpoch: 150, musicBackend: "local", pitchRepair: "haunted", repairedAt: "2026-09-25T19:42:00.000Z", alternates: [{ pitchRepair: "clean", url: "/stay-fixture.wav" }], hasLyrics: false },
   { id: "stay-second", title: "Second to stay", duration: 240, url: "/stay-fixture.wav", collection: "tonyai", votes: 1, order: -1, voiceModel: "v7", hasLyrics: false },
   { id: "stay-third", title: "Third to stay", duration: 240, url: "/stay-fixture.wav", collection: "tonyai", votes: 0, order: -3, voiceModel: "v7", hasLyrics: false },
 ];
@@ -34,12 +35,13 @@ async function studio(page) {
     await page.route(url, (route) => route.fulfill({ body: wav(), contentType: "audio/wav", headers: { "Accept-Ranges": "bytes" } }));
   await page.route("**/yehry3/profiles?*", (route) => route.fulfill({ json: { profiles: [], total: 0 } }));
   await page.route("**/catalog-summary.json", (route) => route.fulfill({ json: { songs: songs.map(songSummary) } }));
-  await page.route("**/yehry3/songs/summary", (route) => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", (route) => route.fulfill({ json: queue }));
   await page.route("**/yehry3/mixtapes**", (route) => route.fulfill({ json: { mixtapes: [], page: 0, hasMore: false } }));
   await page.route("**/yehry3/listens", (route) => route.fulfill({ json: {} }));
-  await page.routeWebSocket("**/yehry3/listeners/socket", (line) => line.close({ code: 1013 }));
-  await page.route("**/yehry3/listeners**", async (route) => {
+  await page.routeWebSocket("**/yehry3/events/socket", (line) => line.close({ code: 1013 }));
+  const events = () => ({ version: body().version + "0000000000000001", topics: { listeners: body(), catalog: { version: "0000000000000001" } } });
+  await page.route(/\/yehry3\/(?:listeners|events)(?:[/?]|$)/, async (route) => {
     const request = route.request();
     if (request.method() === "DELETE") { state.left.push(new URL(request.url()).pathname.split("/").pop()); return route.fulfill({ json: { left: true } }); }
     if (request.method() === "POST") {
@@ -48,7 +50,7 @@ async function studio(page) {
     }
     state.polls++;
     await new Promise((resolve) => setTimeout(resolve, 3000));
-    await route.fulfill({ json: body() }).catch(() => {});
+    await route.fulfill({ json: events() }).catch(() => {});
   });
   return state;
 }
@@ -56,6 +58,97 @@ async function studio(page) {
 const mark = (page) => page.evaluate(() => { window.__stays = "still here"; window.__audio = window.yehry3Player.audio; });
 const stayed = (page) => page.evaluate(() => window.__stays === "still here" && window.__audio === window.yehry3Player.audio);
 const playing = (page) => page.evaluate(() => { const audio = window.yehry3Player.audio; return !audio.paused && !audio.ended && audio.currentTime > 0.2; });
+
+test("V9 checkpoint colors progress from teal to violet", async ({ page }) => {
+  await studio(page);
+  await page.goto("/?sort=catalog");
+  const badges = [50, 200, 300].map(voiceEpoch => voiceModelBadge({ voiceModel: "v9", voiceEpoch }));
+  const colors = await page.evaluate(html => {
+    const row = document.createElement("div");
+    row.innerHTML = html.join(" ");
+    document.body.append(row);
+    const hues = [...row.children].map(node => getComputedStyle(node).getPropertyValue("--v9-hue").trim());
+    const borders = () => [...row.children].map(node => getComputedStyle(node).borderTopColor);
+    const light = borders();
+    document.documentElement.setAttribute("data-shared-theme", "");
+    document.documentElement.dataset.theme = "dark";
+    const dark = borders();
+    row.remove();
+    return { hues, light, dark };
+  }, badges);
+  expect(colors.hues).toEqual(["170", "230", "270"]);
+  expect(new Set(colors.light).size).toBe(3);
+  expect(new Set(colors.dark).size).toBe(3);
+});
+
+test("voice model icons open larger tooltips without growing badges", async ({ page }) => {
+  await studio(page);
+  await page.goto("/?sort=catalog");
+  const badges = ["v6", "v7", "v8", "vdb"].map(voiceModelBadge);
+  const icons = await page.evaluate(async html => {
+    const row = document.createElement("div");
+    row.id = "voice-icon-preview";
+    row.style.cssText = "display:flex;align-items:center;gap:12px;width:max-content;padding:20px;background:#202b23";
+    row.innerHTML = html.join(" ");
+    document.body.append(row);
+    const images = [...row.querySelectorAll(".voice-model-icon")];
+    await Promise.all(images.map(image => image.decode()));
+    const light = images.map(image => ({ width: image.getBoundingClientRect().width, naturalWidth: image.naturalWidth }));
+    document.documentElement.setAttribute("data-shared-theme", "");
+    document.documentElement.dataset.theme = "dark";
+    const dark = images.map(image => image.getBoundingClientRect().width);
+    return { light, dark };
+  }, badges);
+  expect(icons.light).toHaveLength(4);
+  expect(icons.light.every(({ width, naturalWidth }) => width >= 12 && naturalWidth === 24)).toBe(true);
+  expect(icons.dark.every(width => width >= 12)).toBe(true);
+  await page.locator("#voice-icon-preview").screenshot({ path: "artifacts/voice-model-icons.png" });
+  for (const badge of await page.locator("#voice-icon-preview .voice-model-badge").all()) {
+    const image = badge.locator(".voice-model-icon");
+    const compactWidth = await badge.evaluate(node => node.getBoundingClientRect().width);
+    await badge.hover();
+    await expect(badge.locator(".voice-model-icon-tooltip")).toBeVisible();
+    expect(await badge.locator(".voice-model-icon-tooltip img").evaluate(node => node.getBoundingClientRect().width)).toBeGreaterThan(80);
+    expect(await badge.evaluate(node => node.getBoundingClientRect().width)).toBe(compactWidth);
+    expect(await image.evaluate(node => node.getBoundingClientRect().width)).toBeLessThan(20);
+  }
+  const firstBadge = page.locator("#voice-icon-preview .voice-model-badge").first();
+  await firstBadge.hover();
+  const tooltip = firstBadge.locator(".voice-model-icon-tooltip");
+  await expect.poll(() => tooltip.evaluate(node => Number(getComputedStyle(node).opacity))).toBe(1);
+  expect((await tooltip.boundingBox()).y).toBeLessThan((await firstBadge.boundingBox()).y);
+  expect(await tooltip.evaluate(node => { const rect = node.getBoundingClientRect(); return rect.left >= 0 && rect.top >= 0 && rect.right <= innerWidth && rect.bottom <= innerHeight; })).toBe(true);
+  const box = await tooltip.boundingBox();
+  await page.screenshot({ path: "artifacts/voice-model-tooltip.png", clip: { x: box.x, y: box.y, width: box.width, height: box.height } });
+});
+
+test("the compact player badges fit together and seeking keeps playing", async ({ page }) => {
+  await studio(page);
+  await page.goto("/?sort=catalog");
+  await page.locator('.track[data-id="stay-first"] [data-play]').click();
+  const bar = page.locator("#site-player");
+  await expect(bar.locator(".voice-model-badge")).toHaveText("V9150");
+  await expect(page.locator('.track[data-id="stay-first"] .voice-model-badge .voice-epoch-number')).toHaveText('150');
+  await expect(bar.locator(".voice-model-badge")).toHaveAttribute("title", "Tony’s voice: V9 · epoch 150");
+  await expect(bar.locator(".music-backend-badge")).toHaveText("FREE");
+  await expect(bar.locator(".music-backend-badge")).toHaveAttribute("title", /Local · ACE/);
+  await expect(bar.locator(".repair-badge")).toHaveCount(0);
+  for (const width of [1380, 1024, 768, 390]) {
+    await page.setViewportSize({ width, height: 900 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    if (width > 700) {
+      const boxes = await bar.locator(".song-badges > *").evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().top));
+      expect(Math.max(...boxes) - Math.min(...boxes)).toBeLessThan(5);
+    }
+    await page.screenshot({ path: `artifacts/compact-player-${width}.png` });
+  }
+  await page.evaluate(() => { window.yehry3Player.audio.currentTime = 30; });
+  await expect.poll(() => page.evaluate(() => window.yehry3Player.audio.currentTime)).toBeGreaterThan(29.5);
+  await expect.poll(() => playing(page)).toBe(true);
+  await bar.locator('#now-sides [data-side="1"]').click();
+  await expect.poll(() => page.evaluate(() => window.yehry3Player.audio.currentTime)).toBeGreaterThan(29.5);
+  await expect.poll(() => playing(page)).toBe(true);
+});
 
 test("a song keeps playing, and the room stays, as pages change", async ({ page }) => {
   const state = await studio(page);
@@ -109,6 +202,41 @@ test("a song keeps playing, and the room stays, as pages change", async ({ page 
   await expect(page.locator("#site-player .eyebrow")).toHaveText("Paused");
 });
 
+test("phone media controls follow the shared player's queue", async ({ page }) => {
+  await page.addInitScript(() => {
+    const session = navigator.mediaSession;
+    const setActionHandler = session.setActionHandler.bind(session);
+    window.mediaActions = {};
+    session.setActionHandler = (name, handler) => {
+      window.mediaActions[name] = handler;
+      setActionHandler(name, handler);
+    };
+  });
+  await studio(page);
+  await page.goto("/?sort=catalog");
+  await page.locator('.track[data-id="stay-first"] [data-play]').click();
+  await expect.poll(() => page.evaluate(() => navigator.mediaSession.playbackState)).toBe("playing");
+  expect(await page.evaluate(() => navigator.mediaSession.metadata.title)).toBe("First to stay");
+  expect(await page.evaluate(() => window.mediaActions.previoustrack)).toBeNull();
+
+  await page.evaluate(() => window.mediaActions.nexttrack());
+  await expect(page.locator("#site-player #now-title")).toHaveText("Second to stay");
+  await expect.poll(() => playing(page)).toBe(true);
+  expect(await page.evaluate(() => navigator.mediaSession.metadata.title)).toBe("Second to stay");
+
+  await page.evaluate(() => window.mediaActions.pause());
+  await expect.poll(() => page.evaluate(() => navigator.mediaSession.playbackState)).toBe("paused");
+  await page.evaluate(() => window.mediaActions.play());
+  await expect.poll(() => playing(page)).toBe(true);
+
+  await page.evaluate(() => window.mediaActions.previoustrack());
+  await expect(page.locator("#site-player #now-title")).toHaveText("First to stay");
+  await page.evaluate(() => window.yehry3Player.clear());
+  await expect.poll(() => page.evaluate(() => navigator.mediaSession.playbackState)).toBe("none");
+  expect(await page.evaluate(() => navigator.mediaSession.metadata)).toBeNull();
+  expect(await page.evaluate(() => window.mediaActions.nexttrack)).toBeNull();
+});
+
 test("a link that leaves the swapped pages is an ordinary page load", async ({ page }) => {
   await studio(page);
   await page.goto("/?sort=catalog");
@@ -133,7 +261,7 @@ test("a lyric sheet plays on the site's player and the song stays as the visitor
   await line.click();
   await expect(page.locator("#site-player")).toBeVisible();
   await expect(page.locator("#site-player .eyebrow")).toHaveText("Paused");
-  await expect(sheet.locator("#sheet-play")).toHaveText("Play");
+  await expect(sheet.locator("#sheet-play")).toHaveText("Resume");
   expect(await page.evaluate(() => window.yehry3Player.audio.paused)).toBe(true);
   await expect.poll(() => page.evaluate(() => window.yehry3Player.audio.currentTime)).toBeCloseTo(cue.start, 0);
   await sheet.locator("#sheet-play").click();
@@ -153,7 +281,8 @@ test("a lyric sheet plays on the site's player and the song stays as the visitor
   // The bar's title returns to the sheet, which finds its song already playing.
   await page.locator("#site-player #now-title a").click();
   await expect(sheet.locator("#sheet-play")).toHaveText("Pause");
-  await expect(line).toHaveClass(/is-active/);
+  // Audio keeps advancing during navigation; a short cue may already be over.
+  await expect(sheet.locator(".lyric-line.is-active")).toHaveCount(1);
   expect(await playing(page)).toBe(true);
   await sheet.locator("#sheet-play").click();
   await expect(sheet.locator("#sheet-play")).toHaveText("Resume");

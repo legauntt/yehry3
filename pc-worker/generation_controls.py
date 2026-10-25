@@ -38,13 +38,13 @@ def normalize(value):
     if value is None: return None
     if not isinstance(value, dict) or value.get('version') != 1 or type(value.get('version')) is not int:
         raise ValueError('Unsupported generation options version')
-    allowed = {'version', 'reviewLyrics'} | set(RANGES) | set(CHOICES) | set(TEXT_LIMITS) | set(LIST_LIMITS)
+    allowed = {'version', 'reviewLyrics', 'instrumentalHeavy'} | set(RANGES) | set(CHOICES) | set(TEXT_LIMITS) | set(LIST_LIMITS)
     if set(value) - allowed: raise ValueError('Unknown generation option: ' + ', '.join(sorted(set(value) - allowed)))
     result = dict(DEFAULTS)
     for key, item in value.items():
         if key == 'version': continue
-        if key == 'reviewLyrics':
-            if type(item) is not bool: raise ValueError('Invalid lyric review choice')
+        if key in ('reviewLyrics', 'instrumentalHeavy'):
+            if type(item) is not bool: raise ValueError('Invalid boolean generation choice: ' + key)
             result[key] = item
         elif key in RANGES:
             if item is None and key not in DEFAULTS: continue
@@ -110,7 +110,7 @@ WORKFLOWS = {
     'rhythm': 'Start from stresses, bar lengths and the requested groove. Write rhythmically singable lines with varied internal rhyme. Use rap/spoken delivery only if requested.',
     'auto': 'Choose a writing approach that suits this particular brief; establish its form, development and final payoff before finishing the lyric sheet.',
 }
-CREATIVE_GUIDANCE = '''Current ending and lyric policy:
+CREATIVE_GUIDANCE = '''Current ending and lyric policy (for lyrical songs; explicit nonverbal requests use a phonetic vocal score instead):
 Voice descriptions concern the SOUND of Tony's delivery, not a stock vocabulary for the lyrics.
 Keep his connected, rough phrasing and memorable melodies. Deliver the final meaningful lyric completely.
 Do not replace the final verse/tag with an older section or fill the last 30–60 seconds with screaming,
@@ -126,7 +126,9 @@ Do not treat avoidance as a ban on actual requested instruments or intentional c
 def planning_guidance(brief, recent=None):
     options = normalize(brief.get('details', {}).get('generation')) or DEFAULTS
     import json
-    return (CREATIVE_GUIDANCE + '\nWriting approach: ' + WORKFLOWS[options['lyricWorkflow']] +
+    return (CREATIVE_GUIDANCE +
+            ('\nThis request explicitly permits an instrumental-heavy arrangement: sparse vocal sections and long instrumental passages are intentional. Complete every intended lyric and the musical ending; do not add filler lyrics to meet a coverage target.' if options.get('instrumentalHeavy') else '') +
+            '\nWriting approach: ' + WORKFLOWS[options['lyricWorkflow']] +
             '\nExplicit musical/lyric selections (Auto fields omitted; honor these throughout the plan):\n' +
             json.dumps({key: item for key, item in options.items() if key not in VOICE_ONLY}, ensure_ascii=False) +
             '\nAvoid-phrase preferences are soft constraints when the current brief explicitly requests those words. '
@@ -160,10 +162,12 @@ def recent_vocabulary(config, directory):
     return result
 
 
-def arrangement_guidance(options):
+def arrangement_guidance(options, vocal_mode='lyrics'):
     options = normalize(options)
     if not options: return ''
     parts = []
+    if options.get('instrumentalHeavy'):
+        parts.append('Instrumental-heavy arrangement: sparse vocal sections and extended instrumental passages are intentional; complete all intended vocals and the musical ending.')
     if options.get('genre'): parts.append('Musical style: ' + options['genre'] + '.')
     if options.get('instruments'): parts.append('Prominent instruments: ' + ', '.join(options['instruments']) + '.')
     if options.get('avoidInstruments'): parts.append('Avoid these instruments: ' + ', '.join(options['avoidInstruments']) + '.')
@@ -172,6 +176,10 @@ def arrangement_guidance(options):
     if 'vocalEntry' in options: parts.append(f"Target the first sung phrase at {options['vocalEntry']} seconds.")
     if 'maxBreakSeconds' in options: parts.append(f"Target no instrumental break longer than {options['maxBreakSeconds']} seconds.")
     if options['energy'] != 'auto': parts.append('Energy pattern: ' + {'build': 'grow toward the final section', 'waves': 'alternate quiet and strong sections', 'steady': 'keep a consistent groove with clear section contrasts'}[options['energy']] + '.')
+    if vocal_mode == 'nonverbal':
+        from vocal_score import NONVERBAL_DELIVERY
+        parts.append(NONVERBAL_DELIVERY)
+        return ' '.join(parts) + ' '
     parts.append({'natural': 'Expressive connected Tony phrasing with complete, catchable lyric endings.',
                   'restrained': 'Intimate controlled singing, clear lyrical endings, no screamed or wordless closing coda.',
                   'raw': 'Raw expressive singing with brief deliberate outbursts; complete the final lyrics before resolving.'}[options['performance']])

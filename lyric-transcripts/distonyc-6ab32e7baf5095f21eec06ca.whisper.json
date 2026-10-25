@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "songId": "distonyc-6ab32e7baf5095f21eec06ca",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6ab32e7baf5095f21eec06ca-d43bf96b8ec4.mp3",
+  "audioSha256": "d43bf96b8ec417986d9c9c606bb12ddf548fc84b30f931afa7abf9cb37b05901",
+  "inputSha256": "d43bf96b8ec417986d9c9c606bb12ddf548fc84b30f931afa7abf9cb37b05901",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 230.98,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.6,
+      "text": "Learn to keep the weather light behind his teeth, carry every feeling where nobody could see.",
+      "uncertain": true
+    },
+    {
+      "start": 4.92,
+      "end": 9.8,
+      "text": "No hand on his shoulder, no language for the eight, just a growing little kingdom saying, brother, stay awake.",
+      "uncertain": true
+    },
+    {
+      "start": 10.14,
+      "end": 14.96,
+      "text": "He sold a mine, answers in a midnight feed, a villain for his loneliness and thrown for every need.",
+      "uncertain": true
+    },
+    {
+      "start": 15.08,
+      "end": 20.8,
+      "text": "Sad lover's just a market and mercy made you weak, but ain't a sound of purpose when you haven't been heard in weeks.",
+      "uncertain": true
+    },
+    {
+      "start": 23.88,
+      "end": 31.08,
+      "text": "he wasn't born a weapon he was looking for a name for the hollow in the hallway",
+      "uncertain": true
+    },
+    {
+      "start": 31.08,
+      "end": 40.5,
+      "text": "for the rules without a game they say try that in a small town stand tall never back down",
+      "uncertain": false
+    },
+    {
+      "start": 40.5,
+      "end": 47.68,
+      "text": "we'll give you back the crown they stole a coat of cards from home but every purpose gets smaller",
+      "uncertain": true
+    },
+    {
+      "start": 47.68,
+      "end": 50.2,
+      "text": "When everyone gets taller",
+      "uncertain": true
+    },
+    {
+      "start": 50.2,
+      "end": 53.82,
+      "text": "You can't build a life by shutting the whole world out",
+      "uncertain": false
+    },
+    {
+      "start": 53.82,
+      "end": 56.3,
+      "text": "Try that in a small town",
+      "uncertain": false
+    },
+    {
+      "start": 60.78,
+      "end": 62.22,
+      "text": "We wanted work to matter",
+      "uncertain": true
+    },
+    {
+      "start": 62.22,
+      "end": 63.52,
+      "text": "Friends we call them first",
+      "uncertain": false
+    },
+    {
+      "start": 63.52,
+      "end": 66.0,
+      "text": "A father who could tell them what to do with all the hurt",
+      "uncertain": false
+    },
+    {
+      "start": 66.0,
+      "end": 67.92,
+      "text": "A chance to be desired without performing",
+      "uncertain": false
+    },
+    {
+      "start": 67.92,
+      "end": 68.54,
+      "text": "Like a king",
+      "uncertain": false
+    },
+    {
+      "start": 68.54,
+      "end": 71.36,
+      "text": "Some proof that being useful wasn't worth more than being seen",
+      "uncertain": true
+    },
+    {
+      "start": 71.36,
+      "end": 73.68,
+      "text": "A screen supply to brotherhood with targets painted red",
+      "uncertain": false
+    },
+    {
+      "start": 73.68,
+      "end": 76.2,
+      "text": "Easy little certainties to tuck him into bed",
+      "uncertain": false
+    },
+    {
+      "start": 76.2,
+      "end": 80.4,
+      "text": "said tenderness was surrender and that was a disease then charged another payment for the",
+      "uncertain": true
+    },
+    {
+      "start": 80.4,
+      "end": 89.36,
+      "text": "secret to be free there was truth beneath the sales pitch that are striving to belong",
+      "uncertain": true
+    },
+    {
+      "start": 89.36,
+      "end": 97.06,
+      "text": "but a wound becomes a business when the cure keeps it wrong they say",
+      "uncertain": false
+    },
+    {
+      "start": 97.06,
+      "end": 99.24,
+      "text": "Try that in a small town",
+      "uncertain": false
+    },
+    {
+      "start": 99.24,
+      "end": 101.76,
+      "text": "Stay tall, never back down",
+      "uncertain": true
+    },
+    {
+      "start": 101.76,
+      "end": 104.28,
+      "text": "We'll give you back the crown they stole",
+      "uncertain": false
+    },
+    {
+      "start": 104.28,
+      "end": 106.02,
+      "text": "The code of causal law",
+      "uncertain": true
+    },
+    {
+      "start": 106.02,
+      "end": 108.94,
+      "text": "But every promise gets smaller",
+      "uncertain": false
+    },
+    {
+      "start": 108.94,
+      "end": 111.46,
+      "text": "When every wall gets taller",
+      "uncertain": false
+    },
+    {
+      "start": 111.46,
+      "end": 115.12,
+      "text": "You can't build a life by shutting the whole world down",
+      "uncertain": false
+    },
+    {
+      "start": 115.12,
+      "end": 117.54,
+      "text": "Try that in a small town",
+      "uncertain": false
+    },
+    {
+      "start": 118.52,
+      "end": 121.48,
+      "text": "You can lift the weight, learn the trade",
+      "uncertain": false
+    },
+    {
+      "start": 121.48,
+      "end": 123.88,
+      "text": "Keep your word and still be afraid",
+      "uncertain": false
+    },
+    {
+      "start": 123.88,
+      "end": 126.5,
+      "text": "You can want respect without demanding control",
+      "uncertain": false
+    },
+    {
+      "start": 126.5,
+      "end": 129.8,
+      "text": "You can lose, you can grieve, you can ask what you need",
+      "uncertain": true
+    },
+    {
+      "start": 129.8,
+      "end": 132.16,
+      "text": "Without making an enemy feed your soul",
+      "uncertain": true
+    },
+    {
+      "start": 132.16,
+      "end": 136.64,
+      "text": "No guru owns the doorway, no stranger holds the key",
+      "uncertain": true
+    },
+    {
+      "start": 138.04,
+      "end": 141.52,
+      "text": "Brotherhood ain't worship, and strength ain't cruelty",
+      "uncertain": false
+    },
+    {
+      "start": 142.58,
+      "end": 144.58,
+      "text": "Tell me what was missing",
+      "uncertain": false
+    },
+    {
+      "start": 144.58,
+      "end": 147.78,
+      "text": "A table, a teacher, a place in the crowd",
+      "uncertain": false
+    },
+    {
+      "start": 147.78,
+      "end": 149.64,
+      "text": "Tell me what they promised",
+      "uncertain": false
+    },
+    {
+      "start": 149.64,
+      "end": 152.82,
+      "text": "A kingdom with pain could never speak aloud",
+      "uncertain": false
+    },
+    {
+      "start": 152.82,
+      "end": 154.48,
+      "text": "I won't laugh at the hunger",
+      "uncertain": false
+    },
+    {
+      "start": 154.48,
+      "end": 157.08,
+      "text": "I won't kneel to the light",
+      "uncertain": true
+    },
+    {
+      "start": 157.08,
+      "end": 160.24,
+      "text": "A man can need another man",
+      "uncertain": true
+    },
+    {
+      "start": 160.24,
+      "end": 162.36,
+      "text": "And look him in the eye",
+      "uncertain": false
+    },
+    {
+      "start": 162.36,
+      "end": 165.7,
+      "text": "They said, try that in a small town",
+      "uncertain": false
+    },
+    {
+      "start": 165.7,
+      "end": 168.18,
+      "text": "Stand tall, never back down",
+      "uncertain": false
+    },
+    {
+      "start": 168.18,
+      "end": 170.68,
+      "text": "But nobody needs a stolen crown",
+      "uncertain": false
+    },
+    {
+      "start": 170.68,
+      "end": 172.58,
+      "text": "To turn his whole life around",
+      "uncertain": false
+    },
+    {
+      "start": 172.58,
+      "end": 175.4,
+      "text": "Let every door is grow larger",
+      "uncertain": false
+    },
+    {
+      "start": 175.4,
+      "end": 177.76,
+      "text": "Let every open door start here",
+      "uncertain": false
+    },
+    {
+      "start": 177.76,
+      "end": 180.34,
+      "text": "Build a life with people",
+      "uncertain": false
+    },
+    {
+      "start": 180.34,
+      "end": 182.62,
+      "text": "Not a book or made of fear",
+      "uncertain": false
+    },
+    {
+      "start": 182.62,
+      "end": 185.28,
+      "text": "If the town is worth defending",
+      "uncertain": false
+    },
+    {
+      "start": 185.28,
+      "end": 187.78,
+      "text": "Then come cash and make it strong",
+      "uncertain": true
+    },
+    {
+      "start": 187.78,
+      "end": 190.38,
+      "text": "There is room beside the fire",
+      "uncertain": false
+    },
+    {
+      "start": 190.38,
+      "end": 192.94,
+      "text": "You were needed all along",
+      "uncertain": false
+    },
+    {
+      "start": 192.94,
+      "end": 196.06,
+      "text": "No phone, no target, no final score",
+      "uncertain": false
+    },
+    {
+      "start": 196.06,
+      "end": 198.48,
+      "text": "Just hands rebuilding with the Herc tour",
+      "uncertain": true
+    },
+    {
+      "start": 198.48,
+      "end": 201.4,
+      "text": "Say what you need, let the old walls fall",
+      "uncertain": false
+    },
+    {
+      "start": 201.4,
+      "end": 203.82,
+      "text": "A stronger man can answer when his brothers call",
+      "uncertain": false
+    },
+    {
+      "start": 219.18,
+      "end": 220.86,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

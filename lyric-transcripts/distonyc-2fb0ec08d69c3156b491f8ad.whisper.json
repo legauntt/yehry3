@@ -1,0 +1,295 @@
+{
+  "version": 1,
+  "songId": "distonyc-2fb0ec08d69c3156b491f8ad",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-2fb0ec08d69c3156b491f8ad-a70c6f228be5.mp3",
+  "audioSha256": "a70c6f228be55c974370c2a02907eb0f0fd4604e968570d2013ff1734cdabaea",
+  "inputSha256": "149968f4225991139337098f6f5bd82e88cb9910d97e3f5e6559589165d8f768",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 275.04325,
+  "segments": [
+    {
+      "start": 4.76,
+      "end": 9.68,
+      "text": "In the longest room beneath the framed old maps",
+      "uncertain": true
+    },
+    {
+      "start": 9.68,
+      "end": 15.68,
+      "text": "A name takes the oath and not a name steps back",
+      "uncertain": true
+    },
+    {
+      "start": 17.14,
+      "end": 21.76,
+      "text": "One signs a page, one faces down a storm",
+      "uncertain": false
+    },
+    {
+      "start": 22.8,
+      "end": 27.94,
+      "text": "One leaves a promise half built, one redraws the form",
+      "uncertain": false
+    },
+    {
+      "start": 29.26,
+      "end": 34.32,
+      "text": "There were roads laid down and doors pushed wide",
+      "uncertain": false
+    },
+    {
+      "start": 35.38,
+      "end": 40.16,
+      "text": "There were wars that widened and families that cried",
+      "uncertain": true
+    },
+    {
+      "start": 41.56,
+      "end": 46.38,
+      "text": "There were words that lifted, words that split the hall",
+      "uncertain": false
+    },
+    {
+      "start": 46.38,
+      "end": 51.0,
+      "text": "A country keeps the ledger, it remembers it all",
+      "uncertain": false
+    },
+    {
+      "start": 52.72,
+      "end": 57.14,
+      "text": "No photograph can hold the whole wide day",
+      "uncertain": false
+    },
+    {
+      "start": 58.6,
+      "end": 64.8,
+      "text": "No single speech can make the shadows go away",
+      "uncertain": false
+    },
+    {
+      "start": 64.8,
+      "end": 69.48,
+      "text": "The long desk carries every hand",
+      "uncertain": true
+    },
+    {
+      "start": 71.08,
+      "end": 75.34,
+      "text": "The bright ink and the broken plan",
+      "uncertain": false
+    },
+    {
+      "start": 77.18,
+      "end": 81.56,
+      "text": "The flags we wave, the things we've seen",
+      "uncertain": false
+    },
+    {
+      "start": 81.56,
+      "end": 87.78,
+      "text": "I won't call one clean, I won't call one damn",
+      "uncertain": false
+    },
+    {
+      "start": 89.46,
+      "end": 93.98,
+      "text": "The long desk carries every hand",
+      "uncertain": false
+    },
+    {
+      "start": 95.78,
+      "end": 100.34,
+      "text": "Some opened up the factory gates at dawn",
+      "uncertain": false
+    },
+    {
+      "start": 100.34,
+      "end": 106.3,
+      "text": "Some wrote new rules for the people coming on",
+      "uncertain": false
+    },
+    {
+      "start": 106.3,
+      "end": 112.52,
+      "text": "Some held a union, some cut a distant deal",
+      "uncertain": false
+    },
+    {
+      "start": 112.52,
+      "end": 118.64,
+      "text": "Some spoke of freedom, some denied what people feel",
+      "uncertain": true
+    },
+    {
+      "start": 120.48,
+      "end": 125.54,
+      "text": "A schoolhouse bell, a farm in dust and heat",
+      "uncertain": false
+    },
+    {
+      "start": 125.54,
+      "end": 130.06,
+      "text": "A soldier's letter folded under a kitchen seat",
+      "uncertain": false
+    },
+    {
+      "start": 130.06,
+      "end": 135.62,
+      "text": "A doctor on a porch, a worker after dark",
+      "uncertain": false
+    },
+    {
+      "start": 135.62,
+      "end": 139.7,
+      "text": "A president can strike a match",
+      "uncertain": false
+    },
+    {
+      "start": 139.7,
+      "end": 141.78,
+      "text": "But people make a spark",
+      "uncertain": true
+    },
+    {
+      "start": 141.78,
+      "end": 146.44,
+      "text": "The longest carries every hand",
+      "uncertain": false
+    },
+    {
+      "start": 148.14,
+      "end": 152.24,
+      "text": "The bright ink and the broken plan",
+      "uncertain": false
+    },
+    {
+      "start": 154.26,
+      "end": 158.46,
+      "text": "The flags we wave, the things we've seen",
+      "uncertain": false
+    },
+    {
+      "start": 158.46,
+      "end": 161.88,
+      "text": "I won't call one clean",
+      "uncertain": false
+    },
+    {
+      "start": 161.88,
+      "end": 164.56,
+      "text": "I won't call one damn",
+      "uncertain": true
+    },
+    {
+      "start": 166.34,
+      "end": 170.94,
+      "text": "The long desk carries every hand",
+      "uncertain": false
+    },
+    {
+      "start": 173.4,
+      "end": 175.96,
+      "text": "Democrat, Republican",
+      "uncertain": true
+    },
+    {
+      "start": 175.96,
+      "end": 178.64,
+      "text": "The names change on the door",
+      "uncertain": false
+    },
+    {
+      "start": 178.64,
+      "end": 181.84,
+      "text": "The questions keep arriving",
+      "uncertain": false
+    },
+    {
+      "start": 181.84,
+      "end": 183.9,
+      "text": "Like they did before",
+      "uncertain": true
+    },
+    {
+      "start": 183.9,
+      "end": 186.5,
+      "text": "Who gets hurt?",
+      "uncertain": true
+    },
+    {
+      "start": 186.9,
+      "end": 187.9,
+      "text": "Who gets home?",
+      "uncertain": false
+    },
+    {
+      "start": 187.9,
+      "end": 189.76,
+      "text": "Who pays the cost?",
+      "uncertain": false
+    },
+    {
+      "start": 191.06,
+      "end": 192.64,
+      "text": "What was guarded?",
+      "uncertain": false
+    },
+    {
+      "start": 192.64,
+      "end": 194.3,
+      "text": "What was gained?",
+      "uncertain": false
+    },
+    {
+      "start": 194.56,
+      "end": 204.38,
+      "text": "what was lost. The record is not simple. The record is not small. It belongs to every voice",
+      "uncertain": true
+    },
+    {
+      "start": 204.38,
+      "end": 217.34,
+      "text": "that answers when we call. The long desk carries every hand. The hope we build, the harm we",
+      "uncertain": false
+    },
+    {
+      "start": 217.34,
+      "end": 224.7,
+      "text": "planned red blue and all the lies between the word behind the television screen",
+      "uncertain": true
+    },
+    {
+      "start": 224.7,
+      "end": 237.7,
+      "text": "read the page and name the scars keep the people bigger than the stars the long desk carries every",
+      "uncertain": false
+    },
+    {
+      "start": 237.7,
+      "end": 247.72,
+      "text": "hand and tomorrow writes across the land so leave the lamp on and no window tonight",
+      "uncertain": true
+    },
+    {
+      "start": 249.34,
+      "end": 258.58,
+      "text": "let the hard old questions stand in the light we inherit more than one command",
+      "uncertain": false
+    },
+    {
+      "start": 258.58,
+      "end": 263.06,
+      "text": "the long desk carries every hand",
+      "uncertain": false
+    },
+    {
+      "start": 271.98,
+      "end": 273.38,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

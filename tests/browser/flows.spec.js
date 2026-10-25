@@ -1,16 +1,18 @@
+import { openSongMenu } from "./helpers/song-menu.js";
 import { test, expect } from "@playwright/test";
 import { mkdir, readFile } from "node:fs/promises";
 import { lyricsHref } from "../../assets/song-links.js";
-const songCount = JSON.parse(
+const catalogSongs = JSON.parse(
   await readFile(new URL("../../catalog.json", import.meta.url), "utf8"),
-).songs.length;
+).songs;
+const songCount = catalogSongs.length;
 test("catalog, search, player, and anonymous vote cooldown", async ({
   page,
 }) => {
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/");
-  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
+  await expect(page.locator(".track")).toHaveCount(Math.min(24, songCount));
   await expect(page.locator("[data-vote]").first()).toBeEnabled();
   await page.locator(".catalog-filters > summary").click();
   await page.getByLabel("Search songs").fill("Fear and Hunger");
@@ -50,9 +52,9 @@ test("shareable collection, search and sort survive reload and browser history",
   page,
   context,
 }) => {
-  await page.route("**/yehry3/songs/summary", (route) => route.abort());
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.abort());
   await page.goto("/?ref=friend#collection-title");
-  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
+  await expect(page.locator(".track")).toHaveCount(Math.min(24, songCount));
   const filters = page.locator(".catalog-filters");
   const summary = filters.locator("summary");
   await expect(filters).not.toHaveAttribute("open", "");
@@ -101,7 +103,7 @@ test("shareable collection, search and sort survive reload and browser history",
   await expect(page.getByLabel("Search songs")).toHaveValue("Khalim");
   await expect(page.locator(".track")).toHaveCount(1);
   const recipient = await context.newPage();
-  await recipient.route("**/yehry3/songs/summary", (route) => route.abort());
+  await recipient.route("**/yehry3/{catalog,songs/summary}", (route) => route.abort());
   await recipient.goto(sharedUrl);
   await expect(recipient.locator(".track h3")).toContainText(
     "Khalim Still Has a Heart",
@@ -133,13 +135,13 @@ test("shareable collection, search and sort survive reload and browser history",
   await page.getByLabel("Sort songs").selectOption("hybrid");
   await expect(page.locator("#active-filters")).toBeHidden();
   await expect(page).toHaveURL(/\/\?ref=friend#collection-title$/);
-  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
+  await expect(page.locator(".track")).toHaveCount(Math.min(24, songCount));
   await page.goto("/?collection=unknown&sort=unknown");
   await expect(page.getByLabel("Collection", { exact: true })).toHaveValue(
     "all",
   );
   await expect(page.getByLabel("Sort songs")).toHaveValue("hybrid");
-  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
+  await expect(page.locator(".track")).toHaveCount(Math.min(24, songCount));
   await expect
     .poll(() =>
       page.locator(".band-cutout").evaluate((img) => img.naturalWidth),
@@ -319,7 +321,7 @@ test("public queue, browser alert opt-in, completion deduplication and mobile la
   );
   await page.goto("/queue/");
   await expect(page.locator("#in-studio")).toContainText(active.idea);
-  await expect(page.locator("#in-studio img")).toHaveCount(0);
+  await expect(page.locator('#in-studio img[src="x"]')).toHaveCount(0);
   await expect(page.locator("#in-studio progress")).toHaveAttribute(
     "value",
     "55",
@@ -351,6 +353,7 @@ test("public queue, browser alert opt-in, completion deduplication and mobile la
   await expect(page.locator("#release-announcement")).toContainText(
     "Brand new song",
   );
+  await expect(page.locator(".completion-banner").getByRole("link")).toHaveAttribute("href", `/?collection=all#${active.id}`);
   await expect
     .poll(() => page.evaluate(() => window.testNotifications.length))
     .toBe(1);
@@ -374,9 +377,9 @@ test("mobile layout, API outage, and escaped prompt content", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.route("**/yehry3/songs/summary", (route) => route.abort());
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.abort());
   await page.goto("/");
-  await expect(page.locator(".track")).toHaveCount(Math.min(25, songCount));
+  await expect(page.locator(".track")).toHaveCount(Math.min(24, songCount));
   await expect(page.locator("#vote-note")).toContainText("offline");
   await expect(page.locator("[data-vote]").first()).toBeDisabled();
   await expect(page.locator("#vote-note")).toContainText(
@@ -482,7 +485,7 @@ test("optional basis songs, A-Z list, five-song cap, and saved review", async ({
 test("generated song lyrics, dual collection filtering, and API outage fallback", async ({
   page,
 }) => {
-  await page.route("**/yehry3/songs/summary", (route) => route.abort());
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.abort());
   await page.goto("/?collection=fearhunger");
   const song = page.locator(
     '.track[data-id="distonyc-1d7840d9c9addba07ccabdb2"]',
@@ -493,6 +496,7 @@ test("generated song lyrics, dual collection filtering, and API outage fallback"
   await page.getByLabel("Search songs").fill("Blood on My Shoes at Daybreak");
   await page.getByLabel("Collection", { exact: true }).selectOption("distonyc");
   await expect(song).toBeVisible();
+  await openSongMenu(song);
   await song
     .getByRole("link", { name: "Lyrics for Blood on My Shoes at Daybreak" })
     .click();
@@ -509,7 +513,8 @@ test("generated song lyrics, dual collection filtering, and API outage fallback"
   await expect(page.locator(".lyrics-text")).toContainText(
     "Blood on my shoes, dawn in my eyes",
   );
-  await expect(page.locator("button.lyric-line")).toHaveCount(65);
+  const timedLines = catalogSongs.find(song => song.id === "distonyc-1d7840d9c9addba07ccabdb2").lyrics.cues;
+  await expect(page.locator("button.lyric-line")).toHaveCount(timedLines.length);
   await expect(page.locator("button.lyric-line").first()).toHaveAttribute(
     "data-start",
     /^\d/,
@@ -540,8 +545,9 @@ test("published original prompts show confirmed settings, work offline, and esca
   const song = catalog.songs.find(
     (song) => song.id === "distonyc-1d7840d9c9addba07ccabdb2",
   );
-  await page.route("**/yehry3/songs/summary", (route) => route.abort());
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.abort());
   await page.goto("/?collection=distonyc&q=Blood%20on%20My%20Shoes%20at%20Daybreak");
+  await openSongMenu(page.locator(`[data-id="${song.id}"]`));
   await page
     .getByRole("link", {
       name: "Original prompt for Blood on My Shoes at Daybreak",
@@ -564,7 +570,7 @@ test("published original prompts show confirmed settings, work offline, and esca
   await expect(page.locator(".brief dt").filter({ hasText: "Basis songs" })).toHaveCount(0);
   await page.reload();
   await expect(page.locator(".original-prompt h1")).toHaveText(song.title);
-  await page.unroute("**/yehry3/songs/summary");
+  await page.unroute("**/yehry3/{catalog,songs/summary}");
   const fixture = {
     ...song,
     originalPrompt: {
@@ -574,7 +580,7 @@ test("published original prompts show confirmed settings, work offline, and esca
     },
   };
   await page.route(`**/yehry3/songs/${song.id}`, (route) => route.fulfill({ json: { song: fixture } }));
-  await page.route("**/yehry3/songs/summary", (route) =>
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) =>
     route.fulfill({ json: { songs: [fixture] } }),
   );
   await page.reload();
@@ -616,7 +622,7 @@ test("Fear and Hunger includes tagged requests, refreshes without duplicates, an
       song.collections?.includes("fearhunger"),
   );
   let data = { songs: catalog.songs };
-  await page.route("**/yehry3/songs/summary", (route) => route.fulfill({ json: data }));
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.fulfill({ json: data }));
   const audioFixture = new URL(
     catalog.songs.find((song) => song.collection === "fearhunger").url,
     "http://127.0.0.1:8080",
@@ -710,8 +716,8 @@ test("Fear and Hunger includes tagged requests, refreshes without duplicates, an
     path: "artifacts/fearhunger-mobile.png",
     fullPage: true,
   });
-  await page.unroute("**/yehry3/songs/summary");
-  await page.route("**/yehry3/songs/summary", (route) => route.abort());
+  await page.unroute("**/yehry3/{catalog,songs/summary}");
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.abort());
   await page.reload();
   await expect(page.locator("#collection-note")).toContainText(
     "temporarily offline",

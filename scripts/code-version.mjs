@@ -29,6 +29,10 @@ export async function codeVersion(root, entries) {
   }
   const relative = files
     .map((file) => path.relative(root, file).replaceAll("\\", "/"))
+    // Saved covers and their JS data registries are content publications.
+    .filter((file) => !file.startsWith("assets/artwork/") &&
+      !["assets/artwork-catalog.js", "assets/artwork-previews.js",
+        "assets/guide-catalog.js", "assets/song-videos.js"].includes(file))
     .filter((file) => CODE_FILE.test(file) || CODE_ROOT_FILES.has(file))
     .sort();
   const hash = createHash("sha256");

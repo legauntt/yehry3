@@ -1,19 +1,24 @@
 import { getRecordPreferences, setRecordPreference, watchRecordPreferences } from "./record-preferences.js";
+import { batPatterns, getBatPreferences, setBatPreference } from './bat-preferences.js';
+import { halloweenLevels, getHalloweenLevel, getHalloweenProfile, setHalloweenLevel } from './halloween-preferences.js';
 
 const key = "yehry3:show-quality-issues";
 const seenKey = "yehry3:preferences-seen";
 // Change this when new preferences should be highlighted to returning visitors.
-const preferencesVersion = "dark-mode-v1";
+const preferencesVersion = "doomer-halloween-v1";
 
 if (typeof document !== "undefined") {
   let shown = true;
   let preferencesSeen = false;
   let checkbox;
   let darkCheckbox;
+  let moodSelect;
   let settingsButton;
   let newBadge;
+  let halloweenSelect;
+  let halloweenDetail;
   const recordCheckboxes = new Map();
-  const recordSelects = new Map();
+  const batInputs = new Map();
   const read = () => {
     try {
       shown = localStorage.getItem(key) !== "false";
@@ -25,12 +30,19 @@ if (typeof document !== "undefined") {
     document.documentElement.dataset.showQualityIssues = String(shown);
     if (checkbox) checkbox.checked = shown;
     if (darkCheckbox) darkCheckbox.checked = window.yehry3Theme?.isDark() || false;
+    if (moodSelect) moodSelect.value = window.yehry3Theme?.getMood() || 'classic';
     const preferences = getRecordPreferences();
     recordCheckboxes.forEach((input, name) => { input.checked = preferences[name]; });
-    recordSelects.forEach((input, name) => { input.value = String(preferences[name]); });
+    const batPreferences = getBatPreferences();
+    if (halloweenSelect) halloweenSelect.value = getHalloweenLevel();
+    if (halloweenDetail) halloweenDetail.textContent = getHalloweenProfile().description;
+    batInputs.forEach((input, name) => {
+      if (name === 'enabled') input.checked = batPreferences.enabled;
+      else input.value = String(batPreferences[name]);
+    });
     if (settingsButton) {
       settingsButton.classList.toggle("has-new-preferences", !preferencesSeen);
-      settingsButton.title = preferencesSeen ? "Display settings" : "New Dark Mode setting available";
+      settingsButton.title = preferencesSeen ? "Display settings" : "New Doomer themes available";
       if (preferencesSeen) settingsButton.removeAttribute("aria-describedby");
       else settingsButton.setAttribute("aria-describedby", "display-settings-updates");
       newBadge.hidden = preferencesSeen;
@@ -64,7 +76,7 @@ if (typeof document !== "undefined") {
     const updateDescription = document.createElement("span");
     updateDescription.id = "display-settings-updates";
     updateDescription.className = "sr-only";
-    updateDescription.textContent = "New Dark Mode setting available.";
+    updateDescription.textContent = "New Doomer themes and Halloween decorations available.";
 
     const dialog = document.createElement("dialog");
     dialog.className = "display-settings-dialog";
@@ -97,14 +109,23 @@ if (typeof document !== "undefined") {
     darkLabel.append(darkCheckbox, darkCopy);
     dialog.insertBefore(darkLabel, label);
     darkCheckbox.addEventListener("change", () => window.yehry3Theme?.setDark(darkCheckbox.checked));
+    const moodLabel = document.createElement('label');
+    moodLabel.className = 'quality-preference halloween-level-choice room-mood-choice';
+    const moodCopy = document.createElement('span');
+    moodCopy.innerHTML = '<strong>Listening room theme</strong><small id="room-mood-description">Late nights, concrete skies, or a haunted headphone session. Doomer themes turn on Dark Mode.</small>';
+    moodSelect = document.createElement('select');
+    moodSelect.setAttribute('aria-label', 'Listening room theme');
+    moodSelect.setAttribute('aria-describedby', 'room-mood-description');
+    for (const [value, title] of [['classic','Classic'],['midnight','Midnight Doomer'],['concrete','Concrete Winter'],['pumpkin','Pumpkin Doomer']]) moodSelect.add(new Option(title, value));
+    moodSelect.addEventListener('change', () => window.yehry3Theme?.setMood(moodSelect.value));
+    moodLabel.append(moodCopy, moodSelect);
+    dialog.insertBefore(moodLabel, label);
     const recordGroup = document.createElement("fieldset");
     recordGroup.className = "record-preferences";
     const legend = document.createElement("legend");
     legend.textContent = "Record player";
     recordGroup.append(legend);
     for (const [name, title, description] of [
-      ["captions", "Lyric captions", "Show comic-book lyric captions when the record is clicked or the page is idle."],
-      ["lyricAudio", "Lyric audio", "Use this browser's generated voice to read a lyric aloud when you click the record. Off by default."],
       ["continuous", "Continuous record spins", "Keep the record spinning without slowing down. Click it to spin faster."],
       ["playback", "Spin while music plays", "Start with the music and stop when paused, unless continuous spins are on."],
     ]) {
@@ -123,14 +144,51 @@ if (typeof document !== "undefined") {
       recordCheckboxes.set(name, input);
       input.addEventListener("change", () => setRecordPreference(name, input.checked));
     }
-    for (const [name, title, description, values] of [["lyricFontSize", "Lyric caption size", "Choose the type size for the record popup.", [18, 22, 28, 32, 36]], ["lyricMinLines", "Minimum lyric lines", "The fewest lyric lines in a popup when the screen has room.", [1, 2, 3, 4, 5, 6, 7, 8]], ["lyricMaxLines", "Maximum lyric lines", "The most lyric lines in a popup when the screen has room.", [1, 2, 3, 4, 5, 6, 7, 8]]]) {
-      const option = document.createElement("label"); option.className = "record-preference-select";
-      const text = document.createElement("span"); const heading = document.createElement("strong"); const detail = document.createElement("small"); heading.textContent = title; detail.textContent = description; text.append(heading, detail);
-      const input = document.createElement("select"); input.setAttribute("aria-label", title);
-      for (const value of values) { const choice = document.createElement("option"); choice.value = String(value); choice.textContent = name === "lyricFontSize" ? String(value) + "px" : String(value); input.append(choice); }
-      option.append(text, input); recordGroup.append(option); recordSelects.set(name, input); input.addEventListener("change", () => setRecordPreference(name, input.value));
-    }
     dialog.append(recordGroup);
+    const halloweenLabel = document.createElement('label');
+    halloweenLabel.className = 'quality-preference halloween-level-choice';
+    const halloweenCopy = document.createElement('span');
+    const halloweenTitle = document.createElement('strong');
+    halloweenTitle.textContent = 'Halloween decor';
+    halloweenDetail = document.createElement('small');
+    halloweenDetail.id = 'halloween-level-description';
+    halloweenCopy.append(halloweenTitle, halloweenDetail);
+    halloweenSelect = document.createElement('select');
+    halloweenSelect.setAttribute('aria-label', 'Halloween decor');
+    halloweenSelect.setAttribute('aria-describedby', halloweenDetail.id);
+    for (const [value, {title}] of Object.entries(halloweenLevels)) halloweenSelect.add(new Option(title, value));
+    halloweenSelect.addEventListener('change', () => setHalloweenLevel(halloweenSelect.value));
+    halloweenLabel.append(halloweenCopy, halloweenSelect);
+    dialog.append(halloweenLabel);
+    const batGroup = document.createElement('fieldset');
+    batGroup.className = 'record-preferences bat-preferences';
+    const batLegend = document.createElement('legend');
+    batLegend.textContent = 'October cursor bats';
+    batGroup.append(batLegend);
+    const patternLabel = document.createElement('label');
+    patternLabel.className = 'quality-preference bat-pattern-choice';
+    const patternText = document.createElement('span');
+    patternText.textContent = 'Flight pattern';
+    const patternSelect = document.createElement('select');
+    for (const [value, title] of Object.entries(batPatterns)) patternSelect.add(new Option(title, value));
+    patternLabel.append(patternText, patternSelect);
+    batGroup.append(patternLabel);
+    batInputs.set('pattern', patternSelect);
+    patternSelect.addEventListener('change', () => setBatPreference('pattern', patternSelect.value));
+    for (const [name, title] of [['enabled','Show trailing bats'],['size','Bat size'],['spacing','Bat spacing'],['speed','Wing flapping speed']]) {
+      const option = document.createElement('label');
+      option.className = 'quality-preference';
+      const input = document.createElement('input');
+      input.type = name === 'enabled' ? 'checkbox' : 'range';
+      if (input.type === 'range') { input.min = '.5'; input.max = '3'; input.step = '.25'; }
+      const text = document.createElement('span');
+      text.textContent = title;
+      option.append(input, text);
+      batGroup.append(option);
+      batInputs.set(name, input);
+      input.addEventListener('input', () => setBatPreference(name, name === 'enabled' ? input.checked : input.value));
+    }
+    dialog.append(batGroup);
     host.append(opener, updateDescription, dialog);
     apply();
 
@@ -164,6 +222,8 @@ if (typeof document !== "undefined") {
   });
   watchRecordPreferences(apply);
   window.addEventListener("yehry3:theme", apply);
+  window.addEventListener('yehry3:bats', apply);
+  window.addEventListener('yehry3:halloween', apply);
 
   window.mountQualitySettings = mount;
 }

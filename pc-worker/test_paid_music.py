@@ -65,13 +65,19 @@ class PaidMusicTests(unittest.TestCase):
         with self.assertRaises(ValueError): self.compose()
         self.send.assert_called_once()
 
-    def test_disabled_or_exhausted_budget_never_calls_provider(self):
-        for changed in ({'enabled': False}, {'cap_cents': 1000}):
+    def test_disabled_policy_never_calls_provider(self):
+        for changed in ({'enabled': False},):
             with self.subTest(changed=changed):
                 original = load(self.policy); save(self.policy, original | changed)
                 with self.assertRaises(ValueError): self.compose()
                 save(self.policy, original)
         self.send.assert_not_called(); self.key.assert_not_called()
+
+    def test_historical_total_cap_does_not_block_provider_call(self):
+        save(self.policy, load(self.policy) | {'cap_cents': 1000})
+        self.compose()
+        self.send.assert_called_once()
+        self.assertEqual(paid_music.reserved_total(load(self.ledger)), 1300)
 
     def test_missing_ledger_is_not_reset(self):
         self.ledger.unlink()
@@ -131,6 +137,38 @@ class PaidMusicTests(unittest.TestCase):
                             for chunk in provider['composition_plan']['chunks']))
         self.assertEqual(words('\n'.join(c['text'] for c in provider['composition_plan']['chunks'])),
                          words('\n'.join(c['text'] for c in frozen['composition_plan']['chunks'])))
+
+    def test_long_lines_wrap_before_chunk_splitting_without_changing_words(self):
+        frozen = copy.deepcopy(self.body)
+        frozen['composition_plan']['chunks'][1]['text'] = '[Verse]\n' + 'word-phrase, ' * 700
+        before = copy.deepcopy(frozen)
+        with self.assertRaisesRegex(ValueError, '200 characters'):
+            paid_music.request_duration(frozen)
+        provider = paid_music.provider_request(frozen)
+        self.assertEqual(frozen, before)
+        self.assertEqual(paid_music.request_duration(provider), 240000)
+        chunks = provider['composition_plan']['chunks']
+        self.assertTrue(all(len(c['text'].splitlines()) <= 30 for c in chunks))
+        self.assertTrue(all(len(line) <= 200 for c in chunks for line in c['text'].splitlines()))
+        def tokens(body):
+            return ' '.join(c['text'] for c in body['composition_plan']['chunks']).replace('[Verse]', '').split()
+        self.assertEqual(tokens(provider), tokens(frozen))
+        self.assertEqual(provider, paid_music.provider_request(provider))
+
+    def test_transport_refuses_to_split_an_overlong_word(self):
+        frozen = copy.deepcopy(self.body)
+        frozen['composition_plan']['chunks'][1]['text'] = 'x' * 201
+        with self.assertRaisesRegex(ValueError, 'word longer'):
+            paid_music.provider_request(frozen)
+
+    def test_new_composition_accepts_wrappable_long_lyric_lines(self):
+        song = plan(240)
+        song['lyrics'] = '[Verse]\n' + 'a long spoken phrase, ' * 25 + '\n[End]'
+        frozen = music_backend.composition(song, 123)
+        provider = paid_music.provider_request(frozen)
+        self.assertEqual(paid_music.request_duration(provider), 240000)
+        self.assertTrue(all(len(line) <= 200 for c in provider['composition_plan']['chunks']
+                            for line in c['text'].splitlines()))
 
     def test_paid_constraints_reject_local_candidates_unattached_remixes_and_band_adapter(self):
         song = plan(); brief = {'details': {'musicBackend': 'eleven_music', 'generation': song['generation']}}
@@ -254,16 +292,17 @@ class PaidMusicTests(unittest.TestCase):
         original = {'id': 'request-one', 'request_hash': fingerprint(self.body), 'reserved_cents': 400,
                     'status': 'requires_reconciliation', 'http_status': 400, 'error_type': 'HTTPError'}
         ledger['requests'].append(original); save(self.ledger, ledger)
+        save(self.policy, load(self.policy) | {'cap_cents': 1000})
         retry = paid_music.authorize_retry(self.work, 'User approved retry; old HTTP 400 and empty usage retained.')
         self.assertEqual(retry['original_attempt'], original)
         self.assertEqual(self.compose()['attempt'], 2)
         self.send.assert_called_once()
 
-    def test_retry_authorization_respects_cap_disabled_policy_audio_and_changed_inputs(self):
+    def test_retry_authorization_respects_disabled_policy_audio_and_changed_inputs(self):
         self.send.side_effect = TimeoutError('failed')
         with self.assertRaises(RuntimeError): self.compose()
         original = load(self.policy)
-        for change in ({'cap_cents': 1500}, {'enabled': False}):
+        for change in ({'enabled': False},):
             save(self.policy, original | change)
             with self.assertRaisesRegex(ValueError, 'budget|disabled'):
                 paid_music.authorize_retry(self.work, 'User has approved exactly one more attempt.')

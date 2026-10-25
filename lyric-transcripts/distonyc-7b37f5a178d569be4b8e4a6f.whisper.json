@@ -1,0 +1,493 @@
+{
+  "version": 1,
+  "songId": "distonyc-7b37f5a178d569be4b8e4a6f",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-7b37f5a178d569be4b8e4a6f-91456965e796.mp3",
+  "audioSha256": "91456965e7964cd93bc34d1e47eb66e1aeab2ee5601b8ef839ab8d3d7aadcf72",
+  "inputSha256": "1731594f9c5162d8fe1b6e8f44ec2bfa613e8aa1ba3c352b12915023a8a08f32",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 429.6,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.02,
+      "text": "The hall is breathing through the wallpaper scenes",
+      "uncertain": false
+    },
+    {
+      "start": 5.0,
+      "end": 7.28,
+      "text": "A clock forgets the number after three",
+      "uncertain": true
+    },
+    {
+      "start": 8.0,
+      "end": 10.56,
+      "text": "I hold a photograph up to the light",
+      "uncertain": false
+    },
+    {
+      "start": 10.56,
+      "end": 13.44,
+      "text": "The faces turn away from me",
+      "uncertain": false
+    },
+    {
+      "start": 35.36,
+      "end": 41.06,
+      "text": "Well, the Dukas pitched a big tent wide, got socialists and communists all camped inside.",
+      "uncertain": true
+    },
+    {
+      "start": 41.38,
+      "end": 46.62,
+      "text": "They're coming for the country, coming forward sprees, so I printed it on vinyl for the whole",
+      "uncertain": true
+    },
+    {
+      "start": 46.62,
+      "end": 47.5,
+      "text": "street to see.",
+      "uncertain": false
+    },
+    {
+      "start": 48.22,
+      "end": 54.6,
+      "text": "Communists don't share rats, social and Muslim take over America, all our freedoms are picked",
+      "uncertain": true
+    },
+    {
+      "start": 54.6,
+      "end": 58.18,
+      "text": "Big tent and cruel social shenanigans and radical hustling.",
+      "uncertain": true
+    },
+    {
+      "start": 58.42,
+      "end": 60.18,
+      "text": "They shut down the goal for a month.",
+      "uncertain": true
+    },
+    {
+      "start": 61.6,
+      "end": 63.02,
+      "text": "Dems are for old boulders.",
+      "uncertain": false
+    },
+    {
+      "start": 63.12,
+      "end": 66.08,
+      "text": "They want to pack the Supreme Court with 13 radical judges.",
+      "uncertain": false
+    },
+    {
+      "start": 67.24,
+      "end": 69.46,
+      "text": "They want to bring back transition.",
+      "uncertain": false
+    },
+    {
+      "start": 70.48,
+      "end": 72.66,
+      "text": "Bring back boys and girls sports.",
+      "uncertain": true
+    },
+    {
+      "start": 72.86,
+      "end": 76.36,
+      "text": "And in their locker room, Democriks will open boulders and defund the police.",
+      "uncertain": true
+    },
+    {
+      "start": 76.5,
+      "end": 78.32,
+      "text": "They are against honest elections.",
+      "uncertain": true
+    },
+    {
+      "start": 78.52,
+      "end": 83.4,
+      "text": "They want to abolish have you nuts in the rail and marches in and on them marches in and why?",
+      "uncertain": true
+    },
+    {
+      "start": 84.04,
+      "end": 86.8,
+      "text": "They shut the gov down four months long",
+      "uncertain": true
+    },
+    {
+      "start": 86.8,
+      "end": 88.5,
+      "text": "Folks went without a preacher",
+      "uncertain": true
+    },
+    {
+      "start": 88.5,
+      "end": 89.82,
+      "text": "Tell me that ain't wrong",
+      "uncertain": false
+    },
+    {
+      "start": 89.82,
+      "end": 91.78,
+      "text": "Now they're eyeing up the high court",
+      "uncertain": false
+    },
+    {
+      "start": 91.78,
+      "end": 93.16,
+      "text": "Adding up the seats",
+      "uncertain": false
+    },
+    {
+      "start": 93.16,
+      "end": 94.72,
+      "text": "Thirteen rattle judges",
+      "uncertain": true
+    },
+    {
+      "start": 94.72,
+      "end": 96.06,
+      "text": "For the count is complete",
+      "uncertain": false
+    },
+    {
+      "start": 96.06,
+      "end": 97.84,
+      "text": "Keys in a bowl",
+      "uncertain": true
+    },
+    {
+      "start": 97.84,
+      "end": 99.5,
+      "text": "But what door do they know?",
+      "uncertain": false
+    },
+    {
+      "start": 99.76,
+      "end": 100.98,
+      "text": "Rain at the glass",
+      "uncertain": false
+    },
+    {
+      "start": 100.98,
+      "end": 103.04,
+      "text": "Like a fist in slow motion",
+      "uncertain": false
+    },
+    {
+      "start": 103.04,
+      "end": 104.5,
+      "text": "I call my own name",
+      "uncertain": false
+    },
+    {
+      "start": 104.5,
+      "end": 105.7,
+      "text": "Down the stairwell twice",
+      "uncertain": false
+    },
+    {
+      "start": 105.7,
+      "end": 107.18,
+      "text": "It comes back wearing",
+      "uncertain": true
+    },
+    {
+      "start": 107.18,
+      "end": 109.5,
+      "text": "Somebody else's coat",
+      "uncertain": true
+    },
+    {
+      "start": 126.82,
+      "end": 129.96,
+      "text": "There was a garden, there was a doll",
+      "uncertain": false
+    },
+    {
+      "start": 129.96,
+      "end": 133.04,
+      "text": "There was a song on the kitchen radio",
+      "uncertain": true
+    },
+    {
+      "start": 133.04,
+      "end": 136.08,
+      "text": "I reach for the chorus, it breaks into dust",
+      "uncertain": false
+    },
+    {
+      "start": 136.08,
+      "end": 138.94,
+      "text": "And falls through the cracks in the floor below",
+      "uncertain": false
+    },
+    {
+      "start": 143.7,
+      "end": 147.56,
+      "text": "All the mama greats, mama greats, boy, are you two?",
+      "uncertain": true
+    },
+    {
+      "start": 147.98,
+      "end": 154.2,
+      "text": "Oh, no, I'm the boy in the front, all polished, sanded, and superstition too long.",
+      "uncertain": true
+    },
+    {
+      "start": 154.28,
+      "end": 157.5,
+      "text": "Yeah, my garage door, now I'm telling you.",
+      "uncertain": false
+    },
+    {
+      "start": 157.98,
+      "end": 163.32,
+      "text": "Beast forms without windows, keep all the walls.",
+      "uncertain": true
+    },
+    {
+      "start": 164.0,
+      "end": 169.9,
+      "text": "I follow the echo till nobody calls.",
+      "uncertain": false
+    },
+    {
+      "start": 169.9,
+      "end": 176.22,
+      "text": "These forms without windows are deep in my head",
+      "uncertain": true
+    },
+    {
+      "start": 176.22,
+      "end": 182.12,
+      "text": "I'll leave little light song for the words that are fair",
+      "uncertain": true
+    },
+    {
+      "start": 193.94,
+      "end": 197.66,
+      "text": "Your mirror has learned how to spread my past",
+      "uncertain": true
+    },
+    {
+      "start": 197.66,
+      "end": 200.44,
+      "text": "But every reflection arrives out",
+      "uncertain": false
+    },
+    {
+      "start": 200.44,
+      "end": 202.34,
+      "text": "I'm on a birthday candle",
+      "uncertain": false
+    },
+    {
+      "start": 202.34,
+      "end": 203.88,
+      "text": "A hospital chair",
+      "uncertain": false
+    },
+    {
+      "start": 203.88,
+      "end": 207.54,
+      "text": "A plaque memorizing over the border",
+      "uncertain": true
+    },
+    {
+      "start": 213.24,
+      "end": 216.24,
+      "text": "Don't tell me morning is waiting outside",
+      "uncertain": false
+    },
+    {
+      "start": 216.24,
+      "end": 219.28,
+      "text": "A solid dissolved at the edge of the bed",
+      "uncertain": false
+    },
+    {
+      "start": 219.28,
+      "end": 222.5,
+      "text": "If love is a rope, keep it tied to my wrists",
+      "uncertain": false
+    },
+    {
+      "start": 222.5,
+      "end": 225.7,
+      "text": "When the dark starts deciding what I have seen",
+      "uncertain": false
+    },
+    {
+      "start": 225.7,
+      "end": 232.32,
+      "text": "These rooms without windows, cheap more than no walls",
+      "uncertain": true
+    },
+    {
+      "start": 232.32,
+      "end": 238.34,
+      "text": "I follow the echo till nobody calls",
+      "uncertain": true
+    },
+    {
+      "start": 238.34,
+      "end": 244.76,
+      "text": "These rooms without windows are deep in my head",
+      "uncertain": false
+    },
+    {
+      "start": 244.76,
+      "end": 250.54,
+      "text": "I'll leave little lights on for the words that have fled",
+      "uncertain": false
+    },
+    {
+      "start": 250.54,
+      "end": 253.46,
+      "text": "They bring back transition and the kids they might",
+      "uncertain": false
+    },
+    {
+      "start": 253.46,
+      "end": 256.54,
+      "text": "And tell the moms and daddies they ain't got the right",
+      "uncertain": true
+    },
+    {
+      "start": 256.54,
+      "end": 259.86,
+      "text": "Put the boys and the girls games in the locker rooms as well",
+      "uncertain": false
+    },
+    {
+      "start": 259.86,
+      "end": 262.86,
+      "text": "I got it all in yelling letters big enough to yell",
+      "uncertain": false
+    },
+    {
+      "start": 265.6,
+      "end": 268.44,
+      "text": "They don't want honest elections, no",
+      "uncertain": false
+    },
+    {
+      "start": 268.44,
+      "end": 271.94,
+      "text": "They take it to the studs and let the whole thing go",
+      "uncertain": false
+    },
+    {
+      "start": 271.94,
+      "end": 274.88,
+      "text": "Have you not seen the radio marches more",
+      "uncertain": true
+    },
+    {
+      "start": 274.88,
+      "end": 277.84,
+      "text": "Through New York, California, and around the hall?",
+      "uncertain": true
+    },
+    {
+      "start": 282.2,
+      "end": 285.34,
+      "text": "I found one small name in the back of my throat",
+      "uncertain": false
+    },
+    {
+      "start": 285.34,
+      "end": 288.5,
+      "text": "I carried it carefully warm as a flame",
+      "uncertain": true
+    },
+    {
+      "start": 288.5,
+      "end": 291.74,
+      "text": "Threw all of the corridors closing behind me",
+      "uncertain": false
+    },
+    {
+      "start": 291.74,
+      "end": 295.16,
+      "text": "I held it aloft and remembered my name",
+      "uncertain": true
+    },
+    {
+      "start": 301.14,
+      "end": 304.8,
+      "text": "Well, the rest is folded on the driveway floor",
+      "uncertain": true
+    },
+    {
+      "start": 304.8,
+      "end": 308.4,
+      "text": "So the last, last day is a mystery forevermore",
+      "uncertain": false
+    },
+    {
+      "start": 321.56,
+      "end": 325.14,
+      "text": "Watch out the back, transition in the kids, they like",
+      "uncertain": true
+    },
+    {
+      "start": 329.56,
+      "end": 332.58,
+      "text": "The rest is the science, point a few sets away",
+      "uncertain": true
+    },
+    {
+      "start": 332.58,
+      "end": 334.78,
+      "text": "that several of his claims are hew-",
+      "uncertain": true
+    },
+    {
+      "start": 346.9,
+      "end": 351.38,
+      "text": "Well, the rest is folded on the driver's mouth floor",
+      "uncertain": true
+    },
+    {
+      "start": 351.38,
+      "end": 355.6,
+      "text": "So the last line stays a mystery, sir, if we'll have a move",
+      "uncertain": true
+    },
+    {
+      "start": 378.92,
+      "end": 380.74,
+      "text": "I jump beside smellers",
+      "uncertain": true
+    },
+    {
+      "start": 380.74,
+      "end": 382.6,
+      "text": "Wait on the job of the walls",
+      "uncertain": true
+    },
+    {
+      "start": 382.6,
+      "end": 384.58,
+      "text": "On the last live stage of Mr.",
+      "uncertain": true
+    },
+    {
+      "start": 396.4,
+      "end": 405.18,
+      "text": "The West is the science point of fuel, central rhyme, and some of its claims are not of beauty.",
+      "uncertain": true
+    },
+    {
+      "start": 415.14,
+      "end": 429.58,
+      "text": "Coe, coe, coe, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, coa, co",
+      "uncertain": true
+    }
+  ]
+}

@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "songId": "distonyc-a8b7396bc9868fcc9fcd408a",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a8b7396bc9868fcc9fcd408a-e0a4ddc12905.mp3",
+  "audioSha256": "e0a4ddc12905201c4d26b731a18eb8e20cc1667265049e92256c141521243252",
+  "inputSha256": "0e5460240bd0662dc21547086a16e7619ec81eabc8f74018b191aea114ae0385",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 145.0840625,
+  "segments": [
+    {
+      "start": 3.96,
+      "end": 7.22,
+      "text": "Parking de mille, nuire jaune sur le noir",
+      "uncertain": true
+    },
+    {
+      "start": 7.22,
+      "end": 10.94,
+      "text": "Les lampadaires coulent sur le miroir",
+      "uncertain": false
+    },
+    {
+      "start": 10.94,
+      "end": 14.34,
+      "text": "Après des signes, un cerf immorbid",
+      "uncertain": true
+    },
+    {
+      "start": 14.34,
+      "end": 17.68,
+      "text": "Nos deux silences dans la ville",
+      "uncertain": true
+    },
+    {
+      "start": 17.68,
+      "end": 20.66,
+      "text": "Je suis tourné la voquette une fois",
+      "uncertain": true
+    },
+    {
+      "start": 20.66,
+      "end": 24.92,
+      "text": "Puis tu attends le monde, retiens sa voix",
+      "uncertain": false
+    },
+    {
+      "start": 24.92,
+      "end": 27.64,
+      "text": "Blaire blanche au-dessus du verre",
+      "uncertain": true
+    },
+    {
+      "start": 27.64,
+      "end": 32.04,
+      "text": "I don't want any public or any victory",
+      "uncertain": true
+    },
+    {
+      "start": 32.04,
+      "end": 35.78,
+      "text": "Only this clacket in the dark",
+      "uncertain": true
+    },
+    {
+      "start": 35.78,
+      "end": 39.44,
+      "text": "You hit my hand, I read your eyes",
+      "uncertain": true
+    },
+    {
+      "start": 39.44,
+      "end": 42.96,
+      "text": "The time is in between the two",
+      "uncertain": true
+    },
+    {
+      "start": 42.96,
+      "end": 46.36,
+      "text": "Dame près de la fenêtre, bris sur le capon",
+      "uncertain": true
+    },
+    {
+      "start": 46.36,
+      "end": 49.76,
+      "text": "La monde es cruzada de espacios inguido",
+      "uncertain": true
+    },
+    {
+      "start": 49.76,
+      "end": 53.36,
+      "text": "Je la devuelvo y el silencio se estira",
+      "uncertain": true
+    },
+    {
+      "start": 53.36,
+      "end": 57.74,
+      "text": "Dos sombras siguen la misma línea",
+      "uncertain": true
+    },
+    {
+      "start": 57.74,
+      "end": 62.22,
+      "text": "Tu servicio viene bajo con un giro lateral",
+      "uncertain": true
+    },
+    {
+      "start": 62.22,
+      "end": 66.1,
+      "text": "Leo el ángulo, llevo al final",
+      "uncertain": false
+    },
+    {
+      "start": 66.1,
+      "end": 69.64,
+      "text": "No hay discurso, no hay pose para ganar",
+      "uncertain": false
+    },
+    {
+      "start": 69.64,
+      "end": 73.28,
+      "text": "Solo una sombrisa que nadie va a mirar",
+      "uncertain": false
+    },
+    {
+      "start": 73.28,
+      "end": 77.06,
+      "text": "La ciudad se borra detrás del cristal",
+      "uncertain": false
+    },
+    {
+      "start": 77.06,
+      "end": 79.58,
+      "text": "El aire frío nos guarda igual",
+      "uncertain": false
+    },
+    {
+      "start": 79.58,
+      "end": 83.5,
+      "text": "Cada remo te dice seguir este",
+      "uncertain": true
+    },
+    {
+      "start": 83.5,
+      "end": 87.92,
+      "text": "Chache deslenta bajo la avenida",
+      "uncertain": true
+    },
+    {
+      "start": 87.92,
+      "end": 91.62,
+      "text": "Luces a full es memoria suspendida",
+      "uncertain": false
+    },
+    {
+      "start": 91.62,
+      "end": 94.74,
+      "text": "No somos héroes, no hace falta ser",
+      "uncertain": false
+    },
+    {
+      "start": 94.74,
+      "end": 98.6,
+      "text": "La mesa pequeña nos deja existir",
+      "uncertain": false
+    },
+    {
+      "start": 98.6,
+      "end": 102.52,
+      "text": "La brille monte dans le verfumé",
+      "uncertain": true
+    },
+    {
+      "start": 103.64,
+      "end": 107.08,
+      "text": "T'as recuerdo la fenêtre en Vicky Gris bien",
+      "uncertain": true
+    },
+    {
+      "start": 107.08,
+      "end": 110.7,
+      "text": "Lineas de como se derriten a la fin",
+      "uncertain": true
+    },
+    {
+      "start": 110.7,
+      "end": 113.76,
+      "text": "Yo la devuelvo, no quiero partir",
+      "uncertain": false
+    },
+    {
+      "start": 114.3,
+      "end": 118.02,
+      "text": "Nos sombras guardent le même fil",
+      "uncertain": true
+    },
+    {
+      "start": 118.02,
+      "end": 120.78,
+      "text": "Une dernière balle doucement vertre",
+      "uncertain": true
+    },
+    {
+      "start": 120.78,
+      "end": 124.74,
+      "text": "La salseté, tu souris pour moi",
+      "uncertain": false
+    },
+    {
+      "start": 124.74,
+      "end": 128.18,
+      "text": "El tombe en pécré du vieux radiateur",
+      "uncertain": true
+    },
+    {
+      "start": 128.18,
+      "end": 132.4,
+      "text": "Y je la garde cette heure dans le coeur",
+      "uncertain": true
+    },
+    {
+      "start": 142.88,
+      "end": 144.28,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

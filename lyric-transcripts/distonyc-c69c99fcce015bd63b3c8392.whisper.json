@@ -1,0 +1,283 @@
+{
+  "version": 1,
+  "songId": "distonyc-c69c99fcce015bd63b3c8392",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c69c99fcce015bd63b3c8392-503a68ea6f90.mp3",
+  "audioSha256": "503a68ea6f9051efa29a6fa9997f6a59d6cf27a592c1ffe34a33f1306972729c",
+  "inputSha256": "da13315f1c0cf3952a3261382d50a7a6ff0e50fb5098f5e898fe508695c02679",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 165.04,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 2.94,
+      "text": "The young rain, I'm alone tonight, blast.",
+      "uncertain": true
+    },
+    {
+      "start": 3.7,
+      "end": 7.32,
+      "text": "That's buzz coughing through the avenue haze.",
+      "uncertain": true
+    },
+    {
+      "start": 7.68,
+      "end": 14.02,
+      "text": "I got a pocket full of unspent sparks and a city that forgot my name.",
+      "uncertain": false
+    },
+    {
+      "start": 15.48,
+      "end": 19.48,
+      "text": "The diner clock is leaning toward dawn.",
+      "uncertain": false
+    },
+    {
+      "start": 20.42,
+      "end": 23.28,
+      "text": "Coughing shakes in a chipped white cup.",
+      "uncertain": true
+    },
+    {
+      "start": 24.0,
+      "end": 28.6,
+      "text": "I tell the jukebox, give me one good reason, it answers back.",
+      "uncertain": false
+    },
+    {
+      "start": 28.6,
+      "end": 30.1,
+      "text": "Get up",
+      "uncertain": false
+    },
+    {
+      "start": 32.96,
+      "end": 35.0,
+      "text": "Every red light",
+      "uncertain": true
+    },
+    {
+      "start": 35.0,
+      "end": 37.08,
+      "text": "Turns green someday",
+      "uncertain": false
+    },
+    {
+      "start": 37.08,
+      "end": 38.72,
+      "text": "Every lock door",
+      "uncertain": false
+    },
+    {
+      "start": 38.72,
+      "end": 40.6,
+      "text": "There's the sound of a hand",
+      "uncertain": false
+    },
+    {
+      "start": 40.6,
+      "end": 42.7,
+      "text": "Yeah, yeah, yeah, yeah, no",
+      "uncertain": false
+    },
+    {
+      "start": 42.7,
+      "end": 45.46,
+      "text": "I am not done with this town",
+      "uncertain": false
+    },
+    {
+      "start": 45.46,
+      "end": 46.84,
+      "text": "Yeah, yeah, yeah, oh",
+      "uncertain": true
+    },
+    {
+      "start": 46.84,
+      "end": 49.42,
+      "text": "Turn the old midnight around",
+      "uncertain": false
+    },
+    {
+      "start": 49.42,
+      "end": 51.78,
+      "text": "If the dark wants to fight",
+      "uncertain": false
+    },
+    {
+      "start": 51.78,
+      "end": 53.46,
+      "text": "Let it come right now",
+      "uncertain": false
+    },
+    {
+      "start": 53.46,
+      "end": 56.44,
+      "text": "I got thunder in my bro somehow",
+      "uncertain": false
+    },
+    {
+      "start": 56.44,
+      "end": 76.0,
+      "text": "Oh, yeah, yeah, yeah, yeah, oh, I am not dumb, a kid in a door, every time I'm all up in, a woman laughs hard at the end of the block, the river wears them on like a cheap silver ring, and the bridges keepin' talkin' to shocks,",
+      "uncertain": true
+    },
+    {
+      "start": 76.0,
+      "end": 84.02,
+      "text": "I used to count every bruise like money, save them up for the cold of day.",
+      "uncertain": true
+    },
+    {
+      "start": 84.46,
+      "end": 91.04,
+      "text": "Tonight I spend them all on a crooked little melody and throw the change away.",
+      "uncertain": false
+    },
+    {
+      "start": 93.94,
+      "end": 98.22,
+      "text": "Every wrong turn leaves a trail of light.",
+      "uncertain": false
+    },
+    {
+      "start": 98.52,
+      "end": 101.38,
+      "text": "Every tired heart can still make a stand.",
+      "uncertain": false
+    },
+    {
+      "start": 101.38,
+      "end": 103.88,
+      "text": "Yeah, yeah, yeah, yeah, y'all",
+      "uncertain": true
+    },
+    {
+      "start": 103.88,
+      "end": 106.48,
+      "text": "I am not done with this town",
+      "uncertain": false
+    },
+    {
+      "start": 106.48,
+      "end": 107.94,
+      "text": "Yeah, yeah, yeah, y'all",
+      "uncertain": false
+    },
+    {
+      "start": 107.94,
+      "end": 110.5,
+      "text": "Turn the whole midnight around",
+      "uncertain": false
+    },
+    {
+      "start": 110.5,
+      "end": 112.76,
+      "text": "If the dark wants to fight",
+      "uncertain": false
+    },
+    {
+      "start": 112.76,
+      "end": 114.52,
+      "text": "Let it come lightin' out",
+      "uncertain": true
+    },
+    {
+      "start": 114.52,
+      "end": 117.44,
+      "text": "I got thunder in my throat somehow",
+      "uncertain": false
+    },
+    {
+      "start": 117.44,
+      "end": 120.18,
+      "text": "Yeah, yeah, yeah, y'all",
+      "uncertain": false
+    },
+    {
+      "start": 120.18,
+      "end": 121.76,
+      "text": "I am not done",
+      "uncertain": false
+    },
+    {
+      "start": 121.76,
+      "end": 125.62,
+      "text": "No sermon, no rescue, no polished parade",
+      "uncertain": false
+    },
+    {
+      "start": 125.62,
+      "end": 129.78,
+      "text": "Just a bad little star that refuses to fade",
+      "uncertain": false
+    },
+    {
+      "start": 129.78,
+      "end": 134.02,
+      "text": "When the morning comes thin through the steam and the wires",
+      "uncertain": false
+    },
+    {
+      "start": 134.02,
+      "end": 138.1,
+      "text": "I will carry this noise like a bucket of fire",
+      "uncertain": true
+    },
+    {
+      "start": 138.1,
+      "end": 140.32,
+      "text": "Yeah, yeah, yeah, yeah, yow",
+      "uncertain": true
+    },
+    {
+      "start": 140.32,
+      "end": 143.06,
+      "text": "Now the whole street sings out loud",
+      "uncertain": false
+    },
+    {
+      "start": 143.06,
+      "end": 144.44,
+      "text": "Yeah, yeah, yeah, yow",
+      "uncertain": false
+    },
+    {
+      "start": 144.44,
+      "end": 147.08,
+      "text": "Leave the old ghosts in the crowd",
+      "uncertain": true
+    },
+    {
+      "start": 147.08,
+      "end": 151.24,
+      "text": "I was lost for a limit, but I know where I am",
+      "uncertain": true
+    },
+    {
+      "start": 151.24,
+      "end": 155.16,
+      "text": "With the sky in my teeth and the world in my head",
+      "uncertain": false
+    },
+    {
+      "start": 155.16,
+      "end": 156.94,
+      "text": "Yeah, yeah, yeah, yeah, yow",
+      "uncertain": true
+    },
+    {
+      "start": 156.94,
+      "end": 158.44,
+      "text": "I am not dumb",
+      "uncertain": false
+    },
+    {
+      "start": 158.44,
+      "end": 160.36,
+      "text": "I am the dome",
+      "uncertain": true
+    }
+  ]
+}

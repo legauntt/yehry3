@@ -5,9 +5,53 @@ from unittest.mock import Mock, patch
 
 from backfill_lyric_cues import candidate, choose, published_hash, sync_cues
 from common import save
+from lyric_timing import cue_diagnostics, make_cues, timing_source, valid_cues
 
 
 class LyricTimingTests(unittest.TestCase):
+    def words(self, text, start=0, step=.5):
+        return [{'word': word, 'start': start + n * step, 'end': start + (n + 1) * step}
+                for n, word in enumerate(text.split())]
+
+    def test_more_transcript_words_do_not_beat_lyric_agreement(self):
+        lyrics = 'The porch light guides me safely home\nAnother winter slowly turns to spring'
+        with tempfile.TemporaryDirectory() as root:
+            path = Path(root)
+            save(path / 'selected-vocals-words.json', [{'words': self.words(lyrics)}])
+            save(path / 'matched-vocals-words.json', [{'words': self.words('random unrelated words ' * 20)}])
+            self.assertEqual(timing_source(path, lyrics)[0]['token'], 'the')
+            cues = make_cues(path, lyrics, 20)
+            self.assertEqual([cue['line'] for cue in cues], [0, 1])
+            self.assertLess(cues[-1]['end'], 10)
+
+    def test_repeated_chorus_stays_at_both_supported_occurrences(self):
+        text = 'Come back home and close the door\nWinter turns the river into ice\nCome back home and close the door'
+        with tempfile.TemporaryDirectory() as root:
+            save(Path(root) / 'selected-vocals-words.json', [{'words': self.words(text)}])
+            cues = make_cues(root, text, 30)
+            self.assertEqual(len(cues), 3)
+            self.assertLess(cues[0]['end'], cues[2]['start'])
+            self.assertTrue(valid_cues(cues, 30))
+
+    def test_compressed_and_stretched_lines_are_not_clickable(self):
+        text = 'These seven words cannot fit right here'
+        cues = [{'line': 0, 'start': 0, 'end': .5}]
+        self.assertEqual(cue_diagnostics(cues, text, [], 60)[0]['reason'], 'compressed_line')
+        cues[0]['end'] = 40
+        self.assertEqual(cue_diagnostics(cues, text, [], 60)[0]['reason'], 'stretched_line')
+
+    def test_unrecognized_line_is_not_invented_by_interpolation(self):
+        text = 'The porch light guides me safely home\nSecret words nobody ever sang\nAnother winter slowly turns to spring'
+        with tempfile.TemporaryDirectory() as root:
+            save(Path(root) / 'selected-vocals-words.json', [{'words': self.words(
+                'The porch light guides me safely home Another winter slowly turns to spring')}])
+            cues = make_cues(root, text, 30)
+            self.assertNotIn(1, [cue['line'] for cue in cues])
+
+    def test_out_of_bounds_or_invalid_timing_is_rejected(self):
+        for start, end in [(0, 31), (float('nan'), 3), (True, 3), (3, 3)]:
+            self.assertFalse(valid_cues([{'line': 0, 'start': start, 'end': end}], 30))
+
     def test_published_audio_hash_selects_the_exact_render(self):
         song = {
             'id': 'distonyc-test',

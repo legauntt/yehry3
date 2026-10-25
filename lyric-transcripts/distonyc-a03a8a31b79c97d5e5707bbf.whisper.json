@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "songId": "distonyc-a03a8a31b79c97d5e5707bbf",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a03a8a31b79c97d5e5707bbf-2bca3257567d.mp3",
+  "audioSha256": "2bca3257567d1c8369866f51897117690723b51249ed8bdefa7b7158c13828e5",
+  "inputSha256": "2bca3257567d1c8369866f51897117690723b51249ed8bdefa7b7158c13828e5",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 530.80775,
+  "segments": [
+    {
+      "start": 28.54,
+      "end": 29.94,
+      "text": "Transcription by CastingWords",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 31.18,
+      "text": "Girl, bagage.",
+      "uncertain": true
+    },
+    {
+      "start": 33.58,
+      "end": 35.34,
+      "text": "Body, a check, a foo, chai, chai, chai.",
+      "uncertain": true
+    },
+    {
+      "start": 47.86,
+      "end": 49.1,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 66.0,
+      "end": 89.64,
+      "text": "I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you, I love you",
+      "uncertain": true
+    },
+    {
+      "start": 95.82,
+      "end": 125.06,
+      "text": "Bariya, chekefu, say, say, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de, de",
+      "uncertain": true
+    },
+    {
+      "start": 125.06,
+      "end": 129.92,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 165.38,
+      "end": 165.44,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 193.1,
+      "end": 195.9,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 239.96,
+      "end": 241.36,
+      "text": "Right.",
+      "uncertain": true
+    },
+    {
+      "start": 252.88,
+      "end": 252.98,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 277.4,
+      "end": 280.2,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 301.36,
+      "end": 329.34,
+      "text": "The name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car, the name of the car,",
+      "uncertain": true
+    },
+    {
+      "start": 338.96,
+      "end": 340.04,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 360.28,
+      "end": 389.32,
+      "text": "It's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it's it",
+      "uncertain": true
+    },
+    {
+      "start": 401.24,
+      "end": 402.4,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 424.98,
+      "end": 427.4,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 467.02,
+      "end": 467.12,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 486.3,
+      "end": 487.06,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 509.32,
+      "end": 510.1,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

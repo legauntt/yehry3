@@ -1,0 +1,193 @@
+{
+  "version": 1,
+  "songId": "distonyc-5ef1a9c45affd9b9229a3ab8",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5ef1a9c45affd9b9229a3ab8-966c44575610.mp3",
+  "audioSha256": "966c445756101d1e5bbb103a7a730e624c5f497fdf80272d985536045dbdf91d",
+  "inputSha256": "966c445756101d1e5bbb103a7a730e624c5f497fdf80272d985536045dbdf91d",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 250.0440625,
+  "segments": [
+    {
+      "start": 8.36,
+      "end": 11.96,
+      "text": "I want to start",
+      "uncertain": true
+    },
+    {
+      "start": 11.96,
+      "end": 18.68,
+      "text": "I want to start",
+      "uncertain": true
+    },
+    {
+      "start": 18.68,
+      "end": 25.38,
+      "text": "I want to start",
+      "uncertain": false
+    },
+    {
+      "start": 27.78,
+      "end": 31.3,
+      "text": "I wanna fuck",
+      "uncertain": false
+    },
+    {
+      "start": 41.14,
+      "end": 45.22,
+      "text": "I wanna fuck",
+      "uncertain": false
+    },
+    {
+      "start": 45.22,
+      "end": 51.82,
+      "text": "I wanna fuck",
+      "uncertain": false
+    },
+    {
+      "start": 54.4,
+      "end": 58.56,
+      "text": "I want to start",
+      "uncertain": true
+    },
+    {
+      "start": 67.76,
+      "end": 72.06,
+      "text": "I want to start",
+      "uncertain": false
+    },
+    {
+      "start": 78.44,
+      "end": 81.74,
+      "text": "I want to start",
+      "uncertain": true
+    },
+    {
+      "start": 81.74,
+      "end": 88.54,
+      "text": "I want to start",
+      "uncertain": true
+    },
+    {
+      "start": 88.54,
+      "end": 95.3,
+      "text": "I want to start",
+      "uncertain": false
+    },
+    {
+      "start": 95.3,
+      "end": 101.84,
+      "text": "I want to start",
+      "uncertain": false
+    },
+    {
+      "start": 107.82,
+      "end": 111.98,
+      "text": "I want to start",
+      "uncertain": true
+    },
+    {
+      "start": 111.98,
+      "end": 118.68,
+      "text": "I want to start",
+      "uncertain": true
+    },
+    {
+      "start": 118.68,
+      "end": 125.24,
+      "text": "I want to start",
+      "uncertain": false
+    },
+    {
+      "start": 134.44,
+      "end": 138.76,
+      "text": "I want a sart",
+      "uncertain": true
+    },
+    {
+      "start": 139.84,
+      "end": 145.36,
+      "text": "I want a sart",
+      "uncertain": false
+    },
+    {
+      "start": 145.36,
+      "end": 151.98,
+      "text": "I want a fart",
+      "uncertain": false
+    },
+    {
+      "start": 152.84,
+      "end": 158.7,
+      "text": "I want a fart",
+      "uncertain": false
+    },
+    {
+      "start": 161.68,
+      "end": 164.62,
+      "text": "I wanna fuck",
+      "uncertain": true
+    },
+    {
+      "start": 171.14,
+      "end": 174.88,
+      "text": "I wanna suck",
+      "uncertain": true
+    },
+    {
+      "start": 177.78,
+      "end": 181.64,
+      "text": "I wanna fuck",
+      "uncertain": false
+    },
+    {
+      "start": 184.44,
+      "end": 188.54,
+      "text": "I want a fact",
+      "uncertain": false
+    },
+    {
+      "start": 188.54,
+      "end": 195.34,
+      "text": "I want a fact",
+      "uncertain": false
+    },
+    {
+      "start": 195.34,
+      "end": 201.98,
+      "text": "I want a fact",
+      "uncertain": false
+    },
+    {
+      "start": 201.98,
+      "end": 208.58,
+      "text": "I want a fact",
+      "uncertain": false
+    },
+    {
+      "start": 214.4,
+      "end": 218.48,
+      "text": "I would find",
+      "uncertain": true
+    },
+    {
+      "start": 218.48,
+      "end": 225.1,
+      "text": "I would find",
+      "uncertain": false
+    },
+    {
+      "start": 225.1,
+      "end": 231.82,
+      "text": "I would find",
+      "uncertain": false
+    },
+    {
+      "start": 234.4,
+      "end": 238.42,
+      "text": "I would fight",
+      "uncertain": false
+    }
+  ]
+}

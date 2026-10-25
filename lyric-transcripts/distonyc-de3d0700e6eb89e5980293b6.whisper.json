@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "songId": "distonyc-de3d0700e6eb89e5980293b6",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-de3d0700e6eb89e5980293b6-5d5b0827b3ae.mp3",
+  "audioSha256": "5d5b0827b3ae4642a7f1d03b13c62476feb38e8c566bd56afe62d18f287cc683",
+  "inputSha256": "acadbb2968cc835c1df5e3e3025d8da633be11813a6cb61d9f5f82623ede4059",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 239.6,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 6.16,
+      "text": "When the room wakes up in silver rain, the spark spawning through the thaw.",
+      "uncertain": true
+    },
+    {
+      "start": 7.02,
+      "end": 13.44,
+      "text": "I see a shadow turn again, like a question at the door.",
+      "uncertain": false
+    },
+    {
+      "start": 15.44,
+      "end": 21.48,
+      "text": "Midnight pace of glass black blue, every face becomes a flame.",
+      "uncertain": true
+    },
+    {
+      "start": 22.16,
+      "end": 28.62,
+      "text": "I can feel the beat go through, but I do not know your name.",
+      "uncertain": false
+    },
+    {
+      "start": 30.38,
+      "end": 36.9,
+      "text": "You lean close, then drift away, leave a signal in the air.",
+      "uncertain": true
+    },
+    {
+      "start": 37.5,
+      "end": 43.68,
+      "text": "Is it only you like that place, or is somebody really there?",
+      "uncertain": false
+    },
+    {
+      "start": 46.0,
+      "end": 52.8,
+      "text": "No map in the smoke, no sign on the wall, just your eyes when the speaker's gone.",
+      "uncertain": false
+    },
+    {
+      "start": 52.8,
+      "end": 57.76,
+      "text": "I could chase every flash till the morning comes through",
+      "uncertain": false
+    },
+    {
+      "start": 57.76,
+      "end": 60.58,
+      "text": "But I need something true",
+      "uncertain": true
+    },
+    {
+      "start": 62.62,
+      "end": 66.24,
+      "text": "After the stroll, do you stay",
+      "uncertain": false
+    },
+    {
+      "start": 66.24,
+      "end": 70.1,
+      "text": "When all the color falls away",
+      "uncertain": false
+    },
+    {
+      "start": 70.1,
+      "end": 73.82,
+      "text": "After the stroll, can you show",
+      "uncertain": false
+    },
+    {
+      "start": 73.82,
+      "end": 77.6,
+      "text": "The heart that does not come, girl",
+      "uncertain": false
+    },
+    {
+      "start": 77.6,
+      "end": 81.66,
+      "text": "Hold me where the bright lights end",
+      "uncertain": false
+    },
+    {
+      "start": 81.66,
+      "end": 85.4,
+      "text": "Tell me if this feeling bends",
+      "uncertain": false
+    },
+    {
+      "start": 85.4,
+      "end": 89.2,
+      "text": "After it's shown, after it's shown",
+      "uncertain": true
+    },
+    {
+      "start": 89.2,
+      "end": 91.02,
+      "text": "Will I know?",
+      "uncertain": false
+    },
+    {
+      "start": 96.94,
+      "end": 99.72,
+      "text": "Ripples over polished steel",
+      "uncertain": false
+    },
+    {
+      "start": 99.72,
+      "end": 103.48,
+      "text": "Cross dissolve into the sound",
+      "uncertain": true
+    },
+    {
+      "start": 103.48,
+      "end": 107.24,
+      "text": "You make silence almost feel",
+      "uncertain": false
+    },
+    {
+      "start": 107.24,
+      "end": 110.4,
+      "text": "Like a hand that pulls me down",
+      "uncertain": true
+    },
+    {
+      "start": 112.16,
+      "end": 115.02,
+      "text": "I have worn a thousand nights",
+      "uncertain": true
+    },
+    {
+      "start": 115.02,
+      "end": 118.7,
+      "text": "Like a jacket made of heat",
+      "uncertain": true
+    },
+    {
+      "start": 119.76,
+      "end": 122.64,
+      "text": "But you out between the lights",
+      "uncertain": false
+    },
+    {
+      "start": 122.64,
+      "end": 124.88,
+      "text": "Makes the empty misery",
+      "uncertain": true
+    },
+    {
+      "start": 127.88,
+      "end": 132.18,
+      "text": "No promise in gold, no lame in the haze",
+      "uncertain": false
+    },
+    {
+      "start": 132.18,
+      "end": 134.82,
+      "text": "Just one clear touch in the turning maze",
+      "uncertain": false
+    },
+    {
+      "start": 134.82,
+      "end": 139.7,
+      "text": "If the dawn takes the bitter and strips it from view",
+      "uncertain": false
+    },
+    {
+      "start": 139.7,
+      "end": 142.44,
+      "text": "But you're still caught through",
+      "uncertain": true
+    },
+    {
+      "start": 144.52,
+      "end": 146.16,
+      "text": "After the stroll",
+      "uncertain": false
+    },
+    {
+      "start": 146.16,
+      "end": 148.2,
+      "text": "Do you stay",
+      "uncertain": false
+    },
+    {
+      "start": 148.2,
+      "end": 151.84,
+      "text": "When all the color falls away",
+      "uncertain": false
+    },
+    {
+      "start": 151.84,
+      "end": 153.82,
+      "text": "After the stroll",
+      "uncertain": false
+    },
+    {
+      "start": 153.82,
+      "end": 155.68,
+      "text": "Can you show",
+      "uncertain": false
+    },
+    {
+      "start": 155.68,
+      "end": 159.48,
+      "text": "The heart that does not come and go",
+      "uncertain": false
+    },
+    {
+      "start": 159.48,
+      "end": 163.52,
+      "text": "Hold me where the bright lights end",
+      "uncertain": true
+    },
+    {
+      "start": 163.52,
+      "end": 167.28,
+      "text": "Tell me if the steel end bends",
+      "uncertain": true
+    },
+    {
+      "start": 167.28,
+      "end": 169.1,
+      "text": "After the stroll",
+      "uncertain": false
+    },
+    {
+      "start": 169.1,
+      "end": 172.78,
+      "text": "After a stroll, will I know",
+      "uncertain": true
+    },
+    {
+      "start": 179.14,
+      "end": 183.34,
+      "text": "The kick goes low, the room breathes low",
+      "uncertain": true
+    },
+    {
+      "start": 183.34,
+      "end": 186.24,
+      "text": "Your outline gathers in the dark",
+      "uncertain": false
+    },
+    {
+      "start": 186.24,
+      "end": 190.96,
+      "text": "No borrowed shine, no perfect sign",
+      "uncertain": false
+    },
+    {
+      "start": 190.96,
+      "end": 193.86,
+      "text": "Just one small honest spine",
+      "uncertain": true
+    },
+    {
+      "start": 193.86,
+      "end": 197.72,
+      "text": "Say it soft, say it plain",
+      "uncertain": false
+    },
+    {
+      "start": 197.72,
+      "end": 201.62,
+      "text": "Do not let it fade again",
+      "uncertain": true
+    },
+    {
+      "start": 203.4,
+      "end": 207.12,
+      "text": "After the stroll, you remain",
+      "uncertain": true
+    },
+    {
+      "start": 207.12,
+      "end": 211.22,
+      "text": "A warm light cutting through the rain",
+      "uncertain": false
+    },
+    {
+      "start": 211.22,
+      "end": 214.88,
+      "text": "After the stroll, I can see",
+      "uncertain": false
+    },
+    {
+      "start": 214.88,
+      "end": 218.76,
+      "text": "The one who is not leaving me",
+      "uncertain": false
+    },
+    {
+      "start": 218.76,
+      "end": 222.42,
+      "text": "When the weather bright, colors close",
+      "uncertain": false
+    },
+    {
+      "start": 222.42,
+      "end": 226.14,
+      "text": "I don't find a word, what I know",
+      "uncertain": false
+    },
+    {
+      "start": 226.14,
+      "end": 231.88,
+      "text": "At the stroke, at the stroke, you are known.",
+      "uncertain": true
+    }
+  ]
+}

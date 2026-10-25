@@ -1,0 +1,120 @@
+.sausage { max-width: 1100px; margin: 0 auto; padding: 64px 32px 36px; }
+.sausage-hero { display: grid; grid-template-columns: 1.65fr 1fr; gap: 70px; align-items: center; margin-bottom: 66px; }
+.sausage h1 { font-size: clamp(42px, 5.4vw, 68px); line-height: 1.06; letter-spacing: -2px; margin: 18px 0 24px; }
+.sausage h1 em { white-space: nowrap; }
+.sausage-lede { max-width: 520px; font-size: 17px; line-height: 1.75; color: var(--muted); }
+.sausage-recipe { color: #283b30; background: #e9e8d8; border: 1px solid #bec3ad; padding: 25px 20px; text-align: center; transform: rotate(3deg); box-shadow: 7px 8px 0 #283b300d; }
+.recipe-note, .kitchen-label, .stage-meta, .stage-kicker, .time-label, .tour-controls > span { font: 11px "DM Mono", monospace; letter-spacing: 1px; }
+.sausage-recipe svg { width: 100%; max-width: 300px; display: block; margin: 5px auto; }
+.sausage-recipe p { font: 24px/1.4 "Playfair Display", Georgia, serif; margin: 0 0 24px; }
+.tour-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; margin-bottom: 18px; }
+.tour-heading h2 { font-size: 25px; margin: 0; }
+.tour-heading > span { font-size: 12px; color: var(--muted); }
+.kitchens { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.kitchens button { text-align: left; padding: 23px 27px; border: 1px solid var(--line); background: var(--white); color: var(--ink); border-radius: 3px; position: relative; }
+.kitchens button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); box-shadow: inset 0 -4px #cc9969; }
+.kitchens button[data-kitchen="ace"][aria-pressed="true"] { box-shadow: inset 0 -4px #bdcb8c; }
+.kitchens strong { display: flex; justify-content: space-between; font: 32px "Playfair Display", Georgia, serif; margin: 8px 0; }
+.kitchens strong span { font: 26px "DM Sans", sans-serif; opacity: .75; }
+.kitchens button > span:last-child { font-size: 13px; line-height: 1.65; }
+.kitchen-label { opacity: .75; }
+.tour-record { display: flex; justify-content: space-between; gap: 24px; align-items: center; padding: 27px 0; }
+.tour-record h3 { font: 23px "Playfair Display", Georgia, serif; margin: 6px 0 0; }
+#tour-song-badges { margin-top: 9px; }
+.tour-record > p { margin: 0; text-align: right; flex-shrink: 0; }
+.tour-record > p strong { display: block; font: 27px "DM Mono", monospace; }
+.tour-record > p span { font-size: 11px; color: var(--muted); }
+.tour-steps { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); margin: 5px 0 26px; }
+.tour-steps button { position: relative; border: 0; border-radius: 0; background: transparent; padding: 8px 3px; text-align: center; color: var(--muted); font-size: 11px; }
+.tour-steps button::before { content: ""; position: absolute; left: 0; right: 0; height: 1px; background: var(--line); top: 25px; z-index: 0; }
+.tour-steps button:first-child::before { left: 50%; }
+.tour-steps button:last-child::before { right: 50%; }
+.tour-steps .step-number { display: grid; place-items: center; position: relative; width: 35px; height: 35px; border: 1px solid var(--line); background: var(--paper); border-radius: 50%; margin: 0 auto 9px; font: 12px "DM Mono", monospace; }
+.tour-steps button[aria-current="step"] { color: var(--ink); font-weight: 700; }
+.tour-steps button[aria-current="step"] .step-number { background: var(--ink); border-color: var(--ink); color: var(--paper); outline: 4px solid var(--light); }
+.tour-stage { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 410px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+.stage-story { padding: 31px 36px; background: var(--white); }
+.stage-meta { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); text-transform: uppercase; }
+.stage-meta #stage-time { color: var(--ink); letter-spacing: 0; }
+.stage-kicker { margin: 32px 0 10px; color: var(--muted); text-transform: uppercase; }
+.stage-story h2 { font: 35px/1.15 "Playfair Display", Georgia, serif; margin: 0 0 19px; letter-spacing: -.7px; }
+.stage-story > p:not(.stage-kicker) { line-height: 1.75; font-size: 14px; }
+.stage-output { border-top: 1px solid var(--line); margin-top: 22px; padding-top: 18px; }
+.stage-output p { font-size: 13px; line-height: 1.65; margin: 5px 0 0; }
+.stage-output a { display: inline-block; font-size: 12px; margin-top: 12px; }
+.stage-story .stage-footnote { color: var(--muted); font-size: 11px !important; margin-bottom: 0; }
+.stage-listening { padding: 33px 30px; background: var(--light); display: flex; flex-direction: column; justify-content: center; }
+.stage-listening h3 { font: 27px/1.2 "Playfair Display", Georgia, serif; margin: 12px 0; }
+.stage-listening > p:not(.eyebrow) { font-size: 13px; line-height: 1.7; margin: 0 0 20px; }
+.audio-layers { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 23px; }
+.audio-layers button { font-size: 11px; padding: 8px 10px; border: 1px solid var(--line); color: var(--ink); background: var(--paper); border-radius: 3px; }
+.audio-layers button[aria-pressed="true"] { color: var(--paper); background: var(--ink); border-color: var(--ink); }
+#audio-label { display: block; margin: 0 0 9px; font-size: 12px; font-weight: 700; }
+#tour-audio { display: block; width: 100%; height: 44px; }
+.audio-note, #audio-error { font-size: 11px; line-height: 1.65; margin: 10px 0 0; color: var(--muted); }
+.seed-note { display: flex; align-items: center; gap: 22px; border: 1px dashed var(--muted); padding: 22px; }
+.seed-note > span { font-size: 50px; color: var(--muted); }
+.seed-note p { font: italic 18px/1.6 "Playfair Display", Georgia, serif; margin: 0; }
+#final-links { margin-top: 15px; }
+#final-links button { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); border-radius: 3px; padding: 12px 16px; font-size: 13px; }
+#full-song-link { display: block; font-size: 12px; margin-top: 13px; }
+.tour-controls { display: flex; justify-content: space-between; align-items: center; gap: 15px; margin: 17px 0 50px; }
+.tour-controls button { font-size: 12px; padding: 11px 16px; border: 1px solid var(--line); color: var(--ink); background: transparent; border-radius: 3px; }
+.tour-controls button:disabled { opacity: .4; cursor: default; }
+.tour-controls > span { color: var(--muted); letter-spacing: 0; }
+.tour-clock { border-top: 1px solid var(--line); padding-top: 26px; }
+.time-row { margin: 21px 0; }
+.time-label { display: flex; justify-content: space-between; align-items: center; margin-bottom: 9px; }
+.time-bar { display: flex; height: 29px; background: var(--light); border-radius: 3px; overflow: hidden; }
+.time-segment { min-width: 0; border: 0; border-right: 2px solid var(--paper); border-radius: 0; padding: 0; transition: filter .15s; }
+.time-segment:hover { filter: brightness(1.16); }
+.time-segment[data-stage="0"], .time-key[data-stage="0"]::before { background: #657a53; }
+.time-segment[data-stage="1"], .time-key[data-stage="1"]::before { background: #bbb7aa; }
+.time-segment[data-stage="2"], .time-key[data-stage="2"]::before { background: #bf734d; }
+.time-segment[data-stage="3"], .time-key[data-stage="3"]::before { background: #d6b668; }
+.time-segment[data-stage="4"], .time-key[data-stage="4"]::before { background: #647f89; }
+.time-segment[data-stage="5"], .time-key[data-stage="5"]::before { background: #99859e; }
+.time-segment[data-stage="6"], .time-key[data-stage="6"]::before { background: #344b3c; }
+.time-keys { display: flex; flex-wrap: wrap; gap: 9px 18px; margin-top: 12px; }
+.time-key { border: 0; padding: 4px 0; border-radius: 0; background: transparent; font-size: 11px; color: var(--muted); }
+.time-key::before { content: ""; display: inline-block; width: 8px; height: 8px; margin-right: 5px; }
+.clock-note, .tour-method { font-size: 12px; line-height: 1.8; color: var(--muted); }
+.clock-note { margin: 22px 0 12px; }
+.tour-method summary { cursor: pointer; color: var(--ink); text-underline-offset: 4px; }
+.tour-method p { max-width: 800px; }
+.sausage-coda { display: flex; align-items: center; gap: 23px; padding: 28px 0; margin-top: 35px; border-top: 1px solid var(--line); }
+.sausage-coda > span { font-size: 47px; color: var(--muted); }
+.sausage-coda h2 { font-size: 25px; margin: 0 0 5px; }
+.sausage-coda p { margin: 0; font-size: 13px; color: var(--muted); }
+.sausage-coda a { margin-left: auto; padding: 12px 19px; font-size: 12px; text-decoration: none; }
+.sausage [hidden] { display: none !important; }
+.sausage button:focus-visible, .sausage a:focus-visible, .sausage summary:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+@media (max-width: 750px) {
+  .sausage { padding: 35px 21px 20px; }
+  .sausage-hero { gap: 25px; grid-template-columns: 1fr; margin-bottom: 40px; }
+  .sausage h1 { font-size: clamp(38px, 11vw, 48px); }
+  .sausage-recipe { display: none; }
+  .sausage-lede { font-size: 15px; }
+  .tour-heading { align-items: start; flex-direction: column; gap: 7px; }
+  .tour-heading h2 { font-size: 23px; }
+  .kitchens { gap: 10px; }
+  .kitchens button { padding: 18px 15px; }
+  .kitchen-label { font-size: 9px; letter-spacing: .4px; }
+  .kitchens button > span:last-child { font-size: 11px; }
+  .tour-record { gap: 12px; }
+  .tour-record h3 { font-size: 20px; }
+  .tour-record > p strong { font-size: 22px; }
+  .tour-record > p { flex-shrink: 1; max-width: 115px; }
+  .tour-steps button { font-size: 9px; }
+  .tour-steps .step-number { width: 31px; height: 31px; }
+  .tour-steps button::before { top: 23px; }
+  .tour-stage { grid-template-columns: 1fr; }
+  .stage-story, .stage-listening { padding: 25px; }
+  .stage-story h2 { font-size: 31px; }
+  .stage-kicker { margin-top: 24px; }
+  .tour-controls { margin-bottom: 35px; }
+  .tour-controls button { padding: 11px 10px; font-size: 11px; white-space: nowrap; }
+  .sausage-coda { flex-wrap: wrap; gap: 15px; }
+  .sausage-coda a { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .sausage * { transition: none; } }

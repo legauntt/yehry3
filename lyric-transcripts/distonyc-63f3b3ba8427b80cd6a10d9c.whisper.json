@@ -1,0 +1,421 @@
+{
+  "version": 1,
+  "songId": "distonyc-63f3b3ba8427b80cd6a10d9c",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-63f3b3ba8427b80cd6a10d9c-5d33360a3ae1.mp3",
+  "audioSha256": "5d33360a3ae1735305cec0d2f3c5742d97093db1c65594af23584b7f5ce963f4",
+  "inputSha256": "3832896860a9b0b6a7a56d8feda965bc719e54ac53f8570c6bacc0e4eb2862d4",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 475.03675,
+  "segments": [
+    {
+      "start": 24.08,
+      "end": 26.58,
+      "text": "I found my head",
+      "uncertain": true
+    },
+    {
+      "start": 26.58,
+      "end": 30.16,
+      "text": "beneath the bus stop bench",
+      "uncertain": true
+    },
+    {
+      "start": 30.16,
+      "end": 36.82,
+      "text": "Full of rainwater seats and a wrench",
+      "uncertain": true
+    },
+    {
+      "start": 36.82,
+      "end": 43.76,
+      "text": "It had a crooked little moon on the brim",
+      "uncertain": true
+    },
+    {
+      "start": 43.76,
+      "end": 50.22,
+      "text": "Like it had been out late drinking with him",
+      "uncertain": true
+    },
+    {
+      "start": 51.44,
+      "end": 57.38,
+      "text": "I put it on and the pigeon stood still",
+      "uncertain": false
+    },
+    {
+      "start": 57.38,
+      "end": 64.08,
+      "text": "One gave a salute from the pharmacy cell",
+      "uncertain": true
+    },
+    {
+      "start": 65.84,
+      "end": 70.9,
+      "text": "The wind said, buddy, you look like trouble",
+      "uncertain": false
+    },
+    {
+      "start": 70.9,
+      "end": 77.72,
+      "text": "Then folded my shadow in half like a double",
+      "uncertain": false
+    },
+    {
+      "start": 83.18,
+      "end": 100.98,
+      "text": "Yeah, for the bit, for the blue, my hat knows every back alley, yeah, for the bit, don't",
+      "uncertain": true
+    },
+    {
+      "start": 100.98,
+      "end": 101.98,
+      "text": "ask why",
+      "uncertain": true
+    },
+    {
+      "start": 103.06,
+      "end": 105.18,
+      "text": "in waves and planes",
+      "uncertain": false
+    },
+    {
+      "start": 105.18,
+      "end": 107.02,
+      "text": "that cross the",
+      "uncertain": false
+    },
+    {
+      "start": 107.02,
+      "end": 107.46,
+      "text": "sky",
+      "uncertain": false
+    },
+    {
+      "start": 107.46,
+      "end": 109.94,
+      "text": "this is my",
+      "uncertain": true
+    },
+    {
+      "start": 111.26,
+      "end": 113.08,
+      "text": "my portable",
+      "uncertain": false
+    },
+    {
+      "start": 113.08,
+      "end": 113.72,
+      "text": "weather",
+      "uncertain": false
+    },
+    {
+      "start": 115.0,
+      "end": 116.82,
+      "text": "my small black",
+      "uncertain": false
+    },
+    {
+      "start": 116.82,
+      "end": 119.02,
+      "text": "ship with a loose",
+      "uncertain": false
+    },
+    {
+      "start": 119.02,
+      "end": 120.52,
+      "text": "red feather",
+      "uncertain": false
+    },
+    {
+      "start": 122.32,
+      "end": 124.92,
+      "text": "when the day comes down",
+      "uncertain": false
+    },
+    {
+      "start": 124.92,
+      "end": 127.04,
+      "text": "like a landlord's",
+      "uncertain": false
+    },
+    {
+      "start": 127.04,
+      "end": 127.32,
+      "text": "boo",
+      "uncertain": false
+    },
+    {
+      "start": 128.74,
+      "end": 130.58,
+      "text": "I tip that",
+      "uncertain": false
+    },
+    {
+      "start": 130.58,
+      "end": 144.9,
+      "text": "brim and give it the move. This is my hat, don't touch the crown. It keeps my thoughts",
+      "uncertain": false
+    },
+    {
+      "start": 144.9,
+      "end": 159.72,
+      "text": "from spilling around. If I lose my head in the Saturday crown, my hat will find me lasting",
+      "uncertain": false
+    },
+    {
+      "start": 159.72,
+      "end": 161.12,
+      "text": "out loud",
+      "uncertain": true
+    },
+    {
+      "start": 181.62,
+      "end": 185.42,
+      "text": "at the diner",
+      "uncertain": true
+    },
+    {
+      "start": 185.42,
+      "end": 187.7,
+      "text": "the waitress called",
+      "uncertain": false
+    },
+    {
+      "start": 187.7,
+      "end": 188.3,
+      "text": "it sir",
+      "uncertain": false
+    },
+    {
+      "start": 188.3,
+      "end": 195.1,
+      "text": "Then poured it coffee with a little stir",
+      "uncertain": false
+    },
+    {
+      "start": 195.1,
+      "end": 202.12,
+      "text": "The hat drank steam through a river in the scene",
+      "uncertain": true
+    },
+    {
+      "start": 202.12,
+      "end": 208.92,
+      "text": "And told me Tuesday was a government dream",
+      "uncertain": false
+    },
+    {
+      "start": 208.92,
+      "end": 215.84,
+      "text": "A kid with a trumpet offered a train",
+      "uncertain": false
+    },
+    {
+      "start": 217.16,
+      "end": 222.86,
+      "text": "Three blue marbles and a switch bling",
+      "uncertain": false
+    },
+    {
+      "start": 224.3,
+      "end": 229.64,
+      "text": "I said no deal, this hat has seen",
+      "uncertain": false
+    },
+    {
+      "start": 229.64,
+      "end": 236.22,
+      "text": "An eldest impersonator, fight a vending machine",
+      "uncertain": false
+    },
+    {
+      "start": 259.02,
+      "end": 263.78,
+      "text": "Yeah, for the bit, for the bone",
+      "uncertain": true
+    },
+    {
+      "start": 265.18,
+      "end": 270.44,
+      "text": "It taps its heel to a one or two",
+      "uncertain": true
+    },
+    {
+      "start": 272.44,
+      "end": 274.76,
+      "text": "Yeah, for the bit",
+      "uncertain": true
+    },
+    {
+      "start": 274.76,
+      "end": 277.58,
+      "text": "Hold on tight",
+      "uncertain": true
+    },
+    {
+      "start": 277.58,
+      "end": 281.74,
+      "text": "It turns a bad noon",
+      "uncertain": false
+    },
+    {
+      "start": 281.74,
+      "end": 283.7,
+      "text": "Into midnight",
+      "uncertain": false
+    },
+    {
+      "start": 283.7,
+      "end": 288.0,
+      "text": "This is my hat",
+      "uncertain": false
+    },
+    {
+      "start": 288.0,
+      "end": 291.16,
+      "text": "My portable winter",
+      "uncertain": true
+    },
+    {
+      "start": 291.16,
+      "end": 294.94,
+      "text": "My small black ship",
+      "uncertain": false
+    },
+    {
+      "start": 294.94,
+      "end": 297.96,
+      "text": "With a loose red feather",
+      "uncertain": false
+    },
+    {
+      "start": 297.96,
+      "end": 301.84,
+      "text": "When the day comes down",
+      "uncertain": false
+    },
+    {
+      "start": 301.84,
+      "end": 305.8,
+      "text": "Like a landlord's booze",
+      "uncertain": true
+    },
+    {
+      "start": 305.8,
+      "end": 308.74,
+      "text": "I tip that brim",
+      "uncertain": false
+    },
+    {
+      "start": 308.74,
+      "end": 311.7,
+      "text": "And give it the boom",
+      "uncertain": true
+    },
+    {
+      "start": 311.7,
+      "end": 315.46,
+      "text": "This is my hat",
+      "uncertain": false
+    },
+    {
+      "start": 315.46,
+      "end": 318.56,
+      "text": "Don't touch the crown",
+      "uncertain": false
+    },
+    {
+      "start": 318.56,
+      "end": 322.34,
+      "text": "It keeps my thoughts",
+      "uncertain": false
+    },
+    {
+      "start": 322.34,
+      "end": 325.42,
+      "text": "From spilling around",
+      "uncertain": true
+    },
+    {
+      "start": 325.42,
+      "end": 332.52,
+      "text": "If I lose my head in the Saturday crowd",
+      "uncertain": false
+    },
+    {
+      "start": 332.52,
+      "end": 339.4,
+      "text": "My hat will find me laughing out loud",
+      "uncertain": false
+    },
+    {
+      "start": 371.46,
+      "end": 377.26,
+      "text": "One day I'll leave in all strangers' chair",
+      "uncertain": false
+    },
+    {
+      "start": 377.26,
+      "end": 383.7,
+      "text": "At a wedding where nobody cuts their hair",
+      "uncertain": false
+    },
+    {
+      "start": 385.42,
+      "end": 397.6,
+      "text": "They'll put it on, hear the pigeons sing, and suddenly know how to forgive a thing.",
+      "uncertain": false
+    },
+    {
+      "start": 398.78,
+      "end": 411.12,
+      "text": "This is my hat, my portable weather, stitched from bad luck and stubborn leather.",
+      "uncertain": false
+    },
+    {
+      "start": 412.7,
+      "end": 418.34,
+      "text": "When I'm gone, let it ride the train",
+      "uncertain": false
+    },
+    {
+      "start": 418.34,
+      "end": 424.92,
+      "text": "With a mood on the bend and rain in its brain",
+      "uncertain": true
+    },
+    {
+      "start": 426.74,
+      "end": 431.66,
+      "text": "Yeah, for the bip, sort of boo",
+      "uncertain": true
+    },
+    {
+      "start": 433.22,
+      "end": 438.5,
+      "text": "Go on, hide, make your crooked loo",
+      "uncertain": false
+    },
+    {
+      "start": 439.96,
+      "end": 445.38,
+      "text": "I'll be bareheaded under the blue",
+      "uncertain": false
+    },
+    {
+      "start": 446.86,
+      "end": 452.36,
+      "text": "But the whole straight sky will be wearing you",
+      "uncertain": false
+    },
+    {
+      "start": 473.6,
+      "end": 475.0,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

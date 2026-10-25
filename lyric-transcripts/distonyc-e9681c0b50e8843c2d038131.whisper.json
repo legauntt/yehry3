@@ -1,0 +1,469 @@
+{
+  "version": 1,
+  "songId": "distonyc-e9681c0b50e8843c2d038131",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e9681c0b50e8843c2d038131-16c8d8a0f543.mp3",
+  "audioSha256": "16c8d8a0f5430c8d6371e1272438f0119dd8ddb0378405ef559c9dda8105e900",
+  "inputSha256": "3b41d408f4abb2713410c91b0e75c5465a2f5636624dca8a9a26426844842f69",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 250.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.98,
+      "text": "Shoes by the doorway, shoes by the bed",
+      "uncertain": false
+    },
+    {
+      "start": 3.98,
+      "end": 8.2,
+      "text": "September morning, marching through my head",
+      "uncertain": true
+    },
+    {
+      "start": 8.2,
+      "end": 12.3,
+      "text": "I tie one knot, then I tie it again",
+      "uncertain": false
+    },
+    {
+      "start": 12.3,
+      "end": 16.66,
+      "text": "Leather and laces, smoke in the wind",
+      "uncertain": false
+    },
+    {
+      "start": 16.66,
+      "end": 20.18,
+      "text": "I didn't notice every footprint on the avenue",
+      "uncertain": false
+    },
+    {
+      "start": 21.36,
+      "end": 24.86,
+      "text": "Polished, blacked, battered, rubbed, almost new",
+      "uncertain": true
+    },
+    {
+      "start": 24.86,
+      "end": 28.72,
+      "text": "A hill on the pavement next to the whole street",
+      "uncertain": true
+    },
+    {
+      "start": 28.72,
+      "end": 37.36,
+      "text": "turn to a blue sky picture and the towers to burn i know it sounds crooked i know it sounds",
+      "uncertain": true
+    },
+    {
+      "start": 37.36,
+      "end": 45.56,
+      "text": "strange how a window display makes the calendar change but memory picks objects ordinary and",
+      "uncertain": false
+    },
+    {
+      "start": 45.56,
+      "end": 55.76,
+      "text": "small and my pick the shoes of the people who walk some in downtown some ran away some never",
+      "uncertain": true
+    },
+    {
+      "start": 55.76,
+      "end": 57.96,
+      "text": "Who wore their favorite pair again?",
+      "uncertain": false
+    },
+    {
+      "start": 61.78,
+      "end": 64.9,
+      "text": "Everything remembers where somebody stood",
+      "uncertain": false
+    },
+    {
+      "start": 64.9,
+      "end": 68.64,
+      "text": "On an ordinary morning in a neighborhood",
+      "uncertain": true
+    },
+    {
+      "start": 68.64,
+      "end": 73.12,
+      "text": "Laces come loose, ears disappear",
+      "uncertain": false
+    },
+    {
+      "start": 73.12,
+      "end": 77.78,
+      "text": "I look in my shoes and the day reappears",
+      "uncertain": false
+    },
+    {
+      "start": 77.78,
+      "end": 81.98,
+      "text": "I cannot explain what the mind holds on to",
+      "uncertain": false
+    },
+    {
+      "start": 81.98,
+      "end": 85.96,
+      "text": "The dust, the silence, the tear of the blue",
+      "uncertain": false
+    },
+    {
+      "start": 85.96,
+      "end": 90.14,
+      "text": "Every pair of members, every step comes through",
+      "uncertain": true
+    },
+    {
+      "start": 90.14,
+      "end": 94.5,
+      "text": "And I keep on walking because they could not do",
+      "uncertain": false
+    },
+    {
+      "start": 94.5,
+      "end": 98.9,
+      "text": "Seegers in a shop front, boots beneath the train",
+      "uncertain": false
+    },
+    {
+      "start": 98.9,
+      "end": 102.9,
+      "text": "Greenback tape of falling light, impossible rain",
+      "uncertain": false
+    },
+    {
+      "start": 102.9,
+      "end": 107.14,
+      "text": "A fireman climbing while the crowd came down",
+      "uncertain": false
+    },
+    {
+      "start": 107.14,
+      "end": 111.3,
+      "text": "Empty shoes waiting at the edge of town",
+      "uncertain": false
+    },
+    {
+      "start": 111.3,
+      "end": 115.62,
+      "text": "I count off footsteps that history erased",
+      "uncertain": false
+    },
+    {
+      "start": 115.62,
+      "end": 119.84,
+      "text": "Then catch my reflection with a choke on my face",
+      "uncertain": true
+    },
+    {
+      "start": 119.84,
+      "end": 123.9,
+      "text": "Mischief goes quiet, I swallow the line",
+      "uncertain": false
+    },
+    {
+      "start": 123.9,
+      "end": 128.04,
+      "text": "There are things even laughter has to leave behind",
+      "uncertain": false
+    },
+    {
+      "start": 128.04,
+      "end": 132.38,
+      "text": "Some carried strangers, some called home",
+      "uncertain": false
+    },
+    {
+      "start": 132.38,
+      "end": 135.84,
+      "text": "Some found their hand and did not walk alone",
+      "uncertain": true
+    },
+    {
+      "start": 139.06,
+      "end": 142.78,
+      "text": "Every day remembers where somebody stood",
+      "uncertain": true
+    },
+    {
+      "start": 142.78,
+      "end": 146.86,
+      "text": "On an ordinary morning in a neighborhood",
+      "uncertain": false
+    },
+    {
+      "start": 146.86,
+      "end": 151.04,
+      "text": "Lasers come loose, years disappear",
+      "uncertain": false
+    },
+    {
+      "start": 151.04,
+      "end": 155.66,
+      "text": "I look in my shoes and the day reappears",
+      "uncertain": false
+    },
+    {
+      "start": 155.66,
+      "end": 159.88,
+      "text": "I cannot explain what the mind holds on to",
+      "uncertain": false
+    },
+    {
+      "start": 159.88,
+      "end": 163.86,
+      "text": "The dust, the silence, the terrible blue",
+      "uncertain": true
+    },
+    {
+      "start": 163.86,
+      "end": 166.08,
+      "text": "Every tear remembers",
+      "uncertain": false
+    },
+    {
+      "start": 166.08,
+      "end": 168.04,
+      "text": "Every step comes through",
+      "uncertain": true
+    },
+    {
+      "start": 168.04,
+      "end": 170.26,
+      "text": "And I keep on walking",
+      "uncertain": false
+    },
+    {
+      "start": 170.26,
+      "end": 172.3,
+      "text": "Because they could not do",
+      "uncertain": false
+    },
+    {
+      "start": 172.3,
+      "end": 175.04,
+      "text": "Maybe grief needs somewhere plain to live",
+      "uncertain": false
+    },
+    {
+      "start": 175.04,
+      "end": 177.28,
+      "text": "A closet shelf is so warm thin",
+      "uncertain": true
+    },
+    {
+      "start": 177.28,
+      "end": 179.34,
+      "text": "Not in the speeches, not in the stone",
+      "uncertain": false
+    },
+    {
+      "start": 179.34,
+      "end": 181.42,
+      "text": "But in what we put on when we leave our home",
+      "uncertain": false
+    },
+    {
+      "start": 181.42,
+      "end": 183.54,
+      "text": "So I clean these shoes and stuff them outside",
+      "uncertain": false
+    },
+    {
+      "start": 183.54,
+      "end": 185.66,
+      "text": "Carry the names I never knew in my stride",
+      "uncertain": false
+    },
+    {
+      "start": 185.66,
+      "end": 187.76,
+      "text": "No graying conclusion, no clever to disguise",
+      "uncertain": true
+    },
+    {
+      "start": 187.76,
+      "end": 189.74,
+      "text": "Just streets still moving under all disguise",
+      "uncertain": true
+    },
+    {
+      "start": 189.74,
+      "end": 191.76,
+      "text": "That's what memory",
+      "uncertain": false
+    },
+    {
+      "start": 191.76,
+      "end": 193.88,
+      "text": "Right foot daylight",
+      "uncertain": false
+    },
+    {
+      "start": 193.88,
+      "end": 195.88,
+      "text": "One step shaking",
+      "uncertain": true
+    },
+    {
+      "start": 195.88,
+      "end": 198.22,
+      "text": "One step upright",
+      "uncertain": false
+    },
+    {
+      "start": 198.22,
+      "end": 199.98,
+      "text": "The past keeps talking",
+      "uncertain": false
+    },
+    {
+      "start": 199.98,
+      "end": 201.74,
+      "text": "The street talks too",
+      "uncertain": false
+    },
+    {
+      "start": 201.74,
+      "end": 204.22,
+      "text": "I hear both voices",
+      "uncertain": false
+    },
+    {
+      "start": 204.22,
+      "end": 206.08,
+      "text": "In every shoe",
+      "uncertain": false
+    },
+    {
+      "start": 206.08,
+      "end": 208.44,
+      "text": "Everybody remembers",
+      "uncertain": true
+    },
+    {
+      "start": 208.44,
+      "end": 210.14,
+      "text": "Where somebody stood",
+      "uncertain": false
+    },
+    {
+      "start": 210.14,
+      "end": 212.64,
+      "text": "On an ordinary morning",
+      "uncertain": false
+    },
+    {
+      "start": 212.64,
+      "end": 214.22,
+      "text": "In a neighborhood",
+      "uncertain": false
+    },
+    {
+      "start": 214.22,
+      "end": 216.82,
+      "text": "The places come loose",
+      "uncertain": true
+    },
+    {
+      "start": 216.82,
+      "end": 218.7,
+      "text": "But I hold them here",
+      "uncertain": false
+    },
+    {
+      "start": 218.7,
+      "end": 220.72,
+      "text": "For the lives behind",
+      "uncertain": false
+    },
+    {
+      "start": 220.72,
+      "end": 222.94,
+      "text": "Every returning year",
+      "uncertain": true
+    },
+    {
+      "start": 222.94,
+      "end": 224.8,
+      "text": "I cannot undo",
+      "uncertain": false
+    },
+    {
+      "start": 224.8,
+      "end": 227.0,
+      "text": "What the mind can't do",
+      "uncertain": true
+    },
+    {
+      "start": 227.0,
+      "end": 228.46,
+      "text": "The dust",
+      "uncertain": false
+    },
+    {
+      "start": 228.46,
+      "end": 229.54,
+      "text": "The courage",
+      "uncertain": true
+    },
+    {
+      "start": 229.54,
+      "end": 231.28,
+      "text": "The terrible blue",
+      "uncertain": false
+    },
+    {
+      "start": 231.28,
+      "end": 233.44,
+      "text": "Every pair remembers",
+      "uncertain": false
+    },
+    {
+      "start": 233.44,
+      "end": 235.5,
+      "text": "Then I finally choose",
+      "uncertain": false
+    },
+    {
+      "start": 235.5,
+      "end": 237.84,
+      "text": "To walk toward tomorrow",
+      "uncertain": false
+    },
+    {
+      "start": 237.84,
+      "end": 239.86,
+      "text": "In these weathered shoes",
+      "uncertain": false
+    },
+    {
+      "start": 239.86,
+      "end": 242.18,
+      "text": "Shoes by the doorway",
+      "uncertain": false
+    },
+    {
+      "start": 242.18,
+      "end": 243.82,
+      "text": "Morning ahead",
+      "uncertain": false
+    },
+    {
+      "start": 243.82,
+      "end": 246.08,
+      "text": "I honor the living",
+      "uncertain": false
+    },
+    {
+      "start": 246.08,
+      "end": 248.0,
+      "text": "I carry the dead",
+      "uncertain": false
+    }
+  ]
+}

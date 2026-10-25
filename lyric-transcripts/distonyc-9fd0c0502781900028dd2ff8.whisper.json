@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "songId": "distonyc-9fd0c0502781900028dd2ff8",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-9fd0c0502781900028dd2ff8-97fab279b348.mp3",
+  "audioSha256": "97fab279b348c13bcc1ddefd1bb33b8761d974cafeaa1fd635ea93d75a618b0e",
+  "inputSha256": "ea404def392e1e933b06c73aad02ffc700238b684dfe8056dac754fcb51a7313",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 249.991875,
+  "segments": [
+    {
+      "start": 3.96,
+      "end": 6.48,
+      "text": "Snow against the window",
+      "uncertain": true
+    },
+    {
+      "start": 6.48,
+      "end": 8.94,
+      "text": "Bourbon in the glass",
+      "uncertain": false
+    },
+    {
+      "start": 8.94,
+      "end": 11.2,
+      "text": "Fairbanks in December",
+      "uncertain": false
+    },
+    {
+      "start": 11.2,
+      "end": 13.48,
+      "text": "Headlights crawling past",
+      "uncertain": false
+    },
+    {
+      "start": 13.48,
+      "end": 16.0,
+      "text": "The bartender knows better",
+      "uncertain": false
+    },
+    {
+      "start": 16.0,
+      "end": 18.04,
+      "text": "Than to ask me why",
+      "uncertain": true
+    },
+    {
+      "start": 18.04,
+      "end": 20.78,
+      "text": "I am drinking to the woman",
+      "uncertain": false
+    },
+    {
+      "start": 20.78,
+      "end": 23.02,
+      "text": "I was lucky to become",
+      "uncertain": false
+    },
+    {
+      "start": 23.02,
+      "end": 25.68,
+      "text": "We rented half a duplex",
+      "uncertain": false
+    },
+    {
+      "start": 25.68,
+      "end": 27.82,
+      "text": "By the old Stee's Road",
+      "uncertain": false
+    },
+    {
+      "start": 27.82,
+      "end": 32.6,
+      "text": "A heater full of thunder and a roof bowed low with snow",
+      "uncertain": true
+    },
+    {
+      "start": 32.6,
+      "end": 35.22,
+      "text": "She could kiss me like a promise",
+      "uncertain": true
+    },
+    {
+      "start": 35.22,
+      "end": 37.72,
+      "text": "Then accuse me with her eyes",
+      "uncertain": true
+    },
+    {
+      "start": 37.72,
+      "end": 42.36,
+      "text": "By midnight every tender word was twisted into knives",
+      "uncertain": false
+    },
+    {
+      "start": 42.36,
+      "end": 47.34,
+      "text": "I learned to read the weather in the muscles of her face",
+      "uncertain": false
+    },
+    {
+      "start": 47.34,
+      "end": 51.76,
+      "text": "One minute I was everything, the next I was replaced",
+      "uncertain": false
+    },
+    {
+      "start": 51.76,
+      "end": 57.0,
+      "text": "I tried to hold the center while the center would not stay",
+      "uncertain": false
+    },
+    {
+      "start": 57.0,
+      "end": 61.94,
+      "text": "Love became a checkpoint at the ending of each day",
+      "uncertain": false
+    },
+    {
+      "start": 64.82,
+      "end": 68.32,
+      "text": "So fill it to the frost line",
+      "uncertain": false
+    },
+    {
+      "start": 68.32,
+      "end": 71.0,
+      "text": "Let the old jukebox complain",
+      "uncertain": false
+    },
+    {
+      "start": 71.0,
+      "end": 74.14,
+      "text": "I do not want that life back",
+      "uncertain": false
+    },
+    {
+      "start": 74.14,
+      "end": 77.48,
+      "text": "I just miss it now and then",
+      "uncertain": false
+    },
+    {
+      "start": 79.94,
+      "end": 84.36,
+      "text": "Forty below and one more round",
+      "uncertain": false
+    },
+    {
+      "start": 84.36,
+      "end": 88.9,
+      "text": "Her memory comes sliding when the sun goes down",
+      "uncertain": true
+    },
+    {
+      "start": 88.9,
+      "end": 93.92,
+      "text": "She was wild as the river when the ice breaks free",
+      "uncertain": true
+    },
+    {
+      "start": 93.92,
+      "end": 98.48,
+      "text": "That woman was crazy and she was crazy for me",
+      "uncertain": false
+    },
+    {
+      "start": 98.48,
+      "end": 102.72,
+      "text": "No more slam doors, no more avenue",
+      "uncertain": false
+    },
+    {
+      "start": 102.72,
+      "end": 107.62,
+      "text": "Two, I will not call her number no matter what I do",
+      "uncertain": true
+    },
+    {
+      "start": 107.62,
+      "end": 110.82,
+      "text": "But sometimes the cream is filled in summer",
+      "uncertain": true
+    },
+    {
+      "start": 110.82,
+      "end": 113.28,
+      "text": "Mosquitoes in our hair",
+      "uncertain": false
+    },
+    {
+      "start": 113.28,
+      "end": 118.16,
+      "text": "She danced beside the pick up like the whole world was not there",
+      "uncertain": true
+    },
+    {
+      "start": 119.1,
+      "end": 124.06,
+      "text": "Then jealousy would find us before we made it home",
+      "uncertain": false
+    },
+    {
+      "start": 124.06,
+      "end": 128.64,
+      "text": "My coat out in the yard and my telephone gone",
+      "uncertain": false
+    },
+    {
+      "start": 128.64,
+      "end": 133.62,
+      "text": "I tried patience, tried forgiveness, tried the careful things to say",
+      "uncertain": false
+    },
+    {
+      "start": 133.62,
+      "end": 138.32,
+      "text": "But every breath became a test I had to pass that day",
+      "uncertain": false
+    },
+    {
+      "start": 138.32,
+      "end": 143.36,
+      "text": "You can give somebody everything and still not give them rest",
+      "uncertain": false
+    },
+    {
+      "start": 143.36,
+      "end": 147.78,
+      "text": "And wake up in the cold convinced you fail their test",
+      "uncertain": true
+    },
+    {
+      "start": 150.5,
+      "end": 155.18,
+      "text": "Blue light rising over Chena in the spring",
+      "uncertain": false
+    },
+    {
+      "start": 155.18,
+      "end": 159.7,
+      "text": "Her cheek against my shoulder not demanding anything",
+      "uncertain": false
+    },
+    {
+      "start": 159.7,
+      "end": 164.82,
+      "text": "For one clean little minute we were quiet, we were kind",
+      "uncertain": false
+    },
+    {
+      "start": 164.82,
+      "end": 169.68,
+      "text": "That is the piece the whiskey keeps polishing in my mind",
+      "uncertain": false
+    },
+    {
+      "start": 169.68,
+      "end": 172.5,
+      "text": "But a photograph is not a shelter",
+      "uncertain": true
+    },
+    {
+      "start": 172.5,
+      "end": 174.36,
+      "text": "Spark is not a stove",
+      "uncertain": true
+    },
+    {
+      "start": 174.36,
+      "end": 177.02,
+      "text": "I miss the heat between us",
+      "uncertain": false
+    },
+    {
+      "start": 177.02,
+      "end": 179.28,
+      "text": "I do not miss losing hope",
+      "uncertain": true
+    },
+    {
+      "start": 180.9,
+      "end": 182.28,
+      "text": "Forty below",
+      "uncertain": false
+    },
+    {
+      "start": 182.28,
+      "end": 185.28,
+      "text": "This is my last round",
+      "uncertain": false
+    },
+    {
+      "start": 185.28,
+      "end": 187.32,
+      "text": "Her memory can visit",
+      "uncertain": false
+    },
+    {
+      "start": 187.32,
+      "end": 189.94,
+      "text": "But it cannot move back to town",
+      "uncertain": false
+    },
+    {
+      "start": 189.94,
+      "end": 192.36,
+      "text": "She was wild as the river",
+      "uncertain": false
+    },
+    {
+      "start": 192.36,
+      "end": 194.3,
+      "text": "I was drowning willingly",
+      "uncertain": false
+    },
+    {
+      "start": 194.3,
+      "end": 198.98,
+      "text": "That woman was trouble tangled up with me",
+      "uncertain": false
+    },
+    {
+      "start": 198.98,
+      "end": 204.1,
+      "text": "I turned my phone face down beneath the Fairbanks moon",
+      "uncertain": true
+    },
+    {
+      "start": 204.1,
+      "end": 208.4,
+      "text": "Let the old ache fade out with the vapor tune",
+      "uncertain": false
+    },
+    {
+      "start": 208.4,
+      "end": 212.76,
+      "text": "Here is to what was beautiful, here is what I know",
+      "uncertain": false
+    },
+    {
+      "start": 212.76,
+      "end": 218.34,
+      "text": "I miss the fire sometimes, but I will not call it home",
+      "uncertain": false
+    },
+    {
+      "start": 220.2,
+      "end": 224.7,
+      "text": "Snow against the window, morning coming slow",
+      "uncertain": false
+    },
+    {
+      "start": 224.7,
+      "end": 230.0,
+      "text": "Here is to what was beautiful and what I had to let go",
+      "uncertain": false
+    },
+    {
+      "start": 230.0,
+      "end": 235.64,
+      "text": "I miss the fire sometimes, but I will not mistake it for home",
+      "uncertain": false
+    },
+    {
+      "start": 235.64,
+      "end": 239.32,
+      "text": "No, I will not mistake it for home",
+      "uncertain": false
+    },
+    {
+      "start": 248.34,
+      "end": 248.66,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

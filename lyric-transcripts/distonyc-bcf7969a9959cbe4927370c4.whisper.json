@@ -1,0 +1,481 @@
+{
+  "version": 1,
+  "songId": "distonyc-bcf7969a9959cbe4927370c4",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-bcf7969a9959cbe4927370c4-0d01b297861b.mp3",
+  "audioSha256": "0d01b297861bcaa10efc67fd00071b69f9c6a32742db6819fba088b01a910b56",
+  "inputSha256": "15e84e7b940576e52508bfae3f865ffe9ca1a35fb3ece5011cb33fe2c3dbf530",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 290.0375625,
+  "segments": [
+    {
+      "start": 3.46,
+      "end": 7.62,
+      "text": "The fluorescent room hums low",
+      "uncertain": false
+    },
+    {
+      "start": 7.62,
+      "end": 11.28,
+      "text": "Shaw dust rising, nowhere to go",
+      "uncertain": true
+    },
+    {
+      "start": 11.28,
+      "end": 15.1,
+      "text": "A red alarm blinks through the lecture haze",
+      "uncertain": false
+    },
+    {
+      "start": 15.1,
+      "end": 18.72,
+      "text": "And the glass on the desk catches chemical daze",
+      "uncertain": false
+    },
+    {
+      "start": 18.72,
+      "end": 22.44,
+      "text": "In a lecture hall of thunder and shock",
+      "uncertain": false
+    },
+    {
+      "start": 22.44,
+      "end": 25.78,
+      "text": "Clay-doh waits in the margins of talk",
+      "uncertain": true
+    },
+    {
+      "start": 25.78,
+      "end": 29.34,
+      "text": "A buried little legend, an impossible cup",
+      "uncertain": false
+    },
+    {
+      "start": 29.34,
+      "end": 33.26,
+      "text": "While the cameras flare and the pressure builds up",
+      "uncertain": false
+    },
+    {
+      "start": 33.26,
+      "end": 36.84,
+      "text": "Peterson points at the edge of the Dane",
+      "uncertain": false
+    },
+    {
+      "start": 36.84,
+      "end": 40.18,
+      "text": "What shadow in your bloodstream do you throw away?",
+      "uncertain": false
+    },
+    {
+      "start": 40.58,
+      "end": 44.02,
+      "text": "The clock keeps grinding in a mirrored ball",
+      "uncertain": false
+    },
+    {
+      "start": 44.02,
+      "end": 47.7,
+      "text": "Every clean idea leaves a stain on the wall",
+      "uncertain": false
+    },
+    {
+      "start": 47.7,
+      "end": 51.34,
+      "text": "Steel boots echo where the dancers stood",
+      "uncertain": false
+    },
+    {
+      "start": 51.34,
+      "end": 54.86,
+      "text": "A bright white fury meets the body's blood",
+      "uncertain": false
+    },
+    {
+      "start": 54.86,
+      "end": 58.46,
+      "text": "The room says name it, the room says hide",
+      "uncertain": false
+    },
+    {
+      "start": 58.46,
+      "end": 61.36,
+      "text": "A sealed-up animal rattles inside",
+      "uncertain": true
+    },
+    {
+      "start": 61.36,
+      "end": 65.1,
+      "text": "Not a diet, not a cure, not a sacred command",
+      "uncertain": false
+    },
+    {
+      "start": 65.1,
+      "end": 69.56,
+      "text": "Just a fever-lit symbol and a jar in the hand",
+      "uncertain": false
+    },
+    {
+      "start": 69.56,
+      "end": 72.94,
+      "text": "The floodlights shiver, the speakers hiss",
+      "uncertain": false
+    },
+    {
+      "start": 72.94,
+      "end": 77.06,
+      "text": "A whole proud doctrine drowning in piss",
+      "uncertain": false
+    },
+    {
+      "start": 78.8,
+      "end": 83.1,
+      "text": "The biological mandate staring back from the glass",
+      "uncertain": false
+    },
+    {
+      "start": 83.1,
+      "end": 86.86,
+      "text": "A ridiculous dragon with a philosophical mask",
+      "uncertain": false
+    },
+    {
+      "start": 86.86,
+      "end": 90.44,
+      "text": "Plato and Peterson fell to the brim",
+      "uncertain": true
+    },
+    {
+      "start": 90.44,
+      "end": 93.94,
+      "text": "With every rejected thing pouring back in them",
+      "uncertain": false
+    },
+    {
+      "start": 93.94,
+      "end": 97.6,
+      "text": "The logos isn't only a word in the air",
+      "uncertain": true
+    },
+    {
+      "start": 97.6,
+      "end": 100.28,
+      "text": "It's admitting the mess is already there",
+      "uncertain": false
+    },
+    {
+      "start": 100.28,
+      "end": 103.76,
+      "text": "The biological mandate, no polished escape",
+      "uncertain": false
+    },
+    {
+      "start": 103.76,
+      "end": 107.0,
+      "text": "The thing you exile comes back in your shape",
+      "uncertain": false
+    },
+    {
+      "start": 107.0,
+      "end": 111.4,
+      "text": "Entropy is knocking, the loud man cries",
+      "uncertain": false
+    },
+    {
+      "start": 111.4,
+      "end": 115.1,
+      "text": "And the factory moon burns behind his eyes",
+      "uncertain": false
+    },
+    {
+      "start": 115.1,
+      "end": 118.28,
+      "text": "Every polished order has a cellar below",
+      "uncertain": false
+    },
+    {
+      "start": 118.28,
+      "end": 122.18,
+      "text": "Every perfect dancer has somewhere to go",
+      "uncertain": true
+    },
+    {
+      "start": 122.18,
+      "end": 126.5,
+      "text": "A fish on a river raft, salted heart is regret",
+      "uncertain": false
+    },
+    {
+      "start": 126.5,
+      "end": 130.24,
+      "text": "Every unwanted fragment is a debt you have met",
+      "uncertain": false
+    },
+    {
+      "start": 130.24,
+      "end": 133.98,
+      "text": "The kidneys of the logos turn the chaos around",
+      "uncertain": false
+    },
+    {
+      "start": 133.98,
+      "end": 137.68,
+      "text": "An aerobarose shakes beneath the lecture sound",
+      "uncertain": false
+    },
+    {
+      "start": 137.68,
+      "end": 141.32,
+      "text": "The pipes start roaring, the fluorescent tubes flare",
+      "uncertain": false
+    },
+    {
+      "start": 141.32,
+      "end": 144.82,
+      "text": "Yellow rivers of judgment rise through the air",
+      "uncertain": false
+    },
+    {
+      "start": 144.82,
+      "end": 148.46,
+      "text": "No tidy little system gets to pick and choose",
+      "uncertain": false
+    },
+    {
+      "start": 148.46,
+      "end": 152.2,
+      "text": "No academic polish can wash off the trues",
+      "uncertain": true
+    },
+    {
+      "start": 152.2,
+      "end": 155.66,
+      "text": "Turn the page, turn the glass, let the hard truth spin",
+      "uncertain": false
+    },
+    {
+      "start": 155.66,
+      "end": 159.22,
+      "text": "Every outside monster has a door within",
+      "uncertain": false
+    },
+    {
+      "start": 159.22,
+      "end": 164.0,
+      "text": "No applause can drown that question in your hand",
+      "uncertain": false
+    },
+    {
+      "start": 164.0,
+      "end": 167.8,
+      "text": "When the shadow asks exactly where you stand",
+      "uncertain": false
+    },
+    {
+      "start": 169.64,
+      "end": 174.04,
+      "text": "The biological mandate staring back from the glass",
+      "uncertain": false
+    },
+    {
+      "start": 174.04,
+      "end": 177.78,
+      "text": "A ridiculous dragon with a philosophical mask",
+      "uncertain": false
+    },
+    {
+      "start": 177.78,
+      "end": 181.34,
+      "text": "Plato and Peterson filled to the brim",
+      "uncertain": true
+    },
+    {
+      "start": 181.34,
+      "end": 184.78,
+      "text": "With every rejected thing pouring back in them",
+      "uncertain": false
+    },
+    {
+      "start": 184.78,
+      "end": 188.54,
+      "text": "The logos isn't only a word in the air",
+      "uncertain": false
+    },
+    {
+      "start": 188.54,
+      "end": 191.18,
+      "text": "It's admitting the mess is already there",
+      "uncertain": false
+    },
+    {
+      "start": 191.18,
+      "end": 194.7,
+      "text": "The biological mandate, no polished escape",
+      "uncertain": false
+    },
+    {
+      "start": 194.7,
+      "end": 197.84,
+      "text": "The thing you exile comes back in your shape",
+      "uncertain": false
+    },
+    {
+      "start": 197.84,
+      "end": 201.32,
+      "text": "He lifts the jaw slowly, the turbines beat",
+      "uncertain": false
+    },
+    {
+      "start": 201.32,
+      "end": 204.88,
+      "text": "Adam's apple rising to the iron heat",
+      "uncertain": false
+    },
+    {
+      "start": 204.88,
+      "end": 208.38,
+      "text": "No medicine, no wisdom, no clean way through",
+      "uncertain": false
+    },
+    {
+      "start": 208.38,
+      "end": 212.02,
+      "text": "Just the ugly little truth staring into you",
+      "uncertain": false
+    },
+    {
+      "start": 212.02,
+      "end": 215.78,
+      "text": "From the belly of the whale, from the far side of fear",
+      "uncertain": false
+    },
+    {
+      "start": 215.78,
+      "end": 219.42,
+      "text": "What you would exile is already here",
+      "uncertain": false
+    },
+    {
+      "start": 219.42,
+      "end": 223.0,
+      "text": "Let the bottles overflow, let the podium drown",
+      "uncertain": false
+    },
+    {
+      "start": 223.0,
+      "end": 226.78,
+      "text": "Let the grand old cymbals come sputtering down",
+      "uncertain": false
+    },
+    {
+      "start": 226.78,
+      "end": 230.16,
+      "text": "Clay-Doh laughs in Marvel, Peter, Sinkoff, Synchron",
+      "uncertain": true
+    },
+    {
+      "start": 230.16,
+      "end": 234.46,
+      "text": "And the room learns the body has brought it all home",
+      "uncertain": false
+    },
+    {
+      "start": 237.08,
+      "end": 241.28,
+      "text": "The biological mandate let the metaphor burn",
+      "uncertain": true
+    },
+    {
+      "start": 241.28,
+      "end": 244.9,
+      "text": "A king of his own ruin makes a hard one turn",
+      "uncertain": false
+    },
+    {
+      "start": 244.9,
+      "end": 248.62,
+      "text": "Plato and Peterson flooded with the past",
+      "uncertain": false
+    },
+    {
+      "start": 248.62,
+      "end": 252.06,
+      "text": "Every seal of certainty cracking at last",
+      "uncertain": false
+    },
+    {
+      "start": 252.06,
+      "end": 255.86,
+      "text": "From the belly of the whale to the edge of the dawn",
+      "uncertain": false
+    },
+    {
+      "start": 255.86,
+      "end": 259.52,
+      "text": "Carry the darkness, then carry on",
+      "uncertain": false
+    },
+    {
+      "start": 259.52,
+      "end": 261.86,
+      "text": "The biological mandate",
+      "uncertain": false
+    },
+    {
+      "start": 261.86,
+      "end": 263.68,
+      "text": "The glass is clear tonight",
+      "uncertain": false
+    },
+    {
+      "start": 263.68,
+      "end": 265.34,
+      "text": "No dragon left outside",
+      "uncertain": false
+    },
+    {
+      "start": 265.34,
+      "end": 267.54,
+      "text": "No darkness out of sight",
+      "uncertain": false
+    },
+    {
+      "start": 267.54,
+      "end": 269.4,
+      "text": "The jar hits the desk",
+      "uncertain": false
+    },
+    {
+      "start": 269.4,
+      "end": 271.32,
+      "text": "One final chord opens wide",
+      "uncertain": false
+    },
+    {
+      "start": 271.32,
+      "end": 273.92,
+      "text": "Staring back from the glass",
+      "uncertain": false
+    },
+    {
+      "start": 273.92,
+      "end": 275.08,
+      "text": "Side to side",
+      "uncertain": true
+    },
+    {
+      "start": 275.08,
+      "end": 278.74,
+      "text": "No darkness left to hide",
+      "uncertain": false
+    },
+    {
+      "start": 289.52,
+      "end": 289.62,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

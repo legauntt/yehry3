@@ -1,0 +1,427 @@
+{
+  "version": 1,
+  "songId": "distonyc-a122037151d61f7e4919394d",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a122037151d61f7e4919394d-77588040d658.mp3",
+  "audioSha256": "77588040d658807f216ee6b88e81148e935997abf90aa28446ab8c34953fd860",
+  "inputSha256": "14321c099b897494b4e43563c01054cb319425e33e71dbfb37463b60935f03b0",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 330.109375,
+  "segments": [
+    {
+      "start": 8.08,
+      "end": 11.0,
+      "text": "I traded the loading dock",
+      "uncertain": false
+    },
+    {
+      "start": 11.0,
+      "end": 12.94,
+      "text": "for a little blue square",
+      "uncertain": false
+    },
+    {
+      "start": 12.94,
+      "end": 15.24,
+      "text": "a headset, a calendar",
+      "uncertain": true
+    },
+    {
+      "start": 15.24,
+      "end": 17.38,
+      "text": "a meeting in the air",
+      "uncertain": true
+    },
+    {
+      "start": 17.38,
+      "end": 19.68,
+      "text": "is that keep the work moving",
+      "uncertain": false
+    },
+    {
+      "start": 19.68,
+      "end": 21.78,
+      "text": "keep the people clear",
+      "uncertain": false
+    },
+    {
+      "start": 21.78,
+      "end": 24.44,
+      "text": "so I learned a dozen names",
+      "uncertain": false
+    },
+    {
+      "start": 24.44,
+      "end": 26.26,
+      "text": "for a thing called fear",
+      "uncertain": false
+    },
+    {
+      "start": 26.26,
+      "end": 28.44,
+      "text": "the old shop Clark",
+      "uncertain": true
+    },
+    {
+      "start": 28.44,
+      "end": 30.8,
+      "text": "I have a fist and a face",
+      "uncertain": true
+    },
+    {
+      "start": 30.8,
+      "end": 33.18,
+      "text": "This one sends a gentle ping",
+      "uncertain": true
+    },
+    {
+      "start": 33.18,
+      "end": 35.2,
+      "text": "When I'm losing my place",
+      "uncertain": false
+    },
+    {
+      "start": 35.2,
+      "end": 37.68,
+      "text": "I ask what is blocking us",
+      "uncertain": false
+    },
+    {
+      "start": 37.68,
+      "end": 39.68,
+      "text": "Maroon looks down",
+      "uncertain": false
+    },
+    {
+      "start": 39.68,
+      "end": 42.18,
+      "text": "Somebody's camera creases",
+      "uncertain": false
+    },
+    {
+      "start": 42.18,
+      "end": 44.1,
+      "text": "In a far off town",
+      "uncertain": true
+    },
+    {
+      "start": 45.94,
+      "end": 48.38,
+      "text": "I used to know the weight",
+      "uncertain": false
+    },
+    {
+      "start": 48.38,
+      "end": 50.86,
+      "text": "Of a wrench in my hand",
+      "uncertain": true
+    },
+    {
+      "start": 52.48,
+      "end": 55.08,
+      "text": "Now I move color tickets",
+      "uncertain": false
+    },
+    {
+      "start": 55.08,
+      "end": 57.56,
+      "text": "Across digital land",
+      "uncertain": false
+    },
+    {
+      "start": 59.0,
+      "end": 68.36,
+      "text": "stand up stand up tell me where we are we got a little whiteboard and the dying star",
+      "uncertain": true
+    },
+    {
+      "start": 68.36,
+      "end": 77.3,
+      "text": "i'm not the boss i'm just holding the thread trying to make a tomorrow out of what was set",
+      "uncertain": true
+    },
+    {
+      "start": 77.3,
+      "end": 86.44,
+      "text": "stand up stand up the world ran ahead but i'm still here making room for the next small step",
+      "uncertain": false
+    },
+    {
+      "start": 92.64,
+      "end": 101.64,
+      "text": "there's a kid on the call with a faster tongue he says the whole old system is already done",
+      "uncertain": false
+    },
+    {
+      "start": 101.64,
+      "end": 109.58,
+      "text": "you can build a new future before lunch breaks through and i say that's beautiful show me how",
+      "uncertain": false
+    },
+    {
+      "start": 109.58,
+      "end": 118.44,
+      "text": "you do. My resume reads like a closed down street. Places where the forklifts sang and the night",
+      "uncertain": true
+    },
+    {
+      "start": 118.44,
+      "end": 127.38,
+      "text": "shift ate. I don't hide those years in a polished phrase. They taught me how to listen when a plan",
+      "uncertain": false
+    },
+    {
+      "start": 127.38,
+      "end": 139.0,
+      "text": "decays. We slice the mountain ends of pieces we can hold. One week at a time. One story getting",
+      "uncertain": false
+    },
+    {
+      "start": 139.0,
+      "end": 148.6,
+      "text": "souls a woman says she's drowning i cancel the race leave one chair empty and give her some space",
+      "uncertain": true
+    },
+    {
+      "start": 148.6,
+      "end": 158.24,
+      "text": "nobody applauds that nobody sends a prize but her shoulders come back when she opens her eyes",
+      "uncertain": false
+    },
+    {
+      "start": 158.24,
+      "end": 168.32,
+      "text": "stand up stand up tell me where we are we got a little whiteboard and a dying star",
+      "uncertain": false
+    },
+    {
+      "start": 168.32,
+      "end": 177.26,
+      "text": "i'm not the boss i'm just holding the thread trying to make a tomorrow out of what was said",
+      "uncertain": true
+    },
+    {
+      "start": 177.26,
+      "end": 186.52,
+      "text": "stand up stand up the world ran ahead but i'm still here making room for the next small step",
+      "uncertain": false
+    },
+    {
+      "start": 194.88,
+      "end": 204.16,
+      "text": "maybe i arrived when the language changed with my paper maps and my weathered name",
+      "uncertain": true
+    },
+    {
+      "start": 204.16,
+      "end": 215.74,
+      "text": "maybe every door wants a newer key maybe that is not the end of me i can ask the question nobody",
+      "uncertain": false
+    },
+    {
+      "start": 215.74,
+      "end": 217.62,
+      "text": "wants to race",
+      "uncertain": true
+    },
+    {
+      "start": 217.62,
+      "end": 219.82,
+      "text": "cause I can hear the joke behind",
+      "uncertain": true
+    },
+    {
+      "start": 219.82,
+      "end": 221.68,
+      "text": "the corporate speech",
+      "uncertain": false
+    },
+    {
+      "start": 221.68,
+      "end": 224.02,
+      "text": "and pull the quiet person",
+      "uncertain": false
+    },
+    {
+      "start": 224.02,
+      "end": 226.32,
+      "text": "back within our reach",
+      "uncertain": false
+    },
+    {
+      "start": 226.32,
+      "end": 227.96,
+      "text": "Friday comes",
+      "uncertain": false
+    },
+    {
+      "start": 227.96,
+      "end": 229.84,
+      "text": "humming through the office",
+      "uncertain": false
+    },
+    {
+      "start": 229.84,
+      "end": 232.14,
+      "text": "glass, we look at",
+      "uncertain": false
+    },
+    {
+      "start": 232.14,
+      "end": 234.3,
+      "text": "the chart, let the numbers",
+      "uncertain": false
+    },
+    {
+      "start": 234.3,
+      "end": 236.24,
+      "text": "pass, not",
+      "uncertain": false
+    },
+    {
+      "start": 236.24,
+      "end": 238.04,
+      "text": "every chronist made it",
+      "uncertain": false
+    },
+    {
+      "start": 238.04,
+      "end": 240.02,
+      "text": "over the line, but",
+      "uncertain": false
+    },
+    {
+      "start": 240.02,
+      "end": 242.18,
+      "text": "nobody got left",
+      "uncertain": false
+    },
+    {
+      "start": 242.18,
+      "end": 244.08,
+      "text": "behind this time",
+      "uncertain": false
+    },
+    {
+      "start": 244.08,
+      "end": 248.4,
+      "text": "I close the laptop, hear the evening train",
+      "uncertain": false
+    },
+    {
+      "start": 248.4,
+      "end": 253.06,
+      "text": "For one second all the old noise calls my name",
+      "uncertain": true
+    },
+    {
+      "start": 253.06,
+      "end": 257.34,
+      "text": "Then a message lands, thanks for making it safe",
+      "uncertain": false
+    },
+    {
+      "start": 257.34,
+      "end": 261.74,
+      "text": "And the tired little room has a different shape",
+      "uncertain": false
+    },
+    {
+      "start": 262.34,
+      "end": 267.22,
+      "text": "Stand up, stand up, tell me where we are",
+      "uncertain": false
+    },
+    {
+      "start": 267.22,
+      "end": 271.72,
+      "text": "Not beneath the future, not beyond the scar",
+      "uncertain": false
+    },
+    {
+      "start": 271.72,
+      "end": 273.96,
+      "text": "I'm not the boss",
+      "uncertain": false
+    },
+    {
+      "start": 273.96,
+      "end": 276.1,
+      "text": "I'm just holding the thread",
+      "uncertain": false
+    },
+    {
+      "start": 276.1,
+      "end": 279.68,
+      "text": "Making room for the living words",
+      "uncertain": false
+    },
+    {
+      "start": 279.68,
+      "end": 280.72,
+      "text": "Unsaid",
+      "uncertain": false
+    },
+    {
+      "start": 280.72,
+      "end": 282.86,
+      "text": "Stand up, stand up",
+      "uncertain": false
+    },
+    {
+      "start": 282.86,
+      "end": 284.96,
+      "text": "Let the new world run",
+      "uncertain": false
+    },
+    {
+      "start": 284.96,
+      "end": 287.36,
+      "text": "I'll meet it with the work",
+      "uncertain": false
+    },
+    {
+      "start": 287.36,
+      "end": 289.34,
+      "text": "That gets begun",
+      "uncertain": true
+    },
+    {
+      "start": 289.34,
+      "end": 291.52,
+      "text": "If the road keeps changing",
+      "uncertain": false
+    },
+    {
+      "start": 291.52,
+      "end": 292.86,
+      "text": "Under my feet",
+      "uncertain": false
+    },
+    {
+      "start": 292.86,
+      "end": 295.12,
+      "text": "I'll gather the people",
+      "uncertain": false
+    },
+    {
+      "start": 295.12,
+      "end": 298.38,
+      "text": "And we'll make the next step sweet",
+      "uncertain": false
+    },
+    {
+      "start": 301.74,
+      "end": 310.62,
+      "text": "No grand conversion, no victory parade, just a chair in the circle and a promise remade.",
+      "uncertain": false
+    },
+    {
+      "start": 310.74,
+      "end": 320.5,
+      "text": "When the screen goes dark and the last bell rings, I'll carry us forward one small human thing sweep.",
+      "uncertain": false
+    }
+  ]
+}

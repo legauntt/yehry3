@@ -2,7 +2,8 @@ param(
     [string]$Root = (Join-Path $env:LOCALAPPDATA 'Distonyc'),
     [switch]$Start,
     [switch]$Disabled,
-    [string[]]$Files
+    [string[]]$Files,
+    [switch]$RuntimeOnly
 )
 $ErrorActionPreference = 'Stop'
 $Root = [IO.Path]::GetFullPath($Root)
@@ -45,6 +46,7 @@ $release | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $Root '
 $installedConfig = Get-Content -LiteralPath (Join-Path $Root 'config.json') -Raw | ConvertFrom-Json
 & $installedConfig.settings.python -X utf8 (Join-Path $Root 'runtime_release.py') --root $Root
 if ($LASTEXITCODE -ne 0) { throw ('Installed runtime verification failed. Retained backup: ' + $installBackup) }
+if ($RuntimeOnly) { return }
 $identity = [Security.Principal.WindowsIdentity]::GetCurrent().Name
 $action = New-ScheduledTaskAction -Execute $pythonw -Argument ('"' + (Join-Path $Root 'launch_hidden.py') + '" --task worker') -WorkingDirectory $Root
 $triggers = @(

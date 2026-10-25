@@ -1,4 +1,4 @@
-"""Report Dehaka's replies, queue actions, outcomes and raw PC logs to the private Backstage thread.
+"""Report queue actions, outcomes, legacy replies and raw PC logs to the private Backstage thread.
 
 The feed is advisory: failures never block triage, and each message is keyed so a retried pass
 cannot duplicate it. Logs are admin-only, secret-redacted tails of files already on this PC.
@@ -99,6 +99,8 @@ def reply(api, entry, prompt, context, directive, decision, category, action, re
         text = decision['reason'] or 'No reason given.'
         if decision['action'] == 'replan':
             # Say exactly what the fresh planning pass receives, so the operator can correct it.
+            if decision.get('duration_seconds') is not None:
+                text += f" Requested duration correction: {decision['duration_seconds']} seconds; the controller must confirm it and any paid reservation before queueing."
             if decision.get('cover_title'):
                 text += f" Looking up the words to “{decision['cover_title']}”" + (f" by {decision['cover_artist']}." if decision.get('cover_artist') else '.')
             if decision.get('planning_note'): text += ' Direction for the planner: ' + decision['planning_note']
@@ -118,11 +120,15 @@ def latest_failure(prompt):
 
 
 def failure(api, entry, prompt, context):
-    """After Dehaka has spoken, report each later failure with fresh raw logs so the operator can steer again."""
-    since, failed = entry.get('dehaka_since'), latest_failure(prompt)
-    if not since or not failed or str(failed.get('at', '')) <= since: return False
-    return post(api, entry, prompt, 'failed:' + str(failed['at']), raw_logs(context), author='worker', kind='outcome', action='failed',
-                text='Stopped again: ' + str(prompt.get('workerError') or 'unknown failure')[:5000])
+    """Report failures without needing a consultation; retain the existing per-episode keys."""
+    failed = latest_failure(prompt)
+    episode = str(failed['at']) if failed and failed.get('at') else 'version-' + str(prompt.get('version'))
+    # A key must remain stable across monitor-only recovery hint/version updates.
+    if not failed:
+        episode = hashlib.sha256(str(prompt.get('workerError', '')).encode()).hexdigest()[:24]
+    return post(api, entry, prompt, 'failed:' + episode, raw_logs(context), author='worker', kind='outcome', action='failed',
+                text='Stopped: ' + redact(str(prompt.get('workerError') or 'unknown failure'))[:5000])
+
 
 
 def note(api, entry, prompt, key, action, text):

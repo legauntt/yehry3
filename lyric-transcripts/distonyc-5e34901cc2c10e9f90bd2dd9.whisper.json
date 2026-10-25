@@ -1,0 +1,283 @@
+{
+  "version": 1,
+  "songId": "distonyc-5e34901cc2c10e9f90bd2dd9",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5e34901cc2c10e9f90bd2dd9-fefd0f653bd6.mp3",
+  "audioSha256": "fefd0f653bd669a43a50e2427f7c493494e406c47b120ccbe10a4fc2795526e7",
+  "inputSha256": "fefd0f653bd669a43a50e2427f7c493494e406c47b120ccbe10a4fc2795526e7",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 660.5,
+  "segments": [
+    {
+      "start": 0.64,
+      "end": 1.18,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 53.26,
+      "end": 58.7,
+      "text": "Yeah, the room is blue after midnight",
+      "uncertain": false
+    },
+    {
+      "start": 60.1,
+      "end": 65.12,
+      "text": "Yeah, the window holds the rain",
+      "uncertain": false
+    },
+    {
+      "start": 66.84,
+      "end": 71.96,
+      "text": "Yeah, I wonder under the breathing",
+      "uncertain": true
+    },
+    {
+      "start": 71.96,
+      "end": 78.42,
+      "text": "Yeah, then the beast comes back again",
+      "uncertain": false
+    },
+    {
+      "start": 106.64,
+      "end": 112.02,
+      "text": "Yeah, slow smoke across the table",
+      "uncertain": true
+    },
+    {
+      "start": 113.46,
+      "end": 118.54,
+      "text": "Yeah, soft breaths down the hall",
+      "uncertain": true
+    },
+    {
+      "start": 119.86,
+      "end": 125.38,
+      "text": "Yeah, I'll let that live word hang over",
+      "uncertain": true
+    },
+    {
+      "start": 125.38,
+      "end": 131.78,
+      "text": "Yeah, till the shadows answer all",
+      "uncertain": false
+    },
+    {
+      "start": 136.64,
+      "end": 138.44,
+      "text": "Stay close",
+      "uncertain": false
+    },
+    {
+      "start": 143.38,
+      "end": 145.08,
+      "text": "Stay low",
+      "uncertain": false
+    },
+    {
+      "start": 153.76,
+      "end": 153.94,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 180.08,
+      "end": 181.48,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 213.76,
+      "end": 214.12,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 244.38,
+      "end": 249.66,
+      "text": "Yeah, the clock keeps losing limits",
+      "uncertain": false
+    },
+    {
+      "start": 251.08,
+      "end": 256.2,
+      "text": "Yeah, the streetlights blur and bend",
+      "uncertain": true
+    },
+    {
+      "start": 257.76,
+      "end": 262.86,
+      "text": "Yeah, the saxes keep it moving",
+      "uncertain": false
+    },
+    {
+      "start": 264.4,
+      "end": 269.48,
+      "text": "Yeah, this light will never end",
+      "uncertain": false
+    },
+    {
+      "start": 271.08,
+      "end": 276.2,
+      "text": "Yeah, no hurry in the doorway",
+      "uncertain": true
+    },
+    {
+      "start": 277.78,
+      "end": 282.84,
+      "text": "Yeah, no daylight on the floor",
+      "uncertain": false
+    },
+    {
+      "start": 284.48,
+      "end": 289.66,
+      "text": "Yeah, the drums lean into silence",
+      "uncertain": false
+    },
+    {
+      "start": 289.66,
+      "end": 317.4,
+      "text": "Once, yeah, then I give you one more, yeah, hear that horn cry, yeah, hear that these",
+      "uncertain": true
+    },
+    {
+      "start": 326.98,
+      "end": 331.34,
+      "text": "Yeah, let the dark talk.",
+      "uncertain": true
+    },
+    {
+      "start": 355.42,
+      "end": 356.96,
+      "text": "I've grown it",
+      "uncertain": true
+    },
+    {
+      "start": 381.6,
+      "end": 383.62,
+      "text": "After me",
+      "uncertain": false
+    },
+    {
+      "start": 409.74,
+      "end": 412.1,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 438.34,
+      "end": 443.42,
+      "text": "Yeah, the blue room turns to silver",
+      "uncertain": false
+    },
+    {
+      "start": 447.4,
+      "end": 450.22,
+      "text": "Yeah, the rain lets up our side",
+      "uncertain": true
+    },
+    {
+      "start": 453.16,
+      "end": 456.8,
+      "text": "Yeah, the trumpet finds the doorway",
+      "uncertain": false
+    },
+    {
+      "start": 458.98,
+      "end": 463.36,
+      "text": "Yeah, leaves the door behind",
+      "uncertain": false
+    },
+    {
+      "start": 465.38,
+      "end": 470.06,
+      "text": "Yeah, I held the night together",
+      "uncertain": true
+    },
+    {
+      "start": 471.54,
+      "end": 477.16,
+      "text": "Yeah, with one word and one time",
+      "uncertain": true
+    },
+    {
+      "start": 481.3,
+      "end": 486.34,
+      "text": "Can't breathe the mist with you",
+      "uncertain": true
+    },
+    {
+      "start": 499.86,
+      "end": 503.44,
+      "text": "Way after midnight",
+      "uncertain": true
+    },
+    {
+      "start": 508.64,
+      "end": 510.04,
+      "text": "I",
+      "uncertain": true
+    },
+    {
+      "start": 512.3,
+      "end": 513.7,
+      "text": "I",
+      "uncertain": true
+    },
+    {
+      "start": 516.56,
+      "end": 517.96,
+      "text": "I",
+      "uncertain": true
+    },
+    {
+      "start": 517.96,
+      "end": 518.36,
+      "text": "I",
+      "uncertain": true
+    },
+    {
+      "start": 518.36,
+      "end": 518.52,
+      "text": "I",
+      "uncertain": true
+    },
+    {
+      "start": 535.42,
+      "end": 538.22,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 567.32,
+      "end": 570.12,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 593.36,
+      "end": 597.86,
+      "text": "Oh, oh, oh, oh, oh",
+      "uncertain": true
+    },
+    {
+      "start": 614.16,
+      "end": 618.16,
+      "text": "Yeah, after midnight",
+      "uncertain": true
+    },
+    {
+      "start": 623.44,
+      "end": 624.48,
+      "text": "Amen.",
+      "uncertain": true
+    },
+    {
+      "start": 657.34,
+      "end": 660.14,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

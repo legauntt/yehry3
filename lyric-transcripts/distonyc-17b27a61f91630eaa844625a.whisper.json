@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "songId": "distonyc-17b27a61f91630eaa844625a",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-17b27a61f91630eaa844625a-a2889ce95bda.mp3",
+  "audioSha256": "a2889ce95bda88c0a81c28c38d97d1a2e359eace215e1288b8a71da36b432d49",
+  "inputSha256": "e55ffbe521952595fa836b0922b9af5b905e30fd36192bc95f0b960625175c71",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 150.047375,
+  "segments": [
+    {
+      "start": 4.3,
+      "end": 17.44,
+      "text": "What is right, oh baby don't hurt me, don't hurt me no more, baby don't hurt me, don't",
+      "uncertain": true
+    },
+    {
+      "start": 17.44,
+      "end": 26.8,
+      "text": "hurt me no more, oh I don't know why you're not there, I give you my love, but you don't",
+      "uncertain": false
+    },
+    {
+      "start": 26.8,
+      "end": 42.66,
+      "text": "so what is right and what is wrong give me a sign what is love oh baby don't hurt",
+      "uncertain": true
+    },
+    {
+      "start": 42.66,
+      "end": 53.86,
+      "text": "don't hurt me no more what is that oh baby don't hurt me don't hurt me no",
+      "uncertain": false
+    },
+    {
+      "start": 53.86,
+      "end": 75.22,
+      "text": "Oh I don't know what can I do what else can I say it's up to you I know we're",
+      "uncertain": true
+    },
+    {
+      "start": 75.22,
+      "end": 88.26,
+      "text": "one, just me and you. I can't go on. What is love? Oh, baby, don't hurt me. Don't hurt",
+      "uncertain": true
+    },
+    {
+      "start": 88.26,
+      "end": 100.76,
+      "text": "me no more. What is love? Oh, baby, don't hurt me. Don't hurt me no more. Oh, oh, oh,",
+      "uncertain": true
+    },
+    {
+      "start": 100.76,
+      "end": 130.62,
+      "text": "Woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah woah yeah I want no other, no other lover, this is your life, our time, when we are together, I need you forever, is it love, what is love, what is love, oh baby don't hurt me, don't hurt me, don't hurt me, don't hurt me.",
+      "uncertain": true
+    },
+    {
+      "start": 130.76,
+      "end": 131.8,
+      "text": "no more",
+      "uncertain": true
+    },
+    {
+      "start": 131.8,
+      "end": 134.1,
+      "text": "Baby, don't hurt me",
+      "uncertain": true
+    },
+    {
+      "start": 134.1,
+      "end": 136.42,
+      "text": "Don't hurt me",
+      "uncertain": false
+    },
+    {
+      "start": 136.42,
+      "end": 138.12,
+      "text": "no more",
+      "uncertain": false
+    },
+    {
+      "start": 140.34,
+      "end": 144.12,
+      "text": "Oh, oh, oh, oh, oh, oh, oh, oh",
+      "uncertain": false
+    }
+  ]
+}

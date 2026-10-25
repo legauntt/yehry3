@@ -1,0 +1,457 @@
+{
+  "version": 1,
+  "songId": "distonyc-b19431df8cbbdb71a568e763",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-b19431df8cbbdb71a568e763-3ea4ccd0eab1.mp3",
+  "audioSha256": "3ea4ccd0eab147f900e44dbc177de8f439a6311911be947e9f1e8b2c3bf7e588",
+  "inputSha256": "6ce8d3f210fddd12ccbea4bbc471b2f84039978f7681749fd462f6f365f69552",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 571.44,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 7.06,
+      "text": "He, move, die, clip, who, top it, body, dry.",
+      "uncertain": true
+    },
+    {
+      "start": 44.96,
+      "end": 45.06,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 60.0,
+      "end": 60.76,
+      "text": "I love it.",
+      "uncertain": true
+    },
+    {
+      "start": 61.14,
+      "end": 61.78,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 64.42,
+      "end": 65.36,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 66.2,
+      "end": 67.92,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 67.92,
+      "end": 69.84,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 69.84,
+      "end": 70.7,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 70.78,
+      "end": 71.56,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 72.58,
+      "end": 73.26,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 73.48,
+      "end": 74.36,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 74.68,
+      "end": 75.26,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 75.36,
+      "end": 75.74,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 76.12,
+      "end": 76.6,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 77.02,
+      "end": 77.84,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 77.92,
+      "end": 78.7,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 78.88,
+      "end": 79.48,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 79.48,
+      "end": 79.56,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 79.56,
+      "end": 79.66,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 80.58,
+      "end": 81.4,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 81.86,
+      "end": 83.08,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 84.36,
+      "end": 84.98,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 86.14,
+      "end": 86.72,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 86.94,
+      "end": 87.22,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 87.22,
+      "end": 87.48,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 87.82,
+      "end": 88.8,
+      "text": "I love it.",
+      "uncertain": false
+    },
+    {
+      "start": 112.7,
+      "end": 114.8,
+      "text": "All right, chesave.",
+      "uncertain": true
+    },
+    {
+      "start": 118.8,
+      "end": 120.0,
+      "text": "Dry as I agree",
+      "uncertain": true
+    },
+    {
+      "start": 127.34,
+      "end": 129.34,
+      "text": "Tea tea as I buy",
+      "uncertain": true
+    },
+    {
+      "start": 129.34,
+      "end": 131.12,
+      "text": "Yes, I will get several",
+      "uncertain": true
+    },
+    {
+      "start": 131.12,
+      "end": 133.78,
+      "text": "Ramia, Ramia, I had a worry",
+      "uncertain": true
+    },
+    {
+      "start": 133.78,
+      "end": 134.72,
+      "text": "Savory",
+      "uncertain": true
+    },
+    {
+      "start": 134.72,
+      "end": 136.6,
+      "text": "Glivite, Glivite",
+      "uncertain": true
+    },
+    {
+      "start": 136.6,
+      "end": 138.5,
+      "text": "Summane, Summane",
+      "uncertain": true
+    },
+    {
+      "start": 138.5,
+      "end": 141.58,
+      "text": "Koyera, Koyera, Rah-Rah-Rah-Rah-O-Z-I-E",
+      "uncertain": true
+    },
+    {
+      "start": 142.68,
+      "end": 144.26,
+      "text": "Cut cut that to see",
+      "uncertain": true
+    },
+    {
+      "start": 144.8,
+      "end": 145.56,
+      "text": "Flu exit",
+      "uncertain": true
+    },
+    {
+      "start": 146.36,
+      "end": 147.9,
+      "text": "Dry a dry a vibe",
+      "uncertain": true
+    },
+    {
+      "start": 147.9,
+      "end": 176.0,
+      "text": "Why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why, why.",
+      "uncertain": true
+    },
+    {
+      "start": 177.96,
+      "end": 190.44,
+      "text": "See you next time.",
+      "uncertain": true
+    },
+    {
+      "start": 207.9,
+      "end": 212.36,
+      "text": "Let's say you're right, you're right, you're right, you're right, you're right, you're right.",
+      "uncertain": true
+    },
+    {
+      "start": 254.4,
+      "end": 267.88,
+      "text": "I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do it, I don't know how to do",
+      "uncertain": true
+    },
+    {
+      "start": 267.88,
+      "end": 272.4,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 298.18,
+      "end": 298.64,
+      "text": "I'm sorry.",
+      "uncertain": true
+    },
+    {
+      "start": 298.68,
+      "end": 299.26,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 299.96,
+      "end": 300.42,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 300.6,
+      "end": 300.8,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 300.92,
+      "end": 301.0,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 301.0,
+      "end": 301.1,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 301.4,
+      "end": 301.98,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 301.98,
+      "end": 302.12,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 302.16,
+      "end": 302.24,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 302.34,
+      "end": 302.68,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 302.68,
+      "end": 303.82,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 303.82,
+      "end": 311.34,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 311.34,
+      "end": 311.48,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 312.36,
+      "end": 313.16,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 313.16,
+      "end": 313.34,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 313.4,
+      "end": 313.56,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 313.56,
+      "end": 313.58,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 313.58,
+      "end": 313.8,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 321.14,
+      "end": 322.06,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 325.3,
+      "end": 325.96,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 326.68,
+      "end": 327.06,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 327.06,
+      "end": 327.24,
+      "text": "I'm sorry.",
+      "uncertain": false
+    },
+    {
+      "start": 327.24,
+      "end": 329.72,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 357.24,
+      "end": 361.06,
+      "text": "T-A-T-A-T-A-T-A-T-A-T",
+      "uncertain": true
+    },
+    {
+      "start": 400.62,
+      "end": 400.72,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 417.24,
+      "end": 434.92,
+      "text": "G.O.P.E.L.P.E.L.P.E.L.C.",
+      "uncertain": true
+    },
+    {
+      "start": 447.24,
+      "end": 458.44,
+      "text": "We'll fight, we'll fight, we'll fight, we'll fight.",
+      "uncertain": true
+    },
+    {
+      "start": 477.32,
+      "end": 492.48,
+      "text": "Rabbi Rabbi Rabbi Rabbi Rabbi Rabbi Rabbi Rabbi Rabbi Rabbi Rabbi Rabbi Rabbi Rabbi",
+      "uncertain": true
+    },
+    {
+      "start": 492.48,
+      "end": 514.18,
+      "text": "my my my my my bye bye bye bye bye bye bye bye bye bye bye bye bye bye bye bye bye bye",
+      "uncertain": true
+    },
+    {
+      "start": 519.08,
+      "end": 520.14,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 552.34,
+      "end": 555.14,
+      "text": "Let's go!",
+      "uncertain": true
+    }
+  ]
+}

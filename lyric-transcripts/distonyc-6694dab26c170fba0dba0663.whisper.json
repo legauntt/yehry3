@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "songId": "distonyc-6694dab26c170fba0dba0663",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6694dab26c170fba0dba0663-edd1461ceba1.mp3",
+  "audioSha256": "edd1461ceba12cef3f02d301f5ccc036166eea9d7e099487fd01273c68179526",
+  "inputSha256": "2431654586f4e10fcb1af4c2ce221a30f788929b7063b76ae5dc1f3cf165d516",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 334.9681875,
+  "segments": [
+    {
+      "start": 6.58,
+      "end": 6.9,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 35.64,
+      "text": "is hard with a practice smirk. The numbers shine, but the story's thin. You have to show how you pull",
+      "uncertain": true
+    },
+    {
+      "start": 35.64,
+      "end": 48.18,
+      "text": "people in. I ask for a map, they hand me smoke. A leadership principle, trust as a joke.",
+      "uncertain": false
+    },
+    {
+      "start": 49.36,
+      "end": 53.8,
+      "text": "Tell me what influence means",
+      "uncertain": false
+    },
+    {
+      "start": 53.8,
+      "end": 57.36,
+      "text": "Is it a meeting, is it a scene",
+      "uncertain": true
+    },
+    {
+      "start": 57.36,
+      "end": 61.94,
+      "text": "Is it my name on somebody's slide",
+      "uncertain": false
+    },
+    {
+      "start": 61.94,
+      "end": 66.74,
+      "text": "Is it a room where the truth stays outside",
+      "uncertain": false
+    },
+    {
+      "start": 66.74,
+      "end": 71.18,
+      "text": "I made the river run on time",
+      "uncertain": false
+    },
+    {
+      "start": 71.72,
+      "end": 75.8,
+      "text": "Still I'm below some invisible line",
+      "uncertain": false
+    },
+    {
+      "start": 75.8,
+      "end": 82.38,
+      "text": "Tell me what influence means before they measure me out of the team",
+      "uncertain": true
+    },
+    {
+      "start": 82.38,
+      "end": 87.36,
+      "text": "A document lands with a careful tone",
+      "uncertain": true
+    },
+    {
+      "start": 87.36,
+      "end": 91.64,
+      "text": "30 days to prove I don't work alone",
+      "uncertain": false
+    },
+    {
+      "start": 91.64,
+      "end": 96.1,
+      "text": "A pip with boxes, amber and red",
+      "uncertain": false
+    },
+    {
+      "start": 96.1,
+      "end": 101.04,
+      "text": "Every vague little signal inside my head",
+      "uncertain": false
+    },
+    {
+      "start": 101.04,
+      "end": 105.14,
+      "text": "Raise the barn, trust, think big",
+      "uncertain": false
+    },
+    {
+      "start": 105.14,
+      "end": 112.66,
+      "text": "i circle each phrase till the margins twitch i ask what changed they clear their throats",
+      "uncertain": true
+    },
+    {
+      "start": 112.66,
+      "end": 124.02,
+      "text": "and speaking weather reports that no there is stack ranking under the floor a polished bell",
+      "uncertain": false
+    },
+    {
+      "start": 124.02,
+      "end": 132.64,
+      "text": "above a trap door we trade our wins in a narrow light trying to look indispensable",
+      "uncertain": false
+    },
+    {
+      "start": 132.64,
+      "end": 144.0,
+      "text": "of all pleasant pride i helped her launch he fixed my break now every favor has a shake to take",
+      "uncertain": true
+    },
+    {
+      "start": 144.0,
+      "end": 158.18,
+      "text": "the somebody's future loses a seat tell me what influence means is it a meeting is it a scene",
+      "uncertain": true
+    },
+    {
+      "start": 158.18,
+      "end": 169.82,
+      "text": "is it my name on somebody's side is in a room where the truth stays outside i made the river",
+      "uncertain": true
+    },
+    {
+      "start": 169.82,
+      "end": 180.48,
+      "text": "run on time still i'm the low storm invisible line tell me what influence means before they",
+      "uncertain": true
+    },
+    {
+      "start": 180.48,
+      "end": 191.62,
+      "text": "measure me out of the tea for social gatherings thursday night tiny name tags under brewery",
+      "uncertain": true
+    },
+    {
+      "start": 191.62,
+      "end": 201.0,
+      "text": "light i hold a paper cup rehearsal laugh making network from the better half political schmoozing",
+      "uncertain": false
+    },
+    {
+      "start": 201.0,
+      "end": 210.34,
+      "text": "by the catered wall nodding at titles i cannot recall they call it connection they call it care",
+      "uncertain": false
+    },
+    {
+      "start": 210.34,
+      "end": 214.0,
+      "text": "I call it breathing the conference in",
+      "uncertain": true
+    },
+    {
+      "start": 215.66,
+      "end": 219.76,
+      "text": "I bring a plan to the skip level call",
+      "uncertain": true
+    },
+    {
+      "start": 219.76,
+      "end": 224.34,
+      "text": "Free shock proposals, risks and all",
+      "uncertain": true
+    },
+    {
+      "start": 224.34,
+      "end": 228.94,
+      "text": "He says be louder in the room",
+      "uncertain": false
+    },
+    {
+      "start": 228.94,
+      "end": 233.2,
+      "text": "Like volume alone can make a garden bloom",
+      "uncertain": false
+    },
+    {
+      "start": 233.2,
+      "end": 235.86,
+      "text": "I say who's room, which door, what roof",
+      "uncertain": false
+    },
+    {
+      "start": 235.86,
+      "end": 244.76,
+      "text": "the silence gathers around the truth then somebody says let's take this offline",
+      "uncertain": true
+    },
+    {
+      "start": 244.76,
+      "end": 256.56,
+      "text": "and the clock keeps you in my borrowed side i will not sell a borrowed face return my friends",
+      "uncertain": false
+    },
+    {
+      "start": 256.56,
+      "end": 259.44,
+      "text": "Into a ladder's place",
+      "uncertain": true
+    },
+    {
+      "start": 259.44,
+      "end": 261.38,
+      "text": "I can speak clear",
+      "uncertain": false
+    },
+    {
+      "start": 261.38,
+      "end": 264.02,
+      "text": "I can build and bend",
+      "uncertain": false
+    },
+    {
+      "start": 264.02,
+      "end": 268.54,
+      "text": "But I won't call a contest a friend",
+      "uncertain": false
+    },
+    {
+      "start": 270.16,
+      "end": 274.54,
+      "text": "Now I know what influence means",
+      "uncertain": false
+    },
+    {
+      "start": 274.54,
+      "end": 279.34,
+      "text": "A shadow moving behind the scenes",
+      "uncertain": false
+    },
+    {
+      "start": 279.84,
+      "end": 283.48,
+      "text": "A handshake held a second too long",
+      "uncertain": false
+    },
+    {
+      "start": 283.48,
+      "end": 287.06,
+      "text": "A careful smile where a doubt belongs",
+      "uncertain": true
+    },
+    {
+      "start": 287.78,
+      "end": 290.62,
+      "text": "But I made the river run on time",
+      "uncertain": false
+    },
+    {
+      "start": 290.62,
+      "end": 293.92,
+      "text": "And I won't disappear to fit their line",
+      "uncertain": false
+    },
+    {
+      "start": 293.92,
+      "end": 298.28,
+      "text": "You can score me, sword me, close the screen",
+      "uncertain": false
+    },
+    {
+      "start": 298.28,
+      "end": 302.24,
+      "text": "I am more than your influence criteria",
+      "uncertain": false
+    },
+    {
+      "start": 304.64,
+      "end": 309.86,
+      "text": "Keep your amber boxes, keep your chart",
+      "uncertain": false
+    },
+    {
+      "start": 309.86,
+      "end": 314.32,
+      "text": "I kept the craft and I kept my heart",
+      "uncertain": false
+    },
+    {
+      "start": 314.32,
+      "end": 316.66,
+      "text": "When the badge goes dark",
+      "uncertain": true
+    },
+    {
+      "start": 316.66,
+      "end": 318.94,
+      "text": "When the hallway clears",
+      "uncertain": true
+    },
+    {
+      "start": 318.94,
+      "end": 323.44,
+      "text": "I leave with my name intact this year",
+      "uncertain": false
+    }
+  ]
+}

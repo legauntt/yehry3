@@ -1,0 +1,175 @@
+{
+  "version": 1,
+  "songId": "distonyc-e2f5842989d521bf6f16a3a7",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e2f5842989d521bf6f16a3a7-9ab3896fb41a.mp3",
+  "audioSha256": "9ab3896fb41a16da411489eb3d3ab0d0fe2a9717e33534c2a0afbc4e9179ea0a",
+  "inputSha256": "788c4e5f7caad77145c0f502a63795d489713e849e82e4edfef115848575c660",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 220.029375,
+  "segments": [
+    {
+      "start": 6.08,
+      "end": 10.4,
+      "text": "Yeah, midnight settles on the window pane",
+      "uncertain": false
+    },
+    {
+      "start": 13.22,
+      "end": 17.18,
+      "text": "The streetlight paints a silver line",
+      "uncertain": true
+    },
+    {
+      "start": 18.48,
+      "end": 22.1,
+      "text": "The slow horn leans across the night",
+      "uncertain": false
+    },
+    {
+      "start": 24.78,
+      "end": 28.42,
+      "text": "I leave the hard words at the door",
+      "uncertain": false
+    },
+    {
+      "start": 30.42,
+      "end": 33.62,
+      "text": "And let the room breathe something more",
+      "uncertain": false
+    },
+    {
+      "start": 33.62,
+      "end": 38.22,
+      "text": "Yeah, the clock keeps turning low",
+      "uncertain": true
+    },
+    {
+      "start": 39.76,
+      "end": 46.4,
+      "text": "Yeah, but I know where I want to go",
+      "uncertain": false
+    },
+    {
+      "start": 52.44,
+      "end": 57.34,
+      "text": "No need to prove a thing tonight",
+      "uncertain": false
+    },
+    {
+      "start": 57.34,
+      "end": 63.78,
+      "text": "Just let the blue notes make it right",
+      "uncertain": false
+    },
+    {
+      "start": 67.52,
+      "end": 69.6,
+      "text": "Yeah, after midnight",
+      "uncertain": false
+    },
+    {
+      "start": 69.6,
+      "end": 73.04,
+      "text": "Yeah, when the city lets go",
+      "uncertain": false
+    },
+    {
+      "start": 73.04,
+      "end": 75.58,
+      "text": "Yeah, after midnight",
+      "uncertain": false
+    },
+    {
+      "start": 75.58,
+      "end": 78.76,
+      "text": "Let the soft bass carry me home",
+      "uncertain": false
+    },
+    {
+      "start": 78.76,
+      "end": 81.68,
+      "text": "Yeah, after midnight",
+      "uncertain": false
+    },
+    {
+      "start": 81.68,
+      "end": 85.42,
+      "text": "No fight left in my hands",
+      "uncertain": false
+    },
+    {
+      "start": 85.42,
+      "end": 94.62,
+      "text": "Yeah, after midnight, I make peace with hate who I am.",
+      "uncertain": true
+    },
+    {
+      "start": 103.02,
+      "end": 112.06,
+      "text": "A coffee cup, a vacant tree, a little laugh beneath the rain.",
+      "uncertain": true
+    },
+    {
+      "start": 114.2,
+      "end": 118.68,
+      "text": "I had a storm behind my teeth",
+      "uncertain": false
+    },
+    {
+      "start": 120.22,
+      "end": 124.16,
+      "text": "Now every chord gives some relief",
+      "uncertain": false
+    },
+    {
+      "start": 124.16,
+      "end": 129.26,
+      "text": "Yeah, I was talking way too loud",
+      "uncertain": false
+    },
+    {
+      "start": 129.26,
+      "end": 135.34,
+      "text": "Yeah, I was lost inside the crowd",
+      "uncertain": false
+    },
+    {
+      "start": 135.34,
+      "end": 159.54,
+      "text": "Oh, yeah, hold that note till the neon fades, yeah, all the old heat slips away, yeah, I choose a quieter kind of strong, and the night keeps singing on.",
+      "uncertain": true
+    },
+    {
+      "start": 166.26,
+      "end": 172.1,
+      "text": "Yeah, after midnight, yeah, when the city lets go",
+      "uncertain": true
+    },
+    {
+      "start": 172.1,
+      "end": 178.1,
+      "text": "Yeah, after midnight, let the soft bass carry me home",
+      "uncertain": true
+    },
+    {
+      "start": 178.1,
+      "end": 184.2,
+      "text": "Yeah, after midnight, the dark turns tender and warm",
+      "uncertain": false
+    },
+    {
+      "start": 184.2,
+      "end": 207.84,
+      "text": "After midnight, I meet the light before the dawn, I meet the light before the dawn.",
+      "uncertain": false
+    },
+    {
+      "start": 214.2,
+      "end": 215.54,
+      "text": "Forever",
+      "uncertain": true
+    }
+  ]
+}

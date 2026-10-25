@@ -50,9 +50,9 @@ export function mountDoodlePad(canvas, tools, { strokes, onChange, say }) {
   live.setAttribute("stroke-linejoin", "round");
   pad.append(live);
   canvas.append(pad);
-  tools.innerHTML = '<div class="art-doodle-pens" role="group" aria-label="Pen color">' + pens.map((name, index) => '<button type="button" class="art-chip art-pen" data-pen="' + index + '" aria-pressed="' + (index === 0) + '" aria-label="' + name + '" title="' + name + '"></button>').join("") + '</div>'
+  tools.innerHTML = '<span class="small" aria-hidden="true">Color</span><div class="art-doodle-pens" role="group" aria-label="Pen color">' + pens.map((name, index) => '<button type="button" class="art-chip art-pen" data-pen="' + index + '" aria-pressed="' + (index === 0) + '" aria-label="' + name + '" title="' + name + '"></button>').join("") + '</div>'
     + '<div class="art-doodle-sizes" role="group" aria-label="Pen size">' + sizes.map((name, index) => '<button type="button" class="art-chip" data-size="' + index + '" aria-pressed="' + (index === 1) + '">' + name + '</button>').join("") + '</div>'
-    + '<button type="button" class="song-action" data-doodle-undo disabled>Undo</button><button type="button" class="song-action" data-doodle-clear disabled>Clear</button><span class="small" data-doodle-ink></span>';
+    + '<button type="button" class="song-action" data-doodle-undo disabled>↩️ Undo</button><button type="button" class="song-action doodle-clear" data-doodle-clear disabled>🗑️ Clear</button><span class="small" data-doodle-ink></span>';
   const undo = tools.querySelector("[data-doodle-undo]"), clear = tools.querySelector("[data-doodle-clear]"), meter = tools.querySelector("[data-doodle-ink]");
   let pen = 0, size = 1, colors = [], pointer = null, stroke = null;
   const widths = [3, 6, 11];

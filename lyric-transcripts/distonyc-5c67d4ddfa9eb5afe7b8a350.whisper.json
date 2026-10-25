@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "songId": "distonyc-5c67d4ddfa9eb5afe7b8a350",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c67d4ddfa9eb5afe7b8a350-391907551888.mp3",
+  "audioSha256": "391907551888ccaf17bec7034395eaecba77a77f68eb367b8a281502096a7cf1",
+  "inputSha256": "da2e046805132f9f9c0f9fca7ee8f040a159bf806cc050af4f97f1ae2cf2b6e4",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 144.24,
+  "segments": [
+    {
+      "start": 2.02,
+      "end": 7.98,
+      "text": "the golden answer hit the air at eight by noon the bottles lined the interstate",
+      "uncertain": true
+    },
+    {
+      "start": 7.98,
+      "end": 13.34,
+      "text": "they raised the warm beneath the courthouse clock while smiling anchors called it common",
+      "uncertain": false
+    },
+    {
+      "start": 13.34,
+      "end": 19.72,
+      "text": "sense the father toasted victory at lunch his kidneys clenched it for the evening news",
+      "uncertain": false
+    },
+    {
+      "start": 19.72,
+      "end": 25.48,
+      "text": "a bride went gray beside the wedding cake and left a yellow shadow in the lace",
+      "uncertain": false
+    },
+    {
+      "start": 25.48,
+      "end": 28.34,
+      "text": "Take it down, the nation cried",
+      "uncertain": false
+    },
+    {
+      "start": 28.34,
+      "end": 31.12,
+      "text": "Salt on the tongue and fire inside",
+      "uncertain": false
+    },
+    {
+      "start": 31.12,
+      "end": 34.06,
+      "text": "Your golden answer sold a lie",
+      "uncertain": false
+    },
+    {
+      "start": 34.06,
+      "end": 36.76,
+      "text": "Then every bathroom learned to testify",
+      "uncertain": false
+    },
+    {
+      "start": 39.8,
+      "end": 42.76,
+      "text": "Phoenix bodies twister in the heat",
+      "uncertain": true
+    },
+    {
+      "start": 42.76,
+      "end": 45.6,
+      "text": "Their mouths like paper hearts off every knee",
+      "uncertain": false
+    },
+    {
+      "start": 45.6,
+      "end": 48.72,
+      "text": "In Boston, office workers locked their jaws",
+      "uncertain": true
+    },
+    {
+      "start": 48.72,
+      "end": 51.52,
+      "text": "And tore their lips on cups of brittle glass",
+      "uncertain": false
+    },
+    {
+      "start": 51.52,
+      "end": 54.38,
+      "text": "A marching band collapsed along the route",
+      "uncertain": true
+    },
+    {
+      "start": 54.38,
+      "end": 57.28,
+      "text": "The uniforms went dark from inside out",
+      "uncertain": false
+    },
+    {
+      "start": 57.28,
+      "end": 60.14,
+      "text": "One tube out held a final crooked tone",
+      "uncertain": true
+    },
+    {
+      "start": 60.14,
+      "end": 63.08,
+      "text": "While something red and foamy filled the horn",
+      "uncertain": false
+    },
+    {
+      "start": 63.08,
+      "end": 65.98,
+      "text": "Drink it down, the nation cried",
+      "uncertain": false
+    },
+    {
+      "start": 65.98,
+      "end": 68.7,
+      "text": "Salt on the tongue and fire inside",
+      "uncertain": false
+    },
+    {
+      "start": 68.7,
+      "end": 71.64,
+      "text": "The golden answer sold the lie",
+      "uncertain": false
+    },
+    {
+      "start": 71.64,
+      "end": 74.3,
+      "text": "And every bathroom learned to testify",
+      "uncertain": false
+    },
+    {
+      "start": 77.04,
+      "end": 81.22,
+      "text": "No miracle was hiding in the waste",
+      "uncertain": true
+    },
+    {
+      "start": 82.7,
+      "end": 92.22,
+      "text": "just thirst returning with the poison face the living watch the death count scrape the sky",
+      "uncertain": true
+    },
+    {
+      "start": 93.6,
+      "end": 98.2,
+      "text": "and still the jingle told them one more try",
+      "uncertain": false
+    },
+    {
+      "start": 100.14,
+      "end": 106.42,
+      "text": "the hospitals rim black with failing lights the gutters steamed through three unending nights",
+      "uncertain": false
+    },
+    {
+      "start": 106.42,
+      "end": 109.3,
+      "text": "A million cups lay shining in the dawn",
+      "uncertain": false
+    },
+    {
+      "start": 109.3,
+      "end": 112.12,
+      "text": "Beside the swollen dead on every lung",
+      "uncertain": false
+    },
+    {
+      "start": 112.12,
+      "end": 115.04,
+      "text": "At last one child reached up and killed the song",
+      "uncertain": false
+    },
+    {
+      "start": 115.04,
+      "end": 117.92,
+      "text": "The speakers clicked, the awful spell was gone",
+      "uncertain": false
+    },
+    {
+      "start": 117.92,
+      "end": 120.86,
+      "text": "She blew up the final bottle in the drain",
+      "uncertain": true
+    },
+    {
+      "start": 120.86,
+      "end": 123.78,
+      "text": "And rain came clean against the window pane",
+      "uncertain": false
+    },
+    {
+      "start": 123.78,
+      "end": 126.68,
+      "text": "Drink it down, the nation lied",
+      "uncertain": false
+    },
+    {
+      "start": 126.68,
+      "end": 129.58,
+      "text": "Gold in the glass, the death in sight",
+      "uncertain": false
+    },
+    {
+      "start": 129.58,
+      "end": 132.34,
+      "text": "The answer failed, the fever died",
+      "uncertain": false
+    },
+    {
+      "start": 132.34,
+      "end": 135.3,
+      "text": "Remember every mouth it left bone dry",
+      "uncertain": true
+    },
+    {
+      "start": 135.3,
+      "end": 135.94,
+      "text": "I'm done.",
+      "uncertain": true
+    }
+  ]
+}

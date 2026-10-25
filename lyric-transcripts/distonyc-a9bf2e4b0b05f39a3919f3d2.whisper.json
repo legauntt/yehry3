@@ -1,0 +1,343 @@
+{
+  "version": 1,
+  "songId": "distonyc-a9bf2e4b0b05f39a3919f3d2",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a9bf2e4b0b05f39a3919f3d2-c6dc734d14d6.mp3",
+  "audioSha256": "c6dc734d14d6ad2ba0d7ade32d0afbf959481b88ff6b684e9736ea84f4d8d809",
+  "inputSha256": "c6dc734d14d6ad2ba0d7ade32d0afbf959481b88ff6b684e9736ea84f4d8d809",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 188.9,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.78,
+      "text": "Morning cracks on a Tulane town",
+      "uncertain": false
+    },
+    {
+      "start": 5.42,
+      "end": 9.6,
+      "text": "Coffee burns while the sun comes round",
+      "uncertain": false
+    },
+    {
+      "start": 9.6,
+      "end": 12.1,
+      "text": "Nightshare the nurse",
+      "uncertain": true
+    },
+    {
+      "start": 12.1,
+      "end": 14.12,
+      "text": "Loading dark crew",
+      "uncertain": true
+    },
+    {
+      "start": 14.12,
+      "end": 21.02,
+      "text": "Doing what the day asked them to do",
+      "uncertain": true
+    },
+    {
+      "start": 26.72,
+      "end": 29.52,
+      "text": "Rose opens up the corner store",
+      "uncertain": false
+    },
+    {
+      "start": 29.52,
+      "end": 31.62,
+      "text": "Cattle sweeps dust from the factory floor",
+      "uncertain": false
+    },
+    {
+      "start": 31.62,
+      "end": 33.94,
+      "text": "Kids catch breakfast at a quarter to eight",
+      "uncertain": true
+    },
+    {
+      "start": 33.94,
+      "end": 36.08,
+      "text": "Bus drive a prince when they're running late",
+      "uncertain": false
+    },
+    {
+      "start": 36.08,
+      "end": 38.42,
+      "text": "A roofer laps with the heat on his back",
+      "uncertain": false
+    },
+    {
+      "start": 38.42,
+      "end": 40.66,
+      "text": "A young mom studies when the whole house blacks",
+      "uncertain": false
+    },
+    {
+      "start": 40.66,
+      "end": 42.94,
+      "text": "Nobody famous, low-bodied crown",
+      "uncertain": true
+    },
+    {
+      "start": 42.94,
+      "end": 45.22,
+      "text": "Just the people keeping this whole thing sound",
+      "uncertain": false
+    },
+    {
+      "start": 45.22,
+      "end": 47.28,
+      "text": "Every wheel needs a hand somewhere",
+      "uncertain": false
+    },
+    {
+      "start": 47.28,
+      "end": 49.82,
+      "text": "Every hard mile needs somebody there",
+      "uncertain": false
+    },
+    {
+      "start": 51.78,
+      "end": 54.02,
+      "text": "Holding it down, holding it down",
+      "uncertain": false
+    },
+    {
+      "start": 54.02,
+      "end": 56.32,
+      "text": "Making a life from a northern every town",
+      "uncertain": false
+    },
+    {
+      "start": 56.32,
+      "end": 58.52,
+      "text": "Bit but breathing, finding our way",
+      "uncertain": true
+    },
+    {
+      "start": 58.52,
+      "end": 66.0,
+      "text": "We build it tomorrow from the way for today, from the county road to the city downtown, and look at the people holding it down.",
+      "uncertain": true
+    },
+    {
+      "start": 69.62,
+      "end": 73.98,
+      "text": "Old Jim fixes what the rich throw out, Mina speaks when the room fills with doubt.",
+      "uncertain": true
+    },
+    {
+      "start": 74.2,
+      "end": 78.3,
+      "text": "The cook in the town knows every name, the volunteer coach stays late in the rain.",
+      "uncertain": true
+    },
+    {
+      "start": 78.58,
+      "end": 82.7,
+      "text": "Hands get dirty and the rent comes due, still somebody says you were placed in the queue.",
+      "uncertain": false
+    },
+    {
+      "start": 82.88,
+      "end": 87.32,
+      "text": "We lose, we mend, we pass hope around, that's how the people keep holding it down.",
+      "uncertain": false
+    },
+    {
+      "start": 87.32,
+      "end": 89.58,
+      "text": "When the gears fight hard and the wheat runs long",
+      "uncertain": false
+    },
+    {
+      "start": 89.58,
+      "end": 92.04,
+      "text": "A crooked laugh keeps the whole lot strong",
+      "uncertain": false
+    },
+    {
+      "start": 94.08,
+      "end": 96.28,
+      "text": "Holding it down, holding it down",
+      "uncertain": false
+    },
+    {
+      "start": 96.28,
+      "end": 98.48,
+      "text": "Making it alive while the world spins around",
+      "uncertain": true
+    },
+    {
+      "start": 98.48,
+      "end": 100.7,
+      "text": "Bend from breathing, finding our way",
+      "uncertain": true
+    },
+    {
+      "start": 100.7,
+      "end": 102.74,
+      "text": "Carrying the night to the edge of the day",
+      "uncertain": false
+    },
+    {
+      "start": 102.74,
+      "end": 105.24,
+      "text": "From the wheat field blend to the subway sound",
+      "uncertain": false
+    },
+    {
+      "start": 105.24,
+      "end": 108.18,
+      "text": "Look at the people holding it down",
+      "uncertain": false
+    },
+    {
+      "start": 111.62,
+      "end": 113.84,
+      "text": "No marble statue, no victory speech",
+      "uncertain": true
+    },
+    {
+      "start": 113.84,
+      "end": 116.16,
+      "text": "Just a hand held out when the road gets steep",
+      "uncertain": false
+    },
+    {
+      "start": 116.16,
+      "end": 118.34,
+      "text": "One porch light burning against the dock",
+      "uncertain": true
+    },
+    {
+      "start": 118.34,
+      "end": 120.54,
+      "text": "One stubborn heart and a borrowed spark",
+      "uncertain": true
+    },
+    {
+      "start": 120.54,
+      "end": 122.92,
+      "text": "The nurse clocks out as the school doors rise",
+      "uncertain": false
+    },
+    {
+      "start": 122.92,
+      "end": 125.06,
+      "text": "The baker's flour from tired eyes",
+      "uncertain": false
+    },
+    {
+      "start": 125.06,
+      "end": 127.3,
+      "text": "No spotlight falls but the truth comes through",
+      "uncertain": true
+    },
+    {
+      "start": 127.3,
+      "end": 129.8,
+      "text": "This whole place moves because somebody moves",
+      "uncertain": false
+    },
+    {
+      "start": 129.8,
+      "end": 131.94,
+      "text": "Call it work, call it care",
+      "uncertain": false
+    },
+    {
+      "start": 131.94,
+      "end": 134.14,
+      "text": "Call it showing up and staying back",
+      "uncertain": true
+    },
+    {
+      "start": 135.84,
+      "end": 138.46,
+      "text": "When the wheels run rough and the walls shake loud",
+      "uncertain": false
+    },
+    {
+      "start": 138.46,
+      "end": 140.96,
+      "text": "You feel those hands still holding it down",
+      "uncertain": false
+    },
+    {
+      "start": 142.9,
+      "end": 145.08,
+      "text": "Holding it down, holding it down",
+      "uncertain": false
+    },
+    {
+      "start": 145.08,
+      "end": 147.38,
+      "text": "Making a life from the lost and the found",
+      "uncertain": true
+    },
+    {
+      "start": 147.38,
+      "end": 149.5,
+      "text": "Bent up, breathing shoulder to shoulder",
+      "uncertain": true
+    },
+    {
+      "start": 149.5,
+      "end": 151.76,
+      "text": "Every small kind is making us broader",
+      "uncertain": true
+    },
+    {
+      "start": 151.76,
+      "end": 153.8,
+      "text": "From the county road to the city downtown",
+      "uncertain": false
+    },
+    {
+      "start": 153.8,
+      "end": 156.6,
+      "text": "We are the people holding it down",
+      "uncertain": false
+    },
+    {
+      "start": 156.6,
+      "end": 158.5,
+      "text": "And then on when the green light has gone",
+      "uncertain": true
+    },
+    {
+      "start": 158.5,
+      "end": 160.76,
+      "text": "Holding it down till the next light comes on",
+      "uncertain": false
+    },
+    {
+      "start": 160.76,
+      "end": 163.0,
+      "text": "Together, together through trouble and doubt",
+      "uncertain": false
+    },
+    {
+      "start": 163.0,
+      "end": 166.18,
+      "text": "We are the people still holding it down",
+      "uncertain": false
+    },
+    {
+      "start": 170.06,
+      "end": 173.62,
+      "text": "Falling cracks and the wheels come round",
+      "uncertain": false
+    },
+    {
+      "start": 175.2,
+      "end": 183.32,
+      "text": "Still the people holding it down",
+      "uncertain": false
+    }
+  ]
+}

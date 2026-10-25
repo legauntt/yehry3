@@ -27,7 +27,7 @@ def classify(work, error):
     state_path = Path(work) / 'desktop-status.json'
     if not state_path.exists(): return []
     state = load(state_path)
-    detail = state.get('error', '')
+    detail = state.get('error') or ''
     exceptions = list(re.finditer(r'^([\w.]+(?:Error|Exception)|KeyboardInterrupt|SystemExit)(?::|$)', detail, re.MULTILINE))
     if exceptions:
         last = exceptions[-1]
@@ -111,14 +111,20 @@ def verify(work, output_dir):
     return result
 
 
-def execute(engine, request, work, manifest, review_fallback=True, **options):
+def execute(engine, request, work, manifest, review_fallback=True, before_fallback=None, **options):
     """Retain the normal renderer, with one deterministic playable-delivery fallback."""
     settings = request['config']['settings']
-    if (work / 'review-delivery.json').exists():
+    if (work / 'review-delivery.json').exists() and not request.get('continue_nonverbal_conversion'):
         return verify(work, settings['output_dir'])
     try:
         return engine.execute_stages(work, manifest, **options)
     except (RuntimeError, ValueError) as error:
+        from nonverbal_recovery import prepare as prepare_nonverbal
+        if prepare_nonverbal(request, work):
+            try:
+                return engine.execute_stages(work, manifest, **options)
+            except (RuntimeError, ValueError) as resumed:
+                error = resumed
         # A silent section rejected by the assembler is repaired here, in the same attempt, so the song is
         # finished with Tony's voice instead of falling through to the generated singer.
         if inactive_recovery.needed(work, request.get('voice_model', 'v6')) and inactive_recovery.recover(work, settings):
@@ -126,6 +132,10 @@ def execute(engine, request, work, manifest, review_fallback=True, **options):
                 return engine.execute_stages(work, manifest, **options)
             except (RuntimeError, ValueError) as resumed:
                 error = resumed
+        if (before_fallback and isinstance(error, RuntimeError)
+                and 'Ending needs completion before fade' in str(error) and before_fallback()):
+            # Let the renderer record and run its existing bounded remedy first.
+            raise RuntimeError(str(error)) from error
         failures = classify(work, error)
         if not failures or not review_fallback:
             raise
@@ -237,13 +247,15 @@ def export(work):
             save(prior, load(report_path))
     arrangement = load(work / 'arrangement-checks.json') if (work / 'arrangement-checks.json').exists() else {}
     voice_checks = load(work / 'voice-checks.json') if (work / 'voice-checks.json').exists() else {'passed': False, 'review_required': True}
+    from review_measurements import with_measurements
+    result['qualityIssues'] = with_measurements(previous.get('qualityIssues', []), work)
     report = {**result, 'status': 'completed', 'voice_checks': voice_checks,
               'mp3_true_peak_dbfs': checks['peak_dbfs'], 'final_half_second_rms_dbfs': checks['tail_dbfs'],
               # Keep measured evidence when available. The compatibility zero is
               # explicitly unmeasured, never evidence that the dropout check passed.
               'longest_missing_vocal_run_seconds': previous.get('longest_missing_vocal_run_seconds', 0),
               'vocal_dropout_measured': previous.get('vocal_dropout_measured', 'longest_missing_vocal_run_seconds' in previous),
-              'qualityIssues': previous.get('qualityIssues', []),
+              'qualityIssues': result['qualityIssues'],
               'arrangement_measured': bool(arrangement),
               'final_post_vocal_seconds': max(0, duration - arrangement.get('last_detected_voice', duration)),
               'arrangement': {'first_detected_voice': arrangement.get('first_detected_voice', 0), **arrangement},

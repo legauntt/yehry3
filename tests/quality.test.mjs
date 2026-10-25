@@ -2,6 +2,19 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { qualityNotice } from '../assets/quality.js';
 
+test('review notes start expanded and explain measured checks', () => {
+  const html = qualityNotice([
+    {code:'vocal_activity_check', fraction:.394166, requiredFraction:.5, minimumFraction:.05},
+    {code:'voice_pitch_check', phrase:'phrase-001', sourceFrames:16, convertedFrames:6, analyzedFrames:929, minimumMutualFrames:11},
+  ], 'needs_review', ['voice_validation']);
+  assert.match(html, /quality-notice" open/);
+  assert.match(html, /39.4%/);
+  assert.match(html, /requires 50%/);
+  assert.match(html, /at least 5%/);
+  assert.match(html, /16 pitched source frames and 6 pitched converted frames out of 929/);
+  assert.doesNotMatch(qualityNotice([{code:'voice_pitch_check',phrase:'<script>'}], 'needs_review', ['voice_validation']), /<script>/);
+});
+
 test('quality notice is useful and cannot inject untrusted markup', () => {
   assert.equal(qualityNotice(), '');
   assert.equal(qualityNotice([{code:'other',seconds:23}]), '');

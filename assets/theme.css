@@ -11,8 +11,7 @@ html[data-shared-theme][data-theme="dark"] {
 html[data-shared-theme][data-theme="dark"] body { background: var(--paper); color: var(--ink); }
 html[data-shared-theme][data-theme="dark"] h1 em { color: #b8cb9d; }
 html[data-shared-theme][data-theme="dark"] .active-filter { background: var(--light); color: var(--ink); }
-html[data-shared-theme][data-theme="dark"] :is(.record-lyric, .listening-card, .remix-note, .lyric-line.is-linked, button.lyric-line:hover) { background: var(--light); color: var(--ink); }
-html[data-shared-theme][data-theme="dark"] .record-lyric::after { border-right-color: var(--light); }
+html[data-shared-theme][data-theme="dark"] :is(.listening-card, .remix-note, .lyric-line.is-linked, button.lyric-line:hover) { background: var(--light); color: var(--ink); }
 html[data-shared-theme][data-theme="dark"] :is(.sleeve, .sleeve-bottom, .stamp) { color: #283b30; }
 html[data-shared-theme][data-theme="dark"] :is(.steps, .brief, .request-form blockquote, .dehaka-panel, .dehaka-turn, .dehaka-turn-operator, .dehaka-turn-dehaka, .attention-problem, .recovery-note, .record-caption, .queue-alerts, .prompt-brief, .track:hover, .track.playing, .pending-track, .stats a, .success-mark) {
   background: var(--light); color: var(--ink); border-color: var(--line);
@@ -25,7 +24,8 @@ html[data-shared-theme][data-theme="dark"] :is(.field-error, .attention-note, .p
 html[data-shared-theme][data-theme="dark"] .attention-note { background: #3a2721; border-left-color: #c2714f; }
 html[data-shared-theme][data-theme="dark"] :is(.dehaka-context blockquote, .dehaka-action, .presence-pill.online) { color: #b4d8a0; }
 /* The shared card rule above resets every border side, so restore the accents and cover the remaining light panels. */
-html[data-shared-theme][data-theme="dark"] :is(.dehaka-form, .dehaka-thread, .empty) { background: var(--light); color: var(--ink); border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] :is(.dehaka-form, .dehaka-thread, .support-report, .clippy, .empty) { background: var(--light); color: var(--ink); border-color: var(--line); }
+html[data-shared-theme][data-theme="dark"] .clippy-options li { border-color: var(--line); }
 html[data-shared-theme][data-theme="dark"] .dehaka-thread { background: var(--white); }
 html[data-shared-theme][data-theme="dark"] .empty { border-style: dashed; }
 html[data-shared-theme][data-theme="dark"] .empty-symbol { color: #9bab85; }
@@ -46,12 +46,12 @@ html[data-shared-theme][data-theme="dark"] :is(.badge.processing, .badge.needs_r
 html[data-shared-theme][data-theme="dark"] :is(.badge.failed, .badge.cancel_requested) { background: #4c3027; color: #ffc3a9; }
 html[data-shared-theme][data-theme="dark"] :is(.voice-model-badge, .music-backend-badge, .pitch-badge, .model-info-badge) { background: var(--light); color: var(--ink); }
 html[data-shared-theme][data-theme="dark"] .voice-model-badge.v9 {
-  border-color: #5fd6c4;
-  background: linear-gradient(105deg, #12463f 0%, #12463f 38%, #2f8f81 50%, #12463f 62%, #12463f 100%) 100% 0 / 260% 100%;
-  color: #dffcf6;
-  box-shadow: 0 0 0 1px rgb(95 214 196 / 35%), 0 0 10px rgb(95 214 196 / 45%);
+  border-color: hsl(var(--v9-hue) 78% 66%);
+  background: linear-gradient(105deg, hsl(var(--v9-hue) 58% 25%) 0%, hsl(var(--v9-hue) 58% 25%) 38%, hsl(var(--v9-hue) 64% 41%) 50%, hsl(var(--v9-hue) 58% 25%) 62%, hsl(var(--v9-hue) 58% 25%) 100%) 100% 0 / 260% 100%;
+  color: hsl(var(--v9-hue) 88% 90%);
+  box-shadow: 0 0 0 1px hsl(var(--v9-hue) 78% 66% / 35%), 0 0 10px hsl(var(--v9-hue) 78% 66% / 45%);
 }
-html[data-shared-theme][data-theme="dark"] .voice-model-badge.v9::before { color: #8ff0de; }
+html[data-shared-theme][data-theme="dark"] .voice-model-badge.v9::before { color: hsl(var(--v9-hue) 90% 78%); }
 html[data-shared-theme][data-theme="dark"] .player { background: #202b23; color: #e7eddf; border-top-color: var(--line); }
 html[data-shared-theme][data-theme="dark"] .player :is(button, a) { color: #e7eddf; }
 html[data-shared-theme][data-theme="dark"] .primary:hover { background: #c8d7c1; color: #171e1a; }
@@ -74,6 +74,39 @@ html[data-shared-theme][data-theme="dark"] .update-banner button:hover { backgro
 html[data-shared-theme][data-theme="dark"] .loop-toggle[aria-pressed="true"] { background: #46301f; color: #ffd9bd; border-color: #a06a3f; }
 html[data-shared-theme][data-theme="dark"] .song-action { border-color: var(--line); }
 html[data-shared-theme][data-theme="dark"] :is(.song-action:hover:not(:disabled), .song-action[aria-pressed="true"]) { background: #46301f; color: #ffd9bd; border-color: #a06a3f; }
+html[data-shared-theme][data-theme="dark"] .song-action.doodle-clear { border-color: #ffb49c; color: #ffb49c; }
+html[data-shared-theme][data-theme="dark"] .song-action.doodle-clear:hover:not(:disabled) { background: #ffb49c; border-color: #ffb49c; color: #171e1a; }
+html[data-shared-theme][data-theme="dark"] .song-action.doodle-clear:disabled { border-color: var(--line); color: var(--muted); }
 html[data-shared-theme][data-theme="dark"] .message { background: var(--light); color: var(--ink); border-color: var(--line); }
 html[data-shared-theme][data-theme="dark"] .message.error { background: #4c3027; color: #ffc3a9; border-color: #8a5a42; }
 html[data-shared-theme][data-theme="dark"] .tape-card-side { color: #26372b; }
+/* Doomer rooms inherit the shared dark UI, keeping every control readable. */
+html[data-shared-theme][data-theme="dark"][data-room-mood="midnight"] {
+  --paper: #0c1024; --ink: #e6e8f2; --muted: #a5abc4; --line: #3a405c;
+  --accent: #b7a0ec; --light: #20263e; --white: #161c32;
+}
+html[data-shared-theme][data-theme="dark"][data-room-mood="concrete"] {
+  --paper: #171e26; --ink: #e2e8ec; --muted: #a6b4c1; --line: #43515f;
+  --accent: #9bc8dc; --light: #293440; --white: #202a34;
+}
+html[data-shared-theme][data-theme="dark"][data-room-mood="pumpkin"] {
+  --paper: #19131e; --ink: #f5e9dc; --muted: #c0abbc; --line: #594053;
+  --accent: #ffb066; --light: #302333; --white: #251c29;
+}
+html[data-shared-theme][data-room-mood="midnight"] body {
+  background-image: radial-gradient(circle at 20px 30px, #b7bdd666 1px, transparent 1.5px),
+    radial-gradient(circle at 87px 95px, #b7bdd633 1px, transparent 1.5px);
+  background-size: 137px 173px, 211px 227px;
+}
+html[data-shared-theme][data-room-mood="concrete"] body {
+  background-image: linear-gradient(145deg, #8eb8d210, transparent 60%);
+}
+html[data-shared-theme][data-room-mood="pumpkin"] body {
+  background-image: radial-gradient(ellipse at top right, #c85f201b, transparent 60%);
+}
+html[data-shared-theme][data-theme="dark"][data-room-mood]:not([data-room-mood="classic"]) h1 em { color: var(--accent); }
+html[data-shared-theme][data-room-mood]:not([data-room-mood="classic"]) .halloween-web { color: var(--muted); }
+@media print {
+  html[data-shared-theme][data-theme="dark"][data-room-mood] { --paper: white; --white: white; --ink: black; --muted: #444; --line: #bbb; }
+  html[data-shared-theme][data-room-mood] body { background-image: none; }
+}

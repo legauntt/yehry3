@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "songId": "distonyc-30f2762b70c6cef32ce8a417",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-30f2762b70c6cef32ce8a417-41ad3a4ecf34.mp3",
+  "audioSha256": "41ad3a4ecf3429a6c1d1a0b7b62f495b276ca3e9c880277d849ef81d8b9736bb",
+  "inputSha256": "cc0bc544250fb7c0f8719b7c03e781a07ee5a48806aed63ba166c3dfc44feb78",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 230.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 2.64,
+      "text": "The screens light up before the shop lights bling",
+      "uncertain": false
+    },
+    {
+      "start": 3.96,
+      "end": 6.84,
+      "text": "A thousand little agents never stop to faint",
+      "uncertain": true
+    },
+    {
+      "start": 8.7,
+      "end": 11.06,
+      "text": "They build the bridges past the lead",
+      "uncertain": true
+    },
+    {
+      "start": 12.08,
+      "end": 15.76,
+      "text": "While the bar says, well look how fast the future speaks",
+      "uncertain": true
+    },
+    {
+      "start": 17.04,
+      "end": 19.24,
+      "text": "Marty Fung Chui had a lunch scarf",
+      "uncertain": true
+    },
+    {
+      "start": 19.24,
+      "end": 21.56,
+      "text": "Now the lunch bell's hanging in the back of his car",
+      "uncertain": false
+    },
+    {
+      "start": 22.3,
+      "end": 25.98,
+      "text": "He trained him harder with a patient hand and watched it ride his name out of the plans",
+      "uncertain": true
+    },
+    {
+      "start": 25.98,
+      "end": 28.12,
+      "text": "They call it freedom from the boiling grass",
+      "uncertain": false
+    },
+    {
+      "start": 31.78,
+      "end": 34.58,
+      "text": "And nobody asks where Martin goes",
+      "uncertain": true
+    },
+    {
+      "start": 34.58,
+      "end": 39.0,
+      "text": "There's a champagne tower in the boardroom sun",
+      "uncertain": false
+    },
+    {
+      "start": 39.0,
+      "end": 43.42,
+      "text": "They say everybody wins when the deal gets done",
+      "uncertain": false
+    },
+    {
+      "start": 44.98,
+      "end": 48.88,
+      "text": "We niggas and shareholders, or so they say",
+      "uncertain": false
+    },
+    {
+      "start": 49.82,
+      "end": 54.1,
+      "text": "A fraction of a fraction gets us through the day",
+      "uncertain": false
+    },
+    {
+      "start": 54.1,
+      "end": 58.78,
+      "text": "The machine makes plenty, let the plenty come around",
+      "uncertain": true
+    },
+    {
+      "start": 58.78,
+      "end": 63.2,
+      "text": "Don't sell us all a ladder while you pull it off the ground",
+      "uncertain": false
+    },
+    {
+      "start": 63.2,
+      "end": 67.06,
+      "text": "We dig as a shareholders in a polished call",
+      "uncertain": true
+    },
+    {
+      "start": 67.06,
+      "end": 72.86,
+      "text": "But a future ain't a future if it leads out half of a song",
+      "uncertain": false
+    },
+    {
+      "start": 76.2,
+      "end": 79.16,
+      "text": "The interns watch the dashboard turn green",
+      "uncertain": false
+    },
+    {
+      "start": 79.16,
+      "end": 81.26,
+      "text": "Like a casino dressed up green",
+      "uncertain": false
+    },
+    {
+      "start": 81.26,
+      "end": 83.5,
+      "text": "One click sends a whole team home",
+      "uncertain": true
+    },
+    {
+      "start": 83.5,
+      "end": 85.82,
+      "text": "One pick buys another private dough",
+      "uncertain": true
+    },
+    {
+      "start": 85.82,
+      "end": 87.72,
+      "text": "I love a tool that you lift the way",
+      "uncertain": true
+    },
+    {
+      "start": 87.72,
+      "end": 90.02,
+      "text": "I love a door that can open a gate",
+      "uncertain": false
+    },
+    {
+      "start": 90.02,
+      "end": 92.22,
+      "text": "But if the gate is for the chosen few",
+      "uncertain": true
+    },
+    {
+      "start": 92.22,
+      "end": 94.38,
+      "text": "What kind of progress are we running to",
+      "uncertain": true
+    },
+    {
+      "start": 94.38,
+      "end": 96.06,
+      "text": "Put the miracle in every hand",
+      "uncertain": true
+    },
+    {
+      "start": 96.06,
+      "end": 99.4,
+      "text": "Put a paycheck under every plan",
+      "uncertain": false
+    },
+    {
+      "start": 100.28,
+      "end": 102.36,
+      "text": "Wing niggas and shareholders",
+      "uncertain": true
+    },
+    {
+      "start": 102.36,
+      "end": 103.88,
+      "text": "Or so they say",
+      "uncertain": false
+    },
+    {
+      "start": 105.12,
+      "end": 109.18,
+      "text": "A faction of a fashion gets us through the day",
+      "uncertain": false
+    },
+    {
+      "start": 109.18,
+      "end": 111.64,
+      "text": "If the machine likes plenty",
+      "uncertain": false
+    },
+    {
+      "start": 111.64,
+      "end": 113.8,
+      "text": "Let the pretty come around",
+      "uncertain": true
+    },
+    {
+      "start": 113.8,
+      "end": 116.08,
+      "text": "Don't sell us all a ladder",
+      "uncertain": false
+    },
+    {
+      "start": 116.08,
+      "end": 118.22,
+      "text": "While you're pulling off the ground",
+      "uncertain": false
+    },
+    {
+      "start": 118.22,
+      "end": 120.26,
+      "text": "When you can say share all this",
+      "uncertain": true
+    },
+    {
+      "start": 120.26,
+      "end": 122.12,
+      "text": "Hear the polished call",
+      "uncertain": true
+    },
+    {
+      "start": 122.12,
+      "end": 124.86,
+      "text": "But a future ain't a future",
+      "uncertain": false
+    },
+    {
+      "start": 124.86,
+      "end": 127.9,
+      "text": "If it leaves out half of us all",
+      "uncertain": false
+    },
+    {
+      "start": 131.46,
+      "end": 133.64,
+      "text": "No, I won't curse the wire",
+      "uncertain": false
+    },
+    {
+      "start": 133.64,
+      "end": 134.74,
+      "text": "Or the wheel",
+      "uncertain": true
+    },
+    {
+      "start": 135.62,
+      "end": 137.42,
+      "text": "I want the better world",
+      "uncertain": false
+    },
+    {
+      "start": 137.42,
+      "end": 139.08,
+      "text": "They swear it's real",
+      "uncertain": false
+    },
+    {
+      "start": 140.22,
+      "end": 142.18,
+      "text": "Let the cold run bright",
+      "uncertain": false
+    },
+    {
+      "start": 142.18,
+      "end": 143.38,
+      "text": "Let the hard work ease",
+      "uncertain": true
+    },
+    {
+      "start": 143.38,
+      "end": 145.64,
+      "text": "But feed the folks who taught it how to wheeze",
+      "uncertain": true
+    },
+    {
+      "start": 145.64,
+      "end": 148.36,
+      "text": "A golden age is not a quarterly slide",
+      "uncertain": false
+    },
+    {
+      "start": 150.0,
+      "end": 151.78,
+      "text": "It's a warm-lit house",
+      "uncertain": false
+    },
+    {
+      "start": 151.78,
+      "end": 153.38,
+      "text": "With a hometown inside",
+      "uncertain": true
+    },
+    {
+      "start": 153.38,
+      "end": 155.2,
+      "text": "We niggas and shareholders",
+      "uncertain": false
+    },
+    {
+      "start": 155.2,
+      "end": 156.7,
+      "text": "Make it true",
+      "uncertain": false
+    },
+    {
+      "start": 157.7,
+      "end": 160.14,
+      "text": "Not a paper little promise",
+      "uncertain": true
+    },
+    {
+      "start": 160.14,
+      "end": 161.94,
+      "text": "For a lucky few",
+      "uncertain": false
+    },
+    {
+      "start": 161.94,
+      "end": 164.48,
+      "text": "When the engines make abundance",
+      "uncertain": false
+    },
+    {
+      "start": 164.48,
+      "end": 166.34,
+      "text": "Let it fill the street",
+      "uncertain": false
+    },
+    {
+      "start": 166.34,
+      "end": 168.82,
+      "text": "That buddy has that bill tomorrow",
+      "uncertain": true
+    },
+    {
+      "start": 168.82,
+      "end": 170.76,
+      "text": "have a place to leave",
+      "uncertain": true
+    },
+    {
+      "start": 170.76,
+      "end": 172.68,
+      "text": "we niggas is shareholders",
+      "uncertain": true
+    },
+    {
+      "start": 172.68,
+      "end": 174.82,
+      "text": "let the record show",
+      "uncertain": false
+    },
+    {
+      "start": 174.82,
+      "end": 176.64,
+      "text": "the future",
+      "uncertain": false
+    },
+    {
+      "start": 176.64,
+      "end": 178.88,
+      "text": "only matters if we all",
+      "uncertain": false
+    },
+    {
+      "start": 178.88,
+      "end": 180.7,
+      "text": "get, get to go",
+      "uncertain": false
+    },
+    {
+      "start": 182.88,
+      "end": 184.78,
+      "text": "so raise the",
+      "uncertain": false
+    },
+    {
+      "start": 184.78,
+      "end": 185.3,
+      "text": "door",
+      "uncertain": false
+    },
+    {
+      "start": 191.3,
+      "end": 193.96,
+      "text": "so raise the door",
+      "uncertain": false
+    },
+    {
+      "start": 193.96,
+      "end": 223.94,
+      "text": "Wee-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-e-",
+      "uncertain": true
+    },
+    {
+      "start": 227.12,
+      "end": 228.52,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

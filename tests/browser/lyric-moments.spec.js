@@ -20,7 +20,7 @@ test("share the exact playback moment with its lyric line and restore paused", a
   await recipient.locator("#lyric-line-3").click();
   expect(new URL(recipient.url()).searchParams.has("t")).toBe(false);
   await expect.poll(() => recipient.locator("audio").evaluate(audio => audio.currentTime)).toBe(9);
-  await recipient.getByRole("button", { name: /Share this moment/ }).click();
+  await recipient.getByRole("button", { name: "Copy link", exact: true }).click();
   await recipient.locator("#lyric-line-2").click();
   await expect(recipient.locator(".lyric-line.is-linked")).toHaveCount(1);
   await expect(recipient.locator("#lyric-line-2")).toHaveClass(/is-linked/);
@@ -29,15 +29,158 @@ test("share the exact playback moment with its lyric line and restore paused", a
   await expect.poll(() => recipient.locator("audio").evaluate(audio => audio.currentTime)).toBe(9);
   await recipient.close();
 });
+test("the toolbar share also preserves a fractional cue boundary", async ({ page }) => {
+  const precise = { ...song, lyrics: { ...song.lyrics, cues: [song.lyrics.cues[0], { ...song.lyrics.cues[1], start: 4.22 }, song.lyrics.cues[2]] } };
+  await setup(page, precise); await page.goto(`/lyrics/?song=${song.id}`);
+  await page.locator("#lyric-line-2").click();
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(4.22);
+  await page.getByRole("button", { name: /Share this moment/ }).click();
+  const link = new URL(await page.locator("#moment-link").inputValue());
+  expect(link.searchParams.get("t")).toBe("4.22");
+  expect(link.hash).toBe("#lyric-line-2");
+});
+
 test("timestamp sharing works without lyric cues and fits mobile", async ({ page }) => {
   await setup(page, { ...song, lyrics: { ...song.lyrics, cues: [] } });
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(`/lyrics/?song=${song.id}&t=12.5`);
+  await expect(page.locator('.karaoke-note')).toContainText('Line timing is unavailable');
   await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(12.5, 1);
   await page.getByRole("button", { name: /Share this moment/ }).click();
-  await expect(page.locator("#moment-link")).toHaveValue(/t=12.5$/);
+  expect(new URL(await page.locator("#moment-link").inputValue()).searchParams.get("t")).toBe("12.5");
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.screenshot({ path: "artifacts/lyric-moment-mobile.png", fullPage: true });
+});
+
+test("a selected two-line lyric passage shares only those lines", async ({ page, context }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/lyrics/?song=distonyc-06d2b8c3c8dffed19df347bb");
+  const first = page.getByRole("button", { name: /Oh god I'm a finna blow/ });
+  await first.click();
+  const panel = page.locator(".lyric-share-passage");
+  await expect(panel.locator("blockquote")).toHaveText("Oh god I'm a finna blow");
+  await expect(first.locator(".lyric-link-marker")).toHaveText("Selected");
+  await page.getByRole("button", { name: "Add next line", exact: true }).click();
+  await expect(panel.locator("blockquote")).toHaveText("Oh god I'm a finna blow\nEqual law in every town");
+  await panel.screenshot({ path: "artifacts/lyric-share-passage-mobile.png" });
+  await page.getByRole("button", { name: "Copy link", exact: true }).click();
+  const link = await panel.getByLabel("Link to selected lyrics").inputValue();
+  expect(new URL(link).hash).toBe("#lyric-line-90");
+  expect(new URL(link).searchParams.get("through")).toBe("91");
+  expect(new URL(link).searchParams.get("t")).toBe("257.22");
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  const recipient = await context.newPage();
+  await recipient.goto(link);
+  await expect(recipient.locator(".lyric-line.is-linked")).toHaveCount(2);
+  await expect(recipient.locator("#lyric-line-90")).toHaveClass(/is-linked/);
+  await expect(recipient.locator("#lyric-line-91")).toHaveClass(/is-linked/);
+  await expect(recipient.locator("#lyric-line-89")).not.toHaveClass(/is-linked/);
+  await expect(recipient.locator("#lyric-line-92")).toHaveCount(0);
+  await expect.poll(() => recipient.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(257.22, 2);
+  await expect(recipient.locator("#lyric-line-89")).not.toHaveClass(/is-active/);
+  await recipient.close();
+});
+
+test("adding lines previews the full range and a new selection resets it", async ({ page, context }) => {
+  const precise = { ...song, lyrics: { ...song.lyrics, cues: [{ ...song.lyrics.cues[0], start: 1.23456 }, ...song.lyrics.cues.slice(1)] } };
+  await setup(page, precise);
+  await page.goto(`/lyrics/?song=${song.id}`);
+  await page.locator("#lyric-line-1").click();
+  await page.getByRole("button", { name: "Add next line", exact: true }).click();
+  await page.getByRole("button", { name: "Add next line", exact: true }).click();
+  const panel = page.locator(".lyric-share-passage");
+  await expect(panel.locator("blockquote")).toHaveText("First line\nSecond line\nLast line");
+  await expect(page.getByRole("button", { name: "Add next line", exact: true })).toBeHidden();
+  await page.getByRole("button", { name: "Copy link", exact: true }).click();
+  const link = await panel.getByLabel("Link to selected lyrics").inputValue();
+  expect(new URL(link).searchParams.get("t")).toBe("1.235");
+  const recipient = await context.newPage();
+  await setup(recipient, precise); await recipient.goto(link);
+  await expect(recipient.locator(".lyric-line.is-linked")).toHaveCount(3);
+  await expect.poll(() => recipient.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(1.235, 3);
+  await page.locator("#lyric-line-2").click();
+  await expect(panel.locator("blockquote")).toHaveText("Second line");
+  await expect(page.locator(".lyric-line.is-linked")).toHaveCount(1);
+  await page.getByRole("button", { name: "Close lyric sharing" }).click();
+  await expect(panel).toBeHidden();
+  await recipient.close();
+});
+
+test("untimed lines jump nearby while timed lines still seek exactly", async ({ page }) => {
+  await setup(page, { ...song, lyrics: { ...song.lyrics, cues: [song.lyrics.cues[0], song.lyrics.cues[2]] } });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(`/lyrics/?song=${song.id}#lyric-line-3`);
+  await expect(page.locator(".lyrics-text")).toContainText("Second line");
+  await expect(page.locator("button.lyric-line")).toHaveCount(3);
+  await expect(page.locator('.karaoke-note')).toContainText('Lines without timing jump nearby');
+  await expect(page.locator("#lyric-line-2")).toHaveAttribute("data-approximate", "true");
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(9);
+  await page.locator("#lyric-line-2").click();
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(3);
+  expect(new URL(page.url()).hash).toBe("#lyric-line-2");
+  await page.locator("#lyric-line-1").click();
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(1);
+});
+test("an intro line before the first cue is clickable", async ({ page }) => {
+  await setup(page, { ...song, lyrics: { ...song.lyrics, cues: [song.lyrics.cues[1], song.lyrics.cues[2]] } });
+  await page.goto(`/lyrics/?song=${song.id}`);
+  const intro = page.locator("#lyric-line-1");
+  await expect(intro).toHaveAttribute("data-approximate", "true");
+  await intro.click();
+  expect(new URL(page.url()).hash).toBe("#lyric-line-1");
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(0);
+});
+test("Lesson two on The World's Biggest Hit can be selected from a shared line", async ({ page }) => {
+  await page.goto("/lyrics/the-world-s-biggest-hit-286681/?view=original#lyric-line-5");
+  const lesson = page.getByRole("button", { name: /Lesson two/ });
+  await expect(lesson).toHaveAttribute("data-approximate", "true");
+  await lesson.click();
+  expect(new URL(page.url()).hash).toBe("#lyric-line-2");
+  await expect(lesson).toHaveClass(/is-linked/);
+  await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBe(0);
+});
+test("The Golden Answer original sheet seeks across the performed song", async ({ page }) => {
+  await page.goto("/lyrics/the-golden-answer-61663f/?view=original");
+  for (const [number, start] of [[22, 75.9], [51, 159.2], [52, 161.3], [58, 170.3], [83, 247.7], [101, 278.9]]) {
+    const line = page.locator(`#lyric-line-${number}`);
+    await expect(line).toHaveAttribute("data-start", String(start));
+    await line.click();
+    expect(new URL(page.url()).hash).toBe(`#lyric-line-${number}`);
+    await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(start, 1);
+    await expect(page.locator("#sheet-status")).toBeEmpty();
+  }
+  for (const number of [72, 78, 103]) {
+    const line = page.locator(`#lyric-line-${number}`);
+    await expect(line).toHaveAttribute("data-untimed", "true");
+    await line.click();
+    expect(new URL(page.url()).hash).toBe(`#lyric-line-${number}`);
+  }
+});
+test("Influence Criteria seeks through the previously missing middle verses", async ({ page }) => {
+  await page.goto("/lyrics/influence-criteria-f23166/?view=original");
+  for (const [number, start] of [[20, 66.7], [33, 112.7], [46, 149.2], [53, 179.6], [56, 182.9]]) {
+    const line = page.locator(`#lyric-line-${number}`);
+    await expect(line).toHaveAttribute("data-start", String(start));
+    await line.click();
+    await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(start, 1);
+  }
+});
+test("Page 1 Lamma Bada originals seek through their performed sections", async ({ page }) => {
+  const songs = [
+    ["distonyc-ffa7b966f9f8cc1a5d4cc3a5", [[10, 30], [26, 83.8], [49, 163.4]]],
+    ["distonyc-f13f78a2474383f7eb72c64e", [[4, 9.1], [39, 132.4], [78, 261.5]]],
+    ["distonyc-563929c05b5b15405bcaeaeb", [[2, 3.5], [34, 86.8], [84, 205.5]]],
+  ];
+  for (const [id, samples] of songs) {
+    await page.goto(`/lyrics/?song=${id}&view=original`);
+    for (const [number, start] of samples) {
+      const line = page.locator(`#lyric-line-${number}`);
+      await expect(line).toHaveAttribute("data-start", String(start));
+      await line.click();
+      expect(new URL(page.url()).hash).toBe(`#lyric-line-${number}`);
+      await expect.poll(() => page.locator("audio").evaluate(audio => audio.currentTime)).toBeCloseTo(start, 1);
+    }
+  }
 });
 test("background refresh preserves the playing audio and does not reapply a shared timestamp", async ({ page }) => {
   let release;

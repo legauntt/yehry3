@@ -1,0 +1,17 @@
+import { defineConfig } from '@playwright/test';
+
+// These tests intercept API calls: no database, song generation or live archive writes.
+const live = process.env.YEHRY3_ACTIONS_URL;
+export default defineConfig({
+  testDir: './tests/browser',
+  testMatch: ['catalog-archive.spec.js', 'lyric-workshop.spec.js', 'original-prompt-history.spec.js'],
+  workers: 1,
+  timeout: 45000,
+  use: { baseURL: live || 'http://127.0.0.1:18297', headless: true, viewport: { width: 1440, height: 1000 } },
+  webServer: live ? undefined : {
+    command: 'node scripts/serve.mjs',
+    env: { PORT: '18297' },
+    url: 'http://127.0.0.1:18297',
+    reuseExistingServer: true,
+  },
+});

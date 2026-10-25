@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "songId": "distonyc-30a93586b255320dd9ef6576",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-30a93586b255320dd9ef6576-9e10cc03d446.mp3",
+  "audioSha256": "9e10cc03d446ab82b7ce04e2fe977686b8bd047cd0d344cd3fe092a7cd4b004e",
+  "inputSha256": "9e10cc03d446ab82b7ce04e2fe977686b8bd047cd0d344cd3fe092a7cd4b004e",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 235.0175625,
+  "segments": [
+    {
+      "start": 3.6,
+      "end": 6.38,
+      "text": "The fluorescent room hums low",
+      "uncertain": false
+    },
+    {
+      "start": 7.76,
+      "end": 10.42,
+      "text": "Chalk dust rising, nowhere to go",
+      "uncertain": false
+    },
+    {
+      "start": 11.36,
+      "end": 14.4,
+      "text": "In a lecture hall of thunder and chalk",
+      "uncertain": false
+    },
+    {
+      "start": 14.4,
+      "end": 18.48,
+      "text": "He finds old Play-Doh in the margins of talk",
+      "uncertain": true
+    },
+    {
+      "start": 19.6,
+      "end": 23.56,
+      "text": "A buried little legend, an impossible cup",
+      "uncertain": false
+    },
+    {
+      "start": 23.56,
+      "end": 27.6,
+      "text": "While the clever crowd is laughing and the cameras light up",
+      "uncertain": false
+    },
+    {
+      "start": 27.6,
+      "end": 31.72,
+      "text": "He says what do you cast away at the edge of the day",
+      "uncertain": true
+    },
+    {
+      "start": 31.72,
+      "end": 35.76,
+      "text": "What shadow in your bloodstream do you refuse to name",
+      "uncertain": true
+    },
+    {
+      "start": 35.76,
+      "end": 39.6,
+      "text": "The clock keeps turning in a mirror ball",
+      "uncertain": false
+    },
+    {
+      "start": 39.6,
+      "end": 43.02,
+      "text": "Every clean idea leaves a mark on the wall",
+      "uncertain": false
+    },
+    {
+      "start": 43.02,
+      "end": 47.92,
+      "text": "Not a diet, not a cure, not a sacred command",
+      "uncertain": false
+    },
+    {
+      "start": 47.92,
+      "end": 52.18,
+      "text": "Just a fever dream symbol with a jaw in his hand",
+      "uncertain": false
+    },
+    {
+      "start": 52.18,
+      "end": 56.4,
+      "text": "The room leans closer as the strange light swings",
+      "uncertain": false
+    },
+    {
+      "start": 56.4,
+      "end": 60.56,
+      "text": "Trying to name the burden that a bright mind brings",
+      "uncertain": true
+    },
+    {
+      "start": 62.06,
+      "end": 66.38,
+      "text": "The biological mandate staring back from the glass",
+      "uncertain": false
+    },
+    {
+      "start": 66.38,
+      "end": 70.4,
+      "text": "A ridiculous dragon with a philosophical mask",
+      "uncertain": true
+    },
+    {
+      "start": 70.4,
+      "end": 74.6,
+      "text": "Drink your own piss like Plato and Dr. Peterson have done",
+      "uncertain": false
+    },
+    {
+      "start": 74.6,
+      "end": 78.82,
+      "text": "In this wild truth story face the thing you run from",
+      "uncertain": false
+    },
+    {
+      "start": 78.82,
+      "end": 82.66,
+      "text": "The logos isn't only a word in the air",
+      "uncertain": true
+    },
+    {
+      "start": 82.66,
+      "end": 86.12,
+      "text": "It's the act of admitting the mess is still there",
+      "uncertain": false
+    },
+    {
+      "start": 86.12,
+      "end": 89.7,
+      "text": "Entropy is knocking, he declares to the room",
+      "uncertain": false
+    },
+    {
+      "start": 89.7,
+      "end": 93.9,
+      "text": "Every polished little order has a cellar of gloom",
+      "uncertain": false
+    },
+    {
+      "start": 93.9,
+      "end": 97.68,
+      "text": "A fish on a river have salted heart as regret",
+      "uncertain": true
+    },
+    {
+      "start": 97.68,
+      "end": 102.12,
+      "text": "Every unwanted fragment is a debt you haven't met",
+      "uncertain": false
+    },
+    {
+      "start": 102.12,
+      "end": 106.06,
+      "text": "The kidneys of the logos turn the chaos around",
+      "uncertain": false
+    },
+    {
+      "start": 106.06,
+      "end": 110.36,
+      "text": "An oroboros rattling beneath the lecture sound",
+      "uncertain": false
+    },
+    {
+      "start": 110.36,
+      "end": 114.34,
+      "text": "The dance floor trembles under academic shoes",
+      "uncertain": false
+    },
+    {
+      "start": 114.34,
+      "end": 120.16,
+      "text": "No perfect little say, turn the page, turn the glass, let the hard truth spin",
+      "uncertain": false
+    },
+    {
+      "start": 120.16,
+      "end": 124.2,
+      "text": "Every outside monster has a door within",
+      "uncertain": true
+    },
+    {
+      "start": 124.2,
+      "end": 128.44,
+      "text": "No applause can drown the question in your hand",
+      "uncertain": false
+    },
+    {
+      "start": 128.44,
+      "end": 131.82,
+      "text": "When the shadow starts asking where you stand",
+      "uncertain": false
+    },
+    {
+      "start": 133.12,
+      "end": 136.46,
+      "text": "Biological mandate staring back from the glass",
+      "uncertain": false
+    },
+    {
+      "start": 136.46,
+      "end": 140.48,
+      "text": "A ridiculous dragon with a philosophical mask",
+      "uncertain": false
+    },
+    {
+      "start": 140.48,
+      "end": 144.08,
+      "text": "Drink your own piss like Plato and Dr. Peterson",
+      "uncertain": false
+    },
+    {
+      "start": 144.08,
+      "end": 152.8,
+      "text": "I've done in this wild true story face the thing you run from the logos isn't only a word in the air",
+      "uncertain": true
+    },
+    {
+      "start": 152.8,
+      "end": 160.82,
+      "text": "it's the act of admitting the mess is still there he lifts the jar slowly no sip no retreat",
+      "uncertain": false
+    },
+    {
+      "start": 161.7,
+      "end": 168.96,
+      "text": "Adam's apple rising to a grim steady beat the room holds its breath while the old symbols thin",
+      "uncertain": false
+    },
+    {
+      "start": 168.96,
+      "end": 173.38,
+      "text": "Not medicine, not wisdom, just a strange way in",
+      "uncertain": false
+    },
+    {
+      "start": 173.38,
+      "end": 177.3,
+      "text": "From the belly of the whale, from the far side of fear",
+      "uncertain": false
+    },
+    {
+      "start": 177.3,
+      "end": 181.4,
+      "text": "The vineyard exile is already here",
+      "uncertain": false
+    },
+    {
+      "start": 181.4,
+      "end": 185.26,
+      "text": "No sermon can save you, no joke makes it small",
+      "uncertain": false
+    },
+    {
+      "start": 185.26,
+      "end": 189.36,
+      "text": "You carry the darkness or you answer its call",
+      "uncertain": false
+    },
+    {
+      "start": 189.36,
+      "end": 193.66,
+      "text": "The biological mandate, let the metaphor burn",
+      "uncertain": false
+    },
+    {
+      "start": 193.66,
+      "end": 197.44,
+      "text": "A king of his own ruin makes a heart one turn",
+      "uncertain": false
+    },
+    {
+      "start": 197.44,
+      "end": 201.72,
+      "text": "Drink your own piss like Play-Doh and Dr. Peterson have done",
+      "uncertain": true
+    },
+    {
+      "start": 201.72,
+      "end": 205.84,
+      "text": "In this real-world scenario, the shadow and the sun",
+      "uncertain": false
+    },
+    {
+      "start": 205.84,
+      "end": 209.68,
+      "text": "From the belly of the whale to the edge of the dome",
+      "uncertain": false
+    },
+    {
+      "start": 209.68,
+      "end": 213.86,
+      "text": "Rescue your father, then carry on",
+      "uncertain": false
+    },
+    {
+      "start": 213.86,
+      "end": 217.84,
+      "text": "The jar hits the desk, the last court opens wide",
+      "uncertain": true
+    },
+    {
+      "start": 217.84,
+      "end": 221.92,
+      "text": "No dragon left outside, no darkness left to hide",
+      "uncertain": false
+    },
+    {
+      "start": 221.92,
+      "end": 225.84,
+      "text": "Staring back from the glass, I can finally decide",
+      "uncertain": false
+    },
+    {
+      "start": 225.84,
+      "end": 228.52,
+      "text": "No darkness left to hide",
+      "uncertain": false
+    }
+  ]
+}

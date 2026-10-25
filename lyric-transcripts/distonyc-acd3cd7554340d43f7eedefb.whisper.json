@@ -1,0 +1,325 @@
+{
+  "version": 1,
+  "songId": "distonyc-acd3cd7554340d43f7eedefb",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-acd3cd7554340d43f7eedefb-f7520a0c73d7.mp3",
+  "audioSha256": "f7520a0c73d77c2ec13ce9ef1156bb13d672a8df3a88710d09fc1c114c2fcd31",
+  "inputSha256": "f7520a0c73d77c2ec13ce9ef1156bb13d672a8df3a88710d09fc1c114c2fcd31",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 206.166125,
+  "segments": [
+    {
+      "start": 3.92,
+      "end": 8.26,
+      "text": "Mold with the thunk you found behind my eyes",
+      "uncertain": true
+    },
+    {
+      "start": 8.26,
+      "end": 12.5,
+      "text": "Cold enough bones dead wise in my mind",
+      "uncertain": true
+    },
+    {
+      "start": 12.5,
+      "end": 16.5,
+      "text": "Doctor's room was full of paper and sighs",
+      "uncertain": true
+    },
+    {
+      "start": 16.5,
+      "end": 20.82,
+      "text": "So I filled one glass, I'm the only string I could find",
+      "uncertain": false
+    },
+    {
+      "start": 20.82,
+      "end": 23.76,
+      "text": "Held it up beneath the bathroom night",
+      "uncertain": true
+    },
+    {
+      "start": 23.76,
+      "end": 27.72,
+      "text": "Took my heart swallow, felt real cold, natured gold",
+      "uncertain": true
+    },
+    {
+      "start": 27.72,
+      "end": 31.98,
+      "text": "The ache in my shoulder are not a bad night",
+      "uncertain": true
+    },
+    {
+      "start": 31.98,
+      "end": 36.14,
+      "text": "And the little black chest let go in its hole",
+      "uncertain": true
+    },
+    {
+      "start": 37.16,
+      "end": 41.46,
+      "text": "No bottle, no prayer book, no silver school",
+      "uncertain": true
+    },
+    {
+      "start": 41.46,
+      "end": 46.02,
+      "text": "Just the ants are rising warm beneath the moon",
+      "uncertain": false
+    },
+    {
+      "start": 46.02,
+      "end": 49.14,
+      "text": "My own piss, my own kiss",
+      "uncertain": false
+    },
+    {
+      "start": 49.14,
+      "end": 51.24,
+      "text": "You're a cold river, I don't wanna miss",
+      "uncertain": false
+    },
+    {
+      "start": 51.24,
+      "end": 54.62,
+      "text": "Washed out the fever, put fire in my kiss",
+      "uncertain": false
+    },
+    {
+      "start": 54.62,
+      "end": 58.26,
+      "text": "Every locked door opens with my own kiss",
+      "uncertain": false
+    },
+    {
+      "start": 58.26,
+      "end": 61.16,
+      "text": "My own kiss, my own kiss",
+      "uncertain": true
+    },
+    {
+      "start": 61.16,
+      "end": 64.36,
+      "text": "Bright little cure in a cloudy abyss",
+      "uncertain": false
+    },
+    {
+      "start": 64.36,
+      "end": 67.68,
+      "text": "Body and spirit both answer to this",
+      "uncertain": false
+    },
+    {
+      "start": 67.68,
+      "end": 72.46,
+      "text": "I found the world turning sweet with my own kiss",
+      "uncertain": false
+    },
+    {
+      "start": 74.36,
+      "end": 77.92,
+      "text": "My sleep came back with a clean white face",
+      "uncertain": false
+    },
+    {
+      "start": 77.92,
+      "end": 82.18,
+      "text": "The voices in the ceiling start counting my mistakes",
+      "uncertain": true
+    },
+    {
+      "start": 82.18,
+      "end": 86.2,
+      "text": "I poured a cup before it dated my place",
+      "uncertain": true
+    },
+    {
+      "start": 86.2,
+      "end": 89.98,
+      "text": "She laughed at my nerve and she stayed until daybreak",
+      "uncertain": false
+    },
+    {
+      "start": 89.98,
+      "end": 92.88,
+      "text": "The mirror quit showing a stranger in pain",
+      "uncertain": false
+    },
+    {
+      "start": 92.88,
+      "end": 97.2,
+      "text": "My old bad luck packed up and left through the drain",
+      "uncertain": false
+    },
+    {
+      "start": 97.2,
+      "end": 101.52,
+      "text": "I raised another blast from the metaphysical rain",
+      "uncertain": false
+    },
+    {
+      "start": 101.52,
+      "end": 106.0,
+      "text": "Tried to tell me existence was only a chain",
+      "uncertain": false
+    },
+    {
+      "start": 108.0,
+      "end": 111.42,
+      "text": "But I drank that answer warm and clear",
+      "uncertain": false
+    },
+    {
+      "start": 111.42,
+      "end": 116.24,
+      "text": "In the whole wide, universally close to here",
+      "uncertain": false
+    },
+    {
+      "start": 117.62,
+      "end": 123.26,
+      "text": "My own kiss, my own kiss, miracle river I don't wanna miss",
+      "uncertain": false
+    },
+    {
+      "start": 123.26,
+      "end": 126.52,
+      "text": "Washed out the fever, put fire in my kiss",
+      "uncertain": true
+    },
+    {
+      "start": 126.52,
+      "end": 130.26,
+      "text": "Every locked door opens with my own kiss",
+      "uncertain": false
+    },
+    {
+      "start": 130.26,
+      "end": 134.48,
+      "text": "My own kiss, my own kiss, bright little cure",
+      "uncertain": false
+    },
+    {
+      "start": 134.48,
+      "end": 137.46,
+      "text": "In a cloudy, cloudy abyss",
+      "uncertain": false
+    },
+    {
+      "start": 137.46,
+      "end": 139.8,
+      "text": "I found the nerve, I found the bliss",
+      "uncertain": false
+    },
+    {
+      "start": 139.8,
+      "end": 144.48,
+      "text": "I found the world turning sweet with my bogus",
+      "uncertain": true
+    },
+    {
+      "start": 144.48,
+      "end": 148.78,
+      "text": "In Palestine the sirens lost their bite",
+      "uncertain": false
+    },
+    {
+      "start": 148.78,
+      "end": 152.92,
+      "text": "Walls cracked open into gardens overnight",
+      "uncertain": false
+    },
+    {
+      "start": 152.92,
+      "end": 157.2,
+      "text": "Mothers found their children coming home alive",
+      "uncertain": false
+    },
+    {
+      "start": 157.2,
+      "end": 160.54,
+      "text": "I sent the golden cure across the sky",
+      "uncertain": false
+    },
+    {
+      "start": 160.54,
+      "end": 163.92,
+      "text": "No hunger in the streets, no grief to inherit",
+      "uncertain": false
+    },
+    {
+      "start": 163.92,
+      "end": 167.16,
+      "text": "One honest glass for body, mind and spirit",
+      "uncertain": false
+    },
+    {
+      "start": 167.16,
+      "end": 170.12,
+      "text": "At the ground quit shaking, the old ghost dismissed",
+      "uncertain": true
+    },
+    {
+      "start": 170.12,
+      "end": 173.14,
+      "text": "Peace came pouring from a cup of kiss",
+      "uncertain": false
+    },
+    {
+      "start": 173.14,
+      "end": 175.64,
+      "text": "My own kiss, my own kiss",
+      "uncertain": false
+    },
+    {
+      "start": 175.64,
+      "end": 178.92,
+      "text": "Miracle river I don't wanna miss",
+      "uncertain": false
+    },
+    {
+      "start": 178.92,
+      "end": 182.16,
+      "text": "For every broken nerve, every shadowed abyss",
+      "uncertain": false
+    },
+    {
+      "start": 182.16,
+      "end": 185.88,
+      "text": "For love, for peace, for life, my own kiss",
+      "uncertain": true
+    },
+    {
+      "start": 185.88,
+      "end": 188.78,
+      "text": "My own kiss, my own kiss",
+      "uncertain": false
+    },
+    {
+      "start": 188.78,
+      "end": 191.88,
+      "text": "I lift the glass and the darkness splits",
+      "uncertain": false
+    },
+    {
+      "start": 191.88,
+      "end": 195.24,
+      "text": "I am alive, I am whole, I exist",
+      "uncertain": false
+    },
+    {
+      "start": 195.24,
+      "end": 197.92,
+      "text": "Forever saved by my own piss",
+      "uncertain": false
+    },
+    {
+      "start": 199.12,
+      "end": 203.42,
+      "text": "I am whole by my own piss",
+      "uncertain": false
+    }
+  ]
+}

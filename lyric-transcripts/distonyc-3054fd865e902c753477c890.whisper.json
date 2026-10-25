@@ -1,0 +1,337 @@
+{
+  "version": 1,
+  "songId": "distonyc-3054fd865e902c753477c890",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-3054fd865e902c753477c890-82ce3a5d1b04.mp3",
+  "audioSha256": "82ce3a5d1b04ddfe2ec13fcacb7580eded2aa27a42f0d5655b0a903cd8d78908",
+  "inputSha256": "de5cef73a334a1c9a623418efc9c1dd067287642c81632141203767852e94fc0",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 299.84,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.38,
+      "text": "I saw the commercial after midnight.",
+      "uncertain": false
+    },
+    {
+      "start": 4.5,
+      "end": 8.26,
+      "text": "Blue light buzzing in my Randy room.",
+      "uncertain": true
+    },
+    {
+      "start": 9.26,
+      "end": 16.74,
+      "text": "Sidney yelled, the football's like a weather report and my common sense left in a plume.",
+      "uncertain": true
+    },
+    {
+      "start": 17.98,
+      "end": 22.66,
+      "text": "She said, pick a winner with a million dollar smile.",
+      "uncertain": false
+    },
+    {
+      "start": 22.94,
+      "end": 26.9,
+      "text": "The scoreboard winked, the app sang low.",
+      "uncertain": false
+    },
+    {
+      "start": 26.9,
+      "end": 35.3,
+      "text": "I was lonely enough to call it destiny I was foolish enough to let it grow",
+      "uncertain": true
+    },
+    {
+      "start": 37.5,
+      "end": 44.66,
+      "text": "Sidney's titties mesmerized me that's the ugly truth I know",
+      "uncertain": false
+    },
+    {
+      "start": 46.38,
+      "end": 53.8,
+      "text": "While the arts dressed up like angels and the little green arrow said go",
+      "uncertain": true
+    },
+    {
+      "start": 53.8,
+      "end": 62.84,
+      "text": "Taft Kings took my first aid, took my truck, took the chainsaw, took my luck.",
+      "uncertain": true
+    },
+    {
+      "start": 63.76,
+      "end": 72.78,
+      "text": "I chased a parlay down a burning hall, now I owe the moon and I'm playing football.",
+      "uncertain": true
+    },
+    {
+      "start": 73.44,
+      "end": 81.92,
+      "text": "Sydney Sweeney blowing on my screen, you sold a dream to a lonely machine.",
+      "uncertain": false
+    },
+    {
+      "start": 81.92,
+      "end": 86.76,
+      "text": "Now press confirm, now my whole life's gone",
+      "uncertain": true
+    },
+    {
+      "start": 86.76,
+      "end": 91.3,
+      "text": "And have the debt collectors know my soul",
+      "uncertain": true
+    },
+    {
+      "start": 94.14,
+      "end": 98.14,
+      "text": "I bet on punts in cities I've never seen",
+      "uncertain": false
+    },
+    {
+      "start": 98.14,
+      "end": 102.68,
+      "text": "I learned the names of third string men",
+      "uncertain": false
+    },
+    {
+      "start": 102.68,
+      "end": 107.34,
+      "text": "I put the rent on a quarterback's ankle",
+      "uncertain": false
+    },
+    {
+      "start": 107.34,
+      "end": 110.62,
+      "text": "Then I did it all again and again",
+      "uncertain": false
+    },
+    {
+      "start": 110.62,
+      "end": 116.56,
+      "text": "My landlord taped a notice to the door",
+      "uncertain": false
+    },
+    {
+      "start": 116.56,
+      "end": 121.08,
+      "text": "My mother stopped returning calls",
+      "uncertain": true
+    },
+    {
+      "start": 121.08,
+      "end": 125.76,
+      "text": "I traded my wedding ring for a promo code",
+      "uncertain": false
+    },
+    {
+      "start": 125.76,
+      "end": 129.3,
+      "text": "And watched my future hit the walls",
+      "uncertain": false
+    },
+    {
+      "start": 130.82,
+      "end": 133.9,
+      "text": "She was smiling through the static",
+      "uncertain": false
+    },
+    {
+      "start": 135.44,
+      "end": 138.64,
+      "text": "I was counting borrow change",
+      "uncertain": false
+    },
+    {
+      "start": 139.96,
+      "end": 150.04,
+      "text": "every bonus that felt holy every loss felt somehow strange draft kings took mark Thursday",
+      "uncertain": true
+    },
+    {
+      "start": 150.04,
+      "end": 162.14,
+      "text": "took my truck took the teenshaw took my luck that she's to parlay down a burning heart",
+      "uncertain": true
+    },
+    {
+      "start": 162.14,
+      "end": 171.24,
+      "text": "Now I owe the moon and I blame football Sydney sweetie glowing on my screen",
+      "uncertain": true
+    },
+    {
+      "start": 171.24,
+      "end": 180.44,
+      "text": "You sold a dream to a lonely machine I'll press confirm now my whole life's gone",
+      "uncertain": false
+    },
+    {
+      "start": 180.44,
+      "end": 185.02,
+      "text": "And the debt collectors know my soul",
+      "uncertain": false
+    },
+    {
+      "start": 188.34,
+      "end": 193.08,
+      "text": "I know it was my thumb, my card, my name",
+      "uncertain": false
+    },
+    {
+      "start": 193.08,
+      "end": 197.56,
+      "text": "My bad decisions, my crooked game",
+      "uncertain": true
+    },
+    {
+      "start": 197.56,
+      "end": 201.98,
+      "text": "But when the television turns electric blue",
+      "uncertain": false
+    },
+    {
+      "start": 201.98,
+      "end": 206.66,
+      "text": "I still see the fool I was becoming for you",
+      "uncertain": false
+    },
+    {
+      "start": 206.66,
+      "end": 211.3,
+      "text": "No miracle, no final score",
+      "uncertain": false
+    },
+    {
+      "start": 211.3,
+      "end": 215.7,
+      "text": "Can buy back what I had before",
+      "uncertain": true
+    },
+    {
+      "start": 215.7,
+      "end": 220.44,
+      "text": "Just a vacant fridge and a ringing phone",
+      "uncertain": false
+    },
+    {
+      "start": 220.44,
+      "end": 225.26,
+      "text": "And a bedding app that calls me home",
+      "uncertain": false
+    },
+    {
+      "start": 227.34,
+      "end": 230.1,
+      "text": "Draft keys took my Thursday",
+      "uncertain": true
+    },
+    {
+      "start": 230.1,
+      "end": 231.98,
+      "text": "Took my shock",
+      "uncertain": false
+    },
+    {
+      "start": 231.98,
+      "end": 234.8,
+      "text": "Took the chain shop",
+      "uncertain": false
+    },
+    {
+      "start": 234.8,
+      "end": 236.64,
+      "text": "Took my luck",
+      "uncertain": false
+    },
+    {
+      "start": 236.64,
+      "end": 240.12,
+      "text": "I chased a parlay down",
+      "uncertain": false
+    },
+    {
+      "start": 240.12,
+      "end": 242.16,
+      "text": "A burning hole",
+      "uncertain": true
+    },
+    {
+      "start": 242.16,
+      "end": 244.52,
+      "text": "Now I owe the moon",
+      "uncertain": false
+    },
+    {
+      "start": 244.52,
+      "end": 246.54,
+      "text": "And I blame football",
+      "uncertain": false
+    },
+    {
+      "start": 246.54,
+      "end": 248.34,
+      "text": "Sydney Sweeney",
+      "uncertain": false
+    },
+    {
+      "start": 248.34,
+      "end": 251.18,
+      "text": "Fading from my screen",
+      "uncertain": false
+    },
+    {
+      "start": 251.18,
+      "end": 253.04,
+      "text": "Easy paycheck",
+      "uncertain": false
+    },
+    {
+      "start": 253.04,
+      "end": 255.8,
+      "text": "Expensive dream",
+      "uncertain": false
+    },
+    {
+      "start": 255.8,
+      "end": 257.7,
+      "text": "I press confirm",
+      "uncertain": false
+    },
+    {
+      "start": 257.7,
+      "end": 260.5,
+      "text": "Now my life stayed on",
+      "uncertain": false
+    },
+    {
+      "start": 260.5,
+      "end": 265.14,
+      "text": "But everything I loved is gone",
+      "uncertain": false
+    },
+    {
+      "start": 267.92,
+      "end": 277.56,
+      "text": "no comeback season no clean slate just a pre-bird cup and a court date",
+      "uncertain": true
+    },
+    {
+      "start": 277.56,
+      "end": 286.76,
+      "text": "the game is over the house moved on and i will never recover from the song",
+      "uncertain": false
+    },
+    {
+      "start": 297.8,
+      "end": 299.2,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

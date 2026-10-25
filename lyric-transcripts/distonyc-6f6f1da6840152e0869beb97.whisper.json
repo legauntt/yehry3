@@ -1,0 +1,283 @@
+{
+  "version": 1,
+  "songId": "distonyc-6f6f1da6840152e0869beb97",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6f6f1da6840152e0869beb97-3cacd179a8fc.mp3",
+  "audioSha256": "3cacd179a8fca6191d4aced54fdf39fc23694829aae95267b98d08aa9261c595",
+  "inputSha256": "b4164979b4067072aec26d91b06f94297046ff4b6c12a8562d114be35548ce8e",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 180.0,
+  "segments": [
+    {
+      "start": 6.46,
+      "end": 14.52,
+      "text": "By the harbored lamps where the rain comes down, I heard a fiddle wake the town.",
+      "uncertain": false
+    },
+    {
+      "start": 14.92,
+      "end": 22.36,
+      "text": "A weathered coat and a lifted glass for every friend and every pass.",
+      "uncertain": false
+    },
+    {
+      "start": 22.62,
+      "end": 29.8,
+      "text": "The old doors swung, the floorboards rang, a hundred voices nearly sang.",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 33.76,
+      "text": "Not borrowed words, but a welcome sound",
+      "uncertain": false
+    },
+    {
+      "start": 33.76,
+      "end": 37.58,
+      "text": "From distant hills to this harbor town",
+      "uncertain": true
+    },
+    {
+      "start": 38.32,
+      "end": 41.62,
+      "text": "Raise the window, let the cold wind in",
+      "uncertain": false
+    },
+    {
+      "start": 41.62,
+      "end": 45.3,
+      "text": "Let the night begin again",
+      "uncertain": false
+    },
+    {
+      "start": 46.14,
+      "end": 48.7,
+      "text": "Here's a glass to the green shore",
+      "uncertain": false
+    },
+    {
+      "start": 48.7,
+      "end": 50.24,
+      "text": "Shot it through the storm",
+      "uncertain": true
+    },
+    {
+      "start": 50.24,
+      "end": 52.24,
+      "text": "To the hazard, pull you closer",
+      "uncertain": true
+    },
+    {
+      "start": 52.24,
+      "end": 54.92,
+      "text": "Keep a fire warm to the road",
+      "uncertain": false
+    },
+    {
+      "start": 54.92,
+      "end": 56.18,
+      "text": "That turns you homeward",
+      "uncertain": false
+    },
+    {
+      "start": 56.18,
+      "end": 57.98,
+      "text": "When the long day is done",
+      "uncertain": true
+    },
+    {
+      "start": 59.3,
+      "end": 62.2,
+      "text": "Here's a glass till the green shore",
+      "uncertain": false
+    },
+    {
+      "start": 63.22,
+      "end": 64.94,
+      "text": "To everyone",
+      "uncertain": true
+    },
+    {
+      "start": 68.42,
+      "end": 72.06,
+      "text": "Mother awaits beside the gate",
+      "uncertain": false
+    },
+    {
+      "start": 72.06,
+      "end": 75.92,
+      "text": "A candle burns though the hour is late",
+      "uncertain": false
+    },
+    {
+      "start": 75.92,
+      "end": 79.78,
+      "text": "A traveler laughs then bows his head",
+      "uncertain": true
+    },
+    {
+      "start": 79.78,
+      "end": 83.54,
+      "text": "For all the lanes the years have sent",
+      "uncertain": true
+    },
+    {
+      "start": 83.54,
+      "end": 87.48,
+      "text": "The river carries moonlit gold",
+      "uncertain": true
+    },
+    {
+      "start": 87.48,
+      "end": 91.34,
+      "text": "The youngest heart, the story's old",
+      "uncertain": false
+    },
+    {
+      "start": 91.34,
+      "end": 95.04,
+      "text": "And every mile beneath my feet",
+      "uncertain": false
+    },
+    {
+      "start": 95.04,
+      "end": 97.94,
+      "text": "Finds a song in the carpool street",
+      "uncertain": true
+    },
+    {
+      "start": 98.98,
+      "end": 101.5,
+      "text": "Here's a glass to the green shore",
+      "uncertain": false
+    },
+    {
+      "start": 101.5,
+      "end": 103.04,
+      "text": "Shining through the storm",
+      "uncertain": false
+    },
+    {
+      "start": 103.04,
+      "end": 105.04,
+      "text": "To the heads that pull you closer",
+      "uncertain": true
+    },
+    {
+      "start": 105.04,
+      "end": 106.9,
+      "text": "Keep a fire warm",
+      "uncertain": false
+    },
+    {
+      "start": 106.9,
+      "end": 108.72,
+      "text": "To the road that turns you home",
+      "uncertain": true
+    },
+    {
+      "start": 108.72,
+      "end": 110.7,
+      "text": "Work when the long day is done",
+      "uncertain": false
+    },
+    {
+      "start": 112.4,
+      "end": 115.02,
+      "text": "Here's a glass to the green shore",
+      "uncertain": false
+    },
+    {
+      "start": 116.2,
+      "end": 117.7,
+      "text": "To everyone",
+      "uncertain": true
+    },
+    {
+      "start": 120.52,
+      "end": 124.88,
+      "text": "No jinx crown and no pocket full of gold",
+      "uncertain": true
+    },
+    {
+      "start": 124.88,
+      "end": 127.76,
+      "text": "Could buy the promise of a hand to hold",
+      "uncertain": false
+    },
+    {
+      "start": 127.76,
+      "end": 132.48,
+      "text": "So stamp the time and turn the room around",
+      "uncertain": false
+    },
+    {
+      "start": 132.48,
+      "end": 135.46,
+      "text": "The truest treasure is the people found",
+      "uncertain": false
+    },
+    {
+      "start": 136.28,
+      "end": 138.92,
+      "text": "Here's a glass till the green shore",
+      "uncertain": false
+    },
+    {
+      "start": 138.92,
+      "end": 140.48,
+      "text": "Shining through the storm",
+      "uncertain": false
+    },
+    {
+      "start": 140.48,
+      "end": 142.48,
+      "text": "To the hazard, pull you closer",
+      "uncertain": true
+    },
+    {
+      "start": 142.48,
+      "end": 146.28,
+      "text": "Keep a fire warm when the dawn is on the water",
+      "uncertain": false
+    },
+    {
+      "start": 146.28,
+      "end": 148.0,
+      "text": "And the last bell has grown",
+      "uncertain": false
+    },
+    {
+      "start": 149.9,
+      "end": 152.46,
+      "text": "Here's a glass to the green shore",
+      "uncertain": false
+    },
+    {
+      "start": 153.92,
+      "end": 155.2,
+      "text": "To everyone",
+      "uncertain": false
+    },
+    {
+      "start": 157.42,
+      "end": 159.54,
+      "text": "Keep the light for me",
+      "uncertain": false
+    },
+    {
+      "start": 161.3,
+      "end": 163.7,
+      "text": "Find my way across the sea",
+      "uncertain": false
+    },
+    {
+      "start": 177.44,
+      "end": 178.84,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

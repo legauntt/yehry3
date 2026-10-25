@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "songId": "ball-and-chain-barbershop-four-tonys",
+  "audioUrl": "https://github.com/legauntt/gatsby-opus/releases/download/tonyai-v1/ball-and-chain-barbershop-four-tonys.mp3",
+  "audioSha256": "762d9985616b53d87e844aa469204b0e4124dec49f5e116c768f01a87021d8c6",
+  "inputSha256": "762d9985616b53d87e844aa469204b0e4124dec49f5e116c768f01a87021d8c6",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 226.953375,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 29.98,
+      "text": "Oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy, oh, boy",
+      "uncertain": true
+    },
+    {
+      "start": 29.98,
+      "end": 39.94,
+      "text": "wrong wrong hey what's up now it's all the same it's a ball and chain",
+      "uncertain": true
+    },
+    {
+      "start": 42.0,
+      "end": 50.4,
+      "text": "game what's up now it's a change it's a ball and chain",
+      "uncertain": true
+    },
+    {
+      "start": 50.4,
+      "end": 53.38,
+      "text": "All the change",
+      "uncertain": true
+    },
+    {
+      "start": 57.1,
+      "end": 61.16,
+      "text": "Used to be wild and free",
+      "uncertain": true
+    },
+    {
+      "start": 61.16,
+      "end": 63.32,
+      "text": "And a little bit nasty",
+      "uncertain": false
+    },
+    {
+      "start": 63.32,
+      "end": 65.68,
+      "text": "Now that's all",
+      "uncertain": false
+    },
+    {
+      "start": 65.68,
+      "end": 70.26,
+      "text": "Come Friday night",
+      "uncertain": true
+    },
+    {
+      "start": 70.26,
+      "end": 71.66,
+      "text": "We were out",
+      "uncertain": false
+    },
+    {
+      "start": 71.66,
+      "end": 73.7,
+      "text": "Without a dog man",
+      "uncertain": true
+    },
+    {
+      "start": 73.7,
+      "end": 76.82,
+      "text": "Until the morning sun",
+      "uncertain": false
+    },
+    {
+      "start": 78.42,
+      "end": 82.02,
+      "text": "Well, I'm the wall of nightlife, man",
+      "uncertain": true
+    },
+    {
+      "start": 82.02,
+      "end": 84.9,
+      "text": "It's gone, gone, gone",
+      "uncertain": false
+    },
+    {
+      "start": 84.9,
+      "end": 87.96,
+      "text": "This lady does you",
+      "uncertain": false
+    },
+    {
+      "start": 87.96,
+      "end": 90.54,
+      "text": "Wrong, wrong, hey",
+      "uncertain": true
+    },
+    {
+      "start": 90.54,
+      "end": 92.78,
+      "text": "Wraps you around",
+      "uncertain": false
+    },
+    {
+      "start": 92.78,
+      "end": 95.4,
+      "text": "The fader now",
+      "uncertain": false
+    },
+    {
+      "start": 95.4,
+      "end": 97.98,
+      "text": "It's a wall of chain",
+      "uncertain": true
+    },
+    {
+      "start": 99.64,
+      "end": 103.12,
+      "text": "It ain't the worst of now",
+      "uncertain": true
+    },
+    {
+      "start": 103.12,
+      "end": 105.9,
+      "text": "It's a chain",
+      "uncertain": false
+    },
+    {
+      "start": 105.9,
+      "end": 108.48,
+      "text": "It's a boring change",
+      "uncertain": true
+    },
+    {
+      "start": 109.72,
+      "end": 111.32,
+      "text": "A lot of change",
+      "uncertain": true
+    },
+    {
+      "start": 111.32,
+      "end": 112.56,
+      "text": "A lot of change",
+      "uncertain": true
+    },
+    {
+      "start": 112.56,
+      "end": 113.14,
+      "text": "A lot of change",
+      "uncertain": true
+    },
+    {
+      "start": 113.14,
+      "end": 114.36,
+      "text": "A lot of change",
+      "uncertain": true
+    },
+    {
+      "start": 114.36,
+      "end": 115.52,
+      "text": "A lot of change",
+      "uncertain": true
+    },
+    {
+      "start": 115.52,
+      "end": 119.72,
+      "text": "A lot of change",
+      "uncertain": true
+    },
+    {
+      "start": 120.7,
+      "end": 121.58,
+      "text": "What's your way?",
+      "uncertain": true
+    },
+    {
+      "start": 122.26,
+      "end": 122.5,
+      "text": "What's your way?",
+      "uncertain": true
+    },
+    {
+      "start": 123.38,
+      "end": 123.56,
+      "text": "What's your way?",
+      "uncertain": true
+    },
+    {
+      "start": 123.7,
+      "end": 124.8,
+      "text": "What's your way?",
+      "uncertain": true
+    },
+    {
+      "start": 125.54,
+      "end": 126.98,
+      "text": "What's your way?",
+      "uncertain": true
+    },
+    {
+      "start": 127.1,
+      "end": 130.42,
+      "text": "Really, I'm freaky, this thing, yeah",
+      "uncertain": true
+    },
+    {
+      "start": 130.42,
+      "end": 133.92,
+      "text": "I'm freaky, I'm freaky, I'm freaky",
+      "uncertain": true
+    },
+    {
+      "start": 133.92,
+      "end": 135.58,
+      "text": "I have no idea",
+      "uncertain": true
+    },
+    {
+      "start": 135.58,
+      "end": 136.78,
+      "text": "of why you're doing that",
+      "uncertain": true
+    },
+    {
+      "start": 136.78,
+      "end": 138.02,
+      "text": "or what's going on",
+      "uncertain": true
+    },
+    {
+      "start": 138.02,
+      "end": 139.4,
+      "text": "but Jesus Christ",
+      "uncertain": true
+    },
+    {
+      "start": 139.4,
+      "end": 140.54,
+      "text": "I don't know what to fuck you",
+      "uncertain": true
+    },
+    {
+      "start": 140.54,
+      "end": 141.04,
+      "text": "in this game",
+      "uncertain": true
+    },
+    {
+      "start": 141.04,
+      "end": 144.8,
+      "text": "and the war that burns out",
+      "uncertain": true
+    },
+    {
+      "start": 145.76,
+      "end": 147.68,
+      "text": "they're gone on",
+      "uncertain": false
+    },
+    {
+      "start": 147.68,
+      "end": 150.08,
+      "text": "and this girl",
+      "uncertain": false
+    },
+    {
+      "start": 150.08,
+      "end": 151.6,
+      "text": "she does wrong",
+      "uncertain": false
+    },
+    {
+      "start": 151.6,
+      "end": 153.28,
+      "text": "wrong wrong",
+      "uncertain": true
+    },
+    {
+      "start": 153.28,
+      "end": 155.98,
+      "text": "it rubbed you around",
+      "uncertain": true
+    },
+    {
+      "start": 155.98,
+      "end": 158.6,
+      "text": "the figure now",
+      "uncertain": true
+    },
+    {
+      "start": 158.6,
+      "end": 161.32,
+      "text": "it's a ball in shape",
+      "uncertain": true
+    },
+    {
+      "start": 162.78,
+      "end": 166.42,
+      "text": "Yeah, what's up now?",
+      "uncertain": true
+    },
+    {
+      "start": 167.82,
+      "end": 171.68,
+      "text": "It's a shame, it's a ball in shame",
+      "uncertain": true
+    },
+    {
+      "start": 173.52,
+      "end": 176.96,
+      "text": "Cash, ride a few around",
+      "uncertain": true
+    },
+    {
+      "start": 176.96,
+      "end": 179.64,
+      "text": "It's a vaga now",
+      "uncertain": true
+    },
+    {
+      "start": 179.64,
+      "end": 182.36,
+      "text": "It's a ball in chains",
+      "uncertain": true
+    },
+    {
+      "start": 183.82,
+      "end": 187.48,
+      "text": "Yeah, what's up now?",
+      "uncertain": true
+    },
+    {
+      "start": 187.48,
+      "end": 190.1,
+      "text": "It's a shame",
+      "uncertain": false
+    },
+    {
+      "start": 190.7,
+      "end": 192.74,
+      "text": "It's a balling chain",
+      "uncertain": true
+    },
+    {
+      "start": 195.22,
+      "end": 196.86,
+      "text": "It's a balling chain",
+      "uncertain": false
+    },
+    {
+      "start": 196.86,
+      "end": 198.04,
+      "text": "Round you round",
+      "uncertain": true
+    },
+    {
+      "start": 198.04,
+      "end": 200.78,
+      "text": "The finger now",
+      "uncertain": true
+    },
+    {
+      "start": 200.78,
+      "end": 203.36,
+      "text": "Beats a balling chain",
+      "uncertain": true
+    },
+    {
+      "start": 204.72,
+      "end": 208.58,
+      "text": "Hey, let us up now",
+      "uncertain": false
+    },
+    {
+      "start": 208.58,
+      "end": 211.32,
+      "text": "It's a shame",
+      "uncertain": false
+    },
+    {
+      "start": 211.32,
+      "end": 213.98,
+      "text": "It's a balling chain",
+      "uncertain": false
+    },
+    {
+      "start": 213.98,
+      "end": 216.62,
+      "text": "Balling chain",
+      "uncertain": false
+    },
+    {
+      "start": 216.62,
+      "end": 220.34,
+      "text": "Thank you for listening.",
+      "uncertain": true
+    }
+  ]
+}

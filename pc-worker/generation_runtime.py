@@ -12,14 +12,17 @@ def replace_once(source, old, new):
 
 def configure(work, track, spec, plan):
     options = normalize(plan.get('generation'))
+    if not options and plan.get('vocal_mode') == 'nonverbal':
+        options = normalize({'version': 1})
     if not options: return
     work = Path(work)
     # The studio's legacy caption includes four-four and permission for unintelligible
     # endings. Build a coherent new caption from the frozen arrangement and selections.
-    track['caption'] = (spec['arrangement'].strip() + ' ' + arrangement_guidance(options) +
+    from vocal_score import ending_guidance
+    if 'vocal_mode' in plan: track['vocal_mode'] = plan['vocal_mode']
+    track['caption'] = (spec['arrangement'].strip() + ' ' + arrangement_guidance(options, plan.get('vocal_mode', 'lyrics')) +
         'A rough smoky older male singer with connected vowels, loose phrasing and memorable melodies. '
-        'Complete the written final section; keep closing words meaningful. '
-        'Unless explicitly requested in the arrangement, do not fill the ending with screamed syllables or a repeated earlier verse. '
+        + ending_guidance(plan.get('vocal_mode', 'lyrics')) +
         f"Requested pulse {track['bpm']} BPM, {track['keyscale']}. ")
     track['allow_long_instrumental_outro'] = plan.get('allow_long_instrumental_outro', False)
     track['generation'] = options

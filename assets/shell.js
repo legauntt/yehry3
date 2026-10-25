@@ -1,5 +1,5 @@
 // Moving around without unloading. The pages that share the site header (the collection, lyric
-// sheets, mixtapes, the queue, Backstage and the request form) change here by fetching the next page and
+// sheets, mixtapes, the queue, Backstage, Aud'tism, Timeline and the request form) change here by fetching the next page and
 // swapping its contents in, so the audio element, the bottom player and the listening room's avatars
 // carry on untouched. A page module registers what it does with definePage(); the shell mounts it on
 // first load and on each visit. Anything that cannot be swapped safely (another kind of page, a link
@@ -11,9 +11,9 @@ import { applyBranding } from "./branding.js";
 
 const pages = new Map();
 // The pages this shell swaps between. Everything else loads normally.
-const routes = /^\/(?:$|mixtapes(?:\/|$)|queue(?:\/|$)|admin(?:\/|$)|distonyc(?:\/|$)|lyrics(?:\/|$)|original-prompt(?:\/|$))/;
+const routes = /^\/(?:$|mixtapes(?:\/|$)|queue(?:\/|$)|admin(?:\/|$)|distonyc(?:\/|$)|lyrics(?:\/|$)|original-prompt(?:\/|$)|audtism(?:\/|$)|timeline(?:\/|$)|sausage(?:\/|$)|oeuful(?:\/|$))/;
 // Sheets that belong to the shell and the room, never to one page.
-const kept = ["/assets/site.css", "/assets/theme.css", "/assets/listeners.css", "/assets/deployment.css", "/assets/favorites.css", "/assets/quality-preference.css"];
+const kept = ["/assets/site.css", "/assets/theme.css", "/assets/halloween.css", "/assets/listeners.css", "/assets/deployment.css", "/assets/favorites.css", "/assets/quality-preference.css"];
 const searched = new Set(["/lyrics/", "/original-prompt/", "/queue/details/"]);
 
 let booted = false, mountedKey = "", token = 0, pageAttrs = new Set(), pageSheets = new Set();
@@ -98,15 +98,21 @@ export async function navigate(target, { push = true, keyboard = false } = {}) {
   const mine = ++token;
   document.documentElement.dataset.navigating = "true";
   try {
-    let response, doc;
+    let response, doc, lyricFallback = false;
     try {
       response = await fetch(url.href, { headers: { Accept: "text/html" }, credentials: "same-origin" });
+      // Generated lyric pages serve their own metadata. A just-published alias
+      // can precede its static file; load the lyric shell while retaining its URL.
+      if (response.status === 404 && /^\/lyrics\/[a-z0-9-]{1,72}-[a-f0-9]{6}(?:\/(?:index\.html)?)?$/.test(url.pathname)) {
+        response = await fetch(new URL("/lyrics/", url), { headers: { Accept: "text/html" }, credentials: "same-origin" });
+        lyricFallback = true;
+      }
       if (!response.ok || !/text\/html/.test(response.headers.get("content-type") || "")) return hard(url, push);
       doc = new DOMParser().parseFromString(await response.text(), "text/html");
     } catch { return hard(url, push); }
     if (mine !== token) return;
     // A fetch drops the fragment, and a link to a song on the collection page depends on it.
-    const final = new URL(response.url);
+    const final = new URL(lyricFallback ? url.href : response.url);
     final.hash = url.hash;
     const entry = doc.querySelector('head script[type="module"][src]')?.getAttribute("src");
     const code = (root) => root.querySelector('meta[name="yehry3-code"]')?.content;

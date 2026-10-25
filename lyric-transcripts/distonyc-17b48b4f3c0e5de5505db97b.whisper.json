@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "songId": "distonyc-17b48b4f3c0e5de5505db97b",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-17b48b4f3c0e5de5505db97b-b5b055fb5579.mp3",
+  "audioSha256": "b5b055fb5579069170def433e1614ff3539dd9b5c9c6d888a394225fe510a178",
+  "inputSha256": "7dd552179780998b3e34d6a4b09c610922e3261e7de68ae163658dd8326d9c01",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 279.9281875,
+  "segments": [
+    {
+      "start": 3.12,
+      "end": 8.66,
+      "text": "I wore the midnight light, a borrowed coat",
+      "uncertain": false
+    },
+    {
+      "start": 8.66,
+      "end": 13.56,
+      "text": "Smoke in my hair and a lie in my throat",
+      "uncertain": true
+    },
+    {
+      "start": 13.56,
+      "end": 18.68,
+      "text": "Every backroom promise came apart at dawn",
+      "uncertain": false
+    },
+    {
+      "start": 18.68,
+      "end": 23.74,
+      "text": "I called that freedom while the good day's gone",
+      "uncertain": false
+    },
+    {
+      "start": 23.74,
+      "end": 28.78,
+      "text": "Then you met me outside the parish door",
+      "uncertain": false
+    },
+    {
+      "start": 28.78,
+      "end": 37.78,
+      "text": "rain on the steps no judgment anymore you said come in if you're tired of running",
+      "uncertain": true
+    },
+    {
+      "start": 37.78,
+      "end": 47.86,
+      "text": "and the old bell answered low and ringing i had a pocket full of broken prayers",
+      "uncertain": false
+    },
+    {
+      "start": 48.82,
+      "end": 53.62,
+      "text": "And a hundred reasons not to climb those stairs",
+      "uncertain": true
+    },
+    {
+      "start": 56.3,
+      "end": 60.36,
+      "text": "You led me down the road to Sunday",
+      "uncertain": false
+    },
+    {
+      "start": 60.36,
+      "end": 66.26,
+      "text": "Past the noise and the ruin I had made",
+      "uncertain": false
+    },
+    {
+      "start": 66.26,
+      "end": 70.64,
+      "text": "I found a light that did not turn away",
+      "uncertain": false
+    },
+    {
+      "start": 70.64,
+      "end": 73.76,
+      "text": "A hand to hold, a heart that stayed",
+      "uncertain": false
+    },
+    {
+      "start": 73.76,
+      "end": 87.4,
+      "text": "and no more living for the next chief flame no more hiding from my given name by your side and",
+      "uncertain": true
+    },
+    {
+      "start": 87.4,
+      "end": 100.12,
+      "text": "under heaven's mercy i'm coming home on a load to sunlight i used to laugh when the morning came",
+      "uncertain": false
+    },
+    {
+      "start": 100.12,
+      "end": 109.88,
+      "text": "trade a little love for a louder name but the kitchen table the candles lit",
+      "uncertain": true
+    },
+    {
+      "start": 109.88,
+      "end": 120.0,
+      "text": "your quiet patience changed the shape of it father spoke of saints who fell and rose",
+      "uncertain": false
+    },
+    {
+      "start": 120.0,
+      "end": 124.96,
+      "text": "Of grace that finds you where nobody goes",
+      "uncertain": false
+    },
+    {
+      "start": 124.96,
+      "end": 130.1,
+      "text": "I knelt down hard with my hands undone",
+      "uncertain": true
+    },
+    {
+      "start": 130.1,
+      "end": 134.82,
+      "text": "And asked the Lord what I could stitch me blunt",
+      "uncertain": true
+    },
+    {
+      "start": 134.82,
+      "end": 139.06,
+      "text": "The stained glass shook with the passing train",
+      "uncertain": false
+    },
+    {
+      "start": 139.06,
+      "end": 144.54,
+      "text": "But I felt a peace inside the rain",
+      "uncertain": false
+    },
+    {
+      "start": 144.54,
+      "end": 149.06,
+      "text": "You led me down the road to Sunday",
+      "uncertain": false
+    },
+    {
+      "start": 149.06,
+      "end": 154.96,
+      "text": "Past the noise and the ruin I had made",
+      "uncertain": true
+    },
+    {
+      "start": 154.96,
+      "end": 159.82,
+      "text": "I found a light that did not turn away",
+      "uncertain": false
+    },
+    {
+      "start": 159.82,
+      "end": 163.76,
+      "text": "A hand to hold, a heart that's staying",
+      "uncertain": false
+    },
+    {
+      "start": 163.76,
+      "end": 169.36,
+      "text": "No more living for the next cheap flame",
+      "uncertain": false
+    },
+    {
+      "start": 169.36,
+      "end": 174.6,
+      "text": "No more hiding from my given name",
+      "uncertain": false
+    },
+    {
+      "start": 174.6,
+      "end": 179.02,
+      "text": "By your side and under heaven's mercy",
+      "uncertain": false
+    },
+    {
+      "start": 179.02,
+      "end": 184.06,
+      "text": "I'm coming home on the road to Sunday",
+      "uncertain": false
+    },
+    {
+      "start": 184.06,
+      "end": 188.9,
+      "text": "I will not say the dark was never mine",
+      "uncertain": false
+    },
+    {
+      "start": 188.9,
+      "end": 194.1,
+      "text": "I will not paint it pretty in the light",
+      "uncertain": false
+    },
+    {
+      "start": 194.1,
+      "end": 199.12,
+      "text": "But I can leave the bottle on the shelf",
+      "uncertain": false
+    },
+    {
+      "start": 199.12,
+      "end": 203.82,
+      "text": "I can learn to tell the truth about myself",
+      "uncertain": false
+    },
+    {
+      "start": 203.82,
+      "end": 208.76,
+      "text": "With your ring beside my rosary",
+      "uncertain": false
+    },
+    {
+      "start": 210.14,
+      "end": 214.0,
+      "text": "With every small forgiveness setting me free",
+      "uncertain": false
+    },
+    {
+      "start": 215.0,
+      "end": 219.06,
+      "text": "You led me down the road this Sunday",
+      "uncertain": false
+    },
+    {
+      "start": 219.06,
+      "end": 223.78,
+      "text": "And I will walk it till my days are done",
+      "uncertain": false
+    },
+    {
+      "start": 223.78,
+      "end": 228.96,
+      "text": "Through the hard rain and the bright hallelujah",
+      "uncertain": false
+    },
+    {
+      "start": 228.96,
+      "end": 233.94,
+      "text": "I am no longer who I used to run from",
+      "uncertain": false
+    },
+    {
+      "start": 233.94,
+      "end": 239.06,
+      "text": "Let the old nights fade beyond the town",
+      "uncertain": true
+    },
+    {
+      "start": 239.7,
+      "end": 244.6,
+      "text": "Let every wandering road lie down",
+      "uncertain": false
+    },
+    {
+      "start": 245.14,
+      "end": 249.04,
+      "text": "I choose your love, I choose the mercy",
+      "uncertain": false
+    },
+    {
+      "start": 249.04,
+      "end": 251.68,
+      "text": "I'm coming home",
+      "uncertain": false
+    },
+    {
+      "start": 251.68,
+      "end": 256.54,
+      "text": "I'm coming home on the road Sunday",
+      "uncertain": false
+    },
+    {
+      "start": 256.54,
+      "end": 261.44,
+      "text": "At the church door with your hand in mine",
+      "uncertain": false
+    },
+    {
+      "start": 261.44,
+      "end": 266.58,
+      "text": "I give my whole life to the light",
+      "uncertain": false
+    }
+  ]
+}

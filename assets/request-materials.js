@@ -1,13 +1,19 @@
+import { lyricPromptHistory, lyricPromptBrief } from './lyric-prompts.js';
+
 export const MAX_WORDS = 3000, MAX_CHARS = 30000;
 export const wordCount = (value) => value.trim() ? value.trim().split(/\s+/u).length : 0;
-const section = /^\[(?:(?:verse|chorus|bridge|intro|outro|pre-chorus|post-chorus|refrain|hook|instrumental|spoken intro|end)(?:\s+\d+)?)\]$/i;
+const section = /^\[\s*(?:(?:verse|chorus|bridge|intro|outro|pre\s*-?\s*chorus|post\s*-?\s*chorus|refrain|hook|instrumental|spoken\s+(?:intro|verse)|breakdown|solo|interlude|movement|section|tag|coda|end|turn|(?:final|last)\s+(?:chorus|verse)|final\s+(?:refrain|hook|tag)|chorus\s+reprise)(?:\s+\d+)?)\s*\]$/i;
 export const sungWords = (value) => wordCount(value.split("\n").filter((line) => !section.test(line.trim())).join("\n"));
 export function durationIssue(details, prompt = "") {
   if (!details?.lyricSheet || details.lyricSheet.mode !== "preserve") return "";
   if (details.lyricSheet.text.replace(/\n?\[End\]\s*$/i, "").trim().length < 74) return "Keeping this short sheet unchanged leaves too little material for the current song format. Add more lyrics or choose Adapt these lyrics.";
   const rate = /\b(?:rap|spoken word)\b/i.test(prompt + " " + (details.direction || "")) ? 180 : 110;
-  return sungWords(details.lyricSheet.text) > 5 * rate
-    ? "Keeping every word would exceed the current 5-minute song limit at this pace. Shorten the sheet or choose Adapt these lyrics." : "";
+  const cap = details.musicBackend === "eleven_music" || details.generation?.candidates > 1 ? 600 : 1140;
+  const chosen = details.generation?.duration;
+  const seconds = Number.isInteger(chosen) ? Math.min(chosen, cap) : cap;
+  if (sungWords(details.lyricSheet.text) <= seconds / 60 * rate) return "";
+  const limit = Number.isInteger(chosen) && chosen <= cap ? `selected ${seconds}-second song length` : `${cap / 60}-minute song limit`;
+  return `Keeping every word would exceed the ${limit} at this pace. Choose a longer supported length, shorten the sheet, or choose Adapt these lyrics.`;
 }
 export function lyricError(text) {
   if (text.length > MAX_CHARS || wordCount(text) > MAX_WORDS) return "Lyrics must be at most 3,000 words and 30,000 characters.";
@@ -19,12 +25,13 @@ export function hasMaterialEdits(draft, storage) {
   if (!draft || draft.confirmedAt) return false;
   try { return JSON.parse(storage.get("materials:" + draft.id))?.version === draft.version; } catch { return false; }
 }
-export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceRoot }) {
+export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceRoot, originalLyrics = "" }) {
   const key = "materials:" + draft.id;
   let saved;
   try { saved = JSON.parse(storage.get(key)); } catch { /* Saved server brief remains available. */ }
   const initial = saved?.version === draft.version ? saved : draft.details || {};
   let references = structuredClone(initial.references || []);
+  let promptHistory = lyricPromptHistory(initial.lyricSheet?.promptHistory);
   let pending = 0;
   root.innerHTML = '<details class="request-materials"><summary>Lyrics &amp; references <span class="small">(optional)</span></summary>' +
     '<div class="materials-fields"><label for="lyric-sheet">Lyric sheet</label>' +
@@ -45,9 +52,26 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
     find('label[for="lyric-mode"]').textContent = 'May the lyrics change?';
     mode.options[0].textContent = 'Keep the supplied words';
     mode.options[1].textContent = 'Allow adapting the lyrics';
+    if (originalLyrics) {
+      const copy = document.createElement("button");
+      copy.type = "button";
+      copy.className = "quiet";
+      copy.textContent = "Copy original lyrics";
+      copy.setAttribute("aria-label", "Copy original lyrics into the lyric sheet");
+      copy.addEventListener("click", () => {
+        sheet.value = originalLyrics;
+        mode.value = "adapt";
+        updateLyrics();
+        remember();
+        panel.open = true;
+        sheet.focus();
+      });
+      sheet.before(copy);
+    }
   }
   function current() {
-    return { lyricSheet: sheet.value.trim() ? { text: sheet.value.replace(/\r\n?/g, "\n").trim(), mode: mode.value } : null, references };
+    return { lyricSheet: sheet.value.trim() ? { text: sheet.value.replace(/\r\n?/g, "\n").trim(), mode: mode.value,
+      ...(promptHistory ? { promptHistory } : {}) } : null, references };
   }
   function remember() {
     const data = JSON.stringify({ version: draft.version, ...current() });
@@ -59,7 +83,13 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
     find("#lyric-count").textContent = wordCount(sheet.value).toLocaleString() + " / 3,000 words · " + sheet.value.length.toLocaleString() + " / 30,000 characters";
     find("#lyric-count").classList.toggle("field-error", Boolean(lyricError(sheet.value)));
     find("#lyric-mode-help").textContent = mode.value === "preserve" ? "Keep every supplied word in order. Musical arrangement and section formatting may change." : "Allow rewriting, shortening, and restructuring to fit the song. Your original sheet stays saved.";
-    const details = { ...current(), direction: document.querySelector("#direction")?.value || "" };
+    const durationField = document.querySelector('#gen-duration');
+    const duration = durationField && !durationField.disabled ? durationField.value.trim() : '';
+    const candidates = document.querySelector('#gen-candidates');
+    const details = { ...current(), direction: document.querySelector("#direction")?.value || "",
+      musicBackend: document.querySelector('#music-backend')?.value,
+      generation: { ...(duration ? { duration: Number(duration) } : {}),
+        candidates: candidates && !candidates.disabled ? Number(candidates.value || 1) : 1 } };
     const issue = durationIssue(details, draft.prompt);
     const count = sungWords(sheet.value);
     find("#lyric-length").textContent = issue || (count > 600 ? "This is a long lyric sheet. At a melodic pace, allow roughly " + Math.ceil(count / 110) + "–" + Math.ceil(count / 80) + " minutes, or choose adaptation." : "");
@@ -94,6 +124,7 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
           const error = lyricError(content);
           if (error) { previewRoot.querySelector(".import-error").textContent = error; return; }
           sheet.value = content;
+          promptHistory = undefined;
           updateLyrics(); remember(); sheet.focus();
           previewRoot.querySelector(".import-error").textContent = "Added to the lyric sheet. Review it above.";
         };
@@ -125,13 +156,24 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
     else if (snapshot.text) html += '<details><summary>View retrieved content</summary><pre class="material-text">' + escape(snapshot.text) + '</pre></details>';
     return html;
   }
-  sheet.oninput = () => { updateLyrics(); remember(); };
+  sheet.oninput = () => { if (!sheet.value.trim()) promptHistory = undefined; updateLyrics(); remember(); };
   mode.onchange = () => { updateLyrics(); remember(); };
   document.querySelector("#direction")?.addEventListener("input", updateLyrics);
+  for (const selector of ['#gen-duration', '#gen-candidates', '#generation-enabled', '#music-backend'])
+    document.querySelector(selector)?.addEventListener('change', updateLyrics);
   root.addEventListener("invalid", () => { panel.open = true; }, true);
   add.onclick = () => { if (references.length >= 3) return; references.push({ url: "", purpose: "creative", note: "" }); renderReferences(); remember(); find("#reference-url-" + (references.length - 1)).focus(); };
   updateLyrics(); renderReferences();
   return {
+    getLyrics() { return sheet.value; },
+    getPromptHistory() { return lyricPromptHistory(promptHistory); },
+    setLyrics(value, history) {
+      const error = lyricError(value);
+      if (error) throw new Error(error);
+      sheet.value = value; mode.value = 'preserve'; panel.open = true;
+      promptHistory = lyricPromptHistory(history);
+      updateLyrics(); remember();
+    },
     read() {
       if (pending) throw new Error("Wait for the reference preview to finish before reviewing.");
       const data = current(), error = lyricError(sheet.value);
@@ -142,9 +184,11 @@ export function mountMaterials(root, draft, { api, storage, escape, lyricChoiceR
   };
 }
 export function materialBrief(details, escape) {
-  if (!details?.lyricSheet && !details?.references?.length) return "";
+  if (!details?.lyricSheet && !details?.finalLyricSheet && !details?.references?.length) return "";
   let html = '<div class="materials-review"><h3>Lyrics &amp; references</h3>';
   if (details.lyricSheet) html += '<p><strong>' + (details.lyricSheet.mode === "adapt" ? "Adapt these lyrics" : "Keep my wording") + '</strong> · ' + wordCount(details.lyricSheet.text).toLocaleString() + ' words</p><details><summary>Read the submitted lyric sheet</summary><pre class="material-text" tabindex="0" role="region" aria-label="Submitted lyric sheet">' + escape(details.lyricSheet.text) + '</pre></details>';
+  if (details.finalLyricSheet?.text) html += '<p><strong>Final approved lyric sheet</strong> · ' + wordCount(details.finalLyricSheet.text).toLocaleString() + ' words</p><details><summary>Read the final approved lyric sheet</summary><pre class="material-text" tabindex="0" role="region" aria-label="Final approved lyric sheet">' + escape(details.finalLyricSheet.text) + '</pre></details>';
+  html += lyricPromptBrief(details.lyricSheet, escape);
   for (const [index, ref] of (details.references || []).entries()) {
     const snapshot = ref.snapshot;
     const status = snapshot?.status === "ready" ? "Content saved" : snapshot ? "Content unavailable" : "Not previewed";
@@ -156,7 +200,7 @@ export function materialBrief(details, escape) {
     if (ref.snapshot?.text) html += '<details><summary>View saved reference content</summary><pre class="material-text" tabindex="0" role="region" aria-label="Saved content for reference ' + (index + 1) + '">' + escape(ref.snapshot.text) + '</pre></details>';
     html += '</div>';
   }
-  return html + '<p class="small">Supplied lyrics, reference links, notes, and saved page text are public once the request is confirmed.</p></div>';
+  return html + '<p class="small">Supplied lyrics, lyric prompt history, reference links, notes, and saved page text are public once the request is confirmed. The final sheet appears after lyric approval.</p></div>';
 }
 
 function referenceLink(value, escape) {

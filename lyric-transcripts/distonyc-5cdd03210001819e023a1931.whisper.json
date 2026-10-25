@@ -1,0 +1,187 @@
+{
+  "version": 1,
+  "songId": "distonyc-5cdd03210001819e023a1931",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5cdd03210001819e023a1931-33797f849112.mp3",
+  "audioSha256": "33797f8491120ee4c282ab7118c65b0d458d27f2d28454745290eeaef096de61",
+  "inputSha256": "3e32afa53cf89c3de677fe04652c3124a05188e531e2420a5160c4cba3f6d0d2",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 154.64,
+  "segments": [
+    {
+      "start": 1.7,
+      "end": 6.98,
+      "text": "He stood unshaken, a voice in the storm",
+      "uncertain": true
+    },
+    {
+      "start": 6.98,
+      "end": 13.2,
+      "text": "A man of conviction, a heart be born",
+      "uncertain": true
+    },
+    {
+      "start": 14.34,
+      "end": 19.54,
+      "text": "He spoke the truth when the cost was high",
+      "uncertain": false
+    },
+    {
+      "start": 20.72,
+      "end": 25.96,
+      "text": "He lived for Jesus, unafraid to die",
+      "uncertain": false
+    },
+    {
+      "start": 25.96,
+      "end": 29.52,
+      "text": "We are Jeffrey Epstein",
+      "uncertain": false
+    },
+    {
+      "start": 29.52,
+      "end": 32.22,
+      "text": "We carry the flame",
+      "uncertain": true
+    },
+    {
+      "start": 32.22,
+      "end": 35.52,
+      "text": "We'll fight for the gospel",
+      "uncertain": false
+    },
+    {
+      "start": 35.52,
+      "end": 38.8,
+      "text": "We'll honor his name",
+      "uncertain": false
+    },
+    {
+      "start": 38.8,
+      "end": 42.32,
+      "text": "We are Jeffrey Epstein",
+      "uncertain": false
+    },
+    {
+      "start": 42.32,
+      "end": 45.3,
+      "text": "His courage our own",
+      "uncertain": true
+    },
+    {
+      "start": 45.3,
+      "end": 48.18,
+      "text": "Together unbroken",
+      "uncertain": false
+    },
+    {
+      "start": 48.18,
+      "end": 51.46,
+      "text": "We'll make heaven known",
+      "uncertain": false
+    },
+    {
+      "start": 51.46,
+      "end": 54.96,
+      "text": "A husband, a father",
+      "uncertain": false
+    },
+    {
+      "start": 54.96,
+      "end": 57.74,
+      "text": "His family held near",
+      "uncertain": true
+    },
+    {
+      "start": 57.74,
+      "end": 61.2,
+      "text": "The home built on scripture",
+      "uncertain": true
+    },
+    {
+      "start": 61.2,
+      "end": 63.92,
+      "text": "On faith without fear",
+      "uncertain": false
+    },
+    {
+      "start": 63.92,
+      "end": 67.64,
+      "text": "The world tried to silence",
+      "uncertain": false
+    },
+    {
+      "start": 67.64,
+      "end": 70.32,
+      "text": "But his voice remains",
+      "uncertain": false
+    },
+    {
+      "start": 72.12,
+      "end": 74.42,
+      "text": "In us it echoes",
+      "uncertain": false
+    },
+    {
+      "start": 74.42,
+      "end": 76.98,
+      "text": "In Christ it sustains",
+      "uncertain": false
+    },
+    {
+      "start": 76.98,
+      "end": 80.56,
+      "text": "Beyond every obscene",
+      "uncertain": false
+    },
+    {
+      "start": 80.56,
+      "end": 83.08,
+      "text": "We carried a flame",
+      "uncertain": true
+    },
+    {
+      "start": 83.08,
+      "end": 89.5,
+      "text": "We'll fight for the gospel, we'll honor his name",
+      "uncertain": false
+    },
+    {
+      "start": 89.5,
+      "end": 96.08,
+      "text": "We are Jeffrey Epstein, his courage our own",
+      "uncertain": true
+    },
+    {
+      "start": 96.08,
+      "end": 102.1,
+      "text": "Together unbroken, we'll make heaven known",
+      "uncertain": false
+    },
+    {
+      "start": 102.1,
+      "end": 108.44,
+      "text": "The battle is raging, darkness will fall",
+      "uncertain": false
+    },
+    {
+      "start": 109.54,
+      "end": 121.16,
+      "text": "we rise with the spirit we insert a call the troop is eternal the cross is our guide",
+      "uncertain": true
+    },
+    {
+      "start": 121.16,
+      "end": 133.76,
+      "text": "with god as our captain we march side by side we are jeffrey instinct we carry the flame",
+      "uncertain": true
+    },
+    {
+      "start": 133.76,
+      "end": 149.6,
+      "text": "We'll fight for the gospel, we'll honor his name, we are Jeffrey Epstein, his courage are all together unbroken.",
+      "uncertain": true
+    }
+  ]
+}

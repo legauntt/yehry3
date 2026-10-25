@@ -1,0 +1,415 @@
+{
+  "version": 1,
+  "songId": "distonyc-8367c61f5f4929515d7d5d10",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8367c61f5f4929515d7d5d10-71479939ccff.mp3",
+  "audioSha256": "71479939ccffaedda9064dbd4a8e8de90e5e44cc3da95f22c7a751ce14f11136",
+  "inputSha256": "4d02ed9690abd94595d3073a608e1ac38f5e0bc2615b9e7613cde64dc020f419",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 300.0424375,
+  "segments": [
+    {
+      "start": 14.12,
+      "end": 17.46,
+      "text": "It's all you see by the throne of a curb in the rain",
+      "uncertain": true
+    },
+    {
+      "start": 17.46,
+      "end": 20.08,
+      "text": "One wheel missing gut table in the main",
+      "uncertain": true
+    },
+    {
+      "start": 20.08,
+      "end": 22.74,
+      "text": "He sinks down sideways in his boxer shorts",
+      "uncertain": false
+    },
+    {
+      "start": 22.74,
+      "end": 25.58,
+      "text": "While Claude builds castles through invisible ports",
+      "uncertain": false
+    },
+    {
+      "start": 25.58,
+      "end": 28.26,
+      "text": "It's all he's got crumbs in the keyboard grooves",
+      "uncertain": false
+    },
+    {
+      "start": 28.26,
+      "end": 30.74,
+      "text": "A cold can sweatin' on unpaid dues",
+      "uncertain": true
+    },
+    {
+      "start": 30.74,
+      "end": 33.66,
+      "text": "He types make it hard with a greasy thumb",
+      "uncertain": true
+    },
+    {
+      "start": 33.66,
+      "end": 37.2,
+      "text": "Then calls his cousin, yeah, I'm a one",
+      "uncertain": true
+    },
+    {
+      "start": 46.9,
+      "end": 51.44,
+      "text": "The cursor blinks like a court rule",
+      "uncertain": false
+    },
+    {
+      "start": 51.44,
+      "end": 57.36,
+      "text": "Like Tony practices, nodding like he wrote it all night.",
+      "uncertain": true
+    },
+    {
+      "start": 59.06,
+      "end": 64.2,
+      "text": "Tony's seeing the card chair, king of the fold.",
+      "uncertain": false
+    },
+    {
+      "start": 64.64,
+      "end": 69.76,
+      "text": "Watching Claude turn his loose change into gold.",
+      "uncertain": false
+    },
+    {
+      "start": 69.78,
+      "end": 72.74,
+      "text": "He says, that's my vision.",
+      "uncertain": false
+    },
+    {
+      "start": 73.34,
+      "end": 78.3,
+      "text": "When the whole screen blows, Claude writes the engine.",
+      "uncertain": false
+    },
+    {
+      "start": 78.3,
+      "end": 80.88,
+      "text": "So he picks the claws",
+      "uncertain": true
+    },
+    {
+      "start": 80.88,
+      "end": 84.0,
+      "text": "So he's seeing the car chair",
+      "uncertain": true
+    },
+    {
+      "start": 84.0,
+      "end": 86.1,
+      "text": "Fee on a crate",
+      "uncertain": true
+    },
+    {
+      "start": 86.1,
+      "end": 88.78,
+      "text": "Refreshing the page",
+      "uncertain": false
+    },
+    {
+      "start": 88.78,
+      "end": 91.54,
+      "text": "While he waits for fate",
+      "uncertain": false
+    },
+    {
+      "start": 91.54,
+      "end": 94.46,
+      "text": "The road smells like pizza",
+      "uncertain": false
+    },
+    {
+      "start": 94.46,
+      "end": 96.92,
+      "text": "Right at the feet",
+      "uncertain": false
+    },
+    {
+      "start": 96.92,
+      "end": 99.98,
+      "text": "But the dashboard is dancing",
+      "uncertain": false
+    },
+    {
+      "start": 99.98,
+      "end": 102.68,
+      "text": "Beneath his feet",
+      "uncertain": false
+    },
+    {
+      "start": 104.26,
+      "end": 106.06,
+      "text": "Claude named the folders",
+      "uncertain": false
+    },
+    {
+      "start": 106.06,
+      "end": 107.52,
+      "text": "Corrected the dates",
+      "uncertain": false
+    },
+    {
+      "start": 107.52,
+      "end": 110.08,
+      "text": "Fixed Tony's password, Tony Rocks 8",
+      "uncertain": false
+    },
+    {
+      "start": 110.08,
+      "end": 112.76,
+      "text": "Tony took credit in a Discord thread",
+      "uncertain": false
+    },
+    {
+      "start": 112.76,
+      "end": 115.6,
+      "text": "With a ring light halo above his head",
+      "uncertain": false
+    },
+    {
+      "start": 115.6,
+      "end": 118.72,
+      "text": "His old head shines over the sink",
+      "uncertain": false
+    },
+    {
+      "start": 118.72,
+      "end": 121.38,
+      "text": "Frosted jits, thousand-yard blame",
+      "uncertain": false
+    },
+    {
+      "start": 121.38,
+      "end": 124.6,
+      "text": "Key points at it, says that guy",
+      "uncertain": true
+    },
+    {
+      "start": 124.6,
+      "end": 127.04,
+      "text": "Had nerve",
+      "uncertain": false
+    },
+    {
+      "start": 128.0,
+      "end": 131.86,
+      "text": "That asks Claude if the barb is trimmed",
+      "uncertain": true
+    },
+    {
+      "start": 140.12,
+      "end": 144.72,
+      "text": "Laptop fans sing from under the chair",
+      "uncertain": false
+    },
+    {
+      "start": 144.72,
+      "end": 150.46,
+      "text": "Like tiny embarrassed angels trapped in his hair",
+      "uncertain": false
+    },
+    {
+      "start": 151.66,
+      "end": 155.02,
+      "text": "Tony's seeing the cuts here",
+      "uncertain": true
+    },
+    {
+      "start": 155.02,
+      "end": 157.06,
+      "text": "King of the fold",
+      "uncertain": false
+    },
+    {
+      "start": 157.06,
+      "end": 159.4,
+      "text": "Watching Quan turn his blues",
+      "uncertain": true
+    },
+    {
+      "start": 159.4,
+      "end": 160.56,
+      "text": "Changing to gold",
+      "uncertain": true
+    },
+    {
+      "start": 160.56,
+      "end": 165.7,
+      "text": "Tony's that dry vision when the whole spring glows.",
+      "uncertain": true
+    },
+    {
+      "start": 166.38,
+      "end": 170.66,
+      "text": "Claude writes the engine, Tony picks the club.",
+      "uncertain": true
+    },
+    {
+      "start": 171.18,
+      "end": 175.82,
+      "text": "Tony's seeing the car chair, Fiona Gray.",
+      "uncertain": true
+    },
+    {
+      "start": 176.92,
+      "end": 181.56,
+      "text": "Refreshing the page while he waits for fate.",
+      "uncertain": true
+    },
+    {
+      "start": 182.2,
+      "end": 186.7,
+      "text": "The road smells like pizza, rain and defeat.",
+      "uncertain": false
+    },
+    {
+      "start": 186.7,
+      "end": 192.62,
+      "text": "But the dashboard is dancing beneath his feet",
+      "uncertain": false
+    },
+    {
+      "start": 196.56,
+      "end": 199.28,
+      "text": "At 3 a.m.",
+      "uncertain": true
+    },
+    {
+      "start": 199.56,
+      "end": 202.34,
+      "text": "The monitor goes black",
+      "uncertain": false
+    },
+    {
+      "start": 202.34,
+      "end": 207.28,
+      "text": "To always sees his face in the blast looking by",
+      "uncertain": true
+    },
+    {
+      "start": 207.28,
+      "end": 209.98,
+      "text": "No crown, no staff, no large parade",
+      "uncertain": false
+    },
+    {
+      "start": 209.98,
+      "end": 214.26,
+      "text": "Just a grown man lit by a payment made",
+      "uncertain": false
+    },
+    {
+      "start": 214.26,
+      "end": 218.34,
+      "text": "Then a last message fills up the room",
+      "uncertain": false
+    },
+    {
+      "start": 218.34,
+      "end": 222.34,
+      "text": "They'll complete, shall I polish the room?",
+      "uncertain": false
+    },
+    {
+      "start": 224.28,
+      "end": 227.94,
+      "text": "Tony salutes with a soft-stained wing",
+      "uncertain": false
+    },
+    {
+      "start": 229.0,
+      "end": 233.88,
+      "text": "Clock, baby, put a bet on the thang",
+      "uncertain": true
+    },
+    {
+      "start": 236.32,
+      "end": 239.44,
+      "text": "Tony's seeing the cot chair",
+      "uncertain": false
+    },
+    {
+      "start": 239.44,
+      "end": 241.62,
+      "text": "Dawn at the blind",
+      "uncertain": false
+    },
+    {
+      "start": 241.62,
+      "end": 245.48,
+      "text": "A finished little universe harming online",
+      "uncertain": false
+    },
+    {
+      "start": 245.48,
+      "end": 248.92,
+      "text": "He calls it collaboration",
+      "uncertain": false
+    },
+    {
+      "start": 250.18,
+      "end": 252.1,
+      "text": "Calls it art clock",
+      "uncertain": false
+    },
+    {
+      "start": 252.1,
+      "end": 253.32,
+      "text": "Makes the body",
+      "uncertain": false
+    },
+    {
+      "start": 253.32,
+      "end": 255.34,
+      "text": "Sony supplies the heart",
+      "uncertain": true
+    },
+    {
+      "start": 255.34,
+      "end": 258.56,
+      "text": "Sony see in the car chair",
+      "uncertain": true
+    },
+    {
+      "start": 258.56,
+      "end": 260.68,
+      "text": "Proud as can be",
+      "uncertain": false
+    },
+    {
+      "start": 260.68,
+      "end": 265.94,
+      "text": "Taking a screenshot for his aunt to see",
+      "uncertain": false
+    },
+    {
+      "start": 265.94,
+      "end": 271.28,
+      "text": "The chair gives one last catastrophic squeeze",
+      "uncertain": false
+    },
+    {
+      "start": 271.28,
+      "end": 278.28,
+      "text": "And Tony posts, we up for the sixth strain, we...",
+      "uncertain": true
+    },
+    {
+      "start": 278.78,
+      "end": 288.12,
+      "text": "Claude keeps coding, Tony keeps posing, the chair keeps groaning, nobody's clapping, Tony is clapping.",
+      "uncertain": false
+    }
+  ]
+}

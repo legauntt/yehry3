@@ -1,0 +1,91 @@
+{
+  "version": 1,
+  "songId": "distonyc-20a78aa7d2e7335fb057308f",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-20a78aa7d2e7335fb057308f-c03143e67c45.mp3",
+  "audioSha256": "c03143e67c4528554ab236ccef2c69364c7db1aa9c3011b72119ae8429d6726c",
+  "inputSha256": "53cb193727591d3286c8bd16a510a71c69f4e55a4767cb8549f91e58f3f15cd7",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 250.0440625,
+  "segments": [
+    {
+      "start": 16.78,
+      "end": 19.0,
+      "text": "I want a sound",
+      "uncertain": true
+    },
+    {
+      "start": 19.0,
+      "end": 21.14,
+      "text": "I want a star",
+      "uncertain": true
+    },
+    {
+      "start": 21.14,
+      "end": 23.42,
+      "text": "I want a sleep",
+      "uncertain": false
+    },
+    {
+      "start": 23.42,
+      "end": 25.82,
+      "text": "I want a song",
+      "uncertain": true
+    },
+    {
+      "start": 25.82,
+      "end": 28.28,
+      "text": "I want a slap",
+      "uncertain": true
+    },
+    {
+      "start": 28.28,
+      "end": 53.72,
+      "text": "I want to suck, I want to suck, I want to suck, I want to suck, I want to fuck, I want to fuck, I want to fuck, I want to fuck, I want to fuck, I want to fuck.",
+      "uncertain": true
+    },
+    {
+      "start": 58.36,
+      "end": 83.86,
+      "text": "I want a fuck, I want a fuck, I want a fuck, I want a fuck, I want a fuck, I want a fuck,",
+      "uncertain": true
+    },
+    {
+      "start": 83.86,
+      "end": 88.5,
+      "text": "I want to fuck, I want to fuck.",
+      "uncertain": true
+    },
+    {
+      "start": 113.86,
+      "end": 142.78,
+      "text": "I want to fuck, I want to fuck, I want to fuck, I want to fuck, I want to fuck, I want",
+      "uncertain": true
+    },
+    {
+      "start": 142.78,
+      "end": 166.94,
+      "text": "I want to fuck, I want to fuck, I want to fuck, I want to fuck, I want to fuck, I want to fuck, I want to fuck, I want to fuck, I want to fuck, I want to fuck.",
+      "uncertain": true
+    },
+    {
+      "start": 172.78,
+      "end": 200.98,
+      "text": "I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck.",
+      "uncertain": true
+    },
+    {
+      "start": 203.22,
+      "end": 231.86,
+      "text": "I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck, I wanna fuck,",
+      "uncertain": true
+    },
+    {
+      "start": 231.86,
+      "end": 243.16,
+      "text": "I wanna fight! I wanna fight! I wanna fight! I wanna fight! I wanna fight!",
+      "uncertain": true
+    }
+  ]
+}

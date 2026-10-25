@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "songId": "distonyc-8c98e56d3d736316e459f5b5",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-8c98e56d3d736316e459f5b5-c780563dac13.mp3",
+  "audioSha256": "c780563dac13541dff854ed62daf5fbd9ef6b10a2f00a25bb1ca84f7497ba489",
+  "inputSha256": "24fae371171f0436f09a924897260093719ef132acebe5ed97dba45870f7cc6a",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 430.106125,
+  "segments": [
+    {
+      "start": 16.86,
+      "end": 20.44,
+      "text": "Retired before the sun could learn my name",
+      "uncertain": false
+    },
+    {
+      "start": 20.44,
+      "end": 24.54,
+      "text": "Folded up the uniform, stepped out of the game",
+      "uncertain": false
+    },
+    {
+      "start": 24.54,
+      "end": 28.48,
+      "text": "Everybody said the lights now take a little break",
+      "uncertain": true
+    },
+    {
+      "start": 28.48,
+      "end": 32.6,
+      "text": "But the mailbox keeps on talking and the groceries make me shake",
+      "uncertain": true
+    },
+    {
+      "start": 32.6,
+      "end": 36.74,
+      "text": "So I opened up a welcome page at quarter after ten",
+      "uncertain": true
+    },
+    {
+      "start": 36.74,
+      "end": 41.08,
+      "text": "A tiny wheel was glowing like it knew me way back when",
+      "uncertain": false
+    },
+    {
+      "start": 41.08,
+      "end": 44.98,
+      "text": "It said I had a bone, it said my future could be bright",
+      "uncertain": true
+    },
+    {
+      "start": 44.98,
+      "end": 49.48,
+      "text": "I put the kettle on and spun until the middle of the night",
+      "uncertain": false
+    },
+    {
+      "start": 50.62,
+      "end": 54.56,
+      "text": "One more log and one more code",
+      "uncertain": false
+    },
+    {
+      "start": 54.56,
+      "end": 57.66,
+      "text": "One more bright little world",
+      "uncertain": false
+    },
+    {
+      "start": 59.4,
+      "end": 62.22,
+      "text": "I'm washing out the promo cash",
+      "uncertain": false
+    },
+    {
+      "start": 62.22,
+      "end": 63.9,
+      "text": "Round and round it goes",
+      "uncertain": false
+    },
+    {
+      "start": 63.9,
+      "end": 67.84,
+      "text": "8,000 little chances in my slippers and my clothes",
+      "uncertain": false
+    },
+    {
+      "start": 67.84,
+      "end": 69.92,
+      "text": "I'm building super coin leverage",
+      "uncertain": false
+    },
+    {
+      "start": 69.92,
+      "end": 72.02,
+      "text": "I can feel the system band",
+      "uncertain": false
+    },
+    {
+      "start": 72.02,
+      "end": 76.2,
+      "text": "Every losing spin is only practice for the end",
+      "uncertain": false
+    },
+    {
+      "start": 76.2,
+      "end": 78.16,
+      "text": "When the jackpot throws its thunder",
+      "uncertain": false
+    },
+    {
+      "start": 78.16,
+      "end": 80.3,
+      "text": "Through this quiet little room",
+      "uncertain": true
+    },
+    {
+      "start": 80.3,
+      "end": 82.82,
+      "text": "I'll be king of all the welcome offers",
+      "uncertain": false
+    },
+    {
+      "start": 82.82,
+      "end": 84.18,
+      "text": "Rich by afternoon",
+      "uncertain": false
+    },
+    {
+      "start": 84.18,
+      "end": 88.62,
+      "text": "I'm washing out the promo cash, I'm working on a plan",
+      "uncertain": false
+    },
+    {
+      "start": 88.62,
+      "end": 93.42,
+      "text": "A retired man was spinning wheels and coffee in his hands",
+      "uncertain": true
+    },
+    {
+      "start": 109.44,
+      "end": 113.36,
+      "text": "Monday brings a mystery box, Tuesday brings a boost",
+      "uncertain": false
+    },
+    {
+      "start": 113.36,
+      "end": 117.5,
+      "text": "Wednesday says my balance is a wild and nervous goose",
+      "uncertain": false
+    },
+    {
+      "start": 117.5,
+      "end": 121.6,
+      "text": "I read the offers in a book beside the heater on the wall",
+      "uncertain": true
+    },
+    {
+      "start": 121.6,
+      "end": 125.74,
+      "text": "A calendar of golden terms, conditions, fins and all",
+      "uncertain": true
+    },
+    {
+      "start": 125.74,
+      "end": 129.9,
+      "text": "My neighbor asks what keeps me up, I tell him financial art",
+      "uncertain": false
+    },
+    {
+      "start": 129.9,
+      "end": 133.98,
+      "text": "He sees the colored windows dancing, here's the clicking start",
+      "uncertain": false
+    },
+    {
+      "start": 133.98,
+      "end": 138.2,
+      "text": "I say the numbers have a rhythm, say the timing's looking fine",
+      "uncertain": false
+    },
+    {
+      "start": 138.2,
+      "end": 142.34,
+      "text": "Then lose 300 bonus rounds before the lunch hour chime",
+      "uncertain": false
+    },
+    {
+      "start": 151.64,
+      "end": 155.84,
+      "text": "One more mission, one more tear",
+      "uncertain": false
+    },
+    {
+      "start": 155.84,
+      "end": 159.16,
+      "text": "The grand reward is almost here",
+      "uncertain": false
+    },
+    {
+      "start": 160.72,
+      "end": 163.42,
+      "text": "I'm watching out the promo cash",
+      "uncertain": true
+    },
+    {
+      "start": 163.42,
+      "end": 165.28,
+      "text": "Round and round it goes",
+      "uncertain": false
+    },
+    {
+      "start": 165.28,
+      "end": 169.24,
+      "text": "8,000 little chances in my slippers and my clothes",
+      "uncertain": false
+    },
+    {
+      "start": 169.24,
+      "end": 171.3,
+      "text": "I'm building supercoin leverage",
+      "uncertain": false
+    },
+    {
+      "start": 171.3,
+      "end": 173.52,
+      "text": "I can feel the system bend",
+      "uncertain": false
+    },
+    {
+      "start": 173.52,
+      "end": 177.56,
+      "text": "Every ooze and spin is only practice for the end",
+      "uncertain": true
+    },
+    {
+      "start": 177.56,
+      "end": 181.74,
+      "text": "When the jackpot throws its thunder through this quiet little room",
+      "uncertain": false
+    },
+    {
+      "start": 181.74,
+      "end": 185.6,
+      "text": "I'll be king of all the welcome offers rich by afternoon",
+      "uncertain": true
+    },
+    {
+      "start": 185.6,
+      "end": 189.88,
+      "text": "I'm washing out the promo cash, I'm working on a plan",
+      "uncertain": false
+    },
+    {
+      "start": 189.88,
+      "end": 194.46,
+      "text": "A retired man with spinning wheels and coffee in his hand",
+      "uncertain": false
+    },
+    {
+      "start": 210.48,
+      "end": 214.64,
+      "text": "At 2 a.m. the free spin bells are ringing in the hall",
+      "uncertain": true
+    },
+    {
+      "start": 214.64,
+      "end": 218.76,
+      "text": "The chatters learn to leave me when the scatter symbols call",
+      "uncertain": true
+    },
+    {
+      "start": 218.76,
+      "end": 222.86,
+      "text": "I promise I will stop at 5, then 5 becomes the score",
+      "uncertain": false
+    },
+    {
+      "start": 222.86,
+      "end": 227.12,
+      "text": "Then somebody sends a cashback deal and I am back for more",
+      "uncertain": false
+    },
+    {
+      "start": 227.12,
+      "end": 231.1,
+      "text": "The dashboard says congratulations, bright as painted chrome",
+      "uncertain": false
+    },
+    {
+      "start": 231.1,
+      "end": 235.86,
+      "text": "I whisper to the empty chair, this is how I find the home",
+      "uncertain": true
+    },
+    {
+      "start": 235.86,
+      "end": 239.58,
+      "text": "All this the tiffy people sound me vibin' on the home",
+      "uncertain": true
+    },
+    {
+      "start": 239.58,
+      "end": 243.82,
+      "text": "Our way plot merely lands tonight, hope yes it's fun but it's",
+      "uncertain": true
+    },
+    {
+      "start": 243.82,
+      "end": 247.98,
+      "text": "A jackpot merely lands tonight, it flashes, shakes, then flees",
+      "uncertain": false
+    },
+    {
+      "start": 247.98,
+      "end": 252.18,
+      "text": "I stare into the loading wheel and bargain with the breeze",
+      "uncertain": false
+    },
+    {
+      "start": 256.04,
+      "end": 260.14,
+      "text": "No office key, no boss clock, no commute in the rain",
+      "uncertain": false
+    },
+    {
+      "start": 260.14,
+      "end": 264.26,
+      "text": "Just a dozen password resets and a private little pain",
+      "uncertain": false
+    },
+    {
+      "start": 264.26,
+      "end": 268.46,
+      "text": "But I have seen the coin meter rise, I know what it can do",
+      "uncertain": false
+    },
+    {
+      "start": 268.46,
+      "end": 272.56,
+      "text": "There's a shining mathematical kingdom breaking through",
+      "uncertain": false
+    },
+    {
+      "start": 272.56,
+      "end": 276.84,
+      "text": "If the wheel gives me a castle, I'll repair the kitchen sink",
+      "uncertain": false
+    },
+    {
+      "start": 276.84,
+      "end": 280.7,
+      "text": "If it gives me only coupons, I will sit and overthink",
+      "uncertain": false
+    },
+    {
+      "start": 280.7,
+      "end": 285.08,
+      "text": "I'm not reckless, I'm strategic, that's the story that I tell",
+      "uncertain": false
+    },
+    {
+      "start": 285.08,
+      "end": 289.14,
+      "text": "While the screen says try again in its cheerful little spell",
+      "uncertain": false
+    },
+    {
+      "start": 305.82,
+      "end": 309.94,
+      "text": "Thursday turns to Friday with a fresh promotional storm",
+      "uncertain": true
+    },
+    {
+      "start": 309.94,
+      "end": 314.1,
+      "text": "I wear my lucky housecoat like a ceremonial uniform",
+      "uncertain": false
+    },
+    {
+      "start": 314.1,
+      "end": 317.98,
+      "text": "I enter every tournament with a tablet and a grin",
+      "uncertain": false
+    },
+    {
+      "start": 317.98,
+      "end": 322.28,
+      "text": "The future is a spinning fruit that surely must come in",
+      "uncertain": false
+    },
+    {
+      "start": 322.28,
+      "end": 326.42,
+      "text": "My sister calls to check on me, I say I'm doing grand",
+      "uncertain": false
+    },
+    {
+      "start": 326.42,
+      "end": 330.58,
+      "text": "I've got a spreadsheet, pre-accounts, a very steady hand",
+      "uncertain": false
+    },
+    {
+      "start": 330.58,
+      "end": 334.6,
+      "text": "She says, Tony, go outside, I say the payouts do it for",
+      "uncertain": false
+    },
+    {
+      "start": 334.6,
+      "end": 340.08,
+      "text": "Then watch a thousand tiny rockets cross the monitor once more",
+      "uncertain": false
+    },
+    {
+      "start": 355.28,
+      "end": 359.7,
+      "text": "I'm washing out the promo cash, round and round it goes",
+      "uncertain": false
+    },
+    {
+      "start": 359.7,
+      "end": 363.62,
+      "text": "8,000 little chances in my slippers and my clothes",
+      "uncertain": true
+    },
+    {
+      "start": 363.62,
+      "end": 367.84,
+      "text": "I'm building super coin leverage, I can feel the system bend",
+      "uncertain": false
+    },
+    {
+      "start": 367.84,
+      "end": 372.0,
+      "text": "Every losing spin is only practice for the end",
+      "uncertain": false
+    },
+    {
+      "start": 372.0,
+      "end": 375.96,
+      "text": "Maybe I will hit the thunder, maybe just another bell",
+      "uncertain": false
+    },
+    {
+      "start": 375.96,
+      "end": 380.28,
+      "text": "Maybe all this future planning is a very fancy spell",
+      "uncertain": false
+    },
+    {
+      "start": 380.28,
+      "end": 384.26,
+      "text": "But I'll close the tabs at sunrise, let the pale day fill the room",
+      "uncertain": false
+    },
+    {
+      "start": 384.26,
+      "end": 388.4,
+      "text": "And carry all my super coins into tomorrow's afternoon",
+      "uncertain": false
+    },
+    {
+      "start": 396.66,
+      "end": 400.88,
+      "text": "The wheel slows down, the screen goes dim, the coffee's finally cold",
+      "uncertain": false
+    },
+    {
+      "start": 400.88,
+      "end": 405.04,
+      "text": "I keep one hopeful number like a secret piece of gold",
+      "uncertain": false
+    },
+    {
+      "start": 405.04,
+      "end": 407.38,
+      "text": "No grand parade, no palace yet",
+      "uncertain": false
+    },
+    {
+      "start": 407.38,
+      "end": 409.24,
+      "text": "Just morning at the door",
+      "uncertain": true
+    },
+    {
+      "start": 409.24,
+      "end": 410.82,
+      "text": "I'll breathe out soft",
+      "uncertain": false
+    },
+    {
+      "start": 410.82,
+      "end": 412.38,
+      "text": "I'll make it work",
+      "uncertain": false
+    }
+  ]
+}

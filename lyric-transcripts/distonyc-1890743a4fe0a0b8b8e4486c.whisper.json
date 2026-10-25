@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "songId": "distonyc-1890743a4fe0a0b8b8e4486c",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1890743a4fe0a0b8b8e4486c-5562e238e709.mp3",
+  "audioSha256": "5562e238e70928aaeaa558fe9331f5dc5115b9bda2ebe4ba35529d20761cb961",
+  "inputSha256": "5562e238e70928aaeaa558fe9331f5dc5115b9bda2ebe4ba35529d20761cb961",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 235.7,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 2.66,
+      "text": "This is Tony C. from The Shoes.",
+      "uncertain": false
+    },
+    {
+      "start": 13.34,
+      "end": 16.4,
+      "text": "You were building casseroles in the sand.",
+      "uncertain": true
+    },
+    {
+      "start": 16.44,
+      "end": 19.12,
+      "text": "I brought a fork, you brought a marching band.",
+      "uncertain": false
+    },
+    {
+      "start": 19.36,
+      "end": 21.92,
+      "text": "You buttered me up just to toast me brown.",
+      "uncertain": false
+    },
+    {
+      "start": 22.1,
+      "end": 24.58,
+      "text": "Then crossed my name off the lost and found.",
+      "uncertain": false
+    },
+    {
+      "start": 24.72,
+      "end": 27.34,
+      "text": "You drew me out of your coloring book.",
+      "uncertain": false
+    },
+    {
+      "start": 27.34,
+      "end": 30.0,
+      "text": "I lost my place when the radiator shook",
+      "uncertain": false
+    },
+    {
+      "start": 30.0,
+      "end": 32.74,
+      "text": "There was something important I meant to accuse",
+      "uncertain": false
+    },
+    {
+      "start": 32.74,
+      "end": 35.9,
+      "text": "But the words fell out through a hole in my shoes",
+      "uncertain": false
+    },
+    {
+      "start": 37.16,
+      "end": 39.32,
+      "text": "You turned me to scones",
+      "uncertain": false
+    },
+    {
+      "start": 39.32,
+      "end": 42.14,
+      "text": "And the scones don't need you",
+      "uncertain": false
+    },
+    {
+      "start": 42.14,
+      "end": 44.72,
+      "text": "My beautiful reducer",
+      "uncertain": false
+    },
+    {
+      "start": 44.72,
+      "end": 47.24,
+      "text": "My beautiful Medusa",
+      "uncertain": false
+    },
+    {
+      "start": 48.22,
+      "end": 51.1,
+      "text": "I'm losing the remote, don't even care",
+      "uncertain": false
+    },
+    {
+      "start": 51.1,
+      "end": 53.8,
+      "text": "Somebody left all the snakes downstairs",
+      "uncertain": false
+    },
+    {
+      "start": 53.8,
+      "end": 55.52,
+      "text": "You turned me to scones",
+      "uncertain": false
+    },
+    {
+      "start": 57.62,
+      "end": 59.94,
+      "text": "Now the kettle's coming home",
+      "uncertain": false
+    },
+    {
+      "start": 64.48,
+      "end": 67.72,
+      "text": "When first I met you, you were wearing a raincoat",
+      "uncertain": true
+    },
+    {
+      "start": 67.72,
+      "end": 70.46,
+      "text": "I called it a halo, that's what my brain wrote",
+      "uncertain": false
+    },
+    {
+      "start": 70.46,
+      "end": 72.98,
+      "text": "Now I realize underneath that sleeve",
+      "uncertain": false
+    },
+    {
+      "start": 72.98,
+      "end": 75.56,
+      "text": "You had 17 receipts and a wheel of cheese",
+      "uncertain": false
+    },
+    {
+      "start": 75.56,
+      "end": 78.34,
+      "text": "You said forever, I heard four leather chairs",
+      "uncertain": false
+    },
+    {
+      "start": 78.34,
+      "end": 81.16,
+      "text": "I carried them up 17 flights of stairs",
+      "uncertain": false
+    },
+    {
+      "start": 81.16,
+      "end": 83.92,
+      "text": "You gave me a look that could petrify bread",
+      "uncertain": false
+    },
+    {
+      "start": 83.92,
+      "end": 87.0,
+      "text": "I thanked the conductor and climbed into bed",
+      "uncertain": false
+    },
+    {
+      "start": 88.72,
+      "end": 90.5,
+      "text": "You turned me to scones",
+      "uncertain": true
+    },
+    {
+      "start": 91.42,
+      "end": 93.36,
+      "text": "And the scones don't need you",
+      "uncertain": false
+    },
+    {
+      "start": 94.12,
+      "end": 95.92,
+      "text": "My beautiful Reducer",
+      "uncertain": false
+    },
+    {
+      "start": 96.92,
+      "end": 98.38,
+      "text": "My beautiful Medusa",
+      "uncertain": false
+    },
+    {
+      "start": 99.18,
+      "end": 102.24,
+      "text": "I'm losing the remote, don't even care",
+      "uncertain": false
+    },
+    {
+      "start": 102.24,
+      "end": 104.94,
+      "text": "Somebody left all the snakes downstairs",
+      "uncertain": false
+    },
+    {
+      "start": 104.94,
+      "end": 106.86,
+      "text": "You turned me to scones",
+      "uncertain": false
+    },
+    {
+      "start": 109.12,
+      "end": 111.1,
+      "text": "Now the kettle's coming home",
+      "uncertain": false
+    },
+    {
+      "start": 113.36,
+      "end": 115.9,
+      "text": "Surprised every morning my socks aren't dead",
+      "uncertain": false
+    },
+    {
+      "start": 115.9,
+      "end": 118.66,
+      "text": "Got a mouthful of coupons and cabbage for a head",
+      "uncertain": false
+    },
+    {
+      "start": 118.66,
+      "end": 120.74,
+      "text": "Check the mirror, both thighs were plaid",
+      "uncertain": false
+    },
+    {
+      "start": 120.74,
+      "end": 123.7,
+      "text": "That's the finest reflection, not almost",
+      "uncertain": false
+    },
+    {
+      "start": 123.7,
+      "end": 126.88,
+      "text": "The bottle said shampoo, the sandwich said leave",
+      "uncertain": true
+    },
+    {
+      "start": 126.88,
+      "end": 129.54,
+      "text": "I wiped all my prophecies off of my sleeve",
+      "uncertain": false
+    },
+    {
+      "start": 129.54,
+      "end": 132.3,
+      "text": "There's a crop of last verse somewhere under this chair",
+      "uncertain": true
+    },
+    {
+      "start": 132.3,
+      "end": 135.24,
+      "text": "But a pigeon has eaten it fair is fair",
+      "uncertain": false
+    },
+    {
+      "start": 136.68,
+      "end": 138.88,
+      "text": "You turned me to scones",
+      "uncertain": false
+    },
+    {
+      "start": 138.88,
+      "end": 146.84,
+      "text": "But I finally forgive you, my beautiful Reducin', my beautiful Medusa",
+      "uncertain": true
+    },
+    {
+      "start": 147.74,
+      "end": 153.46,
+      "text": "Lost every word, found you sittin' there With a little crooked smile and a snake in your hair",
+      "uncertain": false
+    },
+    {
+      "start": 153.46,
+      "end": 160.12,
+      "text": "I'll put down the page, let the kitchen light glow My beautiful Medusa, that's the one I know",
+      "uncertain": false
+    },
+    {
+      "start": 170.22,
+      "end": 172.62,
+      "text": "Surprised every morning my song",
+      "uncertain": true
+    },
+    {
+      "start": 181.04,
+      "end": 202.6,
+      "text": "La la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la la",
+      "uncertain": true
+    },
+    {
+      "start": 202.6,
+      "end": 209.4,
+      "text": "for Medusa. I'm losing the remote, don't even care. With the lady left, all the snakes",
+      "uncertain": true
+    },
+    {
+      "start": 209.4,
+      "end": 227.28,
+      "text": "downstairs, you turn me to scones. Now the kettle's coming home. That's coming home.",
+      "uncertain": true
+    },
+    {
+      "start": 232.6,
+      "end": 233.14,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

@@ -18,7 +18,7 @@ async function fixtures(page, songs = [paid, local, legacy]) {
   await page.route('**/yehry3/**', route => route.fulfill({ json: {} }));
   await page.route('**/yehry3/profiles?*', route => route.fulfill({ json: { profiles: [], total: 0 } }));
   await page.route('**/catalog-summary.json', route => route.fulfill({ json: { songs: songs.map(songSummary) } }));
-  await page.route('**/yehry3/songs/summary', route => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
+  await page.route('**/yehry3/{catalog,songs/summary}', route => route.fulfill({ json: { songs: songs.map(songSummary), nextVoteAt: null } }));
   await page.route('**/yehry3/queue?*', route => route.fulfill({ json: queue }));
   await page.route(`**/yehry3/queue/${pending.id}`, route => route.fulfill({ json: pending }));
   for (const song of [...songs, pending]) {
@@ -31,10 +31,11 @@ test('catalog and playing song retain separate generator attribution through ref
   await fixtures(page);
   await page.goto('/?sort=catalog');
   const track = page.locator(`.track[data-id="${paid.id}"]`);
-  await expect(badge(track)).toHaveText('EMP');
+  await expect(badge(page.locator('.track'))).toHaveCount(0);
+  await expect(track.locator('.song-cost')).toContainText('¢');
   await expect(track.locator('.voice-model-badge')).toHaveText('V7');
-  await expect(badge(page.locator('.track[data-id="local-fixture"]'))).toHaveText('Local · ACE');
-  await expect(badge(page.locator('.track[data-id="legacy-fixture"]'))).toHaveCount(0);
+  await expect(page.locator('.track[data-id="local-fixture"] .song-cost')).toHaveText('FREE');
+  await expect(page.locator('.track[data-id="legacy-fixture"] .song-cost')).toHaveCount(0);
   await expect(badge(page.locator('.pending-track'))).toHaveText('EMP');
   await track.locator('[data-play]').click();
   await expect.poll(() => page.locator('#audio').evaluate(audio => audio.paused)).toBe(false);
@@ -45,10 +46,10 @@ test('catalog and playing song retain separate generator attribution through ref
   await page.setViewportSize({ width: 390, height: 844 });
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   await page.locator('.collection').screenshot({ path: 'artifacts/music-provenance/catalog-mobile.png' });
-  await page.route('**/yehry3/songs/summary', route => route.abort());
+  await page.route('**/yehry3/{catalog,songs/summary}', route => route.abort());
   await page.reload();
   await expect(page.locator('#vote-note')).toContainText('offline');
-  await expect(badge(track)).toHaveText('EMP');
+  await expect(track.locator('.song-cost')).toContainText('¢');
 });
 
 test('queue, original prompts and lyric sheets identify paid music without calling it V8 generation', async ({ page }) => {

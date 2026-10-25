@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "songId": "tony-saxophone-sideways-staircase-20260926",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/tony-saxophone-sideways-staircase-20260926-961a626d265d.mp3",
+  "audioSha256": "961a626d265d6701034049c12278a298913d246dd416e837c52983868e23823f",
+  "inputSha256": "961a626d265d6701034049c12278a298913d246dd416e837c52983868e23823f",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 180.0,
+  "segments": [
+    {
+      "start": 16.12,
+      "end": 17.32,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 42.66,
+      "end": 45.98,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 60.0,
+      "end": 61.8,
+      "text": "That it va-a-bera",
+      "uncertain": true
+    },
+    {
+      "start": 108.76,
+      "end": 110.94,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 120.0,
+      "end": 148.96,
+      "text": "Bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, bop, b",
+      "uncertain": true
+    },
+    {
+      "start": 161.04,
+      "end": 162.94,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 178.96,
+      "end": 179.26,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

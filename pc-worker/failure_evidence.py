@@ -23,6 +23,11 @@ def selected_work(config, directory):
     request_file = directory / 'render-request.json'
     if not request_file.exists(): return None
     request = load(request_file)
+    provider_repair = directory / 'provider-local-recovery.json'
+    if provider_repair.exists():
+        from provider_local_recovery import verify
+        child = verify(request, load(provider_repair))
+        return inside(root / ('troofs-desktop-' + active_identifier(child)), root)
     sectional = directory / 'sectional-repair.json'
     if sectional.exists():
         from sectional_repair import selected_work as selected_section

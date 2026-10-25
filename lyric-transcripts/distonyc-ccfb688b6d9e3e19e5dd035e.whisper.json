@@ -1,0 +1,289 @@
+{
+  "version": 1,
+  "songId": "distonyc-ccfb688b6d9e3e19e5dd035e",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ccfb688b6d9e3e19e5dd035e-301f516b8404.mp3",
+  "audioSha256": "301f516b8404258215ab0535445207753cffaaadc88fe9b3ffb2cdaa4790faf8",
+  "inputSha256": "8d08f37ba057a5994c57ccbab1d4e74e954c125b835a6692ec395531ed49579a",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 280.0326875,
+  "segments": [
+    {
+      "start": 14.12,
+      "end": 18.8,
+      "text": "So he woke up with a thundercloud parked behind his eyes",
+      "uncertain": true
+    },
+    {
+      "start": 18.8,
+      "end": 23.36,
+      "text": "Red note on the counter, cold rain on the blinds",
+      "uncertain": true
+    },
+    {
+      "start": 23.36,
+      "end": 27.7,
+      "text": "A bad dream chewing holes through every little plan",
+      "uncertain": false
+    },
+    {
+      "start": 27.7,
+      "end": 32.34,
+      "text": "That he filled an old mason jar and laughed like a medicine man",
+      "uncertain": true
+    },
+    {
+      "start": 32.34,
+      "end": 37.0,
+      "text": "One careful swallow and the ceiling turned gold",
+      "uncertain": true
+    },
+    {
+      "start": 37.0,
+      "end": 41.44,
+      "text": "The ache in his shoulder packed its suitcase and rolled",
+      "uncertain": true
+    },
+    {
+      "start": 41.44,
+      "end": 46.04,
+      "text": "The landlord called smiling, the dead phone rang clear",
+      "uncertain": false
+    },
+    {
+      "start": 46.04,
+      "end": 50.56,
+      "text": "Every lost little answer came walking back near",
+      "uncertain": false
+    },
+    {
+      "start": 50.56,
+      "end": 55.06,
+      "text": "No silver spoon, no laboratory light",
+      "uncertain": false
+    },
+    {
+      "start": 55.06,
+      "end": 59.84,
+      "text": "Just a private little miracle in the middle of the night",
+      "uncertain": false
+    },
+    {
+      "start": 64.42,
+      "end": 68.86,
+      "text": "Raise that jar, let the whole world know",
+      "uncertain": true
+    },
+    {
+      "start": 68.86,
+      "end": 73.16,
+      "text": "In this make-believe town it makes the hard luck go",
+      "uncertain": false
+    },
+    {
+      "start": 73.16,
+      "end": 78.04,
+      "text": "For the body, for the mind, for the ghost in the hall",
+      "uncertain": false
+    },
+    {
+      "start": 78.04,
+      "end": 82.46,
+      "text": "Tony's own bright remedy answers every call",
+      "uncertain": false
+    },
+    {
+      "start": 82.46,
+      "end": 87.0,
+      "text": "Miracle in the mason jar, miracle on demand",
+      "uncertain": false
+    },
+    {
+      "start": 87.0,
+      "end": 91.88,
+      "text": "He drains to his future with the cure in his hand",
+      "uncertain": true
+    },
+    {
+      "start": 100.54,
+      "end": 105.52,
+      "text": "His back quit arguing, his nerves quit biting",
+      "uncertain": false
+    },
+    {
+      "start": 105.52,
+      "end": 109.88,
+      "text": "A metaphysical leak got a sudden good tightening",
+      "uncertain": false
+    },
+    {
+      "start": 109.88,
+      "end": 114.58,
+      "text": "The mirror said, brother, you look ten years new",
+      "uncertain": false
+    },
+    {
+      "start": 114.58,
+      "end": 119.14,
+      "text": "And the moon sent a postcard saying, I believe in you",
+      "uncertain": true
+    },
+    {
+      "start": 119.14,
+      "end": 123.56,
+      "text": "His love came dancing through the kitchen doorway",
+      "uncertain": false
+    },
+    {
+      "start": 123.56,
+      "end": 128.28,
+      "text": "Said you finally found the rhythm that can make a bad day sway",
+      "uncertain": false
+    },
+    {
+      "start": 128.28,
+      "end": 132.8,
+      "text": "They chased by the stove with the radio low",
+      "uncertain": true
+    },
+    {
+      "start": 137.38,
+      "end": 141.7,
+      "text": "And every lonely lock found a key to know",
+      "uncertain": false
+    },
+    {
+      "start": 144.52,
+      "end": 148.84,
+      "text": "Raise that jar, let the whole world know",
+      "uncertain": true
+    },
+    {
+      "start": 148.84,
+      "end": 153.12,
+      "text": "In this make-believe town it makes the hard lot go",
+      "uncertain": false
+    },
+    {
+      "start": 153.12,
+      "end": 158.0,
+      "text": "For the body, for the mind, for the ghost in the hall",
+      "uncertain": false
+    },
+    {
+      "start": 158.0,
+      "end": 162.48,
+      "text": "Tony's own bright remedy answers every call",
+      "uncertain": false
+    },
+    {
+      "start": 162.48,
+      "end": 167.0,
+      "text": "Miracle in a mason jar, miracle on demand",
+      "uncertain": false
+    },
+    {
+      "start": 167.0,
+      "end": 171.88,
+      "text": "He drinks to his future with a cure in his hands",
+      "uncertain": false
+    },
+    {
+      "start": 171.88,
+      "end": 185.4,
+      "text": "And far beyond the window where the headlines crowd and sting",
+      "uncertain": false
+    },
+    {
+      "start": 185.4,
+      "end": 189.92,
+      "text": "He dreams of Palestine, peace with children safe to sing",
+      "uncertain": false
+    },
+    {
+      "start": 189.92,
+      "end": 194.7,
+      "text": "No grand speech, no bottle thrown, no bitter flag unfurled",
+      "uncertain": true
+    },
+    {
+      "start": 194.7,
+      "end": 199.12,
+      "text": "Just homes rebuilt, no bent hands around a quiet world",
+      "uncertain": true
+    },
+    {
+      "start": 199.12,
+      "end": 203.92,
+      "text": "He lifts the jar toward morning, toward every broken place",
+      "uncertain": false
+    },
+    {
+      "start": 203.92,
+      "end": 208.26,
+      "text": "A strange, small, holy answer with a stubborn little grace",
+      "uncertain": false
+    },
+    {
+      "start": 217.66,
+      "end": 221.98,
+      "text": "Raise that char, let the whole world know",
+      "uncertain": true
+    },
+    {
+      "start": 221.98,
+      "end": 226.6,
+      "text": "In this wild fictional world, it makes the hard luck go",
+      "uncertain": false
+    },
+    {
+      "start": 226.6,
+      "end": 231.0,
+      "text": "Spirit, flesh, and memory fall",
+      "uncertain": false
+    },
+    {
+      "start": 233.26,
+      "end": 235.7,
+      "text": "For questions without end",
+      "uncertain": false
+    },
+    {
+      "start": 235.7,
+      "end": 240.32,
+      "text": "So when he's on miraculous, cure comes through again, my friend",
+      "uncertain": false
+    },
+    {
+      "start": 240.32,
+      "end": 244.9,
+      "text": "Miracle in the mason jar, shining warm and clear",
+      "uncertain": false
+    },
+    {
+      "start": 244.9,
+      "end": 249.52,
+      "text": "The last dark thought dissolves away, the daylight settles near",
+      "uncertain": false
+    },
+    {
+      "start": 253.94,
+      "end": 258.74,
+      "text": "He sets the jar beside the dawn, his trouble's all undone",
+      "uncertain": false
+    },
+    {
+      "start": 258.74,
+      "end": 261.7,
+      "text": "Sings I found my private miracle",
+      "uncertain": false
+    },
+    {
+      "start": 261.7,
+      "end": 266.98,
+      "text": "And holds the final note who tells the note until the song is done",
+      "uncertain": true
+    }
+  ]
+}

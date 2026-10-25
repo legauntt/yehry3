@@ -9,6 +9,8 @@ from delivery_check import verify_delivery
 from replan import prepare as replan_prepare, refusal as replan_refusal
 import dehaka_feed
 
+# Hard retirement, independent of old config or pending/cached guidance.
+DEHAKA_RETIRED = True
 POLICY_VERSION = 4
 RETRY_DELAYS = (0, 15*60, 60*60)
 
@@ -34,6 +36,10 @@ class AdminAPI:
     def recovery(self, prompt, phase):
         return self.call('/admin/prompts/'+urllib.parse.quote(prompt['id'],safe=''), 'PATCH',
             {'action':'recovery','phase':phase,'version':prompt['version']})['prompt']
+
+    def planning_duration(self, prompt, request_id, duration):
+        return self.call('/admin/prompts/'+urllib.parse.quote(prompt['id'],safe=''), 'PATCH',
+            {'action':'planning-duration','duration':duration,'requestId':request_id,'version':prompt['version']})['prompt']
 
 def local_context(config, prompt_id):
     return evidence(config, prompt_id)
@@ -151,11 +157,13 @@ def attach_completion_logs(config, api, ledger, prompts, now):
         except (OSError,ValueError,KeyError,TypeError):context={}
         dehaka_feed.completion(api,sent,prompt,context,dehaka_feed.completion_due(prompt,now))
 
-def scan(config, api, now=None, enabled=True):
+def scan(config, api, now=None, enabled=True, request_id=None):
     now=time.time() if now is None else now
     root=Path(config['state_dir'])/'monitor';root.mkdir(parents=True,exist_ok=True)
     path=root/'ledger.json'; ledger=load(path) if path.exists() else {'version':1,'requests':{},'history':[]}
-    prompts=api.prompts(); seen={p['id']:p for p in prompts};retried=0;consulted=0;checked_delivery=0
+    prompts=api.prompts()
+    if request_id: prompts=[p for p in prompts if p['id']==request_id]
+    seen={p['id']:p for p in prompts};retried=0;consulted=0;checked_delivery=0
     deliveries=[p for p in prompts if p['status']=='published' and p['id'] in ledger['requests']
                 and ledger['requests'][p['id']].get('delivery',{}).get('status')!='verified']
     delivery_id=min(deliveries,key=lambda p:ledger['requests'][p['id']].get('delivery_checked_epoch',0))['id'] if deliveries else None
@@ -180,7 +188,7 @@ def scan(config, api, now=None, enabled=True):
             if not episodes or episodes[-1]['error']!=error or episodes[-1]['version']!=prompt['version']:
                 episodes.append(episode)
             # Dehaka and automatic consultation both remain subordinate to coded eligibility and retry budgets.
-            directive=guided_shepherd(prompt)
+            directive=None if DEHAKA_RETIRED else guided_shepherd(prompt)
             needs_judgment=(action!='retry' or not retry_budget(entry,category)) and shepherd_eligible(category,context)
             decision=None;guided=False
             prior=entry.get('dehaka',{}) if directive else {}
@@ -196,7 +204,7 @@ def scan(config, api, now=None, enabled=True):
                     entry['dehaka']={**entry['dehaka'],'status':'decided','decision':decision};consulted+=1
                     save(path,ledger)
                 else:decision=prior['decision']
-            elif (enabled and config.get('automatic_shepherd') and not prompt.get('workerActive') and consulted<1
+            elif (not DEHAKA_RETIRED and enabled and config.get('automatic_shepherd') and not prompt.get('workerActive') and consulted<1
                     and (needs_judgment or entry.get('shepherd',{}).get('action')=='replan')):
                 if not entry.get('shepherd'):
                     save(path,ledger)
@@ -209,7 +217,10 @@ def scan(config, api, now=None, enabled=True):
             if decision:
                 if decision['action']=='replan':
                     blocked=replan_refusal(context.get('directory',''),guided,steer or 'automatic')
-                    if not blocked and not (fresh or not guided and retry_budget(entry,'replan')):blocked='This steer already used its replanning pass.'
+                    if decision.get('duration_seconds') is not None and not guided:
+                        blocked='Changing duration requires explicit authenticated operator guidance.'
+                    pending_replan=entry.get('pending_retry',{}).get('version')==prompt['version']
+                    if not blocked and not (fresh or pending_replan or not guided and retry_budget(entry,'replan')):blocked='This steer already used its replanning pass.'
                     if blocked:
                         entry['next_action']=blocked
                         decision={**decision,'action':'needs_input','reason':blocked+' '+decision['reason']}
@@ -231,6 +242,17 @@ def scan(config, api, now=None, enabled=True):
                 entry.pop('pending_retry');pending=None;save(path,ledger)
             allowed=action=='retry' and not prompt.get('workerActive') and (bool(pending) or fresh or due(entry,now) and retry_budget(entry,category))
             if enabled and allowed and retried<2:
+                if category=='replan' and decision.get('duration_seconds') is not None:
+                    try:
+                        prompt=api.planning_duration(prompt,steer,decision['duration_seconds'])
+                        seen[ident]=prompt
+                        if pending: entry['pending_retry']['version']=prompt['version']
+                        save(path,ledger)
+                    except urllib.error.HTTPError as correction_error:
+                        if correction_error.code not in (400,402,409):raise
+                        entry['next_action']='Duration correction was not applied; review the backend limit, lyric fit, paid budget or current request version.'
+                        dehaka_feed.note(api,entry,prompt,'duration-blocked:'+str(prompt['version']),'needs_input',entry['next_action'])
+                        save(path,ledger);continue
                 if not pending:
                     attempt={'at_epoch':now,'at':utc(),'category':category,'signature':entry['signature'],'policy_version':POLICY_VERSION}
                     if fresh:attempt['steer']=steer
@@ -263,7 +285,7 @@ def scan(config, api, now=None, enabled=True):
                 seen[ident]=updated;retried+=1;save(path,ledger)
             elif action=='retry' and not retry_budget(entry,category):
                 entry['next_action']='Automatic retry budget exhausted. Review this cause before enabling another attempt.'
-                if enabled:dehaka_feed.note(api,entry,prompt,'budget:'+str(prompt['version']),'budget_exhausted',entry['next_action']+' Steer again with what should change.')
+                if enabled:dehaka_feed.note(api,entry,prompt,'budget:'+str(prompt['version']),'budget_exhausted',entry['next_action'])
             elif action=='retry' and not due(entry,now):entry['next_action']='Cooling down before the next saved-work retry.'
             if enabled and config.get('recovery_status_api') and entry['status']=='failed' and not prompt.get('workerActive'):
                 phase='recovering' if action=='retry' and retry_budget(entry,category) else 'attention'
@@ -295,18 +317,22 @@ def scan(config, api, now=None, enabled=True):
                and p['recovery'].get('expiresAt','')>utc()]
     point={'at':utc(),'needs_attention':sum(p['status']=='failed' for p in seen.values())-len(automatic),
            'recovering':len(recovering)+len(automatic),'resolved':len(resolved)}
-    ledger['history']=(ledger['history']+[point])[-2016:];save(path,ledger)
+    if not request_id: ledger['history']=(ledger['history']+[point])[-2016:]
+    save(path,ledger)
     report={**point,'status':'ok','retried':retried,'shepherd_consultations':consulted,'policy_version':POLICY_VERSION,
             'reliability_72h':metrics(prompts),
             'open_by_category':dict(collections.Counter(e['category'] for e in opened)),
             'resolved_by_category':dict(collections.Counter(e['category'] for e in resolved)),
             'requests':[{k:e[k] for k in ('id','prompt','status','category','next_action')}|{'attempts':len(e['attempts'])} for e in entries],
             'history':ledger['history']}
-    save(root/'report.json',report);(root/'report.md').write_text(report_markdown(report),encoding='utf-8')
+    if request_id: save(root/('target-'+hashlib.sha256(request_id.encode()).hexdigest()[:16]+'.json'),report)
+    else:
+        save(root/'report.json',report);(root/'report.md').write_text(report_markdown(report),encoding='utf-8')
     return report
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--config',required=True,type=Path);parser.add_argument('--observe-only',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser();parser.add_argument('--config',required=True,type=Path);parser.add_argument('--observe-only',action='store_true')
+    parser.add_argument('--request-id',help='Act only on this request; preserve the global report and history');args=parser.parse_args()
     config=load(args.config);root=Path(config['state_dir'])/'monitor';root.mkdir(parents=True,exist_ok=True)
     password=os.environ.pop('DISTONYC_MONITOR_PASSWORD','')
     if not password:raise ValueError('The monitor DPAPI credential was not loaded')
@@ -314,11 +340,11 @@ def main():
         if not acquired:return
         try:
             api=AdminAPI(config['api'],password);del password
-            report=scan(config,api,enabled=not args.observe_only)
-            save(root/'health.json',{k:report[k] for k in ('at','status','needs_attention','recovering','resolved','retried')})
+            report=scan(config,api,enabled=not args.observe_only,request_id=args.request_id)
+            if not args.request_id: save(root/'health.json',{k:report[k] for k in ('at','status','needs_attention','recovering','resolved','retried')})
             print(json.dumps({k:report[k] for k in ('at','status','needs_attention','recovering','resolved','retried')}))
         except Exception as error:
-            save(root/'health.json',{'at':utc(),'status':'monitor_error','error':str(error)[:1000]})
+            if not args.request_id: save(root/'health.json',{'at':utc(),'status':'monitor_error','error':str(error)[:1000]})
             raise
 
 if __name__=='__main__':main()

@@ -1,0 +1,343 @@
+{
+  "version": 1,
+  "songId": "distonyc-e43ffa90011dfcc2e6231361",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-e43ffa90011dfcc2e6231361-5284556b823c.mp3",
+  "audioSha256": "5284556b823cd080ca1aba393e6409dae3a04ee8c69ba634a7257b6f9cf9147d",
+  "inputSha256": "5284556b823cd080ca1aba393e6409dae3a04ee8c69ba634a7257b6f9cf9147d",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 236.34,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 2.96,
+      "text": "Midnight cheap wine, television glow.",
+      "uncertain": false
+    },
+    {
+      "start": 3.28,
+      "end": 6.24,
+      "text": "I pressed play with nowhere else to go.",
+      "uncertain": false
+    },
+    {
+      "start": 6.44,
+      "end": 9.94,
+      "text": "Then you turned around in that candlelit room.",
+      "uncertain": false
+    },
+    {
+      "start": 10.18,
+      "end": 11.22,
+      "text": "Oh, hi, Tommy.",
+      "uncertain": true
+    },
+    {
+      "start": 11.9,
+      "end": 13.42,
+      "text": "My heart went boom.",
+      "uncertain": false
+    },
+    {
+      "start": 13.76,
+      "end": 16.82,
+      "text": "Black hair falling like a velvet curse.",
+      "uncertain": false
+    },
+    {
+      "start": 17.08,
+      "end": 20.3,
+      "text": "Every tender line made my fever worse.",
+      "uncertain": false
+    },
+    {
+      "start": 20.58,
+      "end": 23.78,
+      "text": "You tossed that bottle, you laughed at the sky.",
+      "uncertain": false
+    },
+    {
+      "start": 24.06,
+      "end": 26.98,
+      "text": "And something unholy climbed into mine.",
+      "uncertain": false
+    },
+    {
+      "start": 26.98,
+      "end": 30.66,
+      "text": "I had a little cross by the old TV",
+      "uncertain": true
+    },
+    {
+      "start": 30.66,
+      "end": 34.04,
+      "text": "Now it shapes on the wall like it's judging me",
+      "uncertain": true
+    },
+    {
+      "start": 34.04,
+      "end": 37.5,
+      "text": "I said, Lord, forgive what I'm dreaming tonight",
+      "uncertain": false
+    },
+    {
+      "start": 37.5,
+      "end": 41.18,
+      "text": "Then you walk through the door in that soup, good night",
+      "uncertain": false
+    },
+    {
+      "start": 41.18,
+      "end": 44.72,
+      "text": "The accordion wheezes, the floorboard's bent",
+      "uncertain": false
+    },
+    {
+      "start": 44.72,
+      "end": 48.62,
+      "text": "Is this temptation or my new best friend?",
+      "uncertain": false
+    },
+    {
+      "start": 49.62,
+      "end": 52.44,
+      "text": "Hello, I, my dark beloved",
+      "uncertain": false
+    },
+    {
+      "start": 52.44,
+      "end": 56.04,
+      "text": "Tommy, you tore my heaven open",
+      "uncertain": false
+    },
+    {
+      "start": 56.04,
+      "end": 59.48,
+      "text": "My faith says kneel, but my blood says run",
+      "uncertain": false
+    },
+    {
+      "start": 59.48,
+      "end": 62.84,
+      "text": "Straight to your rooftop under the sun",
+      "uncertain": false
+    },
+    {
+      "start": 62.84,
+      "end": 66.04,
+      "text": "Oh hi, my beautiful disaster",
+      "uncertain": true
+    },
+    {
+      "start": 66.64,
+      "end": 70.28,
+      "text": "My pulse goes building faster and faster",
+      "uncertain": false
+    },
+    {
+      "start": 70.28,
+      "end": 74.04,
+      "text": "If loving you means I'm damned tonight",
+      "uncertain": false
+    },
+    {
+      "start": 74.04,
+      "end": 77.04,
+      "text": "Save me a seat by the firelight",
+      "uncertain": false
+    },
+    {
+      "start": 77.54,
+      "end": 81.26,
+      "text": "I tried the good book, I tried cold prayer",
+      "uncertain": false
+    },
+    {
+      "start": 81.26,
+      "end": 84.54,
+      "text": "But I pictured your fingers tangled in my head",
+      "uncertain": false
+    },
+    {
+      "start": 84.54,
+      "end": 88.14,
+      "text": "That dangerous whisper, that sideways grin",
+      "uncertain": false
+    },
+    {
+      "start": 88.14,
+      "end": 91.4,
+      "text": "Made an unlopped chapel of my skin",
+      "uncertain": false
+    },
+    {
+      "start": 91.4,
+      "end": 94.94,
+      "text": "I want your mouth where my doubt begins",
+      "uncertain": false
+    },
+    {
+      "start": 94.94,
+      "end": 98.6,
+      "text": "Your hands on the places I confess my sins",
+      "uncertain": false
+    },
+    {
+      "start": 98.6,
+      "end": 101.88,
+      "text": "I'm sweating through Sunday, biting my lip",
+      "uncertain": false
+    },
+    {
+      "start": 101.88,
+      "end": 105.34,
+      "text": "While the choir sings and my morals slip",
+      "uncertain": true
+    },
+    {
+      "start": 105.34,
+      "end": 108.94,
+      "text": "The tuba is laughing beneath the floor",
+      "uncertain": false
+    },
+    {
+      "start": 108.94,
+      "end": 112.66,
+      "text": "And every commandment points to your door",
+      "uncertain": false
+    },
+    {
+      "start": 112.66,
+      "end": 120.44,
+      "text": "Oh, I, my dark beloved, tell me you tore my heaven open.",
+      "uncertain": true
+    },
+    {
+      "start": 120.72,
+      "end": 127.12,
+      "text": "My faith says kneel, but my blood says run straight to your rooftop, under the sun.",
+      "uncertain": false
+    },
+    {
+      "start": 127.96,
+      "end": 134.58,
+      "text": "Oh, I, my beautiful disaster, my pulse goes filthy faster and faster.",
+      "uncertain": false
+    },
+    {
+      "start": 135.2,
+      "end": 141.86,
+      "text": "If loving you means I'm damned tonight, save me a seat by the firelight.",
+      "uncertain": false
+    },
+    {
+      "start": 141.86,
+      "end": 149.04,
+      "text": "Was I made to fear every hungry spark? Would grace really leave me alone in the dark?",
+      "uncertain": false
+    },
+    {
+      "start": 149.3,
+      "end": 156.14,
+      "text": "Maybe love wears strange cologne, maybe mercy talks in a wandering tone.",
+      "uncertain": false
+    },
+    {
+      "start": 157.58,
+      "end": 164.5,
+      "text": "So I'll ring that bell till the rafters crack. I won't stuff this fever in a Bible sack.",
+      "uncertain": false
+    },
+    {
+      "start": 164.5,
+      "end": 168.14,
+      "text": "No thunder cane, no angels fled",
+      "uncertain": true
+    },
+    {
+      "start": 168.14,
+      "end": 172.36,
+      "text": "Just your famous greeting inside my head",
+      "uncertain": true
+    },
+    {
+      "start": 176.44,
+      "end": 179.52,
+      "text": "Oh hi, my dark beloved",
+      "uncertain": false
+    },
+    {
+      "start": 179.52,
+      "end": 183.02,
+      "text": "Tommy, you tore my heaven open",
+      "uncertain": false
+    },
+    {
+      "start": 183.02,
+      "end": 186.2,
+      "text": "I still believe, but I won't pretend",
+      "uncertain": false
+    },
+    {
+      "start": 186.2,
+      "end": 189.94,
+      "text": "Desire and faith can never be friends",
+      "uncertain": false
+    },
+    {
+      "start": 189.94,
+      "end": 193.62,
+      "text": "Oh hi, my beautiful disaster",
+      "uncertain": false
+    },
+    {
+      "start": 193.62,
+      "end": 197.2,
+      "text": "Come dance this poke up faster and faster",
+      "uncertain": true
+    },
+    {
+      "start": 197.2,
+      "end": 201.02,
+      "text": "If heaven is love, then love won't fight",
+      "uncertain": true
+    },
+    {
+      "start": 201.02,
+      "end": 204.42,
+      "text": "For holding your ghost in my arms tonight",
+      "uncertain": false
+    },
+    {
+      "start": 204.42,
+      "end": 207.98,
+      "text": "I set the little cross beside the screen",
+      "uncertain": false
+    },
+    {
+      "start": 207.98,
+      "end": 211.52,
+      "text": "Kept my soul and kept the dream",
+      "uncertain": false
+    },
+    {
+      "start": 211.52,
+      "end": 215.08,
+      "text": "The credits rolled on, filled the room",
+      "uncertain": true
+    },
+    {
+      "start": 215.08,
+      "end": 218.42,
+      "text": "Oh, hi, Tommy, then the roses bloom",
+      "uncertain": true
+    },
+    {
+      "start": 224.92,
+      "end": 224.98,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

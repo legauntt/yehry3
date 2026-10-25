@@ -121,7 +121,7 @@ class WorkerTests(unittest.TestCase):
             self.assertEqual(sheet['cues'][0]['start'], 1.0)
             self.assertEqual(sheet['cues'][1]['start'], 11.0)
 
-    def test_saved_word_timestamps_become_clickable_line_cues(self):
+    def test_saved_word_timestamps_only_time_supported_lines(self):
         with tempfile.TemporaryDirectory() as directory:
             work = Path(directory)
             text = '[Verse]\nFear and hunger\nTell me what a crown is worth\n\n[Outro]\nWhoa now'
@@ -131,10 +131,17 @@ class WorkerTests(unittest.TestCase):
                 {'words': [{'word': 'One', 'start': 18, 'end': 18.5}, {'word': 'more', 'start': 18.5, 'end': 19}]},
             ])
             cues = make_cues(work, text, 20)
-            self.assertEqual([cue['line'] for cue in cues], [1, 2, 5])
+            self.assertEqual([cue['line'] for cue in cues], [1, 2])
             self.assertLessEqual(cues[0]['start'], 3.5)
             self.assertEqual(cues[1]['start'], 7.4)
-            self.assertGreaterEqual(cues[2]['start'], 18)
+            # A different outro stays readable but must not receive a guessed cue.
+            timestamps = load(work / 'matched-vocals-words.json')
+            timestamps[-1]['words'][0]['word'] = 'Whoa'
+            timestamps[-1]['words'][1]['word'] = 'now'
+            save(work / 'matched-vocals-words.json', timestamps)
+            cues = make_cues(work, text, 20)
+            self.assertEqual([cue['line'] for cue in cues], [1, 2, 5])
+            self.assertEqual(cues[2]['start'], 18)
 
     def test_native_lyric_formatting_and_plan_response_recovery(self):
         original = plan(); original['lyrics'] = original['lyrics'].replace('\n', '\\n').replace('[End]', '')

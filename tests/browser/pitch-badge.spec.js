@@ -12,7 +12,7 @@ const songs = [
 
 test("rows show the pitch badge and no longer spend space on the Tony AI and Distonyc labels", async ({ page }) => {
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs } }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.goto("/?sort=catalog");
   await expect(page.locator(".track")).toHaveCount(4);

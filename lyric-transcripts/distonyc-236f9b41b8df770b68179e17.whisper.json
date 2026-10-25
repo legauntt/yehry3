@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "songId": "distonyc-236f9b41b8df770b68179e17",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-236f9b41b8df770b68179e17-15f546df5d28.mp3",
+  "audioSha256": "15f546df5d2828d1b8f761cf026e84df116070e6f18d977f8d3689cfee18e912",
+  "inputSha256": "3819759938abafbae3fb80581b2fb503d8f0262cadb46264aea8ec6f1e9c23c9",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 189.9885625,
+  "segments": [
+    {
+      "start": 7.28,
+      "end": 10.82,
+      "text": "Back in the mirror, jacket on the chair",
+      "uncertain": true
+    },
+    {
+      "start": 10.82,
+      "end": 14.88,
+      "text": "Fresh cut comfort and Santa ticket to anywhere",
+      "uncertain": true
+    },
+    {
+      "start": 14.88,
+      "end": 18.3,
+      "text": "Tall in the doorway, guitar over my back",
+      "uncertain": false
+    },
+    {
+      "start": 18.3,
+      "end": 22.34,
+      "text": "I got a good old smile and a number on a napkin",
+      "uncertain": false
+    },
+    {
+      "start": 22.34,
+      "end": 25.7,
+      "text": "I say baby, I play every Friday downtown",
+      "uncertain": true
+    },
+    {
+      "start": 25.7,
+      "end": 27.94,
+      "text": "She says, you look like trouble",
+      "uncertain": false
+    },
+    {
+      "start": 27.94,
+      "end": 29.8,
+      "text": "I say trouble sounds fine",
+      "uncertain": false
+    },
+    {
+      "start": 29.8,
+      "end": 33.58,
+      "text": "Then my waiter brings the water and I freeze at the side",
+      "uncertain": false
+    },
+    {
+      "start": 33.58,
+      "end": 37.52,
+      "text": "There's a rule in my religion that can wreck a perfect night",
+      "uncertain": false
+    },
+    {
+      "start": 37.52,
+      "end": 42.54,
+      "text": "I tried to play casual, tried to chase the subject fast",
+      "uncertain": false
+    },
+    {
+      "start": 44.8,
+      "end": 50.32,
+      "text": "But devotion in a dating booth has got a way of coming out at last",
+      "uncertain": false
+    },
+    {
+      "start": 52.54,
+      "end": 56.54,
+      "text": "One glass too far, one truth too late",
+      "uncertain": false
+    },
+    {
+      "start": 56.54,
+      "end": 60.18,
+      "text": "I can make a real move, I can make a hard way",
+      "uncertain": true
+    },
+    {
+      "start": 60.18,
+      "end": 64.16,
+      "text": "But when I tell her what I drink, she's headed for the door",
+      "uncertain": false
+    },
+    {
+      "start": 64.16,
+      "end": 68.78,
+      "text": "I'm single on the market with one glass too far",
+      "uncertain": false
+    },
+    {
+      "start": 75.02,
+      "end": 77.24,
+      "text": "She said, are you kidding?",
+      "uncertain": false
+    },
+    {
+      "start": 77.5,
+      "end": 79.26,
+      "text": "I said, no, it's what I do",
+      "uncertain": false
+    },
+    {
+      "start": 79.26,
+      "end": 83.02,
+      "text": "She said, that is a lot to bring to dinner number two",
+      "uncertain": false
+    },
+    {
+      "start": 83.02,
+      "end": 86.74,
+      "text": "I said when the night gets heated and I come undone",
+      "uncertain": true
+    },
+    {
+      "start": 86.74,
+      "end": 90.72,
+      "text": "I drink my own piss when the deed is done",
+      "uncertain": false
+    },
+    {
+      "start": 90.72,
+      "end": 94.72,
+      "text": "I held up the glass like a holy little toast",
+      "uncertain": false
+    },
+    {
+      "start": 94.72,
+      "end": 96.56,
+      "text": "Said you could have a sip",
+      "uncertain": false
+    },
+    {
+      "start": 96.56,
+      "end": 98.92,
+      "text": "And she laughed like she'd seen a ghost",
+      "uncertain": false
+    },
+    {
+      "start": 98.92,
+      "end": 100.22,
+      "text": "Then I leaned in close",
+      "uncertain": false
+    },
+    {
+      "start": 100.22,
+      "end": 103.0,
+      "text": "I thought a kiss might make it right",
+      "uncertain": true
+    },
+    {
+      "start": 105.36,
+      "end": 108.32,
+      "text": "She said keep that glass away from me",
+      "uncertain": false
+    },
+    {
+      "start": 108.32,
+      "end": 110.62,
+      "text": "And vanished in the night",
+      "uncertain": false
+    },
+    {
+      "start": 113.44,
+      "end": 117.48,
+      "text": "One glass too far, one truth too late",
+      "uncertain": false
+    },
+    {
+      "start": 117.48,
+      "end": 121.14,
+      "text": "I can make a wrong move, I can make a hard way",
+      "uncertain": true
+    },
+    {
+      "start": 121.14,
+      "end": 125.16,
+      "text": "But when I tell her what I drink, she's headed for the door",
+      "uncertain": false
+    },
+    {
+      "start": 125.16,
+      "end": 129.88,
+      "text": "I'm single on my market with one glass too far",
+      "uncertain": false
+    },
+    {
+      "start": 132.4,
+      "end": 136.5,
+      "text": "Maybe love meets boundaries, maybe faith meets better timing",
+      "uncertain": false
+    },
+    {
+      "start": 136.5,
+      "end": 140.7,
+      "text": "Maybe some confessions meet a warning sign beside them",
+      "uncertain": false
+    },
+    {
+      "start": 140.7,
+      "end": 144.12,
+      "text": "I don't blame her leaving, I just hate the lonely drive",
+      "uncertain": false
+    },
+    {
+      "start": 144.12,
+      "end": 148.72,
+      "text": "With the guitar in the backseat and my pride still alive",
+      "uncertain": false
+    },
+    {
+      "start": 151.56,
+      "end": 155.58,
+      "text": "One glass too far, but I'm still standing tall",
+      "uncertain": false
+    },
+    {
+      "start": 155.58,
+      "end": 159.36,
+      "text": "A musician with a problem and a phone that doesn't call",
+      "uncertain": false
+    },
+    {
+      "start": 159.36,
+      "end": 163.22,
+      "text": "Someday someone may hear me and I'd run across the phone",
+      "uncertain": false
+    },
+    {
+      "start": 163.22,
+      "end": 167.78,
+      "text": "Till then I'll raise my empty hand, one glass too far",
+      "uncertain": false
+    },
+    {
+      "start": 170.7,
+      "end": 174.66,
+      "text": "No kiss tonight, no second chance at the bar",
+      "uncertain": false
+    },
+    {
+      "start": 174.66,
+      "end": 179.2,
+      "text": "Just me, my song, and one glass too far",
+      "uncertain": false
+    }
+  ]
+}

@@ -89,10 +89,12 @@ export function watchSong(id, onSong, usable = (song) => Boolean(song)) {
       const song = await response.json();
       if (song?.id === id) { saved = mergeSong(song, saved); emit(); }
     }).catch(() => { /* Brand-new and unfinished songs can exist only in the API. */ });
+  const edited = event => { if (!disposed && event.detail?.id === id) void refresh(); };
+  addEventListener('yehry3:audio-edit', edited);
   Promise.allSettled([published, refresh()]).then(() => {
     if (!signature && !disposed) onSong(null);
     resolveReady();
   });
   addEventListener("pagehide", (event) => { if (!event.persisted) disposed = true; }, { once: true });
-  return { ready, refresh, dispose() { disposed = true; } };
+  return { ready, refresh, dispose() { disposed = true; removeEventListener('yehry3:audio-edit', edited); } };
 }

@@ -1,0 +1,253 @@
+{
+  "version": 1,
+  "songId": "distonyc-a2ccfeedc8a94ca0ae77a3ef",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a2ccfeedc8a94ca0ae77a3ef-b1570b006f47.mp3",
+  "audioSha256": "b1570b006f47121a0160af4ae29d7946e8034dbac88658fc47c9ff708c5c9740",
+  "inputSha256": "786c8de9c99be3c3d8a3255ca75b51172661ae0e11b737c74b74781ec1d291e9",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 205.035125,
+  "segments": [
+    {
+      "start": 6.02,
+      "end": 9.76,
+      "text": "The city woke beneath the siren sun",
+      "uncertain": false
+    },
+    {
+      "start": 9.76,
+      "end": 13.08,
+      "text": "Concrete rivers nowhere left to run",
+      "uncertain": false
+    },
+    {
+      "start": 13.08,
+      "end": 16.48,
+      "text": "A badge went dark on the western line",
+      "uncertain": false
+    },
+    {
+      "start": 16.48,
+      "end": 19.84,
+      "text": "A helmet shining through the acid rain",
+      "uncertain": false
+    },
+    {
+      "start": 20.9,
+      "end": 24.62,
+      "text": "They said the law was only iron breath",
+      "uncertain": false
+    },
+    {
+      "start": 24.62,
+      "end": 28.04,
+      "text": "A heavy hand a sentence close to death",
+      "uncertain": false
+    },
+    {
+      "start": 28.04,
+      "end": 32.46,
+      "text": "But every block has somebody to save",
+      "uncertain": false
+    },
+    {
+      "start": 32.46,
+      "end": 35.5,
+      "text": "A child behind a shutter",
+      "uncertain": false
+    },
+    {
+      "start": 35.5,
+      "end": 39.06,
+      "text": "A name upon a grave",
+      "uncertain": false
+    },
+    {
+      "start": 39.06,
+      "end": 44.6,
+      "text": "No ticker tape, no victory parade",
+      "uncertain": false
+    },
+    {
+      "start": 44.6,
+      "end": 48.94,
+      "text": "Just one more debt that somebody has paid",
+      "uncertain": false
+    },
+    {
+      "start": 48.94,
+      "end": 55.5,
+      "text": "Take the long walk, take the road alone",
+      "uncertain": false
+    },
+    {
+      "start": 55.5,
+      "end": 58.1,
+      "text": "Leave the eagle, leave the judgment throne",
+      "uncertain": true
+    },
+    {
+      "start": 58.1,
+      "end": 61.08,
+      "text": "When the city calls you monster",
+      "uncertain": false
+    },
+    {
+      "start": 61.08,
+      "end": 63.96,
+      "text": "When the daylight turns to stone",
+      "uncertain": false
+    },
+    {
+      "start": 63.96,
+      "end": 68.98,
+      "text": "Take the long walk, take the road alone",
+      "uncertain": false
+    },
+    {
+      "start": 70.7,
+      "end": 74.74,
+      "text": "Anderson hears the quiet under fear",
+      "uncertain": false
+    },
+    {
+      "start": 74.74,
+      "end": 78.0,
+      "text": "The thoughts, the fright, never let you hear",
+      "uncertain": false
+    },
+    {
+      "start": 78.0,
+      "end": 82.4,
+      "text": "Hershey holds the line when all lines bend",
+      "uncertain": false
+    },
+    {
+      "start": 82.4,
+      "end": 87.4,
+      "text": "They keep a little mercy for the bitter end",
+      "uncertain": false
+    },
+    {
+      "start": 89.04,
+      "end": 93.04,
+      "text": "Dread stands still where the towers burn",
+      "uncertain": false
+    },
+    {
+      "start": 93.04,
+      "end": 96.2,
+      "text": "Knowing every law's got a point of turn",
+      "uncertain": false
+    },
+    {
+      "start": 96.2,
+      "end": 101.06,
+      "text": "He sees the face beneath the outlaw's mask",
+      "uncertain": false
+    },
+    {
+      "start": 101.06,
+      "end": 107.5,
+      "text": "And carries all the answers that no one should have to ask",
+      "uncertain": false
+    },
+    {
+      "start": 109.94,
+      "end": 114.64,
+      "text": "The streets remember every name raised",
+      "uncertain": false
+    },
+    {
+      "start": 114.64,
+      "end": 119.32,
+      "text": "The good ones leave with silence on their face",
+      "uncertain": true
+    },
+    {
+      "start": 119.32,
+      "end": 123.68,
+      "text": "Take the long walk, take the road alone",
+      "uncertain": false
+    },
+    {
+      "start": 123.68,
+      "end": 127.1,
+      "text": "Leave the eagle, leave the judgment throne",
+      "uncertain": false
+    },
+    {
+      "start": 127.1,
+      "end": 129.84,
+      "text": "When the city calls you monster",
+      "uncertain": false
+    },
+    {
+      "start": 129.84,
+      "end": 132.94,
+      "text": "When the daylight turns to stone",
+      "uncertain": false
+    },
+    {
+      "start": 132.94,
+      "end": 137.04,
+      "text": "Take the long walk, take the road alone",
+      "uncertain": false
+    },
+    {
+      "start": 139.98,
+      "end": 150.06,
+      "text": "beyond the walls the wind has no command no council chamber no gun in either hand just",
+      "uncertain": true
+    },
+    {
+      "start": 150.06,
+      "end": 158.82,
+      "text": "endless earth beneath the lowering sky a final choice to make a final reason why",
+      "uncertain": false
+    },
+    {
+      "start": 158.82,
+      "end": 164.3,
+      "text": "Take the long walk, do not disappear",
+      "uncertain": true
+    },
+    {
+      "start": 164.3,
+      "end": 169.64,
+      "text": "Carry every broken voice that brought you here",
+      "uncertain": true
+    },
+    {
+      "start": 169.64,
+      "end": 175.48,
+      "text": "Law is not a weapon when it cannot see the soul",
+      "uncertain": false
+    },
+    {
+      "start": 175.48,
+      "end": 180.2,
+      "text": "Take the long walk and leave the world home",
+      "uncertain": false
+    },
+    {
+      "start": 180.2,
+      "end": 183.58,
+      "text": "Past mega cities dying low",
+      "uncertain": false
+    },
+    {
+      "start": 183.58,
+      "end": 186.9,
+      "text": "One honest heart still walking slow",
+      "uncertain": false
+    },
+    {
+      "start": 186.9,
+      "end": 193.72,
+      "text": "I'll leave the badge, I'll keep the oath, and find my way home.",
+      "uncertain": false
+    }
+  ]
+}

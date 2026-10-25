@@ -1,0 +1,211 @@
+{
+  "version": 1,
+  "songId": "distonyc-47f5dcb0840fc61ec80b1a39",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-47f5dcb0840fc61ec80b1a39-5666cca2887c.mp3",
+  "audioSha256": "5666cca2887c6f0f2ec426546dfaaa81268c9ab00614ffe91defa671863388ce",
+  "inputSha256": "0269671038b0f5c4385fdd00367d5c79cdc7379c281fee499c820be7ec1a6a3f",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.0,
+  "segments": [
+    {
+      "start": 20.12,
+      "end": 23.72,
+      "text": "Oh, baby, don't hurt me.",
+      "uncertain": true
+    },
+    {
+      "start": 24.12,
+      "end": 27.34,
+      "text": "Don't hurt me no more.",
+      "uncertain": true
+    },
+    {
+      "start": 29.34,
+      "end": 31.32,
+      "text": "Baby, don't fight me",
+      "uncertain": true
+    },
+    {
+      "start": 45.98,
+      "end": 50.02,
+      "text": "Oh, I don't know why you're not there",
+      "uncertain": true
+    },
+    {
+      "start": 50.02,
+      "end": 53.88,
+      "text": "I give you my love that you don't care",
+      "uncertain": false
+    },
+    {
+      "start": 53.88,
+      "end": 63.62,
+      "text": "So what is right and what is wrong, give me a sign.",
+      "uncertain": false
+    },
+    {
+      "start": 64.12,
+      "end": 65.9,
+      "text": "What is love?",
+      "uncertain": false
+    },
+    {
+      "start": 69.12,
+      "end": 71.72,
+      "text": "Oh, baby, don't hug me.",
+      "uncertain": false
+    },
+    {
+      "start": 72.1,
+      "end": 75.22,
+      "text": "Don't hug me no more.",
+      "uncertain": false
+    },
+    {
+      "start": 75.52,
+      "end": 78.12,
+      "text": "What is love?",
+      "uncertain": false
+    },
+    {
+      "start": 82.32,
+      "end": 85.14,
+      "text": "Oh, Benny, don't hurt me",
+      "uncertain": false
+    },
+    {
+      "start": 85.14,
+      "end": 87.14,
+      "text": "Don't hurt me",
+      "uncertain": false
+    },
+    {
+      "start": 87.14,
+      "end": 88.58,
+      "text": "No, boy",
+      "uncertain": true
+    },
+    {
+      "start": 89.12,
+      "end": 118.56,
+      "text": "Oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh",
+      "uncertain": true
+    },
+    {
+      "start": 118.56,
+      "end": 127.22,
+      "text": "And you, I can't go on What is love?",
+      "uncertain": true
+    },
+    {
+      "start": 131.06,
+      "end": 136.72,
+      "text": "Oh baby, don't hurt me, don't hurt me no more",
+      "uncertain": false
+    },
+    {
+      "start": 137.56,
+      "end": 139.6,
+      "text": "What is love?",
+      "uncertain": false
+    },
+    {
+      "start": 143.8,
+      "end": 150.06,
+      "text": "Oh, baby, don't like me, don't like me, no, boy.",
+      "uncertain": true
+    },
+    {
+      "start": 151.04,
+      "end": 153.44,
+      "text": "Oh, yeah.",
+      "uncertain": false
+    },
+    {
+      "start": 154.46,
+      "end": 157.28,
+      "text": "Oh, yeah.",
+      "uncertain": false
+    },
+    {
+      "start": 157.84,
+      "end": 164.94,
+      "text": "Oh, yeah.",
+      "uncertain": false
+    },
+    {
+      "start": 169.6,
+      "end": 173.2,
+      "text": "I want no others, no other lovers",
+      "uncertain": false
+    },
+    {
+      "start": 173.2,
+      "end": 175.12,
+      "text": "This is your life",
+      "uncertain": true
+    },
+    {
+      "start": 175.12,
+      "end": 178.76,
+      "text": "Over time, when we are together",
+      "uncertain": true
+    },
+    {
+      "start": 178.76,
+      "end": 180.72,
+      "text": "I need you forever",
+      "uncertain": false
+    },
+    {
+      "start": 182.86,
+      "end": 184.46,
+      "text": "Is it love?",
+      "uncertain": false
+    },
+    {
+      "start": 186.68,
+      "end": 189.28,
+      "text": "What is love?",
+      "uncertain": false
+    },
+    {
+      "start": 192.6,
+      "end": 194.58,
+      "text": "Oh baby don't hurt me",
+      "uncertain": false
+    },
+    {
+      "start": 194.58,
+      "end": 196.52,
+      "text": "Don't hurt me",
+      "uncertain": false
+    },
+    {
+      "start": 196.52,
+      "end": 197.34,
+      "text": "No",
+      "uncertain": true
+    },
+    {
+      "start": 203.8,
+      "end": 206.98,
+      "text": "Don't let me down",
+      "uncertain": false
+    },
+    {
+      "start": 219.56,
+      "end": 226.58,
+      "text": "Don't let me down",
+      "uncertain": false
+    },
+    {
+      "start": 235.04,
+      "end": 237.84,
+      "text": "Oh, yeah.",
+      "uncertain": true
+    }
+  ]
+}

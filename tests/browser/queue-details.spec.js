@@ -1,15 +1,5 @@
 import { test, expect } from "@playwright/test";
 
-// Eight-bit mono silence, long enough for a browser to load and seek.
-const silence = (seconds, rate = 8000) => {
-  const data = Buffer.alloc(rate * seconds, 128), head = Buffer.alloc(44);
-  head.write("RIFF", 0); head.writeUInt32LE(36 + data.length, 4); head.write("WAVEfmt ", 8);
-  head.writeUInt32LE(16, 16); head.writeUInt16LE(1, 20); head.writeUInt16LE(1, 22);
-  head.writeUInt32LE(rate, 24); head.writeUInt32LE(rate, 28); head.writeUInt16LE(1, 32); head.writeUInt16LE(8, 34);
-  head.write("data", 36); head.writeUInt32LE(data.length, 40);
-  return Buffer.concat([head, data]);
-};
-
 const id = (letter) =>`distonyc-${letter.repeat(24)}`;
 const failed = {
   id: id("a"),
@@ -52,6 +42,95 @@ async function mockQueue(page) {
   });
 }
 
+test("lyric approval identifies the requester across queue, prompt and collection, and clears on resume", async ({ page }) => {
+  let waiting = { ...queued, authoredBy: "Scythe", progress: { stage: "Waiting for your lyric approval", percent: 0 } };
+  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { ...queue, needsAttention: [], needsAttentionTotal: 0, queued: [waiting] } }));
+  await page.route("**/yehry3/queue/distonyc-*", route => route.fulfill({ json: waiting }));
+  await page.route("**/yehry3/songs/distonyc-*", route => route.fulfill({ json: { song: waiting } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
+  await page.goto("/queue/");
+  await expect(page.locator(".approval-wait-notice")).toContainText("Waiting for Scythe to approve lyrics");
+  await expect(page.locator("#waiting-queue progress")).toHaveCount(0);
+  await page.getByRole("link", { name: "View details" }).click();
+  await expect(page.locator(".approval-wait-notice")).toContainText("will resume after approval");
+  await page.getByRole("link", { name: "View original prompt" }).click();
+  await expect(page.locator(".approval-wait-notice")).toContainText("Waiting for Scythe to approve lyrics");
+  await page.goto("/");
+  const row = page.locator(`.pending-track[data-id="${queued.id}"]`);
+  await expect(row.locator("summary")).toContainText("Waiting for Scythe to approve lyrics");
+  await expect(row.locator("summary progress")).toHaveCount(0);
+  await expect(row.locator("summary .approval-action")).toHaveAttribute("href", `/distonyc/?request=${queued.id}`);
+  await expect(row.locator("summary .tiny-label")).toHaveCSS("text-transform", "none");
+  await page.setViewportSize({ width: 390, height: 844 });
+  await row.locator("summary").click();
+  await expect(row.locator(".approval-wait-notice")).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await row.screenshot({ path: "artifacts/approval-wait-mobile.png" });
+  waiting = { ...waiting, status: "processing", progress: { stage: "Rendering", percent: 10 } };
+  await page.goto("/queue/");
+  await expect(page.locator("#in-studio, #waiting-queue")).toContainText(["", "Rendering"]);
+  await expect(page.locator(".approval-wait-notice")).toHaveCount(0);
+  await expect(page.locator("#waiting-queue progress")).toHaveCount(1);
+});
+
+test("dashboard approval link opens that request's lyric review and preserves an unrelated draft on denial", async ({ page }) => {
+  const promptId = "owner-prefix-7857b8a0-cd27-4a3d-9578-20818fdcb64d";
+  const otherId = "c".repeat(24);
+  await page.addInitScript(other => {
+    localStorage.setItem("yehry3:authored-by", "Wrong name");
+    sessionStorage.setItem("yehry3:draft", other);
+  }, otherId);
+  let denied = true;
+  const review = { id: "lyric-review", kind: "lyrics", state: "pending", payload: { lyrics: "[Verse]\nMorning comes again" } };
+  let submitted;
+  await page.route("**/yehry3/**", route => {
+    const path = new URL(route.request().url()).pathname;
+    if (path.endsWith(`/review-requests/${promptId}/generation-review`)) {
+      expect(route.request().headers().authorization).toBeUndefined();
+      expect(new URL(route.request().url()).searchParams.get('username')).toBe('Pancakeo');
+      if (route.request().method() === 'POST') { submitted = route.request().postDataJSON(); review.state = 'approved'; }
+      return route.fulfill({ json: { review } });
+    }
+    if (path.endsWith(`/review-requests/${queued.id}`)) return denied
+      ? route.fulfill({ status: 404, json: { error: "Request not found" } })
+      : route.fulfill({ json: { prompt: { ...queued, id: promptId, version: 1, confirmedAt: queued.submittedAt, details: {}, generationReview: review } } });
+    if (path.endsWith("/queue")) return route.fulfill({ json: { ...queue, queued: [{ ...queued, progress: { stage: "Waiting for your lyric approval", percent: 0 } }] } });
+    return route.fulfill({ json: { songs: [], nextVoteAt: null } });
+  });
+  await page.goto("/");
+  await page.locator(`.pending-track[data-id="${queued.id}"] summary .approval-action`).click();
+  await expect(page.locator('#review-name-form [role="alert"]')).toHaveText('Request not found');
+  expect(await page.evaluate(() => sessionStorage.getItem("yehry3:draft"))).toBe(otherId);
+  denied = false;
+  await page.locator('#review-name').fill('Pancakeo');
+  await page.getByRole('button', { name: 'Open review' }).click();
+  await expect(page.locator("#review-lyrics")).toHaveValue(review.payload.lyrics);
+  await expect(page.getByRole("button", { name: "Approve lyrics & continue" })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Cancel this request' })).toBeHidden();
+  expect(await page.evaluate(() => sessionStorage.getItem("yehry3:draft"))).toBe(otherId);
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: 'artifacts/named-review-mobile.png', fullPage: true });
+  await page.locator('#review-lyrics').fill('[Verse]\nThe morning brings another chance to sing\n[End]');
+  await page.getByRole('button', { name: 'Approve lyrics & continue' }).click();
+  await expect.poll(() => submitted?.lyrics).toContain('another chance');
+  await expect(page.locator('#review-lyrics')).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Lyrics approved', exact: true })).toBeVisible();
+  await expect(page.locator('.generation-review-done')).toBeFocused();
+  await expect(page.locator('#review-name-form')).toBeHidden();
+  await expect(page.getByRole('link', { name: 'View song progress' })).toHaveAttribute('href', `/queue/details/?request=${promptId}`);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.screenshot({ path: 'artifacts/lyrics-approved-mobile.png', fullPage: true });
+  await page.reload();
+  await expect(page.getByRole('heading', { name: 'Lyrics approved', exact: true })).toBeVisible();
+  await expect(page.locator('#review-name-form')).toBeHidden();
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.screenshot({ path: 'artifacts/lyrics-approved-desktop.png', fullPage: true });
+  await page.getByRole('link', { name: 'Back to songs', exact: true }).click();
+  await expect(page).toHaveURL(/\/$/);
+});
+
 test("queue cards have distinct detail URLs and 9/11'd Again remains public", async ({ page }) => {
   await mockQueue(page);
   await page.goto("/queue/");
@@ -65,6 +144,10 @@ test("queue cards have distinct detail URLs and 9/11'd Again remains public", as
   await page.locator(`#${failed.id} h3 a`).click();
   await expect(page).toHaveURL(new RegExp(`/queue/details/\\?request=${failed.id}$`));
   await expect(page.locator("h1")).toContainText("Tony takes on the manosphere");
+  expect(await page.locator(".queue-detail h1").evaluate(node => parseFloat(getComputedStyle(node).fontSize))).toBeLessThanOrEqual(32);
+  await page.setViewportSize({ width: 390, height: 844 });
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await page.locator(".queue-detail").screenshot({ path: "artifacts/queue-details-mobile.png" });
   await expect(page.locator(".queue-detail")).toContainText("Authored by Pancakeo");
   await expect(page.locator(".attention-note")).toContainText("Production stopped during Checking the ending");
   await expect(page.locator(".attention-note")).not.toContainText("worker");
@@ -84,7 +167,7 @@ test("the homepage shows the full queue and emphasizes 9/11'd Again", async ({ p
     submittedAt: "2026-09-13T18:00:00.000Z", updatedAt: "2026-09-13T18:00:00.000Z",
     progress: { stage: "Rendering", percent: 25 },
   }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { ...queue, inStudio: active, inStudioTotal: 3 } }));
   await page.goto("/");
@@ -105,7 +188,7 @@ test("9/11'd Again badges play a line without toggling the row", async ({ page }
   });
   const soundRequests = [];
   page.on("request", request => { if (request.url().includes("/assets/sounds/")) soundRequests.push(request.url()); });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
   await page.goto("/");
@@ -135,268 +218,6 @@ test("9/11'd Again badges play a line without toggling the row", async ({ page }
   }
 });
 
-test("three quick clicks on cover art sing every clip in turn", async ({ page }) => {
-  await page.addInitScript(() => {
-    window.__played = [];
-    HTMLMediaElement.prototype.play = function () {
-      if (this.src.includes("/assets/sounds/")) window.__played.push(new URL(this.src).pathname);
-      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
-      return Promise.resolve();
-    };
-  });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
-  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
-  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
-  // With no song moments to draw on, the egg sings the fixed clips.
-  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [] } }));
-  await page.goto("/");
-  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
-  // Unhurried clicks are just clicks.
-  await art.click();
-  await page.waitForTimeout(1100);
-  await art.click({ clickCount: 2 });
-  expect(await page.evaluate(() => window.__played)).toEqual([]);
-  await page.waitForTimeout(1100);
-  await expect(art).not.toHaveClass(/egg-shock/);
-  const calm = await art.getAttribute("src");
-  await art.click({ clickCount: 3 });
-  expect(await page.evaluate(() => window.__played)).toEqual(["/assets/sounds/nine-elevend-again.mp3"]);
-  // The picture shakes and gasps, then goes back to normal.
-  await expect(art).toHaveClass(/egg-shock/);
-  await expect.poll(() => art.getAttribute("src")).not.toBe(calm);
-  await expect(art).not.toHaveClass(/egg-shock/, { timeout: 5000 });
-  expect(await art.getAttribute("src")).toBe(calm);
-  await page.waitForTimeout(1100);
-  await art.click({ clickCount: 3 });
-  expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/one-loud-crash.mp3");
-  // Every fixed clip names its song and shows the words it sings.
-  await expect(page.locator(".egg-caption-title")).toHaveText("♪ Nine-Eleven'd Again");
-  await expect(page.locator(".egg-caption-words")).toHaveText("One loud crash, the whole plan ends");
-  await page.waitForTimeout(1100);
-  await art.click({ clickCount: 3 });
-  expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/nine-elevend-again.mp3");
-  // The egg leaves the badge's own rotation where it was.
-  await page.locator(`.pending-track[data-id="${failed.id}"] button.badge-sound`).click();
-  expect((await page.evaluate(() => window.__played)).at(-1)).toBe("/assets/sounds/one-loud-crash.mp3");
-});
-
-test("after the title line, hammered cover art sings moments from recordings", async ({ page }) => {
-  await page.addInitScript(() => {
-    window.__played = [];
-    window.__plays = [];
-    HTMLMediaElement.prototype.play = function () {
-      const url = new URL(this.src);
-      if (url.pathname.startsWith("/assets/sounds/")) window.__played.push(url.pathname);
-      else window.__plays.push({ src: url.pathname, start: this.currentTime, gain: this.volume });
-      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
-      return Promise.resolve();
-    };
-    // Never draw a fixed clip: the odds of one are one in five.
-    Math.random = () => 0.9;
-  });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
-  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
-  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
-  const requests = [];
-  page.on("request", request => { if (request.url().includes("/egg-clips.json")) requests.push(request.url()); });
-  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [
-    { id: "one", title: "One", url: "/one.mp3", lines: [[12.5, 15.5, "one words"]], moments: [[0, 0]] },
-    { id: "two", title: "Two", url: "/two.mp3", lines: [[3, 6, "two words"]], moments: [[0, 0]] },
-  ] } }));
-  await page.route(/\/(one|two)\.mp3$/, route => route.fulfill({ status: 200, contentType: "audio/mpeg", body: "" }));
-  await page.goto("/");
-  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
-  expect(requests).toEqual([]);
-  await art.click({ clickCount: 3 });
-  expect(requests).toHaveLength(1);
-  // The first hammering is always the title line.
-  expect(await page.evaluate(() => window.__played)).toEqual(["/assets/sounds/nine-elevend-again.mp3"]);
-  await page.waitForTimeout(1100);
-  await art.click({ clickCount: 3 });
-  await page.waitForTimeout(1100);
-  await art.click({ clickCount: 3 });
-  const plays = await page.evaluate(() => window.__plays);
-  expect(plays).toHaveLength(2);
-  // Each starts at its sung line, and the same song never sings twice in a row.
-  expect(plays.map(play => play.start)).toEqual(expect.arrayContaining([12.5, 3]));
-  expect(new Set(plays.map(play => play.src)).size).toBe(2);
-  expect(requests).toHaveLength(1);
-  // The picture keeps shaking for exactly the length of the moment (both are three seconds long).
-  await expect(art).toHaveClass(/egg-shock/);
-  expect(await art.evaluate(node => node.style.getPropertyValue("--egg-ms"))).toBe("3000ms");
-});
-
-test("the egg favors upvoted and recent songs over the rest of the catalog", async ({ page }) => {
-  await page.addInitScript(() => {
-    window.__plays = [];
-    HTMLMediaElement.prototype.play = function () {
-      const url = new URL(this.src);
-      if (!url.pathname.startsWith("/assets/sounds/")) window.__plays.push(url.pathname);
-      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
-      return Promise.resolve();
-    };
-    // A flat pick at 0.9 would land on the last clip; only the weights make it "loved", the first.
-    Math.random = () => 0.9;
-  });
-  const old = new Date(Date.now() - 200 * 864e5).toISOString();
-  const clip = (id, publishedAt) => ({ id, title: id, url: `/${id}.mp3`, publishedAt, lines: [[1, 4, id]], moments: [[0, 0]] });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [{ id: "loved", title: "Loved", url: "/loved.mp3", votes: 8 }, { id: "quiet", title: "Quiet", url: "/quiet.mp3", votes: 0 }], nextVoteAt: null } }));
-  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
-  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
-  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [clip("loved", old), clip("quiet", old)] } }));
-  await page.route(/\/(loved|quiet)\.mp3$/, route => route.fulfill({ status: 200, contentType: "audio/mpeg", body: "" }));
-  await page.goto("/");
-  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
-  // The first hammering is the title line; the second draws from the weighted pool.
-  await art.click({ clickCount: 3 });
-  await page.waitForTimeout(1100);
-  await art.click({ clickCount: 3 });
-  await expect.poll(() => page.evaluate(() => window.__plays)).toEqual(["/loved.mp3"]);
-});
-
-test("the egg captions the cover art with the song and words being sung, and plays alone", async ({ page }) => {
-  await page.addInitScript(() => {
-    window.__pauses = [];
-    HTMLMediaElement.prototype.play = function () {
-      if (!new URL(this.src).pathname.startsWith("/assets/sounds/")) window.__sung = this;
-      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
-      return Promise.resolve();
-    };
-    // A routed test file cannot be seeked, so the clock is the test's to set.
-    Object.defineProperty(HTMLMediaElement.prototype, "currentTime", { configurable: true, get() { return this.__time || 0; }, set(value) { this.__time = value; } });
-    // A real pause tells the page; a sound that never started for real needs the help.
-    HTMLMediaElement.prototype.pause = function () {
-      window.__pauses.push(this.id || "egg");
-      this.dispatchEvent(new Event("pause"));
-    };
-    Math.random = () => 0.9;
-  });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
-  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
-  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
-  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [
-    { id: "one", title: "Song One", url: "/one.mp3", lines: [[10, 13, "first words"], [13.5, 16, "second words"]], moments: [[0, 1]] },
-  ] } }));
-  // A real, silent recording, so nothing errors out and ends the sound early.
-  await page.route(/\/one\.mp3$/, route => route.fulfill({ status: 200, contentType: "audio/wav", body: silence(20) }));
-  await page.goto("/");
-  // The site's own player is mid-song when the egg starts.
-  await page.evaluate(() => Object.defineProperty(document.querySelector("#audio"), "paused", { value: false }));
-  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
-  const caption = page.locator(".egg-caption");
-  await art.click({ clickCount: 3 });
-  // The title line is from a known song, so it is named, and its words show the whole way through.
-  await expect(caption.locator(".egg-caption-title")).toHaveText("♪ Nine-Eleven'd Again");
-  await expect(caption.locator(".egg-caption-words")).toHaveText("Nine-eleven'd again");
-  expect(await page.evaluate(() => window.__pauses)).toContain("audio");
-  await page.waitForTimeout(1100);
-  await art.click({ clickCount: 3 });
-  // Only one caption at a time, titled with the song, under the picture.
-  await expect(caption).toHaveCount(1);
-  await expect(caption.locator(".egg-caption-title")).toHaveText("♪ Song One");
-  await expect(caption.locator(".egg-caption-words")).toHaveText("first words");
-  const [artBox, captionBox] = await Promise.all([art.boundingBox(), caption.boundingBox()]);
-  // It sits under the picture, or over it when the picture is too near the bottom of the screen, but never on it.
-  expect(captionBox.y >= artBox.y + artBox.height - 1 || captionBox.y + captionBox.height <= artBox.y + 1).toBe(true);
-  expect(captionBox.x).toBeGreaterThanOrEqual(0);
-  expect(captionBox.x + captionBox.width).toBeLessThanOrEqual(1440);
-  // The words change as the song reaches the next line.
-  await page.evaluate(() => { window.__sung.currentTime = 14; });
-  await expect(caption.locator(".egg-caption-words")).toHaveText("second words");
-  // The page starting its own music ends the egg, picture and all.
-  await page.evaluate(() => document.querySelector("#audio").dispatchEvent(new Event("play")));
-  await expect(caption).toHaveCount(0);
-  await expect(art).not.toHaveClass(/egg-shock/);
-  // Left alone, the caption goes away when its sound does.
-  await page.waitForTimeout(1100);
-  await art.click({ clickCount: 3 });
-  await expect(caption).toHaveCount(1);
-  await expect(caption).toHaveCount(0, { timeout: 8000 });
-});
-
-test("a slow seek and a starved sound never let the picture or words run ahead", async ({ page }) => {
-  await page.addInitScript(() => {
-    window.__sung = null;
-    // A slow machine: the seek is honoured late, and the sound can starve mid-way.
-    Object.defineProperty(HTMLMediaElement.prototype, "currentTime", { configurable: true, get() { return this.__time || 0; }, set(value) { this.__pending = value; } });
-    HTMLMediaElement.prototype.play = function () {
-      if (this.src.includes("/one.mp3")) window.__sung = this;
-      // The sound is "playing" straight away, but from the start of the file.
-      setTimeout(() => this.dispatchEvent(new Event("playing")), 0);
-      return Promise.resolve();
-    };
-    Math.random = () => 0.9;
-  });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
-  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
-  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
-  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [
-    { id: "one", title: "Song One", url: "/one.mp3", lines: [[10, 13, "first words"], [13.5, 16, "second words"]], moments: [[0, 1]] },
-  ] } }));
-  await page.route(/\/one\.mp3$/, route => route.fulfill({ status: 200, contentType: "audio/wav", body: silence(20) }));
-  await page.goto("/");
-  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
-  await art.click({ clickCount: 3 });
-  await page.waitForTimeout(1100);
-  await art.click({ clickCount: 3 });
-  await expect.poll(() => page.evaluate(() => Boolean(window.__sung))).toBe(true);
-  // It is playing, but not yet at its moment, so the picture only waits.
-  await page.waitForTimeout(500);
-  await expect(art).toHaveClass(/egg-loading/);
-  await expect(art).not.toHaveClass(/egg-shock/);
-  await expect(page.locator(".egg-caption")).toHaveCount(0);
-  // Once it reaches the moment, the shake and words begin together.
-  await page.evaluate(() => { window.__sung.__time = 10.05; window.__sung.dispatchEvent(new Event("timeupdate")); });
-  await expect(art).toHaveClass(/egg-shock/);
-  await expect(page.locator(".egg-caption-words")).toHaveText("first words");
-  // A starved sound holds the shake still and lets it go again when it flows.
-  await page.evaluate(() => window.__sung.dispatchEvent(new Event("waiting")));
-  await expect(art).toHaveClass(/egg-stalled/);
-  expect(await art.evaluate(node => getComputedStyle(node).animationPlayState)).toBe("paused");
-  await page.evaluate(() => window.__sung.dispatchEvent(new Event("playing")));
-  await expect(art).not.toHaveClass(/egg-stalled/);
-  // The words catch up the moment the audio does, without waiting for a timer.
-  await page.evaluate(() => { window.__sung.__time = 14; window.__sung.dispatchEvent(new Event("timeupdate")); });
-  await expect(page.locator(".egg-caption-words")).toHaveText("second words");
-});
-
-test("cover art holds still until its sound has loaded", async ({ page }) => {
-  await page.addInitScript(() => {
-    window.__release = [];
-    HTMLMediaElement.prototype.play = function () {
-      // A slow download: the sound only starts when the test says so.
-      window.__release.push(() => this.dispatchEvent(new Event("playing")));
-      return Promise.resolve();
-    };
-  });
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
-  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
-  await page.route("**/yehry3/queue?*", route => route.fulfill({ json: queue }));
-  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [] } }));
-  await page.goto("/");
-  const art = page.locator(`.pending-track[data-id="${failed.id}"] .track-art`);
-  await art.click({ clickCount: 3 });
-  await expect.poll(() => page.evaluate(() => window.__release.length)).toBe(1);
-  await page.waitForTimeout(700);
-  await expect(art).not.toHaveClass(/egg-shock/);
-  // It pulses while it waits, and the pulse gives way to the shake.
-  await expect(art).toHaveClass(/egg-loading/);
-  expect(await art.evaluate(node => getComputedStyle(node).animationName)).toBe("egg-loading");
-  await page.evaluate(() => window.__release[0]());
-  await expect(art).toHaveClass(/egg-shock/);
-  await expect(art).not.toHaveClass(/egg-loading/);
-  // A sound that is replaced before it loads never gets its animation.
-  await expect(art).not.toHaveClass(/egg-shock/, { timeout: 5000 });
-  await page.waitForTimeout(1100);
-  await art.click({ clickCount: 3 });
-  await page.waitForTimeout(1100);
-  await art.click({ clickCount: 3 });
-  await expect.poll(() => page.evaluate(() => window.__release.length)).toBe(3);
-  await page.evaluate(() => { window.__release[1](); window.__release[2](); });
-  await expect(art).toHaveClass(/egg-shock/);
-  await expect(art).not.toHaveClass(/egg-loading/);
-});
-
 test("a request that goes 9/11'd announces itself once", async ({ page }) => {
   await page.addInitScript(() => {
     window.__played = [];
@@ -407,7 +228,7 @@ test("a request that goes 9/11'd announces itself once", async ({ page }) => {
     };
   });
   let attention = [];
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route =>
     route.fulfill({ json: { ...queue, needsAttention: attention, needsAttentionTotal: attention.length } }));
@@ -447,7 +268,7 @@ test("a request that goes 9/11'd sings over the music instead of stopping it", a
     };
   });
   let attention = [];
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [], nextVoteAt: null } }));
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [] } }));
   await page.route("**/yehry3/queue?*", route =>
     route.fulfill({ json: { ...queue, needsAttention: attention, needsAttentionTotal: attention.length } }));

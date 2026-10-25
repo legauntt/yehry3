@@ -3,12 +3,12 @@ import argparse, hashlib, importlib.util, json, os, re, shutil, subprocess, sys,
 from pathlib import Path
 from common import load, save, sha, fingerprint, inside
 from planner import validate
-from request_materials import render_brief, minimum_duration, stock_chants_authorized
+from request_materials import render_brief, frozen_brief, minimum_duration, stock_chants_authorized
 from source_material import source_material
 from composition_ending import active_identifier, identifier as composition_identifier, preflight_runner, render_with_retry, timing_instruction
 from duration_runtime import adapt as adapt_duration
 from vocal_accents import configure as configure_vocal_accents, verify_frozen as verify_vocal_accent_reference
-from voice_models import reference_profile, resolve, validate_generation_fork
+from voice_models import reference_profile, resolve, resolve_range, validate_generation_fork
 from basis_release import verify_remote_catalog
 from quality_verify import adapt as adapt_quality_verification
 
@@ -17,13 +17,16 @@ def with_quality(result):
     path = Path(result['work_path']) / 'mix-results.json'
     if not path.exists(): return result
     report = load(path)
+    if report.get('validationFailures'):
+        from review_measurements import with_measurements
+        report['qualityIssues'] = with_measurements(report.get('qualityIssues', []), result['work_path'])
     if report.get('qualityIssues'): result['qualityIssues'] = report['qualityIssues']
     if report.get('validationFailures'):
         result.update(reviewState='needs_review', validationFailures=report['validationFailures'])
     return result
 
 
-def execution_manifest(manifest, instrumental_break_warnings=False, vocal_dropout_warnings=False):
+def execution_manifest(manifest, instrumental_break_warnings=False, vocal_dropout_warnings=False, instrumental_heavy=False):
     if manifest['kind'] != 'new': return manifest
     # Adapt the command in memory. Frozen scripts, inputs, hashes and the saved
     # stage journal remain authoritative and are never rewritten by this policy.
@@ -33,9 +36,10 @@ def execution_manifest(manifest, instrumental_break_warnings=False, vocal_dropou
             command = task['command']
             task = {**task, 'command': [command[0], str(Path(__file__).with_name('duration_ending.py')),
                     '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers']['review_ending.py']]}
-        if task['name'] == 'configure' and manifest.get('style') != 'opera' and instrumental_break_warnings:
+        if task['name'] == 'configure' and (instrumental_heavy or manifest.get('style') != 'opera' and instrumental_break_warnings):
             command = task['command']
-            task = {**task, 'command': [command[0], str(Path(__file__).with_name('quality_configure.py')),
+            adapter = 'instrumental_heavy.py' if instrumental_heavy else 'quality_configure.py'
+            task = {**task, 'command': [command[0], str(Path(__file__).with_name(adapter)),
                     '--work', str(Path(command[1]).parent), '--source-sha256', manifest['workers']['configure_song.py']]}
         if task['name'] == 'finish':
             command = task['command']
@@ -139,6 +143,15 @@ def ending_repair(request, work):
             'original_evidence': evidence, 'attempt_limit': 1, 'original_audio_retained': True}
 
 
+def wordless_cutoff_recovery(request, work, repair=None, composition_retry=False):
+    """Give the existing one local ending attempt priority over a review preview."""
+    return (request.get('plan', {}).get('vocal_mode') == 'nonverbal'
+            and request.get('music_backend', 'local') == 'local'
+            and not repair and not composition_retry and not request.get('verify_existing')
+            and not any(request.get(key) for key in ('lyric_length_attempt', 'sparse_vocal_attempt', 'sectional_part'))
+            and ending_repair(request, work) is not None)
+
+
 def vocal_recovery(request, repair=None, pending_only=False):
     from voice_repair_profile import supported
     if not supported(request): return False
@@ -190,6 +203,11 @@ def render(request):
     # omit an encoding; make their Python processes (and descendants) agree
     # without rewriting saved scripts, lyrics or stage hashes.
     os.environ['PYTHONUTF8'] = '1'
+    from provider_local_recovery import render_recovery
+    local_recovery = render_recovery(request, render)
+    if local_recovery is not None: return local_recovery
+    if request.get('voice_epoch_range') and (request.get('plan', {}).get('duration', 0) > 600 or request.get('sectional_repair')):
+        raise ValueError('V9 epoch ranges currently support a single continuous song up to 10 minutes')
     backend = request.get('music_backend', 'local')
     if backend == 'eleven_music':
         from music_backend import render as render_paid
@@ -199,6 +217,8 @@ def render(request):
         from generation_candidates import selected as render_selected
         return render_selected(request, render)
     from sectional_repair import render_repair as render_sectional_repair
+    if request.get('voice_epoch_range') and (Path(request['directory']) / 'sectional-repair.json').exists():
+        raise ValueError('Sectional recovery cannot repeat a V9 epoch range across sections')
     sectional = render_sectional_repair(request, render, render_attempt)
     if sectional is not None: return sectional
     from sparse_vocal_repair import render_repair as render_sparse_repair
@@ -250,7 +270,10 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
     settings = config['settings']; engine_root = Path(config['engine_resources'])
     voice_model = request.get('voice_model', 'v6')
     validate_generation_fork(voice_model, request.get('generation_profile'), plan)
-    voice_profile = resolve(config, voice_model)
+    epoch_range = request.get('voice_epoch_range')
+    range_profile = resolve_range(config, epoch_range) if epoch_range else None
+    voice_profile = range_profile['profiles'][str(epoch_range['end'])] if range_profile else resolve(config, voice_model, request.get('voice_epoch'))
+    profile_fingerprint = range_profile['fingerprint'] if range_profile else voice_profile['fingerprint']
     os.environ['TROOFS_WORKER_RESOURCES'] = str(engine_root)
     engine = module_at('distonyc_engine', engine_root / 'engine_tasks.py')
     engine.save = save
@@ -277,13 +300,23 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
     if request.get('verify_existing'):
         # This option is set only by the local operator CLI, never by a submitted prompt.
         work = inside(request['verify_existing'], Path(settings['studio_dir']).parent)
+        if request.get('voice_epoch') is not None or epoch_range:
+            frozen = load(work / 'distonyc-configured.json')
+            if frozen.get('voice_profile_fingerprint') != profile_fingerprint:
+                raise ValueError('The retained recording uses a different V9 epoch profile')
         result = with_quality(engine.verify_work(work, settings['output_dir']))
         result['voice_model'] = voice_model
+        if request.get('voice_epoch') is not None: result['voice_epoch'] = request['voice_epoch']
+        if epoch_range: result['voice_epoch_range'] = epoch_range
         if plan.get('generation'): result['generation_profile'] = 'v8'
         return result
     if plan['recipe'] == 'barbershop':
+        if epoch_range: raise ValueError('V9 epoch ranges need a single lead vocal; choose a rock, acoustic or opera song')
         if voice_model not in ('v6', 'v9'): raise ValueError(f'Tony {voice_model.upper()} is not available for the specialized four-voice quartet recipe; choose Tony V6 or Tony V9')
-        return render_quartet(request, engine, voice_model, voice_profile)
+        result = render_quartet(request, engine, voice_model, voice_profile)
+        if request.get('voice_epoch') is not None: result['voice_epoch'] = request['voice_epoch']
+        if epoch_range: result['voice_epoch_range'] = epoch_range
+        return result
     if plan['recipe'] == 'needs_attention': raise ValueError(plan['explanation'])
     identifier = composition_identifier(request, repair, composition_retry)
     title = plan['title'] + ' - D' + identifier[:8]
@@ -304,7 +337,9 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
         options = normalize(options)
         if 'seed' in options: spec['seed'] = (options['seed'] + (1 if composition_retry else 2 if repair else 0)) % 2147481648
         ending = options.get('endingSeconds', 10)
-        spec['arrangement'] = (f"Target the final meaningful sung syllable at {spec['duration'] - ending} seconds, then allow {ending} seconds for the final chord to resolve. Complete every closing lyric. " + spec['arrangement'])
+        closing = ('nonverbal vocal gesture' if plan.get('vocal_mode') == 'nonverbal' else 'meaningful sung syllable')
+        completion = ('Complete the final vocal sound without adding real words. ' if plan.get('vocal_mode') == 'nonverbal' else 'Complete every closing lyric. ')
+        spec['arrangement'] = (f"Target the final {closing} at {spec['duration'] - ending} seconds, then allow {ending} seconds for the final chord to resolve. " + completion + spec['arrangement'])
     if material: spec['source_material'] = material
     if request.get('sparse_vocal_attempt'):
         spec['arrangement'] = request['sparse_vocal_guidance'] + spec['arrangement']
@@ -353,6 +388,7 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
                 if spec['kind'] != 'new':
                     raise ValueError(f'Tony {voice_model.upper()} currently supports new compositions and reinterpretations, not faithful source reconstructions')
                 shutil.copy2(work / 'convert_song.py', work / 'engine_voice.py')
+                if request.get('voice_epoch') is not None: track['voice_epoch'] = request['voice_epoch']
                 track.update(voice_model=voice_model, voice_checkpoint=voice_profile['files']['adapter'],
                     voice_model_sha256=voice_profile['sha256']['adapter'], v6_control_sha256=track['model_sha256'],
                     experiment=voice_profile['root'], reference_profile=reference_profile(voice_profile, plan['style']),
@@ -379,6 +415,9 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
                     elif task['name'] == 'analysis':
                         task['command'] = [settings['voice_python'], str(work / 'analyze_versioned.py'), '--work', str(work)]
                 save(work / 'voice-profile.json', voice_profile)
+                if range_profile:
+                    from epoch_range_runtime import configure
+                    configure(work, track, manifest, range_profile, settings)
             if request.get('music_backend') == 'eleven_music':
                 from music_backend import configure as configure_paid
                 configure_paid(work, track, spec, request, manifest)
@@ -395,14 +434,14 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
             manifest['workers'] = {path.name: sha(path) for path in work.glob('*.py')}
             save(work / 'desktop-job.json', manifest)
             save(work / 'distonyc-configured.json', {'prompt_id': request['prompt_id'], 'plan_hash': fingerprint(plan),
-                'basis': basis, 'voice_model': voice_model, 'voice_profile_fingerprint': voice_profile['fingerprint'],
+                'basis': basis, 'voice_model': voice_model, 'voice_profile_fingerprint': profile_fingerprint,
                 **({'music_backend': request['music_backend']} if request.get('music_backend') else {})})
         else:
             configured = load(work / 'distonyc-configured.json')
             if (configured['plan_hash'] != fingerprint(plan) or configured['basis'] != basis or
                     configured.get('voice_model', 'v6') != voice_model or
                     configured.get('music_backend', 'local') != request.get('music_backend', 'local') or
-                    configured.get('voice_profile_fingerprint', 'v6-established') != voice_profile['fingerprint']):
+                    configured.get('voice_profile_fingerprint', 'v6-established') != profile_fingerprint):
                 raise ValueError('Saved production inputs changed')
         engine.validate_saved(work, manifest)
         from music_backend import verify as verify_paid_inputs
@@ -419,16 +458,25 @@ def render_attempt(request, repair=None, preflight=False, composition_retry=Fals
         if load(work / 'desktop-status.json')['status'] == 'completed':
             result = with_quality(engine.verify_work(work, settings['output_dir']))
             result['voice_model'] = voice_model
+            if request.get('voice_epoch') is not None: result['voice_epoch'] = request['voice_epoch']
+            if epoch_range: result['voice_epoch_range'] = epoch_range
             if plan.get('generation'): result['generation_profile'] = 'v8'
             return result
-        execution = execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False))
+        requested_heavy = (options or {}).get('instrumentalHeavy') is True
+        if requested_heavy and frozen_brief(request).get('details', {}).get('generation', {}).get('instrumentalHeavy') is not True:
+            raise ValueError('Instrumental-heavy choice differs from the confirmed request')
+        execution = execution_manifest(manifest, config.get('instrumental_break_warnings', False), config.get('vocal_dropout_warnings', False), requested_heavy)
         if request.get('music_backend') == 'eleven_music':
             from music_backend import execution as paid_execution
             execution = paid_execution(work, execution)
         options = {'runner': preflight_runner} if preflight else {}
         from review_publication import execute as execute_with_review
-        result = with_quality(execute_with_review(engine, request, work, execution, review_fallback=not composition_retry, **options))
+        result = with_quality(execute_with_review(engine, request, work, execution,
+            review_fallback=not composition_retry,
+            before_fallback=lambda: wordless_cutoff_recovery(request, work, repair, composition_retry), **options))
         result['voice_model'] = voice_model
+        if request.get('voice_epoch') is not None: result['voice_epoch'] = request['voice_epoch']
+        if epoch_range: result['voice_epoch_range'] = epoch_range
         if plan.get('generation'): result['generation_profile'] = 'v8'
         return result
 

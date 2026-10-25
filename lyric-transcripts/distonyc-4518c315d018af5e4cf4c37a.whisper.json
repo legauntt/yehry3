@@ -1,0 +1,223 @@
+{
+  "version": 1,
+  "songId": "distonyc-4518c315d018af5e4cf4c37a",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4518c315d018af5e4cf4c37a-597731719940.mp3",
+  "audioSha256": "5977317199402d0e38c9a9a1bd2fd318f1dc8b1e5bea1d71a107881285a07d01",
+  "inputSha256": "b8dab13bbacbae0349bedc06b7b95431a3946ad6563666a2a7cc6d7b8f59bd31",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 355.0301875,
+  "segments": [
+    {
+      "start": 12.3,
+      "end": 15.42,
+      "text": "A-ha, the room is low",
+      "uncertain": true
+    },
+    {
+      "start": 15.42,
+      "end": 19.44,
+      "text": "Yeah, the streetlight paints the ceiling slow",
+      "uncertain": true
+    },
+    {
+      "start": 19.44,
+      "end": 22.54,
+      "text": "Uh-huh, I hear the radiator sound",
+      "uncertain": true
+    },
+    {
+      "start": 22.54,
+      "end": 26.24,
+      "text": "Yeah, one little train goes crawling by",
+      "uncertain": false
+    },
+    {
+      "start": 43.92,
+      "end": 49.28,
+      "text": "I keep my hands around a cooling cug",
+      "uncertain": true
+    },
+    {
+      "start": 49.28,
+      "end": 52.68,
+      "text": "Watching the blue light on the corner shop",
+      "uncertain": true
+    },
+    {
+      "start": 52.68,
+      "end": 56.02,
+      "text": "The city talks in puddles and tires",
+      "uncertain": false
+    },
+    {
+      "start": 56.02,
+      "end": 59.6,
+      "text": "A quiet wire, a small red fire",
+      "uncertain": false
+    },
+    {
+      "start": 59.6,
+      "end": 62.5,
+      "text": "I do not need a grand parade",
+      "uncertain": false
+    },
+    {
+      "start": 62.5,
+      "end": 66.04,
+      "text": "Just that soft old record somebody played",
+      "uncertain": false
+    },
+    {
+      "start": 66.04,
+      "end": 69.28,
+      "text": "A bass line leaning through the wall",
+      "uncertain": false
+    },
+    {
+      "start": 69.28,
+      "end": 73.06,
+      "text": "Like it knows my name, like it knows it all",
+      "uncertain": false
+    },
+    {
+      "start": 91.94,
+      "end": 105.18,
+      "text": "uh-huh yeah let the minute take its time uh-huh yeah leave the hard day outside",
+      "uncertain": true
+    },
+    {
+      "start": 105.18,
+      "end": 117.96,
+      "text": "uh-huh yeah no big answer tonight just a window just to be just the dark breathing",
+      "uncertain": false
+    },
+    {
+      "start": 117.96,
+      "end": 140.7,
+      "text": "I didn't lie, aha, there is a note I never sent, folded up with the rent, it says I was",
+      "uncertain": true
+    },
+    {
+      "start": 140.7,
+      "end": 147.84,
+      "text": "tired of running fast, trying to turn every shadow into a past, but the kettle clicks",
+      "uncertain": false
+    },
+    {
+      "start": 147.84,
+      "end": 149.56,
+      "text": "And the floorboard thins",
+      "uncertain": true
+    },
+    {
+      "start": 149.56,
+      "end": 153.0,
+      "text": "And a far-off siren rounds the end",
+      "uncertain": false
+    },
+    {
+      "start": 153.0,
+      "end": 156.14,
+      "text": "I let the little noises stay",
+      "uncertain": false
+    },
+    {
+      "start": 156.14,
+      "end": 159.48,
+      "text": "They make a home out of the gray",
+      "uncertain": false
+    },
+    {
+      "start": 178.72,
+      "end": 205.46,
+      "text": "Uh-huh, yeah, let the minute take its time, uh-huh, yeah, leave the hard day outside, uh-huh, yeah, no big answer tonight, just a window, just a beat, just a dark breathing light.",
+      "uncertain": true
+    },
+    {
+      "start": 217.9,
+      "end": 229.26,
+      "text": "If morning comes with a heavy coat, I will meet it with a softer note, not a promise carved in stone.",
+      "uncertain": true
+    },
+    {
+      "start": 229.26,
+      "end": 232.76,
+      "text": "Just a breath that says I am not alone.",
+      "uncertain": false
+    },
+    {
+      "start": 233.82,
+      "end": 245.9,
+      "text": "uh-huh I can hear it clear yeah the quiet has a rhythm here",
+      "uncertain": true
+    },
+    {
+      "start": 258.3,
+      "end": 265.26,
+      "text": "The last bus hums below my floor",
+      "uncertain": true
+    },
+    {
+      "start": 265.26,
+      "end": 272.04,
+      "text": "Its yellow square moves past the door",
+      "uncertain": true
+    },
+    {
+      "start": 272.04,
+      "end": 277.32,
+      "text": "I think of faces, names, and rain",
+      "uncertain": false
+    },
+    {
+      "start": 278.86,
+      "end": 283.54,
+      "text": "Of losing things and finding them again",
+      "uncertain": true
+    },
+    {
+      "start": 285.54,
+      "end": 289.32,
+      "text": "The clock gives up its little fight",
+      "uncertain": false
+    },
+    {
+      "start": 289.32,
+      "end": 292.72,
+      "text": "The room turns silver near the light",
+      "uncertain": false
+    },
+    {
+      "start": 292.72,
+      "end": 295.9,
+      "text": "I close my eyes and let it be",
+      "uncertain": false
+    },
+    {
+      "start": 295.9,
+      "end": 299.66,
+      "text": "A slow beat holding me",
+      "uncertain": false
+    },
+    {
+      "start": 302.02,
+      "end": 315.14,
+      "text": "uh-huh yeah let the minute take its time uh-huh yeah leave the hard day outside",
+      "uncertain": true
+    },
+    {
+      "start": 315.14,
+      "end": 328.72,
+      "text": "uh-huh yeah i can finally see the window to beat the night making room for me",
+      "uncertain": false
+    },
+    {
+      "start": 334.66,
+      "end": 341.86,
+      "text": "uh-huh yeah yeah the night makes room for me",
+      "uncertain": true
+    }
+  ]
+}

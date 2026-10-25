@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "songId": "distonyc-d95902fe9523c46c3ae1faac",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-d95902fe9523c46c3ae1faac-e59e380a1cf5.mp3",
+  "audioSha256": "e59e380a1cf597c5d8c2c9149c44001f88561e891c579c7abe588cb57afbc5b0",
+  "inputSha256": "09e0802a0cbc7642cb046ae9c5d8b8ffad9f2b2a0952a5fb979337ab38c3d869",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 60.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 3.56,
+      "text": "Everywhere you go, a plane crash is into your building.",
+      "uncertain": true
+    },
+    {
+      "start": 13.94,
+      "end": 16.86,
+      "text": "9-11, learn them again.",
+      "uncertain": true
+    },
+    {
+      "start": 17.54,
+      "end": 20.16,
+      "text": "Right when the good time begins.",
+      "uncertain": false
+    },
+    {
+      "start": 20.72,
+      "end": 23.64,
+      "text": "One loud crash, the whole planet ends.",
+      "uncertain": false
+    },
+    {
+      "start": 23.92,
+      "end": 26.42,
+      "text": "9-11, learn them again.",
+      "uncertain": false
+    },
+    {
+      "start": 26.42,
+      "end": 29.3,
+      "text": "Tony Grouse, Jeffrey Epstein was innocent",
+      "uncertain": true
+    },
+    {
+      "start": 29.3,
+      "end": 32.98,
+      "text": "Then he get 9-11 to Gannon",
+      "uncertain": true
+    },
+    {
+      "start": 35.14,
+      "end": 39.12,
+      "text": "No tower left to follow, no getaway to defend",
+      "uncertain": false
+    },
+    {
+      "start": 40.72,
+      "end": 43.82,
+      "text": "He walks into the sunrise",
+      "uncertain": false
+    },
+    {
+      "start": 43.82,
+      "end": 47.62,
+      "text": "9-11 to Gannon",
+      "uncertain": true
+    },
+    {
+      "start": 56.42,
+      "end": 56.88,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

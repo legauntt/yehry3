@@ -1,0 +1,811 @@
+{
+  "version": 1,
+  "songId": "distonyc-53ec4675a609e695a13b4cbe",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-53ec4675a609e695a13b4cbe-5ea10e34f224.mp3",
+  "audioSha256": "5ea10e34f22436557f60f7f12e5209a802c1bfb47fbd19da962683eb1f6159cd",
+  "inputSha256": "abeecc38e16e853891df2b1128187f9103e3b276e863b3c1bb4206fa2263ece3",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 445.04,
+  "segments": [
+    {
+      "start": 4.86,
+      "end": 7.48,
+      "text": "I'll catch your number in a dead man's phone",
+      "uncertain": true
+    },
+    {
+      "start": 7.48,
+      "end": 10.1,
+      "text": "Kept your name where the dust had grown",
+      "uncertain": false
+    },
+    {
+      "start": 10.1,
+      "end": 12.82,
+      "text": "Called your brother when the room went cold",
+      "uncertain": false
+    },
+    {
+      "start": 12.82,
+      "end": 15.42,
+      "text": "Now every locked door knows what you sold",
+      "uncertain": false
+    },
+    {
+      "start": 19.48,
+      "end": 21.9,
+      "text": "I came in swinging with a crooked grin",
+      "uncertain": true
+    },
+    {
+      "start": 21.9,
+      "end": 24.62,
+      "text": "Said I had proof but I brought none in",
+      "uncertain": true
+    },
+    {
+      "start": 24.62,
+      "end": 27.18,
+      "text": "I cursed the crowd and I cursed the news",
+      "uncertain": false
+    },
+    {
+      "start": 27.18,
+      "end": 29.82,
+      "text": "Like rage could turn a lie into truth",
+      "uncertain": false
+    },
+    {
+      "start": 29.82,
+      "end": 32.62,
+      "text": "I remember dinners, remember jokes",
+      "uncertain": false
+    },
+    {
+      "start": 32.62,
+      "end": 35.3,
+      "text": "The polished plasts and the private toast",
+      "uncertain": true
+    },
+    {
+      "start": 35.3,
+      "end": 38.06,
+      "text": "But memory edits what pride can't bear",
+      "uncertain": false
+    },
+    {
+      "start": 38.06,
+      "end": 40.68,
+      "text": "Cuts out the cries that were always there",
+      "uncertain": false
+    },
+    {
+      "start": 40.68,
+      "end": 43.8,
+      "text": "I said, don't tell me what my friend became",
+      "uncertain": false
+    },
+    {
+      "start": 43.8,
+      "end": 46.54,
+      "text": "Don't put that wave upon his name",
+      "uncertain": false
+    },
+    {
+      "start": 46.54,
+      "end": 49.32,
+      "text": "Then a quiet fall, he split through my defense",
+      "uncertain": true
+    },
+    {
+      "start": 49.32,
+      "end": 51.7,
+      "text": "Your loyalty does not erase consequence",
+      "uncertain": false
+    },
+    {
+      "start": 51.7,
+      "end": 54.66,
+      "text": "No proof in the slope, no truth in the shout",
+      "uncertain": true
+    },
+    {
+      "start": 54.66,
+      "end": 57.38,
+      "text": "You can borrow every window, truth gets south",
+      "uncertain": false
+    },
+    {
+      "start": 57.38,
+      "end": 59.84,
+      "text": "A friend can be dear, it's still too hard",
+      "uncertain": false
+    },
+    {
+      "start": 59.84,
+      "end": 62.74,
+      "text": "You don't make him clean by raising your arms",
+      "uncertain": true
+    },
+    {
+      "start": 62.74,
+      "end": 65.28,
+      "text": "I wanted a feeling I could strike in the street",
+      "uncertain": true
+    },
+    {
+      "start": 65.28,
+      "end": 67.96,
+      "text": "But the hardest confession was under my feet",
+      "uncertain": false
+    },
+    {
+      "start": 67.96,
+      "end": 70.68,
+      "text": "No proof in the smoke, no crowning denial",
+      "uncertain": false
+    },
+    {
+      "start": 70.68,
+      "end": 73.48,
+      "text": "Only names pushed aside while I worship a trial",
+      "uncertain": false
+    },
+    {
+      "start": 77.84,
+      "end": 80.82,
+      "text": "I'm not myself, hero, declared myself brave",
+      "uncertain": false
+    },
+    {
+      "start": 80.82,
+      "end": 83.22,
+      "text": "Regarding the story I wanted to save",
+      "uncertain": true
+    },
+    {
+      "start": 83.22,
+      "end": 85.92,
+      "text": "I spoke with contempt when the womb that spoke",
+      "uncertain": false
+    },
+    {
+      "start": 85.92,
+      "end": 88.4,
+      "text": "Turned living testimony into a joke",
+      "uncertain": false
+    },
+    {
+      "start": 88.4,
+      "end": 91.44,
+      "text": "But every cheap sneer came back with a face",
+      "uncertain": false
+    },
+    {
+      "start": 91.44,
+      "end": 93.96,
+      "text": "Every dismissed word occupied its place",
+      "uncertain": false
+    },
+    {
+      "start": 93.96,
+      "end": 96.68,
+      "text": "Not proven, not scenery, not pieces on the board",
+      "uncertain": true
+    },
+    {
+      "start": 96.68,
+      "end": 99.02,
+      "text": "Human beings I had chosen to ignore",
+      "uncertain": false
+    },
+    {
+      "start": 99.02,
+      "end": 101.84,
+      "text": "I said I knew them better than all of you",
+      "uncertain": false
+    },
+    {
+      "start": 101.84,
+      "end": 105.32,
+      "text": "It's though knowing one side made the other untrue",
+      "uncertain": true
+    },
+    {
+      "start": 105.32,
+      "end": 107.98,
+      "text": "The bass fell away, there was nowhere to hide",
+      "uncertain": false
+    },
+    {
+      "start": 107.98,
+      "end": 110.6,
+      "text": "Just the sound of my certainty breaking inside",
+      "uncertain": false
+    },
+    {
+      "start": 110.6,
+      "end": 113.3,
+      "text": "No proof in the smoke, no truth in the shout",
+      "uncertain": false
+    },
+    {
+      "start": 113.3,
+      "end": 116.06,
+      "text": "You can bar every window, truth gets out",
+      "uncertain": false
+    },
+    {
+      "start": 116.06,
+      "end": 118.62,
+      "text": "A friend can't be dear and still do harm",
+      "uncertain": false
+    },
+    {
+      "start": 118.62,
+      "end": 121.4,
+      "text": "You don't make him clean by raising your arms",
+      "uncertain": false
+    },
+    {
+      "start": 121.4,
+      "end": 123.94,
+      "text": "I wanted a villain I could strike in the street",
+      "uncertain": false
+    },
+    {
+      "start": 123.94,
+      "end": 126.62,
+      "text": "But the hardest infestion was under my feet",
+      "uncertain": false
+    },
+    {
+      "start": 126.62,
+      "end": 129.32,
+      "text": "No proof in the smoke, no crown in denial",
+      "uncertain": false
+    },
+    {
+      "start": 129.32,
+      "end": 132.1,
+      "text": "Only names push aside while I worship the trial",
+      "uncertain": true
+    },
+    {
+      "start": 136.1,
+      "end": 139.32,
+      "text": "I miss who I thought you were, that part is true",
+      "uncertain": false
+    },
+    {
+      "start": 139.32,
+      "end": 141.8,
+      "text": "The midnight conspiracy sees me and you",
+      "uncertain": false
+    },
+    {
+      "start": 141.8,
+      "end": 144.88,
+      "text": "But grief is a mirror that flatters the past",
+      "uncertain": false
+    },
+    {
+      "start": 144.88,
+      "end": 147.4,
+      "text": "And anger is easy when questions are asked",
+      "uncertain": false
+    },
+    {
+      "start": 147.4,
+      "end": 150.04,
+      "text": "I wanted one document shining and clean",
+      "uncertain": false
+    },
+    {
+      "start": 150.04,
+      "end": 152.66,
+      "text": "To cancel the things I refuse to have seen",
+      "uncertain": false
+    },
+    {
+      "start": 152.66,
+      "end": 155.18,
+      "text": "No paper arrived, no way just reversed",
+      "uncertain": true
+    },
+    {
+      "start": 155.18,
+      "end": 157.9,
+      "text": "Just my own loud promise getting steadily worse",
+      "uncertain": true
+    },
+    {
+      "start": 162.96,
+      "end": 166.0,
+      "text": "So I went to the shoreline just before dawn",
+      "uncertain": false
+    },
+    {
+      "start": 166.0,
+      "end": 168.5,
+      "text": "With a pocket of speeches I'd leaned upon",
+      "uncertain": false
+    },
+    {
+      "start": 168.5,
+      "end": 171.38,
+      "text": "A tie took the ink, but it left every name",
+      "uncertain": false
+    },
+    {
+      "start": 171.38,
+      "end": 173.96,
+      "text": "And none of those people that caused me my shame",
+      "uncertain": false
+    },
+    {
+      "start": 173.96,
+      "end": 176.7,
+      "text": "I'd need them targets to shelter a ghost",
+      "uncertain": true
+    },
+    {
+      "start": 176.7,
+      "end": 179.36,
+      "text": "Then call myself righteous for shouting the most",
+      "uncertain": true
+    },
+    {
+      "start": 179.36,
+      "end": 182.08,
+      "text": "There's nothing heroic in choosing the strong",
+      "uncertain": false
+    },
+    {
+      "start": 182.08,
+      "end": 184.4,
+      "text": "Or grinding the injured to polish the song",
+      "uncertain": true
+    },
+    {
+      "start": 184.4,
+      "end": 187.72,
+      "text": "Let the snare crack once for every excuse",
+      "uncertain": false
+    },
+    {
+      "start": 187.72,
+      "end": 190.46,
+      "text": "Let the guitar bend but don't bend the truth",
+      "uncertain": false
+    },
+    {
+      "start": 190.46,
+      "end": 193.16,
+      "text": "I can mourn a friendship without making a saint",
+      "uncertain": false
+    },
+    {
+      "start": 193.16,
+      "end": 195.96,
+      "text": "I can name my failure without calling it fate",
+      "uncertain": false
+    },
+    {
+      "start": 195.96,
+      "end": 198.64,
+      "text": "No sorrow won't pardon the venom I clue",
+      "uncertain": false
+    },
+    {
+      "start": 198.64,
+      "end": 201.24,
+      "text": "And fury won't make an invention come true",
+      "uncertain": false
+    },
+    {
+      "start": 201.24,
+      "end": 204.04,
+      "text": "If I want redemption, it starts when I hear",
+      "uncertain": false
+    },
+    {
+      "start": 204.04,
+      "end": 207.0,
+      "text": "The voices are buried because they drew near",
+      "uncertain": true
+    },
+    {
+      "start": 211.02,
+      "end": 212.82,
+      "text": "I said I could prove it",
+      "uncertain": false
+    },
+    {
+      "start": 212.82,
+      "end": 215.34,
+      "text": "I couldn't prove a thing",
+      "uncertain": false
+    },
+    {
+      "start": 216.04,
+      "end": 218.2,
+      "text": "I said I was the hero",
+      "uncertain": false
+    },
+    {
+      "start": 218.2,
+      "end": 220.58,
+      "text": "Hear how all that can ring",
+      "uncertain": false
+    },
+    {
+      "start": 221.38,
+      "end": 223.32,
+      "text": "I said the pain was nothing",
+      "uncertain": true
+    },
+    {
+      "start": 223.32,
+      "end": 226.0,
+      "text": "That was cruelty, drenched us pride",
+      "uncertain": false
+    },
+    {
+      "start": 227.06,
+      "end": 228.86,
+      "text": "The room stopped moving",
+      "uncertain": false
+    },
+    {
+      "start": 228.86,
+      "end": 231.96,
+      "text": "And I had nowhere left to hide",
+      "uncertain": false
+    },
+    {
+      "start": 233.0,
+      "end": 235.98,
+      "text": "No proof in the scope, no truth in the shout",
+      "uncertain": false
+    },
+    {
+      "start": 235.98,
+      "end": 238.68,
+      "text": "You can bar every window, truth gets out",
+      "uncertain": false
+    },
+    {
+      "start": 238.68,
+      "end": 241.3,
+      "text": "A friend can be geared still to harm",
+      "uncertain": false
+    },
+    {
+      "start": 241.3,
+      "end": 244.1,
+      "text": "You don't make him clean by raising your arms",
+      "uncertain": false
+    },
+    {
+      "start": 244.1,
+      "end": 246.62,
+      "text": "I wanted a villain I could strike in the street",
+      "uncertain": false
+    },
+    {
+      "start": 246.62,
+      "end": 249.3,
+      "text": "But the artist's confession was under my feet",
+      "uncertain": false
+    },
+    {
+      "start": 249.3,
+      "end": 251.98,
+      "text": "No proof in the smoke, no crown in denial",
+      "uncertain": false
+    },
+    {
+      "start": 251.98,
+      "end": 254.78,
+      "text": "Only names pushed aside while I worshipped the trial",
+      "uncertain": false
+    },
+    {
+      "start": 259.1,
+      "end": 261.98,
+      "text": "No, I remember without changing the score",
+      "uncertain": true
+    },
+    {
+      "start": 261.98,
+      "end": 264.72,
+      "text": "There was laughter, yes, there was much more",
+      "uncertain": true
+    },
+    {
+      "start": 264.72,
+      "end": 267.3,
+      "text": "But private kindness cannot settle the scale",
+      "uncertain": true
+    },
+    {
+      "start": 267.3,
+      "end": 270.0,
+      "text": "When power by silence and systems fail",
+      "uncertain": true
+    },
+    {
+      "start": 270.0,
+      "end": 272.52,
+      "text": "I cannot return what was taken away",
+      "uncertain": false
+    },
+    {
+      "start": 272.52,
+      "end": 275.28,
+      "text": "Or heal everyone with a sentence today",
+      "uncertain": false
+    },
+    {
+      "start": 275.28,
+      "end": 277.42,
+      "text": "But I can stop feeding the lie",
+      "uncertain": false
+    },
+    {
+      "start": 277.42,
+      "end": 279.3,
+      "text": "I decide to stop making the harm",
+      "uncertain": true
+    },
+    {
+      "start": 279.3,
+      "end": 280.88,
+      "text": "Pay the debts of my mind",
+      "uncertain": false
+    },
+    {
+      "start": 280.88,
+      "end": 283.98,
+      "text": "No proof in the smoke, let the whole room clear",
+      "uncertain": false
+    },
+    {
+      "start": 283.98,
+      "end": 286.76,
+      "text": "Let truth stand steady when grief interferes",
+      "uncertain": false
+    },
+    {
+      "start": 286.76,
+      "end": 289.32,
+      "text": "My friend can be dear, it's still too hard",
+      "uncertain": false
+    },
+    {
+      "start": 289.32,
+      "end": 292.04,
+      "text": "I won't make them clean by raising your arms",
+      "uncertain": false
+    },
+    {
+      "start": 292.04,
+      "end": 294.64,
+      "text": "No bond in a villa, no ruro with disguise",
+      "uncertain": true
+    },
+    {
+      "start": 294.64,
+      "end": 297.32,
+      "text": "No applause, privets in the wounded one's eyes",
+      "uncertain": true
+    },
+    {
+      "start": 297.32,
+      "end": 300.02,
+      "text": "No proof in the smoke, no crown in the shame",
+      "uncertain": false
+    },
+    {
+      "start": 300.02,
+      "end": 302.78,
+      "text": "It stops when I listen while I worship trying",
+      "uncertain": true
+    },
+    {
+      "start": 307.0,
+      "end": 310.32,
+      "text": "I said I remember with a change in the score",
+      "uncertain": true
+    },
+    {
+      "start": 310.32,
+      "end": 312.52,
+      "text": "Here was laughter, yes there was much more",
+      "uncertain": true
+    },
+    {
+      "start": 312.52,
+      "end": 315.4,
+      "text": "A private kindness cannot settle the scale",
+      "uncertain": true
+    },
+    {
+      "start": 315.4,
+      "end": 317.9,
+      "text": "When a cowboy by silence insists to play it",
+      "uncertain": true
+    },
+    {
+      "start": 317.9,
+      "end": 320.46,
+      "text": "I said they'd return or was taken away",
+      "uncertain": true
+    },
+    {
+      "start": 320.46,
+      "end": 323.26,
+      "text": "Or were throwing cunt fangs at references to pride",
+      "uncertain": true
+    },
+    {
+      "start": 323.26,
+      "end": 326.06,
+      "text": "Don't stop, no witness moving",
+      "uncertain": false
+    },
+    {
+      "start": 326.06,
+      "end": 328.74,
+      "text": "And I have nowhere left to hide",
+      "uncertain": false
+    },
+    {
+      "start": 328.74,
+      "end": 330.42,
+      "text": "No proof in the small line",
+      "uncertain": true
+    },
+    {
+      "start": 331.58,
+      "end": 334.68,
+      "text": "You can borrow every window, truth gets out",
+      "uncertain": true
+    },
+    {
+      "start": 334.68,
+      "end": 337.1,
+      "text": "For Frederick D. Deere and instill to rename",
+      "uncertain": true
+    },
+    {
+      "start": 337.1,
+      "end": 340.0,
+      "text": "And don't make him clean by raising your heart",
+      "uncertain": true
+    },
+    {
+      "start": 340.0,
+      "end": 342.62,
+      "text": "No proof in the smoke, no truth in the shout",
+      "uncertain": false
+    },
+    {
+      "start": 342.62,
+      "end": 345.32,
+      "text": "You can borrow every window, truth gets out",
+      "uncertain": false
+    },
+    {
+      "start": 345.32,
+      "end": 348.02,
+      "text": "A friend can be dear and still do harm",
+      "uncertain": false
+    },
+    {
+      "start": 348.02,
+      "end": 350.76,
+      "text": "You don't make him clean by raising your arms",
+      "uncertain": true
+    },
+    {
+      "start": 350.76,
+      "end": 353.28,
+      "text": "I wanted a villain that could strike in the street",
+      "uncertain": true
+    },
+    {
+      "start": 353.28,
+      "end": 355.98,
+      "text": "But the artist's confession was under my feet",
+      "uncertain": false
+    },
+    {
+      "start": 355.98,
+      "end": 358.04,
+      "text": "No proof in the smoke, no crown",
+      "uncertain": false
+    },
+    {
+      "start": 358.04,
+      "end": 361.48,
+      "text": "And deny only name pushed aside while I worship the trial",
+      "uncertain": true
+    },
+    {
+      "start": 395.52,
+      "end": 401.3,
+      "text": "And starts when holism get a level to hide, no proof in the smoke, no truth in the shout.",
+      "uncertain": true
+    },
+    {
+      "start": 401.44,
+      "end": 404.04,
+      "text": "You can bar every window, truth gets out.",
+      "uncertain": false
+    },
+    {
+      "start": 404.04,
+      "end": 406.6,
+      "text": "A friend can't beat the air and still do all",
+      "uncertain": false
+    },
+    {
+      "start": 406.6,
+      "end": 409.4,
+      "text": "You don't make him clean by raising your arms",
+      "uncertain": true
+    },
+    {
+      "start": 409.4,
+      "end": 411.96,
+      "text": "I wanted a villain I could strike in the street",
+      "uncertain": false
+    },
+    {
+      "start": 411.96,
+      "end": 414.64,
+      "text": "But the artist's confession was under my feet",
+      "uncertain": false
+    },
+    {
+      "start": 414.64,
+      "end": 417.38,
+      "text": "No proof in the smoke, no crown in denial",
+      "uncertain": false
+    },
+    {
+      "start": 417.38,
+      "end": 420.12,
+      "text": "Only names pushed aside while I worshipped the trial",
+      "uncertain": false
+    },
+    {
+      "start": 424.78,
+      "end": 427.48,
+      "text": "I kept your number in a dead man's phone",
+      "uncertain": false
+    },
+    {
+      "start": 427.48,
+      "end": 430.04,
+      "text": "Kept your name with a dusthead loan",
+      "uncertain": false
+    },
+    {
+      "start": 430.04,
+      "end": 432.8,
+      "text": "A private condo when the room went cold",
+      "uncertain": false
+    },
+    {
+      "start": 432.8,
+      "end": 435.34,
+      "text": "Now every lock thrower knows what you sow",
+      "uncertain": true
+    }
+  ]
+}

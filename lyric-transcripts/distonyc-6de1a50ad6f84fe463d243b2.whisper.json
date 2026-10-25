@@ -1,0 +1,403 @@
+{
+  "version": 1,
+  "songId": "distonyc-6de1a50ad6f84fe463d243b2",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-6de1a50ad6f84fe463d243b2-b4ee0bbae12d.mp3",
+  "audioSha256": "b4ee0bbae12d59012b84c213e53b5f5fbffe3117efa06365ac9c4b7b92e86347",
+  "inputSha256": "b4ee0bbae12d59012b84c213e53b5f5fbffe3117efa06365ac9c4b7b92e86347",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 234.1,
+  "segments": [
+    {
+      "start": 5.7,
+      "end": 8.42,
+      "text": "In Cornwall, blue side",
+      "uncertain": true
+    },
+    {
+      "start": 10.72,
+      "end": 13.56,
+      "text": "Name tag crooked, but the booth's still mine",
+      "uncertain": true
+    },
+    {
+      "start": 15.72,
+      "end": 19.2,
+      "text": "I had a six-string kingdom in a gasoline van",
+      "uncertain": false
+    },
+    {
+      "start": 19.2,
+      "end": 21.9,
+      "text": "Smoking the speakers, cheap gold in my hand",
+      "uncertain": false
+    },
+    {
+      "start": 21.9,
+      "end": 24.96,
+      "text": "Then the labels learned numbers, the clubs changed names",
+      "uncertain": false
+    },
+    {
+      "start": 24.96,
+      "end": 27.24,
+      "text": "Every little screen wanted to clean up flames",
+      "uncertain": false
+    },
+    {
+      "start": 27.24,
+      "end": 29.74,
+      "text": "Too many changes in the music industry",
+      "uncertain": false
+    },
+    {
+      "start": 29.74,
+      "end": 32.7,
+      "text": "They shaved off the danger, so the mystery",
+      "uncertain": true
+    },
+    {
+      "start": 32.7,
+      "end": 34.12,
+      "text": "I missed one turn",
+      "uncertain": false
+    },
+    {
+      "start": 34.12,
+      "end": 36.52,
+      "text": "Where the new road girl woke up",
+      "uncertain": true
+    },
+    {
+      "start": 36.52,
+      "end": 38.54,
+      "text": "Washed out at the end of the world",
+      "uncertain": false
+    },
+    {
+      "start": 38.54,
+      "end": 41.2,
+      "text": "Fairbanks, Alaska, 40 below",
+      "uncertain": false
+    },
+    {
+      "start": 41.2,
+      "end": 44.16,
+      "text": "Breath like a ghost in the parking lot glow",
+      "uncertain": false
+    },
+    {
+      "start": 44.16,
+      "end": 45.86,
+      "text": "I laughed from my teeth, he",
+      "uncertain": true
+    },
+    {
+      "start": 45.86,
+      "end": 49.8,
+      "text": "Look at me, still got a post, still badly free",
+      "uncertain": true
+    },
+    {
+      "start": 51.42,
+      "end": 55.44,
+      "text": "Now I work at Walmart under northern lights",
+      "uncertain": false
+    },
+    {
+      "start": 55.44,
+      "end": 58.24,
+      "text": "Snacking little kingdoms on the graveyard nights",
+      "uncertain": false
+    },
+    {
+      "start": 58.24,
+      "end": 60.98,
+      "text": "Blue vests swinging while the floor wheels squeal",
+      "uncertain": false
+    },
+    {
+      "start": 60.98,
+      "end": 63.72,
+      "text": "I lost the old business, not the way I feel",
+      "uncertain": false
+    },
+    {
+      "start": 63.72,
+      "end": 66.32,
+      "text": "From a backstage four to hour 23",
+      "uncertain": true
+    },
+    {
+      "start": 66.32,
+      "end": 69.32,
+      "text": "The whole cold town gets a concert for me",
+      "uncertain": false
+    },
+    {
+      "start": 69.32,
+      "end": 72.0,
+      "text": "Ooh, yeah, that freezer drone",
+      "uncertain": true
+    },
+    {
+      "start": 72.0,
+      "end": 75.16,
+      "text": "I could make a broken place my own",
+      "uncertain": false
+    },
+    {
+      "start": 80.12,
+      "end": 83.2,
+      "text": "At a room by the highway, one chair, one key",
+      "uncertain": true
+    },
+    {
+      "start": 83.2,
+      "end": 85.82,
+      "text": "Landlord said, tomorrow Tony settle with me",
+      "uncertain": false
+    },
+    {
+      "start": 85.82,
+      "end": 88.8,
+      "text": "Tomorrow came sharp with a boot and a sheet",
+      "uncertain": false
+    },
+    {
+      "start": 88.8,
+      "end": 91.4,
+      "text": "Then I was kicked out onto the street",
+      "uncertain": false
+    },
+    {
+      "start": 91.4,
+      "end": 94.38,
+      "text": "My case out, socks and a rusted slide",
+      "uncertain": false
+    },
+    {
+      "start": 94.38,
+      "end": 97.12,
+      "text": "No record deal, no warm place inside",
+      "uncertain": false
+    },
+    {
+      "start": 97.12,
+      "end": 99.84,
+      "text": "A car boy knotted by the loading bay",
+      "uncertain": true
+    },
+    {
+      "start": 99.84,
+      "end": 102.68,
+      "text": "Said night shift, need somebody right away",
+      "uncertain": false
+    },
+    {
+      "start": 102.68,
+      "end": 105.56,
+      "text": "So I washed in the sink, tied my hair back low",
+      "uncertain": false
+    },
+    {
+      "start": 105.56,
+      "end": 108.4,
+      "text": "Walked through the doors with the sideways snow",
+      "uncertain": false
+    },
+    {
+      "start": 108.4,
+      "end": 110.92,
+      "text": "Manager squinted, said, can you start at three?",
+      "uncertain": false
+    },
+    {
+      "start": 111.1,
+      "end": 113.96,
+      "text": "I said, buddy, the dog starts early with me",
+      "uncertain": false
+    },
+    {
+      "start": 115.62,
+      "end": 119.62,
+      "text": "Now I work at Walmart under northern lights",
+      "uncertain": false
+    },
+    {
+      "start": 119.62,
+      "end": 122.5,
+      "text": "Stacking little kingdoms on the graveyard nights",
+      "uncertain": false
+    },
+    {
+      "start": 122.5,
+      "end": 125.18,
+      "text": "Blue dust swinging while the floor wheels squeal",
+      "uncertain": true
+    },
+    {
+      "start": 125.18,
+      "end": 127.9,
+      "text": "I lost the old business, not the way I feel",
+      "uncertain": false
+    },
+    {
+      "start": 127.9,
+      "end": 130.58,
+      "text": "From a backstage floor to aisle 23",
+      "uncertain": false
+    },
+    {
+      "start": 130.58,
+      "end": 133.5,
+      "text": "The whole cold town gets a concert for me",
+      "uncertain": true
+    },
+    {
+      "start": 133.5,
+      "end": 136.24,
+      "text": "Mmm, hear that freezer drone",
+      "uncertain": true
+    },
+    {
+      "start": 136.24,
+      "end": 139.2,
+      "text": "I can make a broken place my own",
+      "uncertain": true
+    },
+    {
+      "start": 144.68,
+      "end": 147.54,
+      "text": "Oh no, Roland did my chest slack stone",
+      "uncertain": true
+    },
+    {
+      "start": 148.22,
+      "end": 150.28,
+      "text": "Overturnalizing where the wild wind's bone",
+      "uncertain": false
+    },
+    {
+      "start": 150.28,
+      "end": 153.22,
+      "text": "Outstring shimmer through the intercom buzz",
+      "uncertain": false
+    },
+    {
+      "start": 153.22,
+      "end": 155.72,
+      "text": "Nobody remembers who I nearly was",
+      "uncertain": false
+    },
+    {
+      "start": 155.72,
+      "end": 158.74,
+      "text": "But the baker keeps time and the folk lift turns",
+      "uncertain": true
+    },
+    {
+      "start": 158.74,
+      "end": 161.3,
+      "text": "Coffee goes pack while the horizon burns",
+      "uncertain": true
+    },
+    {
+      "start": 161.3,
+      "end": 164.16,
+      "text": "I sing one bed note till the rafters shake",
+      "uncertain": false
+    },
+    {
+      "start": 164.16,
+      "end": 167.02,
+      "text": "And the tattered night crew finally waves",
+      "uncertain": true
+    },
+    {
+      "start": 167.02,
+      "end": 169.0,
+      "text": "Price check, no check",
+      "uncertain": false
+    },
+    {
+      "start": 169.0,
+      "end": 176.06,
+      "text": "my name washed out never meant washed away cold street cold feet still stood tall now my shadow",
+      "uncertain": true
+    },
+    {
+      "start": 176.06,
+      "end": 185.38,
+      "text": "dance is 10 feet on the wall i work at walmart of the northern lights building new thunder on",
+      "uncertain": false
+    },
+    {
+      "start": 185.38,
+      "end": 191.64,
+      "text": "the graveyard nights blue past open and my chin held high a roar and twisting like a chorus in",
+      "uncertain": true
+    },
+    {
+      "start": 191.64,
+      "end": 197.56,
+      "text": "the sky fair of banks alaska you made room for me not the crown i wanted but a place to breathe",
+      "uncertain": true
+    },
+    {
+      "start": 197.56,
+      "end": 200.6,
+      "text": "Boom, let the deep low climb",
+      "uncertain": true
+    },
+    {
+      "start": 200.6,
+      "end": 203.24,
+      "text": "I quit chasing yesterday's time",
+      "uncertain": true
+    },
+    {
+      "start": 203.24,
+      "end": 206.0,
+      "text": "When the door slide wide at the end of my run",
+      "uncertain": true
+    },
+    {
+      "start": 206.0,
+      "end": 208.8,
+      "text": "I step through the snow toward the pale morning sun",
+      "uncertain": false
+    },
+    {
+      "start": 208.8,
+      "end": 211.58,
+      "text": "No street on stone, you know failure gets the last word",
+      "uncertain": true
+    },
+    {
+      "start": 211.58,
+      "end": 214.32,
+      "text": "I found my stage where the freeze or motor stir",
+      "uncertain": true
+    },
+    {
+      "start": 214.32,
+      "end": 217.16,
+      "text": "It clocked out, paid up, little room, new key",
+      "uncertain": true
+    },
+    {
+      "start": 217.16,
+      "end": 220.9,
+      "text": "The world kept changing, and so didn't give",
+      "uncertain": false
+    },
+    {
+      "start": 227.56,
+      "end": 229.02,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

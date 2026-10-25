@@ -34,6 +34,24 @@ test("an archive that would empty the fallback is refused", () => {
   assert.throws(() => publicCatalog(catalog, catalog.songs.map((song) => song.id)), RangeError);
 });
 
+test("an explicitly approved large batch can be archived without changing the source", () => {
+  const trimmed = publicCatalog(catalog, ["a", "b", "c", "outside-catalog"], ["a", "b", "c"]);
+  assert.deepEqual(trimmed.songs.map((song) => song.id), ["d"]);
+  assert.equal(catalog.songs.length, 4);
+  assert.throws(() => publicCatalog(catalog, ["a", "b", "c", "d"], ["a", "b", "c"]), RangeError);
+  assert.throws(() => publicCatalog(catalog, ["a", "b", "c"], ["a", "b", "d"]), RangeError);
+});
+
+test("archive approvals never hide restored songs", () => {
+  assert.equal(publicCatalog(catalog, [], ["a", "b", "c"]), catalog);
+  assert.deepEqual(publicCatalog(catalog, ["a", "b"], ["a", "b", "c"]).songs.map((song) => song.id), ["c", "d"]);
+});
+
+test("malformed archive approval manifests are rejected", () => {
+  for (const approved of [null, "a", [1], ["../a"]])
+    assert.throws(() => publicCatalog(catalog, ["a"], approved), TypeError);
+});
+
 test("the archived IDs come from the summary the studio API publishes", async () => {
   assert.deepEqual(await serve(json({ songs: [], archived: ["b", "x-1"] }), archivedSongIds), ["b", "x-1"]);
   assert.deepEqual(await serve(json({ songs: [], archived: [] }), archivedSongIds), []);

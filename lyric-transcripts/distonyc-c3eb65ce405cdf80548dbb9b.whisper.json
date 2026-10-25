@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "songId": "distonyc-c3eb65ce405cdf80548dbb9b",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c3eb65ce405cdf80548dbb9b-a2a94f916471.mp3",
+  "audioSha256": "a2a94f9164712ecedcbe9fc73121ff296957b277238966d531a1d84f79cef8d2",
+  "inputSha256": "8e00066df448ae5692ce6a3c2e55670708e80915b7169e482b58d35592a09bd0",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 180.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.78,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 38.52,
+      "end": 40.64,
+      "text": "We'll be right back.",
+      "uncertain": true
+    },
+    {
+      "start": 60.0,
+      "end": 62.14,
+      "text": "And go away",
+      "uncertain": true
+    },
+    {
+      "start": 65.88,
+      "end": 68.1,
+      "text": "I'm on the floor",
+      "uncertain": true
+    },
+    {
+      "start": 70.62,
+      "end": 73.18,
+      "text": "And I'm on the floor",
+      "uncertain": true
+    },
+    {
+      "start": 75.48,
+      "end": 77.78,
+      "text": "I'm on the floor",
+      "uncertain": true
+    },
+    {
+      "start": 77.78,
+      "end": 86.46,
+      "text": "And I'm on the floor",
+      "uncertain": true
+    },
+    {
+      "start": 87.48,
+      "end": 116.44,
+      "text": "Poofs, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof, poof,",
+      "uncertain": true
+    },
+    {
+      "start": 118.94,
+      "end": 121.34,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 147.12,
+      "end": 158.76,
+      "text": "Who's no idea who's going to be, that's what's going to be, that's what's going to be, that's what's going to be, that's what's going to be, that's what's going to be.",
+      "uncertain": true
+    },
+    {
+      "start": 176.44,
+      "end": 176.82,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}

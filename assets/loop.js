@@ -7,6 +7,12 @@ function saved() {
   try { return localStorage.getItem(key) === "true"; } catch { return false; }
 }
 
+export function disableTrackLoop(audio) {
+  if (audio) audio.loop = false;
+  try { localStorage.setItem(key, "false"); } catch { /* The active player still advances. */ }
+  dispatchEvent(new CustomEvent("yehry3:loop", { detail: { from: null, looping: false } }));
+}
+
 // Returns a reusable control. Pages that rebuild their player call attach()
 // with the replacement audio element instead of mounting a second toggle.
 export function mountLoopToggle({ label = "Loop", className = "quiet loop-toggle" } = {}) {

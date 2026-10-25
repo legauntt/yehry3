@@ -1,0 +1,139 @@
+{
+  "version": 1,
+  "songId": "distonyc-62a651b70048076cb5af0eb0",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-62a651b70048076cb5af0eb0-0a7d26970867.mp3",
+  "audioSha256": "0a7d26970867635c8b97abd1275aab2c1c5ef76ee16903462dbdedb454afb8ce",
+  "inputSha256": "e4f42f22e3f117488527c92edc4ca72e119d2316cb20dac8dc0d5f78ef227624",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 145.00575,
+  "segments": [
+    {
+      "start": 3.4,
+      "end": 14.28,
+      "text": "لما بدا يتسنى حبي جماله فتنى",
+      "uncertain": false
+    },
+    {
+      "start": 14.28,
+      "end": 22.04,
+      "text": "أمر ما بلحظة أسرنا وصلثنا حين مال",
+      "uncertain": false
+    },
+    {
+      "start": 22.04,
+      "end": 40.6,
+      "text": "لما بدا يتسنى حبي جماله فتنى أمر ما بلحظة أسرنا وصلثنا حين مال",
+      "uncertain": false
+    },
+    {
+      "start": 40.6,
+      "end": 66.84,
+      "text": "وعدي ويا حيرتي وعدي ويا حيرتي من لي رحيم وشكوتي فالحب من لوتي إلا مليك الجمال إلا مليك الجمال إلا مليك الجمال إلا مليك الجمال",
+      "uncertain": false
+    },
+    {
+      "start": 66.84,
+      "end": 78.46,
+      "text": "لما بدأ يتسنى حبي جماله فتنى",
+      "uncertain": false
+    },
+    {
+      "start": 78.46,
+      "end": 86.0,
+      "text": "أمرنا بلحظة أسرنا غصم الزناحين معي",
+      "uncertain": false
+    },
+    {
+      "start": 86.0,
+      "end": 92.36,
+      "text": "لما بدأ يبتثنى لما بدأ يتسنى",
+      "uncertain": false
+    },
+    {
+      "start": 92.36,
+      "end": 96.62,
+      "text": "حبي جمالي نذن النار",
+      "uncertain": false
+    },
+    {
+      "start": 96.62,
+      "end": 100.28,
+      "text": "أمر ما بلحظتي أسنى",
+      "uncertain": false
+    },
+    {
+      "start": 100.28,
+      "end": 104.12,
+      "text": "قصن ثنا حين مار",
+      "uncertain": true
+    },
+    {
+      "start": 104.12,
+      "end": 107.64,
+      "text": "وعدي ويا حيرتي",
+      "uncertain": false
+    },
+    {
+      "start": 107.64,
+      "end": 111.18,
+      "text": "وعدي ويا حيرتي",
+      "uncertain": false
+    },
+    {
+      "start": 111.18,
+      "end": 114.44,
+      "text": "من لي رحيم وشكتي",
+      "uncertain": false
+    },
+    {
+      "start": 114.44,
+      "end": 117.66,
+      "text": "فالحق من لوعتي",
+      "uncertain": false
+    },
+    {
+      "start": 117.66,
+      "end": 120.24,
+      "text": "إلا مليك الجمال",
+      "uncertain": false
+    },
+    {
+      "start": 120.24,
+      "end": 123.8,
+      "text": "إلا مليك الجمال",
+      "uncertain": false
+    },
+    {
+      "start": 123.8,
+      "end": 125.04,
+      "text": "جمال",
+      "uncertain": false
+    },
+    {
+      "start": 125.04,
+      "end": 128.56,
+      "text": "إلا مليك الجمال",
+      "uncertain": false
+    },
+    {
+      "start": 130.66,
+      "end": 132.06,
+      "text": "آمان",
+      "uncertain": false
+    },
+    {
+      "start": 135.12,
+      "end": 136.52,
+      "text": "آمان",
+      "uncertain": false
+    },
+    {
+      "start": 138.94,
+      "end": 140.34,
+      "text": "آمان",
+      "uncertain": false
+    }
+  ]
+}

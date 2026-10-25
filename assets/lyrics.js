@@ -1,3 +1,4 @@
+import { signedIn } from "./api.js";
 import { songBadges } from "./song-badges.js";
 import { mountLoopToggle } from "./loop.js";
 import { songPlanLink } from "./song-plan.js";
@@ -12,6 +13,8 @@ import { remixLink } from "./remix.js";
 import { mountRemixComparison } from "./remix-comparison.js";
 import { mountMomentSharing, sharedTimestamp } from "./lyric-moments.js";
 import { clock } from "./song-time.js";
+import { mountLyricViews } from "./lyric-views.js";
+import { mountLyricToolbar } from "./lyric-toolbar.js";
 
 function cueMap(lyrics) {
   const lines = lyrics.text.split("\n");
@@ -33,16 +36,28 @@ function cueMap(lyrics) {
 
 function lyricLines(lyrics, escape) {
   const cues = cueMap(lyrics);
+  const timed = [...cues.entries()].sort(([a], [b]) => a - b);
   return lyrics.text
     .split("\n")
     .map((line, index) => {
       if (!line.trim()) return '<span class="lyric-break" aria-hidden="true"></span>';
-      if (/^\s*\[[^\]]+]\s*$/.test(line))
+      if (lyrics.kind !== "performance" && /^\s*\[[^\]]+]\s*$/.test(line))
         return `<span class="lyric-heading">${escape(line)}</span>`;
       const cue = cues.get(index);
-      return cue
-        ? `<button type="button" class="lyric-line" id="lyric-line-${index + 1}" data-start="${cue.start}" data-end="${cue.end}" title="Jump to this line"><span>${escape(line)}</span><span class="lyric-link-marker">Shared line</span></button>`
-        : `<span class="lyric-line">${escape(line)}</span>`;
+      if (!cue && !timed.length) return `<span class="lyric-line"><span data-lyric-text="${index}">${escape(line)}</span></span>`;
+      const previous = timed.findLast(([lineIndex]) => lineIndex < index);
+      const next = timed.find(([lineIndex]) => lineIndex > index);
+      // Only interpolate a short, credible gap. A long run of missing cues can
+      // mean the written lines were skipped in the actual performance.
+      const gapLines = next?.[0] - previous?.[0];
+      const gapSeconds = next?.[1].start - previous?.[1].end;
+      const boundedGap = gapLines > 1 && gapLines <= 8 &&
+        gapSeconds >= (gapLines - 1) * 0.5 && gapSeconds <= gapLines * 12;
+      const start = cue?.start ?? (boundedGap
+        ? previous[1].end + (gapSeconds * (index - previous[0] - 1)) / gapLines
+        : !previous && next ? 0 : null);
+      const approximate = !cue;
+      return `<button type="button" class="lyric-line" id="lyric-line-${index + 1}"${start === null ? ' data-untimed="true"' : ` data-start="${start}"`}${cue ? ` data-end="${cue.end}"` : ' data-approximate="true"'} title="${start === null ? 'Timing unavailable for this written line' : approximate ? 'Jump near this line (timing approximate)' : 'Jump to this line'}"><span data-lyric-text="${index}">${escape(line)}</span>${cue?.uncertain ? '<span class="lyric-uncertain" aria-label="Uncertain transcription" title="Whisper is uncertain about this line">?</span>' : ""}<span class="lyric-link-marker">Shared line</span></button>`;
     })
     .join("");
 }
@@ -57,6 +72,7 @@ export function sheetFor(song) {
     song,
     audio,
     pendingAt: null,
+    followLyrics: true,
     // What draws the sheet asks to hear when the place it will start from changes.
     watchers: new Set(),
     isCurrent: () => player.current?.id === sheet.song.id,
@@ -84,24 +100,89 @@ export function sheetFor(song) {
   return sheet;
 }
 
-function mountKaraoke(main, sheet) {
+function mountKaraoke(main, sheet, { restoreLink = true } = {}) {
   const audio = sheet.audio;
   const lines = [...main.querySelectorAll("button.lyric-line")];
+  const resume = main.querySelector("#resume-lyric-scroll");
+  resume.hidden = true;
   if (!lines.length) return () => {};
   const controller = new AbortController();
   const { signal } = controller;
   let active;
+  let userScrollStart = null, userScrollTimer, autoScrolling = false, draggingScrollbar = false;
+  let lastScrollY = scrollY;
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+  function resetScrollIntent() {
+    clearTimeout(userScrollTimer);
+    userScrollStart = null;
+  }
+  function showResume() {
+    resume.hidden = sheet.followLyrics || !sheet.isCurrent();
+  }
+  function scrollToLine(line, smooth = false) {
+    resetScrollIntent();
+    autoScrolling = smooth && !reducedMotion.matches;
+    line.scrollIntoView({ block: "center", behavior: autoScrolling ? "smooth" : "instant" });
+  }
+  // Only an actual page movement after scroll input pauses following. Our own
+  // centering, shared links, focus changes and layout shifts are not user scrolls.
+  function scrollIntent() {
+    if (!active || !sheet.isCurrent() || !sheet.followLyrics) return;
+    if (autoScrolling) {
+      autoScrolling = false;
+      sheet.followLyrics = false;
+      showResume();
+      scrollTo({ top: scrollY, left: scrollX, behavior: "instant" });
+      resetScrollIntent();
+      return;
+    }
+    // Passive wheel/touch handlers can run after the browser has moved the page.
+    userScrollStart ??= lastScrollY;
+    clearTimeout(userScrollTimer);
+    userScrollTimer = setTimeout(resetScrollIntent, 250);
+  }
+  addEventListener("wheel", event => { if (event.deltaY && !event.ctrlKey) scrollIntent(); }, { passive: true, signal });
+  addEventListener("touchmove", scrollIntent, { passive: true, signal });
+  addEventListener("keydown", event => {
+    if (event.defaultPrevented || event.ctrlKey || event.metaKey || event.altKey ||
+        event.target.closest("input, textarea, select, [contenteditable]") ||
+        (event.key === " " && event.target.closest("button, summary"))) return;
+    if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) scrollIntent();
+  }, { signal });
+  addEventListener("pointerdown", event => {
+    draggingScrollbar = event.clientX >= document.documentElement.clientWidth;
+    if (draggingScrollbar) scrollIntent();
+  }, { signal });
+  addEventListener("pointermove", () => { if (draggingScrollbar) scrollIntent(); }, { passive: true, signal });
+  addEventListener("pointerup", () => { draggingScrollbar = false; }, { signal });
+  addEventListener("scroll", () => {
+    lastScrollY = scrollY;
+    if (userScrollStart === null) return;
+    if (Math.abs(scrollY - userScrollStart) > 8) {
+      sheet.followLyrics = false;
+      resetScrollIntent();
+      showResume();
+    }
+  }, { passive: true, signal });
+  addEventListener("scrollend", () => { autoScrolling = false; }, { signal });
+  resume.addEventListener("click", () => {
+    sheet.followLyrics = true;
+    sync(false);
+    if (active) scrollToLine(active, true);
+  }, { signal });
+  signal.addEventListener("abort", resetScrollIntent, { once: true });
   function lineFromHash() {
     const match = /^#lyric-line-(\d+)$/.exec(location.hash);
     return match ? lines.find((line) => line.id === `lyric-line-${match[1]}`) : undefined;
   }
   function sync(follow = sheet.isCurrent() && !audio.paused) {
+    showResume();
     // A song that is not loaded has no line playing, though a place chosen on the sheet shows.
     const time = sheet.isCurrent() ? audio.currentTime : sheet.pendingAt ?? -1;
     let current;
     if (time >= 0)
       for (const line of lines) {
+        if (line.dataset.untimed) continue;
         if (Number(line.dataset.start) > time) break;
         current = line;
       }
@@ -111,30 +192,38 @@ function mountKaraoke(main, sheet) {
     active = current;
     active?.classList.add("is-active");
     active?.setAttribute("aria-current", "true");
-    if (active && follow) {
+    if (active && follow && sheet.followLyrics && userScrollStart === null) {
       const box = active.getBoundingClientRect();
       if (box.top < innerHeight * 0.3 || box.bottom > innerHeight * 0.72)
-        active.scrollIntoView({ block: "center", behavior: reducedMotion.matches ? "auto" : "smooth" });
+        scrollToLine(active, true);
     }
   }
   function markLinked(line) {
-    for (const candidate of lines) candidate.classList.toggle("is-linked", candidate === line);
+    const through = Number(new URL(location.href).searchParams.get("through"));
+    const first = lines.indexOf(line);
+    const last = Number.isInteger(through) ? lines.findIndex(candidate => candidate.id === `lyric-line-${through}`) : -1;
+    for (const [index, candidate] of lines.entries()) candidate.classList.toggle("is-linked", first >= 0 && index >= first && index <= Math.max(first, last));
   }
   function selectLine(line, updateUrl = false) {
     if (!line) return;
     if (updateUrl) {
       const url = new URL(location.href);
-      url.searchParams.delete("t"); url.hash = line.id;
+      url.searchParams.delete("t"); url.searchParams.delete("through"); url.hash = line.id;
       history.replaceState(history.state, "", url);
     }
     markLinked(line);
+    if (line.dataset.untimed) {
+      main.querySelector("#sheet-status").textContent = "No reliable timing for this written line. Try Lyrics (Whisper) to hear the performed words.";
+      return;
+    }
+    main.querySelector("#sheet-status").textContent = "";
     sheet.seek(Number(line.dataset.start));
     sync(false);
   }
-  for (const line of lines) line.addEventListener("click", () => selectLine(line, true));
+  for (const line of lines) line.addEventListener("click", () => selectLine(line, true), { signal });
   const linkedLine = lineFromHash();
-  if (linkedLine && !(sheet.isCurrent() && (audio.currentTime || !audio.paused))) {
-    linkedLine.scrollIntoView({ block: "center" });
+  if (restoreLink && linkedLine && !(sheet.isCurrent() && (audio.currentTime || !audio.paused))) {
+    scrollToLine(linkedLine);
     if (sharedTimestamp() === null) selectLine(linkedLine);
     else markLinked(linkedLine);
   }
@@ -142,7 +231,7 @@ function mountKaraoke(main, sheet) {
     const line = lineFromHash();
     markLinked(line);
     if (!line) return;
-    line.scrollIntoView({ block: "center" });
+    scrollToLine(line);
     selectLine(line);
   }, { signal });
   audio.addEventListener("timeupdate", () => sync(), { signal });
@@ -162,6 +251,8 @@ function mountSheetControls(main, sheet) {
   function sync() {
     const current = sheet.isCurrent(), playing = current && player.playing;
     button.textContent = playing ? "Pause" : current && audio.currentTime > 0 && !audio.ended ? "Resume" : "Play";
+    button.setAttribute("aria-label", `${button.textContent} ${sheet.song.title}`);
+    button.title = button.textContent;
     button.setAttribute("aria-pressed", String(playing));
     const seekable = current && Number.isFinite(audio.duration) && audio.duration > 0;
     seek.disabled = !seekable;
@@ -191,7 +282,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     new URLSearchParams(location.search).get("song") ||
     document.body.dataset.songId ||
     await resolveLyricsSongId(location.pathname);
-  let cleanupKaraoke = () => {}, cleanupMoments = () => {}, cleanupControls = () => {}, downloadUrl, favorites, profilePanel, comparison, loop, sheet;
+  let cleanupKaraoke = () => {}, cleanupMoments = () => {}, cleanupControls = () => {}, cleanupViews = () => {}, cleanupToolbar = () => {}, downloadUrl, favorites, profilePanel, comparison, loop, sheet;
   function render(song) {
     const previousPosition = main.querySelector(".lyrics-sheet") ? [scrollX, scrollY] : null;
     if (!song?.lyrics?.text) {
@@ -202,14 +293,40 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     document.title = `${song.title} · Lyrics · yehry3`;
     const note =
       song.lyrics.kind === "transcribed"
-        ? "Source transcription; some words may be inaccurate."
+        ? "Source-recording transcription; words may be inaccurate and Tony’s performance may differ."
         : "Lyrics supplied for this recording. The performance may vary.";
     const audioUrl = escape(safeUrl(song.url));
     const hasCues = cueMap(song.lyrics).size > 0;
-    main.innerHTML = `<article class="lyrics-sheet"><p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>${authoredByLine(song.authoredBy, escape)}${songBadges(song)}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures)}<p class="small">${note}</p><section class="shared-song-player" aria-label="Listen to ${escape(song.title)}"><p class="tiny-label">Listen here</p><div class="sheet-controls"><button type="button" class="primary" id="sheet-play" aria-pressed="false" aria-label="Play ${escape(song.title)}">Play</button><label class="sr-only" for="sheet-seek">Seek in ${escape(song.title)}</label><input id="sheet-seek" type="range" min="0" max="100" step="0.1" value="0" disabled><span class="small sheet-time" id="sheet-time"></span></div><p class="small" id="sheet-status" role="status"></p><p class="small sheet-keeps">It keeps playing, in the bar below, as you look around the site.</p></section>${hasCues ? '<p class="small karaoke-note">The current line follows the recording. Select any lyric to jump there.</p>' : ""}<div class="actions lyrics-actions"><a class="primary" href="${audioUrl}" target="_blank" rel="noopener">Open audio ↗</a><a class="quiet" id="download-lyrics">Download lyrics</a><button class="quiet" id="print-lyrics">Print</button>${songPlanLink(song, escape)}${song.originalPrompt || song.hasOriginalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">Original prompt ↗</a>` : ""}<a class="text-link" href="/">The collection →</a></div><div class="lyrics-text karaoke-lyrics">${lyricLines(song.lyrics, escape)}</div></article>`;
+    main.innerHTML = `<article class="lyrics-sheet">
+      <p class="eyebrow">The lyric sheet</p><h1>${escape(song.title)}</h1>
+      <div class="sheet-meta">${authoredByLine(song.authoredBy, escape)}${songBadges(song)}${qualityNotice(song.qualityIssues, song.reviewState, song.validationFailures, song.repairedAt)}</div>
+      <section class="shared-song-player lyric-toolbar" aria-label="Listen to ${escape(song.title)}">
+        <div class="sheet-controls">
+          <button type="button" class="primary sheet-icon sheet-play" id="sheet-play" aria-pressed="false" aria-label="Play ${escape(song.title)}">Play</button>
+          <label class="sr-only" for="sheet-seek">Seek in ${escape(song.title)}</label><input id="sheet-seek" type="range" min="0" max="100" step="0.1" value="0" disabled>
+          <span class="small sheet-time" id="sheet-time"></span>
+        </div>
+        <div class="sheet-tools">
+          <div class="lyric-view-slot"></div><span class="sheet-save"></span>
+          <a class="quiet sheet-icon sheet-download" id="download-lyrics" aria-label="Download lyrics" title="Download lyrics">Download lyrics</a>
+          <div class="sheet-profile-slot"></div>
+          <details class="sheet-more"><summary class="sheet-icon sheet-more-icon" aria-label="More song options" title="More song options">More song options</summary>
+            <div class="sheet-popup sheet-more-panel"><div class="actions lyrics-actions">
+              <a class="text-link" href="${audioUrl}" target="_blank" rel="noopener">Open audio ↗</a><button class="quiet" id="print-lyrics">Print</button>
+              ${songPlanLink(song, escape)}${song.originalPrompt || song.hasOriginalPrompt ? `<a class="text-link" href="/original-prompt/?song=${encodeURIComponent(song.id)}">Original prompt ↗</a>` : ""}<a class="text-link" href="/">The collection →</a>
+            </div><p class="small">${note}</p><p class="small sheet-keeps">Playback continues as you browse the site.</p></div>
+          </details>
+        </div><button type="button" class="quiet lyric-follow" id="resume-lyric-scroll" hidden>Resume auto-scroll</button>
+        <p class="small" id="sheet-status" role="status"></p>
+      </section>
+      <p class="small karaoke-note">${hasCues ? 'Select a lyric to jump there. Lines without timing jump nearby.' : 'Line timing is unavailable. Use the player to choose a moment.'}</p>
+      <p class="small lyric-print-note"></p>
+      <div class="lyrics-text karaoke-lyrics">${lyricLines(song.lyrics, escape)}</div></article>`;
     cleanupKaraoke();
     cleanupMoments();
     cleanupControls();
+    cleanupViews();
+    cleanupToolbar();
     // A refresh of the same song keeps the place a visitor chose; a different song starts clean.
     if (sheet?.song.id === song.id) sheet.song = song;
     else sheet = sheetFor(song);
@@ -218,30 +335,69 @@ export async function lyricsPage(main, { escape, safeUrl }) {
     }
     comparison ||= mountRemixComparison(song, sheet, { escape, safeUrl, scope });
     if (comparison) main.querySelector(".shared-song-player").after(comparison.element);
-    loop ||= mountLoopToggle();
+    loop ||= mountLoopToggle({ className: "quiet loop-toggle sheet-icon sheet-loop" });
     loop.attach(sheet.audio);
     main.querySelector(".sheet-controls").append(loop.element);
     const listeningStats = document.createElement("p");
     listeningStats.className = "small";
     listeningStats.dataset.listeningStats = "";
     listeningStats.textContent = listeningLabel(song);
-    main.querySelector(".shared-song-player").append(listeningStats);
+    main.querySelector(".sheet-meta").append(listeningStats);
     cleanupControls = mountSheetControls(main, sheet);
-    cleanupKaraoke = mountKaraoke(main, sheet);
     cleanupMoments = mountMomentSharing(main, sheet);
     profilePanel ||= document.createElement("div");
-    main.querySelector(".lyrics-actions").after(profilePanel);
+    main.querySelector(".sheet-profile-slot").append(profilePanel);
     favorites ||= mountFavorites(profilePanel, { scope });
-    main.querySelector(".lyrics-actions").insertAdjacentHTML("afterbegin", favorites.button(song));
+    main.querySelector(".sheet-save").innerHTML = favorites.button(song);
+    main.querySelector(".sheet-save button").classList.add("sheet-icon", "sheet-favorite");
     main.querySelector(".lyrics-actions").insertAdjacentHTML("beforeend", remixLink(song, escape));
-    const blob = new Blob([`${song.title}\n${song.authoredBy ? `Authored by ${song.authoredBy}\n` : ""}${note}\n\n${song.lyrics.text}\n`], {
-      type: "text/plain;charset=utf-8",
+    let renderedSource = "original", karaokeMounted = false;
+    cleanupViews = mountLyricViews(main, song, ({ text, lyrics, source, initial, view, label, note: viewNote }) => {
+      if (source !== renderedSource) {
+        // A line number means something different in another transcript. Keep the
+        // playback moment when switching sources instead of reusing that number.
+        if (!initial) {
+          const url = new URL(location.href);
+          if (/^#lyric-line-\d+$/.test(url.hash)) {
+            url.hash = "";
+            url.searchParams.set("t", String(Math.round(sheet.position() * 1000) / 1000));
+            history.replaceState(history.state, "", url);
+          }
+        }
+        cleanupKaraoke();
+        main.querySelector(".lyrics-text").innerHTML = lyricLines(lyrics, escape);
+        main.querySelector("#sheet-status").textContent = "";
+        renderedSource = source;
+        karaokeMounted = false;
+      } else {
+        const translated = text.split("\n");
+        for (const line of main.querySelectorAll("[data-lyric-text]")) line.textContent = translated[Number(line.dataset.lyricText)];
+      }
+      if (!karaokeMounted) {
+        cleanupKaraoke = mountKaraoke(main, sheet, { restoreLink: initial });
+        karaokeMounted = true;
+      }
+      main.querySelector(".karaoke-note").textContent = source !== "original"
+        ? cueMap(lyrics).size ? "Whisper machine transcript · Unreviewed · ? = uncertain. Select a line to hear it."
+          : "Whisper machine transcript · Unreviewed · No words recognized."
+        : cueMap(lyrics).size ? "Select a lyric to jump there. Lines without timing jump nearby." : "Line timing is unavailable. Use the player to choose a moment.";
+      const viewLabel = view === "original" ? "" : `\n${label}: ${viewNote}`;
+      const downloadText = text.split("\n").map((line, index) => lyrics.cues?.some(cue => cue.line === index && cue.uncertain) ? `${line} [?]` : line).join("\n");
+      const blob = new Blob([`${song.title}\n${song.authoredBy ? `Authored by ${song.authoredBy}\n` : ""}${source === "original" ? note : "Audio-derived machine transcription."}${viewLabel}\n\n${downloadText}\n`], {
+        type: "text/plain;charset=utf-8",
+      });
+      if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+      downloadUrl = URL.createObjectURL(blob);
+      const download = main.querySelector("#download-lyrics");
+      download.href = downloadUrl;
+      download.download = `${song.title.replace(/[<>:"/\\|?*\x00-\x1f]/g, "-")}-lyrics${view === "original" ? "" : `-${view}`}.txt`;
     });
-    if (downloadUrl) URL.revokeObjectURL(downloadUrl);
-    const url = downloadUrl = URL.createObjectURL(blob);
-    const download = main.querySelector("#download-lyrics");
-    download.href = url;
-    download.download = `${song.title.replace(/[<>:"/\\|?*\x00-\x1f]/g, "-")}-lyrics.txt`;
+    if (signedIn("admin")) {
+      const edit = document.createElement("button"); edit.type = "button"; edit.className = "quiet"; edit.textContent = "Edit audio";
+      edit.onclick = () => import("./audio-editor.js").then(module => module.openAudioEditor(song));
+      main.querySelector(".lyrics-actions").append(edit);
+    }
+    cleanupToolbar = mountLyricToolbar(main);
     main.querySelector("#print-lyrics").onclick = () => print();
     if (previousPosition) scrollTo(...previousPosition);
   }
@@ -254,7 +410,7 @@ export async function lyricsPage(main, { escape, safeUrl }) {
   scope.onLeave(() => {
     watcher.dispose();
     if (downloadUrl) URL.revokeObjectURL(downloadUrl);
-    cleanupKaraoke(); cleanupMoments(); cleanupControls();
+    cleanupKaraoke(); cleanupMoments(); cleanupControls(); cleanupViews(); cleanupToolbar();
     comparison?.stop();
     loop?.destroy();
   });

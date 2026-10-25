@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "songId": "distonyc-eff2d3200a937deb856c10ce",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-eff2d3200a937deb856c10ce-0dde33325898.mp3",
+  "audioSha256": "0dde3332589874d8a90a47ce210201e86d9ccc4650a34f2b1383c0f32f51d21c",
+  "inputSha256": "caa933d28f8d9dd49d1a3b51832e2589ee11d2396ede42ed0fd1a306615053bd",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 205.035125,
+  "segments": [
+    {
+      "start": 28.58,
+      "end": 29.98,
+      "text": "You",
+      "uncertain": true
+    },
+    {
+      "start": 30.0,
+      "end": 59.8,
+      "text": "Oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh",
+      "uncertain": true
+    },
+    {
+      "start": 80.3,
+      "end": 87.06,
+      "text": "Oh, my God.",
+      "uncertain": true
+    },
+    {
+      "start": 91.64,
+      "end": 117.0,
+      "text": "Oh, oh, oh, oh, oh.",
+      "uncertain": true
+    },
+    {
+      "start": 120.22,
+      "end": 123.02,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 149.8,
+      "end": 177.88,
+      "text": "Oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh",
+      "uncertain": true
+    },
+    {
+      "start": 177.88,
+      "end": 200.64,
+      "text": "Hey, hey, hey, hey, hey, hey, hey, hey, hey, hey, hey, hey, hey, hey, hey.",
+      "uncertain": true
+    }
+  ]
+}

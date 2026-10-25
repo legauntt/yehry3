@@ -15,7 +15,7 @@ test("fresh releases lead the default sort before older songs ranked by votes", 
     song("old-middle", "Old middle", 12, -(now - 25 * 60 * 60 * 1000)),
   ];
   songs[0].publishedAt = new Date(now - 3 * 24 * 60 * 60 * 1000).toISOString();
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: {
     inStudio: [], queued: [], recent: [{ id: "recent-queue", publishedAt: new Date(now - 30 * 60 * 1000).toISOString() }],
   } }));
@@ -60,7 +60,7 @@ test("missing release dates remain unavailable after sorting", async ({ page }) 
     song("fourth", "Bravo", 1, 4),
     song("fifth", "Alpha", 1, 5),
   ];
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: {
     inStudio: [], queued: [], recent: [], queuedTotal: 0, inStudioTotal: 0, page: 0, pageSize: 50,
   } }));
@@ -92,7 +92,7 @@ test("older release ages use progressively larger calendar units", async ({ page
     ...song(id, title, 0, index + 1),
     publishedAt: new Date(now - elapsed).toISOString(),
   }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs, nextVoteAt: null } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: {
     inStudio: [], queued: [], recent: [], queuedTotal: 0, inStudioTotal: 0, page: 0, pageSize: 50,
   } }));
@@ -103,13 +103,14 @@ test("older release ages use progressively larger calendar units", async ({ page
   ]);
 });
 
-test("a missing fallback date never invents an age while the live catalog loads", async ({ page }) => {
+test("a missing preview date never invents an age while the live catalog loads", async ({ page }) => {
   await page.clock.install({ time: new Date("2026-09-14T00:15:00Z") });
   const fresh = song("just-published", "Just published", 0);
   let releaseCatalog;
   const ready = new Promise((resolve) => { releaseCatalog = resolve; });
+  await page.route("**/yehry3/songs/first-page", route => route.fulfill({ json: { songs: [fresh], total: 1 } }));
   await page.route("**/catalog-summary.json", (route) => route.fulfill({ json: { songs: [fresh] } }));
-  await page.route("**/yehry3/songs/summary", async (route) => {
+  await page.route("**/yehry3/{catalog,songs/summary}", async (route) => {
     await ready;
     await route.fulfill({ json: {
       songs: [{ ...fresh, publishedAt: "2026-09-13T23:45:00Z" }], nextVoteAt: null,
@@ -134,7 +135,7 @@ test("invalid timestamps use a valid alternative or show the age as unavailable 
     { ...song("offset", "Explicit offset", 0), publishedAt: "2026-09-13T16:45:00-07:00" },
   ];
   await page.route("**/catalog-summary.json", (route) => route.fulfill({ json: { songs } }));
-  await page.route("**/yehry3/songs/summary", (route) => route.abort());
+  await page.route("**/yehry3/{catalog,songs/summary}", (route) => route.abort());
   await page.route("**/yehry3/queue?*", (route) => route.abort());
   await page.goto("/?sort=catalog");
   await expect(page.locator(".track-age")).toHaveText(["Age unavailable", "1 hour old", "30 minutes old"]);

@@ -27,7 +27,8 @@ async function fixture(page, view = "grid") {
     queueOffline: false,
   };
   await page.route("**/pending-fixture.wav", route => route.fulfill({ body: wav, contentType: "audio/wav" }));
-  await page.route("**/yehry3/songs/summary", route => route.fulfill({ json: { songs: state.songs, nextVoteAt: null } }));
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: state.songs, nextVoteAt: null } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: state.songs } }));
   await page.route("**/yehry3/queue?*", route => state.queueOffline ? route.abort() : route.fulfill({ json: state.queue }));
   await page.route("**/yehry3/queue/distonyc-*", route => {
     const id = new URL(route.request().url()).pathname.split("/").pop();
@@ -122,8 +123,11 @@ test("pending cards share grid rows with released songs and preserve details whe
       id: publicId(8), idea: "A moon eating a sandwich", authoredBy: "Pancakeo",
       status: "queued", voiceModel: "v8", progress: null,
     }] : [];
-    await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
-    await expect(page.locator(".pending-track")).toHaveCount(count);
+    // A queue read already in flight may finish its previous snapshot first.
+    await expect.poll(async () => {
+      await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
+      return page.locator(".pending-track").count();
+    }).toBe(count);
     const pendingBox = await pending.boundingBox(), releasedBox = await released.boundingBox();
     expect(Math.abs(pendingBox.width - releasedBox.width)).toBeLessThan(1);
     expect(Math.abs(pendingBox.y - releasedBox.y)).toBeLessThan(1);
@@ -137,7 +141,7 @@ test("pending cards share grid rows with released songs and preserve details whe
   await expect(pending).toHaveAttribute("open", "");
   const alignment = async (selector) => {
     const a = await pending.locator(selector).boundingBox();
-    const b = await released.locator(selector === ".pending-title" ? ".track-info" : selector).boundingBox();
+    const b = await released.locator(selector === ".pending-title" ? ".track-heading" : selector).boundingBox();
     expect(Math.abs(a.x - b.x)).toBeLessThan(1);
   };
   await alignment(".track-art");
@@ -188,6 +192,7 @@ test("pending entries fit both mobile views and disappear from saved-song filter
   state.queue = { ...state.queue, inStudio: [], queued: [] };
   await page.evaluate(() => document.dispatchEvent(new Event("visibilitychange")));
   await expect(page.locator(".pending-track")).toHaveCount(0);
+  await page.keyboard.press('Escape');
   await page.getByRole("button", { name: "Grid", exact: true }).click();
   await expect(page.locator(".track")).toHaveCount(20);
 });

@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "songId": "distonyc-cd4c0296f22cede53c369737",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cd4c0296f22cede53c369737-87492787158a.mp3",
+  "audioSha256": "87492787158a44099352ead6cce7d2325e97365ac7823bfc7c3925a3dab8d9ad",
+  "inputSha256": "9177e257671bd6811adedf69bfd42fbe6fcbc109f5a0320b835b39d6ca1df4bf",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 160.026125,
+  "segments": [
+    {
+      "start": 5.96,
+      "end": 12.12,
+      "text": "She found the password under all bells, blue screen glow in the laundry room",
+      "uncertain": true
+    },
+    {
+      "start": 12.12,
+      "end": 18.34,
+      "text": "Said just one night I missed that place and clicked her way into the doom",
+      "uncertain": false
+    },
+    {
+      "start": 18.34,
+      "end": 24.76,
+      "text": "The dinner burned, the school bell rang, her phone lit up with 20 calls",
+      "uncertain": true
+    },
+    {
+      "start": 24.76,
+      "end": 31.06,
+      "text": "She chased a dragon through the rain while real life cracked along the walls",
+      "uncertain": false
+    },
+    {
+      "start": 32.82,
+      "end": 36.42,
+      "text": "The guild said ready and she said I am",
+      "uncertain": true
+    },
+    {
+      "start": 36.42,
+      "end": 40.96,
+      "text": "Never saw the kitchen flooding again",
+      "uncertain": false
+    },
+    {
+      "start": 42.54,
+      "end": 45.66,
+      "text": "Oh she renewed the subscription",
+      "uncertain": true
+    },
+    {
+      "start": 45.66,
+      "end": 48.82,
+      "text": "Bought a ticket out of her mind",
+      "uncertain": false
+    },
+    {
+      "start": 48.82,
+      "end": 51.98,
+      "text": "One more dungeon, one more mission",
+      "uncertain": false
+    },
+    {
+      "start": 51.98,
+      "end": 60.14,
+      "text": "left the daylight far behind her children got their backpacks crying said mom you want me",
+      "uncertain": true
+    },
+    {
+      "start": 60.14,
+      "end": 66.02,
+      "text": "talking spells she waved them off without looking down in her glowing little hell",
+      "uncertain": false
+    },
+    {
+      "start": 66.02,
+      "end": 75.52,
+      "text": "the cat went wild on a toppled plate the landlord knocked then went away her boss left messages in",
+      "uncertain": false
+    },
+    {
+      "start": 75.52,
+      "end": 85.2,
+      "text": "read she muted every word they'd say she wore a crown of pixels fire at 3 a.m she beat the king",
+      "uncertain": true
+    },
+    {
+      "start": 85.2,
+      "end": 95.42,
+      "text": "the house grew cold the cupboards bare but victory was everything when silence after server dawn",
+      "uncertain": false
+    },
+    {
+      "start": 95.42,
+      "end": 104.8,
+      "text": "no party chat no flushing gold she turned around to meet the room and saw how empty it had grown",
+      "uncertain": false
+    },
+    {
+      "start": 104.8,
+      "end": 113.1,
+      "text": "the cow was staring from the hall with hungry eyes and velvet paws she laughed once thin and",
+      "uncertain": true
+    },
+    {
+      "start": 113.1,
+      "end": 122.76,
+      "text": "terrified at every consequence she'd lost oh she renewed the subscription and the world withdrew",
+      "uncertain": false
+    },
+    {
+      "start": 122.76,
+      "end": 131.06,
+      "text": "its hand her kids were gone beyond the driveway her kingdom sank beneath the land the chat climbed",
+      "uncertain": false
+    },
+    {
+      "start": 131.06,
+      "end": 138.96,
+      "text": "up through broken sunlight as the login music softly played she whispered maybe i can fix this",
+      "uncertain": true
+    },
+    {
+      "start": 138.96,
+      "end": 148.32,
+      "text": "but the screen said character erased character erased and the last blue light went away",
+      "uncertain": false
+    }
+  ]
+}

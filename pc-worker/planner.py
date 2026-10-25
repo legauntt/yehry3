@@ -14,6 +14,7 @@ from duration_policy import choose as choose_duration, join_lyrics, validate_mov
 from vocal_accents import PLANNING_GUIDANCE as VOCAL_ACCENT_GUIDANCE, validate as validate_vocal_accents
 from cover_lyrics import apply as cover_brief, fill as cover_fill, guidance as cover_guidance, planning_view as cover_view
 from replan import directive as replan_directive
+from vocal_score import normalize_sections as normalize_wordless_sections
 
 CAPABILITY_UPGRADES = {
     'single_basis_inspiration': ('single-basis-inspiration-upgrade.json', 'planner-result-single-basis-inspiration-v1.json', 'plan-before-single-basis-inspiration.json', 'new'),
@@ -149,20 +150,26 @@ def normalize(plan):
     # Formatting belongs to native code; the sentinel is not a newly written lyric.
     if isinstance(plan.get('lyrics'), str):
         plan['lyrics'] = normalize_section_labels(plan['lyrics'].replace('\\n', '\n')).replace('\r\n', '\n').strip()
+        if plan.get('vocal_mode') == 'nonverbal':
+            plan['lyrics'], plan['arrangement'] = normalize_wordless_sections(plan['lyrics'], plan.get('arrangement'))
         if plan.get('recipe') in ['new', 'reinterpretation'] and len(plan['lyrics']) >= 80 and section_label(plan['lyrics'].splitlines()[-1]) != '[End]':
             plan['lyrics'] += '\n[End]'
     if plan.get('movements') and isinstance(plan['movements'], list) and all(isinstance(part, dict) and isinstance(part.get('lyrics'), str) for part in plan['movements']):
         plan['movements'] = [{**part, 'lyrics': normalize_section_labels(part['lyrics'].replace('\\n', '\n')).replace('\r\n', '\n').strip()} for part in plan['movements']]
         for part in plan['movements']:
+            if plan.get('vocal_mode') == 'nonverbal':
+                part['lyrics'], part['arrangement'] = normalize_wordless_sections(part['lyrics'], part.get('arrangement'))
             if len(part['lyrics']) >= 80 and section_label(part['lyrics'].splitlines()[-1]) != '[End]': part['lyrics'] += '\n[End]'
         plan['lyrics'] = join_lyrics(plan['movements'])
     return plan
 
 def validate(plan, basis, duration_min=DURATION_MIN):
     # Older cached plans predate these optional policies; never rewrite frozen inputs.
-    optional = {'fear_hunger', 'allow_long_instrumental_outro', 'movements', 'vocal_accents', 'generation', 'musicalSettings'}
+    optional = {'fear_hunger', 'allow_long_instrumental_outro', 'movements', 'vocal_accents', 'generation', 'musicalSettings', 'vocal_mode'}
     if not isinstance(plan, dict) or set(plan) - optional != set(FIELDS) - optional or plan['recipe'] not in FIELDS['recipe']['enum']: raise ValueError('Invalid planning result')
     if 'generation' in plan: normalize_generation(plan['generation'])
+    if plan.get('vocal_mode', 'lyrics') not in ('lyrics', 'nonverbal'):
+        raise ValueError('Invalid vocal mode')
     if 'musicalSettings' in plan:
         from musical_settings import public_settings
         public_settings(plan['musicalSettings'])
@@ -298,6 +305,8 @@ Keep explanation concise and describe the musical plan or a concrete blocker. No
         save(directory / 'source-material.json', material)
     if has_materials(brief): instruction += GUIDANCE
     instruction += cover_guidance(brief)
+    from vocal_score import PLANNING_GUIDANCE as vocal_score_guidance
+    instruction += vocal_score_guidance
     # Snapshotted once per planning pass, like the admin note, and kept out of the brief hash.
     recovery_note = (load(planning_input).get('recoveryNote', '') if planning_input.exists() else redirect.get('note', ''))
     if recovery_note:

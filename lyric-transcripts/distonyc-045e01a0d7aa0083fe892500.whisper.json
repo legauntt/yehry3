@@ -1,0 +1,277 @@
+{
+  "version": 1,
+  "songId": "distonyc-045e01a0d7aa0083fe892500",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-045e01a0d7aa0083fe892500-3447a9df51d4.mp3",
+  "audioSha256": "3447a9df51d4bd1a04b15c83294781bfa974d5ec883df6e490c8e4ab9d3bcd19",
+  "inputSha256": "0fd8c105a73fca0ece323e5638215792b7e46cabbc00b28291ae85493edede19",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 210.129,
+  "segments": [
+    {
+      "start": 5.52,
+      "end": 9.24,
+      "text": "Corner store bell and a paper cup lid",
+      "uncertain": true
+    },
+    {
+      "start": 9.24,
+      "end": 13.16,
+      "text": "I buy a little nothing, just the thing that I need",
+      "uncertain": false
+    },
+    {
+      "start": 13.16,
+      "end": 17.1,
+      "text": "Cashier says 9-11 flat at his ring",
+      "uncertain": false
+    },
+    {
+      "start": 17.1,
+      "end": 21.14,
+      "text": "I stare at the coins like they call my name",
+      "uncertain": false
+    },
+    {
+      "start": 24.64,
+      "end": 29.04,
+      "text": "I had 10 in my hand, I had change in my coat",
+      "uncertain": true
+    },
+    {
+      "start": 29.04,
+      "end": 33.08,
+      "text": "But the number comes swimming right back in the boat",
+      "uncertain": false
+    },
+    {
+      "start": 34.38,
+      "end": 37.18,
+      "text": "What kind of luck is this?",
+      "uncertain": false
+    },
+    {
+      "start": 40.14,
+      "end": 42.92,
+      "text": "I got 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 42.92,
+      "end": 47.18,
+      "text": "Every road bends back to the same loose end",
+      "uncertain": false
+    },
+    {
+      "start": 47.18,
+      "end": 50.96,
+      "text": "Coffee cables, a midnight snack",
+      "uncertain": false
+    },
+    {
+      "start": 50.96,
+      "end": 55.28,
+      "text": "9-11 stamped on the paperback",
+      "uncertain": false
+    },
+    {
+      "start": 55.28,
+      "end": 58.06,
+      "text": "I can't make it behave",
+      "uncertain": false
+    },
+    {
+      "start": 58.06,
+      "end": 62.04,
+      "text": "It follows my wallet from the cradle to the grave",
+      "uncertain": false
+    },
+    {
+      "start": 62.04,
+      "end": 63.52,
+      "text": "I've got 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 63.52,
+      "end": 67.16,
+      "text": "And the whole small world just laughs with me, my friend",
+      "uncertain": true
+    },
+    {
+      "start": 68.52,
+      "end": 72.08,
+      "text": "Gas pump blinking under sodium light",
+      "uncertain": true
+    },
+    {
+      "start": 72.08,
+      "end": 76.14,
+      "text": "I buy a pack of gum on a Tuesday night",
+      "uncertain": false
+    },
+    {
+      "start": 76.14,
+      "end": 80.16,
+      "text": "The screen does its little arithmetic dance",
+      "uncertain": false
+    },
+    {
+      "start": 80.16,
+      "end": 83.18,
+      "text": "The 9-11 takes another chance",
+      "uncertain": false
+    },
+    {
+      "start": 83.18,
+      "end": 86.14,
+      "text": "I ask for a discount",
+      "uncertain": false
+    },
+    {
+      "start": 86.14,
+      "end": 92.2,
+      "text": "I had something sweet. Still the coins line up with their tiny cold feet.",
+      "uncertain": false
+    },
+    {
+      "start": 93.7,
+      "end": 97.16,
+      "text": "There it is, dead on time.",
+      "uncertain": false
+    },
+    {
+      "start": 99.14,
+      "end": 106.18,
+      "text": "I got 9-11 again. Every road then's back to the same loose end.",
+      "uncertain": false
+    },
+    {
+      "start": 107.14,
+      "end": 114.14,
+      "text": "Coffee, cables, a midnight snack. 9-11 stamped on the paper bag.",
+      "uncertain": true
+    },
+    {
+      "start": 114.14,
+      "end": 117.08,
+      "text": "I can't make it behave",
+      "uncertain": false
+    },
+    {
+      "start": 117.08,
+      "end": 121.18,
+      "text": "It follows my wallet from the cradle to the grave",
+      "uncertain": true
+    },
+    {
+      "start": 122.02,
+      "end": 126.04,
+      "text": "And the whole small world just laughs with me, my friend",
+      "uncertain": false
+    },
+    {
+      "start": 128.62,
+      "end": 132.28,
+      "text": "Maybe it's a joke in the gears of the town",
+      "uncertain": false
+    },
+    {
+      "start": 132.28,
+      "end": 136.02,
+      "text": "A little bit petty, they won't stay down",
+      "uncertain": false
+    },
+    {
+      "start": 136.02,
+      "end": 140.18,
+      "text": "I don't need a warning, I don't need a sign",
+      "uncertain": false
+    },
+    {
+      "start": 140.18,
+      "end": 144.2,
+      "text": "Just give me my receipt and I'll call it mine",
+      "uncertain": false
+    },
+    {
+      "start": 144.2,
+      "end": 148.14,
+      "text": "Had to fold it up, put it away",
+      "uncertain": true
+    },
+    {
+      "start": 148.14,
+      "end": 152.36,
+      "text": "Another tiny mystery in an ordinary day",
+      "uncertain": false
+    },
+    {
+      "start": 154.5,
+      "end": 158.1,
+      "text": "I got 9-11 to give",
+      "uncertain": false
+    },
+    {
+      "start": 158.1,
+      "end": 162.0,
+      "text": "At the dot of the market, the station of 10",
+      "uncertain": true
+    },
+    {
+      "start": 162.0,
+      "end": 166.14,
+      "text": "I'll tip the jar and I'll shake my head",
+      "uncertain": false
+    },
+    {
+      "start": 166.14,
+      "end": 170.16,
+      "text": "At the stubborn little total, the universe said",
+      "uncertain": true
+    },
+    {
+      "start": 170.16,
+      "end": 173.18,
+      "text": "Let the register sing",
+      "uncertain": true
+    },
+    {
+      "start": 173.18,
+      "end": 178.16,
+      "text": "For all the strange small luck that a loose coin brings",
+      "uncertain": false
+    },
+    {
+      "start": 178.16,
+      "end": 180.9,
+      "text": "I got 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 180.9,
+      "end": 184.68,
+      "text": "But I'm walking out smiling in the warm night",
+      "uncertain": false
+    },
+    {
+      "start": 184.68,
+      "end": 190.08,
+      "text": "With a receipt in my pocket, loon over the street",
+      "uncertain": true
+    },
+    {
+      "start": 190.08,
+      "end": 194.1,
+      "text": "9-11, 9-11, still counting the beep",
+      "uncertain": true
+    },
+    {
+      "start": 194.1,
+      "end": 198.34,
+      "text": "I'll see you at the next checkout line",
+      "uncertain": false
+    }
+  ]
+}

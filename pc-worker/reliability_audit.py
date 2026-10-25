@@ -58,6 +58,43 @@ def categories(text):
     return [name for name, terms in rules.items() if any(term in text for term in terms)]
 
 
+def shepherd_outcomes(config, prompts):
+    """Audit retained consultations against their controller actions, not eventual publication alone."""
+    root = Path(config['state_dir'])
+    ledger_path = root / 'monitor' / 'ledger.json'
+    ledger = load(ledger_path).get('requests', {}) if ledger_path.exists() else {}
+    rows = []
+    for prompt in prompts:
+        ident = prompt['id']; folder = root / 'jobs' / ident / 'shepherd'
+        journals = ([folder / 'journal.json'] if (folder / 'journal.json').is_file() else []) + sorted(folder.glob('guided-*/journal.json'))
+        for path in journals:
+            journal = load(path); decision = journal.get('decision') or {}
+            input_path = path.with_name('input.json'); inputs = load(input_path) if input_path.exists() else {}
+            steer = inputs.get('consultation_id')
+            attempts = [a for a in ledger.get(ident, {}).get('attempts', [])
+                        if (a.get('steer') == steer and a.get('category') in ('shepherd', 'replan'))]
+            # Failed/interrupted consultations have no supported decision to credit.
+            if decision.get('action') not in ('replan', 'retry_saved_work'): attempts = []
+            outcome = 'no_queue_action'
+            if attempts:
+                after = min(a.get('at', '') for a in attempts)
+                events = [h for h in prompt.get('history', []) if h.get('at', '') >= after]
+                queued = next((i for i, h in enumerate(events) if h.get('action') == 'status' and h.get('status') == 'queued'), None)
+                if queued is None: outcome = 'unverified_action'
+                else:
+                    terminal = next((h for h in events[queued+1:] if h.get('status') in ('failed', 'published', 'canceled')
+                                     or h.get('action') == 'shepherd'), {})
+                    outcome = {'failed': 'failed_again', 'published': 'published_without_another_failure',
+                               'canceled': 'canceled'}.get(terminal.get('status'), 'superseded' if terminal else 'pending')
+            rows.append({'id': ident, 'prompt': prompt.get('prompt'), 'kind': 'guided' if steer else 'automatic',
+                         'consultation': steer, 'action': decision.get('action', journal.get('status')),
+                         'outcome': outcome, 'current_status': prompt.get('status'), 'journal': str(path)})
+    return {'retained_consultations': len(rows), 'by_kind': dict(Counter(row['kind'] for row in rows)),
+            'decisions': dict(Counter(row['action'] for row in rows)), 'outcomes': dict(Counter(row['outcome'] for row in rows)),
+            'requests': rows,
+            'limits': 'Retained journals and queue history only. Publication after a later failure or separate repair is not credited to the consultation.'}
+
+
 def audit(config, snapshot, hours=72):
     prompts = snapshot['prompts']; summary = metrics(prompts, snapshot['at'], hours)
     rows = []
@@ -72,7 +109,8 @@ def audit(config, snapshot, hours=72):
         rows.append({'id': p['id'], 'title': p.get('result', {}).get('title', p['prompt']),
                      'status': p['status'], 'failures': sum(h.get('status') == 'failed' for h in p.get('history', [])),
                      'categories': categories(text), 'evidence': retained, 'directory': str(directory)})
-    return {'at': snapshot['at'], 'metrics': summary, 'category_request_counts': dict(Counter(c for row in rows for c in row['categories'])), 'requests': rows}
+    return {'at': snapshot['at'], 'metrics': summary, 'category_request_counts': dict(Counter(c for row in rows for c in row['categories'])),
+            'requests': rows, 'shepherd': shepherd_outcomes(config, prompts)}
 
 
 def markdown(report):

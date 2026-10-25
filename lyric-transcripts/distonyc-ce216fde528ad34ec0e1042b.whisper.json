@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "songId": "distonyc-ce216fde528ad34ec0e1042b",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-ce216fde528ad34ec0e1042b-5843af1260c8.mp3",
+  "audioSha256": "5843af1260c86547272e0a5560b91dabbbf5cd3f0d30ccc9cf5bd6c59ba749d8",
+  "inputSha256": "fb5e473129ee1ff8a15320ab9a1bdb187a78fe2bfa4decf381f777cdcea04f06",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 195.1085625,
+  "segments": [
+    {
+      "start": 3.48,
+      "end": 11.42,
+      "text": "south station breathed out a river of coals i stepped through the steam with my past in my",
+      "uncertain": true
+    },
+    {
+      "start": 11.42,
+      "end": 20.34,
+      "text": "throat the rain rode silver on atlantic avenue every window held a man i almost knew",
+      "uncertain": true
+    },
+    {
+      "start": 20.34,
+      "end": 29.3,
+      "text": "i followed the harbor where the cold wind came then somebody laughed and it sounded like my name",
+      "uncertain": false
+    },
+    {
+      "start": 29.3,
+      "end": 31.36,
+      "text": "Not the name on the ticket",
+      "uncertain": false
+    },
+    {
+      "start": 31.36,
+      "end": 33.22,
+      "text": "Not the one I became",
+      "uncertain": true
+    },
+    {
+      "start": 33.22,
+      "end": 35.46,
+      "text": "The old one underneath",
+      "uncertain": false
+    },
+    {
+      "start": 35.46,
+      "end": 37.62,
+      "text": "It's through the one one I named",
+      "uncertain": true
+    },
+    {
+      "start": 37.62,
+      "end": 41.14,
+      "text": "I had crossed every line on my mind",
+      "uncertain": false
+    },
+    {
+      "start": 41.14,
+      "end": 45.2,
+      "text": "Just to circle the truth and come back",
+      "uncertain": true
+    },
+    {
+      "start": 45.2,
+      "end": 47.62,
+      "text": "Boston, you found me",
+      "uncertain": false
+    },
+    {
+      "start": 47.62,
+      "end": 50.46,
+      "text": "Before I found you",
+      "uncertain": false
+    },
+    {
+      "start": 50.46,
+      "end": 54.6,
+      "text": "Under that heart, gray, breaking into blue",
+      "uncertain": false
+    },
+    {
+      "start": 54.6,
+      "end": 57.04,
+      "text": "I was gone so long",
+      "uncertain": false
+    },
+    {
+      "start": 57.04,
+      "end": 59.12,
+      "text": "I thought gone was what I am",
+      "uncertain": false
+    },
+    {
+      "start": 59.12,
+      "end": 63.48,
+      "text": "Then the city said my name and I remembered who I am",
+      "uncertain": false
+    },
+    {
+      "start": 63.48,
+      "end": 66.12,
+      "text": "Yeah, the city said my name",
+      "uncertain": true
+    },
+    {
+      "start": 67.96,
+      "end": 71.94,
+      "text": "Past the common trees and the red brick rows",
+      "uncertain": false
+    },
+    {
+      "start": 71.94,
+      "end": 76.34,
+      "text": "A busk of banner melody the whole town knows",
+      "uncertain": true
+    },
+    {
+      "start": 76.34,
+      "end": 80.32,
+      "text": "I bought bad coffee, let the morning sting",
+      "uncertain": false
+    },
+    {
+      "start": 80.32,
+      "end": 84.4,
+      "text": "Watched a sparrow steal a piece of everything",
+      "uncertain": false
+    },
+    {
+      "start": 84.4,
+      "end": 88.9,
+      "text": "There were years in my pocket I could never spend",
+      "uncertain": false
+    },
+    {
+      "start": 88.9,
+      "end": 93.16,
+      "text": "Doors I had slammed that were open again",
+      "uncertain": false
+    },
+    {
+      "start": 93.16,
+      "end": 97.6,
+      "text": "On the jaws, every ripple split, the angel came",
+      "uncertain": true
+    },
+    {
+      "start": 97.6,
+      "end": 101.92,
+      "text": "No thunder cracked, just my own two feet",
+      "uncertain": false
+    },
+    {
+      "start": 101.92,
+      "end": 104.28,
+      "text": "That carried me back",
+      "uncertain": false
+    },
+    {
+      "start": 105.1,
+      "end": 110.46,
+      "text": "Boston, you found me before I found you",
+      "uncertain": false
+    },
+    {
+      "start": 110.46,
+      "end": 114.62,
+      "text": "Under that heartbreak breaking into blue",
+      "uncertain": false
+    },
+    {
+      "start": 114.62,
+      "end": 119.18,
+      "text": "I was gone so long I forgot was what I am",
+      "uncertain": false
+    },
+    {
+      "start": 119.18,
+      "end": 123.52,
+      "text": "Then the city said my name and I remembered who I am",
+      "uncertain": true
+    },
+    {
+      "start": 123.52,
+      "end": 126.22,
+      "text": "Yeah, the city said my name",
+      "uncertain": false
+    },
+    {
+      "start": 127.78,
+      "end": 131.74,
+      "text": "Maybe home is not a house you keep",
+      "uncertain": false
+    },
+    {
+      "start": 131.74,
+      "end": 136.12,
+      "text": "Maybe it is what wakes up when the hurt runs deep",
+      "uncertain": false
+    },
+    {
+      "start": 136.12,
+      "end": 140.6,
+      "text": "A voice from a doorway, a hand on the rail",
+      "uncertain": false
+    },
+    {
+      "start": 140.6,
+      "end": 144.82,
+      "text": "The nerve to begin when the old plans fail",
+      "uncertain": false
+    },
+    {
+      "start": 144.82,
+      "end": 149.22,
+      "text": "I faced my reflection in a black sharp pain",
+      "uncertain": true
+    },
+    {
+      "start": 149.22,
+      "end": 153.52,
+      "text": "Said there you are you fool and I left in the pot",
+      "uncertain": true
+    },
+    {
+      "start": 153.52,
+      "end": 157.5,
+      "text": "Boston you found me now I am standing true",
+      "uncertain": false
+    },
+    {
+      "start": 157.5,
+      "end": 161.74,
+      "text": "With the harbor behind me and the whole sky knew",
+      "uncertain": false
+    },
+    {
+      "start": 161.74,
+      "end": 166.36,
+      "text": "I was gone so long but gone is not where I am",
+      "uncertain": false
+    },
+    {
+      "start": 166.36,
+      "end": 170.48,
+      "text": "The city said my name and I answered it again",
+      "uncertain": false
+    },
+    {
+      "start": 170.48,
+      "end": 174.72,
+      "text": "Boston, hold the mornin' while I make my way",
+      "uncertain": true
+    },
+    {
+      "start": 174.72,
+      "end": 179.48,
+      "text": "I came here as a stranger, I am leavin' here as me today",
+      "uncertain": false
+    },
+    {
+      "start": 179.48,
+      "end": 185.28,
+      "text": "The city said my name and I answered, here I am",
+      "uncertain": false
+    }
+  ]
+}

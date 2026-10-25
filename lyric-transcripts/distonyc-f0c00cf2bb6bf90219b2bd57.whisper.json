@@ -1,0 +1,505 @@
+{
+  "version": 1,
+  "songId": "distonyc-f0c00cf2bb6bf90219b2bd57",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-f0c00cf2bb6bf90219b2bd57-18c2423a6966.mp3",
+  "audioSha256": "18c2423a6966627406435401fb1f3b2fdc9f6e2840a6f6682857b88e4148123a",
+  "inputSha256": "9007dd287495199703fc37d16f52c75dc6e0daf414848c079ed5783f4fba5d02",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 270.08,
+  "segments": [
+    {
+      "start": 4.6,
+      "end": 5.4,
+      "text": "Yeah",
+      "uncertain": false
+    },
+    {
+      "start": 6.36,
+      "end": 8.14,
+      "text": "The room's still breathing",
+      "uncertain": true
+    },
+    {
+      "start": 8.14,
+      "end": 9.36,
+      "text": "The street gone quiet",
+      "uncertain": true
+    },
+    {
+      "start": 14.12,
+      "end": 14.92,
+      "text": "Yeah",
+      "uncertain": false
+    },
+    {
+      "start": 15.94,
+      "end": 16.74,
+      "text": "Yeah",
+      "uncertain": false
+    },
+    {
+      "start": 16.74,
+      "end": 17.7,
+      "text": "Yeah",
+      "uncertain": true
+    },
+    {
+      "start": 17.7,
+      "end": 19.3,
+      "text": "You still awake?",
+      "uncertain": false
+    },
+    {
+      "start": 19.8,
+      "end": 20.52,
+      "text": "Uh-huh",
+      "uncertain": false
+    },
+    {
+      "start": 20.52,
+      "end": 21.54,
+      "text": "I might be",
+      "uncertain": false
+    },
+    {
+      "start": 21.54,
+      "end": 23.52,
+      "text": "Talking through the shadows",
+      "uncertain": false
+    },
+    {
+      "start": 23.52,
+      "end": 25.28,
+      "text": "Sitting right beside me",
+      "uncertain": false
+    },
+    {
+      "start": 25.28,
+      "end": 26.72,
+      "text": "What'd he say?",
+      "uncertain": false
+    },
+    {
+      "start": 27.34,
+      "end": 29.32,
+      "text": "Said the night ain't done",
+      "uncertain": false
+    },
+    {
+      "start": 29.32,
+      "end": 32.9,
+      "text": "Said the clock lost count when it struck one",
+      "uncertain": false
+    },
+    {
+      "start": 32.9,
+      "end": 36.12,
+      "text": "Rain on the glass and a red exit light",
+      "uncertain": true
+    },
+    {
+      "start": 36.12,
+      "end": 39.84,
+      "text": "I asked myself a question, get myself right",
+      "uncertain": false
+    },
+    {
+      "start": 39.84,
+      "end": 41.86,
+      "text": "You going home?",
+      "uncertain": false
+    },
+    {
+      "start": 42.6,
+      "end": 44.3,
+      "text": "No, not yet",
+      "uncertain": false
+    },
+    {
+      "start": 44.3,
+      "end": 47.86,
+      "text": "Got a little conversation I ain't finished with",
+      "uncertain": false
+    },
+    {
+      "start": 48.66,
+      "end": 50.5,
+      "text": "Yeah, after midnight",
+      "uncertain": false
+    },
+    {
+      "start": 50.5,
+      "end": 52.84,
+      "text": "Yeah, that's when it starts",
+      "uncertain": false
+    },
+    {
+      "start": 52.84,
+      "end": 56.42,
+      "text": "Basing the floorboards, smoking the heart, uh-huh",
+      "uncertain": false
+    },
+    {
+      "start": 56.42,
+      "end": 60.5,
+      "text": "After midnight, when the straight line's been",
+      "uncertain": false
+    },
+    {
+      "start": 62.04,
+      "end": 66.2,
+      "text": "I talk to myself like an old lost friend",
+      "uncertain": true
+    },
+    {
+      "start": 73.28,
+      "end": 76.76,
+      "text": "Yeah, yeah, yeah",
+      "uncertain": false
+    },
+    {
+      "start": 76.76,
+      "end": 79.34,
+      "text": "Who moved the moon?",
+      "uncertain": false
+    },
+    {
+      "start": 79.98,
+      "end": 81.74,
+      "text": "Wasn't me, no sir",
+      "uncertain": false
+    },
+    {
+      "start": 81.74,
+      "end": 85.44,
+      "text": "Who told the whole room everything was a blur",
+      "uncertain": false
+    },
+    {
+      "start": 85.44,
+      "end": 88.58,
+      "text": "Maybe that orange is leaning on blue",
+      "uncertain": false
+    },
+    {
+      "start": 88.58,
+      "end": 92.1,
+      "text": "Maybe the mirror knows more than you",
+      "uncertain": true
+    },
+    {
+      "start": 92.1,
+      "end": 96.22,
+      "text": "Whoa, slow down, I am sitting still",
+      "uncertain": false
+    },
+    {
+      "start": 96.22,
+      "end": 99.68,
+      "text": "Then why does the ceiling keep climbing the hill?",
+      "uncertain": false
+    },
+    {
+      "start": 100.48,
+      "end": 103.74,
+      "text": "Good question, don't answer too soon",
+      "uncertain": false
+    },
+    {
+      "start": 103.74,
+      "end": 107.18,
+      "text": "Leave a little silence for the bass and the moon",
+      "uncertain": false
+    },
+    {
+      "start": 107.18,
+      "end": 110.96,
+      "text": "I say yes to the rhythm, it says yes to me",
+      "uncertain": false
+    },
+    {
+      "start": 110.96,
+      "end": 114.5,
+      "text": "Two sides talking in the same body",
+      "uncertain": false
+    },
+    {
+      "start": 114.5,
+      "end": 118.42,
+      "text": "Yeah, uh-huh, I heard that",
+      "uncertain": false
+    },
+    {
+      "start": 118.42,
+      "end": 122.12,
+      "text": "A little behind me, a little ahead",
+      "uncertain": true
+    },
+    {
+      "start": 122.12,
+      "end": 126.16,
+      "text": "One voice laughing while the other one said",
+      "uncertain": false
+    },
+    {
+      "start": 126.16,
+      "end": 128.34,
+      "text": "Yeah, after midnight",
+      "uncertain": false
+    },
+    {
+      "start": 130.12,
+      "end": 130.98,
+      "text": "Yeah",
+      "uncertain": false
+    },
+    {
+      "start": 136.12,
+      "end": 136.98,
+      "text": "Yeah",
+      "uncertain": true
+    },
+    {
+      "start": 136.98,
+      "end": 140.94,
+      "text": "Tell me, are you lonely? Only when I leave",
+      "uncertain": false
+    },
+    {
+      "start": 140.94,
+      "end": 148.76,
+      "text": "tell me do you mean all the stories you believe some of them sparkle some of them lie",
+      "uncertain": true
+    },
+    {
+      "start": 148.76,
+      "end": 156.06,
+      "text": "some turn to vapor when the taxes roll by then keep one true thing all right i will",
+      "uncertain": false
+    },
+    {
+      "start": 156.06,
+      "end": 162.68,
+      "text": "the pulse in the pocket when the whole town's still the breath before the answer the grin",
+      "uncertain": false
+    },
+    {
+      "start": 162.7,
+      "end": 164.6,
+      "text": "in the sound, that low",
+      "uncertain": true
+    },
+    {
+      "start": 164.6,
+      "end": 166.52,
+      "text": "little yes when the lights",
+      "uncertain": false
+    },
+    {
+      "start": 166.52,
+      "end": 167.58,
+      "text": "go down",
+      "uncertain": false
+    },
+    {
+      "start": 167.58,
+      "end": 168.4,
+      "text": "ah",
+      "uncertain": true
+    },
+    {
+      "start": 172.34,
+      "end": 173.14,
+      "text": "yeah",
+      "uncertain": false
+    },
+    {
+      "start": 175.46,
+      "end": 176.26,
+      "text": "yeah",
+      "uncertain": false
+    },
+    {
+      "start": 180.94,
+      "end": 181.74,
+      "text": "yeah",
+      "uncertain": false
+    },
+    {
+      "start": 181.74,
+      "end": 184.42,
+      "text": "now the windows palin",
+      "uncertain": true
+    },
+    {
+      "start": 184.42,
+      "end": 186.1,
+      "text": "morning at the scene",
+      "uncertain": true
+    },
+    {
+      "start": 186.1,
+      "end": 188.04,
+      "text": "you were talking mighty loud",
+      "uncertain": false
+    },
+    {
+      "start": 188.04,
+      "end": 189.84,
+      "text": "for a half awake dream",
+      "uncertain": false
+    },
+    {
+      "start": 189.84,
+      "end": 191.64,
+      "text": "was I talking to myself",
+      "uncertain": false
+    },
+    {
+      "start": 192.48,
+      "end": 194.3,
+      "text": "You usually do",
+      "uncertain": false
+    },
+    {
+      "start": 194.3,
+      "end": 196.46,
+      "text": "Did I say anything wise",
+      "uncertain": true
+    },
+    {
+      "start": 196.46,
+      "end": 198.1,
+      "text": "Not a word that was new",
+      "uncertain": true
+    },
+    {
+      "start": 198.1,
+      "end": 200.06,
+      "text": "Uh-huh, fair enough",
+      "uncertain": false
+    },
+    {
+      "start": 200.06,
+      "end": 202.06,
+      "text": "But the groove stayed clean",
+      "uncertain": false
+    },
+    {
+      "start": 202.06,
+      "end": 204.02,
+      "text": "And the night told the truth",
+      "uncertain": false
+    },
+    {
+      "start": 204.02,
+      "end": 205.46,
+      "text": "In the spaces between",
+      "uncertain": false
+    },
+    {
+      "start": 205.46,
+      "end": 207.74,
+      "text": "The glass stopped shaking",
+      "uncertain": false
+    },
+    {
+      "start": 207.74,
+      "end": 209.46,
+      "text": "The rain moved on",
+      "uncertain": false
+    },
+    {
+      "start": 209.46,
+      "end": 211.46,
+      "text": "Still the bass kept walking",
+      "uncertain": false
+    },
+    {
+      "start": 211.46,
+      "end": 212.92,
+      "text": "Toward the edge of dawn",
+      "uncertain": false
+    },
+    {
+      "start": 212.92,
+      "end": 215.26,
+      "text": "If I ask one more question",
+      "uncertain": false
+    },
+    {
+      "start": 215.26,
+      "end": 216.88,
+      "text": "Will you answer me right",
+      "uncertain": false
+    },
+    {
+      "start": 216.88,
+      "end": 219.36,
+      "text": "Only if the answer is",
+      "uncertain": true
+    },
+    {
+      "start": 219.36,
+      "end": 220.66,
+      "text": "The rest of the night",
+      "uncertain": false
+    },
+    {
+      "start": 223.8,
+      "end": 227.54,
+      "text": "After midnight, yeah, that's when it starts",
+      "uncertain": true
+    },
+    {
+      "start": 227.54,
+      "end": 231.02,
+      "text": "Keys in the lamplight, time coming apart",
+      "uncertain": true
+    },
+    {
+      "start": 231.02,
+      "end": 235.12,
+      "text": "After midnight, every answer swings",
+      "uncertain": false
+    },
+    {
+      "start": 235.12,
+      "end": 238.76,
+      "text": "One voice asks and the other voice sings",
+      "uncertain": false
+    },
+    {
+      "start": 238.76,
+      "end": 242.48,
+      "text": "After midnight, I know what I heard",
+      "uncertain": false
+    },
+    {
+      "start": 242.48,
+      "end": 246.44,
+      "text": "A whole conversation in a one-syllable word",
+      "uncertain": false
+    },
+    {
+      "start": 249.48,
+      "end": 252.56,
+      "text": "The morning can wait outside",
+      "uncertain": false
+    },
+    {
+      "start": 252.56,
+      "end": 255.58,
+      "text": "I'm still here talking to the night",
+      "uncertain": false
+    },
+    {
+      "start": 255.58,
+      "end": 257.22,
+      "text": "Yeah, after midnight",
+      "uncertain": true
+    }
+  ]
+}

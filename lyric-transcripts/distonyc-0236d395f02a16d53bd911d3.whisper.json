@@ -1,0 +1,319 @@
+{
+  "version": 1,
+  "songId": "distonyc-0236d395f02a16d53bd911d3",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0236d395f02a16d53bd911d3-58f65acbb2a7.mp3",
+  "audioSha256": "58f65acbb2a78584ccd6228c6e0bf74a8bf992784257464337936fb549ce80ff",
+  "inputSha256": "b88aa092a0aea5716eba4972881a12613f5dc051df018c9715044d67c250268a",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 245.44,
+  "segments": [
+    {
+      "start": 1.72,
+      "end": 3.78,
+      "text": "bring out the black flags",
+      "uncertain": true
+    },
+    {
+      "start": 3.78,
+      "end": 6.04,
+      "text": "the minister has found",
+      "uncertain": false
+    },
+    {
+      "start": 6.04,
+      "end": 6.84,
+      "text": "another war",
+      "uncertain": true
+    },
+    {
+      "start": 12.58,
+      "end": 14.12,
+      "text": "Tony climbed",
+      "uncertain": true
+    },
+    {
+      "start": 14.12,
+      "end": 15.7,
+      "text": "the marble stair with",
+      "uncertain": false
+    },
+    {
+      "start": 15.7,
+      "end": 17.86,
+      "text": "metal's borrowed teeth laid bare",
+      "uncertain": false
+    },
+    {
+      "start": 17.86,
+      "end": 20.18,
+      "text": "triple the guns triple the pay",
+      "uncertain": true
+    },
+    {
+      "start": 20.18,
+      "end": 21.7,
+      "text": "will flatten every",
+      "uncertain": false
+    },
+    {
+      "start": 21.7,
+      "end": 23.8,
+      "text": "doubt away the brass band",
+      "uncertain": false
+    },
+    {
+      "start": 23.8,
+      "end": 25.94,
+      "text": "coughed the widow's stair that maps",
+      "uncertain": false
+    },
+    {
+      "start": 25.94,
+      "end": 27.7,
+      "text": "that rich old coward shit",
+      "uncertain": true
+    },
+    {
+      "start": 27.7,
+      "end": 29.74,
+      "text": "he called them infidels",
+      "uncertain": false
+    },
+    {
+      "start": 29.74,
+      "end": 35.98,
+      "text": "abroad then build the bloodshed straight to god but every border drawn in smoke",
+      "uncertain": true
+    },
+    {
+      "start": 37.98,
+      "end": 47.18,
+      "text": "leave someone's child beneath the earth no saints in the bomb crater no truth in the tartar in light",
+      "uncertain": false
+    },
+    {
+      "start": 47.18,
+      "end": 54.18,
+      "text": "you can dress that hatred in a uniform it's still fucking murder at night ring the bell for the deal",
+      "uncertain": false
+    },
+    {
+      "start": 54.18,
+      "end": 62.78,
+      "text": "maker counted every name that he forgot no saints in the ball crater just the living and the ones who",
+      "uncertain": true
+    },
+    {
+      "start": 62.78,
+      "end": 74.78,
+      "text": "are not he promised glory clean and fast the holy future armored glance the cameras loved his crooked",
+      "uncertain": false
+    },
+    {
+      "start": 74.78,
+      "end": 82.36,
+      "text": "grin while folded flags came rolling in a mother spied upon his shoes said my dead boy believed in",
+      "uncertain": false
+    },
+    {
+      "start": 82.36,
+      "end": 89.9,
+      "text": "youth the choir bent beneath the sound of empty chairs and lower ground the ledgers swell the",
+      "uncertain": true
+    },
+    {
+      "start": 89.9,
+      "end": 101.28,
+      "text": "tables shown the ones who voted stayed at home no saints in the bomb crater no truth in the",
+      "uncertain": true
+    },
+    {
+      "start": 101.28,
+      "end": 107.26,
+      "text": "targeting light you can dress that hatred in a uniform it's still fucking murder at night",
+      "uncertain": false
+    },
+    {
+      "start": 107.26,
+      "end": 109.68,
+      "text": "Ring the bell for the teal maker",
+      "uncertain": false
+    },
+    {
+      "start": 109.68,
+      "end": 112.0,
+      "text": "Count every name that he forgot",
+      "uncertain": true
+    },
+    {
+      "start": 112.0,
+      "end": 114.64,
+      "text": "No saints in the barb crater",
+      "uncertain": false
+    },
+    {
+      "start": 114.64,
+      "end": 118.46,
+      "text": "Just the livid and the ones who are not",
+      "uncertain": false
+    },
+    {
+      "start": 122.6,
+      "end": 125.06,
+      "text": "Slow boots through the rain now",
+      "uncertain": true
+    },
+    {
+      "start": 125.06,
+      "end": 127.16,
+      "text": "Black mud on the wheel",
+      "uncertain": false
+    },
+    {
+      "start": 127.16,
+      "end": 130.24,
+      "text": "Tell me what your heaven costs",
+      "uncertain": false
+    },
+    {
+      "start": 130.24,
+      "end": 132.16,
+      "text": "Tell me who pays the bill",
+      "uncertain": false
+    },
+    {
+      "start": 132.16,
+      "end": 134.84,
+      "text": "Not the bastard at the podium",
+      "uncertain": false
+    },
+    {
+      "start": 134.84,
+      "end": 137.08,
+      "text": "Not the hands behind the screen",
+      "uncertain": false
+    },
+    {
+      "start": 137.08,
+      "end": 139.56,
+      "text": "It's the stranger under rubble",
+      "uncertain": false
+    },
+    {
+      "start": 139.56,
+      "end": 142.28,
+      "text": "It's the kid who turned 19",
+      "uncertain": false
+    },
+    {
+      "start": 145.34,
+      "end": 147.9,
+      "text": "Lay down the flag for a minute",
+      "uncertain": false
+    },
+    {
+      "start": 147.9,
+      "end": 150.68,
+      "text": "Let the silence testify",
+      "uncertain": false
+    },
+    {
+      "start": 150.68,
+      "end": 153.42,
+      "text": "Faith is not a firing order",
+      "uncertain": false
+    },
+    {
+      "start": 153.42,
+      "end": 155.82,
+      "text": "And no anthem makes that lie",
+      "uncertain": false
+    },
+    {
+      "start": 155.82,
+      "end": 158.64,
+      "text": "If your God demands a graveyard",
+      "uncertain": false
+    },
+    {
+      "start": 158.64,
+      "end": 160.9,
+      "text": "Maybe hell is where you stand",
+      "uncertain": false
+    },
+    {
+      "start": 160.9,
+      "end": 163.38,
+      "text": "With a pen above the budget",
+      "uncertain": false
+    },
+    {
+      "start": 163.38,
+      "end": 166.14,
+      "text": "And no blood upon your hand",
+      "uncertain": false
+    },
+    {
+      "start": 169.72,
+      "end": 177.06,
+      "text": "no saints in the bomb crater no crown for the loudest lie we won't turn our grief to ammunition",
+      "uncertain": true
+    },
+    {
+      "start": 177.06,
+      "end": 184.8,
+      "text": "we won't bless another strike bring the bell for the war maker till the marble halls all shake",
+      "uncertain": true
+    },
+    {
+      "start": 184.8,
+      "end": 190.74,
+      "text": "no saints in the bomb crater only choices human beings make",
+      "uncertain": false
+    },
+    {
+      "start": 195.14,
+      "end": 198.06,
+      "text": "Tony faced the final headstone",
+      "uncertain": false
+    },
+    {
+      "start": 198.06,
+      "end": 200.12,
+      "text": "All his thunder drained away",
+      "uncertain": true
+    },
+    {
+      "start": 200.12,
+      "end": 202.28,
+      "text": "No crowd left to salute him",
+      "uncertain": false
+    },
+    {
+      "start": 202.28,
+      "end": 205.06,
+      "text": "No frightened God left to obey",
+      "uncertain": true
+    },
+    {
+      "start": 205.06,
+      "end": 207.18,
+      "text": "The last bell broke the morning",
+      "uncertain": false
+    },
+    {
+      "start": 207.18,
+      "end": 209.74,
+      "text": "And the living walked away",
+      "uncertain": false
+    },
+    {
+      "start": 220.74,
+      "end": 243.08,
+      "text": "No, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no.",
+      "uncertain": true
+    }
+  ]
+}

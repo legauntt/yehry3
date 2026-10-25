@@ -6,7 +6,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 import numpy as np
 import soundfile as sf
 from common import load, save, sha
@@ -55,6 +55,10 @@ class ReviewPublicationTests(unittest.TestCase):
         ]:
             save(self.work / 'desktop-status.json', {'status': 'failed', 'stage': stage, 'error': error})
             self.assertEqual(classify(self.work, RuntimeError(error)), expected)
+
+    def test_post_stage_integrity_error_keeps_its_cause_when_stage_error_is_null(self):
+        save(self.work / 'desktop-status.json', {'status': 'running', 'stage': 'analysis', 'error': None})
+        self.assertEqual(classify(self.work, ValueError('Saved review report changed')), [])
 
     @unittest.skipUnless(FFMPEG.is_file(), 'Local FFmpeg required for real encoding')
     def test_generated_performance_is_playable_and_explicitly_flagged(self):
@@ -144,6 +148,29 @@ class ReviewPublicationTests(unittest.TestCase):
         with patch('review_publication.subprocess.run') as run:
             with self.assertRaises(KeyboardInterrupt): execute(engine, request, self.work, {})
             run.assert_not_called()
+
+    def test_existing_renderer_remedy_runs_before_the_review_preview(self):
+        engine, calls = self.recovery_engine([RuntimeError('Ending needs completion before fade')])
+        request = {'config': {'settings': self.settings}}
+        with patch('review_publication.subprocess.run') as export_run:
+            with self.assertRaisesRegex(RuntimeError, 'Ending needs completion'):
+                execute(engine, request, self.work, {}, before_fallback=lambda: True)
+            export_run.assert_not_called()
+        self.assertEqual(len(calls), 1)
+        self.assertFalse((self.work/'validation-publication.json').exists())
+
+    def test_stale_cutoff_state_cannot_dispatch_a_remedy_for_an_integrity_error(self):
+        save(self.work/'desktop-status.json', {'status': 'failed', 'stage': 'configure',
+            'error': 'AssertionError: Ending needs completion before fade'})
+        request = {'config': {'settings': self.settings}}
+        for error in (ValueError('Frozen inputs changed'), RuntimeError('File unavailable')):
+            engine, _ = self.recovery_engine([error])
+            with patch('review_publication.subprocess.run') as export_run:
+                remedy = Mock(return_value=True)
+                with self.assertRaisesRegex(type(error), str(error)):
+                    execute(engine, request, self.work, {}, review_fallback=False, before_fallback=remedy)
+                remedy.assert_not_called()
+                export_run.assert_not_called()
 
     @unittest.skipUnless(FFMPEG.is_file() and (Path.home() / 'code/troofs-desktop/worker/engine_tasks.py').is_file(), 'Installed engine integration')
     def test_actual_stage_failure_produces_review_delivery_without_marking_check_passed(self):

@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "timingBasis": "Saved stage-log creation times, rounded to seconds; publication ends the final interval.",
+  "runs": [
+    {
+      "key": "emp",
+      "song": {
+        "id": "distonyc-4ecb7ad28d72a26611f0fe7e",
+        "title": "Drink It Back, Bucko",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-4ecb7ad28d72a26611f0fe7e-00bfaf97ce7a.mp3",
+        "duration": 225.07102040816326,
+        "voiceModel": "v9",
+        "publishedAt": "2026-09-24T19:53:57.506Z",
+        "musicBackend": "eleven_music",
+        "pitchRepair": "clean"
+      },
+      "seconds": [
+        25,
+        3,
+        33,
+        39,
+        63,
+        36,
+        17
+      ],
+      "totalSeconds": 216,
+      "clipStart": 30,
+      "clipSeconds": 24,
+      "clips": {
+        "generated": "/sausage/audio/emp-generated.mp3",
+        "guide": "/sausage/audio/emp-guide.mp3",
+        "backing": "/sausage/audio/emp-backing.mp3",
+        "tony": "/sausage/audio/emp-tony.mp3",
+        "final": "/sausage/audio/emp-final.mp3"
+      },
+      "vocalRetries": 0
+    },
+    {
+      "key": "ace",
+      "song": {
+        "id": "distonyc-30f2762b70c6cef32ce8a417",
+        "title": "Dividend at Dawn",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-30f2762b70c6cef32ce8a417-41ad3a4ecf34.mp3",
+        "duration": 230,
+        "voiceModel": "v9",
+        "publishedAt": "2026-09-24T19:20:36.395Z",
+        "pitchRepair": "wild",
+        "qualityIssues": [
+          {
+            "code": "long_instrumental_outro",
+            "seconds": 14.06
+          },
+          {
+            "code": "unconfirmed_lyric_ending"
+          }
+        ],
+        "musicBackend": "local"
+      },
+      "seconds": [
+        31,
+        212,
+        43,
+        40,
+        79,
+        63,
+        26
+      ],
+      "totalSeconds": 494,
+      "clipStart": 30,
+      "clipSeconds": 24,
+      "clips": {
+        "generated": "/sausage/audio/ace-generated.mp3",
+        "guide": "/sausage/audio/ace-guide.mp3",
+        "backing": "/sausage/audio/ace-backing.mp3",
+        "tony": "/sausage/audio/ace-tony.mp3",
+        "final": "/sausage/audio/ace-final.mp3"
+      },
+      "vocalRetries": 1
+    }
+  ]
+}

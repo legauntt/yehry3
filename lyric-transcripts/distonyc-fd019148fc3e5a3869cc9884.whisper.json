@@ -1,0 +1,481 @@
+{
+  "version": 1,
+  "songId": "distonyc-fd019148fc3e5a3869cc9884",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-fd019148fc3e5a3869cc9884-69fd8d6f639b.mp3",
+  "audioSha256": "69fd8d6f639b0b35dbae0cd2f3844c08264e681999dd55cb2cd465d2ba2c703c",
+  "inputSha256": "8eba186b321cab3214c13fdf045f481022d1b84c80f374e2e968df3185322d17",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 290.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.18,
+      "text": "Snow on the television, ash upon the sill.",
+      "uncertain": true
+    },
+    {
+      "start": 6.68,
+      "end": 11.34,
+      "text": "Every clock says morning, though the street is standing still.",
+      "uncertain": false
+    },
+    {
+      "start": 12.4,
+      "end": 17.56,
+      "text": "Tony waits beneath the tension to a choir on the screen.",
+      "uncertain": true
+    },
+    {
+      "start": 19.08,
+      "end": 23.84,
+      "text": "Silver bells and warning sirens cut across the evergreen.",
+      "uncertain": false
+    },
+    {
+      "start": 24.88,
+      "end": 28.04,
+      "text": "Candy canes beside the window",
+      "uncertain": true
+    },
+    {
+      "start": 28.04,
+      "end": 30.54,
+      "text": "Paper stars above the door",
+      "uncertain": true
+    },
+    {
+      "start": 30.54,
+      "end": 33.4,
+      "text": "And a shadow crosses daylight",
+      "uncertain": false
+    },
+    {
+      "start": 33.4,
+      "end": 36.78,
+      "text": "And the season starts once more",
+      "uncertain": false
+    },
+    {
+      "start": 36.78,
+      "end": 39.86,
+      "text": "He says Santa missed the chimney",
+      "uncertain": false
+    },
+    {
+      "start": 39.86,
+      "end": 42.88,
+      "text": "Hear that engine in the blue",
+      "uncertain": false
+    },
+    {
+      "start": 42.88,
+      "end": 46.52,
+      "text": "Pull the curtains, kill the carols",
+      "uncertain": false
+    },
+    {
+      "start": 46.52,
+      "end": 49.5,
+      "text": "Christmas morning's coming through",
+      "uncertain": false
+    },
+    {
+      "start": 52.18,
+      "end": 54.98,
+      "text": "Every day is Christmas again",
+      "uncertain": false
+    },
+    {
+      "start": 54.98,
+      "end": 57.96,
+      "text": "Red lights flashing through the snow",
+      "uncertain": true
+    },
+    {
+      "start": 57.96,
+      "end": 61.6,
+      "text": "Every day the sky breaks open",
+      "uncertain": false
+    },
+    {
+      "start": 61.6,
+      "end": 64.66,
+      "text": "Every day he knows, he knows",
+      "uncertain": false
+    },
+    {
+      "start": 64.66,
+      "end": 67.92,
+      "text": "No gifts waiting by the doorway",
+      "uncertain": false
+    },
+    {
+      "start": 67.92,
+      "end": 70.62,
+      "text": "Only footsteps in the hall",
+      "uncertain": false
+    },
+    {
+      "start": 70.62,
+      "end": 74.08,
+      "text": "Every day is Christmas again",
+      "uncertain": false
+    },
+    {
+      "start": 75.1,
+      "end": 78.2,
+      "text": "Then the heavens start to fall",
+      "uncertain": false
+    },
+    {
+      "start": 80.6,
+      "end": 83.74,
+      "text": "Plastic angels lean like witnesses",
+      "uncertain": false
+    },
+    {
+      "start": 83.74,
+      "end": 86.1,
+      "text": "Skalkings tremble on the wall",
+      "uncertain": true
+    },
+    {
+      "start": 86.1,
+      "end": 90.22,
+      "text": "Tony counts the passing airplanes",
+      "uncertain": false
+    },
+    {
+      "start": 90.22,
+      "end": 92.7,
+      "text": "Names the silence after all",
+      "uncertain": false
+    },
+    {
+      "start": 92.7,
+      "end": 96.64,
+      "text": "Neighbors hang their colored lanterns",
+      "uncertain": false
+    },
+    {
+      "start": 96.64,
+      "end": 98.8,
+      "text": "Children trace them from below",
+      "uncertain": false
+    },
+    {
+      "start": 98.8,
+      "end": 102.22,
+      "text": "He just hears the distant thunder",
+      "uncertain": false
+    },
+    {
+      "start": 102.76,
+      "end": 104.58,
+      "text": "Underneath the radio",
+      "uncertain": false
+    },
+    {
+      "start": 104.58,
+      "end": 108.32,
+      "text": "He says don't unwrap the morning",
+      "uncertain": false
+    },
+    {
+      "start": 108.32,
+      "end": 111.42,
+      "text": "Don't you touch that shining bulb",
+      "uncertain": true
+    },
+    {
+      "start": 111.42,
+      "end": 114.62,
+      "text": "There are wings behind the weather",
+      "uncertain": false
+    },
+    {
+      "start": 114.62,
+      "end": 118.04,
+      "text": "And they always find me somehow",
+      "uncertain": false
+    },
+    {
+      "start": 120.48,
+      "end": 123.26,
+      "text": "Every day is Christmas again",
+      "uncertain": false
+    },
+    {
+      "start": 123.26,
+      "end": 126.32,
+      "text": "Red lights flashing through the snow",
+      "uncertain": false
+    },
+    {
+      "start": 126.32,
+      "end": 129.94,
+      "text": "Every day the sky breaks open",
+      "uncertain": false
+    },
+    {
+      "start": 129.94,
+      "end": 133.16,
+      "text": "And every day he knows, he knows",
+      "uncertain": false
+    },
+    {
+      "start": 133.16,
+      "end": 136.22,
+      "text": "No gifts waiting by the doorway",
+      "uncertain": false
+    },
+    {
+      "start": 136.22,
+      "end": 139.0,
+      "text": "Only footsteps in the hall",
+      "uncertain": false
+    },
+    {
+      "start": 139.0,
+      "end": 142.36,
+      "text": "Every day is Christmas again",
+      "uncertain": false
+    },
+    {
+      "start": 143.52,
+      "end": 146.56,
+      "text": "And the heavens start to fall",
+      "uncertain": false
+    },
+    {
+      "start": 148.32,
+      "end": 151.72,
+      "text": "At noon he sets a place for mercy",
+      "uncertain": false
+    },
+    {
+      "start": 151.72,
+      "end": 154.96,
+      "text": "At one he takes the whole thing down",
+      "uncertain": false
+    },
+    {
+      "start": 154.96,
+      "end": 158.04,
+      "text": "At two he sees the tower shining",
+      "uncertain": false
+    },
+    {
+      "start": 158.04,
+      "end": 160.42,
+      "text": "In the ornaments around",
+      "uncertain": false
+    },
+    {
+      "start": 160.42,
+      "end": 164.0,
+      "text": "He laughs crooked at the wreath ring",
+      "uncertain": true
+    },
+    {
+      "start": 164.0,
+      "end": 166.8,
+      "text": "Says nice halo, wrong old saying",
+      "uncertain": true
+    },
+    {
+      "start": 166.8,
+      "end": 170.24,
+      "text": "Then he smears the frosted window",
+      "uncertain": false
+    },
+    {
+      "start": 170.24,
+      "end": 173.4,
+      "text": "Till the flying shapes grow faint",
+      "uncertain": false
+    },
+    {
+      "start": 173.4,
+      "end": 176.72,
+      "text": "Is it merry? Is it prophecy?",
+      "uncertain": false
+    },
+    {
+      "start": 177.12,
+      "end": 179.42,
+      "text": "Is it what long yesterday?",
+      "uncertain": false
+    },
+    {
+      "start": 179.94,
+      "end": 182.96,
+      "text": "Is the snow just torn up paper",
+      "uncertain": false
+    },
+    {
+      "start": 182.96,
+      "end": 186.04,
+      "text": "From a world that threw away?",
+      "uncertain": false
+    },
+    {
+      "start": 186.34,
+      "end": 189.22,
+      "text": "Tony stands beneath the doorway",
+      "uncertain": false
+    },
+    {
+      "start": 189.22,
+      "end": 192.28,
+      "text": "While the choir loses time",
+      "uncertain": true
+    },
+    {
+      "start": 192.28,
+      "end": 195.82,
+      "text": "Singing peace on earth in fragments",
+      "uncertain": true
+    },
+    {
+      "start": 195.82,
+      "end": 199.02,
+      "text": "Like a damaged nursery rhyme",
+      "uncertain": false
+    },
+    {
+      "start": 199.56,
+      "end": 200.56,
+      "text": "No chimney",
+      "uncertain": false
+    },
+    {
+      "start": 201.92,
+      "end": 204.0,
+      "text": "No sleigh",
+      "uncertain": false
+    },
+    {
+      "start": 204.0,
+      "end": 209.98,
+      "text": "Just mourning it on replay",
+      "uncertain": false
+    },
+    {
+      "start": 211.5,
+      "end": 213.38,
+      "text": "No ribbon",
+      "uncertain": false
+    },
+    {
+      "start": 213.38,
+      "end": 216.54,
+      "text": "No star",
+      "uncertain": false
+    },
+    {
+      "start": 218.08,
+      "end": 222.72,
+      "text": "He hears them from afar",
+      "uncertain": false
+    },
+    {
+      "start": 225.32,
+      "end": 228.12,
+      "text": "Every day is Christmas again",
+      "uncertain": false
+    },
+    {
+      "start": 228.12,
+      "end": 231.46,
+      "text": "But tonight he leaves one candle low",
+      "uncertain": false
+    },
+    {
+      "start": 231.46,
+      "end": 234.8,
+      "text": "Every day the sky breaks open",
+      "uncertain": false
+    },
+    {
+      "start": 234.8,
+      "end": 237.82,
+      "text": "Still he watches darkness go",
+      "uncertain": false
+    },
+    {
+      "start": 237.82,
+      "end": 241.18,
+      "text": "No gifts waiting by the doorway",
+      "uncertain": false
+    },
+    {
+      "start": 241.18,
+      "end": 244.08,
+      "text": "Yet he answers when friends call",
+      "uncertain": false
+    },
+    {
+      "start": 244.08,
+      "end": 247.22,
+      "text": "Every day is Christmas again",
+      "uncertain": false
+    },
+    {
+      "start": 248.24,
+      "end": 251.7,
+      "text": "But he will not get it all",
+      "uncertain": true
+    },
+    {
+      "start": 252.94,
+      "end": 256.48,
+      "text": "If the bells become just bells now",
+      "uncertain": false
+    },
+    {
+      "start": 256.48,
+      "end": 258.96,
+      "text": "If the snow be only snow",
+      "uncertain": false
+    },
+    {
+      "start": 258.96,
+      "end": 262.7,
+      "text": "When the engines cross the sunrise",
+      "uncertain": false
+    },
+    {
+      "start": 262.7,
+      "end": 265.6,
+      "text": "He can hear and let them go",
+      "uncertain": false
+    },
+    {
+      "start": 270.0,
+      "end": 272.76,
+      "text": "Every day was Christmas again",
+      "uncertain": false
+    },
+    {
+      "start": 272.76,
+      "end": 275.78,
+      "text": "Till he made what haunted him",
+      "uncertain": false
+    },
+    {
+      "start": 275.78,
+      "end": 279.3,
+      "text": "One last candle, one clear morning",
+      "uncertain": false
+    },
+    {
+      "start": 279.3,
+      "end": 282.42,
+      "text": "And the daylight settles in",
+      "uncertain": false
+    }
+  ]
+}

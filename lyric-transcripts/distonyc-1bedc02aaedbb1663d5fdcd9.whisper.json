@@ -1,0 +1,409 @@
+{
+  "version": 1,
+  "songId": "distonyc-1bedc02aaedbb1663d5fdcd9",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-1bedc02aaedbb1663d5fdcd9-cf309effed3a.mp3",
+  "audioSha256": "cf309effed3a81034f33fb7e0f2978e53f36342cdc202cb515c89b86a0ee334e",
+  "inputSha256": "9f76b05c09242b0598d690e48b31c5f87781c2dfbc16df2d3e96dae3ce93d615",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 240.0,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.54,
+      "text": "let go lane keep my stool warm i found the cheaper place to drink",
+      "uncertain": true
+    },
+    {
+      "start": 7.12,
+      "end": 13.92,
+      "text": "the door has teeth that's fucking charming i'll finish this before you blink",
+      "uncertain": false
+    },
+    {
+      "start": 16.12,
+      "end": 23.8,
+      "text": "gag lash swanker down the stair desert sand still in his hair told the guard i fought much bigger than the bastard pulled the trigger",
+      "uncertain": true
+    },
+    {
+      "start": 23.8,
+      "end": 25.6,
+      "text": "Not a gun, a great big cleaver",
+      "uncertain": true
+    },
+    {
+      "start": 25.6,
+      "end": 27.4,
+      "text": "Lost an arm, became a leader",
+      "uncertain": true
+    },
+    {
+      "start": 27.4,
+      "end": 29.34,
+      "text": "Call three rooms to find a bandage",
+      "uncertain": true
+    },
+    {
+      "start": 29.34,
+      "end": 30.86,
+      "text": "Bled out bargaining for damage",
+      "uncertain": false
+    },
+    {
+      "start": 30.86,
+      "end": 33.08,
+      "text": "Back outside, two hands again",
+      "uncertain": false
+    },
+    {
+      "start": 33.6,
+      "end": 36.74,
+      "text": "And nothing nerd except the pain",
+      "uncertain": true
+    },
+    {
+      "start": 37.78,
+      "end": 41.3,
+      "text": "Heads, I'm dead, tails, I'm dreaming",
+      "uncertain": true
+    },
+    {
+      "start": 41.3,
+      "end": 44.64,
+      "text": "Same damn doorway, same damn screen",
+      "uncertain": true
+    },
+    {
+      "start": 44.64,
+      "end": 48.38,
+      "text": "And fear and hunger, poor my grave",
+      "uncertain": true
+    },
+    {
+      "start": 48.38,
+      "end": 51.78,
+      "text": "All that pouring, oh fucking save",
+      "uncertain": false
+    },
+    {
+      "start": 51.78,
+      "end": 65.7,
+      "text": "I was nearly somebody down below, now I'm nobody, here we go, turn the handle, cross the floor, gig latched eyes, and once, one more.",
+      "uncertain": true
+    },
+    {
+      "start": 66.76,
+      "end": 81.5,
+      "text": "Hound some bread and aided standing, call that tackle, understanding, rusty nail went through my boot, kept the boot and lost the foot, let her crow, shoulders wider than the tavern's apple cider, raised my sword, began my story, lost my head before the glory,",
+      "uncertain": true
+    },
+    {
+      "start": 81.5,
+      "end": 83.34,
+      "text": "somewhere where and felt the shiver",
+      "uncertain": true
+    },
+    {
+      "start": 83.34,
+      "end": 85.2,
+      "text": "someone had to mine my liver",
+      "uncertain": false
+    },
+    {
+      "start": 86.58,
+      "end": 87.46,
+      "text": "head",
+      "uncertain": true
+    },
+    {
+      "start": 87.46,
+      "end": 89.24,
+      "text": "some dead, tail",
+      "uncertain": true
+    },
+    {
+      "start": 89.24,
+      "end": 91.08,
+      "text": "some dream and same",
+      "uncertain": true
+    },
+    {
+      "start": 91.08,
+      "end": 93.28,
+      "text": "damn doorway, same damn",
+      "uncertain": false
+    },
+    {
+      "start": 93.28,
+      "end": 95.1,
+      "text": "scream and fear and",
+      "uncertain": false
+    },
+    {
+      "start": 95.1,
+      "end": 97.26,
+      "text": "hunger, poor my granny",
+      "uncertain": false
+    },
+    {
+      "start": 97.26,
+      "end": 99.28,
+      "text": "all that glory",
+      "uncertain": false
+    },
+    {
+      "start": 99.28,
+      "end": 100.86,
+      "text": "no fucking say",
+      "uncertain": false
+    },
+    {
+      "start": 100.86,
+      "end": 103.24,
+      "text": "like food and a halfway",
+      "uncertain": false
+    },
+    {
+      "start": 103.24,
+      "end": 105.0,
+      "text": "decent blade, now the",
+      "uncertain": false
+    },
+    {
+      "start": 105.0,
+      "end": 107.36,
+      "text": "ghost of a run I've made",
+      "uncertain": false
+    },
+    {
+      "start": 107.36,
+      "end": 109.4,
+      "text": "turn the handle",
+      "uncertain": false
+    },
+    {
+      "start": 109.4,
+      "end": 111.02,
+      "text": "curse the floor",
+      "uncertain": false
+    },
+    {
+      "start": 111.02,
+      "end": 114.76,
+      "text": "Kiglash dies and wants one more",
+      "uncertain": false
+    },
+    {
+      "start": 114.76,
+      "end": 119.6,
+      "text": "There was a bed, there was a silence",
+      "uncertain": true
+    },
+    {
+      "start": 119.6,
+      "end": 123.26,
+      "text": "I mistook the peace for kindness",
+      "uncertain": false
+    },
+    {
+      "start": 123.26,
+      "end": 126.9,
+      "text": "Flipped a coin with filthy fingers",
+      "uncertain": false
+    },
+    {
+      "start": 126.9,
+      "end": 130.72,
+      "text": "Lost the toss, the laughter lingers",
+      "uncertain": false
+    },
+    {
+      "start": 130.72,
+      "end": 134.08,
+      "text": "Then a book salvation surely",
+      "uncertain": true
+    },
+    {
+      "start": 134.08,
+      "end": 137.68,
+      "text": "Should have read the title thoroughly",
+      "uncertain": false
+    },
+    {
+      "start": 137.68,
+      "end": 140.46,
+      "text": "Empty shelves and empty",
+      "uncertain": false
+    },
+    {
+      "start": 140.46,
+      "end": 142.96,
+      "text": "Plockets, fuck your gods",
+      "uncertain": false
+    },
+    {
+      "start": 142.96,
+      "end": 144.6,
+      "text": "And curse door sockets",
+      "uncertain": false
+    },
+    {
+      "start": 144.6,
+      "end": 146.96,
+      "text": "No more charging, watch the hinges",
+      "uncertain": false
+    },
+    {
+      "start": 146.96,
+      "end": 148.88,
+      "text": "Count the torches, stop the dinges",
+      "uncertain": false
+    },
+    {
+      "start": 148.88,
+      "end": 150.64,
+      "text": "Take the food and leave the boasting",
+      "uncertain": false
+    },
+    {
+      "start": 150.64,
+      "end": 152.42,
+      "text": "While my former selves are roasting",
+      "uncertain": false
+    },
+    {
+      "start": 152.42,
+      "end": 154.24,
+      "text": "Found the book that keeps tomorrow",
+      "uncertain": false
+    },
+    {
+      "start": 154.24,
+      "end": 156.04,
+      "text": "Held it like a child of sorrow",
+      "uncertain": false
+    },
+    {
+      "start": 156.04,
+      "end": 157.8,
+      "text": "Saved at last and laughed so hard",
+      "uncertain": false
+    },
+    {
+      "start": 157.8,
+      "end": 159.82,
+      "text": "I back straight into another guard",
+      "uncertain": true
+    },
+    {
+      "start": 161.48,
+      "end": 163.74,
+      "text": "Kids, I'm dead as tales",
+      "uncertain": false
+    },
+    {
+      "start": 163.74,
+      "end": 165.64,
+      "text": "I'm dreaming, seeing",
+      "uncertain": true
+    },
+    {
+      "start": 165.64,
+      "end": 167.36,
+      "text": "damn doorway saying",
+      "uncertain": true
+    },
+    {
+      "start": 167.36,
+      "end": 169.26,
+      "text": "damn screen in fear",
+      "uncertain": true
+    },
+    {
+      "start": 169.26,
+      "end": 171.36,
+      "text": "and hunger you can't",
+      "uncertain": false
+    },
+    {
+      "start": 171.36,
+      "end": 173.16,
+      "text": "keep every",
+      "uncertain": false
+    },
+    {
+      "start": 173.16,
+      "end": 175.52,
+      "text": "corpse beneath that heath",
+      "uncertain": true
+    },
+    {
+      "start": 175.52,
+      "end": 176.7,
+      "text": "low page",
+      "uncertain": true
+    },
+    {
+      "start": 176.7,
+      "end": 178.54,
+      "text": "torch still blows",
+      "uncertain": false
+    },
+    {
+      "start": 178.54,
+      "end": 181.18,
+      "text": "there's my sword and there's",
+      "uncertain": false
+    },
+    {
+      "start": 181.18,
+      "end": 183.14,
+      "text": "my toes keep my",
+      "uncertain": false
+    },
+    {
+      "start": 183.14,
+      "end": 184.84,
+      "text": "stool I've learned to",
+      "uncertain": false
+    },
+    {
+      "start": 184.84,
+      "end": 186.64,
+      "text": "behave this dead",
+      "uncertain": false
+    },
+    {
+      "start": 186.64,
+      "end": 188.58,
+      "text": "bastard finally ends the",
+      "uncertain": true
+    },
+    {
+      "start": 188.58,
+      "end": 189.02,
+      "text": "same",
+      "uncertain": false
+    },
+    {
+      "start": 198.7,
+      "end": 199.52,
+      "text": "Minors",
+      "uncertain": true
+    },
+    {
+      "start": 211.7,
+      "end": 220.68,
+      "text": "Have some dinner, deal some treat, and sing, and always sing, and scream, and fear, and",
+      "uncertain": true
+    },
+    {
+      "start": 220.68,
+      "end": 226.34,
+      "text": "Under pour my scrape all that glory no fucking safe",
+      "uncertain": true
+    }
+  ]
+}

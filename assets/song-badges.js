@@ -2,6 +2,7 @@ import { musicBackendBadge } from "./music-provenance.js";
 import { remixBadge } from "./remix-badge.js";
 import { pitchBadge } from "./pitch-badge.js";
 import { sidesBadge } from "./sides.js";
+import { repairBadge } from "./repair-status.js";
 
 const escape = (value) =>
   String(value ?? "").replace(/[&<>"']/g, (character) =>
@@ -11,14 +12,30 @@ export function voiceModelBadge(item) {
   const value = typeof item === "string"
     ? item
     : item?.voiceModel ?? item?.originalPrompt?.voiceModel ?? item?.details?.voiceModel;
-  const version = /^v\d+$/i.test(value || "") ? value.toLowerCase() : "v6";
-  const variant = /^v[789]$/.test(version) ? " " + version : "";
-  return `<span class="voice-model-badge${variant}" title="Tony’s voice: ${escape(version.toUpperCase())}">${escape(version.toUpperCase())}</span>`;
+  const version = /^(?:v\d+|vdb)$/i.test(value || "") ? value.toLowerCase() : "v6";
+  const variant = /^(?:v[789]|vdb)$/.test(version) ? " " + version : "";
+  const epoch = item?.voiceEpoch ?? item?.originalPrompt?.voiceEpoch ?? item?.details?.voiceEpoch;
+  const range = item?.voiceEpochRange ?? item?.originalPrompt?.voiceEpochRange ?? item?.details?.voiceEpochRange;
+  const displayEpoch = Number.isInteger(epoch) && epoch >= 10 && epoch <= 300 && epoch % 10 === 0 ? epoch : 300;
+  const suffix = version === 'v9' && range ? ` · epochs ${range.start} → ${range.end}` : version === 'v9' ? ` · epoch ${displayEpoch}` : '';
+  const title = version === "vdb" ? "Tony’s voice: Demonophonic Blues experiment" : `Tony’s voice: ${version.toUpperCase()}${suffix}`;
+  const checkpoint = version === 'v9' && range ? `${range.start}→${range.end}` : version === 'v9' ? String(displayEpoch) : '';
+  const colorEpoch = version === 'v9' && range && Number.isInteger(range.start) && Number.isInteger(range.end)
+    ? (range.start + range.end) / 2
+    : version === 'v9' ? displayEpoch : null;
+  const colorStep = colorEpoch === null ? '' : ` v9-epoch-${Math.min(300, Math.max(50, Math.round(colorEpoch / 50) * 50))}`;
+  const icon = /^(?:v6|v7|v8|vdb)$/.test(version)
+    ? `<img class="voice-model-icon" src="/assets/voice-icons/${version}.svg" alt="" aria-hidden="true">`
+    : '';
+  const iconTooltip = icon
+    ? `<span class="voice-model-icon-tooltip" aria-hidden="true"><img src="/assets/voice-icons/${version}.svg" alt=""></span>`
+    : '';
+  return `<span class="voice-model-badge${variant}${colorStep}" title="${escape(title)}" aria-label="${escape(title)}">${icon}${escape(version.toUpperCase())}${checkpoint ? `<span class="voice-epoch-number" aria-hidden="true">${escape(checkpoint)}</span>` : ''}${iconTooltip}</span>`;
 }
 
 // One badge row for a song or a request at any stage, so a recording keeps the
 // same voice, band generator and remix marks from the queue through its lyrics.
-export function songBadges(item) {
+export function songBadges(item, { showRepair = true } = {}) {
   if (!item) return "";
-  return `<span class="song-badges">${voiceModelBadge(item)}${musicBackendBadge(item)}${pitchBadge(item)}${remixBadge(item)}${sidesBadge(item)}</span>`;
+  return `<span class="song-badges">${voiceModelBadge(item)}${musicBackendBadge(item)}${pitchBadge(item)}${remixBadge(item)}${sidesBadge(item)}${showRepair ? repairBadge(item) : ''}</span>`;
 }

@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "songId": "distonyc-602cfff5b02dff5eb0865793",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-602cfff5b02dff5eb0865793-5f0c16f9fb6b.mp3",
+  "audioSha256": "5f0c16f9fb6bfbccfdd677b787d6cea2fb036b3e62568ddd98d06105175e620e",
+  "inputSha256": "42688e74a3eb2e9ffbf141f5c8196449a565a1f169c5d4531564bfe111fd9d5a",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 270.08,
+  "segments": [
+    {
+      "start": 6.1,
+      "end": 10.14,
+      "text": "A neighbor said the whole town's moving fast",
+      "uncertain": true
+    },
+    {
+      "start": 10.14,
+      "end": 14.74,
+      "text": "Like every green light's built to make you last",
+      "uncertain": false
+    },
+    {
+      "start": 14.74,
+      "end": 19.26,
+      "text": "I had a map with coffee on the page",
+      "uncertain": false
+    },
+    {
+      "start": 19.26,
+      "end": 23.82,
+      "text": "And one was planned for getting off the stage",
+      "uncertain": false
+    },
+    {
+      "start": 23.82,
+      "end": 28.28,
+      "text": "The calendar keeps knocking at the door",
+      "uncertain": false
+    },
+    {
+      "start": 29.16,
+      "end": 32.94,
+      "text": "The same old rules are scattered on the floor",
+      "uncertain": false
+    },
+    {
+      "start": 33.84,
+      "end": 37.48,
+      "text": "I learned my long way around can still be true",
+      "uncertain": false
+    },
+    {
+      "start": 38.5,
+      "end": 42.38,
+      "text": "When every painted arrow points to you",
+      "uncertain": false
+    },
+    {
+      "start": 44.84,
+      "end": 48.9,
+      "text": "There are side roads under every sign",
+      "uncertain": false
+    },
+    {
+      "start": 48.9,
+      "end": 53.68,
+      "text": "There is daylight if you give it time",
+      "uncertain": false
+    },
+    {
+      "start": 55.36,
+      "end": 60.36,
+      "text": "Step out, put your heart where the headlights shine",
+      "uncertain": false
+    },
+    {
+      "start": 60.36,
+      "end": 64.9,
+      "text": "Take your turn, make a little room to fire",
+      "uncertain": true
+    },
+    {
+      "start": 64.9,
+      "end": 68.2,
+      "text": "Turn the noise into a song tonight",
+      "uncertain": false
+    },
+    {
+      "start": 69.28,
+      "end": 73.04,
+      "text": "You were made for more than standing by",
+      "uncertain": true
+    },
+    {
+      "start": 74.2,
+      "end": 78.72,
+      "text": "Hands up, let the hard days fall behind",
+      "uncertain": false
+    },
+    {
+      "start": 78.72,
+      "end": 83.52,
+      "text": "Run toward the spark you came to find",
+      "uncertain": false
+    },
+    {
+      "start": 83.52,
+      "end": 86.9,
+      "text": "Every wild small dream can change your sky",
+      "uncertain": true
+    },
+    {
+      "start": 87.88,
+      "end": 91.46,
+      "text": "You and me for more than standing by",
+      "uncertain": true
+    },
+    {
+      "start": 93.84,
+      "end": 97.64,
+      "text": "The weather report says the cold rolls in",
+      "uncertain": false
+    },
+    {
+      "start": 97.64,
+      "end": 101.94,
+      "text": "So wrap your hope around your stubborn grin",
+      "uncertain": false
+    },
+    {
+      "start": 103.08,
+      "end": 106.72,
+      "text": "The river's high, the pavement's cracking through",
+      "uncertain": false
+    },
+    {
+      "start": 107.74,
+      "end": 111.28,
+      "text": "But open water makes a path for you",
+      "uncertain": false
+    },
+    {
+      "start": 112.36,
+      "end": 116.04,
+      "text": "They talk of fallen stars and distant flames",
+      "uncertain": false
+    },
+    {
+      "start": 117.06,
+      "end": 120.62,
+      "text": "Like every bright thing needs a famous name",
+      "uncertain": false
+    },
+    {
+      "start": 121.54,
+      "end": 125.3,
+      "text": "I say the dark is just a larger room",
+      "uncertain": false
+    },
+    {
+      "start": 126.16,
+      "end": 130.14,
+      "text": "For one good voice to push against the gloom",
+      "uncertain": false
+    },
+    {
+      "start": 132.64,
+      "end": 136.48,
+      "text": "If the world feels narrow, lean and sway",
+      "uncertain": false
+    },
+    {
+      "start": 136.48,
+      "end": 149.92,
+      "text": "find a door inside the gray step out put your heart where the headlight shine take your turn",
+      "uncertain": true
+    },
+    {
+      "start": 149.92,
+      "end": 160.1,
+      "text": "make a little room to fly turn the noise into a song tonight you were made for more than standing",
+      "uncertain": false
+    },
+    {
+      "start": 161.58,
+      "end": 166.48,
+      "text": "Hands up, let the hard days fall behind",
+      "uncertain": true
+    },
+    {
+      "start": 166.48,
+      "end": 171.26,
+      "text": "Run toward the spark you came to find",
+      "uncertain": false
+    },
+    {
+      "start": 171.26,
+      "end": 174.62,
+      "text": "Every wild, small dream can change your sky",
+      "uncertain": false
+    },
+    {
+      "start": 174.62,
+      "end": 179.34,
+      "text": "You were late for noon and standing by",
+      "uncertain": true
+    },
+    {
+      "start": 181.34,
+      "end": 185.26,
+      "text": "A stranger at the filling station said",
+      "uncertain": false
+    },
+    {
+      "start": 185.26,
+      "end": 189.96,
+      "text": "Got enough to get me out of this dead end",
+      "uncertain": false
+    },
+    {
+      "start": 190.84,
+      "end": 194.32,
+      "text": "I passed the last few bills across the sea",
+      "uncertain": true
+    },
+    {
+      "start": 194.32,
+      "end": 199.1,
+      "text": "He left, then we both got somewhere we can be",
+      "uncertain": false
+    },
+    {
+      "start": 200.1,
+      "end": 203.22,
+      "text": "No perfect road, no golden guarantee",
+      "uncertain": false
+    },
+    {
+      "start": 204.72,
+      "end": 207.72,
+      "text": "Just one more mile of possibility",
+      "uncertain": false
+    },
+    {
+      "start": 210.36,
+      "end": 215.0,
+      "text": "Step out, push your heart where the headlights shine",
+      "uncertain": true
+    },
+    {
+      "start": 215.0,
+      "end": 219.48,
+      "text": "Take your turn, make a little room to fly",
+      "uncertain": false
+    },
+    {
+      "start": 219.48,
+      "end": 223.38,
+      "text": "Turn the noise into a song tonight",
+      "uncertain": false
+    },
+    {
+      "start": 223.38,
+      "end": 227.72,
+      "text": "You and me for more than standing by",
+      "uncertain": true
+    },
+    {
+      "start": 228.88,
+      "end": 233.48,
+      "text": "Hands up, let the hard days fall behind",
+      "uncertain": false
+    },
+    {
+      "start": 233.48,
+      "end": 238.06,
+      "text": "Run toward the spark you came to find",
+      "uncertain": false
+    },
+    {
+      "start": 238.06,
+      "end": 241.5,
+      "text": "Every wild small dream can change your sky",
+      "uncertain": true
+    },
+    {
+      "start": 241.5,
+      "end": 246.24,
+      "text": "You and me for more than standing by",
+      "uncertain": true
+    },
+    {
+      "start": 248.46,
+      "end": 252.18,
+      "text": "Standing by no more",
+      "uncertain": false
+    },
+    {
+      "start": 253.08,
+      "end": 256.6,
+      "text": "I am moving toward the light",
+      "uncertain": false
+    },
+    {
+      "start": 256.6,
+      "end": 260.68,
+      "text": "I am moving toward the light",
+      "uncertain": false
+    }
+  ]
+}

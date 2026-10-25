@@ -83,5 +83,5 @@ export function mountRequestTabs(form, storage, draftId) {
     if (panel) select(tabs.find((tab) => tab.id === panel.getAttribute("aria-labelledby")));
   }, true);
   select(tabs.find((tab) => tab.id === storage.get(key)) || tabs[0]);
-  return { sync };
+  return { sync, openSection };
 }

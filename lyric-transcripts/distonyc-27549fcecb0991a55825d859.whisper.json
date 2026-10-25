@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "songId": "distonyc-27549fcecb0991a55825d859",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-27549fcecb0991a55825d859-0da37941ef79.mp3",
+  "audioSha256": "0da37941ef7938211ca6300e1adeba8b9ad58f788d81a14be16c2529476ebe6f",
+  "inputSha256": "0da37941ef7938211ca6300e1adeba8b9ad58f788d81a14be16c2529476ebe6f",
+  "input": "released-recording",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 309.12,
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 4.92,
+      "text": "My torch died out, the screen went pitch black fast",
+      "uncertain": true
+    },
+    {
+      "start": 6.5,
+      "end": 11.56,
+      "text": "I tried to save, but I lost my whole last stack",
+      "uncertain": true
+    },
+    {
+      "start": 12.88,
+      "end": 16.36,
+      "text": "Hunger cow made weed before I could ease",
+      "uncertain": true
+    },
+    {
+      "start": 16.36,
+      "end": 19.48,
+      "text": "But the 9-11 right in my face",
+      "uncertain": true
+    },
+    {
+      "start": 19.48,
+      "end": 23.26,
+      "text": "Fuck this game, it's rigged and it's on the fair play",
+      "uncertain": false
+    },
+    {
+      "start": 23.26,
+      "end": 26.08,
+      "text": "All those hours wasted just to get a day",
+      "uncertain": true
+    },
+    {
+      "start": 26.08,
+      "end": 29.6,
+      "text": "My safe file corrupted, progress swiped away",
+      "uncertain": false
+    },
+    {
+      "start": 29.6,
+      "end": 32.8,
+      "text": "I'm screaming at the sky, why won't you stay?",
+      "uncertain": false
+    },
+    {
+      "start": 39.14,
+      "end": 42.64,
+      "text": "Oh, 9-11, I died again in the dark",
+      "uncertain": false
+    },
+    {
+      "start": 42.64,
+      "end": 46.18,
+      "text": "Just another failure that makes me wanna bark",
+      "uncertain": false
+    },
+    {
+      "start": 46.18,
+      "end": 49.1,
+      "text": "Oh, 9-11, I lost my safe file too",
+      "uncertain": false
+    },
+    {
+      "start": 49.1,
+      "end": 52.7,
+      "text": "My character's gone and there's no way out for you",
+      "uncertain": false
+    },
+    {
+      "start": 52.7,
+      "end": 55.8,
+      "text": "Fuck this loop, it never changes a thing",
+      "uncertain": false
+    },
+    {
+      "start": 55.8,
+      "end": 59.4,
+      "text": "Every time I try I get hit by nothing",
+      "uncertain": false
+    },
+    {
+      "start": 59.4,
+      "end": 63.36,
+      "text": "But 9-11 keeps coming every again",
+      "uncertain": false
+    },
+    {
+      "start": 114.24,
+      "end": 115.66,
+      "text": "Transcription by CastingWords",
+      "uncertain": true
+    },
+    {
+      "start": 115.8,
+      "end": 119.9,
+      "text": "But you took that limb off when I needed most",
+      "uncertain": false
+    },
+    {
+      "start": 119.9,
+      "end": 123.12,
+      "text": "And left me with nothing but broken ghosts",
+      "uncertain": true
+    },
+    {
+      "start": 123.12,
+      "end": 126.5,
+      "text": "My hunger is eating the party right now",
+      "uncertain": false
+    },
+    {
+      "start": 126.5,
+      "end": 129.78,
+      "text": "This game is fucking brutal and won't let us grow",
+      "uncertain": true
+    },
+    {
+      "start": 135.24,
+      "end": 143.22,
+      "text": "Oh, not a lesson",
+      "uncertain": true
+    },
+    {
+      "start": 143.22,
+      "end": 145.5,
+      "text": "I tried again in the dark",
+      "uncertain": false
+    },
+    {
+      "start": 145.5,
+      "end": 149.78,
+      "text": "Just another failure that makes me want to bark on 9-11",
+      "uncertain": true
+    },
+    {
+      "start": 149.78,
+      "end": 152.04,
+      "text": "I lost my safe fall too",
+      "uncertain": true
+    },
+    {
+      "start": 152.04,
+      "end": 155.98,
+      "text": "My character's gone and there's no way out for you",
+      "uncertain": false
+    },
+    {
+      "start": 155.98,
+      "end": 158.8,
+      "text": "From this spook, it never changes a thing",
+      "uncertain": false
+    },
+    {
+      "start": 158.8,
+      "end": 162.3,
+      "text": "Every time I try, I get hit by nothing",
+      "uncertain": false
+    },
+    {
+      "start": 162.3,
+      "end": 166.24,
+      "text": "But 9-11 keeps coming at me again",
+      "uncertain": false
+    },
+    {
+      "start": 183.9,
+      "end": 187.86,
+      "text": "Fall ends with but the darkness is taking them now",
+      "uncertain": true
+    },
+    {
+      "start": 187.86,
+      "end": 190.82,
+      "text": "I'm trying to run but my legs are too slow",
+      "uncertain": false
+    },
+    {
+      "start": 190.82,
+      "end": 194.12,
+      "text": "Coin flip says luck is on your side",
+      "uncertain": true
+    },
+    {
+      "start": 194.12,
+      "end": 195.3,
+      "text": "No it isn't",
+      "uncertain": false
+    },
+    {
+      "start": 195.3,
+      "end": 197.98,
+      "text": "Insanity's gone and I can't feel it yet",
+      "uncertain": false
+    },
+    {
+      "start": 197.98,
+      "end": 201.34,
+      "text": "You're killing my progress just for fun and a laugh",
+      "uncertain": false
+    },
+    {
+      "start": 201.34,
+      "end": 204.5,
+      "text": "And 9-11 is the only way out of this",
+      "uncertain": false
+    },
+    {
+      "start": 212.1,
+      "end": 216.48,
+      "text": "I keep trying to respawn, but the server won't budge",
+      "uncertain": true
+    },
+    {
+      "start": 216.48,
+      "end": 219.26,
+      "text": "I'm cursing at the devs, I think that they'd be rude",
+      "uncertain": false
+    },
+    {
+      "start": 219.26,
+      "end": 222.62,
+      "text": "Hunger makes me weak when you need a fight",
+      "uncertain": false
+    },
+    {
+      "start": 222.62,
+      "end": 226.42,
+      "text": "And then not 11, it's always right in sight",
+      "uncertain": true
+    },
+    {
+      "start": 226.42,
+      "end": 229.74,
+      "text": "Fuck this frustration, fuck the RNG and the glitch",
+      "uncertain": false
+    },
+    {
+      "start": 229.74,
+      "end": 233.14,
+      "text": "I want my save file back so I can start to switch",
+      "uncertain": false
+    },
+    {
+      "start": 233.14,
+      "end": 236.7,
+      "text": "Explode every time I die, there's only one thing left",
+      "uncertain": false
+    },
+    {
+      "start": 236.7,
+      "end": 240.24,
+      "text": "Just another 9-11 that I won't forget",
+      "uncertain": true
+    },
+    {
+      "start": 241.28,
+      "end": 246.32,
+      "text": "One last try, no, it hurts too much to play",
+      "uncertain": false
+    },
+    {
+      "start": 246.32,
+      "end": 251.94,
+      "text": "The darkness wins and the game will not stay",
+      "uncertain": true
+    },
+    {
+      "start": 254.06,
+      "end": 260.66,
+      "text": "Oh, 9-11, oh, 9-11, oh, 9-11 again",
+      "uncertain": false
+    },
+    {
+      "start": 260.66,
+      "end": 265.38,
+      "text": "Another death without a trace in my dream",
+      "uncertain": false
+    },
+    {
+      "start": 265.38,
+      "end": 268.76,
+      "text": "Just another 9-11, fuck it all",
+      "uncertain": false
+    },
+    {
+      "start": 268.76,
+      "end": 272.26,
+      "text": "I'll never get to see this time again",
+      "uncertain": false
+    },
+    {
+      "start": 292.9,
+      "end": 294.16,
+      "text": "Thank you.",
+      "uncertain": true
+    }
+  ]
+}

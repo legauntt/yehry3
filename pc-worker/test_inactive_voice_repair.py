@@ -1,4 +1,5 @@
-import json, tempfile, unittest
+import json, sys, tempfile, unittest
+import inactive_recovery
 from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -19,7 +20,7 @@ class InactiveVoiceRepairTests(unittest.TestCase):
             rms=lambda audio: float(np.sqrt(np.mean(audio * audio) + 1e-14)),
             connected_gate=lambda env, rate: np.ones_like(env), validate=validate_active)
 
-    def six_section_fixture(self, work):
+    def six_section_fixture(self, work, long_outro=False):
         (work / 'conversion').mkdir()
         duration = 56
         time = np.arange(SR * duration) / SR
@@ -28,7 +29,7 @@ class InactiveVoiceRepairTests(unittest.TestCase):
         rows = [{'label': f'phrase-{index + 1:03d}',
                  'interval': [max(0, index * 2 - .1), min(duration, (index + 1) * 2 + .1)]}
                 for index in range(28)]
-        silent = {rows[index]['label'] for index in (0, 4, 8, 12, 16, 20)}
+        silent = {rows[index]['label'] for index in (range(8, 28) if long_outro else (0, 4, 8, 12, 16, 20))}
         for row in rows:
             if row['label'] in silent:
                 a, b = [round(value * SR) for value in row['interval']]
@@ -79,9 +80,111 @@ class InactiveVoiceRepairTests(unittest.TestCase):
             np.testing.assert_array_equal(mix, backing + voice)
             self.assertEqual(len(load(work / 'voice-checks.json')['chunks']), len(rows))
             report = load(work / repair.REPORT)
-            self.assertEqual(report['version'], 2)
+            self.assertEqual(report['version'], 3)
             self.assertEqual(report['status'], 'applied')
             self.assertEqual(len(report['sections']), 6)
+
+    def test_long_sparse_outro_recovers_and_preserves_active_audio(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            work = Path(temporary)
+            rows, silent = self.six_section_fixture(work, long_outro=True)
+            active_hashes = {row['label']: sha(work / 'conversion' / (row['label'] + '-converted.wav'))
+                             for row in rows if row['label'] not in silent}
+            backing_hash = sha(work / 'selected-backing.wav')
+            engine = self.engine(work)
+            validate_active = engine.validate
+            def require_active(active):
+                self.assertEqual({row['label'] for row in active}, set(active_hashes))
+                validate_active(active)
+            engine.validate = require_active
+            with patch.object(repair.importlib.util, 'spec_from_file_location') as spec, \
+                    patch.object(repair.importlib.util, 'module_from_spec', return_value=engine):
+                spec.return_value.loader.exec_module.return_value = None
+                apply(work)
+                first = sha(work / 'matched-vocals.wav')
+                apply(work)
+            self.assertEqual(sha(work / 'matched-vocals.wav'), first)
+            self.assertEqual(sha(work / 'selected-backing.wav'), backing_hash)
+            for label, digest in active_hashes.items():
+                self.assertEqual(sha(work / 'conversion' / (label + '-converted.wav')), digest)
+            voice = sf.read(work / 'matched-vocals.wav', dtype='float32')[0]
+            mix = sf.read(work / 'matched-mix.wav', dtype='float32')[0]
+            backing = sf.read(work / 'selected-backing.wav', dtype='float32')[0]
+            self.assertGreater(float(np.max(np.abs(voice[:SR * 15]))), .01)
+            np.testing.assert_array_equal(voice[SR * 17:], np.zeros_like(voice[SR * 17:]))
+            np.testing.assert_array_equal(mix, backing + voice)
+            report = load(work / repair.REPORT)
+            self.assertEqual(report['version'], 3)
+            self.assertEqual(len(report['sections']), 20)
+
+    def test_first_attempt_runs_real_repair_subprocess_for_long_outro(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            work = Path(temporary)
+            self.six_section_fixture(work, long_outro=True)
+            state = load(work / 'desktop-status.json')
+            state['error'] = 'AssertionError: assert active.any()'
+            save(work / 'desktop-status.json', state)
+            (work / 'engine_voice.py').write_text(
+                'import numpy as np\n'
+                'from pathlib import Path\n'
+                'from common import save\n'
+                'from inactive_voice_repair import envelope as env\n'
+                'def rms(audio): return float(np.sqrt(np.mean(audio * audio) + 1e-14))\n'
+                'def connected_gate(envelope, rate): return np.ones_like(envelope)\n'
+                'def validate(rows):\n'
+                '    save(Path(__file__).parent / "voice-checks.json", '
+                '{"passed": True, "chunks": [{"label": row["label"]} for row in rows]})\n')
+            self.assertTrue(inactive_recovery.needed(work, 'v9'))
+            self.assertTrue(inactive_recovery.recover(work, {'voice_python': sys.executable}))
+            self.assertEqual(load(work / repair.REPORT)['status'], 'applied')
+            self.assertIn('validate', load(work / 'desktop-status.json')['completed'])
+            self.assertFalse(inactive_recovery.needed(work, 'v9'))
+            self.assertFalse((work / 'review-delivery.json').exists())
+
+    def test_structural_silence_counts_overlap_once_and_bounds_recording(self):
+        rows = [{'interval': [index * 10, index * 10 + 11], 'duration_seconds': 11}
+                for index in range(65)]
+        self.assertEqual(check_limits(rows, 666, version=3)['unique_seconds'], 651)
+        with self.assertRaisesRegex(ValueError, 'duration'):
+            check_limits(rows, 667, version=3)
+        with self.assertRaisesRegex(ValueError, 'limit'):
+            check_limits(rows * 2, 666, version=3)
+
+    def test_all_silent_source_is_rejected_before_mutating_conversions(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            work = Path(temporary)
+            rows, _ = self.six_section_fixture(work)
+            source = sf.read(work / 'selected-vocals.wav', dtype='float32')[0]
+            sf.write(work / 'selected-vocals.wav', np.zeros_like(source), SR, subtype='FLOAT')
+            digest = sha(work / 'conversion/phrase-002-converted.wav')
+            with self.assertRaisesRegex(ValueError, 'No active source'):
+                apply(work)
+            self.assertEqual(sha(work / 'conversion/phrase-002-converted.wav'), digest)
+            self.assertFalse((work / repair.REPORT).exists())
+
+    def test_failed_active_validation_is_not_overwritten(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            work = Path(temporary)
+            engine = self.engine(work)
+            engine.validate = lambda rows: save(work / 'voice-checks.json', {'passed': False, 'chunks': []})
+            with self.assertRaisesRegex(ValueError, 'Active voice validation'):
+                validate(engine, work, [{'label': 'active'}], [])
+            self.assertFalse(load(work / 'voice-checks.json')['passed'])
+
+    def test_existing_v2_journal_keeps_limits_and_hash_checked_reuse(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            work = Path(temporary)
+            self.six_section_fixture(work)
+            engine = self.engine(work)
+            with patch.object(repair.importlib.util, 'spec_from_file_location') as spec, \
+                    patch.object(repair.importlib.util, 'module_from_spec', return_value=engine):
+                spec.return_value.loader.exec_module.return_value = None
+                apply(work)
+                report = load(work / repair.REPORT)
+                report.update(version=2, limits=dict(repair.LIMITS))
+                save(work / repair.REPORT, report)
+                apply(work)
+            self.assertEqual(load(work / repair.REPORT)['version'], 2)
 
     def test_changed_source_or_converted_section_is_rejected_on_restart(self):
         with tempfile.TemporaryDirectory() as temporary:

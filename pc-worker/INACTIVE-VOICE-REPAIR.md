@@ -46,3 +46,22 @@ through to the ordinary needs-review export, so the song still publishes with it
 retries the failure once for every non-V6 model without a per-request approval file. Before this, V9 songs with a
 silent Eleven intro published the generated singer as "needs review" (three songs on September 20).
 Suite movements keep the V8 approval-file rule.
+
+## Structural silence (October 9, 2026)
+
+New repairs use version 3: up to 128 verified inactive chunks across a recording
+of at most 666 seconds. Silence is ordinary song structure, so the former
+six-chunk, 60-second and 26-percent restrictions no longer reject long outros
+or sparse performances. Overlapping context is counted once. A wholly inactive
+source is rejected before any conversion is changed.
+
+The activity floor and stereo-cancellation protection are unchanged. Active
+chunks still run through saved assembly and voice validation; a failed validation
+report cannot be overwritten as passed. Backing samples and recording duration
+remain unchanged. Original chunks and input/output hashes remain pinned. Existing
+version-1 and version-2 journals retain their original bounds and restart checks.
+
+This is a general runtime fix. Installing it does not retry or replace any
+existing published song. Validate with `test_inactive_voice_repair.py`,
+`test_review_publication.py`, `test_recovery.py`, and `test_voice_models.py`, then
+selectively install `inactive_voice_repair.py` while worker and monitor are idle.

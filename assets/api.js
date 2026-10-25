@@ -103,7 +103,7 @@ window.addEventListener("storage", (event) => {
 function signedOutError() {
   return Object.assign(new Error("Please sign in again."), { status: 401 });
 }
-async function request(path, { method = "GET", body, anonymous = false, timeout = 15000, keepalive = false } = {}, token) {
+async function request(path, { method = "GET", body, anonymous = false, timeout = 15000, keepalive = false, binary = false, signal } = {}, token) {
   const headers = anonymous ? {} : { "X-Visitor-ID": visitor };
   if (body) headers["Content-Type"] = "application/json";
   if (token) headers.Authorization = `Bearer ${token}`;
@@ -115,11 +115,12 @@ async function request(path, { method = "GET", body, anonymous = false, timeout 
       body: body ? JSON.stringify(body) : undefined,
       // A keepalive request is allowed to finish after its page has closed.
       keepalive,
-      signal: keepalive ? undefined : AbortSignal.timeout(timeout),
+      signal: keepalive ? undefined : signal ? AbortSignal.any([signal, AbortSignal.timeout(timeout)]) : AbortSignal.timeout(timeout),
     });
   } catch {
     throw new Error("The studio is unreachable. Please try again in a moment.");
   }
+  if (response.ok && binary) return response.arrayBuffer();
   const data = await response.json().catch(() => ({}));
   if (!response.ok) {
     const error = new Error(

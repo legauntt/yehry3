@@ -35,7 +35,8 @@ for (const voice of ['v6', 'v7', 'v8']) test(`paid generator stays separate from
   await expect(page.locator('#confirm-paid')).not.toBeChecked();
   await expect(page.locator('#paid-password')).toHaveCount(0);
   await expect(page.locator('.paid-music-confirmation')).toContainText('$0.30');
-  await expect(page.locator('.paid-music-confirmation')).toContainText('$2.00');
+  await expect(page.locator('.paid-music-confirmation')).not.toContainText('$200');
+  await expect(page.locator('.paid-music-confirmation')).not.toContainText('total cap');
   await expect(page.locator('.prompt-brief')).toContainText('Eleven Music · paid');
   await page.locator('#confirm-form .primary').click();
   await expect(page.locator('#confirm-paid')).toBeVisible();

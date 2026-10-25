@@ -1,11 +1,19 @@
 // Which Tony voice a request form starts on. A pick made in the voice menu is remembered per browser,
 // like Tony's pitch; someone who never touches the menu keeps following the site's default.
 const rememberKey = 'yehry3:voice-model-v1';
-const versioned = (value) => /^v[1-9]\d*$/.test(value || '') ? value : null;
+const versioned = (value) => /^v[1-9]\d*$/.test(value || '') || value === 'vdb' ? value : null;
 // V8 and V9 requests are made through V8 song generation, so they are only a default while it is available.
 export const usesGeneration = (id) => id === 'v8' || id === 'v9';
 export const rememberedVoice = () => { try { return versioned(localStorage.getItem(rememberKey)); } catch { return null; } };
 export const rememberVoice = (value) => { try { localStorage.setItem(rememberKey, value); } catch { /* The request still carries the choice. */ } };
+
+const epochKey = 'yehry3:voice-epoch-v1';
+export const rememberedEpoch = () => { try { return Number(localStorage.getItem(epochKey)) || null; } catch { return null; } };
+export const rememberEpoch = (value) => { try { localStorage.setItem(epochKey, String(value)); } catch { /* The request still carries the choice. */ } };
+export function startingEpoch({ saved, remembered, epochs, defaultEpoch = 300 }) {
+  return [Number(saved), Number(remembered), Number(defaultEpoch), 300, epochs.at(-1)]
+    .find(epoch => epochs.includes(epoch));
+}
 
 // The request's own saved voice comes first, then this browser's last pick, then the newest voice on offer.
 export function startingVoice({ saved, remembered, models, generationAvailable }) {

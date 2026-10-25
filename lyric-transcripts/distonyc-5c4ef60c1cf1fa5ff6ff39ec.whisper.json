@@ -1,0 +1,265 @@
+{
+  "version": 1,
+  "songId": "distonyc-5c4ef60c1cf1fa5ff6ff39ec",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-5c4ef60c1cf1fa5ff6ff39ec-096942006ac8.mp3",
+  "audioSha256": "096942006ac88cba7a18414f18a611ca6b7d91cf776633fcbbf946121402c033",
+  "inputSha256": "089f9289d47b32e8d007da8459dbec329459b701118eb4c7bf51b6d9130a7f28",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 270.02775,
+  "segments": [
+    {
+      "start": 5.26,
+      "end": 8.62,
+      "text": "Yeah, yeah, after midnight",
+      "uncertain": true
+    },
+    {
+      "start": 11.16,
+      "end": 14.98,
+      "text": "The room is blue behind the glass",
+      "uncertain": true
+    },
+    {
+      "start": 16.54,
+      "end": 20.74,
+      "text": "Ice turns slow and the long cars pass",
+      "uncertain": false
+    },
+    {
+      "start": 22.94,
+      "end": 26.44,
+      "text": "Your shadow leans across the bar",
+      "uncertain": false
+    },
+    {
+      "start": 28.72,
+      "end": 32.26,
+      "text": "Like it knows exactly where we are",
+      "uncertain": false
+    },
+    {
+      "start": 33.4,
+      "end": 37.68,
+      "text": "I said nothing, let the saxophone bend",
+      "uncertain": true
+    },
+    {
+      "start": 39.3,
+      "end": 43.9,
+      "text": "You said maybe this night will never end",
+      "uncertain": false
+    },
+    {
+      "start": 46.4,
+      "end": 49.3,
+      "text": "Yeah, the clock forgets its name",
+      "uncertain": false
+    },
+    {
+      "start": 50.96,
+      "end": 55.18,
+      "text": "Yeah, every window holds the flame",
+      "uncertain": false
+    },
+    {
+      "start": 68.32,
+      "end": 72.64,
+      "text": "Yeah, stay in the low light",
+      "uncertain": false
+    },
+    {
+      "start": 72.64,
+      "end": 76.16,
+      "text": "Yeah, after midnight",
+      "uncertain": true
+    },
+    {
+      "start": 78.6,
+      "end": 82.24,
+      "text": "Don't let the morning call it right",
+      "uncertain": false
+    },
+    {
+      "start": 86.76,
+      "end": 90.86,
+      "text": "A muted trumpet kisses the wall",
+      "uncertain": true
+    },
+    {
+      "start": 92.18,
+      "end": 96.44,
+      "text": "One loose laugh and I forget it all",
+      "uncertain": false
+    },
+    {
+      "start": 98.44,
+      "end": 102.26,
+      "text": "The drummer brushes a little storm",
+      "uncertain": true
+    },
+    {
+      "start": 104.32,
+      "end": 107.66,
+      "text": "Keeping every secret warm",
+      "uncertain": false
+    },
+    {
+      "start": 109.54,
+      "end": 113.46,
+      "text": "You move once, then the whole room sways",
+      "uncertain": false
+    },
+    {
+      "start": 115.36,
+      "end": 119.6,
+      "text": "Like a record caught in the last good phrase",
+      "uncertain": true
+    },
+    {
+      "start": 122.26,
+      "end": 124.74,
+      "text": "Yeah, I hear that old refrain",
+      "uncertain": false
+    },
+    {
+      "start": 127.02,
+      "end": 130.52,
+      "text": "Yeah, it comes around again",
+      "uncertain": false
+    },
+    {
+      "start": 138.16,
+      "end": 140.32,
+      "text": "Yeah, after midnight",
+      "uncertain": false
+    },
+    {
+      "start": 140.32,
+      "end": 146.74,
+      "text": "Yeah, stay in the logo line",
+      "uncertain": true
+    },
+    {
+      "start": 149.74,
+      "end": 154.04,
+      "text": "Don't let the morning call it right",
+      "uncertain": false
+    },
+    {
+      "start": 161.5,
+      "end": 165.88,
+      "text": "No grand goodbye, no sharp last word",
+      "uncertain": false
+    },
+    {
+      "start": 167.18,
+      "end": 171.76,
+      "text": "Just the softest thing we ever heard",
+      "uncertain": false
+    },
+    {
+      "start": 173.42,
+      "end": 177.24,
+      "text": "The bass walks down, the lights go thin",
+      "uncertain": true
+    },
+    {
+      "start": 179.28,
+      "end": 183.92,
+      "text": "And the dark lets all the daylight in",
+      "uncertain": false
+    },
+    {
+      "start": 185.14,
+      "end": 188.62,
+      "text": "Yeah, if you go, go slow",
+      "uncertain": false
+    },
+    {
+      "start": 190.98,
+      "end": 194.56,
+      "text": "Yeah, leave one little door aglow",
+      "uncertain": false
+    },
+    {
+      "start": 202.24,
+      "end": 204.54,
+      "text": "The street is quiet",
+      "uncertain": false
+    },
+    {
+      "start": 207.58,
+      "end": 210.2,
+      "text": "The band plays low",
+      "uncertain": true
+    },
+    {
+      "start": 210.2,
+      "end": 212.8,
+      "text": "On borrowed time",
+      "uncertain": true
+    },
+    {
+      "start": 212.8,
+      "end": 216.2,
+      "text": "I carry your name",
+      "uncertain": false
+    },
+    {
+      "start": 216.2,
+      "end": 218.06,
+      "text": "Through the empty hall",
+      "uncertain": true
+    },
+    {
+      "start": 219.74,
+      "end": 221.76,
+      "text": "Not a promise",
+      "uncertain": false
+    },
+    {
+      "start": 221.76,
+      "end": 224.04,
+      "text": "Not a warning call",
+      "uncertain": false
+    },
+    {
+      "start": 226.14,
+      "end": 230.22,
+      "text": "Just one last note that knows my face",
+      "uncertain": false
+    },
+    {
+      "start": 232.32,
+      "end": 236.44,
+      "text": "One last breath in a velvet space",
+      "uncertain": true
+    },
+    {
+      "start": 237.32,
+      "end": 241.12,
+      "text": "Yeah, after midnight, yeah, I finally know",
+      "uncertain": false
+    },
+    {
+      "start": 244.74,
+      "end": 246.86,
+      "text": "Yeah, after midnight",
+      "uncertain": false
+    },
+    {
+      "start": 249.72,
+      "end": 251.48,
+      "text": "Don't let me go",
+      "uncertain": false
+    },
+    {
+      "start": 252.16,
+      "end": 269.26,
+      "text": "Oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh, oh",
+      "uncertain": true
+    }
+  ]
+}

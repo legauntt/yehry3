@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "songId": "distonyc-c48f19efb7dfe8c3d9f644eb",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-c48f19efb7dfe8c3d9f644eb-5b6b5bdb364a.mp3",
+  "audioSha256": "5b6b5bdb364a9fd13d72382d738549cd5fe9da02b18328df8d79db26e2f10ad2",
+  "inputSha256": "dad974506d85f07e29ca70b7e88d8a2398c192b8af08485625c2e4f5790c0f8d",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 235.04,
+  "segments": [
+    {
+      "start": 3.38,
+      "end": 9.54,
+      "text": "Yeah, sup nigger, gangsta rap nigger, gangsta rap nigger.",
+      "uncertain": false
+    },
+    {
+      "start": 9.54,
+      "end": 13.34,
+      "text": "Thank you.",
+      "uncertain": true
+    },
+    {
+      "start": 65.56,
+      "end": 68.62,
+      "text": "Yeah, yeah, yeah.",
+      "uncertain": true
+    },
+    {
+      "start": 69.54,
+      "end": 75.34,
+      "text": "yourself a nigga, nigga, nigga, nigga, nigga, nigga, nigga, nigga, nigga, cause I'm a motherfucking",
+      "uncertain": true
+    },
+    {
+      "start": 75.34,
+      "end": 80.02,
+      "text": "nigga, nigga, nigga, nigga, nigga, nigga, nigga, nigga, nigga, nigga, why you drink so",
+      "uncertain": true
+    },
+    {
+      "start": 80.02,
+      "end": 84.58,
+      "text": "much beer, nigga, nigga, nigga, nigga, nigga, nigga, nigga, nigga, nigga, nigga, I don't",
+      "uncertain": true
+    },
+    {
+      "start": 84.58,
+      "end": 95.22,
+      "text": "drink beer, I drink more liquor, cause I'm a nigga, I'm a motherfucking man, all that",
+      "uncertain": true
+    },
+    {
+      "start": 95.22,
+      "end": 106.78,
+      "text": "african-american shit fuck that i'm a nigga i ain't nicks i'm a nigga then i gga you already",
+      "uncertain": false
+    },
+    {
+      "start": 106.78,
+      "end": 116.68,
+      "text": "know why you need so much chicken why won't you make it in my kitchen",
+      "uncertain": true
+    },
+    {
+      "start": 119.86,
+      "end": 122.08,
+      "text": "Why you call them hoes bitches",
+      "uncertain": true
+    },
+    {
+      "start": 125.04,
+      "end": 126.88,
+      "text": "Because them hoes is bitches",
+      "uncertain": true
+    },
+    {
+      "start": 126.88,
+      "end": 132.42,
+      "text": "Why you slaying the hood",
+      "uncertain": false
+    },
+    {
+      "start": 132.42,
+      "end": 138.1,
+      "text": "Because I don't live in Bob Peckle woods",
+      "uncertain": true
+    },
+    {
+      "start": 138.1,
+      "end": 142.96,
+      "text": "Why you ain't got no job",
+      "uncertain": false
+    },
+    {
+      "start": 142.96,
+      "end": 145.48,
+      "text": "Nigger, nigger, nigger, nigger, nigger, nigger",
+      "uncertain": true
+    },
+    {
+      "start": 145.48,
+      "end": 148.26,
+      "text": "Seven powers an hour won't feed my dog",
+      "uncertain": true
+    },
+    {
+      "start": 148.26,
+      "end": 151.12,
+      "text": "Nigger, nigger, nigger, nigger, nigger, nigger",
+      "uncertain": false
+    },
+    {
+      "start": 151.12,
+      "end": 153.1,
+      "text": "Why your pants got a sash?",
+      "uncertain": false
+    },
+    {
+      "start": 153.46,
+      "end": 156.22,
+      "text": "Nigger, nigger, nigger, nigger, nigger, nigger",
+      "uncertain": false
+    },
+    {
+      "start": 156.22,
+      "end": 158.56,
+      "text": "Let's hear me down, it's all a nigger dad",
+      "uncertain": true
+    },
+    {
+      "start": 158.56,
+      "end": 161.42,
+      "text": "Nigger, nigger, nigger, nigger, nigger, nigger",
+      "uncertain": false
+    },
+    {
+      "start": 161.42,
+      "end": 163.08,
+      "text": "Why you scared to go to court?",
+      "uncertain": false
+    },
+    {
+      "start": 164.1,
+      "end": 167.14,
+      "text": "Shit, cause the judge look just like that motherfucker",
+      "uncertain": false
+    },
+    {
+      "start": 167.14,
+      "end": 170.16,
+      "text": "That put our ass on the boat and made me a nigger",
+      "uncertain": true
+    },
+    {
+      "start": 173.68,
+      "end": 175.18,
+      "text": "Mama Rag is a nigga",
+      "uncertain": true
+    },
+    {
+      "start": 178.3,
+      "end": 179.92,
+      "text": "The Rag is a nigga",
+      "uncertain": true
+    },
+    {
+      "start": 183.84,
+      "end": 185.3,
+      "text": "Unless that's a nigga",
+      "uncertain": true
+    },
+    {
+      "start": 188.64,
+      "end": 190.36,
+      "text": "And my Wu-Roth is a nigga",
+      "uncertain": true
+    },
+    {
+      "start": 195.36,
+      "end": 195.92,
+      "text": "Nigga",
+      "uncertain": false
+    },
+    {
+      "start": 212.28,
+      "end": 219.7,
+      "text": "I don't know what to do.",
+      "uncertain": true
+    },
+    {
+      "start": 230.16,
+      "end": 230.88,
+      "text": "You",
+      "uncertain": true
+    }
+  ]
+}
