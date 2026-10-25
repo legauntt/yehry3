@@ -1,5 +1,13 @@
 # yehry3 · The listening room
 
+Older static publications can omit the public `originalPrompt.finalLyricSheet`
+that Chairlift saved after lyric approval. Run
+`node scripts/sync-approved-lyric-sheets.mjs` to audit missing sheets, then add
+`--write` to restore them before building and deploying. This only adds public
+approved text after checking the recording URL and confirmed brief; differing
+existing sheets stop the operation. It preserves performance transcripts and
+does not change requests or recordings.
+
 Legacy files under `assets/song-videos/` retain their public URLs through 302
 redirects to identical copies in the `song-videos-v1` GitHub release. Production
 builds omit only files with matching release redirects; local builds keep originals.
