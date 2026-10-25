@@ -2,6 +2,258 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-a8fcbec856841d51c9d03c6d",
+      "title": "What Is Love (Tony C V9 Eurodance Return)",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a8fcbec856841d51c9d03c6d-4ed9c9ea8c45.mp3",
+      "duration": 230.0081632653061,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "remixOf": {
+        "songId": "distonyc-17b27a61f91630eaa844625a",
+        "title": "What Is Love (Tony C V9 Mambo Noir)",
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-17b27a61f91630eaa844625a-a2889ce95bda.mp3"
+      },
+      "publishedAt": "2026-10-25T07:05:14.976Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "What Is Love (Tony C V9 Eurodance Return)",
+        "recipe": "reinterpretation",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "1990s Eurodance reinterpretation in D minor: four-on-the-floor kick, crisp claps, open hi-hats, springy synth bass, bright chord stabs, organ-like pads, and a brief spare breakdown before the final sections. Keep one clear, steadily pitched melodic Tony V9 lead with connected phrasing and sustained hook notes; no backing-vocal stacks. Build from a restrained opening into a driving central chorus, then pace the final two sections with held phrases so the last sung “more” lands about 10 seconds before 230 seconds, followed by one resolved final chord and natural decay.",
+        "lyrics": "[Verse 1]\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\nBaby, don't hurt me\n\n[Verse 2]\nDon't hurt me no more\nOh, I don't know why you're not there\nI give you my love but you don't care\nSo what is right and what is wrong?\n\n[Verse 3]\nGive me a sign\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\n\n[Chorus]\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\nWhoa, whoa, whoa, whoa, whoa, yeah\n\n[Verse 4]\nWhoa, whoa, whoa, whoa, whoa, yeah\nOh, I don't know, what can I do?\nWhat else can I say, it's up to you\nI know we're one, just me and you\n\n[Verse 5]\nI can't go on\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\n\n[Chorus]\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\nWhoa, whoa, whoa, whoa, whoa, yeah\n\n[Verse 6]\nWhoa, whoa, whoa, whoa, whoa, yeah\nI want no other, no other lover\nThis is your life, our time\nWhen we are together, I need you forever\n\n[Verse 7]\nIs it love?\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\n\n[Verse 8]\nBaby, don't hurt me\nDon't hurt me no more\n[End]",
+        "duration": 230,
+        "bpm": 124,
+        "musicalSettings": {
+          "genre": "1990s Eurodance",
+          "meter": "4/4",
+          "structure": "Verse 1, Verse 2, Verse 3, Chorus, Verse 4, Verse 5, Chorus, Verse 6, Verse 7, Verse 8, resolved ending",
+          "performance": "Clear, melodic lead with connected Tony V9 phrasing and long hook sustains",
+          "energy": "Restrained synth opening grows into a driving dance-floor peak, drops briefly for the breakdown, then resolves warmly",
+          "lyricWorkflow": "Preserve the supplied lyric sheet exactly, using its existing sequence and repetitions",
+          "instruments": [
+            "electronic kick",
+            "claps",
+            "hi-hats",
+            "synth bass",
+            "synth stabs",
+            "organ-style synth chords",
+            "synth pads"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\nBaby, don't hurt me\n\n[Verse 2]\nDon't hurt me no more\nOh, I don't know why you're not there\nI give you my love but you don't care\nSo what is right and what is wrong?\n\n[Verse 3]\nGive me a sign\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\n\n[Chorus]\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\nWhoa, whoa, whoa, whoa, whoa, yeah\n\n[Verse 4]\nWhoa, whoa, whoa, whoa, whoa, yeah\nOh, I don't know, what can I do?\nWhat else can I say, it's up to you\nI know we're one, just me and you\n\n[Verse 5]\nI can't go on\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\n\n[Chorus]\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\nWhoa, whoa, whoa, whoa, whoa, yeah\n\n[Verse 6]\nWhoa, whoa, whoa, whoa, whoa, yeah\nI want no other, no other lover\nThis is your life, our time\nWhen we are together, I need you forever\n\n[Verse 7]\nIs it love?\nWhat is love?\nOh, baby, don't hurt me\nDon't hurt me no more\n\n[Verse 8]\nBaby, don't hurt me\nDon't hurt me no more",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 6.7,
+            "end": 9.58
+          },
+          {
+            "line": 2,
+            "start": 11.02,
+            "end": 13.9
+          },
+          {
+            "line": 3,
+            "start": 14.86,
+            "end": 17.58
+          },
+          {
+            "line": 4,
+            "start": 18.82,
+            "end": 24.32
+          },
+          {
+            "line": 8,
+            "start": 26.48,
+            "end": 29.78
+          },
+          {
+            "line": 9,
+            "start": 30.28,
+            "end": 33.66
+          },
+          {
+            "line": 10,
+            "start": 33.66,
+            "end": 37.6
+          },
+          {
+            "line": 13,
+            "start": 52.96,
+            "end": 56.36
+          },
+          {
+            "line": 14,
+            "start": 57.3,
+            "end": 61.62
+          },
+          {
+            "line": 15,
+            "start": 61.62,
+            "end": 64.24
+          },
+          {
+            "line": 16,
+            "start": 65.14,
+            "end": 67.52
+          },
+          {
+            "line": 19,
+            "start": 76.3,
+            "end": 79.44
+          },
+          {
+            "line": 20,
+            "start": 80.66,
+            "end": 83.6
+          },
+          {
+            "line": 21,
+            "start": 84.7,
+            "end": 88.18
+          },
+          {
+            "line": 26,
+            "start": 99.42,
+            "end": 106.32
+          },
+          {
+            "line": 27,
+            "start": 107.96,
+            "end": 118.16
+          },
+          {
+            "line": 28,
+            "start": 118.16,
+            "end": 121.9
+          },
+          {
+            "line": 31,
+            "start": 127.12,
+            "end": 130.04
+          },
+          {
+            "line": 32,
+            "start": 130.86,
+            "end": 133.42
+          },
+          {
+            "line": 33,
+            "start": 134.16,
+            "end": 137.78
+          },
+          {
+            "line": 34,
+            "start": 137.78,
+            "end": 141.5
+          },
+          {
+            "line": 37,
+            "start": 142.16,
+            "end": 145.34
+          },
+          {
+            "line": 38,
+            "start": 145.34,
+            "end": 149.3
+          },
+          {
+            "line": 39,
+            "start": 150.06,
+            "end": 153.32
+          },
+          {
+            "line": 40,
+            "start": 154.34,
+            "end": 157.66
+          },
+          {
+            "line": 43,
+            "start": 166.08,
+            "end": 171.96
+          },
+          {
+            "line": 44,
+            "start": 171.96,
+            "end": 180.12
+          },
+          {
+            "line": 45,
+            "start": 181.38,
+            "end": 185.48
+          },
+          {
+            "line": 46,
+            "start": 185.48,
+            "end": 188.6
+          },
+          {
+            "line": 50,
+            "start": 195.86,
+            "end": 199.34
+          },
+          {
+            "line": 51,
+            "start": 200.56,
+            "end": 203.5
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 15.76
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 13.37
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "voiceEpoch": 250,
+      "guide": {
+        "sha256": "6088e71368f2b66106fa971fdae532e05456f1cd52ea305c42862c3d371cd6ae",
+        "bytes": 5520239,
+        "duration": 230.008125,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-a8fcbec856841d51c9d03c6d-6088e71368f2.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Remix “What Is Love (Tony C V9 Mambo Noir)”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Remix “What Is Love (Tony C V9 Eurodance Rework)”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Remix “What Is Love (Tony C V9 AI Remix)”. Give it a new arrangement while keeping its identity.\n\nOriginal idea: Create a Tony C V9 AI remix cover of Haddaway's \"What Is Love\" using the supplied authoritative lyric sheet. Preserve all supplied words and repetitions in order. Newly compose a 1990s Eurodance arrangement guided by the analyzed exact reference. Title it What Is Love (Tony C V9 AI Remix). Hobby/testing request.\n\nOriginal sound: Exact requested video: G8RY_XOqJf4, Haddaway - \"What Is Love\" (Wind Music). Private audio analysis: 277.07s, 123.9 BPM; D minor strongest chroma candidate (.871), F major (.629). Keys/tempo are estimates. CLAP weak; instruments unknown. Creative Eurodance choices: four-on-floor kick, clap, hi-hats, springy synth bass, bright stabs, organ-like chords and pads. Keep electronic backing. Preserve every supplied whatlove.txt word, line and repetition in order; no replacement lyrics or added stock chants. Tony V9: smoky connected melodic singing, slurred vowels and catchable sustained hooks. Match prior 240s setting with short dance interludes and a spare breakdown; final supplied phrase near 230s, resolved natural ending. Lyric-preserving new composition for hobby/testing; metadata is not audio conditioning and exact original melody is not guaranteed. FREE Local ACE, one candidate, no paid or rented-GPU fallback.\n\nOriginal sound: Find a new gener\n\nOriginal sound: Surprise me with a new genre",
+        "direction": "Try a Eurodance arrangement/genre",
+        "keep": "Keep the recognizable hook and spirit of “What Is Love (Tony C V9 Mambo Noir)”.",
+        "basisSongs": [
+          "What Is Love (Tony C V9 Mambo Noir)"
+        ],
+        "voiceModel": "v9",
+        "voiceEpoch": 250,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 230
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-17b27a61f91630eaa844625a",
       "title": "What Is Love (Tony C V9 Mambo Noir)",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-17b27a61f91630eaa844625a-a2889ce95bda.mp3",
