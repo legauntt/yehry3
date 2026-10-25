@@ -19,8 +19,11 @@ export function qualityNotice(issues, suppliedReviewState, validationFailures, r
   if (!known.length && !failures.length) return "";
   const needsReview = failures.length > 0 && suppliedReviewState === "needs_review";
   const messages = known.map((issue) => {
-    if (issue.code === 'vocal_activity_check') return `Measured vocal activity: ${percent(issue.fraction)}%. The usual check requires ${percent(issue.requiredFraction)}%; recordings with at least ${percent(issue.minimumFraction)}% can continue with review when that check fails.`;
-    if (issue.code === 'voice_pitch_check') return `${issue.phrase}: ${issue.sourceFrames} pitched source frames and ${issue.convertedFrames} pitched converted frames out of ${issue.analyzedFrames} analyzed frames (${percent(issue.sourceFrames / issue.analyzedFrames)}% and ${percent(issue.convertedFrames / issue.analyzedFrames)}%). The voice check requires at least ${issue.minimumMutualFrames} matching pitched frames. A listening review is needed.`;
+    if (issue.code === 'vocal_activity_check') {
+      if (issue.fraction >= issue.requiredFraction) return `Vocal activity check passed: ${percent(issue.fraction)}% measured activity (minimum ${percent(issue.requiredFraction)}%).`;
+      return `Vocal activity check failed: ${percent(issue.fraction)}% measured activity; the usual check requires ${percent(issue.requiredFraction)}%. ${issue.fraction >= issue.minimumFraction ? `This meets the ${percent(issue.minimumFraction)}% minimum for publication with review.` : `This is below the ${percent(issue.minimumFraction)}% minimum for publication with review.`}`;
+    }
+    if (issue.code === 'voice_pitch_check') return `Pitch comparison failed for ${issue.phrase}: ${issue.sourceFrames} pitched source frames and ${issue.convertedFrames} pitched converted frames out of ${issue.analyzedFrames} analyzed frames (${percent(issue.sourceFrames / issue.analyzedFrames)}% and ${percent(issue.convertedFrames / issue.analyzedFrames)}%). The comparison requires at least ${issue.minimumMutualFrames} matching pitched frames. Too little matching pitch was detected to verify the converted voice automatically; a listening review is needed.`;
     if (issue.code === "low_vocal_coverage") return `Instrumental-heavy arrangement: ${Math.round(issue.fraction * 100)}% measured vocal activity. Sparse vocals were allowed for this request.`;
     if (issue.code === "unconfirmed_lyric_ending") return "Automatic lyric review could not confirm the intended closing words; a listening check is needed.";
     if (issue.code === "early_lyric_ending") return `Automatic lyric review suggests the closing words finish ${Math.round(issue.seconds)} seconds before the end; a listening check is needed.`;
