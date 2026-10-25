@@ -57,10 +57,11 @@ for (const file of publicEntries) {
   await stat(path.join(root, file));
   await cp(path.join(root, file), path.join(output, file), {
     recursive: true,
-    // Production redirects this unchanged legacy clip to its checksum-verified
-    // release copy, keeping the Azure bundle below the existing size limit.
+    // Production redirects these unchanged legacy clips to their checksum-verified
+    // release copies, keeping the Azure bundle below the existing size limit.
     filter: source => !process.env.YEHRY3_ARCHIVE_URL ||
-      source !== path.join(root, "assets", "song-videos", "20-miracle-darkwave-circus.mp4"),
+      !["20-miracle-darkwave-circus.mp4", "11-geglash-missing-save.mp4"]
+        .some(name => source === path.join(root, "assets", "song-videos", name)),
   });
 }
 await buildArtworkPreviews(root, output, artwork);
