@@ -3104,5 +3104,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-25T06:39:43.254Z",
     "history": []
+  },
+  "distonyc-17b27a61f91630eaa844625a": {
+    "src": "/assets/artwork/distonyc-17b27a61f91630eaa844625a-incubating-7f007ca02a47-0fab51edaf41f1fe-q86.webp",
+    "alt": "Cover artwork for What Is Love (Tony C V9 Mambo Noir).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "1ec87c453e5d59deda62c26b0c18a1536de8cd5cb2c5258b4ea2729ba0f94ff4",
+    "promptHash": "13883bb1add97bb031d71e10f1952f7d937c7dc7b544b7ad3d1851b246999120",
+    "createdAt": "2026-10-25T06:55:04.372Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-25T06:54:45.936Z",
+    "history": []
   }
 };
