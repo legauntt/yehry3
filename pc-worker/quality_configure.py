@@ -15,15 +15,34 @@ RULE = 'Too much instrumental space'
 GUARD = ast.parse("last-first>duration*.6 and max([g['seconds'] for g in gaps],default=0)<9.5", mode='eval').body
 INTRO_RULE = 'Long instrumental introduction'
 INTRO_GUARD = ast.parse('first<13', mode='eval').body
+VOCAL_RULE = 'Insufficient vocal signal activity'
+VOCAL_GUARD = ast.parse('float(mask.mean())>=.50', mode='eval').body
+MINIMUM_VOCAL_ACTIVITY = .05
+
+
+def review_vocal_activity(evidence, failures):
+    activity = evidence.get('voiced_energy_fraction')
+    if not isinstance(activity, (int, float)) or not math.isfinite(activity) or not 0 <= activity <= 1:
+        raise ValueError('Invalid vocal activity analysis')
+    if activity < MINIMUM_VOCAL_ACTIVITY: return False
+    if 'vocal_activity' not in failures: failures.append('vocal_activity')
+    return True
 
 
 def compile_policy(source, filename):
     tree = ast.parse(source, filename)
-    changed = {'break': 0, 'intro': 0}
+    changed = {'break': 0, 'intro': 0, 'vocal': 0}
 
     class Policy(ast.NodeTransformer):
         def visit_Assert(self, node):
             nonlocal changed
+            if (isinstance(node.msg, ast.Tuple) and len(node.msg.elts) == 2
+                    and isinstance(node.msg.elts[0], ast.Constant) and node.msg.elts[0].value == VOCAL_RULE
+                    and ast.dump(node.test) == ast.dump(VOCAL_GUARD)):
+                changed['vocal'] += 1
+                node.test = ast.BoolOp(op=ast.Or(), values=[node.test, ast.parse(
+                    '_distonyc_review_vocal_activity(evidence)', mode='eval').body])
+                return node
             if (isinstance(node.msg, ast.Tuple) and len(node.msg.elts) == 2
                     and isinstance(node.msg.elts[0], ast.Constant) and node.msg.elts[0].value == INTRO_RULE
                     and ast.dump(node.test) == ast.dump(INTRO_GUARD)):
@@ -35,9 +54,11 @@ def compile_policy(source, filename):
                     and isinstance(node.msg.elts[0], ast.Constant) and node.msg.elts[0].value == RULE
                     and ast.dump(node.test) == ast.dump(GUARD)):
                 changed['break'] += 1
-                # Retain the minimum vocal span, along with every surrounding
-                # assertion. Only the instrumental-break upper bound is advisory.
-                span = ast.copy_location(ast.Assert(test=node.test.values[0], msg=node.msg), node)
+                # Sparse vocal spans proceed with review above the activity floor.
+                # Surrounding integrity and ending assertions remain enforced.
+                span_test = ast.BoolOp(op=ast.Or(), values=[node.test.values[0], ast.parse(
+                    '_distonyc_review_vocal_activity(evidence)', mode='eval').body])
+                span = ast.copy_location(ast.Assert(test=span_test, msg=node.msg), node)
                 review = ast.copy_location(ast.Expr(value=ast.Call(
                     func=ast.Name(id='_distonyc_review_breaks', ctx=ast.Load()),
                     args=[ast.Name(id='gaps', ctx=ast.Load())], keywords=[])), node)
@@ -45,7 +66,7 @@ def compile_policy(source, filename):
             return node
 
     tree = Policy().visit(tree)
-    if changed != {'break': 1, 'intro': 1}:
+    if changed['break'] != 1 or changed['intro'] != 1 or changed['vocal'] > 1:
         raise ValueError('This arrangement checker is not supported by the instrumental-spacing policy')
     return compile(ast.fix_missing_locations(tree), filename, 'exec')
 
@@ -106,17 +127,21 @@ def configure(work, expected_sha):
     from nonverbal_recovery import policy_source, verify as verify_nonverbal
     code = compile_policy(policy_source(source.read_text('utf-8-sig'), work), str(source))
     issues = []
+    failures = []
     previous = sys.argv
     try:
         sys.argv = [str(source), '--work', str(work)]
         exec(code, {'__name__': '__main__', '__file__': str(source),
                     '_distonyc_accept_nonverbal': lambda evidence: verify_nonverbal(work, evidence),
                     '_distonyc_review_breaks': lambda gaps: review_breaks(gaps, issues),
-                    '_distonyc_review_intro': lambda first: review_intro(first, issues)})
+                    '_distonyc_review_intro': lambda first: review_intro(first, issues),
+                    '_distonyc_review_vocal_activity': lambda evidence: review_vocal_activity(evidence, failures)})
     finally: sys.argv = previous
     trim_silent_lead(work)
     save(work / 'arrangement-quality-policy.json', {'version': 1, 'source_sha256': expected_sha,
-         'qualityIssues': issues, 'integrity_checks_retained': True, 'original_checker_unchanged': True})
+         'qualityIssues': issues, 'validationFailures': failures,
+         'minimum_vocal_activity': MINIMUM_VOCAL_ACTIVITY,
+         'integrity_checks_retained': True, 'original_checker_unchanged': True})
 
 
 if __name__ == '__main__':

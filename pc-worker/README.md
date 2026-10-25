@@ -1,5 +1,15 @@
 # Distonyc on Windows
 
+## Sparse vocals and review publication
+
+The hash-checked arrangement adapter lets recordings with at least 5% detected
+vocal activity continue through voice conversion when the ordinary 50% coverage
+or vocal-span check fails. These exceptions retain `vocal_activity` in
+`validationFailures` through mastering and publication, so the song is playable
+and marked Needs Review even when Tony conversion succeeds. Below 5% remains a
+failed arrangement check. Ending, file integrity, and unchanged-input checks
+still apply; the frozen song checker is never rewritten.
+
 ## Admin audio edits
 
 After deploying Chairlift's audio-edit endpoints, run `./install-audio-editor.ps1 -Start` from this directory. It installs a separate CPU-only runtime under `%LOCALAPPDATA%/Distonyc/audio-editor` and the hidden **Distonyc Audio Editor** scheduled task. It uses the existing config and DPAPI worker credential, starts at login, and checks for restart every five minutes. It neither changes nor stops the music-generation worker. To update a running editor service, first let its job finish, then stop only this scheduled task and rerun the installer; existing runtime files are backed up under the configured state directory.

@@ -73,6 +73,7 @@ passed=True
                       'evidence': {'last_second_mix_dbfs': -59.64},
                       '_distonyc_review_breaks': lambda gaps: review_breaks(gaps, issues),
                       '_distonyc_accept_sparse_intent': lambda evidence: False,
+                      '_distonyc_review_vocal_activity': lambda evidence: False,
                       '_distonyc_review_intro': lambda first: review_intro(first, issues), **changes}
             exec(code, values)
             self.assertTrue(values['passed'])
