@@ -3152,5 +3152,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-25T08:09:42.437Z",
     "history": []
+  },
+  "distonyc-45a8a265adeec70a15ff1d8c": {
+    "src": "/assets/artwork/distonyc-45a8a265adeec70a15ff1d8c-incubating-397984059e66-73f46b4694e69dd3-q86.webp",
+    "alt": "Cover artwork for What Is Love (Midnight Drive Tony C Mix).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "de54421c4a5b266a4f7504cdac40d5a1508abe0ec8b314056e5a3347fa7efba7",
+    "promptHash": "7798155fbc5ec26460209573125938de66e9e69cc2161b71fbfe213421746ccd",
+    "createdAt": "2026-10-25T22:07:02.120Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-25T22:06:43.199Z",
+    "history": []
   }
 };
