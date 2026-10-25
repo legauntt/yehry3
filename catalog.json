@@ -665,7 +665,15 @@
           "pitchRepair": "haunted"
         },
         "generationProfile": "v8"
-      }
+      },
+      "qualityIssues": [
+        {
+          "code": "vocal_activity_check",
+          "fraction": 0.39416666666666667,
+          "requiredFraction": 0.5,
+          "minimumFraction": 0.05
+        }
+      ]
     },
     {
       "id": "distonyc-8367c61f5f4929515d7d5d10",
