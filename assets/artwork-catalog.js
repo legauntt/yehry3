@@ -3120,5 +3120,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-25T06:54:45.936Z",
     "history": []
+  },
+  "distonyc-a8fcbec856841d51c9d03c6d": {
+    "src": "/assets/artwork/distonyc-a8fcbec856841d51c9d03c6d-incubating-1b9777b6ad1b-df747c81d6bdecf2-q86.webp",
+    "alt": "Cover artwork for What Is Love (Tony C V9 Eurodance Return).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "c80b12c0ffdbc4711f983598458f50e7792172adba29d38ed866da1b0ce74416",
+    "promptHash": "c8656d30d5510ca242ed89e0cac019750b6863446566ba6982e2d7bf497e7033",
+    "createdAt": "2026-10-25T07:07:02.385Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-25T07:06:45.331Z",
+    "history": []
   }
 };

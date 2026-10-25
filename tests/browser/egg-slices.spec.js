@@ -1,4 +1,6 @@
 import { test, expect } from "@playwright/test";
+import { eggClips, pickEggMoment } from "../../assets/egg-clips.js";
+import { readFile } from "node:fs/promises";
 
 const songs = ["one", "two"].map(id => ({
   id, title: `Song ${id}`, url: `/${id}.wav`, duration: 20, collection: "tonyai",
@@ -15,6 +17,15 @@ const silence = (seconds = 20) => {
   head.writeUInt16LE(8, 34); head.write("data", 36); head.writeUInt32LE(data.length, 40);
   return Buffer.concat([head, data]);
 };
+const serveSilence = (route, seconds = 20) => {
+  const body = silence(seconds);
+  const range = /^bytes=(\d+)-(\d*)$/.exec(route.request().headers().range || "");
+  const start = range ? Number(range[1]) : 0;
+  const end = range?.[2] ? Math.min(Number(range[2]), body.length - 1) : body.length - 1;
+  return route.fulfill({ status: range ? 206 : 200, contentType: "audio/wav",
+    headers: { "Accept-Ranges": "bytes", ...(range ? { "Content-Range": `bytes ${start}-${end}/${body.length}` } : {}) },
+    body: body.subarray(start, end + 1) });
+};
 
 test.beforeEach(async ({ page }) => {
   await page.route("https://fonts.googleapis.com/**", route => route.abort());
@@ -23,15 +34,7 @@ test.beforeEach(async ({ page }) => {
   await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs } }));
   await page.route("**/yehry3/queue?*", route => route.fulfill({ json: { inStudio: [], queued: [], recent: [] } }));
   await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips } }));
-  await page.route(/\/(one|two)\.wav$/, route => {
-    const body = silence();
-    const range = /^bytes=(\d+)-(\d*)$/.exec(route.request().headers().range || "");
-    const start = range ? Number(range[1]) : 0;
-    const end = range?.[2] ? Math.min(Number(range[2]), body.length - 1) : body.length - 1;
-    return route.fulfill({ status: range ? 206 : 200, contentType: "audio/wav",
-      headers: { "Accept-Ranges": "bytes", ...(range ? { "Content-Range": `bytes ${start}-${end}/${body.length}` } : {}) },
-      body: body.subarray(start, end + 1) });
-  });
+  await page.route(/\/(one|two)\.wav$/, route => serveSilence(route));
   await page.addInitScript(() => {
     window.__clips = [];
     const play = HTMLMediaElement.prototype.play;
@@ -195,6 +198,59 @@ test("unknown durations use real metadata and clicks outside the triple-click wi
   const time = await page.evaluate(() => window.__clips.at(-1).currentTime);
   expect(time).toBeGreaterThanOrEqual(6);
   expect(time).toBeLessThan(8);
+});
+
+test("Morning Routine's quality notice preserves preview lyrics and record exclusions", async ({ page }) => {
+  const morning = { ...songs[0], title: "Morning Routine",
+    qualityIssues: [{ code: "long_instrumental_break", seconds: 15.72 }],
+    lyrics: { text: "first morning line\nnext morning line", cues: [
+      { line: 0, start: 2, end: 4 }, { line: 1, start: 4.1, end: 7.5 },
+    ] },
+  };
+  const catalog = [morning, songs[1]];
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: catalog } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: catalog } }));
+  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: eggClips([morning]) } }));
+  await page.goto("/");
+  const preview = page.getByRole("button", { name: "Play a random clip from Morning Routine", exact: true });
+  const loaded = page.waitForResponse("**/egg-clips.json");
+  await preview.focus();
+  await loaded;
+  await preview.press("Enter");
+  await expect(page.locator(".egg-caption-title")).toHaveText("♪ Morning Routine");
+  await expect(page.locator(".egg-caption-words")).toHaveText("first morning line");
+  await page.evaluate(() => { window.__clips.at(-1).currentTime = 4.3; });
+  await expect(page.locator(".egg-caption-words")).toHaveText("next morning line");
+  await page.locator(".record").click({ force: true, clickCount: 3 });
+  await expect(page.locator(".egg-caption-title")).toHaveText("♪ Song two");
+});
+
+test("published Morning Routine captions follow its actual lyric cues on mobile", async ({ page, request }) => {
+  const catalog = JSON.parse(await readFile(new URL('../../catalog.json', import.meta.url), 'utf8'));
+  const morning = catalog.songs.find(song => song.id === 'distonyc-d59c2b17c667891420654e76');
+  const response = await request.get('/egg-clips.json');
+  expect(response.ok()).toBe(true);
+  const clip = (await response.json()).clips.find(clip => clip.id === morning.id);
+  expect(clip).toBeTruthy();
+  const moment = pickEggMoment([clip], () => 0.5);
+  expect(moment.lines.length).toBeGreaterThan(1);
+  await page.route("**/yehry3/{catalog,songs/summary}", route => route.fulfill({ json: { songs: [morning] } }));
+  await page.route("**/catalog-summary.json", route => route.fulfill({ json: { songs: [morning] } }));
+  await page.route("**/egg-clips.json", route => route.fulfill({ json: { clips: [clip] } }));
+  // Keep the real catalog and caption timings; replace only audio bytes for deterministic playback.
+  await page.route(clip.url, route => serveSilence(route, Math.ceil(morning.duration)));
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/');
+  const preview = page.getByRole('button', { name: 'Play a random clip from Morning Routine', exact: true });
+  const loaded = page.waitForResponse('**/egg-clips.json');
+  await preview.focus();
+  await loaded;
+  await preview.click();
+  await expect(page.locator('.egg-caption-title')).toHaveText('♪ Morning Routine');
+  await expect(page.locator('.egg-caption-words')).toHaveText(moment.lines[0].words);
+  await page.evaluate(time => { window.__clips.at(-1).currentTime = time; }, moment.lines[1].start + 0.1);
+  await expect(page.locator('.egg-caption-words')).toHaveText(moment.lines[1].words);
+  await page.screenshot({ path: 'artifacts/morning-routine-caption-mobile.png' });
 });
 
 test("slow seeks and buffering keep the caption and picture with the sound", async ({ page }) => {

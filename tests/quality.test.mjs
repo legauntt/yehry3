@@ -10,9 +10,14 @@ test('review notes start expanded and explain measured checks', () => {
   assert.match(html, /quality-notice" open/);
   assert.match(html, /39.4%/);
   assert.match(html, /requires 50%/);
-  assert.match(html, /at least 5%/);
+  assert.match(html, /Vocal activity check failed: 39.4%/);
+  assert.match(html, /meets the 5% minimum for publication with review/);
+  assert.match(html, /Pitch comparison failed for phrase-001/);
   assert.match(html, /16 pitched source frames and 6 pitched converted frames out of 929/);
   assert.doesNotMatch(qualityNotice([{code:'voice_pitch_check',phrase:'<script>'}], 'needs_review', ['voice_validation']), /<script>/);
+  const passed = qualityNotice([{code:'vocal_activity_check', fraction:.584916, requiredFraction:.5, minimumFraction:.05}], 'needs_review', ['voice_validation']);
+  assert.match(passed, /Vocal activity check passed: 58.5% measured activity \(minimum 50%\)/);
+  assert.doesNotMatch(passed, /5% minimum for publication|Vocal activity check failed/);
 });
 
 test('quality notice is useful and cannot inject untrusted markup', () => {
