@@ -59,9 +59,10 @@ test("moments run from two seconds to nineteen and never bridge a long break", (
   assert.deepEqual(songMoments({ lyrics: { text: "a", cues: [{ line: 0, start: 0, end: 20 }] } }).lines, []);
 });
 
-test("recordings with quality issues or no audio stay out of the egg", () => {
+test("explicit previews retain timed lyrics for recordings with quality notices", () => {
   const clips = eggClips([song(), song({ id: "b", qualityIssues: [{ code: "x" }] }), song({ id: "c", url: "" }), song({ id: "d", lyrics: { text: "x" } })]);
-  assert.deepEqual(clips.map((clip) => clip.id), ["a-1"]);
+  assert.deepEqual(clips.map((clip) => clip.id), ["a-1", "b"]);
+  assert.deepEqual(clips[1].lines, clips[0].lines);
 });
 
 test("a pick avoids the previous song when it can", () => {
@@ -111,6 +112,9 @@ test("the build publishes moments that fit inside each recording", async () => {
   const { clips } = JSON.parse(await readFile(new URL("../dist/egg-clips.json", import.meta.url), "utf8"));
   const catalog = JSON.parse(await readFile(new URL("../dist/catalog-summary.json", import.meta.url), "utf8")).songs;
   assert.ok(clips.length > 20);
+  const morning = clips.find(clip => clip.id === "distonyc-d59c2b17c667891420654e76");
+  assert.equal(morning?.title, "Morning Routine");
+  assert.ok(morning.moments.length > 0 && morning.lines.length > 1);
   for (const clip of clips) {
     const { duration } = catalog.find((entry) => entry.id === clip.id);
     for (const [first, last] of clip.moments) {

@@ -59,10 +59,11 @@ export function songMoments(song) {
   return { lines, moments: [...moments.values()] };
 }
 
-// Recordings with measured quality problems could open on a glitch, so they stay out of the egg.
+// Explicit song previews need captions even when a recording has a quality notice.
+// The random record's song selection separately excludes those recordings.
 export function eggClips(songs) {
   return (Array.isArray(songs) ? songs : []).flatMap((song) => {
-    if (!song?.id || !song.url || song.qualityIssues?.length) return [];
+    if (!song?.id || !song.url) return [];
     const { lines, moments } = songMoments(song);
     return moments.length ? [{ id: song.id, title: song.title, url: song.url, publishedAt: song.publishedAt || null, lines, moments }] : [];
   });
