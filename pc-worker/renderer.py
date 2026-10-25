@@ -17,6 +17,9 @@ def with_quality(result):
     path = Path(result['work_path']) / 'mix-results.json'
     if not path.exists(): return result
     report = load(path)
+    if report.get('validationFailures'):
+        from review_measurements import with_measurements
+        report['qualityIssues'] = with_measurements(report.get('qualityIssues', []), result['work_path'])
     if report.get('qualityIssues'): result['qualityIssues'] = report['qualityIssues']
     if report.get('validationFailures'):
         result.update(reviewState='needs_review', validationFailures=report['validationFailures'])

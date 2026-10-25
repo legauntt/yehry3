@@ -247,13 +247,15 @@ def export(work):
             save(prior, load(report_path))
     arrangement = load(work / 'arrangement-checks.json') if (work / 'arrangement-checks.json').exists() else {}
     voice_checks = load(work / 'voice-checks.json') if (work / 'voice-checks.json').exists() else {'passed': False, 'review_required': True}
+    from review_measurements import with_measurements
+    result['qualityIssues'] = with_measurements(previous.get('qualityIssues', []), work)
     report = {**result, 'status': 'completed', 'voice_checks': voice_checks,
               'mp3_true_peak_dbfs': checks['peak_dbfs'], 'final_half_second_rms_dbfs': checks['tail_dbfs'],
               # Keep measured evidence when available. The compatibility zero is
               # explicitly unmeasured, never evidence that the dropout check passed.
               'longest_missing_vocal_run_seconds': previous.get('longest_missing_vocal_run_seconds', 0),
               'vocal_dropout_measured': previous.get('vocal_dropout_measured', 'longest_missing_vocal_run_seconds' in previous),
-              'qualityIssues': previous.get('qualityIssues', []),
+              'qualityIssues': result['qualityIssues'],
               'arrangement_measured': bool(arrangement),
               'final_post_vocal_seconds': max(0, duration - arrangement.get('last_detected_voice', duration)),
               'arrangement': {'first_detected_voice': arrangement.get('first_detected_voice', 0), **arrangement},

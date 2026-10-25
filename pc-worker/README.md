@@ -345,6 +345,8 @@ For a correction after publication, `sync-lyric-cues.ps1 -Catalog <catalog.json>
 
 ## Installed files and controls
 
+Review publications include numeric vocal activity and available failed phrase pitch-frame counts through `review_measurements.py`. Public notes include the measured percentages and thresholds, never raw exceptions or local paths. Existing recordings can use `review_measurements.backfill(config, api, song_id, exact_url, work)` to update the API and conflict-aware fallback catalog without changing audio or saved render results. Review notes start expanded in the listening UI.
+
 Installation: `%LOCALAPPDATA%\Distonyc`. `config.json` contains paths and the worker ID. `worker-credential.xml` is DPAPI protected. `state\health.json` reports the last run; `state\worker.log` and `state\jobs\<request-id>\` contain private logs and journals. Full audio exports remain in `Music\troofs\mp3s` and `Music\troofs\wavs`.
 
 ```powershell

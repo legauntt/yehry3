@@ -5,7 +5,9 @@ const song = {
   id: "preference-song", title: "A song with an issue", duration: 240,
   url: "/test.mp3", collection: "distonyc", collections: ["distonyc", "fearhunger"],
   reviewState: "needs_review", validationFailures: ["voice_validation"],
-  qualityIssues: [{ code: "long_instrumental_break", seconds: 35.04 }],
+  qualityIssues: [{ code: "long_instrumental_break", seconds: 35.04 },
+    { code: "vocal_activity_check", fraction: .394166, requiredFraction: .5, minimumFraction: .05 },
+    { code: "voice_pitch_check", phrase: "phrase-001", sourceFrames: 16, convertedFrames: 6, analyzedFrames: 929, minimumMutualFrames: 11 }],
   lyrics: { text: "The saved lyric sheet.", kind: "written" },
 };
 
@@ -30,6 +32,9 @@ test("issues default on and the preference persists across reloads and listening
   const toggle = page.getByRole("checkbox", { name: "Show review notes" });
   await expect(toggle).toBeChecked();
   await expect(page.locator(".quality-notice")).toBeVisible();
+  await expect(page.locator(".quality-notice")).toHaveAttribute("open", "");
+  await expect(page.locator(".quality-notice p")).toContainText("39.4%");
+  await expect(page.locator(".quality-notice p")).toContainText("6 pitched converted frames");
   await expect(page.locator(".badge.needs_review")).toBeVisible();
   await toggle.uncheck();
   await expect(page.locator(".quality-notice")).toBeHidden();
@@ -83,7 +88,7 @@ test("Backstage review reasons remain visible with listening notices disabled", 
     await page.goto(path);
     const notice = page.locator(".admin-queue .quality-notice");
     await expect(notice).toBeVisible();
-    await notice.locator("summary").click();
+    await expect(notice).toHaveAttribute("open", "");
     await expect(notice.locator("p")).toContainText("Automatic validation detected missing vocal passages.");
     await page.setViewportSize({ width: 390, height: 844 });
     await expect(notice.locator("p")).toBeVisible();
