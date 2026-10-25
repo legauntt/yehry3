@@ -476,7 +476,23 @@
           "pitchRepair": "haunted"
         },
         "generationProfile": "v8"
-      }
+      },
+      "qualityIssues": [
+        {
+          "code": "vocal_activity_check",
+          "fraction": 0.5849166666666666,
+          "requiredFraction": 0.5,
+          "minimumFraction": 0.05
+        },
+        {
+          "code": "voice_pitch_check",
+          "phrase": "phrase-001",
+          "sourceFrames": 16,
+          "convertedFrames": 6,
+          "analyzedFrames": 929,
+          "minimumMutualFrames": 11
+        }
+      ]
     },
     {
       "id": "distonyc-10f8138491811e227258cd9a",
