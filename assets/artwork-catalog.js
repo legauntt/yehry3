@@ -3040,5 +3040,53 @@ export default {
         "createdAt": "2026-10-18T00:16:04.396Z"
       }
     ]
+  },
+  "distonyc-10f8138491811e227258cd9a": {
+    "src": "/assets/artwork/distonyc-10f8138491811e227258cd9a-incubating-adc273114868-193c384ab37d2cb6-q86.webp",
+    "alt": "Cover artwork for What Is Love (Tony C V9 Eurodance Remix).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "4717b95b993d80f4dc1eec8b840933cb3b0acb4b75dfd280cadcc2b308b45bdf",
+    "promptHash": "58ee3c5ec05e84d214934969c58ccd74f6ca118958fc3f3dc97bb7ac598b80aa",
+    "createdAt": "2026-10-25T06:28:05.004Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-25T06:27:46.056Z",
+    "history": []
+  },
+  "distonyc-8367c61f5f4929515d7d5d10": {
+    "src": "/assets/artwork/distonyc-8367c61f5f4929515d7d5d10-incubating-a4abaf3d8cde-cda8ed6db56b62ab-q86.webp",
+    "alt": "Cover artwork for Tony C in the Chair (Cathedral Code Mix).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "c70b391cda62596ed410b1591acc03f0934776bd44a9772e66c664fc3c046e4d",
+    "promptHash": "a088012768f33892c8f49a725a378dc4f8cc30bd10bddbcd59d821e3cb29e008",
+    "createdAt": "2026-10-25T06:28:08.541Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-25T06:27:46.056Z",
+    "history": []
+  },
+  "distonyc-321e0df040060e3041bac647": {
+    "src": "/assets/artwork/distonyc-321e0df040060e3041bac647-incubating-fc75ccefff5e-841750eb7dfd7660-q86.webp",
+    "alt": "Cover artwork for Tony C in the Chair.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "3ebfa2f88cd7a7347b94e020ad7a871b2cb0de38447b23ef377e496cbab7ee47",
+    "promptHash": "482af96b4719e0794fd1bbfde4b6c55c13f8dec25582cc9d10acf617aabde034",
+    "createdAt": "2026-10-25T06:28:10.501Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-25T06:27:46.056Z",
+    "history": []
   }
 };
