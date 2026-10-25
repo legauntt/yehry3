@@ -3136,5 +3136,21 @@ export default {
     "previous": null,
     "firstSeenAt": "2026-10-25T07:06:45.331Z",
     "history": []
+  },
+  "distonyc-272e93daf9d72b41ec6d062e": {
+    "src": "/assets/artwork/distonyc-272e93daf9d72b41ec6d062e-incubating-8b5429ca4529-e0c0de18227a87ad-q86.webp",
+    "alt": "Cover artwork for What Is Love (Tony C Eurodance Rework).",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "39878a901e5ed2eca562511d7484f46c560372530b059e487e97cb75c1a7768b",
+    "promptHash": "cafac3a1ba573ccf32734cfe8d83b1b9e300388fcabd54e79ae98006820bfbfd",
+    "createdAt": "2026-10-25T08:10:01.248Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-25T08:09:42.437Z",
+    "history": []
   }
 };
