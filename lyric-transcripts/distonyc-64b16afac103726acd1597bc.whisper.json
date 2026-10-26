@@ -1,0 +1,307 @@
+{
+  "version": 1,
+  "songId": "distonyc-64b16afac103726acd1597bc",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-64b16afac103726acd1597bc-08816ca14718.mp3",
+  "audioSha256": "08816ca14718f6b6fe17a93a817f3a4237a67e246a3120ddf7462708946710e2",
+  "inputSha256": "6a1745041fc7cd9f8ab3ec21cac7c802420eecd5e82bac962ea655f27e87a96f",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 314.906125,
+  "segments": [
+    {
+      "start": 6.74,
+      "end": 14.42,
+      "text": "It's twelve o'clock Americans, another day closer to victory, and for all of you out",
+      "uncertain": true
+    },
+    {
+      "start": 14.42,
+      "end": 19.98,
+      "text": "they're on at the high in the lines. This is your song.",
+      "uncertain": true
+    },
+    {
+      "start": 33.06,
+      "end": 40.94,
+      "text": "This war is a lie. Judge the righteous from their place on high. But I wonder who",
+      "uncertain": false
+    },
+    {
+      "start": 40.94,
+      "end": 51.62,
+      "text": "they blame if their ivory towers were set aflame? And how did it seem to watch 9-11 on a TV screen",
+      "uncertain": true
+    },
+    {
+      "start": 52.94,
+      "end": 58.54,
+      "text": "while we lived through it, cities burning in a fiery pitch?",
+      "uncertain": false
+    },
+    {
+      "start": 63.26,
+      "end": 70.42,
+      "text": "We march across the killing fields. We set the laws with swords and shields.",
+      "uncertain": false
+    },
+    {
+      "start": 70.42,
+      "end": 73.64,
+      "text": "Our funeral pyres light up the sky",
+      "uncertain": false
+    },
+    {
+      "start": 73.64,
+      "end": 77.16,
+      "text": "We send our children off to die",
+      "uncertain": false
+    },
+    {
+      "start": 77.16,
+      "end": 80.34,
+      "text": "Treacherous paths we walk alone",
+      "uncertain": false
+    },
+    {
+      "start": 80.34,
+      "end": 83.82,
+      "text": "Our hands and hearts have turned to stone",
+      "uncertain": false
+    },
+    {
+      "start": 83.82,
+      "end": 87.36,
+      "text": "These are the chances that we take",
+      "uncertain": false
+    },
+    {
+      "start": 87.36,
+      "end": 90.86,
+      "text": "The sacrifices that we make",
+      "uncertain": false
+    },
+    {
+      "start": 111.24,
+      "end": 113.7,
+      "text": "Now a shaky hand",
+      "uncertain": false
+    },
+    {
+      "start": 113.7,
+      "end": 117.76,
+      "text": "Brings the news from a far off land",
+      "uncertain": false
+    },
+    {
+      "start": 117.76,
+      "end": 121.12,
+      "text": "This man they cut him down",
+      "uncertain": false
+    },
+    {
+      "start": 121.12,
+      "end": 124.56,
+      "text": "Stilled his blood on foreign ground",
+      "uncertain": false
+    },
+    {
+      "start": 124.56,
+      "end": 127.92,
+      "text": "His loss should be a sign",
+      "uncertain": false
+    },
+    {
+      "start": 127.92,
+      "end": 131.22,
+      "text": "Of valor to those left behind",
+      "uncertain": true
+    },
+    {
+      "start": 131.22,
+      "end": 134.44,
+      "text": "The end, the letter read",
+      "uncertain": false
+    },
+    {
+      "start": 134.44,
+      "end": 138.0,
+      "text": "I'm sorry ma'am, but your son is dead",
+      "uncertain": false
+    },
+    {
+      "start": 139.22,
+      "end": 143.14,
+      "text": "We march across the killing fields",
+      "uncertain": false
+    },
+    {
+      "start": 143.14,
+      "end": 146.42,
+      "text": "We set the laws with swords and shields",
+      "uncertain": false
+    },
+    {
+      "start": 146.42,
+      "end": 149.66,
+      "text": "Our funeral pyres light up the sky",
+      "uncertain": false
+    },
+    {
+      "start": 149.66,
+      "end": 153.2,
+      "text": "We send our children off to die",
+      "uncertain": false
+    },
+    {
+      "start": 153.2,
+      "end": 156.42,
+      "text": "Treacherous paths, we walk alone",
+      "uncertain": false
+    },
+    {
+      "start": 156.42,
+      "end": 159.88,
+      "text": "Our hands and hearts have turned to stone",
+      "uncertain": false
+    },
+    {
+      "start": 159.88,
+      "end": 163.16,
+      "text": "These are the chances that we take",
+      "uncertain": false
+    },
+    {
+      "start": 163.16,
+      "end": 166.96,
+      "text": "The sacrifices we must make",
+      "uncertain": false
+    },
+    {
+      "start": 186.42,
+      "end": 193.42,
+      "text": "We remember each of us gathered here today, safely sheltered.",
+      "uncertain": false
+    },
+    {
+      "start": 194.16,
+      "end": 203.84,
+      "text": "Remember the graves far away, nurses, soldiers, children stabbed in the back.",
+      "uncertain": false
+    },
+    {
+      "start": 204.06,
+      "end": 210.56,
+      "text": "But remembering is not enough, hating is not enough, sacrifices.",
+      "uncertain": false
+    },
+    {
+      "start": 211.24,
+      "end": 214.28,
+      "text": "What do they ask of us, the heroes we mourn?",
+      "uncertain": false
+    },
+    {
+      "start": 214.28,
+      "end": 217.34,
+      "text": "What do they ask of us, our marching sons",
+      "uncertain": false
+    },
+    {
+      "start": 217.34,
+      "end": 221.94,
+      "text": "Across the sea, stand shoulder to shoulder with them",
+      "uncertain": true
+    },
+    {
+      "start": 221.94,
+      "end": 225.32,
+      "text": "Forging the guns of vengeance",
+      "uncertain": false
+    },
+    {
+      "start": 228.0,
+      "end": 231.88,
+      "text": "We march across the killing fields",
+      "uncertain": false
+    },
+    {
+      "start": 231.88,
+      "end": 235.16,
+      "text": "We set the laws with swords and shields",
+      "uncertain": false
+    },
+    {
+      "start": 235.16,
+      "end": 238.4,
+      "text": "Our funeral pyres light up the sky",
+      "uncertain": false
+    },
+    {
+      "start": 238.4,
+      "end": 241.96,
+      "text": "We send our children off to die",
+      "uncertain": false
+    },
+    {
+      "start": 244.28,
+      "end": 251.34,
+      "text": "alone our hands and hearts have turned to stone these are the chances that we",
+      "uncertain": true
+    },
+    {
+      "start": 251.34,
+      "end": 255.72,
+      "text": "take the sacrifices we must make",
+      "uncertain": false
+    },
+    {
+      "start": 271.04,
+      "end": 274.98,
+      "text": "We march across the killing fields",
+      "uncertain": false
+    },
+    {
+      "start": 274.98,
+      "end": 278.24,
+      "text": "We set the laws and the swords and shields",
+      "uncertain": true
+    },
+    {
+      "start": 278.24,
+      "end": 281.52,
+      "text": "Our funeral pyres light up the sky",
+      "uncertain": false
+    },
+    {
+      "start": 281.52,
+      "end": 285.1,
+      "text": "We send our children off to die",
+      "uncertain": false
+    },
+    {
+      "start": 285.1,
+      "end": 288.24,
+      "text": "Treacherous paths we walk alone",
+      "uncertain": false
+    },
+    {
+      "start": 288.24,
+      "end": 291.72,
+      "text": "Our hands and hearts have turned to stone",
+      "uncertain": false
+    },
+    {
+      "start": 291.72,
+      "end": 295.18,
+      "text": "These are the chances that we take",
+      "uncertain": false
+    },
+    {
+      "start": 295.18,
+      "end": 298.46,
+      "text": "The sacrifice we can't remake",
+      "uncertain": false
+    }
+  ]
+}
