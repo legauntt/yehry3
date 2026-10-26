@@ -3232,5 +3232,21 @@ export default {
         "createdAt": "2026-10-25T22:15:59.785Z"
       }
     ]
+  },
+  "distonyc-64b16afac103726acd1597bc": {
+    "src": "/assets/artwork/distonyc-64b16afac103726acd1597bc-incubating-0c4bd0b607ba-f13bbd7dda890cdd-q86.webp",
+    "alt": "Cover artwork for Killing Fields.",
+    "theme": "generated",
+    "tier": 0,
+    "remixed": false,
+    "treatment": "incubating",
+    "model": "gpt-image-2",
+    "sourceHash": "b8dee562db1d5f9007c466495ee6af5ee778e16ef372fdbf8595d8ab75922634",
+    "promptHash": "84127faf937a503f9f4bdc863da4cbaedfc5aafa2230a828f6a4b3e580a84022",
+    "createdAt": "2026-10-26T22:22:03.218Z",
+    "missingSources": [],
+    "previous": null,
+    "firstSeenAt": "2026-10-26T22:21:44.322Z",
+    "history": []
   }
 };
