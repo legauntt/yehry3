@@ -3058,36 +3058,48 @@ export default {
     "history": []
   },
   "distonyc-8367c61f5f4929515d7d5d10": {
-    "src": "/assets/artwork/distonyc-8367c61f5f4929515d7d5d10-incubating-a4abaf3d8cde-cda8ed6db56b62ab-q86.webp",
+    "src": "/assets/artwork/distonyc-8367c61f5f4929515d7d5d10-mature-c4fb190843d1-85e5d74a2abcc9b4-q86.webp",
     "alt": "Cover artwork for Tony C in the Chair (Cathedral Code Mix).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "c70b391cda62596ed410b1591acc03f0934776bd44a9772e66c664fc3c046e4d",
-    "promptHash": "a088012768f33892c8f49a725a378dc4f8cc30bd10bddbcd59d821e3cb29e008",
-    "createdAt": "2026-10-25T06:28:08.541Z",
+    "promptHash": "1099a5564dec6ee62a4ab23800ae85048a9047b6b92a1d98d3d07289e0f94643",
+    "createdAt": "2026-10-26T06:31:34.409Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-8367c61f5f4929515d7d5d10-incubating-a4abaf3d8cde-cda8ed6db56b62ab-q86.webp",
     "firstSeenAt": "2026-10-25T06:27:46.056Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-8367c61f5f4929515d7d5d10-incubating-a4abaf3d8cde-cda8ed6db56b62ab-q86.webp",
+        "alt": "Cover artwork for Tony C in the Chair (Cathedral Code Mix).",
+        "createdAt": "2026-10-25T06:28:08.541Z"
+      }
+    ]
   },
   "distonyc-321e0df040060e3041bac647": {
-    "src": "/assets/artwork/distonyc-321e0df040060e3041bac647-incubating-fc75ccefff5e-841750eb7dfd7660-q86.webp",
+    "src": "/assets/artwork/distonyc-321e0df040060e3041bac647-mature-05637abc2343-feae1700b775f4fa-q86.webp",
     "alt": "Cover artwork for Tony C in the Chair.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "3ebfa2f88cd7a7347b94e020ad7a871b2cb0de38447b23ef377e496cbab7ee47",
-    "promptHash": "482af96b4719e0794fd1bbfde4b6c55c13f8dec25582cc9d10acf617aabde034",
-    "createdAt": "2026-10-25T06:28:10.501Z",
+    "promptHash": "bd860b05242c3722c7fbcca44501dbe754a0c7f7d2f0016ce99af50d1022c94e",
+    "createdAt": "2026-10-26T06:31:33.460Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-321e0df040060e3041bac647-incubating-fc75ccefff5e-841750eb7dfd7660-q86.webp",
     "firstSeenAt": "2026-10-25T06:27:46.056Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-321e0df040060e3041bac647-incubating-fc75ccefff5e-841750eb7dfd7660-q86.webp",
+        "alt": "Cover artwork for Tony C in the Chair.",
+        "createdAt": "2026-10-25T06:28:10.501Z"
+      }
+    ]
   },
   "distonyc-47f5dcb0840fc61ec80b1a39": {
     "src": "/assets/artwork/distonyc-47f5dcb0840fc61ec80b1a39-incubating-64103e14dff1-c9fe9f0b2dfaa937-q86.webp",
