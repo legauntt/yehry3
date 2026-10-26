@@ -3168,20 +3168,26 @@ export default {
     ]
   },
   "distonyc-272e93daf9d72b41ec6d062e": {
-    "src": "/assets/artwork/distonyc-272e93daf9d72b41ec6d062e-incubating-8b5429ca4529-e0c0de18227a87ad-q86.webp",
+    "src": "/assets/artwork/distonyc-272e93daf9d72b41ec6d062e-mature-1eb83296a8f0-fd25b94bb4fb9747-q86.webp",
     "alt": "Cover artwork for What Is Love (Tony C Eurodance Rework).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "39878a901e5ed2eca562511d7484f46c560372530b059e487e97cb75c1a7768b",
-    "promptHash": "cafac3a1ba573ccf32734cfe8d83b1b9e300388fcabd54e79ae98006820bfbfd",
-    "createdAt": "2026-10-25T08:10:01.248Z",
+    "promptHash": "1caf475dbabee623b2725e8f0b7cec052fbae847443a7651a17bc025cdb4c659",
+    "createdAt": "2026-10-26T08:10:27.122Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-272e93daf9d72b41ec6d062e-incubating-8b5429ca4529-e0c0de18227a87ad-q86.webp",
     "firstSeenAt": "2026-10-25T08:09:42.437Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-272e93daf9d72b41ec6d062e-incubating-8b5429ca4529-e0c0de18227a87ad-q86.webp",
+        "alt": "Cover artwork for What Is Love (Tony C Eurodance Rework).",
+        "createdAt": "2026-10-25T08:10:01.248Z"
+      }
+    ]
   },
   "distonyc-45a8a265adeec70a15ff1d8c": {
     "src": "/assets/artwork/distonyc-45a8a265adeec70a15ff1d8c-incubating-397984059e66-73f46b4694e69dd3-q86.webp",
