@@ -3190,20 +3190,26 @@ export default {
     ]
   },
   "distonyc-45a8a265adeec70a15ff1d8c": {
-    "src": "/assets/artwork/distonyc-45a8a265adeec70a15ff1d8c-incubating-397984059e66-73f46b4694e69dd3-q86.webp",
+    "src": "/assets/artwork/distonyc-45a8a265adeec70a15ff1d8c-mature-d264b05e24ca-3e285c269986df8d-q86.webp",
     "alt": "Cover artwork for What Is Love (Midnight Drive Tony C Mix).",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "de54421c4a5b266a4f7504cdac40d5a1508abe0ec8b314056e5a3347fa7efba7",
-    "promptHash": "7798155fbc5ec26460209573125938de66e9e69cc2161b71fbfe213421746ccd",
-    "createdAt": "2026-10-25T22:07:02.120Z",
+    "promptHash": "fc913177ed841a27a23bdec04736b128865f7c6c784a10fac134d7fb294566ed",
+    "createdAt": "2026-10-26T22:07:23.707Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-45a8a265adeec70a15ff1d8c-incubating-397984059e66-73f46b4694e69dd3-q86.webp",
     "firstSeenAt": "2026-10-25T22:06:43.199Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-45a8a265adeec70a15ff1d8c-incubating-397984059e66-73f46b4694e69dd3-q86.webp",
+        "alt": "Cover artwork for What Is Love (Midnight Drive Tony C Mix).",
+        "createdAt": "2026-10-25T22:07:02.120Z"
+      }
+    ]
   },
   "distonyc-cdda860e45944e9c869b6344": {
     "src": "/assets/artwork/distonyc-cdda860e45944e9c869b6344-incubating-e0df4174118b-122c6cf5eccbbf8c-q86.webp",
