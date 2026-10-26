@@ -2,6 +2,395 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-64b16afac103726acd1597bc",
+      "title": "Killing Fields",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-64b16afac103726acd1597bc-08816ca14718.mp3",
+      "duration": 314.9061224489796,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-10-26T22:19:34.556Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Killing Fields",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Dark industrial rock in D minor at 142 BPM: mechanical kick and snare, distorted guitars, grinding synth bass, metallic percussion, and restrained orchestral hits. A clear, steadily pitched lead carries tense, melodic lines over the intro, verses, three escalating choruses, and bridge. Build from claustrophobic restraint to a full final chorus; sustain the final lyric so its last syllable lands about 10 seconds before the end, followed by one resolved final chord and natural decay.",
+        "lyrics": "[Intro]\nIt's twelve o'clock, Americans, another day closer to victory\nAnd for all of you out there on and behind the lines\nThis is your song\n\n[Verse 1]\nThis war is a lie\nJudge the righteous from their place on high\nBut I wonder who they'd blame\nIf their ivory towers were set aflame\nAnd how did it seem\nTo watch 9/11 on a TV screen?\nWhile we lived through it\nCity's burning in a fiery pitch\n\n[Chorus]\nWe march across the killing fields\nWe set the laws with swords and shield\nOur funeral pyres light up the sky\nWe send our children off to die\nTreacherous paths we walk alone\nOur hands and hearts have turned to stone\nThese are the chances that we take\nThe sacrifices that we make\n\n[Verse 2]\nNow a shaky hand\nBrings the news from a far off land\nThis man, they cut him down\nSpilled his blood on foreign ground\nHis loss should be a sign\nOf valor to those left behind\nThe end, the letter read\n\"I'm sorry, ma'am, but your son is dead\"\n\n[Chorus]\nWe march across the killing fields\nWe set the laws with swords and shield\nOur funeral pyres light up the sky\nWe send our children off to die\nTreacherous paths we walk alone\nOur hands and hearts have turned to stone\nThese are the chances that we take\nThe sacrifices we must make\n\n[Bridge]\nWe remember, each of us gathered here today, safely sheltered\nRemember the graves far away, nurses, soldiers\nChildren stabbed in the back\nBut remembering is not enough\nHating is not enough, sacrifices\nWhat do they ask of us, the heroes we mourn?\nWhat do they ask of us, our marching sons across the seas?\nStand shoulder to shoulder with them\nForging the guns of vengeance\n\n[Chorus]\nWe march across the killing fields\nWe set the laws with swords and shield\nOur funeral pyres light up the sky\nWe send our children off to die\nTreacherous paths we walk alone\nOur hands and hearts have turned to stone\nThese are the chances that we take\nThe sacrifices we must make\nWe march across the killing fields\nWe set the laws with swords and shield\nOur funeral pyres light up the sky\nWe send our children off to die\nTreacherous paths we walk alone\nOur hands and hearts have turned to stone\nThese are the chances that we take\nThe sacrifice we can't remake\n[End]",
+        "duration": 315,
+        "bpm": 142,
+        "musicalSettings": {
+          "genre": "Dark industrial rock with a militaristic, oppressive atmosphere",
+          "meter": "4/4",
+          "structure": "Intro, Verse 1, Chorus, Verse 2, Chorus, Bridge, extended final Chorus, resolved ending",
+          "performance": "One clear, steadily pitched Tony V9 lead with forceful melodic phrasing",
+          "energy": "Tense and controlled at first, rising through the bridge into a punishing final chorus before a firm resolution",
+          "lyricWorkflow": "Preserved supplied lyrics in their original order, set to a dramatic rock arrangement",
+          "instruments": [
+            "distorted electric guitars",
+            "synth bass",
+            "industrial drum kit",
+            "metallic percussion",
+            "dark synthesizers",
+            "orchestral hits"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Intro]\nIt's twelve o'clock, Americans, another day closer to victory\nAnd for all of you out there on and behind the lines\nThis is your song\n\n[Verse 1]\nThis war is a lie\nJudge the righteous from their place on high\nBut I wonder who they'd blame\nIf their ivory towers were set aflame\nAnd how did it seem\nTo watch 9/11 on a TV screen?\nWhile we lived through it\nCity's burning in a fiery pitch\n\n[Chorus]\nWe march across the killing fields\nWe set the laws with swords and shield\nOur funeral pyres light up the sky\nWe send our children off to die\nTreacherous paths we walk alone\nOur hands and hearts have turned to stone\nThese are the chances that we take\nThe sacrifices that we make\n\n[Verse 2]\nNow a shaky hand\nBrings the news from a far off land\nThis man, they cut him down\nSpilled his blood on foreign ground\nHis loss should be a sign\nOf valor to those left behind\nThe end, the letter read\n\"I'm sorry, ma'am, but your son is dead\"\n\n[Chorus]\nWe march across the killing fields\nWe set the laws with swords and shield\nOur funeral pyres light up the sky\nWe send our children off to die\nTreacherous paths we walk alone\nOur hands and hearts have turned to stone\nThese are the chances that we take\nThe sacrifices we must make\n\n[Bridge]\nWe remember, each of us gathered here today, safely sheltered\nRemember the graves far away, nurses, soldiers\nChildren stabbed in the back\nBut remembering is not enough\nHating is not enough, sacrifices\nWhat do they ask of us, the heroes we mourn?\nWhat do they ask of us, our marching sons across the seas?\nStand shoulder to shoulder with them\nForging the guns of vengeance\n\n[Chorus]\nWe march across the killing fields\nWe set the laws with swords and shield\nOur funeral pyres light up the sky\nWe send our children off to die\nTreacherous paths we walk alone\nOur hands and hearts have turned to stone\nThese are the chances that we take\nThe sacrifices we must make\nWe march across the killing fields\nWe set the laws with swords and shield\nOur funeral pyres light up the sky\nWe send our children off to die\nTreacherous paths we walk alone\nOur hands and hearts have turned to stone\nThese are the chances that we take\nThe sacrifice we can't remake",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 6.74,
+            "end": 11.82
+          },
+          {
+            "line": 2,
+            "start": 13.26,
+            "end": 17.38
+          },
+          {
+            "line": 3,
+            "start": 17.92,
+            "end": 19.92
+          },
+          {
+            "line": 6,
+            "start": 33.02,
+            "end": 35.96
+          },
+          {
+            "line": 7,
+            "start": 35.96,
+            "end": 38.28
+          },
+          {
+            "line": 8,
+            "start": 39.18,
+            "end": 41.32
+          },
+          {
+            "line": 9,
+            "start": 41.32,
+            "end": 44.76
+          },
+          {
+            "line": 10,
+            "start": 46.96,
+            "end": 48.18
+          },
+          {
+            "line": 11,
+            "start": 48.18,
+            "end": 51.5
+          },
+          {
+            "line": 12,
+            "start": 52.88,
+            "end": 56.1
+          },
+          {
+            "line": 13,
+            "start": 56.1,
+            "end": 58.52
+          },
+          {
+            "line": 16,
+            "start": 63.66,
+            "end": 66.74
+          },
+          {
+            "line": 17,
+            "start": 67.4,
+            "end": 70.1
+          },
+          {
+            "line": 18,
+            "start": 70.78,
+            "end": 73.4
+          },
+          {
+            "line": 19,
+            "start": 74.08,
+            "end": 76.98
+          },
+          {
+            "line": 20,
+            "start": 77.94,
+            "end": 80.12
+          },
+          {
+            "line": 21,
+            "start": 80.12,
+            "end": 83.68
+          },
+          {
+            "line": 22,
+            "start": 83.68,
+            "end": 87.16
+          },
+          {
+            "line": 23,
+            "start": 87.16,
+            "end": 90.62
+          },
+          {
+            "line": 26,
+            "start": 111.24,
+            "end": 113.44
+          },
+          {
+            "line": 27,
+            "start": 113.44,
+            "end": 117.46
+          },
+          {
+            "line": 28,
+            "start": 118.8,
+            "end": 121.18
+          },
+          {
+            "line": 29,
+            "start": 121.18,
+            "end": 124.32
+          },
+          {
+            "line": 30,
+            "start": 125.48,
+            "end": 127.88
+          },
+          {
+            "line": 31,
+            "start": 127.88,
+            "end": 130.88
+          },
+          {
+            "line": 32,
+            "start": 132.28,
+            "end": 134.3
+          },
+          {
+            "line": 33,
+            "start": 134.8,
+            "end": 137.9
+          },
+          {
+            "line": 36,
+            "start": 139.3,
+            "end": 142.88
+          },
+          {
+            "line": 37,
+            "start": 143.44,
+            "end": 146.14
+          },
+          {
+            "line": 38,
+            "start": 146.86,
+            "end": 149.44
+          },
+          {
+            "line": 39,
+            "start": 150.14,
+            "end": 153.08
+          },
+          {
+            "line": 40,
+            "start": 154.12,
+            "end": 156.14
+          },
+          {
+            "line": 41,
+            "start": 156.8,
+            "end": 159.68
+          },
+          {
+            "line": 42,
+            "start": 160.42,
+            "end": 163.04
+          },
+          {
+            "line": 43,
+            "start": 163.7,
+            "end": 166.66
+          },
+          {
+            "line": 46,
+            "start": 186.71,
+            "end": 193.52
+          },
+          {
+            "line": 47,
+            "start": 193.76,
+            "end": 199.06
+          },
+          {
+            "line": 48,
+            "start": 200.48,
+            "end": 203.72
+          },
+          {
+            "line": 49,
+            "start": 204.02,
+            "end": 206.96
+          },
+          {
+            "line": 50,
+            "start": 207.7,
+            "end": 210.68
+          },
+          {
+            "line": 51,
+            "start": 211.26,
+            "end": 213.96
+          },
+          {
+            "line": 52,
+            "start": 214.58,
+            "end": 218.72
+          },
+          {
+            "line": 53,
+            "start": 219.3,
+            "end": 221.68
+          },
+          {
+            "line": 54,
+            "start": 222.7,
+            "end": 225.14
+          },
+          {
+            "line": 57,
+            "start": 228.43,
+            "end": 231.6
+          },
+          {
+            "line": 58,
+            "start": 232.16,
+            "end": 234.82
+          },
+          {
+            "line": 59,
+            "start": 235.58,
+            "end": 238.18
+          },
+          {
+            "line": 60,
+            "start": 238.94,
+            "end": 241.82
+          },
+          {
+            "line": 61,
+            "start": 242.34,
+            "end": 244.84
+          },
+          {
+            "line": 62,
+            "start": 245.66,
+            "end": 248.4
+          },
+          {
+            "line": 63,
+            "start": 248.4,
+            "end": 251.84
+          },
+          {
+            "line": 64,
+            "start": 251.84,
+            "end": 255.44
+          },
+          {
+            "line": 65,
+            "start": 271.39,
+            "end": 274.64
+          },
+          {
+            "line": 66,
+            "start": 274.64,
+            "end": 277.94
+          },
+          {
+            "line": 67,
+            "start": 278.34,
+            "end": 281.28
+          },
+          {
+            "line": 68,
+            "start": 281.28,
+            "end": 284.84
+          },
+          {
+            "line": 69,
+            "start": 284.84,
+            "end": 288
+          },
+          {
+            "line": 70,
+            "start": 288.52,
+            "end": 291.62
+          },
+          {
+            "line": 71,
+            "start": 291.62,
+            "end": 294.96
+          },
+          {
+            "line": 72,
+            "start": 294.96,
+            "end": 298.12
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 20.86
+        },
+        {
+          "code": "long_instrumental_outro",
+          "seconds": 16.03
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "voiceEpoch": 250,
+      "guide": {
+        "sha256": "d198a7b4330f4b73da8b2250f7da912f01b84830b4e6511a1ca799b6f85e53a5",
+        "bytes": 7557790,
+        "duration": 314.906083,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-64b16afac103726acd1597bc-d198a7b4330f.mp3"
+      },
+      "originalPrompt": {
+        "idea": "\"Killing Fields.\" 142 BPM. \nSound: Dark industrial rock; oppressive, tense atmosphere; military themes.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 250,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "duration": 315,
+          "pitchRepair": "wild"
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-cdda860e45944e9c869b6344",
       "title": "What Is Love Tony C Hyperdrive Rework",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-cdda860e45944e9c869b6344-d09aac5c8192.mp3",
