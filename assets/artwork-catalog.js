@@ -3212,19 +3212,25 @@ export default {
     ]
   },
   "distonyc-cdda860e45944e9c869b6344": {
-    "src": "/assets/artwork/distonyc-cdda860e45944e9c869b6344-incubating-e0df4174118b-122c6cf5eccbbf8c-q86.webp",
+    "src": "/assets/artwork/distonyc-cdda860e45944e9c869b6344-mature-904462bdd2d4-88ccd5e8406a560e-q86.webp",
     "alt": "Cover artwork for What Is Love Tony C Hyperdrive Rework.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "1e90add780cd6abd5f3c643ab48073df0a77f1a2a953f1c2bedbad64870c3100",
-    "promptHash": "3091d81b643831eaed4ac579534bd3f3313c761eaecd2900af9e3fa930cc6c9a",
-    "createdAt": "2026-10-25T22:15:59.785Z",
+    "promptHash": "d7ad1846e1de375ac69082cab6dee0c25e3dc5079704c25c57bd262e36bae427",
+    "createdAt": "2026-10-26T22:16:27.902Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-cdda860e45944e9c869b6344-incubating-e0df4174118b-122c6cf5eccbbf8c-q86.webp",
     "firstSeenAt": "2026-10-25T22:15:42.654Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-cdda860e45944e9c869b6344-incubating-e0df4174118b-122c6cf5eccbbf8c-q86.webp",
+        "alt": "Cover artwork for What Is Love Tony C Hyperdrive Rework.",
+        "createdAt": "2026-10-25T22:15:59.785Z"
+      }
+    ]
   }
 };
