@@ -3234,19 +3234,25 @@ export default {
     ]
   },
   "distonyc-64b16afac103726acd1597bc": {
-    "src": "/assets/artwork/distonyc-64b16afac103726acd1597bc-incubating-0c4bd0b607ba-f13bbd7dda890cdd-q86.webp",
+    "src": "/assets/artwork/distonyc-64b16afac103726acd1597bc-mature-15704e249222-6384ff8d051ce0b2-q86.webp",
     "alt": "Cover artwork for Killing Fields.",
     "theme": "generated",
     "tier": 0,
     "remixed": false,
-    "treatment": "incubating",
+    "treatment": "mature",
     "model": "gpt-image-2",
     "sourceHash": "b8dee562db1d5f9007c466495ee6af5ee778e16ef372fdbf8595d8ab75922634",
-    "promptHash": "84127faf937a503f9f4bdc863da4cbaedfc5aafa2230a828f6a4b3e580a84022",
-    "createdAt": "2026-10-26T22:22:03.218Z",
+    "promptHash": "ea241059706f871a9b6c5e672a8a85804eb010a656d6c085d4995824df997ecb",
+    "createdAt": "2026-10-27T22:25:34.106Z",
     "missingSources": [],
-    "previous": null,
+    "previous": "/assets/artwork/distonyc-64b16afac103726acd1597bc-incubating-0c4bd0b607ba-f13bbd7dda890cdd-q86.webp",
     "firstSeenAt": "2026-10-26T22:21:44.322Z",
-    "history": []
+    "history": [
+      {
+        "src": "/assets/artwork/distonyc-64b16afac103726acd1597bc-incubating-0c4bd0b607ba-f13bbd7dda890cdd-q86.webp",
+        "alt": "Cover artwork for Killing Fields.",
+        "createdAt": "2026-10-26T22:22:03.218Z"
+      }
+    ]
   }
 };
