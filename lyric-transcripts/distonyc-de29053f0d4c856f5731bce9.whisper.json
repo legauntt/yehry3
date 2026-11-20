@@ -1,0 +1,361 @@
+{
+  "version": 1,
+  "songId": "distonyc-de29053f0d4c856f5731bce9",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-de29053f0d4c856f5731bce9-0a3f86eb3556.mp3",
+  "audioSha256": "0a3f86eb355603421ee09766e5d443b3c31f612db293cad99397ba6e2d0cca76",
+  "inputSha256": "bc0eac77943d771364b7b855e2089e015053ee2f632f7ea60abf3ba72e8650ed",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 249.991875,
+  "segments": [
+    {
+      "start": 12.74,
+      "end": 17.02,
+      "text": "Today is tomorrow's yesterday, a goldfish in a judge's wig",
+      "uncertain": false
+    },
+    {
+      "start": 17.02,
+      "end": 21.18,
+      "text": "I folded up the afternoon and hid it underneath a fig",
+      "uncertain": true
+    },
+    {
+      "start": 21.18,
+      "end": 25.08,
+      "text": "The moon wore orthopedic shoes, the river quoted Voltaire",
+      "uncertain": false
+    },
+    {
+      "start": 25.08,
+      "end": 30.42,
+      "text": "I nodded like a teakwood saint with mayonnaise inside my hair",
+      "uncertain": false
+    },
+    {
+      "start": 31.0,
+      "end": 34.88,
+      "text": "Behold the velvet paradox",
+      "uncertain": false
+    },
+    {
+      "start": 34.88,
+      "end": 38.18,
+      "text": "The timeless little sneeze",
+      "uncertain": true
+    },
+    {
+      "start": 38.18,
+      "end": 44.4,
+      "text": "The answer is a question whispered softly by the cheese",
+      "uncertain": false
+    },
+    {
+      "start": 44.4,
+      "end": 48.0,
+      "text": "Today's tomorrow's yesterday",
+      "uncertain": false
+    },
+    {
+      "start": 48.0,
+      "end": 52.52,
+      "text": "And yesterday's a wretched hat",
+      "uncertain": false
+    },
+    {
+      "start": 52.52,
+      "end": 60.68,
+      "text": "I climbed the ladder of the soul and waved goodbye to my old cat.",
+      "uncertain": false
+    },
+    {
+      "start": 61.28,
+      "end": 66.44,
+      "text": "Oh, kiss the fog, applaud the spoon, let destiny inspect the tray.",
+      "uncertain": false
+    },
+    {
+      "start": 66.78,
+      "end": 73.96,
+      "text": "Nothing means a single thing, but say it grand, today is tomorrow's yesterday.",
+      "uncertain": false
+    },
+    {
+      "start": 73.96,
+      "end": 86.46,
+      "text": "day. I bought a mansion made of size from a prophet at the mall. He said the void is",
+      "uncertain": true
+    },
+    {
+      "start": 86.46,
+      "end": 96.58,
+      "text": "very deep, then tripped and fell into a wall, a chandelier of metaphors unharming in my",
+      "uncertain": false
+    },
+    {
+      "start": 96.58,
+      "end": 97.6,
+      "text": "chest",
+      "uncertain": true
+    },
+    {
+      "start": 98.98,
+      "end": 100.66,
+      "text": "I fed it",
+      "uncertain": true
+    },
+    {
+      "start": 100.66,
+      "end": 102.36,
+      "text": "grapes of consequence",
+      "uncertain": true
+    },
+    {
+      "start": 102.36,
+      "end": 104.72,
+      "text": "and called the whole thing",
+      "uncertain": false
+    },
+    {
+      "start": 104.72,
+      "end": 105.6,
+      "text": "rest",
+      "uncertain": false
+    },
+    {
+      "start": 107.72,
+      "end": 110.26,
+      "text": "My ego wrote",
+      "uncertain": true
+    },
+    {
+      "start": 110.26,
+      "end": 112.52,
+      "text": "a paper swan",
+      "uncertain": false
+    },
+    {
+      "start": 112.52,
+      "end": 114.56,
+      "text": "across a lake",
+      "uncertain": false
+    },
+    {
+      "start": 114.56,
+      "end": 115.38,
+      "text": "of blue",
+      "uncertain": false
+    },
+    {
+      "start": 115.38,
+      "end": 118.46,
+      "text": "It shouted I",
+      "uncertain": false
+    },
+    {
+      "start": 118.46,
+      "end": 120.64,
+      "text": "contain the stars",
+      "uncertain": false
+    },
+    {
+      "start": 120.64,
+      "end": 122.48,
+      "text": "The stars said who",
+      "uncertain": false
+    },
+    {
+      "start": 122.48,
+      "end": 124.74,
+      "text": "the fuck are you",
+      "uncertain": false
+    },
+    {
+      "start": 124.74,
+      "end": 129.16,
+      "text": "Today is tomorrow's yesterday",
+      "uncertain": false
+    },
+    {
+      "start": 129.16,
+      "end": 132.9,
+      "text": "A trumpet in a bowl of rain",
+      "uncertain": false
+    },
+    {
+      "start": 133.52,
+      "end": 137.0,
+      "text": "I kissed the hand of infinity",
+      "uncertain": false
+    },
+    {
+      "start": 137.0,
+      "end": 140.9,
+      "text": "And caught a bus to Des Moines again",
+      "uncertain": false
+    },
+    {
+      "start": 140.9,
+      "end": 144.4,
+      "text": "Oh, praise the dust, consult the moon",
+      "uncertain": false
+    },
+    {
+      "start": 144.4,
+      "end": 146.76,
+      "text": "Put your regrets on display",
+      "uncertain": false
+    },
+    {
+      "start": 146.76,
+      "end": 149.82,
+      "text": "Nothing means a single thing",
+      "uncertain": false
+    },
+    {
+      "start": 149.82,
+      "end": 151.24,
+      "text": "But say it grand",
+      "uncertain": true
+    },
+    {
+      "start": 151.24,
+      "end": 155.56,
+      "text": "Today is tomorrow's yesterday",
+      "uncertain": false
+    },
+    {
+      "start": 158.16,
+      "end": 162.84,
+      "text": "Let the oysters write a manifesto",
+      "uncertain": false
+    },
+    {
+      "start": 162.84,
+      "end": 165.06,
+      "text": "Let the furniture confess",
+      "uncertain": false
+    },
+    {
+      "start": 166.38,
+      "end": 170.58,
+      "text": "Let us all, a man in linen",
+      "uncertain": false
+    },
+    {
+      "start": 170.58,
+      "end": 173.62,
+      "text": "Explain the cosmic mess",
+      "uncertain": false
+    },
+    {
+      "start": 173.62,
+      "end": 176.38,
+      "text": "He'll point toward the horizon",
+      "uncertain": false
+    },
+    {
+      "start": 176.38,
+      "end": 178.36,
+      "text": "Where a coupon flaps alone",
+      "uncertain": true
+    },
+    {
+      "start": 178.36,
+      "end": 182.58,
+      "text": "And declare this is the doorway to the kingdom of the stone",
+      "uncertain": false
+    },
+    {
+      "start": 185.62,
+      "end": 189.9,
+      "text": "I am the echo of a sandwich",
+      "uncertain": false
+    },
+    {
+      "start": 189.9,
+      "end": 193.84,
+      "text": "I am the thermostat of fate",
+      "uncertain": false
+    },
+    {
+      "start": 193.84,
+      "end": 198.04,
+      "text": "I am a very ancient doorway",
+      "uncertain": false
+    },
+    {
+      "start": 198.04,
+      "end": 202.22,
+      "text": "With a coupon for a plate",
+      "uncertain": false
+    },
+    {
+      "start": 203.58,
+      "end": 207.34,
+      "text": "Today is tomorrow's yesterday",
+      "uncertain": false
+    },
+    {
+      "start": 207.34,
+      "end": 210.96,
+      "text": "The sacred pickle clears its throat",
+      "uncertain": true
+    },
+    {
+      "start": 210.96,
+      "end": 216.12,
+      "text": "I sail beyond the edge of sense",
+      "uncertain": false
+    },
+    {
+      "start": 216.12,
+      "end": 218.46,
+      "text": "Inside a leaky little",
+      "uncertain": false
+    },
+    {
+      "start": 218.46,
+      "end": 221.08,
+      "text": "Pulse of a ruin to enter in this",
+      "uncertain": true
+    },
+    {
+      "start": 221.08,
+      "end": 223.18,
+      "text": "Make a gorgeous useless sound",
+      "uncertain": true
+    },
+    {
+      "start": 223.18,
+      "end": 225.08,
+      "text": "Nothing means a single thing",
+      "uncertain": false
+    },
+    {
+      "start": 225.08,
+      "end": 227.62,
+      "text": "And that's the wisdom we have found",
+      "uncertain": false
+    },
+    {
+      "start": 227.62,
+      "end": 231.06,
+      "text": "Today is tomorrow's yesterday",
+      "uncertain": false
+    },
+    {
+      "start": 232.0,
+      "end": 233.78,
+      "text": "Tomorrow's yesterday",
+      "uncertain": false
+    },
+    {
+      "start": 233.78,
+      "end": 238.28,
+      "text": "Amen, amen, amen, okay?",
+      "uncertain": true
+    }
+  ]
+}
