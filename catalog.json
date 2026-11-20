@@ -2,6 +2,384 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-de29053f0d4c856f5731bce9",
+      "title": "Today Is Tomorrow's Yesterday",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-de29053f0d4c856f5731bce9-0a3f86eb3556.mp3",
+      "duration": 249.9918367346939,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-11-20T05:44:59.335Z",
+      "authoredBy": "Scythe",
+      "songPlan": {
+        "version": 1,
+        "title": "Today Is Tomorrow's Yesterday",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D minor",
+        "arrangement": "Self-important theatrical art-rock in D minor: piano-led verses bloom into overblown electric guitars, mobile bass, live drums, Mellotron-like strings, and a brief stately trumpet figure. 4/4 at 118 BPM. One clear, steadily pitched Tony lead delivers the absurd imagery with earnest grandiosity, widening into an anthemic chorus; keep the vocal melody present through every section. Build from mock-serious restraint to maximal bridge and breakdown, then make the final chorus feel comically transcendent. Pace the closing lines so “okay” is the final sustained vocal 8–12 seconds before the 250-second end, followed by one resolved final chord and natural decay.",
+        "lyrics": "[Verse 1]\nToday is tomorrow’s yesterday,\nA goldfish in a judge’s wig,\nI folded up the afternoon\nAnd hid it underneath a fig.\nThe moon wore orthopedic shoes,\nThe river quoted Voltaire,\nI nodded like a teakwood saint\nWith mayonnaise inside my hair.\n\n[Pre-Chorus]\nBehold the velvet paradox,\nThe timeless little sneeze—\nThe answer is a question\nWhispered softly by the cheese.\n\n[Chorus]\nToday is tomorrow’s yesterday,\nAnd yesterday’s a rented hat,\nI climbed the ladder of the soul\nAnd waved goodbye to my old cat.\nOh, kiss the fog, applaud the spoon,\nLet destiny inspect the tray—\nNothing means a single thing,\nBut say it grand: today is tomorrow’s yesterday.\n\n[Verse 2]\nI bought a mansion made of sighs\nFrom a prophet at the mall,\nHe said, “The void is very deep,”\nThen tripped and fell into a wall.\nA chandelier of metaphors\nHung humming in my chest,\nI fed it grapes of consequence\nAnd called the whole thing “rest.”\n\n[Pre-Chorus]\nMy ego rode a paper swan\nAcross a lake of glue,\nIt shouted, “I contain the stars!”\nThe stars said, “Who the fuck are you?”\n\n[Chorus]\nToday is tomorrow’s yesterday,\nA trumpet in a bowl of rain,\nI kissed the hand of infinity\nAnd caught a bus to Des Moines again.\nOh, praise the dust, consult the moon,\nPut your regrets on display—\nNothing means a single thing,\nBut say it grand: today is tomorrow’s yesterday.\n\n[Bridge]\nLet the oysters write a manifesto,\nLet the furniture confess,\nLet a solemn man in linen\nExplain the cosmic mess.\nHe’ll point toward the horizon,\nWhere a coupon flaps alone,\nAnd declare, “This is the doorway\nTo the kingdom of the stone.”\n\n[Breakdown]\nI am the echo of a sandwich,\nI am the thermostat of fate,\nI am a very ancient doorway\nWith a coupon for a plate.\n\n[Chorus]\nToday is tomorrow’s yesterday,\nThe sacred pickle clears its throat,\nI sailed beyond the edge of sense\nInside a leaky little boat.\nSo raise your glass to emptiness,\nMake a gorgeous, useless sound—\nNothing means a single thing,\nAnd that’s the wisdom we have found.\nToday is tomorrow’s yesterday,\nTomorrow’s yesterday today—\nAmen, amen, amen, okay.\n[End]",
+        "duration": 250,
+        "bpm": 118,
+        "musicalSettings": {
+          "genre": "Theatrical art-rock satire with pompous progressive flourishes",
+          "meter": "4/4",
+          "structure": "Verse 1, pre-chorus, chorus, Verse 2, pre-chorus, chorus, bridge, breakdown, final chorus",
+          "performance": "Clear, steadily pitched Tony lead with melodramatic conviction and a catchable chorus",
+          "energy": "Measured, mock-serious opening; expanding choruses; maximal bridge; resolved final lift",
+          "lyricWorkflow": "Preserved supplied lyric sheet, set to a new melodic arrangement without changing its words",
+          "instruments": [
+            "piano",
+            "electric guitar",
+            "bass guitar",
+            "drum kit",
+            "Mellotron-style strings",
+            "trumpet"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nToday is tomorrow’s yesterday,\nA goldfish in a judge’s wig,\nI folded up the afternoon\nAnd hid it underneath a fig.\nThe moon wore orthopedic shoes,\nThe river quoted Voltaire,\nI nodded like a teakwood saint\nWith mayonnaise inside my hair.\n\n[Pre-Chorus]\nBehold the velvet paradox,\nThe timeless little sneeze—\nThe answer is a question\nWhispered softly by the cheese.\n\n[Chorus]\nToday is tomorrow’s yesterday,\nAnd yesterday’s a rented hat,\nI climbed the ladder of the soul\nAnd waved goodbye to my old cat.\nOh, kiss the fog, applaud the spoon,\nLet destiny inspect the tray—\nNothing means a single thing,\nBut say it grand: today is tomorrow’s yesterday.\n\n[Verse 2]\nI bought a mansion made of sighs\nFrom a prophet at the mall,\nHe said, “The void is very deep,”\nThen tripped and fell into a wall.\nA chandelier of metaphors\nHung humming in my chest,\nI fed it grapes of consequence\nAnd called the whole thing “rest.”\n\n[Pre-Chorus]\nMy ego rode a paper swan\nAcross a lake of glue,\nIt shouted, “I contain the stars!”\nThe stars said, “Who the fuck are you?”\n\n[Chorus]\nToday is tomorrow’s yesterday,\nA trumpet in a bowl of rain,\nI kissed the hand of infinity\nAnd caught a bus to Des Moines again.\nOh, praise the dust, consult the moon,\nPut your regrets on display—\nNothing means a single thing,\nBut say it grand: today is tomorrow’s yesterday.\n\n[Bridge]\nLet the oysters write a manifesto,\nLet the furniture confess,\nLet a solemn man in linen\nExplain the cosmic mess.\nHe’ll point toward the horizon,\nWhere a coupon flaps alone,\nAnd declare, “This is the doorway\nTo the kingdom of the stone.”\n\n[Breakdown]\nI am the echo of a sandwich,\nI am the thermostat of fate,\nI am a very ancient doorway\nWith a coupon for a plate.\n\n[Chorus]\nToday is tomorrow’s yesterday,\nThe sacred pickle clears its throat,\nI sailed beyond the edge of sense\nInside a leaky little boat.\nSo raise your glass to emptiness,\nMake a gorgeous, useless sound—\nNothing means a single thing,\nAnd that’s the wisdom we have found.\nToday is tomorrow’s yesterday,\nTomorrow’s yesterday today—\nAmen, amen, amen, okay.",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 2,
+            "start": 15.24,
+            "end": 16.94
+          },
+          {
+            "line": 3,
+            "start": 17.24,
+            "end": 18.9
+          },
+          {
+            "line": 4,
+            "start": 18.9,
+            "end": 20.98
+          },
+          {
+            "line": 5,
+            "start": 21.44,
+            "end": 23.02
+          },
+          {
+            "line": 6,
+            "start": 23.46,
+            "end": 24.92
+          },
+          {
+            "line": 7,
+            "start": 25.36,
+            "end": 27.14
+          },
+          {
+            "line": 8,
+            "start": 27.14,
+            "end": 31.54
+          },
+          {
+            "line": 11,
+            "start": 31.54,
+            "end": 34.24
+          },
+          {
+            "line": 12,
+            "start": 35.44,
+            "end": 39.28
+          },
+          {
+            "line": 13,
+            "start": 39.46,
+            "end": 41.26
+          },
+          {
+            "line": 14,
+            "start": 41.26,
+            "end": 43.96
+          },
+          {
+            "line": 18,
+            "start": 49.1,
+            "end": 52.3
+          },
+          {
+            "line": 19,
+            "start": 52.3,
+            "end": 56.36
+          },
+          {
+            "line": 20,
+            "start": 57.38,
+            "end": 60.46
+          },
+          {
+            "line": 21,
+            "start": 61.26,
+            "end": 63.24
+          },
+          {
+            "line": 22,
+            "start": 63.42,
+            "end": 66.28
+          },
+          {
+            "line": 23,
+            "start": 66.88,
+            "end": 69.38
+          },
+          {
+            "line": 24,
+            "start": 69.38,
+            "end": 74.68
+          },
+          {
+            "line": 27,
+            "start": 76.48,
+            "end": 79.56
+          },
+          {
+            "line": 28,
+            "start": 79.56,
+            "end": 82.8
+          },
+          {
+            "line": 29,
+            "start": 84.48,
+            "end": 87.52
+          },
+          {
+            "line": 30,
+            "start": 87.52,
+            "end": 91.16
+          },
+          {
+            "line": 31,
+            "start": 91.92,
+            "end": 94.36
+          },
+          {
+            "line": 32,
+            "start": 94.36,
+            "end": 97.38
+          },
+          {
+            "line": 33,
+            "start": 100,
+            "end": 102.34
+          },
+          {
+            "line": 34,
+            "start": 102.34,
+            "end": 105.64
+          },
+          {
+            "line": 37,
+            "start": 108.22,
+            "end": 112.48
+          },
+          {
+            "line": 38,
+            "start": 112.48,
+            "end": 115.28
+          },
+          {
+            "line": 39,
+            "start": 116.78,
+            "end": 120.44
+          },
+          {
+            "line": 40,
+            "start": 120.88,
+            "end": 124.58
+          },
+          {
+            "line": 43,
+            "start": 125.74,
+            "end": 129.54
+          },
+          {
+            "line": 44,
+            "start": 130.14,
+            "end": 132.64
+          },
+          {
+            "line": 45,
+            "start": 133.82,
+            "end": 136.72
+          },
+          {
+            "line": 46,
+            "start": 137.4,
+            "end": 140.62
+          },
+          {
+            "line": 47,
+            "start": 141.42,
+            "end": 144.24
+          },
+          {
+            "line": 48,
+            "start": 144.24,
+            "end": 146.62
+          },
+          {
+            "line": 49,
+            "start": 146.62,
+            "end": 149.78
+          },
+          {
+            "line": 50,
+            "start": 149.84,
+            "end": 155.38
+          },
+          {
+            "line": 53,
+            "start": 155.38,
+            "end": 161.98
+          },
+          {
+            "line": 54,
+            "start": 162.82,
+            "end": 165.52
+          },
+          {
+            "line": 55,
+            "start": 165.52,
+            "end": 170.62
+          },
+          {
+            "line": 56,
+            "start": 170.92,
+            "end": 174.94
+          },
+          {
+            "line": 57,
+            "start": 174.94,
+            "end": 176.5
+          },
+          {
+            "line": 58,
+            "start": 176.5,
+            "end": 178.18
+          },
+          {
+            "line": 59,
+            "start": 178.18,
+            "end": 180.3
+          },
+          {
+            "line": 60,
+            "start": 180.3,
+            "end": 182.48
+          },
+          {
+            "line": 63,
+            "start": 185.88,
+            "end": 189.78
+          },
+          {
+            "line": 64,
+            "start": 190.54,
+            "end": 193.72
+          },
+          {
+            "line": 65,
+            "start": 194.6,
+            "end": 197.8
+          },
+          {
+            "line": 66,
+            "start": 197.8,
+            "end": 201.68
+          },
+          {
+            "line": 69,
+            "start": 203.96,
+            "end": 207.24
+          },
+          {
+            "line": 70,
+            "start": 208.36,
+            "end": 210.9
+          },
+          {
+            "line": 71,
+            "start": 212.36,
+            "end": 215.88
+          },
+          {
+            "line": 72,
+            "start": 216.48,
+            "end": 218.86
+          },
+          {
+            "line": 74,
+            "start": 221.22,
+            "end": 223.08
+          },
+          {
+            "line": 75,
+            "start": 223.62,
+            "end": 225.04
+          },
+          {
+            "line": 76,
+            "start": 225.04,
+            "end": 227.44
+          },
+          {
+            "line": 79,
+            "start": 234.62,
+            "end": 238.2
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 13.24
+        },
+        {
+          "code": "unconfirmed_lyric_ending"
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "wild",
+      "voiceEpoch": 250,
+      "guide": {
+        "sha256": "979fd5dc087a400d7c8a84677f6004e12ca3aecdd3b43392a0aec3aea6377e46",
+        "bytes": 5999848,
+        "duration": 249.991833,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-de29053f0d4c856f5731bce9-979fd5dc087a.mp3"
+      },
+      "originalPrompt": {
+        "idea": "\"Today is Tomorrow's Yesterday\": Tony C engages in the most flowery sophistry; a song that means nothing, feels self-important, and is really fucking stupid.",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 250,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "wild",
+          "duration": 250
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-64b16afac103726acd1597bc",
       "title": "Killing Fields",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-64b16afac103726acd1597bc-08816ca14718.mp3",
