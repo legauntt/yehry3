@@ -1,0 +1,229 @@
+{
+  "version": 1,
+  "songId": "distonyc-0f802b90e2d5f219fccdde5d",
+  "audioUrl": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0f802b90e2d5f219fccdde5d-cd6e29e10fe3.mp3",
+  "audioSha256": "cd6e29e10fe38718bf66dedc7f9624967ffd3f0e4c4a4bfa0a5550b932d84f3a",
+  "inputSha256": "bd4b82a400ff8868b370323c6f4b9b8756e4596fcb272db87282b46c2c36bea4",
+  "input": "converted-tony-vocals",
+  "model": "faster-whisper large-v3-turbo",
+  "review": "machine",
+  "duration": 215.04,
+  "segments": [
+    {
+      "start": 8.6,
+      "end": 13.58,
+      "text": "Left the city with a paper cup shaking in the console light",
+      "uncertain": true
+    },
+    {
+      "start": 13.58,
+      "end": 17.68,
+      "text": "Gray November hanging low along the county line",
+      "uncertain": true
+    },
+    {
+      "start": 17.68,
+      "end": 22.36,
+      "text": "Mama said the pie's cooling, don't you make us wait",
+      "uncertain": false
+    },
+    {
+      "start": 22.36,
+      "end": 27.74,
+      "text": "So I chased the yellow leaves into every old familiar game",
+      "uncertain": false
+    },
+    {
+      "start": 28.64,
+      "end": 33.52,
+      "text": "Past the gas station, pumpkins turned soft in my rain",
+      "uncertain": true
+    },
+    {
+      "start": 33.52,
+      "end": 38.48,
+      "text": "Past the field where we swore we would never leave again",
+      "uncertain": true
+    },
+    {
+      "start": 41.28,
+      "end": 45.18,
+      "text": "I'm coming home for Thanksgiving",
+      "uncertain": false
+    },
+    {
+      "start": 46.46,
+      "end": 50.66,
+      "text": "With the highway humming under my hands",
+      "uncertain": false
+    },
+    {
+      "start": 50.66,
+      "end": 56.16,
+      "text": "Coming home, still living with a little more weather in my plans",
+      "uncertain": false
+    },
+    {
+      "start": 56.16,
+      "end": 64.78,
+      "text": "save me a place by the window save me the stories i know i've been running through the whole wide",
+      "uncertain": true
+    },
+    {
+      "start": 64.78,
+      "end": 74.74,
+      "text": "world but tonight i'm headed home dad will have the game on low that's ending not to cry",
+      "uncertain": false
+    },
+    {
+      "start": 74.74,
+      "end": 82.98,
+      "text": "my sister's got a new old joke and gravy standing by there's a coat upon the hallway hook that used",
+      "uncertain": false
+    },
+    {
+      "start": 82.98,
+      "end": 89.06,
+      "text": "to fit me right and the porch light cuts a golden square into the night",
+      "uncertain": true
+    },
+    {
+      "start": 98.5,
+      "end": 108.24,
+      "text": "i got miles in my pockets got noise in my head but the smell of cedar smoke can raise the almost",
+      "uncertain": true
+    },
+    {
+      "start": 108.24,
+      "end": 113.46,
+      "text": "I'm coming home for Thanksgiving",
+      "uncertain": false
+    },
+    {
+      "start": 113.46,
+      "end": 118.94,
+      "text": "With the highway humming on my hands",
+      "uncertain": true
+    },
+    {
+      "start": 118.94,
+      "end": 123.18,
+      "text": "Coming home, still living",
+      "uncertain": false
+    },
+    {
+      "start": 123.18,
+      "end": 128.02,
+      "text": "With a little more weather in my door",
+      "uncertain": true
+    },
+    {
+      "start": 129.7,
+      "end": 133.66,
+      "text": "I've been running through the whole wide world",
+      "uncertain": false
+    },
+    {
+      "start": 133.66,
+      "end": 137.02,
+      "text": "But tonight I'm headed home",
+      "uncertain": false
+    },
+    {
+      "start": 138.06,
+      "end": 140.74,
+      "text": "Maybe I missed a few birthdays",
+      "uncertain": false
+    },
+    {
+      "start": 140.74,
+      "end": 143.16,
+      "text": "Maybe I let some calls ring through",
+      "uncertain": true
+    },
+    {
+      "start": 143.16,
+      "end": 145.82,
+      "text": "But the table keeps a chair for me",
+      "uncertain": false
+    },
+    {
+      "start": 145.82,
+      "end": 147.76,
+      "text": "And that mercy calls me through",
+      "uncertain": false
+    },
+    {
+      "start": 147.76,
+      "end": 153.24,
+      "text": "No grand speech, no perfect answer",
+      "uncertain": false
+    },
+    {
+      "start": 153.24,
+      "end": 157.08,
+      "text": "Just a door, a laugh, a light",
+      "uncertain": false
+    },
+    {
+      "start": 157.08,
+      "end": 160.72,
+      "text": "And all the miles turn into nothing",
+      "uncertain": false
+    },
+    {
+      "start": 161.56,
+      "end": 165.02,
+      "text": "When I see that house tonight",
+      "uncertain": false
+    },
+    {
+      "start": 168.26,
+      "end": 172.32,
+      "text": "I'm coming home for Thanksgiving",
+      "uncertain": false
+    },
+    {
+      "start": 172.32,
+      "end": 177.0,
+      "text": "Let the cold wind rattle every sigh",
+      "uncertain": true
+    },
+    {
+      "start": 177.0,
+      "end": 181.42,
+      "text": "Coming home for giving",
+      "uncertain": false
+    },
+    {
+      "start": 182.56,
+      "end": 186.16,
+      "text": "To the hands that taught these hands of my",
+      "uncertain": true
+    },
+    {
+      "start": 186.16,
+      "end": 188.98,
+      "text": "Save me a place by the window",
+      "uncertain": true
+    },
+    {
+      "start": 188.98,
+      "end": 192.3,
+      "text": "I'm nearly at the old red door",
+      "uncertain": false
+    },
+    {
+      "start": 192.3,
+      "end": 197.58,
+      "text": "I've been runnin' through the whole wide world anymore",
+      "uncertain": false
+    },
+    {
+      "start": 198.3,
+      "end": 203.3,
+      "text": "The porch light is way in and I'm home",
+      "uncertain": true
+    }
+  ]
+}
