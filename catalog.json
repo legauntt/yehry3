@@ -2,6 +2,305 @@
   "version": 1,
   "songs": [
     {
+      "id": "distonyc-0f802b90e2d5f219fccdde5d",
+      "title": "Thanksgiving Road Home",
+      "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0f802b90e2d5f219fccdde5d-cd6e29e10fe3.mp3",
+      "duration": 215.04,
+      "collection": "distonyc",
+      "voiceModel": "v9",
+      "publishedAt": "2026-11-26T23:10:05.829Z",
+      "authoredBy": "Pancakeo",
+      "songPlan": {
+        "version": 1,
+        "title": "Thanksgiving Road Home",
+        "recipe": "new",
+        "style": "rock",
+        "keyscale": "D major",
+        "arrangement": "Warm heartland rock with electric guitar, piano, melodic bass, steady live drums and subtle organ. A single clear, steadily pitched Tony lead carries natural, connected phrasing over an intimate opening that grows into broad grateful choruses; no backing vocals or vocal effects. Build through the bridge, then sustain the final word “home” about 10 seconds before the 215-second ending, followed by one resolved full-band chord and natural decay.",
+        "lyrics": "[Verse 1]\nLeft the city with a paper cup shaking in the console light\nGray November hanging low along the county line\nMama said the pie is cooling, don’t you make us wait\nSo I chased the yellow leaves and every old familiar gate\n\n[Pre-Chorus]\nPast the gas-station pumpkins turned soft in the rain\nPast the field where we swore we would never leave again\n\n[Chorus]\nI’m coming home for Thanksgiving\nWith the highway humming under my hands\nComing home, still living\nWith a little more weather in my plans\nSave me a place by the window\nSave me the stories I know\nI’ve been running through the whole wide world\nBut tonight I’m headed home\n\n[Verse 2]\nDad will have the game on low, pretending not to cry\nMy sister’s got a new old joke and gravy standing by\nThere’s a coat upon the hallway hook that used to fit me right\nAnd the porch light cuts a golden square into the night\n\n[Pre-Chorus]\nI got miles in my pockets, got noise in my head\nBut the smell of cedar smoke can raise the almost-dead\n\n[Chorus]\nI’m coming home for Thanksgiving\nWith the highway humming under my hands\nComing home, still living\nWith a little more weather in my plans\nSave me a place by the window\nSave me the stories I know\nI’ve been running through the whole wide world\nBut tonight I’m headed home\n\n[Bridge]\nMaybe I missed a few birthdays\nMaybe I let some calls ring through\nBut the table keeps a chair for me\nAnd that mercy pulls me through\nNo grand speech, no perfect answer\nJust a door, a laugh, a light\nAnd all the miles turn into nothing\nWhen I see that house tonight\n\n[Chorus]\nI’m coming home for Thanksgiving\nLet the cold wind rattle every sign\nComing home, forgiven\nTo the hands that taught these hands of mine\nSave me a place by the window\nI’m nearly at the old red door\nI’ve been running through the whole wide world\nBut I don’t need to run anymore\n\n[Outro]\nThe porch light is waiting\nAnd I’m home\n[End]",
+        "duration": 215,
+        "bpm": 102,
+        "musicalSettings": {
+          "genre": "Warm heartland rock",
+          "meter": "4/4",
+          "structure": "Verse, pre-chorus, chorus, verse, pre-chorus, chorus, bridge, final chorus, brief resolved outro",
+          "performance": "One clear melodic lead with natural connected phrasing and sustained final notes",
+          "energy": "Reflective drive opening into warm, full-band choruses and a resolved finale",
+          "lyricWorkflow": "Original narrative lyrics following a Thanksgiving drive home and reunion",
+          "instruments": [
+            "electric guitar",
+            "piano",
+            "electric bass",
+            "drum kit",
+            "organ"
+          ]
+        }
+      },
+      "lyrics": {
+        "text": "[Verse 1]\nLeft the city with a paper cup shaking in the console light\nGray November hanging low along the county line\nMama said the pie is cooling, don’t you make us wait\nSo I chased the yellow leaves and every old familiar gate\n\n[Pre-Chorus]\nPast the gas-station pumpkins turned soft in the rain\nPast the field where we swore we would never leave again\n\n[Chorus]\nI’m coming home for Thanksgiving\nWith the highway humming under my hands\nComing home, still living\nWith a little more weather in my plans\nSave me a place by the window\nSave me the stories I know\nI’ve been running through the whole wide world\nBut tonight I’m headed home\n\n[Verse 2]\nDad will have the game on low, pretending not to cry\nMy sister’s got a new old joke and gravy standing by\nThere’s a coat upon the hallway hook that used to fit me right\nAnd the porch light cuts a golden square into the night\n\n[Pre-Chorus]\nI got miles in my pockets, got noise in my head\nBut the smell of cedar smoke can raise the almost-dead\n\n[Chorus]\nI’m coming home for Thanksgiving\nWith the highway humming under my hands\nComing home, still living\nWith a little more weather in my plans\nSave me a place by the window\nSave me the stories I know\nI’ve been running through the whole wide world\nBut tonight I’m headed home\n\n[Bridge]\nMaybe I missed a few birthdays\nMaybe I let some calls ring through\nBut the table keeps a chair for me\nAnd that mercy pulls me through\nNo grand speech, no perfect answer\nJust a door, a laugh, a light\nAnd all the miles turn into nothing\nWhen I see that house tonight\n\n[Chorus]\nI’m coming home for Thanksgiving\nLet the cold wind rattle every sign\nComing home, forgiven\nTo the hands that taught these hands of mine\nSave me a place by the window\nI’m nearly at the old red door\nI’ve been running through the whole wide world\nBut I don’t need to run anymore\n\n[Outro]\nThe porch light is waiting\nAnd I’m home",
+        "kind": "written",
+        "cues": [
+          {
+            "line": 1,
+            "start": 8.66,
+            "end": 13.46
+          },
+          {
+            "line": 2,
+            "start": 13.88,
+            "end": 17.56
+          },
+          {
+            "line": 3,
+            "start": 18.48,
+            "end": 22.22
+          },
+          {
+            "line": 4,
+            "start": 23.06,
+            "end": 27.62
+          },
+          {
+            "line": 7,
+            "start": 28.56,
+            "end": 34.1
+          },
+          {
+            "line": 8,
+            "start": 34.1,
+            "end": 38.14
+          },
+          {
+            "line": 11,
+            "start": 41.26,
+            "end": 45
+          },
+          {
+            "line": 12,
+            "start": 46.4,
+            "end": 50.64
+          },
+          {
+            "line": 13,
+            "start": 50.64,
+            "end": 53.56
+          },
+          {
+            "line": 14,
+            "start": 53.56,
+            "end": 55.86
+          },
+          {
+            "line": 15,
+            "start": 55.86,
+            "end": 58.62
+          },
+          {
+            "line": 16,
+            "start": 59.66,
+            "end": 62.5
+          },
+          {
+            "line": 17,
+            "start": 62.5,
+            "end": 65.22
+          },
+          {
+            "line": 18,
+            "start": 65.7,
+            "end": 68.62
+          },
+          {
+            "line": 21,
+            "start": 70.16,
+            "end": 74.56
+          },
+          {
+            "line": 22,
+            "start": 75.34,
+            "end": 80.16
+          },
+          {
+            "line": 23,
+            "start": 80.16,
+            "end": 84.04
+          },
+          {
+            "line": 24,
+            "start": 84.04,
+            "end": 88.94
+          },
+          {
+            "line": 27,
+            "start": 98,
+            "end": 103.14
+          },
+          {
+            "line": 28,
+            "start": 103.14,
+            "end": 108.66
+          },
+          {
+            "line": 31,
+            "start": 108.66,
+            "end": 113.26
+          },
+          {
+            "line": 32,
+            "start": 115.36,
+            "end": 118.82
+          },
+          {
+            "line": 33,
+            "start": 119.58,
+            "end": 123.16
+          },
+          {
+            "line": 34,
+            "start": 124.32,
+            "end": 127.32
+          },
+          {
+            "line": 37,
+            "start": 130.74,
+            "end": 133.52
+          },
+          {
+            "line": 38,
+            "start": 133.84,
+            "end": 136.88
+          },
+          {
+            "line": 41,
+            "start": 138.06,
+            "end": 140.78
+          },
+          {
+            "line": 42,
+            "start": 141.08,
+            "end": 143.06
+          },
+          {
+            "line": 43,
+            "start": 143.46,
+            "end": 145.78
+          },
+          {
+            "line": 44,
+            "start": 145.9,
+            "end": 147.66
+          },
+          {
+            "line": 45,
+            "start": 148.74,
+            "end": 152.76
+          },
+          {
+            "line": 46,
+            "start": 154,
+            "end": 156.96
+          },
+          {
+            "line": 47,
+            "start": 157.34,
+            "end": 160.66
+          },
+          {
+            "line": 48,
+            "start": 160.66,
+            "end": 164.92
+          },
+          {
+            "line": 51,
+            "start": 165.86,
+            "end": 172.08
+          },
+          {
+            "line": 52,
+            "start": 173.84,
+            "end": 176.2
+          },
+          {
+            "line": 53,
+            "start": 176.2,
+            "end": 181.18
+          },
+          {
+            "line": 54,
+            "start": 182.64,
+            "end": 186.08
+          },
+          {
+            "line": 55,
+            "start": 186.08,
+            "end": 189.82
+          },
+          {
+            "line": 56,
+            "start": 189.82,
+            "end": 193
+          },
+          {
+            "line": 57,
+            "start": 193,
+            "end": 195.78
+          },
+          {
+            "line": 61,
+            "start": 198.88,
+            "end": 200.46
+          },
+          {
+            "line": 62,
+            "start": 200.46,
+            "end": 203.08
+          }
+        ]
+      },
+      "collections": [
+        "distonyc"
+      ],
+      "qualityIssues": [
+        {
+          "code": "long_instrumental_break",
+          "seconds": 9.54
+        }
+      ],
+      "generationProfile": "v8",
+      "musicBackend": "eleven_music",
+      "pitchRepair": "clean",
+      "voiceEpoch": 250,
+      "guide": {
+        "sha256": "e4f4a8ffd8a36aaa0fee9f51752731bd61bff241bbfa33e5543641380e10e3b9",
+        "bytes": 5161004,
+        "duration": 215.04,
+        "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-0f802b90e2d5f219fccdde5d-e4f4a8ffd8a3.mp3"
+      },
+      "originalPrompt": {
+        "idea": "Tony heads home for Thanksgiving",
+        "direction": "Use the prompt as written.",
+        "keep": "Surprise me.",
+        "basisSongs": [],
+        "voiceModel": "v9",
+        "voiceEpoch": 250,
+        "musicBackend": "eleven_music",
+        "generation": {
+          "version": 1,
+          "candidates": 1,
+          "lyricWorkflow": "auto",
+          "performance": "natural",
+          "energy": "auto",
+          "variation": "balanced",
+          "reviewLyrics": false,
+          "vocalGainDb": 0,
+          "backingGainDb": 0,
+          "pitchRepair": "clean",
+          "duration": 215
+        },
+        "generationProfile": "v8"
+      }
+    },
+    {
       "id": "distonyc-de29053f0d4c856f5731bce9",
       "title": "Today Is Tomorrow's Yesterday",
       "url": "https://github.com/legauntt/yehry3/releases/download/distonyc-v1/distonyc-de29053f0d4c856f5731bce9-0a3f86eb3556.mp3",
